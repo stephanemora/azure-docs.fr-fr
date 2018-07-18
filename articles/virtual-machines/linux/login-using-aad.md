@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271958"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652870"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -112,6 +112,9 @@ az role assignment create \
     --assignee $username \
     --scope $vm
 ```
+
+> [!NOTE]
+> Si votre domaine AAD et le domaine du nom d’utilisateur d’ouverture de session ne correspondent pas, vous devez spécifier l’ID d’objet de votre compte d’utilisateur avec *--assignee-object-id*, pas seulement le nom d’utilisateur pour *--assignee*. Vous pouvez obtenir l’ID d’objet de votre compte d’utilisateur avec [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
 Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC) pour gérer l’accès aux ressources de votre abonnement Azure, reportez-vous à [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), au [portail Azure](../../role-based-access-control/role-assignments-portal.md) ou à [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 

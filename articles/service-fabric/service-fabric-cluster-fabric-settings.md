@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 29afb683b579d6b59d9a8002351a57dc6e42fad0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 84f8827a58d7f3c5dcc32943d2ba891b02c1e1ab
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083190"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -26,6 +27,12 @@ Ce document vous explique comment personnaliser les différents paramètres et l
 > [!NOTE]
 > Tous les paramètres ne sont pas disponibles dans le portail. Si un paramètre répertorié ci-dessous n’est pas disponible via le portail, personnalisez-le à l’aide d’un modèle Azure Resource Manager.
 > 
+
+## <a name="description-of-the-different-upgrade-policies"></a>Description des différentes stratégies de mise à niveau
+
+- **Dynamique** – Les modifications apportées à une configuration dynamique ne provoquent pas de redémarrage de processus, qu’il s’agisse des processus de Service Fabric ou de vos processus hôte de service. 
+- **Statique** – Les modifications apportées à une configuration statique provoquent le redémarrage du nœud Service Fabric afin de consommer la modification. Les services sur les nœuds sont redémarrés.
+- **Non autorisé** – Ces paramètres ne peuvent pas être modifiés. La modification de ces paramètres implique de détruire le cluster pour en créer un nouveau. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager
 Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQuotaInMB* à la section *Diagnostics*.
@@ -75,6 +82,15 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|  |
+
+## <a name="backuprestoreservice"></a>BackupRestoreService
+| **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|entier (valeur par défaut : 0)|statique|Paramètre MinReplicaSetSize pour BackupRestoreService |
+|PlacementConstraints|valeur wstring (valeur par défaut : L"")|statique| Paramètre PlacementConstraints pour le service BackupRestore |
+|SecretEncryptionCertThumbprint|valeur wstring (valeur par défaut : L"")|Dynamique|Empreinte numérique du certificat X509 de chiffrement de secret |
+|SecretEncryptionCertX509StoreName|valeur wstring (valeur par défaut : L"My")|  Dynamique|    Ce paramètre indique le certificat à utiliser pour le chiffrement et le déchiffrement des informations d’identification. Nom du magasin de certificats X.509 utilisé pour le chiffrement et le déchiffrement des informations d’identification de magasin qu’utilise le service de restauration de sauvegarde |
+|TargetReplicaSetSize|entier (valeur par défaut : 0)|statique| Paramètre TargetReplicaSetSize pour BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -299,6 +315,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ActivationTimeout| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(180)|Dynamique| Spécifiez la durée en secondes. Délai d’attente pour l’activation, la désactivation et la mise à niveau de l’application. |
 |ApplicationHostCloseTimeout| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique| Spécifiez la durée en secondes. Lorsqu’une sortie de Fabric est détectée dans des processus auto-activés ; FabricRuntime ferme tous les réplicas dans le processus de l’hôte de l’utilisateur (applicationhost). Il s’agit du délai d’attente pour l’opération de fermeture. |
 |ApplicationUpgradeTimeout| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(360)|Dynamique| Spécifiez la durée en secondes. Délai de mise à niveau de l’application. Si le délai d’attente est inférieur à "ActivationTimeout", le déploiement échouera. |
+|ContainerServiceArguments|valeur wstring (valeur par défaut : L"-H localhost:2375 -H npipe://")|statique|Service Fabric (SF) gère le démon Docker (sauf sur les ordinateurs clients Windows comme Win10). Cette configuration permet à l’utilisateur de spécifier des arguments personnalisés qui doivent être passés au démon Docker quand vous le démarrez. Quand des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument « --pidfile ». Par conséquent, les utilisateurs ne doivent pas spécifier l’argument « --pidfile » dans le cadre de leurs arguments personnalisés. Les arguments personnalisés doivent également vérifier que le démon Docker écoute sur le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric puisse communiquer avec lui.|
 |CreateFabricRuntimeTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique| Spécifiez la durée en secondes. La valeur du délai d’expiration pour l’appel de synchronisation FabricCreateRuntime |
 |DeploymentMaxFailureCount|entier, valeur par défaut : 20| Dynamique|Le déploiement de l’application sera retenté DeploymentMaxFailureCount fois avant l’échec du déploiement de cette application sur le nœud.| 
 |DeploymentMaxRetryInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(3600)|Dynamique| Spécifiez la durée en secondes. Intervalle maximum avant une nouvelle tentative de déploiement. À chaque échec continu, l’intervalle avant nouvelle tentative est calculé de la manière suivante : Min( DeploymentMaxRetryInterval; Nombre d’échecs continus * DeploymentRetryBackoffInterval) |
@@ -311,6 +328,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |FirewallPolicyEnabled|valeur booléenne, valeur par défaut : FALSE|statique| Permet l’ouverture des ports du pare-feu pour les ressources de points de terminaison avec des ports explicites spécifiés dans ServiceManifest |
 |GetCodePackageActivationContextTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique|Spécifiez la durée en secondes. La valeur du délai d’expiration pour les appels CodePackageActivationContext. Ne s’applique pas aux services ad hoc. |
 |IPProviderEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Permet la gestion des adresses IP. |
+|LinuxExternalExecutablePath|valeur wstring (valeur par défaut : L"/usr/bin/") |statique|Répertoire principal des commandes exécutables externes sur le nœud.|
 |NTLMAuthenticationEnabled|valeur booléenne, valeur par défaut : FALSE|statique| Active la prise en charge pour l’utilisation de NTLM par les packages de code exécutés comme d’autres utilisateurs afin que les processus sur plusieurs ordinateurs puissent communiquer en toute sécurité. |
 |NTLMAuthenticationPasswordSecret|SecureString, valeur par défaut : Common::SecureString(L"")|statique|Valeur chiffrée utilisée pour générer le mot de passe des utilisateurs NTLM. Doit être définie si NTLMAuthenticationEnabled a la valeur true. Validé par le déploiement. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromMinutes(3)|Dynamique|Spécifiez la durée en secondes. Paramètres spécifiques à l’environnement. L’intervalle périodique selon lequel l’hébergement recherche de nouveaux certificats à utiliser pour la configuration NTLM FileStoreService. |
@@ -322,6 +340,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ServiceTypeDisableFailureThreshold |Nombre entier, la valeur par défaut est 1 |Dynamique|Il s’agit du seuil pour le nombre d’échecs après lequel FailoverManager (FM) reçoit une notification de désactiver le type de service sur ce nœud et d’essayer un autre nœud pour le positionnement. |
 |ServiceTypeDisableGraceInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(30)|Dynamique|Spécifiez la durée en secondes. Intervalle de temps après lequel le type de service peut être désactivé |
 |ServiceTypeRegistrationTimeout |Durée en secondes, la valeur par défaut est 300 |Dynamique|Durée maximale autorisée pour que ServiceType soit inscrit auprès de la structure |
+|UseContainerServiceArguments|Valeur booléenne, valeur par défaut : TRUE|statique|Cette configuration indique à l’hébergement d’ignorer le passage d’arguments (spécifié dans la configuration ContainerServiceArguments) pour le démon Docker.|
 
 ## <a name="httpgateway"></a>HttpGateway
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -368,6 +387,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |AzureStorageMaxConnections | Entier (valeur par défaut : 5000) |Dynamique|Nombre maximum de connexions simultanées au stockage Azure. |
 |AzureStorageMaxWorkerThreads | Entier (valeur par défaut : 25) |Dynamique|Nombre maximum de threads de travail en parallèle. |
 |AzureStorageOperationTimeout | Durée en secondes (valeur par défaut : 6000) |Dynamique|Spécifiez la durée en secondes. Délai permettant de finaliser l’opération xstore. |
+|CleanupApplicationPackageOnProvisionSuccess|valeur booléenne, valeur par défaut : FALSE |Dynamique|Cette configuration active ou désactive le nettoyage automatique du package d’application en cas de provisionnement réussi. |
 |DisableChecksumValidation | Valeur booléenne (valeur par défaut : false) |statique| Cette configuration nous permet d’activer ou de désactiver la validation de la somme de contrôle pendant l’approvisionnement de l’application. |
 |DisableServerSideCopy | Valeur booléenne (valeur par défaut : false) |statique|Cette configuration active ou désactive la copie côté serveur du package d’application sur le magasin ImageStore pendant l’approvisionnement de l’application. |
 |ImageCachingEnabled | Valeur booléenne (valeur par défaut : true) |statique|Cette configuration nous permet d’activer ou de désactiver la mise en cache. |
@@ -526,6 +546,11 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ReplicatorPublishAddress|chaîne, valeur par défaut : L"localhost:0"|statique|Point de terminaison sous la forme d’une chaîne 'IP:Port' utilisée par le réplicateur Windows Fabric pour envoyer des opérations à d’autres réplicas.|
 |RetryInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(5)|statique|Spécifiez la durée en secondes. Lorsqu’une opération est perdue ou rejetée, cette minuterie détermine la fréquence à laquelle le réplicateur réessaiera d’envoyer l’opération.|
 
+## <a name="resourcemonitorservice"></a>ResourceMonitorService
+| **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau**| **Conseils ou brève description** |
+| --- | --- | --- | --- |
+|IsEnabled|valeur booléenne, valeur par défaut : FALSE |statique|Contrôle si le service est activé, ou non, dans le cluster. |
+
 ## <a name="runas"></a>RunAs
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
@@ -586,6 +611,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ServerAuthCredentialType|chaîne, valeur par défaut : L"None"|statique|Indique le type d’informations d’identification de sécurité à utiliser pour sécuriser la communication entre FabricClient et le cluster. Les valeurs valides sont "None/X509/Windows" |
 |ServerCertThumbprints|chaîne, valeur par défaut : L""|Dynamique|Empreintes de certificats de serveur utilisés par le cluster pour communiquer avec les clients ; les clients l’utilisent pour authentifier le cluster. Il s’agit d’une liste de noms séparés par des virgules. |
 |SettingsX509StoreName| chaîne, valeur par défaut : L"MY"| Dynamique|Magasin de certificats X509 utilisé par l’infrastructure pour protéger la configuration |
+|UseClusterCertForIpcServerTlsSecurity|valeur booléenne, valeur par défaut : FALSE|statique|Indique s’il faut utiliser le certificat de cluster pour sécuriser l’unité de transport TLS du serveur IPC |
 |X509Folder|chaîne, valeur par défaut : /var/lib/waagent|statique|Dossier dans lequel se trouvent les certificats X509 et les clés privées |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
@@ -632,6 +658,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |GetUpgradesPendingApproval |Chaîne (valeur par défault : "Admin") |Dynamique| Déclenche GetUpgradesPendingApproval sur une partition. |
 |GetUpgradeStatus |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour interroger l’état de mise à niveau de l’application. |
 |InternalList |Chaîne (valeur par défault : "Admin") | Dynamique|Configuration de la sécurité pour l’opération de liste de fichiers clients deumagasin d’images (interne). |
+|InvokeContainerApi|valeur wstring (valeur par défaut : L"Admin")|Dynamique|Invoke container API |
 |InvokeInfrastructureCommand |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour les commandes de gestion des tâches d’infrastructure. |
 |InvokeInfrastructureQuery |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour interroger les tâches d’infrastructure. |
 |Liste |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour l’opération de liste de fichiers clients du magasin d’images. |
@@ -741,25 +768,13 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | Durée en secondes (valeur par défaut : 0.015) | statique | Spécifiez la durée en secondes. Détermine le délai respecté par le réplicateur après la réception d’une opération et avant de renvoyer un accusé de réception. Les autres opérations reçues pendant cette période verront leur accusé de réception renvoyé dans un seul message, ce qui diminue le trafic réseau mais peut potentiellement réduire le débit du réplicateur. |
-|CheckpointThresholdInMB |Entier (valeur par défaut : 50) |statique|Un point de contrôle est initialisé lorsque l’utilisation du journal dépasse cette valeur. |
-|InitialPrimaryReplicationQueueSize |Valeur Uint (valeur par défaut : 64) | statique |Valeur définissant la taille initiale de la file d’attente qui gère les opérations de réplication sur le réplicateur principal. Ce nombre doit être une puissance de 2.|
-|InitialSecondaryReplicationQueueSize |Valeur Uint (valeur par défaut : 64) | statique |Valeur définissant la taille initiale de la file d’attente qui gère les opérations de réplication sur le réplicateur secondaire. Ce nombre doit être une puissance de 2. |
-|MaxAccumulatedBackupLogSizeInMB |Entier (valeur par défaut : 800) |statique|Taille cumulée maximale (en Mo) des journaux de sauvegarde dans une séquence de journaux de sauvegarde donnée. Des demandes de sauvegarde incrémentielle échouent si la sauvegarde incrémentielle génère un journal de sauvegarde qui provoque la cumulation des journaux de sauvegarde, étant donné que la sauvegarde complète pertinente est supérieure à cette taille. Dans ce cas, l’utilisateur doit effectuer une sauvegarde complète. |
 |MaxCopyQueueSize |Valeur Uint (valeur par défaut : 16384) | statique |Valeur maximale définissant la taille initiale de la file d’attente qui gère les opérations de réplication. Ce nombre doit être une puissance de 2. Si, pendant l’exécution, la file d’attente atteint cette taille, les opérations sont limitées entre les réplicateurs principal et secondaire. |
-|MaxMetadataSizeInKB |Entier (valeur par défaut : 4) |Non autorisée|Taille maximale des métadonnées du flux de journal. |
 |MaxPrimaryReplicationQueueMemorySize |Valeur Uint (valeur par défaut : 0) | statique |Valeur maximale de la file d’attente de réplication principale en octets. |
 |MaxPrimaryReplicationQueueSize |Valeur Uint (valeur par défaut : 8192) | statique |Nombre maximum d’opérations pouvant exister dans la file d’attente de réplication principale. Ce nombre doit être une puissance de 2. |
-|MaxRecordSizeInKB |Valeur Uint (valeur par défaut : 1024) |Non autorisée| Taille maximale de l’enregistrement du flux de journal. |
 |MaxReplicationMessageSize |Valeur Uint (valeur par défaut : 52428800) | statique | Taille maximale des messages des opérations de réplication. Valeur par défaut : 50 Mo. |
 |MaxSecondaryReplicationQueueMemorySize |Valeur Uint (valeur par défaut : 0) | statique |Valeur maximale de la file d’attente de réplication secondaire en octets. |
 |MaxSecondaryReplicationQueueSize |Valeur Uint (valeur par défaut : 16384) | statique |Nombre maximum d’opérations pouvant exister dans la file d’attente de réplication secondaire. Ce nombre doit être une puissance de 2. |
-|MaxWriteQueueDepthInKB |Entier (valeur par défaut : 0) |Non autorisée| Nombre entier correspondant à la profondeur de la file d’attente d’écritures que le journal de base peut utiliser de la manière spécifiée, en kilo-octets, pour le journal associé à ce réplica. Cette valeur est le nombre maximum d’octets pouvant être en attente pendant les mises à jour du journal de base. Ce peut être 0 pour que le journal de base calcule une valeur appropriée, ou un multiple de 4. |
-|MinLogSizeInMB |Entier (valeur par défaut : 0) |statique|Taille minimale du journal des transactions. Le journal ne peut pas être tronqué à une taille inférieure à ce paramètre. 0 indique que le réplicateur détermine la taille minimale du journal en fonction d’autres paramètres. Si vous augmentez cette valeur, vous augmentez la possibilité de faire des copies partielles et des sauvegardes incrémentielles, car la probabilité de la troncation des enregistrements de journaux pertinents est réduite. |
 |ReplicatorAddress |Chaîne (valeur par défaut : "localhost:0") | statique | Point de terminaison sous la forme d’une chaîne « IP:port» utilisée par le réplicateur Windows Fabric pour se connecter à d’autres réplicas afin d’envoyer/recevoir des opérations. |
-|SecondaryClearAcknowledgedOperations |Valeur booléenne (valeur par défaut : false) | statique |Valeur booléenne qui contrôle si les opérations sur le réplicateur secondaire sont effacées, une fois leur réception confirmée au réplicateur principal (vidées sur le disque). Le réglage de ce paramètre sur TRUE augmente le nombre de lectures de disque sur le nouveau réplica principal, lors du traitement des réplicas après un basculement. |
-|SharedLogId |Chaîne |Non autorisée|Identificateur du journal partagé. Cette valeur est un GUID et doit être propre à chaque journal partagé. |
-|SharedLogPath |Chaîne |Non autorisée|Chemin d’accès au journal partagé. Si cette valeur n’est pas spécifiée, le journal partagé par défaut est utilisé. |
-|SlowApiMonitoringDuration |Durée en secondes, la valeur par défaut est 300 |statique| Spécifiez la durée de l’API avant l’émission d’un événement d’avertissement.|
 
 ## <a name="transport"></a>Transport
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau** |**Conseils ou brève description** |

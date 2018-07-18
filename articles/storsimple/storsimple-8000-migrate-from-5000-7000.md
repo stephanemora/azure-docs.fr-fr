@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 378eaea4c0cf19c48f47067e4f548f2d7f530377
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26639867"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856686"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrer les données d’un appareil StorSimple 5000-7000 vers un appareil StorSimple 8000
 
@@ -56,7 +56,7 @@ Une migration côté hôte permet de configurer indépendamment les appareils 80
 | 3.   | Après une migration réussie, toutes les données sont locales sur l’appliance. Il n’existe pas de latence durant l’accès aux données. | La consommation du stockage Azure augmente jusqu'à ce que les données soient supprimées de l’appareil 5000/7000.                                                                                                        |
 | 4.   |                                                                                                                           | Si l’appareil 5000/7000 héberge une grande quantité de données, durant la migration, ces données doivent être téléchargées à partir d’Azure, ce qui implique des frais et des latences liés au téléchargement de données à partir d’Azure. |
 
-Cet article aborde uniquement la fonctionnalité de migration d’un appareil 5000/7000 vers un appareil 8000. Pour plus d’informations sur la migration côté hôte, consultez [Migration à partir d’autres appareils de stockage](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf).
+Cet article aborde uniquement la fonctionnalité de migration d’un appareil 5000/7000 vers un appareil 8000. Pour plus d’informations sur la migration côté hôte, consultez [Migration à partir d’autres appareils de stockage](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 
 ## <a name="migration-prerequisites"></a>Prérequis pour la migration
 

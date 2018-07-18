@@ -18,11 +18,11 @@ ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 48ed4270838a32c8060bf96a63fcfdd8c65f9689
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305070"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696121"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Démarrage rapide : Créer un équilibreur de charge standard pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI 2.0
 
@@ -30,7 +30,7 @@ Ce démarrage rapide vous montre comment créer un équilibreur de charge standa
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.28 ou ultérieure pour poursuivre la procédure décrite dans ce tutoriel. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.28 ou ultérieure pour poursuivre la procédure décrite dans ce tutoriel. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -255,15 +255,14 @@ Pour obtenir l’adresse IP publique de l’équilibreur de charge, utilisez la 
 ``` 
    ![Tester l’équilibreur de charge](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, l’équilibreur de charge et toutes les ressources associées.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupSLB
 ```
-## <a name="next-step"></a>Étapes suivantes
-
+## <a name="next-step"></a>Étape suivante
 Dans ce démarrage rapide, vous avez créé un équilibreur de charge standard, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé l’équilibreur de charge. Pour en savoir plus sur Azure Load Balancer, consultez les didacticiels qui lui sont consacrés.
 
 > [!div class="nextstepaction"]

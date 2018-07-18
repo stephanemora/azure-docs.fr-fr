@@ -2,30 +2,30 @@
 title: Didacticiel Kubernetes sur Azure - Déployer une application
 description: Didacticiel ACS - Déployer une application
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e992d7ca455ad4d95d0f10a94c6c9ce8055f8286
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e0e349361afaac9aec816d7f5d158322d6f4e691
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067671"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100976"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Exécuter des applications dans Azure Kubernetes Service (ACS)
 
-Dans ce didacticiel (quatrième d’une série de huit), un exemple d’application est déployé dans un cluster Kubernetes. Les étapes effectuées sont les suivantes :
+Dans ce didacticiel (le quatrième d’une série de sept), un exemple d’application est déployé dans un cluster Kubernetes. Les étapes effectuées sont les suivantes :
 
 > [!div class="checklist"]
 > * Mise à jour des fichiers manifeste Kubernetes
 > * Exécuter une application dans Kubernetes
-> * Test de l'application
+> * Test de l’application
 
-Dans les tutoriels suivants, la taille des instances de cette application est augmentée, l’application est mise à jour et Log Analytics est configuré pour la surveillance du cluster Kubernetes.
+Dans les didacticiels suivants, cette application est augmentée et mise à jour.
 
 Ce didacticiel suppose une compréhension élémentaire des concepts de Kubernetes. Pour en savoir plus, consultez la [documentation Kubernetes][kubernetes-documentation].
 
@@ -35,7 +35,7 @@ Dans les didacticiels précédents, une application a été empaquetée dans une
 
 Pour effectuer ce didacticiel, vous avez besoin du fichier manifeste Kubernetes `azure-vote-all-in-one-redis.yaml`. Ce fichier a été téléchargé avec le code source de l’application dans un didacticiel précédent. Vérifiez que vous avez cloné le référentiel et que vous avez modifié des répertoires dans le référentiel cloné.
 
-Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur][aks-tutorial-prepare-app].
+Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Tutoriel 1 – Créer des images conteneur][aks-tutorial-prepare-app].
 
 ## <a name="update-manifest-file"></a>Mettre à jour le fichier manifeste
 
@@ -79,7 +79,7 @@ Utilisez la commande [kubectl apply][kubectl-apply] pour exécuter l’applicati
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-Output:
+Sortie :
 
 ```
 deployment "azure-vote-back" created

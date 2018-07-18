@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: d98a804961defc80bebe3e3a838dd229c23044bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180451"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704185"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle avec Azure PowerShell
 
@@ -55,7 +55,7 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Ne pour
 
 ## <a name="test-network-communication"></a>Tester la communication réseau
 
-Pour tester une communication réseau avec Network Watcher, commencez par activer un observateur réseau dans la région de la machine virtuelle que vous souhaitez tester, puis utilisez la capacité de vérification de flux IP de Network Watcher pour tester la communication.
+Pour tester une communication réseau avec Network Watcher, commencez par activer un observateur réseau dans la région de la machine virtuelle que vous souhaitez tester, puis utilisez la fonctionnalité de vérification de flux IP de Network Watcher pour tester la communication.
 
 ### <a name="enable-network-watcher"></a>Activer l’observateur réseau
 
@@ -78,7 +78,7 @@ $networkWatcher = New-AzureRmNetworkWatcher `
 
 ### <a name="use-ip-flow-verify"></a>Utilisez la vérification des flux IP
 
-Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic réseau vers et à partir de la machine virtuelle, par défaut. Vous pouvez ultérieurement remplacer des valeurs de Azure par défaut, autoriser ou refuser d’autres types de trafic. Pour tester si le trafic est autorisé ou refusé vers différentes destinations et à partir d’une adresse IP source, utilisez la commande [Test-AzureRmNetworkWatcherIPFlow](/powershell/module/azurerm.network/test-azurermnetworkwatcheripflow).
+Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic réseau à destination et en provenance de la machine virtuelle, par défaut. Vous pouvez ultérieurement remplacer des valeurs de Azure par défaut, autoriser ou refuser d’autres types de trafic. Pour tester si le trafic est autorisé ou refusé vers différentes destinations et à partir d’une adresse IP source, utilisez la commande [Test-AzureRmNetworkWatcherIPFlow](/powershell/module/azurerm.network/test-azurermnetworkwatcheripflow).
 
 Testez la communication sortante de la machine virtuelle vers l’une des adresses IP pour www.bing.com :
 
@@ -126,7 +126,7 @@ Test-AzureRmNetworkWatcherIPFlow `
   -RemotePort 60000
 ```
 
-Le résultat retourné vous informe que l’accès est refusé par une règle de sécurité nommée **DefaultInboundDenyAll**. À présent que vous savez quelles règles de sécurité autorisent ou refusent le trafic à destination ou à partir d’une machine virtuelle, vous pouvez déterminer comment résoudre les problèmes.
+Le résultat retourné vous informe que l’accès est refusé par une règle de sécurité nommée **DefaultInboundDenyAll**. À présent que vous savez quelles règles de sécurité autorisent ou refusent le trafic à destination ou en provenance d’une machine virtuelle, vous pouvez déterminer comment résoudre les problèmes.
 
 ## <a name="view-details-of-a-security-rule"></a>Voir les détails d’une règle de sécurité
 
@@ -229,11 +229,11 @@ Lorsque vous avez exécuté la commande `Test-AzureRmNetworkWatcherIPFlow` pour 
 },
 ```
 
-La règle **DenyAllInBound** est appliquée, car, comme indiqué dans la sortie, aucune autre règle de priorité plus élevée n’existe dans la sortie de la commande `Get-AzureRmEffectiveNetworkSecurityGroup`, qui autorise le port 80 entrant de l’adresse 172.131.0.100 vers la machine virtuelle. Pour autoriser les communications entrantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic entrant vers le port 80 à partir de l’adresse 172.131.0.100.
+La règle **DenyAllInBound** est appliquée, car comme indiqué dans la sortie, aucune règle de priorité plus élevée n’est présente dans la sortie de la commande `Get-AzureRmEffectiveNetworkSecurityGroup` afin d’autoriser le port 80 entrant de l’adresse 172.131.0.100 vers la machine virtuelle. Pour autoriser les communications entrantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, afin d’autoriser le trafic entrant vers le port 80 à partir de l’adresse 172.131.0.100.
 
-Les contrôles dans ce démarrage rapide ont permis de tester la configuration Azure. Si les contrôles retournent les résultats attendus et si vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
+Les vérifications de ce guide de démarrage rapide ont permis de tester la configuration Azure. Si les vérifications effectuées retournent les résultats attendus alors que vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour le supprimer et toutes les ressources qu’il contient :
 
@@ -243,6 +243,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle et diagnostiqué des filtres de trafic réseau entrant et sortant. Vous avez appris que les règles de groupe de sécurité réseau autorisent ou refusent le trafic à destination et à partir d’une machine virtuelle. En savoir plus sur les [règles de sécurité](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) et la [création des règles de sécurité](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle et diagnostiqué des filtres de trafic réseau entrant et sortant. Vous avez appris que les règles de groupe de sécurité réseau autorisent ou refusent le trafic à destination et en provenance d’une machine virtuelle. En savoir plus sur les [règles de sécurité](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) et la [création des règles de sécurité](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
-Même avec des filtres de trafic réseau adaptés, les communications vers une machine virtuelle peuvent échouer en raison d’une configuration de routage. Pour savoir comment diagnostiquer les problèmes de routage de réseau de machine virtuelle, consultez [Diagnostiquer des problèmes de routage sur une machine virtuelle](diagnose-vm-network-routing-problem-powershell.md) ou, pour diagnostiquer les problèmes liés au routage sortant, à la latence et au filtrage de trafic, avec un outil, consultez [Résoudre les problèmes de connexion](network-watcher-connectivity-powershell.md).
+Même avec des filtres de trafic réseau adaptés, les communications vers une machine virtuelle peuvent échouer en raison d’une configuration de routage. Pour savoir comment diagnostiquer les problèmes de routage réseau d’une machine virtuelle, consultez [Diagnostiquer des problèmes de routage sur une machine virtuelle](diagnose-vm-network-routing-problem-powershell.md) ou, pour diagnostiquer les problèmes liés au routage sortant, à la latence et au filtrage de trafic, avec un outil, consultez [Résoudre les problèmes de connexion](network-watcher-connectivity-powershell.md).

@@ -4,7 +4,7 @@ description: Cet article traite de l’authentification unique fluide Azure Acti
 services: active-directory
 keywords: Qu’est-ce qu’Azure AD Connect, RGPD, Composants requis pour Azure AD, SSO, Authentification unique
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50c97ce7a492c934e15634622d86bf587ffb3fb7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149525"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915722"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Confidentialité des utilisateurs et authentification unique fluide Azure AD
 
@@ -28,11 +29,11 @@ ms.locfileid: "32149525"
 ## <a name="overview"></a>Vue d'ensemble
 
 
-L’authentification unique fluide Azure AD crée le type de journal suivant, qui peut contenir des informations EUII :
+L’authentification unique transparente Azure AD crée le type de journal suivant, pouvant contenir des Données personnelles : 
 
 - Fichiers journaux des traces Azure AD Connect
 
-La conformité de la confidentialité des utilisateurs pour l’authentification unique fluide est accessible de deux manières :
+Améliore la confidentialité de l'utilisateur pour l’authentification unique transparente de deux façons :
 
 1.  Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des installations
 2.  En garantissant qu’aucune donnée n’est conservée plus de 48 heures

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012578"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916113"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows sur le Portail Azure
 
@@ -29,7 +29,7 @@ Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur https://portal.azure.com.
 
@@ -43,13 +43,13 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     ![Saisie des informations de base sur votre machine virtuelle dans le panneau du portail](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. Choisissez **Nouveau** pour créer un groupe de ressources, puis indiquez un nom, par exemple, *myResourceGroup*. Choisissez **l’Emplacement** souhaité, puis sélectionnez **OK**.
+5. Choisissez **Nouveau** pour créer un groupe de ressources, puis indiquez un nom, par exemple, *myResourceGroup*. Choisissez votre **Emplacement** et sélectionnez **OK**.
 
-4. Choisissez la taille de la machine virtuelle. Vous pouvez filtrer par *Type de calcul* ou par *Type de disque*, par exemple. Nous suggérons la taille de machine virtuelle *D2s_v3*.
+4. Choisissez la taille de la machine virtuelle. Vous pouvez filtrer par *Type de calcul* ou par *Type de disque*, par exemple. Nous suggérons la taille de machine virtuelle *D2s_v3*. Cliquez sur **Sélectionner** une fois que vous avez choisi une taille.
 
     ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. Sous **Paramètres**, laissez les valeurs par défaut et sélectionnez **OK**.
+5. Dans la page **Paramètres**, dans **Réseau** > **Groupe de sécurité réseau** > **Sélectionner des ports d’entrée publics**, sélectionnez **HTTP** et **RDP (3389)** dans le menu déroulant. Laissez les autres valeurs par défaut et sélectionnez **OK**.
 
 6. Sur la page de résumé, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
 
@@ -67,9 +67,9 @@ Créez une connexion Bureau à distance à la machine virtuelle. Ces instruction
 
 2. Ouvrez le fichier RDP téléchargé et cliquez sur **Se connecter** lorsque vous y êtes invité. 
 
-3. Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Tapez le nom d’utilisateur sous la forme *nom_machine_virtuelle*\*nom_utilisateur*, entrez le mot de passe créé pour la machine virtuelle, puis cliquez sur **OK**.
+3. Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Tapez le nom d’utilisateur sous la forme *nom_machine_virtuelle*\\*nom_utilisateur*, entrez le mot de passe créé pour la machine virtuelle, puis cliquez sur **OK**.
 
-4. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Cliquez sur **Oui** ou **Continuer** pour continuer le processus de connexion.
+4. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Cliquez sur **Oui** ou **Continuer** pour créer la connexion.
 
 ## <a name="install-web-server"></a>Installer le serveur web
 
@@ -81,22 +81,14 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Une fois terminé, fermez la connexion RDP à la machine virtuelle.
 
-## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web
-
-Un Groupe de sécurité réseau (NSG) sécurise le trafic entrant et sortant. Lorsqu’une machine virtuelle est créée à partir du portail Azure, une règle de trafic entrant est créée sur le port 3389 pour les connexions RDP. Dans la mesure où cette machine virtuelle héberge un serveur web, il est nécessaire de créer une règle NSG pour le port 80.
-
-1. Sur la page de présentation de la machine virtuelle, sélectionnez **Réseaux**.
-2. La liste des règles existantes d’entrée et de sortie s’affiche. Choisissez **Ajouter une règle de port d’entrée**.
-3. Sélectionnez l’option **De base** en haut, puis choisissez *HTTP* dans la liste des services disponibles. Le port 80, une priorité et un nom vous sont fournis.
-4. Pour créer la règle, sélectionnez **Ajouter**.
 
 ## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
 
-Une fois IIS installé et le port 80 ouvert d’Internet à votre machine virtuelle, utilisez le navigateur web de votre choix pour afficher la page d’accueil IIS par défaut. Utilisez l’adresse IP publique de votre machine virtuelle que vous avez obtenue précédemment. L’exemple suivant montre le site web IIS par défaut :
+Dans le portail, sélectionnez la machine virtuelle et dans la vue d’ensemble de la machine virtuelle, utilisez le bouton **Cliquer pour copier** à droite de l’adresse IP pour la copier-coller dans un onglet de navigateur. La page d’accueil IIS par défaut s’ouvre et devrait ressembler à ceci :
 
 ![Site IIS par défaut](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 

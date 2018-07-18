@@ -3,7 +3,7 @@ title: Exemples Azure CLI 2.0 - Activer la mise à l’échelle basée sur l’h
 description: Exemples Azure CLI 2.0
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 50c4a07bf1da822f189425a129198c8f2570a899
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2f41ca6f85e28f57d6606d85c3a1d58ee390148c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246489"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652137"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure CLI 2.0
 Ce script crée un groupe de machines virtuelles identiques exécutant Ubuntu et utilise des métriques basées sur l’hôte pour mettre à l’échelle automatiquement tandis que la charge du processeur change.
@@ -46,7 +46,7 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 | Commande | Notes |
 |---|---|
 | [az group create](/cli/azure/ad/group#az_ad_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Crée le groupe de machines virtuelles identiques et le connecte au réseau virtuel, au sous-réseau et au groupe de sécurité réseau. Un équilibreur de charge est également créé pour distribuer le trafic aux différentes instances de machine virtuelle. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration.  |
+| [az vmss create](/cli/azure/vmss#az_vmss_create) | Crée le groupe de machines virtuelles identiques et le connecte au réseau virtuel, au sous-réseau et au groupe de sécurité réseau. Un équilibreur de charge est également créé pour distribuer le trafic vers les différentes instances de machine virtuelle. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration.  |
 | [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) | Crée et applique des règles de mise à l’échelle automatique à un groupe de machines virtuelles identiques. |
 | [az group delete](/cli/azure/ad/group#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 

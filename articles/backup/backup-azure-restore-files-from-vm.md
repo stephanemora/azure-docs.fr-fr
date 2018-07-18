@@ -1,28 +1,24 @@
 ---
-title: 'Sauvegarde Azure : récupérer des fichiers et des dossiers à partir d’une sauvegarde de machine virtuelle Azure | Microsoft Docs'
+title: 'Sauvegarde Azure : récupérer des fichiers et des dossiers à partir d’une sauvegarde de machine virtuelle Azure'
 description: Récupérer des fichiers à partir d’un point de récupération de machine virtuelle Azure
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
 keywords: récupération au niveau élément ; récupération de fichiers à partir d’une sauvegarde de machine virtuelle Azure ; restaurer des fichiers à partir d’une machine virtuelle Azure
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: pullabhk
+ms.openlocfilehash: 4be1ffcabed6667ab76ec790326a687d75c8b125
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958618"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
-La sauvegarde Azure offre la possibilité de restaurer des [machines virtuelles et des disques Azure](./backup-azure-arm-restore-vms.md) à partir de sauvegardes de machines virtuelles Azure, également appelées points de restauration. Cet article explique comment récupérer des fichiers et des dossiers à partir d’une sauvegarde de machine virtuelle Azure. La restauration des fichiers et des dossiers est disponible uniquement pour les machines virtuelles Azure déployées à l’aide du modèle Resource Manager et protégées dans un coffre Recovery Services.
+La sauvegarde Azure offre la possibilité de restaurer des [machines virtuelles et des disques Azure](./backup-azure-arm-restore-vms.md) à partir de sauvegardes de machines virtuelles Azure, également appelées points de récupération. Cet article explique comment récupérer des fichiers et des dossiers à partir d’une sauvegarde de machine virtuelle Azure. La restauration des fichiers et des dossiers est disponible uniquement pour les machines virtuelles Azure déployées à l’aide du modèle Resource Manager et protégées dans un coffre Recovery Services.
 
 > [!Note]
 > Cette fonctionnalité est disponible pour les machines virtuelles Azure déployées suivant le modèle Resource Manager et protégées dans un coffre Recovery Services.
@@ -31,7 +27,7 @@ La sauvegarde Azure offre la possibilité de restaurer des [machines virtuelles 
 
 ## <a name="mount-the-volume-and-copy-files"></a>Monter le volume et copier les fichiers
 
-Pour restaurer des fichiers ou dossiers à partir du point de restauration, accédez à la machine virtuelle et choisissez le point de restauration. 
+Pour restaurer des fichiers ou dossiers à partir du point de récupération, accédez à la machine virtuelle et choisissez le point de récupération. 
 
 1. Se connecter au [Portail Azure](http://portal.Azure.com) dans le menu de gauche, cliquez sur **Machines virtuelles**. Dans la liste des machines virtuelles, sélectionnez la machine virtuelle pour ouvrir son tableau de bord. 
 
@@ -177,7 +173,7 @@ Le tableau suivant indique la compatibilité entre les systèmes d’exploitatio
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>Pour Linux
+### <a name="for-linux-os"></a>Pour le système d’exploitation Linux
 
 Sur Linux, le système d’exploitation de l’ordinateur utilisé pour restaurer des fichiers doit prendre en charge le système de fichiers de la machine virtuelle protégée. Lorsque vous sélectionnez un ordinateur pour exécuter le script, vérifiez que l’ordinateur possède un système d’exploitation compatible et utilise l’une des versions identifiées dans le tableau suivant :
 

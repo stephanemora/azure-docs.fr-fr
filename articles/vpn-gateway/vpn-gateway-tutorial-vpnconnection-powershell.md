@@ -17,15 +17,15 @@ ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
 ms.openlocfilehash: da077f013c558448be63dce9b215ded99362d22e
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012935"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452462"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Créer et gérer des connexions VPN S2S avec le module Azure PowerShell
 
-Les connexions VPN S2S Azure fournissent une connectivité sécurisée entre les locaux du client et Azure. Ce tutoriel vous guide tout au long du cycle de vie d’une connexion VPN S2S IPsec. Il couvre notamment la création et la gestion d’une connexion VPN S2S. Vous allez apprendre à effectuer les actions suivantes :
+Les connexions VPN S2S Azure fournissent une connectivité sécurisée entre le réseau local du client et Azure. Ce tutoriel vous guide tout au long du cycle de vie d’une connexion VPN S2S IPsec. Il couvre notamment la création et la gestion d’une connexion VPN S2S. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une connexion VPN S2S

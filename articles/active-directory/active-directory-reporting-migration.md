@@ -3,34 +3,28 @@ title: Rechercher les rapports d’activité utilisateur Azure Active Directory 
 description: Découvrez où se trouvent les rapports d’activité utilisateur Azure Active Directory sur le portail Azure.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 12/06/2017
-ms.author: curtand
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 985bdc3c00549844958c23a83496a019d7a31944
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f22219a0e2ff342e25a2efdeb319f389250ecfef
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231319"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
 Dans cet article, nous expliquons comment trouver les rapports d’activité utilisateur Azure Active Directory sur le portail Azure.
 
-## <a name="whats-new"></a>Nouveautés
-
-Dans le portail Azure Classic, les rapports ont été répartis dans des catégories distinctes :
-* Rapports de sécurité
-* Rapports d’activité
-* Rapports d’application intégrée
-
-### <a name="activity-and-integrated-app-reports"></a>Rapports d’activité et d’application intégrée
+## <a name="activity-and-integrated-app-reports"></a>Rapports d’activité et d’application intégrée
 
 Dans le portail Azure, pour la création de rapports basés sur le contexte, les rapports existants sont fusionnés en une seule vue. Une seule API sous-jacente fournit les données de la vue.
 
@@ -87,7 +81,7 @@ Pour afficher plus d’informations sur l’utilisation des applications (pour t
 
 #### <a name="azure-ad-anomalous-activity-reports"></a>Rapports d’activités anormales Azure AD
 
-Les rapports de sécurité sur les activités anormales d’Azure Active Directory issus du portail Azure Classic ont été consolidés pour vous fournir une seule vue centralisée. Cette vue affiche tous les événements liés à la sécurité qu’Azure AD peut détecter et signaler dans des rapports.
+Les rapports de sécurité sur les activités anormales d’Azure Active Directory sont consolidés pour vous fournir une seule vue centralisée. Cette vue affiche tous les événements liés à la sécurité qu’Azure AD peut détecter et signaler dans des rapports.
 
 Le tableau suivant répertorie les rapports de sécurité sur les activités anormales d’Azure AD et les types d’événements à risque correspondants dans le portail Azure.
 
@@ -104,8 +98,6 @@ Les rapports de sécurité sur les activités anormales d’Azure AD suivants ne
 
 * Connexions après plusieurs échecs
 * Connexions depuis plusieurs zones géographiques
-
-Ces rapports sont toujours disponibles dans le portail Azure Classic, mais ils seront déconseillés ultérieurement.
 
 Pour plus d’informations, consultez [Événements à risque dans Azure Active Directory](active-directory-identity-protection-risk-events.md).  
 
@@ -125,29 +117,10 @@ Pour plus d’informations sur les rapports de sécurité, consultez :
 - [Rapports sur les connexions risquées dans le portail Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Comparaison des rapports d’activité entre le Portail Azure Classic et le Portail Azure
-
-Le tableau de cette section répertorie les rapports existants dans le portail Azure Classic. Il explique également comment obtenir les mêmes informations dans le portail Azure.
-
-Pour afficher toutes les données d’audit, dans le panneau **Azure Active Directory**, sous **Activité**, accédez à **Journaux d’audit**.
-
-![Journaux d’audit](./media/active-directory-reporting-migration/61.png "Journaux d’Audit")
-
-| Portail Azure Classic                 | Pour rechercher dans le portail Azure                                                         |
-| ---                                  | ---                                                                        |
-| Journaux d’audit                           | Pour **Catégorie d’activité**, sélectionnez **Annuaire principal**.                       |
-| Activité de réinitialisation de mot de passe              | Pour **Catégorie d’activité**, sélectionnez **Gestion des mots de passe en libre-service**. |
-| Activité de l’enregistrement de la réinitialisation de mot de passe | Pour **Catégorie d’activité**, sélectionnez **Gestion des mots de passe en libre-service**.     |
-| Activité de groupes en libre-service         | Pour **Catégorie d’activité**, sélectionnez **Gestion des groupes en libre-service**.        |
-| Activité d’approvisionnement de compte        | Pour **Catégorie d’activité**, sélectionnez **Approvisionnement des utilisateurs de comptes**.         |
-| État de substitution de mot de passe             | Pour **Catégorie d’activité**, sélectionnez **Substitution automatique de mot de passe d’application**.      |
-| Erreurs de configuration de compte          | Pour **Catégorie d’activité**, sélectionnez **Approvisionnement des utilisateurs de comptes**.        |
-| Changements de nom de groupe d’Office 365         | Pour **Catégorie d’activité**, sélectionnez **Gestion des mots de passe en libre-service**. Pour **Type de ressource activité**, sélectionnez **Groupe**. Pour **Source de l’activité**, sélectionnez **Groupes O365**.|
-
 Pour afficher le rapport **d’utilisation des applications**, dans le panneau **Azure Active Directory**, sous **Gérer**, sélectionnez **Applications d’entreprise**, puis **Connexions**.
 
 
-![Rapport sur les connexions d’applications d’entreprise](./media/active-directory-reporting-migration/199.png "Rapport sur les connexions d’applications d’entreprise")
+![Rapport des connexions aux applications d’entreprise](./media/active-directory-reporting-migration/199.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

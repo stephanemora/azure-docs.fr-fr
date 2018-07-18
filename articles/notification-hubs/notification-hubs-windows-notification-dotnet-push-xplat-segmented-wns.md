@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 9b9e3b910162653c14c398e2c3392709abcd5fd8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776683"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38631742"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Didacticiel : notifications Push vers des appareils Windows spécifiques exécutant des applications de plateforme Windows universelle
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -35,7 +35,7 @@ Les scénarios de diffusion sont activés en incluant une ou plusieurs *balises*
 > [!NOTE]
 > Les projets Windows Store et Windows Phone versions 8.1 et antérieures ne sont pas pris en charge dans Visual Studio 2017. Pour en savoir plus, consultez [Plateforme cible et compatibilité dans Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
 
-Dans ce didacticiel, vous effectuez les étapes suivantes :
+Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]
 > * Ajout d’une sélection de catégories à l’application mobile
@@ -44,7 +44,6 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
 > * Exécution de l’application et génération de notifications
 
 ## <a name="prerequisites"></a>Prérequis
-
 Terminez le [didacticiel : envoyer des notifications à des applications de plateforme Windows universelle à l’aide d’Azure Notification Hubs][get-started] avant de commencer ce didacticiel.  
 
 ## <a name="add-category-selection-to-the-app"></a>Ajout d’une sélection de catégories à l’application

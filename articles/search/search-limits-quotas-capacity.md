@@ -1,5 +1,5 @@
 ---
-title: Limites de service d’Azure Search | Microsoft Docs
+title: Limites de service de Recherche Azure | Microsoft Docs
 description: Limites de service permettant de planifier la capacité et limites maximales des requêtes et réponses de la Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -7,16 +7,16 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c24cccde507873424e3c51d584f5cd094df2b876
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203390"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641167"
 ---
-# <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
+# <a name="service-limits-in-azure-search"></a>Limites de service de Recherche Azure
 Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [provisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base** ou **Standard**.
 
 + **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure.
@@ -59,7 +59,7 @@ Dans la plupart des régions, les niveaux tarifaires du service Recherche Azure 
 
 Pour savoir si votre service a un nombre limité de documents, consultez la vignette Utilisation dans la page de présentation de votre service. Les nombres de documents sont illimités ou soumis à une limite établie en fonction du niveau.
 
-  ![Mosaïque Utilisation](media/search-limits-quotas-capacity/portal-usage-tile.png)
+  ![Vignette Utilisation](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
 ### <a name="regions-and-services-having-document-limits"></a>Régions et services ayant des limites de documents
 
@@ -93,13 +93,16 @@ Pour réduire la taille du document, pensez à exclure de la requête les donné
 
 La limite des services De base créés après 2017 a augmenté pour atteindre 15 index, sources de données, compétences et indexeurs.
 
+Les opérations gourmandes en ressources, comme l’analyse d’image dans l’indexation des objets blob Azure ou le traitement en langage naturel dans la recherche cognitive, ont des durées maximales d’exécution plus courtes, afin de permettre la prise en charge des autres travaux d’indexation. Si un travail d’indexation ne peut pas être terminé dans le délai maximal autorisé, essayez de l’exécuter selon une planification. Le planificateur effectue le suivi de l’état de l’indexation. Si une tâche d’indexation planifiée est interrompue pour une raison quelconque, à la prochaine exécution planifiée, l’indexeur peut repartir de là où il s’était arrêté.
+
 | Ressource | Gratuit&nbsp;<sup>1</sup> | De base&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Nombre maximal d’indexeurs |3 |5 ou 15|50 |200 |200 |N/A |
 | Nombre maximal de sources de données |3 |5 ou 15 |50 |200 |200 |N/A |
 | Compétences maximales <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |
 | Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A |
-| Durée maximale d’exécution | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |N/A  |
+| Durée maximale d’exécution <sup>5</sup> | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |N/A  |
+| Valeur maximale pour l’exécution de recherches cognitives ou de l’indexation d’objets blob avec analyse d’images <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |N/A  |
 | Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A  |
 | Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4 millions |4 millions |4 millions |N/A |
 
@@ -110,6 +113,8 @@ La limite des services De base créés après 2017 a augmenté pour atteindre 15
 <sup>3</sup> Les services S3 HD ne comprennent pas de prise en charge de l’indexeur.
 
 <sup>4</sup> Nombre maximal de 30 compétences par group de compétences.
+
+<sup>5</sup> Les charges de travail de recherche cognitive et d’analyse d’images dans l’indexation d’objets blob Azure ont des durées d’exécution plus courtes que l’indexation de texte standard. L’analyse d’images et le traitement en langage naturel sont gourmands en ressources et consomment une quantité disproportionnée de la puissance de traitement disponible. Leur durée d’exécution a été réduite pour donner aux autres travaux de la file d’attente la possibilité de s’exécuter.  
 
 ## <a name="queries-per-second-qps"></a>Requêtes par seconde
 
@@ -124,7 +129,7 @@ Les estimations sont plus prévisibles si elles sont calculées sur des services
 * 32 champs maximum dans la clause $orderby
 * La taille maximale des termes de recherche du texte encodé en UTF-8 est de 32 766 octets (32 Ko moins 2 octets)
 
-<sup>1</sup> Dans la Recherche Azure, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://msdn.microsoft.com/library/azure/dn798938.aspx)).
+<sup>1</sup> Dans la Recherche Azure, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)).
 
 ## <a name="api-response-limits"></a>Limites de réponse d’API
 * 1 000 documents maximum retournés par page de résultats de recherche

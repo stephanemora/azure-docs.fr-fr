@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193452"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293327"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutoriel : Lier un certificat SSL existant à des applications web Azure
 
@@ -32,15 +32,16 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Mettre à jour le niveau de tarification de votre application
-> * Lier votre certificat SSL personnalisé à App Service
-> * Appliquer le protocole HTTPS à votre application
-> * Automatiser la liaison de certificat SSL avec des scripts
+> * Lier votre certificat personnalisé à App Service
+> * Renouveler les certificats
+> * Appliquer le protocole HTTPS
+> * Appliquer le protocole TLS 1.1/1.2
+> * Automatiser la gestion TLS avec des scripts
 
 > [!NOTE]
 > Si vous avez besoin d’un certificat SSL personnalisé, vous pouvez en obtenir un directement dans le portail Azure et le lier à votre application web. Suivez le [didacticiel Certificats App Service](web-sites-purchase-ssl-web-site.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel :
 
@@ -85,17 +86,17 @@ Dans la navigation de gauche de la page de votre application web, accédez à la
 
 ![Menu Monter en puissance](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Vérifiez que votre application ne se trouve pas dans le niveau **Gratuit** ou **Partagé**. Le niveau actuel de votre application web est encadré d’un rectangle bleu foncé.
+Vérifiez que votre application web ne se trouve pas dans le niveau **F1** ou **D1**. Le niveau actuel de votre application web est encadré d’un rectangle bleu foncé.
 
 ![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Le SSL personnalisé n’est pas pris en charge aux niveaux **Gratuit** et **Partagé**. Si vous avez besoin de monter en puissance, consultez la section ci-après. Sinon, fermez la page **Choisir votre niveau de tarification** et passez à [Charger et lier votre certificat SSL](#upload).
+Le certificat SSL personnalisé n’est pas pris en charge pour les niveaux **F1** et **D1**. Si vous avez besoin de monter en puissance, consultez la section ci-après. Sinon, fermez la page **Augmentation de la taille des instances**  et passez à [Charger et lier votre certificat SSL](#upload).
 
 ### <a name="scale-up-your-app-service-plan"></a>Évolution de votre plan App Service
 
-Sélectionnez l’un des niveaux **De base**, **Standard** ou **Premium**.
+Sélectionnez un niveau payant (**B1**, **B2**, **B3**, ou n’importe quel niveau dans la catégorie **Production**). Pour obtenir des options supplémentaires, cliquez sur **Afficher d’autres options**.
 
-Cliquez sur **Sélectionner**.
+Cliquez sur **Appliquer**.
 
 ![Sélection du niveau tarifaire](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
@@ -214,6 +215,14 @@ Il ne reste plus maintenant qu’à vous assurer que HTTPS fonctionne pour votre
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>Renouveler les certificats
+
+Votre adresse IP entrante peut être modifiée lorsque vous supprimez une liaison, même si cette liaison repose sur une adresse IP. Cela est particulièrement important lorsque vous renouvelez un certificat qui se trouve déjà dans une liaison reposant sur une adresse IP. Pour éviter une modification de l’adresse IP de votre application, suivez ces étapes dans l’ordre :
+
+1. Chargez le nouveau certificat.
+2. Liez le nouveau certificat au domaine personnalisé souhaité, sans supprimer l’ancien. Cette action remplace la liaison plutôt que de supprimer l’ancienne.
+3. Supprimez l’ancien certificat. 
+
 ## <a name="enforce-https"></a>Appliquer le protocole HTTPS
 
 Par défaut, n’importe qui peut encore accéder à votre application web avec HTTP. Vous pouvez rediriger toutes les demandes HTTP sur le port HTTPS.
@@ -237,14 +246,6 @@ Dans le volet de navigation gauche de la page de votre application web, sélecti
 ![Appliquer le protocole TLS 1.1 ou 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 Une fois l’opération terminée, votre application rejette toutes les connexions effectuées avec des versions antérieures de TLS.
-
-## <a name="renew-certificates"></a>Renouveler les certificats
-
-Votre adresse IP entrante peut être modifiée lorsque vous supprimez une liaison, même si cette liaison repose sur une adresse IP. Cela est particulièrement important lorsque vous renouvelez un certificat qui se trouve déjà dans une liaison reposant sur une adresse IP. Pour éviter une modification de l’adresse IP de votre application, suivez ces étapes dans l’ordre :
-
-1. Chargez le nouveau certificat.
-2. Liez le nouveau certificat au domaine personnalisé souhaité, sans supprimer l’ancien. Cette action remplace la liaison plutôt que de supprimer l’ancienne.
-3. Supprimez l’ancien certificat. 
 
 ## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 
@@ -274,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+La commande suivante met en œuvre la version minimale de TLS 1.2.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 La commande suivante charge un fichier PFX exporté et ajoute une liaison SSL basée sur SNI.
@@ -298,9 +308,11 @@ Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Mettre à jour le niveau de tarification de votre application
-> * Lier votre certificat SSL personnalisé à App Service
-> * Appliquer le protocole HTTPS à votre application
-> * Automatiser la liaison de certificat SSL avec des scripts
+> * Lier votre certificat personnalisé à App Service
+> * Renouveler les certificats
+> * Appliquer le protocole HTTPS
+> * Appliquer le protocole TLS 1.1/1.2
+> * Automatiser la gestion TLS avec des scripts
 
 Passez au didacticiel suivant pour découvrir comment utiliser un réseau de distribution de contenu Azure.
 

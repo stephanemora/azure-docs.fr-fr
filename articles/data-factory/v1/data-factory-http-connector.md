@@ -9,23 +9,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9820ed9b4c0abbb79c6f92e62f294fb7fbd4c87e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 29281843dc1b375182eb3dafe95ad86c89217671
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052271"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Déplacer des données à partir d’une source HTTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-http-connector.md)
-> * [Version 2 - Préversion](../connector-http.md)
+> * [Version 1](data-factory-http-connector.md)
+> * [Version 2 (version actuelle)](../connector-http.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur HTTP dans V2](../connector-http.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur HTTP dans V2](../connector-http.md).
 
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données d’un point de terminaison HTTP local ou cloud vers un magasin de données récepteur pris en charge. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et la liste de magasins de données pris en charge comme sources/récepteurs.
@@ -52,7 +53,7 @@ Le tableau suivant fournit une description des éléments JSON spécifiques du s
 | Type | La propriété type doit être définie sur : `Http`. | OUI |
 | url | URL de base du serveur web | OUI |
 | authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonymous** (Anonyme), **Basic** (De base), **Digest**, **Windows**, **ClientCertificate** (Certificat client). <br><br> Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | OUI |
-| enableServerCertificateValidation | Indiquez si la validation des certificats SSL doit être activée lorsque la source est un serveur web HTTPS. | Non, la valeur par défaut est True. |
+| enableServerCertificateValidation | Spécifiez si la validation des certificats SSL serveur doit être activée quand la source est un serveur web HTTPS. Quand votre serveur HTTPS utilise un certificat auto-signé, définissez cette propriété sur false. | Non, la valeur par défaut est True. |
 | gatewayName | Nom de la passerelle de gestion des données pour se connecter à une source HTTP locale. | Oui en cas de copie de données à partir d’une source HTTP locale. |
 | Encryptedcredential | Informations d’identification chiffrées pour accéder au point de terminaison. Elles sont générées automatiquement lorsque vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue contextuelle ClickOnce. | Non. S’applique uniquement pour la copie de données à partir d’un serveur HTTP local. |
 

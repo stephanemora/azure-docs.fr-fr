@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ad883248097fd84e2fa064515b6c7a5232aaa3d3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621936"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050571"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
-> Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Use custom activities in an Azure Data Factory pipeline (Utiliser les activités personnalisées dans Data Factory version 2)](../transform-data-using-dotnet-custom-activity.md).
+> Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version actuelle du service Data Factory, consultez [Activités personnalisées dans Data Factory](../transform-data-using-dotnet-custom-activity.md).
 
 Cet article décrit une architecture d’un exemple de solution qui déplace et traite des jeux de données volumineux de manière automatique et planifiée. Il fournit également une procédure de bout en bout pour implémenter la solution à l’aide d’Azure Data Factory et d’Azure Batch.
 

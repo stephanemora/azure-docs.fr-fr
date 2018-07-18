@@ -7,22 +7,22 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/12/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266878"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36210922"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
-Dans Recherche Azure, un [service est provisionné](search-create-service-portal.md) sur un niveau tarifaire ou une SKU spécifique. Vous avez le choix entre les options suivantes : **Gratuit**, **De base** ou **Standard**, où **Standard** est disponible dans plusieurs configurations et capacités. 
+Dans Azure Search, un [service est configuré](search-create-service-portal.md) sur un niveau tarifaire ou une SKU spécifique. Vous avez le choix entre les options suivantes : **Gratuit**, **De base** ou **Standard**, où **Standard** est disponible dans plusieurs configurations et capacités. 
 
 Cet article vise à vous aider à choisir une option. Il complète la [page de tarification](https://azure.microsoft.com/pricing/details/search/) et la page [Limites de service](search-limits-quotas-capacity.md) avec un résumé des concepts de facturation et des modèles de consommation associés à différents niveaux. Il recommande également une approche itérative afin d’identifier le niveau répondant le mieux à vos besoins. 
 
-Les niveaux déterminent la capacité, et non les fonctionnalités. Si la capacité d’un niveau tarifaire est trop basse, vous devrez provisionner un nouveau service au niveau supérieur, puis [recharger vos index](search-howto-reindex.md). Il n’existe aucune mise à niveau sur place du même service d’une référence (SKU) à une autre.
+Les niveaux déterminent la capacité, et non les fonctionnalités. Si la capacité d’un niveau tarifaire est trop basse, vous devrez provisionner un nouveau service au niveau supérieur, puis [recharger vos index](search-howto-reindex.md). Il n’existe aucune mise à niveau sur place du même service d’une référence (SKU) à un autre.
 
 La disponibilité des fonctionnalités n’est pas une considération majeure en ce qui concerne les niveaux. Tous les niveaux, y compris le niveau **Gratuit**, offrent la parité des fonctionnalités, à l’exception de la prise en charge de l’indexeur pour S3 HD. Toutefois, les contraintes de ressources et d’indexation peuvent limiter l’étendue de l’utilisation des fonctionnalités. Par exemple, l’indexation de [recherche cognitive](cognitive-search-concept-intro.md) a des compétences à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est très petit.
 
@@ -41,7 +41,7 @@ La capacité est structurée sous forme de *réplicas* et de *partitions*. Les r
 > [!NOTE]
 > Tous les niveaux **Standard** prennent en charge des [combinaisons flexibles de réplicas et de partitions](search-capacity-planning.md#chart) afin que vous puissiez [pondérer votre système pour le stockage ou la vitesse](search-performance-optimization.md) en changeant l’équilibrage. Le niveau **De base** offre jusqu’à trois réplicas pour la haute disponibilité, mais une seule partition. Les niveaux **Gratuit** ne fournissent pas de ressources dédiées : les ressources de calcul sont partagées par plusieurs services gratuits.
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 
 Les services hébergent des ressources, telles que des index, des indexeurs, et ainsi de suite. Chaque niveau impose des [limites de service](search-limits-quotas-capacity.md) quant à la quantité de ressources que vous pouvez créer. Ainsi, le plafond du nombre d’index (et d’autres objets) est la deuxième caractéristique qui différencie les niveaux. À mesure que vous consultez chaque option dans le portail, notez les limites du nombre d’index. D’autres ressources, telles que les indexeurs, sources de données et compétences, sont soumises à des limites d’index.
 
@@ -51,7 +51,7 @@ Le concept de facturation le plus important à comprendre est l’*unité de rec
 
 Bien que chaque niveau offre une capacité supérieure progressive, vous pouvez mettre une partie de la capacité totale en ligne et conserver le reste en réserve. En termes de facturation, c’est le nombre de partitions et de réplicas que vous mettez en ligne, calculé à l’aide de la formule SU, qui détermine ce que vous payez réellement.
 
-Le taux de facturation est un taux horaire par SU, chaque niveau ayant un taux différent. Consultez la [Tarification](https://azure.microsoft.com/pricing/details/search/) pour connaître les coûts pour chaque niveau.
+Le taux de facturation est un taux horaire par SU, chaque niveau ayant un taux différent. Consultez la [Tarification](https://azure.microsoft.com/pricing/details/search/)pour connaître les coûts pour chaque niveau.
 
 ## <a name="consumption-patterns"></a>Modèles de consommation
 

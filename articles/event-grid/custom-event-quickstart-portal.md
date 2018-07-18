@@ -5,21 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a16a9bdb866803a65bf7204628b735bd9ac60aee
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302557"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869141"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Créer et acheminer des événements personnalisés avec le portail Azure et Event Grid
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez le portail Azure pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. Vous envoyez l’événement à une fonction d’Azure qui enregistre les données d’événement. Une fois terminé, vous voyez que les données d’événement ont été envoyées à un point de terminaison et enregistrées.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## <a name="create-a-custom-topic"></a>Créer une rubrique personnalisée
 
@@ -71,7 +73,7 @@ Avant de nous abonner à la rubrique, nous allons créer le point de terminaison
 
    ![Créer une fonction](./media/custom-event-quickstart-portal/create-function.png)
 
-1. Donnez un nom unique à la fonction Azure. N’utilisez pas le nom indiqué dans l’image. Sélectionnez le groupe de ressources créé dans cet article. Pour le plan d’hébergement, utilisez **Plan de consommation**. Utilisez le nouveau compte de stockage suggéré. Après avoir défini les valeurs, sélectionnez **Créer**.
+1. Donnez un nom unique à la fonction Azure. N’utilisez pas le nom indiqué dans l’image. Sélectionnez le groupe de ressources créé dans cet article. Pour le plan d’hébergement, utilisez **Plan de consommation**. Utilisez le nouveau compte de stockage suggéré. Vous pouvez désactiver Application Insights. Après avoir défini les valeurs, sélectionnez **Créer**.
 
    ![Fournir des valeurs de fonction](./media/custom-event-quickstart-portal/provide-function-values.png)
 
@@ -167,7 +169,7 @@ Vous avez déclenché l’événement, et Event Grid a envoyé le message au poi
 
 ![Consulter les journaux](./media/custom-event-quickstart-portal/view-log-entry.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les ressources créées dans cet article. Dans le cas contraire, supprimez les ressources créées avec cet article.
 

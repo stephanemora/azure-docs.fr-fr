@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
 ms.openlocfilehash: 0535f956e0a7a981bee441c0eb4ae103ca5d0cec
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797343"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38612795"
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de documents à l’aide de Java et du portail Azure
 
@@ -39,7 +39,7 @@ Par ailleurs :
 * [Git](https://www.git-scm.com/)
     * Sur Ubuntu, vous pouvez exécuter `sudo apt-get install git` pour installer Git.
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 Pour être en mesure de créer une base de données de documents, vous devez avoir préalablement créé un compte d’API SQL avec Azure Cosmos DB.
 
@@ -74,7 +74,7 @@ Pour être en mesure de créer une base de données de documents, vous devez avo
     cd "C:\git-samples"
     ```
 
-3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git

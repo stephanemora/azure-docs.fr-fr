@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f3ed658ffb3f85baacf7eeec8395aaeff84806b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 379cc5412d317680afa9b03f0eea60c7f1a3b60d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616343"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051080"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copier des données de Hive à l’aide d’Azure Data Factory 
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Hive. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, voir [Activité de copie dans V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -35,7 +32,7 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Hive.
 

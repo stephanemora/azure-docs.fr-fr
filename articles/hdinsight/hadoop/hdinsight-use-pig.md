@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d382293ce815f24ad635b50c920d7988b664d79c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169606"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081165"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Utilisation de Pig avec Hadoop sur HDInsight
 
@@ -55,7 +55,7 @@ Le langage Pig Latin vous permet de décrire le flux de données provenant d’
 
 Pig Latin prend également en charge les fonctions définies par l'utilisateur (UDF), ce qui vous permet d'appeler des composants externes qui implémentent la logique qui est difficile à modéliser dans Pig Latin.
 
-Pour plus d’informations sur Pig Latin, consultez les pages [Manuel de référence Pig Latin 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) et [Manuel de référence Pig Latin 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
+Pour plus d’informations sur Pig Latin, consultez les pages [Manuel de référence Pig Latin 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) et [Manuel de référence Pig Latin 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 Pour obtenir un exemple d'utilisation des fonctions définies par l’utilisateur (UDF) avec Pig, consultez les documents suivants :
 

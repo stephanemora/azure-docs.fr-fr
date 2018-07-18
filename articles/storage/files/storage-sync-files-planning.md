@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 160f01c3094548277e1f68e0002954ae63c79ce6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738328"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335837"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planification d’un déploiement Azure File Sync (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -145,6 +145,12 @@ Pour qu’Azure File Sync et DFS-R fonctionnent côte à côte :
 
 Pour plus d’informations, consultez [Vue d’ensemble de la réplication DFS](https://technet.microsoft.com/library/jj127250).
 
+### <a name="sysprep"></a>Sysprep
+L’utilisation de sysprep sur un serveur sur lequel l’agent Azure File Sync est installé n’est pas prise en charge et peut produire des résultats inattendus. L’installation de l’agent et l’inscription du serveur doivent être effectués après avoir déployé l’image du serveur et terminé la mini-configuration de sysprep.
+
+### <a name="windows-search"></a>Recherche Windows
+Si la hiérarchisation cloud est activée sur un serveur de point de terminaison, les fichiers qui sont hiérarchisés sont ignorés et non indexés par la recherche de Windows. Les fichiers non hiérarchisés sont indexés correctement.
+
 ### <a name="antivirus-solutions"></a>Solutions antivirus
 Du fait que les antivirus analysent les fichiers pour détecter la présence éventuelle de code malveillant connu, ils peuvent provoquer le rappel de fichiers hiérarchisés. Comme les fichiers hiérarchisés ont l’attribut « hors connexion » défini, nous vous recommandons de contacter votre éditeur de logiciel pour savoir comment configurer la solution de façon à ignorer la lecture des fichiers hors connexion. 
 
@@ -158,6 +164,11 @@ Les solutions suivantes peuvent ignorer les fichiers hors connexion :
 
 ### <a name="backup-solutions"></a>Solutions de sauvegarde
 Tout comme les solutions antivirus, les solutions de sauvegarde peuvent provoquer le rappel de fichiers hiérarchisés. Pour sauvegarder le partage de fichiers Azure, nous vous recommandons d’utiliser une solution de sauvegarde cloud au lieu d’un produit de sauvegarde locale.
+
+Si vous utilisez une solution de sauvegarde sur site, les sauvegardes doivent être effectuées sur un serveur dans le groupe de synchronisation qui a la hiérarchisation cloud désactivée. Lorsque vous restaurez des fichiers au sein sur l’emplacement du point de terminaison du serveur, utilisez l’option de restauration au niveau fichier. Les fichiers restaurés seront synchronisés avec tous les points de terminaison dans le groupe de synchronisation et les fichiers existants seront remplacés par la version restaurée à partir de la sauvegarde.
+
+> [!Note]  
+> Les options de restauration tenant compte des applications, au niveau du volume et de récupération complète (BMR) peuvent entraîner des résultats inattendus et ne sont pas prises en charge actuellement. Ces options de restauration seront prises en charge dans une future version.
 
 ### <a name="encryption-solutions"></a>Solutions de chiffrement
 La prise en charge des solutions de chiffrement dépend de la façon dont elles sont implémentées. Azure File Sync est connu pour fonctionner avec les solutions suivantes :
@@ -180,6 +191,7 @@ Azure File Sync (préversion) est disponible uniquement dans les régions suivan
 | Région | Emplacement du centre de données |
 |--------|---------------------|
 | Est de l’Australie | Nouvelle-Galles du Sud |
+| Sud-est de l’Australie | Victoria |
 | Centre du Canada | Toronto |
 | Est du Canada | Québec |
 | Centre des États-Unis | Iowa |
@@ -189,6 +201,7 @@ Azure File Sync (préversion) est disponible uniquement dans les régions suivan
 | Europe du Nord | Irlande |
 | Asie du Sud-Est | Singapour |
 | Sud du Royaume-Uni | Londres |
+| Ouest du Royaume-Uni | Cardiff |
 | Europe de l'Ouest | Pays-bas |
 | États-Unis de l’Ouest | Californie |
 

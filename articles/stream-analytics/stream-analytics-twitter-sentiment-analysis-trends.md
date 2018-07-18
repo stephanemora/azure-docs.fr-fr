@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 4c77c8a7209825477929ddc0997b75ace5fe04a1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910524"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030612"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analyse de sentiments Twitter en temps réel dans Azure Stream Analytics
 
@@ -31,7 +31,6 @@ Une entreprise qui dispose d’un site web de médias souhaite obtenir un avanta
 Pour identifier les tendances en temps réel sur Twitter, l’entreprise doit analyser en temps réel le volume et les sentiments des tweets relatifs aux principaux sujets. En d’autres termes, nous avons besoin d’un moteur d’analyse de sentiments basé sur le flux de ce réseau social.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Dans ce didacticiel, vous utilisez une application cliente qui se connecte à Twitter, puis recherchez des tweets contenant certains mots-dièse (que vous pouvez définir). Pour exécuter l’application et analyser les tweets à l’aide d’Azure Stream Analytics, vous devez disposer des éléments suivants :
 
 * Abonnement Azure
@@ -339,7 +338,7 @@ Une entrée de travail, une requête et une sortie sont spécifiées. Vous êtes
 
 Une fois que l’exécution du travail a commencé et qu’il traite le flux Twitter en temps réel, vous pouvez afficher la sortie pour l’analyse des sentiments.
 
-Pour afficher la sortie du travail en temps réel, vous pouvez utiliser un outil tel que [Azure Storage Explorer](https://http://storageexplorer.com/) ou [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). À ce stade, vous pouvez utiliser [Power BI](https://powerbi.com/) pour étendre les fonctionnalités de votre application afin d’ajouter un tableau de bord personnalisé comme celui présenté dans la capture d’écran suivante :
+Pour afficher la sortie du travail en temps réel, vous pouvez utiliser un outil tel que [Azure Storage Explorer](https://storageexplorer.com/) ou [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). À ce stade, vous pouvez utiliser [Power BI](https://powerbi.com/) pour étendre les fonctionnalités de votre application afin d’ajouter un tableau de bord personnalisé comme celui présenté dans la capture d’écran suivante :
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

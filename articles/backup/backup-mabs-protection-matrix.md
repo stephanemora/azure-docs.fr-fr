@@ -1,22 +1,20 @@
 ---
-title: Ce que peut sauvegarder le serveur de sauvegarde Azure | Microsoft Docs
-description: "Cet article fournit une matrice de prise en charge répertoriant toutes les charges de travail, les types de données et les installations que protège le serveur de sauvegarde Azure v2."
+title: Ce que peut sauvegarder le serveur de sauvegarde Azure
+description: Cet article fournit une matrice de prise en charge répertoriant toutes les charges de travail, les types de données et les installations que protège le serveur de sauvegarde Azure v2.
 services: backup
-documentation center: 
 author: markgalioto
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-keywords: 
+keywords: ''
 ms.date: 11/28/2017
-ms.topic: article
-ms.author: markgal,masaran
+ms.topic: conceptual
+ms.author: markgal
 manager: carmonm
-ms.openlocfilehash: eae17160d0e412b347d89d83d635602d840db0f8
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 2edf6b4076dfafd775e723d44ed4d93b7493828b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607240"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure
 

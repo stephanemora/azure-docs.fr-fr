@@ -3,22 +3,24 @@ title: Un mauvais ensemble d’utilisateurs est affecté à une application de l
 description: Découvrez pourquoi un autre ensemble d’utilisateurs que celui que vous attendiez est affecté à une application
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 2dca671d4813dac0709dacb17d39cd3af3b3292c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: f984db4c06a98f7d131860f8eb5d76a67a35a483
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29383135"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332549"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Un mauvais ensemble d’utilisateurs est affecté à une application de la galerie Azure AD
 
@@ -109,5 +111,5 @@ Si l’approvisionnement est configuré et déjà en cours d’exécution pour u
 
 Si les groupes de configuration sont activés, veillez à passer en revue les mappages d’attributs afin de vous assurer qu'un champ approprié est utilisé pour l’« ID correspondant ». Il peut s’agir du nom d’affichage ou de l’alias de courrier électronique, comme le groupe et ses membres qui ne sont pas approvisionnés si la propriété correspondante est vide ou n’est pas remplie pour un groupe dans Azure AD.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md)

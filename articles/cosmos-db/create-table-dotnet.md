@@ -12,17 +12,17 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.openlocfilehash: e70501be61455e9707fcf57d1996729097a0641f
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808221"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582381"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec .NET et Azure Cosmos DB 
 
 Ce guide de démarrage rapide montre comment utiliser .NET et [l’API Table](table-introduction.md) d’Azure Cosmos DB pour créer une application en clonant un exemple à partir de GitHub. Ce guide de démarrage rapide vous montre également comment créer un compte Azure Cosmos DB et comment utiliser l’Explorateur de données pour créer des tables et des entités dans le portail web Azure.
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +30,7 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 > [!IMPORTANT] 
 > Vous devez créer un compte d’API Table pour utiliser les kits SDK d’API Table mis à la disposition générale. Les comptes d’API Table créés pendant la durée de la préversion ne sont pas pris en charge par les kits SDK mis à la disposition générale.
@@ -62,7 +62,7 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
     cd "C:\git-samples"
     ```
 
-3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
@@ -110,7 +110,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 5. Appuyez sur Ctrl+S pour enregistrer le fichier App.config.
 
-Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
 ## <a name="build-and-deploy-the-app"></a>Génération et déploiement de l’application
 

@@ -10,10 +10,11 @@ ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634151"
 ---
 # <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Utilisez Helm pour déployer des conteneurs sur un cluster Kubernetes
 
@@ -27,7 +28,6 @@ Helm comprend deux composants :
 * **Tiller** est un serveur qui s’exécute sur le cluster Kubernetes et gère le cycle de vie de vos applications Kubernetes 
  
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Déployer un cluster Kubernetes](container-service-kubernetes-walkthrough.md) dans Azure Container Service
 

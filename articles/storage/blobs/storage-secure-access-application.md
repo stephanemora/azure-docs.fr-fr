@@ -1,19 +1,20 @@
 ---
 title: Sécuriser l’accès aux données d’une application dans le cloud avec le stockage Azure | Microsoft Docs
-description: Utiliser les jetons SAS, le chiffrement et HTTPS pour sécuriser les données de votre application dans le cloud
+description: Utilisez les jetons SAS, le chiffrement et HTTPS pour sécuriser les données de votre application dans le cloud.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/06/2018
+ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 09a229d93ee8d5fec36a0cfa765e87bebaafc24d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfc5085374759290701f49cdf25698827c0779e7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650092"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Sécuriser l’accès aux données d’une application dans le cloud
 
@@ -29,7 +30,6 @@ Dans ce troisième volet, vous apprenez à :
 Le [stockage Blob Azure](../common/storage-introduction.md#blob-storage) fournit un service fiable pour stocker les fichiers des applications. Ce didacticiel est un prolongement de [la rubrique précédente][previous-tutorial] et décrit comment sécuriser l’accès à votre compte de stockage à partir d’une application web. À la fin de ce didacticiel, les images sont chiffrées et l’application web utilise des jetons SAS sécurisés pour accéder aux images miniatures.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour effectuer ce didacticiel, vous devez avoir terminé le didacticiel précédent sur le stockage : [Automatiser le redimensionnement des images chargées à l’aide d’Event Grid][previous-tutorial]. 
 
@@ -81,9 +81,6 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
     // Get reference to the container
     CloudBlobContainer container = blobClient.GetContainerReference(_storageConfig.ThumbnailContainer);
-
-    // Set the permission of the container to public
-    await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
     BlobContinuationToken continuationToken = null;
 

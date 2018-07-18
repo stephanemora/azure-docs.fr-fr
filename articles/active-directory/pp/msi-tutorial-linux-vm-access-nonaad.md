@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e42ed14b9c7c89972021a5422ebdfe415a70830d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a6ca37105cfff8542f0c4a8af3112fa317416c56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29384699"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611249"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Azure Key Vault 
 
@@ -41,7 +41,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com). 
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Créer une machine virtuelle Linux dans un nouveau groupe de ressources
 

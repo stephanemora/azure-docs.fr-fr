@@ -14,11 +14,11 @@ ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: b120f3d2731601652d46f71206637bacdda023cc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933392"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38239845"
 ---
 # <a name="set-up-custom-domain"></a>Configurer un domaine personnalisé
 
@@ -32,7 +32,7 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez
 
 [!code-powershell[main](../../../powershell_scripts/api-management/setup-custom-domain/setup_custom_domain.ps1 "Set up custom domain")]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources et toutes les ressources associées.
 

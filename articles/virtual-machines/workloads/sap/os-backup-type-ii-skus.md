@@ -11,24 +11,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d5caf5836b96555e01b55d408e51f3df2407d35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657602"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063272"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>Sauvegarde et la restauration du système d’exploitation pour les références (SKU) de type II
 
-Ce document décrit les étapes permettant de sauvegarder et de restaurer le système d’exploitation pour les **références (SKU) de type II** des grandes instances HANA. 
+Ce document décrit les étapes permettant de sauvegarder et de restaurer le système de fichiers du système d’exploitation pour les **références (SKU) de type II** des grandes instances HANA. 
 
 >[!NOTE]
 >Les scripts de sauvegarde du système d’exploitation utilisent le logiciel ReaR, qui est préinstallé sur le serveur.  
 
-Une fois le provisionnement effectué par l’équipe de gestion des services Microsoft, le serveur est, par défaut, configuré avec une planification de deux sauvegardes pour sauvegarder le système d’exploitation complet. Vous pouvez vérifier la planification des tâches de sauvegarde avec la commande suivante :
+Une fois le provisionnement effectué par l’équipe de gestion des services Microsoft, le serveur est, par défaut, configuré avec une planification de deux sauvegardes pour préserver la sauvegarde du système de fichiers du système d’exploitation. Vous pouvez vérifier la planification des tâches de sauvegarde avec la commande suivante :
 ```
 #crontab –l
 ```
@@ -38,7 +38,7 @@ Vous pouvez modifier la planification de la sauvegarde à tout moment avec la co
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Comment effectuer une sauvegarde manuelle ?
 
-La sauvegarde du système d’exploitation est d’ores et déjà planifiée avec une **tâche Cron**. Toutefois, vous pouvez aussi effectuer la sauvegarde du système d’exploitation manuellement. Pour effectuer une sauvegarde manuelle, exécutez la commande suivante :
+La sauvegarde du système de fichiers du système d’exploitation est d’ores et déjà planifiée avec une **tâche Cron**. Toutefois, vous pouvez aussi effectuer la sauvegarde du système de fichiers du système d’exploitation manuellement. Pour effectuer une sauvegarde manuelle, exécutez la commande suivante :
 
 ```
 #rear -v mkbackup

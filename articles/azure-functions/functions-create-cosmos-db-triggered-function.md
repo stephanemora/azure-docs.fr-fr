@@ -17,11 +17,11 @@ ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 9ba7d8c403a7778a52b858a41ad41bca405cb199
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513983"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38586919"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
@@ -30,7 +30,6 @@ Découvrez comment créer une fonction qui est déclenchée quand des données s
 ![Affichage du message dans les journaux.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel :
 
@@ -139,7 +138,7 @@ Une fois créée la collection spécifiée dans la liaison de fonction, vous pou
 
 4. (Facultatif) Accédez à votre document, apportez une modification, puis cliquez sur **Mettre à jour**. Ensuite, revenez aux journaux de la fonction, puis vérifiez que la mise à jour a également déclenché la fonction.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

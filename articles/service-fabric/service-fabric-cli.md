@@ -6,13 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 05/23/2018
 ms.author: bikang
-ms.openlocfilehash: 7b62631bd386a2feaa675b0ebd234768bec2f5e1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763355"
 ---
 # <a name="azure-service-fabric-cli"></a>Interface de ligne de commande Azure Service Fabric
 
@@ -21,7 +22,6 @@ L’interface de ligne de commande Azure Service Fabric est un utilitaire de lig
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant l’installation, vérifiez que Python et pip sont installés dans votre environnement. Pour plus d’informations, consultez la [documentation de démarrage rapide de pip](https://pip.pypa.io/en/latest/quickstart/) et la [documentation d’installation officielle de Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
@@ -33,7 +33,8 @@ L’interface CLI Service Fabric a pour objectif de prendre en charge la derni
 
 | Version de la CLI   | Version du runtime prise en charge |
 |---------------|---------------------------|
-| le plus récent (~= 4)  | le plus récent (~= 6.1)            |
+| La toute dernière (~=5)  | La toute dernière (~=6.2)            |
+| 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
@@ -70,7 +71,7 @@ python --version
 pip --version
 ```
 
-Exécutez ensuite la commande suivante pour installer l’interface de ligne de commande Service Fabric :
+Exécutez ensuite la commande suivante pour installer Azure Service Fabric CLI (sfctl) et afficher la page d’aide CLI :
 
 ```bat
 pip install sfctl
@@ -232,13 +233,13 @@ Pour plus d’informations, consultez la [documentation OpenSSL](https://www.ope
 
 Certaines opérations peuvent générer le message suivant :
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection`
 
 Vérifiez que le point de terminaison du cluster spécifié est disponible et à l’écoute. Vérifiez également que l’interface utilisateur de Service Fabric Explorer est disponible au niveau de cet hôte et de ce port. Utilisez `sfctl cluster select` pour mettre à jour le point de terminaison.
 
 ### <a name="detailed-logs"></a>Journaux détaillés
 
-Les journaux détaillés sont souvent utiles lorsque vous déboguez ou signalez un problème. Un indicateur global `--debug` accroît les commentaires des fichiers journaux.
+Les journaux détaillés sont souvent utiles lorsque vous déboguez ou signalez un problème. L’indicateur `--debug` augmente les commentaires de la sortie.
 
 ### <a name="command-help-and-syntax"></a>Aide et syntaxe de commande
 

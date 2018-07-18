@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
 ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30922771"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38702655"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Windows à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour des ressources qui s’exécutent en dehors d’Azure, par exemple, en local ou dans d’autres clouds, en approvisionnant Microsoft Monitoring Agent.
@@ -28,7 +28,6 @@ Après avoir intégré vos abonnements Azure, vous pouvez activer Security Cente
 Ce guide de démarrage rapide explique comment installer Microsoft Monitoring Agent sur un ordinateur Windows.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 Vous devez utiliser le niveau tarifaire Standard de Security Center pour commencer ce guide de démarrage rapide. Vous trouverez des instructions sur la mise à niveau sur la page [Intégrer un abonnement Azure à Security Center Standard](security-center-get-started.md). Vous pouvez essayer le niveau Standard de Security Center gratuitement pendant 60 jours.
@@ -88,7 +87,7 @@ Deux types d’icônes sont représentés sur le panneau **Calcul** :
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Microsoft Azure
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Vous pourrez supprimer l’agent de l’ordinateur Windows lorsque vous n’en aurez plus besoin.
 
 Pour supprimer l’agent :

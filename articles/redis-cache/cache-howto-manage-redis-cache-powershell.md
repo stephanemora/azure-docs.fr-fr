@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fcadac344e2e05c3f6cdd9003b87b819d7933fba
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599320"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937432"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gestion du Cache Redis Azure avec Azure PowerShell
 > [!div class="op_single_selector"]
@@ -35,7 +35,6 @@ Cette rubrique décrit comment effectuer des tâches courantes telles que la cr�
 Pour en savoir plus sur le modèle de déploiement Classic, consultez [Déploiement Azure Resource Manager et déploiement Classic : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Si vous avez déjà installé Azure PowerShell, vous devez disposer d’Azure PowerShell version 1.0.0 ou ultérieure. Vous pouvez vérifier la version d’Azure PowerShell que vous avez installée à l’aide de cette commande à l’invite de commandes Azure PowerShell.
 
     Get-Module azure | format-table version
@@ -784,7 +783,7 @@ Pour en savoir plus sur l’utilisation de Windows PowerShell avec Azure, report
 * [Documentation relative à l’applet de commande Cache Redis Azure sur MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 * [Applets de commande Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394765) : découvrez comment utiliser les applets de commande dans le module Azure Resource Manager.
 * [Utilisation de groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): découvrez comment créer et gérer des groupes de ressources dans le portail Azure.
-* [Blog Azure](http://blogs.msdn.com/windowsazure): découvrez les nouvelles fonctionnalités d'Azure.
+* [Blog Azure](https://azure.microsoft.com/en-us/blog/): découvrez les nouvelles fonctionnalités d'Azure.
 * [Blog Windows PowerShell](http://blogs.msdn.com/powershell): découvrez les nouvelles fonctionnalités de Windows PowerShell.
 * [Blog « Hey, Scripting Guy! »](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté Windows PowerShell.
 

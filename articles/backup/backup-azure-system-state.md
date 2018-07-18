@@ -1,25 +1,20 @@
 ---
-title: Sauvegarder l’état du système Windows vers Azure | Microsoft Docs
+title: Sauvegarder l’état du système Windows vers Azure
 description: Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server et/ou Windows vers Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
-editor: ''
+manager: shivamg
 keywords: procédure de sauvegarde ; comment sauvegarder ; sauvegarder des fichiers et des dossiers
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
-ms.openlocfilehash: b4847a4b2d8397530d8a6bb4bc4729a6966634f2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 05/23/2018
+ms.author: saurse
+ms.openlocfilehash: 61ee1ce7d5cc6dc2aa4b7a8b02c2e5ba77539725
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606067"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Sauvegarder l’état du système Windows dans un déploiement Resource Manager
 Cet article explique comment sauvegarder l’état du système Windows Server vers Azure. Il s’agit d’un didacticiel destiné à vous présenter les notions de base.
@@ -175,6 +170,11 @@ La sauvegarde initiale comprend deux tâches :
 * Sauvegarder l’état du système pour la première fois
 
 Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Recovery Services.
+
+> [!NOTE]
+> Vous pouvez sauvegarder l’état du système sur Windows Server, de la version 2008 R2 à la version 2016. La sauvegarde de l’état du système n’est pas prise en charge sur les références (SKU) de client. L’état du système n’apparaît pas comme option pour les clients Windows ni pour les machines Windows Server 2008 SP2.
+>
+>
 
 ### <a name="to-schedule-the-backup-job"></a>Pour planifier un travail de sauvegarde
 

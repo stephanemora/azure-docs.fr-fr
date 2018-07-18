@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
 ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27595225"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38595526"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Ajout de l’authentification à votre application Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -34,7 +34,7 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de démar
 
 L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application. Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé. Dans ce didacticiel, nous utilisons le schéma d’URL _appname_. Toutefois, vous pouvez utiliser le schéma d’URL de votre choix. Il doit être propre à votre application mobile. Pour activer la redirection côté serveur, procédez comme suit :
 
-1. Dans le[ portail Azure], sélectionnez votre App Service.
+1. Dans le[Portail Azure], sélectionnez votre App Service.
 
 2. Cliquez sur l’option de menu **Authentication/Authorisation**.
 
@@ -61,7 +61,7 @@ Ensuite, mettez à jour l’application pour authentifier les utilisateurs avant
 ## <a name="cache-tokens"></a>Mise en cache de jetons d'authentification sur le client
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
 
 * [Ajout de notifications Push à votre application Android](app-service-mobile-android-get-started-push.md).
@@ -80,4 +80,4 @@ Maintenant que vous avez terminé ce didacticiel sur l'authentification de base,
 
 <!-- URLs. -->
 [Prise en main de Mobile Apps]: app-service-mobile-android-get-started.md
-[ portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 32afd5bd3f972aa1cb1d90e0b10ebff4a761f2e3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 796f63a77e90c729edae7b11adf3c7be807db5f4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29400315"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38670909"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
 
@@ -29,7 +29,7 @@ Cet article vous explique comment connecter des réseaux virtuels avec une conne
 Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et utilisent Azure CLI. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -382,7 +382,7 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
 ## <a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).

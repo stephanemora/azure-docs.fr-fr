@@ -1,5 +1,5 @@
 ---
-title: Migrer les stratégies classiques dans le portail Azure | Microsoft Docs
+title: Qu’est-ce qu’une migration de stratégie dans l’accès conditionnel Azure Active Directory ? | Microsoft Docs
 description: Découvrez ce que vous devez savoir pour migrer les stratégies classiques dans le portail Azure.
 services: active-directory
 keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b6285381833526cdbdd7c1392894458a47c1cf34
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4a9b3df66567c4170ba861d3e597261e37271bf1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723726"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231968"
 ---
-# <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrer les stratégies classiques dans le portail Azure 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Qu’est-ce qu’une migration de stratégie dans l’accès conditionnel Azure Active Directory ? 
 
 
 [L’accès conditionnel](active-directory-conditional-access-azure-portal.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Si l’objectif est toujours le même, la publication du nouveau portail Azure a introduit des améliorations significatives pour le fonctionnement de l’accès conditionnel.
@@ -85,11 +85,11 @@ Grâce à l’accès conditionnel dans le portail Azure, vous pouvez gérer tout
 
 Consultez l'article :
 
-- [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md) pour en savoir plus sur les concepts de base et la terminologie.
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md) pour en savoir plus sur les concepts de base et la terminologie.
 
 - [Bonnes pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md) pour obtenir des conseils sur le déploiement de l’accès conditionnel dans votre organisation.
 
-- [Bien démarrer avec l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) pour vous familiariser avec l’interface utilisateur dans le portail Azure.
+- [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](active-directory-conditional-access-app-based-mfa.md) pour vous familiariser avec l’interface utilisateur dans le portail Azure.
 
 
  
@@ -170,6 +170,6 @@ Dans une nouvelle stratégie, vous devez sélectionner les [plateformes d’appa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md). 

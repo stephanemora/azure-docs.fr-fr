@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C : Notes du développeur sur l’utilisation des stratégies personnalisées | Microsoft Docs'
-description: Notes à destination des développeurs pour configurer et maintenir Azure AD B2C avec des stratégies personnalisées
+title: Notes du développeur sur l’utilisation des stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
+description: Notes à destination des développeurs pour configurer et maintenir Azure AD B2C avec des stratégies personnalisées.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
-ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 31ca79976ec2ecf2755b975749e9c9150c4a49e8
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441071"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notes de version pour la version préliminaire publique de la stratégie personnalisée Azure Active Directory B2C
 L’ensemble de fonctionnalités de stratégie personnalisée est désormais disponible à des fins d’évaluation en préversion publique pour tous les clients Azure Active Directory B2C (Azure AD B2C). Cet ensemble de fonctionnalités est destiné aux développeurs d’identité avancés créant les solutions d’identité les plus complexes.  

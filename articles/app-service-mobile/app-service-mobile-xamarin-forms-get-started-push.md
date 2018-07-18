@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 0bea00d411205541684e807182abd3236c09bd9d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30164428"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38595704"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Ajout de notifications Push à votre application Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -30,7 +30,6 @@ Dans ce didacticiel, vous ajoutez des notifications Push à tous les projets qui
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d’informations.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour iOS, vous avez besoin d’une [appartenance au programme pour développeurs Apple](https://developer.apple.com/programs/ios/) et d’un appareil iOS physique. Les [notifications Push ne sont pas prises en charge par le simulateur iOS](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
 ## <a name="configure-hub"></a>Configurer un hub de notification

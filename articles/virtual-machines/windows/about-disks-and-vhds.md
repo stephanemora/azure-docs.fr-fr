@@ -10,12 +10,12 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: e95b5a6037c791f501a04ebe468b1c781805f693
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4323f4fd9b94c38d99557f1d4426682a8c16dd9b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313509"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267092"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>À propos du stockage des disques pour les machines virtuelles Azure Windows
 Comme tout autre ordinateur, les machines virtuelles dans Azure utilisent des disques comme emplacement de stockage pour un système d’exploitation, des applications et des données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation Windows et un disque temporaire. Le disque de système d’exploitation est créé à partir d’une image. Le disque de système d’exploitation et l’image sont des disques durs virtuels (VHD) stockés dans un compte de stockage Azure. Les machines virtuelles peuvent également disposer d’un ou plusieurs disques de données, également stockés sur les VHD. 
@@ -32,7 +32,7 @@ Examinons comment les disques sont utilisés par les machines virtuelles.
 Chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Il est enregistré comme disque SATA et porte par défaut le nom de lecteur C:. Ce disque a une capacité maximale de 2048 gigaoctets (Go). 
 
 ### <a name="temporary-disk"></a>Disque temporaire
-Chaque machine virtuelle contient un disque temporaire. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quand vous [redéployez une machine virtuelle](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Lors d’un redémarrage standard de la machine virtuelle, les données présentes sur le disque temporaire doivent normalement être conservées.
+Chaque machine virtuelle contient un disque temporaire. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quand vous [redéployez une machine virtuelle](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Lors d’un redémarrage standard réussi de la machine virtuelle, les données présentes sur le disque temporaire sont conservées. 
 
 Le disque temporaire est étiqueté lecteur D: par défaut, et utilisé pour le stockage de pagefile.sys. Pour remapper ce disque à une autre lettre de lecteur, voir [Modification de la lettre de lecteur du disque temporaire Windows](change-drive-letter.md). La taille du disque temporaire varie en fonction de la taille de la machine virtuelle. Pour plus d’informations, voir [Tailles des machines virtuelles Windows](sizes.md).
 

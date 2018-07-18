@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 50e0e9f5edc18aac42ee80e232f70e09736124bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ad205c75a02b496abe2cb910c7eb459cdb16c97
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33761885"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969236"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Présentation des diagnostics Azure App Service 
 
@@ -27,7 +27,7 @@ Quand vous exécutez une application web, vous souhaitez anticiper tout problèm
  
 Cette fonctionnalité est particulièrement utile quand vous rencontrez des problèmes avec votre application web au cours des dernières 24 heures, mais vous pouvez aussi analyser tous les graphes de diagnostic à tout moment. Des outils de dépannage supplémentaires et des liens vers de la documentation et des forums utiles sont indiqués dans la colonne de droite.
 
-Les diagnostics App Service fonctionnent non seulement pour votre application sur Windows, mais également pour les applications exécutées sous [Linux/dans des conteneurs](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), sous [l’environnement App Service](https://docs.microsoft.com/en-us/azure/app-service/environment/intro) et dans [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
+Les diagnostics App Service fonctionnent non seulement pour votre application sur Windows, mais également pour les applications exécutées sous [Linux/dans des conteneurs](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), sous [l’environnement App Service](https://docs.microsoft.com/azure/app-service/environment/intro) et dans [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). 
 
 ## <a name="open-app-service-diagnostics"></a>Ouvrir les diagnostics App Service
 

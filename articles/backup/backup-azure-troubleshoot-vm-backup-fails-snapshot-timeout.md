@@ -1,26 +1,20 @@
 ---
-title: 'Résolution des échecs de sauvegarde Azure : état de l’agent invité non disponible | Microsoft Docs'
+title: 'Résolution des échecs de Sauvegarde Azure : état de l’agent invité non disponible'
 description: Symptômes, causes et résolution des défaillances de la Sauvegarde Azure liées à l’agent, à l’extension et aux disques.
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Sauvegarde Azure ; agent de machine virtuelle ; connectivité réseau ;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 06/25/2018
+ms.author: genli
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196761"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754131"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes de défaillance de la Sauvegarde Azure : problèmes d’agent ou d’extension
 
@@ -64,7 +58,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>La sauvegarde échoue, car l’agent de machine virtuelle ne répond pas
 
-Message d’erreur : « Impossible d’effectuer l’opération, car l’agent de machine virtuelle ne répond pas » <br>
+Message d’erreur : « Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané » <br>
 Code d’erreur : « GuestAgentSnapshotTaskStatusError »
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
@@ -90,7 +84,17 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 ### <a name="the-vm-has-no-internet-access"></a>La machine virtuelle n’a pas accès à Internet
 Selon la spécification du déploiement, la machine virtuelle n’a pas accès à Internet. Il se peut également que des restrictions empêchent l’accès à l’infrastructure Azure.
 
-Pour fonctionner correctement, l’extension Sauvegarde a besoin d’une connectivité aux adresses IP publiques Azure. Elle envoie des commandes à un point de terminaison Stockage Azure (URL HTTP) pour gérer les instantanés de la machine virtuelle. Si elle n’a pas accès à l’Internet public, la sauvegarde échoue.
+Pour fonctionner correctement, l’extension Sauvegarde a besoin d’une connectivité aux adresses IP publiques Azure. Elle envoie des commandes à un point de terminaison Stockage Azure (URL HTTPs) pour gérer les instantanés de la machine virtuelle. Si elle n’a pas accès à l’Internet public, la sauvegarde échoue.
+
+Il est possible de déployer un serveur proxy pour router le trafic de la machine virtuelle.
+##### <a name="create-a-path-for-https-traffic"></a>Créer un chemin d’accès pour le trafic HTTPs
+
+1. Si des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTPs pour acheminer le trafic.
+2. Pour autoriser l’accès à Internet à partir du serveur proxy HTTPs, ajoutez des règles au groupe de sécurité réseau (le cas échéant).
+
+Pour savoir comment configurer un proxy HTTPs pour les sauvegardes de machines virtuelles, consultez [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+La machine virtuelle sauvegardée ou le serveur proxy à travers lequel le trafic est routé nécessite un accès à des adresses IP publiques Azure
 
 ####  <a name="solution"></a>Solution
 Pour résoudre le problème, essayez l’une des méthodes suivantes :
@@ -105,13 +109,6 @@ Pour comprendre la procédure étape par étape permettant de configurer les bal
 
 > [!WARNING]
 > Les balises de service de stockage sont en préversion. Elles ne sont disponibles que dans certaines régions. Vous en trouverez la liste dans la section [Balises de service pour le stockage](../virtual-network/security-overview.md#service-tags).
-
-##### <a name="create-a-path-for-http-traffic"></a>Créer un chemin d’accès pour le trafic HTTP
-
-1. Si des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTP pour acheminer le trafic.
-2. Pour autoriser l’accès à Internet à partir du serveur proxy HTTP, ajoutez des règles au groupe de sécurité réseau (le cas échéant).
-
-Pour savoir comment configurer un proxy HTTP pour les sauvegardes de machines virtuelles, consultez [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Si vous utilisez Azure Managed Disks, vous devrez peut-être ouvrir un port supplémentaire (le port 8443) sur les pare-feu.
 
@@ -195,6 +192,19 @@ Ce problème est propre aux machines virtuelles gérées, pour lesquelles l’ut
 
 #### <a name="solution"></a>Solution
 
-Pour résoudre ce problème, supprimez le verrou du groupe de ressources et laissez le service Sauvegarde Azure effacer la collection de points de récupération et les captures instantanées sous-jacentes lors de la prochaine sauvegarde.
-Lorsque vous avez terminé, vous pouvez remettre le verrou sur le groupe de ressources de la machine virtuelle. 
+Pour résoudre le problème, supprimez le verrou du groupe de ressources et suivez les étapes ci-dessous afin de supprimer la collection de points de restauration : 
+ 
+1. Supprimez le verrou du groupe de ressources dans lequel se trouve la machine virtuelle. 
+2. Installez ARMClient à l’aide de Chocolatey : <br>
+   https://github.com/projectkudu/ARMClient
+3. Connectez-vous à ARMClient : <br>
+    `.\armclient.exe login`
+4. Récupérez la collection de points de restauration correspondant à la machine virtuelle : <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
+    Exemple : `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+5. Supprimez la collection de points de restauration : <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. La sauvegarde planifiée suivante crée automatiquement une collection de points de restauration et de nouveaux points de restauration.
+
+Lorsque vous avez terminé, vous pouvez remettre le verrou sur le groupe de ressources de la machine virtuelle. 

@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: jingwang
-ms.openlocfilehash: f12c3a2a1193adc08c408292a4e0eca2e2458085
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620664"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052413"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
 
 Vous pouvez stocker les informations d’identification des magasins de données et calculs dans un coffre de clés [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory récupère les informations d’identification lors de l’exécution d’une activité qui utilise le magasin de données/calcul.
 
 Actuellement, tous les types d’activité, à l’exception des activités personnalisées, prennent en charge cette fonctionnalité. Particulièrement pour la configuration du connecteur, vérifiez la section « Propriétés du service lié » dans [chaque rubrique de connecteur](copy-activity-overview.md#supported-data-stores-and-formats) pour obtenir des informations.
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

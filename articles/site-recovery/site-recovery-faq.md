@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 0ec7f9e692dd4269ccb428d644c673e5c27b413a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 41fa742571b94505588172b94ea91f196e212a4c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312676"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920957"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery : Forum Aux Questions (FAQ)
 Cet article contient les questions fréquemment posées sur Microsoft Azure Site Recovery. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -91,7 +91,7 @@ Pour la réplication de machines virtuelles et de serveurs physiques entre des s
 Azure Site Recovery réplique des données vers un compte de stockage Azure, via un point de terminaison public. La réplication ne s’effectue pas via un réseau VPN de site à site. Vous pouvez créer un réseau VPN de site à site, avec un réseau virtuel Azure. Cela n’interfère pas avec la réplication Site Recovery.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Puis-je utiliser ExpressRoute pour répliquer des machines virtuelles vers Azure ?
-Oui, [vous pouvez utiliser ExpressRoute](concepts-expressroute-with-site-recovery.md) pour répliquer des machines virtuelles locales vers Azure. Azure Site Recovery réplique des données vers un compte de stockage Azure via un point de terminaison public. Vous devez configurer l’[homologation publique](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) ou l’[homologation Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoft-peering) afin d’utiliser ExpressRoute pour la réplication Site Recovery. L’homologation Microsoft est le domaine de routage recommandé pour la réplication. Une fois que les machines virtuelles ont été basculées vers un réseau virtuel Azure, vous pouvez y accéder à l’aide de la configuration de [l’homologation privée](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) avec le réseau virtuel Azure. La réplication n’est pas prise en charge avec l’homologation privée.
+Oui, [vous pouvez utiliser ExpressRoute](concepts-expressroute-with-site-recovery.md) pour répliquer des machines virtuelles locales vers Azure. Azure Site Recovery réplique des données vers un compte de stockage Azure via un point de terminaison public. Vous devez configurer l’[homologation publique](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) ou l’[homologation Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoft-peering) afin d’utiliser ExpressRoute pour la réplication Site Recovery. L’homologation Microsoft est le domaine de routage recommandé pour la réplication. Une fois que les machines virtuelles ont été basculées vers un réseau virtuel Azure, vous pouvez y accéder à l’aide de la configuration de [l’homologation privée](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) avec le réseau virtuel Azure. La réplication n’est pas pris en charge via une homologation privée.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Existe-t-il des conditions requises pour la réplication des machines virtuelles vers Azure ?
 Les [machines virtuelles VMware](vmware-physical-azure-support-matrix.md#replicated-machines) et les [machines virtuelles Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) que vous souhaitez répliquer vers Azure doivent être conformes aux exigences d’Azure.

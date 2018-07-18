@@ -4,7 +4,7 @@ description: La mise en cache des chaînes de requête du CDN Azure contrôle la
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: fcb4676325066dd6960070d996b1779fb3471dd9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: aa553dfc04a755be1169fa117ec66dd10ea75b54
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260428"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Contrôler le comportement de mise en cache du CDN Azure avec des chaînes de requête - niveau standard
 > [!div class="op_single_selector"]
@@ -57,10 +58,10 @@ Trois modes de chaîne de requête sont disponibles :
    ![Options de mise en cache des chaînes de requête CDN](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> La propagation de l’inscription dans le CDN prenant un certain temps, la modification des paramètres des chaînes mises en cache peut ne pas être visible immédiatement :
-> - Pour les profils **CDN Azure Standard fourni par Verizon**, la propagation s’effectue généralement dans un délai de dix minutes. 
+> La propagation de l’inscription dans le CDN Azure prenant un certain temps, la modification des paramètres des chaînes mises en cache peut ne pas être visible immédiatement :
+> - Pour les profils du **CDN Azure Standard fourni par Microsoft**, la propagation s’effectue généralement dans un délai de 10 minutes. 
 > - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
-> - Pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 90 minutes. 
+> - Dans le cas des profils du **CDN Azure Standard fourni par Verizon** et du **CDN Azure Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 10 minutes. 
 
 
 

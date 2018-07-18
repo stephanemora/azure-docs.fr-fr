@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31434056"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36964533"
 ---
 ## <a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
 
@@ -110,7 +110,7 @@ ping -S 10.0.0.5 hotmail.com
 
     Vous devez voir l’adresse IP que vous avez ajoutée à la liste.
 
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS, etc.)
+### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS, etc.)
 
 1. Ouvrez une fenêtre de terminal.
 2. Assurez-vous d’être l’utilisateur root. Si ce n’est pas le cas, saisissez la commande suivante :

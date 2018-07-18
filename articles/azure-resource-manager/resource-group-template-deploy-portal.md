@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603722"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure
 
@@ -113,7 +114,7 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Déployer des ressources à partir d’un modèle enregistré dans votre compte
 
-Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de le redéployer ultérieurement. Pour plus d’informations sur l’utilisation de ces modèles enregistrés, accédez à [Prise en main des modèles privés sur le Portail Azure](../marketplace-consumer/mytemplates-getstarted.md).
+Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de le redéployer ultérieurement. Pour plus d’informations sur les modèles, consultez [Créer et déployer votre premier modèle Azure Resource Manager](resource-manager-create-first-template.md).
 
 1. Pour rechercher vos modèles enregistrés, sélectionnez **Autres services**.
 
@@ -135,4 +136,4 @@ Le portail vous permet d’enregistrer un modèle dans votre compte Azure et de 
 * Pour visualiser les journaux d’audit, voir [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 * Pour résoudre les erreurs de déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 * Pour récupérer un modèle à partir d’un déploiement ou d’un groupe de ressources, consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
-* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
+* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).

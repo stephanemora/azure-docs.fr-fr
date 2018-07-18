@@ -1,31 +1,25 @@
 ---
 title: Provisionner des appareils pour la surveillance à distance en Node.js - Azure| Microsoft Docs
 description: Explique comment connecter un appareil à l’accélérateur de solution de surveillance à distance avec une application écrite en Node.js.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: e0edc2d71d5f2ceac9c631fedaa160ca7291e9d6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8bd614fd7aad248612d65717fe50e04a3fc3a9e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481879"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Connecter votre appareil à l’accélérateur de solution de surveillance à distance (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Ce tutoriel vous montre comment connecter un appareil physique à l’accélérateur de solution de surveillance à distance. Dans ce didacticiel, vous utilisez Node.js, qui est une bonne option pour les environnements avec des contraintes minimales en ressources.
+Ce tutoriel vous montre comment connecter un appareil physique à l’accélérateur de solution Surveillance à distance. Dans ce didacticiel, vous utilisez Node.js, qui est une bonne option pour les environnements avec des contraintes minimales en ressources.
 
 ## <a name="create-a-nodejs-solution"></a>Créer une solution Node.js
 
@@ -52,7 +46,7 @@ Vérifiez que [Node.js](https://nodejs.org/) version 4.0.0 ou ultérieure est i
     var async = require('async');
     ```
 
-1. Ajoutez les déclarations de variables suivantes après les instructions `require` . Remplacez la valeur d’espace réservé `{device connection string}` par la valeur que vous avez notée pour l’appareil approvisionné dans la solution de surveillance à distance :
+1. Ajoutez les déclarations de variables suivantes après les instructions `require` . Remplacez la valeur d’espace réservé `{device connection string}` par la valeur que vous avez notée pour l’appareil provisionné dans la solution de surveillance à distance :
 
     ```nodejs
     var connectionString = '{device connection string}';

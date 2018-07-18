@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793019"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950671"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Création d'un service Azure Search dans le portail
 
@@ -29,8 +29,8 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 
 ## <a name="find-azure-search"></a>Localiser Recherche Azure
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Cliquez sur le signe plus (« + ») dans le coin supérieur gauche.
-3. Sélectionnez **Web + Mobile** > **Recherche Azure**.
+2. Cliquez sur le signe plus (« + Créer une ressource ») dans le coin supérieur gauche.
+3. Sélectionnez **Web** > **Recherche Azure**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
@@ -77,12 +77,14 @@ Les ***partitions*** permettent à votre service de stocker plus de documents et
 
 Les ***réplicas*** permettent à votre service de gérer une charge supérieure de requêtes de recherche.
 
+L’ajout de ressources augmente votre facture mensuelle. Le [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) peut vous aider à comprendre les conséquences de l’ajout de ressources pour la facturation. N’oubliez pas que vous pouvez ajuster les ressources en fonction de la charge. Par exemple, vous pouvez augmenter les ressources pour créer un index initial complet, puis les réduire ultérieurement à un niveau plus approprié pour l’indexation incrémentielle.
+
 > [!Important]
 > Un service doit avoir [2 réplicas pour SLA en lecture seule et 3 réplicas pour SLA en lecture/écriture](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Accédez à la page du service de recherche dans le portail Azure.
 2. Dans le volet de navigation de gauche, sélectionnez **Paramètres** > **Mise à l’échelle**.
-3. Utilisez le curseur pour ajouter des réplicas ou des partitions.
+3. Utilisez le curseur pour ajouter des ressources de chaque type.
 
 ![](./media/search-create-service-portal/settings-scale.png)
 

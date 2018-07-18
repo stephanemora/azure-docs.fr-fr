@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: bd9f01e76c68fa41616818251b5b54553059cbcc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637733"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Générer et déployer des modèles de classification d’images avec Azure Machine Learning
 
@@ -38,7 +39,6 @@ Lors de la génération et du déploiement de ce modèle avec AMLPCV, vous parco
 Consultez la [documentation de référence du package](https://aka.ms/aml-packages/vision) pour obtenir des informations détaillées sur chaque module et chaque classe.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 1. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -228,7 +228,6 @@ else:
 ## <a name="define-dnn-models"></a>Définir des modèles DNN
 
 Les modèles du réseau neuronal profond (DNN) préformé suivants sont pris en charge avec ce package : 
-+ AlexNet
 + Resnet-18
 + Resnet-34
 + Resnet-50
@@ -445,13 +444,9 @@ Dès que votre modèle est formé, vous pouvez le déployer comme service web po
 + Pour afficher le compte de gestion des modèles actif, utilisez la commande :
   <br>`az ml account modelmanagement show`
 
-**Création et configuration de votre environnement de déploiement**
+**Créer et configurer votre environnement de déploiement de cluster**
 
 Vous n’avez besoin de configurer votre environnement de déploiement qu’une seule fois. Si vous n’en possédez pas déjà un, configurez votre environnement de déploiement maintenant en suivant [ces instructions](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
-
-Suivez les étapes de configuration du déploiement local ou de cluster en fonction de votre propre besoin.
-+ Les déploiements locaux sont pris en charge pour les machines Linux et Windows 10, mais ils ne le sont pas pour les images Windows Data Science VM ou Deep Learning VM. 
-+ Les déploiements d’environnement de cluster sont pris en charge pour Linux et Windows. 
 
 Pour voir votre environnement de déploiement actif, utilisez la commande CLI suivante :
 <br>`az ml env show`

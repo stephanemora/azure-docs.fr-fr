@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ffd12d03dffb5deafc8605cc7352bd71d588d235
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: afcd39e6512ac7bcb46f56df157822efa463113e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866734"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449071"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -39,7 +39,7 @@ L’e-mail de contact est envoyé aux destinataires suivants dans cet ordre :
 
 Dans tous les cas, un maximum de 100 destinataires sont informés.
 
-Pour en savoir plus sur les différents rôles d’administrateur et sur la façon de les affecter, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../active-directory-assign-admin-roles-azure-portal.md).
+Pour en savoir plus sur les différents rôles d’administrateur et sur la façon de les affecter, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 ### <a name="disable-contact-your-administrator-emails"></a>Désactiver les e-mails « Contactez votre administrateur »
 
@@ -69,7 +69,7 @@ Les graphiques que vous choisissez s’affichent dans les circonstances suivante
     * En passant le paramètre *whr* à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?whr=contoso.com »
     * En passant le paramètre *username* à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?username=admin@contoso.com »
 
-Retrouvez plus d’informations sur la configuration de la marque de société dans l’article [Ajouter une marque de société à votre page de connexion dans Azure AD](../customize-branding.md).
+Retrouvez plus d’informations sur la configuration de la marque de société dans l’article [Ajouter une marque de société à votre page de connexion dans Azure AD](../fundamentals/customize-branding.md).
 
 ### <a name="directory-name"></a>Nom de l’annuaire
 

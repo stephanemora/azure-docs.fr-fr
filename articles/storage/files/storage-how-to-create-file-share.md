@@ -5,7 +5,7 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 4dfc4bca4453b5a8027086bd7c3625efc8feda03
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 85e021d439698e864a26bde9515369ae801c3796
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737858"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Créer un partage de fichiers dans Azure Files
 Vous pouvez créer des partages de fichiers Azure à l’aide du [portail Azure](https://portal.azure.com/), des cmdlets PowerShell pour le Stockage Azure, des bibliothèques clientes de Stockage Azure ou de l’API REST de Stockage Azure. Ce tutoriel vous apprendra à effectuer les opérations suivantes :
-* [Création d’un partage de fichiers Azure avec le portail Azure](#Create file share through the Portal)
-* [Création d’un partage de fichiers Azure avec PowerShell](#Create file share using PowerShell)
-* [Création d’un partage de fichiers Azure avec CLI](#create-file-share-using-command-line-interface-cli)
+* [Création d’un partage de fichiers Azure avec le portail Azure](#create-file-share-through-the-azure-portal)
+* [Création d’un partage de fichiers Azure avec PowerShell](#create-file-share-through-powershell)
+* [Création d’un partage de fichiers Azure avec CLI](#create-file-share-through-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour créer un partage de fichiers Azure, vous pouvez utiliser un compte de stockage existant ou [créer un compte de stockage Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Pour créer un partage de fichiers Azure avec PowerShell, vous avez besoin de la clé de compte et du nom de votre compte de stockage. Si vous envisagez d’utiliser Powershell ou CLI, vous aurez besoin de la clé du compte de stockage.
 
 ## <a name="create-file-share-through-the-azure-portal"></a>Créer un partage de fichiers via le portail Azure

@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: aa21168f1e19ccddc190379b30e1b612d96b56d5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 23b7ca44b72b8840579f369954f41f554d4c8852
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202666"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943417"
 ---
-# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
+# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
 Ce guide explique comment une application Android native peut obtenir un jeton d’accès et appeler l’API Microsoft Graph ou d’autres API qui nécessitent des jetons d’accès provenant d’un point de terminaison Azure Active Directory v2.
 
@@ -34,7 +34,6 @@ Ce guide explique comment une application Android native peut obtenir un jeton d
 L’exemple d’application que vous avez créé avec ce guide est basé sur un scénario dans lequel une application Android est utilisée pour interroger une API web qui accepte des jetons provenant du point de terminaison Azure Active Directory v2 (dans ce cas l’API Microsoft Graph). Pour ce scénario, votre application ajoute le jeton obtenu aux requêtes HTTP via l’en-tête d’autorisation. La bibliothèque d’authentification Microsoft (MSAL) gère l’acquisition et le renouvellement de jetons pour vous.
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Cette installation guidée se concentre sur Android Studio, mais n’importe quel autre environnement de développement d’application Android peut être utilisé. 
 * Le Kit de développement logiciel (SDK) Android 21 ou version ultérieure est requis (Kit de développement logiciel (SDK) 25 recommandé).
 * Google Chrome ou un navigateur web utilisant les onglets personnalisés est requis pour cette version de MSAL pour Android.

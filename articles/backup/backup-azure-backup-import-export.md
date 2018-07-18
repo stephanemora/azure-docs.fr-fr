@@ -1,25 +1,19 @@
 ---
-title: Sauvegarde Azure - Sauvegarde ou amorçage initial hors connexion à l’aide du service Azure Import/Export | Microsoft Docs
+title: Sauvegarde Azure - Sauvegarde ou amorçage initial hors connexion à l’aide du service Azure Import/Export
 description: Découvrez comment la sauvegarde Azure vous permet d’envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article décrit l’amorçage hors connexion des données de sauvegarde initiale à l’aide du service Azure Import/Export.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 801de343ebb88394f04a65236997f9ec80a2f535
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 05/17/2018
+ms.author: saurse
+ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939706"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831449"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde hors connexion dans Azure.
@@ -51,14 +45,13 @@ Les charges de travail ou fonctionnalités de sauvegarde Azure suivantes prennen
 
 ## <a name="prerequisites"></a>Prérequis
 
-
   > [!NOTE]
   > Les prérequis et le flux de travail suivants s’appliquent uniquement à une sauvegarde hors connexion des fichiers et dossiers à l’aide de [la dernière version de l’agent Microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent). Pour effectuer des sauvegardes hors connexion pour des charges de travail à l’aide de System Center DPM ou du serveur de sauvegarde Azure, reportez-vous à [cet article](backup-azure-backup-server-import-export-.md). 
 
 Avant de démarrer le flux de travail de sauvegarde hors connexion, assurez-vous que les prérequis suivants sont respectés : 
 * Créez un [coffre Recovery Services](backup-azure-recovery-services-vault-overview.md). Pour créer un coffre, suivez les étapes décrites dans [cet article](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Vérifiez que la [dernière version de l’agent de sauvegarde Azure](https://aka.ms/azurebackup_agent) a été installée sur le client Windows Server ou Windows, le cas échéant, et que l’ordinateur est inscrit auprès du coffre Recovery Services.
-* Azure PowerShell version 3.7.0 ou ultérieure doit être installé sur l’ordinateur qui exécute l’agent de sauvegarde Azure. Nous vous recommandons [d’installer la dernière version d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+* Azure PowerShell version 3.7.0 doit être installé sur l’ordinateur qui exécute l’agent de sauvegarde Azure. Nous vous recommandons de télécharger et [d’installer la version 3.7.0 d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * Sur l’ordinateur exécutant l’agent de sauvegarde Azure, assurez-vous que Microsoft Edge ou Internet Explorer 11 est installé, et que JavaScript est activé. 
 * Créez un compte de stockage Azure dans le même abonnement que le coffre Recovery Services. 
 * Assurez-vous de disposer des [autorisations nécessaires](../azure-resource-manager/resource-group-create-service-principal-portal.md) pour créer l’application Azure Active Directory. Le flux de travail de sauvegarde hors connexion crée une application Azure Active Directory dans l’abonnement associé au compte de stockage Azure. L’objectif de l’application est de fournir au service de sauvegarde Azure un accès sécurisé et délimité au service d’importation Azure qui est requis pour le flux de travail de sauvegarde hors connexion. 
@@ -69,7 +62,7 @@ Avant de démarrer le flux de travail de sauvegarde hors connexion, assurez-vous
     4. Faites défiler la liste des fournisseurs jusqu’à Microsoft.ImportExport. Si l’état est NotRegistered, cliquez sur **Inscrire**.
     ![inscription du fournisseur de ressources](./media/backup-azure-backup-import-export/registerimportexport.png)
 * Un emplacement intermédiaire est créé. Il peut s’agir d’un partage réseau ou de tout lecteur supplémentaire, interne ou externe, sur l’ordinateur offrant suffisamment d’espace disque pour conserver votre copie initiale. Par exemple, si vous tentez de sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go (bien qu’une quantité inférieure soit utilisée en raison de la compression).
-* Lors de l’envoi de disques dans Azure, utilisez uniquement des disques SSD de 2,5 pouces ou des disques durs internes SATA II/III de 2,5 ou 3,5 pouces. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../storage/common/storage-import-export-service.md#hard-disk-drives) pour connaître la dernière série de disques pris en charge par le service.
+* Lors de l’envoi de disques dans Azure, utilisez uniquement des disques SSD de 2,5 pouces ou des disques durs internes SATA II/III de 2,5 ou 3,5 pouces. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) pour connaître la dernière série de disques pris en charge par le service.
 * Les disques SATA doivent être connectés à un ordinateur (appelé *ordinateur de copie*) à partir duquel est effectuée la copie des données de sauvegarde de *l’emplacement intermédiaire* vers les disques SATA. Vérifiez que Bitlocker est activé sur *l’ordinateur de copie*.
 
 ## <a name="workflow"></a>Workflow
@@ -115,7 +108,7 @@ L’utilitaire *AzureOfflineBackupDiskPrep* prépare les disques SATA qui sont e
 
     * L’ordinateur de copie peut accéder à l’emplacement intermédiaire spécifié pour le flux de travail d’amorçage hors connexion via le même chemin d’accès réseau que celui fourni dans le flux de travail **Lancer la sauvegarde hors connexion** .
     * BitLocker est activé sur l’ordinateur de copie.
-    * Azure PowerShell version 3.7.0 ou ultérieure est installé.
+    * Azure PowerShell 3.7.0 est installé.
     * Les navigateurs compatibles les plus récents (Edge ou Internet Explorer 11) sont installés et JavaScript est activé. 
     * L’ordinateur de copie peut accéder au portail Azure. Si nécessaire, l’ordinateur de copie peut être le même que l’ordinateur source.
     

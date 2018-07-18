@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814796"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066082"
 ---
 # <a name="internet-of-things-security-architecture"></a>Architecture de sécurité de l’Internet des objets
 
@@ -29,7 +29,7 @@ De nombreuses équipes de développement font un excellent travail en prenant en
 
 ### <a name="when-to-threat-model"></a>Quand mettre en place un modèle de menace
 
-La [modélisation des menaces](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) apporte davantage de valeur si elle est incorporée dans la phase de conception. Lors de la conception, vous bénéficiez d’une plus grande flexibilité pour apporter les modifications qui élimineront les menaces. L’élimination des menaces au cours de la conception est en effet le résultat souhaité. C’est en effet bien plus facile que d’ajouter des préventions, les tester et s’assurer qu’elles restent en cours. Par ailleurs, procéder à de telles éliminations n’est pas toujours possible. Il est plus difficile d’éliminer des menaces lorsqu’un produit progresse dans son cycle de vie, et cela nécessite plus de travail et des compromis beaucoup plus difficiles que la mise en place d’une modélisation des menaces au début du développement.
+La [modélisation des menaces](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) apporte davantage de valeur si elle est incorporée dans la phase de conception. Lors de la conception, vous bénéficiez d’une plus grande flexibilité pour apporter les modifications qui élimineront les menaces. L’élimination des menaces au cours de la conception est en effet le résultat souhaité. C’est en effet bien plus facile que d’ajouter des préventions, les tester et s’assurer qu’elles restent en cours. Par ailleurs, procéder à de telles éliminations n’est pas toujours possible. Il est plus difficile d’éliminer des menaces lorsqu’un produit progresse dans son cycle de vie, et cela nécessite plus de travail et des compromis beaucoup plus difficiles que la mise en place d’une modélisation des menaces au début du développement.
 
 ### <a name="what-to-threat-model"></a>Quels éléments inclure dans le modèle de menace
 

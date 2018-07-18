@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4db720b2140a5208acc582b01b0b9613a7fd827a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 200b3c36c28cd61ca34e57875d030bf308c387ec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621375"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049279"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Transfert de données à partir de magasins de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-odbc-connector.md)
-> * [Version 2 - Préversion](../connector-odbc.md)
+> * [Version 1](data-factory-odbc-connector.md)
+> * [Version 2 (version actuelle)](../connector-odbc.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur ODBC dans V2](../connector-odbc.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur ODBC dans V2](../connector-odbc.md).
 
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir d’un magasin de données ODBC local. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.

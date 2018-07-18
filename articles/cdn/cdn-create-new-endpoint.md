@@ -4,7 +4,7 @@ description: Ce démarrage rapide décrit l’activation du réseau de distribut
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/13/2018
-ms.author: mazha
+ms.date: 05/24/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cf0a0b10d8df3b119f5abbd8060f8821d54172bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198705"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607869"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure
 Dans ce démarrage rapide, vous allez activer le CDN Azure en créant un profil et un point de terminaison CDN. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients.
@@ -28,7 +28,6 @@ Dans ce démarrage rapide, vous allez activer le CDN Azure en créant un profil 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour ce démarrage rapide, vous devez avoir créé un compte de stockage nommé *mystorageacct123*, que vous utilisez pour le nom d’hôte de l’origine. Pour plus d’informations, consultez [Intégrer un compte de stockage Azure à Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
@@ -48,11 +47,9 @@ Une fois que vous avez créé un profil CDN, vous pouvez l’utiliser pour crée
    
     ![Profil CDN](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    La page **Ajouter un point de terminaison** s’affiche.
+    Le volet **Ajouter un point de terminaison** s’affiche.
 
-    Utilisez les paramètres spécifiés dans le tableau à la suite de l’image.
-   
-    ![Volet Ajouter un point de terminaison](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+3. Pour les paramètres de point de terminaison, utilisez les valeurs spécifiées dans le tableau suivant :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -64,7 +61,9 @@ Une fois que vous avez créé un profil CDN, vous pouvez l’utiliser pour crée
     | **Protocole** | Laissez les options **HTTP** et **HTTPS** par défaut sélectionnées. |
     | **Port de l’origine** | Laissez les valeurs de port par défaut. | 
     | **Optimisé pour** | Laissez la sélection **Livraison web générale** par défaut. |
-    
+
+    ![Volet Ajouter un point de terminaison](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+
 3. Sélectionnez **Ajouter** pour créer un point de terminaison.
    
    Une fois le point de terminaison créé, il s'affiche dans la liste des points de terminaison pour le profil.

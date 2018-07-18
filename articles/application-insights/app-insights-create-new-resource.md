@@ -1,8 +1,8 @@
 ---
-title: "Créer une ressource Azure Application Insights | Microsoft Docs"
-description: "Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct."
+title: Créer une ressource Azure Application Insights | Microsoft Docs
+description: Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 9023f3d9ae3ddd4d75b5853a08177cba7718cec1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294715"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 Azure Application Insights affiche les données relatives à votre application dans une *ressource* Microsoft Azure. La création d’une nouvelle ressource fait, par conséquent, partie de la [configuration d’Application Insights pour surveiller une nouvelle application][start]. Dans de nombreux cas, il est possible de créer une ressource automatiquement à l’aide de l’IDE. Mais dans certains cas, vous créez manuellement une ressource : par exemple, pour avoir des ressources distinctes pour le développement et la production des builds de votre application.

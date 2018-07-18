@@ -1,27 +1,25 @@
 ---
-title: Procédure d’utilisation du Stockage Table Azure et d’Azure Cosmos DB avec C++ | Microsoft Docs
-description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL.
+title: Guide pratique pour l’utilisation du stockage de tables et de l’API Table d’Azure Cosmos DB avec C++ | Microsoft Docs
+description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-table
+ms.devlang: cpp
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 60c419a45e795d5968b58fbb6b469d06750a0679
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 520c0868e51f1212ee1beca8967d3c08f1d6e869
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797911"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Procédure d’utilisation du Stockage Table Azure et de l’API de Table Azure Cosmos DB avec C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit la procédure d’exécution des scénarios courants en utilisant le service de stockage Table Azure ou l’API de Table Azure Cosmos DB. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Les scénarios traités incluent la **création et la suppression d’une table**, ainsi que **l’utilisation d’entités de table**.

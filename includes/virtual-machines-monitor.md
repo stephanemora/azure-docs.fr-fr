@@ -2,7 +2,7 @@ Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines vi
 
 ## <a name="diagnostics-and-metrics"></a>Mesures et diagnostics 
 
-Vous pouvez définir et analyser la collecte de [données de diagnostic](https://docs.microsoft.com/cli/azure/vm/diagnostics) à l’aide de [mesures](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) dans le portail Azure, d’Azure CLI, d’Azure PowerShell et des API de programmation. Vous pouvez par exemple afficher :
+Vous pouvez définir et analyser la collecte de [données de diagnostic](https://docs.microsoft.com/cli/azure/vm/diagnostics) à l’aide de [mesures](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) dans le portail Azure, d’Azure CLI, d’Azure PowerShell et des API de programmation. Vous pouvez par exemple :
 
 - **Observez les mesures de base de la machine virtuelle.** Sur l’écran vue d’ensemble du portail Azure, les mesures de base affichées incluent l’utilisation du processeur, l’utilisation du réseau, le total des octets sur le disque et les opérations de disque par seconde.
 

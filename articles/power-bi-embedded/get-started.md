@@ -15,11 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 33d948ee283ff3ee873e2f17ee07a7a889889925
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969491"
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Prise en main de Microsoft Power BI Embedded
 
@@ -48,14 +49,14 @@ Voici quelques exemples vous permettant de vous lancer. Pour une procédure pas 
 Créez la capacité Power BI Embedded dans Microsoft Azure pour déplacer votre application vers l’environnement de production. Pour savoir comment créer de la capacité, voir [Créer de la capacité Power BI Embedded dans le portail Azure](create-capacity.md).
 
 > [!IMPORTANT]
-> Étant donné que les jetons d’incorporation sont destinés uniquement à des tests de développement, le nombre de jetons d’incorporation qu’un compte principal Power BI peut générer est limité. Une [capacité doit être achetée](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) pour des scénarios d’incorporation de production. Il n’existe aucune limite à la génération de jetons d’incorporation quand une capacité est achetée. Accédez à [Obtenir les fonctionnalités disponibles](https://msdn.microsoft.com/en-us/library/mt846473.aspx) pour rechercher l’utilisation incorporée actuelle en pourcentage.
+> Étant donné que les jetons d’incorporation sont destinés uniquement à des tests de développeur, le nombre de jetons d’incorporation qu’un compte principal Power BI peut générer est limité. Une [capacité doit être achetée](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) pour des scénarios d’incorporation de production. Il n’existe aucune limite à la génération de jetons d’incorporation lorsqu’une capacité dédiée est achetée. Accédez à [Obtenir les fonctionnalités disponibles](https://msdn.microsoft.com/library/mt846473.aspx) pour rechercher l’utilisation incorporée actuelle en pourcentage.
 
-Gérez votre capacité dans le portail d’administration Power BI. Affectez le composant d’affectation de l’espace de travail pour faciliter la gestion de vos espaces de travail d’application. Pour en savoir plus, voir [Gérer les capacités dans Power BI Premium et Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
+Gérez votre capacité dans le portail d’administration Power BI. Affectez un administrateur d’espace de travail pour faciliter la gestion de vos espaces de travail d’application. Pour en savoir plus, voir [Gérer les capacités dans Power BI Premium et Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour créer une capacité Power BI Embedded, voir [Créer de la capacité Power BI Embedded dans le portail Azure](create-capacity.md).
 
-Pour accéder à un exemple de procédure pas à pas, voir [Intégrer un tableau de bord, une vignette ou un rapport dans votre application (l’application possède les données)](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/).
+Pour accéder à un exemple de procédure pas à pas, consultez [Intégrer un tableau de bord, une vignette ou un rapport dans votre application](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/).
 
 Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)

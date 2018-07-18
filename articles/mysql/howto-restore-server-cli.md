@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 23c9056bbfa6ae0be0f7c73a34250a2fff77f4d2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266004"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319086"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
@@ -32,32 +32,6 @@ Pour utiliser ce guide pratique, il vous faut :
 
 > [!IMPORTANT]
 > Ce guide de procédures requiert l’utilisation de la version 2.0 Azure CLI ou version ultérieure. Pour vérifier la version, à l’invite de commande de l’interface Azure CLI, entrez `az --version`. Pour installer ou mettre à niveau l’interface Azure CLI, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Ajouter l’extension
-Ajoutez l’extension de gestion Azure Database pour MySQL mise à jour à l’aide de la commande suivante :
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Vérifiez que vous avez installé la version d’extension appropriée. 
-```azurecli-interactive
-az extension list
-```
-
-Le retour JSON doit inclure les éléments suivants : 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Si la version 0.0.5 n’est pas renvoyée, exécutez la commande suivante pour mettre à jour l’extension : 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Définir la configuration de sauvegarde
 

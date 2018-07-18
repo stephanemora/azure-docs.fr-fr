@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: ryanwi
-ms.openlocfilehash: b2b3562f65e7e861b7e4dff7b7c26d58081ff29e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211923"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824609"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Afficher les fichiers journaux d’un service de conteneurs Service Fabric
 Azure Service Fabric, qui est un orchestrateur de conteneurs, prend en charge les [conteneurs Linux et Windows](service-fabric-containers-overview.md).  Cet article décrit comment afficher les fichiers journaux de conteneurs d’un service de conteneurs en cours d’exécution ou d’un conteneur mort, de manière à pouvoir diagnostiquer et résoudre les problèmes.
@@ -35,6 +35,14 @@ Dans l’arborescence, recherchez le package de code sur le nœud *_lnxvm_0*, en
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Accéder aux journaux d’un conteneur planté ou mort
 À compter de v6.2, vous pouvez également extraire les journaux pour un conteneur mort ou planté à l’aide d’[API REST](/rest/api/servicefabric/sfclient-index) ou de commandes [SFCTL (Service Fabric CLI)](service-fabric-cli.md).
+
+### <a name="set-container-retention-policy"></a>Définir la stratégie de rétention de conteneur
+Pour aider à diagnostiquer les échecs de démarrage du conteneur, Service Fabric (version 6.1 ou supérieure) prend en charge les conteneurs conservés qui ont terminé ou échoué leur démarrage. Cette stratégie peut être définie dans le fichier **ApplicationManifest.xml** comme indiqué dans l’extrait de code suivant :
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+Le paramètre **ContainersRetentionCount** spécifie le nombre de conteneurs à conserver en cas d’échec. Si une valeur négative est spécifiée, tous les conteneurs en échec sont conservés. Quand l’attribut **ContainersRetentionCount** n’est pas spécifié, aucun conteneur n’est conservé. L’attribut **ContainersRetentionCount** prend également en charge les paramètres de l’application. Les utilisateurs peuvent ainsi spécifier des valeurs différentes pour les clusters de test et de production. Utilisez des contraintes de placement pour cibler le service conteneur sur un nœud particulier lors de l’utilisation de cette fonctionnalité pour empêcher le service conteneur de se déplacer vers d’autres nœuds. Tous les conteneurs conservés à l’aide de cette fonctionnalité doivent être supprimés manuellement.
 
 ### <a name="rest"></a>REST
 Utilisez l’opération [Obtenir les journaux de conteneur déployés sur le nœud](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) afin d’obtenir les journaux pour un conteneur planté. Spécifiez le nom du nœud sur lequel le conteneur s’exécutait, le nom de l’application, le nom du manifeste de service et le nom du package de code.  Spécifiez `&Previous=true`. La réponse contiendra les journaux du conteneur mort de l’instance de package de code.

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/12/2018
+ms.date: 05/18/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7a9e257d445ff7dadfe27d1c75cde6f58a393397
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 9bb7808f2b483fe9cd7d22c6df3fe80d4a98f1f4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161812"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266854"
 ---
 # <a name="understand-role-definitions"></a>Comprendre les définitions de rôles
 
@@ -28,7 +28,7 @@ Si vous essayez de comprendre comment un rôle fonctionne, ou si vous créez vot
 
 ## <a name="role-definition-structure"></a>Structure d’une définition de rôle
 
-Une *définition de rôle* est une collection d’autorisations. On l’appelle parfois simplement *rôle*. Une définition de rôle répertorie les opérations qui peuvent être effectuées, telles que lire, écrire et supprimer. Il peut également répertorier les opérations qui ne peut pas être effectuées. Une définition de rôle présente la structure suivante :
+Une *définition de rôle* est une collection d’autorisations. On l’appelle parfois simplement *rôle*. Une définition de rôle répertorie les opérations qui peuvent être effectuées, telles que lire, écrire et supprimer. Elle permet également de répertorier les opérations qui ne peuvent pas être effectuées ou les opérations liées aux données sous-jacentes. Une définition de rôle présente la structure suivante :
 
 ```
 assignableScopes []
@@ -37,7 +37,9 @@ id
 name
 permissions []
   actions []
+  dataActions []
   notActions []
+  notDataActions []
 roleName
 roleType
 type
@@ -74,11 +76,13 @@ Voici la définition du rôle [Contributeur](built-in-roles.md#contributor) au f
           "*"
         ],
         "additionalProperties": {},
+        "dataActions": [],
         "notActions": [
           "Microsoft.Authorization/*/Delete",
           "Microsoft.Authorization/*/Write",
           "Microsoft.Authorization/elevateAccess/Action"
         ],
+        "notDataActions": []
       }
     ],
     "roleName": "Contributor",
@@ -88,7 +92,7 @@ Voici la définition du rôle [Contributeur](built-in-roles.md#contributor) au f
 ]
 ```
 
-## <a name="management-operations"></a>Opérations de gestion
+## <a name="management-and-data-operations-preview"></a>Opérations de gestion et sur les données (préversion)
 
 Le contrôle d’accès en fonction du rôle pour les opérations de gestion est spécifié dans les sections `actions` et `notActions` d’une définition de rôle. Voici quelques exemples d’opérations de gestion dans Azure :
 
@@ -96,7 +100,93 @@ Le contrôle d’accès en fonction du rôle pour les opérations de gestion est
 - Créer, mettre à jour ou supprimer un conteneur d’objets blob
 - Supprimer un groupe de ressources et toutes ses ressources
 
-Vos données n’héritent pas de l’accès à la gestion. Cette séparation empêche des rôles avec caractères génériques (`*`) d’avoir un accès illimité à vos données. Par exemple, si un utilisateur a un rôle [Lecteur](built-in-roles.md#reader) sur un abonnement, il peut afficher le compte de stockage, mais pas les données sous-jacentes.
+Vos données n’héritent pas de l’accès à la gestion. Cette séparation empêche des rôles avec caractères génériques (`*`) d’avoir un accès illimité à vos données. Par exemple, si un utilisateur a un rôle [Lecteur](built-in-roles.md#reader) sur un abonnement, il peut afficher le compte de stockage, mais pas les données sous-jacentes, par défaut.
+
+Auparavant, le contrôle d’accès en fonction du rôle n’était pas utilisé pour les opérations sur les données. L’autorisation pour les opérations sur les données variait selon les fournisseurs de ressources. Le même modèle d’autorisation du contrôle d'accès en fonction du rôle utilisé pour les opérations de gestion a été étendu aux opérations sur les données (actuellement en préversion).
+
+Pour prendre en charge les opérations sur les données, de nouvelles sections de données ont été ajoutées à la structure de définition de rôle. Les opérations sur les données sont spécifiées dans les sections `dataActions` et `notDataActions`. En ajoutant ces sections de données, la séparation entre la gestion et les données est conservée. Cela empêche les attributions de rôle contenant des caractères génériques (`*`) d’accéder soudainement aux données. Voici quelques opérations sur les données qui peuvent être spécifiées dans `dataActions` et `notDataActions` :
+
+- Lire une liste d’objets blob dans un conteneur
+- Écrire un objet blob de stockage dans un conteneur
+- Supprimer un message dans une file d’attente
+
+Voici la définition de rôle [Lecteur des données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-reader-preview), qui inclut des opérations à la fois dans les sections `actions` et `dataActions`. Ce rôle vous permet de lire le conteneur d’objets blob ainsi que les données d’objets blob sous-jacentes.
+
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Allows for read access to Azure Storage blob containers and data.",
+    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+    "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+        ],
+        "additionalProperties": {},
+        "dataActions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+        ],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Storage Blob Data Reader (Preview)",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+Seules des opérations sur les données peuvent être ajoutées aux sections `dataActions` et `notDataActions`. Les fournisseurs de ressources identifient quelles opérations sont des opérations sur les données, en définissant la propriété `isDataAction` sur `true`. Pour afficher la liste des opérations où `isDataAction` est `true`, consultez [Opérations de fournisseur de ressources](resource-provider-operations.md). Les rôles qui n’ont pas d’opérations sur les données ne sont pas obligés d’avoir les sections `dataActions` et `notDataActions` dans la définition de rôle.
+
+L’autorisation pour tous les appels d’API des opérations de gestion est gérée par Azure Resource Manager. L’autorisation pour les appels d’API des opérations sur les données est gérée par un fournisseur de ressources ou Azure Resource Manager.
+
+### <a name="data-operations-example"></a>Exemple d’opérations sur les données
+
+Pour mieux comprendre comment fonctionnent les opérations de gestion et les opérations sur les données, prenons un exemple spécifique. Alice a reçu le rôle [Propriétaire](built-in-roles.md#owner) au niveau de l’étendue de l’abonnement. Bob a reçu le rôle [Contributeur aux données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-contributor-preview) dans une étendue de compte de stockage. Le diagramme qui suit présente cet exemple.
+
+![Le contrôle d’accès en fonction du rôle a été étendu pour prendre en charge les opérations de gestion et les opérations sur les données](./media/role-definitions/rbac-management-data.png)
+
+Le rôle [Propriétaire](built-in-roles.md#owner) pour Alice et le rôle [Contributeur aux données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-contributor-preview) pour Bob effectuent les actions suivantes :
+
+Propriétaire
+
+&nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`*`
+
+Contributeur aux données Blob du stockage (préversion)
+
+&nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataActions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
+
+Comme Alice dispose d’une action avec caractère générique (`*`) à une étendue de l’abonnement, elle hérite d’autorisations lui permettant d’effectuer toutes les actions de gestion. Mais Alice ne peut pas effectuer d’opération sur les données. Par exemple, par défaut, Alice ne peut pas lire les objets blob à l’intérieur d’un conteneur, mais elle peut lire, écrire et supprimer des conteneurs.
+
+Les autorisations de Bob se limitent aux actions `actions` et `dataActions` spécifiées dans le rôle [Contributeur aux données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-contributor-preview). En fonction du rôle, Bob peut effectuer à la fois des opérations de gestion et des opérations sur les données. Par exemple, Bob peut lire, écrire et supprimer des conteneurs du compte de stockage spécifié, mais aussi lire, écrire et supprimer les objets blob.
+
+### <a name="what-tools-support-using-rbac-for-data-operations"></a>Quels outils prennent en charge l’utilisation de RBAC pour les opérations sur les données ?
+
+Pour afficher et utiliser des opérations sur les données, vous devez disposer des versions appropriées des outils ou des kits de développement logiciel (SDK) :
+
+| Outil  | Version  |
+|---------|---------|
+| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 ou version ultérieure |
+| [interface de ligne de commande Azure](/cli/azure/install-azure-cli) | 2.0.30 ou version ultérieure |
+| [Azure pour .NET](/dotnet/azure/) | 2.8.0-preview ou version ultérieure |
+| [Kit de développement logiciel (SDK) Azure pour Go](/go/azure/azure-sdk-go-install) | 15.0.0 ou version ultérieure |
+| [Azure pour Java](/java/azure/) | 1.9.0 ou version ultérieure |
+| [Azure pour Python](/python/azure) | 0.40.0 ou version ultérieure |
+| [Kit de développement logiciel (SDK) Azure pour Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 ou version ultérieure |
 
 ## <a name="actions"></a>actions
 
@@ -116,6 +206,25 @@ L’autorisation `notActions` spécifie les opérations de gestion qui sont excl
 
 > [!NOTE]
 > Si un utilisateur se voit attribuer un rôle qui exclut une opération dans `notActions`, et un second rôle qui accorde l’accès à cette même opération, il est autorisé à effectuer celle-ci. `notActions` n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
+>
+
+## <a name="dataactions-preview"></a>dataActions (préversion)
+
+L’autorisation `dataActions` spécifie les opérations sur les données auxquelles le rôle donne accès (données figurant dans cet objet). Par exemple, si un utilisateur dispose d’un accès en lecture aux données blob d’un compte de stockage, il peut lire les objets blob de ce compte de stockage. Voici quelques exemples d’opérations sur les données qui peuvent être utilisées dans `dataActions`.
+
+| Chaîne d’opération    | Description         |
+| ------------------- | ------------------- |
+| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Retourne un objet blob ou une liste d'objets blob. |
+| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Retourne le résultat de l'écriture d'un objet blob. |
+| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Retourne un message. |
+| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Retourne un message ou le résultat de l’écriture ou de la suppression d’un message. |
+
+## <a name="notdataactions-preview"></a>notDataActions (préversion)
+
+L’autorisation `notDataActions` spécifie les opérations sur les données qui sont exclues des `dataActions` autorisées. L’accès accordé par un rôle (autorisations effectives) est calculé en soustrayant les opérations `notDataActions` des opérations `dataActions`. Chaque fournisseur de ressources fournit son propre ensemble d’API pour répondre à des opérations sur les données.
+
+> [!NOTE]
+> Si un utilisateur se voit attribuer un rôle qui exclut une opération sur les données dans `notDataActions`, et un second rôle qui accorde l’accès à cette même opération, il est autorisé à effectuer celle-ci. `notDataActions` n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations sur les données autorisées lorsque des opérations sur les données spécifiques doivent être exclues.
 >
 
 ## <a name="assignablescopes"></a>assignableScopes
@@ -163,7 +272,9 @@ L’exemple suivant présente la définition de rôle [Lecteur](built-in-roles.m
           "*/read"
         ],
         "additionalProperties": {},
+        "dataActions": [],
         "notActions": [],
+        "notDataActions": []
       }
     ],
     "roleName": "Reader",
@@ -196,6 +307,12 @@ L’exemple suivant présente un rôle personnalisé pour la surveillance et le 
   "NotActions":  [
 
                  ],
+  "DataActions":  [
+
+                  ],
+  "NotDataActions":  [
+
+                     ],
   "AssignableScopes":  [
                            "/subscriptions/{subscriptionId1}",
                            "/subscriptions/{subscriptionId2}",

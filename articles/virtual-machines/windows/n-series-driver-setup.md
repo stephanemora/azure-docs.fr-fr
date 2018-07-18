@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efa8c2603d6ff4493656cda41306a5dad46bc5f3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bc4b9cb9940f073034df01143f4d9e77a47cb19b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654383"
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>Configuration des pilotes GPU NVIDIA pour les machines virtuelles série N exécutant Windows 
 Pour tirer parti des fonctionnalités GPU des machines virtuelles série N Azure exécutant une version prise en charge de Windows Server ou Windows, les pilotes graphiques NVIDIA doivent être installés. Cet article vous offre des étapes de configuration de pilote lorsque vous avez déployé une machine virtuelle de série N. Des informations de configuration du pilote sont également disponibles pour [les machines virtuelles Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -53,7 +54,7 @@ Pour interroger l’état de l’appareil GPU, exécutez l’utilitaire de ligne
 
 ## <a name="rdma-network-connectivity"></a>Connectivité réseau RDMA
 
-La connectivité réseau RDMA peut être activée sur des machines virtuelles de série N compatibles RDMA, comme les machines NC24r déployées dans le même groupe à haute disponibilité ou groupe identique de machines virtuelles. L’extension HpcVmDrivers doit être ajoutée pour installer les pilotes d’appareils réseau Windows nécessaires à la connectivité RDMA. Pour ajouter l’extension de machine virtuelle sur une machine virtuelle de série N compatible RDMA, utilisez les cmdlets [Azure PowerShell](/powershell/azure/overview) pour Azure Resource Manager.
+La connectivité réseau RDMA peut être activée sur des machines virtuelles de série N compatibles RDMA, comme les machines NC24r déployées dans le même groupe à haute disponibilité ou dans un seul groupe de placement au sein d’un groupe de machines virtuelles identiques. L’extension HpcVmDrivers doit être ajoutée pour installer les pilotes d’appareils réseau Windows nécessaires à la connectivité RDMA. Pour ajouter l’extension de machine virtuelle sur une machine virtuelle de série N compatible RDMA, utilisez les cmdlets [Azure PowerShell](/powershell/azure/overview) pour Azure Resource Manager.
 
 Pour installer la dernière version 1.1 de l’extension HpcVMDrivers sur une machine virtuelle existante prenant en charge RDMA et nommée myVM dans la région États-Unis de l'Ouest :
   ```PowerShell
@@ -66,6 +67,6 @@ Le réseau RDMA prend en charge le trafic MPI (Message Passing Interface) pour l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Les développeurs qui créent des applications avec accélération GPU pour les GPU Tesla NVIDIA peuvent également télécharger et installer le [kit d’outils 9.1 CUDA](https://developer.nvidia.com/cuda-downloads). Pour plus d’informations, consultez le [Guide d’installation de CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Les développeurs qui créent des applications avec accélération GPU pour les GPU Tesla NVIDIA peuvent également télécharger et installer le dernier [kit d’outils CUDA](https://developer.nvidia.com/cuda-downloads). Pour plus d’informations, consultez le [Guide d’installation de CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

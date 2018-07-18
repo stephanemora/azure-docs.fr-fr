@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: bde4347c487be8986c72435172b18c10effa0690
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940282"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34608812"
 ---
 # <a name="sizes-for-cloud-services"></a>Tailles de services cloud
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources. Chaque taille a un identifiant que vous placez dans votre [fichier de définition de service](cloud-services-model-and-package.md#csdef). Les prix pour chaque taille sont disponibles sur la page de [tarification des Services Cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -85,13 +85,13 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 | Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Très petite      | 1         | 0,768        | 20                   | 1 / Faible |
-| Petite           | 1         | 1,75         | 70                   | 1 / Modérée |
-| Moyenne          | 2         | 3,5          | 135                  | 1 / Modérée |
-| grand           | 4         | 7            | 285                  | 2 / Élevée |
-| Très grande      | 8         | 14           | 605                  | 4 / Élevée |
-| A5              | 2         | 14           | 135                  | 1 / Modérée |
-| A6              | 4         | 28           | 285                  | 2 / Élevée |
-| A7              | 8         | 56           | 605                  | 4 / Élevée |
+| Petite           | 1         | 1,75         | 225                  | 1 / Modérée |
+| Moyenne          | 2         | 3,5          | 490                  | 1 / Modérée |
+| grand           | 4         | 7            | 1 000                 | 2 / Élevée |
+| Très grande      | 8         | 14           | 2040                 | 4 / Élevée |
+| A5              | 2         | 14           | 490                  | 1 / Modérée |
+| A6              | 4         | 28           | 1 000                 | 2 / Élevée |
+| A7              | 8         | 56           | 2040                 | 4 / Élevée |
 
 ## <a name="a-series---compute-intensive-instances"></a>Série A - Instances de calcul intensif
 Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez [Tailles de machines virtuelles de calcul haute performance](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

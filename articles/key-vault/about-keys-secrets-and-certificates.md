@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 2c7dd89d9c2e5d50f2533101499a6e50e52047b3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636604"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Présentation des clés, des secrets et des certificats
 Azure Key Vault permet aux utilisateurs de stocker et d’utiliser des clés de chiffrement dans l’environnement Microsoft Azure. Key Vault prend en charge plusieurs types de clés et algorithmes, et permet d’utiliser des modules de sécurité matériels (HSM) pour les clés de valeur supérieure. Key Vault permet également aux utilisateurs de stocker des secrets en toute sécurité. Les secrets sont des objets octets de taille limitée sans sémantique spécifique. Key Vault prend également en charge les certificats, qui sont basés sur des clés et secrets, et qui offrent une fonctionnalité de renouvellement automatique.
@@ -327,7 +328,7 @@ Les attributs de certificat sont reproduits dans des attributs de la clé et du 
 
 Un certificat Key Vault comprend les attributs suivants :  
 
--   *enabled* : booléen, facultatif, **true** par défaut. Cet attribut peut être spécifié pour indiquer si les données du certificat peuvent être récupérées en tant que secret ou utilisables en tant que clé. Il est utilisé avec *nbf* and *exp* lorsqu’une opération se produit entre *nbf* et exp, elle ne sera autorisée que si enabled est défini sur true. Les opérations en dehors de la fenêtre *nbf* et *exp* sont automatiquement interdites.  
+-   *enabled* : booléen, facultatif, **true** par défaut. Cet attribut peut être spécifié pour indiquer si les données du certificat peuvent être récupérées en tant que secret ou utilisables en tant que clé. Il est utilisé avec *nbf* et *exp*. Quand une opération se produit entre *nbf* et *exp*, elle n’est autorisée que si enabled a la valeur true. Les opérations en dehors de la fenêtre *nbf* et *exp* sont automatiquement interdites.  
 
 Des attributs supplémentaires en lecture seule sont inclus dans la réponse :
 

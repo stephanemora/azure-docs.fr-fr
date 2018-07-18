@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 80537bb817baf20831ad5020f0db775f21836f92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25cb3ba53c663a642f0871becbfbcab39d521c67
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632133"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437713"
 ---
 # <a name="door-monitor"></a>Surveillance de la porte          
 
@@ -33,7 +33,7 @@ Dans ce projet, vous allez apprendre :
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-Suivez le [Guide de mise en route]({{"/docs/get-started/" | absolute_url }}) pour :
+Suivez le [Guide de mise en route](iot-hub-arduino-iot-devkit-az3166-get-started.md) pour :
 
 * Connecter votre DevKit au Wi-Fi
 * Préparer l’environnement de développement

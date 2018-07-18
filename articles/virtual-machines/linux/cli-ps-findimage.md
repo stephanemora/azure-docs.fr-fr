@@ -16,15 +16,17 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c65ebbc8a61c13b96364dadde45bd4bca828e337
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 53e5100023fb76b4daf468d3f2027f2b5c7f31d7
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29740881"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292957"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Comment rechercher des images de machine virtuelle Linux sur la Place de marché Microsoft Azure avec Azure CLI
 Cette rubrique décrit comment utiliser Azure CLI 2.0 pour rechercher des images de machine virtuelle sur la Place de marché Microsoft Azure. Ces informations permettent de spécifier une image de la Place de marché lorsque vous créez une machine virtuelle par programmation avec l’interface CLI, des modèles de Resource Manager ou d’autres outils.
+
+Parcourez également les offres et images disponibles à l’aide de la vitrine [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/), du [Portail Azure](https://portal.azure.com) ou [d’Azure PowerShell](../windows/cli-ps-findimage.md). 
 
 Veillez à installer la dernière version d’[Azure CLI 2.0](/cli/azure/install-az-cli2) et à être connecté à un compte Azure (`az login`).
 
@@ -251,7 +253,7 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 
 Vous pouvez maintenant choisir précisément l’image à utiliser en prenant note de la valeur URN. Passez cette valeur avec le paramètre `--image` lorsque vous créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). N’oubliez pas que vous pouvez remplacer le numéro de version de l’URN par « latest » (dernière version). Cette version est toujours la dernière version de l’image. 
 
-Si vous déployez une machine virtuelle avec un modèle Resource Manager, vous définissez les paramètres d’image individuellement dans les propriétés `imageReference`. Consultez la [Référence de modèle](/azure/templates/microsoft.compute/virtualmachines).
+Si vous déployez une machine virtuelle avec un modèle Resource Manager, vous définissez les paramètres d’image individuellement dans les propriétés `imageReference`. Consultez la [référence de modèle](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
@@ -306,7 +308,7 @@ Output:
 ```
 
 ### <a name="accept-the-terms"></a>Accepter les conditions
-Pour afficher et accepter les termes du contrat de licence, utilisez la commande [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms). Lorsque vous acceptez les termes, vous activez un déploiement par programmation dans votre abonnement. Vous devez seulement accepter les termes une fois par abonnement pour l’image. Par exemple : 
+Pour afficher et accepter les termes du contrat de licence, utilisez la commande [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms). Lorsque vous acceptez les termes, vous activez un déploiement par programmation dans votre abonnement. Vous ne devez accepter qu’une fois les conditions par abonnement pour l’image. Par exemple : 
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
@@ -343,5 +345,5 @@ az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabb
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour créer rapidement une machine virtuelle en utilisant les informations d’une image, consultez [Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI](tutorial-manage-vm.md).

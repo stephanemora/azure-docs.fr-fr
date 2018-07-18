@@ -8,20 +8,21 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c9457e51858d4a073d8baffdd435c8100d95d566
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bc42697f756ec75d9a8f2c20c99b28b2f7886ca1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670273"
 ---
 |**Référence (SKU)**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br>Connexions** | **Agrégat<br>Référence de débit** |
 |---       | ---                             | ---                    | ---                         |
-|**VpnGw1**| Bande passante 30                         | Bande passante 128               | 650 Mbits/s                    |
-|**VpnGw2**| Bande passante 30                         | Bande passante 128               | 1 Gbit/s                      |
-|**VpnGw3**| Bande passante 30                         | Bande passante 128               | 1,25 Gbits/s                   |
+|**VpnGw1**| Bande passante 30                         | Bande passante 128*              | 650 Mbits/s                    |
+|**VpnGw2**| Bande passante 30                         | Bande passante 128*              | 1 Gbit/s                      |
+|**VpnGw3**| Bande passante 30                         | Bande passante 128*              | 1,25 Gbits/s                   |
 |**De base** | Bande passante 10                         | Bande passante 128               | 100 Mbits/s                    | 
-|          |                                 |                        |                             | 
 
+* Contactez le support technique si des connexions supplémentaires sont nécessaires.
 - La référence de débit agrégée est basée sur les mesures de plusieurs tunnels agrégés via une passerelle unique. Le débit n’est pas garanti en raison de conditions de trafic Internet et des comportements de votre application.
 
 - Pour des informations sur les prix, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway) .

@@ -3,7 +3,7 @@ title: Copier de façon incrémentielle plusieurs tables en utilisant Azure Data
 description: Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052842"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données SQL Azure
 Dans ce didacticiel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
@@ -36,9 +37,6 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > * Ajouter ou mettre à jour des données dans les tables source.
 > * Réexécuter et surveiller le pipeline.
 > * Passer en revue les résultats finaux.
-
-> [!NOTE]
-> Cet article s’applique à la version 2 d’Azure Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation de Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Vue d'ensemble
 Voici les étapes importantes à suivre pour créer cette solution : 
@@ -69,7 +67,6 @@ Voici les étapes importantes à suivre pour créer cette solution :
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 * **SQL Server**. Dans le cadre de ce didacticiel, vous allez utiliser une base de données SQL Server locale comme magasin de données source. 
 * **Base de données SQL Azure**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
 
@@ -370,16 +367,25 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 3. Un nouvel onglet est ouvert dans le navigateur web et vous permet de configurer le jeu de données. Un jeu de données est également affiché dans l’arborescence. Dans l’onglet **Général** de la fenêtre Propriétés située dans la partie inférieure, entrez **SinkDataset** dans le champ **Nom**.
 
    ![Jeu de données récepteur : général](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Passez dans l’onglet **Connexion** de la fenêtre Propriétés, puis sélectionnez **AzureSqlLinkedService** dans la liste déroulante **Service lié**. 
-
-   ![Jeu de données récepteur : connexion](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. Passez dans l’onglet **Paramètres** de la fenêtre Propriétés, et procédez comme suit : 
+4. Passez dans l’onglet **Paramètres** de la fenêtre Propriétés, et procédez comme suit : 
 
     1. Cliquez sur **Nouveau** dans la section **Créer/Mettre à jour des paramètres**. 
     2. Entrez **SinkTableName** dans le champ **Nom** et **Chaîne** dans le champ **Type**. Ce jeu de données utilise **SinkTableName** comme paramètre. Le paramètre SinkTableName est défini par le pipeline de manière dynamique lors de l’exécution. L’activité ForEach du pipeline effectue une itération dans une liste de noms de table et transmet le nom de table à ce jeu de données à chaque itération.
-    3. Entrez `@{dataset().SinkTableName}` pour la propriété **tableName** dans la section **Parameterizable properties** (Propriétés paramétrables). Vous utilisez la valeur transmise au paramètre **SinkTableName** pour initialiser la propriété **tableName** du jeu de données. 
-
+   
        ![Jeu de données récepteur : propriétés](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. Passez dans l’onglet **Connexion** de la fenêtre Propriétés, puis sélectionnez **AzureSqlLinkedService** dans la liste déroulante **Service lié**. Pour la propriété **Table**, cliquez sur **Ajouter du contenu dynamique**. 
+
+   ![Jeu de données récepteur : connexion](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+    
+6. Sélectionnez **SinkTableName** dans la section **Paramètres**
+   
+   ![Jeu de données récepteur : connexion](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. Après avoir cliqué sur **Terminer**, vous verrez **@dataset().SinkTableName** comme nom de table.
+   
+   ![Jeu de données récepteur : connexion](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### <a name="create-a-dataset-for-a-watermark"></a>Créer un jeu de données pour un filigrane
 Dans cette étape, vous allez créer un jeu de données pour stocker une valeur de limite supérieure. 
@@ -645,7 +651,7 @@ VALUES
     ]
     ```
 
-## <a name="monitor-the-pipeline"></a>Surveiller le pipeline
+## <a name="monitor-the-pipeline-again"></a>Surveiller à nouveau le pipeline
 
 1. Basculez vers l’onglet **Surveiller** sur la gauche. Vous observez l’exécution du pipeline activée par le **déclencheur manuel**. Cliquez sur le bouton **Actualiser** pour actualiser la liste. Les liens de la colonne **Action** vous permettent de visualiser les exécutions d’activités associées à l’exécution du pipeline et de réexécuter le pipeline. 
 

@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: 0beeb8fb7f7e46db97e179f3eacf3c68dd92cff3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798563"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061741"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Consulter et gérer les ressources de stockage à l’aide de l’Explorateur de serveurs
 
@@ -157,7 +157,7 @@ L’illustration suivante montre une file d’attente contenant deux messages :
 
 ![Affichage d’une file d’attente](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Pour plus d’informations sur les files d’attente de services de stockage, consultez [Prise en main du stockage de files d’attente Azure à l’aide de .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Pour plus d’informations sur le service web des files d’attente des services de stockage, consultez [Concepts de File d’attente](http://go.microsoft.com/fwlink/?LinkId=264788). Pour plus d’informations sur la façon d’envoyer des messages vers une file d’attente des services de stockage à l’aide de Visual Studio, consultez [Envoi de messages à une file d’attente de services de stockage](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+Pour plus d’informations sur les files d’attente de services de stockage, consultez [Prise en main du stockage de files d’attente Azure à l’aide de .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Pour plus d’informations sur le service web des files d’attente des services de stockage, consultez [Concepts de File d’attente](http://go.microsoft.com/fwlink/?LinkId=264788). Pour plus d’informations sur la façon d’envoyer des messages vers une file d’attente des services de stockage à l’aide de Visual Studio, consultez [Envoi de messages à une file d’attente de services de stockage](https://docs.microsoft.com/azure/visual-studio/vs-storage-cloud-services-getting-started-queues).
 
 > [!NOTE]
 > Les files d’attente de services de stockage sont différentes des files d’attente Azure Service Bus. Pour plus d’informations sur les files d’attente Service Bus, consultez [Files d’attente, rubriques et abonnements Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).

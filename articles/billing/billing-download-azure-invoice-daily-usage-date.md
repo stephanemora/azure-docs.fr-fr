@@ -2,13 +2,12 @@
 title: Téléchargement de votre facture Azure et de vos données d’utilisation quotidienne | Microsoft Docs
 description: Décrit comment télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne.
 keywords: facturation, facture, téléchargement de facture, facture Azure, utilisation d’Azure
-services: ''
+services: billing
 documentationcenter: ''
 author: genlin
 manager: tonguyen
 editor: ''
 tags: billing
-ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 59ee992518b5e529f486415f962c6f26881875f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607410"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne
 Vous pouvez télécharger votre facture à partir du [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou la faire envoyer par courrier électronique. Pour télécharger votre utilisation quotidienne, accédez au [Centre des comptes Azure](https://account.azure.com/Subscriptions). Seuls certains rôles (l’administrateur de compte par exemple) sont autorisés à obtenir les informations de facturation et d’utilisation. Pour en savoir plus sur l’accès aux informations de facturation, consultez [Manage access to Azure billing using roles](billing-manage-access.md) (Utiliser des rôles pour gérer l’accès à la facturation Azure).
 
 Cet article ne s’applique pas aux clients Contrat Entreprise (EA). Si vous êtes client EA, vos factures sont directement envoyées aux administrateurs de l’inscription.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obtenir votre facture par e-mail (.pdf)
 Vous pouvez choisir de configurer des destinataires supplémentaires qui recevront votre facture Azure par e-mail. Cette fonctionnalité n’est peut-être pas disponible pour certains abonnements tels que les offres de support, les contrats Entreprise ou Azure dans Open.
@@ -39,13 +38,18 @@ Vous pouvez choisir de configurer des destinataires supplémentaires qui recevro
     
 2. Cliquez sur **Activation** et acceptez les termes du contrat.
 
-    ![Capture d’écran montrant le processus d’abonnement](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+    ![Capture d’écran montrant l’étape 2 du flux de l’adhésion](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
-3. Une fois que vous avez accepté le contrat, vous pouvez configurer des destinataires supplémentaires.
+3. Une fois que vous avez accepté le contrat, vous pouvez configurer des destinataires supplémentaires. Quand un destinataire est supprimé, l’adresse e-mail n’est plus stockée. Si vous changez d’avis, vous devez les ajouter à nouveau.
 
-    ![Capture d’écran montrant le processus d’abonnement](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Capture d’écran montrant l’étape 3 du flux de l’adhésion](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
 Si vous n’obtenez pas de courrier électronique une fois ces étapes terminées, assurez-vous que votre adresse de messagerie est correcte dans les [préférences de communication sur votre profil](https://account.windowsazure.com/profile).
+
+### <a name="opt-out-from-getting-your-invoice-in-email"></a>Annuler l’adhésion à l’envoi de votre facture par e-mail
+Si vous ne voulez pas recevoir votre facture par e-mail, cliquez sur Désactiver l’envoi de facture par e-mail. Ceci supprime toutes les adresses e-mail définies pour recevoir les factures par e-mail. Si vous réadhérez, vous devez reconfigurer les destinataires.
+
+ ![Capture d’écran montrant le flux de l’adhésion](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Télécharger la facture à partir du portail Azure (.pdf)
 

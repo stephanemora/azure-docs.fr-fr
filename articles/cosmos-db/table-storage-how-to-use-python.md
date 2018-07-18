@@ -1,45 +1,42 @@
 ---
-title: Prise en main du stockage de tables Azure à l’aide de Python | Microsoft Docs
-description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure, un magasin de données NoSQL.
+title: Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python | Microsoft Docs
+description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: python
 author: SnehaGunda
 manager: kfile
-ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: python
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: b4370f63c2e5ccf466de7cb680377b12940a6efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 42e7ef8699ee5f481c6a1c45832dfa3428e3baa8
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798200"
 ---
-# <a name="get-started-with-azure-table-storage-using-python"></a>Prise en main d’Azure Table Storage à l’aide de Python
+# <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Le Stockage Table Azure est un service qui stocke des données NoSQL structurées dans le cloud, en fournissant une conception sans schéma à un magasin de clés/attributs. Comme le stockage de tables est sans schéma, il est aisé d’adapter vos données en fonction des besoins de votre application. L’accès aux données du Stockage Table est rapide et économique pour de nombreux types d’applications, et généralement moins coûteux que le SQL traditionnel pour des volumes de données similaires.
+Le Stockage Table Azure et Azure Cosmos DB sont des services qui stockent des données NoSQL structurées dans le cloud, en fournissant une conception sans schéma à un magasin de clés/attributs. Comme le stockage de tables et Azure Cosmos DB sont sans schéma, il est aisé d’adapter vos données en fonction des besoins de votre application. L’accès au stockage de tables et aux données de l’API de table est rapide et économique pour de nombreux types d’applications, et généralement moins coûteux que le SQL traditionnel pour des volumes de données similaires.
 
-Vous pouvez utiliser le Stockage Table pour stocker des jeux de données flexibles, comme des données utilisateur pour des applications Web, des carnets d’adresses, des informations sur les périphériques ou d’autres types de métadonnées requis par votre service. Vous pouvez stocker un nombre quelconque d'entités dans une table, et un compte de stockage peut contenir un nombre quelconque de tables, jusqu'à la limite de capacité du compte de stockage.
+Vous pouvez utiliser le stockage de tables ou Azure Cosmos DB pour stocker des jeux de données flexibles, comme des données utilisateur pour des applications web, des carnets d’adresses, des informations sur les appareils ou d’autres types de métadonnées requis par votre service. Vous pouvez stocker un nombre quelconque d'entités dans une table, et un compte de stockage peut contenir un nombre quelconque de tables, jusqu'à la limite de capacité du compte de stockage.
 
-### <a name="about-this-tutorial"></a>À propos de ce didacticiel
-Ce didacticiel montre comment utiliser la [Kit de développement logiciel (SDK) de table Azure Cosmos DB pour Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) dans les scénarios de stockage de tables Azure courants. Le nom du Kit de développement logiciel (SDK) indique qu’il doit être utilisé avec Azure Cosmos DB, mais il fonctionne avec Azure Cosmos DB et avec le stockage de tables Azure, chaque service possédant un point de terminaison unique. Ces scénarios sont explorés à l’aide d’exemples Python qui montrent comment :
+### <a name="about-this-sample"></a>À propos de cet exemple
+Cet exemple montre comment utiliser le [Kit de développement logiciel (SDK) de table Azure Cosmos DB pour Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) dans les scénarios de stockage de tables Azure courants. Le nom du Kit de développement logiciel (SDK) indique qu’il doit être utilisé avec Azure Cosmos DB, mais il fonctionne avec Azure Cosmos DB et avec le stockage de tables Azure, chaque service possédant un point de terminaison unique. Ces scénarios sont explorés à l’aide d’exemples Python qui montrent comment :
 * créer et supprimer des tables ;
 * Insérer et interroger des entités
 * Modifier des entités
 
-Pendant que vous étudiez les scénarios de ce didacticiel, vous pouvez vous référer à la [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://azure.github.io/azure-cosmosdb-python/).
+Pendant que vous étudiez les scénarios de cet exemple, vous pouvez vous référer à la [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://azure.github.io/azure-cosmosdb-python/).
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Vous aurez besoin des éléments suivants pour suivre ce didacticiel :
+Vous aurez besoin des éléments suivants pour suivre cet exemple :
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 ou 3.6
 - [Kit de développement logiciel (SDK) du service Table d’Azure Cosmos DB pour Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Ce kit de développement logiciel (SDK) se connecte à la fois avec l’API Table Azure Cosmos DB et le Stockage Table Azure.

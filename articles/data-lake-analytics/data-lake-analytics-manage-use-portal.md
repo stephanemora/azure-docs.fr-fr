@@ -1,30 +1,27 @@
 ---
-title: Gérer Azure Data Lake Analytics à l’aide du portail Azure | Microsoft Docs
-description: Apprenez à gérer des comptes Data Lake Analytics, des sources de données, des utilisateurs et des travaux.
+title: Gérer Azure Data Lake Analytics à l’aide du portail Azure
+description: Cet article décrit comment utiliser le portail Azure pour gérer des comptes, des sources de données, des utilisateurs et des travaux Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 99b638279b38ce3b583208ec0b80617f9046a6d7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+manager: kfile
+editor: jasonwhowell
+ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: dcf1a853f00f047a6d8beb8599a5b74c7f8f084d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771379"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969508"
 ---
-# <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gérer Azure Data Lake Analytics à l’aide du portail Azure
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gérer Azure Data Lake Analytics à l’aide du portail Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données de compte, des utilisateurs et des travaux à l’aide du portail Azure. Pour afficher les rubriques de gestion sur l’utilisation d’autres outils, cliquez sur un onglet en haut de la page.
+Cet article décrit comment gérer des comptes, des sources de données, des utilisateurs et des travaux Azure Data Lake Analytics à l’aide du portail Azure.
+
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -169,4 +166,4 @@ Pour afficher une liste des tâches U-SQL récurrentes :
 
 * [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gestion d’Azure Data Lake Analytics à l’aide d’Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Gérer Azure Data Lake Analytics à l’aide de stratégies](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-policies)
+* [Gérer Azure Data Lake Analytics à l’aide de stratégies](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies)

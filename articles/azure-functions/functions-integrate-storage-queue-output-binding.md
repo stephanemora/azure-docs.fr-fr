@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a17897dc76b47f3fb7b6eb5076160faf6c5ae9c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b90d3c77e4fc10c9ee95ced8d24e3045da315fe5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29387062"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488554"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
@@ -31,7 +31,7 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mét
 
 ## <a name="prerequisites"></a>Prérequis 
 
-Pour effectuer ce démarrage rapide :
+Pour suivre ce guide de démarrage rapide :
 
 * Suivez les instructions de [Créer votre première fonction à l’aide du Portail Azure](functions-create-first-azure-function.md) en ignorant l’étape **Supprimer des ressources**. Ce démarrage rapide crée l’application de fonction, ainsi que la fonction que vous utilisez ici.
 
@@ -150,11 +150,11 @@ Ignorez cette section si vous avez déjà installé et connecté l’Explorateur
 
 2. Exécutez de nouveau la fonction, et vous verrez un nouveau message s’afficher dans la file d’attente.  
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez ajouté une liaison de sortie à une fonction existante. Pour en savoir plus sur la liaison vers le stockage de files d’attente, consultez la page [Liaisons de file d’attente de stockage Azure Functions](functions-bindings-storage-queue.md). 
 

@@ -14,22 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f350716d0ca906376f3eadce9e117694ff14515c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35756394"
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS
 Microsoft Azure s’engage fermement à préserver la confidentialité, la souveraineté de vos données et vous permet de contrôler vos données Azure hébergées via une suite de technologies servant à chiffrer, contrôler et gérer les clés de chiffrement, le contrôle et l’audit de l’accès aux données. Les clients Azure ont ainsi la possibilité de choisir la solution qui répond le mieux à leurs besoins professionnels. Dans ce document, nous allons vous présenter une nouvelle solution technologique « Azure Disk Encryption for Windows and Linux IaaS VM’s » pour protéger et sauvegarder vos données afin de répondre aux engagements de votre sécurité en matière d’organisation et les exigences de conformité. Cet article fournit des instructions détaillées sur la façon d’utiliser les fonctionnalités de cryptage de disque Azure, notamment sur les scénarios pris en charge et sur les expériences utilisateur.
 
-> [!NOTE]
-> Certaines recommandations peuvent entraîner une augmentation de l’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou d’abonnement supplémentaires.
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## <a name="overview"></a>Vue d'ensemble
 Azure Disk Encryption est une nouvelle fonctionnalité qui vous permet de chiffrer vos disques de machine virtuelle IaaS Windows et Linux. Azure Disk Encryption s’appuie sur la fonctionnalité standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) de Windows et la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux afin de fournir le chiffrement de volume pour le système d’exploitation et les disques de données. La solution est intégrée avec [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/), ce qui vous permet de contrôler et de gérer les clés et clés secrètes de chiffrement de disque dans votre abonnement Key Vault. Elle garantit également que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans votre stockage Azure.
 
 Azure Disk Encryption pour les machines virtuelles Iaas Windows et Linux est désormais à la **disponibilité générale** dans toutes les régions publiques Azure et les régions AzureGov pour les machines virtuelles standard et les machines virtuelles avec Stockage Premium.
+
+> [!NOTE]
+> Certaines recommandations peuvent entraîner une augmentation de l’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou d’abonnement supplémentaires.
+
 
 ### <a name="encryption-scenarios"></a>Scénarios de chiffrement
 Azure Disk Encryption prend en charge les scénarios client suivants :
@@ -132,7 +137,6 @@ Pour désactiver le chiffrement de disque pour les machines virtuelles IaaS, sui
 La désactivation du chiffrement des disques de données pour Linux n’est pas prise en charge si le lecteur de système d’exploitation est chiffré.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Voici les conditions requises pour activer Azure Disk Encryption sur les machines virtuelles IaaS Azure pour les scénarios pris en charge dans la section « Vue d’ensemble » :
 
 * Vous devez disposer d’un abonnement Azure actif valide pour créer des ressources dans Azure dans les régions prises en charge.
@@ -418,7 +422,7 @@ Vous pouvez activer le chiffrement de disque sur de nouvelles machines virtuelle
 > [!NOTE]
 > Ce modèle crée une machine virtuelle Windows chiffrée qui utilise l’image de la galerie Windows Server 2012.
 
-Vous pouvez activer le chiffrement de disque sur une nouvelle machine virtuelle IaaS RedHat Linux 7.2 avec une baie RAID-0 de 200 Go à l’aide de ce [modèle Resource Manager](https://aka.ms/fde-rhel). Une fois que le modèle est déployé, vérifiez l’état du chiffrement de la machine virtuelle à l’aide de l’applet de commande `Get-AzureRmVmDiskEncryptionStatus` comme décrit dans la section [Chiffrement du lecteur du système d’exploitation sur une machine virtuelle Linux en cours d’exécution](#encrypting-os-drive-on-a-running-linux-vm). Lorsque la machine retourne l’état _VMRestartPending_, redémarrez la machine virtuelle.
+Vous pouvez activer le chiffrement de disque sur une nouvelle machine virtuelle IaaS Red Hat Linux 7.2 avec une baie RAID-0 de 200 Go à l’aide de ce [modèle Resource Manager](https://aka.ms/fde-rhel). Une fois que le modèle est déployé, vérifiez l’état du chiffrement de la machine virtuelle à l’aide de l’applet de commande `Get-AzureRmVmDiskEncryptionStatus` comme décrit dans la section [Chiffrement du lecteur du système d’exploitation sur une machine virtuelle Linux en cours d’exécution](#encrypting-os-drive-on-a-running-linux-vm). Lorsque la machine retourne l’état _VMRestartPending_, redémarrez la machine virtuelle.
 
 Le tableau suivant répertorie les paramètres du modèle Resource Manager pour les nouvelles machines virtuelles dans un scénario Place de marche utilisant l’ID de client Azure AD :
 

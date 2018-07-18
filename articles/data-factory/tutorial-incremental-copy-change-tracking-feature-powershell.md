@@ -3,7 +3,7 @@ title: Copier de façon incrémentielle des données en utilisant Change Trackin
 description: 'Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL. '
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: d8299778ce5b713f4275a28c7f174a300197a6a2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: 09250a3ffc851b97c64642eb3076e9f40621a588
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184596"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082703"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
-Dans ce didacticiel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
+Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
 
-Dans ce didacticiel, vous allez effectuer les étapes suivantes :
+Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Préparer le magasin de données source
@@ -34,11 +34,8 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > * Ajouter ou mettre à jour des données dans la table source
 > * Créer, exécuter et surveiller le pipeline de copie incrémentielle
 
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-## <a name="overview"></a>Vue d'ensemble
-Dans une solution d’intégration de données, le chargement incrémentiel de données après des chargements de données initiaux est un scénario largement utilisé. Dans certains cas, les données modifiées pendant une période dans votre magasin de données source peuvent être facilement découpées (par exemple, LastModifyTime, CreationTime). Dans certains cas, il n’existe pas de manière explicite pour identifier les données delta depuis le dernier traitement des données. La technologie Change Tracking prise en charge par les magasins de données tels qu’Azure SQL Database et SQL Server peut être utilisée pour identifier les données delta.  Ce didacticiel explique comment utiliser Azure Data Factory version 2 pour utiliser la technologie Change Tracking SQL afin de charger de façon incrémentielle des données delta d’Azure SQL Database dans le stockage blob Azure.  Pour des informations plus concrètes sur la technologie Change Tracking SQL, consultez [Change Tracking dans SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+## <a name="overview"></a>Vue d’ensemble
+Dans une solution d’intégration de données, le chargement incrémentiel de données après des chargements de données initiaux est un scénario largement utilisé. Dans certains cas, les données modifiées pendant une période dans votre magasin de données source peuvent être facilement découpées (par exemple, LastModifyTime, CreationTime). Dans certains cas, il n’existe pas de manière explicite pour identifier les données delta depuis le dernier traitement des données. La technologie Change Tracking prise en charge par les magasins de données tels qu’Azure SQL Database et SQL Server peut être utilisée pour identifier les données delta.  Ce tutoriel explique comment utiliser Azure Data Factory avec la technologie Change Tracking SQL afin de charger de façon incrémentielle des données delta d’Azure SQL Database dans le stockage Blob Azure.  Pour des informations plus concrètes sur la technologie Change Tracking SQL, consultez [Change Tracking dans SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## <a name="end-to-end-workflow"></a>Workflow de bout en bout
 Voici les étapes de workflow de bout en bout classiques pour charger de façon incrémentielle des données à l’aide de la technologie Change Tracking.
@@ -72,7 +69,6 @@ Dans ce didacticiel, vous créez deux pipelines qui effectuent les deux opérati
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Azure PowerShell. Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * **Base de données SQL Azure**. Vous utilisez la base de données comme magasin de données **sources**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob comme magasin de données **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour savoir comment en créer un. Créez un conteneur sous le nom **adftutorial**. 
@@ -101,7 +97,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
         (5, 'eeee', 22);
 
     ```
-4. Activez le mécanisme **Change Tracking** sur votre base de données et la table source (data_source_table) en exécutant la requête SQL suivante : 
+4. Activez le mécanisme **Change Tracking** sur votre base de données et la table source (data_source_table) en exécutant la requête SQL suivante : 
 
     > [!NOTE]
     > - Remplacez &lt;le nom de votre base de données&gt; par le nom de votre base de données Azure SQL contenant la data_source_table. 
@@ -149,7 +145,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     END    
     ```
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
@@ -185,7 +181,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
     Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
-Notez les points suivants :
+Notez les points suivants :
 
 * Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez l’erreur suivante, changez le nom, puis réessayez.
 
@@ -193,7 +189,7 @@ Notez les points suivants :
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles **contributeur** ou **propriétaire**, ou un **administrateur** de l’abonnement Azure.
-* À l’heure actuelle, Data Factory version 2 vous permet de créer des fabriques de données uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et Europe de l’Ouest. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
 
 ## <a name="create-linked-services"></a>Créez des services liés
@@ -225,7 +221,7 @@ Dans cette étape, vous liez votre compte Stockage Azure à la fabrique de donn�
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```json
     LinkedServiceName : AzureStorageLinkedService
@@ -259,7 +255,7 @@ Dans cette étape, vous liez votre base de données Azure SQL à la fabrique de 
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```json
     LinkedServiceName : AzureSQLDatabaseLinkedService
@@ -274,7 +270,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 ### <a name="create-a-source-dataset"></a>Créer un jeu de données source
 Dans cette étape, vous créez un jeu de données pour représenter les données source. 
 
-1. Créez un fichier JSON sous le nom SourceDataset.json dans le même dossier avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom SourceDataset.json dans le même dossier avec le contenu suivant : 
 
     ```json
     {
@@ -311,7 +307,7 @@ Dans cette étape, vous créez un jeu de données pour représenter les données
 ### <a name="create-a-sink-dataset"></a>Créer un jeu de données récepteur
 Dans cette étape, vous créez un jeu de données pour représenter les données copiées à partir du magasin de données source. 
 
-1. Créez un fichier JSON sous le nom SinkDataset.json dans le même dossier avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom SinkDataset.json dans le même dossier avec le contenu suivant : 
 
     ```json
     {
@@ -333,14 +329,14 @@ Dans cette étape, vous créez un jeu de données pour représenter les données
     }
     ```
 
-    Vous créez le conteneur adftutorial dans votre stockage blob Azure dans le cadre des prérequis. Créez le conteneur s’il n’existe pas (ou) attribuez-lui le nom d’un conteneur existant. Dans ce didacticiel, le nom du fichier de sortie est généré dynamiquement en utilisant l’expression : @CONCAT('Incremental-', pipeline().RunId, '.txt').
+    Vous créez le conteneur adftutorial dans votre stockage blob Azure dans le cadre des prérequis. Créez le conteneur s’il n’existe pas (ou) attribuez-lui le nom d’un conteneur existant. Dans ce tutoriel, le nom du fichier de sortie est généré dynamiquement en utilisant l’expression : @CONCAT(’Incremental-’, pipeline().RunId, ’.txt’).
 2.  Exécutez l’applet de commande Set-AzureRmDataFactoryV2Dataset pour créer le jeu de données SinkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
-    Voici l’exemple de sortie de l’applet de commande :
+    Voici l’exemple de sortie de l’applet de commande :
     
     ```json
     DatasetName       : SinkDataset
@@ -378,7 +374,7 @@ Dans cette étape, vous créez un jeu de données pour stocker la version de sui
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
     ```
 
-    Voici l’exemple de sortie de l’applet de commande :
+    Voici l’exemple de sortie de l’applet de commande :
     
     ```json
     DatasetName       : ChangeTrackingDataset
@@ -427,7 +423,7 @@ Dans cette étape, vous créez un pipeline avec une activité de copie qui copie
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
    ``` 
 
-   Voici l'exemple de sortie : 
+   Voici l’exemple de sortie : 
 
    ```json
     PipelineName      : FullCopyPipeline
@@ -616,7 +612,7 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
-   Voici l'exemple de sortie : 
+   Voici l’exemple de sortie : 
 
    ```json
     PipelineName      : IncrementalCopyPipeline
@@ -666,7 +662,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
     
 ## <a name="next-steps"></a>Étapes suivantes
-Passez au didacticiel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
+Passez au tutoriel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
 
 > [!div class="nextstepaction"]
 >[Transformer des données en utilisant un cluster Spark dans le cloud](tutorial-transform-data-spark-powershell.md)

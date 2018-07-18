@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: cadd771a516270faf23f18a36f54fa9a1541e6d5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364897"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698668"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Envoi de courriers électroniques à l'aide de SendGrid depuis Java
 Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en Java. Les scénarios traités incluent la **construction** et **l'envoi de courriers électroniques**, **l'ajout de pièces jointes**, **l'utilisation de filtres**, et la **mise à jour de propriétés**. Pour plus d'informations sur SendGrid et l'envoi de courriers électroniques, consultez la section [Étapes suivantes](#next-steps) .

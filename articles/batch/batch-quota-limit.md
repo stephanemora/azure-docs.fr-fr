@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310534"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304020"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -51,14 +51,10 @@ Si vous avez créé un compte Batch avec le mode d’allocation de pool défini 
 | [Tâches simultanées](batch-parallel-node-tasks.md) par nœud de calcul |4 x nombre de cœurs de nœud |
 | [Applications](batch-application-packages.md) par compte Batch |20 |
 | Packages d’applications par application |40 |
-| Taille de package d’application (individuel) |Environ 195 Go<sup>1</sup> |
-| Taille maximale de la tâche de début | 32 768 caractères<sup>2</sup> |
-| Durée de vie maximale de la tâche | 7 jours<sup>3</sup> |
+| Durée de vie maximale de la tâche | 7 jours<sup>1</sup> |
 | Nœuds de calcul dans un pool prenant en charge la communication entre nœuds | 100 |
 
-<sup>1</sup> Limite Azure Storage pour la taille d’objet blob de blocs maximale<br />
-<sup>2</sup> Inclut les fichiers de ressources et les variables d’environnement<br />
-<sup>3</sup> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de 7 jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
+<sup>1</sup> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de sept jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
 
 
 ## <a name="view-batch-quotas"></a>Afficher les quotas Batch

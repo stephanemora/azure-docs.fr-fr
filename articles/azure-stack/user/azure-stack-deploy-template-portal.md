@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/24/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 278f15271d3a5443102f5e387d3db1adb53fe7db
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: eea4f568f21693764222c8fdbe3316bf6008cc05
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357382"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604231"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Déployer des modèles à l’aide du portail Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "34357382"
 
 Vous pouvez utiliser le portail pour déployer des modèles Azure Resource Manager dans Azure Stack.
 
-Pour déployer un modèle :
+## <a name="to-deploy-a-template"></a>Pour déployer un modèle
 
 1. Connectez-vous au portail, sélectionnez **Nouveau**, puis sélectionnez **Personnalisé**.
 2. Sélectionnez **Déploiement de modèle**.
@@ -40,4 +40,4 @@ Pour déployer un modèle :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)
+* [Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)

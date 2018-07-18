@@ -1,28 +1,27 @@
 ---
-title: "Vue d’ensemble des fonctionnalités Azure Event Hubs | Microsoft Docs"
-description: "Vue d’ensemble et détails sur les fonctionnalités des concentrateurs d’événements"
+title: Vue d’ensemble des fonctionnalités Azure Event Hubs | Microsoft Docs
+description: Vue d’ensemble et détails sur les fonctionnalités des concentrateurs d’événements
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2018
+ms.date: 06/08/2018
 ms.author: sethm
-ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248739"
 ---
 # <a name="event-hubs-features-overview"></a>Vue d’ensemble des fonctionnalités des concentrateurs d’événements
 
-Azure Event Hubs est un service évolutif de traitement d’événements qui ingère et traite de gros volumes de données et d’événements avec une faible latence et une haute fiabilité. Consultez la page [Qu’est-ce qu’Event Hubs ?](event-hubs-what-is-event-hubs.md) pour une vue d’ensemble de haut niveau du service.
+Azure Event Hubs est un service évolutif de traitement d’événements qui ingère et traite de gros volumes de données et d’événements avec une faible latence et une haute fiabilité. Consultez la page [Qu’est-ce qu’Event Hubs ?](event-hubs-what-is-event-hubs.md) pour une vue d’ensemble de haut niveau.
 
 Cet article s’appuie sur les informations de l’[article de présentation](event-hubs-what-is-event-hubs.md) et fournit des détails techniques et de mise en œuvre sur les fonctionnalités et composants d’Event Hubs.
 
@@ -44,7 +43,7 @@ Azure Event Hubs garantit que tous les événements qui partagent une clé de pa
 
 Event Hubs permet un contrôle granulaire sur les éditeurs d'événements par le biais des *stratégies d'éditeur*. Les stratégies d’éditeur regroupent des fonctionnalités runtime conçues pour fournir un grand nombre d’éditeurs d’événements indépendants. Avec les stratégies d’éditeur, chaque éditeur utilise son propre identificateur unique lors de la publication d’événements sur un concentrateur d’événements, à l’aide du mécanisme suivant :
 
-```
+```http
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
 ```
 
@@ -123,7 +122,7 @@ Tous les consommateurs Azure Event Hubs se connectent via une session AMQP 1.0,
 
 #### <a name="connect-to-a-partition"></a>Se connecter à une partition
 
-Lors de la connexion aux partitions, il est courant d’utiliser un mécanisme de bail pour coordonner les connexions du lecteur à des partitions spécifiques. De cette façon, chaque partition dans un groupe de consommateurs peut n'avoir qu'un seul lecteur actif. Le contrôle, la location et la gestion des lecteurs ont été simplifiés grâce à l’utilisation de la classe [EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) pour les clients .NET. L’hôte du processeur d’événements est un agent consommateur intelligent.
+Lors de la connexion aux partitions, il est courant d’utiliser un mécanisme de bail pour coordonner les connexions du lecteur à des partitions spécifiques. De cette façon, chaque partition dans un groupe de consommateurs peut n'avoir qu'un seul lecteur actif. Le contrôle, la location et la gestion des lecteurs ont été simplifiés grâce à l’utilisation de la classe [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) pour les clients .NET. L’hôte du processeur d’événements est un agent consommateur intelligent.
 
 #### <a name="read-events"></a>Lire les événements
 
@@ -149,17 +148,17 @@ La capacité de débit des concentrateurs d’événements est contrôlée par l
 * Entrée : jusqu’à 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier.
 * Sortie : jusqu’à 2 Mo par seconde.
 
-En cas de dépassement de la capacité des unités de débit achetées, l’entrée est limitée et une exception [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) est renvoyée. La sortie ne produit aucune exception de limitation, mais reste limitée à la capacité des unités de débit achetées. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d’unités de débit achetées pour l’espace de noms. Vous pouvez gérer des unités de débit sur le panneau **Mettre à l’échelle** des espaces de noms, dans le [portail Azure](https://portal.azure.com). Vous pouvez également gérer les unités de débit par programmation à l’aide des [API Event Hubs](event-hubs-api-overview.md).
+En cas de dépassement de la capacité des unités de débit achetées, l’entrée est limitée et une exception [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) est renvoyée. La sortie ne produit aucune exception de limitation, mais reste limitée à la capacité des unités de débit achetées. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d’unités de débit achetées pour l’espace de noms. Vous pouvez gérer des unités de débit sur le panneau **Mettre à l’échelle** des espaces de noms, dans le [portail Azure](https://portal.azure.com). Vous pouvez également gérer les unités de débit par programmation à l’aide des [API Event Hubs](event-hubs-api-overview.md).
 
-Les unités de débit sont facturées par heure et sont préalablement acquises. Une fois achetées, les unités de débit sont facturées au moins une heure. Vous pouvez acheter jusqu’à 20 unités de débit pour un espace de noms Azure Event Hubs. Ces unités sont partagées entre tous les concentrateurs d’événements de l’espace de noms en question.
+Les unités de débit sont achetées à l’avance et facturées à l’heure. Une fois achetées, les unités de débit sont facturées au moins une heure. Vous pouvez acheter jusqu’à 20 unités de débit par espace de noms Azure Event Hubs. Ces unités sont partagées entre tous les hubs d’événements de l’espace de noms en question.
 
-Il est possible d’acheter des unités de débit supplémentaires, par lots de 20 (pour un maximum de 100). Pour cela, contacter le support Azure. Ensuite, vous pouvez également acheter des blocs de 100 unités de débit.
+Il est possible d’acheter des unités de débit supplémentaires, par lots de 20 (pour un maximum de 100). Pour cela, contacter le support Azure. Vous pouvez même acheter des blocs de 100 unités de débit.
 
 Nous vous recommandons d’équilibrer soigneusement les partitions et les unités de débit pour obtenir un dimensionnement optimal. Une partition unique a une échelle maximale d'une unité de débit. Le nombre d’unités de débit doit être inférieur ou égal au nombre de partitions dans un concentrateur d’événements.
 
 Pour obtenir des informations de tarification détaillées des concentrateurs d’événements, consultez [Tarification des concentrateurs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
 

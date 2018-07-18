@@ -1,29 +1,25 @@
 ---
 title: Déployer la solution de surveillance à distance Java - Azure | Microsoft Docs
-description: Ce tutoriel vous montre comment provisionner l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI.
-services: iot-suite
-suite: iot-suite
+description: Ce tutoriel montre comment provisionner l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017507"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI
 
-Ce tutoriel vous montre comment provisionner l’accélérateur de solution de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web depuis azureiotsuite.com ; pour en savoir plus sur cette option, consultez [Déployer l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md).
+Ce tutoriel montre comment provisionner l’accélérateur de solution de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web à partir d’azureiotsuite.com. Pour en savoir plus sur cette option, consultez [Déployer l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour déployer l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -72,7 +68,7 @@ La création d’une solution de base entraîne le provisionnement des services 
 | Count | Ressource                       | type         | Utilisation |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Machine virtuelle Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hébergement des microservices |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 : niveau de base | Gestion des appareils et communication |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | Niveau Standard S1 | Gestion des appareils et communication |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | standard        | Stockage des données de configuration et de télémétrie d’appareil comme les règles, les alarmes et les messages |  
 | 1     | [Compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | standard        | Stockage des points de contrôle streaming et de machine virtuelle |
 | 1     | [Application Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hébergement de l’application web frontend |
@@ -86,9 +82,9 @@ La création d’une solution standard entraîne le provisionnement des services
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Machines virtuelles Linux](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 maître et 3 agents pour l’hébergement des microservices avec redondance |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | Orchestrateur [Kubernetes](https://kubernetes.io) |
-| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S1 : niveau de base | Gestion des appareils, commande et contrôle |
+| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | Niveau Standard S2 | Gestion des appareils, commande et contrôle |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | standard        | Stockage des données de configuration et de télémétrie d’appareil comme les règles, les alarmes et les messages |
-| 5.     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
+| 5     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application Gateway via SSL |
 
 > Les tarifs de ces services sont disponibles [ici](https://azure.microsoft.com/pricing). Les quantités utilisées et la facturation détaillée de votre abonnement sont disponibles dans le [portail Azure](https://portal.azure.com/).
@@ -97,7 +93,7 @@ La création d’une solution standard entraîne le provisionnement des services
 
 ### <a name="example-deploy-net-version"></a>Exemple : déployer la version .NET
 
-L’exemple suivant montre comment déployer la version .NET de base de l’accélérateur de solution de surveillance à distance :
+L’exemple suivant montre comment déployer la version .NET de base de l’accélérateur de solution de surveillance à distance :
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet

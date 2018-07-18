@@ -10,18 +10,17 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161988"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38629067"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Surveiller un cluster Azure Container Service avec Datadog
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 Elle suppose également que vous avez installé l’outil `az` de l’interface Azure CLI et l’outil `kubectl`.

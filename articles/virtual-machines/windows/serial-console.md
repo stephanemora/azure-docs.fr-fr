@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8e9e98a0c9f1db805d62cdee038fb4754ff047e2
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194401"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960438"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console série de machine virtuelle (préversion) 
 
@@ -31,9 +31,9 @@ La console série de machine virtuelle Azure permet aux machines virtuelles Linu
 
  
 
-## <a name="prerequisites"></a>Prérequis
- 
+## <a name="prerequisites"></a>Prérequis 
 
+* Vous devez utiliser le modèle de déploiement de gestion des ressources. Les déploiements classiques ne sont pas pris en charge. 
 * L’option [Diagnostics de démarrage](boot-diagnostics.md) doit être activée dans la machine virtuelle. 
 * Le compte qui utilise la console série doit disposer du [rôle Contributeur](../../role-based-access-control/built-in-roles.md) pour la machine virtuelle et pour le compte de stockage avec [diagnostics de démarrage](boot-diagnostics.md). 
 

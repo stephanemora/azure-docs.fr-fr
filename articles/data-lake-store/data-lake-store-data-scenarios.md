@@ -1,25 +1,26 @@
 ---
-title: Scénarios de données impliquant Data Lake Store | Microsoft Docs
-description: Comprendre les différents scénarios et outils à l’aide desquels les données peuvent reçues, traitées, téléchargées et affichées dans Data Lake Store
+title: Scénarios de données impliquant Data Lake Storage Gen1 | Microsoft Docs
+description: Comprendre les différents scénarios et outils à l’aide desquels les données peuvent être ingérées, traitées, téléchargées et affichées dans Data Lake Storage Gen1 (anciennement Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 37409a71-a563-4bb7-bc46-2cbd426a2ece
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 86b6d05538171fcf0e259e2761316529deb4fb37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e0c7ed22762ef19c6e68ad69d0cabcfeb8007251
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625319"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031037"
 ---
-# <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Store pour les données volumineuses
+# <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen1 pour le Big Data
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Il existe quatre étapes principales dans traitement des données Big Data :
 
 * Réception de grandes quantités de données dans un magasin de données, en temps réel ou par lots

@@ -13,11 +13,11 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
 ms.openlocfilehash: 2088844693748f090a67ad56f9b5fba4514d1282
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118769"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488355"
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Créer votre première fonction à l’aide d’Azure CLI
 
@@ -36,7 +36,7 @@ Avant d’exécuter cet exemple, vous devez disposer des éléments suivants :
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0 ou une version ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0 ou une version ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]

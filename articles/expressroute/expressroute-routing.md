@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178753"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930526"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -67,6 +67,7 @@ Vous devez utiliser des adresses IP publiques que vous possédez pour configurer
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Adresses IP utilisées pour l’homologation Microsoft
 Vous devez utiliser des adresses IP publiques que vous possédez pour configurer les sessions BGP. Microsoft doit être en mesure de vérifier la propriété des adresses IP via les Registres Internet de routage régional (RIR) et les Registres Internet de routage (IRR).
 
+* Les adresses IP répertoriées dans le portail pour les préfixes publics publiés pour l’homologation Microsoft créent les listes de contrôle d’accès pour les routeurs principaux Microsoft pour autoriser le trafic entrant à partir de ces adresses IP. 
 * Vous devez utiliser un sous-réseau unique /29 (IPv4) ou /125 (IPv6) ou bien deux sous-réseaux /30 (IPv4) ou /126 (IPv6) afin de configurer l’homologation BGP pour chaque homologation par circuit ExpressRoute (si vous en avez plusieurs).
 * Si un sous-réseau /29 est utilisé, il est subdivisé en deux sous-réseaux /30.
 * Le premier sous-réseau /30 est utilisé pour le lien principal, et le second sous-réseau /30 sera utilisé pour le lien secondaire.
@@ -116,7 +117,7 @@ Un numéro ASN privé est autorisé avec l’homologation Microsoft, mais néces
 > 
 
 ## <a name="dynamic-route-exchange"></a>Échange de routage dynamique
-L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP sont établies entre les MSEE et les routeurs. L’authentification des sessions BGP n’est pas obligatoire. Si nécessaire, un hachage MD5 peut être configuré. Pour plus d’informations sur la configuration des sessions BGP, consultez [Configuration du routage](expressroute-howto-routing-classic.md) et [Workflows d’approvisionnement du circuit et états du circuit](expressroute-workflows.md).
+L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP sont établies entre les MSEE et les routeurs. L’authentification des sessions BGP n’est pas obligatoire. Si nécessaire, un hachage MD5 peut être configuré. Pour plus d’informations sur la configuration des sessions BGP, consultez [Configuration du routage](how-to-routefilter-portal.md) et [Workflows d’approvisionnement du circuit et états du circuit](expressroute-workflows.md).
 
 ## <a name="autonomous-system-numbers"></a>Numéros système autonomes
 Microsoft utilise le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge.
@@ -186,7 +187,7 @@ Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. L
 | **Australie** | |
 | Est de l’Australie | 12076:51015 |
 | Sud-est de l’Australie | 12076:51016 |
-| **Gouvernement australien** | |
+| **Secteur public australien** | |
 | Centre de l’Australie | 12076:51032 |
 | Centre de l’Australie 2 | 12076:51033 |
 | **Inde** | |

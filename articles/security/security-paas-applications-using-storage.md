@@ -12,39 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 06/20/2018
 ms.author: TomShinder
-ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc04973a003c65f52f3387292f11fede65edce3
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418218"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295293"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Sécurisation des applications mobiles et web PaaS à l’aide du stockage Azure
+
 Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité du stockage Azure pour protéger vos applications mobiles et web PaaS. Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
 
 Le [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md) constitue une source précieuse pour obtenir plus d’informations sur la sécurité et le Stockage Azure.  Cet article traite de façon générale certains concepts abordés dans le guide de sécurité et propose des liens vers ce dernier, ainsi que vers d’autres sources.
 
 ## <a name="azure-storage"></a>Stockage Azure
+
 Azure permet de déployer et d’utiliser le stockage plus aisément que dans le cadre d’une configuration locale. Grâce au stockage Azure, vous pouvez atteindre des niveaux élevés de scalabilité et de disponibilité avec relativement peu d’effort. En plus de constituer la base des machines virtuelles Microsoft Azure et Linux, le stockage Azure peut prendre en charge de grandes applications distribuées.
 
 Les services Azure Storage assurent le stockage d’objets blob (Blob Storage), de tables (Table Storage), de files d’attente (Queue Storage) et de fichiers (File Storage). Pour en savoir plus, consultez [Présentation du stockage Microsoft Azure](../storage/storage-introduction.md).
 
 ## <a name="best-practices"></a>Meilleures pratiques
+
 Cet article traite les bonnes pratiques suivantes :
 
 - Protection de l’accès :
    - Signatures d’accès partagé (SAP)
-   - Disque managé
    - Contrôle d’accès en fonction du rôle
 
 - Chiffrement du stockage :
    - Chiffrement côté client pour les données de valeur élevée
-   - Azure Disk Encryption pour les machines virtuelles
    - Storage Service Encryption
 
 ## <a name="access-protection"></a>Protection de l’accès
+
 ### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Utiliser la signature d’accès partagé au lieu d’une clé de compte de stockage
 
 Dans une solution IaaS, qui exécute généralement des machines virtuelles Windows Server ou Linux, les fichiers sont protégés contre la divulgation d’informations et les menaces de falsification à l’aide de mécanismes de contrôle d’accès. Sur Windows, vous utiliseriez des [listes de contrôle d’accès (ACL)](../virtual-network/virtual-networks-acl.md), tandis que sur Linux, vous utiliseriez sans doute [chmod](https://en.wikipedia.org/wiki/Chmod). Pour l’essentiel, c’est exactement ce que vous feriez pour protéger des fichiers sur un serveur dans votre propre centre de données aujourd’hui.
@@ -66,12 +68,6 @@ La SAP vous permet de partager du contenu comme bon vous semble sans communiquer
 
 Pour plus d’informations, consultez [Présentation des signatures d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Pour plus d’informations sur les risques potentiels et sur les recommandations visant à réduire ces derniers, consultez [Bonnes pratiques lors de l’utilisation de SAP](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-### <a name="use-managed-disks-for-vms"></a>Utiliser des disques managés pour les machines virtuelles
-
-Lorsque vous choisissez [Azure Managed Disks](../storage/storage-managed-disks-overview.md), Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Choisissez simplement le type de disque (Premium ou Standard) et la taille du disque, le stockage Azure s’occupe du reste. Vous n’avez pas à vous soucier des limites de scalabilité qui vous auraient obligé à utiliser plusieurs comptes de stockage.
-
-Pour plus d’informations, consultez [Forum aux questions sur les disques Premium managés et non managés](../storage/storage-faq-for-disks.md).
-
 ### <a name="use-role-based-access-control"></a>Utiliser le contrôle d’accès en fonction du rôle
 
 Nous avons vu plus haut la possibilité d’utiliser une signature d’accès partagé (SAP) pour octroyer aux autres clients un accès limité aux objets dans votre compte de stockage, sans exposer votre clé de compte de stockage. Parfois, les risques associés à une opération particulière sur votre compte de stockage l'emportent sur les avantages offerts par la signature d'accès partagé. Parfois, il est plus simple de gérer l’accès par d’autres moyens.
@@ -89,6 +85,7 @@ Pour en savoir plus sur le contrôle d’accès en fonction du rôle, consultez 
 - [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md) pour plus de détails sur la sécurisation de votre compte de stockage avec RBAC
 
 ## <a name="storage-encryption"></a>Chiffrement du stockage
+
 ### <a name="use-client-side-encryption-for-high-value-data"></a>Utiliser le chiffrement côté client pour les données de valeur élevée
 
 Avec le chiffrement côté client, vous pouvez chiffrer par programmation des données en transit avant leur chargement sur le stockage Azure et déchiffrer des données par programmation quand vous les récupérez du stockage.  Ce dispositif fournit le chiffrement des données en transit, mais également le chiffrement des données au repos.  Le chiffrement côté client est la méthode de chiffrement des données la plus sûre, mais il vous oblige à effectuer des modifications par programmation dans votre application et à mettre en place des processus de gestion des clés.
@@ -97,15 +94,12 @@ Le chiffrement côté client vous permet également d’avoir un contrôle exclu
 
 Le chiffrement côté client est intégré aux bibliothèques clientes de stockage Java et .NET.  Pour plus d’informations sur le chiffrement de données dans les applications clientes et sur la génération et la gestion de vos propres clés de chiffrement, consultez [Chiffrement côté client et Azure Key Vault pour Stockage Microsoft Azure](../storage/storage-client-side-encryption.md).
 
-### <a name="azure-disk-encryption-for-vms"></a>Azure Disk Encryption pour les machines virtuelles
-Azure Disk Encryption est une fonctionnalité qui vous permet de chiffrer vos disques de machine virtuelle IaaS Windows et Linux. Azure Disk Encryption s’appuie sur la fonctionnalité standard BitLocker Windows et la fonctionnalité DM-Crypt de Linux pour assurer le chiffrement de volume du système d’exploitation et des disques de données. La solution est intégrée à Azure Key Vault, ce qui vous permet de contrôler et de gérer les clés et les secrets de chiffrement de disque dans votre abonnement Key Vault. Elle garantit également que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans votre stockage Azure.
-
-Consultez [Azure Disk Encryption pour des machines virtuelles Windows et Linux IaaS](azure-security-disk-encryption.md).
-
 ### <a name="storage-service-encryption"></a>Storage Service Encryption
+
 Quand le [chiffrement du service de stockage](../storage/storage-service-encryption.md) pour le stockage de fichiers est activé, les données sont chiffrées automatiquement à l’aide du chiffrement AES-256. Microsoft gère en totalité le chiffrement, le déchiffrement et la gestion des clés. Cette fonctionnalité est disponible pour les types de redondance LRS et GRS.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Cet article vous a présenté un ensemble de bonnes pratiques de sécurité du stockage Azure pour protéger vos applications mobiles et web PaaS. Pour en savoir plus sur la sécurisation de vos déploiements PaaS, consultez :
 
 - [Sécurisation des déploiements PaaS](security-paas-deployments.md)

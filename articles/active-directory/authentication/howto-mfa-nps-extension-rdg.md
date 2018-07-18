@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 19d602570337b101e4a5cf759fc56822313c631c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33932096"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098003"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
@@ -55,7 +55,6 @@ Lorsque l’extension de serveur NPS pour Azure est intégrée au serveur NPS et
 7. L’utilisateur a accès à la ressource réseau demandée via la passerelle des services Bureau à distance.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cette section détaille les conditions préalables nécessaires avant d’intégrer Azure MFA à la passerelle des services Bureau à distance. Avant de commencer, vous devez disposer des conditions requises en place suivantes.  
 
 * Infrastructure des Services Bureau à distance (RDS)
@@ -96,7 +95,7 @@ Suivez les étapes dans [Bien démarrer avec l’authentification multifacteur A
 ### <a name="configure-accounts-for-two-step-verification"></a>Configurer des comptes pour la vérification en deux étapes
 Lorsqu’un compte a été activé pour MFA, vous ne pouvez pas vous connecter aux ressources régies par la stratégie MFA tant que vous n’avez pas correctement configuré un appareil approuvé afin qu’il serve pour le second facteur d’authentification, et qu’il soit authentifié à l’aide de la vérification en deux étapes.
 
-Suivez les étapes dans [Que fait l’authentification multifacteur Azure pour moi ?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) pour comprendre et configurer correctement vos périphériques pour l’authentification multifacteur avec votre compte d’utilisateur.
+Suivez les étapes dans [Que fait l’authentification multifacteur Azure pour moi ?](end-user/current/multi-factor-authentication-end-user.md) pour comprendre et configurer correctement vos périphériques pour l’authentification multifacteur avec votre compte d’utilisateur.
 
 ## <a name="install-and-configure-nps-extension"></a>Installer et configurer l’extension NPS
 Cette section fournit des instructions pour la configuration de l’infrastructure des services Bureau à distance pour utiliser Azure MFA pour l’authentification du client avec la passerelle des services Bureau à distance.

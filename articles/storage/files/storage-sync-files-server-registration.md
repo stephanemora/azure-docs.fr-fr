@@ -4,24 +4,25 @@ description: Découvrez comment inscrire un serveur Windows Server au service de
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738290"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gérer des serveurs inscrits à Azure File Sync (préversion)
-La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 L’article suivant décrit comment inscrire un serveur au service de synchronisation de stockage et le gérer. Consultez [Guide pratique pour déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md) pour plus d’informations le déploiement de bout en bout d’Azure File Sync.
 
@@ -29,7 +30,6 @@ L’article suivant décrit comment inscrire un serveur au service de synchronis
 L’inscription d’un serveur à Azure File Sync établit une relation d’approbation entre Windows Server et Azure. Cette relation peut ensuite être utilisée pour créer des *points de terminaison de serveur* sur le serveur, qui représentent des dossiers spécifiques qui doivent être synchronisés avec un partage de fichiers Azure (également appelé un *point de terminaison de cloud*). 
 
 ### <a name="prerequisites"></a>Prérequis
-
 Pour inscrire un serveur à un service de synchronisation de stockage, vous devez d’abord préparer votre serveur avec les prérequis nécessaires :
 
 * Votre appareil doit exécuter une version prise en charge de Windows Server. Pour plus d’informations, consultez [Versions de Windows Server prises en charge](storage-sync-files-planning.md#supported-versions-of-windows-server).
@@ -114,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Désinscrire un serveur du service de synchronisation de stockage
 Plusieurs étapes sont nécessaires pour désinscrire un serveur du service de synchronisation de stockage. Voyons comment désinscrire correctement un serveur.
 
-#### <a name="optional-recall-all-tiered-data"></a>(Facultatif) Rappeler toutes les données hiérarchisées
-Lorsque la hiérarchisation cloud est activée pour un point de terminaison de serveur, elle *hiérarchise* les fichiers dans des partages de fichiers Azure. Cela permet aux partages de fichiers locaux de faire office de cache, au lieu d’effectuer une copie complète du jeu de données, et d’utiliser efficacement l’espace sur le serveur de fichiers. Toutefois, si un point de terminaison de serveur est supprimé alors que des fichiers hiérarchisés sont toujours localement sur le serveur, ces fichiers deviennent inaccessibles. Par conséquent, si vous voulez un accès continu aux fichiers, vous devez rappeler tous les fichiers hiérarchisés dans Azure Files avant de poursuivre la désinscription. 
+> [!Warning]  
+> Ne tentez pas de résoudre les problèmes de synchronisation, de hiérarchisation cloud ou tout autre aspect d’Azure File Sync en désinscrivant et inscrivant un serveur, ou en supprimant et recréant les points de terminaison de serveur, sauf si un ingénieur Microsoft vous le demande explicitement. La désinscription d’un serveur et la suppression des points de terminaison de serveur sont des opérations destructrices, et les fichiers hiérarchisés sur les volumes contenant des points de terminaison de serveur ne sont pas « reconnectés » à leur emplacement sur le partage de fichiers Azure après la recréation du serveur inscrit et des points de terminaison de serveur, ce qui entraîne des erreurs de synchronisation. Notez également que les fichiers hiérarchisés qui existent en dehors d’un espace de noms de point de terminaison de serveur risquent d’être définitivement perdus. Les fichiers hiérarchisés peuvent exister dans des points de terminaison de serveur même si la hiérarchisation cloud n’a jamais été activée.
 
-Cette opération peut être effectuée avec l’applet de commande PowerShell comme indiqué ci-dessous :
+#### <a name="optional-recall-all-tiered-data"></a>(Facultatif) Rappeler toutes les données hiérarchisées
+Si vous voulez que les fichiers qui sont actuellement hiérarchisés soient disponibles après la suppression d’Azure File Sync (autrement dit, il s’agit d’un environnement de production et non de test), rappelez tous les fichiers sur chaque volume contenant des points de terminaison de serveur. Désactivez la hiérarchisation cloud pour tous les points de terminaison de serveur, puis exécutez l’applet de commande PowerShell suivante :
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

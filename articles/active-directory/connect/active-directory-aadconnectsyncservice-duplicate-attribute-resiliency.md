@@ -1,11 +1,11 @@
 ---
-title: "Synchronisation des identités et résilience d’attribut en double | Microsoft Docs"
-description: "Nouveau comportement de gestion des objets présentant des conflits UPN ou ProxyAddress pendant la synchronisation d’annuaires à l’aide d’Azure AD Connect."
+title: Synchronisation des identités et résilience d’attribut en double | Microsoft Docs
+description: Nouveau comportement de gestion des objets présentant des conflits UPN ou ProxyAddress pendant la synchronisation d’annuaires à l’aide d’Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: markvi
-ms.openlocfilehash: 975abed469a78573553c0879b33181d2a58ec48c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: a84e99e854900cef70450661f992c33787368c90
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919068"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronisation des identités et résilience d’attribut en double
 La résilience d’attribut en double est une fonctionnalité d’Azure Active Directory qui élimine les problèmes liés aux conflits entre **UserPrincipalName** et **ProxyAddress** lors de l’exécution de l’un des outils de synchronisation de Microsoft.

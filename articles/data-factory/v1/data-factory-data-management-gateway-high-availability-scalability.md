@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d04500e770bf43278b88c2f980a10693590c7d16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053834"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md) (runtime d’intégration auto-hébergé dans la version 2). 
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Guide pratique pour créer et configurer le runtime d’intégration autohébergé dans Data Factory](../create-self-hosted-integration-runtime.md). 
 
 
 Cet article vous aide à configurer la solution de haute disponibilité et scalabilité avec la passerelle de gestion des données / intégration.    

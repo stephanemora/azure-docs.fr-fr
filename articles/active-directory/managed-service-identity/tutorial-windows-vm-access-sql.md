@@ -9,17 +9,17 @@ editor: bryanla
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 27c4f35cbd8cc69e689b26078d5a07c8558d8e2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303199"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902620"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Didacticiel : Utiliser une identité Managed Service Identity (MSI) de machine virtuelle Windows pour accéder à Azure SQL
 
@@ -33,7 +33,6 @@ Ce didacticiel montre comment utiliser une MSI pour une machine virtuelle Window
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle, et l’utiliser pour interroger un serveur Azure SQL
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -271,11 +270,9 @@ Un autre moyen rapide de tester la configuration de bout en bout sans devoir éc
 
 Examinez la valeur de `$DataSet.Tables[0]` pour voir les résultats de la requête.  Félicitations, vous avez interrogé la base de données à l’aide d’une MSI de machine virtuelle sans avoir dû fournir d’informations d’identification.
 
-## <a name="related-content"></a>Contenu connexe
+## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-- Apprenez-en davantage sur la [prise en charge d’Azure SQL pour Azure AD Authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
-- Apprenez-en davantage sur la [configuration de la prise en charge d’Azure SQL pour Azure AD Authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).
-- Apprenez-en davantage sur [l’authentification et l’accès dans SQL Server](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
+Dans ce tutoriel, vous avez appris à créer une identité de service managée pour accéder à un serveur Azure SQL.  Pour en savoir plus sur Azure SQL Server, consultez :
 
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
+> [!div class="nextstepaction"]
+>[Service Base de données SQL Azure](/azure/sql-database/sql-database-technical-overview)

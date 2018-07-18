@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 968636848b9cba9c0976aa366952e56838623cc4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055084"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698813"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Options de connexion de l’utilisateur via Azure AD Connect
 Azure Active Directory (Azure AD) Connect permet à vos utilisateurs de se connecter aux ressources cloud et locales à l’aide des mêmes mots de passe. Cet article décrit les concepts clés pour chaque modèle d’identité afin de vous aider à choisir l’identité que vous souhaitez utiliser pour vous connecter à Azure AD.
@@ -48,6 +49,8 @@ M’assurer qu’aucun mot de passe n’est stocké dans le cloud.||x*|x|
 Activer des solutions d’authentification multifacteur locales.|||x|
 
 *Via un agent léger.
+
+Pour plus d’informations sur le choix d’une méthode d’authentification, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../../security/azure-ad-choose-authn.md).
 
 ### <a name="password-hash-synchronization"></a>Synchronisation de hachage de mot de passe
 Avec la synchronisation de hachage de mot de passe, les hachages des mots de passe utilisateur sont synchronisés de votre annuaire Active Directory local vers Azure AD. Lorsque les mots de passe sont modifiés ou réinitialisés localement, les hachages des nouveaux mots de passe sont immédiatement synchronisés avec Azure AD afin que vos utilisateurs puissent toujours utiliser le même mot de passe pour les ressources cloud comme pour les ressources locales. Les mots de passe ne sont jamais envoyés à Azure AD ni stockés dans Azure AD sous forme de texte clair. Vous pouvez utiliser la synchronisation de hachage de mot de passe avec la réécriture de mot de passe pour permettre la réinitialisation de mot de passe libre-service dans Azure AD.

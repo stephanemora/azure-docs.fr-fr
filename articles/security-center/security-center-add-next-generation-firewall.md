@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25601b01489b95de0e86b314b4b934d3cffd38c2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363687"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330738"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Ajouter un pare-feu de nouvelle génération dans le Centre de sécurité Azure
 Azure Security Center peut vous recommander l’ajout d’un pare-feu de nouvelle génération d’un partenaire Microsoft afin de renforcer vos protections de sécurité. Ce document inclut un exemple vous expliquant comment procéder.
@@ -58,7 +58,7 @@ Retournons au panneau **Recommandations** . Une nouvelle entrée nommée **Achem
 Ce document vous a montré comment implémenter la recommandation du Centre de sécurité « Add a Next Generation Firewall » (Ajouter un pare-feu de nouvelle génération). Pour en savoir plus sur les pare-feu de nouvelle génération et la solution du partenaire Check Point, consultez les rubriques suivantes :
 
 * [Pare-feu de nouvelle génération](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
-* [Check Point vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
+* [Check Point vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 

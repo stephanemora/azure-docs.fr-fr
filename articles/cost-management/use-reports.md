@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a2067228629b04f1ef2cc407a28f379acc75f60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297513"
 ---
 # <a name="use-cost-management-reports"></a>Utiliser les rapports Azure Cost Management
 
@@ -23,6 +24,8 @@ Cet article décrit comment utiliser les différents rapports Azure Cost Managem
 ## <a name="cost-analysis-reports"></a>Rapports d’analyse des coûts
 
 Les rapports d’analyse des coûts présentent les données de facturation émises par vos fournisseurs cloud. En utilisant les rapports, vous pouvez regrouper et explorer divers segments de données détaillés dans le fichier de facturation. Les rapports permettent de parcourir précisément les coûts dans toutes les données de facturation brutes des fournisseurs cloud.
+
+Lorsqu’ils sont affichés sous forme de graphiques, les rapports d’analyse ont un axe Y *coût* et un axe X pour une *catégorie ou une balise* choisie par vos soins. Bien qu’il existe une plage dans le graphique, par exemple les 30 derniers jours, la plage est utilisée comme filtre. Les rapports d’analyse sont l’idéal pour comparer des catégories. Par exemple, le coût de chaque abonnement au cours des 30 derniers jours. Ou, le coût des services tels que le stockage ou le calcul sur une période spécifique.
 
 Les rapports d’analyse des coûts ne regroupent pas les coûts par balises. La création de rapports en fonction de balises est disponible uniquement dans les rapports de répartition des coûts définis après avoir créé un modèle de coût à l’aide de Cost Allocation 360.
 
@@ -50,6 +53,8 @@ Vous pouvez cliquer avec le bouton droit sur des résultats de rapport pour les 
 ### <a name="actual-cost-over-time"></a>Coûts réels dans le temps
 
 Le rapport des coûts réels dans le temps est un rapport d’analyse des coûts standard qui répartit les coûts sur une résolution de temps définie. Le rapport présente les dépenses au fil du temps pour vous permettre d’observer les tendances et de détecter des irrégularités dans les dépenses. Il montre vos principaux contributeurs de coût, comme les coûts récurrents et les frais d’instances réservées ponctuels pendant un laps de temps sélectionné.
+
+Lorsqu’ils sont affichés sous forme de graphique, les rapports sur les coût dans le temps ont un axe Y *coût* et un axe X *période*. Ces rapports présentent l’évolution du coût sur une période de temps.
 
 Utilisez le rapport des coûts réels dans le temps pour :
 

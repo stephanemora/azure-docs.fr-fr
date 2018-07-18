@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0feb1e344d70207d48e4ef07f5b45790425727ad
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200314"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017935"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gestion des clusters Hadoop dans HDInsight au moyen du Kit de développement logiciel (SDK) .NET
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Apprenez à gérer des clusters HDInsight à l’aide du [Kit de développement logiciel (SDK) HDInsight.NET](https://msdn.microsoft.com/library/mt271028.aspx)
+Apprenez à gérer des clusters HDInsight à l’aide du [Kit de développement logiciel (SDK) HDInsight.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 
 **Composants requis**
 
@@ -271,7 +271,7 @@ Consultez [Utilisation d’Oozie avec Hadoop pour définir et exécuter un workf
 Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Voir aussi
-* [Documentation de référence sur le Kit de développement logiciel (SDK) .NET HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Documentation de référence sur le Kit de développement logiciel (SDK) .NET HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
 * [Création de clusters HDInsight][hdinsight-provision]

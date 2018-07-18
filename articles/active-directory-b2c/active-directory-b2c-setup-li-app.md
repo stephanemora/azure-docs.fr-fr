@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C : configuration LinkedIn | Microsoft Docs'
-description: Fourniture d’inscription et de connexion à des consommateurs disposant de comptes LinkedIn dans vos applications sécurisées par Azure Active Directory B2C
+title: Configuration de LinkedIn dans Azure Active Directory B2C | Microsoft Docs
+description: Fourniture d’inscription et de connexion à des consommateurs disposant de comptes LinkedIn dans vos applications sécurisées par Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7588711bd1c2a02e2e9a100d2ba182f43e7df488
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446068"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C : fourniture d’inscription et de connexion à des consommateurs disposant de comptes LinkedIn
 ## <a name="create-a-linkedin-application"></a>Création d’une application LinkedIn
@@ -35,7 +35,7 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
    > **Client Secret** est une information d’identification de sécurité importante.
    > 
    > 
-6. Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **URL de redirection autorisées** (sous **OAuth 2.0**). Remplacez **{tenant}** par votre nom de client (par exemple, contoso.onmicrosoft.com). Cliquez sur **Ajouter**, puis sur **Mettre à jour**. La valeur **{tenant}** respecte la casse.
+6. Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **URL de redirection autorisées** (sous **OAuth 2.0**). Remplacez **{tenant}** par votre nom de client (par exemple, contoso.onmicrosoft.com). Cliquez sur **Ajouter**, puis sur **Mettre à jour**. La valeur **{tenant}** doit être en minuscules.
    
     ![LinkedIn - configuration d’application](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 

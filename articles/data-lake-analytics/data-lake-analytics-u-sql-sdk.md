@@ -1,28 +1,24 @@
 ---
-title: Mettre à l’échelle l’exécution et les tests U-SQL locaux avec le kit SDK Azure Data Lake U-SQL | Microsoft Docs
-description: Découvrez comment utiliser le Kit SDK Azure Data Lake U-SQL pour mettre à l’échelle l’exécution et les tests locaux de travaux U-SQL avec les interfaces de ligne de commande et de programmation de votre station de travail locale.
+title: Exécuter et tester des travaux U-SQL localement à l’aide du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
+description: Découvrez comment exécuter et tester localement des travaux U-SQL avec les interfaces de ligne de commande et de programmation sur votre station de travail locale.
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737069"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Mettre à l’échelle l’exécution et les tests U-SQL locaux avec le kit SDK Azure Data Lake U-SQL
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Exécuter et tester U-SQL à l’aide du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
 
-Lorsque vous développez un script U-SQL, il est courant de l’exécuter et de le tester localement avant de l’envoyer dans le cloud. Azure Data Lake fournit un package NuGet appelé Kit SDK SQL Azure Data Lake U-SQL pour ce scénario, par le biais duquel vous pouvez facilement mettre à l’échelle l’exécution et les tests U-SQL locaux. Il est également possible d’intégrer ce test U-SQL avec le système CI (intégration continue) pour automatiser la compilation et les tests.
+Lorsque vous développez un script U-SQL, il est courant de l’exécuter et de le tester localement avant de l’envoyer dans le cloud. Azure Data Lake fournit un package NuGet appelé Kit de développement logiciel (SDK) Azure Data Lake U-SQL pour ce scénario, par le biais duquel vous pouvez facilement mettre à l’échelle l’exécution et les tests U-SQL. Il est également possible d’intégrer ce test U-SQL avec le système CI (intégration continue) pour automatiser la compilation et les tests.
 
 Si vous vous demandez comment exécuter et déboguer un script U-SQL localement et manuellement avec les outils de GUI, vous pouvez pour cela utiliser Azure Data Lake Tools pour Visual Studio. Pour plus d’informations, cliquez [ici](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -212,12 +208,12 @@ La commande **execute** est utilisée pour exécuter les résultats compilés.
 
 Voici les arguments facultatifs **d’execute** :
 
-|Argument|Description|
-|--------|-----------|
-|-DataRoot [valeur par défaut '']|Racine de données pour l’exécution des métadonnées. La valeur par défaut correspond à la variable d’environnement **LOCALRUN_DATAROOT**.|
-|-MessageOut [valeur par défaut '']|Videz les messages de la console dans un fichier.|
-|-Parallel [valeur par défaut '1']|Indicateur de lancement des étapes d’exécution locale générées avec le niveau de parallélisme spécifié.|
-|-Verbose [valeur par défaut 'False']|Indicateur affichant les sorties détaillées du runtime.|
+|Argument|Valeur par défaut|Description|
+|--------|-------------|-----------|
+|-DataRoot | '' |Racine de données pour l’exécution des métadonnées. La valeur par défaut correspond à la variable d’environnement **LOCALRUN_DATAROOT**.|
+|-MessageOut | '' |Videz les messages de la console dans un fichier.|
+|-Parallel | « 1 » |Indicateur de lancement des étapes d’exécution locale générées avec le niveau de parallélisme spécifié.|
+|-Verbose | « False » |Indicateur affichant les sorties détaillées du runtime.|
 
 Voici un exemple d’utilisation :
 

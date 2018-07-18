@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c06e8c1a64f6f784f106c9b925f698b33c196320
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e75573513f107977e1d5fe62fbae89cb4439e0e9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621834"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048949"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Appeler une procédure stockée à partir d’une activité de copie dans Azure Data Factory
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory](../transform-data-using-stored-procedure.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Transformer des données à l’aide d’une activité de procédure stockée dans Data Factory](../transform-data-using-stored-procedure.md).
 
 
 Lorsque vous copiez des données dans [SQL Server](data-factory-sqlserver-connector.md) ou [Azure SQL Database](data-factory-azure-sql-connector.md), vous pouvez configurer l’élément **SqlSink** dans l’activité de copie pour appeler une procédure stockée. Vous pourriez vouloir utiliser la procédure stockée pour effectuer les traitements supplémentaires (fusion de colonnes, recherche de valeurs, insertion dans plusieurs tables, etc.) requis avant d’insérer les données dans la table de destination. Cette fonction tire parti des [paramètres table](https://msdn.microsoft.com/library/bb675163.aspx). 

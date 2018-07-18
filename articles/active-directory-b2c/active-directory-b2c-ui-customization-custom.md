@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3a8d797793b0e54df112ec44cdb37cbb1b40ce86
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34710139"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446161"
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C : Configurer la personnalisation de l’interface utilisateur dans une stratégie personnalisée
 
@@ -24,7 +24,6 @@ ms.locfileid: "34710139"
 Après avoir suivi cet article, vous disposerez d’une stratégie personnalisée d’inscription et de connexion avec votre marque et votre apparence. Avec Azure Active Directory B2C (Azure AD B2C), vous contrôlerez presque entièrement le contenu HTML et CSS présenté aux utilisateurs. Lorsque vous utilisez une stratégie personnalisée, vous configurez la personnalisation de l’interface utilisateur dans le code XML au lieu d’utiliser des contrôles dans le portail Azure. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer, effectuez les étapes de la section [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
 

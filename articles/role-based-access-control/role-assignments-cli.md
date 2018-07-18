@@ -1,6 +1,6 @@
 ---
-title: Gestion du Contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure | Microsoft Docs
-description: Découvrez comment gérer le contrôle d'accès en fonction du rôle avec l'interface de ligne de commande Azure en répertoriant les rôles et les actions de rôle, et en affectant des rôles pour l'abonnement et l'application.
+title: Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI | Microsoft Docs
+description: Découvrez comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI. Apprenez notamment à lister, à accorder et à supprimer des accès.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,36 +8,31 @@ manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2018
+ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b50d04bcbd067059bf4816468585e5d56a63d41
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266735"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437097"
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure
+# <a name="manage-access-using-rbac-and-azure-cli"></a>Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [interface de ligne de commande Azure](role-assignments-cli.md)
-> * [API REST](role-assignments-rest.md)
-
-
-Le contrôle d’accès en fonction du rôle (RBAC) vous permet de définir l’accès des utilisateurs, des groupes et des principaux de service en attribuant des rôles dans une étendue déterminée. Cet article explique comment gérer les attributions de rôles à partir de l’interface de ligne de commande (CLI) Azure.
+Le [contrôle d’accès en fonction du rôle](overview.md) est la façon dont vous gérez l’accès aux ressources dans Azure. Cet article décrit comment gérer l’accès des utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle et d’Azure CLI.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour pouvoir gérer les attributions de rôles à partir d’Azure CLI, vous devez satisfaire les prérequis suivants :
+Pour gérer les accès, il vous faudra l’un des éléments suivants :
 
-* [Azure CLI 2.0](/cli/azure). Vous pouvez l’utiliser dans votre navigateur avec [Azure Cloud Shell](../cloud-shell/overview.md) ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux et Windows et l’exécuter à partir de la ligne de commande.
+* [Bash dans Azure Cloud Shell](/azure/cloud-shell/overview)
+* [interface de ligne de commande Azure](/cli/azure)
 
-## <a name="list-role-definitions"></a>Lister les définitions de rôles
+## <a name="list-roles"></a>Répertorier les rôles
 
 Pour lister toutes les définitions de rôles disponibles, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list) :
 
@@ -94,7 +89,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role-definition"></a>Lister les actions d’une définition de rôle
+### <a name="list-actions-of-a-role"></a>Répertorier les actions d'un rôle
 
 Pour lister les actions d’une définition de rôle, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list) :
 
@@ -182,7 +177,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-role-assignments"></a>Répertorier les attributions de rôles
+## <a name="list-access"></a>Répertorier les accès
+
+Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attributions de rôles pour énumérer les accès.
 
 ### <a name="list-role-assignments-for-a-user"></a>Répertorier les attributions de rôles pour un utilisateur
 
@@ -240,7 +237,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## <a name="create-role-assignments"></a>Créer des attributions de rôles
+## <a name="grant-access"></a>Accorder l'accès
+
+Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès.
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Créer une attribution de rôle pour un utilisateur
 
@@ -290,9 +289,9 @@ L’exemple suivant attribue le rôle *Contributeur de machine virtuelle* à une
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
+## <a name="remove-access"></a>Suppression d'accès
 
-Pour supprimer une attribution de rôle, utilisez [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) :
+Dans le contrôle d’accès en fonction du rôle, vous supprimez une attribution de rôle à l’aide de [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) pour supprimer l’accès :
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
@@ -310,139 +309,7 @@ L’exemple suivant retire le rôle *Lecteur* au groupe *Ann Mack Team* associé
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="custom-roles"></a>Rôles personnalisés
-
-### <a name="list-custom-roles"></a>Répertorier les rôles personnalisés
-
-Pour lister les rôles pouvant être affectés dans une étendue, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list).
-
-Les deux exemples suivants listent tous les rôles personnalisés de l’abonnement actuel :
-
-```azurecli
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
-```
-
-```azurecli
-az role definition list --output json | jq '.[] | if .roleType == "CustomRole" then {"roleName":.roleName, "roleType":.roleType} else empty end'
-```
-
-```Output
-{
-  "roleName": "My Management Contributor",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Operator Role",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Reader Role",
-  "type": "CustomRole"
-}
-
-...
-```
-
-### <a name="create-a-custom-role"></a>Créer un rôle personnalisé
-
-Pour créer un rôle personnalisé, utilisez [az role definition create](/cli/azure/role/definition#az-role-definition-create). La définition de rôle peut être une description JSON ou le chemin d’un fichier contenant une description JSON.
-
-```azurecli
-az role definition create --role-definition <role_definition>
-```
-
-L’exemple suivant crée un rôle personnalisé appelé *Virtual Machine Operator*. Ce rôle personnalisé attribue l’accès à toutes les opérations de lecture (« read ») des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network* et attribue l’accès pour démarrer (« start »), redémarrer (« restart ») et surveiller (« monitor ») les machines virtuelles. Ce rôle personnalisé peut être utilisé dans deux abonnements. Cet exemple utilise un fichier JSON en tant qu’entrée.
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition create --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="update-a-custom-role"></a>Mettre à jour un rôle personnalisé
-
-Pour mettre à jour un rôle personnalisé, utilisez d’abord [az role definition list](/cli/azure/role/definition#az-role-definition-list) pour récupérer la définition de rôle. Apportez ensuite les modifications souhaitées à la définition de rôle. Enfin, utilisez [az role definition update](/cli/azure/role/definition#az-role-definition-update) pour enregistrer la définition de rôle mise à jour.
-
-```azurecli
-az role definition update --role-definition <role_definition>
-```
-
-L’exemple suivant ajoute l’opération *Microsoft.Insights/diagnosticSettings/* aux *Actions* du rôle personnalisé *Virtual Machine Operator*.
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition update --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="delete-a-custom-role"></a>Supprimer un rôle personnalisé
-
-Pour supprimer un rôle personnalisé, utilisez [az role definition delete](/cli/azure/role/definition#az-role-definition-delete). Pour spécifier le rôle à supprimer, utilisez le nom ou l’ID du rôle. Pour déterminer l’ID du rôle, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list).
-
-```azurecli
-az role definition delete --name <role_name or role_id>
-```
-
-L’exemple suivant supprime le rôle personnalisé *Virtual Machine Operator* :
-
-```azurecli
-az role definition delete --name "Virtual Machine Operator"
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
+- [Tutoriel : Créer un rôle personnalisé avec Azure CLI](tutorial-custom-role-cli.md)
+- [Utiliser Azure CLI pour gérer les ressources et les groupes de ressources Azure](../azure-resource-manager/xplat-cli-azure-resource-manager.md)

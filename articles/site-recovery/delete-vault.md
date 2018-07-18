@@ -1,23 +1,23 @@
 ---
 title: Supprimer un archivage Site Recovery
 description: Découvrez comment supprimer un archivage Azure Site Recovery, en fonction du scénario de Site Recovery.
-service: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1c069e8b09f71ac46017974dfd94945c404b16ba
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9c4a88d8a3d63555a57bd5553b721cfbcd77df2c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209890"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971186"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Supprimer un archivage Site Recovery
-Des dépendances peuvent vous empêcher de supprimer un archivage Azure Site Recovery. Les mesures à prendre varient en fonction du scénario de Site Recovery : VMware vers Azure, Hyper-V (avec et sans System Center Virtual Machine Manager) vers Azure, et Sauvegarde Microsoft Azure. Pour supprimer un archivage utilisé dans Sauvegarde Microsoft Azure, voir [Supprimer un archivage Recovery Services](../backup/backup-azure-delete-vault.md).
+
+Des dépendances peuvent vous empêcher de supprimer un archivage Azure Site Recovery. Les actions à effectuer varient en fonction du scénario de Site Recovery. Pour supprimer un archivage utilisé dans Sauvegarde Microsoft Azure, voir [Supprimer un archivage Recovery Services](../backup/backup-azure-delete-vault.md).
 
 
 
@@ -37,12 +37,12 @@ Pour supprimer l’archivage, suivez les étapes recommandées pour votre scéna
 5. Supprimez l’archivage.
 
 
-### <a name="hyper-v-vms-with-virtual-machine-manager-to-azure"></a>Machines virtuelles Hyper-V (avec Virtual Machine Manager) vers Azure
-1. Supprimez toutes les machines virtuelles protégées en suivant les étapes décrites dans [Désactiver la protection d’une machine virtuelle Hyper-V dans un cloud VMM](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+### <a name="hyper-v-vms-with-vmm-to-azure"></a>Machines virtuelles Hyper-V (avec VMM) dans Azure
+1. Supprimez toutes les machines virtuelles protégées en suivant les étapes décrites dans [Désactiver la protection d’une machine virtuelle Hyper-V (avec VMM)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
 
 2. Dissociez et supprimez toutes les stratégies de réplication en accédant à votre coffre -> **Infrastructure Site Recovery** -> **For System Center VMM (Pour System Center VMM)** -> **Stratégies de réplication**
 
-3.  Supprimez les références aux serveurs Virtual Machine Manager en suivant les étapes décrites dans [Annuler l’inscription d’un serveur VMM connecté](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+3.  Supprimez les références aux serveurs VMM en suivant les étapes décrites dans [Annuler l’inscription d’un serveur VMM connecté](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
 
 4.  Supprimez l’archivage.
 
@@ -51,7 +51,7 @@ Pour supprimer l’archivage, suivez les étapes recommandées pour votre scéna
 
 2. Dissociez et supprimez toutes les stratégies de réplication en accédant à votre coffre -> **Infrastructure Site Recovery** -> **For Hyper-V Sites (Pour des sites Hyper-V)** -> **Stratégies de réplication**
 
-3. Supprimez les références aux serveurs Hyper-V en suivant les étapes décrites dans [Annuler l’inscription d’un ordinateur hôte Hyper-V](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Supprimez les références aux serveurs Hyper-V en suivant les étapes décrites dans [Annuler l’inscription d’un ordinateur hôte Hyper-V](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. Supprimez le site Hyper-V.
 
@@ -74,4 +74,4 @@ Pour supprimer l’archivage Site Recovery, même s’il contient des éléments
 
     Remove-AzureRmRecoveryServicesVault -Vault $vault
 
-Découvrez-en plus sur [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0) et [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0).
+Découvrez-en plus sur [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0) et [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0).

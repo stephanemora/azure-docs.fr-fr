@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 14b9a4ed66995a73f00234f4b25f52fccbcbe556
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777298"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38562602"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des applications Windows Phone à l’aide d’Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -41,7 +41,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Test d’envoi d’une notification 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - [Visual Studio 2015 Express avec les composants de développement pour mobiles](https://www.visualstudio.com/vs/older-downloads/)

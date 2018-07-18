@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770738"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714110"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
 
@@ -54,7 +55,7 @@ Cet article vous fournit des conseils sur la façon de résoudre les problèmes 
 
 - L’inscription / jointure d’appareils initiale est configurée pour effectuer une tentative à l’ouverture de session ou au verrouillage / déverrouillage. Un délai de cinq minutes peut être déclenché par une tâche du Planificateur de tâches. 
 
-- La réinstallation du système d’exploitation ou des réinscriptions manuelles sont susceptibles de créer une nouvelle inscription sur Azure AD, et ainsi d’aboutir à plusieurs entrées sous l’onglet d’informations UTILISATEUR dans le portail Azure. 
+- Une réinstallation du système d’exploitation ou une réinscription manuelle est susceptible de créer une nouvelle inscription dans Azure AD, et ainsi de générer plusieurs entrées sous l’onglet d’informations UTILISATEUR dans le Portail Azure. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Étape 1 : Récupérer l’état de l’inscription 
 
@@ -89,7 +90,7 @@ Si la jointure Azure AD hybride n’a pas réussi, la boîte de dialogue vous fo
     
     - L’utilisateur connecté n’est pas un utilisateur de domaine (par exemple, un utilisateur local). La jointure Azure AD hybride sur les appareils de bas niveau est uniquement prise en charge pour les utilisateurs de domaine.
     
-    - Autoworkplace.exe ne peut pas s’authentifier sans assistance auprès d’Azure AD ou d’AD FS. Ce problème est peut-être dû à des problèmes de connectivité réseau sortante aux URL Azure AD (vérifiez les prérequis). Il peut également être lié au fait que l’authentification multifacteur (MFA) est activée/configurée pour l’utilisateur alors que WIAORMUTLIAUTHN n’est pas configuré sur le serveur de fédération (vérifiez les étapes de configuration). Ce problème peut également découler du fait que la page de découverte du domaine d’accueil (HRD) attend une intervention de la part de l’utilisateur, ce qui empêche **autoworkplace.exe** d’obtenir un jeton sans assistance.
+    - Autoworkplace.exe ne peut pas s’authentifier sans assistance auprès d’Azure AD ou d’AD FS. Il existe peut-être des problèmes de connectivité réseau sortante aux URL Azure AD. Le problème peut également être lié au fait que l’authentification multifacteur (MFA) est activée/configurée pour l’utilisateur alors que WIAORMUTLIAUTHN n’est pas configuré sur le serveur de fédération. Ce problème peut également découler du fait que la page de découverte du domaine d’accueil (HRD) attend une intervention de la part de l’utilisateur, ce qui empêche **autoworkplace.exe** d’obtenir un jeton sans assistance.
     
     - Votre organisation utilise l’authentification unique Azure AD sans interruption, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` ne sont pas présents dans les paramètres intranet Internet Explorer de l’appareil et l’option **Autoriser les mises à jour de la barre d’état via le script** n’est pas activée pour la zone Intranet.
 
@@ -105,7 +106,7 @@ Vous pouvez également trouver les informations d’état dans le journal des é
   
 **Voici les causes les plus courantes d’échec d’une jointure Azure AD hybride :** 
 
-- Votre ordinateur n’est ni connecté au réseau interne de votre organisation, ni à un VPN avec une connexion à votre contrôleur de domaine AD local.
+- Votre ordinateur n’est pas connecté au réseau interne de votre organisation, ni à un VPN avec une connexion à votre contrôleur de domaine AD local.
 
 - Vous êtes connecté à votre ordinateur avec un compte d’ordinateur local. 
 

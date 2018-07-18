@@ -9,12 +9,12 @@ ms.custom: develop databases
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 89e5497c10f3e24dd84333f095a9bd7c0017ea88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a21ce5c9cbf5517733a6b491124e51b163f6c2b9
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647865"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309297"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimisation des performances à l’aide des technologies en mémoire dans SQL Database
 
@@ -72,7 +72,7 @@ Vidéos détaillées sur les technologies :
 
 l’OLTP en mémoire inclut des tables optimisées en mémoire, qui sont utilisées pour stocker des données de l’utilisateur. Le volume de ces tables doit tenir dans la mémoire. Étant donné que vous gérez la mémoire directement dans le service SQL Database, nous disposons du concept de quota pour les données utilisateur. Ce concept est appelé *stockage OLTP en mémoire*.
 
-Chaque niveau tarifaire de base de données autonome pris en charge et chaque niveau tarifaire de pool élastique inclut une certaine quantité de stockage OLTP en mémoire. Consultez [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md) et [Limites de ressources basées sur des vCores](sql-database-vcore-resource-limits.md).
+Chaque niveau tarifaire de base de données autonome pris en charge et chaque niveau tarifaire de pool élastique inclut une certaine quantité de stockage OLTP en mémoire. Voir [Limites de ressources par DTU – base de données unique](sql-database-dtu-resource-limits-single-databases.md), [Limites de ressources par DTU – pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md), [Limites de ressources par vCore – bases de données uniques](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources par vCore – pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Les éléments suivants sont pris en compte dans votre plafond de stockage OLTP en mémoire :
 

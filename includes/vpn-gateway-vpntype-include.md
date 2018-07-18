@@ -9,10 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5de227e5de5ef9b41f6e0f64db86b7195259f7d6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "30196776"
 ---
 * **PolicyBased :** les VPN basés sur des stratégies étaient auparavant connus sous le nom de passerelles de routage statique dans le modèle de déploiement Classic. Les VPN basés sur des stratégies chiffrent et acheminent les paquets par le biais des tunnels IPsec basés sur les stratégies IPsec configurées avec les combinaisons de préfixes d’adresses entre votre réseau local et le réseau virtuel Azure. La stratégie (ou le sélecteur de trafic) est généralement définie en tant que liste d’accès dans les configurations du périphérique VPN. Un VPN de type basé sur des stratégies a pour valeur *PolicyBased*. Lorsque vous utilisez un VPN basé sur les itinéraires (PolicyBased), gardez à l’esprit les limitations suivantes :
   

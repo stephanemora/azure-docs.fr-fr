@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: cgronlun
-ms.openlocfilehash: c83081658843c9709990878833a56d04aa7d81a7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b84389c1d52c0c43f1e71da3eed86f4057b85559
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771022"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051380"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Présentation de HDInsight et de la pile de technologies Hadoop
+
 Cet article présente Apache Hadoop sur Azure HDInsight. Azure HDInsight est un service d’analyse entièrement géré, complet et open source pour les entreprises. Vous pouvez utiliser les infrastructures open source telles que Hadoop, Spark, Hive, LLAP, Kafka, Storm, R et bien plus encore. 
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
@@ -45,12 +46,12 @@ Cette section répertorie les fonctionnalités d’Azure HDInsight.
 
 |Fonctionnalité  |Description  |
 |---------|---------|
-|Cloud natif     |     Azure HDInsight vous permet de créer des clusters optimisés pour [Hadoop](apache-hadoop-linux-tutorial-get-started.md),  [Spark](../spark/apache-spark-jupyter-spark-sql.md),  [Interactive query (LLAP)](../interactive-query/apache-interactive-query-get-started.md),  [Kafka](../kafka/apache-kafka-get-started.md),  [Storm](../storm/apache-storm-tutorial-get-started-linux.md),  [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md), et  [R Server](../r-server/r-server-get-started.md) sur Azure. HDInsight fournit également un contrat SLA de bout en bout sur toutes vos charges de travail de production.  |
+|Cloud natif     |     Azure HDInsight vous permet de créer des clusters optimisés pour [Hadoop](apache-hadoop-linux-tutorial-get-started.md),  [Spark](../spark/apache-spark-jupyter-spark-sql.md),  [Interactive query (LLAP)](../interactive-query/apache-interactive-query-get-started.md),  [Kafka](../kafka/apache-kafka-get-started.md),  [Storm](../storm/apache-storm-tutorial-get-started-linux.md),  [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md), et  [ML Services](../r-server/r-server-get-started.md) sur Azure. HDInsight fournit également un contrat SLA de bout en bout sur toutes vos charges de travail de production.  |
 |Économique et évolutif     | HDInsight vous permet de monter ou de descendre en [puissance](../hdinsight-administer-use-portal-linux.md)  les charges de travail. Vous pouvez réduire les coûts en [créant des clusters à la demande](../hdinsight-hadoop-create-linux-clusters-adf.md) et payer uniquement ce que vous utilisez. Vous pouvez également créer des pipelines de données pour faire fonctionner vos travaux. Le stockage et le calcul découplés améliorent les performances et la flexibilité. |
 |Sécurité et conformité    | HDInsight vous permet de protéger les ressources de données de votre entreprise à l’aide du [réseau virtuel Azure](../hdinsight-extend-hadoop-virtual-network.md), du [chiffrement](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)et de l’intégration avec [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight répond également aux [normes de conformité](https://azure.microsoft.com/overview/trusted-cloud) du gouvernement et du secteur les plus populaires.        |
 |Surveillance    | Azure HDInsight s’intègre à [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) pour fournir une interface unique permettant de gérer l’ensemble des clusters.        |
 |Disponibilité générale | HDInsight est disponible dans plus de 25  [régions](https://azure.microsoft.com/regions/services/) , soit plus que tout autre offre d’analytique Big Data. Azure HDInsight est également disponible dans Azure Government, en Chine, et en Allemagne, ce qui vous permet de répondre aux besoins de votre entreprise dans les principaux domaines souverains. |  
-|Productivité     |  Azure HDInsight vous permet d’utiliser des outils de productivité enrichis pour Hadoop et Spark avec les environnements de développement de votre choix. Parmi ces environnements de développement figurent [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md), [Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) et [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md) pour la prise en charge de Scala, Python, R, Java et .NET. Les scientifiques des données peuvent également collaborer à l’aide de blocs-notes populaires, tels que [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) et [Zeppelin](../spark/apache-spark-zeppelin-notebook.md).    |
+|Productivité     |  Azure HDInsight vous permet d’utiliser des outils de productivité enrichis pour Hadoop et Spark avec les environnements de développement de votre choix. Parmi ces environnements de développement figurent [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md), [VSCode](../hdinsight-for-vscode.md), [Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) et [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md) pour la prise en charge de Scala, Python, R, Java et .NET. Les scientifiques des données peuvent également collaborer à l’aide de blocs-notes populaires, tels que [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) et [Zeppelin](../spark/apache-spark-zeppelin-notebook.md).    |
 |Extensibilité     |  Vous pouvez étendre les clusters HDInsight avec des composants installés (Hue, Presto, etc.) à l’aide d’[actions de script](../hdinsight-hadoop-customize-cluster-linux.md), par l’[ajout de nœuds de périphérie](../hdinsight-apps-use-edge-node.md), ou l’[intégration à d’autres applications certifiées Big data](../hdinsight-apps-install-applications.md). HDInsight permet une intégration transparente aux solutions Big Data les plus populaires à l’aide d’un déploiement [en un clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/).|
 
 ## <a name="scenarios-for-using-hdinsight"></a>Scénarios d’utilisation de HDInsight
@@ -94,7 +95,7 @@ HDInsight comprend des types de cluster spécifiques et des fonctionnalités de 
 
 * **[Apache HBase](http://hbase.apache.org/)** : base de données NoSQL basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées (potentiellement, des milliards de lignes multipliées par des millions de colonnes). Consultez [Qu’est-ce que HBase sur HDInsight ?](../hbase/apache-hbase-overview.md)
 
-* **[R Server](https://msdn.microsoft.com/microsoft-r/rserver)** : serveur d’hébergement et de gestion de processus R distribués en parallèle. Ce serveur offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse évolutives et distribuées sur HDInsight. Consultez l’article [Vue d’ensemble : R Server sur HDInsight](../r-server/r-server-overview.md).
+* **[ML Services](https://msdn.microsoft.com/microsoft-r/rserver)** : serveur d’hébergement et de gestion de processus R distribués en parallèle. Ce serveur offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse évolutives et distribuées sur HDInsight. Consultez [Vue d’ensemble de ML Services sur HDInsight](../r-server/r-server-overview.md).
 
 * **[Apache Storm](https://storm.incubator.apache.org/)**  : système de calcul distribué et en temps réel permettant le traitement rapide de vastes flux de données. Storm est fourni en tant que cluster géré dans HDInsight. Consultez la rubrique [Analyse de données de capteur en temps réel au moyen de Storm et de Hadoop](../storm/apache-storm-sensor-data-analysis.md).
 

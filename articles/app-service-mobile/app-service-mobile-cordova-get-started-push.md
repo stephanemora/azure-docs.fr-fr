@@ -1,10 +1,10 @@
 ---
-title: "Ajouter des notifications Push à une application Apache Cordova à l’aide de la fonctionnalité Mobile Apps d’Azure App Service | Microsoft Docs"
-description: "Découvrez comment utiliser Mobile Apps pour envoyer des notifications Push à votre application Apache Cordova."
+title: Ajouter des notifications Push à une application Apache Cordova à l’aide de la fonctionnalité Mobile Apps d’Azure App Service | Microsoft Docs
+description: Découvrez comment utiliser Mobile Apps pour envoyer des notifications Push à votre application Apache Cordova.
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6af5fa51f2e6553431b9f0aa2dbb368651e7e209
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38547265"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Ajout de notifications Push à votre application Apache Cordova.
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -33,13 +34,13 @@ Ce didacticiel repose sur l’hypothèse que vous disposez d’une application A
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* PC équipé de [Visual Studio Community 2015][2] ou d’une version ultérieure ; 
+* PC équipé de [Visual Studio Community 2015][2] ou d’une version ultérieure ;
 * [Visual Studio Tools pour Apache Cordova][4] ;
 * [compte Azure actif][3] ;
 * projet de [démarrage rapide Apache Cordova][5] terminé ;
 * (Android) [compte Google][6] avec une adresse électronique vérifiée ;
 * (iOS) [appartenance au programme pour développeurs Apple][7] et appareil iOS (le simulateur iOS ne prend pas en charge les notifications Push) ;
-* (Windows) [compte de développeur Microsoft Store][8] et appareil Windows 10.
+* (Windows) [compte de développeur Microsoft Store][8] et appareil Windows 10
 
 ## <a name="configure-hub"></a>Configurer un hub de notification
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]

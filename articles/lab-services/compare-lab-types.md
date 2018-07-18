@@ -1,6 +1,6 @@
 ---
 title: Comparer différents types de laboratoires dans Azure Lab Services | Microsoft Docs
-description: Explique et compare les différents types de laboratoires qu’Azure Lab Services (anciennement Dev/Test Labs) permet de créer.
+description: Explique et compare les différents types de laboratoires qu’Azure Lab Services permet de créer
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 22a1c90dd1a1ca305431d91a801e5293a6d08703
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361180"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637871"
 ---
-# <a name="compare-managed-and-devtest-labs-in-azure-lab-services"></a>Comparer les laboratoires gérés et DevTest dans Azure Lab Services
-Il existe deux types de laboratoires, les laboratoires **gérés** avec Azure Lab Services, et les **laboratoires personnalisés** avec Azure Dev/Test Labs. Si vous souhaitez simplement ajouter ce dont vous avez besoin à un laboratoire et laisser le service configurer et gérer l’infrastructure requise, choisissez un **laboratoire géré**. Actuellement, le **laboratoire de classe** est le seul type de laboratoire géré qu’Azure Lab Services permet de créer. Si vous souhaitez gérer votre propre infrastructure, créez un **laboratoire personnalisé** avec Azure Dev/Test Labs.
+# <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Comparer les laboratoires gérés dans Azure Lab Services et DevTest Labs
+Il existe deux types de laboratoires, les laboratoires **gérés** avec Azure Lab Services, et les **laboratoires personnalisés** avec Azure Dev/Test Labs. Si vous souhaitez simplement ajouter ce dont vous avez besoin à un laboratoire et laisser le service configurer et gérer l’infrastructure requise, choisissez un **laboratoire géré**. Actuellement, le **laboratoire de classe** est le seul type de laboratoire géré qu’Azure Lab Services permet de créer. Si vous souhaitez gérer votre propre infrastructure, créez un laboratoire avec Azure DevTest Labs.
 
 Les sections suivantes décrivent plus en détail ces laboratoires. 
 
@@ -38,8 +38,8 @@ Voici quelques **cas d’usage des laboratoires gérés** :
 - Configurer rapidement un laboratoire de machines virtuelles pour héberger un hackathon. Supprimez le laboratoire d’un simple clic une fois que vous avez terminé. 
 
 
-## <a name="devtest-labs"></a>Laboratoires DevTest
-Certains cas de figure impliquent de gérer soi-même toute l’infrastructure et toute la configuration dans son propre abonnement. Pour cela, vous pouvez créer un laboratoire personnalisé avec Azure Dev/Test Labs sur le Portail Azure. Il n’est pas nécessaire dans ce cas de créer un compte Lab. Ces laboratoires ne s’affichent pas dans le compte Lab (qui sert aux laboratoires gérés).  
+## <a name="devtest-labs"></a>DevTest Labs
+Certains cas de figure impliquent de gérer soi-même toute l’infrastructure et toute la configuration dans son propre abonnement. Pour cela, vous pouvez créer un laboratoire avec Azure DevTest Labs sur le Portail Azure. Il n’est pas nécessaire dans ce cas de créer un compte Lab. Ces laboratoires ne s’affichent pas dans le compte Lab (qui sert aux laboratoires gérés).  
 
 Voici quelques **cas d’usage des laboratoires DevTest** : 
 
@@ -51,10 +51,10 @@ Voici quelques **cas d’usage des laboratoires DevTest** :
 - Proposer des sessions de formation aux clients à l’aide d’un laboratoire configuré avec la dernière version du produit. Donnez à chaque client un temps limité d’utilisation dans le laboratoire. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>Comparaison des laboratoires gérés et des Laboratoires DevTest
+## <a name="managed-labs-vs-devtest-labs"></a>Comparaison des laboratoires gérés et des DevTest Labs
 Le tableau suivant compare les deux types de laboratoires pris en charge par Azure Lab Services : 
 
-| Caractéristiques | Laboratoires gérés | Laboratoires DevTest |
+| Caractéristiques | Laboratoires gérés | DevTest Labs |
 | -------- | ----------------  | ---------- |
 | Gestion de l’infrastructure Azure dans le laboratoire |  Gérée automatiquement par le service. | Gérée par vos soins.  |
 | Résilience intégrée en cas de problèmes d’infrastructure | Gérée automatiquement par le service. | Gérée par vos soins.  |
@@ -64,5 +64,5 @@ Le tableau suivant compare les deux types de laboratoires pris en charge par Azu
 ## <a name="next-steps"></a>Étapes suivantes
 Commencez à configurer un laboratoire à l’aide d’Azure Lab Services :
 
-- [Configurer un laboratoire de classe](tutorial-setup-classroom-lab.md)
-- [Configurer un laboratoire personnalisé](tutorial-create-custom-lab.md)
+- [Configurer un laboratoire de classe](classroom-labs/tutorial-setup-classroom-lab.md)
+- [Configurer un laboratoire](tutorial-create-custom-lab.md)

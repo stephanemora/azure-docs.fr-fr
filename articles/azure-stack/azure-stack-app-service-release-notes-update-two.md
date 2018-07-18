@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 8e1790b7d0b3a210a9142fc8580ff8ed4d64311c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: be09773a1ce3e80547d9e5f0e9de2a2d9e093c60
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360455"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970915"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 2
 
@@ -38,7 +38,6 @@ Ces notes de publication décrivent les améliorations et les correctifs apport�
 Le numéro de build d’App Service sur Azure Stack Update 2 est **72.0.13698.10**
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 > [!IMPORTANT]
 > Les nouveaux déploiements d’Azure App Service sur Azure Stack nécessitent désormais un [certificat avec caractères génériques à trois sujets](azure-stack-app-service-before-you-get-started.md#get-certificates) en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**
@@ -71,7 +70,7 @@ Azure App Service sur Azure Stack Update 2 inclut les améliorations et correcti
 
 - Activation de la fonctionnalité de test en production - [Présentation du test en production](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
-- Activation d’Azure Functions Proxies - [Utilisation d’Azure Functions Proxies](https://docs.microsoft.com/en-us/azure/azure-functions/functions-proxies)
+- Activation d’Azure Functions Proxies - [Utilisation d’Azure Functions Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies)
 
 - Ajout de la prise en charge de l’expérience utilisateur de l’extension d’administration d’App Service pour les opérations suivantes :
   - Rotation des secrets

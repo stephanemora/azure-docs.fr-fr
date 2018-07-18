@@ -1,25 +1,20 @@
 ---
-title: Utiliser DPM pour sauvegarder des charges de travail sur le portail Azure | Microsoft Docs
+title: Utiliser DPM pour sauvegarder des charges de travail sur le portail Azure
 description: Présentation de la sauvegarde de serveurs DPM à l'aide du service Azure Backup
 services: backup
-documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: ''
 keywords: System Center Data Protection Manager, Data Protection Manager, sauvegarde DPM
-ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/15/2017
-ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 05917705264965afda873fb32a28b70e4da87aa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: adigan
+ms.openlocfilehash: ffb3a5a5729e97e1a9b00072624d7e51842f61f8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605047"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Préparation de la sauvegarde des charges de travail dans Azure avec DPM
 > [!div class="op_single_selector"]
@@ -52,7 +47,6 @@ La sauvegarde de serveurs DPM dans Azure présente les avantages commerciaux sui
 * Pour le déploiement de DPM sur une machine virtuelle dans Azure, déchargez le stockage du disque Azure. Le stockage des données plus anciennes dans votre coffre Recovery Services vous permet de monter en puissance votre activité en stockant les nouvelles données sur un disque.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 
 1. **Créer un coffre Recovery Services** : créez un coffre dans le portail Azure.

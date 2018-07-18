@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 411baa24cc796a40f83e8530ab797f3e377ee5f6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 61f884e186316b0b7829ef8e9f8f62d6c5df6b5d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356237"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307943"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutoriel - Acheminer le trafic web selon l’URL à l’aide d’Azure CLI
 
@@ -246,7 +246,7 @@ az network public-ip show \
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.html, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir apparaître quelque chose ressemblant à l’exemple suivant :
+Remplacez l’URL par http://&lt;ip-address&gt;:8080/images/test.html, en indiquant votre adresse IP à la place de &lt;ip-address&gt;, de façon à voir apparaître quelque chose ressemblant à l’exemple suivant :
 
 ![Tester l’URL images dans la passerelle d’application](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 

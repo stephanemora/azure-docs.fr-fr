@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Square avec Azure Data Factory (version bêta) | Microsoft Docs
+title: Copier des données de Square avec Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie pour copier des données de Square vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 3181ee143ac655606b5e9c98d743e30aef28b8cc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 390dbb35faec45e8629c2d870f2463bb3965a88b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048684"
 ---
-# <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Copier des données de Square avec Azure Data Factory (version bêta)
+# <a name="copy-data-from-square-using-azure-data-factory"></a>Copier des données de Square avec Azure Data Factory
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Square. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, voir [Activité de copie dans V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> Ce connecteur est actuellement en version bêta. Essayez-le et envoyez-nous vos commentaires. Ne l’utilisez pas dans des environnements de production.
+> Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -37,7 +35,7 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes donnent des précisions sur les propriétés utilisées pour définir des entités Data Factory propres au connecteur Square.
 
@@ -51,7 +49,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Square :
 | host | URL de l’instance Square (c’est-à-dire mystore.mysquare.com).  | OUI |
 | clientId | ID client associé à l’application Square.  | OUI |
 | clientSecret | Clé secrète client associée à l’application Square. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| redirectUri | URL de redirection affectée dans le tableau de bord de l’application Square (c’est-à-dire http://localhost:2500).  | OUI |
+| redirectUri | URL de redirection affectée dans le tableau de bord de l’application Square (c’est-à-dire http://localhost:2500)  | OUI |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 6f2f5eae8a4512595457d92d17832cf462b4bec4
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ebe1f67c7c662af6d9e1888580149834a007200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012595"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657469"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
 
@@ -37,7 +37,7 @@ Si vous souhaitez utiliser un exemple de script, voir [Exemple de script pour ch
 
 ## <a name="generalize-the-source-vm-using-sysprep"></a>Généraliser la machine virtuelle source à l’aide de Sysprep
 
-Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, consultez la [Vue d’ensemble de Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge par Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 

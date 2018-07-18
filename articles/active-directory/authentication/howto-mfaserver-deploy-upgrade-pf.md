@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: e1a216a8bf524d22af815d077b16ab29c817e9e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e3e0855d2ac54643a6dc6128eea974d952bb56d5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866231"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335626"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Mise à niveau de l’agent PhoneFactor vers le serveur Azure Multi-Factor Authentication
 
@@ -66,11 +66,8 @@ Le chemin d’installation est récupéré à partir du Registre de l’installa
 
   3. Accédez à l’emplacement d’installation du portail de l’utilisateur (par exemple, C:\inetpub\wwwroot\MultiFactorAuth) et modifiez le fichier web.config. Copiez dans le nouveau fichier web.config les valeurs des sections appSettings et applicationSettings de votre fichier web.config d’origine qui a été sauvegardé avant la mise à niveau. Si le nouveau nom de répertoire virtuel par défaut a été conservé lors de l'installation du Kit de développement logiciel (SDK) Web Service, modifiez l'URL dans la section applicationSettings pour pointer vers le bon emplacement. Si les valeurs par défaut ont été modifiées dans le précédent fichier web.config, appliquez les mêmes modifications au nouveau fichier web.config.
 
-  4. Pour installer le service web de l’application mobile sur le serveur web, ouvrez une invite de commandes en tant qu’administrateur et exécutez MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
-
-    Le nom de répertoire virtuel par défaut est désormais **MultiFactorAuthMobileAppWebService** au lieu de **PhoneFactorPhoneAppWebService**. Si vous souhaitez utiliser le nom précédent, vous devez modifier le nom du répertoire virtuel pendant l'installation. Vous devriez probablement choisir un nom plus court pour faciliter la saisie des utilisateurs finaux sur leurs périphériques mobiles. Sinon, si vous autorisez le programme d’installation à utiliser le nouveau nom par défaut, vous cliquez sur l’icône Application mobile sur le serveur Multi-Factor Authentication et mettez à jour l’URL du service web de l’application mobile.
-
-  5. Accédez à l’emplacement d’installation du service web de l’application mobile (par exemple, C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) et modifiez le fichier web.config. Copiez dans le nouveau fichier web.config les valeurs des sections appSettings et applicationSettings de votre fichier web.config d’origine qui a été sauvegardé avant la mise à niveau. Si le nouveau nom de répertoire virtuel par défaut a été conservé lors de l'installation du Kit de développement logiciel (SDK) Web Service, modifiez l'URL dans la section applicationSettings pour pointer vers le bon emplacement. Si les valeurs par défaut ont été modifiées dans le précédent fichier web.config, appliquez les mêmes modifications au nouveau fichier web.config.
+> [!NOTE]
+> Lors de la mise à niveau à partir d’une version du serveur Azure MFA antérieure aux versions 8.0 à 8.0+, le service web d’application mobile peut être désinstallé après la mise à niveau
 
 ## <a name="next-steps"></a>Étapes suivantes
 

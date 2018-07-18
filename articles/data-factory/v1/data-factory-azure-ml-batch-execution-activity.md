@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 62ee13c4e756e41558adcb5b98081e24d683e01a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 62712a201e8f9717f3e0215c4c29130d3bddcdf2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620372"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050209"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 
@@ -37,7 +37,7 @@ ms.locfileid: "34620372"
 
 ## <a name="introduction"></a>Introduction
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [transform data using machine learning in Data Factory version 2](../transform-data-using-machine-learning.md) (Transformer des données à l’aide de l’apprentissage machine dans Data Factory version 2).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Transformer des données à l’aide de l’apprentissage automatique dans Data Factory](../transform-data-using-machine-learning.md).
 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
@@ -350,7 +350,7 @@ Vous pouvez également utiliser les [fonctions de Data Factory](data-factory-fun
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Utilisation d’un module lecteur pour lire les données de plusieurs fichiers dans le stockage d’objets blob Azure
 Les pipelines Big Data avec des activités telles que Pig et Hive peuvent produire un ou plusieurs fichiers de sortie sans extensions. Par exemple, quand vous spécifiez une table Hive externe, les données de cette table peuvent être stockées dans le stockage d’objets blob Azure avec le nom 000000_0 suivant. Vous pouvez utiliser le module lecteur dans une expérience pour lire plusieurs fichiers et les utiliser pour les prédictions.
 
-Quand vous utilisez le module lecteur dans une expérience Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage d’objets blob Azure peuvent être les fichiers de sortie (par exemple, 000000_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module lecteur vous permet de lire des fichiers (sans extension) en configurant le **chemin d’accès au conteneur et le répertoire/l’objet blob**. Le **chemin d’accès au conteneur** pointe vers le conteneur et le **répertoire/objet blob** pointe vers le dossier qui contient les fichiers, comme illustré dans l’image suivante. L’astérisque \*) **spécifie que tous les fichiers du conteneur/dossier (c’est-à-dire, data/aggregateddata/year=2014/month-6/*\*)** sont lus dans le cadre de l’expérience.
+Quand vous utilisez le module lecteur dans une expérience Azure Machine Learning, vous pouvez spécifier un objet blob Azure comme entrée. Les fichiers du stockage d’objets blob Azure peuvent être les fichiers de sortie (par exemple, 000000_0) qui sont générés par un script Pig et Hive exécuté sur HDInsight. Le module lecteur vous permet de lire des fichiers (sans extension) en configurant le **chemin d’accès au conteneur et le répertoire/l’objet blob**. Le **chemin d’accès au conteneur** pointe vers le conteneur et le **répertoire/objet blob** pointe vers le dossier qui contient les fichiers, comme illustré dans l’image suivante. L’astérisque \*) **spécifie que tous les fichiers du conteneur/dossier (c’est-à-dire, data/aggregateddata/year=2014/month-6/\*)** sont lus dans le cadre de l’expérience.
 
 ![Propriétés des objets blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 

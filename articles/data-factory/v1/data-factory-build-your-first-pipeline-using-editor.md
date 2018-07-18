@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 75139e39c3391a7662e3d02ee8d56463ac9fcc7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e57a2e72479d36908ef1e9f537506bb67ae311fe
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406556"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048405"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Didacticiel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "31406556"
 
 
 > [!NOTE]
-> Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Démarrage rapide : créer une fabrique de données à l’aide de la version 2 de Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version actuelle du service Data Factory, consultez [Démarrage rapide : Créer une fabrique de données à l’aide de Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.com/) pour créer votre première fabrique de données. Pour suivre le didacticiel avec d’autres outils/kits de développement logiciel (SDK), sélectionnez une des options dans la liste déroulante. 
 
@@ -45,7 +45,6 @@ Le pipeline dans ce didacticiel comprend une activité : une activité Azure HDI
 > Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Consultez la [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et suivez les étapes de la section « Configuration requise ».
 
 Cet article ne fournit pas de vue d’ensemble conceptuelle du service Data Factory. Pour plus d’informations sur le service, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md).  

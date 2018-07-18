@@ -4,17 +4,17 @@ description: Cet article vous guide à travers les étapes de création d’une 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9b1cfd762d6f050994688d1cd6afd91f0e43bfc3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 43f069fbd8f4fcc13bbc4d9e75763fa98aec1065
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195775"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601460"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure
 
@@ -49,7 +49,7 @@ Dans ce guide de démarrage rapide, vous créez une affectation de stratégie et
    - Apply tag and its value
    - Nécessitent SQL Server version 12.0
 
-    Pour obtenir une liste complète de toutes les stratégies intégrées disponibles, consultez [Modèles pour Azure Policy](json-samples.md).
+    Pour obtenir la liste complète de toutes les stratégies intégrées disponibles, consultez [Exemples de stratégie](json-samples.md).
 
 7. Recherchez la définition *Auditer les machines virtuelles qui n’utilisent pas de disques managés* dans la liste des définitions de stratégie. Cliquez sur cette stratégie, puis sur **Sélectionner**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66598bda7ca1fcf5c6e05ab47232236b740177a6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075236"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465741"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Devenez rapidement opérationnel avec PowerShell dans Azure Stack.
 
@@ -100,7 +100,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Configurer PowerShell pour les déploiements basés sur AD FS
 
-Vous pouvez utiliser le script suivant si vous utilisez Azure Stack avec une connexion à Internet. Toutefois, si vous utilisez Azure Stack sans connectivité Internet, utilisez le [mode d’installation hors ligne de PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) et les cmdlets de configuration de PowerShell resteront identiques, comme indiqué dans ce script. Connectez-vous à votre Kit de développement Azure Stack, ou à un client externe Windows si vous êtes connecté par le biais d’un VPN. Ouvrez une session PowerShell ISE avec élévation de privilèges et exécutez le script suivant. Veillez à mettre à jour les variables **ArmEndpoint** et **GraphAudience** en fonction des besoins de la configuration de votre environnement :
+Vous pouvez utiliser le script suivant si vous utilisez Azure Stack avec une connexion à Internet. Toutefois, si vous utilisez Azure Stack sans connectivité Internet, utilisez le [mode d’installation hors ligne de PowerShell](azure-stack-powershell-install.md) et les cmdlets de configuration de PowerShell resteront identiques, comme indiqué dans ce script. Connectez-vous à votre Kit de développement Azure Stack, ou à un client externe Windows si vous êtes connecté par le biais d’un VPN. Ouvrez une session PowerShell ISE avec élévation de privilèges et exécutez le script suivant. Veillez à mettre à jour les variables **ArmEndpoint** et **GraphAudience** en fonction des besoins de la configuration de votre environnement :
 
 ```powershell
 

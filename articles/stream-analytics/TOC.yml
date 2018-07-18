@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: "Qu’est-ce que Stream Analytics\_?"
+    - name: Qu’est-ce que Stream Analytics ?
       href: stream-analytics-introduction.md
 - name: Démarrages rapides
   items:
@@ -10,6 +10,8 @@
       href: stream-analytics-quick-create-portal.md
     - name: Créer un travail - PowerShell
       href: stream-analytics-quick-create-powershell.md
+    - name: Créer un travail - Visual Studio
+      href: stream-analytics-quick-create-vs.md
 - name: Didacticiels
   items:
     - name: 1 - Créer/gérer un travail
@@ -18,6 +20,8 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - Exécuter une instance UDF JavaScript
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: 4 - Déployer avec CI/CD dans VSTS
+      href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -54,11 +58,11 @@
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurer des alertes
           href: stream-analytics-set-up-alerts.md
-        - name: Tester votre travail
+        - name: Tester un travail
           href: stream-analytics-test-query.md
         - name: Afficher les résultats dans un tableau de bord
           href: stream-analytics-power-bi-dashboard.md
-        - name: Nettoyer votre travail
+        - name: Nettoyer un travail
           href: stream-analytics-clean-up-your-job.md
         - name: Associer les travaux à des fins de fiabilité
           href: stream-analytics-job-reliability.md
@@ -125,8 +129,6 @@
           href: stream-analytics-job-diagram-with-metrics.md
         - name: Journaux de diagnostic
           href: stream-analytics-job-diagnostic-logs.md
-        - name: Vérifier l’intégrité des ressources
-          href: stream-analytics-resource-health.md
         - name: Instruction SELECT INTO
           href: stream-analytics-select-into.md
         - name: Récepteurs Event Hub

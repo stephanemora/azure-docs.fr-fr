@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 70eab088ce87d8a62d3f258b70aaec5e2e147d0e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 73b85e99ae1c100cefd50a1f2136a6b526490776
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400637"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868954"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Utilisation de Hive avec Hadoop sur HDInsight via le Bureau à distance
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "31400637"
 Dans cet article, vous découvrirez comment vous connecter à un cluster HDInsight à l'aide du Bureau à distance, et exécuter ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive.
 
 > [!IMPORTANT]
-> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Pour HDInsight 3.4 ou les versions supérieures, consultez l’article [Utilisation de Hive avec Hadoop dans HDInsight via Beeline](apache-hadoop-use-hive-beeline.md) pour plus d’informations sur l’exécution de requêtes Hive directement sur le cluster à partir d’une ligne de commande.
 
@@ -96,7 +96,7 @@ Une fois connecté au bureau pour le cluster HDInsight, effectuez les étapes su
      Trois lignes de données doivent normalement être renvoyées. Elles contiennent toutes **[ERROR]** dans la colonne t4.
 
 ## <a id="summary"></a>Résumé
-Comme vous pouvez le constater, la commande Hive permet d'exécuter facilement, et de façon interactive, des requêtes Hive sur un cluster HDInsight, de surveiller l'état de la tâche et de récupérer le résultat.
+Comme vous pouvez le constater, la commande Hive permet d'exécuter facilement et de façon interactive des requêtes Hive sur un cluster HDInsight, de surveiller l'état de la tâche et de récupérer le résultat.
 
 ## <a id="nextsteps"></a>Étapes suivantes
 Pour obtenir des informations générales sur Hive dans HDInsight :

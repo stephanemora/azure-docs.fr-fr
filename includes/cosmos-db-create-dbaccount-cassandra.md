@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 3ad250ca2e641ebbf1e280e25aa53ff6f0ad6bd6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32198496"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38725969"
 ---
 1. Dans une nouvelle fenêtre du navigateur, connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Créer une ressource** > **Bases de données** > **Azure Cosmos DB**.
@@ -28,7 +28,7 @@ ms.locfileid: "32198496"
     API|Cassandra|L’API détermine le type de compte à créer. Azure Cosmos DB fournit cinq API pour répondre aux besoins de votre application : SQL (base de données Document), Gremlin (base de données de graphiques), MongoDB (base de données Document), Table Azure et Cassandra, qui nécessitent toutes un compte séparé. <br><br>Sélectionnez **Cassandra**, car dans ce démarrage rapide, vous créez une base de données à colonne large qui peut être interrogée avec la syntaxe CQL.<br><br>Si Cassandra (colonne large) n’est pas affiché dans la liste, vous devez [demander à participer](../articles/cosmos-db/cassandra-introduction.md#sign-up-now) au programme d’évaluation de l’API Cassandra.<br><br> [En savoir plus sur l’API Cassandra](../articles/cosmos-db/cassandra-introduction.md)|
     Abonnement|*Votre abonnement*|Sélectionnez l’abonnement Azure que vous voulez utiliser pour ce compte Azure Cosmos DB. 
     Groupe de ressources|Création<br><br>*Entrez ensuite le même nom unique que celui fourni plus haut dans ID*|Sélectionnez **Créer**, puis entrez le nom du nouveau groupe de ressources pour votre compte. Pour plus de simplicité, vous pouvez utiliser le même nom que votre ID. 
-    Lieu|*Sélectionner la région la plus proche de vos utilisateurs*|Sélectionnez l’emplacement géographique où héberger votre compte Azure Cosmos DB. Utilisez l’emplacement le plus proche de vos utilisateurs, pour leur donner l’accès le plus rapide possible aux données.
+    Emplacement|*Sélectionner la région la plus proche de vos utilisateurs*|Sélectionnez l’emplacement géographique où héberger votre compte Azure Cosmos DB. Utilisez l’emplacement le plus proche de vos utilisateurs, pour leur donner l’accès le plus rapide possible aux données.
     Épingler au tableau de bord | Sélectionnez | Cochez cette case pour que votre nouveau compte de base de données soit ajouté à votre tableau de bord du portail pour un accès facilité.
 
     Cliquez ensuite sur **Créer**.

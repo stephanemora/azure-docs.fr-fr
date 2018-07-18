@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5e71714f94cf148895585e8de88eaf995f0791fb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 181a1b8ad6403045264ddc0bd502273f36df3eff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638328"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs et formats standard de l’encodeur multimédia
 Ce document contient la liste des formats de fichier d’importation et d’exportation les plus courants que vous pouvez utiliser avec l’encodeur multimédia.
@@ -75,6 +76,7 @@ Le mappage de canaux explicite/fourni par l’utilisateur sera pris en charge da
 | Apple ProRes Proxy |OUI |
 | Apple ProRes 4444 |OUI |
 | Apple ProRes 4444 XQ |OUI |
+| HEVC/H.265| Profil Main|
 
 ## <a name="input-audio-codecs"></a>Codecs audio d’entrée
 | Codecs audio d’entrée | Prise en charge |

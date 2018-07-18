@@ -1,5 +1,5 @@
 ---
-title: Copier des données de QuickBooks à l’aide d’Azure Data Factory (version bêta) | Microsoft Docs
+title: Copier des données de QuickBooks à l’aide d’Azure Data Factory | Microsoft Docs
 description: Découvrez comment copier des données de QuickBooks dans une banque de données réceptrice en utilisant une activité de copie dans un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: db9b57ed64485882a9b0e0bb020392131f4c5d62
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4e73b444335fe0e96ff453570ee0092f38ab9a4d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619175"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053795"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Copier des données de QuickBooks à l’aide d’Azure Data Factory (version bêta)
+# <a name="copy-data-from-quickbooks-using-azure-data-factory"></a>Copier des données de QuickBooks à l’aide d’Azure Data Factory
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de QuickBooks. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, voir [Activité de copie dans V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> Ce connecteur est actuellement en version bêta. Essayez-le et envoyez-nous vos commentaires. Ne l’utilisez pas dans des environnements de production.
+> Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -40,7 +37,7 @@ Actuellement, ce connecteur ne prend en charge que 1.0a, ce qui signifie que vou
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur QuickBooks.
 
@@ -53,6 +50,8 @@ Les propriétés prises en charge pour le service lié QuickBooks sont les suiva
 | Type | La propriété de type doit être **QuickBooks**. | OUI |
 | endpoint | Le point de terminaison du serveur QuickBooks. (À savoir, quickbooks.api.intuit.com.)  | OUI |
 | companyId | L’ID de la société QuickBooks à autoriser.  | OUI |
+| consumerKey | Clé de consommateur pour l’authentification OAuth 1.0. | OUI |
+| consumerSecret | Secret du client pour l’authentification OAuth 1.0. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | accessToken | Le jeton d’accès pour l’authentification OAuth 1.0. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | accessTokenSecret | Le secret de jeton d’accès pour l’authentification OAuth 1.0. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
@@ -67,6 +66,11 @@ Les propriétés prises en charge pour le service lié QuickBooks sont les suiva
         "typeProperties": {
             "endpoint" : "quickbooks.api.intuit.com",
             "companyId" : "<companyId>",
+            "consumerKey": "<consumerKey>",
+            "consumerSecret": {
+                "type": "SecureString",
+                "value": "<consumerSecret>"
+            },
             "accessToken": {
                  "type": "SecureString",
                  "value": "<accessToken>"

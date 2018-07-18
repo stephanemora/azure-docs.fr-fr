@@ -1,21 +1,21 @@
 ---
-title: Connexion web avec OpenID Connect - Azure AD B2C | Microsoft Docs
-description: Création d’applications web à l’aide de l’implémentation du protocole d’authentification OpenID Connect d’Azure Active Directory
+title: Connexion web avec OpenID Connect dans Azure Active Directory B2C | Microsoft Docs
+description: Création d’applications web à l’aide de l’implémentation du protocole d’authentification OpenID Connect d’Azure Active Directory.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e787ea36ab5099705f151504385dd5dc97029e37
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 4ad7a6fb032c805072fd9608fb8058a70aa12914
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441829"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C : connexion web avec OpenID Connect
 OpenID Connect est un protocole d’authentification basé sur OAuth 2.0, qui peut être utilisé pour connecter de façon sécurisée des utilisateurs à des applications web. En utilisant l’implémentation d’OpenID Connect d’Azure Active Directory B2C (Azure AD B2C), vous pouvez sous-traiter l’inscription, la connexion et d’autres tâches de gestion des identités de vos applications web à Azure Active Directory. Ce guide explique comment procéder, indépendamment du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.

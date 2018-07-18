@@ -3,7 +3,7 @@ title: 'Démarrage rapide : Créer une machine virtuelle Linux sur le Portail Az
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le Portail Azure pour créer une machine virtuelle Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012881"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447956"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux sur le Portail Azure
 
@@ -63,7 +63,7 @@ Connectez-vous au portail Azure à l’adresse suivante : http://portal.azure.co
 
     ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. Sous **Paramètres**, laissez les valeurs par défaut et sélectionnez **OK**.
+5. Dans la page **Paramètres**, dans **Réseau** > **Groupe de sécurité réseau** > **Sélectionner des ports d’entrée publics**, sélectionnez **HTTP** et **SSH (22)**. Laissez les autres valeurs par défaut et sélectionnez **OK**.
 
 6. Sur la page de résumé, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
 
@@ -99,14 +99,6 @@ sudo apt-get -y install nginx
 
 Ensuite, quittez (`exit`) la session SSH et revenez aux propriétés de la machine virtuelle sur le Portail Azure.
 
-## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web
-
-Un Groupe de sécurité réseau (NSG) sécurise le trafic entrant et sortant. Lorsqu’une machine virtuelle est créée à partir du portail Azure, une règle de trafic entrant est créée sur le port 22 pour les connexions SSH. Dans la mesure où cette machine virtuelle héberge un serveur web, il est nécessaire de créer une règle NSG pour le port 80.
-
-1. Sur la page de présentation de la machine virtuelle, sélectionnez **Réseaux**.
-2. La liste des règles existantes d’entrée et de sortie s’affiche. Choisissez **Ajouter une règle de port d’entrée**.
-3. Sélectionnez l’option **De base** en haut, puis choisissez *HTTP* dans la liste des services disponibles. Le port 80, une priorité et un nom vous sont fournis.
-4. Pour créer la règle, sélectionnez **Ajouter**.
 
 ## <a name="view-the-web-server-in-action"></a>Voir le serveur web en action
 

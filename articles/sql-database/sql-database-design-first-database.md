@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 04/23/2018
+ms.date: 6/20/2018
 ms.author: carlrab
-ms.openlocfilehash: ba14208e971d712184052e7470757ce48ac26879
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311029"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Didacticiel : concevoir votre première base de données Azure SQL Database à l’aide de SSMS
 
@@ -33,7 +34,6 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
    > Pour les besoins de ce didacticiel, nous utilisons le [modèle d’achat basé sur DTU](sql-database-service-tiers-dtu.md), mais vous avez la possibilité de choisir le [modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md). 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 - La dernière version de [SSMS](https://msdn.microsoft.com/library/ms174173.aspx) (SQL Server Management Studio).
@@ -86,9 +86,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
 8. Acceptez les conditions d’utilisation de la préversion pour pouvoir utiliser l’option **Stockage de composants additionnels**. 
 
    > [!IMPORTANT]
-   > -  Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >-  Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Canada Centre, Canada Est, Centre des États-Unis, France-Centre, Allemagne - Centre, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, US Gov Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
+   > Le niveau Premium offre actuellement plus de 1 To de stockage dans toutes les régions à l’exception des suivantes : Royaume-Uni Nord, USA Centre-Ouest, Royaume-Uni Sud 2, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, US Gov Centre-Sud, Allemagne - Nord-Est, Chine Nord, US Gov Est. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  
 
@@ -179,7 +177,7 @@ Créez un schéma de base de données avec quatre tables qui modélisent un syst
 Le diagramme suivant montre comment ces tables sont liées entre elles. Certaines de ces tables référencent des colonnes d’autres tables. Par exemple, la table Étudiant référence la colonne **PersonId** de la table **Personne**. Étudiez le diagramme pour comprendre comment les tables présentées dans ce didacticiel sont liées entre elles. Pour découvrir comment créer des tables de base de données efficaces, consultez [Créer des tables de base de données efficaces](https://msdn.microsoft.com/library/cc505842.aspx). Pour plus d’informations sur le choix des types de données, consultez [Types de données](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> Vous pouvez également utiliser le [concepteur de tables dans SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) pour créer et concevoir vos tables. 
+> Vous pouvez également utiliser le [concepteur de tables dans SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) pour créer et concevoir vos tables. 
 
 ![Relations entre les tables](./media/sql-database-design-first-database/tutorial-database-tables.png)
 

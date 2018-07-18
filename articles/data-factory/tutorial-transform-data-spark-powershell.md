@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: c8676b4e7228105216f23de7c898c43c40fc2d0a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c6192fdf235b5ecb1148b024da7b11f844e9321
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168688"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081081"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformer des données dans le cloud à l’aide d’une activité Spark dans Azure Data Factory
-Dans ce didacticiel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Spark et d’un service lié HDInsight à la demande. Dans ce didacticiel, vous allez effectuer les étapes suivantes :
+Dans ce tutoriel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Spark et d’un service lié HDInsight à la demande. Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données. 
@@ -29,15 +29,11 @@ Dans ce didacticiel, vous utilisez Azure PowerShell pour créer un pipeline Azur
 > * Démarrer une exécution de pipeline.
 > * Surveiller l’exécution du pipeline.
 
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 * **Compte Stockage Azure**. Vous créez un script Python et un fichier d’entrée, puis vous les téléchargez vers le stockage Azure. La sortie du programme Spark est stockée dans ce compte de stockage. Le cluster Spark sur demande utilise le même compte de stockage comme stockage principal.  
-* **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Télécharger un script Python dans votre compte de stockage d’objets Blob
@@ -178,7 +174,7 @@ Créez un fichier JSON dans votre éditeur favori, copiez la définition JSON su
 }
 ```
 
-Notez les points suivants : 
+Notez les points suivants : 
 
 - rootPath pointe vers le dossier Spark du conteneur adftutorial. 
 - entryFilePath pointe vers le fichier WordCount_Spark.py dans le sous-dossier de script du dossier Spark. 
@@ -203,9 +199,9 @@ Vous avez créé des définitions de service lié et de pipeline dans des fichie
     ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
-2. Lancez **PowerShell**. Gardez Azure PowerShell ouvert jusqu’à la fin de ce guide de démarrage rapide. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes. À l’heure actuelle, Data Factory version 2 vous permet de créer des fabriques de données uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et Europe de l’Ouest. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+2. Lancez **PowerShell**. Gardez Azure PowerShell ouvert jusqu’à la fin de ce guide de démarrage rapide. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
-    Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure :
+    Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure :
         
     ```powershell
     Connect-AzureRmAccount
@@ -215,7 +211,7 @@ Vous avez créé des définitions de service lié et de pipeline dans des fichie
     ```powershell
     Get-AzureRmSubscription
     ```
-    Exécutez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser. Remplacez **SubscriptionId** par l’ID de votre abonnement Azure :
+    Exécutez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser. Remplacez **SubscriptionId** par l’ID de votre abonnement Azure :
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
@@ -231,7 +227,7 @@ Vous avez créé des définitions de service lié et de pipeline dans des fichie
      $df = Set-AzureRmDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
     ```
 
-    Exécutez la commande suivante pour afficher la sortie : 
+    Exécutez la commande suivante pour afficher la sortie : 
 
     ```powershell
     $df

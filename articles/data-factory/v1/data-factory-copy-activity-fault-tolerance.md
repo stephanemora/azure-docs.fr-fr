@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d0826db686b7fdea8389944b4b56f549ea03f751
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5cfab02fc248139c76bd6123ac942832f8e1a21a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621045"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052509"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Ajouter une tolérance de panne de l’activité de copie en ignorant les lignes incompatibles
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-copy-activity-fault-tolerance.md)
-> * [Version 2 - Préversion](../copy-activity-fault-tolerance.md)
+> * [Version 1](data-factory-copy-activity-fault-tolerance.md)
+> * [Version 2 (version actuelle)](../copy-activity-fault-tolerance.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [fault tolerance in copy activity of Data Factory version 2](../copy-activity-fault-tolerance.md) (Tolérance de panne de l’activité de copie dans Data Factory version 2).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Tolérance de panne de l’activité de copie dans Azure Data Factory](../copy-activity-fault-tolerance.md).
 
 Avec l’[activité de copie](data-factory-data-movement-activities.md) dans Azure Data Factory, vous avez deux moyens de traiter les lignes incompatibles lors de la copie de données entre les magasins de données source et récepteur :
 

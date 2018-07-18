@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6df013506e4541fee7850850776d26e5c69a799d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 65307eab0bf1b5f502f11c14c369826cd12e0966
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311083"
 ---
 # <a name="enterprise-plan-details"></a>Détails du plan Entreprise
 
@@ -26,6 +27,9 @@ Il existe deux plans tarifaires pour Azure Application Insights : De base et Ent
 Le plan Entreprise donne lieu à une facturation par nœud, chaque nœud recevant une allocation de données quotidienne. Dans le plan tarifaire Entreprise, vous êtes facturé pour les données ingérées au-delà de l’allocation incluse. Si vous utilisez Operations Management Suite, vous devez choisir le plan Entreprise. 
 
 Pour connaître les prix actuels dans votre devise et pour votre région, consultez la page [Tarification Application Insights](http://azure.microsoft.com/pricing/details/application-insights/).
+
+> [!NOTE]
+> En avril 2018, nous [introduisons](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nouveau modèle tarifaire pour la surveillance Azure. Ce modèle adopte un modèle de « paiement à l’utilisation » simple sur le portefeuille complet de services de surveillance. En savoir plus sur le [nouveau modèle tarifaire](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), sur [l’évaluation de l’impact du passage à ce modèle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) en fonction de vos modèles d’utilisation et sur [l’adoption du nouveau modèle](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
 
 ## <a name="how-the-enterprise-plan-works"></a>Fonctionnement du plan Entreprise
 
@@ -48,7 +52,7 @@ Pour connaître les prix actuels dans votre devise et pour votre région, consul
 | 3 applications s’exécutant sur 2 machines virtuelles ; ressources Application Insights pour ces applications figurant dans le même abonnement et dans le plan Entreprise | 2 | 
 | 4 applications dont les ressources Applications Insights figurent dans le même abonnement ; chaque application exécutant 2 instances pendant 16 heures creuses, ainsi que 4 instances pendant 8 heures de pointe | 13.33 | 
 | Services cloud avec 1 rôle de travail et 1 rôle web, chacune exécutant 2 instances | 4 | 
-| Cluster Azure Service Fabric de 5 nœuds exécutant 50 microservices ; chaque microservice exécutant 3 instances | 5.|
+| Cluster Azure Service Fabric de 5 nœuds exécutant 50 microservices ; chaque microservice exécutant 3 instances | 5|
 
 * Le comptage de nœuds précis varie selon le Kit de développement logiciel (SDK) Application Insights que votre application utilise. 
   * Dans les versions 2.2 et ultérieures de ce Kit de développement logiciel, le [Kit de développement logiciel (SDK) principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) et le [Kit de développement logiciel (SDK) web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) Application Insights signalent tous deux chaque hôte d’application en tant que nœud, par exemple le nom d’ordinateur pour le serveur physique et les hôtes de machine virtuelle ou le nom d’instance dans le cas de services cloud.  La seule exception concerne une application qui utilise uniquement [.NET Core](https://dotnet.github.io/) et le Kit de développement logiciel (SDK) principal Application Insights, auquel cas un seul nœud est signalé pour tous les hôtes, car le nom d’hôte n’est pas disponible. 

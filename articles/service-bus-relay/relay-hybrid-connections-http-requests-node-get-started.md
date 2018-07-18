@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.openlocfilehash: 2bc923650425c76562161dd6f44f3a5722b5cefe
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896623"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630443"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Bien démarrer avec les requêtes HTTP de connexions hybrides Relay dans Node
 
@@ -37,7 +37,6 @@ Ce tutoriel présente les requêtes HTTP de [connexions hybrides Azure Relay](re
 4. Écrire une application de console de client pour envoyer des messages.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 1. [Node.js](https://nodejs.org/en/).
 2. Un abonnement Azure.

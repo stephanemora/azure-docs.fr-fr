@@ -1,25 +1,26 @@
 ---
-title: "À propos des connexions VPN point à site Azure | Microsoft Docs"
-description: "Cet article vous aide à comprendre les connexions point à site et à choisir le type d’authentification à une passerelle VPN P2S que vous devez utiliser."
+title: À propos des connexions VPN point à site Azure | Microsoft Docs
+description: Cet article vous aide à comprendre les connexions point à site et à choisir le type d’authentification à une passerelle VPN P2S que vous devez utiliser.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38721426"
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
@@ -47,7 +48,7 @@ Avant qu’Azure n’accepte une connexion VPN P2S, l’utilisateur doit d’abo
 
 Lorsque vous utilisez l’authentification par certificat Azure native, un certificat client présent sur l’appareil est utilisé pour authentifier l’utilisateur qui se connecte. Les certificats client sont générés à partir d’un certificat racine de confiance et installés sur chaque ordinateur client. Vous pouvez utiliser un certificat racine qui a été généré à l’aide d’une solution d’entreprise, ou vous pouvez générer un certificat auto-signé.
 
-La validation du certificat client est effectuée par la passerelle VPN et se produit pendant l’établissement de la connexion VPN P2S. Le certificat racine est requis pour la validation et doit être chargé sur Azure. 
+La validation du certificat client est effectuée par la passerelle VPN et se produit pendant l’établissement de la connexion VPN P2S. Le certificat racine est requis pour la validation et doit être chargé sur Azure.
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>S’authentifier à l’aide du serveur de domaine Active Directory (AD)
 
@@ -59,7 +60,11 @@ Un serveur RADIUS permet également l’intégration avec d’autres systèmes d
 
 ![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
 
-### <a name="configuration-requirements-for-client-devices"></a>Configuration requise pour les appareils clients
+## <a name="what-are-the-client-configuration-requirements"></a>Quelle est la configuration requise pour les clients ?
+
+>[!NOTE]
+>Pour les clients Windows, vous devez disposer des droits d’administrateur sur l’appareil client afin d’initialiser la connexion VPN à partir de l’appareil client vers Azure.
+>
 
 Les utilisateurs utilisent les clients VPN natifs sur les appareils Windows et Mac pour P2S. Azure fournit un fichier zip de configuration de client VPN qui contient les paramètres requis par ces clients natifs afin de se connecter à Azure.
 
@@ -69,10 +74,10 @@ Les utilisateurs utilisent les clients VPN natifs sur les appareils Windows et M
 Le fichier zip fournit également les valeurs de certains paramètres importants pour Azure que vous pouvez utiliser pour créer votre propre profil pour ces appareils. Ces valeurs incluent notamment l’adresse de passerelle VPN, les types de tunnel configurés, les itinéraires et le certificat racine pour la validation de la passerelle.
 
 >[!NOTE]
->Pour les clients Windows, vous devez disposer des droits d’administrateur sur l’appareil client afin d’initialiser la connexion VPN à partir de l’appareil client vers Azure.
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>Quelles références SKU de passerelle prennent en charge les VPN P2S ?
+## <a name="gwsku"></a>Quelles références SKU de passerelle prennent en charge les VPN P2S ?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 

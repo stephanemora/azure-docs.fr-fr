@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 0cabb2f5618ef5179e2a25278fa2460556036d77
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3425558ac1ffa9e8d5146a5126f01c4ac55050dc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618410"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049628"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copier des données d’un serveur SFTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-sftp-connector.md)
-> * [Version 2 - Préversion](connector-sftp.md)
+> * [Version 1](v1/data-factory-sftp-connector.md)
+> * [Version actuelle](connector-sftp.md)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’un serveur SFTP. Il s’appuie sur l’article [présentant une vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur SFTP dans V1](v1/data-factory-sftp-connector.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’un serveur SFTP. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -182,7 +179,7 @@ Pour copier des données de SFTP, affectez la valeur **FileShare** à la propri�
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **FileShare** |OUI |
 | folderPath | Chemin d'accès au dossier. Le filtre de caractères génériques n'est pas pris en charge. Par exemple : dossier/sous-dossier / |OUI |
-| fileName |  **Filtre de nom ou de caractère générique** pour les fichiers sous le « folderPath » spécifié. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les fichiers du dossier. <br/><br/>Pour le filtre, les caractères génériques autorisés sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si votre nom de fichier réel contient des caractères génériques ou ce caractère d’échappement. |Non  |
+| fileName |  **Filtre de nom ou de caractère générique** pour les fichiers sous le « folderPath » spécifié. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les fichiers du dossier. <br/><br/>Dans le filtre, les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plus) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si votre nom de fichier réel contient des caractères génériques ou ce caractère d’échappement. |Non  |
 | format | Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser des fichiers d’un format spécifique, les types de formats de fichier pris en charge sont les suivants : **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](supported-file-formats-and-compression-codecs.md#text-format), [format Json](supported-file-formats-and-compression-codecs.md#json-format), [format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
 | compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non  |
 

@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674850"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guide de démarrage rapide : créer une salle de conversation avec SignalR Service
 
@@ -39,7 +40,6 @@ Le code de ce tutoriel est disponible au téléchargement dans le [référentiel
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Installer le kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/windows)
 * Télécharger ou cloner le référentiel GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples). 
@@ -87,18 +87,18 @@ Dans cette section, vous allez ajouter l’outil [Secret Manager](https://docs.m
 
 1. Ajoutez une référence au package NuGet `Microsoft.Azure.SignalR` en exécutant la commande suivante :
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
 
 2. Exécutez la commande suivante pour restaurer les packages de votre projet.
 
         dotnet restore
 
-3. Ajoutez un secret nommé *Azure:SignalR:ConnectionString* à Secret Manager. Ce secret contiendra la chaîne de connexion pour accéder à votre ressource SignalR Service. *Azure:SignalR:ConnectionString* est la clé de configuration par défaut recherchée par SignalR pour établir une connexion. Dans la commande ci-dessous, remplacez la valeur par la chaîne de connexion de votre ressource SignalR Service.
+3. Ajoutez un secret nommé *Azure__SignalR__ConnectionString* à Secret Manager. Ce secret est une valeur de configuration hiérarchique, et le signe deux-points (:) peut ne pas fonctionner sur toutes les plateformes. Le double trait de soulignement (__), utilisé par ce secret, est pris en charge par toutes les plateformes.  Ce secret contiendra la chaîne de connexion pour accéder à votre ressource SignalR Service. *Azure__SignalR__ConnectionString* est la clé de configuration par défaut recherchée par SignalR pour établir une connexion. Dans la commande ci-dessous, remplacez la valeur par la chaîne de connexion de votre ressource SignalR Service.
 
     Cette commande doit être exécutée dans le même répertoire que le fichier *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager servira uniquement à tester l’application web lorsqu’elle est hébergée localement. Dans un prochain tutoriel, vous allez déployer l’application web de conversation dans Azure. Une fois l’application web déployée dans Azure, vous allez utiliser un paramètre d’application au lieu de stocker la chaîne de connexion avec Secret Manager.
@@ -113,7 +113,7 @@ Dans cette section, vous allez ajouter l’outil [Secret Manager](https://docs.m
     }
     ```
 
-    En ne passant pas le paramètre à `AddAzureSignalR()`, ce code utilise la clé de configuration par défaut, *Azure:SignalR:ConnectionString*, pour la chaîne de connexion de la ressource SignalR Service.
+    En ne passant pas le paramètre à `AddAzureSignalR()`, ce code utilise la clé de configuration par défaut, *Azure__SignalR__ConnectionString*, pour la chaîne de connexion de la ressource SignalR Service.
 
 5. Également dans *Startup.cs*, mettez à jour la méthode `Configure` en remplaçant l’appel à `app.UseStaticFiles()` par le code suivant, puis enregistrez le fichier.
 
@@ -240,7 +240,7 @@ Dans cette section, vous allez ajouter un environnement d’exécution de dével
 
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez d’exécuter le tutoriel suivant, vous pouvez conserver les ressources créées dans ce démarrage rapide.
 

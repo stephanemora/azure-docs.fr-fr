@@ -3,7 +3,7 @@ title: 'Didacticiel : équilibrer la charge des machines virtuelles Windows dans
 description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell afin de créer un équilibreur de charge pour une application hautement disponible et sécurisée sur trois machines virtuelles Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35de71f3cc7d865cf2235a21bebf1cfcd7f1850d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d4dd900888e229c86685549c84b724044249429
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191619"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932566"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Didacticiel : équilibrer la charge des machines virtuelles Windows dans Azure pour créer une application hautement disponible avec Azure PowerShell
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
@@ -37,7 +37,7 @@ L’équilibrage de charge offre un niveau plus élevé de disponibilité en ré
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.7.0 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.7.0 ou version ultérieure pour les besoins de ce tutoriel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 
 ## <a name="azure-load-balancer-overview"></a>Vue d’ensemble de l’équilibreur de charge Azure
@@ -290,7 +290,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Crée un équilibrage de charge Azure

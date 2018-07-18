@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8eb629396629a92503907439a64cca9d70747010
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594112"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publier des applications avec le Proxy d’application Azure AD
 
@@ -29,6 +30,9 @@ Cet article vous guide au long des étapes de publication d’une application lo
 
 Si vous n’êtes pas familiarisé avec le proxy d’application, vous pouvez en savoir plus en consultant l’article [Offrir un accès à distance sécurisé aux applications locales](application-proxy.md).
 
+## <a name="before-you-begin"></a>Avant de commencer
+
+Cet article suppose que vous avez déjà installé et inscrit un connecteur. Si vous n’avez pas encore réalisé ces étapes, consultez [Bien démarrer avec le proxy d’application et l’installation du connecteur](application-proxy-enable.md).
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Publier une application locale pour un accès à distance
 

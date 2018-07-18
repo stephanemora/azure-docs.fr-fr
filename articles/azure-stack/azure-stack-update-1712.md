@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/24/2018
 ms.author: brenduns
-ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4c5b53a46792e31316f752f8902d7a05554b57d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604146"
 ---
 # <a name="azure-stack-1712-update"></a>Mise à jour 1712 d’Azure Stack
 
@@ -83,7 +84,7 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 
 Cette section énumère des problèmes connus que vous pouvez rencontrer lors de l’installation de la mise à jour 1712.
 
-1. **Symptôme :**Les opérateurs Azure Stack peuvent recevoir l’erreur suivante lors du processus de mise à jour :*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for -ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c."*
+1. **Symptôme :** Les opérateurs Azure Stack peuvent recevoir l’erreur suivante lors du processus de mise à jour :*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for -ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c."*
     1. **Cause :** Ce problème est dû à un problème dans Windows Server qui sera résolu dans les mises à jour ultérieures de Windows server.
     2. **Résolution :** Pour obtenir de l’aide, contactez le Support technique et Service clientèle (CSS) Microsoft.
 <br><br>
@@ -116,7 +117,25 @@ Cette section énumère des problèmes connus après l’installation de la buil
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alerte 1 :
+   - NOM : Rôle d’infrastructure défectueux
+   - GRAVITÉ : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+
+  Alerte 2 :
+   - NOM : Rôle d’infrastructure défectueux
+   - GRAVITÉ : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+
+  Ces deux alertes peuvent être ignorées en toute sécurité. Elles se ferment automatiquement dans le temps.  
+
 - Si vous redémarrez une instance de rôle d’infrastructure, il se peut que vous receviez un message indiquant que le redémarrage a échoué. Pour tant, en réalité, le redémarrage a réussi.
+
+
 
 #### <a name="marketplace"></a>Marketplace
 - Certains éléments du marketplace sont supprimés dans cette version pour des raisons de compatibilité. Ils seront réactivés après une validation supplémentaire.

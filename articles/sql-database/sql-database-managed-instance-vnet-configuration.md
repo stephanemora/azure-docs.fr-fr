@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 45b645fe556d1f9630ee15b1f2f605bbaf3f87f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648062"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309331"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurer un réseau virtuel pour Azure SQL Database Managed Instance
 
 Azure SQL Database Managed Instance (préversion) doit être déployé au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Ce déploiement permet les scénarios suivants : 
-- Connexion directe à Managed Instance à partir d’un réseau local 
+- Connexion directe à une instance gérée à partir d’un réseau local 
 - Connexion de Managed Instance à un serveur lié ou un autre magasin de données local 
 - Connexion de Managed Instance à des ressources Azure  
 

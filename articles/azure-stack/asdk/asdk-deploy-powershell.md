@@ -1,6 +1,6 @@
 ---
 title: Déployer Azure Stack - PowerShell | Microsoft Docs
-description: Dans ce didacticiel, vous allez installer l’ASDK à partir de la ligne de commande.
+description: Dans cet article, vous allez installer l’ASDK à partir de la ligne de commande à l’aide de PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,32 +11,22 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 48ccccaba6b7f5780f1d42dfbe5d9747c5e30292
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849955"
 ---
-# <a name="tutorial-deploy-the-asdk-from-the-command-line"></a>Didacticiel : Déployer l’ASDK à partir de la ligne de commande
-Dans ce didacticiel, vous allez déployer le Kit de développement Azure Stack (ASDK) à partir de la ligne de commande dans un environnement non productif. 
-
+# <a name="deploy-the-asdk-from-the-command-line"></a>Déployer l’ASDK à partir de la ligne de commande
 Le Kit de développement Azure Stack est un environnement de développement et de test que vous pouvez déployer pour évaluer et présenter les fonctionnalités et services Azure Stack. Pour l’installer et le rendre opérationnel, vous devez préparer l’environnement matériel nécessaire et exécuter plusieurs scripts (cette opération peut prendre plusieurs heures). Une fois que vous aurez effectué ces étapes préalables, vous pourrez vous connecter aux portails de l’administrateur et de l’utilisateur pour commencer à utiliser Azure Stack.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
-
-> [!div class="checklist"]
-> * Téléchargez et extrayez le package de déploiement
-> * Préparer l’ordinateur hôte du Kit de développement 
-> * Effectuer des configurations post-déploiement
-> * Inscription auprès d’Azure
-
-## <a name="prerequisites"></a>Prérequis
- 
+## <a name="prerequisites"></a>Prérequis 
 Préparez l’ordinateur hôte du Kit de développement. Planifiez votre matériel, vos logiciels et votre réseau. Vérifiez que l’ordinateur prévu pour héberger le Kit de développement (l’hôte du Kit de développement) a la configuration matérielle, logicielle et réseau requise. Vous devez également déterminer si vous allez utiliser Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS). Avant de démarrer votre déploiement, assurez-vous que tous ces prérequis sont remplis pour que le processus d’installation s’exécute correctement. 
 
 Avant de déployer l’ASDK, assurez-vous que le matériel de l’ordinateur hôte du Kit de développement, le système d’exploitation, le compte et les configurations réseau répondent à la configuration minimale requise pour l’installation de l’ASDK.
@@ -177,16 +167,5 @@ Vous devez inscrire Azure Stack auprès d’Azure pour pouvoir ensuite [téléch
 ## <a name="next-steps"></a>Étapes suivantes
 Félicitations ! Après toutes ces étapes, l’environnement pour le Kit de développement est prêt, avec les portails de l’[administrateur](https://adminportal.local.azurestack.external) et de l’[utilisateur](https://portal.local.azurestack.external). 
 
-Dans ce didacticiel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Téléchargez et extrayez le package de déploiement
-> * Préparer l’ordinateur hôte du Kit de développement 
-> * Effectuer des configurations post-déploiement
-> * Inscription auprès d’Azure
-
-Passez au didacticiel suivant pour apprendre à ajouter un élément marketplace Azure Stack.
-
-> [!div class="nextstepaction"]
-> [Ajouter un élément marketplace Azure Stack](asdk-marketplace-item.md)
+[Tâches de configuration après l’installation du kit ASDK](asdk-post-deploy.md)
 

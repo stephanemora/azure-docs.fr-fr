@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: a24cb03cd30b212650a36cd5ac40977de5eea11e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 748cb4612b2b5aed26ba8197cfad0782f2645e1e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37902127"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tailles de machine virtuelle de calcul haute performance
 
@@ -74,7 +75,7 @@ Une configuration supplémentaire du système est nécessaire pour exécuter des
 - [Mémoire optimisée](sizes-memory.md)
 - [Optimisé pour le stockage](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-
+- [Générations précédentes](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b9b9e08676228ddbdea8be91253b41dac8ef8fb8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211733"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344153"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Didacticiel : installer et créer un cluster Service Fabric
 
-Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans le cadre de cette série de didacticiels, vous créez un cluster autonome hébergé sur AWS et vous installez une application dans celui-ci.
+Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans le cadre de cette série de tutoriels, vous créez un cluster autonome hébergé sur AWS et vous installez une application dans celui-ci.
 
-Ce didacticiel est le deuxième d’une série. Ce didacticiel vous guide tout au long du processus de création d’un cluster autonome Service Fabric.
+Ce tutoriel est le deuxième d’une série. Ce tutoriel vous guide tout au long du processus de création d’un cluster autonome Service Fabric.
 
-Dans ce deuxième volet, vous apprenez à :
+Dans ce deuxième volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Télécharger et installer le package autonome Service Fabric
@@ -61,13 +61,7 @@ Après leur mise à jour, les nœuds apparaissent comme suit :
         }
 ```
 
-Ensuite, vous devez mettre à jour quelques propriétés.  À la ligne 34, vous devez modifier la chaîne de connexion du magasin de diagnostics comme ci-après en insérant votre adresse IP dans `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
-
-Après avoir mis à jour la chaîne de connexion, prenez soin de créer le dossier.  Pour ce faire, exécutez la commande ci-après en veillant à remplacer l’adresse IP ci-dessous par celle que vous avez insérée dans la chaîne de connexion :
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
+Ensuite, vous devez mettre à jour quelques propriétés.  Sur la ligne 34, vous devez modifier la chaîne de connexion pour le magasin de diagnostics, qui doit se présenter comme ceci : `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
 Enfin, dans la section `nodeTypes` de la configuration, ajoutez une nouvelle section pour mapper les ports éphémères que Windows utilisera.  Le fichier de configuration doit se présenter comme suit :
 
@@ -147,11 +141,11 @@ Dans la deuxième partie de la série, vous avez appris à charger de grandes qu
 
 > [!div class="checklist"]
 > * Configurer la chaîne de connexion
-> * Création de l'application
-> * Exécution de l'application
+> * Création de l’application
+> * Exécution de l’application
 > * Valider le nombre de connexions
 
-Passez au troisième volet de la série de didacticiels pour installer une application dans le cluster que vous avez créé.
+Passez au troisième volet de la série de tutoriels pour installer une application dans le cluster que vous avez créé.
 
 > [!div class="nextstepaction"]
 > [Installer l’application dans le cluster Service Fabric](service-fabric-tutorial-standalone-install-an-application.md)

@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.component: na
+ms.openlocfilehash: 8183258ddde335b09293c72368ad3bf58a69334a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782028"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129351"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Sources de données de journal d’événements Windows dans Log Analytics
 Les journaux d’événements Windows sont les [sources de données](log-analytics-data-sources.md) les plus communément utilisées pour collecter des données à l’aide d’agents Windows puisque de nombreuses applications écrivent dans le journal d’événements Windows.  Vous pouvez collecter des événements à partir de journaux standard tels que Système et Application, ou spécifier des journaux personnalisés créés par les applications que vous souhaitez surveiller.
@@ -69,11 +70,11 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 |:---|:---|
 | Événement |Tous les événements Windows. |
 | Événement &#124; où valeur EventLevelName == « erreur » |Tous les événements Windows avec la gravité de l'erreur. |
-| Événement &#124; résumer count() par source |Nombre d’événements Windows par source. |
-| Événement &#124; où valeur EventLevelName == « erreur » &#124; résumer count() par source |Nombre d’événements d’erreur Windows par source. |
+| Événement & #124 ; résumer count() par source |Nombre d’événements Windows par source. |
+| Événement & #124 ; où valeur EventLevelName == « erreur » & #124 ; résumer count() par source |Nombre d’événements d’erreur Windows par source. |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les enregistrements d'événements dans des champs individuels.

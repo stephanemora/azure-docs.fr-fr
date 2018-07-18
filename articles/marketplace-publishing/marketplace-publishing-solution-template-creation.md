@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 147b0b9b4a3fe789544457d17fed3d29badbe12c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29937306"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113950"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guide de création d’un modèle de solution pour Azure Marketplace
 Une fois l’étape 1 [Création de comptes et inscription][link-acct-creation] exécutée, nous vous avons guidé dans la procédure de création d’un modèle de solution compatible Azure avec la section [Conditions techniques préalables pour créer un modèle de solution](marketplace-publishing-solution-template-creation-prerequisites.md). À présent, nous allons vous guider dans la procédure de création d’un modèle de solution à plusieurs machines virtuelles dans le [Portail de publication][link-pubportal] pour Azure Marketplace.
@@ -60,7 +60,7 @@ Maintenant que vous créé votre modèle de solution et téléchargé le fichier
 Les rubriques suivantes peuvent également vous intéresser :
 
 * Images de machine virtuelle : [À propos des images de machine virtuelle dans Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* Extensions de machine virtuelle : [Présentation de l’agent de machine virtuelle et des extensions de machine virtuelle](https://msdn.microsoft.com/library/azure/dn832621.aspx) et [Fonctionnalités et extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* Extensions de machine virtuelle : [Présentation de l’agent de machine virtuelle et des extensions de machine virtuelle](https://msdn.microsoft.com/library/azure/dn832621.aspx) et [Fonctionnalités et extensions de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows)
 * Azure Resource Manager : [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) et [Exemples de modèles simples](https://github.com/rjmax/ArmExamples)
 * Limitations des comptes de stockage : [Surveiller les limitations des comptes de stockage](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) et [Stockage Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

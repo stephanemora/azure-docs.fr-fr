@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 74bc28619996b7cd52d2280d4d8b6288aa7c904f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304305"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901474"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Didacticiel : Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Azure Key Vault 
 
@@ -35,7 +35,6 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault 
  
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -136,12 +135,12 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous ut
     
 Après avoir récupéré le secret à partir de Key Vault, vous pouvez l’utiliser pour vous authentifier sur un service qui requiert un nom et un mot de passe.
 
+## <a name="next-steps"></a>Étapes suivantes
 
-## <a name="related-content"></a>Contenu connexe
+Dans ce tutoriel, vous avez appris à utiliser une identité Managed Service Identity sur une machine virtuelle Linux pour accéder à Azure Key Vault.  Pour en savoir plus sur Azure Key Vault, consultez :
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
+> [!div class="nextstepaction"]
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)
 
 
 

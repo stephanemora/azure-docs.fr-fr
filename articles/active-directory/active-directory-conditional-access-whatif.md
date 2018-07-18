@@ -1,6 +1,6 @@
 ---
-title: Outil de simulation d’accès conditionnel Azure Active Directory (préversion) | Microsoft Docs
-description: Découvrez comment vous pouvez tester la configuration de vos stratégies d’accès conditionnel Azure Active Directory.
+title: Qu’est-ce que l’outil de simulation d’accès conditionnel Azure Active Directory ?
+description: Découvrez comment vous pouvez comprendre l’impact de vos stratégies d’accès conditionnel sur votre environnement.
 services: active-directory
 keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 2c4ca3685d15ddd2446590e1ef297362f9aa52ee
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723828"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750080"
 ---
-# <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Outil de simulation d’accès conditionnel Azure Active Directory (préversion)
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Qu’est-ce que l’outil de simulation d’accès conditionnel Azure Active Directory ?
 
 [L’accès conditionnel](active-directory-conditional-access-azure-portal.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Comment savoir ce que vous pouvez attendre des stratégies d’accès conditionnel dans votre environnement ? Pour répondre à cette question, vous pouvez utiliser **l’outil de simulation d’accès conditionnel**.
 
@@ -121,7 +121,7 @@ Sur la liste des stratégies qui s’appliquent à votre utilisateur, vous pouve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 25e922e211304774462c747ea6a003e47fb38736
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e4e783d131c4ceee9315b3442ee504e662157d8c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797768"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856805"
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importer des données à utiliser avec l’API Table Azure Cosmos DB
 
 Ce didacticiel fournit des instructions sur l’importation de données à utiliser avec [l’API Table](table-introduction.md) Azure Cosmos DB. Si vous avez stocké des données dans le stockage Table Azure, vous pouvez utiliser l’outil de migration de données ou AzCopy pour les importer. Si vous avez des données stockées dans un compte d’API Table Azure Cosmos DB (préversion), vous devez utiliser l’outil de migration de données pour la migration. Une fois les données importées, vous pouvez tirer parti des fonctionnalités Premium d’Azure Cosmos DB, comme la distribution mondiale clé en main, le débit dédié, les latences de quelques millisecondes au 99e centile, la garantie de haute disponibilité et l’indexation automatique secondaire.
 
-Ce didacticiel décrit les tâches suivantes :
+Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Importation de données avec l’outil de migration de données
@@ -30,7 +30,7 @@ Ce didacticiel décrit les tâches suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Augmentez le débit : la durée de la migration des données dépend de la quantité de débit que vous définissez pour une collection spécifique ou un ensemble de collections. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le portail Azure, consultez les niveaux de performances et niveaux tarifaires dans Azure Cosmos DB.
+* Augmentez le débit : la durée de la migration de vos données dépend de la quantité de débit que vous définissez pour un conteneur spécifique ou un ensemble de conteneurs. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le portail Azure, consultez les niveaux de performances et niveaux tarifaires dans Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Outil de migration de données
 

@@ -1,6 +1,6 @@
 ---
-title: Configurer les stratégies d’accès conditionnel basé sur les appareils dans Azure Active Directory | Microsoft Docs
-description: Découvrez comment configurer les stratégies d’accès conditionnel basé sur les appareils dans Azure Active Directory.
+title: 'Guide pratique : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel Azure Active Directory | Microsoft Docs'
+description: Découvrez comment configurer des stratégies d’accès conditionnel Azure Active Directory (Azure AD) basées sur les appareils qui exigent des appareils gérés pour accéder aux applications cloud.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -8,42 +8,53 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930855"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034500"
 ---
-# <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurer les stratégies d’accès conditionnel basé sur les appareils dans Azure Active Directory
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Guide pratique : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel
 
-Avec l’[accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés peuvent accéder à vos ressources. Par exemple, vous pouvez limiter aux appareils gérés l’accès à certaines ressources. Une stratégie d’accès conditionnel qui exige un appareil géré est aussi appelée stratégie d’accès conditionnel basé sur les appareils.
+Dans un monde où la mobilité et le cloud occupent le premier plan, Azure Active Directory (Azure AD) vous permet de vous authentifier à l’aide de l’authentification unique sur les applications et les services, où que vous soyez. Les utilisateurs autorisés peuvent accéder à vos applications cloud à partir d’un large éventail d’appareils, y compris les appareils mobiles et personnels. Toutefois, de nombreux environnements comprennent des applications qui ne doivent être accessibles que par des appareils répondant à vos standards de conformité et de sécurité. Ces appareils sont également appelés « appareils gérés ». 
 
-Cette rubrique explique comment vous pouvez configurer des stratégies d’accès conditionnel basé sur les appareils pour des applications connectées à Azure AD. 
+Cet article explique comment vous pouvez configurer des stratégies d’accès conditionnel qui exigent des appareils gérés pour accéder à certaines applications cloud de votre environnement. 
 
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Prérequis
 
-L’accès conditionnel basé sur les appareils fait le lien entre l’**accès conditionnel Azure AD** et la **gestion des appareils Azure AD**. Si l’un de ces aspects vous est inconnu, consultez d’abord les rubriques suivantes :
+Le fait d’exiger des appareils gérés pour accéder aux applications cloud associe **l’accès conditionnel Azure AD** et la **gestion des appareils Azure AD**. Si l’un de ces aspects vous est inconnu, consultez d’abord les rubriques suivantes :
 
-- **[Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md)** - Cette rubrique fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
+- **[Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md)** : cet article fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
 
-- **[Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)** - Cette rubrique vous donne une vue d’ensemble des différentes options à votre disposition pour connecter des appareils avec Azure AD. 
+- **[Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)** : cet article vous donne une vue d’ensemble des différentes options dont vous disposez pour faire passer les appareils sous le contrôle de l’organisation. 
 
+
+## <a name="scenario-description"></a>Description du scénario
+
+Il n’est pas facile de trouver le bon équilibre entre sécurité et productivité. L’augmentation du nombre d’appareils pris en charge pour accéder aux ressources cloud permet d’améliorer la productivité de vos utilisateurs. Toutefois, il est probable que vous ne souhaitiez pas que certaines ressources de votre environnement soient accessibles par des appareils dont le niveau de protection est inconnu. Pour ce type de ressources, vous devez exiger que les utilisateurs y accèdent uniquement à l’aide d’un appareil géré. 
+
+L’accès conditionnel Azure AD permet de répondre à cette exigence avec une seule stratégie qui accorde l’accès :
+
+- à certaines applications cloud ;
+
+- pour certains utilisateurs et groupes ;
+
+- Exiger un appareil géré
 
 
 ## <a name="managed-devices"></a>Appareils gérés  
 
-Tout d’abord, dans un appareil où mobilité et cloud occupent le premier plan, Azure Active Directory autorise une authentification unique sur les appareils, applications et services depuis n’importe où. Pour certaines ressources de votre environnement, accorder l’accès aux utilisateurs appropriés n’est parfois pas suffisant. Outre les utilisateurs appropriés, vous pouvez également exiger que les tentatives d’accès soient uniquement effectuées à l’aide d’un appareil géré.
-
-Un appareil géré est un appareil qui respecte vos critères de conformité et de sécurité. En termes simples, les appareils gérés sont ceux que l’organisation peut contrôler *d’une manière ou d’une autre*. Dans Azure AD, les prérequis pour un appareil géré implique son inscription auprès d’Azure AD. L’inscription d’un appareil crée une identité pour lui sous la forme d’un objet appareil. Cet objet est utilisé par Azure pour effectuer le suivi des informations d’état relatives à un appareil. En tant qu’administrateur Azure AD, vous pouvez déjà utiliser cet objet pour permuter (activer/désactiver) l’état d’un appareil.
+En termes simples, les appareils gérés sont ceux que l’organisation peut contrôler *d’une manière ou d’une autre*. Dans Azure AD, les prérequis pour un appareil géré implique son inscription auprès d’Azure AD. L’inscription d’un appareil crée une identité pour lui sous la forme d’un objet appareil. Cet objet est utilisé par Azure pour effectuer le suivi des informations d’état relatives à un appareil. En tant qu’administrateur Azure AD, vous pouvez déjà utiliser cet objet pour permuter (activer/désactiver) l’état d’un appareil.
   
 ![Conditions basées sur l’appareil](./media/active-directory-conditional-access-policy-connected-applications/32.png)
 
@@ -51,14 +62,13 @@ Pour inscrire un appareil auprès d’Azure AD, vous avez trois possibilités :
 
 - **[Appareils inscrits sur Azure AD](device-management-introduction.md#azure-ad-registered-devices)**  : pour inscrire un appareil personnel auprès d’Azure AD
 
-- **[Appareils joints à Azure AD](device-management-introduction.md#azure-ad-joined-devices)**  : pour inscrire auprès d’Azure AD un appareil Windows 10 professionnel qui n’est pas joint à un AD local. 
+- **[Appareils joints à Azure AD](device-management-introduction.md#azure-ad-joined-devices)**  : pour inscrire auprès d’Azure AD un appareil Windows 10 professionnel qui n’est pas joint à une version locale d’AD. 
 
 - **[Appareils joints à une version hybride d’Azure AD](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  : pour inscrire auprès d’Azure AD un appareil Windows 10 joint à un AD local.
 
-Pour devenir un appareil géré, un appareil inscrit peut être un appareil joint à une version hybride d’Azure AD ou un appareil marqué comme conforme.  
+Pour avoir le statut d’appareil géré, un appareil inscrit doit être soit un **appareil hybride joint à Azure AD**, soit un **appareil marqué comme conforme**.  
 
 ![Conditions basées sur l’appareil](./media/active-directory-conditional-access-policy-connected-applications/47.png)
-
 
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Exiger un appareil joint à une version hybride d’Azure AD
@@ -67,7 +77,7 @@ Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Exige
 
 ![Conditions basées sur l’appareil](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-Ce paramètre s’applique uniquement aux appareils Windows 10 joints à une version locale d’Azure AD. Vous pouvez uniquement inscrire ces appareils auprès d’Azure AD en utilisant une jointure à une version hybride d’Azure AD, ce qui correspond à un [processus automatisé](device-management-hybrid-azuread-joined-devices-setup.md) pour inscrire un appareil Windows 10. 
+Ce paramètre s’applique uniquement aux appareils Windows 10 joints à une version locale d’AD. Vous pouvez uniquement inscrire ces appareils auprès d’Azure AD en utilisant une jointure à une version hybride d’Azure AD, ce qui correspond à un [processus automatisé](device-management-hybrid-azuread-joined-devices-setup.md) pour inscrire un appareil Windows 10. 
 
 ![Conditions basées sur l’appareil](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 
@@ -82,8 +92,8 @@ L’option *Exiger que l’appareil soit marqué comme conforme* est la façon l
 
 Cette option exige qu’un appareil soit inscrit auprès d’Azure AD et qu’il soit marqué comme conforme par :
          
-- Intune 
-- Un système géré par un appareil mobile tiers qui gère les appareils Windows 10 via l’intégration d’Azure AD 
+- Intune.
+- Système MDM tiers qui gère les appareils Windows 10 via l’intégration d’Azure AD. Les systèmes MDM tiers pour les systèmes d’exploitation autres que Windows 10 ne sont pas pris en charge.
  
 ![Conditions basées sur l’appareil](./media/active-directory-conditional-access-policy-connected-applications/46.png)
 

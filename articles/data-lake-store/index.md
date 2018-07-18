@@ -1,26 +1,28 @@
 ---
-title: Documentation Azure Data Lake Store - Didacticiels, informations de référence sur les API | Microsoft Docs
+title: Documentation sur Azure Data Lake Storage Gen1 - Didacticiels, informations de référence sur les API | Microsoft Docs
 description: Découvrez comment configurer, gérer et accéder à un référentiel Data Lake à très grande échelle compatible avec Hadoop pour analyser des données de toute taille, de tout type et de toute vitesse d’ingestion.
 services: data-lake-store
-author: czeumault
-manager: carolz
+author: twooley
+manager: twooley
 layout: LandingPage
 ms.assetid: ''
 ms.service: data-lake-store
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: d738676a0a9b16c32646734168546992d8595912
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 06/27/2018
+ms.author: twooley
+ms.openlocfilehash: ba17c59169d00a8333bb9eb1c7bb0c1a56aaba83
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033411"
 ---
-# <a name="data-lake-store-documentation"></a>Documentation Data Lake Store
+# <a name="azure-data-lake-storage-gen1-documentation"></a>Documentation sur Azure Data Lake Storage Gen1
 
-Découvrez comment utiliser Data Lake Store pour créer un référentiel à très grande échelle compatible avec Hadoop pour analyser des données de toute taille, de tout type et de toute vitesse d’ingestion. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer, gérer et accéder à un référentiel Data Lake pour une analyse opérationnelle et exploratoire.
+Découvrez comment utiliser Azure Data Lake Storage Gen1 (anciennement Azure Data Lake Store) pour créer un référentiel à très grande échelle compatible avec Hadoop pour analyser des données de toute taille, de tout type et de toute vitesse d’ingestion. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer, gérer et accéder à un référentiel Data Lake pour une analyse opérationnelle et exploratoire.
+
+Si vous souhaitez en savoir plus sur la préversion de Data Lake Storage Gen 2, consultez la [page produit](https://aka.ms/adlsgen2-product).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -34,7 +36,7 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>En savoir plus sur Azure Data Lake Store</h3>
+                        <h3>En savoir plus sur Data Lake Storage Gen1</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +54,7 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bibliothèque vidéo Azure Data Lake Store</h3>
+                        <h3>Bibliothèque vidéo Data Lake Storage Gen1</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +72,7 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main d’Azure Data Lake Store à l’aide du Portail Azure</h3>
+                        <h3>Prise en main de Data Lake Storage Gen1 à l’aide du Portail Azure</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +90,7 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main d’Azure Data Lake Store à l’aide de PowerShell</h3>
+                        <h3>Prise en main de Data Lake Storage Gen1 à l’aide de PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +108,7 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main d’Azure Data Lake Store à l’aide de l’interface de ligne de commande Azure</h3>
+                        <h3>Prise en main de Data Lake Storage Gen1 à l’aide d’Azure CLI</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +126,7 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main d’Azure Data Lake Store à l’aide de .NET</h3>
+                        <h3>Prise en main de Data Lake Storage Gen1 à l’aide de .NET</h3>
                     </div>
                 </div>
             </div>
@@ -142,7 +144,7 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main d’Azure Data Lake Store à l’aide de Java</h3>
+                        <h3>Prise en main de Data Lake Storage Gen1 à l’aide de Java</h3>
                     </div>
                 </div>
             </div>
@@ -160,7 +162,7 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main d’Azure Data Lake Store à l’aide de Node.js</h3>
+                        <h3>Prise en main de Data Lake Storage Gen1 à l’aide de Node.js</h3>
                     </div>
                 </div>
             </div>

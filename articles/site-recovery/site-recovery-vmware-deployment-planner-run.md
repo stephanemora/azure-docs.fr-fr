@@ -12,13 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 1d9fa845171ffa5a40ce569170dfbb577ea4e8c8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8298f4a31db974f75e80aef7589bfd31fd7c7491
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921050"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Exécuter Azure Site Recovery Deployment Planner pour le déploiement de VMware vers Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -85,7 +86,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Mot de passe | (Facultatif) Le mot de passe utilisé pour se connecter au serveur vCenter/à l’hôte vSphere ESXi. Si vous spécifiez aucun mot de passe maintenant, vous êtes invité à l’indiquer à l’exécution de la commande.|
 |-Port|(Facultatif) Numéro de port pour se connecter à l’hôte vCenter/ESXi. Le port par défaut est 443.|
 |-Protocol| (Facultatif) Spécifie le protocole « http » ou « https » pour vous connecter à vCenter. Le protocole par défaut est https.|
-| -StorageAccountName | (Facultatif) Le nom du compte de stockage utilisé pour rechercher le débit réalisable pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour calculer le débit. Le compte de stockage doit être à usage général v1 ou storageV2 (usage général v2)|
+| -StorageAccountName | (Facultatif) Le nom du compte de stockage utilisé pour rechercher le débit réalisable pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour calculer le débit. Le compte de stockage doit être de type v1 à usage général (GPv1). |
 | -StorageAccountKey | (Facultatif) La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > Comptes de stockage > <*Nom du compte de stockage*> > Paramètres > Clés d’accès > Key1. |
 | -Environment | (Facultatif) Votre environnement de compte Stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à des clouds Azure - Gouvernement des États-Unis ou Azure - Chine. |
 
@@ -263,7 +264,7 @@ Ouvrez une console de ligne de commande et accédez au dossier de l’outil de p
 | -Operation | GetThroughput |
 |-Virtualization|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
 | -Répertoire | (Facultatif) UNC ou chemin d’accès du répertoire local où les données profilées (fichiers générés lors du profilage) sont stockées. Ces données sont requises pour générer le rapport. Si aucun nom de répertoire n’est spécifié, le répertoire ProfiledData est utilisé. |
-| -StorageAccountName | Le nom du compte de stockage Azure permettant de déterminer la bande passante utilisée pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour trouver la bande passante consommée. Le compte de stockage doit être à usage général v1 ou storageV2 (usage général v2).|
+| -StorageAccountName | Le nom du compte de stockage Azure permettant de déterminer la bande passante utilisée pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour trouver la bande passante consommée. Le compte de stockage doit être de type v1 à usage général (GPv1).|
 | -StorageAccountKey | La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > Comptes de stockage > <*Nom du compte de stockage*> > Paramètres > Clés d’accès > Key1 (ou clé d’accès principale pour un compte de stockage classique). |
 | -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler pour calculer la bande passante consommée. Le chemin d’accès du fichier peut être absolu ou relatif. Le fichier doit contenir un nom/une adresse IP de machine virtuelle par ligne. Les noms de machine virtuelle spécifiés dans le fichier doivent être identiques au nom des machines virtuelles sur le serveur vCenter/l’hôte vSphere ESXi.<br>Par exemple, le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | (Facultatif) Votre environnement de compte Stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à des clouds Azure - Gouvernement des États-Unis ou Azure - Chine. |

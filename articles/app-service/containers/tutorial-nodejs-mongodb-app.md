@@ -16,11 +16,11 @@ ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29932743"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38472949"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Créer une application web Node.js et MongoDB dans Azure App Service sur Linux
 
@@ -46,8 +46,7 @@ Vous apprendrez à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 1. [Installez Git](https://git-scm.com/)
 1. [Installez Node.js version 6.0 ou ultérieure et NPM](https://nodejs.org/)
@@ -76,7 +75,7 @@ Cette étape consiste à configurer le projet Node.js local.
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel :
+Exécutez la commande suivante pour cloner l’exemple de référentiel :
 
 ```bash
 git clone https://github.com/Azure-Samples/meanjs.git
@@ -84,7 +83,7 @@ git clone https://github.com/Azure-Samples/meanjs.git
 
 Cet exemple de référentiel contient une copie du référentiel [MEAN.js](https://github.com/meanjs/mean). Il est modifié pour s’exécuter sous App Service (pour plus d’informations, consultez le fichier [Lisez-moi](https://github.com/Azure-Samples/meanjs/blob/master/README.md) du référentiel MEAN.js).
 
-### <a name="run-the-application"></a>Exécution de l'application
+### <a name="run-the-application"></a>Exécution de l’application
 
 Exécutez la commande suivante pour installer les packages requis et démarrer l’application.
 

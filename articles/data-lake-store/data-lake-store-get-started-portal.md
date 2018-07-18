@@ -1,26 +1,24 @@
 ---
-title: Prise en main de Data Lake Store à l’aide du Portail Azure | Microsoft Docs
+title: Bien démarrer avec Data Lake Storage Gen1 à l’aide du Portail Azure | Microsoft Docs
 description: Utiliser le Portail Azure pour créer un compte Data Lake Store et effectuer des opérations de base dans Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: fea324d0-ad1a-4150-81f0-8682ddb4591c
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 91ed55e5f12c10e67653bdadfca80bd072779711
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e23b2496ccb69bb530bd825a1feb99abcc4ab35b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035108"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Prise en main d’Azure Data Lake Store à l’aide du portail Azure
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Bien démarrer avec Azure Data Lake Storage Gen1 à l’aide du Portail Azure
+
 > [!div class="op_single_selector"]
 > * [Portail](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,10 +26,11 @@ ms.lasthandoff: 03/28/2018
 >
 > 
 
-Apprenez à utiliser le portail Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base telles que la création de dossiers, le chargement et le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d’informations, consultez l’article [Présentation d’Azure Data Lake Store](data-lake-store-overview.md).
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Apprenez à utiliser le portail Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base telles que la création de dossiers, le chargement et le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d’informations, consultez [Présentation d’Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

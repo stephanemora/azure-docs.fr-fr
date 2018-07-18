@@ -27,7 +27,7 @@
 ### [Machine virtuelle Windows Server issue du modèle](active-directory-ds-join-windows-vm-template.md)
 ### [CentOS](active-directory-ds-join-centos-linux-vm.md)
 ### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Serveur Ubuntu](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrer un domaine géré
 ### [Administrer un domaine géré](active-directory-ds-admin-guide-administer-domain.md)
@@ -38,6 +38,7 @@
 #### [Tâche 3 : Activer le protocole LDAP sécurisé pour le domaine managé à l’aide du portail Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Créer une UO sur un domaine géré](active-directory-ds-admin-guide-create-ou.md)
+### [Créer un compte de service administré de groupe sur un domaine managé](active-directory-ds-create-gmsa.md)
 ### [Administrer la stratégie de groupe sur un domaine géré](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Sélectionner un réseau virtuel](active-directory-ds-networking.md)
 ## Déployer des applications
@@ -53,6 +54,7 @@
 #### [Restaurer les principaux de service manquants](active-directory-ds-troubleshoot-service-principals.md)
 #### [Erreurs de LDAP sécurisé](active-directory-ds-troubleshoot-ldaps.md)
 ### [Résoudre les erreurs relatives à des locataires qui ne correspondent pas](active-directory-ds-mismatched-tenant-error.md)
+### [Domaines suspendus](active-directory-ds-suspension.md)
 
 
 # Informations de référence

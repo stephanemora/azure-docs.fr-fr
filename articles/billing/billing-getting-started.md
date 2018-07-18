@@ -1,5 +1,5 @@
 ---
-title: Éviter les coûts imprévus, gérer la facturation - Azure | Microsoft Docs
+title: Éviter les coûts imprévus, gérer la facturation dans Azure | Microsoft Docs
 description: Découvrez comment éviter des frais inattendus sur votre facture Azure. Utilisez les fonctionnalités de gestion et de suivi des coûts pour un abonnement Microsoft Azure.
 services: ''
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 797421e40a5550e1897443f35089838a349ad85a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e4db9911697a4d79032b7a6358db642112a5a54e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607393"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062161"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 

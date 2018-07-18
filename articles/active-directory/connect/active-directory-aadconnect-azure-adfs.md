@@ -4,7 +4,7 @@ description: Dans ce document, vous allez apprendre à déployer AD FS dans Azur
 keywords: déployer AD FS dans azure, déployer azure adfs, azure adfs, azure ad fs, déployer adfs, déployer ad fs, adfs dans azure, déployer adfs dans azure, déployer AD FS dans azure, adfs azure, présentation d’AD FS, Azure, AD FS dans Azure, iaas, ADFS, déplacer adfs vers azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: anandy; billmath
+ms.component: hybrid
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917133"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
@@ -188,7 +190,7 @@ Dans le panneau Équilibreurs de charge, sélectionnez l’équilibreur de charg
 Dans le panneau Équilibreurs de charge internes, sélectionnez Sondes.
 
 1. Cliquez sur Ajouter
-2. Indiquez les détails de la sonde a. **Nom** : nom de la sonde b. **Protocole** : TCP c. **Port** : 443 (HTTPS) d. **Intervalle** : 5 (valeur par défaut) : il s’agit de l’intervalle auquel l’équilibreur de charge interne interrogera les machines virtuelles du pool principal e. **Unhealthy threshold limit**(Seuil de défaillance d’intégrité) : 2 (valeur par défaut) : il s’agit du seuil limite de défaillances consécutives de la sonde au-delà duquel l’équilibreur de charge interne considérera une machine du pool principal comme non réactive et cessera de lui envoyer du trafic.
+2. Indiquez les détails de la sonde a. **Nom** : nom de la sonde b. **Protocole** : TCP c. **Port** : 443 (HTTPS) d. **Intervalle** : 5 (valeur par défaut) : il s’agit de l’intervalle auquel l’équilibreur de charge interne interrogera les machines virtuelles du pool principal e. **Seuil de défaillance d’intégrité** : 2 (valeur par défaut) : il s’agit du seuil limite de défaillances consécutives de la sonde au-delà duquel l’équilibreur de charge interne considérera une machine du pool principal comme non réactive et cessera de lui envoyer du trafic.
 
 ![Configuration de la sonde d’équilibreur de charge interne](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
@@ -303,7 +305,7 @@ Le moyen le plus simple consiste à tester AD FS à l’aide de la page IdpIniti
 
 1. À l’aide de PowerShell, exécutez l’applet de commande ci-dessous sur le serveur AD FS pour l’activer.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. À partir d’une machine externe, accédez à https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. À partir d’une machine externe, accédez à https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx.  
 3. Vous devriez accéder à la page AD FS ci-dessous :
 
 ![Page de connexion de test](./media/active-directory-aadconnect-azure-adfs/test1.png)
@@ -321,7 +323,7 @@ Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau vi
 
 | Paramètre | Description |
 |:--- |:--- |
-| Lieu |Région dans laquelle déployer les ressources, par exemple, États-Unis de l'Est. |
+| Emplacement |Région dans laquelle déployer les ressources, par exemple, États-Unis de l'Est. |
 | StorageAccountType |Type de compte de stockage créé |
 | VirtualNetworkUsage |Indique si un réseau virtuel sera créé ou si un compte existant est utilisé |
 | VirtualNetworkName |Nom du réseau virtuel à créer, obligatoire lors de l’utilisation du réseau virtuel nouveau ou existant |

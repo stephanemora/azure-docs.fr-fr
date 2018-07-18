@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2018
+ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c5c719d484684c0efff87671ba7e012d9bd7699e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971905"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Présentation d’Azure Media Services v3
 
@@ -44,12 +45,14 @@ Media Services vous permet de créer une variété de workflows multimédias dan
 * Créer un abonnement au service vidéo et diffuser du contenu DRM protégé lorsqu’un client (par exemple, un studio de cinéma) doit limiter l’accès et l’utilisation de l’œuvre protégée par copyright propriétaire.
 * Proposer du contenu hors connexion dans des avions, des trains et des voitures. Un client peut avoir besoin de télécharger du contenu sur son téléphone ou sa tablette pour pouvoir le lire lorsqu’il sera déconnecté du réseau.
 * Ajouter des sous-titres et des légendes à des vidéos pour répondre aux besoins d’un plus large public (par exemple, des personnes souffrant d’un handicap d’audition ou souhaitant lire simultanément dans une autre langue). 
-* Implémenter une plateforme vidéo de formation en ligne éducative avec Azure Media Services et les [API Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) pour le sous-titrage de la reconnaissance vocale, la traduction en plusieurs langues, etc.
+* Implémenter une plateforme vidéo de formation en ligne éducative avec Azure Media Services et les [API Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) pour le sous-titrage de la reconnaissance vocale, la traduction en plusieurs langues, etc.
 * Activer Azure CDN pour une mise à grande échelle afin d’améliorer la gestion instantanée des charges importantes (par exemple le début de l’événement de lancement d’un produit). 
 
 ## <a name="v3-capabilities"></a>Fonctionnalités de v3
 
-v3 est basée sur une surface d’API unifiée qui expose les fonctionnalités de gestion et de fonctionnement reposant sur **Azure Resource Manager**. Cette version offre les fonctionnalités suivantes :  
+v3 est basée sur une surface d’API unifiée qui expose des fonctionnalités de gestion et de fonctionnement qui s’appuient sur Azure Resource Manager. 
+
+Cette version offre les fonctionnalités suivantes :  
 
 * **Transformations** : définir des workflows simples des tâches d’analytique ou de traitement multimédia. La transformation est une formule pour le traitement de vos fichiers audio et vidéo. Vous pouvez ensuite l’appliquer à plusieurs reprises pour traiter tous les fichiers dans votre bibliothèque de contenu, en envoyant des travaux à la Transformation.
 * **Travaux** : traiter (encoder ou analyser) vos vidéos. Un contenu d’entrée peut être spécifié sur un travail à l’aide d’URL HTTP(s), d’URL SAP ou de chemins d’accès aux fichiers situés dans le stockage Blob Azure. 
@@ -58,34 +61,29 @@ v3 est basée sur une surface d’API unifiée qui expose les fonctionnalités d
 * Il est possible de configurer le **contrôle d’accès en fonction du rôle** au niveau de la ressource, ce qui vous permet de bloquer l’accès à des ressources spécifiques comme les transformations, les canaux et bien plus encore.
 * **Kits SDK clients** en plusieurs langages : .NET, .NET core, Python, Go, Java et Node.js.
 
+## <a name="naming-conventions"></a>Conventions d’affectation de noms
+
+Les noms de ressources Azure Media Services v3 (par exemple Assets, Jobs, Transforms) sont sujets à des restrictions d’appellation par Azure Resource Manager. Conformément à Azure Resource Manager, les noms des ressources sont toujours uniques. Ainsi, vous pouvez utiliser n’importe quelle chaîne d’identificateur unique (par exemple des GUID) pour les noms de vos ressources. 
+
+Les noms de ressources Media Services ne peuvent pas contenir : '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', le caractère de citation unique ou tout caractère de commande. Tous les autres caractères sont autorisés. La longueur maximale d’un nom de ressources est de 260 caractères. 
+
+Pour en savoir plus sur l’affectation de noms avec Azure Resource Manager, consultez : [Exigences d’affectation des noms](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) et [Convention d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
 ## <a name="how-can-i-get-started-with-v3"></a>Comment bien démarrer avec v3 ?
 
-En tant que développeur, vous pouvez utiliser [l’API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST, de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. Microsoft génère et prend en charge les bibliothèques clientes suivantes : 
+En tant que développeur, vous pouvez utiliser [l’API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST, de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. Vous pouvez trouver un exemple REST Postman [à cette adresse](https://github.com/Azure-Samples/media-services-v3-rest-postman). Vous pouvez également utiliser une [API REST Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Langages .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
-* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (choisissez l’onglet **.NET CLI**)
-* Java
+Microsoft génère et prend en charge les bibliothèques clientes suivantes : 
 
-  Ajoutez la dépendance suivante dans votre projet :
-  
-  ```
-  <dependency>
-    <groupId>com.microsoft.azure.media-2018-03-30-preview</groupId>
-    <artifactId>azure-mgmt- media</artifactId>
-    <version>0.0.1-beta</version>
-  </dependency> 
-  ```
-* Node.js 
-
-  Utilisez la commande suivante :
-  
-  ```
-  npm install azure-arm-mediaservices
-  ```
-  
-* [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
-* [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
+|Bibliothèque cliente|Exemples|
+|---|---|
+|[Kit de développement logiciel (SDK) Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Exemples d’interface de ligne de commande Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
+|[Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[Exemples relatifs à .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
+|[Kit de développement logiciel (SDK) .NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (choisissez l’onglet **.NET CLI**)|[Exemples .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
+|[Kit de développement logiciel (SDK) Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
+|[Kit de développement logiciel (SDK) Node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Exemples relatifs à Node.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
+|[Kit de développement logiciel (SDK) Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
+|[Kit de développement logiciel (SDK) Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
 
 Media Services fournit des [fichiers Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) que vous pouvez utiliser pour générer des kits SDK pour votre langage ou technologie préféré(e).  
 

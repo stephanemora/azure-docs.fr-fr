@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164201"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713406"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Expériences de connexion avec Azure AD Identity Protection
 Avec Azure Active Directory Identity Protection, vous pouvez :
@@ -30,7 +31,7 @@ Avec Azure Active Directory Identity Protection, vous pouvez :
 
 La réponse du système à ces problèmes a un impact sur l’expérience de connexion d’un utilisateur, car la connexion à l’aide d’un nom d’utilisateur et d’un mot de passe seulement ne sera plus possible. Des étapes supplémentaires sont nécessaires pour rétablir l’accès d’un utilisateur en toute sécurité.
 
-Cette rubrique donne une vue d’ensemble de l’expérience de connexion d’un utilisateur pour tous les cas qui peuvent se produire.
+Cet article donne une vue d’ensemble de l’expérience de connexion d’un utilisateur pour tous les cas qui peuvent se produire.
 
 **Authentification multifacteur**
 

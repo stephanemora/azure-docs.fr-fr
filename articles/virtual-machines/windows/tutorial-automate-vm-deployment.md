@@ -3,7 +3,7 @@ title: 'Didacticiel : installer des applications sur une machine virtuelle Windo
 description: Avec ce didacticiel, vous allez apprendre à utiliser l’extension de script personnalisé pour exécuter des scripts et déployer des applications sur des machines virtuelles Windows dans Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,18 +14,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 51a66d524e72968d95f3415b890567015165063a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2a365321e35c84d5b09570a7eac41bec6cdeb143
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187434"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928962"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Didacticiel : déployer des applications sur une machine virtuelle Windows dans Azure avec l’extension de script personnalisé
 
-Pour configurer des machines virtuelles de manière rapide et cohérente, une certaine forme d’automatisation est généralement souhaitée. Une approche courante pour personnaliser une machine virtuelle Windows consiste à utiliser [l’extension de script personnalisé pour Windows](extensions-customscript.md). Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Pour configurer des machines virtuelles de manière rapide et cohérente, une certaine forme d’automatisation est généralement souhaitée. Une approche courante pour personnaliser une machine virtuelle Windows consiste à utiliser [l’extension de script personnalisé pour Windows](extensions-customscript.md). Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Utiliser une extension de script personnalisé pour installer IIS
@@ -34,7 +34,7 @@ Pour configurer des machines virtuelles de manière rapide et cohérente, une ce
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, ce didacticiel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.7.0 ou version ultérieure pour les besoins de ce tutoriel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 
 ## <a name="custom-script-extension-overview"></a>Vue d’ensemble de l’extension de script personnalisé
@@ -101,7 +101,7 @@ Vous pouvez alors entrer l’adresse IP publique dans un navigateur web. Le site
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez automatisé l’installation d’IIS sur une machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez automatisé l’installation d’IIS sur une machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Utiliser une extension de script personnalisé pour installer IIS

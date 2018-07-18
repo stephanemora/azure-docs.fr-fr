@@ -3,7 +3,7 @@ title: Informations de référence sur le protocole SAML d’Azure AD | Microsof
 description: Cet article fournit une vue d’ensemble des profils SAML d’authentification unique et de déconnexion unique dans Azure Active Directory.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.reviewer: dastrock
-ms.openlocfilehash: 3a38d5e7a33a681c2e6d4964863d25f5cfbd6725
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin, dastrock
+ms.openlocfilehash: 26984244c0ffa5e665394e903ba95b0487f214a8
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157622"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316907"
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Prise en charge du protocole SAML dans Azure Active Directory
 Azure Active Directory (Azure AD) utilise le protocole SAML 2.0 pour permettre aux applications de fournir une expérience d’authentification unique à leurs utilisateurs. Les profils SAML [Authentification unique](active-directory-single-sign-on-protocol-reference.md) et [Déconnexion unique](active-directory-single-sign-out-protocol-reference.md) d’Azure AD expliquent comment les assertions, les protocoles et les liaisons SAML sont utilisées dans le service de fournisseur d’identité.
@@ -31,12 +31,12 @@ Le protocole SAML a besoin du fournisseur d’identité (Azure AD) et du fournis
 
 Lorsqu’une application est enregistrée auprès d’Azure AD, le développeur d’applications enregistre les informations liées à la fédération auprès d’Azure AD. Ces informations englobent notamment **l’URI de redirection** et **l’URI des métadonnées** de l’application.
 
-Azure AD utilise **l’URI des métadonnées** du service cloud pour récupérer la clé de signature et l’URI de déconnexion du service cloud. Si l’application ne prend pas en charge l’URI des métadonnées, le développeur doit contacter le support Microsoft pour obtenir l’URI de déconnexion et la clé de signature.
+Azure AD utilise **l’URI des métadonnées** du service cloud pour récupérer la clé de signature et l’URI de déconnexion. Si l’application ne prend pas en charge l’URI des métadonnées, le développeur doit contacter le support Microsoft pour obtenir l’URI de déconnexion et la clé de signature.
 
 Azure Active Directory expose les points de terminaison d’authentification unique et de déconnexion unique communs (indépendants du client) et spécifiques au client. Ces URL représentent les emplacements adressables et ne jouent pas simplement le rôle d’identificateurs. Vous pouvez donc accéder au point de terminaison pour lire les métadonnées.
 
-* Le point de terminaison propre au client se trouve à l’adresse `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. L’espace réservé <TenantDomainName> représente un nom de domaine inscrit ou le GUID TenantID d’un locataire Azure AD. Par exemple, les métadonnées de fédération du client contoso.com sont sur : https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* Le point de terminaison propre au locataire se trouve à l’adresse `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. L’espace réservé *<TenantDomainName>* représente un nom de domaine inscrit ou le GUID TenantID d’un locataire Azure AD. Par exemple, les métadonnées de fédération du client contoso.com sont sur : https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
-* Le point de terminaison indépendant du client se trouve à l’adresse `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Dans cette adresse de point de terminaison, l’élément **common** remplace le nom de domaine ou l’ID du locataire.
+* Le point de terminaison indépendant du locataire se trouve à l’adresse `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Dans cette adresse de point de terminaison, l’élément **common** remplace le nom de domaine ou l’ID du locataire.
 
 Pour plus d’informations sur les documents de métadonnées de fédération publiés par Azure AD, consultez la page [Métadonnées de fédération](active-directory-federation-metadata.md).

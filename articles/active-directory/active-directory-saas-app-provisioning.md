@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 06/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c7a18132a797bd7411487c233fc41647cc20dfb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025236"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Qu’est-ce que l’attribution automatique des utilisateurs dans les applications SaaS ?
 Azure Active Directory (Azure AD) vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans les applications cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) comme Dropbox, Salesforce, ServiceNow et bien plus encore.
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
 **Voici quelques exemples d’utilisation de cette fonctionnalité :**
 
@@ -47,7 +50,6 @@ Voici les principales raisons pour utiliser cette fonctionnalité :
 * Importation facile de nombreux utilisateurs dans un système ou une application SaaS spécifique
 * Disposer d’un ensemble unique de stratégies pour déterminer qui est approvisionné et qui peut se connecter à une application
 
-
 ## <a name="how-does-automatic-provisioning-work"></a>Comment fonctionne l’approvisionnement automatique ?
     
 Le **service d’approvisionnement Azure AD** approvisionne des utilisateurs pour les applications SaaS et les autres systèmes en se connectant aux points de terminaison d’API de gestion des utilisateurs fournis par chaque fournisseur d’application. Ces points de terminaison d’API de gestion des utilisateurs permettent à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs par programmation. Pour les applications sélectionnées, le service d’approvisionnement peut également créer, mettre à jour et supprimer d’autres objets liés à l’identité, tels que les groupes et les rôles. 
@@ -66,21 +68,25 @@ Le **service d’approvisionnement Azure AD** approvisionne des utilisateurs po
 
 Azure AD offre une prise en charge préintégrée d’un large éventail d’applications SaaS et de systèmes de gestion des ressources humaines populaires, ainsi qu’une prise en charge générique des applications qui implémentent des parties spécifiques du standard SCIM 2.0.
 
-Pour obtenir la liste de toutes les applications pour lesquelles Azure AD prend en charge un connecteur d’approvisionnement préintégré, consultez la [liste des didacticiels d’applications pour l’approvisionnement des utilisateurs](active-directory-saas-tutorial-list.md).
+### <a name="pre-integrated-applications"></a>Applications pré-intégrées
+Pour obtenir la liste de toutes les applications pour lesquelles Azure AD prend en charge un connecteur d’approvisionnement préintégré, consultez la [liste des didacticiels d’applications pour l’approvisionnement des utilisateurs](saas-apps/tutorial-list.md).
 
-Pour plus d’informations sur la façon d’ajouter la prise en charge de l’approvisionnement des utilisateurs Azure AD à une application, consultez [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications](active-directory-scim-provisioning.md).
-
-Pour contacter l’équipe d’ingénierie Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, écrivez un message sur le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
+Pour contacter l’équipe d’ingénierie Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, écrivez un message sur le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
 
 > [!NOTE]
 > Pour qu’une application puisse prendre en charge l’approvisionnement automatique des utilisateurs, elle doit d’abord fournir les API de gestion des utilisateurs requises pour permettre aux programmes externes d’automatiser la création, la gestion et la suppression des utilisateurs. Par conséquent, toutes les applications SaaS ne sont pas compatibles avec cette fonctionnalité. Pour les applications qui prennent en charge les API de gestion des utilisateurs, l’équipe d’ingénierie Azure AD peut développer un connecteur d’approvisionnement. Ce travail s’effectue en fonction des besoins des clients actuels et à venir. 
-    
+
+### <a name="connecting-applications-that-support-scim-20"></a>Connexion d’applications prenant en charge SCIM 2.0
+Pour plus d’informations génériques sur la connexion d’applications qui implémentent des API de gestion SCIM 2.0, consultez [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications](manage-apps/use-scim-to-provision-users-and-groups.md).
+
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Comment configurer l’approvisionnement automatique pour une application ?
 
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
+
 La configuration du service d’approvisionnement Azure AD pour une application sélectionnée commence dans le **[portail Azure](https://portal.azure.com)**. Dans la section **Azure Active Directory > Applications d’entreprise**, sélectionnez **Ajouter**, **All** (Toutes), puis sélectionnez l’une des options suivantes selon votre scénario :
 
-* Toutes les applications de la section **Applications recommandées** prennent en charge l’approvisionnement automatique. Consultez la [[liste des didacticiels d’applications pour l’approvisionnement des utilisateurs]](active-directory-saas-tutorial-list.md) pour en obtenir davantage.
+* Toutes les applications de la section **Applications recommandées** prennent en charge l’approvisionnement automatique. Consultez la [[liste des didacticiels d’applications pour l’approvisionnement des utilisateurs]](saas-apps/tutorial-list.md) pour en obtenir davantage.
 
 * Utilisez l’option Application ne figurant pas dans la galerie pour les intégrations SCIM personnalisées
 
@@ -101,7 +107,7 @@ Dans l’écran de gestion des applications, la configuration de l’approvision
 
     * **Filter on attribute values** (Filtrer sur les valeurs d’attribut) : le menu Source Object Scope (Portée de l’objet source) dans les mappages d’attributs permet de filtrer sur des valeurs d’attribut spécifiques. Par exemple, vous pouvez spécifier que seuls les utilisateurs dont l’attribut « Service » est défini sur « Ventes » seront concernés par l’approvisionnement. Pour plus d’informations, consultez [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](active-directory-saas-scoping-filters.md).
 
-    * **Filter on assignments** (Filtrer sur les affectations) : le menu Étendue dans la section Approvisionnement &gt; Paramètres du portail permet de spécifier si seuls les utilisateurs et les groupes « affectés » ou tous les utilisateurs du répertoire Azure AD seront concernés par l’approvisionnement. Pour plus d’informations sur l’affectation d’utilisateurs et de groupes, consultez [Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+    * **Filter on assignments** (Filtrer sur les affectations) : le menu Étendue dans la section Approvisionnement &gt; Paramètres du portail permet de spécifier si seuls les utilisateurs et les groupes « affectés » ou tous les utilisateurs du répertoire Azure AD seront concernés par l’approvisionnement. Pour plus d’informations sur l’affectation d’utilisateurs et de groupes, consultez [Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md).
     
 * Les **paramètres** contrôlent le fonctionnement du service d’approvisionnement pour une application, qu’elle soit ou non en cours d’exécution.
 
@@ -121,7 +127,7 @@ Lorsque Azure AD est le système source, le service d’approvisionnement utilis
 Lorsque le service d’approvisionnement est démarré, la première synchronisation effectuée permettra de réaliser les opérations suivantes :
 
 1. Interroger tous les utilisateurs et groupes à partir du système source, afin de récupérer tous les attributs définis dans les [mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md).
-2. Filtrer les utilisateurs et les groupes renvoyés à l’aide [d’affectations](active-directory-coreapps-assign-user-azure-portal.md) ou de [filtres d’étendue basés sur un attribut](active-directory-saas-scoping-filters.md) configurés.
+2. Filtrer les utilisateurs et les groupes renvoyés à l’aide [d’affectations](manage-apps/assign-user-or-group-access-portal.md) ou de [filtres d’étendue basés sur un attribut](active-directory-saas-scoping-filters.md) configurés.
 3. Quand un utilisateur se trouve être affecté ou dans une étendue pour l’approvisionnement, le service interroge le système cible pour rechercher un utilisateur correspondant à l’aide des [attributs de correspondance](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties) désignés. Exemple : si le nom userPrincipal dans le système source est l’attribut de correspondance et s’il est mappé à userName dans le système cible, le service d’approvisionnement interroge le système cible pour les userNames qui correspondent aux valeurs de nom userPrincipal dans le système source.
 4. Si aucun utilisateur correspondant n’est trouvé dans le système cible, il est créé à l’aide des attributs renvoyés depuis le système source.
 5. Si un utilisateur correspondant est trouvé, il est mis à jour à l’aide des attributs fournis par le système source.
@@ -134,7 +140,7 @@ Certaines applications telles que ServiceNow, Google Apps et Box prennent non se
 Après la synchronisation initiale, toutes les synchronisations suivantes effectueront les opérations ci-dessous :
 
 1. Interroger le système source pour rechercher les utilisateurs et les groupes qui ont été mis à jour depuis le dernier filigrane enregistré.
-2. Filtrer les utilisateurs et les groupes renvoyés à l’aide [d’affectations](active-directory-coreapps-assign-user-azure-portal.md) ou de [filtres d’étendue basés sur un attribut](active-directory-saas-scoping-filters.md) configurés.
+2. Filtrer les utilisateurs et les groupes renvoyés à l’aide [d’affectations](manage-apps/assign-user-or-group-access-portal.md) ou de [filtres d’étendue basés sur un attribut](active-directory-saas-scoping-filters.md) configurés.
 3. Quand un utilisateur se trouve être affecté ou dans une étendue pour l’approvisionnement, le service interroge le système cible pour rechercher un utilisateur correspondant à l’aide des [attributs de correspondance](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties) désignés.
 4. Si aucun utilisateur correspondant n’est trouvé dans le système cible, il est créé à l’aide des attributs renvoyés depuis le système source.
 5. Si un utilisateur correspondant est trouvé, il est mis à jour à l’aide des attributs fournis par le système source.
@@ -147,7 +153,7 @@ Après la synchronisation initiale, toutes les synchronisations suivantes effect
 >[!NOTE]
 > Vous pouvez éventuellement désactiver les opérations de création, mise à jour et suppression à l’aide des cases à cocher **Actions d’objet cible** dans la section [Mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md). La logique pour désactiver un utilisateur pendant une mise à jour est également contrôlée via un mappage d’attributs à partir d’un champ tel que « accountEnabled ».
 
-Le service d’approvisionnement continuera à exécuter indéfiniment des synchronisations incrémentielles dos à dos, à des intervalles définis dans le [didacticiel spécifique à chaque application](active-directory-saas-tutorial-list.md), jusqu’à ce que l’un des événements suivants se produise :
+Le service d’approvisionnement continuera à exécuter indéfiniment des synchronisations incrémentielles dos à dos, à des intervalles définis dans le [didacticiel spécifique à chaque application](saas-apps/tutorial-list.md), jusqu’à ce que l’un des événements suivants se produise :
 
 * Le service est arrêté manuellement à l’aide du portail Azure, ou à l’aide de la commande API Graph appropriée 
 * Une nouvelle synchronisation initiale est déclenchée à l’aide de l’option **Clear state and restart** (Effacer l’état et redémarrer) dans le portail Azure, ou à l’aide de la commande API Graph appropriée. Cela permet d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
@@ -170,55 +176,72 @@ Lors de la mise en quarantaine, la fréquence des synchronisations incrémentiel
 Le travail d’approvisionnement sera supprimé de la mise en quarantaine après la correction de toutes les erreurs qui posent problème, et le prochain cycle de synchronisation démarre. Si le travail d’approvisionnement reste en quarantaine pendant plus de quatre semaines, celui-ci est désactivé.
 
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="how-long-will-it-take-to-provision-users"></a>Combien de temps faut-il pour approvisionner des utilisateurs ?
 
-**Combien de temps faut-il pour approvisionner mes utilisateurs ?**
+Les performances seront différentes selon que votre travail d’approvisionnement effectue une synchronisation initiale ou une synchronisation incrémentielle, comme décrit dans la section précédente.
 
-Les performances seront différentes selon que votre travail d’approvisionnement effectue une synchronisation initiale ou une synchronisation incrémentielle.
+Pour les **synchronisations initiales**, le temps nécessaire dépend de divers facteurs, notamment le nombre d’utilisateurs et de groupes dans la portée pour l’approvisionnement, ainsi que le nombre total d’utilisateurs et de groupe dans le système source. Une liste complète des facteurs affectant les performances de la synchronisation initiale est présentée plus loin dans cette section.
 
-Pour les synchronisations initiales, le temps nécessaire dépendra directement du nombre d’utilisateurs, de groupes et de membres du groupe présents dans le système source. Des systèmes source très petits comptant des centaines d’objets peuvent effectuer des synchronisations initiales en quelques minutes. À l’inverse, les synchronisations initiales des systèmes source avec des centaines de milliers, voire des millions d’objets combinés prendront plus de temps.
+Pour les **synchronisations incrémentielles**, le temps nécessaire dépend du nombre de modifications détectées dans ce cycle de synchronisation. S’il existe moins de 5 000 utilisateurs ou les changements d’appartenance au groupe, le travail peut finir dans un cycle de synchronisation incrémentielle. 
 
-Pour les synchronisations incrémentielles, le temps nécessaire dépend du nombre de modifications détectées dans ce cycle de synchronisation. S’il existe moins de 5 000 modifications d’appartenance au groupe ou d’utilisateur détectées, elles peuvent souvent être synchronisées en 40 minutes. 
+Le tableau suivant récapitule les temps de synchronisation des scénarios d’approvisionnement courants. Dans ces scénarios, le système source est Azure AD et le système cible est une application SaaS. Les temps de synchronisation sont dérivés d’une analyse statistique des travaux de synchronisation pour les applications SaaS ServiceNow, Workplace, Salesforce et Google Apps.
 
-Notez que les performances globales dépendent des systèmes source et cible. Certains systèmes cible implémentent des limites de taux de requête qui peuvent affecter les performances lors des opérations de synchronisation importantes, et les connecteurs d’approvisionnement Azure AD préintégrés de ces systèmes en tiennent compte.
 
-Les performances sont également ralenties s’il existe de nombreuses erreurs (enregistrées dans les [journaux d’audit](active-directory-saas-provisioning-reporting.md)) et si le service d’approvisionnement est passé à l’état de « quarantaine ».
+| Configuration d’étendue | Utilisateurs, groupes et membres dans l’étendue | Temps de la synchronisation initiale | Temps de la synchronisation incrémentielle |
+| -------- | -------- | -------- | -------- |
+| Synchroniser les utilisateurs et groupes assignés uniquement |  < 1 000 |  < 30 minutes | < 30 minutes |
+| Synchroniser les utilisateurs et groupes assignés uniquement |  1 000 - 10 000 | 142 - 708 minutes | < 30 minutes |
+| Synchroniser les utilisateurs et groupes assignés uniquement |   10 000 - 100 000 | 1 170 - 2 340 minutes | < 30 minutes |
+| Synchroniser l'ensemble des utilisateurs et groupes dans Azure AD |  < 1 000 | < 30 minutes  | < 30 minutes |
+| Synchroniser l'ensemble des utilisateurs et groupes dans Azure AD |  1 000 - 10 000 | < 30 - 120 minutes | < 30 minutes |
+| Synchroniser l'ensemble des utilisateurs et groupes dans Azure AD |  10 000 - 100 000  | 713 - 1 425 minutes | < 30 minutes |
+| Synchroniser l’ensemble des utilisateurs dans Azure AD|  < 1 000  | < 30 minutes | < 30 minutes |
+| Synchroniser l’ensemble des utilisateurs dans Azure AD | 1 000 - 10 000  | 43 - 86 minutes | < 30 minutes |
 
-**Comment puis-je améliorer les performances de synchronisation ?**
 
-La plupart des problèmes de performances se produisent pendant les synchronisations initiales des systèmes qui ont un grand nombre de groupes et de membres de groupe.
+Pour la configuration **Synchroniser l’utilisateur et les groupes affectés uniquement**, vous pouvez utiliser les formules suivantes pour déterminer les temps minimum et maximum attendus pour la **synchronisation initiale** :
 
-Si la synchronisation des groupes ou des appartenances au groupe n’est pas obligatoire, les performances de synchronisation peuvent considérablement être améliorées en effectuant les actions suivantes :
+    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
+    
+Résumé des facteurs qui influencent le temps nécessaire pour terminer une **synchronisation initiale**  :
 
-1. Définissez le menu **Approvisionnement > Paramètres > Étendue** sur **Sync all** (Tout synchroniser), plutôt que de synchroniser les groupes et utilisateurs affectés.
-2. Utilisez des [filtres d’étendue](active-directory-saas-scoping-filters.md) au lieu des affectations pour filtrer la liste des utilisateurs approvisionnés.
+* Le nombre total d’utilisateurs et groupes dans l’étendue pour l’approvisionnement
 
-> [!NOTE]
-> Pour les applications qui prennent en charge l’approvisionnement des propriétés et des noms de groupe (comme ServiceNow et Google Apps), désactiver cette option réduit également le temps nécessaire à une synchronisation initiale. Si vous ne souhaitez pas approvisionner les noms de groupes et les appartenances à des groupes pour votre application, vous pouvez désactiver cette fonctionnalité dans les [mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md) de votre configuration d’approvisionnement.
+* Le nombre total d’utilisateurs, groupes et membres du groupe présents dans le système source (Azure AD)
 
-**Comment puis-je suivre la progression de la tâche d’approvisionnement actuelle ?**
+* Si les utilisateurs dans l’étendue pour l’approvisionnement sont mis en correspondance ou non avec des utilisateurs existants dans l’application cible, ou doivent être créés la première fois. Les travaux de synchronisation pour lesquels tous les utilisateurs sont créés pour la première fois prennent environ *deux fois plus* de temps que les travaux de synchronisation pour lesquels tous les utilisateurs sont mis en correspondance avec des utilisateurs existants.
 
-Consultez le [guide de création de rapports d’approvisionnement](active-directory-saas-provisioning-reporting.md).
+* Nombre d’erreurs dans les [journaux d’audit](active-directory-saas-provisioning-reporting.md). Les performances sont ralenties s’il existe de nombreuses erreurs et si le service d’approvisionnement est passé à l’état de quarantaine   
 
-**Comment savoir si les utilisateurs ne sont pas approvisionnés correctement ?**
+* Limites de taux de requêtes et limitation implémentées par le système cible. Certains systèmes cible implémentent des limites de taux de requêtes et une limitation qui peuvent affecter les performances lors d’opérations de synchronisation de grande envergure. Dans ces conditions, une application qui reçoit trop rapidement un trop grand nombre de requêtes risque d’afficher un taux de réponse plus faible ou d’interrompre la connexion. Pour améliorer les performances, le connecteur doit ajuster ce taux en évitant d’envoyer les requêtes d’application plus rapidement que ce que l’application est capable de traiter. Les connecteurs d’approvisionnement intégrés à Microsoft permettent d’effectuer cet ajustement. 
 
-Tous les échecs sont enregistrés dans les journaux d’audit Azure AD. Pour plus d’informations, consultez le [guide de création de rapports d’approvisionnement](active-directory-saas-provisioning-reporting.md).
+* Le nombre et la taille des groupes affectés. La synchronisation des groupes affectés prend plus de temps que la synchronisation des utilisateurs. Le nombre et la taille des groupes affectés ont un impact sur les performances. Si une application comporte des [mappages activés pour la synchronisation des objets de groupe](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), les propriétés de groupe, telles que les noms de groupe et les appartenances, sont synchronisées en plus des utilisateurs. Ces synchronisations supplémentaires prendront plus temps que la seule synchronisation des objets utilisateur.
 
-**Comment puis-je créer une application qui fonctionne avec le service d’approvisionnement ?**
 
-Consultez [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
+##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Comment savoir si les utilisateurs sont correctement attribués ?
 
-**Comment puis-je envoyer des commentaires à l’équipe d’ingénierie ?**
+Toutes les opérations effectuées par le service d’attribution d’utilisateurs sont enregistrées dans les journaux d’audit Azure AD. Cela comprend toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites à chaque opération.
 
-Contactez-nous via le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+Pour plus d’informations sur la lecture des journaux d’audit dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](active-directory-saas-provisioning-reporting.md).
+
+
+##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Comment résoudre les problèmes liés à l’attribution d’utilisateurs ?
+
+Pour obtenir des instructions basées sur un scénario concernant la manière de résoudre des problèmes d’approvisionnement automatique d’utilisateurs, voir [Problèmes lors de la configuration et de l’approvisionnement des utilisateurs pour une application](active-directory-application-provisioning-content-map.md).
+
+
+##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Quelles sont les bonnes pratiques à appliquer pour l’attribution automatique d’utilisateurs ?
+
+> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
+
+Si vous souhaitez obtenir un exemple de plan de déploiement pas à pas pour l’attribution d’utilisateurs dans une application, consultez le [guide de déploiement des identités pour l’attribution d’utilisateurs](https://aka.ms/userprovisioningdeploymentplan)/
 
 
 ## <a name="related-articles"></a>Articles connexes
-* [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+* [Liste des didacticiels sur l’intégration des applications SaaS](saas-apps/tutorial-list.md)
 * [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
 * [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
-* [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](active-directory-scim-provisioning.md)
+* [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Vue d’ensemble de l’API de synchronisation Azure AD)
-* [Plan de déploiement pas à pas pour l’approvisionnement d’utilisateurs sortants d’une application](https://aka.ms/userprovisioningdeploymentplan)
-

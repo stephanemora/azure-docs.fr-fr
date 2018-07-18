@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: aaac2fa4d62fb02bf17342a0db27fad79e495693
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2d1144a94a74e56cae6ff0a4b026a64540086c11
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968576"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Créer une application web PHP dans Azure
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/18/2018
 
 [Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques.  Ce guide de démarrage rapide vous indique comment déployer une application PHP dans Azure Web Apps. Vous créez l’application web dans Cloud Shell grâce à l’interface [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), et vous utilisez Git pour déployer l’exemple de code PHP dans l’application web.
 
-![Exemple d’application s’exécutant dans Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![Exemple d’application s’exécutant dans Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 Vous pouvez suivre ces étapes en utilisant un ordinateur Mac, Windows ou Linux. Une fois les composants requis installés, l’exécution de cette procédure prend environ cinq minutes.
 
@@ -37,8 +38,7 @@ Vous pouvez suivre ces étapes en utilisant un ordinateur Mac, Windows ou Linux.
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour effectuer ce démarrage rapide :
+Pour suivre ce guide de démarrage rapide :
 
 * <a href="https://git-scm.com/" target="_blank">Installez Git</a>
 * <a href="http://php.net/manual/install.php" target="_blank">Installez PHP</a>
@@ -92,6 +92,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -104,8 +105,13 @@ Une fois l’application web créée, Azure CLI affiche une sortie similaire �
   < JSON data removed for brevity. >
 }
 ```
+Vous avez créé une application web vide, avec le déploiement Git activé.
 
-Accédez à votre nouvelle application web. Remplacez _&lt;app name>_ par un nom d’application unique.
+> [!NOTE]
+> L’URL du Git distant est indiquée dans la propriété `deploymentLocalGitUrl`, avec le format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Enregistrez cette URL, car vous en aurez besoin ultérieurement.
+>
+
+Accédez à votre nouvelle application web. Remplacez _&lt;nom de l’application >_ par le nom d’application unique créé à l’étape précédente.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -183,11 +189,11 @@ Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de
 
 ![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, vous pouvez également des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple).
+La page Vue d’ensemble de votre application web s’affiche. Ici, vous pouvez également des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple).
 
 ![Page App Service du Portail Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-Le menu de gauche fournit différentes pages vous permettant de configurer votre application. 
+Le menu de gauche fournit différentes options vous permettant de configurer votre application. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

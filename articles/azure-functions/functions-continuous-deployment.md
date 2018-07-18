@@ -1,12 +1,12 @@
 ---
-title: "Déploiement continu pour Azure Functions | Microsoft Docs"
-description: "Utilisez les fonctionnalités de déploiement continu d’Azure App Service pour publier vos fonctions Azure."
+title: Déploiement continu pour Azure Functions | Microsoft Docs
+description: Utilisez les fonctionnalités de déploiement continu d’Azure App Service pour publier vos fonctions Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735701"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Déploiement continu pour Azure Functions
 Azure Functions vous permet de déployer votre Function App facilement à l’aide de l’intégration continue App Service. Functions s’intègre à BitBucket, Dropbox, GitHub et Visual Studio Team Services (VSTS). Cela permet d’activer un workflow dans lequel les mises à jour du code de fonctions sont effectuées à l’aide d’un de ces services intégrés qui déclenchent le déploiement dans Azure. Si vous ne connaissez pas Azure Functions, commencez par consulter l’article [Vue d’ensemble d’Azure Functions](functions-overview.md).
@@ -41,6 +42,8 @@ Les déploiements sont configurés au cas par cas, selon les Function Apps. Une 
 Avant que vous ne configuriez le déploiement continu, votre source de déploiement doit être configurée et contenir votre code de fonctions. Dans un déploiement d’application de fonction donnée, chaque fonction se trouve dans un sous-répertoire nommé, où le nom du répertoire est le nom de la fonction.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+Pour pouvoir déployer à partir de VSTS, vous devez tout d’abord lier votre compte VSTS avec votre abonnement Azure. Pour plus d’informations, consultez [Configurer la facturation pour votre compte VSTS](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Configurer un déploiement continu
 Utilisez cette procédure pour configurer le déploiement continu d’une Function App existante. Les étapes suivantes présentent l’intégration avec un référentiel GitHub, mais des étapes similaires s’appliquent à Visual Studio Team Services ou à d’autres services de déploiement.

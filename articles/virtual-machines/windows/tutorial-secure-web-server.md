@@ -3,7 +3,7 @@ title: Didacticiel :sécuriser un serveur web Windows à l’aide de certificats
 description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour sécuriser une machine virtuelle Windows qui exécute le serveur web IIS avec les certificats SSL stockés dans Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,18 +14,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 76d1170f4696c4221233d2b3c1d358375adfe5c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d5298d2b15fc94d8e7e0d22fc2f858ffc13e7c8
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189545"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932583"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Didacticiel : sécuriser un serveur web sur une machine virtuelle Windows dans Azure avec les certificats SSL stockés dans Key Vault
 
-Pour sécuriser les serveurs web, vous pouvez utiliser un certificat SSL (Secure Sockets Layer) et chiffrer ainsi le trafic web. Ces certificats SSL peuvent être stockés dans Azure Key Vault et autoriser les déploiements sécurisés de certificats sur les machines virtuelles Windows dans Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Pour sécuriser les serveurs web, vous pouvez utiliser un certificat SSL (Secure Sockets Layer) et chiffrer ainsi le trafic web. Ces certificats SSL peuvent être stockés dans Azure Key Vault et autoriser les déploiements sécurisés de certificats sur les machines virtuelles Windows dans Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un Azure Key Vault
@@ -35,7 +35,7 @@ Pour sécuriser les serveurs web, vous pouvez utiliser un certificat SSL (Secure
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.7.0 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.7.0 ou version ultérieure pour les besoins de ce tutoriel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -167,7 +167,7 @@ Votre site IIS sécurisé apparaît maintenant comme dans l’exemple suivant :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez sécurisé un serveur web IIS à l’aide d’un certificat SSL stocké dans Azure Key Vault. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez sécurisé un serveur web IIS à l’aide d’un certificat SSL stocké dans Azure Key Vault. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer un Azure Key Vault

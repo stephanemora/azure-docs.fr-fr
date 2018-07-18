@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2016
+ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 561f317cd7afd740b83709efc8a75ed515626192
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2ec08b45fab9987e9271c1ff3101eaf321dc84be
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234221"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Déployer votre application dans Azure App Service avec FTP/S
 
@@ -26,29 +27,23 @@ Cet article vous explique comment utiliser FTP ou FTPS pour déployer votre appl
 
 Le point de terminaison FTP/S de votre application est déjà actif. Aucune configuration n’est nécessaire pour activer le déploiement FTP/S.
 
-<a name="step1"></a>
-## <a name="step-1-set-deployment-credentials"></a>Étape 1 : définir les informations d’identification du déploiement
+## <a name="open-ftp-dashboard"></a>Ouvrir le tableau de bord FTP
 
-Pour accéder au serveur FTP de votre application, vous devez disposer des informations d’identification du déploiement. 
+Dans le [portail Azure](https://portal.azure.com), accédez à la [page de ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
 
-Pour définir ou réinitialiser vos informations d’identification du déploiement, consultez [Informations d’identification du déploiement d’Azure App Service](app-service-deployment-credentials.md). Ce didacticiel illustre l’utilisation des informations d’identification de niveau utilisateur.
+Pour ouvrir le tableau de bord FTP, cliquez sur **Livraison continue (préversion)** > **FTP** > **Tableau de bord**.
 
-## <a name="step-2-get-ftp-connection-information"></a>Étape 2 : obtenir les informations de connexion FTP
+![Ouvrir le tableau de bord FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à la [page de ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
-2. Sélectionnez **Vue d’ensemble** dans la navigation de gauche, puis notez les valeurs **Utilisateur FTP/de déploiement**, **Nom de l’hôte FTP** et **Nom de l’hôte FTPS**. 
+## <a name="get-ftp-connection-information"></a>Obtention des informations de connexion FTP
 
-    ![Informations de connexion FTP](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
+Dans le tableau de bord FTP, cliquez sur **Copier** pour copier le point de terminaison FTPS et les informations d’identification de l’application.
 
-    > [!NOTE]
-    > Pour fournir le contexte approprié au serveur FTP, la valeur **Utilisateur FTP/de déploiement** affichée par le portail Azure inclut le nom de l’application.
-    > Vous pouvez obtenir les mêmes informations en sélectionnant **Propriétés** dans la navigation de gauche. 
-    >
-    > En outre, le mot de passe du déploiement n’est jamais affiché. Si vous oubliez le mot de passe de votre déploiement, revenez à l’[étape 1](#step1) et réinitialisez-le.
-    >
-    >
+![Copier les informations FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-## <a name="step-3-deploy-files-to-azure"></a>Étape 3 : déployer les fichiers sur Azure
+Il est recommandé d’utiliser les **informations d’identification de l’application** pour le déploiement sur votre application, car elles sont propres à chaque application. Toutefois, si vous cliquez sur **Informations d’identification de l’utilisateur**, vous pouvez définir des informations d’identification au niveau de l’utilisateur, que vous pouvez utiliser pour la connexion FTP/S à toutes les applications App Service de votre abonnement.
+
+## <a name="deploy-files-to-azure"></a>Déployer des fichiers sur Azure
 
 1. À partir de votre client FTP (par exemple, [Visual Studio](https://www.visualstudio.com/vs/community/) ou [FileZilla](https://filezilla-project.org/download.php?type=client)), utilisez les informations de connexion que vous avez recueillies pour vous connecter à votre application.
 3. Copiez vos fichiers et la structure de répertoire qui leur correspond dans le répertoire [**/site/wwwroot** dans Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (ou dans le répertoire **/site/wwwroot/App_Data/Jobs/** pour WebJobs).
@@ -75,6 +70,14 @@ Pour désactiver le protocole FTP non chiffré, sélectionnez **FTPS Only** (FTP
 
 ![Désactiver le protocole FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
+## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
+
+Pour le déploiement FTP à l’aide d’[Azure CLI](/cli/azure), consultez [Créer une application web et déployer des fichiers par FTP (Azure CLI)](./scripts/app-service-cli-deploy-ftp.md).
+
+Pour le déploiement FTP à l’aide d’[Azure PowerShell](/cli/azure), consultez [Télécharger des fichiers vers une application web via FTP (PowerShell)](./scripts/app-service-powershell-deploy-ftp.md).
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
 ## <a name="troubleshoot-ftp-deployment"></a>Résoudre les problèmes d’un déploiement FTP
 
 - [Comment puis-je résoudre les problèmes d’un déploiement FTP ?](#how-can-i-troubleshoot-ftp-deployment)
@@ -85,13 +88,12 @@ Pour désactiver le protocole FTP non chiffré, sélectionnez **FTPS Only** (FTP
 
 La première étape de résolution des problèmes d’un déploiement FTP consiste à isoler un problème de déploiement d’un problème d’application à l’exécution.
 
-Un problème de déploiement se produit généralement si aucun fichier ou des fichiers incorrects sont déployés sur votre application. Il peut être résolu en examinant votre déploiement FTP ou en sélectionnant un autre chemin d’accès de déploiement (comme un contrôle de code source).
+Un problème de déploiement se produit généralement si aucun fichier ou des fichiers incorrects sont déployés sur votre application. Vous pouvez le résoudre en examinant votre déploiement FTP ou en sélectionnant un autre chemin d’accès de déploiement (comme un contrôle de code source).
 
-Un problème d’application à l’exécution se produit généralement si l’ensemble de fichiers approprié est déployé sur votre application, mais que le comportement de l’application est incorrect. Il peut être résolu en se concentrant sur le comportement du code lors de l’exécution et en examinant des chemins d’accès d’échec spécifiques.
+Un problème d’application à l’exécution se produit généralement si l’ensemble de fichiers approprié est déployé sur votre application, mais que le comportement de l’application est incorrect. Vous pouvez le résoudre en vous concentrant sur le comportement du code lors de l’exécution et en examinant des chemins d’accès d’échec spécifiques.
 
 Pour déterminer un problème de déploiement ou d’exécution, consultez [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues) (Problèmes de déploiement et d’exécution).
 
- 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Je ne peux pas envoyer par FTP et publier mon code. Comment puis-je résoudre le problème ?
 Vérifiez que vous avez entré le nom d’hôte et les [informations d’identification](#step-1--set-deployment-credentials) corrects. Vérifiez également que les ports FTP suivants sur votre machine ne sont pas bloqués par un pare-feu :
 

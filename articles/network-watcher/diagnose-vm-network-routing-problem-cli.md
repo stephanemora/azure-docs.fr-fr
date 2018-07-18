@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: fcb7ec2e40b5c0e8794d2f4d70395dcbecca019c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182159"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618948"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostiquer un problème de routage réseau d’une machine virtuelle - Azure CLI
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.28 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Pour trouver la version installée, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Après avoir vérifié la version CLI, exécutez `az login` pour créer une connexion avec Azure. Les commandes CLI dans cet article sont mises en forme de manière à s’exécuter dans un interpréteur de commandes Bash.
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.28 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Pour trouver la version installée, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Après avoir vérifié la version CLI, exécutez `az login` pour créer une connexion avec Azure. Les commandes CLI dans cet article sont mises en forme de manière à s’exécuter dans un interpréteur de commandes Bash.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -151,7 +151,7 @@ Toutefois, lorsque vous avez utilisé la commande `az network watcher show-next-
 
 Comme vous pouvez le voir dans la sortie de la commande `az network watcher nic show-effective-route-table`, même s’il existe un itinéraire par défaut pour le préfixe 172.16.0.0/12, qui inclut l’adresse 172.31.0.100, **NextHopType** est défini sur **None (Aucun)**. Azure crée un itinéraire par défaut pour 172.16.0.0/12, mais ne spécifie pas de type de tronçon suivant tant qu’aucune raison ne motive cette spécification. Si, par exemple, vous avez ajouté la plage d’adresses 172.16.0.0/12 à l’espace d’adressage du réseau virtuel, Azure modifie **NextHopType** pour le définir sur **Réseau virtuel** pour l’itinéraire. Une vérification permet ensuite d’afficher **Réseau virtuel** en tant que **NextHopType**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [az group delete](/cli/azure/group#az_group_delete) pour le supprimer, ainsi que toutes les ressources qu’il contient :
 

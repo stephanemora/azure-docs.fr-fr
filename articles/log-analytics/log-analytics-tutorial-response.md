@@ -1,34 +1,36 @@
 ---
-title: "Répondre aux événements avec les alertes Azure Log Analytics | Microsoft Docs"
-description: "Ce didacticiel vous aide à comprendre les alertes dans Log Analytics qui vous permettent d’identifier les informations importantes dans votre référentiel OMS, vous avertissent à un stade précoce de l’existence de problèmes ou appellent des actions pour tenter de les corriger."
+title: Répondre aux événements avec les alertes Azure Log Analytics | Microsoft Docs
+description: Ce tutoriel vous aide à comprendre les alertes avec Log Analytics qui vous permettent d’identifier les informations importantes dans votre espace de travail, vous avertissent à un stade précoce de l’existence de problèmes ou appellent des actions pour tenter de les corriger.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 635c1589fcfd71d39439ab4f7df2d26c50c3212c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127252"
 ---
-# <a name="respond-to-events-with-log-analytics-alerts"></a>Répondre aux événements avec les alertes Log Analytics
-Les alertes identifient des informations importantes dans votre référentiel Log Analytics. Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](log-analytics-tutorial-dashboards.md).   
+# <a name="respond-to-events-with-azure-monitor-alerts"></a>Répondre aux événements avec les alertes Azure Monitor
+Les alertes dans Azure Monitor identifient des informations importantes dans votre référentiel Log Analytics. Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](log-analytics-tutorial-dashboards.md).   
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Création d'une règle d'alerte
-> * Configurer une règle d’alerte qui envoie une notification par e-mail
+> * Configurer un groupe d’action qui envoie une notification par e-mail
 
 Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
@@ -36,39 +38,38 @@ Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machin
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-alerts"></a>Créez des alertes
+Les alertes sont créées par des règles d’alerte dans Azure Monitor et peuvent exécuter automatiquement des requêtes enregistrées ou des recherches personnalisées dans les journaux à intervalles réguliers.  Vous pouvez créer des alertes sur la base de métriques de performances spécifiques ou quand certains événements sont créés, quand un événement fait défaut ou quand un certain nombre d’événements sont créés dans une fenêtre de temps donnée.  Par exemple, les alertes peuvent servir à vous avertir que l’utilisation moyenne du processeur dépasse un certain seuil, qu’une mise à jour manquante est détectée, ou qu’un événement est généré en raison de la détection de la non exécution d’un service Windows spécifique ou du démon Linux.  Si les résultats de la recherche répondent à des critères particuliers, une alerte est créée. La règle peut ensuite exécuter automatiquement une ou plusieurs actions, comme vous avertir de l’alerte ou appeler un autre processus de façon proactive. 
 
-Les alertes sont créées par des règles dédiées qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers.  Vous pouvez créer des alertes sur la base de métriques de performances spécifiques ou quand certains événements sont créés, quand un événement fait défaut ou quand un certain nombre d’événements sont créés dans une fenêtre de temps donnée.  Par exemple, les alertes peuvent servir à vous avertir que l’utilisation moyenne du processeur dépasse un certain seuil ou qu’un événement est généré pour cause de non exécution d’un service Windows spécifique ou du démon Linux.   Si les résultats de la recherche répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive. 
+Dans l’exemple suivant, vous créez une règle d’alerte de mesure de métrique basée sur la requête *Machines virtuelles Azure - Utilisation des processeurs* enregistrée dans le [tutoriel Visualiser les données](log-analytics-tutorial-dashboards.md).  Une alerte est créée pour chaque machine virtuelle qui dépasse un seuil de 90 %.  
 
-Dans l’exemple suivant, vous allez créer une règle d’alerte de mesure de métrique qui va générer une alerte pour chaque objet ordinateur de la requête dont la valeur dépasse un seuil de 90 %.
+1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste des ressources, tapez **Moniteur**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Moniteur**.
+2. Dans le volet gauche, sélectionnez **Alertes** puis cliquez sur **Nouvelle règle d’alerte** en haut de la page pour créer une nouvelle alerte.<br><br> ![Créer une nouvelle règle d’alerte](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
+3. Pour la première étape, dans la section **Créer une alerte**, sélectionnez votre espace de travail Log Analytics en tant que ressource, car il s’agit d’un signal d’alerte basé sur des journaux.  Si vous avez plusieurs résultats, filtrez-les en choisissant l’**abonnement** spécifique dans la liste déroulante, qui contient la machine virtuelle et l’espace de travail Log Analytics créés précédemment.  Filtrez le **Type de ressource** en sélectionnant **Log Analytics** dans la liste déroulante.  Enfin, sélectionnez la **ressource** **DefaultLAWorkspace** puis cliquez sur **Terminé**.<br><br> ![Créer une tâche d’alerte étape 1](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
+4. Dans la section **Critères d’alerte**, cliquez sur **Ajouter des critères** pour sélectionner notre requête enregistrée, puis la logique spécifiée que la règle d’alerte suit.  Dans le volet **Configurer la logique du signal**, sélectionnez *Machines virtuelles Azure - Utilisation du processeur* dans la liste.  Le volet se met à jour pour présenter les paramètres de configuration de l’alerte.  En haut, il affiche les résultats pour les 30 dernières minutes du signal sélectionné et pour la requête de recherche.  
+5. Configurez l’alerte avec les informations suivantes :  
+   a. Dans la liste déroulante **Basé sur*, sélectionnez **Mesure des métriques**.  Une mesure des métriques créera une alerte pour chaque objet de la requête dont la valeur dépasse notre seuil spécifié.  
+   b. Pour la **Condition**, sélectionnez **Supérieur à** et entrez **90** pour le **Seuil**.  
+   c. Dans la section Déclencher l’alerte selon, sélectionnez **Violations consécutives** et dans la liste déroulante, sélectionnez **Supérieur à** et entrez la valeur 3.  
+   d. Dans la section Évaluation selon, acceptez les valeurs par défaut. La règle s’exécute toutes les cinq minutes et renvoie les enregistrements qui ont été créés dans cette plage précédant son exécution.  
+6. Cliquez sur **Terminé** pour terminer la règle d’alerte.<br><br> ![Configurer un signal d’alerte](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)<br> 
+7. Passons maintenant à la deuxième étape. Donnez un nom à votre alerte dans le champ **Nom de la règle d’alerte**, tel que **Pourcentage d’UC supérieur à 90 %**.  Spécifiez une **Description** détaillant les spécificités de l’alerte, puis sélectionnez **Critique (gravité 0)** pour la valeur de **Gravité** parmi les options fournies.<br><br> ![Configuration des détails de l’alerte](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)<br>
+8. Pour activer immédiatement la règle d’alerte lors de la création, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.
+9. Pour la troisième et dernière étape, vous spécifiez un **Groupe d’actions**, ce qui garantit que les mêmes actions soient entreprises chaque fois qu’une alerte est déclenchée et peuvent être utilisées pour chaque règle que vous définissez.  Configurez un nouveau groupe d’actions avec les informations suivantes :  
+   a. Sélectionnez **Nouveau groupe d’actions** et le volet **Ajouter un groupe action** s’affiche.
+   b. Pour le **Nom du groupe d’actions**, spécifiez un nom tel que **Opérations informatiques - Notifier** et un **Nom court** comme **itops-n**.  
+   c. Vérifiez que les valeurs par défaut de l’**Abonnement** et du **Groupe de ressources** sont correctes. Si ce n’est pas le cas, sélectionnez la valeur correcte dans la liste déroulante.   
+   d. Dans la section Actions, spécifiez un nom pour l’action, tel que **Envoyer un message électronique**, et pour le **Type d’action**, sélectionnez **E-mail/SMS/Push/Voix** dans la liste déroulante. Le volet Propriétés **E-mail/SMS/Push/Voix** s’ouvre sur la droite afin de fournir des informations supplémentaires.
+   e. Dans le volet **E-mail/SMS/Push/Voix**, autorisez les **e-mails** et fournissez une adresse de messagerie SMTP valide à laquelle envoyer le message. f. Cliquez sur **OK** pour enregistrer vos modifications.<br><br> ![Créer un nouveau groupe d’action](./media/log-analytics-tutorial-response/action-group-properties-01.png)<br>
+10. Cliquez sur **OK** pour créer le groupe d’actions. 
+11. Cliquez sur **Créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.<br><br> ![Terminer la création d’une nouvelle règle d’alerte](./media/log-analytics-tutorial-response/alert-rule-01.png)<br> 
 
-1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
-2. Lancez le portail OMS en sélectionnant Portail OMS puis, dans la page **Vue d’ensemble**, sélectionnez **Recherche dans les journaux**.  
-3. Sélectionnez **Favoris** dans la partie supérieure du portail puis, dans le volet **Recherches enregistrées** à droite, sélectionnez la requête *Machines virtuelles Azure - Utilisation des processeurs*.  
-4. Cliquez sur **Alerte** en haut de la page pour ouvrir l’écran **Ajouter une règle d’alerte**.  
-5. Configurez la règle d’alerte avec les informations suivantes :  
-   a. Attribuez un **Nom** à votre alerte, en l’occurrence *VM processor utilization exceeded >90*  
-   b. Dans **Fenêtre de temps**, spécifiez l’intervalle de temps de la requête, soit *30*.  La requête retourne uniquement les enregistrements qui ont été créés dans cette plage précédant son exécution.  
-   c. **Fréquence des alertes** spécifie la fréquence d’exécution de la requête.  Pour cet exemple, spécifiez *5* minutes pour permettre une exécution dans la fenêtre de temps que nous avons spécifiée.  
-   d. Sélectionnez **Mesure de métriques**, entrez la valeur *90* pour **Valeur d’agrégat**, puis la valeur *3* pour **Déclencher l’alerte selon**   
-   e. Sous **Actions**, désactivez E-mail de notification.
-6. Cliquez sur **Enregistrer** pour terminer la règle d’alerte. Son exécution démarre immédiatement.<br><br> ![Exemple de règle d’alerte](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
+## <a name="view-your-alerts-in-azure-portal"></a>Visualiser les alertes dans le portail Azure
+Maintenant que vous avez créé une alerte, vous pouvez afficher les alertes Azure dans un seul volet et gérer toutes les règles d’alerte de l’ensemble de vos abonnements Azure. Elle répertorie toutes les règles d’alerte (activées ou désactivées) et peut être triée en fonction des ressources cibles, des groupes de ressources, du nom de règle ou de l’état. Un résumé agrégé de toutes les alertes déclenchées et des règles d’alerte configurées/activées est inclus.<br><br> ![Page de l’état des alertes Azure](./media/log-analytics-tutorial-response/azure-alerts-02.png)  
 
-Les enregistrements d’alerte créés par les règles d’alerte dans Log Analytics sont de type **Alerte** et ont pour système source **OMS**.<br><br> ![Exemple d’événements d’alerte générés](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
-
-## <a name="alert-actions"></a>Actions d’alerte
-Les alertes vous permettent d’effectuer des actions avancées, par exemple créer une notification par e-mail, lancer un [Runbook Automation](../automation/automation-runbook-types.md) ou utiliser un Webhook pour créer un enregistrement d’incident dans votre système de gestion des incidents ITSM. Des réponses analogues peuvent être apportées par la [solution IT Service Management Connector ](log-analytics-itsmc-overview.md) quand les critères d’alerte sont réunis.   
-
-Les actions par e-mail envoient un message électronique contenant les détails de l’alerte à un ou plusieurs destinataires. Vous pouvez spécifier l’objet du message, mais son contenu répond à un format standard construit par Log Analytics.  Mettons à jour la règle d’alerte créée précédemment et configurons-la pour qu’elle vous envoie un e-mail de notification au lieu d’effectuer une surveillance active des enregistrements d’alerte avec une recherche dans les journaux.     
-
-1. Dans le portail OMS, dans le menu supérieur, sélectionnez **Paramètres**, puis sélectionnez **Alertes**.
-2. Dans la liste des règles d’alerte, cliquez sur l’icône de crayon en regard de l’alerte créée précédemment.
-3. Sous la section **Actions**, activez les notifications par e-mail.
-4. Indiquez l’**Objet** de l’e-mail, en l’occurrence *Processor utilization exceeded threshold >90*.
-5. Ajoutez l’adresse du ou des destinataires de l’e-mail dans le champ **Destinataires**.  Si vous spécifiez plusieurs adresses, séparez-les par un point-virgule (;).
-6. Cliquez sur **Enregistrer** pour terminer la règle d’alerte. Son exécution démarre immédiatement.<br><br> ![Règle d’alerte avec notification par e-mail](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
+Lorsque l’alerte se déclenche, le tableau affiche l’état et le nombre de fois que cela s’est produit dans l’intervalle de temps sélectionné (la valeur par défaut est les six dernières heures).  Vous devriez trouver dans votre boîte de réception un message électronique correspondant similaire à l’exemple suivant, indiquant la machine virtuelle qui pose problème et les meilleurs résultats correspondant à la requête de recherche dans ce cas.<br><br> ![Exemple d’action d’e-mail d’alerte](./media/log-analytics-tutorial-response/azure-alert-email-notification-01.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez découvert en quoi les règles d’alerte permettaient d’identifier et de répondre à un stade précoce à un problème déterminé quand elles exécutent des recherches dans les journaux à intervalles réguliers et qu’elles correspondent à des critères particuliers.  
+Dans ce didacticiel, vous avez découvert en quoi les règles d’alerte permettaient d’identifier et de répondre à un stade précoce à un problème déterminé quand elles exécutent des recherches dans les journaux à intervalles réguliers et qu’elles correspondent à des critères particuliers.
 
 Suivez ce lien pour examiner des exemples de scripts Log Analytics prédéfinis.  
 

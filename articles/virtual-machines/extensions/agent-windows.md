@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: fb29f0f931715b8a6ba5b4528294eb61ef5762c8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 51271a875d19d08d84dcc102c85c947c05599d85
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944741"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868515"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 L’agent de machine virtuelle Microsoft Azure est un processus léger et sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Les extensions de machine virtuelle permettent la configuration post-déploiement de machines virtuelles, par exemple l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, vous ne pouvez pas exécuter d’extensions de machine virtuelle.
@@ -77,7 +77,7 @@ Avec le module PowerShell pour Azure Resource Manager, vous pouvez récupérer d
 ```powershell` Get-AzureRmVM
 ```
 
-The following condensed example output shows the the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
+The following condensed example output shows the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
 
 ```PowerShell
 OSProfile                  :

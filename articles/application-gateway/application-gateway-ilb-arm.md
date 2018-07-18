@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: a558a5f4f1e19be7b15721c8f99dc5a2d7b396bc
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b9bdc3f4a0f7eb20b1c0cbc33fb257577da08c26
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598485"
 ---
-# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Créer une passerelle Application Gateway avec un équilibrage de charge interne (ILB) à l’aide d’Azure Resource Manager
-
-> [!div class="op_single_selector"]
-> * [Azure Classic PowerShell](application-gateway-ilb.md)
-> * [Commandes PowerShell pour Azure Resource Manager](application-gateway-ilb-arm.md)
+# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Créer une passerelle d’application avec un équilibreur de charge interne (ILB)
 
 Vous pouvez configurer une passerelle Azure Application Gateway avec une adresse IP virtuelle côté Internet ou avec un point de terminaison interne non exposé à Internet, également appelé point de terminaison d’équilibrage de charge interne (ILB). La configuration de la passerelle avec un équilibrage de charge interne est utile pour les applications métier internes non exposées à Internet. Elle est également utile pour les services et niveaux au sein d’une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui requiert tout de même une distribution de charge par tourniquet, une adhérence de session ou une terminaison SSL (Secure Sockets Layer).
 

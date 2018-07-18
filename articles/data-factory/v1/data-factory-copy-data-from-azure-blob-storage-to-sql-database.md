@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6575a68423df97d7727401b79ded44545a43afca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4538e5b49b161f22ba6d5979234786a58cae5783
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621103"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047724"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Didacticiel : Copie de données de Stockage Blob vers SQL Database à l’aide de Data Factory
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "34621103"
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, disponible en préversion, consultez [Documentation du didacticiel de l’activité de copie dans la version 2](../quickstart-create-data-factory-dot-net.md). 
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [tutoriel sur l’activité de copie](../quickstart-create-data-factory-dot-net.md). 
 
 Dans ce didacticiel, vous allez créer une fabrique de données avec un pipeline afin de copier des données entre Blob Storage et la base de données SQL.
 

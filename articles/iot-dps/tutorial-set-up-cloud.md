@@ -10,11 +10,11 @@ services: iot-dps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630083"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619280"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning
 
@@ -82,7 +82,7 @@ Pour définir la stratégie d’allocation, dans la page Service Device Provisio
 
 ![Gérer la stratégie d’allocation](./media/tutorial-set-up-cloud/iot-dps-manage-allocation.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Les autres didacticiels de cette collection reposent sur ce didacticiel. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées dans ce didacticiel. Sinon, effectuez les opérations suivantes pour supprimer toutes les ressources créées au cours de ce didacticiel dans le portail Azure.
 
@@ -91,7 +91,7 @@ Les autres didacticiels de cette collection reposent sur ce didacticiel. Si vous
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser le portail Azure pour créer un service IoT Hub Device Provisioning et obtenir l’étendue de l’ID

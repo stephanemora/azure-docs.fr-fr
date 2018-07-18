@@ -1,24 +1,19 @@
 ---
-title: "Présentation des paramètres de mise à l’échelle automatique dans Azure | Microsoft Docs"
-description: "Il s’agit d’une description détaillée des paramètres de mise à l’échelle automatique et de leur fonctionnement."
+title: Comprendre les paramètres de mise à l’échelle automatique dans Azure Monitor
+description: Il s’agit d’une description détaillée des paramètres de mise à l’échelle automatique et de leur fonctionnement. S’applique aux machines virtuelles, aux services cloud et aux applications web
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: 73c79ec4ee1beb5220e088421c78ffffd932eef1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.component: autoscale
+ms.openlocfilehash: 982bc43fd86a808da07833d77bde17e17789b2d6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264994"
 ---
 # <a name="understand-autoscale-settings"></a>Comprendre les paramètres de mise à l’échelle automatique
 Les paramètres de mise à l’échelle automatique permettent de s’assurer qu’un nombre approprié de ressources s’exécute pour gérer la charge fluctuante de votre application. Vous pouvez configurer les paramètres de mise à l’échelle automatique de sorte qu’ils soient déclenchés en fonction de mesures indiquant la charge ou les performances, ou un déclenchement à une date et une heure planifiées. Cet article examine de manière détaillée l’anatomie d’un paramètre de mise à l’échelle automatique. L’article commence par le schéma et les propriétés d’un paramètre, puis examine les différents types de profil qui peuvent être configurés. Enfin, il explique comment la fonctionnalité de mise à l’échelle automatique dans Azure évalue chaque profil à exécuter à un moment donné.

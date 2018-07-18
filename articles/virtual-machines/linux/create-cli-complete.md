@@ -3,7 +3,7 @@ title: Création d’un environnement Linux à l’aide d’Azure CLI 2.0 | Micr
 description: Créez un stockage, une machine virtuelle Linux, un réseau virtuel et un sous-réseau, un équilibreur de charge, une carte d’interface réseau, une adresse IP publique et un groupe de sécurité réseau à partir de zéro à l’aide de l’interface Azure CLI 2.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
-ms.author: iainfou
-ms.openlocfilehash: f41bfec3c9f950893b69c90a86c2e4a254b72a8b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: cynthn
+ms.openlocfilehash: c566c747d393dbfa3225faf6f8ad78fa8abfa3ac
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852130"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929703"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Créer une machine virtuelle Linux complète avec Azure CLI
 Pour créer rapidement une machine virtuelle dans Azure, vous pouvez utiliser une seule commande Azure CLI qui utilise des valeurs par défaut pour créer toutes les ressources associées requises. Les ressources telles que le réseau virtuel, l’adresse IP publique et les règles de groupe de sécurité réseau sont automatiquement créées. Pour un meilleur contrôle de votre environnement en production, vous pouvez créer ces ressources à l’avance, puis leur ajouter vos machines virtuelles. Cet article vous accompagne dans la création d’une machine virtuelle et de chacune des ressources associées.
@@ -182,7 +182,7 @@ Examinez le groupe et les règles de sécurité réseau avec la commande [az net
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -515,7 +515,7 @@ Pour configurer le protocole SSH avec votre machine virtuelle, utilisez l’entr
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Output:
+Sortie :
 
 ```bash
 The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.

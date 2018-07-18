@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0544daf310d40ea419cb6a46cbbf308ebc924715
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709323"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444376"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C : Ajout de LinkedIn en tant que fournisseur d’identités à l’aide de stratégies personnalisées
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -23,11 +23,10 @@ ms.locfileid: "34709323"
 Cet article indique comment activer la connexion pour les utilisateurs d’un compte LinkedIn à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Étape 1 : Créer une application de compte LinkedIn
-Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application LinkedIn et lui fournir les paramètres appropriés. Vous pouvez inscrire une application LinkedIn en accédant à la [page d’inscription LinkedIn](https://LinkedIn.com/signup).
+Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application LinkedIn et lui fournir les paramètres appropriés. Vous pouvez inscrire une application LinkedIn en accédant à la [page d’inscription LinkedIn](https://www.linkedin.com/start/join).
 
 1. Accédez au site web de [gestion des applications LinkedIn](https://www.linkedin.com/secure/developer?newapp=), connectez-vous avec vos informations d’identification de compte LinkedIn, puis sélectionnez **Créer une application**.
 

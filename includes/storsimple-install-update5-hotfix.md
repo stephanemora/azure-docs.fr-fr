@@ -4,7 +4,7 @@
 
 Procédez comme suit pour télécharger la mise à jour logicielle à partir du Catalogue Microsoft Update.
 
-1. Démarrez Internet Explorer et accédez à [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Lancez Internet Explorer et accédez à [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 2. Si vous utilisez le catalogue Microsoft Update pour la première fois sur cet ordinateur, cliquez sur **Installer** lorsque vous êtes invité à installer le module complémentaire Catalogue Microsoft Update.
 
     ![Installer le catalogue](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -28,7 +28,7 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
 Procédez comme suit pour installer et vérifier les correctifs logiciels en mode Normal. Si vous les avez déjà installés à l’aide du portail Azure, passez directement à [Installer et vérifier les correctifs en mode maintenance](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. Pour installer les correctifs logiciels, accédez à l’interface Windows PowerShell sur la console série de votre appareil StorSimple. Suivez les instructions détaillées de la section [Utilisation de PuTTY pour se connecter à la console série de l’appareil](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). À l'invite de commandes, appuyez sur **Entrée**.
-2. Sélectionnez **Option 1** pour vous connecter à l’appareil avec un accès complet. Nous vous recommandons d’installer le correctif d’abord sur le contrôleur passif.
+2. Sélectionnez Option 1, **Se connecter avec accès total**. Nous vous recommandons d’installer le correctif d’abord sur le contrôleur passif.
 3. Pour installer le correctif logiciel, tapez ce qui suit à l’invite de commandes :
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -82,7 +82,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
     > [!NOTE]
     > Parfois, l'applet de commande indique `False` lorsque la mise à jour est encore en cours d'exécution. Pour vous assurer que le correctif logiciel est terminé, patientez quelques minutes, exécutez à nouveau cette commande et vérifiez que `RunInProgress` est `False`. Dans ce cas, le correctif est terminé.
 
-7. Lorsque la mise à jour logicielle est terminée, vérifiez les versions des logiciels du système. Entrez :
+7. Lorsque la mise à jour logicielle est terminée, vérifiez les versions des logiciels du système. Tapez :
    
     `Get-HcsSystem`
    
@@ -164,7 +164,7 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Surveillez la progression de l’installation à l’aide de la commande `Get-HcsUpdateStatus` . La mise à jour est terminée quand `RunInProgress` passe à `False`.
-4. Une fois l’installation terminée, le contrôleur sur lequel le correctif logiciel en mode Maintenance a été installé redémarre. Connectez-vous avec l’option 1 (accès total) et vérifiez la version du microprogramme de disque. Entrez :
+4. Une fois l’installation terminée, le contrôleur sur lequel le correctif logiciel en mode Maintenance a été installé redémarre. Connectez-vous avec l’option 1, **Se connecter avec accès total**, et vérifiez la version du microprogramme de disque. Tapez :
    
    `Get-HcsFirmwareVersion`
    

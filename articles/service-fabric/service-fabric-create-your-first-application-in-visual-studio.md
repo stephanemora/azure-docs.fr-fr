@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7dadaadd0e6a6e6d71685356568076ad26305cc2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212668"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642221"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Création de votre première application Reliable Services avec état C# Service Fabric
 
@@ -66,14 +66,17 @@ Pour avoir une vue d’ensemble du contenu du projet de service, consultez l’a
 
 ## <a name="deploy-and-debug-the-application"></a>Déployer et déboguer l’application.
 
-Maintenant que vous avez une application, exécutez, déployez et déboguez la en procédant comme suit.
+Maintenant que vous avez une application, exécutez, déployez et déboguez-la en procédant comme suit.
 
-1. Dans Visual Studio, sélectionnez F5 pour déployer l’application en vue d’un débogage.
+1. Dans Visual Studio, sélectionnez **F5** pour déployer l’application en vue d’un débogage.  Cliquez sur **Oui** si une boîte de message s’affiche, vous demandant d’accorder au groupe « ServiceFabricAllowedUsers » des autorisations de lecture et d’exécution sur votre répertoire de projet Visual Studio.
 
     >[!NOTE]
     >La première fois que vous exécutez et déployez l’application localement, Visual Studio crée un cluster local pour le débogage. Cette opération peut prendre un certain temps. L’état de la création du cluster est affiché dans la fenêtre Sortie Visual Studio.
-
-    Une fois le cluster prêt, vous obtenez une notification de la part de l’application de gestionnaire de la barre d’état système de cluster local incluse avec le kit de développement logiciel.
+    
+     Une fois le cluster prêt, vous obtenez une notification de la part de l’application de gestionnaire de la barre d’état système de cluster local incluse avec le kit de développement logiciel.
+     
+    >[!NOTE]
+    >Cet exercice nécessite un cluster à 5 nœuds (et non à 1 nœud). Vous pouvez le vérifier en effectuant les étapes suivantes : Démarrez l’outil Service Fabric Explorer en cliquant avec le bouton droit sur l’application de barre d’état système **Gestionnaire de cluster local Service Fabric**, puis cliquez sur **Changer de mode de cluster**. Cliquez sur **5 nœuds** si 1 nœud est actuellement sélectionné.
     
     ![Notification de barre d’état système de cluster local][4]
 
@@ -107,7 +110,7 @@ Maintenant que vous avez une application, exécutez, déployez et déboguez la e
 
     ![Point d’arrêt dans la méthode RunAsync de service avec état][7]
 
-7. Démarrez l’outil Service Fabric Explorer en faisant un clic droit sur l’application du **gestionnaire du cluster local** dans la zone de notification, puis en choisissant **Gérer le cluster local**.
+7. Démarrez l’outil Service Fabric Explorer en cliquant avec le bouton droit sur l’application de barre d’état système **Gestionnaire de cluster local Service Fabric**, puis en sélectionnant **Gérer le cluster local**.
 
     ![Démarrer Service Fabric Explorer à partir du gestionnaire de cluster local][systray-launch-sfx]
 
@@ -117,7 +120,7 @@ Maintenant que vous avez une application, exécutez, déployez et déboguez la e
 
     ![Arrêter un nœud Service Fabric Explorer][sfx-stop-node]
 
-    Vous devez voir momentanément le point d’arrêt atteint dans Visual Studio, car le calcul vous faisiez sur un nœud bascule en toute transparence vers un autre.
+    Vous devez voir momentanément le point d’arrêt atteint dans Visual Studio, car le calcul vous faisiez sur un nœud bascule en toute transparence vers un autre. Appuyez sur **F5** pour continuer.
 
 9. Revenez ensuite à l’Observateur d’événements de diagnostic et prenez connaissance des messages. Le compteur a continué de s’incrémenter, même si les événements proviennent en fait d’un autre nœud.
 

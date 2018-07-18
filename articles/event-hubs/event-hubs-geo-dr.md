@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2017
-ms.locfileid: "26745892"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302111"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Event Hubs
 
@@ -101,7 +101,18 @@ Notez les points suivants pour cette version :
 
 4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="availability-zones-preview"></a>Zones de disponibilité (aperçu)
+
+La référence SKU Event Hubs Standard prend également en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure. 
+
+> [!NOTE]
+> La préversion des Zones de disponibilité est prise en charge uniquement dans les régions **USA Centre**, **USA Est 2** et **France Centre**.
+
+Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Event Hubs ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
+
+![3][]
+
+## <a name="next-steps"></a>Étapes suivantes
 
 * [L’exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) décrit un flux de travail simple qui crée un géocouplage et déclenche un basculement pour un scénario de récupération d’urgence.
 * La [référence d’API REST](/rest/api/eventhub/disasterrecoveryconfigs) décrit les API nécessaires pour effectuer la configuration de la géorécupération.
@@ -114,3 +125,4 @@ Pour plus d’informations sur les concentrateurs d’événements, accédez aux
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

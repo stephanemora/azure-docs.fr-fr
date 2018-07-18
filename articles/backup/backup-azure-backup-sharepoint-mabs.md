@@ -1,24 +1,19 @@
 ---
-title: "Sauvegarder une batterie de serveurs SharePoint sur Azure à l’aide du serveur de sauvegarde Azure | Microsoft Docs"
-description: "Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure."
+title: Utiliser le serveur de sauvegarde Azure pour sauvegarder une batterie de serveurs SharePoint sur Azure
+description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
 services: backup
-documentationcenter: 
 author: pvrk
 manager: shivamg
-editor: 
-ms.assetid: 34ba87a4-91f1-4054-a4a1-272af1e15496
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/24/2017
+ms.topic: conceptual
+ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 3ed000affd326eb1bd7c99773ec021ad6e03cc3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dff27d8ef7357e5af3635cc39fb52963689e7bb
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247963"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure
 Les batteries de serveurs SharePoint peuvent être sauvegardées sur Microsoft Azure à l’aide du serveur de sauvegarde Azure et ce, de la même façon que d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. Le serveur de sauvegarde Azure vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de délai de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour bénéficier d’une conservation à long terme économique.
@@ -33,11 +28,11 @@ Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
 ## <a name="before-you-start"></a>Avant de commencer
 Quelques points doivent être confirmés avant de sauvegarder une batterie de serveurs SharePoint sur Azure.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md) pour la protection des charges de travail.
 
 ### <a name="protection-agent"></a>Agent de protection
-L’agent de protection doit être installé sur le serveur qui exécute SharePoint, ceux qui exécutent SQL Server et tous ceux qui font partie de la batterie de serveurs SharePoint. Pour plus d’informations sur la configuration de l’agent de protection, consultez [Configuration de l’agent de protection](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La seule exception concerne l’installation de l’agent uniquement sur un seul serveur Web frontal (WFE). DPM n’a besoin de l’agent que sur un serveur WFE pour servir de point d’entrée pour la protection.
+L’agent Sauvegarde Azure doit être installé sur le serveur qui exécute SharePoint, ceux qui exécutent SQL Server et tous ceux qui font partie de la batterie de serveurs SharePoint. Pour plus d’informations sur la configuration de l’agent de protection, consultez [Configuration de l’agent de protection](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La seule exception concerne l’installation de l’agent uniquement sur un seul serveur Web frontal (WFE). Le serveur de sauvegarde Azure n’a besoin de l’agent que sur un serveur WFE pour servir de point d’entrée pour la protection.
 
 ### <a name="sharepoint-farm"></a>Batterie de serveurs SharePoint
 Pour chaque tranche de 10 millions d’éléments dans la batterie de serveurs, l’espace disponible doit être de 2 Go minimum sur le volume hébergeant le dossier du serveur de sauvegarde Azure. Cet espace est nécessaire pour la génération du catalogue. Pour permettre au serveur de sauvegarde Azure de restaurer des éléments spécifiques (collections de sites, sites, listes, bibliothèques de documents, dossiers, documents et éléments de liste), la génération du catalogue crée une liste de toutes les URL contenues dans chaque base de données de contenu. Vous pouvez afficher la liste des URL dans le volet des éléments récupérables de la zone de tâches **Récupération** de la console administrateur du serveur de sauvegarde Azure.
@@ -237,4 +232,6 @@ Q : Puis-je restaurer une base de données SharePoint sur l’emplacement d’or
 R : Comme les bases de données SharePoint sont configurées dans SQL AlwaysOn, elles ne peuvent pas être modifiées, à moins que le groupe de disponibilité n’ait été supprimé. Par conséquent, le serveur de sauvegarde Azure ne peut pas restaurer la base de données à l’emplacement d’origine. Vous pouvez récupérer une base de données SQL Server sur une autre instance SQL Server.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la protection du serveur de sauvegarde Azure pour SharePoint, consultez la [série de vidéos - Protection DPM de SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
+
+Consultez l’article [Serveur Exchange de sauvegarde](backup-azure-exchange-mabs.md).
+Consultez l’article [Serveur SQL de sauvegarde](backup-azure-sql-mabs.md).

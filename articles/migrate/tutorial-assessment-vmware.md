@@ -4,15 +4,15 @@ description: Décrit comment découvrir et évaluer des machines virtuelles VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 07/09/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 695298be6cb9f56de26b8682c556285aba22d4a6
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272061"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970783"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -32,12 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 - **VMware** : les machines virtuelles à migrer doivent être gérées par un vCenter Server exécutant la version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d'un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur.
-
-> [!NOTE]
-> La prise en charge pour Hyper-V fait partie de la feuille de route et sera activée prochainement.
-
 - **Compte de serveur vCenter** : vous avez besoin d'un compte en lecture seule pour accéder au serveur vCenter. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
 - **Autorisations** : sur le serveur vCenter, vous devez disposer des autorisations nécessaires pour créer une machine virtuelle en important un fichier au format .OVA.
 - **Paramètres de statistiques** : vous devez définir les paramètres de statistiques pour le serveur vCenter sur le niveau 3 avant de commencer le déploiement. Si le niveau appliqué est inférieur à 3, l’évaluation fonctionne, mais les données de performances pour le stockage et le réseau ne sont pas collectées. Dans ce cas, les recommandations de taille seront effectuées selon les données de performances pour le processeur et la mémoire, et selon les données de configuration pour les adaptateurs de disque et réseau.
@@ -50,6 +45,7 @@ Azure Migrate doit accéder à des serveurs VMware pour découvrir automatiqueme
 - Autorisations : objet de centre de données > Propager vers l’objet enfant, rôle = lecture seule
 - Détails : l’utilisateur est affecté au niveau du centre de données et a accès à tous les objets du centre de données.
 - Pour restreindre l’accès, attribuez le rôle Aucun accès avec l’autorisation Propager vers l’objet enfant aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
+
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
@@ -87,6 +83,14 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
 
+  Pour OVA version 1.0.9.12
+
+    **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+
   Pour OVA version 1.0.9.8
 
     **Algorithme** | **Valeur de hachage**
@@ -119,29 +123,6 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    Pour OVA version 1.0.8.59
-
-    **Algorithme** | **Valeur de hachage**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    Pour OVA version 1.0.8.49
-    **Algorithme** | **Valeur de hachage**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    Pour OVA version 1.0.8.40 :
-
-    **Algorithme** | **Valeur de hachage**
-    --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>Créer la machine virtuelle collector
 
 Importez le fichier téléchargé sur le serveur vCenter.
@@ -163,10 +144,11 @@ Importez le fichier téléchargé sur le serveur vCenter.
 1. Dans la console du client vSphere, cliquez avec le bouton droit sur la machine virtuelle, puis choisissez **Open Console** (Ouvrir la console).
 2. Indiquez les préférences de langue, de fuseau horaire et de mot de passe de l’appliance.
 3. Sur le bureau, cliquez sur le raccourci **Run collector** (Exécuter le collecteur).
-4. Dans Azure Migrate Collector, ouvrez **Set Up Prerequisites** (Configurer les prérequis).
+4. Cliquez sur **Vérifier les mises à jour** dans la barre supérieure de l’interface utilisateur du collecteur et vérifiez que le collecteur est exécuté sur la version la plus récente. Si ce n’est pas le cas, vous pouvez choisir de télécharger le dernier package de mise à niveau à partir du lien et mettre à jour le collecteur.
+5. Dans Azure Migrate Collector, ouvrez **Set Up Prerequisites** (Configurer les prérequis).
     - Acceptez les termes de licence et lisez les informations relatives aux tiers.
     - Le collecteur vérifie que la machine virtuelle a accès à Internet.
-    - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [En savoir plus](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity) sur les exigences de connectivité Internet et la liste des URL auxquelles le collecteur accède.
+    - Si la machine virtuelle accède à internet via un proxy, cliquez sur **Proxy settings** (Paramètres du proxy) et spécifiez l’adresse du proxy et le port d’écoute. Spécifiez les informations d’identification si le proxy nécessite une authentification. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) sur les exigences de connectivité Internet et la liste des URL auxquelles le collecteur accède.
 
     > [!NOTE]
     > L’adresse proxy doit être saisie dans le formulaire http://ProxyIPAddress ou http://ProxyFQDN. Seuls les proxys HTTP sont pris en charge.
@@ -174,16 +156,18 @@ Importez le fichier téléchargé sur le serveur vCenter.
     - Le collecteur vérifie que le service Collector est en cours d’exécution. Le service est installé par défaut sur la machine virtuelle collector.
     - Téléchargez et installez VMware PowerCLI.
 
-5. Dans **Specify vCenter Server details** (Spécifier les informations vCenter Server), procédez aux étapes suivantes :
+6. Dans **Specify vCenter Server details** (Spécifier les informations vCenter Server), procédez aux étapes suivantes :
     - Spécifiez le nom (FQDN) ou l’adresse IP du serveur vCenter.
     - Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que le collecteur utilisera pour découvrir les machines virtuelles sur le serveur vCenter.
     - Dans **Étendue de la collecte**, sélectionnez une étendue pour la découverte des machines virtuelles. Le collecteur peut uniquement découvrir les machines virtuelles situées dans l’étendue spécifiée. L’étendue peut être définie sur un dossier, un centre de données ou un cluster spécifique. Elle ne doit pas contenir plus de 1 500 machines virtuelles. [En savoir plus](how-to-scale-assessment.md) sur la manière dont vous pouvez découvrir un environnement plus large.
 
-6. Dans **Specify migration project** (Spécifier un projet de migration), spécifiez l’ID et la clé du projet Azure Migrate que vous avez copiés à partir du portail. Si vous ne les avez pas copiés, ouvrez le portail Azure à partir de la machine virtuelle collector. Dans la page **Vue d’ensemble** du projet, cliquez sur **Découvrir des machines**, puis copiez les valeurs.  
-7. Dans **View collection progress** (Afficher la progression de la collecte), surveillez le processus de détection et vérifiez que les métadonnées collectées à partir des machines virtuelles appartiennent à l’étendue spécifiée. Le collecteur fournit une durée approximative de la découverte. [En savoir plus](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) sur les données collectées par le collecteur Azure Migrate.
+7. Dans **Specify migration project** (Spécifier un projet de migration), spécifiez l’ID et la clé du projet Azure Migrate que vous avez copiés à partir du portail. Si vous ne les avez pas copiés, ouvrez le portail Azure à partir de la machine virtuelle collector. Dans la page **Vue d’ensemble** du projet, cliquez sur **Découvrir des machines**, puis copiez les valeurs.  
+8. Dans **View collection progress** (Afficher la progression de la collecte), surveillez le processus de détection et vérifiez que les métadonnées collectées à partir des machines virtuelles appartiennent à l’étendue spécifiée. Le collecteur fournit une durée approximative de la découverte. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sur les données collectées par le collecteur Azure Migrate.
 
 > [!NOTE]
-> Le collecteur prend uniquement en charge « Anglais (États-Unis) » comme langue du système d’exploitation et langue de l’interface du collecteur. La prise en charge de langues supplémentaires sera bientôt disponible.
+> Le collecteur prend uniquement en charge « Anglais (États-Unis) » comme langue du système d’exploitation et langue de l’interface du collecteur.
+> Si vous modifiez les paramètres d’un ordinateur que vous souhaitez évaluer, relancez une détection avant d’exécuter l’évaluation. Dans le collecteur, utilisez l’option **Redémarrer la collecte** pour ce faire. Une fois la collection terminée, sélectionnez l’option **Recalculer** pour effectuer l’évaluation dans le portail, pour obtenir des résultats d’évaluation de mise à jour.
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>Vérifier les machines virtuelles dans le portail
@@ -220,7 +204,7 @@ La vue Préparé pour Azure de l’évaluation indique l’état de préparation
 - Non préparé pour Azure
 - Préparation inconnue
 
-Pour les machines virtuelles qui sont prêtes, Azure Migrate recommande une taille de machine virtuelle dans Azure. La recommandation de taille effectuée par Azure Migrate varie selon le critère de dimensionnement spécifié dans les propriétés de l’évaluation. Si le critère de dimensionnement est le dimensionnement basé sur les performances, la recommandation de taille tient compte de l’historique des performances des machines virtuelles. Si le critère de dimensionnement est « comme en local », la recommandation pour la taille de la machine virtuelle dans Azure est effectuée en fonction de la taille de la machine virtuelle locale (dimensionnement en l’état). Les données d’utilisation du processeur et de la mémoire de la machine virtuelle ne sont pas prises en compte pour le dimensionnement de la machine virtuelle. Toutefois, dans le cas d’un dimensionnement local, les disques sont dimensionnés en examinant les données de performances.  [En savoir plus](concepts-assessment-calculation.md) sur le déroulement du dimensionnement dans Azure Migrate.
+Pour les machines virtuelles qui sont prêtes, Azure Migrate recommande une taille de machine virtuelle dans Azure. La recommandation de taille effectuée par Azure Migrate varie selon le critère de dimensionnement spécifié dans les propriétés de l’évaluation. Si le critère de dimensionnement est le dimensionnement basé sur les performances, la recommandation de taille tient compte de l’historique des performances des machines virtuelles (UC et mémoire) et des disques (IOPS et débit). Si le critère de dimensionnement est « local », Azure Migrate ne considère pas les données de performances pour la machine virtuelle et les disques. La recommandation pour la taille de la machine virtuelle dans Azure est effectuée en examinant la taille de la machine virtuelle locale et le dimensionnement du disque est effectué en fonction du type de stockage spécifié dans les propriétés de l’évaluation (disques premium est la valeur par défaut). [En savoir plus](concepts-assessment-calculation.md) sur le déroulement du dimensionnement dans Azure Migrate.
 
 Pour les machines virtuelles qui ne sont pas préparées ou qui sont préparées sous condition pour Azure, Azure Migrate explique les problèmes de préparation et fournit la procédure de correction.
 
@@ -245,7 +229,7 @@ L’estimation des coûts mensuels de calcul et de stockage est agrégée pour t
 
 Chaque évaluation dans Azure Migrate est associée à un niveau de confiance allant de 1 étoile à 5 étoiles (1 étoile constituant la valeur la plus faible, et 5 étoiles la valeur la plus élevée). Le niveau de confiance est assigné à une évaluation en fonction de la disponibilité des points de données nécessaires pour calculer l’évaluation. Le niveau de confiance d’une évaluation permet d’évaluer la fiabilité des recommandations de taille fournies par Azure Migrate.
 
-Pour le dimensionnement basé sur les performances de la machine virtuelle, Azure Migrate a besoin des données d’utilisation relatives à l’UC et à la mémoire. Par ailleurs, pour chaque dimensionnement de disque attaché à la machine virtuelle, les E/S par seconde en lecture/écriture et le débit sont des données nécessaires. De même, pour chaque carte réseau jointe à la machine virtuelle, Azure Migrate doit permettre au réseau entrant/sortant de respecter un dimensionnement basé sur les performances. Si aucun des chiffres d’utilisation ci-dessus n’est disponible dans vCenter Server, la recommandation de dimensionnement effectuée par Azure Migrate peut ne pas être fiable. Selon le pourcentage de points de données disponibles, le niveau de confiance pour l’évaluation est fourni comme suit :
+Le niveau de confiance de l’évaluation est plus utile pour les évaluations ayant un critère de dimensionnement « dimensionnement basé sur les performances ». Pour le dimensionnement basé sur les performances, Azure Migrate a besoin des données d’utilisation relatives au processeur et à la mémoire de la machine virtuelle. Par ailleurs, pour chaque disque attaché à la machine virtuelle, les E/S par seconde du disque et les données de débit sont nécessaires. De même, pour chaque carte réseau jointe à une machine virtuelle, Azure Migrate doit permettre au réseau entrant/sortant de respecter un dimensionnement basé sur les performances. Si aucun des chiffres d’utilisation ci-dessus n’est disponible dans vCenter Server, la recommandation de dimensionnement effectuée par Azure Migrate peut ne pas être fiable. Selon le pourcentage de points de données disponibles, le niveau de confiance pour l’évaluation est fourni comme suit :
 
    **Disponibilité des points de données** | **Niveau de confiance**
    --- | ---
@@ -257,7 +241,7 @@ Pour le dimensionnement basé sur les performances de la machine virtuelle, Azur
 
 Tous les points de données d’une évaluation peuvent ne pas être disponibles pour l’une des raisons suivantes :
 - Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3. Si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Sans tenir compte des E/S par seconde/du débit du disque, Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque premium dans Azure. Dans ce cas, Azure Migrate recommande donc des disques standard pour tous les disques.
-- Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant le lancement de la découverte. Par exemple, intéressons-nous au scénario dans lequel vous faites passer le paramètre de statistiques au niveau 3 aujourd’hui et lancez la découverte en utilisant l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés d’évaluation pour la définir à un mois, le niveau de confiance diminue, car les données de performances du disque et du réseau pour mois dernier ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte.
+- Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant le lancement de la découverte. Par exemple, intéressons-nous au scénario dans lequel vous faites passer le paramètre de statistiques au niveau 3 aujourd’hui et lancez la découverte en utilisant l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés d’évaluation pour la définir à un mois, le niveau de confiance diminue, car les données de performances du disque et du réseau pour le mois dernier ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte.
 - Plusieurs machines virtuelles ont été arrêtées pendant la période de calcul de l’évaluation. Si des machines virtuelles ont été mises hors tension pendant un certain temps, vCenter Server ne disposera pas des données de performances pour cette période.
 - Quelques machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, l’historique des performances des nouvelles machines virtuelles ne sera pas disponible pour toute la durée définie.
 
@@ -270,3 +254,4 @@ Tous les points de données d’une évaluation peuvent ne pas être disponibles
 - Découvrez comment créer des groupes d’évaluation à fiabilité élevée à l’aide d’un [mappage de dépendances des machines](how-to-create-group-machine-dependencies.md).
 - [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.
 - [Découvrez comment détecter et évaluer](how-to-scale-assessment.md) un environnement VMware de grande taille.
+- [En savoir plus](resources-faq.md) sur les FAQ sur Azure Migrate

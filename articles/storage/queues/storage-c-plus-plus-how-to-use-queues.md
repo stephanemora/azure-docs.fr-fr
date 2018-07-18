@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
 ms.openlocfilehash: 5e81d5e0af9871099b7f921f355cf94249e4d30c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059944"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618464"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Utilisation du stockage de files d'attente à partir de C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -197,7 +197,7 @@ queue.delete_message(dequeued_message);
 ```
 
 ## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Utilisation d'options supplémentaires pour l'enlèvement des messages
-Il existe deux façons de personnaliser l'extraction des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L’exemple de code suivant utilise la méthode **get_messages** pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle **for** . Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages, donc une fois les 5 minutes écoulées après l’appel de **get_messages**, tous les messages n’ayant pas été supprimés redeviennent visibles.
+Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L’exemple de code suivant utilise la méthode **get_messages** pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle **for** . Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages, donc une fois les 5 minutes écoulées après l’appel de **get_messages**, tous les messages n’ayant pas été supprimés redeviennent visibles.
 
 ```cpp
 // Retrieve storage account from connection-string.

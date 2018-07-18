@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
 ms.author: dugill
-ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359860"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018644"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 ## <a name="introduction"></a>Introduction
@@ -204,7 +204,7 @@ Voici un exemple de réponse à une demande d’obtention des autorisations d’
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-L’API d’autorisation renvoie plusieurs autorisations. Chaque autorisation est constituée d’actions autorisées (**actions**) et interdites (**notactions**). Si une action figure dans la liste d’actions autorisées d’une autorisation, mais pas dans sa liste d’actions interdites, l’utilisateur est autorisé à effectuer cette action. **microsoft.authorization/roleassignments/write** . Votre application doit analyser le résultat des autorisations, afin de rechercher une correspondance d’expression régulière sur cette chaîne d’action dans les **actions** autorisées et **interdites** de chaque autorisation.
+L’API d’autorisation renvoie plusieurs autorisations. Chaque autorisation est constituée d’actions autorisées (**actions**) et interdites (**notactions**). Si une action figure dans la liste d’actions autorisées d’une autorisation, mais pas dans sa liste d’actions interdites, l’utilisateur est autorisé à effectuer cette action. **microsoft.authorization/roleassignments/write** est l’action qui donne accès aux droits de gestion. Votre application doit analyser le résultat des autorisations, afin de rechercher une correspondance d’expression régulière sur cette chaîne d’action dans les **actions** autorisées et **interdites** de chaque autorisation.
 
 ## <a name="get-app-only-access-token"></a>Obtention du jeton d’accès de l’application uniquement
 À présent, vous savez si l’utilisateur peut autoriser l’accès à l’abonnement Azure. Les étapes suivantes sont celles-ci :

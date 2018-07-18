@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 67a91f8b61c1a0783d2075a13cc8cf2701496c88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4038ea5a450f32a46f24a306d1ee30bd61308a5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622378"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054583"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Déplacement des données vers et depuis SQL Server local ou sur IaaS (Machine virtuelle Azure) à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-sqlserver-connector.md)
-> * [Version 2 - Préversion](../connector-sql-server.md)
+> * [Version 1](data-factory-sqlserver-connector.md)
+> * [Version 2 (version actuelle)](../connector-sql-server.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur SQL Server dans V2](../connector-sql-server.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur SQL Server dans V2](../connector-sql-server.md).
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers/à partir d’une base de données SQL Server locale. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie. 
 

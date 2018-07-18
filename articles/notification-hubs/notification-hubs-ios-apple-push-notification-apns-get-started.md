@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 083b0c956055ab5b54a4af2eec57f096613cbe65
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778216"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681517"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des applications iOS à l’aide d’Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -43,9 +43,8 @@ Le code complet de ce didacticiel est disponible [sur GitHub](https://github.com
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 - Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte d'évaluation gratuit](https://azure.microsoft.com/free) en quelques minutes. 
-- [Windows Azure Messaging Framework]
+- [Infrastructure de messagerie Azure Windows]
 - Version la plus récente de [Xcode]
 - Un appareil compatible avec iOS 10 (ou version ultérieure)
 - [programme pour développeurs Apple](https://developer.apple.com/programs/)
@@ -94,7 +93,7 @@ Vous avez maintenant configuré votre hub de notification avec APNS et vous disp
 
     ![Xcode : Fonctionnalités push][12]
    
-5. Téléchargez [Windows Azure Messaging Framework], puis dézippez le fichier. Dans Xcode, cliquez avec le bouton droit sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Options**, assurez-vous que l’option **Copy items if needed** (Copier les éléments si nécessaire) est cochée, puis cliquez sur **Add** (Ajouter).
+5. Téléchargez [Infrastructure de messagerie Azure Windows], puis dézippez le fichier. Dans Xcode, cliquez avec le bouton droit sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Options**, assurez-vous que l’option **Copy items if needed** (Copier les éléments si nécessaire) est cochée, puis cliquez sur **Add** (Ajouter).
 
     ![Décompresser le SDK Azure][10]
 
@@ -212,7 +211,7 @@ Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos ap
 
 
 <!-- URLs. -->
-[Windows Azure Messaging Framework]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
+[Infrastructure de messagerie Azure Windows]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -228,4 +227,4 @@ Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos ap
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[portail Azure]: https://portal.azure.com
+[Portail Azure]: https://portal.azure.com

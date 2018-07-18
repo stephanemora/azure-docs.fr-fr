@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
 ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593026"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38547173"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Ajout de notifications Push à votre application Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -29,7 +29,7 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage r
 
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d’informations.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Vous avez besoin des éléments suivants :
 
 * Un IDE, en fonction du serveur principal de votre projet :
@@ -70,7 +70,7 @@ Si vous procédez à un test avec un appareil ancien, consultez la rubrique [Ajo
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Test de l'application avec le service mobile publié
 Vous pouvez tester l’application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l’émulateur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel, vous pouvez passer à l’un des didacticiels suivants :
 
 * [Ajout de l’authentification à votre application Android](app-service-mobile-android-get-started-users.md).

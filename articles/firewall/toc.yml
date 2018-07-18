@@ -1,0 +1,52 @@
+- name: Documentation sur le pare-feu Azure
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce qu’un pare-feu Azure\_?"
+      href: overview.md
+- name: Didacticiels
+  items:
+    - name: 1. Déployer et configurer
+      href: tutorial-firewall-deploy-portal.md
+    - name: 2. Surveiller les journaux de diagnostics
+      href: tutorial-diagnostics.md
+- name: Exemples
+  items:
+    - name: Azure PowerShell
+      href: sample-powershell.md
+- name: Procédures
+  items:
+    - name: S’inscrire pour bénéficier de la préversion publique
+      href: public-preview.md
+    - name: Déployer à l’aide d’un modèle
+      href: deploy-template.md
+- name: Informations de référence
+  items:
+    - name: Azure CLI
+      href: /cli/azure/network
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/firewall
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: Ressources
+  items:
+    - name: Créer des modèles
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modèles fournis par la communauté
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/regions/services/'

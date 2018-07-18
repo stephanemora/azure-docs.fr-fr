@@ -3,7 +3,7 @@ title: Utilisation d’un Stockage Blob pour IIS et d’un Stockage Table pour l
 description: Log Analytics peut lire les journaux pour des services Azure qui écrivent des diagnostics dans un Stockage Table ou des journaux IIS écrits dans un Stockage Blob.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
@@ -11,23 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459ef90ca1d76bada6565bfefd7b4bd1086197d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 8f923cc081ea652c8e32d4109225044c70c8767d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23021344"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128739"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Utilisation d’un Stockage Blob Azure pour IIS et d’un Stockage Table Azure pour les événements avec Log Analytics
 
 Log Analytics peut lire les journaux pour des services suivants qui écrivent des diagnostics dans un Stockage Table ou des journaux IIS écrits dans un Stockage Blob :
 
 * Clusters Service Fabric (version préliminaire)
-* Machines virtuelles
+* Virtual Machines
 * Rôle de travail/web
 
 Pour que Log Analytics puisse collecter les données pour ces ressources, les diagnostics Azure doivent être activés.
@@ -40,13 +40,13 @@ Pour que Log Analytics collecte ces journaux de diagnostics Azure, ceux-ci doive
 
 | Type de journal | Type de ressource | Lieu |
 | --- | --- | --- |
-| Journaux IIS |Machines virtuelles <br> Rôles web <br> Rôles de travail |wad-iis-logfiles (Stockage Blob) |
-| syslog |Machines virtuelles |LinuxSyslogVer2v0 (Stockage Table) |
+| Journaux IIS |Virtual Machines <br> Rôles web <br> Rôles de travail |wad-iis-logfiles (Stockage Blob) |
+| syslog |Virtual Machines |LinuxSyslogVer2v0 (Stockage Table) |
 | Événements opérationnels Service Fabric |Nœuds Service Fabric |WADServiceFabricSystemEventTable |
 | Événements Reliable Actor Service Fabric |Nœuds Service Fabric |WADServiceFabricReliableActorEventTable |
 | Événements de service fiable Service Fabric |Nœuds Service Fabric |WADServiceFabricReliableServiceEventTable |
-| Journaux d'événements Windows |Nœuds Service Fabric <br> Machines virtuelles <br> Rôles web <br> Rôles de travail |WADWindowsEventLogsTable (Stockage Table) |
-| Journaux de suivi des événements ETW Windows |Nœuds Service Fabric <br> Machines virtuelles <br> Rôles web <br> Rôles de travail |WADETWEventTable (Stockage Table) |
+| Journaux d'événements Windows |Nœuds Service Fabric <br> Virtual Machines <br> Rôles web <br> Rôles de travail |WADWindowsEventLogsTable (Stockage Table) |
+| Journaux de suivi des événements ETW Windows |Nœuds Service Fabric <br> Virtual Machines <br> Rôles web <br> Rôles de travail |WADETWEventTable (Stockage Table) |
 
 > [!NOTE]
 > Les journaux IIS des sites Web Azure ne sont actuellement pas pris en charge.
@@ -124,7 +124,7 @@ Une fois que la configuration de diagnostic mise à jour est appliquée à votre
 Vous pouvez utiliser le portail Azure pour configurer Log Analytics afin de collecter les journaux pour les services Azure suivants :
 
 * Clusters Service Fabric
-* Machines virtuelles
+* Virtual Machines
 * Rôle de travail/web
 
 Dans le portail Azure, accédez à votre espace de travail Log Analytics, puis effectuer les tâches suivantes :

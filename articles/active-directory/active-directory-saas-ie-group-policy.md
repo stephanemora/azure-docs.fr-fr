@@ -15,12 +15,12 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34341004"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308532"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
 Ce didacticiel montre comment utiliser la stratégie de groupe pour installer à distance l’extension Volet d’accès pour Internet Explorer sur les ordinateurs de vos utilisateurs. Cette extension est requise pour les utilisateurs d’Internet Explorer qui ont besoin de se connecter à des applications configurées à l’aide de l’ [authentification unique par mot de passe](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -30,7 +30,6 @@ Il est recommandé que les administrateurs automatisent le déploiement de cette
 L’extension Volet d’accès est également disponible pour [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) et [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998) qui ne requièrent pas d’autorisations d’administrateur pour l’installation.
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Vous avez configuré les [services de domaine Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)et vous avez joint les ordinateurs de vos utilisateurs à votre domaine.
 * Vous devez disposer de l’autorisation « Modifier les paramètres » pour modifier l’objet de stratégie de groupe (GPO). Par défaut, les membres des groupes de sécurité suivants jouissent de cette autorisation : administrateurs de domaine, administrateurs d’entreprise et propriétaires créateurs de la stratégie de groupe. [En savoir plus.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
@@ -45,7 +44,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
    
     ![Ouvrir Services de fichiers et de stockage](./media/active-directory-saas-ie-group-policy/shares.png)
 4. Terminez l’ **Assistant Nouveau partage** et définissez des autorisations pour garantir l’accès à partir des ordinateurs de vos utilisateurs. [En savoir plus sur les partages.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Téléchargez le package Microsoft Windows Installer (fichier .msi) suivant : [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi) (Panel Extension.msi)
+5. Téléchargez le package Microsoft Windows Installer (fichier .msi) suivant : [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi) (Panel Extension.msi)
 6. Copiez le package d’installation vers l’emplacement souhaité sur le partage.
    
     ![Copiez le fichier .msi dans le partage.](./media/active-directory-saas-ie-group-policy/copy-package.png)

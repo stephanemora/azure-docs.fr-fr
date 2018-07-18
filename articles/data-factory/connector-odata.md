@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: f648bec7530260a6445f74b6d141140f728674ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aaec710dd6c12f96a479a1f41603351512da1df6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617159"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054668"
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copier des données d’une source OData à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-odata-connector.md)
-> * [Version 2 - Préversion](connector-odata.md)
+> * [Version 1](v1/data-factory-odata-connector.md)
+> * [Version actuelle](connector-odata.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une source OData. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur OData dans V1](v1/data-factory-odata-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 

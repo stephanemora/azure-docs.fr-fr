@@ -4,7 +4,7 @@ description: Cet article décrit comment l’authentification directe Azure Act
 services: active-directory
 keywords: Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595034"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917990"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Immersion dans la sécurité de l’authentification directe Azure Active Directory
 
@@ -132,20 +132,21 @@ L’authentification directe traite une demande de connexion de l’utilisateur 
 1. Un utilisateur tente d’accéder à une application, par exemple, [Outlook Web App](https://outlook.office365.com/owa).
 2. Si l’utilisateur n’est pas déjà connecté, l’application redirige le navigateur vers la page de connexion d’Azure AD.
 3. Le service Azure AD STS répond avec la page **Connexion utilisateur**.
-4. L’utilisateur entre son nom d’utilisateur et sont mot de passe dans la page **Connexion utilisateur**, puis sélectionne le bouton **Se connecter**.
-5. Le nom d’utilisateur et le mot de passe sont envoyés à Azure AD STS dans une requête POST HTTPS.
-6. Azure AD STS récupère les clés publiques de tous les agents d’authentification inscrits sur votre locataire à partir de la base de données Azure SQL et les utilise pour chiffrer le mot de passe. 
+4. L’utilisateur entre son nom d’utilisateur dans la page **Connexion utilisateur**, puis sélectionne le bouton **Suivant**.
+5. L’utilisateur entre son mot de passe dans la page **Connexion utilisateur**, puis sélectionne le bouton **Se connecter**.
+6. Le nom d’utilisateur et le mot de passe sont envoyés à Azure AD STS dans une requête POST HTTPS.
+7. Azure AD STS récupère les clés publiques de tous les agents d’authentification inscrits sur votre locataire à partir de la base de données Azure SQL et les utilise pour chiffrer le mot de passe. 
     - Azure AD STS produit « N » valeurs de mot de passe chiffré pour « N » agents d’authentification inscrits sur votre locataire.
-7. Azure AD STS place la demande de validation de mot de passe (qui inclut le nom d’utilisateur et les valeurs de mot de passe chiffré) dans la file d’attente Service Bus propre à votre locataire.
-8. Étant donné que les agents d’authentification initialisés sont connectés en permanence à la file d’attente Service Bus, l’un des agents d’authentification disponibles récupère la demande de validation de mot de passe.
-9. L’agent d’authentification localise la valeur de mot de passe chiffré propre à sa clé publique, à l’aide d’un identificateur, et la déchiffre à l’aide de sa clé privée.
-10. L’agent d’authentification tente de valider le nom d’utilisateur et le mot de passe dans l’annuaire Active Directory local à l’aide de l’[API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) avec le paramètre **dwLogonType** défini sur **LOGON32_LOGON_NETWORK**. 
+8. Azure AD STS place la demande de validation de mot de passe (qui inclut le nom d’utilisateur et les valeurs de mot de passe chiffré) dans la file d’attente Service Bus propre à votre locataire.
+9. Étant donné que les agents d’authentification initialisés sont connectés en permanence à la file d’attente Service Bus, l’un des agents d’authentification disponibles récupère la demande de validation de mot de passe.
+10. L’agent d’authentification localise la valeur de mot de passe chiffré propre à sa clé publique, à l’aide d’un identificateur, et la déchiffre à l’aide de sa clé privée.
+11. L’agent d’authentification tente de valider le nom d’utilisateur et le mot de passe dans l’annuaire Active Directory local à l’aide de l’[API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) avec le paramètre **dwLogonType** défini sur **LOGON32_LOGON_NETWORK**. 
     - Cette API est la même que celle utilisée par les services de fédération Active Directory (AD FS) pour connecter les utilisateurs dans un scénario de connexion fédérée.
     - Cette API sur le processus de résolution standard de Windows Server pour localiser le contrôleur de domaine.
-11. L’agent d’authentification reçoit le résultat depuis Active Directory, tel que réussite, nom d’utilisateur ou mot de passe incorrect, ou mot de passe expiré.
-12. L’agent d’authentification retransmet le résultat à Azure AD STS via un canal HTTPS mutuellement authentifié sortant sur le port 443. L’authentification mutuelle utilise le certificat précédemment émis pour l’agent d’authentification lors de l’inscription.
-13. Azure AD STS vérifie que ce résultat est mis en corrélation avec la demande de connexion spécifique sur votre locataire.
-14. Azure AD STS poursuit avec la procédure de connexion configurée. Par exemple, si la validation du mot de passe aboutit, l’utilisateur peut devoir s’authentifier via Multi-Factor Authentication ou être redirigé vers l’application.
+12. L’agent d’authentification reçoit le résultat depuis Active Directory, tel que réussite, nom d’utilisateur ou mot de passe incorrect, ou mot de passe expiré.
+13. L’agent d’authentification retransmet le résultat à Azure AD STS via un canal HTTPS mutuellement authentifié sortant sur le port 443. L’authentification mutuelle utilise le certificat précédemment émis pour l’agent d’authentification lors de l’inscription.
+14. Azure AD STS vérifie que ce résultat est mis en corrélation avec la demande de connexion spécifique sur votre locataire.
+15. Azure AD STS poursuit avec la procédure de connexion configurée. Par exemple, si la validation du mot de passe aboutit, l’utilisateur peut devoir s’authentifier via Multi-Factor Authentication ou être redirigé vers l’application.
 
 ## <a name="operational-security-of-the-authentication-agents"></a>Sécurité opérationnelle des agents d’authentification
 
@@ -208,7 +209,7 @@ Pour mettre à jour automatiquement un agent d’authentification :
 ## <a name="next-steps"></a>Étapes suivantes
 - [Limitations actuelles](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
-- [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Fonctionnement](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez les principes de fonctionnement de l’authentification directe Azure AD.
 - [Forum aux questions](active-directory-aadconnect-pass-through-authentication-faq.md) : trouvez des réponses aux questions fréquemment posées.
 - [Résoudre les problèmes](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.

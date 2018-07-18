@@ -4,21 +4,22 @@ description: Établir la haute disponibilité et planifier la récupération d�
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/01/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c939e0fb59c7fce2c1c34aca1b77bd0b8cec0c5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062239"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Haute disponibilité et récupération d’urgence des grandes instances SAP HANA sur Azure 
 
@@ -36,17 +37,19 @@ Microsoft prend en charge certaines fonctionnalités de haute disponibilité de 
 - **Réplication du système HANA** : La [réplication de toutes les données de SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) pour un système SAP HANA à part. L’objectif de délai de récupération est réduit grâce à une réplication des données à intervalles réguliers. SAP HANA prend en charge les modes asynchrone, synchrone en mémoire et synchrone. Le mode synchrone n’est utilisé que pour les systèmes SAP HANA situés dans le même centre de données ou à moins de 100 km de distance. Avec la conception actuelle des horodatages de grande instance HANA, la réplication de système HANA ne peut garantir la haute disponibilité que dans une région. La réplication de système HANA nécessite un composant de routage ou proxy inverse tiers pour les récupérations d’urgence dans une autre région Azure. 
 - **Basculement automatique de l’hôte** : solution de récupération après incident locale pour SAP HANA à utiliser comme alternative à la réplication de système HANA. Si le nœud principal n’est plus disponible, configurez un ou plusieurs nœuds SAP HANA de secours en mode montée en puissance parallèle, et SAP HANA bascule automatiquement vers un nœud de secours.
 
-SAP HANA sur Azure (grandes instances) est disponible dans deux régions Azure qui couvrent trois zones géopolitiques (États-Unis, Australie et Europe). Deux régions d’une zone géopolitique qui hébergent des horodatages de grande instance HANA sont connectées à des circuits réseau dédiés distincts. Ceux-ci servent à répliquer des captures instantanées de stockage pour fournir plusieurs méthodes de récupération après sinistre. La réplication n’est pas établie par défaut, mais configurée pour les client qui commandent la fonctionnalité de récupération d’urgence. La réplication de stockage dépend de l’utilisation des captures instantanées de stockage pour les grandes instances HANA. Il est impossible de choisir comme région de récupération d’urgence, une région Azure située dans une autre zone géopolitique. 
+SAP HANA sur Azure (grandes instances) est disponible dans deux régions Azure qui couvrent quatre zones géopolitiques (États-Unis, Australie, Europe et Japon). Deux régions d’une zone géopolitique qui hébergent des horodatages de grande instance HANA sont connectées à des circuits réseau dédiés distincts. Ceux-ci servent à répliquer des captures instantanées de stockage pour fournir plusieurs méthodes de récupération après sinistre. La réplication n’est pas établie par défaut, mais configurée pour les client qui commandent la fonctionnalité de récupération d’urgence. La réplication de stockage dépend de l’utilisation des captures instantanées de stockage pour les grandes instances HANA. Il est impossible de choisir comme région de récupération d’urgence, une région Azure située dans une autre zone géopolitique. 
 
 Le tableau suivant indique les combinaisons et méthodes de haute disponibilité et de récupération d’urgence actuellement prises en charge :
 
 | Scénario pris en charge dans les grandes instances HANA | Option de haute disponibilité | Option de récupération d’urgence | Commentaires |
 | --- | --- | --- | --- |
 | Nœud unique | Non disponible | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente. | |
-| Basculement automatique avec hôte : N+m<br /> y compris 1+1 | Possible avec nœud de secours en rôle actif.<br /> Contrôle par HANA de la permutation des rôles. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage. | Des jeux de volumes HANA sont attachés à tous les nœuds (n+m).<br /> Le site de récupération d’urgence doit avoir le même nombre de nœuds. |
+| Basculement automatique avec hôte : Scale-out (avec ou sans unité de secours)<br /> y compris 1+1 | Possible avec nœud de secours en rôle actif.<br /> Contrôle par HANA de la permutation des rôles. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage. | Des jeux de volumes HANA sont attachés à tous les nœuds.<br /> Le site de récupération d’urgence doit avoir le même nombre de nœuds. |
 | Réplication de système HANA | Possible avec configuration de réplica principal ou secondaire.<br /> Le réplica secondaire prend le rôle principal en cas de basculement.<br /> Réplication de système HANA et basculement du contrôle du système d’exploitation. | Configuration de récupération d’urgence dédiée.<br /> Configuration de récupération d’urgence polyvalente.<br /> Synchronisation de la récupération d’urgence à l’aide de la réplication du stockage.<br /> La récupération d’urgence à l’aide de la réplication de système HANA n’est pas possible sans composants tiers. | Des jeux distincts de volumes de disque sont attachés à chaque nœud.<br /> Seuls les volumes de disque de réplica secondaire sur le site de production sont répliqués à l’emplacement de la récupération d’urgence.<br /> Un jeu de volumes est requis sur le site de récupération d’urgence. | 
 
 L’expression « configuration de récupération d’urgence dédiée » désigne une configuration où l’unité de grande instance HANA sur le site de récupération d’urgence n’est pas utilisée pour exécuter d’autres charges de travail ou systèmes de non-production. L’unité est passive et est déployée uniquement si un basculement d’urgence est exécuté. Cependant, cette configuration n’est le choix préféré de nombreux clients.
+
+Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour connaître la disposition de stockage et les détails Ethernet de votre architecture.
 
 > [!NOTE]
 > [Les déploiements SAP HANA MCOD](https://launchpad.support.sap.com/#/notes/1681092) (plusieurs Instances HANA sur une unité) comme des scénarios de superpositions fonctionnent avec les méthodes de haute disponibilité et de récupération d’urgence répertoriées dans le tableau. L’utilisation de la réplication de système HANA avec un cluster de basculement automatique basé sur Pacemaker est une exception. Ce cas prend uniquement en charge une seule instance HANA par unité. Pour les déploiements [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000), seules les méthodes de haute disponibilité et de récupération d’urgence sans stockage fonctionnent si plusieurs locataires sont déployés. Si un seule locataire est déployé, toutes les méthodes indiquées sont valides.  
@@ -59,7 +62,7 @@ Vous trouverez plus d’informations sur la haute disponibilité de SAP HANA dan
 - [SAP HANA High Availability Whitepaper (Livre blanc sur la haute disponibilité de SAP HANA)](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [SAP HANA Administration Guide (Guide d’administration de SAP HANA)](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [SAP Academy Video on SAP HANA System Replication (Vidéo SAP Academy sur la réplication du système SAP HANA)](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [SAP Support Note #1999880 – FAQ on SAP HANA System Replication (Note de support SAP n°1999880 – FAQ sur la réplication du système SAP HANA)](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
+- [SAP Support Note #1999880 – FAQ on SAP HANA System Replication (Note de support SAP n°1999880 – FAQ sur la réplication du système SAP HANA)](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP Support Note #2165547 – SAP HANA Back up and Restore within SAP HANA System Replication Environment (Note de support SAP n°2165547 – Sauvegarde et restauration SAP HANA dans l’environnement de réplication du système SAP HANA)](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP Support Note #1984882 – Using SAP HANA System Replication for Hardware Exchange with Minimum/Zero Downtime (Note de support SAP n°1984882 – Utilisation de la réplication du système SAP HANA pour l’échange de matériel avec un temps d’arrêt minime ou nul)](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 
@@ -81,6 +84,7 @@ Outre les exigences précédentes pour configurer une récupération d’urgence
 
 - Commander des références SKU SAP HANA sur Azure (grandes instances) de la même taille que vos références SKU de production et les déployer dans la région de récupération d’urgence. Dans les déploiements actuels des clients, ces instances sont utilisées pour exécuter des instances HANA de non-production. Ces configurations sont appelées *configurations de récupération d’urgence multi-usage*.   
 - Commander du stockage supplémentaire sur le site de récupération d’urgence pour chacune de vos références SKU SAP HANA sur Azure (grandes instances) que vous souhaitez récupérer sur le site de récupération d’urgence. L’achat de stockage supplémentaire vous permet d’allouer les volumes de stockage. Vous pouvez allouer les volumes de stockage qui constituent la cible de la réplication de stockage entre votre région Azure de production et la région Azure de récupération d’urgence.
+- Dans ce cas, si l’installation de HSR a été réalisée sur le réplica principal et que vous configurez la réplication basée sur le stockage sur le site de récupération d’urgence, vous devez acheter du stockage supplémentaire au niveau du site de récupération d’urgence, pour que les données des nœuds principaux et secondaires soient répliquées sur le site de récupération d’urgence.
 
  
 
@@ -113,7 +117,7 @@ SAP HANA sur Azure (grandes instances) offre deux options de sauvegarde et de re
 L’infrastructure de stockage qui sous-tend SAP HANA sur Azure (grandes instances) prend en charge les captures instantanées de volumes de stockage. La prise en charge de la sauvegarde et de la restauration d’un volume est régie par les règles suivantes :
 
 - Au lieu d’exécuter des sauvegardes de base de données complètes, le système procède à de fréquentes captures instantanées des volumes de stockage.
-- Lorsqu’une capture instantanée est déclenchée sur les volumes /hana/data et /hana/shared (/usr/sap compris), la capture instantanée de stockage lance une capture instantanée SAP HANA avant d’exécuter la capture instantanée de stockage. Cette capture instantanée SAP HANA est le point d’installation d’éventuelles restaurations de journaux après récupération de la capture instantanée de stockage.
+- Lorsqu’une capture instantanée est déclenchée sur les volumes /hana/data et /hana/shared (/usr/sap compris), la capture instantanée de stockage lance une capture instantanée SAP HANA avant d’exécuter la capture instantanée de stockage. Cette capture instantanée SAP HANA est le point d’installation d’éventuelles restaurations de journaux après récupération de la capture instantanée de stockage. Pour que la capture instantanée HANA réussisse, vous avez besoin d’une instance HANA active.  Dans le scénario HSR, la capture instantanée de stockage n’est pas prise en charge sur le nœud secondaire actif où la capture instantanée HANA n’est pas possible.
 - Une fois la capture instantanée de stockage terminée, la capture instantanée SAP HANA est supprimée.
 - Les sauvegardes de fichier journal sont effectuées fréquemment et stockées dans le volume /hana/logbackups ou dans Azure. Vous pouvez déclencher une capture instantanée séparément pour le volume /hana/logbackups contenant les sauvegardes de fichier journal. Dans ce cas, vous n’avez pas besoin d’effectuer une capture instantanée HANA.
 - Si vous devez restaurer une base de données à un point dans le temps, contactez le support technique de Microsoft Azure (pour une interruption de production) ou l’équipe de gestion des services SAP HANA sur Azure pour solliciter une restauration à partir d’une capture instantanée de stockage donnée (par exemple, une restauration planifiée d’un système bac à sable à son état d’origine).
@@ -126,6 +130,7 @@ Vous avez la possibilité d’effectuer des captures instantanées de stockage c
 - Une capture instantanée distincte sur /hana/logbackups.
 - Une partition du système d’exploitation.
 
+Procurez-vous les derniers scripts d’instantané et la documentation associée à partir de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
 
 ### <a name="storage-snapshot-considerations"></a>Considérations relatives aux captures instantanées de stockage
 
@@ -144,7 +149,7 @@ SAP HANA sur Azure (grandes instances) est fourni avec des tailles de volume fix
 
 Les sections ci-après fournissent diverses informations concernant l’exécution de ces captures instantanées, y compris des recommandations générales :
 
-- Bien que le matériel puisse prendre en charge 255 captures instantanées par volume, il est recommandé de rester très en deçà de ce seuil.
+- Bien que le matériel puisse prendre en charge 255 captures instantanées par volume, il est recommandé de rester très en deçà de ce seuil. La recommandation est de 250 ou moins.
 - Avant d’effectuer des captures instantanées du stockage, surveillez l’espace libre.
 - Réduisez le nombre de captures instantanées de stockage en fonction de l’espace libre. Vous pouvez réduire le nombre de captures instantanées à conserver ou étendre les volumes. Vous pouvez commander du stockage supplémentaire par unités d’un téraoctet.
 - Lorsque vous exécutez des tâches telles que le déplacement de données dans SAP HANA avec des outils de migration de la plateforme SAP (R3load) ou la restauration des bases de données SAP HANA à partir de sauvegardes, désactivez les captures instantanées de stockage sur le volume /hana/data. 
@@ -171,6 +176,8 @@ Les étapes pour configurer des captures instantanées de stockage avec de grand
 6. Copiez les scripts et le fichier de configuration de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) dans l’emplacement de **hdbsql** dans l’installation de SAP HANA.
 7. Modifiez le fichier *HANABackupDetails.txt* en fonction des spécifications appropriées du client.
 
+Procurez-vous les derniers scripts d’instantané et la documentation associée à partir de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+
 ### <a name="consideration-for-mcod-scenarios"></a>Considération des scénarios MCOD
 Si vous exécutez un [scénario MCOD](https://launchpad.support.sap.com/#/notes/1681092) avec plusieurs instances SAP HANA sur une unité de grande instance HANA, vous obtenez des volumes de stockage distincts pour chacune des instances SAP HANA. Dans la version actuelle de l’automatisation de la capture instantanée en libre service, il est impossible d’initier des captures instantanées distinctes sur chaque ID d’instance HANA (SID). La fonctionnalité vérifie les instances SAP HANA inscrites du serveur dans le fichier de configuration (voir ci-après) et exécute simultanément une capture instantanée des volumes de toutes les instances inscrites sur l’unité.
  
@@ -180,7 +187,7 @@ Si vous exécutez un [scénario MCOD](https://launchpad.support.sap.com/#/notes/
 Le système d’exploitation Linux installé dans SAP HANA sur Azure (grandes instances) inclut les dossiers et scripts nécessaires pour effectuer des captures instantanées de stockage SAP HANA à des fins de sauvegarde et de récupération d’urgence. Vérifiez s’il existe des versions plus récentes dans [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). La version commerciale la plus récente des scripts est 3.x. Des scripts différents peuvent avoir différentes versions mineures dans la même version majeure.
 
 >[!IMPORTANT]
->Lors du passage de la version 2.1 à la version 3.0 des scripts, notez que la structure du fichier de configuration et qu’une partie de la syntaxe ont changé. Consultez les légendes dans les sections spécifiques. 
+>Lors du passage de la version 2.1 à la version 3.x des scripts, notez que la structure du fichier de configuration et qu’une partie de la syntaxe ont changé. Consultez les légendes dans les sections spécifiques. 
 
 Il vous incombe d’installer le client SAP HANA HDB sur les unités de grande instance HANA quand vous installez SAP HANA.
 
@@ -234,7 +241,7 @@ Assurez-vous que la clé publique a été corrigée comme prévu en remplaçant 
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Étape 4 : Créer un compte d’utilisateur SAP HANA
 
-Pour lancer la création de captures instantanées SAP HANA, vous devez créer dans SAP HANA un compte d’utilisateur que les scripts de capture instantanée de stockage peuvent utiliser. Créez un compte d’utilisateur SAP HANA dans SAP HANA Studio à cette fin. L’utilisateur doit être créé sous le SYSTEMDB et PAS sous la base de données SID. Ce compte doit disposer des privilèges **Backup Admin** (administration des sauvegardes) et **Catalog Read** (lecture du catalogue). Dans cet exemple, le nom d’utilisateur est **SCADMIN**. Le nom du compte d’utilisateur créé dans HANA Studio respecte la casse. Sélectionnez **No** (Non) pour obliger l’utilisateur à modifier le mot de passe à la prochaine connexion.
+Pour lancer la création de captures instantanées SAP HANA, vous devez créer dans SAP HANA un compte d’utilisateur que les scripts de capture instantanée de stockage peuvent utiliser. Créez un compte d’utilisateur SAP HANA dans SAP HANA Studio à cette fin. L’utilisateur doit être créé sous le SYSTEMDB et PAS sous la base de données SID pour MDC. Dans l’environnement de conteneur unique, l’utilisateur est configuré sous la base de données locataire. Ce compte doit disposer des privilèges **Backup Admin** (administration des sauvegardes) et **Catalog Read** (lecture du catalogue). Dans cet exemple, le nom d’utilisateur est **SCADMIN**. Le nom du compte d’utilisateur créé dans HANA Studio respecte la casse. Sélectionnez **No** (Non) pour obliger l’utilisateur à modifier le mot de passe à la prochaine connexion.
 
 ![Création d’un utilisateur dans HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -245,7 +252,7 @@ Si vous utilisez des déploiements MCOD avec plusieurs instances SAP HANA sur un
 Dans cette étape, vous autorisez le compte d’utilisateur SAP HANA que vous avez créé, afin que les scripts n’aient pas besoin d’envoyer des mots de passe au moment de l’exécution. La commande SAP HANA `hdbuserstore` permet la création d’une clé utilisateur SAP HANA, stockée sur un ou plusieurs nœuds SAP HANA. Cette clé utilisateur permet à l’utilisateur d’accéder à SAP HANA sans avoir à gérer les mots de passe à partir du processus d’utilisation de scripts décrit plus loin dans cet article.
 
 >[!IMPORTANT]
->Exécutez la commande suivante en tant que `root`. Dans le cas contraire, le script ne fonctionne pas correctement.
+>Exécutez la commande suivante sous l’utilisateur dont les scripts sont planifiés pour être exécutés. Dans le cas contraire, le script ne fonctionne pas correctement.
 
 Entrez La commande `hdbuserstore` comme suit :
 
@@ -285,7 +292,7 @@ testHANAConnection.pl
 testStorageSnapshotConnection.pl 
 removeTestStorageSnapshot.pl
 azure_hana_dr_failover.pl
-azure_hana_dr_failover.pl 
+azure_hana_test_dr_failover.pl 
 HANABackupCustomerDetails.txt 
 ``` 
 
@@ -319,12 +326,12 @@ L’objectif des différents scripts et fichiers est le suivant :
 - **azure\_hana\_test\_dr\_failover.pl** : ce script exécute un basculement de test vers le site de récupération d’urgence. Contrairement au script azure_hana_dr_failover.pl, cette exécution n’interrompt pas la réplication de stockage du côté principal vers le côté secondaire. À la place, les clones des volumes de stockage répliqués sont créés du côté de la récupération d’urgence, et les points de montage des volumes clonés sont fournis. 
 - **HANABackupCustomerDetails.txt** : il s’agit d’un fichier de configuration modifiable que vous devez modifier en fonction de votre configuration SAP HANA. Le fichier *HANABackupCustomerDetails.txt* est le fichier de contrôle et de configuration du script qui exécute les captures instantanées de stockage. Modifiez le fichier en fonction de vos besoins et de votre configuration. L’équipe de gestion des services SAP HANA sur Azure vous envoie les informations **Storage Backup Name (Nom de sauvegarde du stockage)** et **Storage IP Address (Adresse IP de stockage)**, au moment où vos instances sont déployées. Vous ne pouvez pas modifier la séquence, l’ordre ou l’espacement des variables dans ce fichier. Dans le cas contraire, les scripts ne s’exécutent pas correctement. En outre, vous recevez l’adresse IP du nœud Scale-out ou du nœud principal (s’il est configuré pour le Scale-out) de l’équipe de gestion des services SAP HANA sur Azure. Vous connaissez également le numéro d’instance HANA que vous obtenez lors de l’installation de SAP HANA. Vous devez à présent ajouter un nom de sauvegarde au fichier de configuration.
 
-Pour un déploiement Scale-up ou Scale-out, le fichier de configuration ressemble à l’exemple ci-dessous, lorsque vous avez renseigné le nom du serveur de l’unité de grande instance HANA et l’adresse IP du serveur. En cas de réplication de système SAP HANA, utilisez l’adresse IP virtuelle de la configuration de la réplication de système HANA. Renseignez tous les champs nécessaires pour chaque SID SAP HANA que vous souhaitez sauvegarder ou restaurer.
+Pour un déploiement Scale-up ou Scale-out, le fichier de configuration ressemble à l’exemple ci-dessous, lorsque vous avez renseigné le nom du serveur de l’unité de grande instance HANA et l’adresse IP du serveur. Renseignez tous les champs nécessaires pour chaque SID SAP HANA que vous souhaitez sauvegarder ou restaurer.
 
 Vous pouvez également mettre en commentaire les lignes des instances que vous ne souhaitez pas sauvegarder pendant une période donnée, en ajoutant un « # » en face d’un champ obligatoire. Il est inutile de saisir toutes les instances SAP HANA qui se trouvent sur un serveur si la sauvegarde ou la récupération de cette instance n’est pas nécessaire. Le format doit être conservé pour tous les champs, sinon tous les scripts affichent un message d’erreur et s’arrêtent. Vous pouvez supprimer des lignes obligatoires supplémentaires des SID, que vous n’utilisez pas après la dernière instance SAP HANA utilisée. Toutes les lignes doivent être renseignées, mises en commentaires ou supprimées.
 
 >[!IMPORTANT]
->La structure du fichier a changé lors du passage de la version 2.1 vers la version 3.0. Si vous souhaitez utiliser les scripts de la version 3.0, vous devez adapter la structure du fichier de configuration. 
+>La structure du fichier a changé lors du passage de la version 2.1 à la version 3.x. Si vous souhaitez utiliser les scripts de la version 3.x, vous devez adapter la structure du fichier de configuration. 
 
 
 ```
@@ -379,7 +386,7 @@ L’instance HANA est donc incluse en tant qu’argument. En cas d’échec de l
 
 2. Exécutez le script de test :
    ```
-    ./testStorageSnapshotConnection.pl <HANA SID>
+    ./testStorageSnapshotConnection.pl
    ```
 
 Le script tente ensuite de se connecter au stockage à l’aide de la clé publique fournie lors des étapes de configuration précédentes et avec les données configurées dans le fichier *HANABackupCustomerDetails.txt*. Si la connexion s’effectue correctement, le contenu suivant apparaît :
@@ -447,7 +454,7 @@ Vous pouvez créer trois types de sauvegardes des capture instantanées :
 
 
 >[!NOTE]
-> La syntaxe d’appel de ces trois types de captures instantanées a été modifiée lors du passage aux scripts de la version 3.0, qui prend en charge les déploiements MCOD. Il n’est plus utile de spécifier le SID HANA d’une instance. Vous devez vous assurer que les instances SAP HANA d’une unité sont configurées dans le fichier de configuration *HANABackupCustomerDetails.txt*.
+> La syntaxe d’appel de ces trois types de captures instantanées a été modifiée lors du passage aux scripts de la version 3x, qui prennent en charge les déploiements MCOD. Il n’est plus utile de spécifier le SID HANA d’une instance. Vous devez vous assurer que les instances SAP HANA d’une unité sont configurées dans le fichier de configuration *HANABackupCustomerDetails.txt*.
 
 >[!NOTE]
 > Lorsque vous exécutez le script pour la première fois, il peut afficher des erreurs inattendues sur l’environnement multi-SID. Relancez le script pour résoudre le problème.
@@ -472,7 +479,7 @@ Les paramètres sont les suivants :
 
 - Le premier paramètre définit le type de la sauvegarde de captures instantanées. Les valeurs autorisées sont **hana**, **logs** et **boot**. 
 - Le paramètre **<HANA Large Instance Type>** est nécessaire pour les sauvegardes de volume de démarrage uniquement. Il existe deux valeurs valides avec « TypeI » ou « TypeII » en fonction de l’unité de grande instance HANA. Pour identifier le type de votre unité, consultez [Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- Le paramètre **<snapshot_prefix>** est le nom de la capture instantanée ou de la sauvegarde du type de capture instantanée. Il a deux fonctions. Tout d’abord, il lui attribue un nom pour vous aider à identifier ces captures instantanées. Ensuite, le script Azure *azure\_hana\_backup.pl* détermine le nombre de captures instantanées de stockage qui sont conservées sous cette étiquette. Si vous planifiez deux sauvegardes de captures instantanées de stockage de même type (par exemple, **hana**), avec deux étiquettes différentes, et que vous décidez de conserver 30 captures instantanées pour chacune d’elles, vous obtienez 60 captures instantanées de stockage pour les volumes concernés. 
+- Le paramètre **<snapshot_prefix>** est le nom de la capture instantanée ou de la sauvegarde du type de capture instantanée. Il a deux fonctions. Tout d’abord, il lui attribue un nom pour vous aider à identifier ces captures instantanées. Ensuite, le script Azure *azure\_hana\_backup.pl* détermine le nombre de captures instantanées de stockage qui sont conservées sous cette étiquette. Si vous planifiez deux sauvegardes de captures instantanées de stockage de même type (par exemple, **hana**), avec deux étiquettes différentes, et que vous décidez de conserver 30 captures instantanées pour chacune d’elles, vous obtienez 60 captures instantanées de stockage pour les volumes concernés. Seuls les caractères alphanumériques (« A-Z, a-z, 0-9 »), le trait de soulignement (« _ ») et le tiret («- ») sont autorisés. 
 - Le paramètre **< snapshot_frequency >** est réservé pour de futurs développements l’évolution et n’a aucun impact. Réglez-le sur « 3 min » lors de l’exécution des sauvegardes de type **log** et sur « 15 min » lors de l’exécution d’autres types de sauvegarde.
 - Le paramètre **<number of snapshots retained>** définit la rétention des captures instantanées de manière indirecte en définissant le nombre de captures instantanées avec le même préfixe de capture instantanée (étiquette). Ce paramètre est important pour l’exécution planifiée à l’aide de cron. Si le nombre de captures instantanées avec le même paramètre snapshot_prefix dépasse le nombre indiqué par ce dernier, la capture instantanée la plus ancienne est supprimée avant l’exécution d’une nouvelle capture instantanée de stockage.
 
@@ -500,7 +507,7 @@ Dans les considérations et recommandations ci-après, nous supposons que vous n
 - Espace utilisé.
 - Objectifs de point et de délai de récupération pour une récupération d’urgence potentielle après un incident.
 - Exécution éventuelles de sauvegardes de base de données complètes HANA pour les disques. Chaque fois qu’une sauvegarde de base de données complète est effectuée pour les disques ou pour l’interface **backint**, l’exécution des captures instantanées de stockage échoue. Si vous prévoyez d’exécuter des sauvegardes de base de données complètes reposant sur des captures instantanées de stockage, assurez-vous que l’exécution des captures instantanées de stockage est désactivée pendant cette période.
-- Le nombre de captures instantanées par volume est limité à 255.
+- Le nombre de captures instantanées par volume est limité à 250.
 
 
 Pour les clients qui n’utilisent pas la fonctionnalité de récupération d’urgence des grandes instances HANA, la période de capture instantanée est moins fréquente. Dans ces cas, les clients effectuent les captures instantanées combinées sur /hana/data et /hana/shared (/usr/sap compris) toutes les 12 ou 24 heures, et ils les conservent pendant un mois. Il en va de même pour les captures instantanées du volume de sauvegarde de fichier journal. Toutefois, les sauvegardes de fichier journal SAP HANA sont exécutées toutes les 5 à 15 minutes en fonction du volume de sauvegarde de fichier journal.
@@ -532,9 +539,7 @@ Le graphique suivant illustre les séquences de l’exemple précédent, à l’
 
 SAP HANA effectue des écritures régulières sur le volume /hana/log pour documenter les modifications validées dans la base de données. Régulièrement, SAP HANA écrit un point de sauvegarde dans le volume /hana/data. Comme spécifié dans crontab, une sauvegarde de fichier journal SAP HANA s’exécute toutes les 5 minutes. Une capture instantanée SAP HANA est également exécutée toutes les heures suite au déclenchement d’une capture instantanée de stockage combinée sur les volumes /hana/data et /hana/shared. Une fois que la capture instantanée HANA a réussi, la capture instantanée de stockage combinée est exécutée. Comme indiqué dans crontab, la capture instantanée de stockage sur le volume /hana/logbackup s’exécute toutes les 5 minutes, environ 2 minutes après la sauvegarde de fichier journal HANA.
 
-> [!NOTE]
->Si vous planifiez des sauvegardes de captures instantanées de stockage sur les deux nœuds d’une configuration de réplication de système HANA, vous devez vous assurer que les exécutions des sauvegardes de capture instantanée entre les deux nœuds ne se chevauchent pas. SAP HANA possède une restriction pour traiter une seule capture instantanée HANA à la fois uniquement. Une capture instantanée HANA étant un composant élémentaire d’une sauvegarde de capture instantanée de stockage, vous devez vous assurer que la capture instantanée de stockage sur le nœud principal, sur le nœud secondaire et sur un éventuel troisième nœud sont espacées l’une de l’autre.
-
+> 
 
 >[!IMPORTANT]
 > L’utilisation de captures instantanées de stockage pour les sauvegardes SAP HANA n’est précieuse que quand ces captures sont effectuées conjointement avec des sauvegardes de fichier journal SAP HANA. Ces sauvegardes de fichier journal doivent couvrir les périodes entre les captures instantanées de stockage. 
@@ -557,7 +562,7 @@ Si la base de données n’a jamais été sauvegardée, la dernière étape cons
 
 Après avoir exécuté correctement vos premières captures instantanées de stockage, vous pouvez supprimer la capture instantanée de test qui a été exécutée à l’étape 6. Pour ce faire, exécutez le script `removeTestStorageSnapshot.pl` :
 ```
-./removeTestStorageSnapshot.pl <hana instance>
+./removeTestStorageSnapshot.pl
 ```
 
 Voici un exemple de sortie d’un script :
@@ -636,7 +641,7 @@ HANA Backup ID:
 
 
 ### <a name="file-level-restore-from-a-storage-snapshot"></a>Restauration au niveau du fichier à partir d’une capture instantanée de stockage
-Vous pouvez accéder aux captures instantanées **hana** et **logs** directement sur les volumes dans le répertoire **.snapshot**. Il existe un sous-répertoire pour chaque capture instantanée. Vous pouvez copier chaque fichier dans l’état où il se trouvait au moment de celle-ci, depuis ce sous-répertoire vers l’arborescence.
+Vous pouvez accéder aux captures instantanées **hana** et **logs** directement sur les volumes dans le répertoire **.snapshot**. Il existe un sous-répertoire pour chaque capture instantanée. Vous pouvez copier chaque fichier dans l’état où il se trouvait au moment de celle-ci, depuis ce sous-répertoire vers l’arborescence. Dans la version actuelle du script, il n’y a **PAS** de script de restauration fourni pour la restauration d’instantané en libre-service (bien que cette restauration d’instantané puisse être effectuée dans les scripts de récupération d’urgence en libre-service sur le site de récupération d’urgence pendant le basculement). Vous devez contacter l’équipe des opérations Microsoft en ouvrant une demande de service pour restaurer une capture instantanée de votre choix à partir des instantanés existants disponibles.
 
 >[!NOTE]
 >La restauration d’un fichier unique ne fonctionne pas pour les captures instantanées du numéro d’unité logique de démarrage indépendant du type d’unités de grande instance HANA. Le répertoire **.snapshot** n’est pas exposé dans le numéro d’unité logique de démarrage. 
@@ -830,11 +835,8 @@ Le premier transfert de la totalité des données d’un volume doit avoir lieu 
 
 En cas de déploiements MCOD avec plusieurs instances SAP HANA indépendantes sur une unité de grande instance HANA, il est probable que le stockage de toutes les instances SAP HANA soit répliqué du côté de la récupération d’urgence.
 
-Si vous utilisez la réplication de système HANA comme fonctionnalité de haute disponibilité dans votre site de production, seuls les volumes de l’instance (ou réplica) de niveau 2 sont répliqués. Cette configuration peut entraîner un délai dans la réplication de stockage vers le site de récupération d’urgence si l’unité du serveur de réplica secondaire (niveau 2) ou l’instance SAP HANA dans cette unité fait l’objet d’une maintenance ou d’un arrêt. 
+Lorsque vous utilisez la réplication de système HANA en tant que fonctionnalité à haute disponibilité dans votre site de production, et que vous utilisez la réplication basée sur le stockage pour le site de récupération d’urgence, les volumes des deux nœuds du site principal vers l’instance de récupération d’urgence sont répliqués. Vous devez acheter du stockage supplémentaire (de taille identique à celle du nœud principal) sur le site de récupération d’urgence pour prendre en charge la réplication à partir des deux sites principal et secondaire vers celui de la récupération d’urgence. 
 
-
->[!IMPORTANT]
->Comme dans le cas de la réplication de système HANA multiniveau, un arrêt de l’unité de serveur ou de l’instance HANA de niveau 2 bloque la réplication vers le site de récupération d’urgence quand vous utilisez la fonctionnalité de récupération d’urgence des grandes instances HANA.
 
 
 >[!NOTE]

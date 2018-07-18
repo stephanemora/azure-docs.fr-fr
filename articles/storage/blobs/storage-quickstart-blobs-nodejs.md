@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
 ms.openlocfilehash: 07ac5195d9653affdbb0f305ac1697cecd379319
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190977"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308132"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Node.js
 
@@ -272,7 +272,7 @@ try {
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Si vous n’envisagez pas d’utiliser les données ou les comptes créés dans cet article, vous pouvez les supprimer et ainsi éviter toute facturation non désirée. Pour supprimer les objets blob et les conteneurs, vous pouvez utiliser les méthodes [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) et [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_). Vous pouvez également supprimer le compte de stockage [via le portail](../common/storage-create-storage-account.md).
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Ressources sur le développement d’applications Node.js avec des objets blob

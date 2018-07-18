@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: d90ac726ae689cf299ee41d4e7ff4c17769e7455
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074828"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060445"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Systèmes d’exploitation invités pris en charge par Azure Stack
 
@@ -40,7 +40,7 @@ Azure Stack prend en charge les systèmes d’exploitation invités Windows rép
 | Windows Server 2008 SP2 | 64 bits |  Apportez votre propre image |
 | Windows 10 *(voir remarque 1)* | 64 bits, Professionnel et Entreprise | Apportez votre propre image |
 
-***Remarque 1 :*** *pour déployer des systèmes d’exploitation clients Windows 10 sur Azure Stack, vous devez disposer d’une [licence Windows par utilisateur](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) ou acheter auprès d’un Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+***Remarque 1 :*** *pour déployer des systèmes d’exploitation clients Windows 10 sur Azure Stack, vous devez disposer d’une [licence Windows par utilisateur](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou acheter auprès d’un Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
 
 Les images de la Place de marché sont disponibles avec un système de licence de paiement à l’utilisation ou BYOL (apportez votre propre licence) (EA/SPLA). L’utilisation des deux sur une instance unique d’Azure Stack n’est pas prise en charge. Au cours du déploiement, Azure Stack injecte une version appropriée de l’agent invité dans l’image.
 

@@ -16,20 +16,20 @@ ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: d9ab8115ad273101a0a25a094436bc0a24a45e68
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 1c11c50dedda84bcb968f84ffbb43b49fbc93ff4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38586833"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Créer une fonction déclenchée par une file d’attente de stockage Azure
 
-Apprenez à créer une fonction se déclenchant lorsque des messages sont envoyés à une file d’attente de stockage Azure.
+Découvrez comment créer une fonction qui est déclenchée lorsque des messages sont envoyés à une file d’attente de stockage Azure.
 
 ![Affichage du message dans les journaux.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](http://storageexplorer.com/).
 
@@ -104,7 +104,7 @@ Maintenant que vous disposez d’une file d’attente de stockage, vous pouvez t
 
 1. Dans l’Explorateur de stockage, cliquez sur **Actualiser** et vérifiez que le message a été traité et qu’il ne se trouve plus dans la file d’attente.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

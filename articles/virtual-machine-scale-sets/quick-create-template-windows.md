@@ -3,7 +3,7 @@ title: 'Démarrage rapide : créer un groupe de machines virtuelles identiques W
 description: Apprendre à créer rapidement un groupe de machines virtuelles identiques Windows avec un modèle Azure Resource Manager qui déploie un exemple d’application et configure des règles de mise à l’échelle automatique
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
-ms.author: iainfou
-ms.openlocfilehash: d1e9dbb6cf4a7db0e60e04bf266bb988d21f2ed8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: cynthn
+ms.openlocfilehash: ade6c4b8fabd716f25b2673d34b8f3ff92cf6a2e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603123"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696674"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Démarrage rapide : créer un groupe de machines virtuelles identiques Windows à l’aide d’un modèle Azure
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles de mise à l’échelle automatique en fonction de l’utilisation des ressources telles que l’UC, la demande de mémoire ou le trafic réseau. Un équilibreur de charge Azure distribue ensuite le trafic vers les instances de machine virtuelle du groupe identique. Dans cet article de démarrage rapide, vous créez un groupe de machines virtuelles identiques et déployez un exemple d’application avec un modèle Azure Resource Manager.
@@ -174,7 +174,7 @@ Entrez l’adresse IP publique de l’équilibreur de charge dans un navigateur 
 ![Site IIS en cours d’exécution](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Quand vous n’en avez plus besoin, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources et le groupe identique. Le paramètre `-Force` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin. Le paramètre `-AsJob` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine.
 
 ```azurepowershell-interactive

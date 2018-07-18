@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010878"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018409"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 ##  <a name="introduction"></a>Introduction
@@ -121,7 +121,7 @@ Les services professionnels avec des certifications vérifiées telles que ISO/I
 
 Si vous supprimez des données, Microsoft Azure supprime les données, y compris les copies mises en cache ou de sauvegarde. Pour les services dans l’étendue, cette suppression aura lieu dans les 90 jours suivant la fin de la période de rétention. (Les services dans l’étendue sont définis dans la section Data Processing Terms (Conditions relatives au traitement des données) de nos [conditions Microsoft Online Services](http://aka.ms/Online-Services-Terms).)
 
-Si un lecteur de disque utilisé pour le stockage rencontre une défaillance matérielle, il est [effacé ou détruit](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) de façon sûre avant que Microsoft ne le renvoie au fabricant pour effectuer un remplacement ou une réparation. Les données sur le lecteur sont remplacées pour vous assurer qu’elles ne puissent pas être récupérées par quelque moyen que ce soit.
+Si un lecteur de disque utilisé pour le stockage rencontre une défaillance matérielle, il est [effacé ou détruit](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) de façon sûre avant que Microsoft ne le renvoie au fabricant pour effectuer un remplacement ou une réparation. Les données sur le lecteur sont remplacées pour vous assurer qu’elles ne puissent pas être récupérées par quelque moyen que ce soit.
 
 ## <a name="compute-isolation"></a>Isolation du calcul
 Microsoft Azure propose divers services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise. Ces services et instances de calcul offrent une isolation à plusieurs niveaux pour sécuriser les données sans compromettre la flexibilité de la configuration exigée par les clients.

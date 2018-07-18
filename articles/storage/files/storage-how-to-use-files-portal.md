@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: fc04f7fc2cd0b5f2974b1966017912922dd049f3
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 24996e80d2e75978a814bbf471176d4edcf22549
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737970"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479170"
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>Gestion des partages de fichiers Azure avec le portail Azure 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Ce guide vous explique les bases de l’utilisation du partage de fichiers avec le [portail Azure](https://portal.azure.com/). Découvrez comment :
@@ -75,7 +75,7 @@ Vous pouvez télécharger une copie du fichier que vous avez chargé en cliquant
 
 ## <a name="create-and-modify-share-snapshots"></a>Créer et modifier des instantanés de partage
 Avec un partage de fichiers Azure, vous pouvez aussi créer des instantanés de partage. Un instantané conserve un point dans le temps pour un partage de fichiers Azure. Les instantanés de partage sont similaires aux technologies de systèmes d’exploitation que vous connaissez peut-être déjà comme :
-- Le [service VSS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) pour les systèmes de fichiers Windows comme NTFS et ReFS
+- Le [service VSS](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS
 - Les instantanés du [Gestionnaire de Volume logique (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) pour les systèmes Linux
 - Les instantanés du [système de fichiers Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) pour macOS. 
 
@@ -105,7 +105,7 @@ Pour supprimer un instantané de partage, [accédez à la liste des instantanés
 
 ![Capture d’écran de la suppression d’un instantané de partage](media/storage-how-to-use-files-portal/delete-snapshot-1.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes

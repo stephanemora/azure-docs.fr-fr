@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d65851f73ca3cc0bc85caff39b3a322900b78843
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5abd0b07037559b14158a3c314b6ca6ce30ab655
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622514"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045114"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Pig dans Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622514"
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Transformer des données à l’aide d’une activité Pig dans Data Factory version 2](../transform-data-using-hadoop-pig.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Transformer des données à l’aide d’une activité Pig dans Data Factory](../transform-data-using-hadoop-pig.md).
 
 
 L’activité Pig de HDInsight d’un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des requêtes Pig sur [votre propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster ou le cluster [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.

@@ -3,7 +3,7 @@ title: 'Didacticiel : créer un groupe de machines virtuelles identiques pour Wi
 description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour créer et déployer une application hautement disponible sur les machines virtuelles Windows à l’aide d’un groupe de machines virtuelles identiques
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
 ms.date: 03/29/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 49754fd4409b1fbc6b15577d37e216290582ef2b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d9a4a091e1dbeb1c15cd9ec0e90d7006000bea9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190807"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928248"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Didacticiel : créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Windows avec Azure PowerShell
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation des ressources (processeur, demande de mémoire ou trafic réseau). Ce didacticiel explique comment déployer un groupe de machines virtuelles identiques dans Azure. Vous allez apprendre à effectuer les actions suivantes :
@@ -35,7 +35,7 @@ Un groupe de machines virtuelles identiques vous permet de déployer et de gére
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, ce didacticiel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.7.0 ou version ultérieure pour les besoins de ce tutoriel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
 
 ## <a name="scale-set-overview"></a>Vue d’ensemble des groupes identiques
@@ -224,7 +224,7 @@ Pour plus d’informations de conception sur l’utilisation de la mise à l’�
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment créer un groupe de machines virtuelles identiques. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment créer un groupe de machines virtuelles identiques. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Utiliser l’extension de script personnalisé pour définir un site IIS à mettre à l’échelle

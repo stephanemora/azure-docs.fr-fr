@@ -6,14 +6,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 060d51406f67ad8a55cdf61506cd66f5390ebe4c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 78350f8e0ab86c7c87c321397bd4e4a4849368b6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29466875"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918847"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery
 Cet article décrit les feuilles de calcul du rapport Excel généré par le Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.
@@ -127,11 +127,11 @@ Le résumé vous aide à comprendre le coût que vous devez payer pour le stocka
  
 Vous pouvez afficher le coût mensuel ou annuel. En savoir plus sur les [régions cibles prises en charge](./hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) et les [devises prises en charge](./hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Coût par composant** : le coût total de la récupération d’urgence est divisé en quatre composants (coût de la licence Site Recovery, du stockage, du réseau et du calcul). Le coût est calculé sur la base de la consommation générée lors de la réplication et de l’extraction de la récupération d’urgence. Le coût du calcul, du stockage (Premium et standard), du VPN/ExpressRoute configuré entre le site local et Azure, mais aussi de la licence Site Recovery est utilisé pour les calculs.
+**Coût par composant** : le coût total de la récupération d’urgence est divisé en quatre composants, à savoir, le coût de la licence Site Recovery, du stockage, du réseau et du calcul. Le coût est calculé sur la base de la consommation générée lors de la réplication et de l’extraction de la récupération d’urgence. Le coût du calcul, du stockage (Premium et standard), du VPN/ExpressRoute configuré entre le site local et Azure, mais aussi de la licence Site Recovery est utilisé pour les calculs.
 
 **Coût par état** : le coût total de la récupération d’urgence est catégorisé selon deux états différents (la réplication et l’extraction de la récupération d’urgence). 
 
-**Coût de la réplication** : coût engendré pendant la réplication. Il couvre le coût du stockage, du réseau et de la licence Site Recovery. 
+**Coût de la réplication** : coût engendré pendant la réplication. Il couvre le coût du stockage, du réseau et de la licence Azure Site Recovery. 
 
 **Coût d’extraction de la récupération d’urgence** : coût engendré par les tests de basculement. Site Recovery prépare des machines virtuelles pendant le test de basculement. Le coût d’extraction de la récupération d’urgence couvre les coûts de calcul et de stockage des machines virtuelles en cours d’exécution. 
 
@@ -356,5 +356,5 @@ Chaque table de lot fournit un résumé de la consommation réseau du lot.
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [l’estimation des coûts](hyper-v-deployment-planner-cost-estimation.md).

@@ -6,7 +6,7 @@ Avant d’écrire le code de gestion CDN, vous devez effectuer certaines tâches
 * Octroyez des autorisations au groupe de ressources afin que seuls les utilisateurs autorisés de votre locataire Azure AD puissent interagir avec le profil CDN.
 
 ### <a name="creating-the-resource-group"></a>Création du groupe de ressources
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Créer une ressource**.
 3. Recherchez **Groupe de ressources**, puis dans le volet Groupe de ressources, cliquez sur **Créer**.
 

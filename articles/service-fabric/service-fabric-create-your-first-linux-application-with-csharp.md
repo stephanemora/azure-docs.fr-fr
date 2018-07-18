@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: ce894f775614c5be7413a004d2237f6a5cf00926
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642408"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020543"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -108,11 +108,23 @@ Vous pourrez retrouver les paramètres de ces commandes dans les manifestes gén
 
 Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), à l’adresse [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Ensuite, développez le nœud **Applications** et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 
+> [!IMPORTANT]
+> Pour déployer l’application sur un cluster Linux sécurisé dans Azure, vous devez configurer un certificat pour valider votre application avec le runtime Service Fabric. Ainsi, vos services Reliable Services peuvent communiquer avec les API d’exécution du runtime Service Fabric sous-jacentes. Pour en savoir plus, consultez [Configurer une application Reliable Services à exécuter sur les clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
+
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Démarrer le client de test et effectuer un basculement
 Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont besoin d’un autre service ou client pour leur envoyer des messages. Le modèle d’acteur inclut un script de test simple que vous pouvez utiliser pour interagir avec le service d’acteur.
 
 1. Exécutez le script à l’aide de l’utilitaire watch pour afficher la sortie du service d’acteur.
 
+   Sous MAC OS X, vous devez copier le dossier myactorsvcTestClient vers certains emplacements situés dans le conteneur en exécutant les commandes supplémentaires suivantes.
+    
+    ```bash
+    docker cp  [first-four-digits-of-container-ID]:/home
+    docker exec -it [first-four-digits-of-container-ID] /bin/bash
+    cd /home
+    ```
+    
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh

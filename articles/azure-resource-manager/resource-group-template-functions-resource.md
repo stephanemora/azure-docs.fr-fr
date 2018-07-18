@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ba4c9d9cd5f8a43be0f97053c02798e3b84a5f7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824334"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -95,7 +96,7 @@ Pour déterminer les types de ressources qui ont une opération de liste, utilis
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Spécifiez la ressource en utilisant la [fonction resourceId](#resourceid) ou le format `{providerNamespace}/{resourceType}/{resourceName}`.
+Spécifiez la ressource en utilisant le nom de la ressource ou la [fonction resourceId](#resourceid). Lorsque vous utilisez cette fonction dans le modèle qui déploie la ressource référencée, utilisez le nom de la ressource.
 
 ### <a name="example"></a>Exemples
 
@@ -257,7 +258,7 @@ Chaque type de ressource retourne des propriétés différentes pour la fonction
 
 La fonction reference dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d’un modèle ou d’un [modèle lié](resource-group-linked-templates.md#link-or-nest-a-template). Elle ne peut pas être utilisée dans la section outputs d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié. 
 
-En utilisant la fonction « reference », vous déclarez de manière implicite qu’une ressource dépend d’une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété dependsOn. La fonction n’est pas évaluée tant que le déploiement de la ressource référencée n’est pas terminé.
+En utilisant la fonction reference, vous déclarez de manière implicite qu’une ressource dépend d’une autre ressource si la ressource référencée est configurée dans le même modèle et vous désignez cette ressource par son nom (pas par son ID). Vous n’avez pas besoin d’utiliser également la propriété dependsOn. La fonction n’est pas évaluée tant que le déploiement de la ressource référencée n’est pas terminé.
 
 Pour afficher les noms et les valeurs des propriétés pour un type de ressource donné, créez un modèle qui retourne l’objet dans la section outputs. Si vous disposez déjà d’une ressource de ce type, votre modèle retourne l’objet sans déployer de nouvelles ressources. 
 

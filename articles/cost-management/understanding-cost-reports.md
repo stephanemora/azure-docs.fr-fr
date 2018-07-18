@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167888"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064406"
 ---
 # <a name="understanding-cost-management-reports"></a>Compréhension des rapports de gestion des coûts
 
@@ -136,7 +136,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
     Utilisez les rapports Amortissement dans l’allocation des coûts pour afficher les frais de service non liés à l’utilisation ou les coûts payables une seule fois. Les coûts sont étalés dans le temps de manière régulière tout au long de leur durée de vie. Par exemple, les frais ponctuels peuvent inclure :
     - les frais d’assistance annuels ;
     - les frais annuels liés aux composants de sécurité ;
-    - les frais d’achat d’instances réservées ;
+    - les frais d’achat des instances réservées ;
     - certains éléments de Place de Marché Azure.
 
   Sous Amortissement, sélectionnez **Coût amorti** ou **Coût réel**.
@@ -176,6 +176,10 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 
     Utilisez Action pour enregistrer, exporter ou planifier le rapport.
 
+15. **Stratégie**
+
+    Bien que non représentés, certains rapports incluent une stratégie de calcul des coûts prévus. Dans ces rapports, la stratégie **Consolidée** montre des recommandations pour tous les comptes et abonnements sous l’entité actuelle, comme l’inscription Microsoft ou le payeur AWS. La stratégie **Autonome** montre des recommandations pour un seul compte ou abonnement, comme s’il n’existait aucun autre abonnement. La stratégie que vous sélectionnez varie selon la stratégie d’optimisation utilisée par votre organisation. Les projections de coûts sont basées sur les 30 derniers jours d’utilisation.
+
 ## <a name="save-and-schedule-reports"></a>Enregistrer et planifier des rapports
 
 Après avoir créé un rapport, vous pouvez l’enregistrer pour une utilisation ultérieure. Les rapports enregistrés sont disponibles dans **Mes outils** > **Mes rapports**. Si vous apportez des modifications à un rapport existant et que vous l’enregistrez, le rapport est enregistré sous une nouvelle version. Vous pouvez également l’enregistrer sous un nouveau rapport.
@@ -199,4 +203,5 @@ Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous n’avez pas encore suivi le premier didacticiel de Cost Management, consultez-le dans [Réviser l’utilisation et les coûts](tutorial-review-usage.md).
+- Découvrez plus d’informations sur les rapports qui sont inclus dans Cloudyn dans [Utiliser les rapports Cost Management](use-reports.md).
+- Découvrez plus d’informations sur l’utilisation des rapports pour créer des [tableaux de bord](dashboards.md).

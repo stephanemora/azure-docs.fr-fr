@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1bb3827036f0d8957ac0830f707da71dd4cd373
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887427"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager
 Une ressource donnée peut comporter d'autres ressources qui doivent exister avant son déploiement. Par exemple, un serveur SQL doit exister avant une tentative de déploiement d'une base de données SQL. Vous définissez cette relation en marquant une seule ressource comme dépendante de l'autre ressource. Pour définir une dépendance, vous devez utiliser l’élément **dependsOn** ou la fonction **reference**. 
@@ -54,15 +55,15 @@ Lors de la définition des dépendances, vous pouvez inclure l’espace de noms 
 
 ```json
 "dependsOn": [
-  "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-  "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+  "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
+  "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
 ]
 ``` 
 
-Vous pouvez être tenté d’utiliser dependsOn pour mapper les relations entre vos ressources. Il est toutefois important de comprendre pourquoi vous le faites. Par exemple, pour documenter la manière dont les ressources sont liées entre elles, dependsOn n’est pas la bonne approche. Vous ne pourrez pas lancer de requête pour savoir quelles ressources ont été définies dans l’élément dependsOn après le déploiement. En utilisant dependsOn, vous risquez d’avoir un impact sur le temps de déploiement, car Resource Manager ne déploie pas en parallèle deux ressources qui ont une dépendance. Pour documenter les relations entre les ressources, utilisez plutôt la [liaison de ressources](/rest/api/resources/resourcelinks).
+Vous pouvez être tenté d’utiliser dependsOn pour mapper les relations entre vos ressources. Il est toutefois important de comprendre pourquoi vous le faites. Par exemple, pour documenter la manière dont les ressources sont liées entre elles, dependsOn n’est pas la bonne approche. Vous ne pouvez pas lancer de requête pour savoir quelles ressources ont été définies dans l’élément dependsOn après le déploiement. En utilisant dependsOn, vous risquez d’avoir un impact sur le temps de déploiement, car Resource Manager ne déploie pas en parallèle deux ressources qui ont une dépendance. 
 
 ## <a name="child-resources"></a>Ressources enfants
-La propriété de ressources vous permet de vous permet de spécifier les ressources enfants associées à la ressource en cours de définition. Les ressources enfants peuvent uniquement être définies sur cinq niveaux. Il est important de noter qu’aucune dépendance implicite n’est créée entre une ressources enfant et la ressource parent. Si vous avez besoin de déployer la ressource enfant après la ressource parent, vous devez déclarer explicitement cette dépendance avec la propriété dependsOn. 
+La propriété de ressources vous permet de vous permet de spécifier les ressources enfants associées à la ressource en cours de définition. Les ressources enfants peuvent uniquement être définies sur cinq niveaux. Il est important de noter qu’aucune dépendance implicite n’est créée entre une ressource enfant et la ressource parent. Si vous avez besoin de déployer la ressource enfant après la ressource parent, vous devez déclarer explicitement cette dépendance avec la propriété dependsOn. 
 
 Chaque ressource parente accepte uniquement certains types de ressources comme ressources enfants. Les types de ressource acceptés sont spécifiés dans le [schéma de modèle](https://github.com/Azure/azure-resource-manager-schemas) de la ressource parente. Le nom du type de ressource enfant inclut le nom du type de ressource parente. Par exemple, **Microsoft.Web/sites/config** et **Microsoft.Web/sites/extensions** sont deux ressources enfants de **Microsoft.Web/sites**.
 
@@ -106,11 +107,19 @@ L'exemple suivant montre un serveur SQL et une base de données SQL. Notez qu'un
 ]
 ```
 
-## <a name="reference-function"></a>fonction de référence
-La [fonction de référence](resource-group-template-functions-resource.md#reference) permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les expressions de référence déclarent implicitement qu’une ressource dépend d’une autre. Le format général est le suivant :
+## <a name="reference-and-list-functions"></a>fonctions reference et list
+La [fonction de référence](resource-group-template-functions-resource.md#reference) permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les [fonctions list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) renvoient les valeurs d’une ressource à partir d’une opération de liste.  Les expressions reference et list déclarent implicitement qu’une ressource dépend d’une autre, lorsque la ressource référencée est déployée dans le même modèle et désignée par son nom (pas par son ID). Si vous transmettez l’ID de ressource dans les fonctions reference ou list, une référence implicite n’est pas créée.
+
+Le format général de la fonction reference est :
 
 ```json
 reference('resourceName').propertyPath
+```
+
+Le format général de la fonction listKeys est :
+
+```json
+listKeys('resourceName', 'yyyy-mm-dd')
 ```
 
 Dans l’exemple suivant, un point de terminaison CDN dépend explicitement du profil CDN et implicitement d’une application web.
@@ -140,7 +149,7 @@ Lorsque vous décidez des dépendances à définir, appliquez les recommandation
 
 * Définissez le moins de dépendances possible.
 * Définissez une ressource enfant comme dépendante de sa ressource parent.
-* Utilisez la fonction **reference** pour définir les dépendances implicites entre les ressources qui doivent partager une propriété. N’ajoutez pas de dépendance explicite (**dependsOn**) lorsque vous avez déjà défini une dépendance implicite. Cette approche permet de réduire le risque d’avoir des dépendances inutiles. 
+* Utilisez la fonction **reference** et transmettez le nom de la ressource pour définir les dépendances implicites entre les ressources qui doivent partager une propriété. N’ajoutez pas de dépendance explicite (**dependsOn**) lorsque vous avez déjà défini une dépendance implicite. Cette approche permet de réduire le risque d’avoir des dépendances inutiles. 
 * Définissez une dépendance lorsqu’une ressource ne peut pas être **créée** sans la fonctionnalité d’une autre ressource. Ne définissez pas de dépendance si les ressources interagissent uniquement après le déploiement.
 * Ajoutez les dépendances l’une après l’autre sans les définir explicitement. Par exemple, votre machine virtuelle dépend d’une interface de réseau virtuel, et l’interface de réseau virtuelle dépend d’un réseau virtuel et d’adresses IP publiques. Par conséquent, la machine virtuelle est déployée après les trois ressources. Cependant, ne définissez pas explicitement la machine virtuelle comme dépendante de ces trois ressources. Cette approche permet de clarifier l’ordre des dépendances et de simplifier les modifications ultérieures du modèle.
 * Si une valeur peut être déterminée avant le déploiement, essayez de déployer la ressource sans dépendance. Par exemple, si une valeur de configuration a besoin du nom d’une autre ressource, vous n’avez pas forcément besoin d’une dépendance. Cette recommandation n’est pas toujours applicable, car certaines ressources vérifient l’existence de l’autre ressource. Si vous recevez une erreur, ajoutez une dépendance. 

@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 1c7f006c066a4f1505a642af04a1ef027fde0a44
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34666940"
+---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Activer la journalisation avec les paramètres de diagnostic
 
 1. Connectez-vous au [portail Azure][lnk-portal] et accédez à votre IoT Hub.

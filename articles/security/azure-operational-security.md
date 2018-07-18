@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d5bea758a0b2a950f51ec443707d9d32dee9cbc4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 60260d7bcff07a9ce2d680c84119d11271579e7d
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895678"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342267"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
 ## <a name="introduction"></a>Introduction
@@ -151,7 +151,7 @@ Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Se
 
 -   **Accès aux données** : pour fournir des recommandations en matière de sécurité et enquêter sur les éventuelles menaces de sécurité, le personnel de Microsoft peut accéder aux informations collectées ou analysées par les services Azure, notamment les fichiers de vidage sur incident, les événements de création de processus, les captures instantanées et artefacts de disque de machine virtuelle, qui peuvent involontairement exposer des données client ou personnelles provenant de vos machines virtuelles. Nous respectons les [Conditions d’utilisation et la Déclaration de confidentialité de Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qui indiquent que Microsoft n’utilise pas les données client ou ne tire pas d’informations de ces dernières à des fins commerciales, publicitaires ou similaires.
 
--   **Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer ses fonctionnalités de prévention et de détection. Cette utilisation s’effectue en accord avec les engagements de confidentialité décrits dans la [Déclaration de confidentialité](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx) de Microsoft.
+-   **Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer ses fonctionnalités de prévention et de détection. Cette utilisation s’effectue en accord avec les engagements de confidentialité décrits dans la [Déclaration de confidentialité](https://www.microsoft.com/en-us/privacystatement/OnlineServices/) de Microsoft.
 
 ### <a name="data-location"></a>Emplacement des données
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e3c80fe824d87c15a710b133c8e6cddf4ee0e096
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402105"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856553"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Installer une application publiée - H2O Sparkling Water
 
@@ -38,7 +38,7 @@ Avantages de H2O Sparkling Water :
 
 ### <a name="resource-links"></a>Liens de ressources
 
-* [Feuille de route de l’ingénierie H2O.ai](https://jira.h2o.ai/)
+* [Feuille de route de l’ingénierie H2O.ai](http://jira.h2o.ai/)
 * [Accueil H2O.ai](http://www.h2o.ai/)
 * [H2O.ai Documentation](http://docs.h2o.ai/)
 * [Assistance H2O.ai](https://support.h2o.ai/)

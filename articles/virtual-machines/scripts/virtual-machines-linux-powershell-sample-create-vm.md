@@ -3,7 +3,7 @@ title: Exemple de script Azure PowerShell - Création d’une machine virtuelle
 description: Exemple de script Azure PowerShell - Création d’une machine virtuelle Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c2034a40add78e34873271c2a04c85249bc49a7d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a159b35d6dfc56976ca2f801ff64d65a48a0b42f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653873"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929472"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Création d’une machine virtuelle entièrement configurée avec PowerShell
 
@@ -35,7 +35,7 @@ Ce script crée une machine virtuelle Azure avec un système d’exploitation Ub
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.ps1 "Create VM detailed")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 

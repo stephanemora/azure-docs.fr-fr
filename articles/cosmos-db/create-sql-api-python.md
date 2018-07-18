@@ -12,15 +12,15 @@ ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: sngun
 ms.openlocfilehash: fa81639866c9b2e9cfffee3d502eac8e18f86ec1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795303"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38310290"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application API SQL avec Python et le Portail Azure
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
 Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte d’[API SQL](sql-api-introduction.md) Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite créer et exécuter une application console basée sur [l’API Python SQL](sql-api-sdk-python.md).
 
@@ -32,7 +32,7 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du portail Az
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Extension Python pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -64,7 +64,7 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du portail Az
     cd "C:\git-samples"
     ```
 
-3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur. 
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
@@ -148,7 +148,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
-4. Puis, copiez votre valeur de **clé primaire** à partir du portail et définissez-la comme valeur du paramètre **config.MASTERKEY** dans le fichier DocumentDBGetStarted.py. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+4. Puis, copiez votre valeur de **clé primaire** à partir du portail et définissez-la comme valeur du paramètre **config.MASTERKEY** dans le fichier DocumentDBGetStarted.py. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
     `'MASTERKEY': 'FILLME',`
 

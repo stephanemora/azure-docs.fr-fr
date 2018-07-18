@@ -1,25 +1,26 @@
 ---
-title: "Considérations générales relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack | Microsoft Docs"
-description: "Découvrez ce que vous pouvez faire pour planifier et préparer l’intégration d’un système Azure Stack à plusieurs nœuds au centre de données."
+title: Considérations générales relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack | Microsoft Docs
+description: Découvrez ce que vous pouvez faire pour planifier et préparer l’intégration d’un système Azure Stack à plusieurs nœuds au centre de données.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261214"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considérations relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack
 Si vous êtes intéressé par un système intégré Azure Stack, vous devez comprendre certaines considérations principales sur la planification traitant du déploiement et la façon dont le système s’adapte à votre centre de données. Cet article fournit une vue d’ensemble de ces considérations pour vous aider à prendre des décisions d’infrastructure importantes pour votre système Azure Stack à plusieurs nœuds. Comprendre ces considérations est utile pour collaborer avec votre fournisseur de matériel OEM lorsqu’il déploie Azure Stack vers votre centre de données.  
@@ -50,7 +51,9 @@ Quand un niveau plus élevé d’accès est nécessaire pour résoudre des probl
 ## <a name="identity-considerations"></a>Identité - Éléments à prendre en compte
 
 ### <a name="choose-identity-provider"></a>Choisir un fournisseur d’identité
-Vous devez prendre en compte le fournisseur d’identité que vous souhaitez utiliser pour le déploiement de Azure Stack, que ce soit Azure AD ou AD FS. Vous ne pouvez pas changer les fournisseurs d’identité après le déploiement sans effectuer un redéploiement complet du système.
+Vous devez prendre en compte le fournisseur d’identité que vous souhaitez utiliser pour le déploiement de Azure Stack, que ce soit Azure AD ou AD FS. Vous ne pouvez pas changer les fournisseurs d’identité après le déploiement sans effectuer un redéploiement complet du système. Si vous ne possédez pas de compte Azure AD et utilisez un compte fourni par votre fournisseur de services Cloud, et que vous décidez de changer de fournisseur pour utiliser un autre compte Active Directory, vous devrez à ce stade contacter votre fournisseur de solutions afin qu’il redéploie la solution pour vous, à vos frais.
+
+
 
 Votre choix de fournisseur d’identité n’a aucune incidence sur les machines virtuelles du client, le système d’identité et les comptes qu’ils utilisent, la possibilité de joindre un domaine Active Directory, etc. C’est différent.
 
@@ -84,7 +87,7 @@ Vous devez réfléchir à la façon dont vous souhaitez planifier votre espace d
 
 Le tableau suivant récapitule ces décisions d’attribution de noms de domaine.
 
-| NOM | DESCRIPTION | 
+| NOM | Description | 
 | -------- | ------------- | 
 |Nom de la région | Le nom de votre première région Azure Stack. Ce nom est utilisé comme partie du nom de domaine complet pour les adresses IP virtuelles publiques (VIP) gérées par Azure Stack. En règle générale, le nom de la région est un identificateur d’emplacement physique tel qu’un emplacement de centre de données. | 
 | Nom de domaine externe | Le nom de la zone Domain Name System (DNS) pour les points de terminaison avec des adresses IP virtuelles externes. Utilisé dans le nom de domaine complet pour ces adresses IP virtuelles publiques. | 
@@ -132,9 +135,9 @@ Le tableau suivant résume les scénarios de connectivité hybride, avec les ava
 
 | Scénario | Méthode de connectivité | Avantages | Inconvénients | Bien pour |
 | -- | -- | --| -- | --|
-| Azure Stack avec un seul client, déploiement en intranet | NAT de trafic sortant | Meilleure bande passante pour des transferts plus rapides. Simple à implémenter ; aucune passerelle requise. | Trafic non chiffré ; aucun chiffrement ou isolation au-delà de TOR. | Déploiements d’entreprise où tous les clients sont fiables.<br><br>Entreprises qui ont un circuit Azure ExpressRoute vers Azure. |
+| Azure Stack avec un seul client, déploiement en intranet | NAT de trafic sortant | Meilleure bande passante pour des transferts plus rapides. Simple à implémenter ; aucune passerelle requise. | Trafic non chiffré ; aucun chiffrement ou isolation en dehors de la pile. | Déploiements d’entreprise où tous les clients sont fiables.<br><br>Entreprises qui ont un circuit Azure ExpressRoute vers Azure. |
 | Azure Stack mutualisé, déploiement en intranet | VPN de site à site | Le trafic du réseau virtuel du client vers la destination est sécurisé. | La bande passante est limitée par le tunnel VPN de site à site.<br><br>Requiert une passerelle dans le réseau virtuel et un périphérique VPN sur le réseau de destination. | Les déploiements d’entreprise où certains trafics de client doivent être sécurisés par rapport aux autres clients. |
-| Azure Stack avec un seul client, déploiement par internet | NAT de trafic sortant | Meilleure bande passante pour des transferts plus rapides. | Trafic non chiffré ; aucun chiffrement ou isolation au-delà de TOR. | Hébergement des scénarios où le client obtient son propre déploiement de Azure Stack et un circuit dédié à l’environnement Azure Stack. Par exemple, ExpressRoute et MPLS (Multiprotocol Label Switching).
+| Azure Stack avec un seul client, déploiement par internet | NAT de trafic sortant | Meilleure bande passante pour des transferts plus rapides. | Trafic non chiffré ; aucun chiffrement ou isolation en dehors de la pile. | Hébergement des scénarios où le client obtient son propre déploiement de Azure Stack et un circuit dédié à l’environnement Azure Stack. Par exemple, ExpressRoute et MPLS (Multiprotocol Label Switching).
 | Azure Stack mutualisé, déploiement par internet | VPN de site à site | Le trafic du réseau virtuel du client vers la destination est sécurisé. | La bande passante est limitée par le tunnel VPN de site à site.<br><br>Requiert une passerelle dans le réseau virtuel et un périphérique VPN sur le réseau de destination. | Hébergement des scénarios où le fournisseur souhaite offrir un cloud mutualisé, où les clients ne se font pas confiance et où le trafic doit être chiffré.
 |  |  |  |  |  |
 
@@ -198,5 +201,5 @@ Pour répliquer des données vers un emplacement secondaire et orchestrer le bas
 - Pour plus d’informations sur les cas d’usage, l’achat, les partenaires et les fabricants de matériel OEM, consultez la page produit [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
 - Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack, consultez le livre blanc : [Azure Stack : une extension de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Modèles de connexion pour le déploiement d’Azure Stack](azure-stack-connection-models.md)

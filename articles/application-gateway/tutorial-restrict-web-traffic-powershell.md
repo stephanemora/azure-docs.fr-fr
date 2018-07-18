@@ -11,14 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a3bd3e772c6c80bb86af7f6aac6a578e857a3f2d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ef9ad7705c240e1c06c80ba3b765fa7aad8c70a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356271"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602890"
 ---
-# <a name="restrict-web-traffic-with-a-web-application-firewall-using-azure-powershell"></a>Limiter le trafic web avec un pare-feu d’applications web à l’aide d’Azure PowerShell
+# <a name="enable-web-application-firewall-using-azure-powershell"></a>Activer le pare-feu d’applications web à l’aide d’Azure PowerShell
 
 Vous pouvez limiter le trafic sur une [passerelle d’application](overview.md) à l’aide d’un [pare-feu d’applications web](waf-overview.md) (WAF). Le WAF utilise des règles [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) pour protéger votre application. Ces règles incluent la protection contre les attaques telles que l’injection de code SQL, les attaques de script entre sites et les détournements de session. 
 
@@ -31,6 +31,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer un compte de stockage et configurer des diagnostics
 
 ![Exemple de pare-feu d’applications web](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+
+Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure CLI](tutorial-restrict-web-traffic-cli.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -291,7 +293,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-restrict-web-traffic-powershell/application-gateway-iistest.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées à l’aide de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
@@ -301,7 +303,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer le réseau

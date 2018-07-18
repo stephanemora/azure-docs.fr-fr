@@ -10,20 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771046"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048915"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md) (runtime d’intégration auto-hébergé dans la version 2). 
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Guide pratique pour créer et configurer le runtime d’intégration autohébergé dans Data Factory](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > La passerelle de gestion des données a été renommée runtime d’intégration autohébergé.  
@@ -72,7 +72,6 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 
 ## <a name="installation"></a>Installation
 ### <a name="prerequisites"></a>Prérequis
-
 * Les versions de **système d’exploitation** prises en charge sont Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. L’installation de la passerelle de gestion des données sur un contrôleur de domaine n’est pas prise en charge.
 * .NET framework 4.5.1 ou version ultérieure est requis. Si vous installez la passerelle sur un ordinateur Windows 7, installez .NET Framework 4.5 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) pour plus d’informations.
 * La **configuration** recommandée pour l’ordinateur de passerelle est la suivante : au moins 2 GHz, 4 cœurs, 8 Go de RAM et 80 Go d’espace disque.
@@ -185,7 +184,7 @@ Il existe trois options de configuration :
 
 * **Ne pas utiliser de proxy**: la passerelle n’utilise pas explicitement de proxy pour se connecter aux services cloud.
 * **Utiliser le proxy système** : la passerelle utilise le paramètre de proxy configuré dans diahost.exe.config et diawp.exe.config.  Si aucun proxy n’est configuré dans diahost.exe.config et diawp.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy.
-* **Utiliser un proxy personnalisé** : configurez les paramètres du proxy HTTP à utiliser pour la passerelle, au lieu d’utiliser les configurations dans diahost.exe.config et diawp.exe.config.  L’adresse et le port sont requis.  Le nom d’utilisateur et le mot de passe sont facultatifs selon le paramètre d’authentification de votre proxy.  Tous les paramètres sont chiffrés avec le certificat d’informations d’identification de la passerelle et stockés localement sur la machine hôte de passerelle.
+* **Utiliser un proxy personnalisé** : configurez les paramètres du proxy HTTP à utiliser pour la passerelle, au lieu d’utiliser les configurations dans diahost.exe.config et diawp.exe.config.  L’adresse et le port sont requis.  Le nom d’utilisateur et le mot de passe sont facultatifs, en fonction du paramètre d’authentification de votre proxy.  Tous les paramètres sont chiffrés avec le certificat d’informations d’identification de la passerelle et stockés localement sur la machine hôte de passerelle.
 
 Le service hôte de la passerelle de gestion des données redémarre automatiquement après avoir enregistré les paramètres de proxy mis à jour.
 
@@ -232,13 +231,13 @@ Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy
 > N’oubliez pas de mettre à jour diahost.exe.config **et** diawp.exe.config.  
 
 
-Outre ces points, vous devez également vous assurer que Microsoft Azure figure dans la liste d’autorisation de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Outre ces points, vous devez également vérifier que Microsoft Azure figure dans la liste verte de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Symptômes possibles des erreurs liées au pare-feu et au serveur proxy
 Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, et que la passerelle ne peut pas se connecter à Data Factory pour s’authentifier. Reportez-vous à la section précédente pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés.
 
 1. Lorsque vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
-2. Lorsque vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Lorsque vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Passerelle de gestion des données », des messages d’erreur tels que le suivant s’affichent : `Unable to connect to the remote server`
+2. Quand vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Quand vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Passerelle de gestion des données », des messages d’erreur tels que le suivant s’affichent : `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Ouvrir le port 8050 pour le chiffrement des informations d’identification
@@ -289,12 +288,12 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[Pour une passerelle multinœud à haute disponibilité et scalable (préversion)](data-factory-data-management-gateway-high-availability-scalability.md)
+[Pour une passerelle multinœud à haute disponibilité et scalable](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
 2. Accédez au dossier C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.   
 
-    Pour une passerelle avec une fonctionnalité de haute disponibilité (version préliminaire), un paramètre AuthKey supplémentaire est requis.
+    Pour une passerelle avec une fonctionnalité de haute disponibilité, un paramètre AuthKey supplémentaire est nécessaire.
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```

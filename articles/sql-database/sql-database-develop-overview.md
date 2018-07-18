@@ -8,14 +8,14 @@ ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: aee8f8c830ac504b6688c02c2b262a0d87bc5278
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646624"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308864"
 ---
 # <a name="sql-database-application-development-overview"></a>Vue d’ensemble du développement de base de données SQL
 Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture de code permettant d’établir une connexion à la base de données SQL Azure.
@@ -33,9 +33,12 @@ Plusieurs exemples de code sont à votre disposition pour divers langages et pla
 Vous pouvez tirer parti des outils open source comme [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) et [VS Code](https://code.visualstudio.com/). En outre, Azure SQL Database fonctionne avec des outils Microsoft, tels que [Visual Studio](https://www.visualstudio.com/downloads/) et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Vous pouvez également utiliser le portail de gestion Azure, PowerShell et les API REST pour accroître votre productivité.
 
 ## <a name="resource-limitations"></a>Limitations des ressources
-La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : la gouvernance des ressources et l’application de limites.
+La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : la gouvernance des ressources et l’application de limites. Pour plus d'informations, consultez les pages suivantes :
 
-* Plus d’informations : [Limites du modèle de ressource DTU Azure SQL Database](sql-database-dtu-resource-limits.md) et [Limites du modèle de ressource vCore Azure SQL Database (préversion)](sql-database-vcore-resource-limits.md).
+- [Limites de modèle de ressources basées sur des unités DTU : base de données unique](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Limites de modèle de ressources basées sur des unités DTU : base de données unique](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Limites de modèle de ressources basées sur des vCore : base de données unique](sql-database-vcore-resource-limits-single-databases.md)
+- [Limites de ressources basées sur des vCore : pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Sécurité
 La base de données SQL Azure fournit des ressources permettant de limiter l’accès, de protéger les données et de surveiller les activités sur une base de données SQL.

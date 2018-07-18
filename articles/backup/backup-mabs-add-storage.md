@@ -1,24 +1,19 @@
 ---
-title: Utiliser un stockage de sauvegarde moderne avec un Serveur de sauvegarde Azure v2 | Microsoft Docs
-description: "Découvrez les nouvelles fonctionnalités du Serveur de sauvegarde Azure v2. Cet article décrit comment mettre à niveau votre installation de serveur de sauvegarde."
+title: Utiliser un stockage de sauvegarde moderne avec un Serveur de sauvegarde Azure v2
+description: Découvrez les nouvelles fonctionnalités du Serveur de sauvegarde Azure v2. Cet article décrit comment mettre à niveau votre installation de serveur de sauvegarde.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
-ms.openlocfilehash: 751b9b495fd368dff1f72429707f5f33a0ccb569
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: 7c583ea048ed1837c662869c62039165aaa3c024
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606752"
 ---
 # <a name="add-storage-to-azure-backup-server-v2"></a>Ajouter du stockage au Serveur de sauvegarde Azure v2
 

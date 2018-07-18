@@ -12,15 +12,15 @@ ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
 ms.openlocfilehash: 024ca836e4d2c58c4c942d6f7376608e40248316
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795718"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38485425"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB : Générer une application Flask avec l’API MongoDB
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
 
 Ce guide de démarrage rapide utilise [l’exemple Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) suivant et illustre comment créer une application de liste de tâches Flask simple avec [l’émulateur Azure Cosmos DB](local-emulator.md) et l’[API MongoDB](mongodb-introduction.md) Azure Cosmos DB plutôt que MongoDB.
 
@@ -52,7 +52,7 @@ Ce guide de démarrage rapide utilise [l’exemple Flask](https://github.com/Azu
     cd "C:\git-samples"
     ```
 
-3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
     git clone https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample.git
@@ -104,7 +104,7 @@ Les extraits de code suivants proviennent tous du fichier app.py et utilisent la
 
 5. Ajoutez et supprimez des tâches, et observez l’ajout ou la modification correspondante dans la collection.
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -122,7 +122,7 @@ Si vous souhaitez tester le code par rapport à un compte Azure Cosmos DB actif,
 
 5. Pour finir, copiez votre valeur de **mot de passe** à partir du portail et affectez-la comme valeur de **password** dans votre fichier **app.py**.
 
-Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. Vous pouvez l’exécuter de la même manière qu’avant.
+Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. Vous pouvez l’exécuter de la même manière qu’avant.
 
 ## <a name="deploy-to-azure"></a>Déployer dans Azure
 

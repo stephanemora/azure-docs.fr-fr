@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e15016da271d512fd9b87d5c14091305a92770b5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a2405eb9698b326693b873edf1cc1396eecadafa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666006"
 ---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>Spécification du comportement de l’appareil IoT
 
 La bibliothèque cliente du sérialiseur IoT Hub utilise un modèle pour spécifier le format des messages que l’appareil échange avec IoT Hub.
 
-1. Ajoutez les déclarations de variables suivantes après les instructions `#include` . Remplacez les valeurs d’espace réservé `[Device Id]` et `[Device connection string]` par les valeurs que vous avez notées pour l’appareil physique que vous avez ajouté à la solution de surveillance à distance :
+1. Ajoutez les déclarations de variables suivantes après les instructions `#include` . Remplacez les valeurs d’espace réservé `[Device Id]` et `[Device connection string]` par les valeurs que vous avez notées pour l’appareil physique que vous avez ajouté à la solution Monitoring à distance :
 
     ```c
     static const char* deviceId = "[Device Id]";

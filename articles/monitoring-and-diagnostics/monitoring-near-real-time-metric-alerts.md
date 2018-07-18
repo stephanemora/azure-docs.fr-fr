@@ -1,39 +1,22 @@
 ---
-title: Alertes métriques plus récentes dans les ressources prises en charge par Azure Monitor | Microsoft Docs
+title: Ressources prises en charge pour les alertes de métrique Azure Monitor plus récentes
 description: Référence sur les métriques et les journaux prise en charge pour des alertes métriques Azure plus récentes quasiment en temps réel.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: ''
-ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: snmuvva
+ms.component: alerts
+ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778111"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264508"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Alertes métriques plus récentes pour les services Azure dans le portail Azure
-Désormais, Azure Monitor prend en charge un nouveau type d’alerte de métriques. Les alertes plus récentes diffèrent des [alertes métriques classiques](insights-alerts-portal.md) de plusieurs façons :
-
-- **Latence améliorée** : les alertes métriques plus récentes peuvent être exécutées toutes les minutes. Les alertes métriques les plus anciennes s’exécutent toujours à une fréquence de 5 minutes. Les alertes de journal ont toujours un délai de plus d’une minute en raison du temps nécessaire à la réception des journaux. 
-- **Prise en charge de plusieurs métriques multidimensionnelles** : vous pouvez avertir sur des métriques dimensionnelles ce qui vous permet de surveiller un seul segment intéressant de la métrique. 
-- **Contrôle renforcé des conditions de métrique** : vous pouvez définir des règles d’alerte plus riches. Les alertes plus récentes prennent en charge la surveillance des valeurs maximales, minimales, moyennes et totales des métriques. 
-- **Surveillance combinée de plusieurs métriques** : vous pouvez surveiller plusieurs métriques (actuellement jusqu’à deux) avec une seule règle. Une alerte est déclenchée si les deux métriques violent leurs seuils respectifs durant la période spécifiée. 
-- **Meilleur système de notification** : toutes les alertes plus récentes utilisent des [groupes d’actions](monitoring-action-groups.md), qui sont des groupes nommés de notifications et d’actions qui peuvent être réutilisées dans plusieurs alertes. Les alertes métriques classiques et les alertes Log Analytics plus anciennes n’utilisent pas les groupes d’actions. 
-- **Métriques à partir des journaux** (version préliminaire publique limitée) : les données de journal vers Log Analytics peuvent maintenant être extraites et converties en métrique d’Azure Monitor et faire l’objet d’une alerte comme les autres métriques. 
-
-Pour savoir comment créer une alerte métrique plus récente dans le Portail Azure, consultez [Créer une règle d’alerte dans le Portail Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Après la création, vous pouvez gérer l’alerte à l’aide de la procédure décrite dans [Gérer vos alertes dans le portail Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Métriques prises en charge et méthodes de création de nouvelles alertes de métrique
+Azure Monitor prend désormais en charge un [nouveau type d’alerte de métrique](monitoring-overview-unified-alerts.md) qui présente d’importants avantages par rapport aux anciennes [alertes de métrique classiques](insights-alerts-portal.md). Les anciennes alertes prennent en charge une [longue liste de métriques](monitoring-supported-metrics.md). Les alertes plus récentes prennent en charge un sous-ensemble (croissant) de cette liste plus large. Cet article répertorie ce sous-ensemble. 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portail, PowerShell, CLI, prise en charge de REST
 À l’heure actuelle, il n’est possible de créer des alertes métriques plus récentes que sur le Portail Azure, [l’API REST](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) ou les [modèles Resource Manager](monitoring-create-metric-alerts-with-templates.md). La prise en charge de la configuration d’alertes plus récentes en utilisant PowerShell l’interface de ligne de commande Azure (Azure CLI 2.0) est bientôt disponible.

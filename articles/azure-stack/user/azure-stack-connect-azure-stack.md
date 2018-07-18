@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: mabrigg
-ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 21015d31a738d3ad57048fe4a703bf78dda7e40c
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26636175"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865768"
 ---
 # <a name="connect-to-azure-stack"></a>Se connecter à Azure Stack
 
@@ -35,7 +35,7 @@ Avec une connexion Bureau à distance, un seul utilisateur à la fois peut se co
 
 2. À partir de l’ordinateur du kit de développement, ouvrez le Gestionnaire de serveur, cliquez sur **Serveur local**, désactivez la sécurité renforcée d’Internet Explorer, puis fermez le Gestionnaire de serveur.
 
-3. Pour ouvrir le portail, accédez à (https://portal.local.azurestack.external/) et connectez-vous à l’aide des informations d’identification de l’utilisateur.
+3. Pour ouvrir le portail, accédez à (https://portal.local.azurestack.external/) et connectez-vous à l’aide des informations d’identification utilisateur.
 
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>Se connecter à Azure Stack avec l’option VPN
@@ -45,7 +45,7 @@ Vous pouvez établir une connexion VPN avec tunneling fractionné à un Kit de d
 > [!NOTE] 
 > Cette connexion VPN ne fournit pas de connectivité aux machines virtuelles de l’infrastructure Azure Stack. 
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 
 * Installez [Azure PowerShell pour Azure Stack](azure-stack-powershell-install.md) sur votre ordinateur local.  
 * Téléchargez les [outils nécessaires pour utiliser Azure Stack](azure-stack-powershell-download.md). 
@@ -63,7 +63,7 @@ Set-ExecutionPolicy RemoteSigned
 # Import the Connect module
 Import-Module .\Connect\AzureStack.Connect.psm1 
 
-# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the the IP address and password values for your environment. 
+# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the IP address and password values for your environment. 
 
 $hostIP = "<Azure Stack host IP address>"
 

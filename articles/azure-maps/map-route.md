@@ -1,22 +1,20 @@
 ---
 title: Affichage de directions avec Azure Maps | Microsoft Docs
 description: Comment afficher des directions entre deux emplacements sur une carte Javascript
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: codepen
-ms.openlocfilehash: 9007afd1bc4d2361addc2a554fab1330174e88e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5e9ab73ddc16517e17894cddd9bc102f3941f00c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "35772011"
 ---
 # <a name="show-directions-from-a-to-b"></a>Afficher des directions de A à B 
 
@@ -45,3 +43,7 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
     * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+
+Pour consulter plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants : 
+* [Afficher le trafic sur la carte](./map-show-traffic.md)
+* [Interaction avec la carte - Événements de souris](./map-events.md)

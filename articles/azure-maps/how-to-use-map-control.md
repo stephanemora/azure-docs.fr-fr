@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4ba4b9a9f2357d283ddc03a4723cb08b48d40a9b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b0549e7a7ea6389597e483f239a75743a96fef1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599209"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317962"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Guide pratique d’utilisation de la bibliothèque Azure Maps Map Control
 La bibliothèque Javascript côté client Map Control vous permet d’effectuer le rendu de cartes et des fonctionnalités Azure Maps intégrées dans votre application web ou mobile. 
@@ -48,7 +48,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
             var MapsAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
                 "subscription-key": MapsAccountKey,
-                center: [47.59093,-122.33263],
+                center: [-122.33263,47.59093],
                 zoom: 12
             });
         </script>

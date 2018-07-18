@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 800ee1269556e7c2d56fbbf2b497c10509b5c78c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: d3c8807b7624e68ff55557922f97d51e24fc2c19
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23020894"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131801"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Collecte des sources de données JSON personnalisées à l’aide de l’agent OMS pour Linux dans Log Analytics
 Les sources de données JSON personnalisées peuvent être collectées dans Log Analytics à l’aide de l’agent OMS pour Linux.  Ces sources de données personnalisées peuvent être des scripts simples qui renvoient JSON en tant que [cURL](https://curl.haxx.se/) ou l’un des [300 plug-ins de FluentD](http://www.fluentd.org/plugins/all). Cet article décrit la configuration requise pour cette collecte de données.
@@ -104,5 +105,5 @@ Les sources de données JSON imbriquées sont prises en charge, mais sont index�
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions. 
+* Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions. 
  

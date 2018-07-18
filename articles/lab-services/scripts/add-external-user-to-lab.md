@@ -1,6 +1,6 @@
 ---
-title: 'Script PowerShell : Ajouter un utilisateur externe à un laboratoire personnalisé dans Azure Lab Services | Microsoft Docs'
-description: Ce script PowerShell ajoute un utilisateur externe à un laboratoire personnalisé dans Azure Lab Services.
+title: 'Script PowerShell : Ajouter un utilisateur externe à un lab dans Azure DevTest Labs | Microsoft Docs'
+description: Ce script PowerShell ajoute un utilisateur externe à un lab dans Azure DevTest Labs.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: b089067a889f0ffd3b317fcc3f0784d176473b91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: bd86e44c21ca3c0b9c061f9a5c24bd19c4b207f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636441"
 ---
-# <a name="use-powershell-to-add-an-external-user-to-a-custom-lab"></a>Utiliser PowerShell pour ajouter un utilisateur externe à un laboratoire personnalisé
+# <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Utiliser PowerShell pour ajouter un utilisateur externe à un lab dans Azure DevTest Labs
 
-Cet exemple de script PowerShell ajoute un utilisateur externe à un laboratoire personnalisé dans Azure Lab Services. 
+Cet exemple de script PowerShell ajoute un utilisateur externe à un lab dans Azure DevTest Labs. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
-* **Un laboratoire personnalisé**. Le script vous demande d’avoir un laboratoire personnalisé. 
+* **Un lab**. Le script vous demande d’avoir un lab. 
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-custom-lab.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-custom-lab.ps1 "Add external user to a lab")]
 
 ## <a name="script-explanation"></a>Explication du script
 

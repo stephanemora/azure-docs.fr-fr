@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f80a22c39608a9d9c67977f2d0493af7300f475b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09fd2f38c3746cf92d576325058dc36221ae50cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622704"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38668025"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-create-pipelines.md)
-> * [Version 2 - Préversion](../concepts-pipelines-activities.md)
+> * [Version 1](data-factory-create-pipelines.md)
+> * [Version 2 (version actuelle)](../concepts-pipelines-activities.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 de Data Factory, disponible en préversion, consultez [Pipelines dans V2](../concepts-pipelines-activities.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Pipelines dans V2](../concepts-pipelines-activities.md).
 
 Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour vos scénarios de déplacement des données et de traitement des données.  
 
@@ -203,7 +203,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** i
 } 
 ```
 
-Notez les points suivants :
+Notez les points suivants :
 
 * Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
 * L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**. Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour en savoir plus sur la définition de jeux de données dans JSON. 
@@ -259,7 +259,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsigh
 }
 ```
 
-Notez les points suivants : 
+Notez les points suivants : 
 
 * Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive**.
 * Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **AzureStorageLinkedService**) et dans le dossier **script** du conteneur **adfgetstarted**.

@@ -1,8 +1,8 @@
 ---
-title: "Se connecter à Azure Databricks à partir d’Excel, de Python ou de R | Microsoft Docs"
-description: "Découvrez comment utiliser le pilote Simba pour connecter Azure Databricks à Excel, Python ou R."
+title: Se connecter à Azure Databricks à partir d’Excel, de Python ou de R | Microsoft Docs
+description: Découvrez comment utiliser le pilote Simba pour connecter Azure Databricks à Excel, Python ou R.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,19 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9daa7d30036d0a0f98d079e03a69c29d11e49664
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598876"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Se connecter à Azure Databricks à partir d’Excel, de Python ou de R
 
 Dans cet article, vous allez apprendre à utiliser le pilote ODBC Databricks pour connecter Azure Databricks avec le langage R, Python ou Microsoft Excel. Une fois que vous avez établi la connexion, vous pouvez accéder aux données dans Azure Databricks à partir des clients Excel, Python ou R. Vous pouvez également utiliser les clients pour analyser les données de façon plus précise. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Vous devez disposer d’un espace de travail Azure Databricks, d’un cluster Spark et d’exemples de données associés à votre cluster. Si vous ne disposez pas de ces éléments, suivez le démarrage rapide [Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure](quickstart-create-databricks-workspace-portal.md).
 
@@ -164,7 +165,7 @@ for row in cursor.fetchall():
 
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur les sources à partir desquelles vous pouvez importer des données dans Azure Databricks, consultez [Spark Data Sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html#) (Sources de données Spark)
 

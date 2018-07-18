@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 8b007c4658d3ca168c4c1a86a72a737c75ca33db
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 629cdf3907f45419ecfa5fce59430a163767c8fb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371335"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943264"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager
-Cet article décrit la manière dont nous activons les ressources IaaS (infrastructure as a service) de l’environnement Classic pour les modèles de déploiement de Resource Manager. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Nous décrivons en détail comment connecter des ressources dans les deux modèles de déploiement qui coexistent dans votre abonnement en utilisant des passerelles intersites de réseau virtuel.
+Cet article décrit comment migrer des ressources infrastructure as a service (IaaS) de modèles de déploiement Classic vers Resource Manager et détaille comment connecter les ressources des deux modèles qui coexistent dans votre abonnement avec des passerelles de site à site de réseau virtuel. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
 
 ## <a name="goal-for-migration"></a>Objectif de la migration
 Resource Manager autorise le déploiement d’applications complexes à l’aide de modèles, configure les machines virtuelles au moyen d’extensions de machines virtuelles et intègre la gestion des accès et le balisage. Azure Resource Manager inclut un déploiement extensible, en parallèle, de machines virtuelles dans des groupes à haute disponibilité. Le nouveau modèle de déploiement assure également la gestion de façon indépendante du cycle de vie des services de calcul, de réseau et de stockage. Enfin, il applique la sécurité par défaut grâce à la mise en œuvre de machines virtuelles dans un réseau virtuel.
@@ -38,12 +38,12 @@ Ces ressources IaaS classiques sont prises en charge lors de la migration
 * IP réservées
 
 ## <a name="supported-scopes-of-migration"></a>Étendues de migration prises en charge
-Il existe 4 façons différentes de migrer les ressources de calcul, de réseau et de stockage. Les voici :
+Il existe quatre façons différentes de migrer les ressources de calcul, de réseau et de stockage :
 
-* Migration de machines virtuelles (ne figurant PAS dans un réseau virtuel)
-* Migration de machines virtuelles (dans un réseau virtuel)
-* Migration des comptes de stockage
-* Ressources non attachées (groupes de sécurité réseau, tables de routage et adresses IP réservées)
+* [Migration de machines virtuelles (ne figurant PAS dans un réseau virtuel)](#migration-of-virtual-machines-not-in-a-virtual-network)
+* [Migration de machines virtuelles (dans un réseau virtuel)](#migration-of-virtual-machines-in-a-virtual-network)
+* [Migration de comptes de stockage](#migration-of-storage-accounts)
+* [Migration des ressources non attachées](#migration-of-unattached-resources)
 
 ### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>Migration de machines virtuelles (ne figurant PAS dans un réseau virtuel)
 Dans le modèle de déploiement Resource Manager, nous appliquons par défaut la sécurité de vos applications. Toutes les machines virtuelles doivent donc figurer dans un réseau virtuel du modèle Resource Manager. La plateforme Azure redémarre (`Stop`, `Deallocate`, et `Start`) les machines virtuelles dans le cadre de la migration. Vous avez deux options pour les réseaux virtuels vers lesquels les machines virtuelles seront migrées :
@@ -53,7 +53,6 @@ Dans le modèle de déploiement Resource Manager, nous appliquons par défaut la
 
 > [!NOTE]
 > Dans cette étendue de migration, les opérations plan de gestion et du plan de données peuvent ne pas être autorisées pendant un certain laps de temps durant la migration.
->
 >
 
 ### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>Migration de machines virtuelles (dans un réseau virtuel)
@@ -67,23 +66,25 @@ Les configurations non prises en charge actuellement sont les suivantes. En cas 
 > [!NOTE]
 > Dans cette étendue de migration, le plan de gestion peut ne pas être utilisable pendant un certain laps de temps lors de la migration. Certaines configurations décrites ci-dessus entraînent un temps d’arrêt du forfait de données.
 >
->
 
-### <a name="storage-accounts-migration"></a>Migration des comptes de stockage
+### <a name="migration-of-storage-accounts"></a>Migration de comptes de stockage
 Pour permettre une migration fluide, vous pouvez déployer des machines virtuelles Resource Manager dans un compte de stockage classique. Cette fonctionnalité permet d’effectuer la migration des ressources de calcul et de réseau indépendamment des comptes de stockage. Après avoir migré vos machines virtuelles et votre réseau virtuel, vous devrez migrer vos comptes de stockage pour achever le processus de migration.
+
+Si votre compte de stockage ne dispose d’aucun disque associé ni de données de machines virtuelles et ne possède que des objets blob, des fichiers, des tables et des files d’attente, la migration vers Azure Resource Manager peut être réalisée comme migration autonome sans dépendances.
 
 > [!NOTE]
 > Le modèle de déploiement Resource Manager n’intègre pas le concept d’images et de disques classiques. Une fois le compte de stockage migré, les images et disques classiques ne sont pas visibles dans la pile Resource Manager, mais les disques durs virtuels de secours restent dans le compte de stockage.
 >
->
 
-### <a name="unattached-resources-network-security-groups-route-tables--reserved-ips"></a>Ressources non attachées (groupes de sécurité réseau, tables de routage et adresses IP réservées)
-Les groupes de sécurité réseau, tables de routage et adresses IP réservées qui ne sont pas rattachés à des machines virtuelles et des réseaux virtuels peuvent être migrés indépendamment.
+### <a name="migration-of-unattached-resources"></a>Migration des ressources non attachées
+Les comptes de stockage sans disque associé ou données de machines virtuelles peuvent être migrés indépendamment.
+
+Les groupes de sécurité réseau, tables de routage et adresses IP réservées qui ne sont pas rattachés à des machines virtuelles et des réseaux virtuels peuvent aussi être migrés indépendamment.
 
 <br>
 
 ## <a name="unsupported-features-and-configurations"></a>Fonctionnalités et configurations non prises en charge
-À ce stade, nous ne gérons pas encore certaines fonctionnalités et configurations. Les sections suivantes décrivent nos recommandations les concernant.
+Certaines fonctionnalités et configurations ne sont actuellement pas prises en charge. La section suivante détaille nos recommandations les concernant.
 
 ### <a name="unsupported-features"></a>Fonctionnalités non prises en charge
 Les fonctionnalités non prises en charge actuellement sont les suivantes. Si vous le souhaitez, vous pouvez supprimer ces paramètres, effectuer la migration des machines virtuelles, puis réactiver les paramètres dans le modèle de déploiement Resource Manager.

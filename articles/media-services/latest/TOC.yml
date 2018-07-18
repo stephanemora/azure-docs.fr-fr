@@ -28,13 +28,17 @@
 - name: Exemples
   items:
     - name: "Exemples de code\_Azure"
-      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
     - name: Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:
     - name: Éléments multimédias
       href: assets-concept.md
+    - name: Protection du contenu
+      items:
+        - name: Vue d'ensemble
+          href: content-protection-overview.md
     - name: Encodage
       items:
         - name: Vue d'ensemble
@@ -69,11 +73,15 @@
           href: job-input-from-http-how-to.md
         - name: À partir d’un fichier local - .NET
           href: job-input-from-local-file-how-to.md
+    - name: Protéger du contenu
+      items:
+        - name: Avec AES-128 - .NET
+          href: protect-with-aes128.md
 - name: Informations de référence
   items:
     - name: Spécification OpenAPI (Swagger)
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
-    - name: "Azure CLI\_2.0"
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
     - name: REST
       href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
@@ -87,6 +95,14 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Schémas d’événement
       href: media-services-event-schemas.md
+    - name: Licences DRM
+      items:
+        - name: Modèle de licence PlayReady
+          href: playready-license-template-overview.md
+        - name: Modèle de licence Widevine
+          href: widevine-license-template-overview.md
+        - name: Conditions de licence FairPlay
+          href: fairplay-license-overview.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

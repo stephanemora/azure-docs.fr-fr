@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 379f1a369bd94f22736abfb766ba239c3f93acee
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 13e757d3d6d35227667e23eb6000eace56a0674e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798091"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582425"
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure Cosmos DB : développer avec l’API Cassandra dans Java
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
 Ce didacticiel montre comment créer un compte Azure Cosmos DB à l’aide du Portail Azure, puis une table Cassandra (sql-api-partition-data.md#partition-keys) à l’aide de [l’API Cassandra](cassandra-introduction.md). En définissant une clé primaire au moment de créer une table, vous préparez votre application et lui permettez d’être mise à l’échelle sans effort, à mesure que le volume de vos données augmente. 
 
@@ -51,7 +51,7 @@ Par ailleurs :
 * [Git](https://www.git-scm.com/)
     * Sur Ubuntu, vous pouvez exécuter `sudo apt-get install git` pour installer Git.
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 Pour pouvoir créer une base de données de documents, vous devez créer un compte Cassandra avec Azure Cosmos DB.
 
@@ -67,7 +67,7 @@ Pour pouvoir créer une base de données de documents, vous devez créer un comp
     cd "C:\git-samples"
     ```
 
-2. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
+2. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
@@ -228,7 +228,7 @@ Dans ce guide de démarrage rapide, vous avez appris comment effectuer les opér
 > * Données de requête
 > * Vérification des contrats SLA
 
-Vous pouvez maintenant importer des données supplémentaires dans votre collection Azure Cosmos DB. 
+Vous pouvez maintenant importer des données supplémentaires dans votre conteneur Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importer des données Cassandra dans Azure Cosmos DB](cassandra-import-data.md)

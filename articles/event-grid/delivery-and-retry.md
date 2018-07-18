@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625795"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid 
 
@@ -62,7 +63,7 @@ Event Grid utilise une stratégie de nouvelle tentative d’interruption exponen
 
 Event Grid ajoute une petite randomisation à tous les intervalles de nouvelle tentative. La remise des événements est renouvelée après une heure, une fois par heure.
 
-Par défaut, Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures.
+Event Grid cesse de tenter de remettre tous les événements qui ne sont pas remis dans les 24 heures.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

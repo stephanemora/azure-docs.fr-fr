@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593710"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960125"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analyse des données Twitter avec Hive dans HDInsight
 Les sites web sociaux constituent l’un des principaux motifs de l’utilisation du modèle « Big Data ». Les API publiques fournies par des sites comme Twitter représentent une source de données utile pour l'analyse et la compréhension des tendances populaires.
@@ -28,7 +28,6 @@ Dans ce didacticiel, vous allez recevoir des tweets à l’aide de l’API de di
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour les étapes spécifiques à un cluster basé sur Linux, consultez la rubrique [Analyse des données Twitter avec Hive dans HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **poste de travail** sur lequel Azure PowerShell est installé et configuré.
@@ -69,7 +68,7 @@ Dans ce didacticiel, vous allez utiliser les [API de diffusion Twitter][twitter-
 > [!NOTE]
 > Un fichier contenant 10 000 tweets et le fichier de script Hive (traité dans la section suivante) ont été téléchargés dans un conteneur d'objets blob public. Vous pouvez ignorer cette section si vous souhaitez utiliser les fichiers téléchargés.
 
-[données des tweets](https://dev.twitter.com/docs/platform-objects/tweets) sont stockées au format JSON (JavaScript Object Notation) qui contient une structure imbriquée complexe. Au lieu d’écrire de nombreuses lignes de code à l’aide d’un langage de programmation classique, vous pouvez transformer cette structure imbriquée en une table Hive, de sorte qu’un langage de type SQL, appelé HiveQL, puisse effectuer une requête sur celle-ci.
+Les données des tweets sont stockées au format JSON (JavaScript Object Notation) qui contient une structure imbriquée complexe. Au lieu d’écrire de nombreuses lignes de code à l’aide d’un langage de programmation classique, vous pouvez transformer cette structure imbriquée en une table Hive, de sorte qu’un langage de type SQL, appelé HiveQL, puisse effectuer une requête sur celle-ci.
 
 Twitter utilise OAuth pour fournir un accès autorisé à son API. OAuth est un protocole d’authentification qui permet aux utilisateurs d’autoriser des applications à agir à leur place sans partager leur mot de passe. Pour plus d'informations, consultez la page [oauth.net](http://oauth.net/) ou l'excellent [Guide du débutant sur OAuth](http://hueniverse.com/oauth/) de Hueniverse.
 

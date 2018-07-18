@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 5c6ff5ac909e2dc6918f85d39beb781952ee6dd0
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e0146be345215701cf1afe86345afc286933d51b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593094"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750966"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Activation de la synchronisation hors connexion pour votre application mobile Xamarin Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -33,7 +33,7 @@ Dans ce didacticiel vous allez mettre à jour le projet client du didacticiel [C
 Pour plus d’informations sur la fonctionnalité de synchronisation hors connexion, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps].
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Mettre à jour l’application cliente pour prendre en charge les fonctionnalités hors connexion
-Les fonctionnalités hors connexion de l’application mobile Azure vous permettent d’interagir avec une base de données locale hors connexion. Pour utiliser ces fonctionnalités dans votre application, vous initialisez un [SyncContext] dans un magasin local. Ensuite, vous référencez votre table par le biais de l’interface [IMobileServiceSyncTable][IMobileServiceSyncTable]. SQLite est utilisé comme magasin local sur l’appareil.
+Les fonctionnalités hors connexion de l’application mobile Azure vous permettent d’interagir avec une base de données locale hors connexion. Pour utiliser ces fonctionnalités dans votre application, vous initialisez un [SyncContext] dans un magasin local. Ensuite, référencez votre table par le biais de l’interface [IMobileServiceSyncTable](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet). SQLite est utilisé comme magasin local sur l’appareil.
 
 1. Dans Visual Studio, ouvrez le gestionnaire de package NuGet du projet que vous avez finalisé dans le didacticiel [Création d’une application Xamarin Android].  Recherchez et installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
 2. Ouvrez le fichier ToDoActivity.cs et supprimez les marques de commentaire de la définition `#define OFFLINE_SYNC_ENABLED`.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 05/07/2018
-ms.openlocfilehash: bb7cc17c36809975e26c8da8beda004a0b0cfd9e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 86af0101d84fe9cd44211a931567a85d7b5166e0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774146"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261608"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Migrer SQL Server vers Azure SQL Database Managed Instance à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers une instance [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md). Pour des méthodes supplémentaires pouvant nécessiter un effort manuel, voir l’article [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
@@ -26,7 +26,7 @@ Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de d
 
 Dans ce didacticiel, vous allez migrer la base de données **Adventureworks2012** d’une instance locale de SQL Server vers Azure SQL Database Managed Instance en utilisant Azure Database Migration Service.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Créer une instance Azure Database Migration Service.
 > * Créer un projet de migration en utilisant Azure Database Migration Service.
@@ -35,7 +35,6 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Télécharger un rapport de migration.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 - Créez un réseau virtuel pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux à l’aide de la fonction [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Découvrez les topologies de réseau pour les migrations Azure SQL DB Managed Instance à l’aide d’Azure Database Migration Service](https://aka.ms/dmsnetworkformi).

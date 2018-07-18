@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: robb
-ms.openlocfilehash: f0efe96684d77fb83b69a4da12d312872da2f768
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7fd27dc9be161059dc62071fee33374106e18ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262872"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061279"
 ---
 # <a name="service-health"></a>Service Health
 Service Health fournit un tableau de bord personnalisable qui suit l’intégrité de vos services Azure dans les régions où vous les utiliser. Dans ce tableau de bord, vous pouvez suivre les événements actifs, notamment les problèmes de service en cours, la maintenance planifiée à venir ou les conseils d’intégrité pertinents. Lorsque des événements deviennent inactifs, ils sont placés dans votre historique d’intégrité pendant 90 jours. Enfin, vous pouvez utiliser le tableau de bord Service Health pour créer et gérer des alertes d’intégrité de service qui vous informent de façon proactive des problèmes de service vous concernant.

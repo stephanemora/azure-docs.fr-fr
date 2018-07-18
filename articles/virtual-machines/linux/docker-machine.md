@@ -3,7 +3,7 @@ title: Utiliser Docker Machine pour créer des hôtes Linux dans Azure | Microso
 description: Décrit l’utilisation de Docker Machine pour créer des hôtes Docker dans Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: iainfou
-ms.openlocfilehash: 26e54efc32aa316e1da93598cc861003aefff182
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: cynthn
+ms.openlocfilehash: a59183365ada644f2ff1aae7d52bac5fb1f42354
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125501"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295765"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Comment utiliser Docker Machine pour créer des hôtes dans Azure
 Cet article explique comment utiliser [Docker Machine](https://docs.docker.com/machine/) pour créer des hôtes dans Azure. La commande `docker-machine` crée une machine virtuelle Linux dans Azure, puis installe Docker. Vous pouvez ensuite gérer vos hôtes Docker dans Azure en utilisant les mêmes outils et flux de travail locaux. Pour utiliser docker-machine dans Windows 10, vous devez utiliser un interpréteur de commandes Linux.
@@ -40,7 +40,7 @@ docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
-    --azure-size "Standard_D2_v2" \
+    --azure-size "Standard_DS2_v2" \
     myvm
 ```
 
@@ -136,5 +136,5 @@ Pour voir le conteneur en action, ouvrez un navigateur web et entrez l’adresse
 
 ![Exécution d’un conteneur ngnix](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez également créer des hôtes avec [l’extension de machine virtuelle Docker](dockerextension.md). Pour obtenir des exemples sur l’utilisation de Docker Compose, consultez [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples dans Azure](docker-compose-quickstart.md).

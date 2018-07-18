@@ -3,7 +3,7 @@ title: Exemple de script PowerShell - NGINX | Microsoft Docs
 description: Exemple de script Azure PowerShell - NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b4887c6486aeeaae202e8f772aca13814ff175b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae3e9a8a32a47aa9d7cb68616a7d3c850bda48fe
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654026"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932838"
 ---
 # <a name="create-an-nginx-vm-with-powershell"></a>Créer une machine virtuelle NGINX avec PowerShell
 
@@ -35,7 +35,7 @@ Ce script crée une machine virtuelle Azure, puis utilise l’extension du scrip
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.ps1 "Create VM NGINX")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 

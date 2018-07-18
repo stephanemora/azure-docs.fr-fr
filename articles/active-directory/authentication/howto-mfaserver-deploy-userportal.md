@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 38f75b8fc48f6fdcafd4c6ae25ec0f52641b2c05
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7254e8d1b5a525c3ab06230837bd368e17911dbe
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869622"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100277"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ Selon votre environnement, il peut être nécessaire de déployer le portail de 
 ![Portail de l’utilisateur MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> Le portail de l’utilisateur est disponible uniquement avec le serveur Multi-Factor Authentication. Si vous utilisez Multi-Factor Authentication dans le cloud, invitez vos utilisateurs à se reporter aux articles [Configurer le compte pour la vérification en deux étapes](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md) ou [Gérer les paramètres de la vérification en deux étapes](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md).
+> Le portail de l’utilisateur est disponible uniquement avec le serveur Multi-Factor Authentication. Si vous utilisez Multi-Factor Authentication dans le cloud, invitez vos utilisateurs à se reporter aux articles [Configurer le compte pour la vérification en deux étapes](end-user/current/multi-factor-authentication-end-user-first-time.md) ou [Gérer les paramètres de la vérification en deux étapes](end-user/current/multi-factor-authentication-end-user-manage-settings.md).
 
 ## <a name="install-the-web-service-sdk"></a>Installation du Kit de développement logiciel (SDK) du service web
 

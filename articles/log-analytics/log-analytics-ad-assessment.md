@@ -3,7 +3,7 @@ title: Optimisation de votre environnement Active Directory avec Azure Log Analy
 description: La solution Active Directory Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 016b5bafdf6543ad43e36a875e6aa68572b35f97
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: na
+ms.openlocfilehash: 5b9bd5bf21f378f92b7dd6e027d1bb0c05620dd6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886176"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128841"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimisez votre environnement Active Directory avec la solution Active Directory Health Check dans Log Analytics
 
@@ -41,7 +41,6 @@ Une fois la solution ajoutée et le contrôle terminé, le résumé des informat
 ![image du tableau de bord AD Health Check](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * La solution Active Directory Health Check nécessite l’installation d’une version prise en charge du .NET Framework (version 4.5.2 ou ultérieure) sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 - Operations Manager, Operations Manager 2012 R2 et le service Log Analytics.
 * La solution prend en charge les contrôleurs de domaine exécutant Windows Server 2008 et 2008 R2, Windows Server 2012 et 2012 R2 et Windows Server 2016.

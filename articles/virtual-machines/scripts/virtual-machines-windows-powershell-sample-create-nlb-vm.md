@@ -3,7 +3,7 @@ title: Exemple de script Azure PowerShell - Création d’un équilibrage de ch
 description: Exemple de script Azure PowerShell - Création d’un équilibrage de charge réseau de machine virtuelle Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: de278a60c46e3070d516aabda455fa98fcc5dba2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b7b784cf732be0b861933c8c3638e08999a30a3
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656524"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932056"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Équilibrer la charge du trafic entre des machines virtuelles hautement disponibles
 
@@ -35,7 +35,7 @@ Cet exemple de script crée tous les éléments nécessaires pour exécuter plus
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Create VM NLB")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 

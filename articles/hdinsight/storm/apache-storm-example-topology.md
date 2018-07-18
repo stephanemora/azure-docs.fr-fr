@@ -4,7 +4,7 @@ description: Liste d’exemples de topologies Storm créées et testées avec Ap
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: f9b1bdff-5928-4705-a76d-52fd200917cb
@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/30/2018
 ms.author: larryfr
-ms.openlocfilehash: f633797147b2090680ebb5ea11f60271addc7f52
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 429373a27ad9be23b986116182a4eda80bace7f7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626885"
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Exemples de topologies et de composants Storm pour Apache Storm sur HDInsight
 
@@ -38,6 +39,11 @@ Voici une liste d'exemples créés et gérés par Microsoft à utiliser avec Apa
 | [Tests d’extensibilité pour la lecture à partir d’Azure Event Hubs à l’aide de Storm sur HDInsight][d6c540e3] |Débit des messages, Event Hubs, SQL Database |C#, Java |
 | [Utilisation de Python avec Storm sur HDInsight](apache-storm-develop-python-topology.md) |Composants de Python avec une topologie Flux |Python |
 | [Utilisation de Kafka avec Storm sur HDInsight](../hdinsight-apache-storm-with-kafka.md) | Lecture et écriture Apache Storm dans Apache Kafka | Java |
+
+> [!WARNING]
+> Les exemples C# de cette liste ont été initialement créés et testés avec HDInsight de basés sur Windows ; ils peuvent ne pas fonctionner correctement avec des clusters HDInsight sur Linux. Les clusters basés sur Linux utilisent Mono pour exécuter le code .NET, et peuvent avoir des problèmes de compatibilité avec les frameworks et les packages utilisés dans l’exemple.
+>
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure.
 
 ### <a name="next-steps"></a>Étapes suivantes
 

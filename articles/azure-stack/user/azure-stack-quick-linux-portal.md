@@ -11,12 +11,12 @@ ms.date: 04/24/2018
 ms.author: brenduns
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 2ea07f04d4c566c0add39d75cad3d3a4ed81c6c8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c364a9ba5a9606967fa86262417ccd1ac3aeffc3
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152218"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866268"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Démarrage rapide : créer une machine virtuelle serveur Linux avec le portail Azure Stack
 
@@ -29,7 +29,6 @@ Vous pouvez créer une machine virtuelle sous Ubuntu Server 16.04 LTS à l’aid
 * Nettoyer des ressources.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * **Une image Linux dans la Place de Marché Azure Stack**
 
@@ -118,7 +117,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-Une fois que vous avez terminé l’installation de NGINX, quittez la session SSH et ouvrez la page Vue d’ensemble de la machine virtuelle dans le portail Azure Stack.
+Une fois que vous avez terminé l’installation de NGINX, fermez la session SSH et ouvrez la page Vue d’ensemble de la machine virtuelle dans le portail Azure Stack.
 
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web
 
@@ -139,7 +138,7 @@ Ouvrez un navigateur web et accédez à ```http://<public IP address>```.
 
 ![Page d’accueil du serveur web NGINX](media/azure-stack-quick-linux-portal/linux-04.PNG)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Nettoyez les ressources dont vous n’avez plus besoin. Pour supprimer la machine virtuelle et ses ressources, sélectionnez le groupe de ressources sur la page de la machine virtuelle, puis cliquez sur **Supprimer**.
 

@@ -1,24 +1,25 @@
 ---
 title: Configurer un cluster Azure Service Fabric autonome | Microsoft Docs
-description: "Créez un cluster de développement autonome avec trois nœuds s’exécutant sur le même ordinateur. Une fois l’installation terminée, vous serez prêt à créer un cluster de plusieurs ordinateurs."
+description: Créez un cluster de développement autonome avec trois nœuds s’exécutant sur le même ordinateur. Une fois l’installation terminée, vous serez prêt à créer un cluster de plusieurs ordinateurs.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5438d8d366ef989d5ae29581477513f8c884c4b3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 93c921e54c69693ed02c122a2491b0942f550126
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643462"
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Créer votre premier cluster Service Fabric autonome
 Vous pouvez créer un cluster Service Fabric autonome sur n’importe quel ordinateur ou machine virtuelle exécutant Windows Server 2012 R2 ou Windows Server 2016, en local ou dans le cloud. Ce démarrage rapide vous aide à créer un cluster de développement autonome en seulement quelques minutes.  Une fois que vous avez terminé, vous disposez d’un cluster à trois nœuds s’exécutant sur un seul ordinateur sur lequel vous pouvez déployer des applications.

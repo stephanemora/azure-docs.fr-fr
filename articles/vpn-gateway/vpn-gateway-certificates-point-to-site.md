@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: cherylmc
 ms.openlocfilehash: 385b6ed2e8104fd2e15e6e55d46dcd12b963ec6b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423046"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696546"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell
 

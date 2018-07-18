@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: 9bb13cde07141c576a0ec78c3b48c5a20d6dbb67
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657653"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858610"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Exécution de SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux
 Cet article décrit les divers éléments à prendre en compte lorsque vous exécutez SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux. À compter du 19 mai 2016, SAP NetWeaver est officiellement pris en charge sur les machines virtuelles SUSE Linux dans Azure. Vous trouverez tous les détails concernant les versions de Linux et les versions du noyau SAP, ainsi que d’autres prérequis, dans la note SAP 1928533 « SAP Applications on Azure: Supported Products and Azure VM types » (Applications SAP sur Azure : produits et types de machines virtuelles pris en charge).
@@ -129,7 +129,7 @@ SUSE fournit un package appelé « sapconf » qui gère un ensemble de paramètr
 
 En attendant, il existe un nouvel outil qui remplace sapconf - tuned-adm. Des informations supplémentaires sur cet outil sont disponibles en suivant les deux liens ci-dessous :
 
-- La documentation SLES sur le profil tuned-adm sap-hana se trouve [ici](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html) 
+- La documentation SLES sur le profil tuned-adm sap-hana se trouve [ici](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_saptune.html) 
 
 - Les systèmes de paramétrage pour les charges de travail SAP avec tuned-adm se trouvent [ici](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf), au chapitre 6.2
 

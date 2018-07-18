@@ -23,19 +23,21 @@
       href: quickstart-ruby.md
     - name: Créer une application Docker/Go
       href: quickstart-docker-go.md
+    - name: Créer une application pour plusieurs conteneurs
+      href: quickstart-multi-container.md
 - name: Didacticiels
   items:
     - name: Application avec base de données
       items:
         - name: .NET Core avec SQL DB
           href: tutorial-dotnetcore-sqldb-app.md
-        - name: Ruby avec MySQL
-          href: tutorial-ruby-mysql-app.md
+        - name: Ruby avec Postgres
+          href: tutorial-ruby-postgres-app.md
         - name: PHP avec MySQL
           href: tutorial-php-mysql-app.md
         - name: Node.js avec MongoDB
           href: tutorial-nodejs-mongodb-app.md
-        - name: Conteneur personnalisé de Python avec PostgreSQL
+        - name: Conteneur Python personnalisé avec Postgres
           href: tutorial-docker-python-postgresql-app.md
     - name: Application pour plusieurs conteneurs
       href: tutorial-multi-container-app.md
@@ -129,6 +131,8 @@
           href: ../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Augmenter la taille de plusieurs instances
           href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Hébergement de haute densité
+          href: ../app-service-high-density-hosting.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Surveiller l’application
       items:
         - name: Se connecter à l’application via SSH

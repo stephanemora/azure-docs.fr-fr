@@ -7,23 +7,36 @@ author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
+ms.reviewer: genemi
 ms.author: billgib
-ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941892"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737678"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 
 Quand vous concevez une application SaaS multi-locataire, vous devez choisir avec soin le modèle de location qui répond le mieux aux besoins de votre application.  Un modèle de location détermine la façon dont les données de chaque locataire sont mappées au stockage.  Le modèle de location que vous choisissez a un impact sur la conception et la gestion des applications.  Le fait de passer à un autre modèle par la suite peut parfois s’avérer coûteux.
 
-La discussion qui suit traite des autres modèles de location.
+Cet article décrit d’autres modèles de location.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>R. Comment choisir le modèle de location approprié
+## <a name="a-saas-concepts-and-terminology"></a>R. Concepts et terminologie SaaS
+
+Dans le modèle SaaS (Software as a Service), votre entreprise ne vend pas de *licences* de vos logiciels. À la place, chaque client paie un loyer à votre entreprise, qui fait de chaque client un *locataire* de votre entreprise.
+
+En échange du loyer, chaque client reçoit l’accès aux composants de votre application SaaS et voit ses données stockées dans le système SaaS.
+
+Le terme *modèle de location* fait référence à la façon dont sont organisées les données stockées des locataires :
+
+- *Monolocation :* &nbsp; Chaque base de données stocke les données d’un seul locataire.
+- *Multilocation :* &nbsp; Chaque base de données stocke les données de plusieurs locataires distincts (avec des mécanismes de protection de la confidentialité des données).
+- Des modèles de location hybrides sont également disponibles.
+
+## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Comment choisir le modèle de location approprié
 
 En général, le modèle de location n’affecte pas le fonctionnement d’une application, mais il peut avoir un impact sur d’autres aspects de la solution dans son ensemble.  Les critères suivants sont utilisés pour évaluer chacun des modèles :
 
@@ -51,7 +64,7 @@ En général, le modèle de location n’affecte pas le fonctionnement d’une a
 
 La discussion sur la location est axée sur la couche *Données*.  Mais réfléchissons un instant à la couche *Application*.  La couche Application est traitée comme une entité monolithique.  Si vous divisez l’application en plusieurs composants, le modèle de location que vous avez choisi peut être amené à changer.  Vous pouvez traiter certains composants différemment des autres sur le plan de la location et de la plateforme/technologie de stockage utilisées.
 
-## <a name="b-standalone-single-tenant-app-with-single-tenant-database"></a>B. Application à locataire unique autonome avec une base de données à locataire unique
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Application à locataire unique autonome avec une base de données à locataire unique
 
 #### <a name="application-level-isolation"></a>Isolation au niveau de l’application
 
@@ -67,7 +80,7 @@ Chaque base de données de locataire est déployée comme une base de données a
 
 Le fournisseur peut accéder à toutes les bases de données dans toutes les instances d’application autonomes, même si les instances d’application sont installées dans des abonnements appartenant à des locataires différents.  L’accès s’effectue par le biais de connexions SQL.  Cet accès entre instances peut permettre au fournisseur de centraliser la gestion des schémas et les requêtes entre bases de données dans le but de créer des rapports ou à des fins analytiques.  Si ce type de gestion centralisée est souhaité, vous devez déployer un catalogue qui mappe les identificateurs de locataire aux URI de base de données.  Azure SQL Database propose une bibliothèque de partitionnement qui fonctionne avec une base de données SQL pour fournir un catalogue.  La bibliothèque de partitionnement a pour nom officiel « [Bibliothèque cliente de bases de données élastiques][docu-elastic-db-client-library-536r] ».
 
-## <a name="c-multi-tenant-app-with-database-per-tenant"></a>C. Application multi-locataire avec une base de données par locataire
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Application multi-locataire avec une base de données par locataire
 
 Le modèle suivant utilise une application multi-locataire avec plusieurs bases de données qui sont toutes à locataire unique.  Une nouvelle base de données est provisionnée pour chaque nouveau locataire.  Vous pouvez mettre à l’échelle la couche Application *verticalement* en ajoutant davantage de ressources par nœud.  Vous pouvez aussi mettre à l’échelle l’application *horizontalement* en ajoutant des nœuds supplémentaires.  La mise à l’échelle est basée sur la charge de travail et est indépendante du nombre ou de l’échelle des bases de données individuelles.
 
@@ -106,7 +119,7 @@ Les opérations de gestion peuvent être scriptées et proposées par le biais d
 
 Par exemple, vous pouvez automatiser la récupération d’un locataire unique à un point antérieur dans le temps.  La récupération doit seulement restaurer la base de données à locataire unique qui stocke le locataire.  Cette restauration n’a aucun impact sur les autres locataires, ce qui confirme que les opérations de gestion sont effectuées très précisément au niveau de chaque locataire.
 
-## <a name="d-multi-tenant-app-with-multi-tenant-databases"></a>D. Application multi-locataire avec des bases de données multi-locataires
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. Application multi-locataire avec des bases de données multi-locataires
 
 Un autre modèle disponible consiste à stocker plusieurs locataires dans une base de données multi-locataire.  L’instance d’application peut avoir autant de bases de données multi-locataires que vous le souhaitez.  Le schéma d’une base de données doit avoir une ou plusieurs colonnes d’identification des locataires pour permettre la récupération sélective des données de n’importe quel locataire.  En outre, le schéma peut nécessiter quelques tables ou colonnes qui sont uniquement utilisées par un sous-ensemble de locataires.  Toutefois, le code statique et les données de référence ne sont stockés qu’une seule fois et sont partagés par tous les locataires.
 
@@ -122,13 +135,13 @@ En général, les bases de données multi-locataires offrent le coût le plus ba
 
 Deux variantes du modèle de base de données multi-locataire sont abordées ci-après, le modèle multi-locataire partitionné étant le plus souple et le plus scalable.
 
-## <a name="e-multi-tenant-app-with-a-single-multi-tenant-database"></a>E. Application multi-locataire avec une base de données multi-locataire unique
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Application multi-locataire avec une base de données multi-locataire unique
 
 Le modèle de base de données multi-locataire le plus simple emploie une base de données autonome unique pour héberger des données pour tous les locataires.  Au fur et à mesure que des locataires sont ajoutés, la base de données est mise à l’échelle verticalement avec davantage de ressources de stockage et de calcul.  Cette mise à l’échelle verticale peut suffire, bien qu’elle soit toujours soumise à une limite.  Cependant, la base de données devient lourde à gérer bien avant que cette limite ne soit atteinte.
 
 Les opérations de gestion qui portent sur des locataires individuels sont plus complexes à implémenter dans une base de données multi-locataire.  Et à grande échelle, ces opérations peuvent devenir beaucoup trop lentes.  C’est le cas par exemple d’une restauration dans le temps des données pour un seul locataire.
 
-## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F. Application multi-locataire avec des bases de données multi-locataires partitionnées
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. Application multi-locataire avec des bases de données multi-locataires partitionnées
 
 La plupart des applications SaaS accèdent aux données d’un seul locataire à la fois.  Ce modèle d’accès permet aux données du locataire d’être distribuées entre plusieurs bases de données ou partitions, où toutes les données d’un locataire sont contenues dans une seule partition.  Associé à un modèle de base de données multi-locataire, un modèle partitionné autorise une mise à l’échelle pratiquement illimitée.
 
@@ -152,7 +165,7 @@ Selon l’approche de partitionnement utilisée, des contraintes supplémentaire
 
 Vous pouvez placer les bases de données multi-locataires partitionnées dans des pools élastiques.  En général, le fait d’avoir plusieurs bases de données à locataire unique dans un pool est aussi rentable que d’avoir plusieurs locataires dans quelques bases de données multi-locataires.  Les bases de données multi-locataires sont avantageuses quand vous avez un grand nombre de locataires relativement inactifs.
 
-## <a name="g-hybrid-sharded-multi-tenant-database-model"></a>G. Modèle de base de données multi-locataire partitionnée hybride
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Modèle de base de données multi-locataire partitionnée hybride
 
 Dans le modèle hybride, l’identificateur de locataire est inclus dans le schéma de toutes les bases de données.  Les bases de données sont toutes capables de stocker plusieurs locataires, et elles peuvent être partitionnées.  Du point de vue du schéma, ces bases de données sont donc toutes multi-locataires.  Pourtant, dans la pratique, certaines de ces bases de données contiennent un seul locataire.  Quoi qu’il en soit, la quantité de locataires stockés dans une base de données n’a aucun effet sur le schéma de la base de données.
 
@@ -166,7 +179,7 @@ Le modèle hybride est particulièrement adapté quand des groupes identifiables
 
 Dans ce modèle hybride, les bases de données à locataire unique pour les locataires abonnés peuvent être placées dans des pools de ressources pour réduire les coûts de la base de données par locataire.  Il en va de même dans le modèle de base de données par locataire.
 
-## <a name="h-tenancy-models-compared"></a>H. Comparaison des modèles de location
+## <a name="i-tenancy-models-compared"></a>I. Comparaison des modèles de location
 
 Le tableau suivant récapitule les différences entre les principaux modèles de location.
 

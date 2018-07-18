@@ -12,24 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
+ms.date: 05/24/2018
 ms.author: genli
-ms.openlocfilehash: 9bf57eac2176444ed408d90723009118bd411480
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4c602368368e8ef36581d3f035ff3943a8f0d8f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657279"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Affichage et modification des noms d'hôtes
 Pour permettre le référence par nom d’hôte de vos instances de rôle, vous devez définir la valeur de nom d’hôte dans le fichier de configuration de service associé à chaque rôle. Pour ce faire, ajoutez le nom d’hôte souhaité à l’attribut **vmName** de l’élément **Role**. La valeur de l’attribut **vmName** est utilisée comme base de nom d’hôte pour chaque instance de rôle. Par exemple, si **vmName** est *webrole* et qu’il existe trois instances de ce rôle, les hôtes des instances s’intitulent *webrole0*, *webrole1* et *webrole2*. Il n’est pas nécessaire de définir un nom d’hôte pour les machines virtuelles dans le fichier de configuration, car ces noms sont renseignés en fonction du nom de la machine virtuelle. Pour en savoir plus sur la configuration d’un service Microsoft Azure, consultez la section [Schéma de configuration du service Azure (fichier .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## <a name="viewing-hostnames"></a>Affichage des noms d’hôtes
 Vous pouvez afficher les noms d’hôtes des machines virtuelles et des instances de rôle dans un service cloud à l’aide des utilitaires ci-dessous.
-
-### <a name="azure-portal"></a>Portail Azure
-Vous pouvez utiliser le [portail Azure](http://portal.azure.com) pour afficher les noms d’hôtes pour les machines virtuelles sur le panneau de vue d’ensemble d’une machine virtuelle. N’oubliez pas que le panneau comporte des valeurs pour les attributs **Nom** et **Nom d’hôte**. Bien que ces deux éléments soient initialement identiques, toute modification du nom d’hôte n’affecte en rien le nom de la machine virtuelle ou de l’instance de rôle.
-
-Les instances de rôle peuvent être également affichées dans le portail Azure. Cependant, lorsque vous répertoriez les instances dans un service cloud, le nom d’hôte ne s’affiche pas. Un nom apparaît pour chaque instance, mais il ne représente aucunement le nom d’hôte.
 
 ### <a name="service-configuration-file"></a>Fichier de configuration de service
 Vous pouvez télécharger le fichier de configuration de service d’un service déployé à partir du panneau **Configurer** du service dans le portail Azure. Pour connaître le nom d’hôte, il vous suffit de rechercher l’attribut **vmName** associé à l’élément **Nom de rôle**. Gardez à l’esprit que ce nom d’hôte est utilisé comme base pour le nom d’hôte de chaque instance de rôle. Par exemple, si **vmName** est *webrole* et qu’il existe trois instances de ce rôle, les hôtes des instances s’intitulent *webrole0*, *webrole1* et *webrole2*.
@@ -46,7 +42,7 @@ Une fois que vous avez activé le Bureau à distance (Windows), l’accès dist
 
 1. Assurez-vous de disposer d’un certificat client pour vous connecter au portail Azure. Pour obtenir un certificat client, suivez la procédure présentée dans la section [Téléchargement et importation des paramètres de publication et des informations d’abonnement](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Définissez une entrée d’en-tête intitulée x-ms-version , présentant une valeur de 2013-11-01.
-3. Envoyez une demande au format suivant : https://management.core.windows.net/\<id-abonnement\>/services/hostedservices/\<nom-service\>?embed-detail=true
+3. Envoyez une requête au format suivant : https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. Recherchez l’élément **HostName** associé à chaque élément **RoleInstance**.
 
 > [!WARNING]

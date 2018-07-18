@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: ecb0b9395ce7071442ddf0dd976e1ca57b8be906
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b3ca7be647ff7db0d147eca57edb20e658a28130
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161139"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919469"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur votre site local secondaire
 
@@ -36,7 +36,6 @@ Le basculement et la restauration automatique comportent trois étapes :
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Veillez à effectuer un [test de récupération d’urgence](hyper-v-vmm-test-failover.md) pour vérifier que tout fonctionne comme prévu.
 - Pour effectuer la restauration automatique, vérifiez que les serveurs VMM principal et secondaire sont connectés à Site Recovery.

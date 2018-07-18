@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ms.openlocfilehash: d06fde0dc6c289a09b9fe4c9e2ffbb50c3027490
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798319"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719440"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage File d’attente Azure et des services connectés de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -28,7 +28,6 @@ Le stockage de files d’attente Azure fournit une messagerie cloud entre les co
 Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios courants en utilisant des entités de stockage de file d’attente Azure. Ces scénarios incluent des tâches courantes telles que la création d’une file d’attente Azure, l'ajout, la modification, la lecture et la suppression de messages de file d’attente.
 
 ##<a name="prerequisites"></a>Prérequis
-
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Compte Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 313d6cfd69fbf63066add46c7a467c5090604067
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807252"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285846"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentation sur la facturation et la gestion des coûts Azure
 
@@ -133,7 +133,7 @@ Apprenez à comprendre votre facturation Azure, à analyser l’utilisation et l
                     <div class="cardText">
                         <h3>Faites des économies grâce aux instances de machines virtuelles réservées</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">Que sont les instances réservées ?</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Que sont les instances réservées ?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Acheter une instance réservée</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">Application de la remise</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Coûts des logiciels non inclus</a>
@@ -165,12 +165,18 @@ Apprenez à comprendre votre facturation Azure, à analyser l’utilisation et l
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Résolution des problèmes</h3>
+                        <h3>Abonnement d’entreprise : requiert l’accès au portail EA</h3>
+                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
-                        <a href="/azure/billing/billing-no-subscriptions-found">« Aucun abonnement trouvé »</a><br/>
-                        <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Carte refusée</a><br/>
-                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Problèmes d’inscription</a><br/>
-                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Problèmes de connexion</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Gérer les départements<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/addNewAccount" data-linktype="external">Gérer les comptes<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createANewSubscription" data-linktype="external">Créer des abonnements<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/viewPriceSheet" data-linktype="external">Afficher la grille tarifaire<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/usageDetailReport" data-linktype="external">Afficher les détails d’utilisation<span class="docon docon-navigate-external"></span></a>
                         </p>
                     </div>
                 </div>

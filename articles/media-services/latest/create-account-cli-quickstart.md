@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Créer un compte Azure Media Services avec CLI 2.0 | Microsoft Docs
+title: 'Démarrage rapide : Créer un compte Azure Media Services avec Azure CLI | Microsoft Docs'
 description: Suivez les étapes de ce démarrage rapide pour créer un compte Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: f7e5cb28f90466e9366c0a32e2a333e6823b9396
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779716"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767100"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Démarrage rapide : créer un compte Azure Media Services
 
@@ -26,7 +26,7 @@ ms.locfileid: "33779716"
 
 Que vous soyez un développeur ou un créateur de contenu multimédia, pour stocker, chiffrer, encoder, gérer et diffuser du contenu multimédia dans Azure, vous devez créer un compte Media Services. Lorsque vous créez un compte Media Services, vous devez fournir l’ID d’une ressource de compte de stockage Azure. Le compte de stockage spécifié est lié à votre compte Media Services. Cette ressource de compte de stockage doit se trouver dans la même zone géographique que le compte Media Services.  
 
-Ce démarrage rapide décrit les étapes pour créer un compte Azure Media Services à l’aide de CLI 2.0.  
+Ce démarrage rapide décrit les étapes pour créer un compte Azure Media Services à l’aide d’Azure CLI.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ Connectez-vous au [portail Azure](http://portal.azure.com) et lancez **CloudShel
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0 ou une version ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0 ou une version ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="set-the-azure-subscription"></a>Configurer l’abonnement Azure
 
@@ -78,7 +78,7 @@ Vous trouverez ci-dessous les commandes Azure CLI qui créent un nouveau compte 
 az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment le compte Media Services que vous avez créé dans ce guide de démarrage rapide, supprimez le groupe de ressources.
 

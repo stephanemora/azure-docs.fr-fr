@@ -1,6 +1,6 @@
 ---
 title: Audit et journalisation - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
-description: mesures de correction des menaces exposées dans l’outil de modélisation des menaces
+description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8837dfaf156e5a4d07598f2c58694663a9ff5580
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23044404"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029979"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Infrastructure de sécurité : Audit et journalisation | Corrections 
-| Produit/service | Article |
+| Produit/Service | Article |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identifier les entités sensibles dans votre solution et implémenter l’audit des modifications](#sensitive-entities)</li></ul> |
-| **Application web** | <ul><li>[Vérifier que l’audit et la journalisation sont appliqués à l’application](#auditing)</li><li>[Vérifier que la rotation et la séparation des journaux sont en place](#log-rotation)</li><li>[Vérifier que l’application n’enregistre pas de données utilisateur sensibles](#log-sensitive-data)</li><li>[Vérifier que l’accès aux fichiers d’audit et journaux est restreint](#log-restricted-access)</li><li>[Vérifier que les événements de gestion des utilisateurs sont enregistrés](#user-management)</li><li>[Vérifier que le système intègre des défenses contre l’utilisation malveillante](#inbuilt-defenses)</li><li>[Activer la journalisation des diagnostics pour les applications web dans Azure App Service](#diagnostics-logging)</li></ul> |
+| **Application Web** | <ul><li>[Vérifier que l’audit et la journalisation sont appliqués à l’application](#auditing)</li><li>[Vérifier que la rotation et la séparation des journaux sont en place](#log-rotation)</li><li>[Vérifier que l’application n’enregistre pas de données utilisateur sensibles](#log-sensitive-data)</li><li>[Vérifier que l’accès aux fichiers d’audit et journaux est restreint](#log-restricted-access)</li><li>[Vérifier que les événements de gestion des utilisateurs sont enregistrés](#user-management)</li><li>[Vérifier que le système intègre des défenses contre l’utilisation malveillante](#inbuilt-defenses)</li><li>[Activer la journalisation des diagnostics pour les applications web dans Azure App Service](#diagnostics-logging)</li></ul> |
 | **Base de données** | <ul><li>[Vérifier que l’audit des connexions est activé sur SQL Server](#identify-sensitive-entities)</li><li>[Activer la détection des menaces sur SQL Azure](#threat-detection)</li></ul> |
-| **Azure Storage** | <ul><li>[Utiliser Azure Storage Analytics pour auditer l’accès d’Azure Storage](#analytics)</li></ul> |
+| **Stockage Azure** | <ul><li>[Utiliser Azure Storage Analytics pour auditer l’accès d’Azure Storage](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Implémenter une journalisation suffisante](#sufficient-logging)</li><li>[Implémenter une gestion suffisante des échecs d’audit](#audit-failure-handling)</li></ul> |
 | **API Web** | <ul><li>[Vérifier que l’audit et la journalisation sont appliqués à l’API web](#logging-web-api)</li></ul> |
 | **Passerelle de champ IoT** | <ul><li>[Vérifier que l’audit et la journalisation appropriés sont appliqués sur la passerelle de champ](#logging-field-gateway)</li></ul> |
@@ -147,7 +147,7 @@ ms.locfileid: "23044404"
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Azure Storage | 
+| **Composant**               | Stockage Azure | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A |
@@ -162,10 +162,10 @@ ms.locfileid: "23044404"
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | .NET Framework |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Étapes** | <p>L’absence d’une piste d’audit correcte après un incident de sécurité peut entraver les efforts d’investigation. Windows Communication Foundation (WCF) offre la possibilité d’enregistrer les tentatives d’authentification ayant réussi et/ou échoué.</p><p>La journalisation des tentatives d’authentification ayant échoué peut avertir les administrateurs de potentielles attaques en force brute. De même, la journalisation des événements d’authentification ayant réussi peut fournir à une piste d’audit utile lorsqu’un compte légitime est compromis. Activer la fonctionnalité d’audit de la sécurité de service de WCF |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Voici un exemple de configuration dans lequel l’audit est activé
 ```
 <system.serviceModel>
@@ -191,10 +191,10 @@ Voici un exemple de configuration dans lequel l’audit est activé
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | .NET Framework |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Étapes** | <p>La solution développée est configurée pour ne pas générer d’exception lorsqu’elle ne parvient pas à écrire dans un journal d’audit. Si WCF est configuré pour ne pas lever une exception lorsqu’il ne parvient pas à écrire dans un journal d’audit, le programme n’est pas informé de l’échec et l’audit des événements de sécurité critiques ne peut pas être réalisé.</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 L’élément `<behavior/>` du fichier de configuration WCF ci-dessous indique à WCF de ne pas informer l’application lorsqu’il ne parvient pas à écrire dans un journal d’audit.
 ````
 <behaviors>
@@ -236,7 +236,7 @@ Configurez WCF pour informer le programme chaque fois qu’il ne parvient pas à
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Passerelle de cloud IoT | 
+| **Composant**               | Passerelle cloud IoT | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |

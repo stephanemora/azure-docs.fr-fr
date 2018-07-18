@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cb68b00232edd79a7b9cf239c1576c88731812d6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7fc4fc42893ec839f3ffbe667e9fcfad944115f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617679"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053555"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-sqlserver-connector.md)
-> * [Version 2 - Préversion](connector-sql-server.md)
+> * [Version 1](v1/data-factory-sqlserver-connector.md)
+> * [Version actuelle](connector-sql-server.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers et depuis une base de données SQL Server. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale (GA), consultez [Connecteur SQL Server dans V1](v1/data-factory-sqlserver-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -58,7 +55,7 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Server
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type doit être définie sur **SqlServer** | OUI |
-| connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
+| connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. Reportez-vous à l’exemple suivant, et ajoutez enrich pour inclure plus de propriétés, par exemple AlwaysOn. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
 | userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non  |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |

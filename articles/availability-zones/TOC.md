@@ -22,7 +22,7 @@
 ### Groupes identiques de machines virtuelles 
 #### [Créer un groupe identique dans une zone de disponibilité](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Équilibreur de charge
+### Load Balancer
 #### [Qu’est-ce que l’équilibrage de charge ?](../load-balancer/load-balancer-standard-overview.md)
 #### [Standard d’équilibrage de charge et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md)
 
@@ -42,6 +42,18 @@
 
 ### Stockage
 #### [Stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md)
+
+### Event Hubs
+#### [Géo-reprise d’activité après sinistre Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+
+### Service Bus
+#### [Géo-reprise d’activité après sinistre Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+
+### Passerelle VPN
+#### [Créer une passerelle de réseau virtuel redondant dans une zone](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
+### ExpressRoute
+#### [Créer une passerelle de réseau virtuel redondant dans une zone](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 # Récupération d’urgence
 ## [Utiliser Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

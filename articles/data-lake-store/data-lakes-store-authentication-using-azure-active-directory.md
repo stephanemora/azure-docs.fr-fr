@@ -9,17 +9,18 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 061a44540cb618074764ae02fecb3f43d47fe5dd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bee65fbdc65807ac33ae425ed9d87dbf0c246d9d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625285"
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Authentification auprès de Data Lake Store à l’aide d’Azure Active Directory
 
-Azure Data Lake Store utilise Azure Active Directory pour l’authentification. Avant de créer une application qui fonctionne avec Azure Data Lake Store, vous devez déterminer la manière dont vous voulez authentifier votre application auprès d’Azure Active Directory (Azure AD). 
+Azure Data Lake Store utilise Azure Active Directory pour l’authentification. Avant de créer une application qui fonctionne avec Azure Data Lake Store, vous devez déterminer la manière dont vous voulez authentifier votre application auprès d’Azure Active Directory (Azure AD).
 
 ## <a name="authentication-options"></a>Options d’authentification
 
@@ -29,8 +30,8 @@ Azure Data Lake Store utilise Azure Active Directory pour l’authentification. 
 
 Le tableau suivant illustre comment les mécanismes d’authentification de l’utilisateur final et de service à service sont pris en charge pour Data Lake Store. Voici comment lire le tableau.
 
-* Le symbole ✔* indique que l’option d’authentification est prise en charge et fournit un lien vers un article qui illustre comment utiliser l’option d’authentification. 
-* Le symbole ✔ indique que l’option d’authentification est prise en charge. 
+* Le symbole ✔* indique que l’option d’authentification est prise en charge et fournit un lien vers un article qui montre comment utiliser l’option d’authentification. 
+* Le symbole ✔indique que l’option d’authentification est prise en charge. 
 * Les cellules vides indiquent que l’option d’authentification n’est pas prise en charge.
 
 

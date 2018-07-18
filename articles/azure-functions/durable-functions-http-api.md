@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3c000e268c4c926991c3f1928f226065a436c6d2
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32309978"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "36264883"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP dans Fonctions durables (Azure Functions)
 
@@ -194,6 +194,81 @@ Voici un exemple de charge utile de réponse incluant l’historique et les sort
 ```
 
 La réponse **HTTP 202** inclut également un en-tête de réponse **Location** qui fait référence à la même URL que le champ `statusQueryGetUri` mentionné précédemment.
+
+### <a name="get-all-instances-status"></a>Obtenir l’état de toutes les instances
+
+Vous pouvez également demander l’état de toutes les instances. Supprimez `instanceId` de la requête « Obtenir l’état de l’instance ». Les paramètres sont les mêmes que ceux de « Obtenir l’état de l’instance ». 
+
+#### <a name="request"></a>Requête
+
+Pour Functions 1.0, le format de la demande est le suivant :
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent : 
+
+```http
+GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="response"></a>response
+
+Voici un exemple de charges utiles de réponse incluant l’état de l’orchestration (mises en forme pour une meilleure lisibilité) :
+
+```json
+[
+    {
+        "instanceId": "7af46ff000564c65aafbfe99d07c32a5",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-06-04T10:46:39Z",
+        "lastUpdatedTime": "2018-06-04T10:46:47Z"
+    },
+    {
+        "instanceId": "80eb7dd5c22f4eeba9f42b062794321e",
+        "runtimeStatus": "Running",
+        "input": null,
+        "customStatus": null,
+        "output": null,
+        "createdTime": "2018-06-04T15:18:28Z",
+        "lastUpdatedTime": "2018-06-04T15:18:38Z"
+    },
+    {
+        "instanceId": "9124518926db408ab8dfe84822aba2b1",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-06-04T10:46:54Z",
+        "lastUpdatedTime": "2018-06-04T10:47:03Z"
+    },
+    {
+        "instanceId": "d100b90b903c4009ba1a90868331b11b",
+        "runtimeStatus": "Pending",
+        "input": null,
+        "customStatus": null,
+        "output": null,
+        "createdTime": "2018-06-04T15:18:39Z",
+        "lastUpdatedTime": "2018-06-04T15:18:39Z"
+    }
+]
+```
+
+> [!NOTE]
+> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans la table d’instances. Vous trouverez plus d’informations sur la table d’instances dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table).
+> 
 
 ### <a name="raise-event"></a>Raise event
 

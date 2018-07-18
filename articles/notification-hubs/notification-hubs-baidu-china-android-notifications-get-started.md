@@ -15,11 +15,11 @@ ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777574"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700898"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Prendre en main Notification Hubs à l’aide de Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,11 +42,11 @@ Ce didacticiel requiert les éléments suivants :
 ## <a name="create-a-baidu-account"></a>Création d’un compte Baidu
 Pour utiliser Baidu, vous devez disposer d’un compte Baidu. Si vous en avez déjà un, connectez-vous au [portail Baidu] et passez à l’étape suivante. Dans le cas contraire, consultez les instructions ci-après pour créer un compte Baidu.  
 
-1. Accédez au [portail Baidu] et cliquez sur le lien **登录** (**Connexion**). Cliquez sur **立即注册** (**S’inscrire maintenant**) pour démarrer le processus d’inscription d’un compte.
+1. Accédez au [portail Baidu] et cliquez sur le lien **登录** (**Connexion**). Cliquez sur **立即注册** (**S’inscrire maintenant**) pour démarrer le processus d’inscription à un compte.
    
     ![Inscription Baidu](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
 
-2. Entrez les informations requises (téléphone/adresse de messagerie, mot de passe et code de vérification), puis cliquez sur 注册 (**Inscription**).
+2. Entrez les informations requises (téléphone/adresse e-mail, mot de passe et code de vérification), puis cliquez sur 注册 (**Inscription**).
    
     ![Entrée d’inscription Baidu](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
 
@@ -63,27 +63,27 @@ Une fois que vous possédez un compte Baidu activé, connectez-vous au [portail 
 ## <a name="create-a-baidu-cloud-push-project"></a>Créer un projet Baidu de transmission Push dans le cloud
 Quand vous créez un projet Baidu de transmission Push dans le cloud, vous recevez un ID d’application, une clé API et une clé secrète.
 
-1. Une fois que êtes connecté au [portail Baidu], cliquez sur **更多>>** (**plus**).
+1. Une fois que vous avez ouvert une session sur le [portail Baidu], cliquez sur **更多>>** (**plus**).
    
     ![Inscription - Plus](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 
-2. Faites défiler la section **站长与开发者服** (**Administrateur Web et Services de développement**) et cliquez sur **百度云推送** (**Plateforme cloud ouverte Baidu**).
+2. Défilez vers le bas dans la section **站长与开发者服务** (**Services pour les développeurs et webmasters**) et cliquez sur **百度云推送** (**Push cloud Baidu**).
    
     ![Plateforme cloud ouverte Baidu](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 
-3. Dans la page suivante, cliquez sur**登录**(**Connexion**) dans le coin supérieur droit.
+3. Sur la page suivante, cliquez sur **登录** (**Connexion**) dans l’angle supérieur droit.
    
     ![Connexion à Baidu](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
 
-4. Ensuite, cliquez sur**创建应用**(**Créer une application**) sur cette page.
+4. Ensuite, cliquez sur **创建应用** (**Créer une application**) sur cette page.
 
     ![Créer une application sur Baidu](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
 
-5. Sur la page suivante, cliquez sur 创建新应用 (**Créer une nouvelle application**).
+5. Sur la page suivante, cliquez sur 创建新应用 (**Créer une application**).
    
     ![Créer une application sur Baidu](./media/notification-hubs-baidu-get-started/BaiduCreateNewApplication.png)
 
-6. Entrez un nom d’application et cliquez sur 创建 (**Créer**).
+6. Entrez un nom pour l’application et cliquez sur 创建 (**Créer**).
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
 
@@ -91,7 +91,7 @@ Quand vous créez un projet Baidu de transmission Push dans le cloud, vous recev
    
     ![Clés secrètes Baidu de type push](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
 
-8. Configurez le projet pour les notifications push en cliquant sur 云推送 (**Créer une notification**) dans le volet gauche.
+8. Configurez le projet pour les notifications push en cliquant sur 创建通知 (**Créer des notifications**) dans le volet gauche.
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
 
@@ -117,7 +117,7 @@ Prenez note de `DefaultListenSharedAccessSignature` et `DefaultFullSharedAccessS
 
     ![Azure Notification Hubs - Nouveau projet Baidu](./media/notification-hubs-baidu-get-started/AndroidNewProject.png)
 
-2.  Entrez un nom d’application et vérifiez que la version du Kit de développement logiciel (SDK) minimum obligatoire est définie sur API 16: Android 4.1. **Assurez-vous également que votre nom de package (应用包名) est le même que dans le portail de push cloud Baidu**
+2.  Entrez un nom d’application et vérifiez que la version du Kit de développement logiciel (SDK) minimum obligatoire est définie sur API 16: Android 4.1. **Vérifiez également que le nom de votre package (应用包名) est identique à celui du portail push cloud Baidu**
 
     ![Azure Notification Hubs - SDK1 Baidu min](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png)
     ![Azure Notification Hubs - SDK2 Baidu min](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
@@ -533,5 +533,5 @@ Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débog
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Kit de développement logiciel (SDK) Android pour transmissions Push Baidu]: http://push.baidu.com/sdk/push_client_sdk_for_android
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 [portail Baidu]: http://www.baidu.com/

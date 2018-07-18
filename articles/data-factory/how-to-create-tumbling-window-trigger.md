@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: 61d53e0d5f32f40b67f5b2d4ce888b047f8c4cea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 02f84047d0e1d3e73fac991250da814176f3995d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619709"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049922"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
 Cet article décrit les étapes permettant de créer, de démarrer et d’effectuer le monitoring d’un déclencheur de fenêtre bascule. Pour obtenir des informations générales sur les déclencheurs et les types pris en charge, consultez [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md).
-
-> [!NOTE]
-> Cet article s’applique à Azure Data Factory version 2, actuellement en préversion. Si vous utilisez Azure Data Factory version 1, qui est généralement disponible, consultez [Bien démarrer avec Azure Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’active à un intervalle de temps périodique à partir d’une heure de début spécifiée, tout en conservant son état. Les fenêtres bascule sont une série d’intervalles de temps contigus fixes, qui ne se chevauchent pas. Un déclencheur de fenêtre bascule a une relation un à un avec un pipeline et ne peut référencer qu’un seul pipeline.
 

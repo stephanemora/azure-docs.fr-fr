@@ -11,12 +11,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: edfe6cc608a74b61777ce54eba3aa42c239b6090
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 8743905d6e415049a563bcd6b4736d6569f59b7f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684682"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333255"
 ---
 # <a name="what-is-microsoft-genomics"></a>Qu’est-ce que Microsoft Genomics ?
 Microsoft Genomics offre l’implémentation cloud de Burrows-Wheeler Aligner (BWA) et de Genome Analysis Toolkit (GATK) pour une analyse secondaire. Le service est certifié ISO et conforme aux réglementations HIPAA et offre une prévisibilité des prix pour vos besoins de séquençage du génome. Découvrez comment utiliser le service Microsoft Genomics et l’intégration avec notre API en lisant nos procédures de démarrage rapide, didacticiels et documentations.
@@ -30,12 +30,12 @@ Microsoft Genomics propose un contrat de niveau de service (SLA) avec une dispon
 
 
 ## <a name="secure-your-data"></a>Sécurisez vos données
-Le service Microsoft Genomics est certifié ISO 27001, ISO 27018, ISO 9001 et conforme aux réglementations HIPAA. Visitez le [Centre de confidentialité Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx) pour plus d’informations sur la sécurité de la plateforme Azure.
+Le service Microsoft Genomics est certifié ISO 27001, ISO 27018, ISO 9001 et conforme aux réglementations HIPAA. Visitez le [Centre de confidentialité Azure](https://www.microsoft.com/en-us/trustcenter/security) pour plus d’informations sur la sécurité de la plateforme Azure.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez lu une introduction à Microsoft Genomics, vous êtes prêt pour :
 - Consultez la page de tarification pour des comparaisons de coûts et des calculatrices. [Tarification](https://azure.microsoft.com/pricing/details/genomics/)
-- Commencez par exécuter votre premier flux de travail via le service Microsoft Genomics. [Exécutez un workflow via le service Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
-- Soumettez vos propres données pour traitement par le service Microsoft Genomics : [FASTQ](quickstart-input-pair-FASTQ.md) | [BAM associés](quickstart-input-BAM.md) | [plusieurs FASTQ ou BAM](quickstart-input-multiple.md) 
+- Commencez par exécuter votre premier workflow via le service Microsoft Genomics. [Exécuter un workflow via le service Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Envoyer vos propres données pour traitement par le service Microsoft Genomics : [FASTQ couplé](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Plusieurs FASTQ ou BAM](quickstart-input-multiple.md) 
 

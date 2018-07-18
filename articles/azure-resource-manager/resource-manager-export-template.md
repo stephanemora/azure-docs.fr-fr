@@ -6,19 +6,19 @@ documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 06/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3e1dd8ad49ceb126a14070ed641146d91419640a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025187"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exporter un modèle Azure Resource Manager à partir de ressources existantes
 Cet article vous montre comment exporter un modèle Resource Manager à partir de ressources actuelles de votre abonnement. Vous pouvez utiliser ce modèle généré pour obtenir une meilleure compréhension de la syntaxe de modèle.
@@ -64,8 +64,7 @@ Ce déploiement peut prendre une minute. Une fois le déploiement terminé, votr
    
    1. **Modèle** - Modèle définissant l’infrastructure de votre solution. Lorsque vous avez créé le compte de stockage via le portail, Resource Manager a utilisé un modèle pour le déployer et a enregistré ce modèle pour référence ultérieure.
    2. **Paramètres** - Fichier de paramètres que vous pouvez utiliser pour transmettre des valeurs au cours du déploiement. Il contient les valeurs que vous avez fournies pendant le premier déploiement. Vous pouvez modifier ces valeurs lorsque vous redéployez le modèle.
-   3. **CLI** - Fichier de script d’interface de ligne de commande Azure que vous pouvez utiliser pour déployer le modèle.
-   3. **CLI 2.0** - Fichier script d’interface de ligne de commande Azure que vous pouvez utiliser pour déployer le modèle.
+   3. **CLI** - Fichier de script Azure CLI que vous pouvez utiliser pour déployer le modèle.
    4. **PowerShell** - Fichier de script Azure PowerShell que vous pouvez utiliser pour déployer le modèle.
    5. **.NET** - Classe .NET que vous pouvez utiliser pour déployer le modèle.
    6. **Ruby** - Classe Ruby que vous pouvez utiliser pour déployer le modèle.
@@ -120,7 +119,7 @@ Le modèle exporté fonctionne bien si vous souhaitez créer la même applicatio
 2. Sélectionnez le modèle.
    
      ![Modifier un modèle](./media/resource-manager-export-template/select-added-template.png)
-3. Pour permettre la transmission des valeurs à spécifier pendant le déploiement, ajoutez les deux paramètres suivants à la section **parameters** du modèle :
+3. Pour transmettre des valeurs à spécifier pendant le déploiement, ajoutez les deux paramètres suivants à la section **parameters** du modèle :
 
    ```json
    "administratorLogin": {
@@ -162,12 +161,11 @@ Le modèle exporté fonctionne bien si vous souhaitez créer la même applicatio
 
 
 ## <a name="fix-export-issues"></a>Résoudre les problèmes d’exportation
-Tous les types de ressources prennent en charge la fonction de modèle d’exportation. Pour contourner ce problème, ajoutez manuellement les ressources manquantes à votre modèle. Le message d’erreur inclut les types de ressources qui ne peuvent pas être exportés. Recherchez le type de ressource dans [Référence de modèle](/azure/templates/). Par exemple, pour ajouter manuellement une passerelle de réseau virtuel, consultez [Référence de modèle Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways).
+Tous les types de ressources prennent en charge la fonction de modèle d’exportation. Vous rencontrerez des problèmes d’exportation uniquement lors de l’exportation à partir d’un groupe de ressources et non à partir de votre historique de déploiement. Si votre dernier déploiement représente précisément l’état actuel du groupe de ressources, vous devez exporter le modèle à partir de l’historique de déploiement, plutôt que depuis le groupe de ressources. Procédez à une exportation à partir d’un groupe de ressources lorsque vous avez apporté des modifications au groupe de ressources qui ne sont pas définies dans un modèle unique.
 
-> [!NOTE]
-> Vous rencontrerez des problèmes d’exportation uniquement lors de l’exportation à partir d’un groupe de ressources et non à partir de votre historique de déploiement. Si votre dernier déploiement représente précisément l’état actuel du groupe de ressources, vous devez exporter le modèle à partir de l’historique de déploiement, plutôt que depuis le groupe de ressources. Procédez à une exportation à partir d’un groupe de ressources lorsque vous avez apporté des modifications au groupe de ressources qui ne sont pas définies dans un modèle unique.
-> 
-> 
+Pour contourner ces problèmes d’exportation, ajoutez manuellement les ressources manquantes à votre modèle. Le message d’erreur inclut les types de ressources qui ne peuvent pas être exportés. Recherchez le type de ressource dans [Référence de modèle](/azure/templates/). Par exemple, pour ajouter manuellement une passerelle de réseau virtuel, consultez [Référence de modèle Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways). La référence de modèle vous donne le JSON permettant d’ajouter la ressource à votre modèle.
+
+Une fois le format JSON obtenu pour la ressource, vous devez récupérer les valeurs de la ressource. Vous pouvez voir les valeurs de la ressource à l’aide de l’opération dGET de l’API REST pour le type de ressource. Par exemple, pour obtenir les valeurs de votre passerelle de réseau virtuel, consultez [Passerelles de réseau virtuel - Obtenir](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

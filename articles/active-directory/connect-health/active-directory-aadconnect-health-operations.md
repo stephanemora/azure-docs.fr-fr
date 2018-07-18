@@ -3,7 +3,7 @@ title: Opérations Azure Active Directory Connect Health
 description: Cet article décrit les opérations supplémentaires pouvant être effectuées après le déploiement d’Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 68be732b2a375d1667c743ac277ce653c78105f1
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31389710"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886867"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Opérations Azure Active Directory Connect Health
 Cette rubrique décrit les différentes opérations que vous pouvez effectuer à l’aide d’Azure Active Directory (Azure AD) Connect Health.
@@ -122,7 +122,7 @@ Pour autoriser un accès utilisateur au niveau *toutes les instances de service*
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Étape 2 : Ajouter des utilisateurs et des groupes, et affecter des rôles
 1. Dans la section **Configurer**, cliquez sur **Utilisateurs**.<br>
-   ![Capture d’écran du panneau principal de contrôle d’accès en fonction du rôle d’Azure AD Connect Health, avec Utilisateurs mis en surbrillance](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Capture d’écran de la barre latérale de ressource d’Azure AD Connect Health](./media/active-directory-aadconnect-health/startRBAC.png)
 2. Sélectionnez **Ajouter**.
 3. Dans le volet **Sélectionner un rôle**, sélectionnez un rôle (par exemple **Propriétaire**).<br>
    ![Capture d’écran de la fenêtre Utilisateurs de contrôle d’accès en fonction du rôle d’Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)

@@ -18,11 +18,11 @@ ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 2aca1de567dbd4d37daf7f9dd7c407b669396a47
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31603706"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630317"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Acheminer le trafic réseau avec une table de routage à l’aide de PowerShell
 
@@ -319,7 +319,7 @@ Vous pouvez voir que le trafic est routé directement de la machine virtuelle *m
 
 Fermez les sessions Bureau à distance sur la machine virtuelle *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, utilisez la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe et toutes les ressources qu’il contient.
 

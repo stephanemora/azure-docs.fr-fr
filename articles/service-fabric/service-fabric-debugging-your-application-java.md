@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 0e9e816fa84816b1b5d12f066dc65aee7b4930f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 78483a5a5d78b539415aeeb0e28c1dbaf3680173
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205451"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619338"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Débogage de votre application Java Service Fabric avec Eclipse
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "34205451"
 2. Mettez à jour entryPoint.sh du service que vous souhaitez déboguer, afin qu’il démarre le processus java avec les paramètres de débogage à distance. Ce fichier se trouve à l’emplacement suivant : ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Le port 8001 est défini pour le débogage dans cet exemple.
 
     ```sh
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
 3. Mettez à jour le manifeste de l’application en définissant le nombre d’instances ou le nombre de réplicas pour le service en cours de débogage sur 1. Ce paramètre évite les conflits pour le port utilisé pour le débogage. Par exemple, pour les services sans état, définissez ``InstanceCount="1"`` et pour les services avec état, définissez les tailles cible et de jeu de réplicas minimales sur 1 comme suit : `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2816a19833f45a7e3a344e31f4131d23d9a8417a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7960ab4aee80c7d15ea0f031790dd089424565d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29382557"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610255"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Utiliser une identité du service administré (MSI) de machine virtuelle Windows pour accéder au Gestionnaire des ressources
 
@@ -39,7 +39,7 @@ Ce didacticiel vous montre comment activer une identité du service administré 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 

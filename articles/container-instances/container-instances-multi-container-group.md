@@ -2,35 +2,43 @@
 title: Déployer des groupes de plusieurs conteneurs dans Azure Container Instances
 description: Découvrez comment déployer un groupe de conteneurs avec plusieurs conteneurs dans Azure Container Instances.
 services: container-instances
-author: neilpeterson
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
-ms.author: nepeters
+ms.date: 06/08/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ecc4484eddd6541c1407e1ed816ba8830030d7c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888195"
 ---
 # <a name="deploy-a-container-group"></a>Déployer un groupe de conteneurs
 
 Azure Container Instances prend en charge le déploiement de plusieurs conteneurs sur un seul hôte à l’aide d’un [groupe de conteneurs](container-instances-container-groups.md). Cela est utile lors de la création d’une annexe d’application pour la journalisation, la surveillance ou toute autre configuration dans laquelle un service a besoin d’un deuxième processus associé.
 
-Ce document décrit pas à pas l’exécution d’une configuration simple d’annexe à plusieurs conteneurs à l’aide d’un modèle Azure Resource Manager.
+Il existe deux moyens de déployer des groupes à conteneurs multiples avec Azure CLI :
+
+* Déploiement de modèle Resource Manager (cet article)
+* [Déploiement de fichier YAML](container-instances-multi-container-yaml.md)
+
+Le déploiement avec un modèle Resource Manager est recommandé si vous avez besoin de déployer des ressources de service Azure supplémentaires (par exemple, un partage Azure Files) au moment du déploiement des instances de conteneur. En raison de la nature plus concise du format YAML, le déploiement avec un fichier YAML est recommandé lorsque le déploiement comprend *uniquement* les instances de conteneur.
 
 > [!NOTE]
 > Les groupes à plusieurs conteneurs sont actuellement restreints aux conteneurs Linux. Nous travaillons actuellement à proposer toutes ces fonctionnalités dans des conteneurs Windows. En attendant, nous vous invitons à découvrir les différences actuelles de la plateforme dans [Disponibilité des régions et quotas pour Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Configurer le modèle
 
-Créez un fichier nommé `azuredeploy.json`, puis copiez dans celui-ci le code JSON suivant.
+Les différentes sections de cet article expliquent pas à pas comment effectuer une configuration simple de side-car à plusieurs conteneurs en déployant un modèle Azure Resource Manager.
 
-Dans cet exemple, un groupe de conteneurs est défini. Il comprend deux conteneurs, une adresse IP publique et deux ports exposés. Le premier conteneur du groupe exécute une application accessible sur Internet. Le deuxième conteneur, l’annexe, adresse une requête HTTP à l’application web principale via le réseau local du groupe.
+Commencez par créer un fichier nommé `azuredeploy.json`, puis copiez-y le code JSON suivant.
 
-```json
+Ce modèle Resource Manager définit un groupe de conteneurs qui comprend deux conteneurs, une adresse IP publique et deux ports exposés. Le premier conteneur du groupe exécute une application accessible sur Internet. Le deuxième conteneur, l’annexe, adresse une requête HTTP à l’application web principale via le réseau local du groupe.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -118,7 +126,7 @@ Dans cet exemple, un groupe de conteneurs est défini. Il comprend deux conteneu
 
 Pour utiliser un registre d’image de conteneur privé, ajoutez au document JSON un objet du format suivant. Pour un exemple d’implémentation de cette configuration, consultez la documentation de [référence sur le modèle ACI Resource Manager][template-reference].
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -146,13 +154,13 @@ Après quelques secondes, vous devriez recevoir une réponse initiale d’Azure.
 
 ## <a name="view-deployment-state"></a>Afficher l’état du déploiement
 
-Pour afficher l’état du déploiement, utilisez la commande [az container show][az-container-show]. Celle-ci renvoie l’adresse IP publique mise en service via laquelle l’application est accessible.
+Pour afficher l’état du déploiement, utilisez la commande [az container show][az-container-show] suivante :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Output:
+Pour voir l’application en cours d’exécution, accédez à son adresse IP dans votre navigateur. Par exemple, l’adresse IP est `52.168.26.124` dans cet exemple de sortie :
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
@@ -168,7 +176,7 @@ Consultez la sortie du journal d’un conteneur à l’aide de la commande [az c
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Output:
+Sortie :
 
 ```bash
 listening on port 80
@@ -183,7 +191,7 @@ Pour afficher les journaux du conteneur annexe, exécutez la même commande, en 
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Output:
+Sortie :
 
 ```bash
 Every 3s: curl -I http://localhost                          2018-01-09 23:25:11

@@ -10,25 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2018
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d20ed753c2e53d6a7c117e0c00671ab05036b03
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: debb27f49c730df4a8bef42b1f1ef9ec50f1faf0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054056"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données de MongoDB à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Version 2 - Préversion](connector-mongodb.md)
+> * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
+> * [Version actuelle](connector-mongodb.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données MongoDB. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur MongoDB dans V1](v1/data-factory-on-premises-mongodb-connector.md).
-
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -40,7 +37,6 @@ Plus précisément, ce connecteur MongoDB prend en charge :
 - Copie de données en utilisant une authentification **De base** ou **Anonyme**.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour copier des données depuis/vers une base de données MongoDB qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote MongoDB intégré, ce qui évite d’avoir à en installer un manuellement lors de la copie des données issues de MongoDB.
 
@@ -168,7 +164,7 @@ Pour copier des données de MongoDB, définissez le type de source dans l’acti
 ```
 
 > [!TIP]
-> Lorsque vous spécifiez une requête SQL, soyez attentif au format DateTime. Par exemple : `SELECT * FROM Account WHERE LastModifiedDate >= {{ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')}'}} AND LastModifiedDate < {{ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}'}}`
+> Lorsque vous spécifiez une requête SQL, soyez attentif au format DateTime. Par exemple : `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` ou pour utiliser le paramètre `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
 
 ## <a name="schema-by-data-factory"></a>Schéma par Data Factory
 

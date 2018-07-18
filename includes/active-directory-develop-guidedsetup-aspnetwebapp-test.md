@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 7e9518f8a90faa0566b96d58992b01e4b0a642f4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bfdc89d9bc5d5a07c04e857c1a46e4b988c125ab
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202720"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943553"
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -71,7 +71,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Restreindre les utilisateurs autorisés à se connecter à votre application
-Par défaut, lorsque vous générez l’application créée par ce guide, votre application accepte des connexions de comptes personnels (y compris outlook.com, live.com et autres), ainsi que des comptes professionnels et scolaires de n’importe quelle société ou organisation ayant intégré Azure Active Directory. Il s’agit d’une option recommandée pour les applications SaaS.
+Par défaut, lorsque vous générez l’application créée par ce guide, votre application accepte des connexions de comptes personnels (y compris outlook.com, live.com et autres) et de comptes professionnels et scolaires de n’importe quelle société ou organisation intégrées à Azure Active Directory. Il s’agit d’une option recommandée pour les applications SaaS.
 
 Pour restreindre les utilisateurs qui peuvent se connecter à votre application, plusieurs options sont disponibles :
 

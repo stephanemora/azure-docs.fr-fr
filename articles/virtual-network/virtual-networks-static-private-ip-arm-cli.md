@@ -17,11 +17,11 @@ ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423539"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561126"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide d’Azure CLI
 
@@ -159,7 +159,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 
    * `--nics` : nom de la carte réseau à laquelle est associée la machine virtuelle.
    
-Il est recommandé de ne pas statiquement assigner l’IP privée assignée à la machine virtuelle Azure au sein du système d’exploitation d’une machine virtuelle, sauf si nécessaire, par exemple lorsque [vous assignez plusieurs d’adresses IP à une machine virtuelle Windows](virtual-network-multiple-ip-addresses-cli.md). Si vous définissez manuellement l’adresse IP privée dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](virtual-network-network-interface-addresses.md#private).
+Il est recommandé de ne pas assigner statiquement l’IP privée assignée à la machine virtuelle Azure au sein du système d’exploitation d’une machine virtuelle, sauf si nécessaire, par exemple lorsque [vous assignez plusieurs d’adresses IP à une machine virtuelle Windows](virtual-network-multiple-ip-addresses-cli.md). Si vous définissez manuellement l’adresse IP privée dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure, ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Récupérer des informations d’adresse IP privée statique pour une machine virtuelle
 

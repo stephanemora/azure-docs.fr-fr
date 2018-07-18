@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621749"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053652"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 > [!NOTE]
-> Cet article s’applique à la version 1 de Azure Data Factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Services liés de calcul dans la version 2](../compute-linked-services.md).
+> Cet article s’applique à la version 1 d’Azure Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Services liés de calcul](../compute-linked-services.md).
 
 Cet article décrit les environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lorsque vous configurez des services liés qui relient ces environnements de calcul à une fabrique de données Azure.
 
@@ -66,7 +66,7 @@ Après le 31 juillet 2018 :
 - Si vous utilisez un service lié HDInsight à la demande pour exécuter une activité personnalisée DotNet d’Azure Data Factory version 1, mettez à jour la définition JSON de l’activité personnalisée DotNet pour utiliser plutôt un service lié Azure Batch. Pour plus d’informations, consultez [Utilisation des activités personnalisées dans un pipeline Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> Si vous utilisez votre propre appareil lié HDInsight de cluster dans Data Factory version 1 ou votre propre service lié HDInsight à la demande dans Azure Data Factory version 2, aucune action n’est requise. Dans ces scénarios, la dernière stratégie de prise en charge de version des clusters HDInsight est déjà appliquée. 
+> Si vous utilisez votre propre appareil lié HDInsight de cluster dans Data Factory version 1 ou votre propre service lié HDInsight à la demande dans Azure Data Factory, aucune action n’est requise. Dans ces scénarios, la dernière stratégie de prise en charge de version des clusters HDInsight est déjà appliquée. 
 >
 > 
 

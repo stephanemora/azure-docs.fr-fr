@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 8d14d7af39af59bb0b4fbcd5857e8686176afb71
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 66dda70e2f9b4c0235434fd91a061b43e2489bdf
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894355"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915858"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Planificateur de déploiement Azure Site Recovery de VMware vers Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -80,7 +80,6 @@ Nombre de serveurs pouvant être profilés par instance en cours d’exécution 
 * L’outil s’applique principalement au scénario de récupération d’urgence Hyper-V vers Azure. Pour la récupération d’urgence Hyper-V vers un site secondaire, il permet uniquement de disposer de recommandations côté source telles que la bande passante réseau requise, l’espace de stockage disponible requis sur chacun des serveurs Hyper-V source, et les numéros et définitions de lots de réplication initiale. Ignorez les recommandations et coûts Azure dans le rapport. De plus, l’opération d’obtention du débit ne s’applique pas au scénario de récupération d’urgence Hyper-V vers un site secondaire.
 
 ## <a name="prerequisites"></a>Prérequis
-
 L’outil comporte deux phases principales : le profilage et la génération de rapport. En outre, une troisième option permet de calculer le débit uniquement. La configuration requise pour le serveur à partir de laquelle le profilage et la mesure du débit sont initiés est présentée dans le tableau suivant.
 
 | Configuration requise du serveur | Description|

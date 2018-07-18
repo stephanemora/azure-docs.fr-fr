@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151057"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38603062"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
 Dans Gestion des API, les groupes permettent de gérer la visibilité des produits pour les développeurs. Les produits sont d'abord visibles pour les groupes. Les développeurs de ces groupes peuvent afficher les produits associés aux groupes et s'y abonner. 
@@ -36,7 +36,6 @@ Ce guide explique comment les administrateurs de l'instance Gestion des API peuv
 En plus de créer et gérer des groupes dans le portail de publication, vous pouvez créer et gérer vos groupes à l'aide de l’entité [Groupe](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) de l’API REST de gestion des API.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Effectuez les tâches indiquées dans cet article : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 

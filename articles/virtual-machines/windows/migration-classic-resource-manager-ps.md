@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: a57337acadafe40839e16d6a31861ff7c892c071
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9cfdd6828a6d7ec699501a485519f843c59d0422
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602499"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291924"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide d’Azure PowerShell
 Ces étapes vous montrent comment utiliser les commandes Azure PowerShell pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager.
@@ -45,9 +45,7 @@ Voici quelques bonnes pratiques recommandées lorsque vous évaluez la migration
 > [!IMPORTANT]
 > Les passerelles d’application ne sont actuellement pas prises en charge pour la migration de déploiement classique vers Resource Manager. Pour migrer un réseau virtuel classique avec une passerelle d’application, supprimez la passerelle avant d’exécuter une opération de préparation pour déplacer le réseau. Après avoir effectué la migration, reconnectez la passerelle dans Azure Resource Manager.
 >
->Les passerelles ExpressRoute se connectant à des circuits ExpressRoute dans un autre abonnement ne peuvent pas être migrées automatiquement. Dans ce cas, supprimez la passerelle ExpressRoute, migrez le réseau virtuel et recréez la passerelle. Pour plus d’informations, cnsultez [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement classique au modèle de déploiement Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
->
->
+>Les passerelles ExpressRoute se connectant à des circuits ExpressRoute dans un autre abonnement ne peuvent pas être migrées automatiquement. Dans ce cas, supprimez la passerelle ExpressRoute, migrez le réseau virtuel et recréez la passerelle. Pour plus d’informations, consultez [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement classique au modèle de déploiement Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Étape 2 : installer la dernière version d’Azure PowerShell
 Il existe deux options principales d’installation d’Azure PowerShell : [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) et [Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu. Cet article est basé sur Azure PowerShell version 2.1.0.
@@ -90,8 +88,6 @@ Définissez votre abonnement Azure pour la session active. Cet exemple définit 
 > L’inscription constitue une étape unique, mais vous devez le faire une seule fois avant de tenter la migration. Sans vous inscrire, vous verrez le message d’erreur suivant :
 >
 > *Requête invalide : l’abonnement n’est pas inscrit pour la migration.*
->
->
 
 Inscrivez-vous auprès du fournisseur de ressources de migration à l’aide de la commande suivante :
 
@@ -137,12 +133,15 @@ Get-AzureRmVMUsage -Location "West US"
 ```
 
 ## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Étape 6 : exécution de commandes pour effectuer la migration de vos ressources IaaS
+* [Migration de machines virtuelles dans un service cloud (ne figurant pas dans un réseau virtuel)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Migration de machines virtuelles dans un réseau virtuel](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Migration d’un compte de stockage](#step-62-migrate-a-storage-account)
+
 > [!NOTE]
 > Toutes les opérations décrites ici sont idempotentes. Si vous rencontrez un problème autre qu’une fonctionnalité non prise en charge ou qu’une erreur de configuration, nous vous recommandons de réexécuter la procédure de préparation, d’abandon ou de validation. La plateforme réessaie alors d’exécuter l’action.
->
->
 
-## <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Étape 6.1 : Option 1 - migrer les machines virtuelles vers un service cloud (pas un réseau virtuel)
+
+### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Étape 6.1 : Option 1 - migrer les machines virtuelles vers un service cloud (pas un réseau virtuel)
 Obtenez la liste des services cloud à l’aide de la commande suivante, puis choisissez le service cloud que vous voulez migrer. La commande renvoie un message d’erreur si les machines virtuelles du service cloud sont dans un réseau virtuel ou si elles ont des rôles web/de travail.
 
 ```powershell
@@ -169,7 +168,7 @@ Préparez les machines virtuelles dans le service cloud pour la migration. Vous 
     $validate.ValidationMessages
     ```
 
-    La commande ci-dessus affiche les avertissements et erreurs qui bloquent la migration. Si la validation se déroule correctement, passez à l’étape de **préparation** :
+    La commande suivante affiche les avertissements et erreurs qui bloquent la migration. Si la validation se déroule correctement, passez à l’étape de **préparation** :
 
     ```powershell
     Move-AzureService -Prepare -ServiceName $serviceName `
@@ -193,7 +192,7 @@ Préparez les machines virtuelles dans le service cloud pour la migration. Vous 
     $validate.ValidationMessages
     ```
 
-    La commande ci-dessus affiche les avertissements et erreurs qui bloquent la migration. Si la validation se déroule correctement, vous pouvez passer à l’étape de la préparation :
+    La commande suivante affiche les avertissements et erreurs qui bloquent la migration. Si la validation se déroule correctement, vous pouvez passer à l’étape de la préparation :
 
     ```powershell
         Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
@@ -223,7 +222,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-## <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Étape 6.1 : Option 2 - migrer les machines virtuelles vers un réseau virtuel
+### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Étape 6.1 : Option 2 - migrer les machines virtuelles vers un réseau virtuel
 
 Pour migrer des machines virtuelles dans un service cloud, vous migrez le réseau virtuel. Les machines virtuelles migrent automatiquement avec le réseau virtuel. Sélectionnez le réseau virtuel dont vous souhaitez effectuer la migration.
 > [!NOTE]
@@ -241,8 +240,6 @@ Cet exemple définit le nom de réseau virtuel sur **myVnet**. Remplacez l’exe
 
 > [!NOTE]
 > Vous obtenez un message d’erreur pour la validation si le réseau virtuel contient des rôles web/de travail ou des machines virtuelles avec des configurations non prises en charge.
->
->
 
 La première étape consiste à valider si vous pouvez migrer le réseau virtuel à l’aide de la commande suivante :
 
@@ -250,7 +247,7 @@ La première étape consiste à valider si vous pouvez migrer le réseau virtuel
     Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
 ```
 
-La commande ci-dessus affiche les avertissements et erreurs qui bloquent la migration. Si la validation se déroule correctement, vous pouvez passer à l’étape de la préparation :
+La commande suivante affiche les avertissements et erreurs qui bloquent la migration. Si la validation se déroule correctement, vous pouvez passer à l’étape de la préparation :
 
 ```powershell
     Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
@@ -268,78 +265,81 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-## <a name="step-62-migrate-a-storage-account"></a>Étape 6.2 : migrer un compte de stockage
-Une fois que vous avez terminé la migration des machines virtuelles, nous vous recommandons de migrer les comptes de stockage.
+### <a name="step-62-migrate-a-storage-account"></a>Étape 6.2 : migrer un compte de stockage
+Une fois que vous avez terminé la migration des machines virtuelles, nous vous recommandons d’effectuer les vérifications prérequises suivantes avant de migrer les comptes de stockage.
 
-Avant de migrer le compte de stockage, effectuez les vérifications de conditions préalables suivantes :
+> [!NOTE]
+> Si votre compte de stockage ne dispose d’aucun disque ou de données de machine virtuelle associés, vous pouvez passer directement à la section **Valider un compte de stockage et démarrer la migration**.
 
-* **Migrer des machines virtuelles classiques dont les disques sont stockés dans le compte de stockage**
+* **Vérifications prérequises en cas de migration de machines virtuelles ou si votre compte de stockage dispose de ressources de disque**
+    * **Migrer des machines virtuelles classiques dont les disques sont stockés dans le compte de stockage**
 
-    La commande précédente renvoie les propriétés RoleName et DiskName de tous les disques de machine virtuelle classique dans le compte de stockage. RoleName est le nom de la machine virtuelle à laquelle un disque est joint. Si la commande précédente renvoie des disques, assurez-vous que les machines virtuelles sur lesquelles ces disques sont joints sont migrés avant de migrer le compte de stockage.
+        La commande suivante renvoie les propriétés RoleName et DiskName de tous les disques de machine virtuelle classique dans le compte de stockage. RoleName est le nom de la machine virtuelle à laquelle un disque est joint. Si cette commande renvoie des disques, assurez-vous que les machines virtuelles sur lesquelles ces disques sont joints sont migrées avant de migrer le compte de stockage.
+        ```powershell
+         $storageAccountName = 'yourStorageAccountName'
+          Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+          DiskName | Format-List -Property RoleName, DiskName
+
+        ```
+    * **Supprimer les disques de machine virtuelle classique détachés stockés dans le compte de stockage**
+
+        Recherchez les disques de machine virtuelle détachés dans le compte de stockage à l’aide de la commande suivante :
+
+        ```powershell
+            $storageAccountName = 'yourStorageAccountName'
+            Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
+
+        ```
+        Si la commande ci-dessus renvoie des disques, supprimez-les en utilisant la commande suivante :
+
+        ```powershell
+           Remove-AzureDisk -DiskName 'yourDiskName'
+        ```
+    * **Supprimer les images de machine virtuelle stockées dans le compte de stockage**
+
+        La commande suivante renvoie toutes les images de machine virtuelle avec un disque de système d’exploitation stocké dans le compte de stockage.
+         ```powershell
+            Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                    } | Select-Object -Property ImageName, ImageLabel
+         ```
+         La commande suivante renvoie toutes les images de machine virtuelle avec un disque de données stocké dans le compte de stockage.
+         ```powershell
+
+            Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                             -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                            } | Select-Object -Property ImageName, ImageLabel
+         ```
+        Supprimez toutes les images de machine virtuelle renvoyées par les commandes ci-dessus à l’aide de cette commande :
+        ```powershell
+        Remove-AzureVMImage -ImageName 'yourImageName'
+        ```
+* **Valider le compte de stockage et démarrer la migration**
+
+    Validez chaque compte de stockage pour la migration à l’aide de la commande suivante. Dans cet exemple, le nom de compte de stockage est **myStorageAccount**. Remplacez le nom d’exemple par celui de votre propre compte de stockage.
+
     ```powershell
-     $storageAccountName = 'yourStorageAccountName'
-      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
-      DiskName | Format-List -Property RoleName, DiskName
-
+        $storageAccountName = "myStorageAccount"
+        Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
     ```
-* **Supprimer les disques de machine virtuelle classique détachés stockés dans le compte de stockage**
 
-    Recherchez les disques de machine virtuelle détachés dans le compte de stockage à l’aide de la commande suivante :
+    L’étape suivante consiste à préparer le compte de stockage pour la migration.
 
     ```powershell
-        $storageAccountName = 'yourStorageAccountName'
-        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
-
+        $storageAccountName = "myStorageAccount"
+        Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
     ```
-    Si la commande ci-dessus renvoie des disques, supprimez-les en utilisant la commande suivante :
+
+    Vérifiez la configuration pour le compte de stockage préparé à l’aide d’Azure PowerShell ou du portail Azure. Si vous n’êtes pas prêt pour la migration et que vous souhaitez revenir à l’ancien état, utilisez la commande suivante :
 
     ```powershell
-       Remove-AzureDisk -DiskName 'yourDiskName'
+        Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
     ```
-* **Supprimer les images de machine virtuelle stockées dans le compte de stockage**
 
-    La commande précédente renvoie toutes les images de machine virtuelle avec un disque de système d’exploitation stocké dans le compte de stockage.
-     ```powershell
-        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
-                                } | Select-Object -Property ImageName, ImageLabel
-     ```
-     La commande précédente renvoie toutes les images de machine virtuelle avec les disques de données stockés dans le compte de stockage.
-     ```powershell
+    Si la configuration préparée semble correcte, vous pouvez continuer et valider les ressources à l’aide de la commande suivante :
 
-        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
-                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
-                                        } | Select-Object -Property ImageName, ImageLabel
-     ```
-    Supprimez toutes les images de machine virtuelle renvoyées par les commandes précédentes à l’aide de la commande :
     ```powershell
-    Remove-AzureVMImage -ImageName 'yourImageName'
+        Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
     ```
-
-Validez chaque compte de stockage pour la migration à l’aide de la commande suivante. Dans cet exemple, le nom de compte de stockage est **myStorageAccount**. Remplacez le nom d’exemple par celui de votre propre compte de stockage.
-
-```powershell
-    $storageAccountName = "myStorageAccount"
-    Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
-```
-
-L’étape suivante consiste à préparer le compte de stockage pour la migration.
-
-```powershell
-    $storageAccountName = "myStorageAccount"
-    Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
-```
-
-Vérifiez la configuration pour le compte de stockage préparé à l’aide d’Azure PowerShell ou du portail Azure. Si vous n’êtes pas prêt pour la migration et que vous souhaitez revenir à l’ancien état, utilisez la commande suivante :
-
-```powershell
-    Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
-```
-
-Si la configuration préparée semble correcte, vous pouvez continuer et valider les ressources à l’aide de la commande suivante :
-
-```powershell
-    Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Vue d’ensemble de la migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

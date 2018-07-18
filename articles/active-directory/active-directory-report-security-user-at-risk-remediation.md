@@ -1,23 +1,25 @@
 ---
-title: "Rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory | Microsoft Docs"
-description: "En savoir plus sur le rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory"
+title: Rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory | Microsoft Docs
+description: En savoir plus sur le rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 services: active-directory
-author: MarkusVi
-manager: femila
+author: priyamohanram
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/23/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ed6201e9edcef39b14b948b6b2f6e0b5da01ec60
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 60a77a8bee54c0582cbc9c88b9d517820a2760e0
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221978"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Résoudre des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
@@ -29,12 +31,20 @@ Microsoft s’engage à vous aider à conserver un environnement protégé. Dans
 Si des activités inhabituelles indiquant un accès non autorisé à des comptes de vos utilisateurs sont détectées, vous recevez des notifications qui vous permettent d’agir. Le fait que Microsoft vous envoie des notifications ne signifie pas que ses systèmes ont été compromis d’une quelconque façon.
  
 
-## <a name="azure-active-directory-report-access"></a>Rapport d’accès Azure Active Directory
+## <a name="access-the-users-flagged-for-risk-report"></a>Accéder au rapport des utilisateurs avec indicateur de risque
 
-Vous pouvez analyser les utilisateurs signalés comme présentant un risque par le biais d’un rapport en ligne Azure Active Directory. Si vous n’êtes pas abonné à Azure, vous pouvez vous inscrire gratuitement à l’adresse [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD).  
-Une fois inscrit, vous pouvez utiliser vos informations d’identification Office 365 pour accéder au centre d’administration Azure. Remarque : au niveau d’inscription de base, la quantité d’informations fournies est limitée. Des analyses et données supplémentaires sont disponibles pour les abonnés Azure Premium. Pour en savoir plus, consultez le [rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory](active-directory-reporting-security-user-at-risk.md).
+Vous pouvez analyser les utilisateurs signalés comme présentant un risque par le biais du [rapport](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) lié dans Azure Active Directory (AD). Si vous n’êtes pas abonné à Azure AD, vous pouvez vous inscrire gratuitement à l’adresse [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). Dans ce rapport, vous pouvez effectuer diverses actions telles que :
 
-Une fois votre accès à Azure AD activé, vous êtes redirigé vers le [portail Azure AD](https://portal.azure.com). Pour accéder directement au rapport, suivez l’URL suivante : [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk).
+- Générer un mot de passe temporaire
+- Demander à l’utilisateur de réinitialiser son mot de passe la prochaine fois qu’il se connecte
+- Supprimer le risque de l’utilisateur sans aucune action de correction.
+
+Pour plus d’informations, consultez le [rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory](active-directory-reporting-security-user-at-risk.md).
+
+### <a name="azure-ad-subscription-for-office-365-customers"></a>Abonnement Azure AD de clients Office 365
+
+Une fois inscrit, vous pouvez utiliser vos informations d’identification Office 365 pour accéder au centre d’administration Azure. Lorsque votre accès à Azure AD est activé, vous êtes redirigé vers le portail Azure AD. Au niveau d’inscription de base, la quantité d’informations fournies dans les rapports est limitée. Des analyses et données supplémentaires sont disponibles pour les abonnés Azure Premium.
+
 
 **Pour accéder aux rapports sur les utilisateurs avec indicateur de risque dans le centre d’administration Office 365 :**
 
@@ -45,7 +55,7 @@ Une fois votre accès à Azure AD activé, vous êtes redirigé vers le [portail
 4.  Dans le menu de navigation gauche, cliquez sur **Azure Active Directory**. 
 5.  Dans le volet de navigation, sous **Sécurité**, cliquez sur **Utilisateurs avec indicateur de risque**.
 
-Analysez les informations affichées. Vous devez réinitialiser le mot de passe de chaque compte listé. 
+Analysez les informations affichées. Vous devez réinitialiser le mot de passe de chaque compte répertorié. 
 
 ## <a name="remediation-actions"></a>Actions de correction
 

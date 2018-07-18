@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: d34ff6021816c73fb064a3ce73b7fcf3ae22dbd1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7cbe0d0ea3bbbd60b7cd2dc88ef249c4380083a7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699408"
 ---
 # <a name="admin-guide-for-the-azure-active-directory-sso-plug-in"></a>Guide d’administration du plug-in Azure Active Directory SSO
 
@@ -54,7 +55,6 @@ Les administrateurs de Jira et Confluence peuvent utiliser le plug-in pour activ
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Avant d’installer le plug-in, tenez compte des informations suivantes :
 
 * Jira et Confluence sont installés sur une version Windows 64 bits.
@@ -68,8 +68,8 @@ Avant d’installer le plug-in, tenez compte des informations suivantes :
 
 Le plug-in prend en charge les versions suivantes de Jira et Confluence :
 
-* Jira Core et logiciels : de la version 6.0 à la version 7.2.0
-* Jira Service Desk : de la version 3.0 à la version 3.2
+* Jira Core et Software : 6.0 à 7.8
+* Jira Service Desk : 3.0 à 3.2
 * Confluence : 5.0 à 5.10
 
 ## <a name="installation"></a>Installation
@@ -77,51 +77,51 @@ Le plug-in prend en charge les versions suivantes de Jira et Confluence :
 Pour installer le plug-in, procédez comme suit :
 
 1. Connectez-vous à votre instance de Jira ou Confluence en tant qu’administrateur.
-    
+
 2. Accédez à la console d’administration de Jira ou Confluence, puis sélectionnez **Modules complémentaires**.
-    
+
 3. Depuis la place de marché Atlassian, recherchez **Microsoft SAML SSO Plugin**.
- 
+
    La version appropriée du plug-in s’affiche dans les résultats de la recherche.
- 
-5. Sélectionnez le plug-in, puis poursuivez avec l’installation du Gestionnaire de plug-in universel (UPM).
- 
+
+4. Sélectionnez le plug-in, puis poursuivez avec l’installation du Gestionnaire de plug-in universel (UPM).
+
 Une fois installé, le plug-in s’affiche dans la section **User Installed Add-ons (Modules complémentaires installés par l’utilisateur)** de **Manage add-ons (Gérer les modules complémentaires)**.
-    
+
 ## <a name="plug-in-configuration"></a>Configuration du plug-in
 
 Avant de commencer à utiliser le plug-in, vous devez le configurer. Sélectionnez le plug-in, cliquez sur le bouton **Configurer**, puis indiquez les détails de la configuration.
 
 L’image suivante montre l’écran de configuration dans Jira et Confluence :
-    
+
 ![Écran de configuration du plug-in](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
 *   **URL des métadonnées** : URL permettant d’obtenir les métadonnées de fédération à partir d’Azure AD.
- 
+
 *   **Identificateurs** : URL utilisée par Azure AD pour valider la source de la requête. Elle correspond à l’élément **Identificateur** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*<domaine: port>*/.
- 
+
 *   **URL de réponse** : URL de réponse dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **URL de réponse** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*<domaine: port>*/plugins/servlet/saml/auth.
- 
+
 *   **URL de connexion** : URL de connexion dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **Connexion** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*<domaine: port>*/plugins/servlet/saml/auth.
- 
+
 *   **IdP Entity ID (ID entité IdP)** : identifiant d’entité utilisé par votre fournisseur d’identité. Cette case est renseignée quand l’URL des métadonnées est résolue.
- 
+
 *   **URL de connexion** : URL de connexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
- 
+
 *   **URL de déconnexion** : URL de déconnexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
- 
+
 *   **Certificat X.509** : certificat X.509 de votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
- 
+
 *   **Nom de bouton de connexion** : nom du bouton de connexion que votre organisation souhaite que les utilisateurs visualisent sur la page de connexion.
- 
+
 *   **Emplacements des ID utilisateur SAML** : emplacement auquel l’ID d’utilisateur Jira ou Confluence est attendu dans la réponse SAML. Il peut apparaître sous la forme **NameID** ou dans un nom d’attribut personnalisé.
- 
+
 *   **Nom d’attribut** : nom de l’attribut sur lequel l’ID utilisateur est attendu.
- 
+
 *   **Enable Home Realm Discovery (Activer la découverte du domaine d’accueil)** : sélection à effectuer si l’entreprise utilise une connexion basée sur Active Directory Federation Services (AD FS).
- 
+
 *   **Nom de domaine** : nom de domaine si la connexion est basée sur AD FS.
- 
+
 *   **Enable Single Signout (Activer la déconnexion unique)** : sélection à effectuer si vous souhaitez vous déconnecter d’Azure AD lorsqu’un utilisateur se déconnecte de Jira ou Confluence.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
@@ -131,15 +131,15 @@ L’image suivante montre l’écran de configuration dans Jira et Confluence :
 * **Un certificat est sur le point d’expirer dans Azure AD** : les modules complémentaires prennent en charge la substitution automatique du certificat. Quand un certificat est sur le point d’expirer, un nouveau certificat doit être marqué comme actif, et les certificats inutilisés doivent être supprimés. Quand un utilisateur tente de se connecter à Jira dans ce scénario, le plug-in extrait le nouveau certificat et l’enregistre.
 
 * **Comment désactiver WebSudo (désactiver la session administrateur sécurisée)** :
-    
+
   * Pour Jira, les sessions administrateur sécurisées (c’est-à-dire la confirmation du mot de passe avant d’accéder aux fonctions d’administration) sont activées par défaut. Si vous voulez supprimer cette possibilité dans votre instance Jira, indiquez la ligne suivante dans votre fichier jira-config.properties : `ira.websudo.is.disabled = true`
-    
+
   * Pour Confluence, suivez les étapes indiquées sur le [site de support technique de Confluence](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 
 * **Les champs censés être renseignés par l’URL des métadonnées ne le sont pas** :
-    
+
   * Vérifiez si l’URL est correcte. Vérifiez si vous avez mappé le locataire et l’ID d’application qui conviennent.
-    
+
   * Accédez à l’URL dans un navigateur et vérifiez si vous recevez le fichier XML des métadonnées de fédération.
 
 * **Une erreur interne du serveur s’est produite** : consultez les journaux dans le répertoire des journaux de l’installation. Si vous obtenez cette erreur quand l’utilisateur essaie de se connecter à l’aide de l’authentification unique Azure AD, vous pouvez partager les journaux avec l’équipe de support technique.
@@ -149,5 +149,5 @@ L’image suivante montre l’écran de configuration dans Jira et Confluence :
 * **Une erreur du type « Application introuvable » apparaît dans Azure AD** : voyez si l’URL appropriée est bien mappée à l’application dans Azure AD.
 
 * **Vous avez besoin d’aide** : contactez [l’équipe d’intégration Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Elle répond dans un délai de 24 à 48 heures.
-    
+
   Vous pouvez également créer un ticket de support auprès de Microsoft par le biais du portail Azure.

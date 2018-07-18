@@ -3,7 +3,7 @@ title: Redéploiement des machines virtuelles Linux dans Azure | Microsoft Docs
 description: Redéploiement des machines virtuelles Linux dans Azure pour atténuer les problèmes de connexion SSH.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
-ms.author: iainfou
-ms.openlocfilehash: 484e23f7f5800faf4a1d83c2386e0c766c3a1f2d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: cynthn
+ms.openlocfilehash: 1bd13c35ed49aeaab1a4f4aa94c984dc28f6c111
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29849305"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308003"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Redéployer une machine virtuelle vers un nouveau nœud Azure
 Si vous êtes confronté à des problèmes d’accès SSH ou d’accès des applications à une machine virtuelle Linux dans Azure, vous pouvez tenter de redéployer la machine virtuelle. Lorsque vous redéployez une machine virtuelle, celle-ci est déplacée vers un nouveau nœud au sein de l’infrastructure Azure, puis remise en service. Toutes les options de configuration et les ressources associées sont conservées. Cet article vous montre comment redéployer une machine virtuelle à l’aide de l’interface de ligne de commande Azure ou du portail Azure.

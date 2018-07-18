@@ -3,7 +3,7 @@ title: 'Didacticiel : créer et utiliser des disques pour les groupes identiques
 description: Découvrez comment utiliser Azure CLI 2.0 pour créer et utiliser Managed Disks avec un groupe de machines virtuelles identiques, notamment comment ajouter, préparer, répertorier et détacher les disques.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 86ab38fffa8099f2f9f758a4da89fdfcbb3c7543
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3c34ebda3700bb34952fb067bc965069004aee75
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246710"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719477"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli-20"></a>Didacticiel : créer et utilisez des disques avec un groupe de machines virtuelles identiques au moyen d’Azure CLI 2.0
-Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Disques de système d’exploitation et disques temporaires
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser la CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="default-azure-disks"></a>Disques Azure par défaut
@@ -289,7 +289,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Pour supprimer votre groupe identique et vos disques, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group#az_group_delete). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive

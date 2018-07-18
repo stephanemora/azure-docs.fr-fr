@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: cherylmc
 ms.openlocfilehash: efa07a68cda60ea2d8256a8d068639305f7f4c86
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31601863"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295453"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Création d’une passerelle VPN basée sur un itinéraire à l’aide de PowerShell
 
@@ -207,7 +207,7 @@ Sku                      : {
 IpTags                   : {}
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’avez plus besoin des ressources créées, utilisez la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources. Ce faisant, vous supprimez le groupe de ressources et l’ensemble des ressources qu’il contient.
 

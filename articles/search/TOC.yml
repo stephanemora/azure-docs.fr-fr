@@ -2,23 +2,15 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: Présentation d’Azure Search
+    - name: Présentation de Recherche Azure
       href: search-what-is-azure-search.md
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Essayer la recherche cognitive
-      href: cognitive-search-quickstart-blob.md
     - name: Créer un service
       href: search-create-service-portal.md
-    - name: Portail
-      items:
-        - name: Création d'un index
-          href: search-create-index-portal.md
-        - name: Importer des données
-          href: search-import-data-portal.md
-        - name: Navigateur de recherche
-          href: search-explorer.md
+    - name: Essayer la recherche cognitive
+      href: cognitive-search-quickstart-blob.md
     - name: .NET
       items:
         - name: Création d'un index
@@ -39,16 +31,18 @@
           href: search-fiddler.md
 - name: Didacticiels
   items:
+    - name: Utiliser les outils intégrés
+      href: search-get-started-portal.md
     - name: Développement de recherche cognitive
       href: cognitive-search-tutorial-blob.md
-    - name: Indexer Azure SQL Database
-      href: search-indexer-tutorial.md
     - name: Indexer les objets blob Azure
       href: search-semi-structured-data.md
+    - name: Indexer Azure SQL Database
+      href: search-indexer-tutorial.md
     - name: Ajouter des synonymes dans .NET
       href: search-synonyms-tutorial-sdk.md
-    - name: Procédure pas à pas dans le portail
-      href: search-get-started-portal.md
+    - name: Ajouter la saisie semi-automatique dans .NET
+      href: search-autocomplete-tutorial.md
 - name: Exemples
   items:
     - name: "Exemples de code\_Azure"
@@ -127,6 +121,8 @@
       items:
         - name: Définition de l’index
           href: search-what-is-an-index.md
+        - name: Créer un index (portail)
+          href: search-create-index-portal.md
         - name: Analyseurs
           items:
             - name: Analyseurs de texte
@@ -143,12 +139,14 @@
           href: search-faceted-navigation.md
         - name: Réglage de la pertinence
           href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
-        - name: Synonymes (préversion)
+        - name: Synonymes
           href: search-synonyms.md
     - name: Mode d’indexation
       items:
         - name: Indexation push vs. pull
           href: search-what-is-data-import.md
+        - name: Assistant d’importation (portail)
+          href: search-import-data-portal.md
         - name: Regénérer un index
           href: search-howto-reindex.md
         - name: Indexer de grands jeux de données
@@ -179,6 +177,8 @@
       items:
         - name: Construction des requêtes de base
           href: search-query-overview.md
+        - name: Navigateur de recherche (portail)
+          href: search-explorer.md
         - name: Syntaxe de requête simple
           href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
         - name: Syntaxe de requête Lucene

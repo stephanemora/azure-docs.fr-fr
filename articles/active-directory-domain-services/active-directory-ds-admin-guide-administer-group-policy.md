@@ -8,22 +8,24 @@ manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d9c4e33ffdb95d81660a92e0f43bac36702882a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ea7aa6c9dbde9a161567a815870b05da06cc82c8
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587002"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331709"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrer la stratégie de groupe sur un domaine géré par les services de domaine Azure Active Directory
 Azure Active Directory Domain Services inclut des objets de stratégie de groupe (GPO) intégrés pour les conteneurs « Utilisateurs AADDC » et « Ordinateurs AADDC ». Vous pouvez personnaliser ces GPO pour configurer la stratégie de groupe sur le domaine géré. De plus, les membres du groupe « AAD DC Administrators » peuvent créer leurs propres unités d’organisation personnalisées dans le domaine géré. Ils peuvent également créer des GPO personnalisés et les lier à ces unités d’organisation personnalisées. Les utilisateurs qui appartiennent au groupe « AAD DC Administrators » bénéficient de privilèges d’administration de stratégie de groupe sur le domaine géré.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour exécuter les tâches indiquées dans cet article, vous avez besoin des éléments suivants :

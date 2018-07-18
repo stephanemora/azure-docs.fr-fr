@@ -3,17 +3,17 @@ title: Guide de sécurité Azure Storage | Microsoft Docs
 description: Présente en détail les nombreuses méthodes de sécurisation d’Azure Storage, notamment (liste non exhaustive) RBAC, Storage Service Encryption, le chiffrement côté client, SMB 3.0 et Azure Disk Encryption.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: ac301daca769f9cec0d3395e7bde32494dd8e3d1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3c45375a46ee7896509f061828720bcf465aded7
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735325"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342468"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -101,7 +101,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 * [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Cette référence d’API décrit les API que vous pouvez utiliser pour gérer votre compte de stockage par programmation.
-* [Developer’s guide to auth with Azure Resource Manager API (Guide du développeur pour l’authentification avec l’API Azure Resource Manager)](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   Cet article explique l’authentification avec les API Resource Manager.
 * [Role-Based Access Control for Microsoft Azure from Ignite (Contrôle d’accès en fonction du rôle pour Microsoft Azure)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -154,7 +154,6 @@ Remarque : Il est recommandé d’utiliser uniquement l’une des clés dans tou
 * [Opérations sur les comptes de stockage](https://msdn.microsoft.com/library/ee460790.aspx)
 
   Cet article dans Informations de référence sur l’API REST du gestionnaire de service de stockage contient des liens vers des articles spécifiques sur la récupération et la régénération des clés de compte de stockage à l’aide de l’API REST. Remarque : Seuls les comptes de stockage classiques sont concernés.
-* [Say goodbye to key management – manage access to Azure Storage data using Azure AD (Dites au revoir à la gestion des clés - gérer l’accès aux données Azure Storage avec Azure AD)](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
   Cet article montre comment utiliser Active Directory pour contrôler l’accès à vos clés de stockage Azure dans Azure Key Vault. Il montre également comment utiliser un travail Azure Automation pour régénérer les clés toutes les heures.
 
@@ -209,7 +208,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Comment la signature d’accès partagé est authentifiée par le service Azure Storage
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Autorisation de la signature d’accès partagé par le service de Stockage Azure
 Quand le service de stockage reçoit la demande, il accepte les paramètres de requête d’entrée et crée une signature en utilisant la même méthode que le programme appelant. Il compare ensuite les deux signatures. Si elles correspondent, le service de stockage peut vérifier que la version du service de stockage est valide, que la date et l’heure sont dans la fenêtre spécifiée, que l’accès demandé correspond à la demande effectuée, etc.
 
 Par exemple, avec notre URL ci-dessus, si l’URL pointe vers un fichier au lieu d’un objet blob, cette demande échoue, car elle spécifie que la signature d’accès partagé concerne un objet blob. Si la commande REST appelée doit mettre à jour un objet blob, elle échoue car la signature d’accès partagé spécifie que seul l’accès en lecture est autorisé.
@@ -404,11 +403,11 @@ Un article répertorié dans les ressources ci-dessous fournit la liste des nomb
 
 ![Instantané des champs d’un fichier journal](./media/storage-security-guide/image3.png)
 
-Nous nous intéressons aux entrées pour GetBlob, et comment elles sont authentifiées. Nous devons donc rechercher les entrées avec operation-type « Get-Blob » et vérifier l’état de la requête (quatrième</sup> colonne) et le type d’autorisation (huitième</sup> colonne).
+Nous nous intéressons aux entrées de GetBlob et à leur mode d’autorisation. Nous devons donc rechercher les entrées ayant pour operation-type « Get-Blob » et examiner request-status (quatrième</sup> colonne) et authorization-type (huitième</sup> colonne).
 
-Par exemple, dans les premières lignes de la liste ci-dessus, l’état de la requête est « Success » et le type d’autorisation est « authenticated ». Cela signifie que la requête a été validée à l’aide de la clé du compte de stockage.
+Par exemple, dans les premières lignes de la liste ci-dessus, l’état de la requête est « Success » et le type d’autorisation est « authenticated ». Cela signifie que la requête a été autorisée à l’aide de la clé de compte de stockage.
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>Comment mes objets blob sont-ils authentifiés ?
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>Autorisation de l’accès aux objets blob
 Trois cas nous intéressent.
 
 1. L’objet blob est public et les utilisateurs y accèdent à l’aide d’une URL sans signature d’accès partagé. Dans ce cas, l’état de la requête est « AnonymousSuccess » et authorization-type est « anonymous ».

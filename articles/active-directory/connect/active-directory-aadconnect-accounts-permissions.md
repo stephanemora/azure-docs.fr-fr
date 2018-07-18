@@ -13,14 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158986"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824266"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
 L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accès différents :
@@ -186,9 +187,9 @@ En outre, le compte se voit octroyer des autorisations sur les fichiers, les cl�
 ### <a name="azure-ad-service-account"></a>Compte de service Azure AD
 Un compte dans Azure AD est créé en vue de son utilisation par le service de synchronisation. Ce compte peut être identifié par son nom d’affichage.
 
-![Compte AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![Compte AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-Le nom du serveur sur lequel le compte est utilisé peut être identifié dans la deuxième partie du nom d’utilisateur. Sur l’image, le nom du serveur est FABRIKAMCON. Si vous disposez de serveurs intermédiaires, chaque serveur a son propre compte.
+Le nom du serveur sur lequel le compte est utilisé peut être identifié dans la deuxième partie du nom d’utilisateur. Sur l’image, le nom du serveur est DC1. Si vous disposez de serveurs intermédiaires, chaque serveur a son propre compte.
 
 Le compte de service est créé avec un mot de passe long et complexe qui n’expire pas. Il se voit octroyer le rôle de **Compte de synchronisation de répertoires**. À ce titre, il est uniquement autorisé à effectuer des tâches de synchronisation de répertoires. Ce rôle intégré ne peut pas être accordé en dehors de l’Assistant Azure AD Connect. Le portail Azure affiche ce compte avec le rôle **Utilisateur**.
 

@@ -1,9 +1,9 @@
 ---
-title: "Considérations relatives à la conception des groupes de machines virtuelles identiques Azure | Microsoft Docs"
-description: "En savoir plus sur les considérations relatives à la conception des groupes de machines virtuelles identiques Azure"
+title: Considérations relatives à la conception des groupes de machines virtuelles identiques Azure | Microsoft Docs
+description: En savoir plus sur les considérations relatives à la conception des groupes de machines virtuelles identiques Azure
 keywords: machine virtuelle linux, groupes de machines virtuelles identiques
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652397"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considérations relatives à la conception des groupes de machines virtuelles identiques
 Cet article présente les considérations à prendre en compte pour créer des groupes de machines virtuelles identiques. Pour plus d'informations sur les groupes de machines virtuelles identiques, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
@@ -30,22 +31,19 @@ En règle générale, les groupes identiques sont utiles pour le déploiement d�
 
 ### <a name="scale-set-specific-features"></a>Fonctionnalités spécifiques des groupes identiques
 
-- Une fois la configuration du groupe identique spécifiée, vous pouvez mettre à jour la propriété « capacity » pour déployer davantage de machines virtuelles en parallèle. Cette approche est beaucoup plus simple que d’écrire un script pour orchestrer le déploiement d’un grand nombre de machines virtuelles individuelles en parallèle.
+- Une fois la configuration du groupe identique spécifiée, vous pouvez mettre à jour la propriété *capacity* pour déployer davantage de machines virtuelles en parallèle. Ce processus est bien mieux que l’écriture d’un script pour orchestrer le déploiement d’un grand nombre de machines virtuelles individuelles en parallèle.
 - Vous pouvez [utiliser la mise à l’échelle automatique d’Azure pour dimensionner automatiquement un groupe identique](./virtual-machine-scale-sets-autoscale-overview.md), mais pas les machines virtuelles individuelles.
 - Vous pouvez [réinitialiser les machines virtuelles des groupes identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm), mais [pas les machines virtuelles individuelles](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- Vous pouvez [sur-approvisionner](./virtual-machine-scale-sets-design-overview.md) les machines virtuelles d’un groupe identique pour une fiabilité accrue et un déploiement plus rapide. Vous ne pouvez pas adopter cette approche avec les machines virtuelles individuelles à moins d’écrire un code personnalisé à cette fin.
+- Vous pouvez [sur-approvisionner](./virtual-machine-scale-sets-design-overview.md) les machines virtuelles d’un groupe identique pour une fiabilité accrue et un déploiement plus rapide. Vous ne pouvez pas sur-approvisionner des machines virtuelles individuelles à moins d’écrire un code personnalisé pour effectuer cette opération.
 - Vous pouvez spécifier une [stratégie de mise à niveau](./virtual-machine-scale-sets-upgrade-scale-set.md) pour faciliter le déploiement des mises à niveau sur les machines virtuelles de votre groupe identique. Avec des machines virtuelles individuelles, vous devez orchestrer les mises à jour vous-même.
 
 ### <a name="vm-specific-features"></a>Fonctionnalités spécifiques des machines virtuelles
 
 Certaines fonctionnalités sont actuellement disponibles uniquement dans les machines virtuelles :
 
-- Vous pouvez attacher des disques de données à des machines virtuelles individuelles spécifiques, mais ces derniers sont configurés pour toutes les machines virtuelles dans un groupe identique.
-- Vous pouvez attacher des disques de données non vides à des machines virtuelles individuelles, mais pas aux machines virtuelles d’un groupe identique.
-- Vous pouvez prendre un instantané d’une machine virtuelle individuelle, mais cela n’est pas possible dans un groupe identique.
 - Vous pouvez capturer une image à partir d’une machine virtuelle individuelle, mais cela n’est pas possible dans un groupe identique.
-- Vous pouvez migrer une machine virtuelle individuelle à partir de disques natifs vers des disques gérés, mais cela n’est pas possible dans un groupe identique.
-- Vous pouvez assigner des adresses IP publiques IPv6 aux cartes d’interface réseau des machines virtuelles individuelles, mais cela n’est pas possible dans un groupe identique. Vous pouvez assigner des adresses IP publiques IPv6 aux équilibreurs de charge des machines virtuelles individuelles ou des machines de groupes identiques.
+- Vous pouvez migrer une machine virtuelle individuelle à partir de disques natifs vers des disques managés, mais vous ne pouvez pas migrer des instances de machine virtuelle dans un groupe identique.
+- Vous pouvez assigner des adresses IP publiques IPv6 à des cartes d’interface réseau de machines virtuelles individuelles, mais cela n’est pas possible pour des instances de machine virtuelle dans un groupe identique. Vous pouvez assigner des adresses IP publiques IPv6 aux équilibreurs de charge des machines virtuelles individuelles ou des machines de groupes identiques.
 
 ## <a name="storage"></a>Stockage
 

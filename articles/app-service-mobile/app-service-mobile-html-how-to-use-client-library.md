@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: ba2eb5a7f888e4cffcd798259afa8194b4021025
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151074"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488890"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente JavaScript pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -104,6 +104,6 @@ Après que le serveur principal sera mis à jour, vous serez en mesure d’utili
 [Prise en main de l'authentification]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

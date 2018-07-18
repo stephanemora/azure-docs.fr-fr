@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: jovanpop
-ms.openlocfilehash: 7707a40a39e429333ff1c20fb7884a1fb7ee2162
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bef8d01bd4c220fac595177089088ff64ee3bc3b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365965"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646641"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
@@ -62,13 +62,15 @@ Pour obtenir une vue d’ensemble du fonctionnement du réglage automatique et d
 ## <a name="automatic-tuning-options"></a>Options de réglage automatique
 
 Les options de réglage automatique disponibles dans Azure SQL Database sont les suivantes :
- 1. **CREATE INDEX** identifie les index qui peuvent améliorer les performances de votre charge de travail, crée des index et vérifie automatiquement que les performances des requêtes sont améliorées. Le paramètre d’Azure par défaut pour cette option est activé.
- 2. **DROP INDEX** identifie les index redondants et en double, ainsi que ceux qui n’ont pas été utilisés depuis très longtemps. Notez que l’option à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index. Le paramètre d’Azure par défaut pour cette option est désactivé.
- 3. **FORCE LAST GOOD PLAN** identifie les requêtes SQL utilisant le plan d’exécution qui est plus lent que le plan correct précédent, ainsi que les requêtes utilisant le dernier plan correct connu au lieu du plan de régression. Le paramètre d’Azure par défaut pour cette option est activé.
+ 1. **CREATE INDEX** identifie les index qui peuvent améliorer les performances de votre charge de travail, crée des index et vérifie automatiquement que les performances des requêtes sont améliorées.
+ 2. **DROP INDEX** identifie les index redondants et en double, ainsi que ceux qui n’ont pas été utilisés depuis très longtemps. Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index.
+ 3. **FORCE LAST GOOD PLAN** identifie les requêtes SQL utilisant le plan d’exécution qui est plus lent que le plan correct précédent, ainsi que les requêtes utilisant le dernier plan correct connu au lieu du plan de régression.
 
-Azure SQL Database identifie des recommandations**CREATE INDEX**, **DROP INDEX** et **FORCE LAST GOOD PLAN** qui peuvent optimiser votre base de données, puis les affiche dans le portail Azure. Pour plus d’informations sur l’identification des index à modifier, voir [Rechercher des recommandations d’index dans le portail Azure](sql-database-advisor-portal.md). Vous pouvez appliquer manuellement les recommandations à l’aide du portail ou vous pouvez laisser Azure SQL Database appliquer automatiquement les recommandations, surveiller la charge de travail après le changement et vérifier que la recommandation améliore les performances de votre charge de travail.
+Azure SQL Database identifie des recommandations**CREATE INDEX**, **DROP INDEX** et **FORCE LAST GOOD PLAN** qui peuvent optimiser votre base de données, puis les affiche dans le portail Azure. Pour plus d’informations sur l’identification des index à modifier, voir [Rechercher des recommandations d’index dans le portail Azure](sql-database-advisor-portal.md). Vous pouvez appliquer manuellement les recommandations à l’aide du portail ou vous pouvez laisser Azure SQL Database appliquer automatiquement les recommandations, surveiller la charge de travail après le changement et vérifier que la recommandation améliore les performances de votre charge de travail. 
 
-Vous pouvez activer ou désactiver les options de réglage automatique par base de données ou vous pouvez les configurer sur le serveur logique et les appliquer sur chaque base de données qui hérite des paramètres du serveur. Les serveurs logiques peuvent hériter des valeurs Azure par défaut pour les paramètres de réglage automatique. La méthode recommandée consiste à configurer les options de réglage automatique sur le serveur et à hériter des paramètres sur les bases de données. Cette méthode simplifie la gestion des options de réglage automatique sur un grand nombre de bases de données.
+Vous pouvez activer ou désactiver les options de réglage automatique par base de données ou vous pouvez les configurer sur des serveurs logiques et les appliquer sur chaque base de données qui hérite des paramètres du serveur. Les serveurs logiques peuvent hériter des valeurs Azure par défaut pour les paramètres de réglage automatique. Actuellement, les valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX désactivé.
+
+Une méthode recommandée consiste à configurer les options de réglage automatique sur un serveur et à hériter des paramètres des bases de données appartenant au serveur parent. Cette méthode simplifie la gestion des options de réglage automatique pour un grand nombre de bases de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

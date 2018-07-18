@@ -3,22 +3,24 @@ title: Comment configurer l’approvisionnement des utilisateurs pour une applic
 description: Comment configurer rapidement un approvisionnement et une annulation d’approvisionnement complets des comptes d’utilisateur pour des applications déjà répertoriées dans la galerie d’applications Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 79f836b4fc5964ffeb5cd9c1e179c3140395c219
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29464423"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334453"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Comment configurer l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
 
@@ -51,6 +53,6 @@ Vous trouverez les didacticiels spécifiques aux applications à la page [Liste 
 
 Lors de la configuration de l’approvisionnement, il est important de vérifier et configurer les mappages d’attributs et les workflows qui définissent les propriétés de l’utilisateur (ou du groupe) passant d’Azure AD à l’application. Cela inclut la définition d’une « propriété correspondante » réservée à l’utilisation et à la mise en correspondance des utilisateurs/groupes entre les deux systèmes. Pour plus d’informations sur ce processus important.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Personnalisation des mappages d’attributs d’approvisionnement d’utilisateurs pour les applications SaaS dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

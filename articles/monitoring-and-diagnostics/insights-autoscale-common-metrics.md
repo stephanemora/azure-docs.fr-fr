@@ -1,24 +1,19 @@
 ---
-title: "Mesures courantes pour la mise à l’échelle automatique dans Azure Monitor | Microsoft Docs"
-description: "Découvrez les métriques utilisées pour la mise à l’échelle automatique de vos instances Cloud Services, Virtual Machines et Web Apps."
+title: Métriques courantes pour la mise à l’échelle automatique
+description: Découvrez les métriques utilisées pour la mise à l’échelle automatique de vos instances Cloud Services, Virtual Machines et Web Apps.
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 7b6f454a8d4c8794b8c56494fd9ed573f8b79852
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262237"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor
 La fonction de mise à l’échelle automatique d’Azure Monitor vous permet de diminuer ou d’augmenter la taille des instances en fonction des données de télémétrie (métriques). Ce document décrit les métriques courantes que vous pouvez utiliser. Dans le portail Azure pour les services cloud et les batteries de serveurs, vous pouvez choisir les métriques de la ressource à mettre à l’échelle. Toutefois, vous pouvez également choisir des métriques à partir d’une autre ressource à mettre à l’échelle.
@@ -58,10 +53,10 @@ Vous pouvez créer une alerte pour les métriques suivantes :
 | \Processor(_Total)\% temps processeur |Pourcentage |
 | \Processor(_Total)\\% temps privilégié |Pourcentage |
 | \Processor(_Total)\\% temps utilisateur |Pourcentage |
-| \Processor Information(_Total)\Fréquence du processeur |Nombre |
-| \System\Processus |Nombre |
-| \Process(_Total)\Nombre de threads |Nombre |
-| \Process(_Total)\Nombre de handles |Nombre |
+| \Processor Information(_Total)\Fréquence du processeur |Count |
+| \System\Processus |Count |
+| \Process(_Total)\Nombre de threads |Count |
+| \Process(_Total)\Nombre de handles |Count |
 | \Memory\\% octets validés en cours d’utilisation |Pourcentage |
 | \Memory\Octets disponibles |Octets |
 | \Memory\Octets validés |Octets |
@@ -71,17 +66,17 @@ Vous pouvez créer une alerte pour les métriques suivantes :
 | \PhysicalDisk(_Total)\\% temps disque |Pourcentage |
 | \PhysicalDisk(_Total)\\% temps de lecture du disque |Pourcentage |
 | \PhysicalDisk(_Total)\\% temps écriture du disque |Pourcentage |
-| \PhysicalDisk(_Total)\Disk Transfers/sec |Nombre par seconde |
-| \PhysicalDisk(_Total)\Lectures disque/s |Nombre par seconde |
+| \PhysicalDisk(_Total)\Disk Transfers/sec |CountPerSecond |
+| \PhysicalDisk(_Total)\Lectures disque/s |CountPerSecond |
 | \PhysicalDisk(_Total)\Écritures disque/s |Nombre par seconde |
-| \PhysicalDisk(_Total)\Octets disque/s |Octets par seconde |
-| \PhysicalDisk(_Total)\Lectures disque, octets/s |Octets par seconde |
+| \PhysicalDisk(_Total)\Octets disque/s |BytesPerSecond |
+| \PhysicalDisk(_Total)\Lectures disque, octets/s |BytesPerSecond |
 | \PhysicalDisk(_Total)\Écritures disque, octets/s |Octets par seconde |
-| \PhysicalDisk(_Total)\Longueur moyenne Longueur de file d'attente de disque |Nombre |
-| \PhysicalDisk(_Total)\Longueur moyenne de file d’attente lecture disque |Nombre |
-| \PhysicalDisk(_Total)\Longueur moyenne de file d’attente écriture disque |Nombre |
+| \PhysicalDisk(_Total)\Longueur moyenne Longueur de file d'attente de disque |Count |
+| \PhysicalDisk(_Total)\Longueur moyenne de file d’attente lecture disque |Count |
+| \PhysicalDisk(_Total)\Longueur moyenne de file d’attente écriture disque |Count |
 | \LogicalDisk(_Total)\\% espace libre |Pourcentage |
-| \LogicalDisk(_Total)\Mégaoctets libres |Nombre |
+| \LogicalDisk(_Total)\Mégaoctets libres |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métriques de SE invité pour les machines virtuelles Linux
 Lorsque vous créez une machine virtuelle dans Azure, les diagnostics sont activés par défaut grâce à l’extension Diagnostics.
@@ -101,9 +96,9 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \Mémoire\Mémoire utilisée |Octets |
 | \Mémoire\Pourcentage de mémoire utilisée |Pourcentage |
 | \Mémoire\Pourcentage de mémoire utilisée par le cache |Pourcentage |
-| \Mémoire\Pages par seconde |Nombre par seconde |
-| \Mémoire\Pages lues par seconde |Nombre par seconde |
-| \Mémoire\Pages écrites par seconde |Nombre par seconde |
+| \Mémoire\Pages par seconde |CountPerSecond |
+| \Mémoire\Pages lues par seconde |CountPerSecond |
+| \Mémoire\Pages écrites par seconde |CountPerSecond |
 | \Mémoire\Échanges disponibles |Octets |
 | \Mémoire\Pourcentage d’échanges disponibles |Pourcentage |
 | \Mémoire\Échanges utilisés |Octets |
@@ -116,24 +111,24 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \Processeur\Pourcentage de temps d’appels de procédure différés (DPC) |Pourcentage |
 | \Processeur\Pourcentage de temps de processeur |Pourcentage |
 | \Processeur\Pourcentage de temps d’attente |Pourcentage |
-| \Disque physique\Octets par seconde |Octets par seconde |
-| \Disque physique\Octets lus par seconde |Octets par seconde |
-| \Disque physique\Octets écrits par seconde |Octets par seconde |
-| \Disque physique\Transferts par seconde |Nombre par seconde |
-| \Disque physique\Lectures par seconde |Nombre par seconde |
-| \Disque physique\Écritures par seconde |Nombre par seconde |
+| \Disque physique\Octets par seconde |BytesPerSecond |
+| \Disque physique\Octets lus par seconde |BytesPerSecond |
+| \Disque physique\Octets écrits par seconde |BytesPerSecond |
+| \Disque physique\Transferts par seconde |CountPerSecond |
+| \Disque physique\Lectures par seconde |CountPerSecond |
+| \Disque physique\Écritures par seconde |CountPerSecond |
 | \Disque physique\Temps de lecture moyen |Secondes |
 | \Disque physique\Temps d’écriture moyen |Secondes |
 | \Disque physique\Temps de transfert moyen |Secondes |
-| \Disque physique\Longueur moyenne de la file d’attente du disque |Nombre |
+| \Disque physique\Longueur moyenne de la file d’attente du disque |Count |
 | \Interface réseau\Octets transmis |Octets |
 | \Interface réseau\Octets reçus |Octets |
-| \Interface réseau\Paquets transmis |Nombre |
-| \Interface réseau\Paquets reçus |Nombre |
+| \Interface réseau\Paquets transmis |Count |
+| \Interface réseau\Paquets reçus |Count |
 | \Interface réseau\Total des octets |Octets |
-| \Interface réseau\Total des erreurs Rx |Nombre |
-| \Interface réseau\Total des erreurs Tx |Nombre |
-| \Interface réseau\Total des collisions |Nombre |
+| \Interface réseau\Total des erreurs Rx |Count |
+| \Interface réseau\Total des erreurs Tx |Count |
+| \Interface réseau\Total des collisions |Count |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Métriques web couramment utilisées (batterie de serveurs)
 Vous pouvez également effectuer la mise à l’échelle en fonction des métriques de serveur web courantes, telles que la longueur de file d’attente HTTP. Son nom de métrique est **Longueur de file d’attente HTTP**.  La section suivante répertorie les métriques de batterie de serveurs (Web Apps) disponibles.
@@ -151,10 +146,10 @@ Ces métriques permettent d’émettre une alerte ou de procéder à un mise à 
 | --- | --- |
 | Pourcentage UC |Pourcentage |
 | Pourcentage mémoire |Pourcentage |
-| Longueur de file d’attente du disque |Nombre |
-| Longueur de file d’attente HTTP |Nombre |
+| Longueur de file d’attente du disque |Count |
+| Longueur de file d’attente HTTP |Count |
 | Octets reçus |Octets |
-| Octets envoyés |Octets |
+| BytesSent |Octets |
 
 ## <a name="commonly-used-storage-metrics"></a>Métriques couramment utilisées dans Azure Storage
 Vous pouvez procéder à une mise à l’échelle en fonction de la métrique Longueur de file d’attente, qui correspond au nombre de messages dans la file d’attente de stockage. La longueur de file d’attente de stockage est une métrique spéciale et le seuil appliqué sera le nombre de messages par instance. Par exemple, si vous avez deux instances et que le seuil est défini sur 100, la mise à l’échelle aura lieu lorsque la file d’attente contiendra 200 messages. Cela peut être 100 messages par instance, 120 et 80 ou toute autre combinaison qui correspond à 200 ou plus.

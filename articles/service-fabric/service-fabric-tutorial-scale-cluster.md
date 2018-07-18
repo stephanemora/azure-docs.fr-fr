@@ -1,6 +1,6 @@
 ---
-title: Mettre à l’échelle un cluster Azure Service Fabric | Microsoft Docs
-description: Dans ce didacticiel, vous découvrez comment effectuer une mise à l’échelle rapide d’un cluster Service Fabric.
+title: Mettre à l’échelle un cluster Service Fabric dans Azure | Microsoft Docs
+description: Dans ce tutoriel, vous découvrez comment effectuer une mise à l’échelle rapide d’un cluster Service Fabric dans Azure.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,15 +15,16 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 83f7a03744e7e8819d71eae81ed8e497797bef62
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109407"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster"></a>Didacticiel : mettre à l’échelle un cluster Service Fabric
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : mettre à l’échelle un cluster Service Fabric dans Azure
 
-Ce didacticiel constitue la deuxième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce didacticiel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.
+Ce tutoriel constitue la deuxième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce tutoriel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -32,23 +33,25 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Ajouter des nœuds de cluster (scale out)
 > * Supprimer des nœuds de cluster (scale in)
 
-Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
+Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> * créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure à l’aide d’un modèle ;
+> * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure à l’aide d’un modèle
 > * Mettre à l’échelle un cluster
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
+> * [Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce didacticiel :
-- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure
-- Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](http://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
-- Si vous déployez un cluster Linux, configurez un environnement de développement Java sur [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md). 
+Avant de commencer ce tutoriel :
+
+* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
+* Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure
+* Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](http://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
+* Si vous déployez un cluster Linux, configurez un environnement de développement Java sur [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
+
 Connectez-vous à votre compte Azure, sélectionnez votre abonnement avant d’exécuter des commandes Azure.
 
 ```powershell
@@ -86,7 +89,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Maintenant que vous êtes connecté, vous pouvez utiliser une commande pour obtenir l’état de chaque nœud du cluster. Pour PowerShell, utilisez la commande `Get-ServiceFabricClusterHealth` tandis que pour **sfctl**, utilisez la commande `sfctl cluster select`.
+Maintenant que vous êtes connecté, vous pouvez utiliser une commande pour obtenir l’état de chaque nœud du cluster. Pour **PowerShell**, utilisez la commande `Get-ServiceFabricClusterHealth` tandis que pour **sfctl**, utilisez la commande `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Montée en charge
 
@@ -118,7 +121,7 @@ Pour diminuer le nombre d’instances (scale in), il suffit de diminuer la valeu
 > [!NOTE]
 > Cette partie s’adresse uniquement au niveau de durabilité *Bronze*. Pour plus d’informations sur la durabilité, consultez [Planification de la capacité des clusters Service Fabric][durability].
 
-Lorsque vous diminuez le nombre d’instances d’un groupe de machines virtuelles identiques, celui-ci supprime (dans la plupart des cas) l’instance de machine virtuelle qui a été créée en dernier. Par conséquent, vous devez rechercher le nœud Service Fabric correspondant qui a été créé en dernier. Pour le trouver, il vous suffit de regarder la valeur de propriété `NodeInstanceId` la plus élevée parmi les nœuds Service Fabric. Les exemples de code ci-dessous trient les résultats par instance de nœud et retournent les informations sur l’instance dont la valeur ID est la plus élevée. 
+Lorsque vous diminuez le nombre d’instances d’un groupe de machines virtuelles identiques, celui-ci supprime (dans la plupart des cas) l’instance de machine virtuelle qui a été créée en dernier. Par conséquent, vous devez rechercher le nœud Service Fabric correspondant qui a été créé en dernier. Pour le trouver, il vous suffit de regarder la valeur de propriété `NodeInstanceId` la plus élevée parmi les nœuds Service Fabric. Les exemples de code ci-dessous trient les résultats par instance de nœud et retournent les informations sur l’instance dont la valeur ID est la plus élevée.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -132,15 +135,15 @@ Le cluster Service Fabric doit être informé de la suppression de ce nœud. Pou
 
 1. Désactivez le nœud afin qu’il ne soit plus utilisé pour la réplication de données.  
 PowerShell : `Disable-ServiceFabricNode`  
-sfcli : `sfctl node disable`
+sfctl : `sfctl node disable`
 
 2. Arrêtez le nœud afin que le runtime Service Fabric soit arrêté correctement et que votre application reçoive une demande de fin d’exécution.  
 PowerShell : `Start-ServiceFabricNodeTransition -Stop`  
-sfcli : `sfctl node transition --node-transition-type Stop`
+sfctl : `sfctl node transition --node-transition-type Stop`
 
 2. Supprimez le nœud du cluster.  
 PowerShell : `Remove-ServiceFabricNodeState`  
-sfcli : `sfctl node remove-state`
+sfctl : `sfctl node remove-state`
 
 Une fois ces trois étapes effectuées, vous pouvez supprimer le nœud du groupe identique. Si vous utilisez un niveau de durabilité autre que le niveau [Bronze][durability], ces étapes sont effectuées automatiquement lorsque vous supprimez une instance de groupe identique.
 
@@ -180,7 +183,7 @@ else
     # Stop node
     $stopid = New-Guid
     Start-ServiceFabricNodeTransition -Stop -OperationId $stopid -NodeName $nodename -NodeInstanceId $nodeid -StopDurationInSeconds 300
-    
+
     $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
     $loopTimeout = 10
 
@@ -191,7 +194,7 @@ else
         $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
         Write-Host "Checking state... $state found"
     }
-    
+
     if ($state -ne [System.Fabric.TestCommandProgressState]::Completed)
     {
         Write-Error "Stop transaction failed with $state"
@@ -218,15 +221,14 @@ sfctl node remove-state --node-name _nt1vm_5
 ```
 
 > [!TIP]
-> Utilisez les requêtes **sfctl** suivantes pour vérifier l’état de chaque étape.
+> Utilisez les requêtes **sfctl** suivantes pour vérifier l’état de chaque étape
 >
-> **Vérifier l’état de la désactivation**  
+> **Vérifier l’état de la désactivation**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Vérifier l’état de l’arrêt**  
+> **Vérifier l’état de l’arrêt**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
-
 
 ### <a name="scale-in-the-scale-set"></a>Diminuer le nombre d’instances du groupe identique
 
@@ -249,16 +251,14 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Lire le nombre de nœuds de cluster
 > * Ajouter des nœuds de cluster (scale out)
 > * Supprimer des nœuds de cluster (scale in)
-
 
 Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau le runtime d’un cluster.
 > [!div class="nextstepaction"]

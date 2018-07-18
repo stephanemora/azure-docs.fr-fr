@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: juliako
-ms.openlocfilehash: 8cc6b779729bf0c596a7c1b7318eed6f47dffb1d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: cbe20c4b75fff27fad60446fb933a9c8ba2e3312
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161344"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461552"
 ---
 # <a name="cli-example-create-a-transform"></a>Exemple CLI : créer une transformation
 
@@ -27,7 +27,7 @@ Le script Azure CLI dans cet article montre comment créer une transformation. L
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.20 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.20 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="example-script"></a>Exemple de script
 

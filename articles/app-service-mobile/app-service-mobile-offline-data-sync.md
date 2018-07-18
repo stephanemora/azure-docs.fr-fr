@@ -1,10 +1,10 @@
 ---
-title: "Synchronisation des données hors connexion dans Azure Mobile Apps | Microsoft Docs"
-description: "Référence conceptuelle et présentation de la fonctionnalité de synchronisation des données hors connexion pour Azure Mobile Apps"
+title: Synchronisation des données hors connexion dans Azure Mobile Apps | Microsoft Docs
+description: Référence conceptuelle et présentation de la fonctionnalité de synchronisation des données hors connexion pour Azure Mobile Apps
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597975"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Synchronisation des données hors connexion dans Azure Mobile Apps
 ## <a name="what-is-offline-data-sync"></a>Qu’est-ce que la synchronisation des données hors connexion ?
@@ -42,7 +43,7 @@ Les didacticiels suivants montrent comment ajouter la synchronisation hors conne
 * [Xamarin iOS : activer la synchronisation hors connexion]
 * [Xamarin Android : activer la synchronisation hors connexion]
 * [Xamarin.Forms : activer la synchronisation hors connexion](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Plateforme Windows universelle : activer la synchronisation hors connexion]
+* [Plateforme Windows universelle : activer la synchronisation hors connexion]
 
 ## <a name="what-is-a-sync-table"></a>Qu’est-ce qu’une table de synchronisation ?
 Pour accéder au point de terminaison « /tables », les Kits de développement logiciel (SDK) client Azure Mobile fournissent des interfaces comme `IMobileServiceTable` (SDK client .NET) ou `MSTable` (client iOS). Ces API se connectent directement à l’application principale Azure Mobile App et échouent si l’appareil client n’a pas de connexion réseau.
@@ -52,7 +53,7 @@ Pour prendre en charge l’utilisation hors connexion, votre application doit pl
 ## <a name="what-is-a-local-store"></a>Qu’est-ce qu’un magasin local ?
 Un magasin local est la couche de persistance des données sur l’appareil client. Par défaut, les Kits de développement logiciel (SDK) clients Azure Mobile Apps prennent en charge l’implémentation des magasins locaux. Dans Windows, Xamarin et Android, cette implémentation est basée sur SQLite. Sur iOS, la solution fonctionne sur les données de base.
 
-Pour utiliser l’implémentation basée sur SQLite dans Windows Phone ou Windows Store 8.1, vous devez installer une extension SQLite. Pour plus d’informations, voir [Plateforme Windows universelle : activer la synchronisation hors connexion]. Le système d’exploitation des appareils Android et iOS comportant une version de SQLite, vous n’avez pas besoin de référencer votre propre version de SQLite.
+Pour utiliser l’implémentation basée sur SQLite dans Windows Phone ou Microsoft Store, vous devez installer une extension SQLite. Pour plus d’informations, voir [Plateforme Windows universelle : activer la synchronisation hors connexion]. Le système d’exploitation des appareils Android et iOS comportant une version de SQLite, vous n’avez pas besoin de référencer votre propre version de SQLite.
 
 Les développeurs peuvent également implémenter leur propre magasin local. Par exemple, si vous souhaitez stocker des données dans un format chiffré sur le client mobile, vous pouvez définir un magasin local qui utilise SQLCipher pour le chiffrement.
 
@@ -92,7 +93,7 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 * [iOS : activer la synchronisation hors connexion]
 * [Xamarin iOS : activer la synchronisation hors connexion]
 * [Xamarin Android : activer la synchronisation hors connexion]
-* [Plateforme Windows universelle : activer la synchronisation hors connexion]
+* [Plateforme Windows universelle : activer la synchronisation hors connexion]
 
 <!-- Links -->
 [Kit de développement logiciel (SDK) client .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
@@ -100,4 +101,4 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 [iOS : activer la synchronisation hors connexion]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS : activer la synchronisation hors connexion]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android : activer la synchronisation hors connexion]: app-service-mobile-xamarin-android-get-started-offline-data.md
-[Plateforme Windows universelle : activer la synchronisation hors connexion]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Plateforme Windows universelle : activer la synchronisation hors connexion]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

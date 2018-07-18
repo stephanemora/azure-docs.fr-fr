@@ -184,7 +184,19 @@
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: vidéos
-      href: videos.md
+      items:
+        - name: Vidéos de produit
+          href: videos.md
+        - name: Série de vidéos sur la procédure à suivre
+          items:
+            - name: Découvrir les avantages et les fonctionnalités du produit
+              href: 'https://aka.ms/mysql-intro-vid'
+            - name: Migrer une application MySQL vers Azure
+              href: 'https://aka.ms/mysql-migrate-vid'
+            - name: Créer et déployer des applications Web Apps
+              href: 'https://aka.ms/mysql-webapps-vid'
+            - name: Connecter des conteneurs à l’aide d’Open Service Broker pour Azure
+              href: 'https://aka.ms/mysql-osba-vid'
     - name: Demander une fonctionnalité
       href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'
     - name: Disponibilité des régions
@@ -193,5 +205,7 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Témoignages client
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: Partenaires
+      href: partners-migration-mysql.md
     - name: Guide pour la migration de base de données
       href: 'https://datamigration.microsoft.com/'

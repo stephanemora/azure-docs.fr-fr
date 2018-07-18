@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 10/19/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: e8e693355fb9b30e1a69b49f20d5044c531e2fcd
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol
+ms.openlocfilehash: d7194846dbeab2a5da8a8ceaa5a1040f33e8d515
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155617"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317127"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Objets application et principal du service dans Azure Active Directory (Azure AD)
 Parfois, la signification du terme « application » peut être mal comprise lorsqu’il est utilisé dans le contexte d’Azure AD. Cet article a pour objectif de clarifier les aspects conceptuels et concrets de l’intégration des applications dans Azure AD, en donnant un exemple d’inscription et de consentement pour une [application multi-locataire](active-directory-dev-glossary.md#multi-tenant-application).

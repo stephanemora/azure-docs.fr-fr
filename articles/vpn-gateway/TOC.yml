@@ -106,6 +106,8 @@
       items:
         - name: Azure PowerShell
           href: vpn-gateway-activeactive-rm-powershell.md
+    - name: Créer une passerelle de réseau virtuel redondante dans une zone dans les zones de disponibilité Azure
+      href: create-zone-redundant-vnet-gateway.md
     - name: 'Routage, BGP et homologation de réseau virtuel'
       items:
         - name: Configurer BGP pour une passerelle VPN

@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: cad363309b6086197ced1a5d1c1793995db11228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 222558a6596c676034e52812d3b2dd0c77e1466b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621612"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046899"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Considérations relatives à la sécurité des déplacements de données pour Data Factory version 2](../data-movement-security-considerations.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Considérations de sécurité relatives au déplacement des données dans Azure Data Factory](../data-movement-security-considerations.md).
 
 ## <a name="introduction"></a>Introduction
 Cet article décrit l’infrastructure de sécurité de base qu’utilisent les services de déplacement des données dans Azure Data Factory pour sécuriser vos données. Les ressources de gestion d’Azure Data Factory reposent sur l’infrastructure de sécurité Azure et utilisent toutes les mesures de sécurité proposées par Azure.
@@ -40,7 +40,7 @@ Le déplacement des données à l’aide d’Azure Data Factory a obtenu les **c
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
-Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure protège sa propre infrastructure, consultez le [Centre de confidentialité Microsoft](https://www.microsoft.com/TrustCenter/default.aspx). 
+Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure protège sa propre infrastructure, consultez le [Centre de confidentialité Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
 Cet article présente les principes de sécurité à prendre en compte dans les deux scénarios de déplacement de données suivants : 
 

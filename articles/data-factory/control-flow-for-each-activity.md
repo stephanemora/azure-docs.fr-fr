@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2240ebc7fb4fd39ea063240987fec64f26608a8a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a029cb815f7765e6fe4e2fdbf81d437d5ac4ebe3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619046"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047579"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Activité ForEach dans Azure Data Factory
-L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est similaire à la structure d’exécution en boucle de Foreach dans les langages de programmation.
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory V1](v1/data-factory-introduction.md).
+L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
 
 ## <a name="syntax"></a>Syntaxe
 Les propriétés sont décrites plus loin dans cet article. La propriété items est la collection, et chaque élément dans celle-ci est référencé à l’aide de `@item()`, comme illustré dans la syntaxe suivante :  

@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes liés aux vues des coûts d’entreprise - Azure | Microsoft Docs
+title: Résoudre les problèmes liés aux vues des coûts d’entreprise Azure | Microsoft Docs
 description: Découvrez comment résoudre les problèmes que vous pourriez rencontrer avec les vues des coûts d’organisation dans le portail Azure.
 author: rthorn17
 manager: rithorn
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: 193e4691d2e10dd1c5ad16c26ad25534e3156745
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2a9639103b494e3af54a6a21ed769cf4f7bd6259
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770353"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063190"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Résoudre les problèmes liés aux vues des coûts d’entreprise 
 

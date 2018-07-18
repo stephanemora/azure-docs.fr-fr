@@ -5,27 +5,31 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212787"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915967"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Préparer des ressources Azure pour la réplication de machines locales
 
  [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
-Ce didacticiel décrit comment préparer les composants Azure pour répliquer des machines virtuelles (Hyper-V ou VMware) ou des serveurs physiques Windows/Linux locaux sur Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Cet article est le premier tutoriel d’une série qui vous montre comment configurer la récupération d’urgence pour des machines virtuelles locales. Il ne s’applique que si vous protégez des machines virtuelles VMware locales, des machines virtuelles Hyper-V ou des serveurs physiques.
+
+Les tutoriels sont conçus pour vous montrer le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. 
+
+Cet article décrit comment préparer les composants Azure pour répliquer des machines virtuelles (Hyper-V ou VMware) ou des serveurs physiques Windows/Linux locaux sur Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Vérifiez que votre compte Azure dispose des autorisations de réplication.
-> * Créez un compte de stockage Azure. Les données répliquées y sont stockées.
-> * Créez un coffre Recovery Services.
-> * Définissez un réseau Azure. Quand les machines virtuelles Azure sont créées après le basculement, elles sont jointes à ce réseau Azure.
+> * Créez un compte de stockage Azure. Les images des machines répliquées y sont stockées.
+> * Créez un coffre Recovery Services. Un coffre conserve des métadonnées et des informations de configuration pour les machines virtuelles et les autres composants de réplication.
+> * Configurez un réseau Azure Quand les machines virtuelles Azure sont créées après le basculement, elles sont jointes à ce réseau Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
@@ -45,27 +49,28 @@ Pour effectuer ces tâches, le rôle prédéfini de contributeur de machines vir
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Les images des machines répliquées sont conservées dans le stockage Azure. Les machines virtuelles Azure sont créées à partir du stockage quand vous basculez du site local vers Azure.
+Les images des machines répliquées sont conservées dans le stockage Azure. Les machines virtuelles Azure sont créées à partir du stockage quand vous basculez du site local vers Azure. Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services. Nous utilisons la région Europe de l’Ouest dans ce tutoriel.
 
-1. Dans le menu [Portail Azure](https://portal.azure.com), sélectionnez **Nouveau** > **Stockage** > **Compte de stockage**.
+1. Dans le menu [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage - blob, fichier, table, file d’attente**.
 2. Dans **Créer un compte de stockage**, entrez un nom correspondant au compte. Pour ces didacticiels, nous utilisons **contosovmsacct1910171607**. Le nom que vous sélectionnez doit être unique dans Azure, avoir entre 3 et 24 caractères, et contenir uniquement des nombres et des lettres minuscules.
 3. Dans **Modèle de déploiement**, sélectionnez **Resource Manager**.
-4. Dans **Type de compte**, sélectionnez **Usage général**. Dans **Performances**, sélectionnez **Standard**. Ne sélectionnez pas Stockage Blob.
-5. Dans **Réplication**, sélectionnez la valeur par défaut **Stockage géo-redondant avec accès en lecture** pour la redondance de stockage.
-6. Dans **Abonnement**, sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
-7. Dans **Groupe de ressources**, entrez un nouveau groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Pour ces didacticiels, utilisez le nom **ContosoRG**.
-8. Dans **Emplacement**, sélectionnez un emplacement géographique pour votre compte de stockage. Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services. Pour ces didacticiels, utilisez la région **Europe de l’Ouest**.
+4. Dans **Type de compte**, sélectionnez **Stockage (Usage général v1)**. Ne sélectionnez pas Stockage Blob.
+5. Dans **Réplication**, sélectionnez la valeur par défaut **Stockage géo-redondant avec accès en lecture** pour la redondance de stockage. Laissez **Transfert sécurisé requis** en tant que **Désactivé**.
+6. Dans **Performances**, sélectionnez **Standard**, et dans **Niveau d’accès**, choisissez l’option par défaut **Chaud**.
+7. Dans **Abonnement**, sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
+8. Dans **Groupe de ressources**, entrez un nouveau groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Pour ces tutoriels, nous utilisons **ContosoRG**.
+9. Dans **Emplacement**, sélectionnez un emplacement géographique pour votre compte de stockage. 
 
    ![Créez un compte de stockage.](media/tutorial-prepare-azure/create-storageacct.png)
 
 9. Sélectionnez **Créer** pour créer le compte de stockage.
 
-## <a name="create-a-vault"></a>création d'un coffre
+## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Surveillance + Gestion** > **Backup and Site Recovery**.
+1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Backup and Site Recovery (OMS)**.
 2. Dans **Name**, entrez un nom convivial pour identifier le coffre. Pour cette série de didacticiels, nous utilisons **ContosoVMVault**.
-3. Dans **Groupe de ressources**, sélectionnez le groupe de ressources existant nommé **contosoRG**.
-4. Dans **Emplacement**, spécifiez la région Azure **Europe de l’Ouest** qui est utilisée dans cette série de didacticiels.
+3. Dans **Groupe de ressources**, nous utilisons **contosoRG**.
+4. Dans **Emplacement**. Nous utilisons **Europe de l’Ouest**.
 5. Pour accéder rapidement au coffre à partir du tableau de bord, sélectionnez **Épingler au tableau de bord** > **Créer**.
 
    ![Créer un coffre](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -77,25 +82,26 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 Quand les machines virtuelles Azure sont créées à partir du stockage après le basculement, elles sont jointes à ce réseau.
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
-2. Laissez **Resource Manager** sélectionné comme modèle de déploiement. Resource Manager est le modèle de déploiement préféré. Puis effectuez les étapes suivantes :
-
-   a. Dans **Nom**, entrez un nom de réseau. Le nom doit être unique au sein du groupe de ressources Azure. Utilisez le nom **ContosoASRnet**.
-
-   b. Dans **Groupe de ressources**, utilisez le groupe de ressources existant **contosoRG**.
-
-   c. Dans **Plage d’adresses**, entrez la plage d’adresses réseau **10.0.0.0/24**.
-
-   d. Pour ce didacticiel, vous n’avez pas besoin d’un sous-réseau.
-
-   e. Dans **Abonnement**, sélectionnez l’abonnement dans lequel créer le réseau.
-
-   f. Dans **Emplacement**, sélectionnez **Europe de l’Ouest**. Ce réseau doit se trouver dans la même région que le coffre Recovery Services.
-
-3. Sélectionnez **Créer**.
+2. Laissez **Gestionnaire des ressources** sélectionné en tant que modèle de déploiement.
+3. Dans **Nom**, entrez un nom de réseau. Le nom doit être unique au sein du groupe de ressources Azure. Dans ce tutoriel, nous utilisons **ContosoASRnet**.
+4. Spécifiez le groupe de ressources dans lequel le réseau sera créé. Nous utilisons le groupe de ressources existant **contosoRG**.
+5. Dans **Plage d’adresses**, entrez la plage du réseau **10.0.0.0/24**. Dans ce réseau, nous utilisons pas de sous-réseau.
+6. Dans **Abonnement**, sélectionnez l’abonnement dans lequel créer le réseau.
+7. Dans **Emplacement**, sélectionnez **Europe de l’Ouest**. Ce réseau doit se trouver dans la même région que le coffre Recovery Services.
+8. Nous laissons les options par défaut de la protection DDoS de base, sans point de terminaison de service sur le réseau.
+9. Cliquez sur **Créer**.
 
    ![Créez un réseau virtuel](media/tutorial-prepare-azure/create-network.png)
 
    La création du réseau virtuel prend quelques secondes. Une fois qu’il est créé, vous le voyez dans le tableau de bord du portail Azure.
+
+## <a name="useful-links"></a>Liens utiles
+
+- [En savoir plus](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sur les réseaux Azure.
+- [En savoir plus](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) sur les types de stockage Azure.
+- [En savoir plus](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sur la redondance du stockage et le [transfert sécurisé](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) pour le stockage.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

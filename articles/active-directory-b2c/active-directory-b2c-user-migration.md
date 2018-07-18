@@ -1,22 +1,21 @@
 ---
-title: 'Azure Active Directory B2C : approches de migration utilisateur'
+title: Approches de migration des utilisateurs dans Azure Active Directory B2C | Microsoft Docs
 description: Abordez les principaux concepts et les concepts avancés de la migration utilisateur avec API Graph et éventuellement avec les stratégies personnalisées Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 47f813839a5495591356e5ecd461902fa8745c65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: f1bb4fed22fd62c4934f841cabf3dbbe1df253de
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140323"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441360"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C : migration utilisateur
 Quand vous migrez votre fournisseur d’identité vers Azure Active Directory B2C (Azure AD B2C), il se peut que vous deviez également migrer les comptes d’utilisateur. Cet article explique comment migrer des comptes d’utilisateur existants de n’importe quel fournisseur d’identité vers Azure AD B2C. L’article n’a pas vocation à être normatif, mais plutôt à décrire quelques scénarios. Le développeur est responsable du choix de l’approche adaptée.
@@ -366,7 +365,7 @@ Pour plus d’informations, consultez [Journaux en continu et console][AppServic
 Une fois que vous avez [pris en main les stratégies personnalisées][B2C-GetStartedCustom], nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie][UserMigrationSample] sont à votre disposition pour référence.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
-[AD-Powershell]: https://docs.microsoft.com/azure/active-directory/install-adv2
+[AD-Powershell]: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
 [AppService-Log]: https://docs.microsoft.com/azure/active-directory-b2c/app-service-web/web-sites-streaming-logs-and-console
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration

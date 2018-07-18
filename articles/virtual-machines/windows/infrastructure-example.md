@@ -3,7 +3,7 @@ title: Procédure pas à pas d’exemple d’infrastructure Azure | Microsoft Do
 description: Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un exemple d’infrastructure dans Azure.
 documentationcenter: ''
 services: virtual-machines-windows
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29809867"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932855"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Windows
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.

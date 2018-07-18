@@ -3,22 +3,18 @@ title: Métriques d’Azure Service Bus dans Azure Monitor (préversion) | Micro
 description: Utiliser la surveillance Azure pour surveiller des entités Service Bus
 services: service-bus-messaging
 documentationcenter: .NET
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/05/2018
+ms.date: 05/31/2018
 ms.author: sethm
-ms.openlocfilehash: 3660f0a6794a2fd784ec8846177da7effe7fe681
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bb0c9fcc33d6f5b54a8c2c8ad3e356a485d6ccbb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701292"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métriques Azure Service Bus dans Azure Monitor (préversion)
 
@@ -46,7 +42,7 @@ Pour les mesures prenant en charge des dimensions, vous devez filtrer avec la va
 
 ## <a name="billing"></a>Facturation
 
-L’utilisation de mesures dans Azure Monitor est gratuite pendant la période de préversion. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de métriques, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Log Analytics si vous diffusez des données de métriques pour Log Analytics pour une analyse avancée.
+L’utilisation de mesures dans Azure Monitor est gratuite pendant la période de préversion. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de métriques, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Log Analytics si vous diffusez des données de métriques vers Log Analytics pour une analyse avancée.
 
 Les métriques suivantes vous donnent une vue d’ensemble de l’intégrité de votre service. 
 
@@ -64,8 +60,16 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 | Demandes entrantes (préversion) | Le nombre de requêtes effectuées auprès de Service Bus sur une période spécifiée. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 |Requêtes ayant réussi (préversion)|Le nombre de requêtes réussies effectuées auprès de Service Bus sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 |Erreurs du serveur (préversion)|Le nombre de requêtes non traitées en raison d’une erreur sur Service Bus sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Erreurs utilisateur (préversion)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|Erreurs d’utilisateur (préversion - voir la sous-section suivante)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 |Demandes limitées (préversion)|Le nombre de demandes qui ont été limitées car l’utilisation a été dépassée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+
+### <a name="user-errors"></a>Erreurs d’utilisateur
+
+Les deux types d’erreurs suivants sont classées dans la catégorie des erreurs d’utilisateur :
+
+1. Erreurs côté client (erreurs 400 en HTTP).
+2. Erreurs qui se produisent pendant le traitement des messages, par exemple [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
+
 
 ## <a name="message-metrics"></a>Métriques de message
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23124387"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38651934"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modifier les paramètres de la passerelle du réseau local à l’aide du portail Azure
 
@@ -29,7 +29,7 @@ Parfois, les paramètres de la passerelle de réseau local AddressPrefix ou Gate
 > [!div class="op_single_selector"]
 > * [Portail Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-> * [Interface de ligne de commande Azure](vpn-gateway-modify-local-network-gateway-cli.md)
+> * [interface de ligne de commande Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >
 

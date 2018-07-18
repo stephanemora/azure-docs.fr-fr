@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: Didacticiels
   items:
-    - name: Générateur
-      items:
-        - name: 1- Définir un nouveau type d’appareil
-          href: tutorial-define-device-type.md
-        - name: 2- Configurer des règles
-          href: tutorial-configure-rules.md
-        - name: 3- Personnaliser la vue de l’opérateur
-          href: tutorial-customize-operator.md
-    - name: Operator
-      items:
-        - name: 4- Surveiller vos appareils
-          href: tutorial-monitor-devices.md
-        - name: 5- Ajouter un appareil
-          href: tutorial-add-device.md
+    - name: 1- Définir un nouveau type d’appareil
+      href: tutorial-define-device-type.md
+    - name: 2- Configurer des règles
+      href: tutorial-configure-rules.md
+    - name: 3- Personnaliser la vue de l’opérateur
+      href: tutorial-customize-operator.md
+    - name: 4- Surveiller vos appareils
+      href: tutorial-monitor-devices.md
+    - name: 5- Ajouter un appareil
+      href: tutorial-add-device.md
 - name: Concepts
   items:
     - name: Architecture
@@ -41,10 +37,12 @@
   items:
     - name: Administrateur
       items:
-        - name: Création d'une application
-          href: howto-create-application.md
+        - name: 'En tant que CSP, créer et gérer une application'
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: Gérer votre application
           href: howto-administer.md
+        - name: Exporter vos données
+          href: howto-export-data.md
     - name: Générateur
       items:
         - name: Configurer le modèle d’appareil
@@ -55,6 +53,10 @@
           href: howto-create-telemetry-rules.md
         - name: Créer une règle d’événements
           href: howto-create-event-rules.md
+        - name: Créer des workflows dans Microsoft Flow
+          href: howto-add-microsoft-flow.md
+        - name: Configurer la page d’accueil
+          href: howto-configure-homepage.md
         - name: Préparer et charger des images
           href: howto-prepare-images.md
     - name: Operator

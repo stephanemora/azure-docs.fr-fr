@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.component: na
+ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792546"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130082"
 ---
 # <a name="data-sources-in-log-analytics"></a>Sources de données dans Log Analytics
 Log Analytics collecte les données à partir de vos sources connectées et les stocke dans votre espace de travail Log Analytics.  Les données collectées à partir de chacune de ces sources dépendent des sources de données que vous configurez.  Les données dans Log Analytics sont stockées sous forme d’ensemble d’enregistrements.  Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.
@@ -37,7 +38,7 @@ Le tableau suivant répertorie les sources de données actuellement disponibles 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Journaux personnalisés](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | à l'arrivée |
 | [Journaux personnalisés](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | à l'arrivée |
-| [Journaux IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutes |
+| [Journaux IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |Dépend du paramètre Substitution de fichier journal |
 | [Compteurs de performances](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |comme prévu, minimum de 10 secondes |
 | [Compteurs de performances](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |comme prévu, minimum de 10 secondes |
 | [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |depuis le stockage Azure : 10 minutes ; à partir de l’agent : à l’arrivée |

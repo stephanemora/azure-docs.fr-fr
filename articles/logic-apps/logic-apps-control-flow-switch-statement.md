@@ -1,29 +1,25 @@
 ---
-title: "Instructions switch - Exécuter des étapes en fonction de valeurs spécifiques - Azure Logic Apps | Microsoft Docs"
-description: "Exécuter des étapes différentes en fonction des valeurs d’objets, d’expressions ou de jetons dans des applications logiques"
+title: Ajouter des instructions switch aux workflows – Azure Logic Apps | Microsoft Docs
+description: Comment créer des instructions switch qui contrôlent des actions de workflow basées sur des valeurs spécifiques dans Azure Logic Apps
 services: logic-apps
-keywords: instruction switch
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: e1f515189be8a5659af0f6c29b3fac0550abc9f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e15f89d4b7e33ce7e28676c219344f7d7d9cd465
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299614"
 ---
-# <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Instructions switch : exécuter des étapes différentes en fonction de valeurs spécifiques dans des applications logiques
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Créer des instructions switch qui exécutent des actions de workflow basées sur des valeurs spécifiques dans Azure Logic Apps
 
-Pour effectuer des étapes différentes en fonction des valeurs d’un objet, d’une expression ou d’un jeton, utilisez une instruction *switch*. Cette structure évalue l’objet, l’expression ou le jeton, choisit le cas qui correspond au résultat et exécute les étapes pour ce cas seulement. Lors de l’exécution de l’instruction switch, un seul cas doit correspondre au résultat.
+Pour exécuter des actions spécifiques basées sur les valeurs d’objets, d’expressions ou de jetons, ajoutez une instruction *switch*,. Cette structure évalue l’objet, l’expression ou le jeton, choisit le cas qui correspond au résultat et exécute des actions spécifiques à ce cas seulement. Lors de l’exécution de l’instruction switch, un seul cas doit correspondre au résultat.
 
 Par exemple, supposez que vous souhaitiez une application logique qui prenne des étapes différentes selon l’option sélectionnée dans l’e-mail. Dans cet exemple, l’application logique vérifie le flux RSS d’un site web pour y rechercher un nouveau contenu. Si un nouvel élément s’affiche dans le flux RSS, l’application logique envoie un e-mail à un approbateur. Selon que l’approbateur sélectionne « Approuver » ou « Rejeter », l’application logique suit des étapes différentes.
 
@@ -31,7 +27,7 @@ Par exemple, supposez que vous souhaitiez une application logique qui prenne des
 > Comme dans tous les langages de programmation, les instructions switch ne prennent en charge que les opérateurs d’égalité. Si vous avez besoin d’autres opérateurs de relation, par exemple « supérieur à », utilisez une [instruction de condition](#conditions).
 > Pour garantir un comportement d’exécution déterministe, les cas doivent contenir une valeur statique unique et non des jetons ou des expressions dynamiques.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -113,7 +109,7 @@ Maintenant que vous avez créé une application logique avec une instruction swi
 }
 ```
 
-| Étiquette              | DESCRIPTION |
+| Étiquette              | Description |
 | :----------------- | :---------- |
 | `"Switch"`         | Nom de l’instruction switch que vous pouvez modifier pour plus de lisibilité. |
 | `"type": "Switch"` | Indique que l’action est une instruction switch. |
@@ -127,9 +123,9 @@ Maintenant que vous avez créé une application logique avec une instruction swi
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des fonctionnalités ou suggestions ou pour en soumettre, visitez le [site de commentaires des utilisateurs Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Conditional statements: Run steps based on a condition in logic apps](../logic-apps/logic-apps-control-flow-conditional-statement.md) (Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques)
+* [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Loops: Process arrays or repeat actions until a condition is met](../logic-apps/logic-apps-control-flow-loops.md) (Boucles : Traiter des tableaux ou répéter des actions jusqu’à ce qu’une condition soit remplie)
 * [Create or join parallel branches in your logic app](../logic-apps/logic-apps-control-flow-branches.md) (Créer ou joindre des branches parallèles dans votre application logique)
-* [Scopes: Run steps based on group status in logic apps](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) (Étendues : Exécuter des étapes en fonction de l’état d’un groupe dans des applications logiques)
+* [Étendues : Exécuter des étapes en fonction de l’état d’un groupe](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

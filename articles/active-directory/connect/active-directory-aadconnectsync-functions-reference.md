@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect sync : Référence aux fonctions | Microsoft Docs"
-description: "Référence d’expressions d’approvisionnement déclaratif dans Azure AD Connect Sync."
+title: 'Azure AD Connect sync : Référence aux fonctions | Microsoft Docs'
+description: Référence d’expressions d’approvisionnement déclaratif dans Azure AD Connect Sync.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4814d53a86b0d90cf16f76e75c7044448cf791eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595153"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync : Référence aux fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
@@ -1108,7 +1110,7 @@ Le format est {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, 
 * La fonction prend chaque occurrence de sources définies et la remplace par les cibles.
 * La source doit être exactement un caractère (unicode).
 * La source ne peut pas être vide ou dépasser un caractère (erreur d’analyse).
-* La cible peut comporter plusieurs caractères, par exemple ö:oe, β:ss.
+* La cible peut contenir plusieurs caractères, par exemple ö:oe, β:ss.
 * La cible peut être vide, indiquant que le caractère doit être supprimé.
 * La source respecte la casse et il doit s’agir d’une correspondance exacte.
 * La , (Virgule) et : (deux-points) sont des caractères réservés et ne peuvent pas être remplacés avec cette fonction.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777472"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698158"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Didacticiel : Notifications Push vers des applications Chrome avec Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -31,7 +31,7 @@ Ce didacticiel explique comment créer un hub de notifications et envoyer des no
 > [!NOTE]
 > Les notifications push d’application Chrome ne sont pas des notifications de navigateur générique : ils sont spécifiques au modèle d’extensibilité de navigateur (voir [vue d’ensemble des applications Chrome] pour plus d’informations). Outre le navigateur de bureau, les applications Chrome s’exécutent sur mobile (Android et iOS) par le biais d’Apache Cordova. Pour plus d’informations, consultez [Applications Chrome sur mobile].
 
-Dans ce didacticiel, vous allez effectuer les étapes suivantes :
+Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]
 > * [Activation de Google Cloud Messaging](#register)
@@ -400,7 +400,7 @@ L’application Chrome est créée à l’aide de JavaScript et vous pouvez util
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   Une référence au SDK Azure Service Bus avec le <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus est automatiquement ajoutée au projet.</a>
+   Une référence au SDK Azure Service Bus avec le <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus est automatiquement ajoutée au projet.</a>
 4. Ouvrez `Program.cs` et ajoutez l’instruction `using` suivante :
    
         using Microsoft.Azure.NotificationHubs;

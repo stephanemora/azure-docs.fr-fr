@@ -2,7 +2,6 @@
 title: Créer des clusters Hadoop avec .NET - Azure HDInsight | Microsoft Docs
 description: Découvrez comment créer des clusters Hadoop, HBase, Storm ou Spark sur Linux pour HDInsight avec le kit de développement logiciel HDInsight .NET.
 services: hdinsight
-documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +9,15 @@ tags: azure-portal
 ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 07/09/2018
 ms.author: jgao
-ms.openlocfilehash: 8523b012d6ceaf116e6849abaf8952bbde8b41b3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a0e5bf4afcd1d02c81597efdab8ff349e6adf856
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201283"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952924"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -34,7 +32,6 @@ Découvrez comment créer un cluster Hadoop dans le cluster Azure HDInsight à l
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -397,6 +394,7 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 * [Exécution de travaux à distance avec Livy sur un cluster Spark](spark/apache-spark-livy-rest-interface.md)
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](spark/apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
+
 ### <a name="run-jobs"></a>Exécuter des tâches
 * [Exécuter des tâches Hive dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Exécuter des tâches Pig dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

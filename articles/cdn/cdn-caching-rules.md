@@ -4,25 +4,26 @@ description: Vous pouvez utiliser les règles de mise en cache CDN pour définir
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: 09705893c50e56cce5d888db097d7b810624b5d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4095ed763de378a673908d033d87b2aa6d72f13c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260004"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache
 
 > [!NOTE] 
-> Les règles de mise en cache sont disponibles uniquement pour les profils **Azure CDN Standard de Verizon** et **Azure CDN Standard d’Akamai**. Pour les profils **Azure CDN Premium de Verizon**, vous devez utiliser le [moteur de règles du CDN Azure](cdn-rules-engine.md) dans le portail **Gérer** pour une fonctionnalité similaire.
+> Les règles de mise en cache sont disponibles uniquement pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Standard fourni par Akamai**. Pour les profils **CDN Azure Premium fourni par Verizon**, vous devez utiliser le [moteur de règles du CDN Azure](cdn-rules-engine.md) dans le portail **Gérer** pour une fonctionnalité similaire.
  
 Azure Content Delivery Network (CDN) offre deux moyens de contrôler la façon dont les fichiers sont mis en cache : 
 
@@ -47,7 +48,7 @@ Pour plus d’informations sur le comportement de mise en cache par défaut et s
 
    La page **Règles de mise en cache** s’affiche.
 
-   ![Page sur les règles de mise en cache de CDN](./media/cdn-caching-rules/cdn-caching-rules-page.png)
+   ![Page des règles de mise en cache de CDN](./media/cdn-caching-rules/cdn-caching-rules-page.png)
 
 
 ## <a name="caching-behavior-settings"></a>Paramètres du comportement de mise en cache
@@ -105,9 +106,14 @@ Les règles de mise en cache globales et personnalisées sont traitées dans l�
 Quand ces règles sont définies, une requête pour _&lt;nom_d’hôte_du_point_de_terminaison&gt;_.azureedge.net/home/index.html déclenche la règle n°2 de mise en cache personnalisée, qui est définie sur : **Définir en cas d’absence** et trois jours. Par conséquent, si le fichier *index.html* est doté des en-têtes HTTP `Cache-Control` ou `Expires`, ils sont respectés ; si ces en-têtes ne sont pas définis, le fichier est mis en cache pendant trois jours.
 
 > [!NOTE] 
-> Les fichiers qui sont mis en cache avant une modification de règle conservent leur paramètre de durée de cache d’origine. Pour réinitialiser leur durée de cache, vous devez [vider le fichier](cdn-purge-endpoint.md). Pour les points de terminaison **Azure CDN à partir de Verizon**, la mise en application des nouvelles règles de mise en cache peut demander jusqu’à 90 minutes.
+> Les fichiers qui sont mis en cache avant une modification de règle conservent leur paramètre de durée de cache d’origine. Pour réinitialiser leur durée de cache, vous devez [vider le fichier](cdn-purge-endpoint.md). 
+>
+> Les changements de configuration Azure CDN peuvent prendre un certain temps pour se propager sur le réseau : 
+> - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
+> - Pour les profils du **CDN Azure Standard fourni par Verizon**, la propagation s’effectue généralement dans un délai de 10 minutes.  
+>
 
 ## <a name="see-also"></a>Voir aussi
 
 - [Comment fonctionne la mise en cache](cdn-how-caching-works.md)
-- [Tutoriel : Définir des règles de mise en cache de CDN Azure](cdn-caching-rules-tutorial.md)
+- [Didacticiel : Définir des règles de mise en cache d’Azure CDN](cdn-caching-rules-tutorial.md)

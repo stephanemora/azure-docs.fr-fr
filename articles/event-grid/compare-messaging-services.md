@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 03/16/2018
+ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303553"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930475"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Choisir entre des services Azure qui remettent des messages
 
@@ -60,6 +60,7 @@ Il présente les caractéristiques suivantes :
 * Dynamiquement scalable
 * Économique
 * Serverless
+* Au moins une remise
 
 ### <a name="event-hubs"></a>Event Hubs
 
@@ -69,6 +70,7 @@ Il présente les caractéristiques suivantes :
 
 * Latence faible
 * Capable de recevoir et de traiter des millions d’événements par seconde
+* Au moins une remise
 
 ### <a name="service-bus"></a>Service Bus
 
@@ -80,6 +82,7 @@ Il présente les caractéristiques suivantes :
 
 * Remise de messages asynchrone fiable (messagerie d’entreprise en tant que service) qui nécessite une interrogation
 * Fonctionnalités de messagerie avancées telles que FIFO, traitement par lot/sessions, transactions, lettres mortes, contrôle temporel, routage, filtrage et détection des doublons
+* Exactement une remise
 
 ## <a name="use-the-services-together"></a>Utiliser les services ensemble
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271668"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637529"
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
 
@@ -98,7 +98,7 @@ Les activités suivantes nécessitent également des autorisations Azure :
 
 | Action                                                          | Autorisations Azure nécessaires | Notes |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Ajout et suppression de solutions de gestion                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Ajout et suppression de solutions de gestion                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Ces autorisations doivent être accordées au niveau du groupe de ressources ou de l’abonnement. |
 | Modification du niveau tarifaire                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Affichage des données dans les mosaïques de solution *Sauvegarde* et *Site Recovery* | Administrateur/coadministrateur | Accède aux ressources déployées à l’aide du modèle de déploiement Classic |
 | Gestion d’un espace de travail dans le portail Azure                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -125,11 +125,14 @@ Les membres du rôle *Lecteur Log Analytics* peuvent effectuer les opérations s
 
 
 Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérations suivantes :
-- Lecture de toutes les données d’analyse 
-- Création et configuration des comptes Automation
-- Ajout et suppression de solutions de gestion
-- Lecture des clés de compte de stockage 
-- Configuration de la collecte de journaux à partir du stockage Azure
+- Lecture de toutes les données d’analyse  
+- Création et configuration des comptes Automation  
+- Ajout et suppression de solutions de gestion    
+    > [!NOTE] 
+    > Pour réussir ces deux actions, cette autorisation doit être accordée au niveau du groupe de ressources ou de l’abonnement.  
+
+- Lecture des clés de compte de stockage   
+- Configuration de la collecte de journaux à partir du stockage Azure  
 - Modification des paramètres d’analyse pour les ressources Azure, notamment :
   - Ajout de l’extension de machine virtuelle à des machines virtuelles
   - Configuration des diagnostics Azure sur toutes les ressources Azure
@@ -157,7 +160,7 @@ Utilisez ces rôles pour accorder aux utilisateurs l’accès à différentes é
 - Groupe de ressources : accès à tous les espaces de travail du groupe de ressources
 - Ressource : accès uniquement à l’espace de travail spécifié
 
-Pour créer des rôles avec les autorisations spécifiques nécessaires, utilisez des [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md).
+Nous vous recommandons d’effectuer des affectations au niveau de la ressource (espace de travail) afin d’assurer un contrôle d’accès précis.  Pour créer des rôles avec les autorisations spécifiques nécessaires, utilisez des [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md).
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Rôles utilisateur Azure et rôles utilisateur du portail Log Analytics
 Si vous disposez au moins d’une autorisation de lecture Azure sur l’espace de travail Log Analytics, vous pouvez ouvrir le portail Log Analytics en cliquant sur la tâche **Portail OMS** lors de la visualisation de l’espace de travail Log Analytics.

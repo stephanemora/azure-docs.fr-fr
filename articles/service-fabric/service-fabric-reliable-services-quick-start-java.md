@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208299"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019693"
 ---
 # <a name="get-started-with-reliable-services"></a>Prise en main de Reliable Services
 > [!div class="op_single_selector"]
@@ -116,10 +116,10 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Dans ce didacticiel, nous nous concentrons sur la méthode de point d’entrée `runAsync()`. C’est là que vous pouvez commencer immédiatement à exécuter votre code.
+Ce tutoriel se concentre sur la méthode de point d’entrée `runAsync()`. C’est là que vous pouvez commencer immédiatement à exécuter votre code.
 
 ### <a name="runasync"></a>RunAsync
-La plateforme appelle cette méthode quand une instance d’un service est placée et prête à être exécutée. Pour un service sans état, cela signifie simplement le moment où l’instance de service est ouverte. Un jeton d'annulation est fourni pour coordonner lorsque l'instance de service doit être fermée. Dans Service Fabric, ce cycle d’ouverture/fermeture d’une instance de service peut se produire plusieurs fois au cours de la durée de vie de votre service dans son ensemble. Il existe diverses raisons à cela, notamment :
+La plateforme appelle cette méthode quand une instance d’un service est placée et prête à être exécutée. Pour un service sans état, cela signifie le moment où l’instance de service est ouverte. Un jeton d'annulation est fourni pour coordonner lorsque l'instance de service doit être fermée. Dans Service Fabric, ce cycle d’ouverture/fermeture d’une instance de service peut se produire plusieurs fois au cours de la durée de vie de votre service dans son ensemble. Il existe diverses raisons à cela, notamment :
 
 * Le système déplace vos instances de service à des fins d’équilibrage des ressources.
 * Des erreurs surviennent dans votre code.
@@ -210,7 +210,7 @@ Les collections fiables peuvent stocker n’importe quel type Java, dont vos typ
   
    Il est important de ne pas muter les instances locales de ces objets sans effectuer une opération de mise à jour sur la collection fiable dans une transaction. En effet, les modifications des instances locales d’objets ne sont pas répliquées automatiquement. Vous devez réinsérer l’objet dans le dictionnaire ou utiliser l’une des méthodes de *mise à jour* sur le dictionnaire.
 
-Le gestionnaire d’état fiable gère les tables de hachage fiables pour vous. Vous pouvez simplement demander au Gestionnaire d’état fiable une collection fiable par son nom à tout moment et à tout emplacement dans votre service. Le Gestionnaire d’état fiable permet de récupérer une référence. Nous ne vous recommandons pas d’enregistrer les références aux instances de la collection fiable dans des variables ou propriétés de membre de classe. Vous devez particulièrement veiller à ce que la référence soit définie sur une instance pendant tout le cycle de vie du service. Ce travail, optimisé pour les visites répétées, est géré pour vous par le Gestionnaire d’état fiable.
+Le gestionnaire d’état fiable gère les tables de hachage fiables pour vous. Vous pouvez demander au Gestionnaire d’état fiable une collection fiable par son nom à tout moment et à tout emplacement dans votre service. Le Gestionnaire d’état fiable permet de récupérer une référence. Nous ne vous recommandons pas d’enregistrer les références aux instances de la collection fiable dans des variables ou propriétés de membre de classe. Vous devez particulièrement veiller à ce que la référence soit définie sur une instance pendant tout le cycle de vie du service. Ce travail, optimisé pour les visites répétées, est géré pour vous par le Gestionnaire d’état fiable.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>Opérations transactionnelles et asynchrones
@@ -236,7 +236,7 @@ Les opérations sur les tables de hachage fiables sont asynchrones. Ceci est dû
 Les opérations des tables de hachage fiables sont *transactionnelles*. Ainsi, vous pouvez conserver un état cohérent entre plusieurs tables de hachage fiables et opérations. Vous pouvez, par exemple, obtenir un élément de travail d’un Reliable Dictionary (dictionnaire fiable), effectuer une opération sur celui-ci et enregistrer le résultat dans une autre table de hachage fiable, le tout dans une transaction unique. Ces opérations sont traitées comme une seule opération atomique, ce qui garantit soit son succès total, soit son échec total. Si une erreur se produit une fois que vous avez retiré l’élément de la file d’attente, mais avant d’enregistrer le résultat, la transaction entière est annulée et l’élément reste dans la file d’attente à des fins de traitement.
 
 
-## <a name="run-the-application"></a>Exécution de l'application
+## <a name="build-the-application"></a>Création de l'application
 
 La génération de modèles automatique Yeoman inclut un script Gradle permettant de créer l’application et des scripts bash permettant le déploiement et la suppression de l’application. Pour exécuter l’application, commencez par créer l’application avec Gradle :
 
@@ -246,13 +246,31 @@ $ gradle
 
 Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface CLI Azure Service Fabric.
 
-### <a name="deploy-with-service-fabric-cli"></a>Effectuer un déploiement à l’aide de l’interface CLI Service Fabric
+## <a name="deploy-the-application"></a>Déployer l’application
 
-Le script install.sh contient les commandes de l’interface CLI Service Fabric nécessaires pour déployer le package d’application. Exécutez le script install.sh pour déployer l’application.
+Une fois que l’application est générée, vous pouvez la déployer sur le cluster local.
 
-```bash
-$ ./install.sh
-```
+1. Connectez-vous au cluster Service Fabric local.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Exécutez le script d’installation fourni dans le modèle pour copier le package d’application dans le magasin d’images du cluster, inscrire le type d’application et créer une instance de l’application.
+
+    ```bash
+    ./install.sh
+    ```
+
+L’application générée se déploie de la même manière qu’une autre application Service Fabric. Consultez la documentation sur [la gestion d’une application Service Fabric avec l’interface de ligne de commande Service Fabric](service-fabric-application-lifecycle-sfctl.md) pour obtenir des instructions détaillées.
+
+Vous pourrez retrouver les paramètres de ces commandes dans les manifestes générés au sein du package d’application.
+
+Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), à l’adresse [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Ensuite, développez le nœud **Applications** et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
+
+> [!IMPORTANT]
+> Pour déployer l’application sur un cluster Linux sécurisé dans Azure, vous devez configurer un certificat pour valider votre application avec le runtime Service Fabric. Ainsi, vos services Reliable Services peuvent communiquer avec les API d’exécution du runtime Service Fabric sous-jacentes. Pour en savoir plus, consultez [Configurer une application Reliable Services à exécuter sur les clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

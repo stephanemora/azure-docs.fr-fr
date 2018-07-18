@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622021"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046528"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Déplacer des données depuis DB2 à l’aide de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-onprem-db2-connector.md)
-> * [Version 2 - Préversion](../connector-db2.md)
+> * [Version 1](data-factory-onprem-db2-connector.md)
+> * [Version 2 (version actuelle)](../connector-db2.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur DB2 dans V2](../connector-db2.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur DB2 dans V2](../connector-db2.md).
 
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données DB2 locale dans un autre magasin de données. Vous pouvez copier des données dans n’importe quel magasin figurant dans la liste des récepteurs pris en charge que vous trouverez dans l’article sur les [activités de déplacement de données dans Data Factory](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Cette rubrique s’appuie sur l’article concernant Data Factory, qui présente une vue d’ensemble du déplacement de données à l’aide de l’activité de copie et fournit une liste des combinaisons de magasins de données prises en charge. 

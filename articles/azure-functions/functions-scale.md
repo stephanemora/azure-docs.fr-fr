@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807531"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -43,12 +44,12 @@ Dans un plan App Service, vous pouvez adapter les niveaux pour allouer différen
 
 ## <a name="consumption-plan"></a>Plan de consommation
 
-Quand vous utilisez un plan Consommation, les instances de l’hôte Azure Functions sont ajoutées et supprimées de façon dynamique en fonction du nombre d’événements entrants. Ce plan est mis à l’échelle automatiquement, et vous êtes facturé pour les ressources de calcul uniquement quand vos fonctions sont exécutées. Dans un plan Consommation, une fonction peut s’exécuter pendant 10 minutes au plus. 
+Quand vous utilisez un plan Consommation, les instances de l’hôte Azure Functions sont ajoutées et supprimées de façon dynamique en fonction du nombre d’événements entrants. Ce plan est mis à l’échelle automatiquement, et vous êtes facturé pour les ressources de calcul uniquement quand vos fonctions sont exécutées. Dans un plan Consommation, le délai d’attente de l’exécution d’une fonction arrive à expiration après une période configurable. 
 
 > [!NOTE]
-> Le délai d’expiration par défaut pour les fonctions dans un plan Consommation est de 5 minutes. Vous pouvez augmenter la valeur à 10 minutes pour l’application de fonction en changeant la propriété `functionTimeout` dans le fichier projet [host.json](functions-host-json.md#functiontimeout).
+> Le délai d’expiration par défaut pour les fonctions dans un plan Consommation est de 5 minutes. Pour l’application de fonction, vous pouvez augmenter cette valeur jusqu’à un maximum de 10 minutes en changeant la propriété `functionTimeout` dans le fichier projet [host.json](functions-host-json.md#functiontimeout).
 
-La facturation est basée sur le nombre d’exécutions, la durée d’exécution et la mémoire utilisée. La facturation est unifiée pour toutes les fonctions d’une même application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions].
+La facturation est basée sur le nombre d’exécutions, la durée d’exécution et la mémoire utilisée. La facturation est unifiée pour toutes les fonctions d’une même application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions].
 
 Le plan d’hébergement par défaut (le plan Consommation) présente les avantages suivants :
 - Paiement uniquement à l’exécution de vos fonctions
@@ -90,7 +91,7 @@ Pour en savoir plus sur les types de compte de stockage, consultez [Présentatio
 
 ## <a name="how-the-consumption-plan-works"></a>Fonctionnement du plan de consommation
 
-Dans le plan Consommation, le contrôleur de mise à l’échelle met automatiquement à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions en fonction du nombre d’événements en fonction desquels ses fonctions sont déclenchées. Chaque instance de l’hôte Functions est limitée à 1,5 Go de mémoire.  Une instance de l’hôte est l’application de fonction, ce qui signifie que toutes les fonctions dans une application de fonction partagent des ressources au sein d’une instance et se mettent à l’échelle en même temps.
+Dans le plan Consommation, le contrôleur de mise à l’échelle met automatiquement à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions en fonction du nombre d’événements en fonction desquels ses fonctions sont déclenchées. Chaque instance de l’hôte Functions est limitée à 1,5 Go de mémoire.  Une instance de l’hôte est l’application de fonction, ce qui signifie que toutes les fonctions dans une application de fonction partagent des ressources au sein d’une instance et se mettent à l’échelle en même temps. Les applications de fonction qui partagent le même plan Consommation sont mises à l’échelle indépendamment.  
 
 Quand vous utilisez le plan d’hébergement Consommation, les fichiers de code de fonction sont stockés dans des partages de fichiers Azure du compte de stockage principal de la fonction. Lorsque vous supprimez le compte de stockage principal de l’application de fonction, les fichiers de code de fonction sont supprimés et ne peuvent pas être récupérés.
 
@@ -121,8 +122,8 @@ Nombreux sont les aspects d’une application de fonction qui impactent sa bonne
 
 ### <a name="billing-model"></a>Modèle de facturation
 
-La facturation du plan de consommation est décrite en détail dans la page [Tarification d’Azure Functions]. L’utilisation est agrégée au niveau de l’application de fonction et compte uniquement la durée d’exécution du code de fonction. Les unités de facturation sont les suivantes : 
+La facturation du plan de consommation est décrite en détail dans la page [Tarification d’Azure Functions]. L’utilisation est agrégée au niveau de l’application de fonction et compte uniquement la durée d’exécution du code de fonction. Les unités de facturation sont les suivantes : 
 * **Consommation des ressources en gigaoctet/seconde (Go/s)**. Calcul effectué d’après une combinaison de la taille de la mémoire et de la durée d’exécution pour toutes les fonctions d’une application de fonction. 
 * **Exécutions**. Comptées chaque fois qu’une fonction est exécutée en réponse à un déclencheur d’événements.
 
-[Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2d702ecdd5e1fca342e7c84c6e75339097f0bcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 037c1c7dd73f668bd8ad95568743b223b1e11c79
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23124947"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38705995"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Vérifier une connexion de passerelle VPN
 
@@ -36,7 +36,7 @@ Pour vérifier une connexion de passerelle VPN pour le modèle de déploiement R
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="azure-cli"></a>Interface de ligne de commande Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Pour vérifier une connexion de passerelle VPN pour le modèle de déploiement Resource Manager à l’aide d’Azure CLI, installez la dernière version des [commandes CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 ou version ultérieure).
 
@@ -49,7 +49,7 @@ Pour vérifier une connexion de passerelle VPN pour le modèle de déploiement R
 
 ## <a name="powershell-classic"></a>PowerShell (Classic)
 
-Pour vérifier votre connexion de passerelle VPN pour le modèle de déploiement classique à l’aide de PowerShell, installez les dernières versions des cmdlets Azure PowerShell. Veillez à télécharger et à installer le module [Gestion des services](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). Utilisez « Add-AzureAccount » pour vous connecter au modèle de déploiement classique.
+Pour vérifier votre connexion de passerelle VPN pour le modèle de déploiement classique à l’aide de PowerShell, installez les dernières versions des cmdlets Azure PowerShell. Veillez à télécharger et à installer le module [Gestion des services](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Utilisez « Add-AzureAccount » pour vous connecter au modèle de déploiement classique.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 

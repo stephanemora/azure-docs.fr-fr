@@ -1,24 +1,20 @@
 ---
-title: Schéma de configuration Azure Diagnostics 1.2 | Microsoft Docs
+title: Schéma de configuration d’extension Diagnostics Azure 1.2
 description: Applicable UNIQUEMENT si vous utilisez le Kit de développement logiciel (SDK) Azure 2.5 avec Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric ou Cloud Services.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: diagnostic-extension
+ms.openlocfilehash: 8c3980231404e5c8068dbd011d20759f207d7fff
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937952"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schéma de configuration Azure Diagnostics 1.2
 > [!NOTE]
@@ -113,12 +109,12 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|Requis. Les attributs facultatifs sont les suivants :<br /><br /> -                     **overallQuotaInMB** - Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Azure Diagnostics. Le paramètre par défaut est 5 210 Mo.<br /><br /> -                     **useProxyServer** - Configurer Azure Diagnostics de manière à utiliser les paramètres du serveur proxy comme défini dans les paramètres d’Internet Explorer.|  
 |**CrashDumps**|Permet la collecte des vidages sur incident. Les attributs facultatifs sont les suivants :<br /><br /> -                     **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les vidages sur incident.<br /><br /> -                     **crashDumpType** - Configure Azure Diagnostics pour collecter les mini-vidages sur incident ou les vidages sur incident complets.<br /><br /> -                     **directoryQuotaPercentage** - Configure le pourcentage de **overallQuotaInMB** à réserver pour les vidages sur incident sur la machine virtuelle.|  
-|**DiagnosticInfrastructureLogs**|Permet la collecte des journaux générés par Azure Diagnostics. Les journaux d’infrastructure de diagnostic sont utiles pour le dépannage du système de diagnostic lui-même. Les attributs facultatifs sont les suivants :<br /><br /> -                     **scheduledTransferLogLevelFilter** - Configure le niveau de gravité minimal des journaux collectés.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**Directories**|Permet la collecte du contenu d’un répertoire, des journaux de demandes d’accès ayant échouées IIS et/ou des journaux IIS. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**DiagnosticInfrastructureLogs**|Permet la collecte des journaux générés par Azure Diagnostics. Les journaux d’infrastructure de diagnostic sont utiles pour le dépannage du système de diagnostic lui-même. Les attributs facultatifs sont les suivants :<br /><br /> -                     **scheduledTransferLogLevelFilter** - Configure le niveau de gravité minimal des journaux collectés.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**Directories**|Permet la collecte du contenu d’un répertoire, des journaux de demandes d’accès ayant échouées IIS et/ou des journaux IIS. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**EtwProviders**|Configure la collecte d’événements ETW issus des fournisseurs de manifeste EventSource et/ou ETW.|  
 |**Métriques**|Cet élément permet de générer une table de compteur de performance optimisée pour les requêtes rapides. Chaque compteur de performance défini dans l’élement **PerformanceCounters** est stocké dans la table Metrics et dans la table Performance Counter. Attribut requis :<br /><br /> **resourceId** - Il s’agit de l’ID de ressource de la machine virtuelle sur laquelle vous déployez Azure Diagnostics. Obtenez le **resourceID** à partir du [portail Azure](https://portal.azure.com). Sélectionnez **Parcourir** -> **Groupe de ressources** -> **<>\>**. Cliquez sur la vignette **Propriétés** et copiez la valeur à partir du champ **ID**.|  
-|**PerformanceCounters**|Permet la collecte des compteurs de performance. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|Permet la collecte des journaux des événements Windows. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**PerformanceCounters**|Permet la collecte des compteurs de performance. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|Permet la collecte des journaux des événements Windows. Attribut facultatif :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [« Type de données de durée » XML.](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>Élément CrashDumps  
  Permet la collecte des vidages sur incident. Le tableau suivant décrit les éléments enfants :  
@@ -158,8 +154,8 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configure la collection d’événements générés à partir de la [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Attribut requis :<br /><br /> **provider** - Nom de classe de l’événement EventSource.<br /><br /> Les attributs facultatifs sont les suivants :<br /><br /> -                     **scheduledTransferLogLevelFilter** - Niveau de gravité minimal à transférer vers votre compte de stockage.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [Type de données de durée XML](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
-|**EtwManifestProviderConfiguration**|Attribut requis :<br /><br /> **provider** -GUID du fournisseur d’événements<br /><br /> Les attributs facultatifs sont les suivants :<br /><br /> - **scheduledTransferLogLevelFilter** - Niveau de gravité minimal à transférer vers votre compte de stockage.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [Type de données de durée XML](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Configure la collection d’événements générés à partir de la [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Attribut requis :<br /><br /> **provider** - Nom de classe de l’événement EventSource.<br /><br /> Les attributs facultatifs sont les suivants :<br /><br /> -                     **scheduledTransferLogLevelFilter** - Niveau de gravité minimal à transférer vers votre compte de stockage.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [Type de données de durée XML](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwManifestProviderConfiguration**|Attribut requis :<br /><br /> **provider** -GUID du fournisseur d’événements<br /><br /> Les attributs facultatifs sont les suivants :<br /><br /> - **scheduledTransferLogLevelFilter** - Niveau de gravité minimal à transférer vers votre compte de stockage.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [Type de données de durée XML](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
  Configure la collection d’événements générés à partir de la [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Le tableau suivant décrit les éléments enfants :  
@@ -182,7 +178,7 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**MetricAggregation**|Attribut requis :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [Type de données de durée XML](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**MetricAggregation**|Attribut requis :<br /><br /> **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [Type de données de durée XML](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="performancecounters-element"></a>Élément PerformanceCounters  
  Permet la collecte des compteurs de performance. Le tableau suivant décrit les éléments enfants :  

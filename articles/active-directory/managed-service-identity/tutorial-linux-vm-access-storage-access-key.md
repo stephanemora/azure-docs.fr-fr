@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: af0ddebc79100cbe0ea55e46b825c35ab8a775b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: cde1af63fe609170c65bc469fa57573d7bc48490
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303754"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901508"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Didacticiel : Utiliser l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux pour accéder au stockage Azure via une clé d’accès
 
@@ -33,7 +33,6 @@ Ce didacticiel vous montre comment activer une identité MSI (Managed Service Id
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer les clés d’accès de stockage à partir du Gestionnaire des ressources  
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -228,10 +227,7 @@ Réponse :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-- Pour savoir comment suivre ce didacticiel en utilisant des informations d’identification de stockage SAP, consultez [Utiliser l’identité MSI (Managed Service Identity) d’une machine virtuelle Linux pour accéder au stockage Azure à l’aide d’informations d’identification SAP](tutorial-linux-vm-access-storage-sas.md).
-- Pour plus d’informations sur la fonctionnalité de SAP de compte de Stockage Azure, voir :
-  - [Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Construction d’un service SAP](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+Dans ce tutoriel, vous avez appris à utiliser une MSI sur une machine virtuelle Linux pour accéder au stockage Azure à l’aide d’une clé d’accès.  Pour en savoir plus sur les clés d’accès du stockage Azure, consultez :
 
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
+> [!div class="nextstepaction"]
+>[Gérer vos clés d’accès de stockage](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)

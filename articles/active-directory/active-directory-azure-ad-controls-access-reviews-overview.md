@@ -3,23 +3,24 @@ title: Révisions d’accès Azure AD | Microsoft Docs
 description: Vous pouvez contrôler que l’appartenance à des groupes et l’accès aux applications répondent aux initiatives de gouvernance, de gestion des risques et de conformité de votre organisation en utilisant des révisions d’accès Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 31f3ce4ae7915ef463a557a9be60c651acdbabe6
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.reviewer: mwahl
+ms.openlocfilehash: d2e0f1ecea84398f9e4d43af07b9871f36e8dd48
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233269"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295007"
 ---
 # <a name="azure-ad-access-reviews"></a>Révisions d’accès Azure AD
 
@@ -42,4 +43,4 @@ Les révisions d’accès Azure Active Directory (Azure AD) permettent aux organ
 - [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md) (Gérer l’accès des invités avec les révisions d’accès Azure AD)
 - [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md) (Gérer les programmes et les contrôles pour la révision d’accès Azure AD)
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md) (Créer une révision de l’accès des membres d’un groupe ou de l’accès à une application)
-- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)
+- [Create an access review of users in an Azure AD administrative role](privileged-identity-management/pim-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)

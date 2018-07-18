@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.openlocfilehash: 64c49d6da556d5f2d8b24f81086f6bde8f6ada3d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796789"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634102"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec Node.js et Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Par ailleurs :
 * [Node.js](https://nodejs.org/en/) version v0.10.29 ou ultérieure
 * [Git](http://git-scm.com/)
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 > [!IMPORTANT] 
 > Vous devez créer un compte d’API Table pour utiliser les kits SDK d’API Table mis à la disposition générale. Les comptes d’API Table créés pendant la durée de la préversion ne sont pas pris en charge par les kits SDK mis à la disposition générale.
@@ -66,7 +66,7 @@ Par ailleurs :
     cd "C:\git-samples"
     ```
 
-3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
@@ -90,7 +90,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 3. Enregistrez le fichier app.config.
 
-Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
 ## <a name="run-the-app"></a>Exécution de l'application
 

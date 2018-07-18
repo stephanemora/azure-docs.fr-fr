@@ -1,24 +1,25 @@
 ---
-title: "CLI Azure Service Fabric : sfctl store | Microsoft Docs"
-description: "Décrit les commandes sfctl store de l’interface de ligne de commande (CLI) Service Fabric."
+title: 'CLI Azure Service Fabric : sfctl store | Microsoft Docs'
+description: Décrit les commandes sfctl store de l’interface de ligne de commande (CLI) Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: Christina-Kang
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
-ms.author: ryanwi
-ms.openlocfilehash: d4ca3c35c34736c3b4824f956a6a72002c891877
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 05/23/2018
+ms.author: bikang
+ms.openlocfilehash: 39ecf568c5c41c0007b358670af755be1dd5d99e
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763236"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Effectue des opérations élémentaires au niveau des fichiers dans le magasin d’images de cluster.
@@ -27,10 +28,9 @@ Effectue des opérations élémentaires au niveau des fichiers dans le magasin d
 
 |Commande|Description|
 | --- | --- |
-|    delete| Supprime le contenu du magasin d’images.|
-|    root-info| Permet d’obtenir les informations de contenu à la racine du magasin d’images.|
-|    stat  | Permet d’obtenir les informations de contenu du magasin d’images.|
-
+| delete | Supprime le contenu du magasin d’images. |
+| root-info | Permet d’obtenir les informations de contenu à la racine du magasin d’images. |
+| stat | Permet d’obtenir les informations de contenu du magasin d’images. |
 
 ## <a name="sfctl-store-delete"></a>sfctl store delete
 Supprime le contenu du magasin d’images.
@@ -41,40 +41,61 @@ Supprime le contenu du magasin d’images trouvé dans le chemin d’accès rela
 
 |Argument|Description|
 | --- | --- |
-| --content-path [Requis]| Chemin d’accès relatif au fichier ou au dossier dans le magasin d’images à partir de sa racine.|
-| --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
+| --content-path [Requis] | Chemin d’accès relatif au fichier ou au dossier dans le magasin d’images à partir de sa racine. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
-| --help -h             | Affiche ce message d’aide et quitte.|
-| --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
-| --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
-## <a name="sfctl-store-stat"></a>sfctl store stat
-Permet d’obtenir les informations de contenu du magasin d’images.
+## <a name="sfctl-store-root-info"></a>sfctl store root-info
+Permet d’obtenir les informations de contenu à la racine du magasin d’images.
 
-Retourne les informations sur le contenu du magasin d’images dans le chemin d’accès de contenu spécifié par rapport à la racine du magasin d’images.
+Retourne les informations sur le contenu du magasin d’images à la racine du magasin d’images.
 
 ### <a name="arguments"></a>Arguments
 
 |Argument|Description|
 | --- | --- |
-| --content-path [Requis]| Chemin d’accès relatif au fichier ou au dossier dans le magasin d’images à partir de sa racine.|
-| --timeout -t          | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
-| --help -h             | Affiche ce message d’aide et quitte.|
-| --output -o           | Format de sortie.  Valeurs autorisées : json, jsonc, table, tsv.  Valeur par défaut : json.|
-| --query               | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
-| --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
+## <a name="sfctl-store-stat"></a>sfctl store stat
+Permet d’obtenir les informations de contenu du magasin d’images.
+
+Retourne les informations sur le contenu du magasin d’images dans le chemin d’accès de contenu spécifié. Le chemin d’accès de contenu varie selon la racine du magasin d’images.
+
+### <a name="arguments"></a>Arguments
+
+|Argument|Description|
+| --- | --- |
+| --content-path [Requis] | Chemin d’accès relatif au fichier ou au dossier dans le magasin d’images à partir de sa racine. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+
+### <a name="global-arguments"></a>Arguments globaux
+
+|Argument|Description|
+| --- | --- |
+| --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affiche ce message d’aide et quitte. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.

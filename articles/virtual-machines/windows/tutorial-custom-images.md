@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a449c1f9781ffc86de4786eaab3cb83999b86a72
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 930f5dc0369c998039b9cc0c089f60de17993be0
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188046"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435152"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Didacticiel : créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
 
@@ -42,7 +42,7 @@ Pour exécuter l’exemple dans ce didacticiel, vous devez disposer d’une mach
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous aurez besoin de la version 5.7.0 du module AzureRM ou d’une version ultérieure pour suivre ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous aurez besoin de la version 5.7.0 du module AzureRM ou d’une version ultérieure pour suivre ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="prepare-vm"></a>Préparer la machine virtuelle
 
@@ -121,12 +121,12 @@ New-AzureRmVm `
 
 ## <a name="image-management"></a>Gestion d’image 
 
-Voici quelques exemples de tâches d’images de gestion courantes et comment les exécuter à l’aide de PowerShell.
+Voici quelques exemples de tâches d’images managées courantes et comment les exécuter à l’aide de PowerShell.
 
 Répertoriez toutes les images par nom.
 
 ```azurepowershell-interactive
-$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
@@ -140,7 +140,7 @@ Remove-AzureRmImage `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Exécuter Sysprep et généraliser les machines virtuelles

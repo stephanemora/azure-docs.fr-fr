@@ -5,29 +5,29 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: database
 ms.date: 10/16/2017
 ms.author: sngun
-ms.openlocfilehash: fc2ae1ee87b525f2ec6725cea2b19a8b8b3cef86
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 066826661381f40af2943359eb75abae8306bb7b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855581"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemples Azure PowerShell pour Azure Cosmos DB
 
-Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerShell pour Azure Cosmos DB. À ce stade, vous pouvez uniquement gérer la couche compte Azure Cosmos DB par le biais de PowerShell ; les autres ressources telles que les bases de données et les collections ne peuvent pas être gérés par le biais de PowerShell.
+Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerShell pour Azure Cosmos DB. À ce stade, vous pouvez uniquement gérer le compte Azure Cosmos DB par le biais de PowerShell ; les autres ressources telles que les bases de données et les conteneurs ne peuvent pas être gérées par le biais de PowerShell.
 
 | |  |
 |---|---|
 |**Création d’un compte Azure Cosmos DB**||
 |[Créer un compte d’API SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un seul compte Azure Cosmos DB à utiliser avec l’API SQL. |
+|[Créer un compte d’API MongoDB](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un seul compte Azure Cosmos DB à utiliser avec l’API MongoDB. |
+|[Créer un compte d’API Gremlin](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée un seul compte Azure Cosmos DB à utiliser avec l’API Gremlin. |
 |**Mettre à l’échelle Azure Cosmos DB**||
 |[Répliquer un compte Azure Cosmos DB dans plusieurs régions et configurer les priorités de basculement](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Réplique les données de compte globalement dans plusieurs régions avec une priorité de basculement spécifié.|
 |**Sécuriser Azure Cosmos DB**||
@@ -35,6 +35,6 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 | [Obtenir la chaîne de connexion MongoDB](scripts/secure-mongo-connection-string-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Obtient la chaîne de connexion pour connecter votre application MongoDB à votre compte Azure Cosmos DB.|
 |[Régénération des clés de compte](scripts/secure-regenerate-key-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Régénère la clé de maître ou en lecture seule pour le compte.|
 |[Créer un pare-feu](scripts/create-firewall-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crée une stratégie de contrôle d’accès des IP entrantes pour limiter l’accès au compte à un ensemble de machines et/ou services cloud approuvés.|
-|**Haute disponibilité et récupération d'urgence, sauvegarde et restauration**||
+|**Haute disponibilité et récupération d’urgence, sauvegarde et restauration**||
 |[Configurer la stratégie de basculement](scripts/ha-failover-policy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Définit la priorité de basculement de chaque région dans laquelle le compte est répliqué.|
 |||

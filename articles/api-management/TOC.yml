@@ -35,7 +35,7 @@
   items:
     - name: Stratégies
       href: policy-samples.md
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Concepts
   items:
@@ -77,6 +77,8 @@
           href: edit-api.md
     - name: Approvisionner et mettre à l’échelle
       items:
+        - name: Mesure la capacité
+          href: api-management-capacity.md
         - name: Mise à niveau et mise à l’échelle
           href: upgrade-and-scale.md
         - name: Configuration d’un domaine personnalisé
@@ -97,6 +99,8 @@
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: Authentification mutuelle des certificats
           href: api-management-howto-mutual-certificates.md
+        - name: Gérer les protocoles et les chiffrements
+          href: api-management-howto-manage-protocols-ciphers.md
     - name: Personnalisation de l’expérience de développement
       items:
         - name: Modifier la disposition et le contenu des pages
@@ -173,6 +177,8 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Journaliser les événements dans Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
+        - name: Enregistrer des requêtes avec Azure Application Insights
+          href: api-management-howto-app-insights.md
         - name: Installer la récupération d’urgence à l’aide de la sauvegarde/restauration
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Gérer les comptes d’utilisateurs
@@ -191,7 +197,7 @@
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Informations de référence
   items:
-    - name: "Azure\_PowerShell"
+    - name: Azure PowerShell
       href: /powershell/azure/overview
     - name: REST
       href: /rest/api/apimanagement/

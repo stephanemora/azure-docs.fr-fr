@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 64e8a20f72d451908c12751c0f8062bf4ae86370
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe1ca45b0f79781b2fa17bfb605df03d334cc8d1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046711"
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copier des données vers/à partir d’Oracle en local à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](data-factory-onprem-oracle-connector.md)
-> * [Version 2 - Préversion](../connector-oracle.md)
+> * [Version 1](data-factory-onprem-oracle-connector.md)
+> * [Version 2 (version actuelle)](../connector-oracle.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur Oracle dans V2](../connector-oracle.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur Oracle dans V2](../connector-oracle.md).
 
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers/à partir d’une base de données Oracle locale. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
@@ -41,7 +42,6 @@ Vous pouvez copier des données des magasins de données suivants **vers une bas
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Data Factory prend en charge la connexion à des sources Oracle locales à l’aide de la passerelle de gestion des données. Consultez l’article [Passerelle de gestion de données](data-factory-data-management-gateway.md) pour en savoir plus sur la passerelle de gestion des données et l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la configuration de la passerelle pour un pipeline de données afin de déplacer des données.
 
 Une passerelle est requise même si la base de données Oracle est hébergée sur une machine virtuelle Azure IaaS. Vous pouvez installer la passerelle sur la même machine virtuelle IaaS que le magasin de données, ou sur une autre machine virtuelle pourvu que la passerelle puisse se connecter à la base de données.
@@ -58,6 +58,9 @@ Ce connecteur Oracle prend en charge deux versions de pilotes :
     - Oracle 10g R1, R2 (10.1, 10.2)
     - Oracle 9i R1, R2 (9.0.1, 9.2)
     - Oracle 8i R3 (8.1.7)
+
+> [!NOTE]
+> Le serveur proxy Oracle n’est pas pris en charge.
 
 > [!IMPORTANT]
 > Actuellement, le pilote Microsoft pour Oracle prend uniquement en charge la copie de données à partir d’Oracle, mais non l’écriture dans Oracle. Notez également que la fonctionnalité de connexion de test dans l’onglet Data Management Gateway Diagnostics (Diagnostics de passerelle de gestion des données) ne prend pas en charge ce pilote. Dans ce cas, vous pouvez valider la connectivité à l’aide de l’assistant de copie.

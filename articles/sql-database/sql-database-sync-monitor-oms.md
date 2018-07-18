@@ -1,26 +1,26 @@
 ---
-title: Surveiller Azure SQL Data Sync (préversion) avec Log Analytics | Microsoft Docs
-description: Découvrez comment surveiller Azure SQL Data Sync (préversion) à l’aide de Log Analytics
+title: Surveiller Azure SQL Data Sync à l’aide de Log Analytics | Microsoft Docs
+description: Découvrez comment surveiller Azure SQL Data Sync à l’aide de Log Analytics
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650245"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025224"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Surveiller SQL Data Sync (préversion) avec Log Analytics 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Surveiller SQL Data Sync à l’aide de Log Analytics 
 
 Pour contrôler le journal d’activité de SQL Data Sync et détecter les erreurs et avertissements, vous deviez vérifier manuellement SQL Data Sync dans le portail Azure ou utiliser PowerShell ou l’API REST. Suivez les étapes décrites dans cet article pour configurer une solution personnalisée qui améliore l’expérience de surveillance de Data Sync. Vous pouvez personnaliser cette solution pour l’adapter à votre scénario.
 
-Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync (Préversion)](sql-database-sync-data.md).
+Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tableau de bord de surveillance pour tous vos groupes de synchronisation 
 

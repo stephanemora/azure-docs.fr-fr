@@ -4,23 +4,23 @@ description: L’API REST d’alerte Log Analytics vous permet de créer et de g
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6987900ac2ef535fe31d4d1ecadb1a302a9c0be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 9097ca13bf4f65db4b0924044a9c0f075e3703af
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178519"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128892"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Créer et gérer des règles d’alerte dans Log Analytics avec l’API REST
 L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Operations Management Suite (OMS).  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
@@ -28,7 +28,6 @@ L’API REST d’alerte Log Analytics vous permet de créer et de gérer des ale
 L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API REST Azure Resource Manager. Ce document présente des exemples montrant comment accéder à l’API à partir d’une ligne de commande PowerShell en utilisant [ARMClient](https://github.com/projectkudu/ARMClient), outil en ligne de commande open source qui simplifie l’appel de l’API Azure Resource Manager. L'utilisation d’ARMClient et de PowerShell est une des nombreuses options vous permettant d’accéder à l'API de recherche Log Analytics. Grâce à ces outils, vous pouvez utiliser l’API RESTful Azure Resource Manager pour effectuer des appels vers les espaces de travail OMS et exécuter en leur sein des commandes de recherche. L'API produira pour vous des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Actuellement, les alertes peuvent être créées uniquement avec une recherche enregistrée dans Log Analytics.  Vous pouvez consulter l’ [API REST de recherche de journal](log-analytics-log-search-api.md) pour plus d’informations.
 
 ## <a name="schedules"></a>Planifications

@@ -2,18 +2,19 @@
 title: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 description: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS).
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/12/2018
-ms.author: nepeters
+ms.date: 05/21/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c250ef3520079f58eea2362212d861fdb134e1af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2ff964e4909c288686253816bc40322b7839a2da
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100587"
 ---
 # <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 
@@ -21,12 +22,18 @@ Dans certains cas, comme lorsque l’équilibrage de charge d’Azure Kubernetes
 
 ## <a name="create-static-ip-address"></a>Créer une adresse IP statique
 
-Créez une adresse IP publique statique pour le service Kubernetes. L’adresse IP doit être créée dans le groupe de ressources qui a été créé automatiquement pendant le déploiement de cluster. Pour plus d’informations sur les différents groupes de ressources AKS et sur la façon d’identifier le groupe de ressources créé automatiquement, consultez le [FAQ AKS][aks-faq-resource-group].
+Créez une adresse IP publique statique pour le service Kubernetes. L’adresse IP doit être créée dans le groupe de ressources du **nœud** AKS. Obtenez le nom du groupe de ressources avec la commande [az resource show][az-resource-show].
+
+```azurecli-interactive
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+
+MC_myResourceGroup_myAKSCluster_eastus
+```
 
 Utilisez la commande [az network public ip create][az-network-public-ip-create] pour créer l’adresse IP.
 
 ```azurecli-interactive
-az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
 Notez l’adresse IP.
@@ -60,7 +67,7 @@ Notez l’adresse IP.
  Si nécessaire, l’adresse peut être récupérée à l’aide de la commande [az network public-ip list][az-network-public-ip-list].
 
 ```azurecli-interactive
-az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 ```
 
 ```console
@@ -122,3 +129,4 @@ Events:
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-resource-show]: /cli/azure/resource#az-resource-show

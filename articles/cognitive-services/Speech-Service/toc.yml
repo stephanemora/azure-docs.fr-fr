@@ -1,0 +1,123 @@
+- name: Documentation de l’API du service de reconnaissance vocale
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce que le service de reconnaissance vocale\_?"
+      href: overview.md
+      expanded: true
+    - name: Scénarios de reconnaissance vocale
+      href: speech-scenarios.md
+- name: Démarrages rapides
+  items:
+    - name: Essayez le service Speech gratuitement
+      href: get-started.md
+    - name: 'Reconnaissance vocale dans C# (.NET sur Windows)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'Reconnaissance vocale dans C# (.NET Core sur Windows)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: Reconnaissance vocale dans une application UWP
+      href: quickstart-csharp-uwp.md
+    - name: Reconnaissance vocale dans C++ pour Windows
+      href: quickstart-cpp-windows.md
+    - name: Reconnaissance vocale dans C++ pour Linux
+      href: quickstart-cpp-linux.md
+    - name: Reconnaissance vocale dans Java pour Android
+      href: quickstart-java-android.md
+    - name: Prise en main du Kit de développement logiciel (SDK) de dispositifs vocaux
+      href: speech-devices-sdk-qsg.md
+- name: Procédures
+  items:
+    - name: Reconnaissance vocale
+      href: how-to-speech-to-text.md
+    - name: Synthèse vocale
+      href: how-to-text-to-speech.md
+    - name: Traduction vocale
+      href: how-to-translate-speech.md
+    - name: Transcription Batch
+      href: batch-transcription.md
+    - name: Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
+      href: get-speech-devices-sdk.md
+- name: Personnalisation
+  items:
+    - name: Personnaliser les modèles acoustiques
+      href: how-to-customize-acoustic-models.md
+    - name: Personnaliser les modèles de langage
+      href: how-to-customize-language-model.md
+    - name: Personnaliser la prononciation
+      href: how-to-customize-pronunciation.md
+    - name: Personnaliser les polices de la voix (voix du chatbot)
+      href: how-to-customize-voice-font.md
+    - name: Enregistrement d’échantillons vocaux
+      href: record-custom-voice-samples.md
+    - name: Préparer les transcriptions
+      href: prepare-transcription.md
+    - name: Utiliser des flux audio personnalisés
+      href: how-to-use-audio-input-streams.md
+    - name: Personnaliser le mot déclencheur de l’appareil (SDK d’appareil)
+      href: speech-devices-sdk-create-kws.md
+- name: Exemples
+  items:
+    - name: Télécharger des exemples
+      href: samples.md
+    - name: Reconnaissance vocale
+      href: speech-to-text-sample.md
+    - name: Reconnaissance de l'intention
+      href: intent.md
+    - name: Traduction
+      href: translation.md
+- name: Concepts
+  items:
+    - name: Reconnaissance vocale
+      href: speech-to-text.md
+    - name: Synthèse vocale
+      href: text-to-speech.md
+    - name: Traduction vocale
+      href: speech-translation.md
+    - name: Kit de développement logiciel (SDK) de reconnaissance vocale
+      href: speech-sdk.md
+    - name: Kit de développement logiciel (SDK) Speech Devices
+      href: speech-devices-sdk.md
+- name: Informations de référence
+  items:
+    - name: Langues prises en charge
+      href: supported-languages.md
+    - name: Régions
+      href: regions.md
+    - name: API REST
+      href: rest-apis.md
+    - name: API du Kit de développement logiciel (SDK) de reconnaissance vocale
+      href: speech-sdk-reference.md
+    - name: Balisage de synthèse vocale
+      href: speech-synthesis-markup.md
+- name: Ressources
+  items:
+    - name: Forum Aux Questions
+      items:
+        - name: FAQ de la reconnaissance vocale
+          href: faq-stt.md
+        - name: FAQ de la synthèse vocale
+          href: faq-text-to-speech.md
+        - name: FAQ de Translator
+          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/912208-speech-service'
+    - name: Dépassement de capacité de la pile
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Confidentialité et cookies
+      href: 'https://privacy.microsoft.com/privacystatement'
+    - name: Résolution de problèmes
+      href: troubleshooting.md
+    - name: Expédier votre application
+      href: ship-application.md
+    - name: Notes de publication
+      href: releasenotes.md
+    - name: Licence du Kit de développement logiciel de reconnaissance vocale
+      href: license.md
+    - name: Licence du Kit de développement logiciel (SDK) de dispositifs vocaux
+      href: speech-devices-sdk-license.md
+    - name: Mentions tierces
+      href: third-party-notices.md

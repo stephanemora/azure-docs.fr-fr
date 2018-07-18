@@ -2,18 +2,19 @@
 title: Gérer le cluster Kubernetes Azure par l’intermédiaire de l’interface utilisateur web
 description: Utilisation du tableau de bord Kubernetes dans ACS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b56751750d5c0731a79b3229106a6bc2a5eccac9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100423"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Tableau de bord Kubernetes avec Azure Kubernetes Service (AKS)
 
@@ -37,7 +38,7 @@ Cette commande crée un proxy entre votre système de développement et l’API 
 
 ## <a name="run-an-application"></a>Exécuter une application
 
-Dans le tableau de bord Kubernetes, cliquez sur le bouton **Créer** dans la fenêtre supérieure droite. Nommez le déploiement `nginx`, puis entrez `nginx:latest` pour le nom des images. Sous **Service**, sélectionnez **Externe**, puis entrez `80` pour le port et le port cible.
+Dans le tableau de bord Kubernetes, cliquez sur le bouton **Créer** dans la fenêtre supérieure droite. Nommez le déploiement `nginx`, puis entrez `nginx:latest` pour le nom de l’image de conteneur. Sous **Service**, sélectionnez **Externe**, puis entrez `80` pour le port et le port cible.
 
 Lorsque vous êtes prêt, cliquez sur **Déployer** pour créer le déploiement.
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 37f44538d94ed78509bbcb09e726dc34a9e92e95
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e6e792c31f9856bcaf1d777e534dcac8d8be3dd3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28031040"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113525"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utiliser la nouvelle authentification pour votre StorSimple
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Actuellement, le service Gestionnaire de périphériques StorSimple utilise un service de contrôle d’accès (ACS) pour authentifier le service sur votre appareil StorSimple. Ce mécanisme d’ACS sera bientôt mis hors service et remplacé par une authentification Azure Active Directory (AAD). Pour plus d’informations, consultez les annonces suivantes sur la mise hors service d’ACS et l’utilisation de l’authentification AAD.
 
@@ -60,9 +60,9 @@ Avec un appareil StorSimple 8000, utilisez le tableau suivant pour déterminer l
 
 | Si votre appareil exécute| Procédez comme suit                                    |
 |--------------------------|------------------------|--------------------|--------------------------------------------------------------|
-| Update 5 ou une version ultérieure et que l’appareil est hors connexion. <br> Vous voyez une alerte indiquant que l’URL n’est pas dans la liste verte.| Modifiez les règles de pare-feu et incluez-y l’URL d’authentification.<br> Consultez la section [URL d’authentification](#url-changes-for-aad-authentication). |
+| Update 5 ou une version ultérieure et que l’appareil est hors connexion. <br> Vous voyez une alerte indiquant que l’URL n’est pas dans la liste verte.|1. Modifiez les règles de pare-feu et incluez-y l’URL d’authentification. Consultez la section [URL d’authentification](#url-changes-for-aad-authentication).<br>2. [Obtenez la clé d’inscription AAD auprès du service](#aad-based-registration-keys).<br>3. [Connectez-vous à l’interface Windows PowerShell de l’appareil StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Utilisez la cmdlet `Redo-DeviceRegistration` pour inscrire l’appareil via Windows PowerShell. Indiquez la clé que vous avez obtenue à l’étape précédente.|
 | Update 5 ou une version ultérieure et que l’appareil est en ligne.| Aucune action n’est requise.                                       |
-| Update 4 ou une version antérieure et que l’appareil est hors ligne. | Modifiez les règles de pare-feu et incluez-y l’URL d’authentification.<br>[Téléchargez Update 5 via le serveur de catalogue](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[Appliquer Update 5 par la méthode du correctif logiciel](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [Obtenez la clé d’inscription AAD auprès du service](#aad-based-registration-keys). <br> [Connectez-vous à l’interface Windows PowerShell de l’appareil StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>Utilisez l’applet de commande `Redo-DeviceRegistration` pour inscrire l’appareil via Windows PowerShell. Indiquez la clé que vous avez obtenue à l’étape précédente.|
+| Update 4 ou une version antérieure et que l’appareil est hors ligne. |1. Modifiez les règles de pare-feu et incluez-y l’URL d’authentification.<br>2. [Téléchargez Update 5 via le serveur de catalogue](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Appliquer Update 5 par la méthode du correctif logiciel](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Obtenez la clé d’inscription AAD auprès du service](#aad-based-registration-keys).<br>5. [Connectez-vous à l’interface Windows PowerShell de l’appareil StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Utilisez la cmdlet `Redo-DeviceRegistration` pour inscrire l’appareil via Windows PowerShell. Indiquez la clé que vous avez obtenue à l’étape précédente.|
 | Update 4 ou une version antérieure et que l’appareil est en ligne. |Modifiez les règles de pare-feu et incluez-y l’URL d’authentification.<br> Installez Update 5 à l’aide du portail Azure.              |
 | Effectuez une réinitialisation au paramètres d’usine à une version antérieure à Update 5.      |Le portail affiche une clé d’inscription AAD lorsque l’appareil exécute un ancien logiciel. Suivez les étapes décrites dans le scénario précédent lorsque l’appareil exécute Update 4 ou une version antérieure.              |
 
@@ -77,7 +77,7 @@ Dans ce cas, vous devez régénérer la clé d’inscription au service. Lorsque
 - Les clés d’inscription AAD ne fonctionnent qu’avec les appareils StorSimple 8000 exécutant Update 5 ou une version ultérieure.
 - Les clés d’inscription AAD sont plus longues que les clés d’inscription ACS correspondantes.
 
-Procédez comme suit pour générer une clé d’inscription du service AAD.
+Procédez comme suit pour générer une clé d’inscription au service AAD.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>Pour régénérer la clé d’inscription du service AAD
 
@@ -94,7 +94,7 @@ Procédez comme suit pour générer une clé d’inscription du service AAD.
     > [!NOTE] 
     > Si vous créez un StorSimple Cloud Appliance sur le service inscrit à votre appareil StorSimple 8000, ne générez pas de clé d’inscription lorsque la création est en cours. Attendez que la création se termine, puis générez la clé d’inscription.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur le déploiement d’un [appareil StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md).
 

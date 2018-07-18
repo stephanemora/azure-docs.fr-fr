@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
 ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110297"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688151"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Déployer le service StorSimple Device Manager pour StorSimple Virtual Array
 ## <a name="overview"></a>Vue d'ensemble
@@ -28,14 +28,14 @@ Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se con
 
 Les tâches courantes associées à un service StorSimple Device Manager sont les suivantes :
 
-* Création d’un service
+* Créer un service
 * Supprimer un service
 * Obtenir la clé d’inscription du service
-* Régénération de la clé d’inscription de service
+* Régénérer la clé d’inscription du service
 
 Ce didacticiel explique comment exécuter chacune des tâches ci-dessus. Les informations contenues dans cet article s’appliquent uniquement aux tableaux virtuels StorSimple. Pour plus d’informations sur la gamme StorSimple 8000, consultez la page [déployer un service StorSimple Manager](storsimple-manage-service.md).
 
-## <a name="create-a-service"></a>Création d’un service
+## <a name="create-a-service"></a>Créer un service
 
 Pour créer un service, vous avez besoin des éléments suivants :
 

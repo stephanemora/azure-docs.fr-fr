@@ -18,11 +18,11 @@ ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841943"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701833"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Acheminer le trafic réseau avec une table de routage à l’aide de l’interface de ligne de commande Azure
 
@@ -40,7 +40,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.28 d’Azure CLI, ou une version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.28 d’Azure CLI, ou une version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-a-route-table"></a>Créer une table de routage
 
@@ -266,7 +266,7 @@ Vous voyez que le premier tronçon est 10.0.2.4, ce qui correspond à l’adress
 
 Fermez les sessions SSH sur les machines virtuelles *myVmPublic* et *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, utilisez [az group delete](/cli/azure/group#az_group_delete) pour le supprimer, ainsi que toutes les ressources qu’il contient.
 
@@ -278,4 +278,4 @@ az group delete --name myResourceGroup --yes
 
 Dans cet article, vous avez créé une table de routage que vous avez associée à un sous-réseau. Vous avez créé une appliance virtuelle réseau (NVA) simple qui a routé le trafic d’un sous-réseau public vers un sous-réseau privé. Déployez différentes NVA préconfigurées exécutant des fonctions de réseau, telles que la fonction de pare-feu ou l’optimisation WAN, à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Pour en savoir plus sur le routage, consultez [Routage du trafic de réseau virtuel](virtual-networks-udr-overview.md) et [Créer, modifier ou supprimer une table de routage](manage-route-table.md).
 
-Alors que vous pouvez déployer de nombreuses ressources Azure dans un réseau virtuel, les ressources pour certains services Azure PaaS ne peuvent pas être déployées dans un réseau virtuel. Cependant, vous pouvez toujours restreindre l’accès aux ressources de certains services Azure PaaS au trafic provenant uniquement d’un sous-réseau de réseau virtuel. Pour savoir comment procéder, consultez [Restreindre l’accès réseau aux ressources PaaS](tutorial-restrict-network-access-to-resources-cli.md).
+Alors que vous pouvez déployer de nombreuses ressources Azure dans un réseau virtuel, les ressources pour certains services Azure PaaS ne peuvent pas être déployées dans un réseau virtuel. Cependant, vous pouvez toujours restreindre l’accès aux ressources de certains services Azure PaaS au trafic provenant uniquement d’un sous-réseau de réseau virtuel. Pour connaître la marche à suivre, consultez [Restreindre l’accès réseau aux ressources PaaS](tutorial-restrict-network-access-to-resources-cli.md).

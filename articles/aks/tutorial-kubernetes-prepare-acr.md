@@ -2,23 +2,23 @@
 title: Didacticiel Kubernetes sur Azure - Préparer un enregistrement de contrôle d’accès
 description: Didacticiel ACS - Préparer Azure Container Registry
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1ffa6ed801f5e261e79b0f7ca505d869fa3b2532
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1e512bdd0a7df50b19fa49bd7b83632499775b04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935816"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927721"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Didacticiel : Déployer et utiliser Azure Container Registry
 
-Azure Container Registry (ACR) est un registre privé Azure pour les images de conteneur Docker. Ce didacticiel (deuxième d’une série de huit) vous aide à déployer une instance Azure Container Registry et à envoyer une image conteneur à ce dernier. Les étapes effectuées sont les suivantes :
+Azure Container Registry (ACR) est un registre privé Azure pour les images de conteneur Docker. Ce didacticiel (le deuxième d’une série de sept) vous aide à déployer une instance Azure Container Registry et à envoyer une image conteneur à ce dernier. Les étapes effectuées sont les suivantes :
 
 > [!div class="checklist"]
 > * Déploiement d’une instance Azure Container Registry (ACR)
@@ -69,7 +69,7 @@ Pour afficher la liste des images actuelles, utilisez la commande [docker images
 docker images
 ```
 
-Output:
+Sortie :
 
 ```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -128,7 +128,7 @@ Pour retourner une liste d’images qui ont été déplacées dans le registre d
 az acr repository list --name <acrName> --output table
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 Result
@@ -142,7 +142,7 @@ Puis, pour afficher les balises d’une image spécifique, utilisez la commande 
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 Result
@@ -154,7 +154,7 @@ Au terme de ce didacticiel, l’image conteneur est stockée dans une instance p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, un Azure Container Registry a été préparé pour une utilisation dans un cluster ACS. Les étapes suivantes ont été effectuées :
+Dans ce didacticiel, un Azure Container Registry a été préparé pour une utilisation dans un cluster ACS. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
 > * Déploiement d’une instance Azure Container Registry

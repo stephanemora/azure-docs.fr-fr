@@ -4,7 +4,7 @@ description: Procédure de déploiement pas à pas du compileur de fichiers log 
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608999"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Deploy Azure Log Analytics for Cloud Foundry Monitoring (Déployer l’infrastructure Nozzle d’Azure Log Analytics pour surveiller le système Cloud Foundry)
 
@@ -30,7 +31,6 @@ L’infrastructure Nozzle de Microsoft Azure Log Analytics est un composant de C
 Dans ce document, vous allez apprendre comment déployer l’infrastructure Nozzle dans votre environnement Cloud Foundry et accéder aux données depuis la console Log Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Les étapes suivantes sont requises pour le déploiement de Nozzle.
 
@@ -56,9 +56,9 @@ Avant de configurer le client de ligne de commande UAA, assurez-vous que l’inf
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Créer un espace de travail Log Analytics dans Azure
 
-Vous pouvez créer l’espace de travail Log Analytics manuellement ou à l’aide d’un modèle. Une fois le déploiement de Nozzle terminé, chargez les alertes et vues OMS préconfigurées.
+Vous pouvez créer l’espace de travail Log Analytics manuellement ou à l’aide d’un modèle. Le modèle déploiera un ensemble de vues et d’alertes KPI OMS préconfigurées pour la console OMS. 
 
-Pour créer l’espace de travail manuellement, procédez comme suit :
+#### <a name="to-create-the-workspace-manually"></a>Pour créer l’espace de travail manuellement, procédez comme suit :
 
 1. Dans le portail Azure, recherchez le logiciel Log Analytics dans la liste des services de la Place de marché Microsoft Azure, puis sélectionnez-le.
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
@@ -71,17 +71,32 @@ Pour créer l’espace de travail manuellement, procédez comme suit :
 
 Pour plus d’informations, consultez l’article [Prise en main de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Vous pouvez également créer l’espace de travail Log Analytics via le modèle OMS. Grâce à cette méthode, le modèle charge automatiquement les vues et alertes OMS préconfigurées. Pour en savoir plus, consultez la [solution Azure Log Analytics pour Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Pour créer l’espace de travail OMS par le biais du modèle de surveillance OMS de la Place de Marché Azure :
+
+1. Ouvrez le portail Azure.
+2. Cliquez sur le signe « + » ou sur « Créer une ressource » dans le coin supérieur gauche.
+3. Tapez « Cloud Foundry » dans la fenêtre Rechercher et sélectionnez « OMS Cloud Foundry Monitoring Solution ».
+4. La page d’accueil du modèle de solution de surveillance OMS Cloud Foundry est chargée. Cliquez sur « Créer » pour lancer le panneau de modèle.
+5. Entrez les paramètres requis :
+    * **Abonnement** : sélectionnez un abonnement Azure pour l’espace de travail OMS, généralement le même que pour le déploiement de Cloud Foundry.
+    * **Groupe de ressources :** sélectionnez un groupe de ressources existant ou créez-en un pour l’espace de travail OMS.
+    * **Emplacement du groupe de ressources** : sélectionnez l’emplacement du groupe de ressources.
+    * **nom_espace_de_travail_OMS** : entrez un nom d’espace de travail. S’il n’existe pas, le modèle en crée un nouveau.
+    * **région_espace_de_travail_OMS** : sélectionnez l’emplacement de l’espace de travail.
+    * **niveau_tarifaire_espace_de_travail_OMS** : sélectionnez la référence (SKU) de l’espace de travail OMS. Pour plus d’informations, consultez le [Guide de tarification](https://azure.microsoft.com/pricing/details/log-analytics/).
+    * **Conditions juridiques** : cliquez sur Conditions juridiques, puis sur « Créer » pour accepter les conditions juridiques.
+- Après avoir spécifié tous les paramètres, cliquez sur « Créer » pour déployer le modèle. Une fois le déploiement terminé, l’état s’affiche sous l’onglet de notification.
+
 
 ## <a name="deploy-the-nozzle"></a>Déployer l’infrastructure Nozzle
 
-Il existe deux façons de déployer Nozzle : sous forme de mosaïque PCF ou en tant qu’application Cloud Foundry.
+Il existe deux façons de déployer Nozzle : sous forme de vignette PCF ou en tant qu’application Cloud Foundry.
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Déployer l’infrastructure Nozzle en tant que vignette Ops Manager sur Pivotal Cloud Foundry
 
-Si vous avez déployé PCF à l’aide d’Operations Manager, suivez les étapes permettant [d’installer et de configurer Nozzle pour PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Nozzle est installé sous forme de mosaïque avec Operations Manager.
+Suivez les étapes pour [installer et configurer l’infrastructure Nozzle Azure Log Analytics pour PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Il s’agit de l’approche simplifiée. La vignette Ops Manager PCF configurera et enverra automatiquement l’infrastructure Nozzle. 
 
-### <a name="deploy-the-nozzle-as-a-cf-application"></a>Déployer l’infrastructure Nozzle en tant qu’application Cloud Foundry
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Déployer manuellement l’infrastructure Nozzle en tant qu’application Cloud Foundry
 
 Si vous n’utilisez pas Ops Manager pour Pivotal Cloud Foundry, déployez l’infrastructure Nozzle en tant qu’application. Les sections suivantes décrivent ce processus.
 
@@ -151,7 +166,7 @@ cf push
 
 ### <a name="from-apps-manager-for-pcf"></a>À partir du gestionnaire d’applications (pour Pivotal Cloud Foundry)
 
-1. Connectez-vous à Ops Manager et assurez-vous que la mosaïque est affichée sur le tableau de bord de l’installation.
+1. Connectez-vous à Ops Manager et assurez-vous que la vignette est affichée sur le tableau de bord de l’installation.
 2. Connectez-vous au gestionnaire d’applications et assurez-vous que l’espace que vous avez créé pour l’infrastructure Nozzle est répertorié dans le rapport d’utilisation. Assurez-vous que l’état est normal.
 
 ### <a name="from-your-development-computer"></a>À partir de l’ordinateur de développement
@@ -164,9 +179,13 @@ Assurez-vous que l’application OMS Nozzle est en cours d’exécution.
 
 ## <a name="view-the-data-in-the-oms-portal"></a>Afficher les données dans le portail OMS
 
+Si vous avez déployé la solution de surveillance OMS par le biais du modèle de la Place de Marché, accédez au portail Azure et recherchez la solution OMS. Celle-ci se trouve dans le groupe de ressources que vous avez spécifié dans le modèle. Cliquez sur la solution et accédez à la « Console OMS ». Les vues préconfigurées sont répertoriées, avec les principales métriques d’intégrité de machine virtuelle, alertes, données d’application et indicateurs de performance clés de système Cloud Foundry. 
+
+Si vous avez créé l’espace de travail OMS manuellement, suivez les étapes ci-dessous pour créer les vues et les alertes :
+
 ### <a name="1-import-the-oms-view"></a>1. Importer la vue OMS
 
-À partir du portail OMS, accédez à la zone **Concepteur de vues** > **Importer** > **Parcourir**, puis sélectionnez l’un des fichiers omsview. Par exemple, sélectionnez *Cloud Foundry.omsview*et enregistrez la vue. Une mosaïque s’affiche alors sur la page **Vue d’ensemble**. Sélectionnez-la pour afficher les mesures visualisées.
+À partir du portail OMS, accédez à la zone **Concepteur de vues** > **Importer** > **Parcourir**, puis sélectionnez l’un des fichiers omsview. Par exemple, sélectionnez *Cloud Foundry.omsview*et enregistrez la vue. Une vignette s’affiche alors sur la page **Vue d’ensemble**. Sélectionnez-la pour afficher les mesures visualisées.
 
 Les opérateurs peuvent personnaliser ces vues ou en créer, grâce au **Concepteur de vues**.
 
@@ -209,7 +228,7 @@ Pour mettre à jour l’infrastructure Nozzle vers une version plus récente, t�
 ### <a name="remove-the-nozzle-from-ops-manager"></a>Retrait de l’infrastructure Nozzle à partir d’Operations Manager
 
 1. Connectez-vous à Ops Manager.
-2. Recherchez la mosaïque **Infrastructure Nozzle de Microsoft Azure Log Analytics pour Pivotal Cloud Foundry**.
+2. Recherchez la vignette **Infrastructure Nozzle de Microsoft Azure Log Analytics pour Pivotal Cloud Foundry**.
 3. Cliquez sur l’icône de poubelle, puis confirmez la suppression.
 
 ### <a name="remove-the-nozzle-from-your-development-computer"></a>Retrait de l’infrastructure Nozzle à partir de l’ordinateur de développement
@@ -227,7 +246,6 @@ L’infrastructure Nozzle d’Azure Log Analytics est open source. Envoyez vos q
 
 ## <a name="next-step"></a>Étapes suivantes
 
-
-En plus des mesures de Cloud Foundry gérées par l’infrastructure Nozzle, vous pouvez utiliser un agent OMS pour obtenir des informations sur les données opérationnelles de niveau de la machine virtuelle (Syslog, performances, alertes, inventaire). L’agent OMS est installé en tant que composant additionnel Bosh sur vos machines virtuelles Cloud Foundry.
+À partir de PCF2.0, les métriques de performances de machine virtuelle sont transférées vers l’infrastructure Nozzle d’Azure Log Analytics par System Metrics Forwarder, et intégrées dans l’espace de travail OMS. Vous n’avez plus besoin de l’agent OMS pour les métriques de performances de machine virtuelle. Toutefois, vous pouvez toujours utiliser l’agent OMS pour collecter des informations de Syslog. L’agent OMS est installé en tant que composant additionnel Bosh sur vos machines virtuelles Cloud Foundry. 
 
 Pour en savoir plus, voir [Déployer l’agent OMS sur votre déploiement Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).

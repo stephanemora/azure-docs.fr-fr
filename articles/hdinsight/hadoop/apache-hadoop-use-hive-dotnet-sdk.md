@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 1372dab2685d62a12d0d1fb186c803f8906156b1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 41c568191ab47faba8f67e855f0a52d5d97ffc6b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200671"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020645"
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Exécuter des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -30,7 +30,6 @@ Découvrez comment envoyer des requêtes Hive avec le Kit de développement logi
 > Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d’informations sur l’utilisation d’un client Linux, OS X ou Unix pour utiliser Hive, utilisez le sélecteur d’onglet en haut de l’article.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Cluster Hadoop dans HDInsight**. Consultez [Prise en main de Hadoop sous Linux dans HDInsight](apache-hadoop-linux-tutorial-get-started.md).
@@ -146,7 +145,7 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 * [Prise en main d’Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Créer des clusters Hadoop dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](../hdinsight-administer-use-management-portal.md)
-* [Référence du Kit de développement logiciel (SDK) .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Référence du Kit de développement logiciel (SDK) .NET de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation de Sqoop avec HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Créer des applications .NET HDInsight d’authentification non interactives](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

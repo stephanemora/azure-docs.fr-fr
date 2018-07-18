@@ -1,6 +1,6 @@
 ---
 title: Utiliser ScaleR et SparkR avec Azure HDInsight | Microsoft Docs
-description: Utiliser ScaleR et SparkR avec R Server et HDInsight
+description: Utiliser ScaleR et SparkR avec ML Services sur HDInsight
 services: hdinsight
 documentationcenter: ''
 author: bradsev
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4306f265bf7f52f9bc307def2256dd62e94e004f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b16135e83ba52f7a2e6bd214791910db80634bc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399964"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952839"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
 
 Ce document montre comment prévoir des retards d’arrivée de vol à l’aide d’un modèle de régression logistique **ScaleR**. L’exemple utilise des données météorologiques et de retards de vol associées via **SparkR**.
 
-Bien que les deux packages s’exécutent sur le moteur d’exécution de Hadoop Spark, ils sont bloqués depuis le partage des données en mémoire, car ils requièrent chacun leur propre session Spark respective. Jusqu’à ce que ce problème soit résolu dans une prochaine version de R Server, la solution de contournement consiste à gérer des sessions Spark qui ne se recouvrent pas et à échanger les données via des fichiers intermédiaires. Les instructions fournies ici montrent que ces exigences sont faciles à obtenir.
+Bien que les deux packages s’exécutent sur le moteur d’exécution de Hadoop Spark, ils sont bloqués depuis le partage des données en mémoire, car ils requièrent chacun leur propre session Spark respective. En attendant que ce problème soit résolu dans une prochaine version de ML Server, la solution de contournement consiste à gérer des sessions Spark qui ne se recouvrent pas et à échanger les données via des fichiers intermédiaires. Les instructions fournies ici montrent que ces exigences sont faciles à obtenir.
 
 Cet exemple a été initialement partagé lors d’une intervention de Mario Inchiosa et Roni Burd dans le cadre de la conférence Strata 2016. Vous pouvez retrouver cette intervention sur la page [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Création d’une plateforme de science de données évolutive avec R).
 
-Le code a été écrit à l’origine pour l’exécution de R Server sur Spark dans un cluster HDInsight sur Azure. Mais le concept de l’utilisation combinée de SparkR et de ScaleR dans un seul script est également valide dans le contexte d’environnements locaux. 
+Le code a été écrit à l’origine pour ML Server s’exécutant sur Spark dans un cluster HDInsight sur Azure. Mais le concept de l’utilisation combinée de SparkR et de ScaleR dans un seul script est également valide dans le contexte d’environnements locaux.
 
-La procédure décrite dans ce document suppose que vous avez un niveau intermédiaire de connaissances de R et de la bibliothèque [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) de R Server. Vous découvrirez également [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) tout au long de ce scénario.
+La procédure décrite dans ce document suppose que vous disposez d’un niveau de connaissances intermédiaire de R et de la bibliothèque [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) de ML Server. Vous découvrirez également [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) tout au long de ce scénario.
 
 ## <a name="the-airline-and-weather-datasets"></a>Jeux de données météorologiques et jeux de données des compagnies aériennes
 
@@ -200,7 +200,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importation des données météorologiques et des données de compagnies aériennes vers Spark DataFrames
 
-Nous allons maintenant utiliser la fonction [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) de SparkR pour importer les données météorologiques et des compagnies aériennes vers Spark DataFrame. Cette fonction, comme beaucoup d’autres méthodes Spark, est exécutée en différé, ce qui signifie qu’elle est placée en file d’attente en vue de l’exécution, mais qu’elle n’est exécutée que lorsque cela est nécessaire.
+Nous allons maintenant utiliser la fonction [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) de SparkR pour importer les données météorologiques et des compagnies aériennes vers Spark DataFrame. Cette fonction, comme beaucoup d’autres méthodes Spark, est exécutée en différé, ce qui signifie qu’elle est placée en file d’attente en vue de l’exécution, mais qu’elle n’est exécutée que lorsque cela est nécessaire.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -273,7 +273,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>Joindre les données météorologiques et les données de compagnies aériennes
 
-Nous allons maintenant utiliser la fonction [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) de SparkR pour effectuer une jonction externe gauche des données météorologiques et des données de compagnies aériennes par ID et date et heure de l’aéroport de départ. La jointure externe permet de conserver tous les enregistrements de données de compagnies aériennes même s’il n’existe aucune donnée météorologique correspondante. Une fois la jonction effectuée, nous supprimons les colonnes redondantes et renommons les colonnes conservées afin d’éliminer le préfixe DataFrame entrant émanant de la jonction.
+Nous allons maintenant utiliser la fonction [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) de SparkR pour effectuer une jonction externe gauche des données météorologiques et des données de compagnies aériennes par ID et date et heure de l’aéroport de départ. La jointure externe permet de conserver tous les enregistrements de données de compagnies aériennes même s’il n’existe aucune donnée météorologique correspondante. Une fois la jonction effectuée, nous supprimons les colonnes redondantes et renommons les colonnes conservées afin d’éliminer le préfixe DataFrame entrant émanant de la jonction.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -360,7 +360,7 @@ Nous pouvons utiliser le fichier CSV de la compagnie aérienne associée et les 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
 
-# set the Spark compute context for R Server 
+# set the Spark compute context for ML Services 
 rxSetComputeContext(sparkCC)
 rxGetComputeContext()
 
@@ -537,15 +537,15 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Résumé
 
-Dans cet article, nous avons indiqué comment il est possible de combiner l’utilisation de SparkR pour la manipulation de données avec ScaleR pour le développement de modèles dans Hadoop Spark. Ce scénario nécessite de maintenir les sessions de Spark séparées, en n’exécutant qu’une session à la fois et d’échanger des données via des fichiers CSV. Bien que simple, ce processus est largement simplifié dans une prochaine version de R Server, lorsque SparkR et ScaleR peuvent partager une session Spark et, par conséquent, Spark DataFrames.
+Dans cet article, nous avons indiqué comment il est possible de combiner l’utilisation de SparkR pour la manipulation de données avec ScaleR pour le développement de modèles dans Hadoop Spark. Ce scénario nécessite de maintenir les sessions de Spark séparées, en n’exécutant qu’une session à la fois et d’échanger des données via des fichiers CSV. Bien que simple, ce processus devrait être encore simplifié dans une prochaine version de ML Services, quand SparkR et ScaleR pourront partager une session Spark et, par conséquent, Spark DataFrames.
 
 ## <a name="next-steps-and-more-information"></a>Étapes suivantes et informations supplémentaires
 
-- Pour plus d’informations sur l’utilisation de R Server sur Spark, reportez-vous au [Guide Bien démarrer avec MSDN](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Pour plus d’informations sur l’utilisation de ML Server sur Spark, consultez le [Guide de prise en main](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
-- Pour obtenir des informations générales sur R Server, reportez-vous à l’article [Bien démarrer avec R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
+- Pour obtenir des informations générales sur ML Server, consultez l’article [Bien démarrer avec R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
 
-- Pour plus d’informations sur R Server sur HDInsight, consultez [Présentation de R Server sur Azure HDInsight](r-server/r-server-overview.md) et [R Server sur Azure HDInsight](r-server/r-server-get-started.md).
+- Pour obtenir des informations sur ML Services sur HDInsight, consultez [Vue d’ensemble de ML Services sur HDInsight](r-server/r-server-overview.md) et [Bien commencer avec ML Services sur Azure HDInsight](r-server/r-server-get-started.md).
 
 Pour plus d’informations sur l’utilisation de SparkR, consultez les pages suivantes :
 

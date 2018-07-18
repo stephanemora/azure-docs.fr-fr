@@ -7,15 +7,17 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5b751546320ca6728573954290bd2258e837775f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723219"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Didacticiel 3 : Classifier Iris : déployer un modèle
 Azure Machine Learning (préversion) est une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux experts en science des données. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -33,7 +35,6 @@ Ce didacticiel est **le troisième d’une série de trois**. Dans cette partie 
 Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/Iris_flower_data_set) intemporel. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
@@ -275,7 +276,7 @@ Tout d’abord, inscrivez le modèle. Générez ensuite le manifeste, générez 
    Pour créer un manifeste, utilisez la commande suivante et indiquez l’ID de modèle issu de l’étape précédente :
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
    ```
    Cette commande génère un ID de manifeste.
 
@@ -284,7 +285,7 @@ Tout d’abord, inscrivez le modèle. Générez ensuite le manifeste, générez 
    Pour créer une image Docker, utilisez la commande suivante et indiquez la valeur d’ID de manifeste issue de l’étape précédente. Vous pouvez également inclure les dépendances Conda à l’aide du commutateur `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID> -c aml_config\conda_dependencies.yml
+   az ml image create -n irisimage --manifest-id <manifest ID> 
    ```
    Cette commande génère un ID d’image Docker.
    
@@ -360,7 +361,7 @@ Pour tester le service web **irisapp** exécuté, utilisez un enregistrement JSO
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
       ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836373"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227238"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Didacticiel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning
 
@@ -41,7 +41,7 @@ Les données chronologiques sont des données dont les valeurs ont un index chro
 
 Dans ce guide de démarrage rapide, nous allons utiliser les données de production et de tarification des produits laitiers en Californie. Ces données comportent des informations mensuelles sur la production de plusieurs produits laitiers, ainsi que le prix de la matière grasse du lait, produit de base de référence.
 
-Les données utilisées dans cet article et les scripts R peuvent être [téléchargés ici][download]. À l’origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l’Université du Wisconsin à l’adresse http://future.aae.wisc.edu/tab/production.html.
+Les données utilisées dans cet article et les scripts R peuvent être [téléchargés ici](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). À l’origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l’Université du Wisconsin à l’adresse https://dairymarkets.com.
 
 ### <a name="organization"></a>Organisation
 À travers plusieurs étapes successives, vous allez apprendrez à créer, tester et exécuter du code R d’analyse et de manipulation de données dans l’environnement Azure Machine Learning.  
@@ -837,7 +837,7 @@ L'exécution de ce code génère le journal présenté dans la figure 18.
 
 *Figure 18 : liste des objets ccf résultant de l’analyse des corrélations par paire.*
 
-À chaque décalage correspond une valeur de corrélation. Aucune de ces valeurs de corrélation n'est suffisamment grande pour être significative. Nous pouvons donc en conclure qu'il est possible de modéliser chaque variable de façon indépendante.
+À chaque décalage correspond une valeur de corrélation. Aucune de ces valeurs de corrélation n'est suffisamment élevée pour être significative. Nous pouvons donc en conclure qu'il est possible de modéliser chaque variable de façon indépendante.
 
 ### <a name="output-a-dataframe"></a>Sortie d'un tableau de données
 Nous avons calculé les corrélations par paire en tant que liste d'objets ccf R. Cela pose un léger problème dans le sens où le port de sortie du jeu de données de résultat a vraiment besoin d'un tableau de données. En outre, l’objet ccf est lui-même une liste et nous voulons uniquement les valeurs contenues dans le premier élément de cette liste, c’est-à-dire les corrélations aux différents décalages.

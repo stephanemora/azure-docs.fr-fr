@@ -7,17 +7,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: 5c617c60ff51d0b1e7717b28b0372efe63c1ee18
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ed402f9730136fdb8a4d07dd291599c567637600
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838379"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
@@ -92,14 +94,17 @@ Il existe différentes approches et plateformes pour mettre les modèles en prod
 - [Déploiement d’un modèle dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
+> [!NOTE]
+> Avant de procéder au déploiement, vous devez vérifier que le niveau de la latence du modèle est suffisamment faible pour permettre l’utilisation de ce dernier dans l’environnement de production.
 >
->
->Remarque : Avant de procéder au déploiement, vous devez vérifier que le niveau de la latence du modèle est suffisamment faible pour permettre l’utilisation de ce dernier dans l’environnement de production.
 >
 
 Des exemples sont disponibles dans des procédures pas à pas qui illustrent toutes les étapes de **scénarios spécifiques**. L’article [Exemples de procédures pas à pas](walkthroughs.md) les liste et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente.
 
-REMARQUE : Pour un déploiement à l’aide de Microsoft Azure Machine Learning Studio, consultez [Déploiement d’un service web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+> [!NOTE]
+> Pour un déploiement à l’aide de Microsoft Azure Machine Learning Studio, consultez [Déploiement d’un service web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+>
+>
 
 ### <a name="ab-testing"></a>Test A/B
 Quand plusieurs modèles sont en production, il peut être utile d’effectuer un [test A/B](https://en.wikipedia.org/wiki/A/B_testing) pour comparer les performances des modèles. 
@@ -108,6 +113,7 @@ Quand plusieurs modèles sont en production, il peut être utile d’effectuer u
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Suivre la progression des projets de science des données](track-progress.md) montre comment un scientifique des données peut suivre la progression d’un projet de science des données.
- 
+
+[Opération de modèle et Intégration continue/Livraison continue](ci-cd-flask.md) montre comment l’utilisation de modèles développés permet de réaliser une intégration continue/livraison continue.
 
 

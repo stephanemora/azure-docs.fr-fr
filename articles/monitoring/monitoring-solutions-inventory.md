@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: ab07a11883b3462c4b9d0f9adab6c55e4fe49d78
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 887611f1293e276070df51ac06df51a994161ec1
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010249"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112188"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Détails sur la collecte de données pour les solutions de gestion dans Azure
 Cet article fournit la liste des [solutions de gestion](monitoring-solutions.md) disponibles auprès de Microsoft avec des liens vers leur documentation détaillée.  Il fournit également des informations sur leur méthode et leur fréquence de collecte de données dans Log Analytics.  Vous pouvez utiliser les informations de cet article pour identifier les différentes solutions disponibles et comprendre leurs exigences en termes de flux de données et de connexion. 
@@ -65,9 +65,6 @@ Les explications des colonnes sont les suivantes :
 | [Analyseur de performances réseau](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Établissements de liaisons TCP toutes les 5 secondes, données envoyées toutes les 3 minutes |
 | [Office 365 Analytics (préversion)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |sur notification |
 | **Solution de gestion** | **Plateforme** | **Microsoft Monitoring Agent** | **Agent Operations Manager** | **Azure Storage** | **Operations Manager requis ?** | **Données de l’agent Operations Manager envoyées via un groupe d’administration** | **Fréquence de collecte** |
-| [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | à l'arrivée |
-| [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (journaux d’événements de sécurité) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | à l'arrivée |
-| [Security and Audit](../operations-management-suite/oms-security-getting-started.md) (journaux de pare-feu) |Windows |&#8226; |&#8226; |  |  |  |à l'arrivée |
 | [Service Fabric Analytics (version préliminaire)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minutes |
 | [Service Map](../operations-management-suite/operations-management-suite-service-map.md) | Windows et Linux | &#8226; | &#8226; |  |  |  | 15 secondes |
 | [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 jours |

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.openlocfilehash: 6e44cff930f943f5cf30fb5335ad6a7fd1d08ab5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f44f5cffd105d958c7d6552a170150623a0701ea
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34638449"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure
 ## <a name="encoding-overview"></a>Vue d’ensemble de l’encodage
@@ -29,10 +30,8 @@ Les codecs sont les logiciels qui implémentent les algorithmes de compression/d
 
 Media Services fournit l’empaquetage dynamique qui permet de distribuer un contenu en diffusion continue en MP4 ou Smooth Streaming dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming) sans avoir à recréer de nouveaux packages dans ces formats.
 
->[!NOTE]
->Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. Pour tirer parti de l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md), vous devez effectuer les opérations suivantes :
->
->De même, encoder votre fichier source dans un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).
+> [!NOTE]
+> Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
 Media Services prend en charge les éléments suivants sur les encodeurs à la demande décrits dans cet article :
 

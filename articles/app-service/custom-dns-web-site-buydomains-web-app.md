@@ -1,11 +1,11 @@
 ---
-title: "Acheter un nom de domaine personnalisé pour Azure Web Apps"
-description: "Découvrez comment acheter un nom de domaine personnalisé avec une application web dans Azure App Service."
+title: Acheter un nom de domaine personnalisé pour Azure Web Apps
+description: Découvrez comment acheter un nom de domaine personnalisé avec une application web dans Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714882"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Acheter un nom de domaine personnalisé pour Azure Web Apps
 
@@ -57,17 +58,17 @@ Dans la navigation gauche de la page de l’application, faites défiler jusqu�
 
 ![Menu Monter en puissance](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifiez que l’application ne se trouve pas dans le niveau **Gratuit**. Les DNS personnalisés ne sont pas pris en charge dans le niveau **Gratuit**. 
+Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifiez que l’application ne se trouve pas dans le niveau **F1**. Les DNS personnalisés ne sont pas disponibles dans le niveau **F1**. 
 
 ![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Si le plan App Service n’est pas **Gratuit**, fermez la page **Choisir votre niveau de tarification** et passez à [Acheter le domaine](#buy-the-domain).
+Si le plan App Service n’est pas dans le niveau **F1**, fermez la page **Monter en puissance** et passez à [Acheter le domaine](#buy-the-domain).
 
 ### <a name="scale-up-the-app-service-plan"></a>Monter en puissance le plan App Service
 
-Sélectionnez l’un des niveaux payants (**Partagé**, **De base**, **Standard** ou **Premium**). 
+Sélectionnez un niveau payant (**D1**, **B1**, **B2**, **B3** ou n’importe quel niveau dans la catégorie **Production**). Pour obtenir des options supplémentaires, cliquez sur **Afficher d’autres options**.
 
-Cliquez sur **Sélectionner**.
+Cliquez sur **Appliquer**.
 
 ![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

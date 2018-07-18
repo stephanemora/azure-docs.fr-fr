@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108387"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630192"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installer Update 4 sur votre appareil StorSimple
 
@@ -54,7 +54,7 @@ Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 4 (6.3.96
 ## <a name="install-update-4-as-a-hotfix"></a>Installer Update 4 en tant que correctif logiciel
 La méthode recommandée pour installer Update 4 est d’utiliser le portail Azure.
 
-Utilisez cette procédure en cas d’échec de la vérification de la passerelle lors de la tentative d’installation des mises à jour par le biais du portail Azure. La vérification échoue, car vous avez une passerelle affectée à une interface réseau différente de DATA 0 et votre appareil exécute une version logicielle antérieure à Update 1.
+Utilisez cette procédure en cas d’échec de la vérification de la passerelle lors de la tentative d’installation des mises à jour par le biais du portail Azure. La vérification échoue car vous avez une passerelle affectée à une interface réseau différente de DATA 0 et votre appareil exécute une version logicielle antérieure à Update 1.
 
 Les versions logicielles qui peuvent être mises à niveau à l’aide de la méthode du correctif logiciel sont les suivantes :
 
@@ -76,10 +76,10 @@ Vous devez télécharger et installer les correctifs logiciels suivants dans l�
 
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Mise à jour logicielle |Standard  <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |Mises à jour du pilote et du microprogramme LSI <br> Mise à jour du microprogramme USM (version 3.38) |Standard  <br></br>sans interruption de service |~ 3 heures <br> (inclut 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Package de mises à jour de sécurité du système d’exploitation <br> Télécharger Windows Server 2012 R2 |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Package de mises à jour du système d’exploitation <br> Télécharger Windows Server 2012 R2 |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
+| 1. |KB4011839 |Mise à jour logicielle |Normal <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |Mises à jour du pilote et du microprogramme LSI <br> Mise à jour du microprogramme USM (version 3.38) |Normal <br></br>sans interruption de service |~ 3 heures <br> (inclut 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Package de mises à jour de sécurité du système d’exploitation <br> Télécharger Windows Server 2012 R2 |Normal <br></br>sans interruption de service |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Package de mises à jour du système d’exploitation <br> Télécharger Windows Server 2012 R2 |Normal <br></br>sans interruption de service |- |SecondOrderUpdate|
 
 En outre, vous devez peut-être installer les mises à jour du microprogramme de disque en plus de toutes les mises à jour indiquées dans les tableaux précédents. Pour vérifier si vous avez besoin des mises à jour du microprogramme de disque, vous pouvez exécuter l’applet de commande `Get-HcsFirmwareVersion` . Si vous utilisez la version `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106` du microprogramme, vous n’avez pas besoin d’installer ces mises à jour.
 

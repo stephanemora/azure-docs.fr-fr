@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: be8ff16b5383be19c1a8dc85f7afdf7506bfd4ce
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587941"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300993"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Comment sélectionner un réseau virtuel Azure
@@ -69,7 +69,7 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 | --- | --- | --- |
 | 443 | Obligatoire |Synchronisation avec votre client Azure AD |
 | 5986 | Obligatoire | Gestion de votre domaine |
-| 3389 | Facultatif | Gestion de votre domaine |
+| 3389 | Obligatoire | Gestion de votre domaine |
 | 636 | Facultatif | Sécuriser l’accès LDAP (LDAPS) à votre domaine géré |
 
 **Port 443 (synchronisation avec Azure AD)**
@@ -80,12 +80,13 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 **Port 5986 (communication à distance PowerShell)**
 * Il est utilisé pour effectuer des tâches de gestion à l’aide de la communication à distance PowerShell sur votre domaine managé.
 * Il est obligatoire pour autoriser l’accès via ce port dans votre groupe de sécurité réseau. Sans accès à ce port, votre domaine managé ne peut pas être mis à jour, configuré, sauvegardé ou surveillé.
-* Vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
+* Pour les nouveaux domaines ou les domaines avec un réseau virtuel ARM, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
+* Pour les domaines avec un réseau virtuel classique, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * Généralement, les contrôleurs de domaine pour votre domaine géré n’écoutent pas sur ce port. Le service ouvre ce port sur les contrôleurs de domaine gérés uniquement lorsqu’une opération de gestion ou de maintenance doit être effectuée pour le domaine géré. Une fois l’opération terminée, le service ferme ce port sur les contrôleurs de domaine gérés.
 
 **Port 3389 (Bureau à distance)**
 * Il est utilisé pour les connexions Bureau à distance aux contrôleurs de domaine de votre domaine managé.
-* L’ouverture de ce port via votre groupe de sécurité réseau est facultative.
+* Vous pouvez restreindre l’accès entrant aux adresses IP sources suivantes : 207.68.190.32/27, 13.106.78.32/27, 13.106.174.32/27, 13.106.4.96/27
 * Ce port reste également désactivé en grande partie sur votre domaine géré. Ce mécanisme n’est pas utilisé de manière continue, car les tâches de gestion et de surveillance sont effectuées à l’aide de la communication à distance PowerShell. Ce port est utilisé uniquement dans les rares cas où Microsoft a besoin de se connecter à distance à votre domaine managé pour un dépannage avancé. Le port est fermé dès que l’opération de résolution des problèmes est terminée.
 
 **Port 636 (LDAP sécurisé)**
@@ -106,7 +107,7 @@ En outre, le groupe de sécurité réseau illustre comment verrouiller l’accè
 
 ![Exemple de groupe de sécurité réseau pour l’accès LDAP sécurisé via internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Informations supplémentaires** - [Créer un groupe de sécurité réseau](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Informations supplémentaires** - [Créer un groupe de sécurité réseau](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Connectivité réseau
@@ -144,4 +145,4 @@ Vous pouvez connecter un réseau virtuel basé sur Resource Manager au réseau v
 * [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Groupes de sécurité réseau Azure](../virtual-network/security-overview.md)
-* [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/manage-network-security-group.md)

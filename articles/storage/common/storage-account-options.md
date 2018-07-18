@@ -2,18 +2,19 @@
 title: Options liées au compte de stockage Azure | Microsoft Doc
 description: Comprendre les options pour l’utilisation de Stockage Azure.
 services: storage
-author: hux
+author: xyh1
 manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 07/03/2018
 ms.author: hux
-ms.openlocfilehash: 69da15b98e6c519a3a8352cc7ca7212286cb4e52
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445419"
 ---
 # <a name="azure-storage-account-options"></a>Options de compte de stockage Azure
 
@@ -32,7 +33,7 @@ Chaque type de compte est décrit de façon plus détaillée dans la section sui
 
 Les comptes Usage général v2 (GPv2) sont des comptes de stockage qui prennent en charge les dernières fonctionnalités disponibles pour les objets blob, les fichiers, les files d’attente et les tables. Les comptes GPv2 prennent en charge toutes les API et fonctionnalités prises en charge dans les comptes GPv1 et de stockage d’objets blob. Ils prennent également en charge les mêmes fonctionnalités de durabilité, de disponibilité, d’évolutivité et de performances que ces types de compte. La tarification des comptes GPv2 a été conçue pour fournir les prix au gigaoctet les plus bas et des prix de transaction compétitifs sur le marché.
 
-Vous pouvez mettre à niveau votre compte GPv1 vers un compte GPv2 à l’aide du portail Azure, de PowerShell ou de l’interface de ligne de commande Azure. 
+Vous pouvez mettre à niveau votre compte GPv1 ou de stockage d’objets blob vers un compte GPv2 à l’aide du portail Azure, de PowerShell ou de l’interface de ligne de commande Azure. 
 
 Pour les objets blob de blocs dans un compte de stockage GPv2, vous pouvez choisir un niveau de stockage chaud ou froid au niveau du compte, ou bien un niveau de stockage chaud, froid ou archive au niveau du fichier blob, en fonction des modèles d’accès. Stockez les données utilisées fréquemment, peu fréquemment et rarement dans des niveaux de stockage respectivement archive, froid et chaud pour optimiser les coûts. 
 
@@ -45,11 +46,14 @@ Les comptes de stockage GPv2 exposent l’attribut **Niveau d’accès** au nive
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Mettre à niveau un compte de stockage vers un compte GPv2
 
-Les utilisateurs peuvent à tout moment mettre à niveau un compte GPv1 vers un compte GPv2 à l’aide de PowerShell ou de l’interface de ligne de commande Azure. Cette modification ne peut pas être annulée, et aucune autre modification n’est autorisée.
+Les utilisateurs peuvent à tout moment mettre à niveau un compte GPv1 ou de stockage Blob vers un compte GPv2 en utilisant le portail Azure, PowerShell ou l’interface de ligne de commande Azure. Cette modification ne peut pas être annulée, et aucune autre modification n’est autorisée.
+
+#### <a name="upgrade-with-azure-portal"></a>Mettre à niveau avec le portail Azure
+Pour mettre à niveau un compte GPv1 ou de stockage Blob vers un compte GPv2 avec le portail Azure, connectez-vous d’abord au [portail Azure](https://portal.azure.com) et sélectionnez votre compte de stockage. Sélectionnez **Paramètres** > **Configuration**. Vous voyez le bouton **Mettre à niveau**, ainsi qu’une remarque concernant le processus de mise à niveau.
 
 #### <a name="upgrade-with-powershell"></a>Mise à niveau à l’aide de PowerShell
 
-Pour mettre à niveau un compte GPv1 vers un compte GPv2 à l’aide de PowerShell, commencez par mettre à jour PowerShell afin d’utiliser la dernière version du module **AzureRm.Storage**. Pour plus d’informations sur l’installation de PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Appelez ensuite la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
+Pour mettre à niveau un compte GPv1 ou de stockage d’objets blob vers un compte GPv2 à l’aide de PowerShell, commencez par mettre à jour PowerShell afin d’utiliser la dernière version du module **AzureRm.Storage**. Pour plus d’informations sur l’installation de PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Appelez ensuite la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
 
 ```powershell
 Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
@@ -57,7 +61,7 @@ Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <stor
 
 #### <a name="upgrade-with-azure-cli"></a>Mise à niveau à l’aide de l’interface de ligne de commande Azure
 
-Pour mettre à niveau un compte GPv1 vers un compte GPv2 à l’aide de l’interface de ligne de commande Azure, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Appelez ensuite la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
+Pour mettre à niveau un compte GPv1 ou de stockage d’objets blob vers un compte GPv2 à l’aide de l’interface de ligne de commande Azure, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Appelez ensuite la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources et de votre compte de stockage :
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
@@ -75,39 +79,31 @@ Les comptes de stockage d’objets blob prennent en charge les mêmes fonctionna
 
 > [!NOTE]
 > Les comptes de stockage d’objets blob prennent en charge uniquement les objets blob de blocs et d’ajout, mais pas les objets blob de pages.
+>
+> Microsoft recommande d’utiliser des comptes de stockage à usage général v2 plutôt que des comptes de stockage d’objets blob pour la plupart des scénarios.
 
 ## <a name="recommendations"></a>Recommandations
 
 Pour plus d’informations sur les comptes de stockage, consultez [À propos des comptes de stockage Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Pour les applications qui requièrent uniquement le stockage d’objets blob de blocs ou d’objets blob d’ajout, nous recommandons d’utiliser des comptes de stockage GPv2 afin de tirer parti du modèle de tarification différencié du stockage hiérarchisé. Toutefois, les comptes GPv1 peuvent être recommandés dans certains scénarios, tels que :
+Pour les applications qui nécessitent les dernières fonctionnalités d’objets blob de bloc ou d’ajout, nous recommandons d’utiliser des comptes de stockage GPv2 afin de tirer parti du modèle tarifaire différencié du stockage hiérarchisé. Toutefois, les comptes GPv1 peuvent être recommandés dans certains scénarios, tels que :
 
-* Vous devez toujours utiliser le modèle de déploiement classique. Les comptes de stockage d’objets blob sont uniquement disponibles via le modèle de déploiement Azure Resource Manager.
-
+* Vous devez toujours utiliser le modèle de déploiement classique. Les comptes GPv2 et de stockage d’objets blob sont uniquement disponibles via le modèle de déploiement Azure Resource Manager.
 * Vous utilisez des volumes élevés de transactions ou de bande passante de géo-réplication, qui coûtent plus cher avec des comptes GPv2 et de stockage d’objets blob qu’avec un compte GPv1 et vous n’avez pas suffisamment de stockage pour tirer bénéfice des réduction des coûts du stockage par Go.
-
 * Vous utilisez une version de l’ [API REST des services de stockage](https://msdn.microsoft.com/library/azure/dd894041.aspx) antérieure à celle du 14/02/2014 ou une bibliothèque cliente avec une version inférieure à 4.x, et vous ne pouvez pas mettre à niveau votre application.
-
-> [!NOTE]
-> Les comptes de stockage d’objets blob sont actuellement pris en charge dans toutes les régions Azure.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 Tous les comptes de stockage utilisent un modèle de tarification pour le stockage d’objets blob basé sur le niveau de chaque objet blob. Les considérations de facturation suivantes s’appliquent à l’utilisation des comptes de stockage :
 
 * **Coûts de stockage**: les coûts de stockage de données varient selon la quantité de données stockées et le niveau de stockage. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
-
 * **Coûts d’accès aux données** : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux de stockage froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
-
 * **Coûts de transaction** : des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
-
 * **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, y compris GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
-
 * **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
-
 * **Modification du niveau de stockage** : passer d’un niveau de stockage de compte froid à un niveau de stockage chaud implique des frais correspondant à la lecture de toutes les données existantes du compte de stockage. Toutefois, la modification du niveau de stockage de compte chaud vers un niveau de stockage froid induit des frais équivalents à l’écriture de toutes les données dans le niveau froid (comptes GPv2 uniquement).
 
 > [!NOTE]
-> Pour plus d’informations sur le modèle de tarification des comptes de stockage d’objets blob, consultez la page [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur les frais de transfert de données sortantes, consultez la page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
+> Pour plus d’informations sur le modèle de tarification des comptes de stockage, consultez la page [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur les frais de transfert de données sortantes, consultez la page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## <a name="quickstart-scenarios"></a>Scénarios de démarrage rapide
 
@@ -115,8 +111,8 @@ Dans cette section, les scénarios suivants sont décrits à l’aide du Portail
 
 * [Création d'un compte de stockage GPv2](#create-a-gpv2-storage-account-using-the-azure-portal)
 * [Conversion d’un compte de stockage GPv1 ou de stockage d’objets blob en un compte de stockage GPv2](#convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal)
-* [Définition d'un niveau de compte dans un compte de stockage GPv2](#change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal)
-* [Définition du niveau d'objet blob dans un compte de stockage d’objets blob ou de stockage GPv2](#change-the-storage-tier-of-a-blob-using-the-azure-portal)
+* [Définition du niveau de compte dans un compte GPv2 ou de stockage d’objets blob.](#change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal)
+* [Définition du niveau d’objet blob dans un compte GPv2 ou de stockage d’objets blob.](#change-the-storage-tier-of-a-blob-using-the-azure-portal)
 
 Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suivants, car ce paramètre s’applique à l’ensemble du compte de stockage. Le niveau d’accès archive peut uniquement être défini sur un objet blob spécifique.
 
@@ -158,7 +154,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Pour accéder à votre compte de stockage, sélectionnez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
+2. Pour accéder à votre compte de stockage : sélectionnez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
 
 3. Dans la section Paramètres, cliquez sur **Configuration**.
 
@@ -172,7 +168,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Pour accéder à votre compte de stockage, sélectionnez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
+2. Pour accéder à votre compte de stockage : sélectionnez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
 
 3. Dans le panneau Paramètres, cliquez sur **Configuration** pour afficher et/ou modifier la configuration du compte.
 
@@ -184,7 +180,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Pour accéder à votre objet blob dans votre compte de stockage, sélectionnez **Toutes les ressources**, puis votre compte de stockage et enfin sélectionnez votre objet blob.
+2. Pour accéder à votre objet blob dans votre compte de stockage : sélectionnez **Toutes les ressources**, puis votre compte de stockage et enfin sélectionnez votre objet blob.
 
 3. Dans le panneau des propriétés de l’objet blob, cliquez sur le menu déroulant **Niveau d’accès** pour sélectionner niveau de stockage **Chaud**, **Froid**, ou **Archive**.
 
@@ -195,7 +191,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 
 ## <a name="evaluating-and-migrating-to-gpv2-storage-accounts"></a>Évaluation et migration vers des comptes de stockage GPv2
-Cette section vise à aider les utilisateurs à effectuer une transition en douceur vers les comptes de stockage GPv2 (par opposition au GPv1). Il existe deux scénarios utilisateur :
+Cette section vise à aider les utilisateurs à effectuer une transition en douceur vers les comptes de stockage GPv2 à partir de comptes de stockage GPv1. Il existe deux scénarios utilisateur :
 
 * Vous disposez d’un compte de stockage GPv1 et envisagez de passer à un compte de stockage GPv2 avec le niveau de stockage approprié.
 * Vous souhaitez utiliser un compte de stockage GPv2 ou vous disposez déjà d’un tel compte et souhaitez savoir si vous devez utiliser le niveau de stockage chaud ou froid.
@@ -207,7 +203,6 @@ Dans les deux cas, la première priorité est d’abord estimer les frais de sto
 Pour estimer le coût de stockage et d’accès aux données stockées dans un compte de stockage GPv2, vous devez évaluer votre modèle d’utilisation existant ou faire une estimation du modèle d’utilisation souhaité. En général, vous souhaitez connaître :
 
 * Votre consommation de stockage : quel est le volume de données stockées et quelle est son évolution mensuelle ?
-
 * Votre modèle d’accès au stockage : quel est le volume de données du compte faisant l’objet d’accès en lecture et en écriture (y compris les nouvelles données) ? Le nombre et le type de transactions utilisées pour accéder aux données.
 
 ## <a name="monitoring-existing-storage-accounts"></a>Analyse des comptes de stockage existants
@@ -225,7 +220,7 @@ Lorsque cette option est activée, les données de capacité sont enregistrées 
 Pour analyser les modèles d’accès aux données pour le service de stockage d’objets blob, vous devez activer les métriques de transaction par heure à partir de l’API. Lorsque cette option est activée, les transactions par API sont agrégées toutes les heures et enregistrées comme une entrée de table écrite dans la table *$MetricsHourPrimaryTransactionsBlob* dans le même compte de stockage. La table *$MetricsHourSecondaryTransactionsBlob* enregistre les transactions vers le point de terminaison secondaire lorsqu’il s’agit de comptes de stockage RA-GRS.
 
 > [!NOTE]
-> Ce processus d’estimation n’est pas applicable si vous avez un compte de stockage à usage général dans lequel vous avez stocké des objets blob de pages et des disques de machines virtuelles ou bien des files d’attente, des fichiers ou des tables, en même temps que des données d’objets blob de blocs et d’ajout. Les données de capacité ne distinguent pas les objets blob de blocs des autres types et le processus ne fournit donc pas de données de capacité pour les autres types de données. Si vous utilisez ces types, une méthodologie alternative consiste à examiner les quantités sur votre plus récente facture.
+> Ce processus d’estimation n’est pas applicable si vous avez un compte de stockage à usage général où sont stockés des objets blob de pages et des disques de machines virtuelles ou bien des files d’attente, des fichiers ou des tables, en même temps que des données d’objets blob de blocs et d’ajout. Les données de capacité ne distinguent pas les objets blob de blocs des autres types et le processus ne fournit pas de données de capacité pour les autres types de données. Si vous utilisez ces types, une méthodologie alternative consiste à examiner les quantités sur votre plus récente facture.
 
 Pour avoir une bonne estimation de votre consommation de données et de votre modèle d’accès, nous vous recommandons de sélectionner pour les métriques une période de rétention représentative de votre utilisation régulière et d’extrapoler. Une option consiste à conserver les données de métriques pendant sept jours et à collecter les données chaque semaine pour les analyser à la fin du mois. Une autre option consiste à conserver les données de métriques pendant les 30 derniers jours et à collecter et analyser les données à la fin de la période de 30 jours.
 
@@ -258,10 +253,9 @@ Pour estimer les frais de transaction pour les comptes de stockage GPv1, vous de
 
 La quantité de données lues et écrites dans un compte de stockage n’est pas fournie par Storage Analytics mais peut être estimée en consultant la table de métriques de transaction. La somme des entrées *'TotalIngress'* d’une API dans la table de métriques de transaction indique la quantité totale de données entrantes en octets pour cette API. De même, la somme des entrées *'TotalEgress'* indique la quantité totale des données sortantes en octets.
 
-Pour estimer les coûts d’accès aux données pour les comptes de stockage d’objets blob, vous devez classer les transactions en deux groupes.
+Pour estimer les coûts d’accès aux données pour les comptes de stockage d’objets blob, vous devez classer les transactions en deux groupes :
 
 * La quantité de données récupérées à partir du compte de stockage peut être estimée en additionnant les entrées *'TotalEgress'* pour les opérations *'GetBlob'* et *'CopyBlob'*.
-
 * La quantité de données écrites dans le compte de stockage peut être estimée en additionnant les entrées *'TotalIngress'* pour les opérations *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* et *'AppendBlock'*.
 
 Le coût de transfert de données de géoréplication des comptes de stockage d’objets blob peut également être calculé en estimant la quantité de données écrites lors de l’utilisation d’un compte de stockage GRS ou RA-GRS.
@@ -271,11 +265,11 @@ Le coût de transfert de données de géoréplication des comptes de stockage d�
 
 ## <a name="migrating-existing-data"></a>Migration des données existantes
 
-Un compte GPv1 peut être facilement mis à niveau vers un compte GPv2 sans temps d’arrêt ni modifications de l’API, et sans migration des données. Il est donc recommandé de mettre à niveau les comptes GPv1 vers des comptes GPv2 plutôt que vers des comptes de stockage d’objets blob.
+Un compte GPv1 ou de stockage Blob peut être facilement mis à niveau vers un compte GPv2 sans temps d’arrêt ni modifications de l’API, et sans migration des données. Il est donc vivement recommandé de migrer les comptes GPv1 vers des comptes GPv2 plutôt que vers des comptes de stockage d’objets blob. Pour plus d’informations sur la mise à niveau vers GPv2, consultez [Mettre à niveau un compte de stockage vers un compte GPv2](#upgrade-a-storage-account-to-gpv2).
 
-Toutefois, si vous avez besoin de migrer vers un compte de stockage d’objets blob, vous pouvez suivre les instructions ci-dessous.
+Cependant, si vous avez besoin de migrer depuis un compte GPv1 vers un compte de stockage Blob et que vous ne pouvez pas utiliser des comptes GPv2, vous pouvez suivre les instructions ci-dessous. 
 
-Un compte de stockage d’objets blob est un compte spécialisé pour stocker uniquement les objets blob de blocs et d’ajout. Les comptes de stockage à usage général existants, qui vous permettent également de stocker des tables, des files d’attente, des fichiers, des disques et des objets blob ne peuvent pas être convertis en comptes de stockage d’objets blob. Pour utiliser les niveaux de stockage, vous devez créer des comptes de stockage d’objets blob et migrer vos données existantes vers les comptes nouvellement créés.
+Un compte de stockage d’objets blob est un compte spécialisé pour stocker uniquement les objets blob de blocs et d’ajout. Les comptes de stockage à usage général existants, qui vous permettent également de stocker des tables, des files d’attente, des fichiers, des disques et des objets blob ne peuvent pas être convertis en comptes de stockage d’objets blob. Pour utiliser les niveaux de stockage, vous devez créer des comptes de stockage d’objets blob et migrer vos données existantes vers les comptes nouvellement créés. 
 
 Vous pouvez utiliser les méthodes suivantes pour migrer les données existantes vers les comptes de stockage d’objets blob à partir d’une solution de stockage local, d’un fournisseur de stockage cloud tiers ou de vos comptes de stockage à usage général existants dans Azure :
 
@@ -326,7 +320,7 @@ Oui. L’attribut **Niveau d’accès** configuré sur un niveau de compte est l
 
 Oui, vous pouvez modifier le niveau de stockage de compte en définissant l’attribut **Niveau d’accès** du compte de stockage. La modification du niveau de stockage de compte s’applique à tous les objets stockés dans le compte et ne possédant pas un ensemble de niveau explicite. Passer d’un niveau de stockage chaud à un niveau de stockage froid implique des frais pour des opérations d’écriture (par 10 000) (comptes de stockage GPv2 uniquement), tandis que le passage d’un niveau froid à un niveau chaud entraîne des frais pour des opérations de lecture (par 10 000) et des extractions de données (par Go) pour la lecture de toutes les données dans le compte.
 
-**À quelle fréquence puis-je modifier le niveau de stockage de mon compte de stockage d’objets blob ?**
+**À quelle fréquence puis-je modifier le niveau de stockage de mon compte GPv2 ou de stockage d’objets blob ?**
 
 Aucune limite n’est imposée concernant la fréquence de modification du niveau de stockage. Cependant, notez que le passage d’un niveau de stockage froid à un niveau chaud peut entraîner des frais importants. Il est déconseillé de modifier le niveau de stockage trop fréquemment.
 
@@ -339,6 +333,10 @@ Les objets blob au niveau de stockage froid ont un contrat SLA de disponibilité
 **Puis-je stocker des objets blob de pages et des disques de machine virtuelle dans les comptes de stockage d’objets blob ?**
 
 Non. Les comptes de stockage d’objets blob prennent en charge uniquement les objets blob de blocs et d’ajout, mais pas les objets blob de pages. Les disques de machine virtuelle Azure sont soutenus par des objets blob de pages. Par conséquent, les comptes de stockage d’objets blob ne peuvent pas être utilisés pour stocker des disques de machine virtuelle. Toutefois, il est possible de stocker des sauvegardes de disques de machine virtuelle sous forme d’objets blob de blocs dans un compte de stockage d’objets blob. Il s’agit de l’une des raisons pour envisager l’utilisation de comptes GPv2 au lieu des comptes de stockage d’objets blob.
+
+**Puis-je définir des niveaux d’objets blob de pages dans des comptes de stockage GPv2 ?**
+
+Non. Les objets blob de pages déduisent le niveau de stockage de votre compte mais n’ont aucun effet sur la tarification ou la disponibilité. Vous ne pourrez pas définir le niveau d’accès d’un objet blob de pages sur chaud, froid ou archive. L’opération de définition du niveau d’objet blob est autorisée sur un objet blob de pages dans un compte de stockage premium, mais il ne détermine que la taille autorisée, les IOPS et la bande passante de l’objet blob de pages premium. Pour plus d’informations, consultez [Set Blob Tier](https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier) (Définir le niveau d’objet blob).
 
 **Dois-je modifier mes applications existantes pour utiliser des comptes de stockage GPv2 ?**
 

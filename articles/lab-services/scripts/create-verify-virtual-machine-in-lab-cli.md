@@ -1,6 +1,6 @@
 ---
-title: Exemple de script Azure CLI - Créer et vérifier une machine virtuelle dans un laboratoire personnalisé | Microsoft Docs
-description: Ce script Azure CLI crée une machine virtuelle dans un laboratoire personnalisé et vérifie qu’elle est disponible.
+title: Exemple de script Azure CLI - Créer et vérifier une machine virtuelle dans un laboratoire | Microsoft Docs
+description: Ce script Azure CLI crée une machine virtuelle dans un laboratoire et vérifie qu’elle est disponible.
 services: lab-services
 author: spelluru
 manager: ''
@@ -14,15 +14,16 @@ ms.workload: na
 ms.date: 04/12/2018
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: bd564cda7b4d5c2158b8499b48b8faa68309b461
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1adffd067a2a140f901469182f02cd76ba1da10c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763066"
 ---
-# <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-custom-lab"></a>Utilisez Azure CLI pour créer et vérifier la disponibilité d’une machine virtuelle dans un laboratoire personnalisé
+# <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Utilisez Azure CLI pour créer et vérifier la disponibilité d’une machine virtuelle dans un laboratoire personnalisé dans Azure DevTest Labs
 
-Ce script Azure CLI crée une machine virtuelle dans un laboratoire personnalisé. La machine virtuelle créée est basée sur une image de la Place du marché avec authentification SSH. Le script vérifie ensuite que la machine virtuelle est disponible pour être utilisée. 
+Ce script Azure CLI crée une machine virtuelle dans un laboratoire. La machine virtuelle créée est basée sur une image de la Place du marché avec authentification SSH. Le script vérifie ensuite que la machine virtuelle est disponible pour être utilisée. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -47,8 +48,8 @@ Ce script utilise les commandes suivantes :
 | Commande | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az lab vm create ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Crée une machine virtuelle dans un laboratoire personnalisé. |
-| [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Affiche l’état de la machine virtuelle dans un laboratoire personnalisé. |
+| [az lab vm create ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Crée une machine virtuelle dans un laboratoire. |
+| [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Affiche l’état de la machine virtuelle dans un laboratoire. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

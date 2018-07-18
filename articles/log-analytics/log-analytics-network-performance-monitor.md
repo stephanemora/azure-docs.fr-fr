@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.component: na
+ms.openlocfilehash: d083783fb4c648cde5d8f4ab611990f65e48a16e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304655"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129995"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -225,8 +226,7 @@ Chaque vue affiche une capture instantanée de l’intégrité de votre réseau 
 
 À chaque niveau exploré, vous pouvez consulter la tendance de la métrique applicable. Il peut s’agir de la perte, de la latence, du temps de réponse ou de l’utilisation de la bande passante. Pour modifier l’intervalle de temps de cette tendance, utilisez le contrôle de l’heure situé en haut du graphique. 
 
-Les graphiques de tendances présentent une perspective historique des performances d’une métrique de performances. Certains problèmes réseau sont temporaires par nature et compliqués à intercepter en consultant simplement l’état actuel du réseau. Des problèmes peuvent apparaître rapidement et disparaître avant que quiconque s’en aperçoive, avant de réapparaître plus tard.
- Ces problèmes temporaires peuvent également être difficiles pour les administrateurs de l’application. Les problèmes apparaissent souvent sous forme d’augmentation inexpliquée du temps de réponse de l’application, même lorsque tous les composants de l’application semblent fonctionner correctement. 
+Les graphiques de tendances présentent une perspective historique des performances d’une métrique de performances. Certains problèmes réseau sont temporaires par nature et compliqués à intercepter en consultant simplement l’état actuel du réseau. Des problèmes peuvent apparaître rapidement et disparaître avant que quiconque s’en aperçoive, avant de réapparaître plus tard. Ces problèmes temporaires peuvent également être difficiles pour les administrateurs de l’application. Les problèmes apparaissent souvent sous forme d’augmentation inexpliquée du temps de réponse de l’application, même lorsque tous les composants de l’application semblent fonctionner correctement. 
 
 Vous pouvez facilement détecter ces types de problèmes en examinant un graphique de tendances. Le problème apparaît comme un pic soudain de latence du réseau ou de perte de paquets. Vous pouvez étudier le problème à l’aide du contrôle de l’Enregistreur de l’état du réseau pour afficher la capture instantanée et la topologie réseau de ce point dans le temps où le problème s’est produit.
 

@@ -11,18 +11,17 @@ ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
 ms.openlocfilehash: 8fe343587336ff22f82ed0d1ef700fc56c86f577
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363758"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561092"
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Utilisation de PHP pour interroger une base de données SQL Azure
 
 Ce démarrage rapide montre comment utiliser [PHP](http://php.net/manual/en/intro-whatis.php) pour créer un programme en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 

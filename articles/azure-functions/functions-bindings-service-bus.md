@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 01ddebd219a97a59ba3f979d32d6c563a0d31f8a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0e9e7dcab208d1ffd8410a02a7c1cd713d11b277
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304111"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753487"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -29,13 +29,17 @@ Cet article explique comment utiliser des liaisons Azure Service Bus dans Azure 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Packages
+## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
-Les liaisons Service Bus sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/).
+Les liaisons Service Bus sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus), version 2.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Packages - Functions 2.x
+
+Les liaisons Service Bus sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/).
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Déclencheur
 
@@ -257,7 +261,7 @@ En langage C# et dans un script C#, vous pouvez utiliser les types de paramètre
 * `string` -Si le message est un texte.
 * `byte[]` - Utile pour les données binaires.
 * Un type personnalisé - Si le message contient JSON, Azure Functions essaie de désérialiser les données JSON.
-* `BrokeredMessage` - Vous donne le message désérialisé avec la méthode [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx).
+* `BrokeredMessage` - Vous donne le message désérialisé avec la méthode [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
 
 Ces paramètres concernent Azure Functions version 1.x ; pour 2.x, utilisez [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) au lieu de `BrokeredMessage`.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 446df7922422ccfcf3fbb92ecf153c6dec2f6197
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26640376"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047239"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Surveiller l’intégrité et les alertes dans Azure Stack
 
@@ -32,6 +32,17 @@ Azure Stack inclut des fonctionnalités de surveillance de l’infrastructure qu
  ## <a name="understand-health-in-azure-stack"></a>Présentation de l’intégrité dans Azure Stack
 
  L’intégrité et les alertes sont gérées par le fournisseur de ressources Intégrité. Les composants d’infrastructure Azure Stack s’inscrivent auprès du fournisseur de ressources Intégrité lors du déploiement et de la configuration d’Azure Stack. Cette inscription permet de visualiser l’intégrité et les alertes pour chaque composant. L’intégrité dans Azure Stack est un concept simple. S’il existe des alertes pour une instance inscrite d’un composant, l’état d’intégrité de ce composant reflète la gravité de l’alerte active la plus sévère : avertissement ou critique.
+
+## <a name="alert-severity-definition"></a>Définition de la gravité des alertes
+
+Dans Azure Stack, les alertes sont déclenchées avec seulement deux gravités : **avertissement** et **critique**.
+
+**Avertissement**  
+Un opérateur peut résoudre l’alerte d’avertissement de façon planifiée. En général, l’alerte n’affecte pas les charges de travail utilisateur.
+
+**Critical**  
+Un opérateur doit résoudre l’alerte critique de toute urgence. Il s’agit de problèmes qui affectent actuellement ou qui affecteront bientôt les utilisateurs Azure Stack. 
+
  
  ## <a name="view-and-manage-component-health-state"></a>Afficher et gérer l’état d’intégrité des composants
  

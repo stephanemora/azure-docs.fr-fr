@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359626"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441571"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources
 
@@ -47,7 +47,7 @@ Pour cette article, vous devez disposer des autorisations suffisantes pour enreg
 
    ![afficher les inscriptions d’applications](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les [administrateurs généraux](../active-directory/active-directory-assign-admin-roles-azure-portal.md) peuvent inscrire des applications. Vérifiez si votre compte est administrateur de l’abonné Azure AD. Sélectionnez **vue d’ensemble** et consultez vos informations utilisateur. Si le rôle Utilisateur est assigné à votre compte mais que le paramètre d’inscription d’applications (de l’étape précédente) est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous assigner un rôle administrateur général ou d’autoriser les utilisateurs à inscrire des applications.
+1. Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les [administrateurs généraux](../active-directory/users-groups-roles/directory-assign-admin-roles.md) peuvent inscrire des applications. Vérifiez si votre compte est administrateur de l’abonné Azure AD. Sélectionnez **vue d’ensemble** et consultez vos informations utilisateur. Si le rôle Utilisateur est assigné à votre compte mais que le paramètre d’inscription d’applications (de l’étape précédente) est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous assigner un rôle administrateur général ou d’autoriser les utilisateurs à inscrire des applications.
 
    ![rechercher un utilisateur](./media/resource-group-create-service-principal-portal/view-user-info.png)
 

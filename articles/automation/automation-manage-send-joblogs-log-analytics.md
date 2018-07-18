@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 562b1f1371133a1da8d24ebbb9c588f0597dda7f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194398"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228612"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics
 Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Les journaux de travail et les flux de travail sont visibles dans le portail Azure, ou avec PowerShell, pour des travaux individuels. Cela vous permet d’effectuer des enquêtes simples. Désormais avec Log Analytics, vous pouvez :
@@ -140,7 +140,7 @@ Pour créer une règle d’alerte, vous devez commencer par créer une recherche
 2. Créez une requête Recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`. Vous pouvez également les regrouper par RunbookName ainsi : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`.
 
    Si vous avez configuré des journaux dans votre espace de travail sur plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Le nom du compte Automation se trouve dans le champ Ressource de la recherche de JobLogs.
-1. Cliquez sur **Alerte** en haut de la page pour ouvrir l’écran **Ajouter une règle d’alerte**. Pour plus d’informations sur les options de configuration de l’alerte, consultez [Comprendre les alertes dans Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Pour ouvrir l’écran **Créer une règle d’alerte**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Rechercher tous les travaux qui ont rencontré des erreurs
 En plus des alertes concernant les échecs, vous pouvez déterminer lorsqu’une tâche de runbook comporte une erreur sans fin d’exécution. Dans ce cas, PowerShell génère un flux d’erreur. Toutefois, les erreurs sans fin d’exécution ne provoquent la suspension ou l’échec du travail.    

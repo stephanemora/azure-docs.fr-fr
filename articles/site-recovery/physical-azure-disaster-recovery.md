@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643309"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -27,19 +28,25 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de s
 > * Créer une stratégie de réplication
 > * Activer la réplication pour un serveur
 
-## <a name="prerequisites"></a>Prérequis
+[Examinez l’architecture](concepts-hyper-v-to-azure-architecture.md) de ce scénario de récupération d’urgence.
 
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel :
 
-- Assurez-vous que vous comprenez [l’architecture et les composants du scénario](physical-azure-architecture.md).
+- Veillez à bien comprendre [l’architecture et les composants](physical-azure-architecture.md) de ce scénario.
 - Vérifiez les [exigences de prise en charge](vmware-physical-secondary-support-matrix.md) pour tous les composants.
 - Assurez-vous que les serveurs que vous souhaitez répliquer sont conformes aux [conditions requises pour les machines virtuelles Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Préparez Azure. Vous avez besoin d’un abonnement Azure, d’un réseau virtuel Azure et d’un compte de stockage.
 - Préparez un compte pour l’installation automatique du service Mobilité sur chacun des serveurs que vous souhaitez répliquer.
 
-> [!NOTE]
-> Avant de commencer, notez qu’après le basculement vers Azure, les serveurs physiques ne pourront plus être restaurés vers des machines physiques locales. Vous ne pourrez effectuer une restauration que vers des machines virtuelles VMware. 
+Avant de commencer, notez les choses suivantes :
+
+- Après le basculement vers Azure, les serveurs physiques ne pourront plus être restaurés vers des machines physiques locales. Vous ne pourrez effectuer une restauration que vers des machines virtuelles VMware. 
+- Ce tutoriel définit la récupération d’urgence d’un serveur physique vers Azure avec les paramètres les plus simples. Si vous souhaitez en savoir plus sur les autres options, lisez nos guides pratiques :
+    - Configurez la [source de réplication](physical-azure-set-up-source.md), notamment le serveur de configuration Site Recovery.
+    - Configurez la [cible de réplication](physical-azure-set-up-target.md).
+    - Configurez une [stratégie de réplication](vmware-azure-set-up-replication.md) et [activez la réplication](vmware-azure-enable-replication.md).
 
 
 ### <a name="set-up-an-azure-account"></a>Configurer un compte Azure

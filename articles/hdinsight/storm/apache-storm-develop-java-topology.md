@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 02277d8398fe5e3f3cfd1244e53cc80c4b627fa3
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418490"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857420"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Créer une topologie Apache Storm en Java
 
@@ -32,7 +32,6 @@ Après avoir suivi les étapes décrites dans ce document, vous pourrez déploye
 > Une version complète des exemples de topologie Storm créés dans ce document est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Kit de développeur Java (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -598,10 +597,10 @@ Flux est une nouvelle infrastructure disponible avec Storm 0.10.0 et versions su
 
 Le fichier YAML définit les composants à utiliser pour la topologie et le flux de données entre eux. Vous pouvez inclure un fichier YAML dans le fichier jar ou utiliser un fichier YAML externe.
 
-Pour plus d’informations sur Flux, voir [Flux framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html) (Framework Flux).
+Pour plus d’informations sur Flux, voir [Flux framework (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html) (Framework Flux).
 
 > [!WARNING]
-> En raison d’un [bogue (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) lié à Storm 1.0.1, vous devrez peut-être installer un [environnement de développement Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) pour exécuter localement les topologies Flux.
+> En raison d’un [bogue (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) lié à Storm 1.0.1, vous devrez peut-être installer un [environnement de développement Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html) pour exécuter localement les topologies Flux.
 
 1. Retirez le fichier `WordCountTopology.java` du projet. Auparavant, ce fichier définissait la topologie, mais il n’est pas nécessaire avec Flux.
 
@@ -720,9 +719,9 @@ Pour plus d’informations sur Flux, voir [Flux framework (https://storm.apache.
     ```
 
     > [!WARNING]
-    > Si votre topologie utilise des bits Storm 1.0.1, cette commande échoue. Cette défaillance est provoquée par [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Au lieu de cela, [installez Storm dans votre environnement de développement](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) et utilisez les étapes suivantes :
+    > Si votre topologie utilise des bits Storm 1.0.1, cette commande échoue. Cette défaillance est provoquée par [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Au lieu de cela, [installez Storm dans votre environnement de développement](http://storm.apache.org/releases/current/Setting-up-development-environment.html) et utilisez les étapes suivantes :
     >
-    > Si vous avez [installé Storm dans votre environnement de développement](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), vous pouvez utiliser les commandes suivantes à la place :
+    > Si vous avez [installé Storm dans votre environnement de développement](http://storm.apache.org/releases/current/Setting-up-development-environment.html), vous pouvez utiliser les commandes suivantes à la place :
     >
     > ```bash
     > mvn compile package
@@ -768,7 +767,7 @@ Pour plus d’informations sur Flux, voir [Flux framework (https://storm.apache.
 
     Une fois que la topologie démarre, vous remarquerez que la durée entre les lots émis a changé pour refléter la valeur dans newtopology.yaml. Par conséquent, vous pouvez voir que vous pouvez modifier votre configuration via un fichier YAML sans avoir à recompiler la topologie.
 
-Pour plus d’informations sur ces fonctionnalités et d’autres fonctionnalités du framework Flux, voir [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+Pour plus d’informations sur ces fonctionnalités et d’autres fonctionnalités du framework Flux, voir [Flux (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
 
 ## <a name="trident"></a>Trident
 

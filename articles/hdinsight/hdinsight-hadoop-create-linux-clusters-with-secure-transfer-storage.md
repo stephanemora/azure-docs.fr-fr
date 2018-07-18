@@ -3,37 +3,34 @@ title: Créer un cluster Hadoop à l’aide de comptes de stockage avec transfer
 description: Découvrez comment créer des clusters HDInsight à l’aide de comptes de stockage Azure doté du transfert sécurisé.
 keywords: prise en main hadoop, hadoop linux, démarrage rapide hadoop, transfert sécurisé, compte de stockage azure
 services: hdinsight
-documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/14/2018
+ms.date: 07/09/2018
 ms.author: jgao
-ms.openlocfilehash: 7a2022fd5cd67120b8dc435a950533e07017218c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1a905d574d67b5965325dba80c03d75901f97fef
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200518"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952192"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Créer un cluster Hadoop à l’aide de comptes de stockage avec transfert sécurisé dans Azure HDInsight
 
 La fonctionnalité [Transfert sécurisé requis](../storage/common/storage-require-secure-transfer.md) améliore la sécurité de votre compte de stockage Azure en appliquant toutes les demandes à votre compte via une connexion sécurisée. Cette fonctionnalité et le schéma wasbs sont uniquement pris en charge par les clusters HDInsight 3.6 ou version ultérieure. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Abonnement Azure**: pour créer un compte d’essai gratuit d’une durée d’un mois, accédez à [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Un compte de stockage Azure doté du transfert sécurisé**. Pour obtenir des instructions, consultez [Créez un compte de stockage.](../storage/common/storage-create-storage-account.md#create-a-storage-account) et [Exiger un transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
 * **Un conteneur d’objets blob dans le compte de stockage**. 
+
 ## <a name="create-cluster"></a>Créer un cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

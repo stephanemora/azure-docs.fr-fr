@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: f5132215b1fda93c62c1fbea46c3266fcc44ec46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936549"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307277"
 ---
 # <a name="import-an-openapi-specification"></a>Importer une spécification OpenAPI
 
@@ -35,7 +35,6 @@ Dans cet article, vous apprendrez comment :
 > * Tester l’API dans le portail des développeurs
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 

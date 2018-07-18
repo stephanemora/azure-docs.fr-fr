@@ -1,19 +1,21 @@
 ---
-title: Configurer Azure-SSIS Integration Runtime pour de hautes performances | Documents Microsoft
+title: Configurer les performances pour Azure-SSIS Integration Runtime | Microsoft Docs
 description: Découvrez comment configurer les propriétés d’Azure-SSIS Integration Runtime pour de hautes performances
 services: data-factory
 ms.date: 01/10/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: data-factory
 ms.workload: data-services
-author: douglaslMS
-ms.author: douglasl
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ed5d1740f1d68db5ad42266c3fc2dcc983682774
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ac53e1a8a7c6c1b2c2959b92e14c7911065aed6d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052026"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 
@@ -36,11 +38,11 @@ $DataFactoryLocation = "EastUS"
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# In public preview, only EastUS, NorthEurope, and WestEurope are supported.
+# Only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
-# In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
+# Only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_D3_v2"
-# In public preview, only 1-10 nodes are supported.
+# Only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
@@ -58,7 +60,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 **AzureSSISLocation** est l’emplacement du nœud du rôle de travail du runtime d’intégration. Le nœud du rôle de travail maintient une connexion constante avec la base de données du catalogue SSIS (SSISDB) sur une base de données Azure SQL. Définissez **AzureSSISLocation** au même emplacement que le serveur SQL Database qui héberge SSISDB, ce qui permet au runtime d’intégration de fonctionner le plus efficacement possible.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
-La version préliminaire publique d’Azure Data Factory v2, y compris Azure-SSIS IR, prend en charge les options suivantes :
+Data Factory, y compris le runtime d’intégration Azure-SSIS, prend en charge les options suivantes :
 -   Standard\_A4\_v2
 -   Standard\_A8\_v2
 -   Standard\_D1\_v2

@@ -1,23 +1,21 @@
 ---
 title: Démarrage rapide (Node.js) pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
 description: Dans ce démarrage rapide, vous exécutez deux exemples d’applications Node.js pour envoyer des données de télémétrie simulées à un IoT Hub et lire les données de télémétrie provenant de l’IoT Hub à traiter dans le cloud.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 0be67b936780d68198a00cb99529643d453621e3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 17afdd4c57f58770ae82093c5e23e469d1109f6a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38540040"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub et lire les données de télémétrie depuis le concentrateur avec une application back-end (Node.js)
 
@@ -32,7 +30,6 @@ Ce démarrage rapide utilise deux applications Node.js prédéfinies, une pour e
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Node.js. Votre machine de développement doit disposer de Node.js v4.x.x ou version ultérieure.
 
@@ -83,7 +80,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 L’application d’appareil simulé se connecte à un point de terminaison spécifique de l’appareil sur votre IoT Hub et envoie les données de télémétrie simulée (température et humidité).
 
-1. Dans une fenêtre de terminal, accédez au dossier racine de l’exemple de projet Node.js. Ensuite, accédez au dossier **Quickstarts\simulated-device**.
+1. Dans une fenêtre de terminal, accédez au dossier racine de l’exemple de projet Node.js. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device**.
 
 1. Utilisez un éditeur de texte pour ouvrir le fichier **SimulatedDevice.js**.
 
@@ -106,7 +103,7 @@ L’application back-end se connecte au point de terminaison **Événements** du
 
 1. Dans une autre fenêtre de terminal, accédez au dossier racine de l’exemple de projet Node.js. Puis, accédez au dossier **read-d2c-messages**.
 
-1. Ouvrez le fichier **Quickstarts\ReadDeviceToCloudMessages.js** dans l’éditeur de texte de votre choix.
+1. Ouvrez le fichier **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** dans l’éditeur de texte de votre choix.
 
     Remplacez la valeur de la variable `connectionString` par la chaîne de connexion de service que vous avez notée précédemment. Puis, enregistrez les modifications apportées au fichier **ReadDeviceToCloudMessages.js**.
 
@@ -121,11 +118,9 @@ L’application back-end se connecte au point de terminaison **Événements** du
 
     ![Exécuter l’application back-end](media/quickstart-send-telemetry-node/ReadDeviceToCloud.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Si vous envisagez d’effectuer le démarrage rapide suivant, conservez le groupe de ressources et l’IoT Hub afin de les réutiliser ultérieurement.
-
-Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de ressources dans le portail. Pour ce faire, sélectionnez le groupe de ressources **qs-iot-hub-rg** qui contient votre IoT Hub, puis cliquez sur **Supprimer**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

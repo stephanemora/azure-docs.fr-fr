@@ -1,22 +1,19 @@
 ---
 title: Service Device Provisioning IoT Hub - Concepts de provisionnement automatique
 description: Cet article fournit une vue d’ensemble conceptuelle des phases de provisionnement automatique d’appareils à l’aide du service Device Provisioning IoT, d’IoT Hub et des kits SDK clients.
-services: iot-dps
-keywords: ''
 author: BryanLa
 ms.author: bryanla
-ms.date: 03/27/2018
+ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736404"
 ---
 # <a name="auto-provisioning-concepts"></a>Concepts de provisionnement automatique
 
@@ -33,7 +30,7 @@ Le provisionnement automatique Azure IoT peut être divisé en trois phases :
 
 2. **Inscription des appareils** : processus permettant à l’instance du service Device Provisioning d’avoir connaissance des appareils qui tenteront de s’inscrire ultérieurement. [L’inscription](concepts-service.md#enrollment) consiste à configurer des informations d’identité d’appareil dans le service de provisionnement, soit comme « inscription individuelle » pour un seul appareil, soit comme « inscription de groupe » dans le cas de plusieurs appareils. L’identité est basée sur le [mécanisme d’attestation](concepts-security.md#attestation-mechanism) que l’appareil est censé utiliser, ce qui permet au service de provisionnement d’attester de l’authenticité de l’appareil pendant l’inscription :
 
-   - **Module de plateforme sécurisée (TPM)**  : configurée comme « inscription individuelle », l’identité de l’appareil est basée sur l’ID d’inscription du module TPM et la paire de clés de type EK (Endorsement Key) publique. TPM étant une [spécification]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), le service s’attend uniquement à attester conformément à la spécification, quelle que soit l’implémentation de TPM (matérielle ou logicielle). Pour plus d’informations sur l’attestation basée sur TPM, consultez [Device provisioning: Identity attestation with TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/). 
+   - **Module de plateforme sécurisée (TPM)**  : configurée comme « inscription individuelle », l’identité de l’appareil est basée sur l’ID d’inscription du module TPM et la paire de clés de type EK (Endorsement Key) publique. TPM étant une [spécification](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), le service s’attend uniquement à attester conformément à la spécification, quelle que soit l’implémentation de TPM (matérielle ou logicielle). Pour plus d’informations sur l’attestation basée sur TPM, consultez [Device provisioning: Identity attestation with TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/). 
 
    - **X509** : configurée comme « inscription individuelle » ou « inscription de groupe », l’identité de l’appareil est basée sur un certificat numérique X.509, qui est chargé sur l’inscription sous forme de fichier .pem ou .cer.
 
@@ -62,7 +59,7 @@ Dans la table des matières à gauche, vous trouverez une série de guides de d�
 
 Le diagramme suivant récapitule les rôles et l’ordre des opérations lors du provisionnement automatique d’un appareil :
 <br><br>
-![Séquence de provisionnement automatique d’un appareil](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
+[![Séquence d’approvisionnement automatique d’un appareil](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > Éventuellement, le fabricant peut aussi effectuer l’opération « Inscrire l’identité de l’appareil » à l’aide des API du service Device Provisioning (plutôt que par le biais de l’Opérateur). Pour une discussion détaillée de cette mise en séquence et des informations supplémentaires, consultez la [vidéo sur l’inscription d’appareils sans intervention avec Azure IoT](https://myignite.microsoft.com/sessions/55087) (à partir du marqueur 41:00).

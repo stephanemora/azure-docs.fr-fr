@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 4c857af02e104940559cb86daa3ccd208d8e35a1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045243"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :
@@ -25,9 +26,6 @@ Le **runtime d’intégration** est l’infrastructure de calcul utilisée par A
 - Runtime d’intégration Azure
 - Runtime d’intégration auto-hébergé
 - Runtime d’intégration Azure SSIS
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 Pour obtenir l’état d’une instance de runtime d’intégration (IR), exécutez la commande PowerShell suivante : 
 
@@ -166,7 +164,7 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | CatalogAdminUserName | Le nom d’utilisateur administrateur de votre serveur Azure SQL Database/ Managed Instance (préversion) existant. Le service Data Factory utilise ces informations pour préparer et gérer pour vous la base de données SSISDB. |
 | CatalogAdminPassword | Le mot de passe administrateur de votre serveur Azure SQL Database/ Managed Instance (préversion) existant. |
 | CatalogPricingTier | Niveau de tarification de la base de données SSISDB hébergée par le serveur Azure SQL Database existant.  Ne s’applique pas à Azure SQL Managed Instance (préversion) hébergeant la base de données SSISDB. |
-| VNetId | ID de ressource de réseau virtuel (VNet) que votre runtime d’intégration Azure-SSIS doit rejoindre. |
+| VNetId | ID de ressource de réseau virtuel que votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | Sous-réseau | Nom du sous-réseau que pour votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | ID | ID de ressource de votre runtime d’intégration Azure-SSIS. |
 | type | Type (managé/auto-hébergé) de votre runtime d’intégration Azure-SSIS. |
@@ -201,7 +199,7 @@ Pour plus d’informations sur le runtime d’intégration Azure-SSIS, voir les 
 - [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
 - [Procédures : Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Créer un runtime d’intégration Azure-SSIS). Cet article s’appuie sur le didacticiel et fournit des instructions sur la façon d’utiliser Azure SQL Managed Instance (préversion) et de joindre le runtime d’intégration à un réseau virtuel. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment le faire évoluer en lui ajoutant des nœuds supplémentaires. 
-- [Join an Azure-SSIS IR to a VNet](join-azure-ssis-integration-runtime-virtual-network.md) (Attacher un runtime d’intégration Azure-SSIS à un VNet). Cet article fournit des informations conceptuelles sur la façon d’attacher un runtime d’intégration Azure-SSIS à un réseau virtuel Azure (VNet). Il décrit également les étapes nécessaires pour utiliser le portail Azure afin de configurer le réseau virtuel de sorte que le runtime d’intégration Azure-SSIS puisse le rejoindre. 
+- [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md). Cet article fournit des informations conceptuelles sur la façon d’attacher un runtime d’intégration Azure-SSIS à un réseau virtuel Azure. Il décrit également les étapes nécessaires pour utiliser le portail Azure afin de configurer le réseau virtuel de sorte que le runtime d’intégration Azure-SSIS puisse le rejoindre. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants pour surveiller les pipelines de différentes façons : 

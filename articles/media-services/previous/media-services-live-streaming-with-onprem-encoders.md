@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943210"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098815"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en direct avec des encodeurs locaux qui créent des flux multidébits
 
@@ -146,7 +146,7 @@ Les canaux fournissent un point de terminaison d’aperçu (URL d’aperçu) per
 
 Vous pouvez obtenir l’URL d’aperçu lors de la création du canal. Pour obtenir l’URL, il n’est pas nécessaire que le canal soit à l’état **En cours d’exécution**. Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux.
 
-Actuellement, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail Azure pour afficher votre flux.
+Actuellement, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail Azure pour afficher votre flux.
 
 #### <a name="allowed-ip-addresses"></a>Adresses IP autorisées
 Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP sont autorisées. Une adresse IP autorisée peut être spécifiée de l’une des manières suivantes :

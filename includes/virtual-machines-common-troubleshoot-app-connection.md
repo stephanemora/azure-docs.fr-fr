@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371267"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313511"
 ---
 Plusieurs raisons peuvent expliquer le fait que vous ne puissiez pas démarrer ou vous connecter à une application exécutée sur une machine virtuelle Azure. Parmi elles figurent le fait que l’application ne s’exécute pas ou ne surveille pas les ports attendus, que le port d’écoute soit bloqué ou que les règles réseau ne transmettent pas correctement le trafic à l’application. Cet article décrit une approche méthodique permettant d’identifier et de corriger le problème.
 
@@ -32,7 +32,7 @@ Si vous avez des problèmes de connexion à une application, essayez les étapes
 
 * Redémarrez la machine virtuelle.
 * Recréez le point de terminaison, les règles de pare-feu et les règles de groupe de sécurité réseau.
-  * [Modèle Resource Manager : gérer les groupes de sécurité réseau](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modèle Resource Manager : gérer les groupes de sécurité réseau](../articles/virtual-network/manage-network-security-group.md)
   * [Modèle Classic : gérer les points de terminaison Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Connectez-vous à partir d’un emplacement différent, tel qu’un autre réseau virtuel Azure.
 * Redéployez la machine virtuelle.
@@ -93,7 +93,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
 * Un logiciel de détection d’intrusion ou de surveillance réseau s’exécutant sur la machine virtuelle cible autorise le trafic.
 * Les points de terminaison Cloud Services et les groupes de sécurité réseau autorisent le trafic :
   * [Modèle Classic : gérer les points de terminaison Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Modèle Resource Manager : gérer les groupes de sécurité réseau](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modèle Resource Manager : gérer les groupes de sécurité réseau](../articles/virtual-network/manage-network-security-group.md)
 * Un composant distinct qui s’exécute dans votre réseau virtuel dans le chemin d’accès entre la machine virtuelle de test et la machine virtuelle, par exemple un équilibreur de charge ou un pare-feu, autorise le trafic.
 
 Sur une machine virtuelle Windows, utilisez le pare-feu Windows avec fonctions avancées de sécurité pour déterminer si les règles de pare-feu excluent le trafic entrant et sortant de votre application

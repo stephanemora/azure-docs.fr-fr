@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ms.openlocfilehash: 39456380769e1c3b790d2bbc6fdf9c04c983d054
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798629"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531387"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage Table Azure et des services connectés de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -28,7 +28,6 @@ Le stockage de tables Azure vous permet de stocker de grandes quantités de donn
 Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios courants en utilisant des entités de stockage de table Azure. Ces scénarios incluent la création d’une table ainsi que l'ajout, l'interrogation et la suppression d’entités de table. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Compte Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -431,8 +430,7 @@ Cette section explique comment obtenir une entité unique à partir d’une tabl
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Obtenez un objet **CloudTable** qui représente une référence à la table à partir de laquelle vous extrayez l'entité.
- 
+1. Obtenez un objet **CloudTable** qui représente une référence à la table à partir de laquelle vous extrayez l'entité. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
@@ -532,8 +530,7 @@ Comme indiqué dans la section [Ajout d'une entité à une table](#add-an-entity
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Obtenez un objet **CloudTable** qui représente une référence à la table à partir de laquelle vous extrayez les entités.
- 
+1. Obtenez un objet **CloudTable** qui représente une référence à la table à partir de laquelle vous extrayez les entités. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
@@ -643,8 +640,7 @@ Cette section montre comment supprimer une entité d'une table.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Obtenez un objet **CloudTable** qui représente une référence à la table à partir de laquelle vous supprimez l'entité.
- 
+1. Obtenez un objet **CloudTable** qui représente une référence à la table à partir de laquelle vous supprimez l'entité. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");

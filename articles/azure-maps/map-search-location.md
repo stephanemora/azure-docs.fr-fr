@@ -1,22 +1,20 @@
 ---
 title: Afficher les résultats de recherche avec Azure Maps | Microsoft Docs
 description: Guide d’exécution d’une requête de recherche avec Azure Maps et d’affichage des résultats sur une carte JavaScript
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f66b1f93d7bc4c2e7c511c10d7091760e8f6d023
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b77737b16b23ed00c8f12f84e6a8558a665a7d15
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599879"
 ---
 # <a name="show-search-results-on-the-map"></a>Afficher les résultats de recherche sur la carte
 
@@ -43,3 +41,7 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 * [API de recherche approximative Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 * [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+    
+Pour consulter plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants : 
+* [Obtenir des informations à partir d’une coordonnée](./map-get-information-from-coordinate.md)
+* [Afficher des directions de A à B](./map-route.md)

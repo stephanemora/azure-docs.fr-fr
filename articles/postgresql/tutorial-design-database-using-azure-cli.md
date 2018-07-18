@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: acba480631ba69a81da3029aadfb9cb51797549a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e6a1a1488b7d7222ca9b0353b9eba697dd594ce
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31417763"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031207"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide d’Azure CLI 
 Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
@@ -53,6 +53,12 @@ L’exemple suivant crée un serveur nommé `mydemoserver` dans votre groupe de 
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
+La valeur du paramètre sku-name suit la convention {tarification}\_{génération de calcul}\_{vCores} comme dans les exemples ci-dessous :
++ `--sku-name B_Gen4_4` correspond à Basic, Gen 4 et 4 vCores.
++ `--sku-name GP_Gen5_32` correspond à Usage général, Gen 5 et 32 vCores.
++ `--sku-name MO_Gen5_2` correspond à Mémoire optimisée, Gen 5 et 2 vCores.
+
+Consultez la documentation des [niveaux tarifaires](./concepts-pricing-tiers.md) pour comprendre les valeurs valides par région et par niveau.
 
 > [!IMPORTANT]
 > La connexion d’administrateur serveur et le mot de passe que vous spécifiez ici seront requis plus loin dans ce guide de démarrage rapide pour la connexion au serveur et à ses bases de données. Retenez ou enregistrez ces informations pour une utilisation ultérieure.
@@ -64,13 +70,13 @@ Par défaut, la base de données **postgres** est créée sous le serveur. La ba
 
 Créez une règle de pare-feu au niveau du serveur Azure PostgreSQL avec la commande [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create). Une règle de pare-feu au niveau du serveur permet à une application externe, comme [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) ou [PgAdmin](https://www.pgadmin.org/), de se connecter à votre serveur via le pare-feu du service Azure PostgreSQL. 
 
-Vous pouvez définir une règle de pare-feu qui couvre une plage d’adresses IP afin de vous connecter à partir de votre réseau. L’exemple suivant utilise [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) pour créer une règle de pare-feu `AllowAllIps` qui autorise les connexions à partir de n’importe quelle adresse IP. Pour ouvrir toutes les adresses IP, utilisez 0.0.0.0 comme adresse IP de début et 255.255.255.255 comme adresse de fin.
-
-Pour limiter l’accès à votre serveur Azure PostgreSQL à votre réseau, vous pouvez définir la règle de pare-feu de manière qu’elle couvre uniquement la plage d’adresses IP de votre réseau d’entreprise.
+Vous pouvez définir une règle de pare-feu qui couvre une plage d’adresses IP afin de vous connecter à partir de votre réseau. L’exemple suivant utilise [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) pour créer une règle de pare-feu `AllowMyIP` qui autorise les connexions à partir d’une adresse IP unique.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
+
+Pour limiter l’accès à votre serveur Azure PostgreSQL à votre réseau, vous pouvez définir la règle de pare-feu de manière qu’elle couvre uniquement la plage d’adresses IP de votre réseau d’entreprise.
 
 > [!NOTE]
 > Le serveur Azure PostgreSQL communique sur le port 5432. Lorsque vous vous connectez à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Pour vous connecter à votre serveur Azure SQL Database, demandez à votre service informatique d’ouvrir le port 5432.

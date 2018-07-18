@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
 ms.openlocfilehash: e143bbb04b82aad5f2defaf8ca519b489dc48ee8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354938"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38318039"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès URL à l’aide d’Azure PowerShell
 

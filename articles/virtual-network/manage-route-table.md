@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895593"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960006"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -94,6 +94,8 @@ Un sous-réseau peut avoir zéro ou une table de routage associée. Une table de
 3. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**.
 4. Sélectionnez le sous-réseau auquel associer la table de routage.
 5. Cliquez sur **Table de routage**, sélectionnez la table de routage à associer au sous-réseau, puis cliquez sur **Enregistrer**.
+
+Si votre réseau virtuel est connecté à une passerelle VPN Azure, n’associez pas de table de routage au [sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) incluant un itinéraire avec une destination de 0.0.0.0/0. Cela peut empêcher la passerelle de fonctionner correctement. Pour plus d’informations sur l’utilisation de 0.0.0.0/0 dans un routage, consultez [Routage du trafic du réseau virtuel](virtual-networks-udr-overview.md#default-route).
 
 **Commandes**
 
@@ -211,7 +213,7 @@ Les itinéraires effectifs de chaque interface réseau attachée à une machine 
 **Commandes**
 
 - Azure CLI : [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell : [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell : [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Valider le routage entre deux points de terminaison
 

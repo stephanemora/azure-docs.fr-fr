@@ -9,11 +9,11 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 2c16e82ccf259a4cc5ae8fcf35b2dd6b5d50ee2d
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29817001"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740573"
 ---
 Lorsque vous déployez des ressources vers Azure, il est extrêmement simple de décider quels types de ressources déployer, leur emplacement et leur mode de configuration. Toutefois, cette flexibilité peut offrir plus d’options que vous ne souhaitez autoriser dans votre organisation. Si vous envisagez de déployer des ressources vers Azure, vous vous demandez peut-être :
 

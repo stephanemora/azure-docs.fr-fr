@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9e9f3cc89dfc6dda18d40950207ea4523f5212c0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195248"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436359"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Découvrir les principaux concepts de workflow Windows PowerShell pour les runbooks Automation
 
@@ -285,6 +285,9 @@ workflow CreateTestVms
         }
 }
 ```
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** est désormais un alias de **Connect-AzureRMAccount**. Quand vous effectuez une recherche dans vos éléments de bibliothèque, si vous ne voyez pas **Connect-AzureRMAccount**, vous pouvez utiliser **Add-AzureRmAccount** ou mettre à jour vos modules dans votre compte Automation.
 
 Cette procédure n’est pas nécessaire si vous vous authentifiez à l’aide d’un compte d’identification configuré avec un service principal.
 

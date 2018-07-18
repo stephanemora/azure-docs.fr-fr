@@ -6,14 +6,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29809418"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920846"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>Répliquer une application web multiniveau basée sur IIS
 
@@ -29,7 +29,6 @@ Cet article explique comment protéger une application web qui s’appuie sur In
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes :
 
 * [Répliquer une machine virtuelle vers Azure](vmware-azure-tutorial.md)
@@ -37,7 +36,7 @@ Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes�
 * [Effectuer un test de basculement vers Azure](site-recovery-test-failover-to-azure.md)
 * [Procéder à un basculement vers Azure](site-recovery-failover.md)
 * [Répliquer un contrôleur de domaine](site-recovery-active-directory.md)
-* [Réplication de SQL Server](site-recovery-sql.md)
+* [Répliquer SQL Server](site-recovery-sql.md)
 
 ## <a name="deployment-patterns"></a>Modèles de déploiement
 Une application web IIS suit généralement l’un des modèles de déploiement suivants :

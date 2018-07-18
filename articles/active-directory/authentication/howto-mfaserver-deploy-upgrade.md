@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a94d97fb90e65fd569047a3d55945437002d97ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9537380daab80529c3ba6307f1b2cd82a8c0ca41
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867389"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334667"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Mise à niveau du serveur Azure Multi-Factor Authentication vers la dernière version
 
@@ -48,21 +48,12 @@ Si vous passez de la v6.x ou d’une version antérieure à la version 7.x ou un
 
 Si le portail utilisateur fonctionne sur plusieurs serveurs, répétez l’installation sur chacun d’eux. 
 
-
 ## <a name="upgrade-the-mobile-app-web-service"></a>Mettre à niveau le service web de l’application mobile
 
-1. Effectuez une sauvegarde du fichier web.config qui se trouve dans le répertoire virtuel de l’emplacement d’installation du service web de l’application mobile (par exemple, C:\inetpub\wwwroot\app ou C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService).
-2. Copiez le fichier MultiFactorAuthenticationMobileAppWebServiceSetup64.msi à partir de l’emplacement d’installation des serveurs MFA et placez-le sur le serveur web d’inscription de l’application mobile.
-3. Exécutez le programme d’installation. 
-
-  Si une erreur se produit, selon laquelle Redistribuable Microsoft Visual C++ 2015 Update 1 ou version ultérieure est requis, téléchargez et installez le dernier package de mise à jour sur le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/). Installez à la fois la version x86 et la version x64.
-
-4. Une fois le logiciel du service web de l’application mobile mis à jour installé, comparez le fichier web.config sauvegardé à l’étape 1 avec le nouveau fichier web.config. Si le nouveau fichier web.config ne présente pas de nouvel attribut, vous pouvez copier votre fichier web.config sauvegardé dans le répertoire virtuel et remplacer le nouveau fichier. Une autre option consiste à copier/coller les valeurs appSettings et l’URL du Kit SDK de service web du fichier de sauvegarde dans le nouveau fichier web.config.
-
-Si le service web de l’application mobile fonctionne sur plusieurs serveurs, répétez l’installation sur chacun d’eux. 
+> [!NOTE]
+> En cas de mise à niveau du serveur Azure MFA d’une version antérieure à 8.0 vers la version 8.0+, le service web d’application mobile peut être désinstallé à l’issue de la mise à niveau.
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>Mettre à niveau les adaptateurs AD FS
-
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>Si MFA s’exécute sur d’autres serveurs qu’AD FS
 

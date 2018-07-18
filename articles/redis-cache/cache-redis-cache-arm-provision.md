@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
 ms.openlocfilehash: b26116b974abbfe410b0a6ebc0186d73f4eea1bf
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910739"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452581"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Créer un cache Redis à l’aide d’un modèle
 Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie un cache Redis Azure. Le cache peut être utilisé avec un compte de stockage existant pour conserver les données de diagnostic. Vous allez également apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.

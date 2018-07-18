@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c870b0c8de648ac65bec6857bf850c2913e7aeb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7a314ada1c25b57b6d1701bf414a42a58397e1f0
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412626"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903130"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Écrire dans un stockage HDFS à partir d’Apache Storm sur HDInsight
 
-Découvrez comment utiliser Storm pour écrire des données dans le stockage compatible HDFS utilisé par Apache Storm sur HDInsight. HDInsight peut utiliser à la fois le stockage Azure et Azure Data Lake comme stockage compatible HDFS. Storm fournit un composant [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) qui écrit des données dans le stockage HDFS. Ce document fournit des informations sur l’écriture dans ces deux types de stockages à partir du composant HdfsBolt. 
+Découvrez comment utiliser Storm pour écrire des données dans le stockage compatible HDFS utilisé par Apache Storm sur HDInsight. HDInsight peut utiliser à la fois le stockage Azure et Azure Data Lake comme stockage compatible HDFS. Storm fournit un composant [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) qui écrit des données dans le stockage HDFS. Ce document fournit des informations sur l’écriture dans ces deux types de stockages à partir du composant HdfsBolt. 
 
 > [!IMPORTANT]
 > L’exemple de topologie utilisé dans ce document s’appuie sur les composants inclus avec Storm sur HDInsight. Il faudra peut-être le modifier pour qu’il fonctionne avec Azure Data Lake Store en cas d’utilisation avec d’autres clusters Apache Storm.
@@ -65,11 +65,11 @@ Le tableau suivant fournit des exemples d’utilisation du schéma de fichier da
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Un compte de stockage Azure différent du compte par défaut (compte supplémentaire) associé au cluster. |
 | `adl://STORENAME/` | La racine du compte Data Lake Store utilisé par le cluster. Ce schéma vous permet d’accéder aux données qui se trouvent en dehors du répertoire qui contient le système de fichiers du cluster. |
 
-Pour plus d’informations, consultez la documentation de référence [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) sur le site Apache.org.
+Pour plus d’informations, consultez la documentation de référence [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) sur le site Apache.org.
 
 ### <a name="example-configuration"></a>Exemple de configuration
 
-Le code YAML suivant est un extrait du fichier `resources/writetohdfs.yaml` inclus dans cet exemple. Ce fichier définit la topologie de Storm à l’aide du framework [Flux](https://storm.apache.org/releases/1.1.0/flux.html) pour Apache Storm.
+Le code YAML suivant est un extrait du fichier `resources/writetohdfs.yaml` inclus dans cet exemple. Ce fichier définit la topologie de Storm à l’aide du framework [Flux](https://storm.apache.org/releases/1.1.2/flux.html) pour Apache Storm.
 
 ```yaml
 components:
@@ -133,7 +133,7 @@ Ce code YAML définit les éléments suivants :
 * `rotationPolicy` : définit le moment de rotation des fichiers. Dans cet exemple, aucune rotation n’est effectuée.
 * `hdfs-bolt` : utilise les composants précédents comme paramètres de configuration pour la classe `HdfsBolt`.
 
-Pour plus d’informations sur le framework Flux, voir [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Pour plus d’informations sur le framework Flux, voir [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="configure-the-cluster"></a>Configurer le cluster
 

@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4fa610f144277b73bb6d555d46e63a01c413e07e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334796"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 Cet article décrit la structure d’un modèle Azure Resource Manager. Elle présente les différentes sections d’un modèle et les propriétés disponibles dans ces sections. Le modèle se compose d’un JSON et d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement. Pour obtenir un didacticiel étape par étape permettant de créer un modèle, voir [Créer votre premier modèle Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Format de modèle
-Dans sa structure la plus simple, un modèle contient les éléments suivants :
+Dans sa structure la plus simple, un modèle a les éléments suivants :
 
 ```json
 {
@@ -41,14 +42,14 @@ Dans sa structure la plus simple, un modèle contient les éléments suivants :
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | $schema |OUI |Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle. Utilisez l’URL indiquée dans l’exemple précédent. |
-| contentVersion |OUI |Version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé. |
+| contentVersion |OUI |Version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Utilisez cette valeur pour documenter les modifications importantes dans votre modèle. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé. |
 | parameters |Non  |Valeurs fournies lors de l'exécution du déploiement pour personnaliser le déploiement des ressources. |
 | variables |Non  |Valeurs utilisées en tant que fragments JSON dans le modèle pour simplifier les expressions du langage du modèle. |
 | functions |Non  |Fonctions définies par l’utilisateur et disponibles dans le modèle. |
 | les ressources |OUI |Types de ressource déployés ou mis à jour dans un groupe de ressources. |
 | outputs |Non  |Valeurs retournées après le déploiement. |
 
-Chaque élément contient des propriétés que vous définissez. L’exemple suivant présente la syntaxe complète d’un modèle :
+Chaque élément a des propriétés que vous pouvez définir. L’exemple suivant montre la syntaxe complète d’un modèle :
 
 ```json
 {
@@ -176,7 +177,7 @@ L’exemple suivant montre comment utiliser plusieurs fonctions lors de la const
 Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>parameters
-C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Il est inutile de fournir des paramètres dans votre modèle, mais sans les paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
+C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Vous n’êtes pas obligé de fournir des paramètres dans votre modèle, mais sans paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
 
 L’exemple suivant illustre une définition de paramètre simple :
 
@@ -194,7 +195,7 @@ L’exemple suivant illustre une définition de paramètre simple :
 Pour plus d’informations sur la définition des paramètres, consultez [Section des paramètres des modèles Azure Resource Manager](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>variables
-Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Il est inutile de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
+Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
 
 L’exemple suivant montre une définition de variable simple :
 
@@ -208,11 +209,12 @@ Pour plus d’informations sur la définition des variables, consultez [Section 
 
 ## <a name="functions"></a>Fonctions
 
-Dans votre modèle, vous pouvez créer vos propres fonctions. Ces fonctions peuvent être utilisées dans votre modèle. En règle générale, vous définissez une expression complexe que vous ne souhaitez pas répéter tout au long de votre modèle. Vous créez les fonctions définies par l’utilisateur à partir d’expressions et de [fonctions](resource-group-template-functions.md) prises en charge dans les modèles.
+Dans votre modèle, vous pouvez créer vos propres fonctions. Ces fonctions peuvent être utilisées dans votre modèle. En règle générale, vous définissez une expression complexe que vous ne voulez pas répéter tout au long de votre modèle. Vous créez les fonctions définies par l’utilisateur à partir d’expressions et de [fonctions](resource-group-template-functions.md) prises en charge dans les modèles.
 
 La définition d’une fonction utilisateur est soumise à certaines restrictions :
 
 * La fonction ne peut pas accéder aux variables.
+* La fonction ne peut pas appeler d’autres fonctions définies par l’utilisateur.
 * La fonction ne peut pas utiliser la [fonction de référence](resource-group-template-functions-resource.md#reference).
 * Les paramètres de la fonction ne peuvent pas avoir de valeur par défaut.
 
@@ -260,7 +262,7 @@ Vous appelez la fonction avec :
 ```
 
 ## <a name="resources"></a>Ressources
-Dans la section des ressources, vous définissez les ressources déployées ou mises à jour. Cette section gagne en complexité, car vous devez connaître les types que vous déployez pour fournir les valeurs adéquates.
+Dans la section des ressources, vous définissez les ressources déployées ou mises à jour. Cette section peut devenir complexe, car vous devez connaître les types que vous déployez pour fournir les valeurs adéquates.
 
 ```json
 "resources": [
@@ -296,7 +298,7 @@ Pour plus d’informations, consultez [Section Sorties des modèles Azure Resour
 
 Limitez la taille de votre modèle à 1 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 1 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. 
 
-Vous devez également respecter les limites suivantes :
+Vous devez également respecter les limites suivantes :
 
 * 256 paramètres
 * 256 variables

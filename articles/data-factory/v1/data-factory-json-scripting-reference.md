@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 191f8973e85186590a2ba840e473f8fff57a9d94
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37053046"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA).
+> Cet article s’applique à la version 1 de Data Factory.
 
 
 Cet article fournit des schémas JSON et des exemples pour la définition des entités Azure Data Factory (pipeline, activité, jeu de données et service lié).  
@@ -159,7 +160,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** i
 } 
 ```
 
-Notez les points suivants :
+Notez les points suivants :
 
 * Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
 * L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**.
@@ -217,7 +218,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsigh
 }
 ```
 
-Notez les points suivants : 
+Notez les points suivants : 
 
 * Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive**.
 * Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **AzureStorageLinkedService**) et dans le dossier **script** du conteneur **adfgetstarted**.
@@ -337,7 +338,7 @@ La section **policy** de la définition du jeu de données définit les critère
 | Nom de la stratégie | Description | Appliqué(e) à | Obligatoire | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valide le fait que les données dans un **objet blob Azure** répondent aux exigences de taille minimale (en mégaoctets). |objet blob Azure |Non  |N/D |
-| minimumRows |Valide le fait que les données dans une **base de données SQL Azure** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Base de données SQL Azure</li><li>table Azure</li></ul> |Non  |N/D |
+| minimumRows |Valide le fait que les données dans une **base de données SQL Azure** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Azure SQL Database</li><li>table Azure</li></ul> |Non  |N/D |
 
 **Exemple :**
 
@@ -929,7 +930,7 @@ Si vous copiez des données dans Azure Cosmos DB, réglez le **type de récepteu
 
 Pour plus d’informations, consultez l’article sur le [connecteur Azure Cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-database"></a>Base de données SQL Azure
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 ### <a name="linked-service"></a>Service lié
 Pour définir un service lié Azure SQL Database, définissez le **type** du service lié sur **AzureSqlDatabase** et spécifiez les propriétés suivantes dans la section **typeProperties** :  
@@ -2976,7 +2977,7 @@ Si vous copiez des données depuis un système Cassandra, définissez le **type 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si tableName et keyspace sur le jeu de données sont définis). |
-| Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. |UN, DEUX, TROIS, QUORUM, TOUT, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations. |Non. La valeur par défaut est UN. |
+| Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. |UN, DEUX, TROIS, QUORUM, TOUT, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations. |Non. La valeur par défaut est UN. |
 
 #### <a name="example"></a>Exemples
   
@@ -4994,7 +4995,7 @@ L’exemple suivant présente la définition JSON pour le service lié Analytiqu
 }
 ```
 
-## <a name="azure-sql-database"></a>Base de données SQL Azure
+## <a name="azure-sql-database"></a>Azure SQL Database
 Créez un service lié Azure SQL et utilisez-le avec l’ [activité de procédure stockée](#stored-procedure-activity) pour appeler une procédure stockée à partir d’un pipeline Data Factory. 
 
 ### <a name="linked-service"></a>Service lié
@@ -5382,7 +5383,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
     }
 }
 ```
-Notez les points suivants : 
+Notez les points suivants : 
 
 - La propriété **type** est définie sur **HDInsightSpark**.
 - **rootPath** est définie sur **adfspark\\pyFiles**, où adfspark est le conteneur d’objets Blob Azure contenant le dossier pyFiles. Dans cet exemple, le stockage Blob Azure est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre stockage Azure. Si vous procédez ainsi, créez un service lié de stockage Azure pour lier ce compte de stockage à la fabrique de données. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService**. Consultez les [propriétés de l’activité Spark](#spark-activity-properties) pour plus d’informations sur cette propriété et d’autres propriétés prises en charge par l’activité Spark.

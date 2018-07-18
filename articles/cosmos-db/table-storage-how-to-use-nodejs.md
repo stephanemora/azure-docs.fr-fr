@@ -1,27 +1,25 @@
 ---
-title: Utilisation du stockage Azure Table ou Azure Cosmos DB à partir de Node.js | Microsoft Docs
-description: Stockez des données structurées dans le cloud à l’aide du stockage Azure Table ou d’Azure Cosmos DB.
+title: Guide pratique pour utiliser le Stockage Table Azure ou l’API Table d’Azure Cosmos DB avec Node.js | Microsoft Docs
+description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: nodejs
 author: SnehaGunda
 manager: kfile
-ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 3f1908a6c2d129da44e0719b2cf69cf09baef356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 19e152b8cb8f18a616af647b31a4f35998f47858
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798217"
 ---
-# <a name="how-to-use-azure-table-storage-from-nodejs"></a>Utilisation du stockage de tables Azure à partir de Node.js
+# <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Guide pratique pour utiliser le Stockage Table Azure ou l’API Table d’Azure Cosmos DB avec Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 Cet article décrit le déroulement de scénarios courants impliquant le service de Table de Stockage Azure ou Azure Cosmos DB dans une application Node.js.
@@ -38,7 +36,7 @@ Cet article décrit le déroulement de scénarios courants impliquant le service
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="configure-your-application-to-access-azure-storage"></a>Configuration de votre application pour accéder à Azure Storage
+## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Configurer votre application pour accéder au Stockage Azure ou à l’API Table Azure Cosmos DB
 Pour utiliser le Stockage Azure ou Azure Cosmos DB, vous avez besoin du Kit de développement logiciel (SDK) Stockage Azure pour Node.js, qui inclut un ensemble de bibliothèques pratiques communiquant avec les services de stockage REST.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilisation de Node Package Manager (NPM) pour installer le package

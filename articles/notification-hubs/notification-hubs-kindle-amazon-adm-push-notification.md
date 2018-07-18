@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: af2619a403046bd4f064b958df225e4d42a205f4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 41319ba446994da1669e58e33008a943e74ab417
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776829"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331388"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Prendre en main Notification Hubs pour les applications Kindle
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -41,9 +41,8 @@ Dans ce didacticiel, vous créez/mettez à jour le code pour effectuer les tâch
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Obtenir le Kit de développement logiciel Android (en supposant que vous utilisez Eclipse) depuis le <a href="http://go.microsoft.com/fwlink/?LinkId=389797">site Android</a>.
-* Suivez les étapes de <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Configuration de votre environnement de développement</a> pour configurer votre environnement de développement pour Kindle.
+* Suivez les étapes de <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">Configuration de votre environnement de développement</a> pour configurer votre environnement de développement pour Kindle.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Ajout d'une nouvelle application au portail des développeurs
 1. Tout d’abord, créez une application dans le [portail des développeurs Amazon].
@@ -291,7 +290,7 @@ static void Main(string[] args)
 Dans ce didacticiel, vous envoyez des notifications de diffusion à tous vos appareils Kindle inscrits avec le serveur principal. Pour en savoir plus sur les notifications Push vers des appareils Kindle spécifiques, accédez au didacticiel suivant :  Le didacticiel suivant montre comment envoyer des notifications Push vers des appareils Android spécifiques, mais vous pouvez utiliser la même logique pour envoyer des notifications Push vers des périphériques Kindle spécifiques. 
 
 > [!div class="nextstepaction"]
->[Notifications push vers des appareils spécifiques](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Notifications Push vers des appareils spécifiques](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- URLs. -->
 [portail des développeurs Amazon]: https://developer.amazon.com/home.html

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 3d98ed2be7a040ad889d1d504f303569c265360b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fd2539830ab20fe4c63ddf3bb97cccdb13e535ea
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271589"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857002"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Hadoop disponibles avec HDInsight ?
 
@@ -29,7 +29,7 @@ Découvrez les composants et versions de l’écosystème Apache Hadoop inclus d
 Chaque version de HDInsight est une distribution cloud d’une version de la solution Hortonworks Data Platform (HDP).
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Composants Hadoop disponibles avec différentes versions de HDInsight
-Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d’une version crée une version spécifique de la distribution de la plateforme HDP ainsi qu’un ensemble de composants, qui sont contenus dans cette distribution. Depuis le 17 février 2017, la version de cluster par défaut utilisée par Azure HDInsight est la version 3.5 ; elle est basée sur la plateforme HDP 2.5.
+Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d’une version crée une version spécifique de la distribution de la plateforme HDP ainsi qu’un ensemble de composants, qui sont contenus dans cette distribution. Depuis le 4 avril 2017, la version de cluster par défaut utilisée par Azure HDInsight est la version 3.6 ; elle est basée sur la plateforme HDP 2.6.
 
 Les versions de composants associées aux versions de cluster HDInsight sont répertoriées dans le tableau suivant : 
 
@@ -53,12 +53,13 @@ Les versions de composants associées aux versions de cluster HDInsight sont ré
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0, 2.2.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (Windows uniquement) |-|-|
+| Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (Windows uniquement) |-|-|
 | Apache Livy |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
+| Apache Slider | 0.92.0 |-|-|-|-|-|-|
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Comment vérifier les informations de version du composant Hadoop actuel
 
@@ -83,11 +84,10 @@ Le tableau suivant liste les versions HDInsight qui sont disponibles dans le por
 | Version de HDInsight | Version de la plateforme HDP | SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE | Date de lancement | Date d’expiration du support | Date de mise hors service | Haute disponibilité |  Disponibilité sur le portail Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 avril 2017 | | |OUI |OUI |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 septembre 2016 |5 septembre 2017 |28 juin 2018 |OUI |OUI |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 décembre 2015 |27 juin 2016 |31 juillet 2018 |OUI |Non  |
 
 > [!NOTE]
-> Quand une version cesse d’être prise en charge, elle n’est plus proposée dans le portail Microsoft Azure. Toutefois, les versions des clusters restent disponibles avec le paramètre `Version` de la commande Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) et le Kit de développement logiciel (SDK) .NET, jusqu’à leur date de mise hors service.
+> Quand une version cesse d’être prise en charge, elle n’est plus proposée dans le portail Microsoft Azure. Toutefois, les versions des clusters restent disponibles avec le paramètre `Version` de la commande Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) et le Kit de développement logiciel (SDK) .NET, jusqu’à leur date de mise hors service.
 >
 
 ### <a name="retired-versions"></a>Versions supprimées
@@ -96,6 +96,7 @@ Le tableau suivant liste les versions HDInsight qui **ne sont pas** disponibles 
 
 | Version de HDInsight | Version de la plateforme HDP | SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE | Date de lancement | Date d’expiration du support | Date de mise hors service | Haute disponibilité |  Disponibilité sur le portail Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 septembre 2016 |5 septembre 2017 |28 juin 2018 |OUI |Non  |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 mars 2016 |29 décembre 2016 |9 janvier 2018 |OUI |Non  |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 décembre 2015 |27 juin 2016 |31 juillet 2017 |OUI |Non  |
 | HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 février 2015 |1 mars 2016 |1 avril 2017 |OUI |Non  |
@@ -234,7 +235,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
 
 * Toutes les régions prises en charge à l’exception du sud du Brésil et de l’ouest du Japon :
 
-  | Type de cluster | Hadoop | hbase | Interactive Query | Storm | Spark | R Server |
+  | Type de cluster | Hadoop | hbase | Interactive Query | Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | Head : taille de machine virtuelle par défaut |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
   | Head : tailles de machine virtuelle recommandées |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
@@ -246,7 +247,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
   | Edge : taille de machine virtuelle recommandée | | | | | |Windows : D12 v2, D13 v2, D14 v2; Linux : D4 v2, D12 v2, D13 v2, D14 v2 |
 * Sud du Brésil et ouest du Japon uniquement (aucune taille pour V2) :
 
-  | Type de cluster | Hadoop | hbase | Interactive Query |Storm | Spark | R Server |
+  | Type de cluster | Hadoop | hbase | Interactive Query |Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | Head : taille de machine virtuelle par défaut |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | Head : tailles de machine virtuelle recommandées |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
@@ -274,7 +275,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
 
 [connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 
-[hdp-2-2]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html
+[hdp-2-2]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.9/bk_HDP_RelNotes/content/ch_relnotes_v229.html
 
 [hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
@@ -284,7 +285,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
 
 [hdp-1-3-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
 
-[hdp-1-1-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html
+[hdp-1-1-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.1.1.16_1.html
 
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 

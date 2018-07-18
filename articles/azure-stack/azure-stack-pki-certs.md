@@ -3,7 +3,7 @@ title: Exigences de certificat pour infrastructure à clé publique Azure Stack 
 description: Décrit les exigences du déploiement de certificat pour infrastructure à clé publique Azure Stack pour des systèmes intégrés Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
-ms.author: jeffgilb
+ms.date: 06/07/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935630"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030153"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 
@@ -30,7 +30,7 @@ Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses
 - Le processus d’obtention de certificats correspondants à ces spécifications
 - Comment préparer, valider et utiliser ces certificats pendant le déploiement
 
-> [!NOTE]
+> [!Note]  
 > Au cours du déploiement, vous devez copier les certificats dans le dossier de déploiement correspondant au fournisseur d’identité (Azure AD ou AD FS). Si vous utilisez un seul certificat pour tous les points de terminaison, vous devez copier ce fichier de certificat dans chaque dossier de déploiement, comme indiqué dans les tableaux ci-dessous. La structure des dossiers est prédéfinie dans la machine virtuelle de déploiement et se trouve sous : C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
@@ -47,12 +47,12 @@ La liste suivante décrit les exigences de certificat nécessaires pour déploye
 - Le contenu des champs « Délivré à » et « Délivré par » du certificat ne peut pas être identique.
 - Les mots de passe de tous les fichiers pfx de certificat doivent être identiques au moment du déploiement
 - Le mot de passe pour le fichier de certificats pfx doit être un mot de passe complexe.
-- Assurez-vous que les noms d’objets et les autres noms de l’objet de tous les certificats correspondent aux spécifications décrites dans cet article afin d’éviter un échec des déploiements.
+- Vérifiez que les noms de l’objet et les autres noms de l’objet dans l’extension des autres noms de l’objet (x509v3_config) correspondent. Le champ de l’autre nom de l’objet vous permet de spécifier des noms d’hôtes supplémentaires (sites web, adresses IP, noms communs) en vue de les protéger au moyen d’un seul certificat SSL.
 
-> [!NOTE]
+> [!NOTE]  
 > Les certificats auto-signés ne sont pas pris en charge.
 
-> [!NOTE]
+> [!NOTE]  
 > La présence d’autorités de certification intermédiaires dans la chaîne d’approbation d’un certificat est prise en charge. 
 
 ## <a name="mandatory-certificates"></a>Certificats obligatoires
@@ -76,20 +76,6 @@ Pour votre déploiement, les valeurs [region] et [externalfqdn] doivent correspo
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificat SSL générique) | Stockage File d’attente | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificat SSL générique) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificat SSL générique) |  Coffre de clés interne |  adminvault.&lt;region>.&lt;fqdn> |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Pour les environnements Azure Stack sur les versions antérieures à 1803
-
-|Dossier de déploiement|Objet et autres noms de l’objet (SAN) du certificat requis|Étendue (par région)|Espace de noms de sous-domaine|
-|-----|-----|-----|-----|
-|Portail public|portal.*&lt;region>.&lt;fqdn>*|Portails|*&lt;region>.&lt;fqdn>*|
-|Portail d’administration|adminportal.*&lt;region>.&lt;fqdn>*|Portails|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager Public|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager Admin|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Un certificat générique à plusieurs sous-domaines avec d’autres noms de l’objet pour :<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Stockage|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique)|Coffre de clés interne|adminvault.*&lt;region>.&lt;fqdn>*|
-|
-<sup>1</sup> Le certificat ACS requiert trois SAN génériques sur un même certificat. Plusieurs SAN génériques sur un même certificat peuvent ne pas être pris en charge par toutes les autorités de certification publiques. 
 
 Si vous déployez Azure Stack à l’aide du mode de déploiement Azure AD, vous devez simplement demander les certificats répertoriés dans le tableau précédent. Toutefois, si vous déployez Azure Stack à l’aide du mode de déploiement AD FS, vous devez également demander les certificats décrits dans le tableau suivant :
 

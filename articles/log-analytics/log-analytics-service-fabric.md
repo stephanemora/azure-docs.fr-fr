@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 879c89d21aece120888dded49ca1b2c55677635e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: na
+ms.openlocfilehash: 282b610aeb75010108a63dafe037c09180a247a1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595053"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131682"
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Évaluer les micro-services et applications Azure Service Fabric avec PowerShell
 > [!div class="op_single_selector"]
@@ -61,7 +62,7 @@ Dans la section **EtwEventSourceProviderConfiguration** du fichier **template.js
 
 Les outils suivants sont utilisés pour exécuter certaines opérations décrites dans cette section :
 
-* Azure PowerShell
+* Azure PowerShell
 * [Log Analytics](log-analytics-overview.md)
 
 ### <a name="configure-a-log-analytics-workspace-to-show-the-cluster-logs"></a>Configurer un espace de travail Log Analytics pour afficher les journaux de cluster

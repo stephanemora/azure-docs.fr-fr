@@ -11,25 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b75bd5987ccf89c77509d0f2b4d8def5583e928
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6279e088b8abd574bbd8ef6488d986d42c91123c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617431"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046052"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copier des données de PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-onprem-postgresql-connector.md)
-> * [Version 2 - Préversion](connector-postgresql.md)
+> * [Version 1](v1/data-factory-onprem-postgresql-connector.md)
+> * [Version actuelle](connector-postgresql.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données PostgreSQL. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur PostgreSQL dans V1](v1/data-factory-onprem-postgresql-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -39,10 +35,9 @@ Plus précisément, ce connecteur PostgreSQL prend en charge PostgreSQL **versio
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser ce connecteur PostgreSQL, vous devez :
+Si votre base de données PostgreSQL n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour en savoir plus sur les runtimes d’intégration auto-hébergés, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote PostgreSQL intégré à partir de la version 3.7. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote.
 
-- Configurer un Runtime d’intégration autohébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
-- Installer le [fournisseur de données Ngpsql pour PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) avec une version comprise entre 2.0.12 et 3.1.9 sur l’ordinateur exécutant le runtime d’intégration.
+Pour une version du runtime d’intégration auto-hébergé antérieure à 3.7, vous devez installer le [fournisseur de données Ngpsql pour PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) avec une version comprise entre 2.0.12 et 3.1.9 sur l’ordinateur exécutant le runtime d’intégration.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -57,14 +52,40 @@ Les propriétés prises en charge pour le service lié PostgreSQL sont les suiva
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **PostgreSql** | OUI |
-| serveur | Nom du serveur PostgreSQL. |OUI |
-| database | Nom de la base de données PostgreSQL. |OUI |
-| schema | Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non  |
-| username | Spécifiez le nom d’utilisateur à utiliser pour la connexion à la base de données PostgreSQL. |OUI |
-| password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
+| connectionString | Chaîne de connexion ODBC permettant de se connecter à Azure Database pour PostgreSQL. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+
+Voici un exemple de chaîne de connexion typique : `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Selon votre cas de figure, vous pouvez définir d’autres propriétés :
+
+| Propriété | Description | Options | Obligatoire |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| La méthode utilisée par le pilote pour chiffrer les données envoyées entre le pilote et le serveur de base de données. Par exemple, `ValidateServerCertificate=<0/1/6>;`| 0 (aucun chiffrement) **(par défaut)** / 1 (SSL) / 6 (RequestSSL) | Non  |
+| ValidateServerCertificate (VSC) | Détermine si le pilote valide le certificat envoyé par le serveur de base de données lorsque le chiffrement SSL est activé (EncryptionMethod = 1). Par exemple, `ValidateServerCertificate=<0/1>;`| 0 (désactivé) **(par défaut)** / 1 (activé) | Non  |
 
 **Exemple :**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Si vous utilisiez le service lié PostgreSQL avec la charge utile suivante, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser le nouveau à l’avenir.
+
+**Charge utile précédente :**
 
 ```json
 {
@@ -170,47 +191,51 @@ Lors de la copie de données de PostgreSQL, les mappages suivants sont utilisés
 
 | Type de données PostgreSQL | Alias PostgresSQL | Type de données intermédiaires de Data Factory |
 |:--- |:--- |:--- |
-| `abstime` | |`Datetime` | &nbsp;
+| `abstime` |&nbsp; |`String` |
 | `bigint` | `int8` | `Int64` |
 | `bigserial` | `serial8` | `Int64` |
-| `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | `varbit |Byte[], String` |
+| `bit [1]` |&nbsp; | `Boolean` |
+| `bit [(n)], n>1` |&nbsp; | `Byte[]` |
+| `bit varying [(n)]` | `varbit` |`Byte[]` |
 | `boolean` | `bool` | `Boolean` |
-| `box` | | `Byte[], String` | &nbsp;
-| `bytea` | | `Byte[], String` |&nbsp;
-| `character [ (n) ]` | `char [ (n) ]` | `String` |
-| `character varying [ (n) ]` | `varchar [ (n) ]` | `String` |
-| `cid` | | `String` |&nbsp;
-| `cidr` | | `String` |&nbsp;
-| `circle` | |`Byte[], String` |&nbsp;
-| `date` | |`Datetime` |&nbsp;
-| `daterange` | |`String` |&nbsp;
+| `box` |&nbsp; | `String` |
+| `bytea` |&nbsp; | `Byte[], String` |
+| `character [(n)]` | `char [(n)]` | `String` |
+| `character varying [(n)]` | `varchar [(n)]` | `String` |
+| `cid` |&nbsp; | `Int32` |
+| `cidr` |&nbsp; | `String` |
+| `circle` |&nbsp; |` String` |
+| `date` |&nbsp; |`Datetime` |
+| `daterange` |&nbsp; |`String` |
 | `double precision` |`float8` |`Double` |
-| `inet` | |`Byte[], String` |&nbsp;
-| `intarry` | |`String` |&nbsp;
-| `int4range` | |`String` |&nbsp;
-| `int8range` | |`String` |&nbsp;
-| `integer` | `int, int4 |Int32` |
-| `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
-| `json` | | `String` |&nbsp;
-| `jsonb` | | `Byte[]` |&nbsp;
-| `line` | | `Byte[], String` |&nbsp;
-| `lseg` | | `Byte[], String` |&nbsp;
-| `macaddr` | | `Byte[], String` |&nbsp;
-| `money` | | `Decimal` |&nbsp;
-| `numeric [ (p, s) ]`|`decimal [ (p, s) ]` |`Decimal` |
-| `numrange` | |`String` |&nbsp;
-| `oid` | |`Int32` |&nbsp;
-| `path` | |`Byte[], String` |&nbsp;
-| `pg_lsn` | |`Int64` |&nbsp;
-| `point` | |`Byte[], String` |&nbsp;
-| `polygon` | |`Byte[], String` |&nbsp;
+| `inet` |&nbsp; |`String` |
+| `intarray` |&nbsp; |`String` |
+| `int4range` |&nbsp; |`String` |
+| `int8range` |&nbsp; |`String` |
+| `integer` | `int, int4` |`Int32` |
+| `interval [fields] [(p)]` | | `String` |
+| `json` |&nbsp; | `String` |
+| `jsonb` |&nbsp; | `Byte[]` |
+| `line` |&nbsp; | `Byte[], String` |
+| `lseg` |&nbsp; | `String` |
+| `macaddr` |&nbsp; | `String` |
+| `money` |&nbsp; | `String` |
+| `numeric [(p, s)]`|`decimal [(p, s)]` |`String` |
+| `numrange` |&nbsp; |`String` |
+| `oid` |&nbsp; |`Int32` |
+| `path` |&nbsp; |`String` |
+| `pg_lsn` |&nbsp; |`Int64` |
+| `point` |&nbsp; |`String` |
+| `polygon` |&nbsp; |`String` |
 | `real` |`float4` |`Single` |
 | `smallint` |`int2` |`Int16` |
 | `smallserial` |`serial2` |`Int16` |
 | `serial` |`serial4` |`Int32` |
-| `text` | |`String` |&nbsp;
-
+| `text` |&nbsp; |`String` |
+| `timewithtimezone` |&nbsp; |`String` |
+| `timewithouttimezone` |&nbsp; |`String` |
+| `timestampwithtimezone` |&nbsp; |`String` |
+| `xid` |&nbsp; |`Int32` |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

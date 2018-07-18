@@ -3,7 +3,7 @@ title: Création et téléchargement d’un VHD Linux dans Azure | Microsoft Doc
 description: Création et téléchargement d’un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux avec le modèle de déploiement Classic
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: iainfou
-ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: cynthn
+ms.openlocfilehash: cdbe6aa5683ecf9d8bdaf6bbf9503ddc455f03ee
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841892"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928265"
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
 > [!IMPORTANT] 
@@ -31,7 +31,6 @@ Cet article vous montre comment créer et télécharger un disque dur virtuel po
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article part du principe que vous disposez des éléments suivants :
 
 * **Un système d’exploitation Linux installé dans un fichier .vhd** : vous avez installé une [distribution Linux approuvée par Azure](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consultez les [informations relatives aux distributions non approuvées](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) sur un disque virtuel au format de disque dur virtuel (VHD). Plusieurs outils permettent de créer une machine virtuelle et un disque dur virtuel :

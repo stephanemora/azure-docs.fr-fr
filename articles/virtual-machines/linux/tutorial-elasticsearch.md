@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
 ms.openlocfilehash: eeb1b8b9105e055339cb31fa4b9d4b411cb06c54
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30243551"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719550"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installer Elastic Stack sur une machine virtuelle Azure
 
 Cet article vous guide dans le déploiement d’[Elasticsearch](https://www.elastic.co/products/elasticsearch), de [Logstash](https://www.elastic.co/products/logstash) et de [Kibana](https://www.elastic.co/products/kibana) sur une machine virtuelle Ubuntu dans Azure. Pour voir Elastic Stack en action, vous pouvez éventuellement vous connecter à Kibana et travailler avec des exemples de données de journalisation. 
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Ubuntu dans un groupe de ressources Azure
@@ -37,7 +37,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -236,7 +236,7 @@ Sur la console Kibana, sélectionnez **Découvrir** pour rechercher, parcourir e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez déployé Elastic Stack sur une machine virtuelle de développement dans Azure. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez déployé Elastic Stack sur une machine virtuelle de développement dans Azure. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Ubuntu dans un groupe de ressources Azure

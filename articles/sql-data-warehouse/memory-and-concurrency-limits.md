@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/07/2018
+ms.date: 07/10/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 46d41e3ee85deb20f189bc9c82a255178f3d7eee
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 802dbcdf797147d4f4dcf7835aea9c952127113e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942251"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652266"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de mémoire et de concurrence pour Azure SQL Data Warehouse
 Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse. Pour plus d’informations et pour appliquer ces fonctionnalités à votre plan de gestion de la charge de travail, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). 
@@ -25,7 +25,7 @@ Il existe deux générations disponibles avec SQL Data Warehouse : Gen1 et Gen2.
 ## <a name="data-warehouse-capacity-settings"></a>Paramètres de la capacité de l’entrepôt de données
 Les tableaux suivants présentent la capacité maximale pour l’entrepôt de données à différents niveaux de performance. Pour modifier le niveau de performance, consultez [Calcul de mise à l’échelle – portail](quickstart-scale-compute-portal.md).
 
-### <a name="gen2"></a>Gen2
+### <a name="gen2"></a>Deuxième génération
 
 Gen2 fournit 2,5 fois plus de mémoire par requête que Gen1. Cette mémoire supplémentaire permet à Gen2 d’offrir des performances particulièrement rapides.  Les niveaux de performance de Gen2 vont de DW1000c à DW30000c. 
 
@@ -45,7 +45,7 @@ Gen2 fournit 2,5 fois plus de mémoire par requête que Gen1. Cette mémoire sup
 
 Le nombre maximal de DWU Gen2 est DW30000c, qui correspond à 60 nœuds de calcul et une distribution par nœud de calcul. Par exemple, un entrepôt de données de 600 To à DW30000c traite environ 10 To par nœud de calcul.
 
-### <a name="gen1"></a>Gen1
+### <a name="gen1"></a>Première génération
 
 Les niveaux de service pour Gen1 vont de DW100 à DW6000. 
 
@@ -67,7 +67,7 @@ Les niveaux de service pour Gen1 vont de DW100 à DW6000.
 ## <a name="concurrency-maximums"></a>Valeurs maximales de concurrence
 Pour s’assurer que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Data Warehouse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes en file d’attente jusqu’à ce que suffisamment d’[emplacements de concurrence](resource-classes-for-workload-management.md#concurrency-slots) soient disponibles. Les emplacements de concurrence déterminent également la hiérarchisation des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
 
-### <a name="gen2"></a>Gen2
+### <a name="gen2"></a>Deuxième génération
  
 **Classes de ressources statiques**
 
@@ -79,7 +79,7 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW2500c       | 48                         |  100                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW5000c       | 64                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW6000c       | 128                        |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
@@ -112,7 +112,7 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 
 
 
-#### <a name="gen1"></a>Gen1
+#### <a name="gen1"></a>Première génération
 
 Classes de ressources statiques
 

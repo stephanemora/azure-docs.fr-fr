@@ -1,26 +1,26 @@
 ---
-title: Vue d’ensemble d’Azure Data Lake Store | Microsoft Docs
-description: Présentation d'Azure Data Lake Store et de la valeur qu'elle apporte par rapport à d'autres magasins de données
+title: Vue d’ensemble d’Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Présentation de Data Lake Storage Gen1 (anciennement Azure Data Lake Store) et de son apport par rapport à d’autres magasins de données
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: b3475057-9427-4492-a3af-25a802a23a79
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 111906bc9e7e85e30a879d7bacff37edb4b204ac
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dff8f4ff9fc324d48391c0399677b64824493c6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034885"
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Présentation d'Azure Data Lake Store
+# <a name="overview-of-azure-data-lake-storage-gen1"></a>Vue d’ensemble d’Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Azure Data Lake Store est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Azure Data Lake vous permet de capturer les données de toute taille, de tout type et à toute vitesse d'ingestion dans un emplacement unique en vue d'une analyse opérationnelle et exploratoire.
 
 > [!TIP]
@@ -39,7 +39,7 @@ Azure Data Lake Store est un système de fichiers Apache Hadoop compatible avec 
 
 Les données stockées dans Data Lake Store peuvent être facilement analysées avec les infrastructures d'analyse Hadoop, comme MapReduce ou Hive. Les clusters Microsoft Azure HDInsight peuvent être approvisionnés et configurés pour accéder directement aux données stockées dans Data Lake Store.
 
-### <a name="unlimited-storage-petabyte-files"></a>Stockage illimité, fichiers de l´'ordre du pétaoctet
+### <a name="unlimited-storage-petabyte-files"></a>Stockage illimité, fichiers de l’ordre du pétaoctet
 Azure Data Lake Store offre un stockage illimité et est approprié pour le stockage d'une grande variété de données à des fins d'analyse. Il n'impose aucune limite de taille de compte, de taille de fichier ou de quantité de données stockées dans un lac de données. La taille des fichiers individuels peut varier de l'ordre du kilooctet à l'ordre du pétaoctet, ce qui en fait le choix idéal pour stocker tout type de données. Les données sont stockées durablement en créant des copies multiples. De plus, il n'existe aucune limite de durée de stockage des données dans le lac de données.
 
 ### <a name="performance-tuned-for-big-data-analytics"></a>Performances optimisées pour l'analyse du Big Data
@@ -81,24 +81,8 @@ Data Lake Store est accessible via le nouveau système de fichiers AzureDataLake
 
 Vous pouvez accéder à vos données dans Data Lake Store à l'aide de `adl://<data_lake_store_name>.azuredatalakestore.net`. Pour plus d'informations sur la façon d'accéder aux données de Data Lake Store, consultez [Afficher les propriétés des données stockées](data-lake-store-get-started-portal.md#properties)
 
-## <a name="how-do-i-start-using-azure-data-lake-store"></a>Comment commencer à utiliser Azure Data Lake Store ?
-Consultez [Prise en main de Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md)pour savoir comment approvisionner un Data Lake Store avec le portail Azure. Une fois que vous avez approvisionné Azure Data Lake, vous pouvez apprendre à utiliser les offres de Big Data, comme Azure Data Lake Analytics ou Azure HDInsight avec Data Lake Store. Vous pouvez également créer une application .NET pour créer un compte Azure Data Lake Store et effectuer des opérations comme télécharger des données, etc.
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Prise en main d'Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Bien démarrer avec Data Lake Store à l’aide du portail Azure](data-lake-store-get-started-portal.md)
 * [Prise en main d'Azure Data Lake Store avec le Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
-
-## <a name="data-lake-store-videos"></a>Vidéos Data Lake Store
-Si vous préférez apprendre en regardant des vidéos, Data Lake Store contient des vidéos portant sur un large éventail de fonctionnalités.
-
-* [Create an Azure Data Lake Store Account (Créer un compte Azure Data Lake Store)](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Use the Data Explorer to Manage Data in Azure Data Lake Store (Gérer les données dans Data Lake Store à l’aide de l’Explorateur de données)](https://mix.office.com/watch/icletrxrh6pc)
-* [Connect Azure Data Lake Analytics to Azure Data Lake Store (Connecter Azure Data Lake Analytics à Azure Data Lake Store)](https://mix.office.com/watch/qwji0dc9rx9k)
-* [Access Azure Data Lake Store via Data Lake Analytics (Accéder à Azure Data Lake Store via Data Lake Analytics)](https://mix.office.com/watch/1n0s45up381a8)
-* [Connect Azure HDInsight to Azure Data Lake Store (Connecter Azure HDInsight à Azure Data Lake Store)](https://mix.office.com/watch/l93xri2yhtp2)
-* [Access Azure Data Lake Store via Hive and Pig (Accéder à Azure Data Lake Store via Hive et Pig)](https://mix.office.com/watch/1n9g5w0fiqv1q)
-* [Use DistCp (Hadoop Distributed Copy) to copy data to and from Azure Data Lake Store (Utiliser DistCp (Hadoop Distributed Copy) pour copier des données vers et depuis Azure Data Lake Store)](https://mix.office.com/watch/1liuojvdx6sie)
-* [Use Apache Sqoop to move data between relational sources and Azure Data Lake Store (Utiliser Apache Sqoop pour déplacer des données entre les sources relationnelles et Azure Data Lake Store)](https://mix.office.com/watch/1butcdjxmu114)
-* [Data Orchestration using Azure Data Factory for Azure Data Lake Store (Orchestration de données pour Azure Data Lake Store à l’aide d’Azure Data Factory)](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [Securing Data in the Azure Data Lake Store (Sécurisation des données dans Azure Data Lake Store)](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
+* [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

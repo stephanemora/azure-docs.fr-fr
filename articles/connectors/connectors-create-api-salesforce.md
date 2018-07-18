@@ -16,11 +16,11 @@ ms.workload: integration
 ms.date: 10/05/2016
 ms.author: estfan; ladocs
 ms.openlocfilehash: 4278837bb5653b66223374aa728bdc81b279fff7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295793"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237299"
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Prise en main du connecteur Salesforce
 Le connecteur Salesforce offre une API permettant de travailler avec des objets Salesforce.

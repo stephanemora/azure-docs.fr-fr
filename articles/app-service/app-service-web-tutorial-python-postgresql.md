@@ -13,11 +13,11 @@ ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
 ms.openlocfilehash: 49ec67d06446d6c48e45aef90e2bd528a1b541a9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203508"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473012"
 ---
 # <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Tutoriel : Créer une application web Python et PostgreSQL dans Azure
 
@@ -44,8 +44,7 @@ Vous pouvez suivre les étapes de ce didacticiel sur macOS. Les instructions pou
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 1. [Installez Git](https://git-scm.com/)
 1. [Installez Python](https://www.python.org/downloads/)
@@ -90,7 +89,7 @@ git revert modelChange --no-edit
 
 Cet exemple de référentiel contient une application [Flask](http://flask.pocoo.org/). 
 
-### <a name="run-the-application"></a>Exécution de l'application
+### <a name="run-the-application"></a>Exécution de l’application
 
 Installez les packages requis et démarrez l’application.
 
@@ -385,7 +384,7 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
+Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)

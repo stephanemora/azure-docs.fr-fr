@@ -1,5 +1,5 @@
 ---
-title: Utilisation du Kit de développement logiciel (SDK) WebJobs pour le traitement en arrière-plan basé sur les événements - Azure
+title: Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs ?
 description: Découvrez comment écrire du code pour le Kit de développement logiciel (SDK) WebJobs. Créez des travaux de traitement en arrière-plan basé sur les événements qui accèdent aux données des services Azure et des services tiers.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,15 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3adf725f76f744fd1d321668fe892b9703de25de
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234648"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Utilisation du Kit de développement logiciel (SDK) WebJobs pour le traitement en arrière-plan basé sur les événements
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
-Cet article offre des conseils sur l’écriture de code pour [le Kit de développement logiciel (SDK) WebJobs](webjobs-sdk-get-started.md). La documentation s’applique aux versions 2.x et 3.x, sauf indication contraire. Le principal changement introduit par la version 3.x est l’utilisation de .NET Core au lieu de .NET Framework.
+Cet article offre des conseils sur l’écriture de code pour [le Kit de développement logiciel (SDK) Azure WebJobs](webjobs-sdk-get-started.md). La documentation s’applique aux versions 2.x et 3.x, sauf indication contraire. Le principal changement introduit par la version 3.x est l’utilisation de .NET Core au lieu de .NET Framework.
 
 >[!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) repose sur le Kit de développement logiciel (SDK) WebJobs, et cet article comporte des liens vers la documentation Azure Functions pour certaines rubriques. Notez les différences suivantes entre Functions et le Kit de développement logiciel (SDK) WebJobs :
@@ -32,7 +33,6 @@ Cet article offre des conseils sur l’écriture de code pour [le Kit de dévelo
 > Pour plus d’informations, consultez [Comparer Functions et WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs). 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Cet article suppose la lecture de l’article [Prise en main du SDK WebJobs](webjobs-sdk-get-started.md).
 
@@ -323,7 +323,7 @@ Pour plus d’informations, consultez [Liaison au runtime](../azure-functions/fu
 
 Des informations de référence sur chaque type de liaison sont fournies dans la documentation Azure Functions. Avec la file d’attente Stockage utilisée ici à titre d’exemple, vous trouverez les informations suivantes dans l’article de référence de chaque liaison :
 
-* [Packages](../azure-functions/functions-bindings-storage-queue.md#packages) : package à installer pour inclure la prise en charge de la liaison dans un projet du Kit de développement logiciel (SDK) WebJobs.
+* [Packages](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) : package à installer pour inclure la prise en charge de la liaison dans un projet du Kit de développement logiciel (SDK) WebJobs.
 * [Exemples](../azure-functions/functions-bindings-storage-queue.md#trigger---example) : l’exemple de bibliothèque de classes C# s’applique au Kit de développement logiciel (SDK) WebJobs ; omettez simplement l’attribut `FunctionName`.
 * [Attributs](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) : attributs à utiliser pour le type de liaison.
 * [Configuration](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) : explication des propriétés d’attribut et des paramètres de constructeur.
@@ -391,6 +391,26 @@ Certains déclencheurs intègrent la prise en charge de la gestion de l’accès
 * **FileTrigger** : définissez `FileProcessor.MaxDegreeOfParallelism` sur 1.
 
 Vous pouvez utiliser ces paramètres pour vous assurer que votre fonction s’exécute en tant que singleton sur une instance unique. Pour vous assurer qu’une seule instance de la fonction est exécutée quand l’application web est étendue à plusieurs instances, appliquez un verrou Singleton au niveau de l’écouteur sur la fonction (`[Singleton(Mode = SingletonMode.Listener)]`). Les verrous d’écouteurs sont acquis au démarrage du JobHost. Si trois instances scale-out démarrent en même temps, une seule de ces instances acquiert le verrou et un seul écouteur démarre.
+
+### <a name="scope-values"></a>Valeurs d’étendue
+
+Vous pouvez spécifier une **valeur/expression d’étendue** sur le Singleton pour assurer que toutes les exécutions de la fonction dans cette portée seront sérialisées. L’implémentation d’un verrouillage plus précis peut ainsi permettre un certain niveau de parallélisme pour votre fonction, tout en sérialisant d’autres appels conformément à vos besoins. Par exemple, dans l’exemple suivant l’expression d’étendue est liée à la valeur `Region` du message entrant. Si la file d’attente contient 3 messages dans les régions « Est », « Est » et « Ouest » respectivement, alors les messages pour la région « Est » seront exécutés en série pendant que le message pour la région « Ouest » sera exécuté en parallèle.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/02/2018
 ms.author: juliako
-ms.openlocfilehash: a64d32747371aab2bd927e53c5d43e30de9108f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3fe82b98163182c73a144b72da371e8aa195e8cf
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783158"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435855"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Lecture de votre contenu à l’aide des lecteurs existants
 Azure Media Services prend en charge de nombreux formats de streaming populaires, tels que Smooth Streaming, le streaming HTTP et MPEG-Dash. Cette rubrique vous oriente vers les lecteurs existants que vous pouvez utiliser pour tester votre flux de données.
@@ -48,8 +48,6 @@ Utilisez [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplaye
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ### <a name="silverlight-players"></a>Lecteurs Silverlight
-#### <a name="monitoring"></a>Surveillance
-[http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
 #### <a name="playready-with-token"></a>PlayReady avec jeton
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)

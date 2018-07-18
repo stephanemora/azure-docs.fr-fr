@@ -3,7 +3,7 @@ title: Définir des stratégies de sécurité dans Azure Security Center | Micro
 description: Cet article est conçu pour vous aider à configurer des stratégies de sécurité dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/05/2018
+ms.author: terrylan
+ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364384"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756989"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Définir des stratégies de sécurité dans Azure Security Center
 Cet article est conçu pour vous aider à configurer des stratégies de sécurité dans Security Center.
@@ -28,7 +28,7 @@ Cet article est conçu pour vous aider à configurer des stratégies de sécurit
 Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Dans Security Center, vous pouvez modifier les stratégies et en surveiller la conformité.
 
 > [!NOTE]
-> Vous pouvez maintenant étendre des stratégies Security Center à l’aide d’Azure Policy, disponible en préversion limitée. Pour vous inscrire à la préversion, accédez à [S’inscrire à Azure Policy](https://aka.ms/getpolicy). Pour plus d’informations, consultez la page [Intégrer des stratégies de sécurité Security Center avec Azure Policy](security-center-azure-policy.md).
+> Vous pouvez maintenant étendre des stratégies Security Center à l’aide [d’Azure Policy](../azure-policy/azure-policy-introduction.md). Pour plus d’informations, consultez la page [Intégrer des stratégies de sécurité Security Center avec Azure Policy](security-center-azure-policy.md).
 
 Les exigences de sécurité applicables aux ressources utilisées pour le développement ou le test peuvent être différentes de celles imposées aux ressources utilisées pour les applications de production. Les applications qui utilisent des données réglementées, telles que des informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé. Les stratégies de sécurité activées dans Azure Security Center déterminent les recommandations de sécurité et la surveillance qui vous aident à identifier les vulnérabilités potentielles et à éliminer les menaces. Pour plus d’informations sur le choix de l’option adaptée à votre situation, consultez le [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md).
 
@@ -75,3 +75,5 @@ Dans cet article, vous avez appris à configurer des stratégies de sécurité d
 * [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 * [FAQ Azure Security Center](security-center-faq.md) : obtenez des réponses aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
+
+Pour en savoir plus sur Azure, consultez [Présentation d’Azure Policy](../azure-policy/azure-policy-introduction.md).

@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 886756718a4e55638d641adc12cd628f7d13521d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e0344aadbbf263fa3c84ee37f2527eb41b19b7d8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798404"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38629085"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Guide de démarrage rapide : Créer une application Cassandra avec Java et Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Par ailleurs :
 
 
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 Pour pouvoir créer une base de données de documents, vous devez créer un compte Cassandra avec Azure Cosmos DB.
 
@@ -64,7 +64,7 @@ Pour pouvoir créer une base de données de documents, vous devez créer un comp
     cd "C:\git-samples"
     ```
 
-3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
@@ -220,7 +220,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, une base de données Cassandra et une collection à l’aide de l’Explorateur de données, puis à exécuter une application pour effectuer la même opération par programme. Vous pouvez maintenant importer des données supplémentaires dans votre collection Azure Cosmos DB. 
+Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, une base de données Cassandra et un conteneur à l’aide de l’Explorateur de données, puis à exécuter une application pour effectuer la même opération par programme. Vous pouvez maintenant importer des données supplémentaires dans votre conteneur Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importer des données Cassandra dans Azure Cosmos DB](cassandra-import-data.md)

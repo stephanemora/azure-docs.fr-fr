@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: cshoe
-ms.openlocfilehash: 2565f56324a070368c499a62ab54bb98830d8c20
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c19ac5f45504e3c19b0b300dbc3ea157861d05ed
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681216"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Utilisation du stockage de files d'attente à partir de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -66,8 +67,6 @@ var azure = require('azure-storage');
 
 ## <a name="setup-an-azure-storage-connection"></a>Configuration d'une connexion Azure Storage
 Le module Azure lit les variables d’environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations nécessaires à la connexion à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
-
-Pour obtenir un exemple de configuration des variables d’environnement dans le [portail Azure](https://portal.azure.com) pour un site web Azure, consultez [Application web Node.js avec le service de Table Azure](../../cosmos-db/table-storage-cloud-service-nodejs.md).
 
 ## <a name="how-to-create-a-queue"></a>Création d'une file d'attente
 Le code suivant crée un objet **QueueService** , ce qui vous permet d'utiliser les files d'attente.

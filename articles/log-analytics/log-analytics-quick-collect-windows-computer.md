@@ -3,7 +3,7 @@ title: Collecter des données à partir d’ordinateurs Windows locaux avec Azur
 description: Découvrez comment déployer l’agent Log Analytics pour Windows s’exécutant sur des ordinateurs situés en dehors d’Azure, et activer la collecte de données avec Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -15,16 +15,18 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: de94735676934af21dc08a0953987729fba756aa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: na
+ms.openlocfilehash: b3c3e020a685147411fc784c41d9eca8b7dd8db0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130991"
 ---
 # <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>Collecter des données à partir d’ordinateurs Windows hébergés dans votre environnement
 [Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de vos ordinateurs Windows physiques ou virtuels et d’autres ressources de votre environnement dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Windows en quelques étapes simples.  Pour les machines virtuelles Windows Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
 
-Pour comprendre les exigences réseau et système nécessaires au déploiement de l’agent Windows, consultez la [configuration requise pour le système d’exploitation Windows](log-analytics-concept-hybrid.md#prerequisites).
+Pour comprendre la configuration prise en charge, consultez les pages [Prise en charge des systèmes d’exploitation Windows](log-analytics-concept-hybrid.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](log-analytics-concept-hybrid.md#network-firewall-requirements).
  
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -39,7 +41,7 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
   * Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
   * Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant qui contient une ou plusieurs machines virtuelles Azure.  
   * Sélectionnez l’**Emplacement** dans lequel vos machines virtuelles sont déployées.  Pour en savoir plus, découvrez dans quelles [régions Log Analytics est disponible](https://azure.microsoft.com/regions/services/).  
-  * Si vous créez un espace de travail dans un nouvel abonnement créé après le 2 avril 2018, il utilisera automatiquement le plan tarifaire *Par Go* et l’option pour sélectionner un niveau de tarification ne sera pas disponible.  Si vous créez un espace de travail pour un abonnement existant créé avant le 2 avril ou pour un abonnement lié à une inscription EA existante, sélectionnez le niveau tarifaire de voter choix.  Pour plus d’informations sur les différents niveaux proposés, consultez le [détail des tarifs de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Si vous créez un espace de travail dans un nouvel abonnement créé après le 2 avril 2018, il utilisera automatiquement le plan tarifaire *Par Go* et l’option pour sélectionner un niveau de tarification ne sera pas disponible.  Si vous créez un espace de travail pour un abonnement existant créé avant le 2 avril ou pour un abonnement lié à une inscription EA existante, sélectionnez le niveau tarifaire de votre choix.  Pour plus d’informations sur les différents niveaux proposés, consultez le [détail des tarifs de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 

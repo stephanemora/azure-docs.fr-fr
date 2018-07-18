@@ -4,19 +4,19 @@ description: Ce scénario montre comment effectuer un réglage distribué d’hy
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: c6eccda4329572a181b6a7e7e3870ace4bfac13b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832745"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034861"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Réglage distribué d’hyperparamètres à l’aide d’Azure Machine Learning Workbench
 
@@ -157,7 +157,7 @@ Sélectionnez ensuite le conteneur du jeu de données dans la liste et cliquez s
 
 Le chargement des fichiers prend plusieurs minutes, en fonction de votre connexion Internet. 
 
-Dans notre code, nous utilisons le kit [SDK Stockage Azure](https://azure-storage.readthedocs.io/en/latest/) pour télécharger le jeu de données à partir du stockage blob dans l’environnement d’exécution actuel. Le téléchargement est effectué dans la fonction load\_data() à partir du fichier load_data.py. Pour utiliser ce code, vous devez remplacer <ACCOUNT_NAME> et <ACCOUNT_KEY> par le nom et la clé primaire de votre compte de stockage qui héberge le jeu de données. Le nom du compte apparaît dans le coin supérieur gauche de la page Azure de votre compte de stockage. Pour obtenir la clé du compte, sélectionnez Clés d’accès dans la page Azure du compte de stockage (voir la première capture d’écran dans la section Ingestion de données), puis copiez la longue chaîne dans la première ligne de la colonne des clés :
+Dans notre code, nous utilisons le kit [SDK Stockage Azure](https://docs.microsoft.com/en-us/python/azure/) pour télécharger le jeu de données à partir du stockage blob dans l’environnement d’exécution actuel. Le téléchargement est effectué dans la fonction load\_data() à partir du fichier load_data.py. Pour utiliser ce code, vous devez remplacer <ACCOUNT_NAME> et <ACCOUNT_KEY> par le nom et la clé primaire de votre compte de stockage qui héberge le jeu de données. Le nom du compte apparaît dans le coin supérieur gauche de la page Azure de votre compte de stockage. Pour obtenir la clé du compte, sélectionnez Clés d’accès dans la page Azure du compte de stockage (voir la première capture d’écran dans la section Ingestion de données), puis copiez la longue chaîne dans la première ligne de la colonne des clés :
  
 ![Clé d’accès](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

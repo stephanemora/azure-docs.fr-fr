@@ -82,6 +82,11 @@
           href: kubernetes-service-principal.md
         - name: S’authentifier avec ACR
           href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Surveillance et journalisation
+      items:
+        - name: Solution de contrôle d’intégrité du conteneur Azure
+          href: ../monitoring/monitoring-container-health.md
+          maintainContext: true
     - name: Développer et exécuter des applications
       items:
         - name: Exécuter des applications avec Helm
@@ -104,7 +109,7 @@
         - name: Déploiement continu Jenkins
           href: jenkins-continuous-deployment.md
         - name: Project Azure DevOps pour AKS
-          href: 'https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks'
+          href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
     - name: Concepts de base Kubernetes
       items:
@@ -122,6 +127,10 @@
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks
+    - name: PowerShell
+      href: '/powershell/module/azurerm.aks#aks'
+    - name: .NET
+      href: /dotnet/api/overview/azure/containerservice
     - name: Python
       href: /python/api/overview/azure/containerservice
     - name: Java

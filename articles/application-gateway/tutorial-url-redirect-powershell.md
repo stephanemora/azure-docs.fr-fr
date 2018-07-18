@@ -11,11 +11,11 @@ ms.date: 3/23/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 8c9dbc3a7c6435d2c7051d4a727896b9161b755a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354996"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317720"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure PowerShell
 
@@ -507,7 +507,7 @@ Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant
 
 À présent, changez l’URL en http://&lt;ip-address&gt;:8081/images/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir le trafic redirigé vers le pool principal d’images à l’adresse http://&lt;ip-address&gt;:8080/images.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées à l’aide de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
@@ -516,7 +516,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer le réseau

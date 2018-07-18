@@ -35,7 +35,7 @@
       href: policy-samples.md
 - name: Concepts
   items:
-    - name: Sécurité
+    - name: Groupes de sécurité
       href: security-overview.md
     - name: Routage
       href: virtual-networks-udr-overview.md
@@ -69,10 +69,10 @@
       items:
         - name: Groupes de sécurité réseau
           items:
+            - name: Azure PowerShell
+              href: tutorial-filter-network-traffic-powershell.md
             - name: Azure CLI
               href: tutorial-filter-network-traffic-cli.md
-            - name: Portail Azure
-              href: virtual-networks-create-nsg-arm-pportal.md
         - name: Tables de routage
           items:
             - name: Azure PowerShell
@@ -161,12 +161,8 @@
               href: virtual-networks-dmz-nsg.md
     - name: Configuration
       items:
-        - name: Machines virtuelles
-          items:
-            - name: Ajouter ou supprimer des interfaces réseau
-              href: virtual-network-network-interface-vm.md
-            - name: Résolution de noms pour les machines virtuelles et les services cloud
-              href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+        - name: Résolution de noms pour les machines virtuelles et les services cloud
+          href: virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: Utiliser des DNS dynamiques avec votre propre serveur DNS
           href: virtual-networks-name-resolution-ddns.md
         - name: Optimiser le débit du réseau
@@ -191,17 +187,16 @@
               href: virtual-network-nsg-manage-log.md
         - name: Tables de routage
           href: manage-route-table.md
-        - name: Interfaces réseau
-          href: virtual-network-network-interface.md
+        - name: Mise en réseau de machine virtuelle
           items:
-            - name: "Adresses\_IP"
+            - name: Créer ou supprimer une interface réseau
+              href: virtual-network-network-interface.md
+            - name: Ajouter ou supprimer des interfaces réseau
+              href: virtual-network-network-interface-vm.md
+            - name: Ajouter ou supprimer des adresses IP
               href: virtual-network-network-interface-addresses.md
         - name: Adresses IP publiques
           href: virtual-network-public-ip-address.md
-        - name: Machines virtuelles
-          items:
-            - name: Déplacer une machine virtuelle vers un autre sous-réseau
-              href: virtual-networks-move-vm-role-to-subnet.md
     - name: Résolution des problèmes
       items:
         - name: Groupes de sécurité réseau
@@ -277,6 +272,8 @@
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                     - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md
+                - name: Déplacer une machine virtuelle vers un autre sous-réseau
+                  href: virtual-networks-move-vm-role-to-subnet.md
         - name: Service cloud et sécurité réseau
           href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
           items:

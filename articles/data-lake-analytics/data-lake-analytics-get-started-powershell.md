@@ -1,24 +1,21 @@
 ---
-title: Prise en main d’Azure Data Lake Analytics à l’aide d’Azure PowerShell | Microsoft Docs
-description: 'Utilisez Azure PowerShell pour créer un compte Data Lake Analytics, créer un travail Data Lake Analytics avec U-SQL et envoyer le travail. '
+title: Prise en main d’Analytique Data Lake à l’aide d’Azure PowerShell
+description: Utilisez Azure PowerShell pour créer un compte Azure Data Lake Analytics, puis envoyer et exécuter un travail U-SQL.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/04/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 332b6c90ea51d16a439bfb21222bb753e93a02b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
+ms.topic: get-started-article
+ms.date: 05/04/2017
+ms.openlocfilehash: 70534b050577e749310d81b50c300c7d98e416af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623085"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Prise en main d’Analytique Data Lake à l’aide d’Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -26,7 +23,6 @@ ms.lasthandoff: 04/19/2018
 Découvrez comment utiliser Azure PowerShell pour créer des comptes Azure Data Lake Analytics, puis envoyer et exécuter des travaux U-SQL. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -100,7 +96,7 @@ OUTPUT @a
 Envoyez le texte du script avec la cmdlet `Submit-AdlJob` et le paramètre `-Script`.
 
 ```
-$job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" �Script $script
 ```
 
 Sinon, vous pouvez envoyer un fichier de script à l’aide du paramètre `-ScriptPath` :
@@ -108,7 +104,7 @@ Sinon, vous pouvez envoyer un fichier de script à l’aide du paramètre `-Scri
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" �ScriptPath $filename
 ```
 
 Récupérez l’état d’un travail avec `Get-AdlJob`. 

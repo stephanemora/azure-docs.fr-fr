@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: c8966c70fba1cbb17d377223ed5348075ebb7adc
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f953e1dc15e12c37c30a86ebd7536b1126bf18f7
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266895"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061998"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.DropDown
 Contrôle de sélection avec liste déroulante.
@@ -31,8 +31,8 @@ Contrôle de sélection avec liste déroulante.
 {
   "name": "element1",
   "type": "Microsoft.Common.DropDown",
-  "label": "Some drop down",
-  "defaultValue": "my value",
+  "label": "Example drop down",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -44,21 +44,23 @@ Contrôle de sélection avec liste déroulante.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
 ```
 
 ## <a name="remarks"></a>Remarques
+
 - L’étiquette de `constraints.allowedValues` est le texte qui s’affiche pour un élément, et sa valeur est la valeur de sortie de l’élément sélectionné lors de la sélection.
 - Si elle est spécifiée, la valeur par défaut doit être une étiquette présente dans `constraints.allowedValues`. Dans le cas contraire, le premier élément de `constraints.allowedValues` est sélectionné. La valeur par défaut est **null**.
-- `constraints.allowedValues` doit contenir au moins un élément.
-- Cet élément ne prend pas en charge la propriété `constraints.required`. Pour émuler ce comportement, ajoutez un élément avec une étiquette et la valeur de `""` (chaîne vide) à `constraints.allowedValues`.
+- `constraints.allowedValues` doit avoir au moins un élément.
+- Pour émuler une valeur qui n’est pas requise, ajoutez un élément avec une étiquette et la valeur de `""` (chaîne vide) à `constraints.allowedValues`.
 
 ## <a name="sample-output"></a>Exemple de sortie
 ```json
-"Bar"
+"two"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

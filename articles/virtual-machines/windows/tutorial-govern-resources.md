@@ -11,22 +11,23 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
+ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 42f7d767162f2f403b2cf921e31a38b711a3c773
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477692"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>Didacticiel : en savoir plus sur la gouvernance de machines virtuelles Linux avec Azure PowerShell
+# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutoriel : en savoir plus sur la gouvernance de machines virtuelles Windows avec Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure. Pour les installations locales, vous devez également [télécharger le module PowerShell Azure AD](https://www.powershellgallery.com/packages/AzureAD/) pour créer un nouveau groupe Azure Active Directory.
+Les exemples de cet article nécessitent la version 6.0 ou ultérieure d’Azure PowerShell. Si vous exécutez PowerShell localement et que vous n’avez pas la version 6.0 ou version ultérieure, [mettez à jour votre version](/powershell/azure/install-azurerm-ps). Vous devez également exécuter `Connect-AzureRmAccount` pour créer une connexion avec Azure. Pour les installations locales, vous devez également [télécharger le module PowerShell Azure AD](https://www.powershellgallery.com/packages/AzureAD/) pour créer un nouveau groupe Azure Active Directory.
 
 ## <a name="understand-scope"></a>Comprendre la portée
 
@@ -54,7 +55,7 @@ Pour gérer les solutions de machine virtuelle, il existe trois rôles de ressou
 * [Collaborateur de réseau](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Collaborateur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Au lieu d’affecter des rôles à des utilisateurs, il est souvent plus facile de [créer un groupe Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) et d’y regrouper les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour simplifier, vous allez créer un groupe Azure Active Directory vide. Vous pouvez toujours affecter ce groupe à un rôle pour une étendue. 
+Au lieu d’affecter des rôles à des utilisateurs, il est souvent plus facile de [créer un groupe Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) et d’y regrouper les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour simplifier, vous allez créer un groupe Azure Active Directory vide. Vous pouvez toujours affecter ce groupe à un rôle pour une étendue. 
 
 L’exemple suivant permet de créer un groupe Azure Active Directory nommé *VMDemoContributors* avec le pseudonyme de messagerie *vmDemoGroup*. Le pseudonyme de messagerie sert d’alias pour le groupe.
 
@@ -175,7 +176,7 @@ Un message d’erreur s’affiche, indiquant que l’opération de suppression n
 
 ## <a name="tag-resources"></a>Baliser des ressources
 
-Vous allez appliquer des [balises](../../azure-resource-manager/resource-group-using-tags.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
+Vous allez appliquer des [balises](../../azure-resource-manager/resource-group-using-tags.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
@@ -193,16 +194,16 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Rechercher des ressources à l’aide de leurs balises
 
-Pour rechercher des ressources avec le nom et la valeur d’une balise, utilisez la commande [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) :
+Pour rechercher des ressources avec le nom et la valeur d’une balise, utilisez la commande [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) :
 
 ```azurepowershell-interactive
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+(Get-AzureRmResource -Tag @{ Environment="Test"}).Name
 ```
 
 Vous pouvez utiliser les valeurs retournées pour des tâches de gestion telles que l’arrêt de toutes les machines virtuelles avec une valeur de balise.
 
 ```azurepowershell-interactive
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Get-AzureRmResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
 ### <a name="view-costs-by-tag-values"></a>Afficher les coûts selon les valeurs de balise
@@ -232,7 +233,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Assigner des utilisateurs à un rôle

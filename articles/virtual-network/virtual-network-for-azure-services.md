@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781161"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802559"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Intégration d’un réseau virtuel pour les services Azure
 
@@ -67,11 +67,7 @@ Vous pouvez déployer un [équilibreur de charge Azure interne](../load-balancer
 
 ## <a name="service-endpoints-for-azure-services"></a>Points de terminaison de service pour les services Azure
 
-Certains services Azure ne peuvent pas être déployés sur des réseaux virtuels. Vous pouvez restreindre l’accès aux ressources de service à certains sous-réseaux du réseau virtuel, en activant un point de terminaison de service de réseau virtuel. En savoir plus sur les [points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md).
-
-Les points de terminaison fournisseur sont actuellement pris en charge par les services suivants : 
-- **Stockage Azure** : [Sécurisation de comptes de stockage Azure sur des réseaux virtuels](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- **Microsoft Azure SQL Database** : [Sécurisation de Microsoft Azure SQL Database sur des réseaux virtuels](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Certains services Azure ne peuvent pas être déployés sur des réseaux virtuels. Vous pouvez restreindre l’accès aux ressources de service à certains sous-réseaux du réseau virtuel, en activant un point de terminaison de service de réseau virtuel. En savoir plus sur les [points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md), et les services pour lesquels activer des points de terminaison.
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>Intégration d’un réseau virtuel à plusieurs services Azure
 

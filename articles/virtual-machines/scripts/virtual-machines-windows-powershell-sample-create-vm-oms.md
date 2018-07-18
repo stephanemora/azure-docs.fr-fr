@@ -3,7 +3,7 @@ title: Exemple de script PowerShell - OMS | Microsoft Docs
 description: Exemple de script Azure PowerShell - OMS
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc6cda6490740488e60f380d99952fa3f8d0c3fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5befcb526f6337c05c33bb9b13aa1354ee046248
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655960"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930366"
 ---
 # <a name="create-an-operations-management-suite-monitored-vm-with-powershell"></a>Création d’une machine virtuelle surveillée par Operations Management Suite avec PowerShell
 
@@ -35,7 +35,7 @@ Ce script crée une machine virtuelle Azure, installe l’agent Operations Manag
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-detailed-oms.ps1 "Create VM OMS")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 

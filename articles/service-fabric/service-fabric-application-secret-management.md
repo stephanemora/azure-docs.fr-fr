@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: fa79d50d6ef2899dcaf4116dcfe8ac7fae077959
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 85eb1cd40986bd6fb83c80a274046bbae3756b7e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212685"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295451"
 ---
 # <a name="manage-secrets-in-service-fabric-applications"></a>Gérer les secrets dans les applications Service Fabric
 Ce guide vous guide à travers les étapes de la gestion des secrets dans une application Service Fabric. Les secrets peuvent être des informations sensibles quelconques, notamment des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs qui ne doivent pas être traitées en texte brut.
@@ -43,7 +43,7 @@ Un certificat de chiffrement de données est utilisé exclusivement pour le chif
 Ce certificat doit être installé sur chaque nœud du cluster. Il est utilisé lors de l’exécution pour déchiffrer les valeurs stockées dans le fichier Settings.xml d’un service. Consultez la page concernant la [création d’un cluster à l’aide d’Azure Resource Manager][service-fabric-cluster-creation-via-arm] pour obtenir des instructions d’installation. 
 
 ## <a name="encrypt-application-secrets"></a>Chiffrement de secrets d’application
-Lors du déploiement d’une application, chiffrez les valeurs secrètes avec le certificat et injectez-les dans le fichier de configuration Settings.xml d’un service. Le Kit de développement logiciel (SDK) Service Fabric dispose de fonctions intégrées de chiffrement et déchiffrement de secrets. Les valeurs de clé secrète peuvent être chiffrées au moment de leur génération, puis déchiffrés et lues par programme dans un code de service. 
+Lors du déploiement d’une application, chiffrez les valeurs secrètes avec le certificat et injectez-les dans le fichier de configuration Settings.xml d’un service. Le Kit de développement logiciel (SDK) Service Fabric dispose de fonctions intégrées de chiffrement et déchiffrement de secrets. Les valeurs de secret peuvent être chiffrées au moment de leur génération, puis déchiffrés et lues par programme dans un code de service. 
 
 La commande PowerShell suivante est utilisée pour chiffrer un secret. Cette commande chiffre uniquement la valeur ; elle ne signe **pas** le texte chiffré. Vous devez utiliser le certificat de chiffrement qui est installé dans votre cluster afin de produire le texte chiffré pour les valeurs secrètes :
 

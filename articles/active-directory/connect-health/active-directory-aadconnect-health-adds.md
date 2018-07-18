@@ -3,7 +3,7 @@ title: Utilisation d’Azure AD Connect Health avec AD DS | Microsoft Docs
 description: Cette page dédiée à Azure AD Connect Health explique comment surveiller AD DS.
 services: active-directory
 documentationcenter: ''
-author: arluca
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dcfb43003e81bb51574b401c21202925b16305f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f30c09e4942cf6992be69d9aedcd5b9b0c02b0a6
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26614411"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886730"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Utilisation d’Azure AD Connect Health avec AD DS
 La documentation suivante s’applique à la surveillance des services de domaine Active Directory avec Azure AD Connect Health. Les versions prises en charge d’AD DS sont les suivantes : Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016.
 
 Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md). En outre, pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md).
 
-![Azure AD Connect Health pour AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
+![Azure AD Connect Health pour AD DS](./media/active-directory-aadconnect-health-adds/domainservicesnapshot.PNG)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-ad-ds"></a>Alertes d’Azure AD Connect Health pour AD DS
 La section Alertes disponible dans Azure AD Connect Health pour AD DS vous propose une liste d’alertes actives et résolues, liées à vos contrôleurs de domaine. Si vous sélectionnez une alerte active ou résolue, un nouveau panneau contenant des informations supplémentaires, ainsi que les étapes de résolution et des liens vers la documentation de support, s’ouvre. Chaque type d’alerte peut avoir une ou plusieurs instances, qui correspondent à chacun des contrôleurs de domaine affectés par cette alerte. Au bas du panneau d’alerte, vous pouvez double-cliquer sur un contrôleur de domaine affecté pour ouvrir un autre panneau contenant des informations supplémentaires sur cette instance d’alerte.
@@ -47,10 +47,10 @@ Ce tableau de bord fournit une vue de l’état de réplication et de la topolog
 
 ![État de la réplication](./media/active-directory-aadconnect-health/aadconnect-health-adds-replication.png)
 
-## <a name="monitoring"></a>Analyse
+## <a name="monitoring"></a>Surveillance
 Cette fonctionnalité fournit les tendances graphiques de différents compteurs de performances, qui sont collectées en permanence à partir de chacun des contrôleurs de domaine surveillés. Les performances d’un contrôleur de domaine peuvent être facilement comparées avec tous les autres contrôleurs de domaine surveillés de votre forêt. En outre, vous pouvez afficher plusieurs compteurs de performances côte à côte, ce qui est utile lors du dépannage de problèmes dans votre environnement.
 
-![Analyse](./media/active-directory-aadconnect-health/aadconnect-health-adds-monitoring.png)
+![Surveillance](./media/active-directory-aadconnect-health/aadconnect-health-adds-monitoring.png)
 
 Par défaut, nous avons présélectionné quatre compteurs de performances. Vous pouvez toutefois en inclure d’autres en cliquant sur la commande de filtre et en sélectionnant ou en désélectionnant les compteurs de performances de votre choix. En outre, vous pouvez double-cliquer sur un graphique de compteur de performances pour ouvrir un nouveau panneau incluant les points de données de chacun des contrôleurs de domaine surveillés.
 

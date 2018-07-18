@@ -1,6 +1,6 @@
 ---
-title: "Forum aux questions sur l’intégration des journaux Azure | Microsoft Docs"
-description: "Cet article répond à des questions sur l’intégration des journaux Azure."
+title: Forum aux questions sur l’intégration des journaux Azure | Microsoft Docs
+description: Cet article répond à des questions sur l’intégration des journaux Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,25 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 02/16/2018
-ms.author: TomSh
+ms.date: 06/07/2018
+ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bec62b8c6b70706fa6519cbc2fd59bf69f119e9d
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236261"
 ---
 # <a name="azure-log-integration-faq"></a>Forum aux questions sur l’intégration des journaux Azure
 
 Cet article contient les réponses à certaines questions fréquemment posées sur l’intégration des journaux Azure.
 
 >[!IMPORTANT]
->La méthode recommandée pour intégrer les journaux Azure consiste à utiliser le connecteur Azure Monitor de votre fournisseur SIEM et à suivre les [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) ci-après. Toutefois, si votre fournisseur SIEM ne propose pas de connecteur pour Azure Monitor, vous pouvez utiliser le service Azure Log Integration de façon temporaire (s’il prend en charge votre système SIEM) jusqu’à ce qu’un tel connecteur soit disponible.
+> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements AzLog seront désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure Log Integration est un service du système d’exploitation Windows que vous pouvez utiliser pour intégrer des journaux bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité associés à vos applications.
 
+La méthode recommandée pour intégrer les journaux Azure consiste à utiliser le connecteur Azure Monitor de votre fournisseur SIEM et à suivre les [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) ci-après. Toutefois, si votre fournisseur SIEM ne propose pas de connecteur pour Azure Monitor, vous pouvez utiliser le service Azure Log Integration de façon temporaire (s’il prend en charge votre système SIEM) jusqu’à ce qu’un tel connecteur soit disponible.
+
 ## <a name="is-the-azure-log-integration-software-free"></a>Le logiciel d’intégration des journaux Azure est-il disponible ?
+
 Oui. Il n’existe aucun frais pour le logiciel d’intégration des journaux Azure.
 
 ## <a name="where-is-azure-log-integration-available"></a>Où l’intégration des journaux Azure est-elle disponible ?
@@ -38,6 +42,7 @@ Oui. Il n’existe aucun frais pour le logiciel d’intégration des journaux Az
 Elle est actuellement disponible dans les versions commerciales d’Azure et dans Azure Government, mais n’est pas disponible en Chine ni en Allemagne.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Comment puis-je voir les comptes de stockage desquels l’intégration des journaux Azure extrait des journaux de machines virtuelles Azure ?
+
 Exécutez la commande **AzLlog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Comment puis-je savoir de quel abonnement proviennent les journaux d’intégration Azure ?
@@ -51,6 +56,7 @@ Les noms des journaux d’audit Azure Active Directory incluent l’ID de locata
 Le nom des journaux de diagnostic qui sont lus à partir d’un Event Hub ne comprend pas l’ID d’abonnement. Toutefois, il comprend le nom convivial spécifié lors de la création de la source Event Hub. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Comment puis-je mettre à jour la configuration du proxy ?
+
 Si vos paramètres de proxy ne permettent pas un accès direct au stockage Azure, ouvrez le fichier **AZLOG. EXE. CONFIGURATION** dans **c:\Program Files\Microsoft Azure Log Integration**. Mettez à jour le fichier de manière à y inclure la section **defaultProxy** avec l’adresse de proxy de votre organisation. Une fois la mise à jour effectuée, arrêtez et démarrez le service à l’aide des commandes **net stop AzLog** et **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -61,7 +67,7 @@ Si vos paramètres de proxy ne permettent pas un accès direct au stockage Azure
         </connectionManagement>
         <defaultProxy>
           <proxy usesystemdefault="true"
-          proxyaddress=http://127.0.0.1:8888
+          proxyaddress="http://127.0.0.1:8888"
           bypassonlocal="true" />
         </defaultProxy>
       </system.net>
@@ -70,6 +76,7 @@ Si vos paramètres de proxy ne permettent pas un accès direct au stockage Azure
       </system.diagnostics>   
 
 ## <a name="how-can-i-see-the-subscription-information-in-windows-events"></a>Comment puis-je consulter les informations d’abonnement dans des événements Windows ?
+
 Ajoutez l’ID d’abonnement au nom convivial lors de l’ajout de la source :
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
@@ -79,6 +86,7 @@ L’XML de l’événement a les métadonnées suivantes, notamment l’ID d’a
 
 ## <a name="error-messages"></a>messages d'erreur
 ### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Pourquoi le message d’erreur suivant s’affiche-t-il quand j’exécute la commande ```AzLog createazureid``` ?
+
 Error:
 
   *Échec de l’application AAD - Locataire 72f988bf-86f1-41af-91ab-2d7cd011db37 - Raison = « Interdit » - Message = « Privilèges insuffisants pour terminer l’opération ». (Failed to create AAD Application - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = ’Forbidden’ - Message = ’Insufficient privileges to complete the operation.’)*
@@ -86,6 +94,7 @@ Error:
 La commande **Azlog createazureid** tente de créer un principal du service dans tous les locataires Azure AD pour les abonnements auxquels la connexion Azure a accès. Si votre connexion Azure n'a que le rôle d’Invité dans ce locataire Azure AD, la commande échoue avec « Privilèges insuffisants pour terminer l’opération ». Demandez à l’administrateur du locataire d’ajouter votre compte en tant qu’utilisateur dans le locataire.
 
 ### <a name="when-i-run-the-command-azlog-authorize-why-do-i-get-the-following-error"></a>Lors de l’exécution de la commande **azlog authorize**, pourquoi le message d’erreur suivant est-il généré ?
+
 Error:
 
   *Avertissement à la création d’attribution de rôle : AuthorizationFailed : le client janedo@microsoft.com’ avec l’ID d’objet « fe9e03e4-4dad-4328-910f-fd24a9660bd2 » n’est pas autorisé à effectuer l’action « Microsoft.Authorization/roleAssignments/write » sur « / subscriptions/70d95299-d689-4c97-b971-0d8ff0000000 ».*
@@ -93,15 +102,18 @@ Error:
 La commande **Azlog authorize** attribue le rôle de lecteur au principal du service Azure AD (créé avec **Azlog createazureid**) dans les abonnements fournis. Si la connexion Azure n’a pas le rôle Coadministrateur ou un Propriétaire de l’abonnement, elle échoue avec le message d’erreur « Échec de l’autorisation ». Le contrôle d’accès en fonction du rôle (RBAC) d’Azure du Coadministrateur ou du Propriétaire est nécessaire pour effectuer cette action.
 
 ## <a name="where-can-i-find-the-definition-of-the-properties-in-the-audit-log"></a>Où puis-je trouver la définition des propriétés dans le journal d’audit ?
+
 Consultez l'article :
 
 * [Opérations d’audit avec Azure Resource Manager](../azure-resource-manager/resource-group-audit.md)
 * [Liste des événements de gestion dans un abonnement dans l’API REST Azure Monitor (en anglais)](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## <a name="where-can-i-find-details-on-azure-security-center-alerts"></a>Où puis-je trouver plus d’informations sur les alertes de l’Azure Security Center ?
+
 Consultez la rubrique [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>Comment puis-je modifier les données collectées avec les diagnostics de la machine virtuelle ?
+
 Pour plus d’informations sur la manière d’obtenir, modifier et définir la configuration des diagnostics Azure, consultez la page [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 L’exemple suivant obtient la configuration des diagnostics Azure :

@@ -18,11 +18,11 @@ ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841977"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232739"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service réseau virtuel en utilisant Azure CLI
 
@@ -39,7 +39,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.28 d’Azure CLI, ou une version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.28 d’Azure CLI, ou une version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
@@ -332,7 +332,7 @@ az storage share list \
 
 L’accès est refusé et vous recevez une erreur indiquant que *la requête n’est pas autorisée à effectuer cette opération*, car votre ordinateur ne fait pas partie du sous-réseau *Private* du réseau virtuel *MyVirtualNetwork*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, utilisez [az group delete](/cli/azure#az_group_delete) pour le supprimer, ainsi que toutes les ressources qu’il contient.
 

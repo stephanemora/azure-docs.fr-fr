@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f54179329b521cc861e90f023ff0b010b7ce1f75
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 81f2302df5740b482f03a4a724d2899734579949
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164952"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096857"
 ---
 # <a name="update-an-application-in-kubernetes"></a>Mettre à jour une application dans Kubernetes
 
@@ -100,7 +100,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>Déployer l’application mise à jour
 
-Pour garantir une disponibilité maximale, vous devez exécuter plusieurs instances du pod d’application. Vérifiez cette configuration avec la commande [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
+Pour garantir une disponibilité maximale, vous devez exécuter plusieurs instances du pod d’application. Vérifiez cette configuration avec la commande [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
 ```bash
 kubectl get pod
@@ -123,13 +123,13 @@ Si vous n’avez qu’un POD exécutant l’image azure-vote-front, mettez à l�
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Pour mettre à jour l’application, utilisez la commande [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set). Mettez à jour `<acrLoginServer>` avec le nom du serveur de connexion ou le nom d’hôte de votre registre de conteneurs.
+Pour mettre à jour l’application, utilisez la commande [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set). Mettez à jour `<acrLoginServer>` avec le nom du serveur de connexion ou le nom d’hôte de votre registre de conteneurs.
 
 ```azurecli-interactive
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Pour surveiller le déploiement, utilisez la commande [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get). À mesure que l’application mise à jour est déployée, vos pods sont terminés et recréés avec la nouvelle image conteneur.
+Pour surveiller le déploiement, utilisez la commande [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get). À mesure que l’application mise à jour est déployée, vos pods sont terminés et recréés avec la nouvelle image conteneur.
 
 ```azurecli-interactive
 kubectl get pod

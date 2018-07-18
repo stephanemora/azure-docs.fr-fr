@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8b11d4ab7188141b36b998e16429329c33f09cee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599566"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -116,7 +117,8 @@ Les paramètres dans le fichier des hôtes s’appliquent à toutes les fonction
 D’autres options de configuration d’hôte sont consultables [dans le document de configuration d’hôte](functions-host-json.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations, consultez les ressources suivantes :
 
-Étant donné qu’Azure Functions utilise Azure App Service, vous devez également connaître les directives d’App Service.
-* [Modèles et pratiques d’optimisations des performances HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
+* [Guide pratique pour gérer les connexions dans Azure Functions](manage-connections.md)
+* [Bonnes pratiques Azure App Service](../app-service/app-service-best-practices.md)

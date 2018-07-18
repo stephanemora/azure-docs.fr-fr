@@ -2,29 +2,31 @@
 title: 'Azure Cosmos DB : Développer une application console API MongoDB avec Golang et le Portail Azure | Microsoft Docs'
 description: Cet article présente un exemple de code Golang que vous pouvez utiliser pour vous connecter à Azure Cosmos DB et pour interroger ce service
 services: cosmos-db
-author: Durgaprasad-Budhwani
+author: SnehaGunda
 manager: kfile
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
+ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d5ac2f683308385b2bd4ca422cf00abaa37735fd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1a45389e95dbd7f5f762b6dee0edc3897d0c3b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38612814"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Golang et le Portail Azure
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
 
 Ce guide de démarrage rapide explique comment utiliser une application MongoDB existante écrite en [Golang](https://golang.org/) et la connecter à votre base de données Azure Cosmos DB, qui prend en charge les connexions clientes MongoDB à l’aide de l’[API MongoDB](mongodb-introduction.md).
 
 En d’autres termes, votre application Golang sait uniquement qu’elle se connecte à une base de données qui utilise des API MongoDB. L’application sait que les données sont stockées dans Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer. 
 
@@ -34,7 +36,7 @@ En d’autres termes, votre application Golang sait uniquement qu’elle se conn
 - Un IDE — [Gogland](https://www.jetbrains.com/go/) par Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) par Microsoft, ou [Atom](https://atom.io/). Dans ce didacticiel, j’utilise Goglang.
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -124,7 +126,7 @@ session.SetSafe(&mgo.Safe{})
 
 La méthode **mgo. Dial()** est utilisée lorsqu’il n’existe aucune connexion SSL. Pour établir une connexion SSL, la méthode **mgo. DialWithInfo()** est requise.
 
-Une instance de l’objet **{} de DialWithInfo** est utilisée pour créer l’objet de session. Une fois la session établie, vous pouvez accéder à la collection à l’aide de l’extrait de code suivant :
+Une instance de l’objet **DialWIthInfo{}** est utilisée pour créer l’objet de session. Une fois la session établie, vous pouvez accéder à la collection à l’aide de l’extrait de code suivant :
 
 ```go
 collection := session.DB(“database”).C(“package”)
@@ -208,7 +210,7 @@ if err != nil {
 ## <a name="run-the-app"></a>Exécution de l'application
 
 1. Dans Goglang, vérifiez que votre GOPATH (disponible sous **Fichier**, **Paramètres**, **Go**, **GOPATH**) inclue l’emplacement dans lequel le gopkg a été installé, USERPROFILE\go par défaut. 
-2. Commentez les lignes supprimant le document (lignes 91 à 96) afin que vous puissiez voir le document après l’exécution de l’application.
+2. Commentez les lignes supprimant le document (lignes 103 à 107) afin que vous puissiez voir le document après l’exécution de l’application.
 3. Dans Goglang, cliquez sur **Exécuter**, puis cliquez sur **Exécuter "Générer Main.go et exécuter"**.
 
     L’application se termine et affiche la description du document créé dans [Créer un document](#create-document).

@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971779"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 
@@ -117,7 +118,7 @@ Par exemple, fournir une description de chaîne pour le nombre de voitures de la
         Make,
         TumblingWindow(second, 10)
 
-**Explication** : La clause **CASE** permet de fournir un calcul différent en fonction de certains critères (ici, le nombre de voitures dans la fenêtre d’agrégation).
+**Explication** : l’expression **CASE** compare une expression à un ensemble d’expressions simples pour déterminer le résultat. Dans cet exemple, les fabricants de véhicules avec un total de 1 ont retourné une description de chaîne différente de celle des fabricants avec un total différent de 1. 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Exemple de requête : envoi de données vers plusieurs sorties
 **Description** : Envoyer des données à plusieurs cibles de sortie à partir d’un travail unique.
@@ -173,7 +174,7 @@ Par exemple, analyser des données relatives à une alerte basée sur un seuil e
         [Count] >= 3
 
 **Explication** : La clause **INTO** indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction.
-La première requête est un transfert des données que nous avons reçues vers une sortie nommée **ArchiveOutput**.
+La première requête est un transfert des données reçues vers une sortie nommée **ArchiveOutput**.
 La deuxième requête effectue une agrégation et un filtrage simples, et envoie les résultats vers un système d’alerte en aval.
 
 Notez que vous pouvez également réutiliser les résultats d’expressions de table communes (par exemple avec des instructions **WITH**) dans plusieurs instructions de sortie. Cette option a l’avantage d’ouvrir moins de lecteurs vers la source d’entrée.
@@ -418,7 +419,7 @@ Par exemple, deux voitures consécutives de la même marque se sont-elles engag
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Exemple de requête : Détecter la durée d’une condition
 **Description** : Rechercher la durée pendant laquelle une condition s’est produite.
-Par exemple, supposez qu’à la suite d’un bogue, le poids de toutes les voitures est incorrect (supérieur à 20 000 livres). Nous voulons calculer la durée du bogue.
+Par exemple, supposons qu’à la suite d’un bogue, le poids de toutes les voitures soit incorrect (supérieur 20 000 livres) et que la durée de ce bogue doive être calculée.
 
 **Entrée**:
 
@@ -506,8 +507,8 @@ Par exemple, générer toutes les cinq secondes un événement qui indique le p
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exemple de requête : mettre en corrélation deux types d’événement dans le même flux
-**Description** : nous avons parfois besoin de générer des alertes en fonction de plusieurs types d’événement qui se sont produits au cours d’un intervalle de temps donné.
-Par exemple, dans un scénario IoT concernant des fours domestiques, nous souhaitons déclencher une alerte lorsque la température du ventilateur est inférieure à 40 et que la puissance maximale au cours des 3 dernières minutes a été inférieure à 10.
+**Description** : les alertes doivent parfois être générées en fonction de plusieurs types d’événements qui se sont produits au cours d’un intervalle de temps donné.
+Par exemple, dans un scénario IoT concernant des fours domestiques, une alerte doit être générée quand la température du ventilateur est inférieure à 40 et que la puissance maximale au cours des 3 dernières minutes est inférieure à 10.
 
 **Entrée**:
 
@@ -577,6 +578,46 @@ WHERE
 ````
 
 **Explication** : la première requête `max_power_during_last_3_mins` utilise la [fenêtre glissante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) pour rechercher la valeur maximale du capteur de puissance pour chaque appareil, au cours des 3 dernières minutes. La seconde requête est jointe à la première pour rechercher la valeur de la puissance dans la fenêtre la plus récente, pertinente pour l’événement actuel. Une alerte est alors générée pour l’appareil sous réserve que les conditions soient remplies.
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exemple de requête : traiter les événements indépendamment des décalages entre les horloges des appareils (sous-flux)
+**Description** : les événements peuvent arriver en retard ou dans le désordre en raison des décalages des horloges entre les producteurs d’événements, des décalages des horloges entre les partitions ou de la latence du réseau. Dans l’exemple suivant, l’horloge de l’appareil pour TollID 2 a dix secondes de plus que TollID 1, et l’horloge de l’appareil pour TollID 3 a cinq secondes de plus que TollID 1. 
+
+
+**Entrée**:
+| LicensePlate | Marque | Temps | TollID |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Sortie**:
+| TollID | Count |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**Solution**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**Explication** : la clause [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examine séparément la chronologie de chaque appareil en utilisant des sous-flux. Les événements de sortie pour chaque TollID sont générés tels qu’ils sont calculés, ce qui signifie que les événements sont dans l’ordre relativement à chaque TollID, au lieu d’être réorganisés comme si tous les appareils avaient la même horloge.
 
 
 ## <a name="get-help"></a>Obtenir de l’aide

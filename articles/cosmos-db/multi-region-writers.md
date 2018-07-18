@@ -5,19 +5,20 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724905"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Multimaître à une échelle globale avec Azure Cosmos DB 
  
-Le développement d’applications distribuées à l’échelle mondiale qui répondent avec des latences locales tout en conservant des vues de données cohérentes dans le monde entier est un véritable défi. Les clients utilisent des bases de données distribuées à l’échelle mondiale car ils ont besoin d’améliorer la latence d’accès aux données, d’obtenir une haute disponibilité des données, de garantir la reprise d’activité après sinistre et de répondre aux besoins de leur entreprise. Multimaître dans Azure Cosmos DB fournit des niveaux élevés de disponibilité (99,999 %), une latence inférieure à dix millisecondes pour l’écriture des données et une scalabilité avec une prise en charge intégrée, complète et flexible de la résolution de conflit. Ces fonctionnalités simplifient considérablement le développement des applications distribuées à l’échelle mondiale. Pour les applications distribuées à l’échelle mondiale, la prise en charge du multimaître est cruciale. 
+Le développement d’applications distribuées à l’échelle mondiale qui répondent avec des latences locales tout en conservant des vues de données cohérentes dans le monde entier est un véritable défi. Les clients utilisent des bases de données distribuées à l’échelle mondiale, car ils ont besoin d’améliorer la latence des accès aux données, d’obtenir une haute disponibilité des données, de garantir la reprise d’activité après sinistre et de répondre aux besoins de leur entreprise. Multimaître dans Azure Cosmos DB fournit des niveaux élevés de disponibilité (99,999 %), une latence inférieure à dix millisecondes pour l’écriture des données et une scalabilité avec une prise en charge intégrée, complète et flexible de la résolution de conflit. Ces fonctionnalités simplifient considérablement le développement des applications distribuées à l’échelle mondiale. Pour les applications distribuées à l’échelle mondiale, la prise en charge du multimaître est cruciale. 
 
 ![Architecture multimaître](./media/multi-region-writers/multi-master-architecture.png)
 

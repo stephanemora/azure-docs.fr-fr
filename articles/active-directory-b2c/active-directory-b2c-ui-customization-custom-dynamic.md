@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d01f7b884e03bb311350c508dc46f699cd6717c0
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709340"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441649"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configuration de l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 
@@ -24,7 +24,6 @@ ms.locfileid: "34709340"
 À l’aide de stratégies personnalisées Azure Active Directory B2C (Azure AD B2C), vous pouvez envoyer un paramètre dans une chaîne de requête. En transmettant le paramètre à votre point de terminaison HTML, vous pouvez changer le contenu de la page de façon dynamique. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article se concentre sur la façon de personnaliser l’interface utilisateur Azure AD B2C avec du *contenu dynamique* à l’aide de stratégies personnalisées. Pour commencer, consultez [Personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md). 
 
 >[!NOTE]

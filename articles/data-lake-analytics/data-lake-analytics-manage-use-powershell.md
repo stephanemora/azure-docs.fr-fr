@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/02/2018
-ms.openlocfilehash: 4900be6e135cd9a415b8304e77865525c4f34dd3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 560f36dc64480fd6aceaa50226b191ee40d2486f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735090"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959846"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -23,7 +23,6 @@ ms.locfileid: "34735090"
 Cet article décrit comment gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux à l’aide d’Azure PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour utiliser PowerShell avec Data Lake Analytics, collectez les informations suivantes : 
 
@@ -69,7 +68,7 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-### <a name="log-in-using-a-service-principle-identity-spi"></a>Connexion à l’aide d’une identité de principal du service (SPI)
+### <a name="log-in-using-a-service-principal-identity-spi"></a>Connexion à l’aide d’une identité de principal du service (SPI)
 
 ```powershell
 $tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  

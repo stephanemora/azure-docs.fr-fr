@@ -12,24 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 25329d65861dc31e67bba146e15a6446a6449e83
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e8e0f8352404892ea8af6a0fa176c336dd2c1659
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620586"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054022"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Disponibilité générale](v1/data-factory-stored-proc-activity.md)
-> * [Version 2 - Préversion](transform-data-using-stored-procedure.md)
-
+> * [Version 1](v1/data-factory-stored-proc-activity.md)
+> * [Version actuelle](transform-data-using-stored-procedure.md)
 
 Vous utilisez des activités de transformation dans un [pipeline](concepts-pipelines-activities.md) Data Factory pour transformer et traiter des données brutes en prévisions et en analyses. L’activité de procédure stockée est l’une des activités de transformation prises en charge par Data Factory. Cet article s’appuie sur l’article [Transformer des données](transform-data.md) qui présente une vue d’ensemble de la transformation des données et des activités de transformation prises en charge dans Data Factory.
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Activité de procédure stockée dans V1](v1/data-factory-stored-proc-activity.md).
-> 
 > Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](introduction.md) et suivez le [Didacticiel : Transformer des données](tutorial-transform-data-spark-powershell.md) avant de lire cet article. 
 
 Vous pouvez utiliser l’activité de procédure stockée pour appeler une procédure stockée dans l’une des banques de données suivantes dans votre entreprise ou sur une machine virtuelle Azure : 

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.openlocfilehash: 0d7624d47a6924a5c8dec66b47ac0887ff493879
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27993634"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719071"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Utilisation du stockage de files d'attente à partir de Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de files d’attente Microsoft Azure. Les exemples sont écrits à l'aide de l'API Ruby Azure.
 Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
 

@@ -2,7 +2,7 @@
 
 Pour vous connecter à **SharePoint Online**, vous devez fournir votre identité (nom d’utilisateur et mot de passe, informations d’identification de la carte à puce, etc.) à SharePoint Online. Une fois que vous avez été authentifié, vous pouvez utiliser le connecteur SharePoint Online dans votre application logique. 
 
-Dans le concepteur de votre application logique, procédez comme suit pour vous connecter à SharePoint afin de créer la **connexion** à utiliser dans votre application logique :
+Dans le concepteur de votre application logique, procédez comme suit pour vous connecter à SharePoint afin de créer la **connexion** à utiliser dans votre application logique :
 
 1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie l’ensemble des actions et déclencheurs liés à SharePoint Online :   
    ![Configurer SharePoint][1]  

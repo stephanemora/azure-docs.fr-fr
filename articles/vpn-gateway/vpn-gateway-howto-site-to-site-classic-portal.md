@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9fa8455e3be6dced5717e2a7399d0eae0e26a09b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401070"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477894"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Création d’une connexion de site à site à l’aide du portail Azure (Classic)
 
@@ -29,7 +29,7 @@ ms.locfileid: "29401070"
 Cet article vous explique comment utiliser le portail Azure pour créer une connexion de passerelle VPN de site à site à partir de votre réseau local vers le réseau virtuel. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement classique. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -224,7 +224,7 @@ La réinitialisation d’une passerelle VPN Azure est utile si vous perdez la co
 
 Pour obtenir la procédure permettant de modifier une référence SKU de passerelle, consultez [Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)](vpn-gateway-about-SKUS-legacy.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Pour plus d’informations sur le tunneling forcé, consultez [Configuration du tunneling forcé à l’aide du modèle de déploiement classique](vpn-gateway-about-forced-tunneling.md).

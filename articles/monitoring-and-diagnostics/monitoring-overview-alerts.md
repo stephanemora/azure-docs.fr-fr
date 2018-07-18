@@ -1,25 +1,19 @@
 ---
-title: Vue d’ensemble des alertes classiques dans Microsoft Azure et Azure Monitor | Microsoft Docs
+title: Vue d’ensemble des alertes classiques dans Microsoft Azure et Azure Monitor
 description: Les alertes vous permettent d’analyser des mesures de ressources, événements ou journaux Azure, puis d’envoyer des alertes quand une condition spécifiée est remplie.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: a6dea224-57bf-43d8-a292-06523037d70b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: robb
-ms.openlocfilehash: 039ab7226b4ea7e011e1c0cbb4cac528b5237483
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 89c3975a1212aa991e42e0cce4fe5521b53bd373
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204003"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263668"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 
@@ -49,7 +43,7 @@ Azure utilise les termes suivants pour décrire les alertes classiques et leurs 
 * **Actif** : état indiquant que les critères définis par une alerte classique sont remplis.
 * **Résolu** : état indiquant que les critères définis par une alerte classique ne sont plus remplis après l’avoir été.
 * **Notification** : action entreprise quand une alerte classique devient active.
-* **Action** : appel émis vers le destinataire d’une notification (par exemple, en envoyant un e-mail ou en publiant une URL de webhook). Les notifications peuvent généralement déclencher plusieurs actions.
+* **Action** : appel émis vers le destinataire d’une notification (par exemple, en envoyant un e-mail ou en publiant une URL Webhook). Les notifications peuvent généralement déclencher plusieurs actions.
 
 ## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Comment recevoir une notification d’une alerte classique Azure Monitor ?
 Auparavant, les alertes Azure des différents services utilisaient leurs propres méthodes de notification intégrées. 

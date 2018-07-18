@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: e9d2140edc64daca4df0463dbfdcd5b06f072012
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cca9befb65abed3b6d07a52aa286c43725577121
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620406"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051744"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Règles d’affectation des noms
 Le tableau suivant fournit des règles d'affectation de noms pour les artefacts Data Factory.
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez [Règles de nommage dans Data Factory version 1](v1/data-factory-naming-rules.md).
 
 | NOM | Unicité du nom | Contrôles de validation |
 |:--- |:--- |:--- |
@@ -33,4 +30,4 @@ Le tableau suivant fournit des règles d'affectation de noms pour les artefacts 
 | Groupe de ressources |Unique sur Microsoft Azure. Les noms sont sensibles à la casse. | Pour plus d’informations, consultez la page [Règles d’affectation de noms Azure et restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Apprenez à créer des fabriques de données en suivant les instructions étape par étape de l’article [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md). 
+Découvrez comment créer des fabriques de données en suivant les instructions pas à pas de l’article [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md). 

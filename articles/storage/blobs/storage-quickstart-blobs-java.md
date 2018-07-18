@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de Java | Microsoft Docs
+title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide du kit de développement logiciel de stockage Java V7 | Microsoft Docs
 description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Java, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: roygara
@@ -9,21 +9,20 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 197777971b92ad9cd53e91602b88858a371ce1d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30d31a7f4b77864549dcb9e27030ba19c4fd84fe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192007"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606607"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Java
+# <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du kit de développement logiciel Java V7
 
 Dans ce guide de démarrage rapide, vous apprenez à utiliser Java pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour effectuer ce démarrage rapide :
+Pour suivre ce guide de démarrage rapide :
 
 * Installer un IDE avec intégration de Maven
 
@@ -37,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 
-[L’exemple d’application](https://github.com/Azure-Samples/storage-blobs-java-quickstart) utilisé dans ce guide de démarrage rapide est une application console de base. 
+[L’exemple d’application](https://github.com/Azure-Samples/storage-blobs-java-quickstart) utilisé dans ce guide de démarrage rapide est une application console de base.  
 
 Utilisez [git](https://git-scm.com/) pour télécharger une copie de l’application dans votre environnement de développement. 
 
@@ -49,7 +48,7 @@ Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir le pro
 
 Une fois l’importation du projet terminée, ouvrez **AzureApp.java** (situé dans **blobQuickstart.blobAzureApp** à l’intérieur de **src/main/java**) et remplacez `accountname` et `accountkey` dans la chaîne `storageConnectionString`. Puis exécutez l’application.
 
-[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]   
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]    
 
 ## <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
     
@@ -66,9 +65,7 @@ public static final String storageConnectionString =
 
 Cet exemple crée un fichier de test dans votre répertoire par défaut (Mes Documents, pour les utilisateurs de Windows), le charge dans le stockage blob, liste les objets blob dans le conteneur, puis télécharge le fichier avec un nouveau nom pour vous permettre de comparer les fichiers anciens et nouveaux. 
 
-Exécutez l’exemple en appuyant sur **Ctrl+F11** dans Eclipse.
-
-Si vous souhaitez exécuter l’exemple à l’aide de Maven au niveau de la ligne de commande, ouvrez un interpréteur de commandes et accédez à **blobAzureApp** à l’intérieur de votre répertoire cloné. Puis saisissez `mvn compile exec:java`.
+Exécutez l’exemple à l’aide de Maven au niveau de la ligne de commande. Ouvrez un interpréteur de commandes et accédez à **blobAzureApp** à l’intérieur de votre répertoire cloné. Puis saisissez `mvn compile exec:java`. 
 
 Voici un exemple de résultat si vous deviez exécuter l’application sur Windows.
 
@@ -85,13 +82,13 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
- Avant de continuer, vérifiez votre répertoire par défaut (Mes Documents, pour les utilisateurs de Windows) pour les deux fichiers. Vous pouvez les ouvrir et constater qu’ils sont identiques. Copiez l’URL de l’objet blob en dehors de la fenêtre de console et collez-la dans un navigateur pour afficher le contenu du fichier dans Stockage Blob. Quand vous appuyez sur la touche Entrée, le conteneur de stockage et les fichiers sont supprimés.
+Avant de continuer, vérifiez votre répertoire par défaut (Mes Documents, pour les utilisateurs de Windows) pour les deux fichiers. Vous pouvez les ouvrir et constater qu’ils sont identiques. Copiez l’URL de l’objet blob en dehors de la fenêtre de console et collez-la dans un navigateur pour afficher le contenu du fichier dans Stockage Blob. Quand vous appuyez sur la touche Entrée, le conteneur de stockage et les fichiers sont supprimés. 
 
-Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage. 
+Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage.
 
 Une fois que vous avez vérifié les fichiers, appuyez sur la touche Entrée pour terminer la démonstration et supprimer les fichiers de test. Comme vous savez maintenant ce que fait l’exemple, ouvrez le fichier**AzureApp.java** pour examiner le code. 
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 Ensuite, nous allons parcourir l’exemple de code pas à pas pour vous montrer son fonctionnement.
 
@@ -114,7 +111,7 @@ La première chose à faire est de créer les références aux objets utilisés 
 > [!IMPORTANT]
 > Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-### <a name="create-a-container"></a>Créez un conteneur. 
+### <a name="create-a-container"></a>Créez un conteneur.
 
 Dans cette section, vous créez une instance des objets, un conteneur, puis définissez des autorisations sur le conteneur pour les objets blob soient publics et accessibles par une simple URL. Le conteneur est appelé **quickstartblobs**. 
 
@@ -185,7 +182,7 @@ downloadedFile = new File(sourceFile.getParentFile(), "downloadedFile.txt");
 blob.downloadToFile(downloadedFile.getAbsolutePath());
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer le conteneur à l’aide de [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Cela supprime également les fichiers dans le conteneur.
 
@@ -206,26 +203,13 @@ if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
 
-## <a name="resources-for-developing-java-applications-with-blobs"></a>Ressources sur le développement d’applications Java avec des objets blob
-
-Consultez ces ressources supplémentaires sur le développement Java avec le stockage Blob :
-
-### <a name="binaries-and-source-code"></a>Fichiers binaires et code source
-
-- Affichez et téléchargez le [code source de la bibliothèque de client Java](https://github.com/Azure/azure-storage-java) pour Stockage Azure sur GitHub.
-
-### <a name="client-library-reference-and-samples"></a>Référence et exemples de la bibliothèque de client
-
-- Consultez les [Informations de référence sur l’API Java](https://docs.microsoft.com/java/api/overview/azure/storage) pour en savoir plus sur la bibliothèque de client Java.
-- Explorez les [exemples de Stockage Blob](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) écrits avec la bibliothèque de client Java.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et le stockage blob Azure avec Java. Pour en savoir plus sur l’utilisation de Stockage Blob, consultez le Guide pratique de Stockage Blob.
+Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et le stockage blob Azure avec Java. Pour en savoir plus sur l’utilisation de Java, accédez à notre dépôt de code source GitHub.
 
 > [!div class="nextstepaction"]
-> [Guide pratique des opérations Stockage Blob](storage-java-how-to-use-blob-storage.md)
+> [Kit de développement logiciel Stockage Azure pour Java](https://github.com/azure/azure-storage-java) 
+> [Référence API](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-stable)
+> [Exemples de code pour Java](../common/storage-samples-java.md)
 
-Pour plus d’informations sur l’Explorateur Stockage et les objets blob, consultez [Gérer les ressources de stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md).
-
-Pour plus d’exemples de Java, consultez [Exemples de stockage Azure avec Java](../common/storage-samples-java.md).
+* Pour plus d’informations sur l’Explorateur Stockage et les objets blob, consultez [Gérer les ressources de stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

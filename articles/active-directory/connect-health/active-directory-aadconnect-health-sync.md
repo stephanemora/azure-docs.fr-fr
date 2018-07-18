@@ -3,7 +3,7 @@ title: Utilisation d’Azure AD Connect Health avec la synchronisation | Micros
 description: Cette page dédiée à Azure AD Connect Health explique comment surveiller la synchronisation d’Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0407726fa7dd5801081549f30207eac0b5e46b6e
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229946"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887049"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Surveiller la synchronisation Azure AD Connect avec Azure AD Connect Health
 La documentation suivante s’applique à la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health.  Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md).
 
-![Azure AD Connect Health pour la synchronisation](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+![Azure AD Connect Health pour la synchronisation](./media/active-directory-aadconnect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Alertes d’Azure AD Connect Health pour la synchronisation
 La section relative aux alertes d’Azure AD Connect Health fournit une liste des alertes actives. Chaque alerte inclut les informations associées, la procédure de résolution et des liens vers la documentation afférente. Si vous sélectionnez une alerte active ou résolue, vous verrez apparaître un nouveau panneau comportant des informations supplémentaires, ainsi qu’une procédure de résolution de l’alerte et des liens vers de la documentation supplémentaire. Vous pouvez également afficher des données d’historique sur les alertes résolues par le passé.
@@ -98,15 +98,18 @@ L’exploration de chaque catégorie fournit la liste des objets qui rencontrent
 ### <a name="error-details"></a>Détails de l’erreur
 Les données suivantes sont disponibles dans la vue détaillée de chaque erreur
 
+* Attribut en conflit mis en surbrillance
 * Identificateurs pour *l’objet AD* impliqué
 * Identificateurs pour *l’objet Azure AD* impliqué (le cas échéant)
 * Description de l’erreur et solution pour y remédier
-* Articles connexes
 
-![Détails du rapport d’erreurs de synchronisation](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+![Détails du rapport d’erreurs de synchronisation](./media/active-directory-aadconnect-health-sync/duplicateAttributeSyncError.png)
 
 ### <a name="download-the-error-report-as-csv"></a>Télécharger le rapport d’erreurs au format CSV
 Sélectionnez le bouton Exporter pour télécharger un fichier CSV contenant tous les détails sur l’ensemble des erreurs.
+
+### <a name="diagnose-and-remediate-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation 
+Dans le cas spécifique d’une erreur de synchronisation d’attribut en double impliquant la mise à jour d’une ancre source utilisateur, vous pouvez les résoudre directement à partir du portail. En savoir plus sur la façon de [Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 ## <a name="related-links"></a>Liens connexes
 * [Résolution des erreurs lors de la synchronisation](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)

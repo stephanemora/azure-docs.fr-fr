@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: b8d5a8d8725e2e9412cef7c377b17a77f34be27d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592505"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473646"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Ajouter des notifications Push à votre application Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -29,7 +29,7 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage r
 
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d’informations.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Terminez le [didacticiel de démarrage rapide Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md) .
 * Un appareil iOS physique. Les notifications Push ne sont pas prises en charge par le simulateur iOS.
 

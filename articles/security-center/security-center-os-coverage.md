@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 1bb0b61fe8a74edd35bb096fd295aedc67f6efb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756899"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335888"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plateformes prises en charge dans Azure Security Center
 La surveillance de l’état de la sécurité et des recommandations sont disponibles pour les machines virtuelles créées à l’aide des modèles de déploiement classique et Resource Manager, ainsi que des ordinateurs.
@@ -42,12 +42,14 @@ Systèmes d’exploitation Windows pris en charge :
 ## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plateformes prises en charge pour les ordinateurs et machines virtuelles Linux
 Systèmes d’exploitation Linux pris en charge :
 
-* Ubuntu versions 12.04, 14.04, 16.04, 16.10
-* Debian versions 7 et 8
-* CentOS versions 6.\* et 7.*
-* Red Hat Enterprise Linux (RHEL) versions 6.\* et 7.*
-* SUSE Linux Enterprise Server (SLES) versions 11 SP4+ et 12.*
-* Oracle Linux versions 6.\*, 7.*
+* Ubuntu versions 12.04 LTS, 14.04 LTS et 16.04 LTS
+* Debian versions 6, 7, 8 et 9
+* CentOS versions 5, 6 et 7
+* Red Hat Enterprise Linux (RHEL) versions 5, 6 et 7
+* SUSE Linux Enterprise Server (SLES) versions 11 et 12
+* Oracle Linux versions 5, 6 et 7
+* Amazon Linux entre 2012.09 et 2017
+* OpenSSL 1.1.0 n’est pris en charge que sur les plateformes x86_64 (64 bits)
 
 > [!NOTE]
 > L’analytique comportementale de machine virtuelle n’est pas encore disponible pour les systèmes d’exploitation Linux.

@@ -11,11 +11,11 @@ ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 916cedfb91f0711f136ff8ad679be94c68964619
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608931"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38301051"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Didacticiel : exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API Python
 
@@ -261,7 +261,7 @@ while datetime.datetime.now() < timeout_expiration:
 ...
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Après avoir exécuté les tâches, l’application supprime automatiquement le conteneur de stockage d’entrée créé et vous donne la possibilité de supprimer le travail et le pool Azure Batch. Les classes [JobOperations](/python/api/azure.batch.operations.joboperations) et [PoolOperations](/python/api/azure.batch.operations.pooloperations) de BatchServiceClient disposent toutes deux de méthodes de suppression, appelées si l’utilisateur confirme la suppression. Bien que vous ne soyez pas facturé pour les travaux et les tâches à proprement parler, les nœuds de calcul vous sont facturés. Par conséquent, nous vous conseillons d’affecter les pools uniquement en fonction des besoins. Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. Toutefois, les fichiers d’entrée et de sortie restent dans le compte de stockage.
 

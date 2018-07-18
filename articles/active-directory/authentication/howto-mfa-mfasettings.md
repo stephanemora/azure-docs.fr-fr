@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 509df5274a5e44342390036511689fa8f8146807
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf25ae5703a632005dd73820fc05347f7b5e16a6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869799"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097493"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -292,7 +292,7 @@ Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’applic
 
 Les utilisateurs peuvent créer des mots de passe d'application lors de leur inscription initiale. L’utilisateur a la possibilité de créer des mots de passe d’application à la fin du processus d’inscription.
 
-Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Les mots de passe d’applications sont modifiables dans les paramètres du portail Azure ou du portail Office 365. Pour plus d’informations et pour connaître les étapes détaillées pour vos utilisateurs, consultez [Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md).
+Les utilisateurs peuvent aussi créer des mots de passe d’application après l’inscription. Les mots de passe d’applications sont modifiables dans les paramètres du portail Azure ou du portail Office 365. Pour plus d’informations et pour connaître les étapes détaillées pour vos utilisateurs, consultez [Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?](end-user/current/multi-factor-authentication-end-user-app-passwords.md).
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## <a name="remember-multi-factor-authentication-for-trusted-devices"></a>Mémoriser Multi-Factor Authentication pour les appareils approuvés
@@ -301,7 +301,7 @@ La fonctionnalité _Mémoriser Multi-Factor Authentication_ pour les appareils e
 >[!IMPORTANT]
 >Si un appareil ou un compte est compromis, la mémorisation de Multi-Factor Authentication sur des appareils approuvés peut affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [restaurer Multi-Factor Authentication sur tous les appareils](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->L’action de restauration révoque le statut approuvé de tous les appareils et oblige l’utilisateur à procéder de nouveau à la vérification en deux étapes. Vous pouvez également demander à vos utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, en suivant les instructions détaillées dans l’article [Gérer les paramètres de la vérification en deux étapes](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+>L’action de restauration révoque le statut approuvé de tous les appareils et oblige l’utilisateur à procéder de nouveau à la vérification en deux étapes. Vous pouvez également demander à vos utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, en suivant les instructions détaillées dans l’article [Gérer les paramètres de la vérification en deux étapes](end-user/current/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >
 
 ### <a name="how-the-feature-works"></a>Principe de la fonctionnalité
@@ -341,7 +341,7 @@ Après avoir activé la fonctionnalité Mémoriser Multi-Factor Authentication, 
 
 Vous pouvez choisir les méthodes d’authentification disponibles pour vos utilisateurs, grâce à la fonctionnalité _Méthodes de vérification sélectionnables_. Le tableau ci-dessous présente brièvement chaque méthode.
 
-Lorsque vos utilisateurs inscrivent leurs comptes à Multi-Factor Authentication, ils choisissent leur méthode de vérification préférée parmi celles que vous avez activées. Vous trouverez de l’aide sur le processus d’inscription des utilisateurs dans [Configurer mon compte pour la vérification en deux étapes](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md).
+Lorsque vos utilisateurs inscrivent leurs comptes à Multi-Factor Authentication, ils choisissent leur méthode de vérification préférée parmi celles que vous avez activées. Vous trouverez de l’aide sur le processus d’inscription des utilisateurs dans [Configurer mon compte pour la vérification en deux étapes](end-user/current/multi-factor-authentication-end-user-first-time.md).
 
 | Méthode | Description |
 |:--- |:--- |

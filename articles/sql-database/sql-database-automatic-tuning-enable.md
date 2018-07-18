@@ -6,15 +6,15 @@ author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4d3b7f54c7393b57339ea149e8a79f97891dc20
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364469"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646029"
 ---
 # <a name="enable-automatic-tuning"></a>Activer le réglage automatique
 
@@ -24,36 +24,40 @@ Azure SQL Database est un service de données géré automatiquement qui surveil
 Au niveau du serveur, vous pouvez choisir d’hériter de la configuration du réglage automatique à partir de « Valeurs Azure par défaut » ou de ne pas hériter de la configuration. Les valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX désactivé.
 
 ### <a name="azure-portal"></a>Portail Azure
-Pour activer le réglage automatique sur le **serveur Azure** SQL Database, accédez au serveur dans le portail Azure, puis sélectionnez **Paramétrage automatique** dans le menu. Sélectionnez les options de réglage automatique que vous souhaitez activer et sélectionnez **Appliquer**.
+Pour activer le réglage automatique sur le **serveur** logique Azure SQL Database, accédez au serveur dans le portail Azure, puis sélectionnez **Paramétrage automatique** dans le menu.
 
 ![Serveur](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Notez que l’option **DROP_INDEX** à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index, et ne doit pas être activée dans ces cas.
+> Notez que l’option **DROP_INDEX** n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index, et ne doit pas être activée dans ces cas.
 >
 
-Les options de réglage automatique sur le serveur sont appliquées à toutes les bases de données du serveur. Par défaut, toutes les bases de données héritent de la configuration de leur serveur parent, mais celle-ci peut être remplacée et spécifiée individuellement pour chaque base de données.
+Sélectionnez les options de réglage automatique que vous souhaitez activer et sélectionnez **Appliquer**.
 
-### <a name="rest-api"></a>de l’API REST
+Les options de réglage automatique sur un serveur sont appliquées à toutes les bases de données de ce serveur. Par défaut, toutes les bases de données héritent de la configuration de leur serveur parent, mais celle-ci peut être remplacée et spécifiée individuellement pour chaque base de données.
+
+### <a name="rest-api"></a>API REST
 [Cliquez ici pour en savoir plus sur la façon d’activer le réglage automatique au niveau du serveur par le biais de l’API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Activer le réglage automatique sur une base de données individuelle
 
-Azure SQL Database vous permet de spécifier individuellement la configuration de réglage automatique de chaque base de données. Au niveau de la base de données, vous pouvez choisir d’hériter de la configuration du réglage automatique à partir du serveur parent ou de ne pas hériter de la configuration. Les Valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX déactivé.
+Azure SQL Database vous permet de spécifier individuellement la configuration de réglage automatique pour chaque base de données. Au niveau de la base de données, vous pouvez choisir d’hériter de la configuration du réglage automatique du serveur parent, des valeurs Azure par défaut ou de ne pas hériter de la configuration. Les valeurs Azure par défaut sont définies sur FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX désactivé.
 
 > [!NOTE]
-> Il est généralement recommandé de gérer la configuration du réglage automatique au niveau du serveur, afin que les mêmes paramètres de configuration soient appliqués automatiquement à chaque base de données. Configurez le réglage automatique au niveau d’une base de données si celle-ci est différente des autres sur le même serveur.
+> Il est généralement recommandé de gérer la configuration du réglage automatique au **niveau du serveur**, afin que les mêmes paramètres de configuration soient appliqués automatiquement à chaque base de données. Configurez le paramétrage automatique sur une base de données individuelle seulement si vous avez besoin que celle-ci ait des paramètres différents de ceux dont les autres ont hérité du même serveur.
 >
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour activer le réglage automatique sur **une seule base de données**, accédez à la base de données dans le portail Azure, puis sélectionnez **Paramétrage automatique**. Vous pouvez configurer une seule base de données de façon à ce qu’elle hérite des paramètres du serveur en sélectionnant l’option, ou vous pouvez spécifier individuellement la configuration d’une base de données.
+Pour activer le réglage automatique sur **une seule base de données**, accédez à la base de données dans le portail Azure et sélectionnez **Paramétrage automatique**.
+
+Des paramètres de réglage automatique individuels peuvent être configurés séparément pour chaque base de données. Vous pouvez configurer manuellement une option de réglage automatique individuelle ou spécifier qu’une option hérite de ses paramètres du serveur.
 
 ![Base de données](./media/sql-database-automatic-tuning-enable/database.png)
 
-Une fois que vous avez sélectionné la configuration appropriée, cliquez sur **Appliquer**.
+Notez que l’option DROP_INDEX n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index, et ne doit pas être activée dans ces cas.
 
-Notez que l’option DROP_INDEX à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index, et ne doit pas être activée dans ces cas.
+Une fois que vous avez sélectionné la configuration voulue, cliquez sur **Appliquer**.
 
 ### <a name="rest-api"></a>API REST
 [Cliquez ici pour en savoir plus sur la façon d’activer le réglage automatique sur une base de données par le biais de l’API REST](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).

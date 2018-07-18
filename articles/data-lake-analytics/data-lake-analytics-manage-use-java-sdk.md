@@ -1,30 +1,28 @@
 ---
-title: "Gestion d’Azure Data Lake Analytics à l’aide de Azure Java SDK | Microsoft Docs"
-description: "Utiliser le SDK Java Azure Data Lake Analytics pour développer des applications"
+title: Gérer Azure Data Lake Analytics à l’aide du SDK Azure pour Java
+description: Cet article explique comment utiliser le SDK Azure pour Java afin d’écrire des applications qui gèrent des travaux, des sources de données et des utilisateurs Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: 
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 8a0c1c7aab89f3bb62d0eb9f42e8ac65309d617e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
+ms.topic: conceptual
+ms.date: 06/18/2017
+ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624231"
 ---
-# <a name="manage--azure-data-lake-analytics-using-java-sdk"></a>Gestion d’Azure Data Lake Analytics à l’aide de Java SDK
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gérer Azure Data Lake Analytics à l’aide d’une application Java
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Dans ce didacticiel, vous développez une application de console Java qui exécute les opérations courantes pour Azure Data Lake.
+Cet article explique comment gérer des comptes, des sources de données, des utilisateurs et des travaux Azure Data Lake Analytics à l’aide d’une application écrite avec le SDK Azure pour Java. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 * **Kit de développement Java (JDK) 8** (à l’aide de Java version 1.8).
 * **IntelliJ** ou un autre environnement de développement Java approprié. Les instructions de ce document utilisent Intellij.
 * Création d’une application Azure Active Directory (AAD) et récupération de ses **ID client**, **ID de locataire** et **Clé**. Pour plus d’informations sur les applications AAD et pour savoir comment obtenir un ID client, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../azure-resource-manager/resource-group-create-service-principal-portal.md). L’URI de réponse et la Clé seront disponibles sur le portail une fois l’application créée et la clé générée.

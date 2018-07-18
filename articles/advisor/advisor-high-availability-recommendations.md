@@ -1,12 +1,12 @@
 ---
-title: "Recommandations du conseiller Azure en matière de haute disponibilité | Microsoft Docs"
-description: "Utilisez le conseiller Azure pour améliorer la haute disponibilité de vos déploiements Azure."
+title: Recommandations du conseiller Azure en matière de haute disponibilité | Microsoft Docs
+description: Utilisez le conseiller Azure pour améliorer la haute disponibilité de vos déploiements Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e1cd7948e1969cd4ddb926e428c09b559190a805
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 23764b476f01c30b1755c507a0cfa5ead27be91e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736549"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Recommandations du conseiller en matière de haute disponibilité
 
@@ -48,6 +49,9 @@ Si votre disque ne nécessite pas une valeur élevée d’E/S par seconde, vous 
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Protégez les données de vos machines virtuelles d’une suppression accidentelle
 La configuration de la sauvegarde de machine virtuelle permet de garantir la disponibilité de vos données métier stratégiques et offre une protection contre une suppression accidentelle ou un endommagement des données.  Advisor identifie les machines virtuelles sur lesquelles la sauvegarde n’est pas activée, et recommande l’activation de la sauvegarde. 
+
+## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Assurez-vous d’avoir accès à des experts du cloud Azure chaque fois que vous en avez besoin
+Lors de l’exécution d’une charge de travail critique, il est important d’avoir accès au support technique en cas de besoin. Advisor identifie les éventuels abonnements critiques dont le plan de support ne comprend aucun accès au support technique et recommande d’effectuer une mise à niveau pour choisir une option qui inclut le support technique.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de haute disponibilité dans le conseiller
 

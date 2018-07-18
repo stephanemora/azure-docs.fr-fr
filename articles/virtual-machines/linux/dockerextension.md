@@ -3,7 +3,7 @@ title: Utiliser l’extension de machine virtuelle Azure Docker | Microsoft Doc
 description: Découvrez comment utiliser l’extension de machine virtuelle Docker sur Azure pour déployer un environnement Docker rapidement et en toute sécurité dans Azure en utilisant des modèles Resource Manager et Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
-ms.author: iainfou
-ms.openlocfilehash: 1e5a4fcfd758c12213d6de7d0f5cfcc78531ee97
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: 44c307a5f21937cd2a3ef345fd4573c67efdaf59
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240906"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928616"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Création d’un environnement Docker dans Azure à l’aide de l’extension Docker VM
-Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux. Dans Azure, il existe différentes méthodes pour déployer Docker selon vos besoins. Cet article se concentre sur l’utilisation de l’extension de machine virtuelle Docker et des modèles Azure Resource Manager avec Azure CLI 2.0. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](dockerextension-nodejs.md).
+Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux. Dans Azure, il existe différentes méthodes pour déployer Docker selon vos besoins. Cet article se concentre sur l’utilisation de l’extension de machine virtuelle Docker et des modèles Azure Resource Manager avec Azure CLI 2.0. 
 
 > [!WARNING]
 > L’extension de machine virtuelle Azure Docker pour Linux est déconseillée et sera mise hors service en novembre 2018.

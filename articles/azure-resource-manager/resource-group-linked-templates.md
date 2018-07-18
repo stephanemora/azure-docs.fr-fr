@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b01df5d89784c9982ebbf2351ae61a5d9f79aee8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359439"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602813"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
-Pour déployer votre solution, vous pouvez utiliser un modèle unique ou un modèle principal avec plusieurs modèles associés. Le modèle associé peut être un fichier distinct lié à partir du modèle principal, ou un modèle imbriqué dans le modèle principal.
+Pour déployer votre solution, vous pouvez utiliser un modèle unique ou un modèle principal avec de nombreux modèles associés. Le modèle associé peut être un fichier distinct lié à partir du modèle principal, ou un modèle imbriqué dans le modèle principal.
 
-Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un seul fichier. Pour les scénarios avancés, les modèles liés vous permettent de diviser la solution en composants ciblés et de réutiliser des modèles.
+Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour les scénarios avancés, les modèles liés vous permettent de diviser la solution en composants ciblés et de réutiliser des modèles.
 
 Lorsque vous utilisez un modèle lié, vous créez un modèle principal qui reçoit les valeurs de paramètre au cours du déploiement. Le modèle principal contient tous les modèles liés et transmet des valeurs à ces modèles en fonction des besoins.
 
@@ -86,6 +86,8 @@ Pour imbriquer le modèle dans le modèle principal, utilisez la propriété **t
 >
 > Vous ne pouvez pas utiliser la fonction `reference` dans la section outputs d’un modèle imbriqué. Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
 
+Le modèle imbriqué nécessite les [mêmes propriétés](resource-group-authoring-templates.md) qu’un modèle standard.
+
 ### <a name="external-template-and-external-parameters"></a>Modèle externe et paramètres externes
 
 Pour établir un lien à un modèle externe et un fichier de paramètres, utilisez **templateLink** et **parametersLink**. Quand vous établissez un lien à un modèle, le service Resource Manager doit être en mesure d’y accéder. Vous ne pouvez pas spécifier un fichier local ni un fichier uniquement disponible sur votre réseau local. Vous pouvez seulement fournir une valeur URI qui inclut soit **http** soit **https**. Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l’URI de cet élément.
@@ -110,6 +112,8 @@ Pour établir un lien à un modèle externe et un fichier de paramètres, utilis
   }
 ]
 ```
+
+Vous ne devez pas fournir la propriété `contentVersion` pour le modèle ou les paramètres. Si vous ne fournissez pas une valeur de version du contenu, la version actuelle du modèle est déployée. Si vous fournissez une valeur pour la version du contenu, elle doit correspondre à la version du modèle lié ; sinon, le déploiement échoue avec une erreur.
 
 ### <a name="external-template-and-inline-parameters"></a>Modèle externe et paramètres inclus
 
@@ -137,7 +141,7 @@ Ou bien, vous pouvez fournir le paramètre inclus. Pour passer une valeur du mod
 
 ## <a name="using-variables-to-link-templates"></a>Utilisation de variables pour lier des modèles
 
-Les exemples précédents représentaient des valeurs d’URL codées en dur pour les liens de modèle. Cette approche peut s’avérer efficace avec un modèle isolé, mais elle est incompatible avec le traitement d’un large ensemble des modèles modulaires. Au lieu de cela, vous pouvez créer une variable statique qui stocke une URL de base pour le modèle principal, avant de créer dynamiquement les URL pour les modèles liés à partir de cette URL de base. Cette approche permet notamment de déplacer ou de répliquer facilement le modèle. En effet, il vous suffit de modifier la variable statique dans le modèle principal. Le modèle principal transmet les URI appropriés au modèle décomposé.
+Les exemples précédents représentaient des valeurs d’URL codées en dur pour les liens de modèle. Cette approche peut fonctionner pour un modèle simple, mais elle ne fonctionne pas bien pour un grand ensemble de modèles modulaires. Au lieu de cela, vous pouvez créer une variable statique qui stocke une URL de base pour le modèle principal, avant de créer dynamiquement les URL pour les modèles liés à partir de cette URL de base. Cette approche permet notamment de déplacer ou de répliquer facilement le modèle. En effet, il vous suffit de modifier la variable statique dans le modèle principal. Le modèle principal transmet les URI appropriés au modèle décomposé.
 
 L’exemple suivant indique comment utiliser une URL de base afin de créer deux URL pour des modèles liés (**sharedTemplateUrl** et **vmTemplate**).
 
@@ -149,7 +153,7 @@ L’exemple suivant indique comment utiliser une URL de base afin de créer deux
 }
 ```
 
-Vous pouvez également utiliser [deployment()](resource-group-template-functions-deployment.md#deployment) pour obtenir l’URL de base pour le modèle actuel, qui permet d’obtenir l’URL d’autres modèles dans le même emplacement. Cette approche est utile si l’emplacement des modèles change (à cause des versions notamment) ou si vous voulez éviter de coder en dur les URL dans le fichier de modèle. La propriété templateLink n’est renvoyée qu’en cas de liaison à un modèle distant avec une URL. Si vous utilisez un modèle local, elle n’est pas disponible.
+Vous pouvez également utiliser [deployment()](resource-group-template-functions-deployment.md#deployment) pour obtenir l’URL de base pour le modèle actuel, qui permet d’obtenir l’URL d’autres modèles dans le même emplacement. Cette approche est pratique si l’emplacement des modèles change ou si vous voulez éviter de coder en dur les URL dans le fichier du modèle. La propriété templateLink n’est renvoyée qu’en cas de liaison à un modèle distant avec une URL. Si vous utilisez un modèle local, cette propriété n’est pas disponible.
 
 ```json
 "variables": {
@@ -415,7 +419,7 @@ done
 
 ## <a name="securing-an-external-template"></a>Sécurisation d’un modèle externe
 
-Bien que le modèle lié doive être disponible en externe, il n’a pas besoin d’être accessible au public. Vous pouvez ajouter votre modèle dans un compte de stockage privé, uniquement accessible au propriétaire du compte de stockage. Ensuite, vous créez un jeton de signature d’accès partagé (SAP) pour autoriser l’accès en cours de déploiement. Vous ajoutez ce jeton SAP à l’URI pour le modèle lié. Même si le jeton est transmis sous forme de chaîne sécurisée, l’URI du modèle lié, y compris le jeton SAP, est enregistré dans les opérations de déploiement. Pour limiter l’exposition, définissez un délai d’expiration pour le jeton.
+Même si le modèle lié doit être disponible en externe, il n’a pas besoin d’être accessible au public. Vous pouvez ajouter votre modèle dans un compte de stockage privé, uniquement accessible au propriétaire du compte de stockage. Ensuite, vous créez un jeton de signature d’accès partagé (SAP) pour autoriser l’accès en cours de déploiement. Vous ajoutez ce jeton SAP à l’URI pour le modèle lié. Même si le jeton est transmis sous forme de chaîne sécurisée, l’URI du modèle lié, y compris le jeton SAP, est enregistré dans les opérations de déploiement. Pour limiter l’exposition, définissez un délai d’expiration pour le jeton.
 
 Le fichier de paramètres peut également être limité à l’accès avec un jeton SAP.
 

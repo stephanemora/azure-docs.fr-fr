@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 1df3e188b71b8fa2d5223bad8bc5914513e26286
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/02/2018
 ms.locfileid: "34371199"
 ---
 ## <a name="create-a-device-identity"></a>Création d’une identité d’appareil

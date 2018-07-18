@@ -3,16 +3,17 @@ title: Montée en charge d’Azure Analysis Services | Microsoft Docs
 description: Répliquer les serveurs Azure Analysis Services avec montée en charge
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445018"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -33,6 +34,22 @@ Quand les opérations de traitement sont terminées, une synchronisation doit ê
 
 > [!NOTE]
 > La montée en charge n’augmente pas la quantité de mémoire disponible pour votre serveur. Pour augmenter la mémoire, vous devez passer à un forfait supérieur.
+
+## <a name="region-limits"></a>Limites de région
+
+Le nombre de réplicas de requête que vous pouvez configurer est limité par la région de votre serveur. Les limites suivantes s’appliquent :
+
+|Région  |Nombre maximum de réplicas  |
+|---------|---------|
+|Est des États-Unis 2    |    7     |
+|Centre-Ouest des États-Unis     |    7     |
+|Europe de l'Ouest     |    7     |
+|États-Unis de l’Ouest     |     7    |
+|Centre des États-Unis     |     3    |
+|Asie du Sud-Est    |     3    |
+|Toutes les autres régions  |   1    |
+
+
 
 ## <a name="monitor-qpu-usage"></a>Surveiller l’utilisation des unités de traitement des requêtes
 

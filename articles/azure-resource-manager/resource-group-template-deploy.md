@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
 ms.openlocfilehash: 714f5f2d4aa1635da8aa62139be5c80e7761ae27
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602888"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38486738"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
@@ -86,7 +86,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Déployer sur plus d’un groupe de ressources ou abonnement
 
-En général, vous déployez toutes les ressources dans votre modèle sur un seul groupe de ressources. Toutefois, il existe des scénarios dans lesquels vous pouvez souhaiter déployer simultanément un ensemble de ressources à placer dans des groupes de ressources ou des abonnements différents. Vous ne pouvez pas déployer sur plus de cinq groupes de ressources dans un déploiement. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](resource-manager-cross-resource-group-deployment.md).
+En général, vous déployez toutes les ressources dans votre modèle sur un seul groupe de ressources. Toutefois, il existe des scénarios dans lesquels vous pouvez souhaitez déployer un ensemble de ressources, tout en les plaçant dans différents groupes de ressources ou abonnements. Vous ne pouvez pas déployer sur plus de cinq groupes de ressources dans un déploiement. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](resource-manager-cross-resource-group-deployment.md).
 
 <a id="parameter-file" />
 
@@ -128,13 +128,13 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 
 Vous pouvez utiliser des paramètres inline et un fichier de paramètres local pendant la même opération de déploiement. Par exemple, vous pouvez spécifier certaines valeurs dans le fichier de paramètres local et ajouter d’autres valeurs inline pendant le déploiement. Si vous fournissez des valeurs pour un paramètre à la fois dans le fichier de paramètres local et inline, la valeur inline est prioritaire.
 
-Cependant, lorsque vous utilisez un fichier de paramètres externe, vous ne pouvez pas passer d’autres valeurs inline ou tirées d’un fichier local. Lorsque vous spécifiez un fichier de paramètres dans le paramètre **TemplateParameterUri**, tous les paramètres inline sont ignorés. Fournissez toutes les valeurs de paramètre dans le fichier externe. Si votre modèle inclut une valeur sensible que vous ne pouvez pas inclure dans le fichier de paramètres, ajoutez cette valeur dans un coffre de clés, ou fournissez de manière dynamique toutes des valeurs de paramètre inline.
+Cependant, lorsque vous utilisez un fichier de paramètres externe, vous ne pouvez pas transmettre d’autres valeurs inline ou tirées d’un fichier local. Lorsque vous spécifiez un fichier de paramètres dans le paramètre **TemplateParameterUri**, tous les paramètres inline sont ignorés. Fournissez toutes les valeurs de paramètre dans le fichier externe. Si votre modèle inclut une valeur sensible que vous ne pouvez pas inclure dans le fichier de paramètres, ajoutez cette valeur dans un coffre de clés, ou fournissez de manière dynamique toutes des valeurs de paramètre inline.
 
 Si votre modèle inclut un paramètre utilisant le même nom que l’un des paramètres dans la commande PowerShell, PowerShell présente le paramètre de votre modèle avec le suffixe **FromTemplate**. Par exemple, un paramètre nommé **ResourceGroupName** dans votre modèle est en conflit avec le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**. En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
 
 ## <a name="test-a-template-deployment"></a>Tester le déploiement d’un modèle
 
-Pour tester votre modèle et vos valeur de paramètre sans réellement déployer toutes les ressources, utilisez [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
+Pour tester votre modèle et vos valeurs de paramètre sans réellement déployer toutes les ressources, utilisez [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment).  
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `

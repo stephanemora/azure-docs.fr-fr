@@ -14,11 +14,11 @@ ms.date: 01/25/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 95b806eaabaf0ba93b1e8b6823340e82842b0f1c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202046"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38591383"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Azure PowerShell
 
@@ -210,7 +210,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 Quand vous actualisez le navigateur, vous devez voir apparaître le nom de l’autre machine virtuelle.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Explorez d’abord les ressources qui ont été créées avec la passerelle d’application puis, quand vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources, la passerelle d’application et toutes les ressources associées.
 

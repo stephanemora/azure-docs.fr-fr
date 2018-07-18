@@ -1,5 +1,5 @@
 ---
-title: Accéder à un laboratoire personnalisé dans Azure DevTest Labs | Microsoft Docs
+title: Accéder à un laboratoire dans Azure DevTest Labs | Microsoft Docs
 description: Dans ce didacticiel, vous accédez au laboratoire créé à l’aide d’Azure DevTest Labs, revendiquez des machines virtuelles, vous les utilisez, puis vous cessez de les revendiquer.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: be4bde6bd320e8af7cd3119ff4ccdabd942963ca
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361836"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638022"
 ---
-# <a name="tutorial-access-a-custom-lab-in-azure-devtest-labs"></a>Didacticiel : accéder à un laboratoire personnalisé dans Azure DevTest Labs
-Dans ce didacticiel, vous utilisez le laboratoire personnalisé créé dans le [didacticiel : création d’un atelier personnalisé](tutorial-create-custom-lab.md).
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Didacticiel : accéder à un laboratoire dans Azure DevTest Labs
+Dans ce didacticiel, vous utilisez le laboratoire créé dans le [didacticiel : créer un laboratoire dans Azure DevTest Labs](tutorial-create-custom-lab.md).
 
-Dans ce didacticiel, vous effectuez les actions suivantes :
+Dans ce didacticiel, vous allez effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Revendiquer une machine virtuelle dans un laboratoire personnalisé
+> * Revendiquer une machine virtuelle dans le laboratoire
 > * Connexion à la machine virtuelle
 > * Cesser de revendiquer la machine virtuelle
 
@@ -70,8 +70,8 @@ Une fois que vous avez fini d’utiliser la machine virtuelle, cessez de la reve
 1. Une fois l’opération de fin de revendication terminée, vous voyez la machine virtuelle dans la liste des **machines virtuelles pouvant être réclamées** en bas. 
     
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment accéder et utiliser un laboratoire personnalisé créé à l’aide d’Azure DevTest Labs. Pour plus d’informations sur l’accès et l’utilisation des machines virtuelles dans un laboratoire personnalisé, consultez 
+Ce didacticiel vous a montré comment accéder à et utiliser un laboratoire créé à l’aide d’Azure DevTest Labs. Pour plus d’informations sur l’accès et l’utilisation de machines virtuelles dans un laboratoire personnalisé, consultez 
 
 > [!div class="nextstepaction"]
-> [Procédure : utiliser des machines virtuelles dans un laboratoire personnalisé](devtest-lab-add-vm.md)
+> [Procédure : utiliser des machines virtuelles dans un laboratoire](devtest-lab-add-vm.md)
 

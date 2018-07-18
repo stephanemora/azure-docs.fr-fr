@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 82a3ebcf4d208b550a792deddba5ce214105af13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4d0b5d5ba429dc5d839fa054476461f96a52143
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632745"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030731"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Vue d’ensemble de la gestion des appareils avec IoT Hub
 
@@ -51,16 +51,16 @@ Dans chacune de ces cinq étapes, il existe plusieurs conditions destinées à l
 
 * **Planification** : permettre aux opérateurs de créer un schéma de métadonnées d’appareils afin qu’ils puissent facilement et précisément rechercher et cibler un groupe d’appareils pour les opérations de gestion en bloc. Vous pouvez utiliser la représentation physique d’appareil pour stocker les métadonnées de cet appareil sous la forme d’étiquettes et de propriétés.
   
-    *Ressources supplémentaires* : [Prise en main des représentations d’appareils][lnk-twins-getstarted], [Comprendre les représentations d’appareils][lnk-twins-devguide], [Utilisation des propriétés des représentations][lnk-twin-properties].
+    *Pour aller plus loin* : [Bien démarrer avec les jumeaux d’appareil][lnk-twins-getstarted], [Comprendre les jumeaux d’appareil][lnk-twins-devguide], [Guide pratique pour utiliser les propriétés de jumeau d’appareil][lnk-twin-properties], [Bonnes pratiques en matière de configuration d’appareil dans une solution IoT][lnk-adm-best-practices].
 * **Approvisionnement** : approvisionner les nouveaux appareils en toute sécurité auprès d’IoT Hub et permettre aux opérateurs de détecter immédiatement les fonctionnalités des appareils.  Utilisez le registre des identités IoT Hub pour créer des informations d’identification et des identités d’appareils flexibles et effectuez cette opération en bloc à l’aide d’un travail. Créez les appareils afin qu’ils signalent leurs fonctionnalités et leur condition via les propriétés de l’appareil dans la représentation d’appareil.
   
-    *Ressources supplémentaires* : [Gérer les identités des appareils][lnk-identity-registry], [Gestion en bloc des identités d’appareils][lnk-bulk-identity], [Comment : Utiliser des propriétés de jumeau d’appareil][lnk-twin-properties], [Service d’approvisionnement d’appareils IoT Hub Azure][lnk-dps].
+    *Pour aller plus loin* : [Gérer les identités des appareils][lnk-identity-registry], [Gestion en bloc des identités d’appareils][lnk-bulk-identity], [Guide pratique pour utiliser les propriétés de jumeau d’appareil][lnk-twin-properties], [Bonnes pratiques en matière de configuration d’appareil dans une solution IoT][lnk-adm-best-practices], [Service Azure IoT Hub Device Provisioning][lnk-dps].
 * **Configuration** : rendre possibles les modifications de configuration et les mises à jour de microprogramme en bloc sur les appareils, tout en assurant intégrité et sécurité. Effectuez ces opérations de gestion d’appareils en bloc à l’aide des propriétés requises ou de méthodes directes et de travaux de diffusion.
   
-    *Ressources supplémentaires* :  [Utiliser des méthodes directes][lnk-c2d-methods], [Appeler des méthodes directes sur un appareil][lnk-methods-devguide], [Utilisation des propriétés des représentations][lnk-twin-properties], [Planifier et diffuser des travaux][lnk-jobs], [Planifier des travaux sur plusieurs appareils][lnk-jobs-devguide].
+    *Pour aller plus loin* : [Guide pratique pour utiliser les propriétés de jumeau d’appareil][lnk-twin-properties], [Configurer et surveiller des appareils IoT à grande échelle][lnk-adm-how-to], [Bonnes pratiques en matière de configuration d’appareil dans une solution IoT][lnk-adm-best-practices].
 * **Surveillance** : surveiller l’intégrité globale de la collection d’appareils, l’état des opérations en cours et avertir les opérateurs des problèmes susceptibles de nécessiter leur attention.  Appliquez la représentation physique d’appareil pour autoriser les appareils à signaler des conditions de fonctionnement en temps réel et l’état des opérations de mise à jour. Créez des rapports de tableau de bord puissants qui font remonter les problèmes les plus immédiats à l’aide de requêtes sur la représentation physique d’appareil.
   
-    *Ressources supplémentaires* : [Utilisation des propriétés souhaitées pour configurer des appareils (Node)][lnk-twin-properties], [Référence - Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-query-language].
+    *Pour aller plus loin* : [Guide pratique pour utiliser les propriétés de jumeau d’appareil][lnk-twin-properties], [Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query-language], [Configurer et surveiller des appareils IoT à grande échelle][lnk-adm-how-to], [Bonnes pratiques en matière de configuration d’appareil dans une solution IoT][lnk-adm-best-practices].
 * **Mise hors service** : remplacer ou retirer des appareils après une défaillance, un cycle de mise à niveau ou à la fin de leur durée de vie.  Utilisez la représentation d’appareil pour conserver les informations sur l’appareil si l’appareil physique est remplacé ou archivé en cas de mise hors service. Utilisez le registre des identités IoT Hub pour la révocation en toute sécurité des informations d’identification et des identités des appareils.
   
     *Ressources supplémentaires* : [Utilisation des propriétés des représentations][lnk-twin-properties], [Gérer les identités des appareils][lnk-identity-registry].
@@ -77,7 +77,7 @@ IoT Hub permet de mettre en œuvre l’ensemble suivant de modèles de gestion d
 * **Configuration** : l’application principale utilise les propriétés souhaitées pour configurer le logiciel en cours d’exécution sur l’appareil.  L’appareil utilise les propriétés signalées pour mettre à jour l’état de configuration de l’appareil.
   
     ![Graphique du modèle de configuration de la gestion des appareils][img-config_pattern]
-* **Mise à jour du microprogramme** : l’application principale informe l’appareil par le biais d’une méthode directe qu’une mise à jour du microprogramme a été lancée.  L’appareil met en œuvre un processus en plusieurs étapes pour télécharger l’image du microprogramme, appliquer cette image et enfin se reconnecter au service IoT Hub.  Tout au long de ce processus en plusieurs étapes, l’appareil utilise les propriétés signalées pour mettre à jour la progression et l’état de l’appareil.
+* **Mise à jour du microprogramme** : L’application backend utilise une configuration de gestion automatique des appareils pour sélectionner les appareils qui doivent recevoir la mise à jour, pour indiquer aux appareils où rechercher la mise à jour et pour surveiller le processus de mise à jour. L’appareil met en œuvre un processus en plusieurs étapes pour télécharger, vérifier et appliquer l’image du microprogramme, puis redémarre avant de se reconnecter au service IoT Hub.  Tout au long de ce processus en plusieurs étapes, l’appareil utilise les propriétés signalées pour mettre à jour la progression et l’état de l’appareil.
   
     ![Graphique du modèle de mise à jour du microprogramme de la gestion des appareils][img-fwupdate_pattern]
 * **Signalement de la progression et de l’état** : le serveur principal de solution exécute des requêtes de représentation d’appareil sur un ensemble d’appareils afin de rendre compte de l’état et de la progression des actions en cours d’exécution sur les appareils.
@@ -111,3 +111,5 @@ Pour plus d’informations sur les fonctionnalités de gestion des appareils dan
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+[lnk-adm-best-practices]: iot-hub-configuration-best-practices.md
+[lnk-adm-how-to]: iot-hub-auto-device-config.md

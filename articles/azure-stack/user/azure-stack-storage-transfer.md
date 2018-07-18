@@ -1,25 +1,24 @@
 ---
-title: Outils du stockage Azure Stack
+title: Outils pour le stockage Azure Stack | Microsoft Docs
 description: En savoir plus sur les outils de transfert de données du stockage Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/25/2018
+ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a148f8089dd104933e6ba95f573182e0c1a32ae5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 1adfd5dc21a7cab207fa14eeecc21d02507277f8
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257952"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444134"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utiliser des outils de transfert de données pour le stockage Azure Stack
 
@@ -45,7 +44,11 @@ Vos exigences déterminent lequel des outils suivants est le mieux pour vous :
 
     Application autonome, facile à utiliser, avec une interface utilisateur.
 
-En raison des différences des services de stockage Azure et Azure Stack, chaque outil décrit dans les sections suivantes peut avoir des exigences spécifiques. Pour une comparaison entre le stockage Azure et le stockage Azure Stack, consultez [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
+* [Blobfuse ](#blobfuse)
+
+    Un pilote de système de fichiers virtuel pour Stockage Blob Azure, qui vous permet d’accéder à vos données blob de blocs dans votre compte de stockage via le système de fichiers Linux. 
+
+En raison des différences des services de stockage Azure et Azure Stack, chaque outil décrit dans les sections suivantes peut avoir des exigences spécifiques. Pour une comparaison entre le stockage Azure et le stockage Azure Stack, consultez [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
 
 ## <a name="azcopy"></a>AzCopy
 
@@ -151,7 +154,7 @@ Cet exemple suppose que vous avez [installé PowerShell pour Azure Stack](azure-
    > [!NOTE]
    > Ce script doit être exécuté dans le répertoire racine pour **AzureStack_Tools**.
 
-```PowerShell
+```PowerShell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
@@ -214,7 +217,7 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-```
+````
 
 ### <a name="powershell-known-issues"></a>Problèmes connus de PowerShell
 
@@ -223,12 +226,12 @@ La version actuelle du module Azure PowerShell compatible avec Azure Stack est 1
 * Le format de la valeur de retour de `Get-AzureRmStorageAccountKey` dans la version 1.3.0 a deux propriétés : `Key1` et `Key2`, alors que la version actuelle d’Azure retourne un tableau contenant toutes les clés de compte.
 
    ```
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.3.2, and previous versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Key1
@@ -243,11 +246,11 @@ L’interface de ligne de commande Azure (Azure CLI) est l’expérience de lign
 
 Azure CLI est optimisé pour la gestion et l’administration des ressources Azure à partir de la ligne de commande, et pour la création de scripts d’automatisation qui opèrent sur Azure Resource Manager. Elle offre de nombreuses fonctionnalités similaires à celles du portail Azure Stack, notamment l’accès étendu aux données.
 
-Azure Stack nécessite la version 2.0 d’Azure CLI. Pour plus d’informations sur l’installation et la configuration d’Azure CLI avec Azure Stack, consultez [Installer et configurer Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Pour plus d’informations sur l’utilisation d’Azure CLI 2.0 pour effectuer plusieurs tâches en utilisant des ressources dans votre compte de stockage Azure Stack, consultez [Utilisation d’Azure CLI 2.0 avec le stockage Azure](../../storage/storage-azure-cli.md)
+Azure Stack nécessite la version 2.0 d’Azure CLI. Pour plus d’informations sur l’installation et la configuration d’Azure CLI avec Azure Stack, consultez [Installer et configurer Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Pour plus d’informations sur l’utilisation d’Azure CLI 2.0 pour effectuer plusieurs tâches en utilisant des ressources dans votre compte de stockage Azure Stack, consultez [Utilisation d’Azure CLI 2.0 avec le stockage Azure](../../storage/storage-azure-cli.md).
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Exemple de script Azure CLI pour Azure Stack
 
-Une fois que vous avez terminé l’installation et la configuration de l’interface CLI, vous pouvez essayer les étapes suivantes pour utiliser un petit exemple de script shell afin d’interagir avec les ressources de stockage Azure Stack. Le script complète les actions suivantes :
+Une fois que vous avez terminé l’installation et la configuration de l’interface CLI, vous pouvez essayer les étapes suivantes pour utiliser un petit exemple de script shell afin d’interagir avec les ressources de stockage Azure Stack. Le script complète les actions suivantes :
 
 * Crée un nouveau conteneur dans votre compte de stockage.
 * Télécharge un fichier existant (comme un objet blob) sur le conteneur.
@@ -264,7 +267,7 @@ Avant d’exécuter ce script, vérifiez que vous pouvez vous connecter au Azure
 
 ```bash
 #!/bin/bash
-# A simple Azure Stack Storage example script
+# A simple Azure Stack storage example script
 
 export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
@@ -293,17 +296,46 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
+````
+
+## <a name="microsoft-azure-storage-explorer"></a>Explorateur de stockage Microsoft Azure
+
+L’Explorateur de stockage Microsoft Azure est une application autonome de Microsoft. Cet outil vous permet d’utiliser facilement des données du stockage Azure et du stockage Azure Stack sur des ordinateurs Windows, macOS et Linux. Si vous voulez un moyen simple de gérer les données de votre stockage Azure Stack, utilisez l’Explorateur de stockage Microsoft Azure.
+
+* Pour en savoir plus sur la configuration de l’Explorateur de stockage Azure afin d’utiliser Azure Stack, consultez la rubrique [Connecter l’Explorateur de stockage à un abonnement Azure Stack](azure-stack-storage-connect-se.md).
+* Pour en savoir sur l’Explorateur de stockage Microsoft Azure, consultez la rubrique [Bien démarrer avec l’Explorateur de stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+
+## <a name="blobfuse"></a>Blobfuse 
+
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) est un pilote de système de fichiers virtuel pour le Stockage Blob Azure, qui vous permet d’accéder à vos données blob de blocs dans votre compte de stockage via le système de fichiers Linux. Le Stockage Blob Azure est un service de stockage d’objets qui n’a pas d’espace de noms hiérarchique. Blobfuse fournit cet espace de noms en utilisant le schéma de répertoire virtuel avec la barre oblique `/` comme délimiteur. Blobfuse fonctionne à la fois sur Azure et sur Azure Stack. 
+
+Pour plus d’informations sur le montage du stockage Blob en tant que système de fichiers avec Blobfuse sur Linux, consultez [Guide pratique pour monter le stockage Blob en tant que système de fichiers avec Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
+
+Pour Azure Stack, **blobEndpoint** doit être spécifié en plus de accountName, accountKey/sasToken et containerName lors de la configuration de vos informations d’identification du compte de stockage à l’étape de préparation pour le montage. 
+
+Dans le Kit de développement Azure Stack, blobEndpoint doit être `myaccount.blob.local.azurestack.external`. Pour le système intégré Azure Stack, contactez votre administrateur cloud si vous n’êtes pas sûr de votre point de terminaison. 
+
+Notez que vous ne pouvez pas configurer à la fois accountKey et sasToken. Quand la clé du compte de stockage est spécifiée, le fichier de configuration des informations d’identification est au format suivant : 
+
+```text  
+    accountName myaccount 
+    accountKey myaccesskey== 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
-## <a name="microsoft-azure-storage-explorer"></a>Explorateur Stockage Microsoft Azure
+Quand le jeton d’accès partagé est spécifié, le fichier de configuration des informations d’identification est au format suivant :
 
-L’Explorateur Stockage Microsoft Azure est une application autonome de Microsoft. Cet outil vous permet d’utiliser facilement des données du stockage Azure et du stockage Azure Stack sur des ordinateurs Windows, macOS et Linux. Si vous voulez un moyen simple de gérer les données de votre stockage Azure Stack, utilisez l’Explorateur Stockage Microsoft Azure.
-
-* Pour en savoir plus sur la configuration de l’Explorateur Stockage Azure afin d’utiliser Azure Stack, consultez [Connecter l’Explorateur Stockage à un abonnement Azure Stack](azure-stack-storage-connect-se.md).
-* Pour en savoir sur l’Explorateur Stockage Microsoft Azure, consultez [Bien démarrer avec l’Explorateur Stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+```text  
+    accountName myaccount 
+    sasToken ?mysastoken 
+    containerName mycontainer 
+    blobEndpoint myaccount.blob.local.azurestack.external
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Connecter l’Explorateur Stockage à un abonnement Azure Stack](azure-stack-storage-connect-se.md)
-* [Prise en main de l’Explorateur Stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+
+* [Connecter l’Explorateur de stockage à un abonnement Azure Stack](azure-stack-storage-connect-se.md)
+* [Prise en main de l’Explorateur de stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Stockage Azure : Différences et considérations](azure-stack-acs-differences.md)
-* [Introduction à Stockage Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introduction au stockage Microsoft Azure](../../storage/common/storage-introduction.md)

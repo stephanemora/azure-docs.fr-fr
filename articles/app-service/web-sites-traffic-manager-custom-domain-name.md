@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
-ms.locfileid: "27713849"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317388"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -68,7 +68,7 @@ Quand vous avez terminé l’ajout ou la modification des enregistrements DNS au
 ## <a name="enable-traffic-manager"></a>Activation de Traffic Manager
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]

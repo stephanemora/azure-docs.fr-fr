@@ -15,10 +15,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
 ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
+ms.lasthandoff: 07/03/2018
 ms.locfileid: "34806834"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Utiliser des profils de version des API avec Python dans Azure Stack
@@ -46,7 +46,6 @@ Le Kit de développement logiciel (SDK) Python prend en charge les profils de ve
 5.  Vérifiez que votre principal de service a le rôle de contributeur/propriétaire sur votre abonnement. Pour obtenir des instructions sur l’attribution de rôle au principal du service, consultez [Fournir l’accès des applications à Azure Stack](../azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour pouvoir utiliser le Kit de développement logiciel (SDK) Azure pour Python avec Azure Stack, vous devez fournir les valeurs suivantes et définir les valeurs avec des variables d’environnement. Consultez les instructions après le tableau pour définir les variables d’environnement en fonction de votre système d’exploitation. 
 

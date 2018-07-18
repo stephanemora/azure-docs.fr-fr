@@ -17,11 +17,11 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 68656db0b76a29e7ab36fd6fa9ad4647712233ee
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525130"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696581"
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell
 
@@ -175,7 +175,7 @@ Après avoir apporté les modifications nécessaires, exécutez le script préc�
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Définir des adresses IP au sein du système d’exploitation
 
-Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle. Il est recommandé de ne pas statiquement assigner l’IP privée assignée à la machine virtuelle Azure au sein du système d’exploitation d’une machine virtuelle, sauf si nécessaire, par exemple lorsque [vous assignez plusieurs d’adresses IP à une machine virtuelle Windows](virtual-network-multiple-ip-addresses-powershell.md). Si vous définissez manuellement l’adresse IP privée dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [adresse IP privée](virtual-network-network-interface-addresses.md#private).
+Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle. Il est recommandé de ne pas assigner statiquement l’IP privée assignée à la machine virtuelle Azure au sein du système d’exploitation d’une machine virtuelle, sauf si nécessaire, par exemple lorsque [vous assignez plusieurs d’adresses IP à une machine virtuelle Windows](virtual-network-multiple-ip-addresses-powershell.md). Si vous définissez manuellement l’adresse IP privée dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure, ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,27 +1,31 @@
 ---
-title: "Configurer le protocole LDAPS (LDAP sécurisé) dans les services de domaine Azure AD | Microsoft Docs"
-description: "Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine géré par les services de domaine Azure AD"
+title: Configurer le protocole LDAPS (LDAP sécurisé) dans les services de domaine Azure AD | Microsoft Docs
+description: Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine géré par les services de domaine Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a5345722005cc22ed7f89480c5aba51fd68cbf61
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335653"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine managé Azure AD Domain Services
 Cet article explique comment activer le protocole LDAPS pour votre domaine géré par les services de domaine Azure Active Directory. Le protocole LDAP sécurisé est également appelé « protocole LDAP sur SSL (Secure Sockets Layer) / TLS (Transport Layer Security) ».
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour exécuter les tâches indiquées dans cet article, vous avez besoin des éléments suivants :
@@ -82,13 +86,12 @@ New-SelfSignedCertificate -Subject *.contoso100.com `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
-Dans l’exemple ci-dessus, remplacez « *.contoso100.com » par le nom de domaine DNS de votre domaine managé. Par exemple, si vous avez créé un domaine managé nommé « contoso100.onmicrosoft.com », remplacez «* .contoso100.com » dans le script précédent par « *.contoso100.onmicrosoft.com ».
+Dans l’exemple ci-dessus, remplacez «  *.contoso100.com » par le nom de domaine DNS de votre domaine managé. Par exemple, si vous avez créé un domaine managé nommé « contoso100.onmicrosoft.com », remplacez «* .contoso100.com » dans le script précédent par « *.contoso100.onmicrosoft.com ».
 
 ![Sélectionner un annuaire Azure AD](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 
 Le nouveau certificat auto-signé est placé dans le magasin de certificats de l’ordinateur local.
 
 
-## <a name="next-step"></a>Étapes suivantes
-
+## <a name="next-step"></a>Étape suivante
 [Tâche 2 : Exporter le certificat du protocole LDAP sécurisé vers un fichier .PFX](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

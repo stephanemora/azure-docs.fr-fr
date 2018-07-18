@@ -1,0 +1,50 @@
+- name: Documentation Azure Data Box
+  href: /azure/databox/
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce qu’un disque Data Box\_?"
+      href: data-box-disk-overview.md
+- name: Démarrages rapides
+  items:
+    - name: Configuration - Portail Azure
+      href: data-box-disk-quickstart-portal.md
+- name: Didacticiels
+  items:
+    - name: 1 - Commander
+      href: data-box-disk-deploy-ordered.md
+    - name: 2 - Configurer
+      href: data-box-disk-deploy-set-up.md
+    - name: 3 - Copier les données
+      href: data-box-disk-deploy-copy-data.md
+    - name: '4 - Renvoyer, télécharger, vérifier'
+      href: data-box-disk-deploy-picked-up.md
+- name: Concepts
+  items:
+    - name: Examiner les conditions requises
+      href: data-box-disk-system-requirements.md
+    - name: Comprendre les limites
+      href: data-box-disk-limits.md
+    - name: Vérifier la sécurité
+      href: data-box-disk-security.md
+    - name: Forum Aux Questions
+      href: data-box-disk-faq.md
+- name: Procédures
+  items:
+    - name: Gérer via le portail Azure
+      href: data-box-portal-ui-admin.md
+    - name: Résoudre les problèmes de disque
+      href: data-box-disk-troubleshoot.md
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Marketing Azure Data Box
+      href: 'https://azure.microsoft.com/services/storage/databox/'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=databox'
+    - name: vidéos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=databox'

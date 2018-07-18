@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
 ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178706"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38578859"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Créer un espace de noms avec un Event Hub et activer Capture à l’aide d’un modèle
 
@@ -426,9 +426,9 @@ Vous pouvez également configurer la fonctionnalité Event Hubs Capture via l
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Créer un concentrateur d’événements](event-hubs-create.md)
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs

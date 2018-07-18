@@ -3,7 +3,7 @@ title: Installer et configurer Ansible pour une utilisation avec des machines vi
 description: Découvrez comment installer et configurer Ansible pour la gestion des ressources Azure sur Ubuntu, CentOS et SLES
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
-ms.author: iainfou
-ms.openlocfilehash: c00ebcb771081f8e35c67bf384f5f6822e16f268
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: cynthn
+ms.openlocfilehash: e7d57ead2caff87db07380582b9085b831844f1e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652989"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930067"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installer et configurer Ansible pour gérer des machines virtuelles dans Azure
 
@@ -30,7 +30,7 @@ Pour plus d’options d’installation et des étapes pour d’autres plateforme
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.30 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.30 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="install-ansible"></a>Installer Ansible
 
@@ -106,7 +106,7 @@ Sur votre machine virtuelle, installez les packages nécessaires pour les module
 sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
 
 ## Install Ansible and Azure SDKs via pip
-pip install ansible[azure]
+sudo pip install ansible[azure]
 ```
 
 Passez maintenant à [Créer des informations d’identification Azure](#create-azure-credentials).

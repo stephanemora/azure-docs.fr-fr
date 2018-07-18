@@ -3,7 +3,7 @@ title: Vue d’ensemble des machines virtuelles Windows | Microsoft Docs
 description: Apprenez à créer et à gérer des machines virtuelles Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ff709d021c9d4201301edd9890f1e4a94f555313
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c1122ab403eb7192d7acbd493c46d478d0382a6b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932185"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Vue d’ensemble des machines virtuelles Windows dans Azure
 
@@ -60,7 +61,7 @@ Ce tableau présente quelques moyens d’obtenir la liste des emplacements dispo
 | Méthode | Description |
 | --- | --- |
 | Portail Azure |Sélectionnez un emplacement dans la liste lorsque vous créez une machine virtuelle. |
-| Azure PowerShell |Utilisez la commande [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
+| Azure PowerShell |Utilisez la commande [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | de l’API REST |Utilisez l’opération [Lister les emplacements](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 | Azure CLI |Utilisez l’opération [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations). |
 
@@ -75,14 +76,14 @@ Votre abonnement comporte des [limites de quota](../../azure-subscription-servic
 ### <a name="operating-system-disks-and-images"></a>Images et disques du système d’exploitation
 Les machines virtuelles utilisent des [disques durs virtuels](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour stocker leurs données et leur système d’exploitation (SE). Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous pouvez choisir d'installer un système d'exploitation. 
 
-Azure fournit de nombreuses [images Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) à utiliser avec différentes versions et différents types de systèmes d’exploitation Windows Server. Les images Marketplace sont identifiées par l’éditeur d’images, l’offre, la référence (SKU) et la version (la version est généralement spécifiée en dernier). 
+Azure fournit de nombreuses [images Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) à utiliser avec différentes versions et différents types de systèmes d’exploitation Windows Server. Les images Marketplace sont identifiées par l’éditeur d’images, l’offre, la référence (SKU) et la version (la version est généralement spécifiée en dernier). Seuls les systèmes d’exploitation 64 bits sont pris en charge. Pour plus d’informations sur les rôles, fonctionnalités et systèmes d’exploitation invités pris en charge, consultez la rubrique [Prise en charge du logiciel serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 Ce tableau présente différents moyens de trouver les informations d’une image.
 
 | Méthode | Description |
 | --- | --- |
 | Portail Azure |Les valeurs sont spécifiées automatiquement pour vous lorsque vous sélectionnez une image à utiliser. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "emplacement"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "emplacement" -Publisher "nomÉditeur"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "emplacement" -Publisher "nomÉditeur" -Offer "nomOffre" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "emplacement"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "emplacement" -Publisher "nomÉditeur"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "emplacement" -Publisher "nomÉditeur" -Offer "nomOffre" |
 | API REST |[Lister les éditeurs d’images](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lister les offres d’images](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lister les références d’images](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "emplacement"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "emplacement" --publisher "nomÉditeur"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "emplacement" --publisher "nomÉditeur" --offer "nomOffre"|
 
@@ -118,7 +119,7 @@ Ce tableau fournit des informations pour vous aider à créer votre machine virt
 | --- | --- |
 | Portail Azure |[Créer une machine virtuelle exécutant Windows dans le portail](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Modèles |[Création d’une machine virtuelle Windows avec un modèle du Gestionnaire de ressources](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Azure PowerShell |[Créer une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Azure PowerShell |[Créer une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Kits de développement logiciel (SDK) client |[Déployer des ressources Azure en C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | API REST |[Créer ou mettre à jour une machine virtuelle](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 | Azure CLI |[Créer une machine virtuelle avec l’interface de ligne de commande Azure](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
@@ -134,7 +135,7 @@ Ce tableau montre différents moyens d’obtenir des informations sur une machin
 | Méthode | Description |
 | --- | --- |
 | Portail Azure |Dans le menu Hub, cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle dans la liste. Dans le panneau de la machine virtuelle, vous pouvez consulter les informations, fixer des valeurs et surveiller les métriques. |
-| Azure PowerShell |Pour plus d’informations sur l’utilisation de PowerShell pour gérer des machines virtuelles, voir [Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Azure PowerShell |Pour plus d’informations sur l’utilisation de PowerShell pour gérer des machines virtuelles, voir [Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | de l’API REST |Utilisez l’opération [Récupérer des informations sur la machine virtuelle](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) pour obtenir des informations sur une machine virtuelle. |
 | Kits de développement logiciel (SDK) client |Pour plus d’informations sur l’utilisation de C# pour gérer des machines virtuelles, consultez [Gérer des Machines Virtuelles Azure à l’aide d’Azure Ressources Manager et de C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | Azure CLI |Pour plus d’informations sur l’utilisation de Azure CLI pour gérer les machines virtuelles, consultez [Informations de référence sur Azure CLI](https://docs.microsoft.com/cli/azure/vm). |

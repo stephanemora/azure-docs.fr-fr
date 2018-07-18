@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 53433e6a677a2576a11209075f397bb5f246b875
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31417034"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129283"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur HDInsight
 
@@ -32,7 +32,6 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * **Un cluster Storm Linux sur HDInsight**: consultez [Prise en main d’Apache Storm sur HDInsight](apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
 
 * (Facultatif) **Des connaissances en SSH et SCP** : pour plus d’informations, voir [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -41,9 +40,9 @@ Ce document présente les principes fondamentaux de la gestion et de la surveill
 
     L’une des versions suivantes de Visual Studio :
 
-  * Visual Studio 2012 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 avec Update 4
 
-  * Visual Studio 2013 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 avec Update 4 ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (toute édition)
@@ -213,7 +212,7 @@ La sélection d’un spout à partir de la section **Spouts** ou **Bolts** affic
 
 L’interface utilisateur Storm repose sur l’API REST, ce qui vous permet de profiter de fonctionnalités de gestion et de surveillance similaires à l’aide de l’API REST. À l'aide de l'API REST, vous pouvez créer des outils personnalisés pour gérer et surveiller les topologies Storm.
 
-Pour plus d’informations, consultez la rubrique [API REST de l’interface utilisateur Storm](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). Les informations suivantes sont spécifiques à l’utilisation de l’API REST avec Apache Storm sur HDInsight.
+Pour plus d’informations, consultez la rubrique [API REST de l’interface utilisateur Storm](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). Les informations suivantes sont spécifiques à l’utilisation de l’API REST avec Apache Storm sur HDInsight.
 
 > [!IMPORTANT]
 > L’API REST Storm n’est pas disponible publiquement sur Internet et est accessible à l’aide d’un tunnel SSH vers le nœud principal du cluster HDInsight. Pour plus d’informations sur la création et l’utilisation d’un tunnel SSH, consultez [Utilisation d’un tunnel SSH pour accéder à l’interface utilisateur web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces utilisateur web](../hdinsight-linux-ambari-ssh-tunnel.md).

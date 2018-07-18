@@ -10,11 +10,11 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 74ce913548fbcefdc441d0d2b772c864dacd4482
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164997"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38485442"
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Déployer un cluster Azure Kubernetes pour des conteneurs Windows
 
@@ -26,7 +26,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > Le support des conteneurs Windows sur Kubernetes dans Azure Container Service est en préversion. 
@@ -42,7 +42,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-kubernetes-cluster"></a>Créer un cluster Kubernetes
+## <a name="create-kubernetes-cluster"></a>Créer un cluster Kubernetes
 Créez un cluster Kubernetes dans Azure Container Service avec la commande [az acs create](/cli/azure/acs#az_acs_create). 
 
 L’exemple ci-après crée un cluster nommé *myK8sCluster* avec un nœud maître Linux et deux nœuds agents Windows. Cet exemple crée les clés SSH requises pour la connexion au maître Linux. Cet exemple utilise le nom d’utilisateur administratif *azureuser* et le mot de passe *myPassword12* sur les nœuds Windows. Mettez à jour ces valeurs avec quelque chose d’approprié pour votre environnement. 

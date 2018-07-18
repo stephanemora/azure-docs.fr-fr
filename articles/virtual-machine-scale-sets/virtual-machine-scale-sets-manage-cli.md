@@ -3,7 +3,7 @@ title: Gérer des groupes de machines virtuelles identiques avec Azure CLI 2.0 
 description: Commandes Azure CLI 2.0 communes pour gérer des groupes de machines virtuelles identiques, par exemple, pour démarrer et arrêter une instance ou modifier la capacité du groupe identique.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
-ms.author: iainfou
-ms.openlocfilehash: 1afb43b65203406a7d49b0e3f641bc22d164a4a9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 05/29/2018
+ms.author: cynthn
+ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308051"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gérer un groupe de machines virtuelles identiques avec Azure CLI 2.0
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des commandes Azure CLI 2.0 courantes qui vous permettent d’effectuer ces tâches.
@@ -36,32 +37,32 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Afficher les machines virtuelles d’un groupe identique
-Pour afficher une liste des instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss list-instances](/cli/azure/vmss#list-instances). L’exemple suivant liste toutes les instances de machines virtuelles du groupe identique nommé *myScaleSet* et du groupe de ressources *myResourceGroup*. Spécifiez vos propres valeurs pour ces noms :
+Pour afficher une liste des instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss list-instances](/cli/azure/vmss#list-instances). L’exemple suivant répertorie toutes les instances de machine virtuelle du groupe identique nommé *myScaleSet* dans le groupe de ressources *myResourceGroup*. Spécifiez vos propres valeurs pour ces noms :
 
 ```azurecli
 az vmss list-instances \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --output table
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --output table
 ```
 
 Pour afficher des informations supplémentaires sur une instance spécifique de la machine virtuelle, ajoutez le paramètre `--instance-id` à la commande [az vmss get-instance-view](/cli/azure/vmss#get-instance-view), et spécifiez une instance à afficher. L’exemple suivant affiche des informations sur l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Entrez vos propres noms, comme suit :
 
 ```azurecli
 az vmss get-instance-view \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --instance-id 0
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --instance-id 0
 ```
 
 
 ## <a name="list-connection-information-for-vms"></a>Répertorier les informations de connexion pour les machines virtuelles
-Pour vous connecter aux machines virtuelles d’un groupe identique, vous établissez une connexion SSH ou RDP à une adresse IP publique et à un numéro de port assignés. Par défaut, des règles de traduction d’adresses réseau (NAT) sont ajoutées à l’équilibreur de charge Azure qui transfère le trafic de connexion à distance à chaque machine virtuelle. Pour afficher l’adresse et les ports à connecter à des instances de machine virtuelle dans un groupe identique, utilisez la commande [az mise liste-instance-connexion-info](/cli/azure/vmss#list-instance-connection-info). L’exemple suivant affiche les informations de connexion pour les instances de machine virtuelle dans le groupe identique nommé *myScaleSet* et dans le groupe de ressources *myResourceGroup*. Spécifiez vos propres valeurs pour ces noms :
+Pour vous connecter aux machines virtuelles d’un groupe identique, vous établissez une connexion SSH ou RDP à une adresse IP publique et à un numéro de port assignés. Par défaut, des règles de traduction d’adresses réseau (NAT) sont ajoutées à l’équilibreur de charge Azure qui transfère le trafic de connexion à distance à chaque machine virtuelle. Pour afficher l’adresse et les ports à connecter à des instances de machine virtuelle dans un groupe identique, utilisez la commande [az mise liste-instance-connexion-info](/cli/azure/vmss#list-instance-connection-info). L’exemple suivant répertorie les informations de connexion pour les instances de machine virtuelle du groupe identique nommé *myScaleSet* et dans le groupe de ressources *myResourceGroup*. Spécifiez vos propres valeurs pour ces noms :
 
 ```azurecli
 az vmss list-instance-connection-info \
-  --resource-group myResourceGroup \
-  --name myScaleSet
+    --resource-group myResourceGroup \
+    --name myScaleSet
 ```
 
 
@@ -93,13 +94,13 @@ Quelques minutes sont nécessaires pour mettre à jour la capacité de votre gro
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Arrêter et démarrer des machines virtuelles dans un groupe identique
 Pour arrêter une ou plusieurs machines virtuelles dans un groupe identique, utilisez la commande [az vmss stop](/cli/azure/vmss/stop). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs machines virtuelles à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont arrêtées. Pour arrêter plusieurs machines virtuelles, séparez les ID d’instance à l’aide d’une espace.
 
-L’exemple suivant arrête l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Fournissez vos valeurs comme suit :
+L’exemple suivant arrête l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 
 ```azurecli
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Les machines virtuelles arrêtées restent allouées et continuent d’occasionner des frais de calcul. Si vous préférez que les machines virtuelles soient désallouées et n’occasionnent que des frais de stockage, utilisez la commande [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). Pour désallouer plusieurs machines virtuelles, séparez les ID d’instance à l’aide d’une espace. L’exemple suivant arrête et désalloue l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Fournissez vos valeurs comme suit :
+Les machines virtuelles arrêtées restent allouées et continuent d’occasionner des frais de calcul. Si vous préférez que les machines virtuelles soient désallouées et n’occasionnent que des frais de stockage, utilisez la commande [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). Pour désallouer plusieurs machines virtuelles, séparez les ID d’instance à l’aide d’une espace. L’exemple suivant arrête et désalloue l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -109,7 +110,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 ### <a name="start-vms-in-a-scale-set"></a>Démarrer des machines virtuelles dans un groupe identique
 Pour démarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez la commande [az vmss start](/cli/azure/vmss#az_vmss_start). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs machines virtuelles à démarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont démarrées. Pour démarrer plusieurs machines virtuelles, séparez les ID d’instance par une espace.
 
-L’exemple suivant démarre l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Fournissez vos valeurs comme suit :
+L’exemple suivant démarre l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 
 ```azurecli
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -119,7 +120,7 @@ az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 
 ## <a name="restart-vms-in-a-scale-set"></a>Redémarrer des machines virtuelles dans un groupe identique
 Pour redémarrer une ou plusieurs machines virtuelles dans un groupe identique, utilisez la commande [az vmss restart](/cli/azure/vmss#az_vmss_restart). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs machines virtuelles à redémarrer. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont redémarrées. Pour redémarrer plusieurs machines virtuelles, séparez les ID d’instance par une espace.
 
-L’exemple suivant redémarre l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Fournissez vos valeurs comme suit :
+L’exemple suivant redémarre l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 
 ```azurecli
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -129,7 +130,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 ## <a name="remove-vms-from-a-scale-set"></a>Supprimer des machines virtuelles d’un groupe identique
 Pour supprimer une ou plusieurs machines virtuelles dans un groupe identique, utilisez la commande [az vmss delete-instances](/cli/azure/vmss#delete-instances). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs machines virtuelles à supprimer. Si vous spécifiez * pour l’ID d’instance, toutes les machines virtuelles dans le groupe identique sont supprimées. Pour supprimer plusieurs machines virtuelles, séparez les ID d’instance par une espace.
 
-L’exemple suivant supprime l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Fournissez vos valeurs comme suit :
+L’exemple suivant supprime l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 
 ```azurecli
 az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --instance-ids 0

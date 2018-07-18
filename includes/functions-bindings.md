@@ -2,7 +2,7 @@ Le tableau suivant présente les liaisons qui sont prises en charge dans les deu
 
 | type | 1.x | 2.x | Déclencheur | Entrée | Sortie |  
 | ---- | :-: | :-: | :------: | :---: | :----: |
-| [Stockage d'objets blob](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔<sup>1</sup>|✔|✔|✔|  
+| [Stockage d’objets blob](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔<sup>1</sup>|✔|✔|✔|  
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|  
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| | |  
 | [Hubs d'événements](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|  

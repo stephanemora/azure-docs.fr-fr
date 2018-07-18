@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: aa96356b01d63aa21c55f1b2e6998e65f9d617f6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a232787793f9f4992a4dece821ae0bcc9059afc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055369"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 – Disponibilité générale](v1/data-factory-onprem-oracle-connector.md)
-> * [Version 2 - Préversion](connector-oracle.md)
+> * [Version 1](v1/data-factory-onprem-oracle-connector.md)
+> * [Version actuelle](connector-oracle.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis/vers une base de données Oracle. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 d’Azure Data Factory, qui est en disponibilité générale, consultez [Connecteur Oracle dans la version 1](v1/data-factory-onprem-oracle-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -41,8 +39,10 @@ Plus précisément, ce connecteur Oracle prend en charge les versions suivantes 
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
 
-## <a name="prerequisites"></a>Prérequis
+> [!Note]
+> Le serveur proxy Oracle n’est pas pris en charge.
 
+## <a name="prerequisites"></a>Prérequis
 
 Pour copier des données depuis et vers une base de données Oracle qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations sur le runtime d’intégration, consultez l’article relatif au [runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration intègre un pilote Oracle. Par conséquent, vous n’avez pas besoin d’installer manuellement un pilote pour copier des données depuis et vers Oracle.
 
@@ -59,7 +59,7 @@ Les propriétés prises en charge pour le service lié Oracle sont les suivantes
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type doit être définie sur **Oracle**. | OUI |
-| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Type de connexion pris en charge** : vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | OUI |
+| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Type de connexion pris en charge** : vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | OUI |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 **Exemple :**

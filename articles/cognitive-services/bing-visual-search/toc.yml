@@ -1,0 +1,77 @@
+- name: Documentation Recherche visuelle Bing
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce que l’API Recherche visuelle Bing\_?"
+      href: overview.md
+- name: Démarrages rapides de l’API REST
+  expanded: true
+  items:
+    - name: 'Première requête dans C#'
+      href: quickstarts/csharp.md
+    - name: Première requête dans Java
+      href: quickstarts/java.md
+    - name: Première requête dans Node.js
+      href: quickstarts/nodejs.md
+    - name: Première requête dans Python
+      href: quickstarts/python.md
+- name: Foundation
+  expanded: true
+  items:
+    - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
+      href: sdk.md
+    - name: 'Kit de développement logiciel dans C#'
+      href: visual-search-sdk-c-sharp.md
+    - name: Kit de développement logiciel dans Node
+      href: visual-search-sdk-node.md
+    - name: Kit de développement logiciel dans Python
+      href: visual-search-sdk-python.md
+- name: Didacticiels
+  items:
+    - name: Application web de chargement d’image
+      href: tutorial-visual-search-image-upload.md
+    - name: Application web à page unique
+      href: tutorial-bing-visual-search-single-page-app.md
+    - name: Application web à page unique (code source)
+      href: tutorial-bing-visual-search-single-page-app-source.md
+    - name: Résultats et zone de rognage de l’image du SDK de Recherche visuelle Bing
+      href: tutorial-visual-search-crop-area-results.md
+    - name: Résultats et jeton d’informations de l’image du SDK de Recherche visuelle Bing
+      href: tutorial-visual-search-insights-token.md
+- name: Exemples
+  items:
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
+- name: Concepts
+  items:
+    - name: Informations sur les images par défaut
+      href: default-insights-tag.md
+    - name: Utilisation des informations Bing
+      href: bing-insights-usage.md
+    - name: Marchés et pays pris en charge
+      href: supported-countries-markets.md
+    - name: Analytique pour l’API Recherche visuelle
+      href: bing-visual-search-stats.md
+- name: Procédures
+  items:
+    - name: Obtenir des informations à l’aide d’un jeton
+      href: use-insights-token.md
+    - name: Résultats d’utilisation et d’affichage
+      href: use-and-display-requirements.md
+    - name: Redimensionner et rogner les miniatures
+      href: resize-and-crop-thumbnails.md
+- name: Informations de référence
+  expanded: true
+  items:
+    - name: API REST v7
+      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+- name: Ressources
+  items:
+    - name: Obtenir la clé d’accès gratuit
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
+    - name: "Essayez\_!"
+      href: 'https://aka.ms/bingvisualsearchtryforfree'
+    - name: Dépassement de capacité de la pile
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: User Voice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

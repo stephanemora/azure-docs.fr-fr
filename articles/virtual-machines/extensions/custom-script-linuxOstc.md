@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: eac64a5b456eb040bcb1ac01c3c86dfde0847e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 526021ca238be7bc934e639c34d3e49879279a6a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944921"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127650"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure Version 1 avec des machines virtuelles Linux
 L’extension de script personnalisé Version 1 télécharge et exécute des scripts sur des machines virtuelles Azure. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration/gestion. Il est possible de télécharger des scripts à partir du Stockage Azure ou de tout autre emplacement Internet accessible, ou de les fournir au runtime de l’extension. 
@@ -34,7 +34,7 @@ Il existe deux extensions de script personnalisé Linux :
 * Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Version 2 - Microsoft.Azure.Extensions.CustomScript
 
-Basculez vers des déploiements nouveaux et existants pour utiliser la nouvelle version ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md)) à la place. Cette nouvelle version se veut être une solution de remplacement instantané. Ainsi, pour procéder à la migration, il vous suffit de changer le nom et la version ; il est inutile de modifier la configuration de l’extension.
+Basculez vers des déploiements nouveaux et existants pour utiliser la nouvelle version ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux)) à la place. Cette nouvelle version se veut être une solution de remplacement instantané. Ainsi, pour procéder à la migration, il vous suffit de changer le nom et la version ; il est inutile de modifier la configuration de l’extension.
 
  
 

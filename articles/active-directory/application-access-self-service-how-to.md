@@ -3,22 +3,23 @@ title: Configurer l’attribution d’applications en libre-service | Microsoft 
 description: Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: asteen
-ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: barbkess
+ms.openlocfilehash: 89eb80dbb749b2f50ca3f1fc097c205b62b6b4a4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833096"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445294"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Configurer l’attribution d’applications en libre-service
 
@@ -89,4 +90,4 @@ Lorsque vous avez terminé la configuration d’applications en libre-service, l
 Ces approbations prennent en charge les flux de travail avec approbation unique uniquement, ce qui signifie que si vous spécifiez plusieurs approbateurs, chaque approbateur peut autoriser l’accès à l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](active-directory-accessmanagement-self-service-group-management.md)
+[Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](users-groups-roles/groups-self-service-management.md)

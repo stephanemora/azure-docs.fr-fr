@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2e0b448b5ab48e7be3429d3d3b5b898b6bf22115
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e51061dc781e4ec6e822cde9cc450887ff3b1368
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261846"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061183"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.OptionsGroup
 Contrôle de sélection avec une ligne d’options disponibles.
@@ -44,7 +44,8 @@ Contrôle de sélection avec une ligne d’options disponibles.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
@@ -53,8 +54,7 @@ Contrôle de sélection avec une ligne d’options disponibles.
 ## <a name="remarks"></a>Remarques
 - L’étiquette de `constraints.allowedValues` est le texte qui s’affiche pour un élément, et sa valeur est la valeur de sortie de l’élément sélectionné lors de la sélection.
 - Si elle est spécifiée, la valeur par défaut doit être une étiquette présente dans `constraints.allowedValues`. Dans le cas contraire, le premier élément de `constraints.allowedValues` est sélectionné par défaut. La valeur par défaut est **null**.
-- `constraints.allowedValues` doit contenir au moins un élément.
-- Cet élément ne prend pas en charge la propriété `constraints.required` ; un élément doit être sélectionné pour réussir la validation.
+- `constraints.allowedValues` doit avoir au moins un élément.
 
 ## <a name="sample-output"></a>Exemple de sortie
 ```json

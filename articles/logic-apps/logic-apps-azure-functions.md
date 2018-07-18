@@ -15,12 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: befdd7af0a91623af4c5ea0fd957141cad84eb53
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297867"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331170"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Ajout et exécution d’un code personnalisé pour des applications logiques avec Azure Functions
 
@@ -62,7 +62,7 @@ Vous pouvez déclencher une application logique dans une fonction. Consultez [Ap
 
 ### <a name="create-a-function-from-logic-app-designer"></a>Création d’une fonction à partir du concepteur d’applications logiques
 
-Vous pouvez également créer une fonction de webhook node.js depuis le concepteur. Tout d’abord, sélectionnez **Azure Functions in my Region** (Azure Functions dans ma région) et choisissez un conteneur pour votre fonction. Si vous n’avez pas encore de conteneur, vous devez en créer un à partir du [portail Azure Functions](https://functions.azure.com/signin). Sélectionnez ensuite **Créer**.  
+Vous pouvez également créer une fonction de webhook node.js depuis le concepteur. Tout d’abord, sélectionnez **Azure Functions in my Region** (Azure Functions dans ma région) et choisissez un conteneur pour votre fonction. Si vous n’avez pas encore de conteneur, vous devez en créer un à partir du [portail Azure Functions](https://functions.azure.com/). Sélectionnez ensuite **Créer**.  
 
 Pour générer un modèle basé sur les données que vous souhaitez calculer, spécifiez l’objet de contexte que vous envisagez de passer à une fonction. Cet objet doit être un objet JSON. Par exemple, si vous passez le contenu de fichier à partir d’une action FTP, la charge utile de contexte ressemblera à cet exemple :
 

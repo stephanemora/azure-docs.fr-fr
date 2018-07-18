@@ -1,6 +1,6 @@
 ---
-title: Exécuter un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory | Microsoft Docs
-description: Cet article décrit comment exécuter un package SQL Server Integration Services (SSIS) à partir d’un pipeline Azure Data Factory à l’aide de l’activité de procédure stockée.
+title: Exécuter le package SSIS avec l’activité de procédure stockée - Azure | Microsoft Docs
+description: Cet article décrit comment exécuter un package SQL Server Integration Services (SSIS) dans un pipeline Azure Data Factory à l’aide de l’activité de procédure stockée.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,25 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 283e1022abda083d73e8e4e5bca7872791cb4861
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 42abb5fdaf05424d5f39ecf4a2c88afcefd17312
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084737"
 ---
-# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Exécuter un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
-Cet article décrit comment exécuter un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Appeler un package SSIS à l’aide de l’activité de procédure stockée dans la version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
+# <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité de procédure stockée dans Azure Data Factory
+Cet article décrit comment exécuter un package SSIS dans un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-### <a name="azure-sql-database"></a>Base de données SQL Azure 
+### <a name="azure-sql-database"></a>Azure SQL Database 
 La procédure pas à pas dans cet article utilise une base de données Azure SQL qui héberge le catalogue SSIS. Vous pouvez également utiliser Azure SQL Managed Instance (préversion).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Créer un runtime d’intégration Azure-SSIS
@@ -59,7 +56,7 @@ La première étape consiste à créer une fabrique de données à l’aide du p
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
          
     Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Sélectionnez **V2 (préversion)** pour la **version**.
+4. Sélectionnez **V2** pour la **version**.
 5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge par Data Factory sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements.
 6. Sélectionnez **Épingler au tableau de bord**.     
 7. Cliquez sur **Créer**.
@@ -146,7 +143,7 @@ Dans cette section, vous déclenchez une exécution du pipeline puis vous la sur
 > [!NOTE]
 > Vous pouvez également créer un déclencheur planifié pour votre pipeline afin que le pipeline s’exécute selon une planification (horaire, quotidienne, et ainsi de suite). Pour obtenir un exemple, consultez [Créer une fabrique de données - Interface utilisateur de Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 Dans cette section, vous utilisez Azure PowerShell pour créer un pipeline Data Factory avec une activité de procédure stockée qui appelle un package SSIS. 
 
 Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps). 
@@ -190,7 +187,7 @@ Notez les points suivants :
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles **contributeur** ou **propriétaire**, ou un **administrateur** de l’abonnement Azure.
-* À l’heure actuelle, Data Factory version 2 vous permet de créer des fabriques de données uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et Europe de l’Ouest. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Créer un service lié Azure SQL Database
 Créez un service lié pour lier votre base de données Azure SQL qui héberge le catalogue SSIS à votre fabrique de données. Data Factory utilise les informations de ce service lié pour se connecter à la base de données SSISDB, et exécute une procédure stockée pour exécuter un package SSIS. 

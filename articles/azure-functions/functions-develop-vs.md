@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: a38729c266a4dd214c3de97c6b9d92df6ed2dd96
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 93d5883071a012842106bdd946e4f09a0d7aa751
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735117"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260452"
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pour Visual Studio  
 
@@ -38,7 +38,6 @@ Cet article vous montre comment utiliser Azure Functions Tools pour Visual Studi
 > Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Azure Functions Tools est inclus dans la charge de travail de développement Azure de [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) et des versions ultérieures. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio 2017 :
 
@@ -90,9 +89,7 @@ Pour plus d’informations, consultez [Projet de bibliothèque de classes Azure 
 
 ## <a name="configure-the-project-for-local-development"></a>Configurer le projet pour un développement local
 
-Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide. 
-
-[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
+Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide. Votre application de fonctions peut aussi utiliser l’[émulateur de stockage Azure](../storage/common/storage-use-emulator.md) pour le paramètre de connexion **AzureWebJobsStorage** qui est nécessaire au projet. Pour utiliser l’émulateur, définissez la valeur de **AzureWebJobsStorage** sur `UseDevelopmentStorage=true`. Vous devez modifier ce paramètre sur une connexion de stockage réel avant le déploiement.
 
 Pour définir la chaîne de connexion de compte de stockage :
 
@@ -112,7 +109,7 @@ Dans les fonctions précompilées, les liaisons utilisées par la fonction sont 
 
     ![Créer une fonction déclenchée par une file d’attente](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    Cet exemple de déclencheur utilise une chaîne de connexion avec une clé nommée **QueueStorage**. Ce paramètre de chaîne de connexion doit être défini dans le fichier local.settings.json.
+    Cet exemple de déclencheur utilise une chaîne de connexion avec une clé nommée **QueueStorage**. Ce paramètre de chaîne de connexion doit être défini dans le [fichier local.settings.json](functions-run-local.md#local-settings-file).
 
 3. Examinez la classe qui vient d’être ajoutée. Vous voyez une méthode statique **Run**, qui est attribuée avec l’attribut **FunctionName**. Cet attribut indique que la méthode est le point d’entrée de la fonction.
 

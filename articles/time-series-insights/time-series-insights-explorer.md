@@ -3,7 +3,7 @@ title: Explorer des données avec l’explorateur Azure Time Series Insights | M
 description: Cet article décrit comment utiliser l’Explorateur Azure Time Series Insights dans votre navigateur web pour afficher rapidement une vue globale de vos données et valider votre environnement IoT.
 ms.service: time-series-insights
 services: time-series-insights
-author: MarkMcGeeAtAquent
+author: ashannon7
 ms.author: kfile
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: de676efdd7dd2a4035bbeca4bddd8b1d7ee7e989
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d3b8973e8798e5b1f32d9e882db8a06ad7486ed8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651775"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295336"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 Cet article explore les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights. Vous pouvez utiliser l’explorateur Time Series Insights dans votre navigateur web pour créer des visualisations de vos données.

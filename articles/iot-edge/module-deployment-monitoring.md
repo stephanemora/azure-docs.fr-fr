@@ -1,21 +1,21 @@
 ---
-title: "Déployer des modules pour Azure IoT Edge | Microsoft Docs"
-description: "En savoir plus sur la façon dont les modules sont déployés sur les appareils périphériques"
-services: iot-edge
-keywords: 
+title: Déployer des modules pour Azure IoT Edge | Microsoft Docs
+description: En savoir plus sur la façon dont les modules sont déployés sur les appareils périphériques
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
-ms.topic: article
+ms.date: 06/06/2018
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+services: iot-edge
+ms.openlocfilehash: f64e6db576b7b1605cc070948a021184fc6ee8ad
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029258"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Comprendre les déploiements IoT Edge pour les appareils uniques ou à l’échelle - Aperçu
+# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements IoT Edge pour les appareils uniques ou à grande échelle
 
 Les appareils Azure IoT Edge suivent un [cycle de vie des appareils] [ lnk-lifecycle] similaire à d’autres types d’appareils IoT :
 
@@ -23,24 +23,24 @@ Les appareils Azure IoT Edge suivent un [cycle de vie des appareils] [ lnk-lifec
 1. Les périphériques sont configurés pour exécuter [les modules IoT Edge][lnk-modules] puis contrôlés pour l’intégrité. 
 1. Enfin, les périphériques peuvent être mis hors-service lorsqu’ils sont remplacés ou deviennent obsolètes.  
 
-Azure IoT Edge propose deux façons de configurer les modules à exécuter sur les appareils IoT Edge : une pour le développement et les itérations rapides sur un appareil unique (que vous avez utilisé dans les didacticiels Azure IoT Edge), et une pour la gestion des fleets volumineux des appareils IoT Edge. Ces deux approches sont disponibles dans le portail Azure et par programme.
+Azure IoT Edge propose deux façons de configurer les modules à exécuter sur les appareils IoT Edge : une pour le développement et les itérations rapides sur un appareil unique (vous avez utilisé cette méthode dans les tutoriels Azure IoT Edge), et une pour la gestion des fleets volumineux des appareils IoT Edge. Ces deux approches sont disponibles dans le portail Azure et par programmation.
 
-Cet article se concentre sur la configuration et la surveillance des étapes pour les flottes des périphériques, collectivement appelées des déploiements IoT Edge. Les étapes de déploiement global sont les suivantes :   
+Cet article se concentre sur les étapes de configuration et de surveillance des appareils, collectivement appelées des déploiements automatiques IoT Edge. Les étapes de déploiement global sont les suivantes :   
 
 1. Un opérateur définit un déploiement qui décrit un ensemble de modules, ainsi que les appareils cibles. Chaque déploiement possède un manifeste de déploiement qui reflète ces informations. 
 1. Le service de IoT Hub communique avec tous les appareils ciblés pour les configurer avec les modules souhaités. 
 1. Le service de IoT Hub récupère l’état à partir des appareils IoT Edge et l’expose pour l’opérateur vers le moniteur.  Par exemple, un opérateur voit quand un appareil Edge n’est pas correctement configuré ou si un module échoue durant l’exécution. 
 1. À tout moment, les nouveaux appareils IoT Edge qui remplissent les conditions de ciblage sont configurés pour le déploiement. Par exemple, un déploiement qui cible tous les appareils IoT Edge dans l’état de Washington configure automatiquement un nouvel appareil IoT Edge une fois qu’il est approvisionné et ajouté au groupe des périphériques de l’état de Washington. 
  
-Cet article définit chaque composant impliqué dans la configuration et la surveillance d’un déploiement. Pour connaître la procédure de création et de mise à jour d’un déploiement, consultez [Déployer et surveiller des modules IoT Edge à l’échelle][lnk-howto].
+Cet article décrit chaque composant impliqué dans la configuration et la surveillance d’un déploiement. Pour connaître la procédure de création et de mise à jour d’un déploiement, consultez [Déployer et surveiller des modules IoT Edge à l’échelle][lnk-howto].
 
 ## <a name="deployment"></a>Déploiement
 
-Un déploiement affecte aux modules IoT Edge des images à exécuter en tant qu’instances sur un ensemble ciblé de périphériques IoT Edge. Il fonctionne en configurant un manifeste de déploiement IoT Edge pour inclure une liste de modules comprenant les paramètres d’initialisation correspondants. Un déploiement peut être affecté à un périphérique unique (généralement basé sur l’ID de l’appareil) ou à un groupe d’appareils (basé sur des balises). Une fois qu’un périphérique IoT Edge reçoit un manifeste de déploiement, il télécharge et installe les images conteneurs du module à partir des référentiels conteneurs respectifs, et les configure en conséquence. Une fois qu’un déploiement est créé, un opérateur peut surveiller l’état de déploiement pour voir si les appareils ciblés sont configurés correctement.   
+Un déploiement automatique IoT Edge assigne des images de module IoT Edge à exécuter en tant qu’instances sur un ensemble ciblé d’appareils IoT Edge. Il fonctionne en configurant un manifeste de déploiement IoT Edge pour inclure une liste de modules comprenant les paramètres d’initialisation correspondants. Un déploiement peut être affecté à un appareil unique (basé sur l’ID de l’appareil) ou à un groupe d’appareils (basé sur des balises). Une fois qu’un périphérique IoT Edge reçoit un manifeste de déploiement, il télécharge et installe les images conteneurs du module à partir des référentiels conteneurs respectifs, et les configure en conséquence. Une fois qu’un déploiement est créé, un opérateur peut surveiller l’état de déploiement pour voir si les appareils ciblés sont configurés correctement.   
 
-Les périphériques doivent être approvisionnés en tant qu’appareils IoT Edge pour être configurés avec un déploiement. Les éléments suivants sont des composants requis et ne sont pas inclus dans le déploiement :
+Les périphériques doivent être approvisionnés en tant qu’appareils IoT Edge pour être configurés avec un déploiement. L’appareil destiné à recevoir le déploiement doit satisfaire aux prérequis suivants :
 * Le système d’exploitation de base
-* Docker 
+* Un système de gestion de conteneur, comme Moby ou Docker
 * L’approvisionnement du runtime IoT Edge 
 
 ### <a name="deployment-manifest"></a>Manifeste de déploiement
@@ -52,14 +52,18 @@ Les métadonnées de configuration pour chaque module incluent :
 * type 
 * État (par exemple, en cours d’exécution ou arrêté) 
 * Stratégie de redémarrage 
-* Référentiel d’image et de conteneur 
+* Registre d’images et de conteneurs
 * Itinéraires pour les données en entrée et en sortie 
+
+Si l’image du module est stockée dans un registre de conteneurs privé, l’agent IoT Edge conserve les informations d’identification du registre. 
 
 ### <a name="target-condition"></a>Condition cible
 
-La condition cible est évaluée en permanence pour inclure les nouveaux appareils qui répondent aux exigences ou pour supprimer les appareils qui n’y répondent plus tout au long de la durée de vie du déploiement. Celui-ci sera réactivé si le service détecte une modification de la condition cible. Prenons l’exemple d’un déploiement A comportant la condition cible tags.environment = ’prod’. Au lancement du déploiement, il existe 10 appareils de production. Les modules sont correctement installés sur ces 10 appareils. L’état de l’Agent IoT Edge affiche 10 appareils au total, 10 réponses correctes, 0 échecs de réponse et 0 réponses en attente. On ajoute maintenant 5 appareils avec tags.environment = ’prod’. Le service détecte la modification, et l’état de l’Agent IoT Edge devient : 15 appareils au total, 10 réponses correctes, 0 échecs de réponses et 5 réponses en attente lorsqu’il tente de déployer les cinq nouveaux appareils.
+La condition cible est évaluée en permanence pour inclure les nouveaux appareils qui répondent aux exigences ou pour supprimer les appareils qui n’y répondent plus tout au long de la durée de vie du déploiement. Celui-ci sera réactivé si le service détecte une modification de la condition cible. 
 
-Utilisez une condition booléenne sur des balises des jumeaux d’appareils ou deviceId pour sélectionner les appareils cibles. Si vous souhaitez utiliser une condition avec des balises, vous devez ajouter les propriétés "tags":{} dans le jumeau d’appareil au même niveau. [En savoir plus sur les balises dans le jumeau d’appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+Prenons l’exemple d’un déploiement A comportant la condition cible tags.environment = 'prod'. Au lancement du déploiement, il existe dix appareils de production. Les modules sont correctement installés sur ces dix appareils. L’état de l’Agent IoT Edge affiche 10 appareils au total, 10 réponses correctes, 0 échecs de réponse et 0 réponses en attente. On ajoute maintenant cinq appareils avec tags.environment = 'prod'. Le service détecte la modification, et l’état de l’Agent IoT Edge devient : 15 appareils au total, 10 réponses correctes, 0 échecs de réponses et 5 réponses en attente quand il tente de déployer les cinq nouveaux appareils.
+
+Utilisez une condition booléenne sur des balises des jumeaux d’appareils ou deviceId pour sélectionner les appareils cibles. Si vous souhaitez utiliser une condition avec des balises, vous devez ajouter les propriétés "tags":{} dans le jumeau d’appareil au même niveau. [En savoir plus sur les balises dans le jumeau d’appareil](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Exemples de conditions cibles :
 * deviceId =’linuxprod1’
@@ -73,7 +77,7 @@ Voici quelques-unes des contraintes qui s’appliquent à la création d’une c
 * Dans le jumeau d’appareil, seuls les balises et deviceId permettent de créer une condition cible.
 * Les guillemets doubles ne sont autorisés nulle part dans la condition cible. Utilisez des guillemets simples.
 * Les guillemets simples représentent les valeurs de la condition cible. Par conséquent, vous devez échapper le guillemet simple avec un autre guillemet simple s’il fait partie du nom de l’appareil. Par exemple, la condition cible de operator’sDevice s’écrit deviceId = ’operator’’sDevice’.
-* Les nombres, les lettres et les caractères suivants sont autorisés dans les valeurs de la condition cible : -:.+%_#*?!(),=@;$.
+* Les nombres, les lettres et les caractères suivants sont autorisés dans les valeurs de la condition cible : `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Priorité
 

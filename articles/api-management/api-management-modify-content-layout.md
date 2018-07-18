@@ -3,7 +3,7 @@ title: Modifier le contenu d’une page dans le portail des développeurs dans G
 description: Découvrez comment modifier le contenu d’une page dans le portail des développeurs dans Gestion des API Azure.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: vlvinogr
 editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: vlvinogr
+ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29377797"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437594"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modifier le contenu et la disposition des pages dans le portail des développeurs dans Gestion des API Azure
 Il existe trois manières principales pour personnaliser le portail des développeurs dans Gestion des API Azure :
@@ -34,7 +34,7 @@ Le portail des développeurs s’appuie sur un système de gestion de contenu. L
 
 ![Structure de page du portail des développeurs][api-management-customization-widget-structure]
 
-Tous les widgets sont modifiables. 
+Tous les widgets sont modifiables.
 * Le contenu de base spécifique à chaque page réside dans le widget « Contenu ». La modification d’une page entraîne la modification du contenu de ce widget.
 * Tous les éléments de mise en page sont contenus dans les autres widgets. Les modifications apportées à ces widgets s’appliquent à toutes les pages. Ils sont dénommés « widgets de mise en page ».
 
@@ -42,18 +42,18 @@ Dans la modification de page standard, un utilisateur ne modifie en général qu
 
 ## <a name="modify-layout-widget"></a>Modification du contenu d’un widget de mise en page
 
-La portail des développeurs est accessible depuis le portail Azure. 
+La portail des développeurs est accessible depuis le portail Azure.
 
 1. Cliquez sur **Portail des développeurs** dans la barre d’outils de votre instance de gestion des API.
-2. Pour modifier le contenu des widgets, cliquez sur l’icône constituée de deux pinceaux du menu de gauche du **portail des développeurs**. 
+2. Pour modifier le contenu des widgets, cliquez sur l’icône constituée de deux pinceaux du menu de gauche du **portail des développeurs**.
 3. Pour modifier le contenu de l’en-tête, faites défiler jusqu’à la section **En-tête** de la liste de gauche.
-    
+
     Les widgets sont modifiables à l’intérieur des champs.
 4. Quand vous êtes prêt à publier vos modifications, cliquez sur **Publier** dans la partie inférieure de la page.
 
 Vous devriez à présent pouvoir voir le nouvel en-tête sur chaque page du portail des développeurs.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"> </a>Étapes suivantes
 * [Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs][customize-styles]
 * [Modifier les modèles utilisés pour les pages générées par le portail][portal-templates] (par exemple, documents API, produits, authentification des utilisateurs, etc.)
 

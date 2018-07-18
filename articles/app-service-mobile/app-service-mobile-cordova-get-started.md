@@ -17,11 +17,11 @@ ms.topic: hero-article
 ms.date: 07/07/2017
 ms.author: crdun
 ms.openlocfilehash: 223e9e35fcab347f9b5b8db01a9fd667b9f5d55d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27595174"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488644"
 ---
 # <a name="create-an-apache-cordova-app"></a>Créer une application Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -31,7 +31,7 @@ Ce didacticiel montre comment ajouter un backend cloud à une application mobile
 
 Le suivi de ce didacticiel est un prérequis pour tous les autres didacticiels Apache Cordova sur l’utilisation de la fonctionnalité Mobile Apps dans Azure App Service.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 * Un PC équipé de [Visual Studio Community 2017] ou d’une version plus récente.

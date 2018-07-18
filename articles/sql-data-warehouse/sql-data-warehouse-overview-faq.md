@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187070"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971701"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Foire aux questions SQL Data Warehouse
 
@@ -53,13 +53,13 @@ R. Pour obtenir de l’aide concernant le développement avec SQL Data Warehouse
 
 Q. Comment envoyer un ticket de support ?
 
-R. Les [tickets de support] peuvent être déposés sur le Portail Azure.
+R. Les [Tickets de support] peuvent être déposés sur le Portail Azure.
 
 ## <a name="sql-languagefeature-support"></a>Prise en charge de fonctionnalités / langages SQL 
 
 Q. Quels sont les types de données pris en charge par SQL Data Warehouse ?
 
-R. Consultez la page [Types de données] SQL Data Warehouse.
+R. Consultez la page [types de données] SQL Data Warehouse.
 
 Q. Quelles fonctionnalités de table prenez-vous en charge ?
 
@@ -99,21 +99,21 @@ Q : Puis-je me connecter à HDI ?
 R : HDI peut utiliser ADLS ou WASB comme couche HDFS. Si vous avez l’un des deux comme couche HDFS, vous pouvez charger ces données dans SQL DW. Toutefois, vous ne peut pas générer d’automate à pile vers l’instance HDI. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur SQL Data Warehouse dans son ensemble, consultez notre page [Vue d’ensemble].
+Pour plus d’informations sur SQL Data Warehouse dans son ensemble, consultez notre page [Vue d'ensemble].
 
 
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Chaînes de connexion]: ./sql-data-warehouse-connection-strings.md
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[tickets de support]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Tickets de support]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Sécurité]: ./sql-data-warehouse-overview-manage-security.md
 [Conformité Microsoft]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [Limites de capacité]: ./sql-data-warehouse-service-capacity-limits.md
-[Types de données]: ./sql-data-warehouse-tables-data-types.md
+[types de données]: ./sql-data-warehouse-tables-data-types.md
 [Fonctionnalités de table non prises en charge]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Demande de fonctionnalités pour les projets de base de données]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
-[Vue d’ensemble]: ./sql-data-warehouse-overview-faq.md
+[Vue d'ensemble]: ./sql-data-warehouse-overview-faq.md

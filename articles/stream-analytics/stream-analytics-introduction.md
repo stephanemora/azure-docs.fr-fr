@@ -11,14 +11,14 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: mvc
 ms.date: 03/27/2018
-ms.openlocfilehash: 4d68ee7f38c317b4ee42f5b40cc4c4196114e159
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7b38548ce3266d74ffd51ce75ffa92bdb4ac24b9
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525646"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437618"
 ---
-# <a name="what-is-stream-analytics"></a>Qu’est-ce que Stream Analytics ?
+# <a name="what-is-stream-analytics"></a>Qu’est-ce que Stream Analytics ?
 
 Azure Stream Analytics est un moteur de traitement des événements qui vous permet d’examiner de grands volumes de données de streaming à partir d’appareils. Les données entrantes peuvent provenir d’appareils, de capteurs, de sites web, de flux issus des réseaux sociaux, d’applications, et bien plus encore. L’outil prend également en charge l’extraction d’informations à partir de flux de données, et l’identification des modèles et des relations. Vous pouvez ensuite utiliser ces modèles pour déclencher d’autres actions en aval telles que des alertes, envoyer des informations vers un outil de création de rapports ou bien les stocker pour une utilisation ultérieure.
 
@@ -30,7 +30,7 @@ Voici quelques exemples d’utilisation d’Azure Stream Analytics :
 * Surveillance à distance et maintenance prédictive de ressources stratégiques
 * Analyse en temps réel sur les données de point de vente pour le contrôle des stocks et la détection d’anomalies
 
-## <a name="how-does-stream-analytics-work"></a>Comment fonctionne Stream Analytics ?
+## <a name="how-does-stream-analytics-work"></a>Comment fonctionne Stream Analytics ?
 
 Azure Stream Analytics commence par une source de données de streaming qui est ingérée dans Azure Event Hub, Azure IoT Hub ou à partir d’un magasin de données tel que le stockage Blob Azure. Pour examiner les flux de données, vous créez un travail Stream Analytics qui spécifie la source d’entrée qui diffuse les données. Le travail spécifie également une requête de transformation qui indique comment rechercher des données, des modèles ou des relations. La requête de transformation utilise un langage de requête de type SQL qui permet de filtrer, trier, agréger et joindre des données de streaming sur une période de temps donnée. Lors de l’exécution du travail, vous pouvez modifier l’ordre des événements et la durée des fenêtres de temps lors des opérations d’agrégation.
 

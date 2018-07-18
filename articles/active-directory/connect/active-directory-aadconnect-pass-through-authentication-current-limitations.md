@@ -4,7 +4,7 @@ description: Cet article décrit les limitations actuelles de l’authentificati
 services: active-directory
 keywords: Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ebfbb972d567963b6c302b7e6151f73165c4a87b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 34b83c54e31ed73af3f776a6add8f218dda35cf7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590672"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918918"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : limitations actuelles
 
@@ -59,7 +59,7 @@ L’activation de la synchronisation de hachage de mot de passe vous donne la po
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
-- [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
+- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Présentation technique approfondie](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne l'authentification directe.
 - [Forum aux questions](active-directory-aadconnect-pass-through-authentication-faq.md) : trouvez des réponses aux questions fréquemment posées sur la fonctionnalité Authentification directe.
 - [Résoudre les problèmes](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.

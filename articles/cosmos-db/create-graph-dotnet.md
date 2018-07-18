@@ -11,16 +11,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c1277484d8f8b3073ac15534110b01903c265318
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795881"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453414"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB : Créer une application .NET Framework ou Core à l’aide de l’API Graph
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
 Ce guide de démarrage rapide explique comment créer un compte, une base de données et un graphique (conteneur) [API Graph](graph-introduction.md) Azure Cosmos DB à l’aide du portail Azure. Par la suite, vous allez créer et exécuter une application console en utilisant le pilote [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) open-source.  
 
@@ -32,7 +32,7 @@ Si Visual Studio 2017 est déjà installé, assurez-vous de disposer de [Visual 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
@@ -56,7 +56,7 @@ Si Visual Studio 2017 est déjà installé, assurez-vous de disposer de [Visual 
     cd "C:\git-samples"
     ```
 
-3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
@@ -86,7 +86,7 @@ Tous les extraits de code suivants proviennent du fichier Program.cs.
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * Les commandes Gremlin à exécuter sont répertoriées dans un dictionnaire (ligne 26) :
@@ -175,17 +175,17 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     `private static string database = "your-database";`
 
-5. De la même manière, en vous appuyant sur les informations de la collection créée ci-dessus, collez la collection (qui est également le nom du graphique) dans la variable `collection` de la ligne 23. 
+5. De la même manière, en vous appuyant sur les informations du conteneur créé ci-dessus, collez la collection (qui est également le nom du graphique) dans la variable `collection` de la ligne 23. 
 
     `private static string collection = "your-collection-or-graph";`
 
 6. Enregistrez le fichier Program.cs. 
 
-Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
 ## <a name="run-the-console-app"></a>Exécution de l’application console
 
-Appuyez sur Ctrl + F5 pour exécuter l’application. L’application imprime les commandes de requête Gremlin et les résultats dans la console.
+Appuyez sur Ctrl + F5 pour exécuter l’application. L’application imprime les commandes de requête Gremlin et les résultats dans la console.
 
    La fenêtre de console affiche les sommets et les bords ajoutés au graphique. Lorsque le script se termine, appuyez sur ENTRÉE pour fermer la fenêtre de console.
 
@@ -193,7 +193,7 @@ Appuyez sur Ctrl + F5 pour exécuter l’application. L’application imprime l
 
 Vous pouvez maintenant retourner à l’Explorateur de données dans le Portail Azure pour parcourir et interroger vos nouvelles données graphiques.
 
-1. Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet Graphique. Développez la base de données et les nœuds de collection, puis cliquez sur **Graphique**.
+1. Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet Graphique. Développez les nœuds de conteneur et de base de données, puis cliquez sur **Graphique**.
 
 2. Cliquez sur le bouton **Appliquer un filtre** pour utiliser la requête par défaut et afficher tous les vertex dans le graphique. Les données générées par l’exemple d’application s’affichent dans le volet Graphiques.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: brenduns
-ms.openlocfilehash: b84744a52426123f2f3e7dd4c14419fef8b779cc
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: bfdfc2ff879db11f5a8ba35898069b2b937c49b0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258628"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928979"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tailles de machine virtuelle prises en charge dans Azure Stack
 
@@ -38,7 +38,7 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 |**A1\Basic_A1**  |1    |1,75 Go  | 40 Go   |300  | 300  |2 / 2x300  |1   |
 |**A2\Basic_A2**  |2    |3,5 Go   | 60 Go   |300  | 300  |4 / 4x300  |1   |
 |**A3\Basic_A3**  |4    |7 Go     | 120 Go  |300  | 300  |8 / 8x300  |1   |
-|**A4\Basic_A4**  |8    |14 Go    | 240 Go  |300  | 300  |6 / 16X300 |1   |
+|**A4\Basic_A4**  |8    |14 Go    | 240 Go  |300  | 300  |16 / 16X300 |1   |
 
 ### <a name="standard-a"></a>Standard A 
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max. de cartes réseau / bande passante réseau attendue (Mbits/s) |    
@@ -107,7 +107,7 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max. de cartes réseau / bande passante réseau attendue (Mbits/s) |
 |-----------------|----|----|-----|----|------|------------|---------|
-|**Standard_F1**  |1   |2   |16   |500 |3000  |4 / 4x400   |2 / 750  |
+|**Standard_F1**  |1   |2   |16   |500 |3000  |4 / 4 x 500   |2 / 750  |
 |**Standard_F2**  |2   |4   |32   |500 |6000  |8 / 8 x 500   |2 / 1 500 |
 |**Standard_F4**  |4   |8   |64   |500 |12 000 |16 / 16 x 500 |4 / 3 000 |
 |**Standard_F8**  |8   |16  |128  |500 |24 000 |32 / 32 x 500 |8 / 6 000 |

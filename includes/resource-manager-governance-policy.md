@@ -9,11 +9,11 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c04514218c7ed8dfd72b94345d2deb88e663fda1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29817007"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740538"
 ---
 [Les stratégies Azure](/azure/azure-policy/) vous aide à faire en sorte que toutes les ressources de l’abonnement répondent aux standards des entreprises. Utilisez des stratégies pour réduire les coûts en limitant les options de déploiement uniquement aux types de ressources et références SKU approuvés. Vous définissez les règles et les actions pour vos ressources. Ces règles sont ensuite automatiquement appliquées lors du déploiement. Par exemple, vous pouvez contrôler les types de ressources qui sont déployés. Vous pouvez aussi restreindre les emplacements approuvés pour les ressources. Certaines stratégies refuse une action, tandis que d’autres définissent l’audit d’une action.
 

@@ -7,15 +7,17 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 12a34bc98db396482d9fde8da778db0f0ef7de4b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 30795f542bca52159f2ff0fe052a94de3743f0e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767151"
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Démarrage rapide : Installer et prendre en main les services Azure Machine Learning
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données de bout en bout intégrée. Cette solution permet aux scientifiques des données professionnels de préparer des données, de développer des expériences et de déployer des modèles à l’échelle du cloud.
@@ -62,7 +64,7 @@ Utilisez le portail Azure pour approvisionner vos comptes Azure Machine Learning
    Nom du compte Expérimentation | _Nom unique_ |Entrez un nom unique qui identifie votre compte. Vous pouvez utiliser votre propre nom, ou celui d’un service ou projet qui identifie le mieux l’expérimentation. Le nom doit inclure entre 2 et 32 caractères. Seuls des caractères alphanumériques et des tirets peuvent être utilisés. 
    Abonnement | _Votre abonnement_ |Choisissez l’abonnement Azure que vous souhaitez utiliser pour votre expérimentation. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource est facturée.
    Groupe de ressources | _Votre groupe de ressources_ | Utilisez un groupe de ressources existant dans votre abonnement, ou entrez un nom pour créer un groupe de ressources pour ce compte d’expérimentation. 
-   Lieu | _La région la plus proche de vos utilisateurs_ | Choisissez l’emplacement le plus proche de vos utilisateurs et des ressources de données.
+   Emplacement | _La région la plus proche de vos utilisateurs_ | Choisissez l’emplacement le plus proche de vos utilisateurs et des ressources de données.
    Nombre d’utilisateurs | 2 | Entrez le nombre d’utilisateurs. Découvrez comment [le nombre de places a un impact sur la tarification](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Pour ce démarrage rapide, vous avez besoin de deux sièges seulement. Des sièges peuvent être ajoutés ou supprimés en fonction des besoins dans le portail Azure.
    Compte de stockage | _Nom unique_ | Sélectionnez **Créer** et indiquez un nom pour créer un [compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal). Le nom doit comprendre entre 3 et 24 caractères, et seuls des caractères alphanumériques peuvent être utilisés. Vous pouvez également sélectionner **Utiliser l’existant** et choisir votre compte de stockage existant dans la liste déroulante. Le compte de stockage est obligatoire et sert à stocker les artefacts de projet et les données de l’historique des exécutions. 
    Espace de travail pour le compte Expérimentation | IrisGarden<br/>(nom utilisé dans les tutoriels) | Fournissez un nom pour un espace de travail de ce compte. Le nom doit inclure entre 2 et 32 caractères. Seuls des caractères alphanumériques et des tirets peuvent être utilisés. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.
@@ -145,7 +147,7 @@ Ici, nous créons un projet Workbench à l’aide d’un modèle qui inclut le [
    Nom du projet | myIris |Entrez un nom unique qui identifie votre compte. Vous pouvez utiliser votre propre nom, ou celui d’un service ou projet qui identifie le mieux l’expérimentation. Le nom doit inclure entre 2 et 32 caractères. Seuls des caractères alphanumériques et des tirets peuvent être utilisés. 
    Répertoire du projet | c:\Temp\ | Spécifiez le répertoire dans lequel le projet est créé.
    Description du projet | _Laisser vide_ | Champ facultatif utile pour décrire les projets.
-   URL du référentiel GIT de Visualstudio.com |_Laisser vide_ | Champ facultatif. Un projet peut éventuellement être associé à un répertoire Git sur Visual Studio Team Services pour le contrôle de code source et la collaboration. [Voici les étapes de configuration à suivre.](/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   URL du référentiel GIT de Visualstudio.com |_Laisser vide_ | Champ facultatif. Un projet peut éventuellement être associé à un répertoire Git sur Visual Studio Team Services pour le contrôle de code source et la collaboration. [Voici les étapes de configuration à suivre.](../desktop-workbench/using-git-ml-project.md#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Espace de travail sélectionné | IrisGarden (s’il existe) | Choisissez un espace de travail que vous avez créé pour votre compte Expérimentation dans le portail Azure. <br/>Si vous avez suivi le démarrage rapide, vous devez disposer d’un espace de travail nommé IrisGarden. Si ce n’est pas le cas, sélectionnez celui que vous avez créé en même temps que votre compte Expérimentation ou tout autre compte que vous souhaitez utiliser.
    Modèle de projet | Classifying Iris | Les modèles contiennent des scripts et des données que vous pouvez utiliser pour découvrir le produit. Ce modèle contient les scripts et les données nécessaires pour ce démarrage rapide et les autres didacticiels de ce site de documentation. 
 
@@ -196,7 +198,7 @@ Vous pouvez obtenir de l’aide sur les commandes de l’interface de commande A
 
 ```az ml --help```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

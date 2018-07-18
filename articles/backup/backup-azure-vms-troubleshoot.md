@@ -1,24 +1,19 @@
 ---
-title: Résoudre les erreurs de sauvegarde avec les machines virtuelles Azure | Microsoft Docs
+title: Résoudre les erreurs de sauvegarde avec les machines virtuelles Azure
 description: Dépannage de la sauvegarde et de la restauration de machines virtuelles Azure
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: trinadhk
+ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607257"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure Backup à l’aide des informations figurant dans le tableau ci-dessous.
@@ -30,7 +25,7 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 | L’agent de machine virtuelle ne peut pas communiquer avec Azure Backup Service. - Assurez-vous que la machine virtuelle possède une connectivité réseau et que l’agent de machine virtuelle est plus récente et en cours d’exécution. Pour plus d’informations, voir http://go.microsoft.com/fwlink/?LinkId=800034 |Cette erreur est générée si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. [En savoir plus](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sur le débogage des problèmes d’instantanés de machines virtuelles.<br> Si l’agent de machine virtuelle n’est pas à l’origine des problèmes, redémarrez la machine virtuelle. Il arrive que l’état incorrect d’une machine virtuelle provoque des problèmes et le redémarrage de la machine virtuelle réinitialise cet « état incorrect ». |
 | État Échec d’approvisionnement de la machine virtuelle : veuillez redémarrer la machine virtuelle et vous assurer que la machine virtuelle est En cours d’exécution ou Arrêté pour la sauvegarde | Cela se produit lorsqu’un des échecs d’extension entraîne l’état Échec d’approvisionnement de la machine virtuelle. Accédez à la liste des extensions et vérifiez s’il existe une extension ayant échoué, supprimez-la et essayez de redémarrer la machine virtuelle. Si toutes les extensions sont En cours d’exécution, vérifiez si le service de l’agent de la machine virtuelle est en cours d’exécution. Si ce n’est pas le cas, redémarrez le service de l’agent de la machine virtuelle. | 
 | Échec de l’opération d’extension de VMSnapshot pour des disques gérés : veuillez réessayer l’opération de sauvegarde. Si le problème se reproduit, suivez les instructions de l’article http://go.microsoft.com/fwlink/?LinkId=800034. Si le problème persiste, veuillez contacter le support Microsoft | Cette erreur si le service Azure Backup échoue à déclencher une capture instantanée. [En savoir plus](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sur le débogage des problèmes de capture instantanée de machines virtuelles. |
-| Impossible de copier la capture instantanée de la machine virtuelle, en raison du manque d’espace libre dans le compte de stockage : vérifiez que le compte de stockage dispose d’un espace disponible équivalent aux données présentes sur les disques de stockage premium attachés à la machine virtuelle | Pour les machines virtuelles premium, nous copions la capture instantanée sur le compte de stockage. Il s’agit de vous assurer que le trafic de gestion de sauvegarde, qui fonctionne sur la capture instantanée, ne limite pas le nombre d’IOPS accessibles à l’application à l’aide de disques premium. Microsoft vous recommande de n'allouer que 50 % de l’espace de compte de stockage total pour que le service Azure Backup puisse copier la capture instantanée sur le compte et transférer des données depuis cet emplacement copié dans le compte de stockage dans le coffre. | 
+| Impossible de copier la capture instantanée de la machine virtuelle, en raison du manque d’espace libre dans le compte de stockage : vérifiez que le compte de stockage dispose d’un espace disponible équivalent aux données présentes sur les disques de stockage premium attachés à la machine virtuelle | Pour les machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, nous copions la capture instantanée sur le compte de stockage. Il s’agit de vous assurer que le trafic de gestion de sauvegarde, qui fonctionne sur la capture instantanée, ne limite pas le nombre d’IOPS accessibles à l’application à l’aide de disques premium. Microsoft vous recommande d’allouer seulement 50 % (17,5 To) de l’espace total du compte de stockage pour que le service Sauvegarde Azure puisse copier la capture instantanée sur le compte et transférer des données depuis cet emplacement copié du compte de stockage vers le coffre. | 
 | Impossible d’effectuer l’opération, car l’agent de machine virtuelle ne répond pas |Cette erreur est générée si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. Pour les machines virtuelles Windows, vérifiez l’état de service de l’agent de machine virtuelle dans les services et vérifiez si l’agent s’affiche dans le Panneau de configuration, sous Programmes. Essayez de supprimer le programme à partir du Panneau de configuration et de réinstaller l’agent comme indiqué [ci-dessous](#vm-agent). Après avoir réinstallé l’agent, déclenchez une sauvegarde ad hoc à des fins de vérification. |
 | Échec de l’opération d’extension de Recovery Services. - Vérifiez que l’agent de machine virtuelle le plus récent est présent sur la machine virtuelle et que le service de l’agent est en cours d’exécution. Relancez l’opération de sauvegarde ; en cas d’échec, contactez le support Microsoft. |Cette erreur est levée lorsque l’agent de machine virtuelle est obsolète. Consultez la section « Mise à jour de l’agent de machine virtuelle » ci-dessous pour mettre à jour l’agent de machine virtuelle. |
 | La machine virtuelle n’existe pas. -Vérifiez que cette machine virtuelle existe ou sélectionnez une autre machine virtuelle. |Cela se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher une machine virtuelle pour effectuer la sauvegarde. Pour résoudre ce problème : <ol><li> Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources [nom du service cloud]<br>(OU)<br></li><li>Arrêtez la protection de la machine virtuelle sans supprimer les données de sauvegarde. [En savoir plus](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

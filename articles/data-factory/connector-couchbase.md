@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Couchbase avec Azure Data Factory (version bêta) | Microsoft Docs
+title: Copier des données de Couchbase avec Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie pour copier des données de Couchbase vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: d47f9f7a6225dc3359c212a3df638805097d1dcc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9806ec19df0a68ac71cf639f5cb9b2b600a574ba
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616785"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053920"
 ---
-# <a name="copy-data-from-couchbase-using-azure-data-factory-beta"></a>Copier des données de Couchbase avec Azure Data Factory (version bêta)
+# <a name="copy-data-from-couchbase-using-azure-data-factory"></a>Copier des données de Couchbase avec Azure Data Factory
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Couchbase. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, voir [Activité de copie dans V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> Ce connecteur est actuellement en version bêta. Essayez-le et envoyez-nous vos commentaires. Ne l’utilisez pas dans des environnements de production.
+> Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -38,7 +35,7 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes donnent des précisions sur les propriétés utilisées pour définir des entités Data Factory propres au connecteur Couchbase.
 

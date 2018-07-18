@@ -6,18 +6,19 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ac8f22f128b350844af10f309fd3b93512d54d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582299"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Didacticiel : Déployer une application web à partir d’Azure Container Registry
 
-Ceci est la deuxième partie d’une série de didacticiels qui en compte trois. Dans la [première partie](container-registry-tutorial-prepare-registry.md), un registre de conteneurs privé et géorépliqué a été créé, et une image de conteneur a été générée à partir de la source et envoyée au registre. Cet article explique comment déployer le conteneur dans deux instances d’application web situées dans deux régions Azure distinctes afin de tirer parti de la proximité réseau du registre géorépliqué.
+Ceci est la deuxième partie d’une série de didacticiels qui en compte trois. Dans la [première partie](container-registry-tutorial-prepare-registry.md), un registre de conteneurs privé et géorépliqué a été créé, et une image de conteneur a été générée à partir de la source et envoyée au registre. Cet article explique comment tirer parti de la proximité réseau du registre géorépliqué en déployant le conteneur dans deux instances d’application web situées dans deux régions Azure distinctes. Chaque instance extrait ensuite l’image conteneur du registre le plus proche.
 
 Dans ce didacticiel, la deuxième partie de la série :
 
@@ -27,11 +28,11 @@ Dans ce didacticiel, la deuxième partie de la série :
 
 Si vous n’avez pas encore créé de registre géorépliqué et placé l’image de l’exemple d’application en conteneur dans le registre, revenez au didacticiel précédent de la série, [Préparer un registre de conteneurs Azure géorépliqué](container-registry-tutorial-prepare-registry.md).
 
-La partie suivante de la série explique comment mettre à jour l’application, puis envoyer une nouvelle image du conteneur au registre. Enfin, vous accédez à chaque instance d’application web en cours d’exécution pour voir la modification répercutée automatiquement dans les deux, montrant la géoréplication et les webhooks d’Azure Container Registry en action.
+L’article suivant de la série explique comment mettre à jour l’application, puis envoyer l’image conteneur mise à jour dans le registre. Enfin, vous accédez à chaque instance d’application web en cours d’exécution pour voir la modification répercutée automatiquement dans les deux, montrant la géoréplication et les webhooks d’Azure Container Registry en action.
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Déploiement automatique sur Web App pour conteneurs
 
-Azure Container Registry prend en charge le déploiement d’applications en conteneur directement vers [Web App pour conteneurs](../app-service/containers/index.yml). Ce didacticiel explique comment utiliser le portail Azure pour déployer l’image de conteneur créée dans le didacticiel précédent vers deux plans d’application web situés dans des régions Azure différentes.
+Azure Container Registry prend en charge le déploiement d’applications en conteneur directement vers [Web App pour conteneurs](../app-service/containers/index.yml). Ce didacticiel explique comment utiliser le portail Azure pour déployer l’image conteneur créée dans le didacticiel précédent vers deux plans d’application web situés dans des régions Azure différentes.
 
 Lorsque vous déployez une application web à partir d’une image de conteneur dans votre registre, et que vous avez un registre géorépliqué dans la même région, Azure Container Registry crée un [webhook](container-registry-webhook.md) de déploiement d’image pour vous. Lorsque vous envoyez une nouvelle image au référentiel de votre conteneur, le webhook récupère la modification et déploie automatiquement la nouvelle image de conteneur vers votre application web.
 
@@ -103,11 +104,7 @@ Une fois l’image Docker déployée à partir de votre registre de conteneurs g
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez déployé deux instances Web App pour conteneurs à partir d’un registre de conteneurs Azure géorépliqué. En suivant les étapes décrites dans ce didacticiel, vous avez :
-
-> [!div class="checklist"]
-> * déployé d’une image de conteneur vers deux instances *Web App pour conteneurs* ;
-> * vérifié l’application déployée.
+Dans ce didacticiel, vous avez déployé deux instances Web App pour conteneurs à partir d’un registre de conteneurs Azure géorépliqué.
 
 Passez au didacticiel suivant pour mettre à jour, puis déployer une nouvelle image de conteneur dans le registre de conteneurs, puis vérifier que les applications web en cours d’exécution dans les deux régions ont été mises à jour automatiquement.
 
