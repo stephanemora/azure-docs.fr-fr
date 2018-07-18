@@ -1,4 +1,4 @@
----
+﻿---
 title: Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9
 description: Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9
 services: app-service\web

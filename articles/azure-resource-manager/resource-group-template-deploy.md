@@ -1,4 +1,4 @@
----
+﻿---
 title: Déployer des ressources avec le modèle et PowerShell | Microsoft Docs
 description: Utilisez Azure Resource Manager et Azure PowerShell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 services: azure-resource-manager

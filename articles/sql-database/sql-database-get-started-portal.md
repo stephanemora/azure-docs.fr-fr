@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Portail Azure : Créer une base de données SQL | Microsoft Docs'
 description: Créez un serveur logique SQL Database, une règle de pare-feu au niveau du serveur et une base de données dans le Portail Azure, puis interrogez cette dernière.
 keywords: tutoriel sur la base de données sql, créer une base de données sql

@@ -1,4 +1,4 @@
----
+﻿---
 title: Attributs synchronisés par Azure AD Connect | Microsoft Docs
 description: Répertorie les attributs qui sont synchronisés avec Azure Active Directory.
 services: active-directory

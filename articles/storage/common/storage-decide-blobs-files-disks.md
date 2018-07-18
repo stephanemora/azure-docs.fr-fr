@@ -1,4 +1,4 @@
----
+﻿---
 title: Quand utiliser des objets BLOB Azure, des fichiers Azure ou des disques Azure
 description: Découvrez les différentes façons de stocker les données dans Azure et d’y accéder pour choisir la technologie la mieux adaptée.
 services: storage

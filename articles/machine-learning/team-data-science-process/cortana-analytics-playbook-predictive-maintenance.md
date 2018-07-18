@@ -1,4 +1,4 @@
----
+﻿---
 title: Guide Azure AI pour les solutions de maintenance prédictive | Microsoft Docs
 description: Une description complète de la science des données qui alimente les solutions de maintenance prédictive dans plusieurs secteurs d’activité.
 services: machine-learning
