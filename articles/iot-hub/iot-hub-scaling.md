@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 446fe139e3d1abe79b877d663842f7c7c6168f19
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901039"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126692"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -31,19 +31,19 @@ Chaque niveau IoT Hub est disponible en trois tailles, en fonction du débit de 
 
 Le niveau standard de IoT Hub active toutes les fonctionnalités. Il est requis pour toutes les solutions IoT qui comptent utiliser les fonctionnalités de communication bidirectionnelle. Le niveau de base active un sous-ensemble de fonctionnalités. Il est destiné aux solutions IoT qui nécessitent uniquement une communication unidirectionnelle, des appareils vers le cloud. Ces deux niveaux offrent les mêmes fonctionnalités de sécurité et d’authentification.
 
-Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau de base au niveau standard sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md). Notez que la limite de partition pour le niveau de base d’IoT Hub est 8. Cette limite ne change pas quand vous migrez du niveau de base vers le niveau standard.
+Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau de base au niveau standard sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md). Notez que la limite de partition pour le niveau De base d’IoT Hub est 8. Cette limite ne change pas quand vous migrez du niveau De base vers le niveau Standard.
 
 | Fonctionnalité | Niveau de base | Niveau standard |
 | ---------- | ---------- | ------------- |
-| [Télémétrie appareil-à-cloud](iot-hub-devguide-messaging.md) | OUI | OUI |
-| [Identité par appareil](iot-hub-devguide-identity-registry.md) | OUI | OUI |
-| [Routage de messages](iot-hub-devguide-messages-read-custom.md) et [intégration Event Grid](iot-hub-event-grid.md) | OUI | OUI |
-| [Protocoles HTTP, AMQP et MQTT](iot-hub-devguide-protocols.md) | OUI | OUI |
-| [Service Device Provisioning](../iot-dps/about-iot-dps.md) | OUI | OUI |
-| [Surveillance et diagnostics](iot-hub-monitor-resource-health.md) | OUI | OUI |
-| [Messages de cloud-à-appareil](iot-hub-devguide-c2d-guidance.md) |   | OUI |
-| [Jumeaux d’appareil](iot-hub-devguide-device-twins.md), [Jumeaux de module](iot-hub-devguide-module-twins.md) et [Gestion des appareils](iot-hub-device-management-overview.md) |   | OUI |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | OUI |
+| [Télémétrie appareil-à-cloud](iot-hub-devguide-messaging.md) | Oui | Oui |
+| [Identité par appareil](iot-hub-devguide-identity-registry.md) | Oui | Oui |
+| [Routage de messages](iot-hub-devguide-messages-read-custom.md) et [intégration Event Grid](iot-hub-event-grid.md) | Oui | Oui |
+| [Protocoles HTTP, AMQP et MQTT](iot-hub-devguide-protocols.md) | Oui | Oui |
+| [Service Device Provisioning](../iot-dps/about-iot-dps.md) | Oui | Oui |
+| [Surveillance et diagnostics](iot-hub-monitor-resource-health.md) | Oui | Oui |
+| [Messages de cloud-à-appareil](iot-hub-devguide-c2d-guidance.md) |   | Oui |
+| [Jumeaux d’appareil](iot-hub-devguide-device-twins.md), [Jumeaux de module](iot-hub-devguide-module-twins.md) et [Gestion des appareils](iot-hub-device-management-overview.md) |   | Oui |
+| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Oui |
 
 IoT Hub propose également un niveau gratuit à des fins de test et d’évaluation. Il possède toutes les fonctionnalités du niveau standard, mais ses allocations en termes de messages sont limitées. Vous ne pouvez pas faire évoluer le niveau gratuit vers le niveau de base ou standard. 
 
@@ -53,34 +53,34 @@ La différence de fonctionnalités prises en charge entre les niveaux de base et
 
 | API | Niveau de base | Niveau standard |
 | --- | ---------- | ------------- |
-| [Supprimer un appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | OUI | OUI |
-| [Obtenir un appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | OUI | OUI |
-| Supprimer le module | OUI | OUI |
-| Obtenir le module | OUI | OUI |
-| [Obtenir les statistiques de Registre](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | OUI | OUI |
-| [Obtenir les statistiques de services](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | OUI | OUI |
-| [Placer l’appareil](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | OUI | OUI |
-| Placer le module | OUI | OUI |
-| [Interroger les appareils](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | OUI | OUI |
-| Interroger les modules | OUI | OUI |
-| [Créer l’URI SAS de téléchargement des fichiers](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | OUI | OUI |
-| [Recevoir une notification d’appareil lié](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | OUI | OUI |
-| [Envoyer un événement d’appareil](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | OUI | OUI |
-| Envoyer un événement de module | OUI | OUI |
-| [Mettre à jour l’état de chargement des fichiers](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | OUI | OUI |
-| [Opération sur l’appareil en bloc](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Oui, à l’exception des fonctionnalités IoT Edge | OUI | 
-| [Purger la file d’attente de commandes](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | OUI |
-| [Obtenir un jumeau d’appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | OUI |
-| Obtenir un jumeau de module |   | OUI |
-| [Appeler une méthode d’appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | OUI |
-| [Mettre à jour le jumeau d’appareil](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | OUI | 
-| Mettre à jour le jumeau de module |   | OUI | 
-| [Abandonner une notification d’appareil lié](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | OUI |
-| [Terminer une notification d’appareil lié](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | OUI |
-| [Annuler un travail](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | OUI |
-| [Créer un travail](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | OUI |
-| [Obtenir un travail](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | OUI |
-| [Tâches de requête](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | OUI |
+| [Supprimer un appareil](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Oui | Oui |
+| [Obtenir un appareil](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Oui | Oui |
+| Supprimer le module | Oui | Oui |
+| Obtenir le module | Oui | Oui |
+| [Obtenir les statistiques de Registre](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Oui | Oui |
+| [Obtenir les statistiques de services](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Oui | Oui |
+| [Créer ou mettre à jour un appareil](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Oui | Oui |
+| Placer le module | Oui | Oui |
+| [Interroger IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Oui | Oui |
+| Interroger les modules | Oui | Oui |
+| [Créer l’URI SAS de téléchargement des fichiers](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Oui | Oui |
+| [Recevoir une notification d’appareil lié](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Oui | Oui |
+| [Envoyer un événement d’appareil](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Oui | Oui |
+| Envoyer un événement de module | Oui | Oui |
+| [Mettre à jour l’état de chargement des fichiers](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Oui | Oui |
+| [Opération sur l’appareil en bloc](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Oui, à l’exception des fonctionnalités IoT Edge | Oui | 
+| [Purger la file d’attente de commandes](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Oui |
+| [Obtenir un jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Oui |
+| Obtenir un jumeau de module |   | Oui |
+| [Appeler une méthode d’appareil](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Oui |
+| [Mettre à jour le jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Oui | 
+| Mettre à jour le jumeau de module |   | Oui | 
+| [Abandonner une notification d’appareil lié](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Oui |
+| [Terminer une notification d’appareil lié](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Oui |
+| [Annuler un travail](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Oui |
+| [Créer un travail](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | Oui |
+| [Obtenir un travail](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | Oui |
+| [Tâches de requête](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | Oui |
 
 ## <a name="message-throughput"></a>Débit de messages
 

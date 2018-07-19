@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 1ba9f827abeb0c0cf6430089e1fb504288550737
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900461"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035239"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurer Managed Service Identity (MSI) pour un groupe de machines virtuelles identiques à l’aide du portail Azure
 
@@ -56,7 +56,7 @@ Pour activer l’identité système affectée sur une machine virtuelle qui a é
 
 3. Activez l’identité affectée au système sur la machine virtuelle en sélectionnant « Oui » sous « Identité du service administré », puis cliquez sur **Enregistrer**. Cette opération peut durer 60 secondes ou plus :
 
-   [![Capture d’écran de la page Configuration](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   [![Capture d’écran de la page Configuration](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Supprimer l’identité de service administrée d’un groupe de machines virtuelles identiques Azure
 
@@ -68,7 +68,7 @@ Si vous disposez d’un groupe de machines virtuelles identiques qui ne nécessi
 
 3. Désactivez l’identité affectée au système sur la machine virtuelle en sélectionnant « Non » sous « Identité du service administré », puis cliquez sur Enregistrer. Cette opération peut durer 60 secondes ou plus :
 
-   ![Capture d’écran de la page Configuration](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Capture d’écran de la page Configuration](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
 ## <a name="related-content"></a>Contenu connexe
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d0a4df20ef513b2a6524ba92656a7f861da8458
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c59f4291726b24b7c96bb60d0497c1578a3e4b0f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115342"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bomgar-remote-support"></a>Tutoriel : Intégration d’Azure Active Directory à Bomgar Remote Support
 
@@ -197,7 +197,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Bomgar Remote Support dans le panneau d’accès, vous devez être automatiquement connecté à votre application Bomgar Remote Support.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

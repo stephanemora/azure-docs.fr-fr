@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: bdf8731b2a5028f47c2baf6f164d75123f716ebb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857637"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056206"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Configuration de l'authentification mutuelle TLS pour une application Web
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez restreindre l'accès à votre application Web Azure en activant différents types d'authentification. Une méthode consiste à authentifier à l'aide d'un certificat client lorsque la requête est exécutée sur TLS/SSL. Ce mécanisme est appelé authentification mutuelle TLS ou authentification par certificat client. Cet article décrit en détail comment configurer votre application Web pour utiliser l'authentification par certificat client.
 
 > **Remarque :** si vous accédez à votre site sur HTTP et non HTTPS, vous ne recevez pas de certificat client. Par conséquent, si votre application requiert des certificats clients, vous ne devez pas autoriser les demandes à votre application sur HTTP.
@@ -51,7 +51,7 @@ Veillez à modifier la valeur de « location » par l'emplacement de votre appli
 
 Vous pouvez également utiliser https://resources.azure.com pour retourner la propriété `clientCertEnabled` vers `true`.
 
-> **Remarque :** si vous exécutez ARMClient à partir de PowerShell, vous devez placer dans une séquence d’échappement le symbole @ pour le fichier JSON avec une apostrophe inversée (`).
+> **Remarque :** si vous exécutez ARMClient à partir de PowerShell, vous devez placer dans une séquence d’échappement le symbole \@ pour le fichier JSON avec une apostrophe inversée `.
 > 
 > 
 

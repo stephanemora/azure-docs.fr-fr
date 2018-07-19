@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 0aa3ec013e93ddb89cd6982c01a38411f67b34c4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: a93e4863a8466ad6599b11e6fe6e53d8d4d971a4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866346"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049913"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Didacticiel : Intégration d’Azure Active Directory à UNIFI
 
@@ -102,49 +102,49 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **UNIFI**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_samlbase.png)
+    ![Configurer l'authentification unique](./media/unifi-tutorial/tutorial_unifi_samlbase.png)
 
 3. Dans la section **Domaines et URL UNIFI**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_url1.png)
+    ![Configurer l'authentification unique](./media/unifi-tutorial/tutorial_unifi_url1.png)
 
     Dans la zone de texte **Identificateur**, entrez la valeur : `INVIEWlabs` 
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_url2.png)
+    ![Configurer l'authentification unique](./media/unifi-tutorial/tutorial_unifi_url2.png)
 
     Dans la zone de texte **URL de connexion**, entrez l’URL : `https://app.discoverunifi.com/login`
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_certificate.png) 
+    ![Configurer l'authentification unique](./media/unifi-tutorial/tutorial_unifi_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/unifi-tutorial/tutorial_general_400.png)
     
 7. Dans la section **Configuration d’UNIFI**, cliquez sur **Configurer UNIFI** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_configure.png)
+    ![Configurer l'authentification unique](./media/unifi-tutorial/tutorial_unifi_configure.png)
 
 8. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise **UNIFI** en tant qu’administrateur.
 
 9. Cliquez sur **Utilisateurs**.
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/app1.png) 
+    ![Configurer l'authentification unique](./media/unifi-tutorial/app1.png) 
 
 10. Cliquez sur **Ajouter un nouveau fournisseur d’identité**.
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/app2.png)
+    ![Configurer l'authentification unique](./media/unifi-tutorial/app2.png)
 
 11. Dans la section **Ajouter un fournisseur d’identité**, procédez comme suit :   
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/app3.png) 
+    ![Configurer l'authentification unique](./media/unifi-tutorial/app3.png) 
 
     a. Dans la zone de texte **Nom du fournisseur**, entrez le nom du fournisseur d’identité.
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **UNIFI**.
 
-    ![Configure Single Sign-On](./media/unifi-tutorial/tutorial_unifi_app.png) 
+    ![Configurer l'authentification unique](./media/unifi-tutorial/tutorial_unifi_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -228,7 +228,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette UNIFI dans le panneau d’accès, vous êtes automatiquement connecté à votre application UNIFI.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

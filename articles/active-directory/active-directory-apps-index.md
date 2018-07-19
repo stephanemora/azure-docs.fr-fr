@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 76430fa5652e98cba86c41433f376e27dbb1639a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446858"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054877"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Index d’articles pour la gestion des applications dans Azure Active Directory
 Cette page fournit la liste complète des documents qui traitent des diverses fonctionnalités d’application dans Azure Active Directory (Azure AD).
@@ -112,7 +112,7 @@ Une fois que vous avez défini l’authentification unique pour vos applications
 | Comment activer l’accès conditionnel pour les types de ressources suivants |[Accès conditionnel pour les applications SaaS](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Accès conditionnel pour les services Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Accès conditionnel pour des applications locales](active-directory-conditional-access-azure-portal.md)<br /><br />[Accès conditionnel pour les applications locales publiées par le biais du proxy d’application Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Comment inscrire des appareils auprès d’Azure Active Directory pour activer des stratégies d’accès conditionnel en fonction de l’appareil |[Vue d’ensemble du service d’inscription d’appareil Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Activation de l’inscription automatique des appareils pour les appareils joints à un domaine Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Étapes pour les appareils Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Étapes pour les appareils Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| Utilisation de l’application Microsoft Authenticator pour la vérification en deux étapes |[Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| Utilisation de l’application Microsoft Authenticator pour la vérification en deux étapes |[Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 L’accès conditionnel est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
@@ -180,7 +180,7 @@ Grâce au volet d’accès Azure AD, les utilisateurs finaux peuvent lancer leur
 | Guide des articles |  |
 |:---:| --- |
 | Comparaison des différentes options de déploiement d’applications avec authentification unique pour les utilisateurs |[Déploiement d’applications Azure AD intégrées pour les utilisateurs](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
-| Vue d’ensemble du volet d’accès et des applications MyApp mobiles équivalentes |[Introduction au volet d’accès et aux applications MyApp](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| Vue d’ensemble du volet d’accès et des applications MyApp mobiles équivalentes |[Introduction au volet d’accès et aux applications MyApp](user-help/active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Comment accéder aux applications Azure AD depuis le site web Office 365 |[Utilisation du lanceur d’applications Office 365](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Comment accéder aux applications Azure AD depuis l’application mobile Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Comment accéder aux applications Azure AD à l’aide de liens ciblés pour lancer l’authentification unique |[Établissement de liens d’authentification directs vers vos applications](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |

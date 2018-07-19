@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 4e1f6cb8a383569b80386e090b15c59988510d0f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 633501b03a362fbd07e14e308e18488f03af5af5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112841"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069200"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -42,7 +42,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftcdnprofile"></a>Microsoft.CDN/profile
 |Vérifications exécutées|
 |---|
-|<ul> <li>Un point de terminaison est-il arrêté, supprimé ou mal configuré ?</li><li>Le portail supplémentaire est-il accessible pour les opérations de configuration CDN ?</li><li>Existe-t-il des problèmes de livraison continue avec les points de terminaison CDN ?</li><li>Les utilisateurs peuvent-ils modifier la configuration de leurs ressources CDN ?</li><li>Les modifications de configuration sont-elles propagées au rythme attendu ?</li><li>Les utilisateurs peuvent-ils gérer la configuration du CDN via le portail Azure, PowerShell ou l’API ?</li> </ul>|
+|<ul> <li>Le portail supplémentaire est-il accessible pour les opérations de configuration CDN ?</li><li>Existe-t-il des problèmes de livraison continue avec les points de terminaison CDN ?</li><li>Les utilisateurs peuvent-ils modifier la configuration de leurs ressources CDN ?</li><li>Les modifications de configuration sont-elles propagées au rythme attendu ?</li><li>Les utilisateurs peuvent-ils gérer la configuration du CDN via le portail Azure, PowerShell ou l’API ?</li> </ul>|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |Vérifications exécutées|

@@ -10,18 +10,37 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867951"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069445"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
 Cet article vous aide à utiliser la solution Change Tracking pour identifier facilement les modifications apportées dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux fichiers Windows et Linux, aux clés de Registre Windows, aux services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
 
 Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et Registre Windows et aux démons Linux sur les serveurs surveillés sont envoyées au service cloud Log Analytics pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
+
+## <a name="supported-windows-operating-systems"></a>Systèmes d’exploitation Windows pris en charge
+
+Les versions suivantes du système d’exploitation Windows sont officiellement prises en charge pour l’agent Windows :
+
+* Windows Server 2008 Service Pack 1 (SP1) (ou version ultérieure) ;
+* Windows 7 SP1 (ou version ultérieure).
+
+## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
+
+Les distributions Linux suivantes sont officiellement prises en charge. Toutefois, l’agent Linux peut également s’exécuter sur d’autres distributions, qui ne se trouvent pas dans la liste. Sauf indication contraire, toutes les versions mineures sont prises en charge pour chaque version majeure répertoriée.  
+
+* Amazon Linux 2012.09 à 2015.09 (x86/x64)
+* CentOS Linux 5, 6 et 7 (x86/x64)  
+* Oracle Linux 5, 6 et 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 et 7 (x86/x64)
+* Debian GNU/Linux 6, 7 et 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 et 12 (x86/x64)
 
 ## <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
 
@@ -99,7 +118,7 @@ Utilisez les étapes suivantes pour configurer le suivi des clés de Registre su
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
 |Clé de Registre Windows   | Chemin dans lequel rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
-## <a name="limitations"></a>Limites
+## <a name="limitations"></a>Limitations
 
 Actuellement, la solution Change Tracking ne prend pas en charge les éléments suivants :
 

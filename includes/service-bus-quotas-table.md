@@ -9,11 +9,11 @@ ms.date: 06/04/2018
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 0ff1e31e52c7db5c41f92cb9e4cb1a17f28dea6f
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806398"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755866"
 ---
 Le tableau suivant répertorie les informations de quota propres à la messagerie Service Bus. Pour plus d’informations sur la tarification et d’autres quotas pour Service Bus, voir la présentation [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 

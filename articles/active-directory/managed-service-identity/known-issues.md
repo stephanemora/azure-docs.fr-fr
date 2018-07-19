@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c48d03b6e8a3d850d02d2c36c35915f8214b00e8
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906215"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035810"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory
 
@@ -85,7 +85,7 @@ Où :
 
 Lorsque l’identité du service administré est activée sur une machine virtuelle, l’erreur suivante s’affiche lorsque vous tentez d’utiliser la fonctionnalité « Script d’automatisation » pour la machine virtuelle ou son groupe de ressources :
 
-![Erreur d’exportation de script d’automatisation MSI](../media/msi-known-issues/automation-script-export-error.png)
+![Erreur d’exportation de script d’automatisation MSI](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
 L’extension de machine virtuelle Identité du service administré ne prend actuellement pas en charge la possibilité d’exporter son schéma vers un modèle de groupe de ressources. Par conséquent, le modèle généré n’affiche pas les paramètres de configuration permettant d’activer l’identité du service administré sur la ressource. Ces sections peuvent être ajoutées manuellement en suivant les exemples dans [Configurer une identité du service administré d’une machine virtuelle à l’aide d’un modèle](qs-configure-template-windows-vm.md).
 

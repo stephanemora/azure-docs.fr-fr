@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 5df8b3d91f52e4809ef43e3e376004e4274b4400
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 84afd45f6fb56222aa6d2dea063251353f406b26
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112018"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutoriel : Intégration d’Azure Active Directory à JIRA SAML SSO by Microsoft (v5.2)
 
@@ -135,33 +135,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/tutorial_metadataurl.png)
+    ![Configurer l'authentification unique](./media/jira52microsoft-tutorial/tutorial_metadataurl.png)
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/jira52microsoft-tutorial/tutorial_general_400.png)
 
 6. Dans une autre fenêtre de navigateur web, connectez-vous à votre instance JIRA en tant qu’administrateur.
 
-7. Pointez sur la roue dentée, puis cliquez sur **Modules complémentaires**.
+7. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon1.png)
+    ![Configurer l'authentification unique](./media/jira52microsoft-tutorial/addon1.png)
 
 8. Sous l’onglet Add-ons (Modules complémentaires), cliquez sur **Manage add-ons** (Gérer les modules complémentaires).
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon7.png)
+    ![Configurer l'authentification unique](./media/jira52microsoft-tutorial/addon7.png)
 
 9. Téléchargez le plug-in depuis le [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=56521). Chargez manuellement le plug-in fourni par Microsoft à l’aide du menu **Upload add-on** (Charger le module complémentaire). Le téléchargement du plug-in est couvert dans [Contrat de Services Microsoft](https://www.microsoft.com/en-us/servicesagreement/).
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon12.png)
+    ![Configurer l'authentification unique](./media/jira52microsoft-tutorial/addon12.png)
 
 10. Une fois que le plug-in est installé, il s’affiche dans la section des modules complémentaires **User Installed** (Installé par l’utilisateur). Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon13.png)
+    ![Configurer l'authentification unique](./media/jira52microsoft-tutorial/addon13.png)
 
 11. Effectuez les opérations suivantes dans la page de configuration :
 
-    ![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon52.png)
+    ![Configurer l'authentification unique](./media/jira52microsoft-tutorial/addon52.png)
 
     > [!TIP]
     > Vérifiez qu’un seul certificat est associé à l’application pour éviter toute erreur liée à la résolution des métadonnées. Si plusieurs certificats sont associés, l’administrateur verra un message d’erreur s’afficher lors de la résolution des métadonnées.
@@ -291,7 +291,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette JIRA SAML SSO by Microsoft (v5.2) dans le volet d’accès, la connexion à votre application JIRA SAML SSO by Microsoft (v5.2) doit se faire automatiquement.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

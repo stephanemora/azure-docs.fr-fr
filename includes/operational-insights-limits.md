@@ -9,11 +9,11 @@ ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307486"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755757"
 ---
 Les limites suivantes s’appliquent aux ressources Log Analytics par abonnement :
 
@@ -28,7 +28,7 @@ Les limites suivantes s’appliquent aux ressources Log Analytics par abonnement
 
 Les limites suivantes s’appliquent à chaque espace de travail Log Analytics :
 
-|  | Gratuit | standard | Premium | Standalone | OMS | Par Go |
+|  | Gratuit | Standard | Premium | Standalone | OMS | Par Go |
 | --- | --- | --- | --- | --- | --- |--- |
 | Volume de données collecté par jour |500 MO<sup>1</sup> |Aucun |Aucun | Aucun | Aucun | Aucun
 | Période de rétention des données |7 jours |1 mois |12 mois | 1 mois<sup>2</sup> | 1 mois <sup>2</sup>| 1 mois <sup>2</sup>|

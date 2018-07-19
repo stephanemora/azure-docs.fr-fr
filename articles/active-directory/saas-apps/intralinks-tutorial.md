@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: fbe3ceb3d26de90bd46ee02263d09c822ee90c29
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 2dbf52d0e157379687b144feba5c7933a7c5a3e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868845"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Didacticiel : intégration d’Azure Active Directory à Intralinks
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **Intralinks**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_samlbase.png)
+    ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_intralinks_samlbase.png)
 
 3. Dans la section **Domaine et URL Intralinks**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_url.png)
+    ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_intralinks_url.png)
 
     Dans la zone de texte **URL d’authentification**, tapez une URL en utilisant le modèle suivant : `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
@@ -119,11 +119,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_certificate.png) 
+    ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_intralinks_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique du côté de **Intralinks**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support d’Intralinks](https://www.intralinks.com/contact-1). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -179,7 +179,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Intralinks**.
 
-    ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_app.png) 
+    ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_intralinks_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -231,15 +231,15 @@ Après cela, vous pouvez suivre la procédure ci-dessous pour ajouter une autre 
 
 6.  Dans le Portail Azure, sur la page d’intégration de l’application **Intralinks**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 7. Dans la boîte de dialogue **Authentification unique**, sélectionnez **Mode** en tant que **Authentification liée**.
  
-    ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
+    ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
 8. Récupérez l’URL d’authentification unique initiée par le fournisseur de services depuis [l’équipe Intralinks](https://www.intralinks.com/contact-1) pour l’autre application Intralinks. Entrez l’URL ainsi obtenue dans **Configurer l’URL d’authentification** comme indiqué ci-dessous. 
     
-     ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
+     ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     
      Dans la zone de texte URL de connexion, saisissez l’URL utilisée par les utilisateurs pour se connecter à votre application Intralinks en utilisant le modèle suivant :
    
@@ -247,7 +247,7 @@ Après cela, vous pouvez suivre la procédure ci-dessous pour ajouter une autre 
 
 9. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_general_400.png)
 
 10. Affectez l’application à un utilisateur ou à un groupe, comme l’indique la section **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)**.
 
@@ -256,7 +256,7 @@ Après cela, vous pouvez suivre la procédure ci-dessous pour ajouter une autre 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Intralinks dans le volet d’accès, vous devez être connecté automatiquement à votre application Intralinks.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

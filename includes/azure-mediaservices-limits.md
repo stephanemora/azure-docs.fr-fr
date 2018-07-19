@@ -24,18 +24,18 @@
 
 <sup>2</sup> Ce nombre comprend les travaux en file d’attente, terminés, actifs et annulés. Il n’inclut pas les travaux supprimés. Vous pouvez supprimer les anciens travaux à l’aide de **IJob.Delete** ou de la requête HTTP **DELETE**.
 
-Depuis le 1er avril 2017, les enregistrements de travaux de votre compte qui ont plus de 90 jours sont automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximal. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit [ici](../articles/media-services/media-services-dotnet-manage-entities.md).
+Depuis le 1er avril 2017, les enregistrements de travaux de votre compte qui ont plus de 90 jours sont automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximal. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit [ici](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
 <sup>3</sup> Lors d’une requête visant à lister les entités de travail, un maximum de 1 000 travaux sont retournés par requête. Si vous souhaitez effectuer le suivi de l’ensemble des travaux soumis, vous pouvez utiliser top/skip comme décrit dans [Options de requête du système OData](http://msdn.microsoft.com/library/gg309461.aspx).
 
-<sup>4</sup> Les localisateurs ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Pour accorder différents droits d’accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez [cette](../articles/media-services/media-services-content-protection-overview.md) section.
+<sup>4</sup> Les localisateurs ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Pour accorder différents droits d’accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez [cette](../articles/media-services/previous/media-services-content-protection-overview.md) section.
 
 <sup>5</sup> Les comptes de stockage doivent provenir du même abonnement Azure.
 
 <sup>6</sup> Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> Vous devez appliquer le même ID de stratégie si vous utilisez toujours le même nombre de jours, les mêmes autorisations d’accès, etc. Pour plus d’informations et un exemple, consultez [cette](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) section.
+> Vous devez appliquer le même ID de stratégie si vous utilisez toujours le même nombre de jours, les mêmes autorisations d’accès, etc. Pour plus d’informations et un exemple, consultez [cette](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies) section.
 
 <sup>7</sup>Si vous chargez du contenu dans un actif dans Azure Media Services afin de le traiter avec l’un des processeurs multimédias du service (c’est-à-dire des encodeurs comme Media Encoder Standard et Media Encoder Premium Workflow, ou des moteurs d’analyse comme Face Detector), vous devez connaître les tailles de fichiers maximales prises en charge. 
 

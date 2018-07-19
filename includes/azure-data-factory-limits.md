@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 43408ebc65d4acf581b612e8ecfb9d00679cc078
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 67144407b078a30c521201cbc31c6087c839fa26
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066099"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029984"
 ---
 Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. La plupart des limites de votre abonnement peuvent être facilement repoussées jusqu’à la limite maximale en contactant le support.
 
@@ -23,7 +23,7 @@ Data Factory est un service mutualisé qui possède, par défaut, les limites s
 | -------- | ------------- | ------------- |
 | Fabriques de données d’un abonnement Azure | 50 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Nombre total d’entités (pipeline, jeux de données, déclencheurs, services liés, runtimes d’intégration) dans une fabrique de données | 5 000 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Nombre total de cœurs de processeur pour les runtimes d’intégration Azure-SSIS d’un même abonnement | 100 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Nombre total de cœurs de processeur pour les runtimes d’intégration Azure-SSIS d’un même abonnement | 128 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Exécutions de pipeline simultanées par pipeline | 100 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Exécutions de pipeline simultanées par fabrique de données | 10 000  | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Activités maximales par pipeline (inclut les activités internes relatives aux conteneurs) | 40 | 40 |

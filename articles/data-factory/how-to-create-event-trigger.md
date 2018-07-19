@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969576"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005830"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement
 
@@ -51,13 +51,21 @@ Dès que le fichier arrive dans votre emplacement de stockage et que l’objet b
 
 ![Sélectionner le type de déclencheur en tant qu’événement](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
+### <a name="map-trigger-properties-to-pipeline-parameters"></a>Mapper des propriétés de déclencheur à des paramètres de pipeline
+
+Quand un déclencheur d’événement est déclenché pour un objet blob spécifique, l’événement capture le chemin de dossier et le nom de fichier de l’objet blob dans les propriétés `@triggerBody().folderPath` et `@triggerBody().fileName`. Pour utiliser les valeurs de ces propriétés dans un pipeline, vous devez mapper les propriétés aux paramètres de pipeline. Après le mappage des propriétés aux paramètres, vous pouvez accéder aux valeurs capturées par le déclencheur à l’aide de l’expression `@pipeline.parameters.parameterName` tout au long du pipeline.
+
+![Mappage des propriétés aux paramètres de pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Par exemple, dans la capture d’écran précédente, le déclencheur est configuré pour se déclencher quand un chemin d’objet blob se terminant par `.csv` est créé dans le compte de stockage. Par conséquent, quand un objet blob avec l’extension `.csv` est créé n’importe où dans le compte de stockage, les propriétés `folderPath` et `fileName` capturent l’emplacement du nouvel objet blob. Par exemple, `@triggerBody().folderPath` a une valeur de type `/containername/foldername/nestedfoldername` et `@triggerBody().fileName` a une valeur de type `filename.csv`. Ces valeurs sont mappées dans l’exemple aux paramètres de pipeline `sourceFolder` et `sourceFile`. Vous pouvez les utiliser dans le pipeline comme `@pipeline.parameters.sourceFolder` et `@pipeline.parameters.sourceFile` respectivement.
+
 ## <a name="json-schema"></a>Schéma JSON
 
 Le tableau suivant fournit une vue d’ensemble des éléments de schéma associés aux déclencheurs basés sur un événement :
 
 | **Élément JSON** | **Description** | **Type** | **Valeurs autorisées** | **Obligatoire** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | ID de ressource Azure Resource Manager du compte de stockage. | Chaîne | ID d’Azure Resource Manager | OUI |
+| **scope** | ID de ressource Azure Resource Manager du compte de stockage. | Chaîne | ID d’Azure Resource Manager | Oui |
 | **events** | Type des événements qui entraîne l’activation de ce déclencheur. | Tableau    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Oui, n’importe quelle combinaison. |
 | **blobPathBeginsWith** | Le chemin d’accès de l’objet blob doit commencer par le modèle fourni pour activer le déclencheur. Par exemple, '/records/blobs/december/' n’activera le déclencheur que pour les objets blob dans le dossier « december » sous le conteneur « records ». | Chaîne   | | Au moins une de ces propriétés doit être fournie : blobPathBeginsWith, blobPathEndsWith. |
 | **blobPathEndsWith** | Le chemin d’accès de l’objet blob doit se terminer par le modèle fourni pour activer le déclencheur. Par exemple, 'december/boxes.csv' n’activera le déclencheur que pour les objets blob nommés « boxes » dans un dossier « december ». | Chaîne   | | Au moins une de ces propriétés doit être fournie : blobPathBeginsWith, blobPathEndsWith. |
@@ -75,14 +83,6 @@ Cette section fournit des exemples de paramètres de déclencheur basé sur un �
 
 > [!NOTE]
 > Vous devez inclure le segment `/blobs/` du chemin chaque fois que vous spécifiez conteneur et dossier, conteneur et fichier, ou conteneur, dossier et fichier.
-
-## <a name="map-trigger-properties-to-pipeline-parameters"></a>Mapper des propriétés de déclencheur à des paramètres de pipeline
-
-Quand un déclencheur d’événement est déclenché pour un objet blob spécifique, l’événement capture le chemin de dossier et le nom de fichier de l’objet blob dans les propriétés `@triggerBody().folderPath` et `@triggerBody().fileName`. Pour utiliser les valeurs de ces propriétés dans un pipeline, vous devez mapper les propriétés aux paramètres de pipeline. Après le mappage des propriétés aux paramètres, vous pouvez accéder aux valeurs capturées par le déclencheur à l’aide de l’expression `@pipeline.parameters.parameterName` tout au long du pipeline.
-
-![Mappage des propriétés aux paramètres de pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
-
-Par exemple, dans la capture d’écran précédente, le déclencheur est configuré pour se déclencher quand un chemin d’objet blob se terminant par `.csv` est créé dans le compte de stockage. Par conséquent, quand un objet blob avec l’extension `.csv` est créé n’importe où dans le compte de stockage, les propriétés `folderPath` et `fileName` capturent l’emplacement du nouvel objet blob. Par exemple, `@triggerBody().folderPath` a une valeur de type `/containername/foldername/nestedfoldername` et `@triggerBody().fileName` a une valeur de type `filename.csv`. Ces valeurs sont mappées dans l’exemple aux paramètres de pipeline `sourceFolder` et `sourceFile`. Vous pouvez les utiliser dans le pipeline comme `@pipeline.parameters.sourceFolder` et `@pipeline.parameters.sourceFile` respectivement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).
