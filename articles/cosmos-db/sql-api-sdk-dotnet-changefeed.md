@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937415"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113715"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -36,44 +36,15 @@ ms.locfileid: "36937415"
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentation de l’API**|[Documentation de référence de l’API de la bibliothèque du processeur de flux de modification](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Bien démarrer**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
+|**Démarrer**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
 |**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notes de publication
 
-### <a name="stable-builds"></a>Builds stables
+### <a name="v2-builds"></a>Builds V2
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* Journalisation supplémentaire ajoutée.
-* Réparation d’une fuite DocumentClient lors de l’appel du travail en attente plusieurs fois.
-
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* Correctifs inclus dans l’estimation de travail en attente.
-
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* Améliorations de la stabilité.
-  * Correctif pour résoudre le problème lié aux tâches annulées susceptibles de provoquer l’arrêt des observateurs dans certaines partitions.
-* Prise en charge des points de contrôle manuels.
-* Compatible avec les versions 1.21 et version ultérieure du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
-
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Ajout de la prise en charge de .NET Standard 2.0. Le package prend désormais en charge les monikers d’infrastructure `netstandard2.0` et `net451`.
-* Compatible avec les versions 1.17.0 et supérieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
-* Compatible avec les versions 1.5.1 et supérieures du [Kit de développement logiciel (SDK) principal SQL .NET](sql-api-sdk-dotnet-core.md).
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Résout un problème relatif au calcul de l’estimation du travail restant lorsque le flux de modification était vide ou qu’aucun travail n’était en attente.
-* Compatible avec les versions 1.13.2 et supérieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Ajout d’une méthode pour obtenir une estimation du travail restant à traiter dans le flux de modification.
-* Compatible avec les versions 1.13.2 et supérieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * Kit SDK GA
-* Compatible avec les versions 1.14.1 et inférieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
-
-### <a name="pre-release-builds"></a>Builds en préversion
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * Les problèmes suivants ont été résolus :
@@ -108,6 +79,39 @@ ms.locfileid: "36937415"
 * 100 % compatible avec l’API v1.
 * Nouvelle base de code.
 * Compatible avec les versions 1.21.1 et ultérieures du [SDK SQL .NET](sql-api-sdk-dotnet.md).
+
+### <a name="v1-builds"></a>Builds V1
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Journalisation supplémentaire ajoutée.
+* Réparation d’une fuite DocumentClient lors de l’appel du travail en attente plusieurs fois.
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Correctifs inclus dans l’estimation de travail en attente.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+* Améliorations de la stabilité.
+  * Correctif pour résoudre le problème lié aux tâches annulées susceptibles de provoquer l’arrêt des observateurs dans certaines partitions.
+* Prise en charge des points de contrôle manuels.
+* Compatible avec les versions 1.21 et version ultérieure du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* Ajout de la prise en charge de .NET Standard 2.0. Le package prend désormais en charge les monikers d’infrastructure `netstandard2.0` et `net451`.
+* Compatible avec les versions 1.17.0 et supérieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
+* Compatible avec les versions 1.5.1 et supérieures du [Kit de développement logiciel (SDK) principal SQL .NET](sql-api-sdk-dotnet-core.md).
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Résout un problème relatif au calcul de l’estimation du travail restant lorsque le flux de modification était vide ou qu’aucun travail n’était en attente.
+* Compatible avec les versions 1.13.2 et supérieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Ajout d’une méthode pour obtenir une estimation du travail restant à traiter dans le flux de modification.
+* Compatible avec les versions 1.13.2 et supérieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Kit SDK GA
+* Compatible avec les versions 1.14.1 et inférieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
+
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.

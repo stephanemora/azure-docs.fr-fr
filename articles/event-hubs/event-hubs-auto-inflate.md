@@ -1,6 +1,6 @@
 ---
 title: Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs | Microsoft Docs
-description: Activer la majoration automatique sur un espace de noms pour mettre automatiquement à l’échelle les unités de débit
+description: Activez la majoration automatique sur un espace de noms pour automatiquement mettre à l’échelle les unités de débit.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 20ee0e6cff2a07cbd62a79799eada5708c7a0f07
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 46ed6acc14356221eaf24b03dfa37dc4c76efcbc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28018607"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434638"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs
 
-Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Ainsi, l’utilisation des unités Event Hub augmente souvent une fois le service démarré. Ces augmentations obligent à rehausser les unités de débit prédéterminées pour mettre à l’échelle les unités Event Hub et gérer des taux de transfert plus conséquents. La fonctionnalité de *majoration automatique* (Auto-inflate) d’Event Hubs effectue automatiquement une montée en puissance en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation. Cette opération permet d’éviter les situations de limitation, dans lesquelles :
+Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Ainsi, l’utilisation des unités Event Hubs augmente souvent une fois le service démarré. Ces augmentations obligent à rehausser les [unités de débit](event-hubs-features.md#throughput-units) prédéterminées pour mettre à l’échelle Event Hubs et gérer des taux de transfert plus conséquents. La fonctionnalité **Majoration automatique** d’Event Hubs augmente automatiquement la taille des instances en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation. Cette opération permet d’éviter les situations de limitation, dans lesquelles :
 
 * Les taux d’entrée de données sont supérieurs aux unités de débit définies.
 * Les taux de demande de sortie de données sont supérieurs aux unités de débit définies.
 
 ## <a name="how-auto-inflate-works"></a>Fonctionnement de la majoration automatique
 
-Le trafic Event Hubs est contrôlé par les unités de débit. Une unité de débit autorise 1 Mo/s en entrée et le double en sortie. Les unités Event Hub standard peuvent être configurées avec 1 à 20 unités de débit. La majoration automatique vous permet de démarrer avec le nombre d’unités de débit minimal requis. Ensuite, la fonctionnalité met automatiquement à l’échelle le nombre d’unités de débit dont vous avez besoin sur la limite maximale, selon l’augmentation de votre trafic. La majoration automatique vous permet de bénéficier des avantages suivants :
+Le trafic Event Hubs est contrôlé par les [unités de débit](event-hubs-features.md#throughput-units). Une unité de débit autorise 1 Mo/s en entrée et le double en sortie. Les unités Event Hub standard peuvent être configurées avec 1 à 20 unités de débit. La majoration automatique vous permet de démarrer petit avec le nombre d’unités de débit minimal exigé que vous choisissez. Ensuite, la fonctionnalité met automatiquement à l’échelle le nombre d’unités de débit dont vous avez besoin sur la limite maximale, selon l’augmentation de votre trafic. La majoration automatique vous permet de bénéficier des avantages suivants :
 
 - Un mécanisme de mise à l’échelle efficace pour démarrer avec la valeur minimale et monter en puissance à mesure de la croissance de votre activité.
 - Mise à l’échelle automatique sur à la limite supérieure spécifiée sans problèmes de limitation.
@@ -38,10 +38,10 @@ Le trafic Event Hubs est contrôlé par les unités de débit. Une unité de dé
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>Activer la majoration automatique sur un espace de noms
 
-Vous pouvez activer et désactiver la majoration automatique sur un espace de noms Event Hub, en appliquant l’une des méthodes suivantes :
+Vous pouvez activer et désactiver la majoration automatique sur un espace de noms Event Hubs, en appliquant l’une des méthodes suivantes :
 
-1. Le [portail Azure](https://portal.azure.com).
-2. Un modèle Azure Resource Manager.
+- Le [portail Azure](https://portal.azure.com).
+- [Un modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Activer la majoration automatique via le portail
 
@@ -57,7 +57,7 @@ Vous pouvez également activer la majoration automatique à l’aide de l’opti
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Activer la majoration automatique à l’aide d’un modèle Azure Resource Manager
 
-Vous pouvez activer la majoration automatique durant le déploiement d’un modèle Azure Resource Manager. Par exemple, définissez la propriété `isAutoInflateEnabled` sur **true** et définissez `maximumThroughputUnits` sur 10.
+Vous pouvez activer la majoration automatique durant le déploiement d’un modèle Azure Resource Manager. Par exemple, définissez la propriété `isAutoInflateEnabled` sur **true** et définissez `maximumThroughputUnits` sur 10. Par exemple : 
 
 ```json
 "resources": [
@@ -102,9 +102,9 @@ Vous pouvez activer la majoration automatique durant le déploiement d’un mod�
 
 Pour accéder au modèle complet, consultez le modèle [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) (Créer un espace de noms Event Hubs et activer la majoration) sur GitHub.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 

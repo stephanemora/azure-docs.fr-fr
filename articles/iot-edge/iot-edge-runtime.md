@@ -8,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030377"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096965"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Présentation du runtime Azure IoT Edge et de son architecture
 
@@ -40,12 +40,12 @@ L’agent Edge et le hub Edge sont tous deux des modules, comme n’importe quel
 Le hub Edge est l’un des deux modules qui composent le runtime Azure IoT Edge. Il joue le rôle de proxy local pour IoT Hub en exposant les mêmes points de terminaison de protocole qu’IoT Hub. Cette cohérence signifie que les clients (qu’il s’agisse d’appareils ou de modules) peuvent se connecter au runtime IoT Edge comme à IoT Hub. 
 
 >[!NOTE]
-> Pendant la préversion publique, le hub Edge prend uniquement en charge les clients qui se connectent à l’aide de MQTT.
+>Edge Hub prend en charge les clients qui se connectent à l’aide de MQTT ou de AMQP. Il ne prend pas en charge les clients qui utilisent HTTP. 
 
 Le hub Edge n’est pas une version complète d’IoT Hub qui s’exécute localement. Il y a certaines choses que le hub Edge délègue de manière silencieuse à IoT Hub. Par exemple, le hub Edge transfère les demandes d’authentification à IoT Hub quand un appareil essaie de se connecter pour la première fois. Une fois la première connexion établie, les informations de sécurité sont mises en cache localement par le hub Edge. Les connexions suivantes à partir de cet appareil sont autorisées sans avoir à s’authentifier sur le cloud. 
 
 >[!NOTE]
-> Pendant la préversion publique, le runtime doit être connecté chaque fois qu’il essaie d’authentifier un appareil.
+>Le runtime doit être connecté chaque fois qu’il essaie d’authentifier un appareil.
 
 Pour réduire la bande passante utilisée par votre solution IoT Edge, le hub Edge optimise le nombre de connexions établies avec le cloud. Le hub Edge accepte les connexions logiques à partir de clients tels que les modules ou les appareils feuilles, et il les combine pour établir une connexion physique unique au cloud. Les détails de ce processus sont transparents pour le reste de la solution. Les clients pensent avoir leur propre connexion au cloud, alors qu’ils passent tous par la même connexion. 
 
@@ -93,9 +93,9 @@ Chaque élément dans le dictionnaire de modules contient des informations sur u
 * **Settings.image** : image de conteneur utilisée par l’agent Edge pour démarrer le module. L’agent Edge doit être configuré avec des informations d’identification pour le registre de conteneurs si l’image est protégée par un mot de passe. Pour configurer l’agent Edge, mettez à jour le fichier `config.yaml`. Dans Linux, utilisez la commande suivante : `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions** : chaîne qui est transmise directement au démon Docker lors du démarrage du conteneur d’un module. L’ajout d’options Docker dans cette propriété permet de bénéficier d’options avancées telles que le transfert de port ou le montage de volumes dans le conteneur d’un module.  
 * **status** : état dans lequel l’agent Edge place le module. Cette valeur est généralement définie sur *running*, car la plupart des gens souhaitent que l’agent Edge démarre immédiatement tous les modules sur l’appareil. Toutefois, vous pouvez spécifier l’arrêt comme état initial d’un module, et demander ultérieurement à l’agent Edge de démarrer le module. L’agent Edge signale l’état de chaque module au cloud dans les propriétés déclarées. Une différence entre la propriété souhaitée et la propriété rapportée est un indicateur du dysfonctionnement de l’appareil. Les états pris en charge sont :
-   * Téléchargement
+   * Downloading
    * Exécution
-   * Non sain
+   * Unhealthy
    * Échec
    * Arrêté
 * **restartPolicy** : indique comment l’agent Edge redémarre un module. Les valeurs possibles incluent :

@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
-ms.date: 06/02/2018
-ms.openlocfilehash: 560f36dc64480fd6aceaa50226b191ee40d2486f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.date: 06/29/2018
+ms.openlocfilehash: 94cd8de875baac31ee6cd450707be57a3d1dfdd0
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959846"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341859"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -56,7 +56,7 @@ Connect-AzureRmAccount -SubscriptionId $subId
 Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-## <a name="saving-authenticaiton-context"></a>Enregistrement du contexte d’authentification
+## <a name="saving-authentication-context"></a>Enregistrement du contexte d’authentification
 
 La cmdlet `Connect-AzureRmAccount` demande toujours les informations d’identification. Vous pouvez éviter cela à l’aide des cmdlets suivantes :
 
@@ -156,13 +156,13 @@ Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName
 
 ```powershell
 # List all the data sources
-Get-AdlAnalyticsDataSource -Name $adla
+Get-AdlAnalyticsDataSource -Account $adla
 
 # List attached Data Lake Store accounts
-Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "DataLakeStore"
+Get-AdlAnalyticsDataSource -Account $adla | where -Property Type -EQ "DataLakeStore"
 
 # List attached Storage accounts
-Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
+Get-AdlAnalyticsDataSource -Account $adla | where -Property Type -EQ "Blob"
 ```
 
 ## <a name="submit-u-sql-jobs"></a>Envoyer des travaux U-SQL
@@ -304,7 +304,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 
 Utiliser Azure PowerShell pour analyser l’historique des travaux qui ont été exécutés dans Data Lake analytics est une technique puissante. Vous pouvez l’utiliser pour obtenir des informations sur l’utilisation et le coût. Pour en savoir plus, consultez [l’exemple de dépôt de l’analyse de l’historique des travaux](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis).  
 
-## <a name="list-job-pipelines-and-recurrences"></a>répertorier les pipelines et les récurrences du travail
+## <a name="list-job-pipelines-and-recurrences"></a>Répertorier les pipelines et les récurrences des tâches
 
 Utilisez l’ `Get-AdlJobPipeline` applet de commande pour afficher les tâches déjà soumises sur les informations de pipeline.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: bf0ef5be609fba14ab12e1e6f9f97bc63f032aae
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d06a450595a53fdc65fba74791345abe3a1b3db4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260558"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109567"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Élément d’interface utilisateur Microsoft.Network.PublicIpAddressCombo
 Groupe de contrôles pour la sélection d’une nouvelle adresse IP publique ou d’une adresse IP publique existante.
@@ -70,14 +70,16 @@ Groupe de contrôles pour la sélection d’une nouvelle adresse IP publique ou 
 - Pour `zone`, seules les adresses IP de la zone spécifiée et les adresses IP publiques résilientes dans la zone sont disponibles.
 
 ## <a name="sample-output"></a>Exemple de sortie
-Si l’utilisateur ne sélectionne aucune adresse IP publique, la sortie doit être la suivante :
+Si l’utilisateur ne sélectionne aucune adresse IP publique, le contrôle retourne la sortie suivante :
+
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-Si l’utilisateur sélectionne une nouvelle adresse IP publique ou une adresse IP publique existante, la sortie doit être la suivante :
+Si l’utilisateur sélectionne une adresse IP publique nouvelle ou existante, le contrôle retourne la sortie suivante :
+
 ```json
 {
   "name": "ip01",
@@ -87,6 +89,7 @@ Si l’utilisateur sélectionne une nouvelle adresse IP publique ou une adresse 
   "newOrExistingOrNone": "new"
 }
 ```
+
 - Quand `options.hideNone` est défini sur **true**, `newOrExistingOrNone` peut uniquement avoir une valeur **new** ou **existing**.
 - Quand `options.hideDomainNameLabel` est défini sur **true**, `domainNameLabel` n’est pas déclaré.
 

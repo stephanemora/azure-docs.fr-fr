@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298788"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441530"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Résoudre les problèmes et diagnostiquer les échecs d’applications logiques
 
@@ -105,15 +105,15 @@ Chaque déclencheur activé démarre une exécution de flux de travail. Vous pou
 
 ## <a name="perform-runtime-debugging"></a>Effectuer le débogage du runtime
 
-Pour faciliter le débogage, vous pouvez ajouter des étapes de diagnostic à un flux de travail, ainsi qu’examiner les historiques des déclencheurs et des exécutions. Par exemple, vous pouvez ajouter des étapes qui utilisent le service [RequestBin](http://requestb.in) afin de pouvoir inspecter les requêtes HTTP et déterminer précisément leur taille, leur forme et leur format.
+Pour faciliter le débogage, vous pouvez ajouter des étapes de diagnostic à un flux de travail, ainsi qu’examiner les historiques des déclencheurs et des exécutions. Par exemple, vous pouvez ajouter des étapes qui utilisent le service [Webhook Tester](https://webhook.site/) afin de pouvoir inspecter les requêtes HTTP et déterminer précisément leur taille, leur forme et leur format.
 
-1. Créez un élément RequestBin, que vous pouvez rendre privé et visible uniquement dans votre navigateur.
+1. Visitez [Webhook Tester](https://webhook.site/) et copiez l’URL unique créée
 
 2. Dans votre application logique, ajoutez une action HTTP POST avec le contenu du corps que vous voulez tester (par exemple, une expression ou une autre sortie de l’étape).
 
-3. Collez l’URL de votre élément RequestBin dans l’action HTTP POST.
+3. Collez l’URL de votre élément Webhook Tester dans l’action HTTP POST.
 
-4. Pour voir comment une requête a été formée lors de sa génération à partir du moteur Logic Apps, exécutez l’application logique, puis actualisez votre élément RequestBin.
+4. Pour voir comment une requête a été formée lors de sa génération à partir du moteur Logic Apps, exécutez l’application logique, puis consultez Webhook Tester pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

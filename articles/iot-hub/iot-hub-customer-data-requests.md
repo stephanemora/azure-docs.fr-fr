@@ -8,12 +8,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 73da48d449a7cc5cdca598c8aef176952909ed85
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c0197b8f0cceab575aa5e830d094ddd2fb6b6b01
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634921"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436293"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 
@@ -37,17 +37,17 @@ Si vous utilisez la fonctionnalité d’intégration à Azure Monitor du service
 
 Les administrateurs clients peuvent utiliser le panneau des appareils IoT de l’extension Azure IoT Hub dans le Portail Azure pour supprimer un appareil, ce qui supprime les données associées à cet appareil.
 
-Il est également possible d’effectuer des opérations de suppression pour les appareils à l’aide des API REST. Pour plus d’informations, consultez l’article [Device Api - Delete Device](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) (API d’appareil - Supprimer un appareil).
+Il est également possible d’effectuer des opérations de suppression pour les appareils à l’aide des API REST. Pour plus d’informations, consultez [Service - Supprimer un service](https://docs.microsoft.com/rest/api/iothub/service/deletedevice).
 
 ## <a name="exporting-customer-data"></a>Exportation des données client
 
 Les administrateurs clients peuvent utiliser les opérations de copie et de collage dans le panneau des appareils IoT de l’extension Azure IoT Hub dans le Portail Azure pour exporter les données associées à un appareil.
 
-Il est également possible d’effectuer des opérations d’exportation pour les appareils à l’aide des API REST. Pour plus d’informations, consultez l’article [Device Api - Get Device](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) (API d’appareil - Obtenir un appareil).
+Il est également possible d’effectuer des opérations d’exportation pour les appareils à l’aide des API REST. Pour plus d’informations, consultez [Service - Obtenir un appareil](https://docs.microsoft.com/rest/api/iothub/service/getdevice).
 
 > [!NOTE]
 > Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère des informations appelées journaux générés par le système. Certains journaux générés par le système Azure IoT Hub ne sont pas accessibles ni exportables par les administrateurs clients. Ces journaux consignent les actions factuelles exécutées au sein du service, ainsi que les données de diagnostic relatives aux différents appareils.
 
 ## <a name="links-to-additional-documentation"></a>Liens vers la documentation complémentaire
 
-La documentation complète sur les API d’appareil Azure IoT Hub est accessible à l’adresse [https://docs.microsoft.com/rest/api/iothub/deviceapi](https://docs.microsoft.com/rest/api/iothub/deviceapi).
+La documentation complète sur les API de service Azure IoT Hub est accessible à l’adresse [https://docs.microsoft.com/rest/api/iothub/service](https://docs.microsoft.com/rest/api/iothub/service).

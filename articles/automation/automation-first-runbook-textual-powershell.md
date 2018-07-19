@@ -1,6 +1,6 @@
 ---
 title: Mon premier runbook PowerShell dans Azure Automation
-description: Ce didacticiel vous familiarise avec la création, le test et la publication d’un Runbook Powershell simple.
+description: Ce didacticiel vous familiarise avec la création, le test et la publication d’un Runbook PowerShell simple.
 keywords: azure powershell, didacticiel sur le script powershell, automatisation powershell
 services: automation
 ms.service: automation
@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fe9d98b694b8c42f3342e615d92fae9824dca26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2f5d2f3634545001dc6dc1419530223b5a1a85a3
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195146"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435789"
 ---
 # <a name="my-first-powershell-runbook"></a>Mon premier Runbook PowerShell
 
@@ -25,10 +25,9 @@ ms.locfileid: "34195146"
 > * [Workflow PowerShell](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
-Ce didacticiel vous guide dans la création d’un [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) dans Azure Automation. Vous commencez avec un simple runbook que vous testez et publiez tout en décourant comment suivre l’état de la tâche du runbook. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous le rendrez plus robuste en lui ajoutant des paramètres.
+Ce didacticiel vous guide dans la création d’un [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) dans Azure Automation. Vous commencez avec un simple runbook que vous testez et publiez tout en découvrant comment suivre l’état de la tâche du runbook. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous le rendrez plus robuste en lui ajoutant des paramètres.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -80,7 +79,7 @@ Le runbook que vous avez créé est toujours en mode brouillon. Il faut le publi
 8. Fermez la page Sortie.
 9. Cliquez sur **Tous les journaux** pour ouvrir le volet Flux de la tâche du Runbook. Vous devez uniquement voir le message *Hello World* dans le flux de sortie, mais d’autres flux peuvent s’afficher pour un travail de runbook, notamment Mode détaillé et Erreur si le runbook consigne ces informations.<br><br> ![Tous les journaux](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)<br>   
 10. Fermez les page du flux et de la tâche pour revenir à la page MyFirstRunbook-PowerShell.
-11. Sous **Détails**,c liquez sur **Tâches** pour ouvrir le volet Tâches pour ce runbook. Il répertorie toutes les tâches créées par ce Runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.<br><br> ![Liste des postes](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
+11. Sous **Détails**, cliquez sur **Tâches** pour ouvrir le volet Tâches pour ce runbook. Il répertorie toutes les tâches créées par ce Runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.<br><br> ![Liste des postes](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
 12. Vous pouvez cliquer sur ce travail pour ouvrir le même volet du travail que vous avez consulté au démarrage du runbook. Cela vous permet de revenir en arrière et d’afficher les détails de toute tâche créée pour un Runbook donné.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Étape 5 : Ajout d’une authentification pour gérer les ressources Azure
@@ -89,13 +88,16 @@ Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait 
 1. Ouvrez l’éditeur de texte en cliquant sur **Modifier** dans la page MyFirstRunbook-PowerShell.
 2. La ligne **Write-Output** ne vous est plus utile. Vous pouvez donc la supprimer.
 3. Tapez ou copiez-collez le code suivant qui gère l’authentification avec votre compte d’authentification Automation :
-   
-   ```
+
+   ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
-   <br>
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** et **Login-AzureRmAccount** sont désormais des alias pour **Connect-AzureRMAccount**. Si l’applet de commande **Connect-AzureRMAccount** n’existe pas, vous pouvez utiliser **Add-AzureRmAccount** ou **Login-AzureRmAccount**, ou encore mettre à jour vos modules dans votre compte Automation avec les dernières versions.
+
 4. Cliquez sur le volet de **Test** afin de tester le runbook.
 5. Cliquez sur **Démarrer** pour démarrer le test. Une fois terminé, la sortie générée semblable à celle illustrée ci-dessous devrait afficher les informations de base sur votre compte. Cette sortie confirme la validité des informations d’identification.<br><br> ![Authentifier](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 

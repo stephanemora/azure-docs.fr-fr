@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332712"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342706"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec la commande Run
 
@@ -35,8 +35,7 @@ Les restrictions suivantes s'appliquent lors de l'utilisation de la commande Run
 * Vous ne pouvez exécuter qu’un script à la fois
 * Vous ne pouvez pas annuler un script en cours d’exécution
 * La durée maximale d’exécution d’un script est de 90 minutes (le script expiré après ce délai)
-
-**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
+* Une connectivité sortante à partir de la machine virtuelle est nécessaire pour retourner les résultats du script.
 
 ## <a name="run-a-command"></a>Exécuter une commande
 

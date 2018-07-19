@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: abd44fd0c9cbfab2365b1552e3cd90e84a5348d7
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: bcd570d5fd2bdcf6cd344f5c81902420163b87ae
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
-ms.locfileid: "25957525"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434539"
 ---
 # <a name="available-event-hubs-apis"></a>API Event Hubs disponibles
 
@@ -27,11 +27,11 @@ Cet article décrit l’ensemble des clients API disponibles, que vous pouvez ut
 
 ## <a name="runtime-apis"></a>API de runtime
 
-Vous trouverez ci-dessous une description de tous les clients de runtime Azure Event Hubs actuellement disponibles. Bien que certaines de ces bibliothèques incluent aussi des fonctionnalités de gestion limitées, il existe [des bibliothèques](#management-apis) dédiées aux opérations de gestion. Ces bibliothèques sont principalement destinées à envoyer et recevoir des messages d’un hub d’événements.
+La section suivante décrit tous les clients de runtime Azure Event Hubs actuellement disponibles. Bien que certaines de ces bibliothèques incluent aussi des fonctionnalités de gestion limitées, il existe [des bibliothèques](#management-apis) dédiées aux opérations de gestion. Ces bibliothèques sont principalement destinées à envoyer et recevoir des messages d’un hub d’événements.
 
-Consultez la section [Informations supplémentaires](#additional-information) pour plus de détails sur l’état actuel de chaque bibliothèque de runtime.
+Pour plus d’informations sur l’état actuel de chaque bibliothèque runtime, consultez la section [Informations supplémentaires](#additional-information).
 
-| Langue/plateforme | Package client | Package EventProcessorHost | Référentiel |
+| Langage/Plateforme | Package client | Package EventProcessorHost | Référentiel |
 | --- | --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/A |
@@ -42,23 +42,24 @@ Consultez la section [Informations supplémentaires](#additional-information) po
 ### <a name="additional-information"></a>Informations supplémentaires
 
 #### <a name="net"></a>.NET
-L’écosystème .NET a plusieurs runtimes, par conséquent, il existe plusieurs bibliothèques .NET pour Event Hubs. La bibliothèque .NET Standard peut être exécutée à l’aide de .NET Core ou de .NET Framework, tandis que la bibliothèque .NET Framework peut uniquement être exécutée dans un environnement .NET Framework. Pour plus d’informations sur .NET Framework, consultez les [versions d’infrastructure](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+
+L’écosystème .NET ayant plusieurs runtimes, il existe plusieurs bibliothèques .NET pour Event Hubs. La bibliothèque .NET Standard peut être exécutée à l’aide de .NET Core ou de .NET Framework, tandis que la bibliothèque .NET Framework peut uniquement être exécutée dans un environnement .NET Framework. Pour plus d’informations sur les versions .NET Framework, consultez [Versions d’infrastructure](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### <a name="node"></a>Nœud
 
-La bibliothèque Node.js est actuellement en version préliminaire et est tenue à jour en parallèle par les employés de Microsoft et des contributeurs externes. Toutes les contributions, y compris le code source sont les bienvenues et seront examinées.
+La [bibliothèque Node.js](https://github.com/Azure/azure-event-hubs-node) est actuellement en préversion et est tenue à jour en parallèle par les employés de Microsoft et des contributeurs externes. Toutes les contributions, y compris le code source sont les bienvenues et seront examinées.
 
 ## <a name="management-apis"></a>API de gestion
 
-Vous trouverez ci-dessous une liste de toutes les bibliothèques dédiées à la gestion actuellement disponibles. Aucune de ces bibliothèques ne contient d’opérations de runtime. Elles sont uniquement destinées à la gestion des entités Event Hubs.
+Le tableau suivant répertorie toutes les bibliothèques dédiées à la gestion actuellement disponibles. Aucune de ces bibliothèques ne contient d’opérations de runtime. Elles sont uniquement destinées à la gestion des entités Event Hubs.
 
-| Langue/plateforme | Gestion des packages | Référentiel |
+| Langage/Plateforme | Gestion des packages | Référentiel |
 | --- | --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Créer un hub d’événements](event-hubs-create.md)
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Créer un concentrateur d’événements](event-hubs-create.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)

@@ -88,5 +88,30 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
 
     b. Définissez les paramètres du cluster en exécutant le script PowerShell sur l’un des nœuds du cluster.  
 
+Répétez les étapes ci-dessus pour définir les paramètres de cluster pour l’adresse IP du cluster WSFC.
+
+1. Obtenez le nom de l’adresse IP du cluster WSFC. Dans **Gestionnaire du cluster de basculement** sous **Principales ressources du cluster**, recherchez **Nom du serveur**.
+
+1. Cliquez avec le bouton droit sur **Adresse IP**, puis sélectionnez **Propriétés**.
+
+1. Copiez le **Nom** de l’adresse IP. Ce peut être `Cluster IP Address`. 
+
+1. <a name="setwsfcparam"></a>Définissez les paramètres de cluster dans PowerShell.
+    
+    a. Copiez le script PowerShell suivant sur l’une de vos instances SQL Server. Mettez à jour les variables de votre environnement.     
+    
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+    
+    Import-Module FailoverClusters
+    
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    b. Définissez les paramètres du cluster en exécutant le script PowerShell sur l’un des nœuds du cluster.  
+
     > [!NOTE]
     > Si vos instances SQL Server se trouvent dans différentes régions, vous devez exécuter le script PowerShell à deux reprises. La première fois, utilisez `$ILBIP` et `$ProbePort` à partir de la première région. La seconde fois, utilisez `$ILBIP` et `$ProbePort` à partir de la seconde région. Le nom réseau du cluster et le nom de ressource IP du cluster sont identiques. 

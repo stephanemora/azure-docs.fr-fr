@@ -1,20 +1,17 @@
 ---
 title: 'Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure | Microsoft Docs'
 description: Apprenez-en plus sur les paires régionales d’Azure, afin d’assurer la résilience des applications en cas de défaillance des centres de données.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 13a2b78b50b1b10975a90c1da38810f1a62a6bb5
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302676"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436907"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure
 
@@ -32,8 +29,8 @@ Figure 1 – Paires régionales Azure
 |:--- |:--- |:--- |
 | Asie |Est de l'Asie |Asie du Sud-Est |
 | Australie |Est de l’Australie |Sud-est de l’Australie |
-| Australie |Centre de l’Australie |Centre de l’Australie 2 |
-| Brésil |Sud du Brésil (2) |États-Unis - partie centrale méridionale |
+| Australie |Centre de l’Australie |Centre de l’Australie 2 |
+| Brésil |Sud du Brésil 2 |États-Unis - partie centrale méridionale |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
 | Europe |Europe du Nord |Europe de l'Ouest |

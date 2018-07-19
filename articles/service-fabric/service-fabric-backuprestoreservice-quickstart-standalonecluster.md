@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: cfbc0e6ca255bd005bb6e4cc381a9121347fe227
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9bc85cec6cb1d0e35aa71f4e1934c057dbf946d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206043"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114525"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion)
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 
 - Planifier la sauvegarde périodique des services avec état fiables et des acteurs fiables (Reliable Actors) avec prise en charge pour charger la sauvegarde sur des emplacements de stockage (externes). Emplacements de stockage pris en charge
     - Stockage Azure
-    - Partager des fichiers (en local)
+    - Partage de fichiers (localement)
 - Énumérer les sauvegardes
 - Déclencher une sauvegarde ad hoc d’une partition
 - Restaurer une partition à l’aide d’une sauvegarde précédente
@@ -58,7 +58,6 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 - Gérer la rétention des sauvegardes (à venir)
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Cluster Service Fabric avec Fabric versions 6.2 et ultérieure. Le cluster doit être configuré sur Windows Server. Consultez [l’article](service-fabric-cluster-creation-for-windows-server.md) pour obtenir la procédure de téléchargement du package requis.
 * Certificat X.509 pour le chiffrement des secrets nécessaire pour se connecter au stockage pour stocker les sauvegardes. Consultez [l’article](service-fabric-windows-cluster-x509-security.md) pour savoir comment acquérir ou créer un certificat X.509 auto-signé.
 * Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications qui ciblent .Net Core 2.0, l’application doit être générée à l’aide du kit SDK Service Fabric version 3.1 ou ultérieure.

@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061741"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112318"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Consulter et gérer les ressources de stockage à l’aide de l’Explorateur de serveurs
 
@@ -219,7 +219,7 @@ Vous pouvez personnaliser les entités qui s’affichent dans une table à l’a
 1. Quand vous avez terminé la création de la requête, fermez la boîte de dialogue. Le formulaire de texte de la requête qui en résulte s’affiche dans une zone de texte en tant que filtre WCF Data Services.
 1. Pour exécuter la requête, sélectionnez l’icône représentant un triangle vert.
 
-Vous pouvez également filtrer les données d’entité qui s’affichent dans le Concepteur de tables si vous entrez une chaîne de filtrage WCF Data Services directement dans la zone de texte de filtre. Ce type de chaîne est similaire à une clause SQL WHERE, mais il est toutefois envoyé au serveur en tant que requête HTTP. Pour plus d’informations sur la création de chaînes de filtrage, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Vous pouvez également filtrer les données d’entité qui s’affichent dans le Concepteur de tables si vous entrez une chaîne de filtrage WCF Data Services directement dans la zone de texte de filtre. Ce type de chaîne est similaire à une clause SQL WHERE, mais il est toutefois envoyé au serveur en tant que requête HTTP. Pour plus d’informations sur la création de chaînes de filtrage, consultez [Construction de chaînes de filtrage pour le concepteur de tables](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 L’illustration suivante montre un exemple de chaîne de filtrage valide :
 

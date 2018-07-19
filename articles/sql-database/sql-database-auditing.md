@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751041"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081453"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 L’audit de bases de données SQL Azure suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
@@ -62,20 +62,18 @@ Une stratégie d’audit peut être définie pour une base de données spécifiq
 La section suivante décrit la configuration de l’audit à l’aide du portail Azure.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-2. Accédez au panneau **Paramètres** de la base de données/du serveur SQL que vous voulez auditer. Dans le panneau **Paramètres**, sélectionnez **Audit et détection des menaces**.
+2. Accédez à **Audit** sous l’en-tête Sécurité dans votre volet de serveur/base de données SQL.
 
     <a id="auditing-screenshot"></a>![Volet de navigation][1]
 3. Si vous préférez définir une stratégie d’audit de serveur, vous pouvez sélectionner le lien **Afficher les paramètres du serveur** dans le panneau d’audit de la base de données. Vous pouvez alors afficher ou modifier les paramètres d’audit du serveur. Les stratégies d’audit de serveur s’appliquent aux bases de données existantes et à celles qui sont nouvellement créées sur le serveur.
 
     ![Volet de navigation][2]
-4. Si vous préférez activer l’audit d’objets blob au niveau de la base de données : pour **Audit**, sélectionnez **ACTIVÉ** et pour **Type d’audit**, sélectionnez **Objet blob**.
+4. Si vous préférez activer l’audit au niveau base de données, définissez **Audit** sur **ACTIVÉ**.
 
-    Si l’audit d’objets blob du serveur est activé, l’audit configuré pour la base de données coexiste avec celui-ci.
+    Si l’audit d’objets du serveur est activé, l’audit configuré pour la base de données coexiste avec celui-ci.
 
     ![Volet de navigation][3]
 5. Pour ouvrir le panneau **Stockage des journaux d’audit**, sélectionnez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux seront enregistrés, puis sélectionnez la période de rétention. Les anciens journaux seront supprimés. Cliquez ensuite sur **OK**.
-    >[!TIP]
-    >Pour tirer le meilleur parti des modèles des rapports d’audit, utilisez le même compte de stockage pour toutes les bases de données auditées.
 
     <a id="storage-screenshot"></a>![Volet de navigation][4]
 6. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec des [applets de commande PowerShell](#subheading-7) ou [l’API REST](#subheading-9).
@@ -102,7 +100,8 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
     Un panneau **Enregistrements d’audit** s’ouvre, dans lequel s’affichent les journaux.
 
     - Vous pouvez afficher des dates spécifiques en cliquant sur **Filtrer** en haut du panneau **Enregistrements d’audit**.
-    - Vous pouvez basculer entre les enregistrements d’audit qui ont été créés par un audit de stratégie de base de données ou de stratégie de serveur.
+    - Vous pouvez basculer entre les enregistrements d’audit qui ont été créés par la *stratégie d’audit de serveur* et la *stratégie d’audit de base de données* en choisissant la **Source de l’audit**.
+    - Vous pouvez afficher uniquement les enregistrements d’audit liés aux injections SQL en cochant la case **Afficher uniquement les enregistrements d’audit pour les injections SQL**.
 
        ![Volet de navigation][8]
 
@@ -147,8 +146,8 @@ Avec les bases de données géorépliquées, lorsque vous activez l’audit dans
 * Au niveau du serveur (**recommandé**) : Activez l’audit dans le **serveur principal** et le **serveur secondaire**. Les bases de données primaire et secondaire sont auditées, indépendamment l’une de l’autre, en fonction de leur stratégie de niveau serveur respective.
 
 * Au niveau de la base de données : L’audit pour les bases de données secondaires peut uniquement être configuré à partir des paramètres d’audit de la base de données primaire.
-   * L’audit Objet blob doit être activé sur la *base de données primaire elle-même*, et non pas sur le serveur.
-   * Une fois que l’audit d’objets blob est activé sur la base de données primaire, il est également activé sur la base de données secondaire.
+   * L’audit doit être activé sur la *base de données primaire elle-même*, et non pas sur le serveur.
+   * Une fois que l’audit est activé sur la base de données primaire, il est également activé sur la base de données secondaire.
 
     >[!IMPORTANT]
     >Avec l’audit au niveau de la base de données, les paramètres de stockage de la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui entraîne un trafic entre régions. Il est conseillé d’activer uniquement l’audit d’objets blob au niveau du serveur et de laisser l’audit au niveau de la base de données désactivé pour toutes les bases de données.
@@ -204,7 +203,6 @@ Pour obtenir un exemple de script, consultez [Configurer l’audit et la détect
 * [Create or Update Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
 * [Get Database Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
 * [Get Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
-* [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage supplémentaire :
 * [Create or Update Database *Extended* Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)

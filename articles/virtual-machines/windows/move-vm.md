@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: cynthn
-ms.openlocfilehash: b98b8c947fb34b60c7bd27b006672e0e9d923d3b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 168ba57399b2649af29820f7321dd0151618346e
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918147"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436478"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Déplacement d’une machine virtuelle Windows vers un autre abonnement ou groupe de ressources Azure
 Cet article vous guide tout au long du déplacement d’une machine virtuelle Windows entre des groupes de ressources ou des abonnements. Le déplacement entre abonnements peut être pratique si, à l’origine, vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise afin de poursuivre votre travail.
@@ -36,13 +36,13 @@ Cet article vous guide tout au long du déplacement d’une machine virtuelle Wi
 
 ## <a name="use-powershell-to-move-a-vm"></a>Utilisation de PowerShell pour déplacer une machine virtuelle
 
-Pour déplacer une machine virtuelle vers un autre groupe de ressources, vous devez vous assurer que vous déplacez également toutes les ressources dépendantes. Pour utiliser l’applet de commande Move-AzureRMResource, vous avez besoin de l’ID de ressource de chacune des ressources. Vous pouvez obtenir une liste des ID de ressource à l’aide de l’applet de commande [Find-AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource).
+Pour déplacer une machine virtuelle vers un autre groupe de ressources, vous devez vous assurer que vous déplacez également toutes les ressources dépendantes. Pour utiliser l’applet de commande Move-AzureRMResource, vous avez besoin de l’ID de ressource de chacune des ressources. Vous pouvez obtenir une liste des ID de ressource à l’aide de l’applet de commande [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource).
 
 ```azurepowershell-interactive
- Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-Pour déplacer une machine virtuelle, nous devons déplacer plusieurs ressources. Nous pouvons utiliser la sortie de Find-AzureRMResource pour créer une liste séparée par des virgules des ID de ressource et la transmettre à [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) pour les déplacer vers la destination. 
+Pour déplacer une machine virtuelle, nous devons déplacer plusieurs ressources. Nous pouvons utiliser la sortie de Get-AzureRMResourcepour créer une liste séparée par des virgules des ID de ressource et la transmettre à [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) pour les déplacer vers la destination. 
 
 ```azurepowershell-interactive
 

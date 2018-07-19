@@ -3,13 +3,16 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources du 
 | Ressource | Limite |
 | --- | --- |
 | Nombre maximal de services d’approvisionnement d’appareil par abonnement Azure | 10 |
-| Nombre maximal d’inscriptions | 10 000 |
-| Nombre maximal d’inscriptions | 10 000 |
-| Nombre maximal de groupes d’inscription | 100 |
-| Nombre maximal d’autorités de certification | 10 |
+| Nombre maximal d’abonnements | 500 000 |
+| Nombre maximal d’inscriptions | 500 000 |
+| Nombre maximal de groupes d’abonnement | 100 |
+| Nombre maximal d’autorités de certification | 25 |
 
 > [!NOTE]
 > Vous pouvez contacter [Support Microsoft](https://azure.microsoft.com/support/options/) pour augmenter le nombre d’instances dans votre abonnement.
+
+> [!NOTE]
+> Vous pouvez contacter le [Support Microsoft](https://azure.microsoft.com/support/options/) pour augmenter le nombre d’abonnements et d’inscriptions sur votre service de provisionnement.
 
 Le service d’approvisionnement d’appareil limite les demandes lorsque les quotas suivants sont dépassés :
 

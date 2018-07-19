@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b31e5cc3f99bdbb45aae6f9d71efdabdcc60f9c8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34677357"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138175"
 ---
 **Dernière mise à jour du document** : 21 mai 2018, 15h00 PST.
 
@@ -28,7 +28,7 @@ Le 21 mai 2018, l’équipe Project Zero de Google et Microsoft ont annoncé u
 >
 > Fin février 2018, Intel Corporation a publié un [Guide de révision du microcode](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) mis à jour sur l’état de ses versions de microcode, qui permettent d’améliorer la stabilité et d’atténuer les vulnérabilités récentes communiquées par [l’équipe Project Zero de Google](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Les solutions d’atténuation des risques Azure présentées le [3 janvier 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) ne sont pas affectées par la mise à jour du microcode d’Intel. Microsoft a déjà mis en place des mesures d’atténuation solides pour protéger les clients Azure d’autres machines virtuelles Azure.  
 >
-> Le microcode d’Intel cible la variante 2 de Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) ou injection de cible de branche) pour vous protéger contre les attaques applicables uniquement à l’emplacement où vous exécutez des charges de travail partagées ou non approuvées dans vos machines virtuelles sur Azure. Nos ingénieurs testent la stabilité du microcode pour minimiser son impact sur les performances, avant de le mettre à la disposition des clients Azure.  Comme très peu de clients exécutent des charges de travail non approuvées dans leurs machines virtuelles, la plupart des clients n’ont pas besoin d’activer cette fonctionnalité une fois publiée. 
+> Le microcode d’Intel cible la variante 2 de Spectre - [CVE-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715) ou injection de cible de branche - pour vous protéger contre les attaques applicables uniquement à l’emplacement où vous exécutez des charges de travail partagées ou non approuvées dans vos machines virtuelles sur Azure. Nos ingénieurs testent la stabilité du microcode pour minimiser son impact sur les performances, avant de le mettre à la disposition des clients Azure.  Comme très peu de clients exécutent des charges de travail non approuvées dans leurs machines virtuelles, la plupart des clients n’ont pas besoin d’activer cette fonctionnalité une fois publiée. 
 >
 > Cette page sera mise à jour dès que d’autres informations seront disponibles.  
 

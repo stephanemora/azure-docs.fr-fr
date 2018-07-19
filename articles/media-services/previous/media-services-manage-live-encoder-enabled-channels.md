@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 07/02/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5aa6f629b04a4c187a43b13c929a122a6304c575
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639433"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436189"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
 
@@ -52,7 +52,7 @@ Dans Azure Media Services (AMS), un **canal** représente un pipeline de traitem
 ## <a name="billing-implications"></a>Implications de facturation
 La facturation d'un canal d'encodage en temps réel commence dès que son état passe à « En cours d'exécution » via l'API.   Vous pouvez également afficher l’état dans le portail Azure ou dans l’outil Azure Media Services Explorer (http://aka.ms/amse).
 
-Le tableau suivant montre comment les états du canal sont mappés aux états de facturation dans l’API et le portail Azure. Notez que les états sont légèrement différents entre l'API et le portail. Dès qu’un canal est dans l’état « En cours d’exécution » via l’API, ou dans l’état « Prêt » ou « Diffusion en continu » dans le portail Azure, la facturation est active.
+Le tableau suivant montre comment les états du canal sont mappés aux états de facturation dans l’API et le portail Azure. Les états sont légèrement différents entre l’API et le portail. Dès qu’un canal est dans l’état « En cours d’exécution » via l’API, ou dans l’état « Prêt » ou « Diffusion en continu » dans le portail Azure, la facturation est active.
 Pour arrêter la facturation, vous devez arrêter le canal via l’API ou dans le portail Azure.
 Vous êtes responsable de l'arrêt de vos canaux lorsque vous avez terminé d'utiliser le canal d'encodage en temps réel.  Ne pas arrêter un canal d'encodage provoque la facturation continue.
 
@@ -79,7 +79,7 @@ Depuis le 25 janvier 2016, Media Services a déployé une mise à jour qui ferme
 
 Le seuil nominal de la période inutilisée est de 12 heures, mais il est susceptible de changer.
 
-## <a name="live-encoding-workflow"></a>Flux de travail d'encodage en temps réel
+## <a name="live-encoding-workflow"></a>Flux de travail d’encodage en temps réel
 Le diagramme suivant représente un workflow de streaming en direct où un canal reçoit un flux à débit unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Il encode ensuite le flux dans un flux multidébit. 
 
 ![Flux de travail live][live-overview]
@@ -88,7 +88,7 @@ Le diagramme suivant représente un workflow de streaming en direct où un canal
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
 > [!NOTE]
-> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Contactez amslived@microsoft.com si vous avez besoin d’exécuter un canal pour de longues périodes. N’oubliez pas qu’il existe un impact sur la facturation pour l’encodage en temps réel et que laisser un canal d’encodage en temps réel dans l’état « Actif » occasionne des frais de facturation horaires.  Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires. 
+> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amslived@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes. Il existe un impact sur la facturation pour le codage en direct, et laisser un canal d’encodage en temps réel dans l’état « Actif » occasionne des frais de facturation horaire.  Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires. 
 > 
 > 
 
@@ -169,7 +169,7 @@ Vous pouvez obtenir les URL de réception dès que vous avez créé un canal. P
 Vous avez la possibilité de recevoir un flux dynamique au format MP4 fragmenté (Smooth Streaming) via une connexion SSL. Pour assurer la réception via SSL, veillez à mettre à jour l’URL de réception pour HTTPS. Notez que, actuellement, AMS ne prend pas en charge SSL avec les domaines personnalisés.  
 
 ### <a name="allowed-ip-addresses"></a>Adresses IP autorisées
-Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, '10.0.0.1'), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, '10.0.0.1(255.255.252.0)').
+Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).
 
 Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP n’est autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.
 
@@ -182,12 +182,12 @@ Vous pouvez obtenir l’URL d’aperçu lors de la création du canal. Pour obte
 Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux.
 
 > [!NOTE]
-> Actuellement, le flux d'aperçu ne peut être distribué qu'au format MP4 fragmenté (Smooth Streaming), quel que soit le type d'entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester le flux de diffusion en continu (Smooth Stream). Vous pouvez également utiliser un lecteur hébergé dans le portail Azure pour afficher votre flux.
+> Actuellement, le flux d'aperçu ne peut être distribué qu'au format MP4 fragmenté (Smooth Streaming), quel que soit le type d'entrée spécifié.  Vous pouvez utiliser un lecteur hébergé dans le portail Azure pour afficher votre flux.
 > 
 > 
 
 ### <a name="allowed-ip-addresses"></a>Adresses IP autorisées
-Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP seront autorisées. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, 10.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, 10.0.0.1[255.255.252.0]).
+Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP seront autorisées. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).
 
 ## <a name="live-encoding-settings"></a>Paramètres d’encodage en temps réel
 Cette section décrit comment les paramètres de l’encodeur dynamique dans le canal peuvent être ajustés, lorsque le paramètre **Type d’encodage** d’un canal est défini sur **Standard**.

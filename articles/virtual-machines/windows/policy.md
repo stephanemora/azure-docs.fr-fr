@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: fc95b57c244e855f6788b7f21fc9abc0eba3d44d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b6a42e1a0b0256a6b19220958f98940764273a2d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654706"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114382"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Appliquer des stratégies aux machines virtuelles Windows avec Azure Resource Manager
 Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous expliquons comment utiliser les stratégies d’Azure Resource Manager afin de définir le comportement souhaité pour les machines virtuelles de votre entreprise.
@@ -228,7 +228,7 @@ Vous pouvez interdire l’utilisation de certains types d’extensions. Par exem
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
-Lorsque vous disposez d’une licence locale, vous pouvez enregistrer les frais de licence sur vos machines virtuelles. Si vous n’avez pas de licence, vous devez interdire cette option. La stratégie suivante interdit l’utilisation d’Azure Hybrid Use Benefit (AHUB) :
+Quand vous disposez d’une licence locale, vous pouvez enregistrer les frais de licence sur vos machines virtuelles. Si vous n’avez pas de licence, vous devez interdire cette option. La stratégie suivante interdit l’utilisation d’Azure Hybrid Use Benefit (AHUB) :
 
 ```json
 {

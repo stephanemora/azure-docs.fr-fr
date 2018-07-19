@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0ee486d9ff4c05269da23866edad281aa627889
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912013"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113892"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considérations relatives à l’ordre des événements Azure Stream Analytics
 
@@ -22,7 +22,7 @@ ms.locfileid: "30912013"
 
 Dans un flux de données temporel d’événements, chaque événement est horodaté. Azure Stream Analytics affecte un horodatage à chaque événement à l’aide de l’heure d’arrivée ou de l’heure de l’application. La colonne **System.Timestamp** indique l’horodatage affecté à l’événement. 
 
-Une heure d’arrivée est affectée à la source d’entrée quand l’événement atteint la source. Vous pouvez accéder à l’heure d’arrivée à l’aide de la propriété **EventEnqueuedTime** pour l’entrée du hub d’événements et de la propriété [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) pour l’entrée d’objet blob. 
+Une heure d’arrivée est affectée à la source d’entrée quand l’événement atteint la source. Vous pouvez accéder à l’heure d’arrivée à l’aide de la propriété **EventEnqueuedUtcTime** pour les entrées Event Hubs, de la propriété **IoTHub.EnqueuedTime** pour IoT Hub et de la propriété [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) pour l’entrée d’objet blob. 
 
 L’heure de l’application est affectée quand l’événement est généré et qu’il fait partie de la charge utile. Pour traiter les événements selon l’heure de l’application, utilisez la clause **Timestamp by** dans la requête select. En l’absence de la clause **Timestamp by**, les événements sont traités par heure d’arrivée. 
 
@@ -111,7 +111,7 @@ La requête n’a pas de clause **Partition by PartitionId** et il y a au moins 
 
 La configuration est identique à celle de l’exemple 2. Toutefois, l’absence de données dans l’une des partitions peut retarder la sortie d’une fenêtre de tolérance d’arrivée tardive supplémentaire.
 
-## <a name="handling-event-producers-with-differing-timelines"></a>Gestion des producteurs d’événements avec différentes chronologies
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>Gestion des producteurs d’événements avec différentes chronologies comportant des sous-flux
 Un flux d’événements d’entrée contient souvent des événements issus de plusieurs producteurs d’événements, comme des appareils individuels. Ces événements peuvent arriver dans le désordre pour les raisons déjà mentionnées. Dans ces scénarios, bien que le désordre entre producteurs d’événements puisse être important, le désordre entre événements d’un même producteur est faible (voire inexistant).
 
 Azure Stream Analytics fournit des mécanismes généraux pour gérer les événements en désordre. Ces mécanismes permettent de gérer les retards (en attentant que les événements retardataires atteignent le système), de supprimer ou d’ajuster des événements ou les deux.

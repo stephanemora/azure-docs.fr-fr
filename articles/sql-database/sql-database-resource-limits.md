@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 6806b0c5b5e5ac5e1189f628786f0c8f9b223395
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750949"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345709"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Présentation des limites de ressources d’Azure SQL Database 
 
@@ -27,10 +27,11 @@ Cet article fournit une présentation des limites de ressources d’Azure SQL Da
 | Bases de données par serveur | 5 000 |
 | Nombre par défaut de serveurs par abonnement dans n’importe quelle région | 20 |
 | Nombre maximal de serveurs par abonnement dans n’importe quelle région | 200 |
+| Quota DTU/eDTU par serveur | 54 000 |
 |||
 
 > [!NOTE]
-> Pour obtenir un quota de serveurs supérieur à la quantité par défaut, une nouvelle demande de support peut être envoyée dans le portail Azure pour l’abonnement avec le type de problème « Quota ».
+> Pour obtenir un quota DTU/eDTU ou une quantité de serveurs supérieure à la quantité par défaut, vous pouvez envoyer une nouvelle demande de support dans le portail Azure pour l’abonnement avec le type de problème « Quota ». Le quota DTU/eDTU et le nombre maximal de bases de données par serveur limitent le nombre de pools élastiques par serveur. 
 
 > [!IMPORTANT]
 > Le nombre de bases de données approchant la limite par serveur, les éléments suivants peuvent se produire :

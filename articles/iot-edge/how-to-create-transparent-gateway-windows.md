@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: edc44f0ab2d2cc737807dd8ad543997cdd75bd43
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034440"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344298"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Créer un appareil IoT Edge Windows servant de passerelle transparente
 
@@ -38,46 +38,56 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
 ## <a name="prerequisites"></a>Prérequis
 1.  [Installez le runtime Azure IoT Edge][lnk-install-windows-x64] sur un appareil Windows que vous souhaitez utiliser comme passerelle transparente.
 
-1. Obtenez OpenSSL pour Windows. Vous pouvez installer OpenSSL de nombreuses façons. Pour cela, les instructions présentées ici utilisent vcpkg.
-   1. Téléchargez et installez vcpkg en exécutant les commandes suivantes dans une fenêtre PowerShell d’administrateur. Accédez au répertoire où vous souhaitez installer OpenSSL ; nous appellerons ce répertoire `$VCPKGDIR`.
+1. Obtenez OpenSSL pour Windows. Vous pouvez installer OpenSSL de nombreuses façons :
 
-   ```PowerShell
-   git clone https://github.com/Microsoft/vcpkg
-   cd vcpkg
-   .\bootstrap-vcpkg.bat
-   .\vcpkg integrate install
-   .\vcpkg install openssl:x64-windows
-   ```
+   >[!NOTE]
+   >Si vous avez déjà installé OpenSSL sur votre appareil Windows, vous pouvez ignorer cette étape, mais vérifiez que `openssl.exe` est disponible dans votre variable d’environnement `%PATH%`.
 
-   1. Définissez la variable d’environnement `OPENSSL_ROOT_DIR` sur `$VCPKGDIR\vcpkg\packages\openssl_x64-windows` et ajoutez `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` à votre variable d’environnement `PATH`.
+   * Téléchargez et installez des [fichiers binaires OpenSSL tiers](https://wiki.openssl.org/index.php/Binaries), par exemple, à partir de [ce projet sur SourceForge](https://sourceforge.net/projects/openssl/).
+   
+   * Téléchargez le code source OpenSSL et générez vous-même les fichiers binaires sur votre machine, ou effectuez ces opérations par le biais de [vcpkg](https://github.com/Microsoft/vcpkg). Les instructions ci-dessous utilisent vcpkg pour télécharger le code source, compiler et installer OpenSSL sur votre machine Windows dans des étapes très facile à utiliser.
+
+      1. Accédez au répertoire où vous souhaitez installer vcpkg. Nous appellerons cet emplacement $VCPKGDIR. Suivez les instructions pour télécharger et installer [vcpkg](https://github.com/Microsoft/vcpkg).
+   
+      1. Une fois que vcpkg est installé, à partir d’une invite de Powershell, exécutez la commande suivante pour installer le package OpenSSL pour Windows x64. Généralement, cette opération prend environ 5 minutes.
+
+         ```PowerShell
+         .\vcpkg install openssl:x64-windows
+         ```
+      1. Ajoutez `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` à votre variable d’environnement `PATH` afin que le fichier `openssl.exe` soit disponible pour l’appel.
+
+1. Accédez au répertoire dans lequel vous souhaitez travailler. Nous appellerons cet emplacement $WRKDIR.  Tous les fichiers seront créés dans ce répertoire.
+   
+   cd $WRKDIR
 
 1.  À l’aide de la commande suivante, récupérez les scripts servant à générer les certificats de non-production requis. Ces scripts vous permettent de créer les certificats nécessaires pour configurer une passerelle transparente.
 
-   ```PowerShell
-   git clone https://github.com/Azure/azure-iot-sdk-c.git
-   ```
+      ```PowerShell
+      git clone https://github.com/Azure/azure-iot-sdk-c.git
+      ```
 
-1. Accédez au répertoire dans lequel vous souhaitez travailler. Nous appellerons cet emplacement $WRKDIR.  Tous les fichiers seront créés dans ce répertoire.
+1. Copiez les fichiers de configuration et de script dans votre répertoire de travail. Définissez également la variable d’environnement OPENSSL_CONF pour utiliser le fichier de configuration openssl_root_ca.cnf.
 
-   cd $WRKDIR
-
-1. Copiez les fichiers de configuration et de script dans votre répertoire de travail.
    ```PowerShell
    copy azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
+   $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
    ```
 
 1. Autorisez PowerShell à exécuter les scripts en exécutant la commande suivante.
+
    ```PowerShell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
    ```
 
 1. Intégrez les fonctions, utilisées par les scripts, à l’espace de noms global de PowerShell en effectuant un appel de source de type « dot sourcing » à l’aide de la commande suivante.
+   
    ```PowerShell
    . .\ca-certs.ps1
    ```
 
-1. Vérifiez qu’OpenSSL a été installé correctement et assurez-vous de l’absence de collisions de noms avec des certificats existants en exécutant la commande suivante.
+1. Vérifiez qu’OpenSSL a été installé correctement et assurez-vous de l’absence de collisions de noms avec des certificats existants en exécutant la commande suivante. S’il y a des problèmes, le script doit décrire comment les corriger sur votre système.
+
    ```PowerShell
    Test-CACertsPrerequisites
    ```
@@ -85,30 +95,18 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
 ## <a name="certificate-creation"></a>Création du certificat
 1.  Créez le certificat d’autorité de certification propriétaire et un certificat intermédiaire. Ils sont tous placés dans `$WRKDIR`.
 
-   ```PowerShell
-   New-CACertsCertChain rsa
-   ```
-
-   Les sorties de l’exécution des scripts sont les certificats et les clés suivants :
-   * Certificats
-      * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
-      * `$WRKDIR\certs\azure-iot-test-only.intermediate.cert.pem`
-   * Clés
-      * `$WRKDIR\private\azure-iot-test-only.root.ca.key.pem`
-      * `$WRKDIR\private\azure-iot-test-only.intermediate.key.pem`
+      ```PowerShell
+      New-CACertsCertChain rsa
+      ```
 
 1.  À l’aide de la commande ci-dessous, créez la clé privée et le certificat d’autorité de certification d’appareil Edge.
 
    >[!NOTE]
    > **N’utilisez pas** un nom identique au nom d’hôte DNS de la passerelle. Cela provoquerait l’échec de la certification cliente sur ces certificats.
 
-      ```PowerShell
-      New-CACertsEdgeDevice "<gateway device name>"
-      ```
-
-   Les sorties de l’exécution des scripts sont les certificats et la clé suivants :
-   * `$WRKDIR\certs\new-edge-device.*`
-   * `$WRKDIR\private\new-edge-device.key.pem`
+   ```PowerShell
+   New-CACertsEdgeDevice "<gateway device name>"
+   ```
 
 ## <a name="certificate-chain-creation"></a>Création de la chaîne d’approbation
 À l’aide de la commande ci-dessous, créez une chaîne d’approbation à partir du certificat d’autorité de certification propriétaire, du certificat intermédiaire et du certificat d’autorité de certification d’appareil Edge. Son placement dans un fichier de chaîne vous permet de l’installer facilement sur votre appareil Edge faisant office de passerelle transparente.
@@ -116,6 +114,11 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
    ```PowerShell
    Write-CACertsCertificatesForEdgeDevice "<gateway device name>"
    ```
+
+   La sortie de l’exécution des scripts sont la clé et les certificats suivants :
+   * `$WRKDIR\certs\new-edge-device.*`
+   * `$WRKDIR\private\new-edge-device.key.pem`
+   * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
 ## <a name="installation-on-the-gateway"></a>Installation sur la passerelle
 1.  Copiez les fichiers suivants à partir de $WRKDIR n’importe où sur votre appareil Edge ; nous appellerons cet emplacement $CERTDIR. Si vous avez généré les certificats sur votre appareil Edge, ignorez cette étape.
@@ -128,9 +131,9 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
 
 ```yaml
 certificates:
-  device_ca_cert: "$CERTDIR\certs\new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR\private\new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem"
+  device_ca_cert: "$CERTDIR\\certs\\new-edge-device-full-chain.cert.pem"
+  device_ca_pk: "$CERTDIR\\private\\new-edge-device.key.pem"
+  trusted_ca_certs: "$CERTDIR\\certs\\azure-iot-test-only.root.ca.cert.pem"
 ```
 ## <a name="deploy-edgehub-to-the-gateway"></a>Déployer EdgeHub sur la passerelle
 Une des fonctionnalités clés d’Azure IoT Edge est la capacité de déployer des modules sur vos appareils IoT Edge à partir du cloud. Dans cette section, vous créez un déploiement apparemment vide ; Toutefois Edge Hub est automatiquement ajouté à tous les déploiements, même si aucun autre module n’est présent. Edge Hub étant le seul module dont vous avez besoin sur un appareil Edge pour qu’il fasse office de passerelle transparente, la création d’un déploiement vide est suffisante. 
@@ -163,7 +166,11 @@ L’installation de ce certificat dans le magasin de certificats du système d�
  
     Vous devez voir un message indiquant « Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done. » (Mise à jour des certificats dans /etc/ssl/certs... 1 ajouté, 0 supprimé ; terminé.)
 
-* Windows : [cet article](https://msdn.microsoft.com/en-us/library/cc750534.aspx) explique comment effectuer cette opération sur un appareil Windows à l’aide de l’Assistant Importation de certificat.
+* Windows : voici un exemple d’installation d’un certificat d’autorité de certification sur un hôte Windows.
+  * Dans le menu Démarrer, tapez « Gérer les certificats d’ordinateur ». Cette action ouvre un utilitaire appelé `certlm`.
+  * Accédez à Certificats - Ordinateur Local --> Autorités de certification racines de confiance --> Certificats --> cliquez droit --> Toutes les tâches --> Importer, pour lancer l’Assistant Importation du certificat.
+  * Suivez les étapes comme indiqué et importez le fichier de certificat $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  * Une fois terminé, vous devez voir un message « Importation réussie ».
 
 ### <a name="application-level"></a>Niveau d’application
 Pour les applications .NET, vous pouvez ajouter l’extrait de code suivant afin d’approuver un certificat au format PEM. Initialisez la variable `certPath` avec `$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem`.

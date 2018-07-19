@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9fbf3a6c965bb2f52b71fbac32b289555b922772
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236118"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113987"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion)
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 
 - Planifier la sauvegarde périodique des services avec état fiables et des acteurs fiables (Reliable Actors) avec prise en charge pour charger la sauvegarde sur des emplacements de stockage (externes). Emplacements de stockage pris en charge
     - Stockage Azure
-    - Partager des fichiers (en local)
+    - Partage de fichiers (localement)
 - Énumérer les sauvegardes
 - Déclencher une sauvegarde ad hoc d’une partition
 - Restaurer une partition à l’aide d’une sauvegarde précédente

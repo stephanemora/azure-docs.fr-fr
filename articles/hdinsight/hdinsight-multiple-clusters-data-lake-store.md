@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d073732b5dd9b9867813d9ffcfad5caa1131d81
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404565"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101437"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Store
 
 À partir de HDInsight version 3.5, vous pouvez créer des clusters HDInsight avec des comptes Azure Data Lake Store en tant que système de fichiers par défaut.
-Data Lake Store prend en charge le stockage illimité qui le rend idéal non seulement pour héberger de grandes quantités de données, mais également pour héberger plusieurs clusters HDInsight qui partagent un même compte Data Lake Store. Pour obtenir des instructions sur la création d’un cluster HDInsight avec Data Lake Store en tant que stockage, consultez [Créer des clusters HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store prend en charge le stockage illimité qui le rend idéal non seulement pour héberger de grandes quantités de données, mais également pour héberger plusieurs clusters HDInsight qui partagent un même compte Data Lake Store. Pour plus d’informations sur la création d’un cluster HDInsight avec Azure Data Lake Store comme stockage, consultez [Démarrage rapide : configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 Cet article fournit des recommandations à l’administrateur Data Lake Store pour configurer un compte Data Lake Store unique et partagé qui peut être utilisé sur plusieurs clusters HDInsight **actifs**. Ces recommandations s’appliquent à l’hébergement de plusieurs clusters Hadoop sécurisés ou non sécurisés sur un compte Data Lake Store partagé.
 
@@ -39,7 +39,7 @@ Prenons une hiérarchie de dossiers sur deux niveaux pour expliquer les recomman
 Pour que cette structure de dossiers soit bien utilisée par les clusters HDInsight, l’administrateur Data Lake Store doit attribuer les autorisations appropriées, comme décrit dans le tableau. Les autorisations indiquées dans le tableau correspondent aux ACL d’accès et non aux ACL par défaut. 
 
 
-|Dossier  |Autorisations  |utilisateur propriétaire  |groupe propriétaire  | Utilisateur nommé | Autorisations de l’utilisateur nommé | Groupe nommé | Autorisations du groupe nommé |
+|Dossier  |Autorisations  |Utilisateur propriétaire  |groupe propriétaire  | Utilisateur nommé | Autorisations de l’utilisateur nommé | Groupe nommé | Autorisations du groupe nommé |
 |---------|---------|---------|---------|---------|---------|---------|---------|
 |/ | rwxr-x--x  |admin |admin  |Principal du service |--x  |FINGRP   |r-x         |
 |/clusters | rwxr-x--x |admin |admin |Principal du service |--x  |FINGRP |r-x         |
@@ -51,7 +51,7 @@ Dans le tableau,
 - **Principal de service** est le principal de service Azure Active Directory (AAD) associé au compte.
 - **FINGRP** est un groupe d’utilisateurs créé dans AAD qui contient les utilisateurs du service financier.
 
-Pour obtenir des instructions sur la création d’une application AAD (qui crée également un principal de service), consultez [Créer une application AAD](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Pour obtenir des instructions sur la création d’un groupe d’utilisateurs dans AAD, consultez [Gestion des groupes dans Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+Pour obtenir des instructions sur la création d’une application AAD (qui crée également un principal de service), consultez [Créer une application AAD](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Pour obtenir des instructions sur la création d’un groupe d’utilisateurs dans AAD, consultez [Gestion des groupes dans Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Quelques points importants à prendre en compte.
 
@@ -60,7 +60,7 @@ Quelques points importants à prendre en compte.
 - Dans le cas où plusieurs principaux de service AAD peuvent créer des clusters sous **/clusters/finance**, le sticky-bit (lorsque défini sur le dossier **finance**) permet de s’assurer que les dossiers créés par un principal de service ne peuvent pas être supprimés par les autres.
 - Une fois que la structure de dossiers et les autorisations sont en place, le processus de création de clusters HDInsight crée un emplacement de stockage spécifique aux clusters sous **/clusters/finance/**. Par exemple, l’emplacement de stockage d’un cluster nommé fincluster01 pourrait être **/clusters/finance/fincluster01**. La propriété et les autorisations pour les dossiers créés par le cluster HDInsight sont indiquées dans le tableau présenté ici.
 
-    |Dossier  |Autorisations  |utilisateur propriétaire  |groupe propriétaire  | Utilisateur nommé | Autorisations de l’utilisateur nommé | Groupe nommé | Autorisations du groupe nommé |
+    |Dossier  |Autorisations  |Utilisateur propriétaire  |groupe propriétaire  | Utilisateur nommé | Autorisations de l’utilisateur nommé | Groupe nommé | Autorisations du groupe nommé |
     |---------|---------|---------|---------|---------|---------|---------|---------|
     |/clusters/finance/fincluster01 | rwxr-x---  |Principal de service |FINGRP  |- |-  |-   |-  | 
    
@@ -97,6 +97,6 @@ Définissez les autorisations d’exécution en lecture pour les **autres** dans
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Créer un cluster HDInsight avec Data Lake Store comme stockage.](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 

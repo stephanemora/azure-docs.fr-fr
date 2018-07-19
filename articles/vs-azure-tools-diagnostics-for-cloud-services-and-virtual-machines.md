@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 06/28/2018
 ms.author: mikejo
-ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2ff2a619dabd7dfabf89361172557efa4884ba12
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30292538"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110485"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurer les diagnostics pour les services cloud et les machines virtuelles Azure
 Quand vous devez résoudre les problèmes d’un service cloud ou d’une machine virtuelle Azure, vous pouvez utiliser Visual Studio pour configurer plus facilement les diagnostics Azure. Les diagnostics capturent les données système et les données de journalisation sur les machines virtuelles et sur les instances de machine virtuelle qui exécutent votre service cloud. Les données de diagnostic sont transférées à un compte de stockage que vous choisissez. Pour plus d’informations sur la journalisation des diagnostics dans Azure, consultez [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](app-service/web-sites-enable-diagnostic-log.md).
@@ -87,7 +87,11 @@ Dans Visual Studio, vous pouvez collecter les données de diagnostic pour des r�
    * Si vous choisissez **Votre abonnement**, vous pouvez choisir l’abonnement Azure que vous voulez utiliser et entrer un nom de compte. Pour gérer vos abonnements Azure, sélectionnez **Gérer les comptes**.
    * Si vous sélectionnez **Informations d’identification entrées manuellement**, entrez le nom et la clé du compte Azure que vous voulez utiliser.
 5. Pour afficher la boîte de dialogue **Configuration des diagnostics**, sélectionnez **Configurer**. Excepté pour **Général** et **Répertoires de journaux**, chaque onglet représente une source de données de diagnostic que vous pouvez collecter. L’onglet par défaut **Général** offre les options de collecte de données de diagnostic suivantes : **Erreurs uniquement**, **Toutes les informations** et **Plan personnalisé**. L’option par défaut, **Erreurs uniquement**, utilise le plus petit volume de stockage, car elle ne transfère pas les messages d’avertissement ou de suivi. L’option **Toutes les informations** transfère le plus grand nombre d’informations, utilise le plus de stockage et est dès lors la plus coûteuse.
-   
+
+   > [!NOTE]
+   > La taille minimale prise en charge pour « Quota de disque en Mo » est de 4 Go. Toutefois, si vous collectez les vidages de mémoire, définissez ce paramètre sur une valeur supérieure, par exemple, 10 Go.
+   >
+  
     ![Activer les diagnostics Azure et la configuration](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. Pour cet exemple, sélectionnez l’option **Plan personnalisé** pour pouvoir personnaliser les données collectées.
 7. Dans la zone **Quota de disque en Mo**, vous pouvez spécifier l’espace à allouer aux données de diagnostic dans votre compte de stockage. Vous pouvez changer ou accepter la valeur par défaut.

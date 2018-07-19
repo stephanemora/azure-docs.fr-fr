@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 054a3987cfd67fbd558fe9d4b482aac3d9b467fd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794869"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114675"
 ---
 # <a name="securing-paas-databases-in-azure"></a>Sécurisation des bases de données PaaS dans Azure
 
@@ -49,7 +49,7 @@ Avantages de l’utilisation de l’authentification Azure AD au lieu de l’aut
 - Permet une rotation du mot de passe dans un emplacement unique.
 - Gère des autorisations de base de données à l'aide de groupes Azure AD externes.
 - Élimine le stockage des mots de passe en activant l’authentification Windows intégrée et d'autres formes d’authentification prises en charge par Azure AD.
-- Utilise les utilisateurs de base de données à relation contenant-contenu pour authentifier les identités au niveau de la base de données.
+- Utilise les utilisateurs de base de données autonome pour authentifier les identités au niveau de la base de données.
 - Prend en charge l’authentification basée sur les jetons pour les applications se connectant à SQL Database.
 - Prend en charge ADFS (fédération de domaine) ou l’authentification utilisateur/mot de passe native pour un répertoire Azure AD local sans synchronisation du domaine.
 - Prend en charge les connexions à partir de SQL Server Management Studio qui utilisent l’authentification universelle Active Directory, notamment [Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA comprend une authentification forte avec une gamme d’options de vérification simples (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile). Pour plus d’informations, voir [Prise en charge de SSMS pour Azure AD MFA avec la base de données SQL et SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
@@ -79,7 +79,7 @@ Pour en savoir plus sur le pare-feu SQL Azure et les restrictions d'adresse IP, 
 ### <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
 L’option [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049) est activée par défaut. TDE chiffre de manière transparente les fichiers journaux et les données SQL Server, Azure SQL Database et Azure SQL Data Warehouse. L’option TDE empêche la compromission d’un accès direct aux fichiers ou leur sauvegarde. Cela vous permet de chiffrer les données au repos sans modifier les applications existantes. L’option TDE doit toujours être activée. Cependant, cela n’empêchera pas un pirate informatique d’utiliser le chemin d’accès normal. TDE permet de se conformer aux multiples lois, réglementations et directives établies dans de nombreux secteurs.
 
-Azure SQL gère les problèmes clés liés à TDE. Comme avec TDE, une attention particulière doit être portée au niveau local pour assurer la capacité de restauration et lors du déplacement des bases de données. Dans des scénarios plus complexes, les clés peuvent être explicitement gérées dans Azure Key Vault au travers de la gestion de clés extensible (consultez [Enable TDE on SQL Server Using EKM](/security/encryption/enable-tde-on-sql-server-using-ekm) (Activer TDE sur SQL Server à l’aide d’EKM). Cela permet également d’utiliser la méthode BYOK (Bring Your Own Key) au moyen de la fonctionnalité Azure Key Vault BYOK.
+Azure SQL gère les problèmes clés liés à TDE. Comme avec TDE, une attention particulière doit être portée au niveau local pour la capacité de restauration et le déplacement des bases de données. Dans des scénarios plus complexes, les clés peuvent être explicitement gérées dans Azure Key Vault au travers de la gestion de clés extensible (consultez [Enable TDE on SQL Server Using EKM](/security/encryption/enable-tde-on-sql-server-using-ekm) (Activer TDE sur SQL Server à l’aide d’EKM). Cela permet également d’utiliser la méthode BYOK (Bring Your Own Key) au moyen de la fonctionnalité Azure Key Vault BYOK.
 
 Azure SQL fournit un chiffrement pour les colonnes par le biais d’[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Cela permet de restreindre l’accès des colonnes sensibles aux applications autorisées. Ce chiffrement limite les requêtes SQL pour les colonnes chiffrées aux valeurs basées sur l’égalité.
 

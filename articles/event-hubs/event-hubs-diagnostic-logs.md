@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/30/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 451fc42f573db2b60985912cfa63617e04f09e6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fd7b85d18aeb1674ad7a5e67dd9ac65345c56887
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28932713"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435029"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Journaux de diagnostic d’Event Hubs
 
@@ -31,7 +31,7 @@ Vous pouvez afficher deux types de journaux pour Azure Event Hubs :
 
 ## <a name="enable-diagnostic-logs"></a>Activer la journalisation des diagnostics
 
-Les journaux de diagnostic sont désactivés par défaut. Pour activer les journaux de diagnostic, procédez comme suit :
+Les journaux de diagnostic sont désactivés par défaut. Pour activer les journaux de diagnostic, effectuez les étapes suivantes :
 
 1.  Dans le [portail Azure](https://portal.azure.com), sous **Surveillance + gestion**, cliquez sur **Journaux de diagnostic**.
 
@@ -70,7 +70,7 @@ Tous les journaux sont stockés au format JSON (JavaScript Object Notation). Cha
 
 Les chaînes JSON du journal d’archivage incluent les éléments listés dans le tableau suivant :
 
-NOM | Description
+Nom | Description
 ------- | -------
 TaskName | Description de la tâche en échec.
 ActivityId | ID interne, utilisé à des fins de suivi.
@@ -108,7 +108,7 @@ Le code suivant est un exemple de chaîne JSON de journal d’archivage :
 
 Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 
-NOM | Description
+Nom | Description
 ------- | -------
 ActivityId | ID interne, utilisé à des fins de suivi.
 EventName | Nom d’opération.  
@@ -137,7 +137,7 @@ Example:
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Vue d’ensemble de l'API Event Hubs](event-hubs-api-overview.md)
 * [Prise en main des hubs d’événements](event-hubs-dotnet-standard-getstarted-send.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 2f34233a68bec506d9f69426d779aee8e493d759
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9314b8ae8dceb29a9aee63ba3093ab191d4fdef3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402061"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115605"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -85,7 +85,7 @@ Pour le chargement de jeux de données représentant plusieurs téraoctets, la l
 
 * Azure ExpressRoute vous permet de créer des connexions privées entre les centres de données Azure et votre infrastructure locale. Ces connexions constituent une option fiable pour le transfert de grandes quantités de données. Pour plus d’informations, consultez la [Documentation Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-* Chargement « hors connexion » des données. Vous pouvez utiliser le [service Azure Import/Export](../../storage/common/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers des objets blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../../data-factory/v1/data-factory-azure-datalake-connector.md) ou [l’outil AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) pour copier des données des objets blob Azure Storage vers Data Lake Store.
+* Chargement « hors connexion » des données. Vous pouvez utiliser le [service Azure Import/Export](../../storage/common/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers des objets blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) ou [l’outil AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) pour copier des données des objets blob Azure Storage vers Data Lake Store.
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
@@ -133,7 +133,7 @@ Sqoop utilise MapReduce pour importer et exporter les données, fournir une tol�
 
 Apache Flume est un service distribué, fiable et disponible pour la collecte, l’agrégation et le déplacement efficaces de grandes quantités de données de journal. Flume possède une architecture simple et flexible basée sur des flux de données de streaming. Flume est un service fiable et à tolérance de pannes avec des mécanismes de fiabilité paramétrables et de nombreux mécanismes de basculement et de récupération. Flume utilise un modèle de données extensible simple qui autorise l’application analytique en ligne.
 
-Apache Flume ne peut pas être utilisé avec Azure HDInsight.  Une installation Hadoop locale permet d’utiliser Flume pour envoyer des données à Azure Storage Blob ou Azure Data Lake Store.  Pour plus d’informations, consultez [Utilisation d’Apache Flume avec HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume ne peut pas être utilisé avec Azure HDInsight.  Une installation Hadoop locale peut utiliser Flume pour envoyer des données aux objets blob de stockage Azure ou Azure Data Lake Store.  Pour plus d’informations, consultez [Utilisation d’Apache Flume avec HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## <a name="transform"></a>Transformer
 

@@ -2,19 +2,19 @@
 title: Niveaux de service Azure SQL Database - DTU | Microsoft Docs
 description: Découvrez les niveaux de service des bases de données uniques du pool qui permettent de fournir divers niveaux de performance et diverses tailles de stockage.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/28/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d6dc641123e2bf840940f6246245a89fdd792db5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750422"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131835"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Choisir un niveau de service, un niveau de performance et des ressources de stockage basés sur des unités DTU 
 
@@ -45,7 +45,7 @@ Les niveaux de performance en termes d’unités de transaction de base de donn�
 ||De base|standard|Premium|
 | :-- | --: | --: | --: | --: |
 | Taille de stockage maximale | 2 Go | 1 To | 4 To  | 
-| DTU maximales | 5 | 3000 | 4000 | |
+| DTU maximales | 5. | 3000 | 4000 | |
 ||||||
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU de pool élastique, stockage et limites de base de données mise en pool
@@ -54,13 +54,13 @@ Les niveaux de performance en termes d’unités de transaction de base de donn�
 | :-- | --: | --: | --: | --: |
 | Taille de stockage maximale par base de données  | 2 Go | 1 To | 1 To | 
 | Taille de stockage maximale par pool | 156 Go | 4 To | 4 To | 
-| Nombre maximal d’eDTU par base de données | 5 | 3000 | 4000 | 
+| Nombre maximal d’eDTU par base de données | 5. | 3000 | 4000 | 
 | eDTU maximales par pool | 1 600 | 3000 | 4000 | 
 | Nombre maximal de bases de données par pool | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]
-> Plus de 1 To de stockage au niveau Premium est actuellement disponible dans toutes les régions à l’exception des suivantes : Royaume-Uni Nord, USA Centre-Ouest, Royaume-Uni Sud 2, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, US Gov Centre-Sud, Allemagne - Nord-Est, Chine Nord, US Gov Est. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Le niveau Premium offre plus de 1 To de stockage dans toutes les régions à l’exception des suivantes : USA Centre-Ouest, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, US Gov Iowa, Allemagne - Nord-Est, Chine Nord. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

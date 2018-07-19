@@ -1,28 +1,35 @@
-### <a name="prerequisites"></a>Composants requis
-* Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
-* Un [compte de stockage Blob Azure](../articles/storage/common/storage-create-storage-account.md), avec son nom et sa clé d’accès. Ces informations sont répertoriées dans les propriétés du compte de stockage, dans le Portail Azure. Pour en savoir plus, consultez [Introduction à Azure Storage](../articles/storage/common/storage-introduction.md).
+---
+title: Fichier Include
+description: Fichier Include
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/21/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 6e95d456c5eb981a29400057cfd58faa419060fc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34677914"
+---
+1. Lorsque vous êtes invité à entrer des informations de connexion, fournissez les précisions suivantes :
 
-Avant d’utiliser votre compte de stockage d’objets blob Azure dans une application logique, connectez-vous à votre compte de stockage d’objets blob Azure. Cette opération est très simple à effectuer dans votre application logique, sur le portail Azure.  
+   *Obligatoire*
 
-Connectez-vous à votre compte de stockage d’objets blob Azure en suivant ces étapes :  
+   | Propriété | Valeur | Description | 
+   |----------|-------|-------------| 
+   | Nom de connexion | <*connection-name*> | Nom à créer pour votre connexion | 
+   | Compte de stockage | <*storage-account*> | Sélectionnez votre compte de stockage dans la liste. | 
+   ||| 
 
-1. Créez une application logique. Dans le concepteur d’applications logiques, ajoutez un déclencheur, puis ajoutez une action. Sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis saisissez « blob » dans la zone de recherche. Sélectionnez une des actions :  
-   
-    ![Étape de création de la connexion au stockage d’objets blob Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
-2. Si vous n’avez précédemment créé de connexions à Azure Storage, vous devez saisir les détails de connexion dans l’invite qui s’affiche :   
-   
-    ![Étape de création de la connexion au stockage d’objets blob Azure](./media/connectors-create-api-azureblobstorage/connection-details.png)  
-3. Entrez les détails du compte de stockage. Les propriétés marquées d’un astérisque sont obligatoires.
-   
-   | Propriété | Détails |
-   | --- | --- |
-   | Nom de connexion * |Entrez un nom pour votre connexion. |
-   | Nom du compte de stockage Azure * |Entrez le nom du compte de stockage. Le nom du compte de stockage s’affiche dans les propriétés de stockage sur le portail Azure. |
-   | Clé d’accès au compte de stockage * |Entrez la clé du compte de stockage. Les clés d’accès sont affichés dans les propriétés de stockage sur le portail Azure. |
-   
-    Ces informations d’identification servent à autoriser votre application logique à se connecter et à accéder à vos données. 
-4. Sélectionnez **Créer**.
-5. Vous pouvez voir que la connexion a été créée. Maintenant, effectuez les autres étapes dans votre application logique : 
-   
-    ![Étape de création de la connexion au stockage d’objets blob Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+   Par exemple : 
+
+   ![Créer une connexion](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+
+2. Lorsque vous êtes prêt, choisissez **Créer**.
+
+3. Après avoir créé votre connexion, poursuivez avec [Ajouter un déclencheur](#add-trigger) ou [Ajouter une action](#add-action).
 

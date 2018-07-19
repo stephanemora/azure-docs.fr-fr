@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 2062ba20b09e8e42fd094fbff628f5e76b5ea00f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225787"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutoriel : Intégration d’Azure Active Directory à Riskware
 
@@ -67,7 +67,7 @@ Pour configurer l’intégration de Riskware à Azure AD, vous devez ajouter Ri
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
-    
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
@@ -101,7 +101,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Boîte de dialogue Authentification unique](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
 3. Dans la section **Domaine et URL Riskware**, effectuez les étapes suivantes :
@@ -113,7 +113,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
     | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL :
@@ -121,10 +121,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
     | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` | 
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
-    > [!NOTE] 
+    > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de Riskware](mailto:support@pansoftware.com.au).
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
@@ -137,11 +137,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Configuration de Riskware**, cliquez sur **Configurer Riskware** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configuration de Riskware](./media/riskware-tutorial/tutorial_riskware_configure.png) 
+    ![Configuration de Riskware](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Riskware en tant qu’administrateur.
 
-8. Dans le coin supérieur droit, cliquez sur **Maintenance** pour ouvrir la page de maintenance. 
+8. Dans le coin supérieur droit, cliquez sur **Maintenance** pour ouvrir la page de maintenance.
 
     ![Configuration de Riskware - Maintenance](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -159,16 +159,16 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     c. Dans la zone de texte **Description**, tapez votre description, par exemple Configuration d’Azure pour l’authentification unique.
 
-    d. Dans la zone de texte **Single Sign On Page**, collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+    d. Dans la zone de texte de la page **Single Sign On Page** (Page d’authentification unique), collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
-    e. Dans la zone de texte **Sign out Page**, collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    e. Dans la zone de texte **Sign out Page** (Page de déconnexion), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    f. Dans la zone de texte **Post Form Field**, tapez le nom du champ présent dans Post Response qui contient SAML, comme SamlResponse
+    f. Dans la zone de texte **Post Form Field** (Champ de formulaire de notification), tapez le nom du champ présent dans Post Response qui contient SAML, comme SAMLResponse.
 
     g. Dans la zone de texte **XML Identity Tag Name**, tapez l’attribut qui contient l’identificateur unique dans la réponse SAML, comme NameID.
 
     h. Dans le Bloc-notes, ouvrez le **XML de métadonnées** téléchargé du portail Azure, copiez le certificat à partir du fichier de métadonnées, puis collez-le dans la zone de texte **Certificate**
-    
+
     i. Dans la zone de texte **Consumer URL**, collez la valeur de **Reply URL**, que vous obtenez à partir de l’équipe de support.
 
     j. Dans la zone de texte **Issuer**, collez la valeur de **Identifier**, que vous obtenez à partir de l’équipe de support.
@@ -176,9 +176,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!Note]
     > Pour obtenir ces valeurs, contactez l’[équipe de support technique de Riskware](mailto:support@pansoftware.com.au)
 
-    k. Sélectionnez **Use POST** pour transmettre la demande SAML en tant que paramètre de publication.
+    k. Cochez la case **Use POST** (Utiliser POST).
 
-    l. Sélectionnez **Use SAML Request**.
+    l. Cochez la case **Use SAML Request** (Utiliser une requête SAML).
 
     m. Cliquez sur **Enregistrer**.
 
@@ -213,10 +213,10 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
     d. Cliquez sur **Créer**.
- 
+
 ### <a name="create-a-riskware-test-user"></a>Créer un utilisateur de test Riskware
 
-Pour se connecter à Riskware, les utilisateurs d’Azure AD doivent être provisionnés dans Riskware. Dans Riskware, le provisionnement est une tâche manuelle.
+Pour se connecter à Riskware, les utilisateurs Azure AD doivent être provisionnés dans Riskware. Dans Riskware, le provisionnement est une tâche manuelle.
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
@@ -230,8 +230,8 @@ Pour se connecter à Riskware, les utilisateurs d’Azure AD doivent être prov
 
     ![Configuration de Riskware - Personnes](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. Sous l’onglet **Details**, effectuez les étapes suivantes :
-    
+4. Sélectionnez l’onglet **Details** (Détails), puis effectuez les étapes suivantes :
+
     ![Configuration de Riskware - Détails](./media/riskware-tutorial/tutorial_riskware_details.png)
 
     a. Sélectionnez Employee comme **Person Type**.
@@ -240,7 +240,7 @@ Pour se connecter à Riskware, les utilisateurs d’Azure AD doivent être prov
 
     c. Dans la zone de texte **Surname**, tapez le nom de l’utilisateur, par exemple **Simon**.
 
-5. Sous l’onglet **Security** , procédez comme suit :    
+5. Sous l’onglet **Security** , procédez comme suit :
 
     ![Configuration de Riskware - Sécurité](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -250,12 +250,12 @@ Pour se connecter à Riskware, les utilisateurs d’Azure AD doivent être prov
 
     c. Dans la zone de texte **Password**, tapez le mot de passe de l’utilisateur.
 
-6. Sous l’onglet **Organisation**, effectuez les étapes suivantes :
+6. Sous l’onglet **Organization** (Organisation), effectuez les étapes suivantes :
 
     ![Configuration de Riskware - Organisation](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. Sous **Organisation**, sélectionnez **Level1** comme organisation.
-    
+    a. Sélectionnez l’option**Level 1** (Niveau 1) pour l’organisation.
+
     b. Dans la section **Person’s Primary Workplace**, dans la zone de texte **Location**, tapez votre emplacement.
 
     c. Dans la section **Employee**, sélectionnez Casual comme **Employee Status**.
@@ -266,7 +266,7 @@ Pour se connecter à Riskware, les utilisateurs d’Azure AD doivent être prov
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Riskware.
 
-![Attribuer le rôle utilisateur][200] 
+![Attribuer le rôle utilisateur][200]
 
 **Pour affecter Britta Simon à Riskware, effectuez les étapes suivantes :**
 

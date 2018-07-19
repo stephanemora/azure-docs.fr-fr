@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063508"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345380"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -35,9 +35,9 @@ Le schéma suivant présente une vue conceptuelle du comportement et du flux de 
 
 ![Flux du processus Update Management](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Une fois qu’un ordinateur effectue une analyse de conformité de mise à jour, l’agent transfère les informations en bloc à Azure Log Analytics. Sur un ordinateur Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut. 
+Une fois qu’un ordinateur effectue une analyse de conformité de mise à jour, l’agent transfère les informations en bloc à Azure Log Analytics. Sur un ordinateur Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut.
 
-En plus de l’analyse planifiée, l’analyse de conformité de mise à jour est lancée dans les 15 minutes si MMA est redémarré, avant et après l’installation de la mise à jour. 
+En plus de l’analyse planifiée, l’analyse de conformité de mise à jour est lancée dans les 15 minutes si MMA est redémarré, avant et après l’installation de la mise à jour.
 
 Sur un ordinateur Linux, l’analyse de conformité est effectuée toutes les 3 heures par défaut. Si l’agent MMA est redémarré, une analyse de conformité est lancée dans les 15 minutes.
 
@@ -86,7 +86,7 @@ Les agents Windows doivent être configurés pour communiquer avec un serveur 
 
 #### <a name="linux"></a>Linux
 
-Pour Linux, la machine doit avoir accès à un référentiel de mises à jour, qui peut être privé ou public. Cette solution ne prend pas en charge les agents Operations Management Suite (OMS) pour Linux configurés pour envoyer des rapports à plusieurs espaces de travail Azure Log Analytics.
+Pour Linux, la machine doit avoir accès à un référentiel de mises à jour, qui peut être privé ou public. TLS 1.1 ou TLS 1.2 est exigé pour interagir avec Update Management. Cette solution ne prend pas en charge les agents Operations Management Suite (OMS) pour Linux configurés pour envoyer des rapports à plusieurs espaces de travail Azure Log Analytics.
 
 Pour savoir comment installer l’agent OMS pour Linux et télécharger la dernière version, consultez [Agent Operations Management Suite pour Linux](https://github.com/microsoft/oms-agent-for-linux). Pour savoir comment installer l’agent OMS pour Windows et télécharger la dernière version, consultez [Agent Operations Management Suite pour Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -115,6 +115,9 @@ Si votre groupe d’administration System Center Operations Manager est connect�
 * Pack d’administration du déploiement des mises à jour
 
 Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../log-analytics/log-analytics-om-agents.md).
+
+> [!NOTE]
+> Pour les systèmes dotés de l’agent Operations Manager, pour pouvoir être entièrement gérés par Update Management, l’agent doit être mis à jour vers Microsoft Monitoring Agent. Pour savoir comment mettre à jour l’agent, consultez [Guide pratique pour mettre à niveau un agent Operations Manager](/system-center/scom/deploy-upgrade-agents.md).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Vérifier que les ordinateurs non-Azure sont intégrés
 
@@ -260,6 +263,8 @@ Les adresses suivantes sont exigées particulièrement pour Update Management. L
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 Pour plus d’informations sur les ports exigés par le Runbook Worker hybride, consultez [Ports du rôle de Worker hybride](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+
+Il est recommandé d’utiliser les adresses répertoriées lors de la définition des exceptions. Pour les adresses IP, vous pouvez télécharger les [Plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, reflète les plages actuellement déployées et tous les changements à venir des plages d’adresses IP.
 
 ## <a name="search-logs"></a>Rechercher dans les journaux
 

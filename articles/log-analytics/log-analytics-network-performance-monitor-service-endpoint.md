@@ -1,6 +1,6 @@
 ---
 title: Solution Analyseur de performances réseau dans Azure Log Analytics | Microsoft Docs
-description: Utilisez la fonctionnalité de gestionnaire de point de terminaison de service Network Performance Monitor pour surveiller la connectivité réseau à n’importe quel point de terminaison qui a un port TCP ouvert.
+description: Utilisez la fonctionnalité Moniteur de connectivité de service dans Network Performance Monitor pour surveiller la connectivité réseau sur n’importe quel point de terminaison ayant un port TCP ouvert.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: na
+ms.openlocfilehash: 3c9352e8e4aee7817b1195c15f74503e86e597ea
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030707"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434917"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
@@ -78,7 +79,7 @@ Commencez par créer des tests pour surveiller la connectivité réseau vers les
 10. Choisissez les conditions d’analyse. Vous pouvez définir des seuils personnalisés pour la génération d’événements d’intégrité en entrant des valeurs de seuil. Chaque fois que la valeur d’une condition dépasse son seuil sélectionné pour la paire de réseaux ou sous-réseaux sélectionnée, un événement d’intégrité est généré. 
 11. Sélectionnez **Enregistrer** pour enregistrer la configuration. 
 
-    ![Configuration des tests du moniteur de points de terminaison de service](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Configurations de test Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
 
 
@@ -86,11 +87,11 @@ Commencez par créer des tests pour surveiller la connectivité réseau vers les
 
 Accédez à la vue du tableau de bord de Network Performance Monitor. La page **Moniteur de connectivité de service** fournit un résumé de l’intégrité des différents tests que vous avez créés. 
 
-![Page Moniteur de points de terminaison de service](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Page Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
 Sélectionnez la vignette pour afficher les détails des tests sur la page **Tests**. Dans la table de gauche, vous pouvez consulter l’intégrité à un moment donné, ainsi que la valeur du temps de réponse du service, la latence du réseau et la perte de paquets pour tous les tests. Utilisez le contrôle de l’enregistreur de l’état du réseau pour afficher l’instantané du réseau à un autre moment passé. Sélectionnez le test à examiner dans la table. Vous pouvez afficher la tendance historique de la perte, la latence et les valeurs de temps de réponse dans les graphiques du volet de droite. Sélectionnez le lien **Détails du test** pour afficher les performances de chaque nœud.
 
-![Tests du moniteur de points de terminaison de service](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Tests Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
 Dans la vue des **nœuds de test**, vous pouvez observer la connectivité réseau de chaque nœud. Sélectionnez le nœud qui présente une détérioration des performances. Il s’agit du nœud sur lequel l’application s’exécute trop lentement.
 
@@ -98,15 +99,15 @@ Déterminez si les performances médiocres de l’application sont dues au rése
 
 * **Problème d’application :** un pic dans le temps de réponse, mais une latence de réseau cohérente suggèrent que le réseau fonctionne correctement et que le problème émane peut-être de l’application. 
 
-    ![Problème d’application du moniteur de point de terminaison de service](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Problème d’application Moniteur de connectivité de service.](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
 
 * **Problème réseau :** un pic dans le temps de réponse accompagné d’un pic correspondant de la latence du réseau suggère que l’augmentation du temps de réponse est peut-être due à une augmentation de la latence du réseau. 
 
-    ![Problème réseau du moniteur de points de terminaison de service](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Problème de réseau Moniteur de connectivité de service.](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
 Une fois que vous avez déterminé que le problème provient du réseau, sélectionnez la vue **Topologie** pour identifier le tronçon problématique sur la carte topologique. L’image suivante en contient un exemple. 96 des 105 ms de latence totale entre le nœud et le point de terminaison d’application sont dues au tronçon marqué en rouge. Une fois que vous avez identifié le tronçon problématique, vous pouvez effectuer une action corrective. 
 
-![Tests du moniteur de points de terminaison de service](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Tests Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostics 
 

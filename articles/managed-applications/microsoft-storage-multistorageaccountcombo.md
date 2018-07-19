@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4ec5a97f8655c0b5b53dea129d4648a05f6ef85
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f5fa81d53e1728e8f566a2a39aed8311828b20c7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261154"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108703"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Élément d’interface utilisateur Microsoft.Storage.MultiStorageAccountCombo
-Groupe de contrôles pour la création de plusieurs comptes de stockage, avec des noms commençant par un préfixe commun.
+Groupe de contrôles pour la création de plusieurs comptes de stockage avec des noms commençant par un préfixe commun.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
@@ -53,14 +53,14 @@ Groupe de contrôles pour la création de plusieurs comptes de stockage, avec de
 ```
 
 ## <a name="remarks"></a>Remarques
-- La valeur de `defaultValue.prefix` est concaténée avec un ou plusieurs entiers pour générer la séquence de noms de comptes de stockage. Par exemple, si `defaultValue.prefix` est **foobar** et `count` est **2**, les noms de comptes de stockage **foobar1** et **foobar2** sont générés. Le caractère unique des noms de comptes de stockage générés est validé automatiquement.
-- Les noms de comptes de stockage sont générés lexicographiquement en se basant sur `count`. Par exemple, si `count` est égal à 10, les noms de comptes de stockage se terminent par des entiers à 2 chiffres (01, 02, 03, etc..).
+- La valeur de `defaultValue.prefix` est concaténée avec un ou plusieurs entiers pour générer la séquence de noms de comptes de stockage. Par exemple, si `defaultValue.prefix` est **sa** et `count` est **2**, les noms de comptes de stockage **sa1** et **sa2** sont générés. Le caractère unique des noms de comptes de stockage générés est validé automatiquement.
+- Les noms de comptes de stockage sont générés lexicographiquement en se basant sur `count`. Par exemple, si `count` est égal à 10, les noms de comptes de stockage se terminent par des entiers à deux chiffres (01, 02, 03).
 - La valeur par défaut pour `defaultValue.prefix` est égale à **null** et pour `defaultValue.type` équivaut à **Premium_LRS**.
-- Tout type non spécifié dans `constraints.allowedTypes` est masqué et tout type non spécifié dans `constraints.excludedTypes` s’affiche.
-`constraints.allowedTypes`et `constraints.excludedTypes` sont tous deux facultatifs, mais ne peuvent pas être utilisés simultanément.
+- Tout type non spécifié dans `constraints.allowedTypes` est masqué et tout type non spécifié dans `constraints.excludedTypes` s’affiche. `constraints.allowedTypes` et `constraints.excludedTypes` sont tous deux facultatifs, mais ne peuvent pas être utilisés simultanément.
 - En plus de générer des noms de comptes de stockage, `count` est utilisé pour définir le multiplicateur approprié pour l’élément. Il prend en charge une valeur statique, telle que **2**, ou une valeur dynamique issue d’un autre élément, comme `[steps('step1').storageAccountCount]`. La valeur par défaut est **1**.
 
 ## <a name="sample-output"></a>Exemple de sortie
+
 ```json
 {
   "prefix": "sa",

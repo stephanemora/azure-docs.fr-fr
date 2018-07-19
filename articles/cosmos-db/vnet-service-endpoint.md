@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333910"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109740"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service Réseau virtuel Azure
 
@@ -249,9 +249,9 @@ Pour en savoir plus sur les balises NSG, consultez l’article [Balises de servi
 
 Ces deux fonctionnalités se complètent afin de garantir l’isolation et la sécurisation des actifs Azure Cosmos DB. L’utilisation du pare-feu IP permet de s’assurer que les adresses IP statiques peuvent accéder au compte Azure Cosmos DB.  
 
-### <a name="can-an-on-premise-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>L’adresse IP d’un appareil local connecté par le biais de la passerelle ExpressRoute ou de la passerelle Réseau virtuel Azure (VPN) peut-elle accéder au compte Azure Cosmos DB ?  
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>L’adresse IP d’un appareil local connecté par le biais de la passerelle ExpressRoute ou de la passerelle Réseau virtuel Azure (VPN) peut-elle accéder au compte Azure Cosmos DB ?  
 
-L’adresse IP ou plage d’adresses IP de l’appareil local doit être ajoutée à la liste des adresses IP statiques pour pouvoir accéder au compte Azure Cosmos DB.  
+L’adresse IP ou la plage d’adresses IP de l’appareil local doit être ajoutée à la liste des adresses IP statiques pour pouvoir accéder au compte Azure Cosmos DB.  
 
 ### <a name="what-happens-if-you-delete-a-virtual-network-that-has-service-endpoint-setup-for-azure-cosmos-db"></a>Que se passe-t-il si l’on supprime un réseau virtuel qui a un point de terminaison de service configuré pour Azure Cosmos DB ?  
 

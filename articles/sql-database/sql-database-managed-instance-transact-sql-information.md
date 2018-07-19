@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337297"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446875"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server 
 
@@ -398,9 +398,12 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 Chaque instance gérée a jusqu’à 35 To de stockage réservé pour l’espace disque Premium Azure et chaque fichier de bases de données est placé sur un disque physique séparé. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To sur la taille de stockage, en raison d’une fragmentation interne. 
 
-Par exemple, une instance gérée peut avoir un seul fichier de 1,2 To qui utilise un disque de 4 To et 248 fichiers de 1 Go chacun placé sur 248 disques de 128 Go. Dans cet exemple, la taille du stockage total du disque est 1 x 4 To + 248 x 128 Go = 35 To. Toutefois, la taille totale des instances réservées pour les bases de données est 1 x 1,2 To + 248 x 1 Go = 1,4 To. Cet exemple illustre que dans certaines circonstances, en raison d’une distribution très spécifique des fichiers, une Instance gérée peut atteindre la limite de stockage des disques Premium Azure lorsque vous vous y attendez le moins. 
+Par exemple, une instance gérée peut avoir un fichier de 1,2 To placé sur un disque de 4 To et 248 fichiers de 1 Go chacun placés sur des disques distincts de 128 Go. Dans cet exemple, 
+* la taille du stockage total du disque est 1 x 4 To + 248 x 128 Go = 35 To. 
+* l’espace total réservé pour les bases de données sur l’instance est 1 x 1,2 To + 248 x 1 Go = 1,4 To.
+Cet exemple illustre que dans certaines circonstances, en raison d’une distribution très spécifique des fichiers, une instance gérée peut atteindre les 35 To réservés pour le disque Premium Azure attaché quand vous vous y attendez le moins. 
 
-Il n’y aura aucune erreur sur les bases de données existantes et elles peuvent croître sans aucun problème si de nouveaux fichiers ne sont pas ajoutés, mais les nouvelles bases de données ne peuvent pas être créées ni restaurées, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disques, même si la taille totale de toutes les bases de données n’atteint pas la limite de la taille de l’instance. L’erreur retournée dans ce cas n’est pas claire.
+Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème tant que de nouveaux fichiers ne sont pas ajoutés. Toutefois, la création ou la restauration de bases de données est impossible, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur retournée dans ce cas n’est pas claire.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuration incorrecte de la clé SAP au cours d’une restauration de la base de données
 

@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 75fb07120c78c45d422ee5017eac0afcf0e80859
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 591d8ea7670bf9b29450695ee7cbee5fa39baaac
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060816"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344717"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 Preview vous permet de gérer les données et d’y accéder comme avec un [système de fichiers DFS Hadoop (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Si vous avez un cluster HDInsight attaché ou que vous exécutez un travail Apache Spark à l’aide d’Azure Databricks pour analyser les données stockées dans Azure Data Lake Storage Gen2, vous pouvez utiliser l’interface de ligne de commande (CLI) pour récupérer et manipuler les données chargées. Le reste de l’article décrit les options dont vous disposez en attendant que [l’équipe du Stockage Azure ajoute la prise en charge de l’Explorateur Stockage Azure et du portail Azure](https://azure.microsoft.com/roadmap/) - Amusez-vous bien !
+Azure Data Lake Storage Gen2 Preview vous permet de gérer les données et d’y accéder comme avec un [système de fichiers DFS Hadoop (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Si vous avez un cluster HDInsight attaché ou que vous exécutez un travail Apache Spark à l’aide d’Azure Databricks pour analyser les données stockées dans Azure Data Lake Storage Gen2, vous pouvez utiliser l’interface de ligne de commande (CLI) pour récupérer et manipuler les données chargées. Le reste de l’article décrit les options dont vous disposez en attendant que [l’équipe du Stockage Azure ajoute la prise en charge de l’Explorateur Stockage Azure et du portail Azure](https://azure.microsoft.com/roadmap/).
 
 ## <a name="hdfs-cli-with-hdinsight"></a>Interface CLI HDFS avec HDInsight
 

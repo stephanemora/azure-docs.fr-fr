@@ -2,18 +2,18 @@
 title: Bonnes pratiques pour Azure SQL Data Sync | Microsoft Docs
 description: Découvrez les bonnes pratiques pour configurer et exécuter Azure SQL Data Sync.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 07/03/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025192"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445158"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Bonnes pratiques pour SQL Data Sync 
 
@@ -85,6 +85,7 @@ Voici les limitations du provisionnement automatique offert par SQL Data Sync :
 -   Les contraintes CHECK ne sont pas provisionnées.  
 -   Les déclencheurs existants sur les tables sources ne sont pas provisionnés.  
 -   Les vues et procédures stockées ne sont pas créées sur la base de données de destination.
+-   Les actions ON UPDATE CASCADE and ON DELETE CASCADE sur les contraintes de clé étrangère ne sont pas recréées dans les tables de destination.
 
 #### <a name="recommendations"></a>Recommandations
 

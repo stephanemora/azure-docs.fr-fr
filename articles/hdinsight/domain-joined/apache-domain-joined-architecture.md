@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: f4380f5d6ec379d5807f697294623a672bd270ae
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8503534031dc5774e64c58edd3e158162a5a6aee
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715239"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110452"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planifier des clusters Hadoop Azure joints à un domaine dans HDInsight
 
@@ -38,8 +38,8 @@ Pour résumer, vous devez configurer un environnement avec :
 - LDAP sécurisé (LDAPS) activé dans AAD-DS.
 - Une connectivité réseau appropriée du réseau virtuel HDInsight vers le réseau virtuel AAD-DS, si vous choisissez des réseaux virtuels distincts pour ceux-ci. Une machine virtuelle à l’intérieur du réseau virtuel HDI doit avoir AAD-DS en ligne de mire avec l’appairage du réseau virtuel. Si HDI et AAD-DS sont tous deux déployés dans le même réseau virtuel, la connectivité est automatiquement fournie et aucune action supplémentaire n’est nécessaire.
 - Une unité d’organisation [créée sur AAD-DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
-- Un compte de service qui dispose des autorisations pour :
-    - Créer des principaux de service dans l’unité d’organisation.
+- un compte de service qui dispose des autorisations pour :
+    - créer des principaux de service dans l’unité d’organisation ;
     - Joindre des machines au domaine et créer des principaux de machine dans l’unité d’organisation.
 
 La capture d’écran suivante montre une unité d’organisation créée dans contoso.com. Certains des principaux de service et de machine figurent également sur la capture d’écran.

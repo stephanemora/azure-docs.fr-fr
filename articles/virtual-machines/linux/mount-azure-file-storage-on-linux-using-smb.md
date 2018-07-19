@@ -1,9 +1,9 @@
 ---
-title: Montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB | Microsoft Docs
-description: Procédure de montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB avec Azure CLI 2.0
+title: Montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB | Microsoft Docs
+description: Procédure de montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB avec Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -12,137 +12,109 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2017
-ms.author: iainfou
-ms.openlocfilehash: 2255c8fd7cd873ae9b6511e1a7b9e2ac13f9fb66
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.date: 06/28/2018
+ms.author: cynthn
+ms.openlocfilehash: 2019324030b2e4c469d0b9ba937fb40a9d0675f1
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936766"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099709"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Monter le stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB
 
-Cet article vous montre comment utiliser le service de stockage de fichiers Azure sur une machine virtuelle Linux à l’aide d’un montage SMB avec Azure CLI 2.0. Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Les conditions requises sont :
 
-- [un compte Azure](https://azure.microsoft.com/pricing/free-trial/)
-- [des fichiers de clés SSH publiques et privées](mac-create-ssh-keys.md)
+Cet article vous montre comment utiliser le service de stockage de fichiers Azure sur une machine virtuelle Linux à l’aide d’un montage SMB avec Azure CLI. Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. 
 
-## <a name="quick-commands"></a>Commandes rapides
+Le stockage de fichiers propose des partages de fichiers dans le cloud qui utilisent le protocole SMB standard. Vous pouvez monter un partage de fichiers à partir de n’importe quel système d’exploitation qui prend en charge SMB 3.0. Un montage SMB sur Linux permet d’effectuer facilement une sauvegarde vers un emplacement de stockage d’archivage robuste et permanent pris en charge par un contrat de niveau de service.
 
-* Un groupe de ressources.
-* Un réseau virtuel Azure.
-* Un groupe de sécurité réseau avec une connexion SSH entrante.
-* Un sous-réseau.
-* Un compte de stockage Azure.
-* Des clés de compte de stockage Azure.
-* Un partage de stockage de fichiers Azure.
-* Une machine virtuelle Linux.
+Un bon moyen de déboguer les journaux consiste à déplacer les fichiers vers un montage SMB hébergé sur le stockage de fichiers à partir d’une machine virtuelle. Un même partage SMB peut être monté localement sur votre station de travail Windows, Linux ou Mac. SMB ne constitue pas la meilleure solution pour transmettre en continu des journaux d’applications ou Linux en temps réel, car le protocole SMB n’est pas conçu pour gérer des tâches de journalisation aussi lourdes. Un outil de couche de journalisation unifié et dédié comme Fluentd représente un meilleur choix que SMB pour collecter la sortie de journalisation d’applications et Linux.
 
-Remplacez les exemples par vos propres paramètres.
+Ce guide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Pour déterminer la version, exécutez la commande **az --version**. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-### <a name="create-a-directory-for-the-local-mount"></a>Créez un répertoire pour le montage local
+
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
+Créez un groupe de ressources nommé *MyResourceGroup* dans l’emplacement *Est des États-Unis*.
 
 ```bash
-mkdir -p /mnt/mymountpoint
+az group create --name myResourceGroup --location eastus
 ```
 
-### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>Montez le partage SMB de stockage de fichiers sur le point de montage.
+## <a name="create-a-storage-account"></a>Créez un compte de stockage.
+
+Créez un compte de stockage, au sein du groupe de ressources que vous avez créé, à l’aide de la commande [az storage account create](/cli/azure/storage/account#create). Cet exemple crée un compte de stockage nommé *mySTORAGEACCT<random number>* et place le nom de ce compte de stockage dans la variable **STORAGEACCT**. Les noms de compte de stockage doivent être uniques ; l’utilisation de `$RANDOM` ajoute un numéro à la fin pour les rendre uniques.
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+STORAGEACCT=$(az storage account create \
+    --resource-group "myResourceGroup" \
+    --name "mystorageacct$RANDOM" \
+    --location eastus \
+    --sku Standard_LRS \
+    --query "name" | tr -d '"')
 ```
 
-### <a name="persist-the-mount-after-a-reboot"></a>Conservez le montage après redémarrage.
-Pour ce faire, ajoutez la ligne suivante à l’élément `/etc/fstab` :
+## <a name="get-the-storage-key"></a>Obtenir la clé de stockage
+
+Quand vous créez un compte de stockage, les clés du compte sont créées par paires afin qu’elles puissent faire l’objet d’une rotation sans interruption du service. Lorsque vous basculez vers la deuxième clé de la paire, vous créez une nouvelle paire de clés. Les clés de compte de stockage étant toujours créées par paires, vous disposez toujours d’au moins une clé de stockage inutilisée prête au basculement.
+
+Affichez les clés du compte de stockage à l’aide de la commande [az storage account keys list](/cli/azure/storage/account/keys#list). Cet exemple stocke la valeur de clé 1 dans la variable **STORAGEKEY**.
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+STORAGEKEY=$(az storage account keys list \
+    --resource-group "myResourceGroup" \
+    --account-name $STORAGEACCT \
+    --query "[0].value" | tr -d '"')
 ```
 
-## <a name="detailed-walkthrough"></a>Procédure pas à pas
+## <a name="create-a-file-share"></a>Créer un partage de fichiers
 
-Le stockage de fichiers propose des partages de fichiers dans le cloud qui utilisent le protocole SMB standard. Avec la dernière version du Stockage Fichier, vous pouvez également monter un partage de fichiers à partir d’un système d’exploitation prenant en charge SMB 3.0. Un montage SMB sur Linux permet d’effectuer facilement une sauvegarde vers un emplacement de stockage d’archivage robuste et permanent pris en charge par un contrat de niveau de service.
+Créez le partage de stockage de fichiers à l’aide de la commande [az storage share create](/cli/azure/storage/share#create). 
 
-Un bon moyen de déboguer les journaux consiste à déplacer les fichiers vers un montage SMB hébergé sur le stockage de fichiers à partir d’une machine virtuelle. En effet, un même partage SMB peut être monté localement sur votre station de travail Windows, Linux ou Mac. SMB ne constitue pas la meilleure solution pour transmettre en continu des journaux d’applications ou Linux en temps réel, car le protocole SMB n’est pas conçu pour gérer des tâches de journalisation aussi lourdes. Un outil de couche de journalisation unifié et dédié comme Fluentd resprésente un meilleur choix que SMB pour collecter la sortie de journalisation d’applications et Linux.
+Le nom des partages ne doit contenir que des minuscules, des nombres et des traits d’union uniques, mais ne peut commencer par un trait d’union. Pour plus d’informations sur la façon de nommer des partages de fichiers et des fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-Pour cette procédure pas à pas détaillée, nous créons la configuration requise pour d’abord créer le partage de Stockage Fichier, puis le monter via SMB sur une machine virtuelle Linux.
+Cet exemple crée un partage nommé *myshare* avec un quota de 10 Gio. 
 
-1. Créez un groupe de ressource avec la commande [az group create](/cli/azure/group#az_group_create) pour contenir le partage de fichiers.
+```bash
+az storage share create --name myshare \
+    --quota 10 \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY
+```
 
-    Créez un groupe de ressources nommé `myResourceGroup` dans la région États-Unis de l’Ouest en suivant l’exemple suivant :
+## <a name="create-a-mount-point"></a>Créer un point de montage
 
-    ```azurecli
-    az group create --name myResourceGroup --location westus
-    ```
+Pour monter le partage de fichiers Azure sur votre ordinateur Linux, vous devez vérifier que le package **cifs-utils** est installé. Pour obtenir des instructions d’installation, consultez [Installez le package cifs-utils pour votre distribution Linux](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
 
-2. Créez un compte de stockage Azure avec [az storage account create](/cli/azure/storage/account#az_storage_account_create) pour stocker les fichiers.
+Azure Files utilise le protocole SMB, qui communique via le port TCP 445.  Si vous ne parvenez pas à monter votre partage de fichiers Azure, vérifiez que votre pare-feu ne bloque pas le port TCP 445.
 
-    Pour créer un compte de stockage nommé mystorageaccount à l’aide de la référence de stockage Standard_LRS, suivez l’exemple suivant :
 
-    ```azurecli
-    az storage account create --resource-group myResourceGroup \
-        --name mystorageaccount \
-        --location westus \
-        --sku Standard_LRS
-    ```
+```bash
+mkdir -p /mnt/MyAzureFileShare
+```
 
-3. Affichez les clés de compte de stockage.
+## <a name="mount-the-share"></a>Monter le partage
 
-    Quand vous créez un compte de stockage, les clés du compte sont créées par paires afin qu’elles puissent faire l’objet d’une rotation sans interruption du service. Lorsque vous basculez vers la deuxième clé de la paire, vous créez une nouvelle paire de clés. Les nouvelles clés de compte de stockage sont toujours créées par paires, pour garantir que vous disposiez toujours d’au moins une clé de stockage inutilisée prête au basculement.
+Montez le partage de fichiers Azure dans le répertoire local. 
 
-    Utilisez [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) pour afficher les clés du compte de stockage. Les clés de compte de stockage pour l’élément nommé `mystorageaccount` sont répertoriées dans l’exemple suivant :
+```bash
+sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
+```
 
-    ```azurecli
-    az storage account keys list --resource-group myResourceGroup \
-        --account-name mystorageaccount
-    ```
 
-    Pour extraire une clé unique, utilisez l’indicateur `--query`. L’exemple suivant extrait la première clé (`[0]`) :
 
-    ```azurecli
-    az storage account keys list --resource-group myResourceGroup \
-        --account-name mystorageaccount \
-        --query '[0].{Key:value}' --output tsv
-    ```
+## <a name="persist-the-mount"></a>Rendre le montage permanent
 
-4. Créez le partage de stockage de fichiers.
+Lorsque vous redémarrez la machine virtuelle Linux, le partage SMB monté est démonté lors de l’arrêt. Pour remonter le partage SMB au démarrage, ajoutez une ligne à /etc/fstab dans Linux. Linux utilise le fichier fstab pour lister les systèmes de fichiers à monter pendant le processus de démarrage. L’ajout du partage SMB garantit que le partage de stockage de fichiers est un système de fichiers monté définitivement pour la machine virtuelle Linux. Il est possible d’ajouter le partage SMB du Stockage Fichier sur une nouvelle machine virtuelle si vous utilisez cloud-init.
 
-    Créez le partage de stockage de fichiers qui contient le partage SMB avec [az storage share create](/cli/azure/storage/share#az_storage_share_create). Le quota est toujours exprimé en gigaoctets (Go). Passez l’une des clés de la commande `az storage account keys list` précédente. Créez un partage nommé mystorageshare avec un quota de 10 Go en appliquant l’exemple suivant :
-
-    ```azurecli
-    az storage share create --name mystorageshare \
-        --quota 10 \
-        --account-name mystorageaccount \
-        --account-key nPOgPR<--snip-->4Q==
-    ```
-
-5. Créez un répertoire de point de montage.
-
-    Créez un répertoire local sur le système de fichiers Linux pour monter le partage SMB. Tout ce qui est écrit ou lu à partir du répertoire de montage local est transféré au partage SMB hébergé sur le stockage de fichiers. Pour créer un répertoire local à l’emplacement /mnt/mymountdirectory, appliquez l’exemple suivant :
-
-    ```bash
-    sudo mkdir -p /mnt/mymountpoint
-    ```
-
-6. Montez le partage SMB sur le répertoire local.
-
-    Fournissez votre propre nom d’utilisateur de compte de stockage et la clé de compte de stockage pour les informations d’identification de montage comme suit :
-
-    ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountpoint -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
-    ```
-
-7. Conservez le montage SMB au cours des redémarrages.
-
-    Lorsque vous redémarrez la machine virtuelle Linux, le partage SMB monté est démonté lors de l’arrêt. Pour remonter le partage SMB au démarrage, ajoutez une ligne à /etc/fstab dans Linux. Linux utilise le fichier fstab pour lister les systèmes de fichiers à monter pendant le processus de démarrage. L’ajout du partage SMB garantit que le partage de stockage de fichiers est un système de fichiers monté définitivement pour la machine virtuelle Linux. Il est possible d’ajouter le partage SMB du Stockage Fichier sur une nouvelle machine virtuelle si vous utilisez cloud-init.
-
-    ```bash
-    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
-    ```
+```bash
+//myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+```
+Pour renforcer la sécurité dans les environnements de production, vous devez stocker vos informations d’identification en dehors de fstab.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md)
 - [Ajouter un disque à une machine virtuelle Linux](add-disk.md)
 - [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande (CLI) Azure](encrypt-disks.md)
+

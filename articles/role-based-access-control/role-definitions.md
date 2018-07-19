@@ -1,6 +1,6 @@
 ---
 title: Comprendre les définitions de rôles dans le RBAC Azure | Microsoft Docs
-description: Apprenez-en davantage sur les définitions de rôles dans le cadre du contrôle d’accès en fonction du rôle (RBAC), et sur la manière de définir des rôles personnalisés pour une gestion affinée des accès aux ressources dans Azure.
+description: Apprenez-en davantage sur les définitions de rôles dans le cadre du contrôle d’accès en fonction du rôle (RBAC) pour une gestion affinée des accès aux ressources dans Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,19 +8,19 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/18/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 9bb7808f2b483fe9cd7d22c6df3fe80d4a98f1f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1d594b91b85a1bad3bbaa69bc27e62a4829a5661
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266854"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438279"
 ---
 # <a name="understand-role-definitions"></a>Comprendre les définitions de rôles
 
@@ -47,7 +47,7 @@ type
 
 Les opérations sont spécifiées à l’aide de chaînes dont le format est le suivant :
 
-- `Microsoft.{ProviderName}/{ChildResourceType}/{action}`
+- `{Company}.{ProviderName}/{resourceType}/{action}`
 
 La portion `{action}` d’une chaîne d’opération spécifie le type des opérations que vous pouvez effectuer sur un type de ressource. Par exemple, vous verrez les sous-chaînes suivantes dans `{action}` :
 
@@ -94,7 +94,7 @@ Voici la définition du rôle [Contributeur](built-in-roles.md#contributor) au f
 
 ## <a name="management-and-data-operations-preview"></a>Opérations de gestion et sur les données (préversion)
 
-Le contrôle d’accès en fonction du rôle pour les opérations de gestion est spécifié dans les sections `actions` et `notActions` d’une définition de rôle. Voici quelques exemples d’opérations de gestion dans Azure :
+Le contrôle d’accès en fonction du rôle pour les opérations de gestion est spécifié dans les propriétés `actions` et `notActions` d’une définition de rôle. Voici quelques exemples d’opérations de gestion dans Azure :
 
 - Gérer l’accès à un compte de stockage
 - Créer, mettre à jour ou supprimer un conteneur d’objets blob
@@ -104,13 +104,13 @@ Vos données n’héritent pas de l’accès à la gestion. Cette séparation em
 
 Auparavant, le contrôle d’accès en fonction du rôle n’était pas utilisé pour les opérations sur les données. L’autorisation pour les opérations sur les données variait selon les fournisseurs de ressources. Le même modèle d’autorisation du contrôle d'accès en fonction du rôle utilisé pour les opérations de gestion a été étendu aux opérations sur les données (actuellement en préversion).
 
-Pour prendre en charge les opérations sur les données, de nouvelles sections de données ont été ajoutées à la structure de définition de rôle. Les opérations sur les données sont spécifiées dans les sections `dataActions` et `notDataActions`. En ajoutant ces sections de données, la séparation entre la gestion et les données est conservée. Cela empêche les attributions de rôle contenant des caractères génériques (`*`) d’accéder soudainement aux données. Voici quelques opérations sur les données qui peuvent être spécifiées dans `dataActions` et `notDataActions` :
+Pour prendre en charge les opérations sur les données, de nouvelles propriétés de données ont été ajoutées à la structure de définition de rôle. Les opérations sur les données sont spécifiées dans les propriétés `dataActions` et `notDataActions`. En ajoutant ces propriétés de données, la séparation entre la gestion et les données est conservée. Cela empêche les attributions de rôle contenant des caractères génériques (`*`) d’accéder soudainement aux données. Voici quelques opérations sur les données qui peuvent être spécifiées dans `dataActions` et `notDataActions` :
 
 - Lire une liste d’objets blob dans un conteneur
 - Écrire un objet blob de stockage dans un conteneur
 - Supprimer un message dans une file d’attente
 
-Voici la définition de rôle [Lecteur des données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-reader-preview), qui inclut des opérations à la fois dans les sections `actions` et `dataActions`. Ce rôle vous permet de lire le conteneur d’objets blob ainsi que les données d’objets blob sous-jacentes.
+Voici la définition de rôle [Lecteur des données blob du stockage (préversion)](built-in-roles.md#storage-blob-data-reader-preview), qui inclut des opérations à la fois dans les propriétés `actions` et `dataActions`. Ce rôle vous permet de lire le conteneur d’objets blob ainsi que les données d’objets blob sous-jacentes.
 
 ```json
 [
@@ -142,7 +142,7 @@ Voici la définition de rôle [Lecteur des données blob du stockage (préversio
 ]
 ```
 
-Seules des opérations sur les données peuvent être ajoutées aux sections `dataActions` et `notDataActions`. Les fournisseurs de ressources identifient quelles opérations sont des opérations sur les données, en définissant la propriété `isDataAction` sur `true`. Pour afficher la liste des opérations où `isDataAction` est `true`, consultez [Opérations de fournisseur de ressources](resource-provider-operations.md). Les rôles qui n’ont pas d’opérations sur les données ne sont pas obligés d’avoir les sections `dataActions` et `notDataActions` dans la définition de rôle.
+Seules des opérations sur les données peuvent être ajoutées aux propriétés `dataActions` et `notDataActions`. Les fournisseurs de ressources identifient quelles opérations sont des opérations sur les données, en définissant la propriété `isDataAction` sur `true`. Pour afficher la liste des opérations où `isDataAction` est `true`, consultez [Opérations de fournisseur de ressources](resource-provider-operations.md). Les rôles qui n’ont pas d’opérations sur les données ne sont pas obligés d’avoir les propriétés `dataActions` et `notDataActions` dans la définition de rôle.
 
 L’autorisation pour tous les appels d’API des opérations de gestion est gérée par Azure Resource Manager. L’autorisation pour les appels d’API des opérations sur les données est gérée par un fournisseur de ressources ou Azure Resource Manager.
 
@@ -190,7 +190,7 @@ Pour afficher et utiliser des opérations sur les données, vous devez disposer 
 
 ## <a name="actions"></a>actions
 
-L’autorisation `actions` spécifie les opérations de gestion auxquelles le rôle donne accès. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Voici quelques exemples d’opérations de gestion qui peuvent être utilisées dans `actions`.
+L’autorisation `actions` spécifie les opérations d’administration que le rôle autorise. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Voici quelques exemples d’opérations de gestion qui peuvent être utilisées dans `actions`.
 
 | Chaîne d’opération    | Description         |
 | ------------------- | ------------------- |
@@ -210,7 +210,7 @@ L’autorisation `notActions` spécifie les opérations de gestion qui sont excl
 
 ## <a name="dataactions-preview"></a>dataActions (préversion)
 
-L’autorisation `dataActions` spécifie les opérations sur les données auxquelles le rôle donne accès (données figurant dans cet objet). Par exemple, si un utilisateur dispose d’un accès en lecture aux données blob d’un compte de stockage, il peut lire les objets blob de ce compte de stockage. Voici quelques exemples d’opérations sur les données qui peuvent être utilisées dans `dataActions`.
+L’autorisation `dataActions` spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données blob d’un compte de stockage, il peut lire les objets blob de ce compte de stockage. Voici quelques exemples d’opérations sur les données qui peuvent être utilisées dans `dataActions`.
 
 | Chaîne d’opération    | Description         |
 | ------------------- | ------------------- |
@@ -229,11 +229,9 @@ L’autorisation `notDataActions` spécifie les opérations sur les données qui
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-La section `assignableScopes` spécifie les étendues (groupes de gestion -actuellement en préversion-, abonnements, groupes de ressources ou ressources) dans lesquelles le rôle est disponible pour attribution. Vous pouvez rendre le rôle disponible pour attribution uniquement dans les abonnements ou les groupes de ressources qui le nécessitent, mais pas surcharger l’expérience utilisateur pour le reste des abonnements ou groupes de ressources. Vous devez utiliser au moins un groupe de gestion, abonnement, groupe de ressources ou ID de ressource.
+La propriété `assignableScopes` spécifie les étendues (groupes de gestion -actuellement en préversion-, abonnements, groupes de ressources ou ressources) dans lesquelles le rôle est disponible pour attribution. Vous pouvez rendre le rôle disponible pour attribution uniquement dans les abonnements ou les groupes de ressources qui le nécessitent, mais pas surcharger l’expérience utilisateur pour le reste des abonnements ou groupes de ressources. Vous devez utiliser au moins un groupe de gestion, abonnement, groupe de ressources ou ID de ressource.
 
-La chaîne `assignableScopes` est définie sur l’étendue racine (`"/"`) pour les rôles intégrés. L’étendue racine indique que le rôle est disponible pour attribution dans toutes les étendues. Vous ne pouvez pas utiliser l’étendue racine dans vos propres rôles personnalisés. Si vous essayez, vous obtiendrez une erreur d’autorisation.
-
-Voici des exemples d’étendues assignables valides :
+La chaîne `assignableScopes` est définie sur l’étendue racine (`"/"`) pour les rôles intégrés. L’étendue racine indique que le rôle est disponible pour attribution dans toutes les étendues. Voici des exemples d’étendues assignables valides :
 
 | Scénario | Exemples |
 |----------|---------|
@@ -242,86 +240,9 @@ Voici des exemples d’étendues assignables valides :
 | Rôle disponible pour attribution uniquement dans le groupe de ressources réseau | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Rôle disponible pour attribution dans toutes les étendues | `"/"` |
 
-## <a name="assignablescopes-and-custom-roles"></a>assignableScopes et rôles personnalisés
+Pour plus d’informations sur `assignableScopes` pour des rôles personnalisés, consultez [Rôles personnalisés](custom-roles.md).
 
-La section `assignableScopes` pour un rôle personnalisé contrôle également qui peut créer, supprimer, modifier ou afficher le rôle personnalisé.
-
-| Tâche | Opération | Description |
-| --- | --- | --- |
-| Créer/supprimer un rôle personnalisé | `Microsoft.Authorization/ roleDefinition/write` | Les utilisateurs ayant accès à cette opération sur toutes les étendues `assignableScopes` du rôle personnalisé peuvent créer (ou supprimer) des rôles personnalisés utilisables dans ces étendues. Il s’agit, par exemple, des [Propriétaires](built-in-roles.md#owner) et [Administrateurs de l’accès utilisateur](built-in-roles.md#user-access-administrator) d’abonnements, de groupes de ressources et de ressources. |
-| Modifier un rôle personnalisé | `Microsoft.Authorization/ roleDefinition/write` | Les utilisateurs ayant accès à cette opération sur toutes les étendues `assignableScopes` du rôle personnalisé peuvent modifier des rôles personnalisés dans ces étendues. Il s’agit, par exemple, des [Propriétaires](built-in-roles.md#owner) et [Administrateurs de l’accès utilisateur](built-in-roles.md#user-access-administrator) d’abonnements, de groupes de ressources et de ressources. |
-| Afficher un rôle personnalisé | `Microsoft.Authorization/ roleDefinition/read` | Les utilisateurs ayant accès à cette opération dans une étendue peuvent afficher les rôles personnalisés disponibles pour attribution dans cette étendue. Tous les rôles intégrés permettent que les rôles personnalisés soient disponibles pour attribution. |
-
-## <a name="role-definition-examples"></a>Exemples de définitions de rôles
-
-L’exemple suivant présente la définition de rôle [Lecteur](built-in-roles.md#reader) tel qu’affichée à l’aide d’Azure CLI :
-
-```json
-[
-  {
-    "additionalProperties": {},
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "Lets you view everything, but not make any changes.",
-    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "permissions": [
-      {
-        "actions": [
-          "*/read"
-        ],
-        "additionalProperties": {},
-        "dataActions": [],
-        "notActions": [],
-        "notDataActions": []
-      }
-    ],
-    "roleName": "Reader",
-    "roleType": "BuiltInRole",
-    "type": "Microsoft.Authorization/roleDefinitions"
-  }
-]
-```
-
-L’exemple suivant présente un rôle personnalisé pour la surveillance et le redémarrage de machines virtuelles, tel qu’affiché à l’aide d’Azure PowerShell :
-
-```json
-{
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
-  ],
-  "NotActions":  [
-
-                 ],
-  "DataActions":  [
-
-                  ],
-  "NotDataActions":  [
-
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
-}
-```
-
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Rôles intégrés](built-in-roles.md)
 * [Rôles personnalisés](custom-roles.md)

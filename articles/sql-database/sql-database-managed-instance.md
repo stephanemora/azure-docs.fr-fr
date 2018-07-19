@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054651"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082503"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
@@ -210,7 +210,7 @@ Managed Instance tire parti du fait d’être toujours à jour dans le cloud, ce
 - Managed Instance ne permet pas de spécifier des chemins physiques complets si bien que tous les scénarios correspondants doivent être pris en charge différemment : RESTORE DB ne prend pas en charge WITH MOVE, CREATE DB n’autorise pas de chemins physiques, BULK INSERT fonctionne avec les objets blob Azure uniquement, etc. 
 - Managed Instance prend en charge l’[authentification Azure AD](sql-database-aad-authentication.md) en tant qu’alternative cloud à l’authentification Windows. 
 - Managed Instance gère automatiquement le groupe de fichiers et les fichiers XTP des bases de données contenant des objets OLTP In-Memory.
-- Managed Instance prend en charge SSIS (SQL Server Integration Services) et peut héberger le catalogue SSIS (SSISDB) qui stocke les packages SSIS, mais ceux-ci sont exécutés sur une instance Azure-SSIS IR (Integration Runtime) gérée dans ADF (Azure Data Factory). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+- Managed Instance prend en charge SSIS (SQL Server Integration Services) et peut héberger le catalogue SSIS (SSISDB) qui stocke les packages SSIS, mais ceux-ci sont exécutés sur une instance Azure-SSIS IR (Integration Runtime) gérée dans ADF (Azure Data Factory). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Pour comparer les fonctionnalités SSIS dans SQL Database et Managed Instance, consultez [Comparer SQL Database et Managed Instance (préversion)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### <a name="managed-instance-administration-features"></a>Fonctionnalités administratives de Managed Instance  
 

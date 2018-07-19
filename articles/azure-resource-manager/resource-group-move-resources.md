@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7bee84e1ce473c27730b3fe84aa0a580baeba7c2
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4f73b6d735997b663ca6769aaceaf363b6d3eda7
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939918"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346482"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -119,19 +119,26 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Application Insights
 * Analysis Services
 * Automatisation
+* Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Maps
 * Azure Relay
+* Azure Stack - Inscriptions
+* Azure Migrate
 * Batch
-* Bing Maps
+* BizTalk Services
+* Service de robot
 * CDN
 * Cloud Services : consultez [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
 * Cognitive Services
+* Container Registry
 * Content Moderator
 * Data Catalog
-* Data Factory : la version V1 peut être déplacée, mais le déplacement de la version V2 (préversion) n’est pas pris en charge
+* Data Factory
 * Data Lake Analytics
 * Data Lake Store
 * DNS
+* Event Grid
 * Event Hubs
 * Clusters HDInsight - voir [Limitations de HDInsight](#hdinsight-limitations)
 * IoT Hubs
@@ -145,14 +152,15 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Notification Hubs
 * Operational Insights
 * Operations Management
+* Tableaux de bord du portail
 * Power BI : Power BI Embedded et Collection d’espaces de travail Power BI
 * IP publique - consultez [Limitations de l’IP publique](#pip-limitations)
 * Cache Redis
 * Scheduler
 * Recherche
-* Gestion de serveur
 * Service Bus
 * Service Fabric
+* Service SignalR
 * Stockage
 * Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Stream Analytics - Les tâches Stream Analytics ne peuvent pas être déplacées lorsqu’elles sont en cours d’exécution.
@@ -175,20 +183,24 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Application Gateway
 * Azure Database pour MySQL
 * Azure Database pour PostgreSQL
-* Azure Migrate
-* BizTalk Services
+* Azure Database Migration
+* Azure Databricks
+* Batch AI
 * Certificats : les certificats App Service Certificates peuvent être déplacés, mais les certificats chargés ont des [limitations](#app-service-limitations).
 * Service de conteneur
-* Laboratoires DevTest : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements n’est pas activé.
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes Service
+* Lab Services : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements ne l’est pas.
 * Équilibreurs de charge - consultez [Limitations de l’équilibreur de charge](#lb-limitations)
 * Applications gérées
 * Disques gérés : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
+* Microsoft Genomics
 * IP publique - consultez [Limitations de l’IP publique](#pip-limitations)
 * Coffre Recovery Services : par ailleurs, ne déplacez pas les ressources de calcul, de réseau et de stockage associées au coffre Recovery Services. Consultez [Limitations de Recovery Services](#recovery-services-limitations).
+* SAP HANA sur Azure
 * Sécurité
+* Site Recovery
 * StorSimple Device Manager
 * Réseaux virtuels (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 

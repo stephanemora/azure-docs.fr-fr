@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e047dffa86915b0cd6e8829ea27e0335e7f88cb2
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757154"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345705"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Démarrage d’un runbook Azure Automation avec un webhook
 
@@ -34,7 +34,7 @@ Le tableau suivant décrit les propriétés que vous devez configurer pour un we
 | Date d'expiration |Comme un certificat, chaque webhook possède une date d'expiration à partir de laquelle il ne peut plus être utilisé. Cette date d’expiration peut être modifiée après la création du webhook. |
 | activé |Un webhook est activé par défaut lorsqu'il est créé. Si vous le définissez sur Disabled, aucun client n’est en mesure de l'utiliser. Vous pouvez définir la propriété **Enabled** lorsque vous créez le webhook ou à tout moment après qu'il a été créé. |
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 Un webhook peut définir les valeurs des paramètres du Runbook qui sont utilisées lorsque le Runbook est démarré par ce webhook. Le webhook doit inclure les valeurs de tous les paramètres obligatoires du Runbook et peut inclure les valeurs des paramètres optionnels. Une valeur de paramètre configurée pour un Webhook peut être modifiée même après la création du Webhook. Plusieurs webhooks liés à un même Runbook peuvent utiliser différentes valeurs de paramètres.
 
@@ -72,7 +72,7 @@ Vous pouvez alors transmettre la valeur JSON suivante dans l'interface utilisate
 ![Démarrage du paramètre WebhookData à partir de l'interface utilisateur](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
 > [!NOTE]
-> Les valeurs de tous les paramètres d'entrée sont enregistrés avec la tâche du Runbook. Cela signifie qu'une entrée fournie par le client dans la requête webhook sera enregistrée et accessible à toute personne ayant accès à la tâche Automation.  Pour cette raison, soyez prudent lorsque vous incluez des informations sensibles dans les appels du webhook.
+> Les valeurs de tous les paramètres d'entrée sont enregistrées avec la tâche du Runbook. Cela signifie qu'une entrée fournie par le client dans la requête webhook sera enregistrée et accessible à toute personne ayant accès à la tâche Automation.  Pour cette raison, soyez prudent lorsque vous incluez des informations sensibles dans les appels du webhook.
 
 ## <a name="security"></a>Sécurité
 
@@ -86,11 +86,11 @@ Une autre stratégie consiste à ce que le Runbook effectue la validation d'une 
 
 Utilisez la procédure suivante pour créer un webhook lié à un Runbook dans le portail Azure.
 
-1. Sur la page **Runbooks** du Portail Azure, cliquez sur le runbook que le Webhook démarre pour afficher sa page Détails.
-1. Cliquez sur **Webhook** en haut de la page pour ouvrir la page **Ajouter un Webhook**.
-1. Cliquez sur **Créer un Webhook** pour ouvrir la page **Créer un Webhook**.
-1. Spécifiez un **Nom** et une **Date d’expiration** pour le webhook, ainsi que s’il doit être activé. Pour plus d'informations sur ces propriétés, consultez [Détails d'un webhook](#details-of-a-webhook) .
-1. Cliquez sur l'icône de copie et appuyez sur Ctrl + C pour copier l'URL du webhook. Puis enregistrez-la dans un endroit sûr. **Une fois que vous avez créé le webhook,vous ne pouvez pas récupérer l’URL à nouveau.**
+1. Sur la page **Runbooks** du Portail Azure, cliquez sur le runbook que le Webhook démarre pour afficher sa page Détails. Vérifiez que l’**état** du runbook est **Publié**.
+2. Cliquez sur **Webhook** en haut de la page pour ouvrir la page **Ajouter un Webhook**.
+3. Cliquez sur **Créer un Webhook** pour ouvrir la page **Créer un Webhook**.
+4. Spécifiez un **Nom** et une **Date d’expiration** pour le webhook, ainsi que s’il doit être activé. Pour plus d'informations sur ces propriétés, consultez [Détails d'un webhook](#details-of-a-webhook) .
+5. Cliquez sur l'icône de copie et appuyez sur Ctrl + C pour copier l'URL du webhook. Puis enregistrez-la dans un endroit sûr. **Une fois que vous avez créé le webhook, vous ne pouvez pas récupérer l’URL à nouveau.**
 
    ![URL du webhook](media/automation-webhooks/copy-webhook-url.png)
 

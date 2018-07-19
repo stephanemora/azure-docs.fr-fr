@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 842e4d8413544a303b656a8e4a05bdf58a7c8164
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223839"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442081"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Prise en main de l’API de création de rapports Azure Active Directory
 
@@ -47,6 +47,13 @@ Pour accéder à l’API de création de rapports, même si vous envisagez d’a
  
 Pour plus d’instructions, consultez les [prérequis à l’accès à l’API de création de rapports Azure Active Directory](active-directory-reporting-api-prerequisites-azure-portal.md) sont satisfaits.
 
+## <a name="apis-with-graph-explorer"></a>API avec l’Afficheur Graph
+
+Vous pouvez utiliser l’[Afficheur Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) pour vérifier vos données de connexion et d’API d’audit. Veillez à vous connecter à votre compte à l’aide des deux boutons de connexion disponibles dans l’interface utilisateur de l’Afficheur Graph, puis à définir les autorisations **Tasks.ReadWrite** et **Directory.ReadAll** pour votre locataire, comme indiqué.   
+
+![Explorateur Graph](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
+
+![Modifier l’interface utilisateur des autorisations](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
 ## <a name="recommendation"></a>Recommandation 
 

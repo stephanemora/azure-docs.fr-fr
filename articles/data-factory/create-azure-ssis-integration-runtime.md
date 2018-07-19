@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 85450119b9ab25b6f812cbf8c6c64174dd6f322c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1b9b1fa5b67e37181ff4c76773c6666ccbbcf275
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061724"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082863"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer le runtime d’intégration Azure-SSIS dans Azure Data Factory
 Cet article explique pas à pas comment configurer un runtime d’intégration Azure-SSIS dans Azure Data Factory. Vous pouvez ensuite utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer des et exécuter des packages SQL Server Integration Services (SSIS) sur ce runtime dans Azure. 
@@ -54,15 +54,15 @@ Si vous approvisionnez une instance d’un runtime d’intégration Azure-SSIS, 
 - **Azure PowerShell**. Suivez les instructions de [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps), si vous utilisez PowerShell pour exécuter un script pour configurer un runtime d’intégration SSIS Azure qui exécute des packages SSIS dans le cloud. 
 
 ### <a name="region-support"></a>Prise en charge de la région
-Vous pouvez créer une fabrique de données dans les régions suivantes : Est des États-Unis, Est des États-Unis 2, Asie du Sud-Est et Europe de l’Ouest. 
+Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/).
 
-Vous pouvez créer un runtime d’intégration Azure-SSIS dans les régions suivantes : Est des États-Unis, Est des États-Unis 2, Centre des États-Unis, Ouest des États-Unis 2, Europe du Nord, Europe de l’Ouest, Royaume-Uni Sud et Est de l’Australie. 
+Pour obtenir la liste des régions Azure dans lesquelles le runtime d’intégration Azure-SSIS est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Runtime d’intégration Azure-SSIS** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/).### Comparer SQL Database et Managed Instance (préversion)
 
 ### <a name="compare-sql-database-and-managed-instance-preview"></a>Comparer SQL Database et Managed Instance (préversion)
 
 Le tableau suivant compare certaines fonctionnalités de SQL Database et Managed Instance (préversion) pour ce qui est du runtime d’intégration Azure-SSIR :
 
-| Fonctionnalité | SQL Database | Managed Instance |
+| Fonctionnalité | Base de données SQL | Instance gérée |
 |---------|--------------|------------------|
 | **Planification** | SQL Server Agent n’est pas disponible.<br/><br/>Consultez [Planifier un package dans le cadre d’un pipeline Azure Data Factory](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages.md#activity).| SQL Server Agent est disponible. |
 | **Authentification** | Vous pouvez créer une base de données avec un compte d’utilisateur de base de données autonome qui représente tout utilisateur Azure Active Directory dans le rôle **dbmanager**.<br/><br/>Consultez [Activer Azure AD sur Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Vous ne pouvez pas créer une base de données avec un compte d’utilisateur de base de données autonome qui représente tout utilisateur Azure Active Directory autre qu’un administrateur Azure AD. <br/><br/>Consultez [Activer Azure AD sur Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
@@ -81,7 +81,7 @@ Dans cette section, vous utilisez le portail Azure, plus précisément l’inter
 
    ![Nouveau -> DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 
-4. Sur la page **Nouvelle fabrique de données**, saisissez **ADFTutorialDataFactory** comme **nom**. 
+4. Sur la page **Nouvelle fabrique de données**, saisissez **MyAzureSsisDataFactory** comme **nom**. 
 
    ![Page Nouvelle fabrique de données](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
 
@@ -97,7 +97,7 @@ Dans cette section, vous utilisez le portail Azure, plus précisément l’inter
 
    Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md). 
 
-7. Sélectionnez **V2** comme **version**. 
+7. Sélectionnez **V2** pour la **version**. 
 8. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge pour la création de fabriques de données sont affichés dans la liste. 
 9. Sélectionnez **Épingler au tableau de bord**. 
 10. Cliquez sur **Créer**. 
@@ -220,13 +220,11 @@ Définissez des variables à utiliser dans le script de ce didacticiel :
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
-# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
 # Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"
@@ -392,13 +390,11 @@ Voici le script complet qui crée un runtime d’intégration Azure-SSIS.
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
-# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
 # Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f7c3820624a4ef27e2ece4d902f2c033b6a6f48f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061218"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114365"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Espace de noms hiérarchique d’Azure Data Lake Storage Gen2 Preview
 
@@ -27,7 +27,7 @@ ms.locfileid: "37061218"
 
 Les avantages suivants sont associés aux systèmes de fichiers qui implémentent un espace de noms hiérarchique sur les données d’objet blob :
 
-- **Manipulation de répertoires atomique :** Les magasins d’objets se rapprochent d’une hiérarchie de répertoires en adoptant une convention de nommage des objets contenant des barres obliques (/) pour indiquer les segments de chemin. Bien que cette convention fonctionne de manière satisfaisante pour organiser les objets, elle ne fournit aucune assistance pour les actions de déplacement, renommage ou suppression de répertoires. Sans répertoires réels, les applications doivent traiter potentiellement des millions d’objets blob individuels pour accomplir des tâches au niveau du répertoire. En revanche, l’espace de noms hiérarchique traite ces tâches en mettant à jour une entrée unique (le répertoire parent). 
+- **Manipulation de répertoires atomique :** Les magasins d’objets se rapprochent d’une hiérarchie de répertoires en adoptant une convention de nommage des objets contenant des barres obliques (/) pour indiquer les segments de chemin. Bien que cette convention fonctionne pour organiser les objets, elle ne fournit aucune assistance pour les actions de déplacement, renommage ou suppression de répertoires. Sans répertoires réels, les applications doivent traiter potentiellement des millions d’objets blob individuels pour accomplir des tâches au niveau du répertoire. En revanche, l’espace de noms hiérarchique traite ces tâches en mettant à jour une entrée unique (le répertoire parent). 
 
     Cette optimisation spectaculaire est particulièrement significative pour de nombreux frameworks analytiques du Big Data. Des outils comme Hive, Spark, etc. écrivent souvent la sortie dans des emplacements temporaires, qu’ils renomment ensuite à la fin du travail. Sans espace de noms hiérarchique, ce renommage peut souvent durer plus longtemps que le processus analytique lui-même. Une latence de travail moindre équivaut à un coût total de possession inférieur pour les charges de travail analytiques.
 

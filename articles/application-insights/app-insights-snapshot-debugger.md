@@ -9,15 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: mbullwin; pharring
-ms.openlocfilehash: 66339e5f5d2cc7447df0f8faf70d2d9fd45db738
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: pharring
+ms.author: mbullwin
+ms.openlocfilehash: b180c7e8d26acc86aa1d1982ace92efafa85f9ef
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159133"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115358"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 
@@ -34,7 +35,7 @@ Les environnements suivants sont pris en charge :
 * Service Cloud Azure exécutant la famille de systèmes d’exploitation 4 ou ultérieur
 * Services Azure Service Fabric exécutant Windows Server 2012 R2 ou ultérieur
 * Machines virtuelles Azure exécutant Windows Server 2012 R2 ou ultérieur
-* Machine locale physique ou virtuelle exécutant Windows Server 2012 R2 ou ultérieur
+* Machines locales physiques ou virtuelles exécutant Windows Server 2012 R2 ou version ultérieure.
 
 > [!NOTE]
 > Les applications clientes (par exemple, WPF, Windows Forms ou UWP) ne sont pas prises en charge.

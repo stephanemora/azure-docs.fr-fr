@@ -11,23 +11,26 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d806afbfd74d68d139f494c7a5a6e871a7dae36
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2c2553d9ffb1dfbe032385fb77e234a8b96cb239
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260592"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110063"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Élément d’interface utilisateur Microsoft.Network.VirtualNetworkCombo
 Groupe de contrôles pour la sélection d’un réseau virtuel nouveau ou existant.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
-![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
+Lorsque l’utilisateur sélectionne un nouveau réseau virtuel, il peut personnaliser le préfixe de nom et d’adresse de chaque sous-réseau. La configuration des sous-réseaux est facultative.
 
-- Dans la partie supérieure, l’utilisateur a sélectionné un nouveau réseau virtuel, afin que l’utilisateur puisse personnaliser le préfixe de nom et d’adresse de chaque sous-réseau. La configuration des sous-réseaux dans ce cas est facultative.
-- Dans la partie inférieure, l’utilisateur a sélectionné un nouveau réseau virtuel, afin que l’utilisateur puisse mettre en correspondance chaque sous-réseau requis par le modèle de déploiement avec un sous-réseau existant. La configuration des sous-réseaux dans ce cas est requise.
+![Microsoft.Network.VirtualNetworkCombo nouveau](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+
+Lorsque l’utilisateur sélectionne un réseau virtuel existant, il doit mettre en correspondance chaque sous-réseau nécessaire au modèle de déploiement avec un sous-réseau existant. La configuration des sous-réseaux dans ce cas est requise.
+
+![Microsoft.Network.VirtualNetworkCombo existant](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Schéma
 ```json
@@ -88,12 +91,12 @@ Groupe de contrôles pour la sélection d’un réseau virtuel nouveau ou exista
 - `constraints.minAddressPrefixSize` doit être spécifié. Des réseaux virtuels existants dont l’espace d’adressage est plus petit que la valeur spécifiée ne sont pas disponibles à la sélection.
 - `subnets` doit être spécifié, et `constraints.minAddressPrefixSize` doit être spécifié pour chaque sous-réseau.
 - Lorsque vous créez un réseau virtuel, le préfixe d’adresse de chaque sous-réseau est calculé automatiquement en fonction du préfixe d’adresse du réseau virtuel et du `addressPrefixSize` respectif.
-- Lorsque vous utilisez un réseau virtuel existant, tous les sous-réseaux dont la taille est inférieure à la valeur `constraints.minAddressPrefixSize` respective ne sont pas disponibles à la sélection. En outre, si cet élément est spécifié, les sous-réseaux qui ne contiennent pas au moins `minAddressCount` adresses disponibles ne sont pas disponibles à la sélection.
-La valeur par défaut est **0**. Pour vous assurer que les adresses disponibles sont contiguës, spécifiez **true** pour `requireContiguousAddresses`. La valeur par défaut est **true**.
+- Lorsque vous utilisez un réseau virtuel existant, tous les sous-réseaux dont la taille est inférieure à la valeur `constraints.minAddressPrefixSize` respective ne sont pas disponibles à la sélection. De plus, si cet élément est spécifié, les sous-réseaux qui ne contiennent pas au moins `minAddressCount` adresses disponibles ne sont pas disponibles à la sélection. La valeur par défaut est **0**. Pour vous assurer que les adresses disponibles sont contiguës, spécifiez **true** pour `requireContiguousAddresses`. La valeur par défaut est **true**.
 - La création de sous-réseaux dans un réseau virtuel n’est pas prise en charge.
 - Si `options.hideExisting` est défini sur **true**, l’utilisateur ne peut pas choisir de réseau virtuel existant. La valeur par défaut est **false**.
 
 ## <a name="sample-output"></a>Exemple de sortie
+
 ```json
 {
   "name": "vnet01",
