@@ -3,31 +3,31 @@ title: Sécurité des mots de passe à niveaux dans Azure AD | Microsoft Docs
 description: Explique comment Azure AD impose des mots de passe forts et protège les mots de passe des utilisateurs contre les cybercriminels,
 services: active-directory
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
-ms.author: barlan
-ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: lizross
+ms.openlocfilehash: e3e97a5a9b768b3b9d4a36627d28955be1f3d9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586372"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056917"
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Une approche à plusieurs niveaux de la sécurité des mots de passe dans Azure AD
 
 Cet article décrit les meilleures pratiques que vous pouvez suivre en tant qu’utilisateur ou administrateur pour protéger vos comptes Azure Active Directory (Azure AD) ou votre compte Microsoft.
 
  > [!NOTE]
- > **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+ > **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](user-help/active-directory-passwords-update-your-own-password.md).
  >
- > Les administrateurs Azure AD peuvent réinitialiser les mots de passe utilisateur à l’aide des instructions de l’article [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > Les administrateurs Azure AD peuvent réinitialiser les mots de passe utilisateur à l’aide des instructions de l’article [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](fundamentals/active-directory-users-reset-password-azure-portal.md).
  >
 
 ## <a name="password-requirements"></a>Conditions requises pour les mots de passe
@@ -38,7 +38,7 @@ Azure AD intègre les approches courantes suivantes à la sécurisation des mots
 * Exigences en termes de « complexité » du mot de passe
 * Expiration du mot de passe périodique et régulière
 
-Pour plus d’informations sur la réinitialisation de mot de passe dans Azure Active Directory, consultez la rubrique [Réinitialisation de mot de passe en libre service pour Azure Ad pour les professionnels en informatique](active-directory-passwords-update-your-own-password.md).
+Pour plus d’informations sur la réinitialisation de mot de passe dans Azure Active Directory, consultez la rubrique [Réinitialisation de mot de passe en libre service pour Azure Ad pour les professionnels en informatique](user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="azure-ad-password-protections"></a>Protections de mot de passe Azure AD
 
@@ -75,7 +75,7 @@ Pour les autres comptes Microsoft, l’utilisateur verra ce qui suit :
 
   ![Accès verrouillé au compte Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Pour plus d’informations sur la réinitialisation de mot de passe dans Azure Active Directory, consultez la rubrique [Réinitialisation de mot de passe en libre service pour Azure Ad pour les professionnels en informatique](active-directory-passwords-update-your-own-password.md).
+Pour plus d’informations sur la réinitialisation de mot de passe dans Azure Active Directory, consultez la rubrique [Réinitialisation de mot de passe en libre service pour Azure Ad pour les professionnels en informatique](user-help/active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Si vous êtes administrateur Azure AD, vous souhaiterez peut-être utiliser [Windows Hello](https://www.microsoft.com/windows/windows-hello) pour éviter que vos utilisateurs créent des mots de passe classiques.
@@ -83,6 +83,6 @@ Pour plus d’informations sur la réinitialisation de mot de passe dans Azure A
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment mettre à jour votre mot de passe](active-directory-passwords-update-your-own-password.md)
+* [Comment mettre à jour votre mot de passe](user-help/active-directory-passwords-update-your-own-password.md)
 * [Principes de base de la gestion des identités Azure](fundamentals-identity.md)
 * [Rapport sur l’activité de réinitialisation de mot de passe](authentication/howto-sspr-reporting.md)

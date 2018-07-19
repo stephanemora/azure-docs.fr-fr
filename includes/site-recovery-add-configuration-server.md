@@ -17,7 +17,7 @@
      ![Pare-feu](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Dans **Vérification de la configuration requise**, le programme d’installation procède à une vérification afin de garantir le bon déroulement de l’installation. Si un avertissement s’affiche à propos de la **vérification de la synchronisation globale**, vérifiez que l’heure de l’horloge système (paramètres **Date et heure**) est identique à celle du fuseau horaire.
 
-    ![Composants requis](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![Prérequis](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. Dans **Configuration MySQL**, créez des informations d’identification pour vous connecter à l’instance de serveur MySQL installée.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)

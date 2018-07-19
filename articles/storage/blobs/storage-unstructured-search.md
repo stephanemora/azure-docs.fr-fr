@@ -2,25 +2,25 @@
 title: Rechercher des données non structurées dans le stockage cloud Azure
 description: Recherche de données non structurées à l’aide de Recherche Azure.
 author: roygara
-manager: timlt
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/12/2017
-ms.author: rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 930b735eb03aea6ce701b694ca527049b4c3f24d
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e50ff3b3a53a13d1604fcb7872853d758259ff9f
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23451636"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136534"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Rechercher des données non structurées dans le stockage cloud
 
 Dans ce didacticiel, vous apprenez à rechercher des données non structurées à l’aide de [Recherche Azure](../../search/search-what-is-azure-search.md) en utilisant des données stockées dans des objets blob Azure. Les données non structurées sont des données qui ne sont pas organisées de manière prédéfinie ou qui n’ont pas de modèle de données. Un fichier .txt en est un exemple.
 
-Ce didacticiel vous explique comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un groupe de ressources
@@ -30,7 +30,7 @@ Ce didacticiel vous explique comment effectuer les opérations suivantes :
 > * Créer un service de recherche via le portail
 > * Utiliser le service de recherche pour rechercher votre conteneur
 
-## <a name="download-the-sample"></a>Téléchargez l’exemple
+## <a name="download-the-sample"></a>Télécharger l’exemple
 
 Un exemple de jeu de données a été préparé pour vous. **Téléchargez le fichier [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** et décompressez-le dans son propre dossier.
 
@@ -62,7 +62,7 @@ Si vous ne connaissez pas le processus de création d’un compte de stockage à
 
 7. Choisissez un emplacement et sélectionnez **Créer.**
 
-  ![Recherche non structurée](media/storage-unstructured-search/storagepanes2.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/storagepanes2.png)
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
@@ -80,7 +80,7 @@ Dans ce didacticiel, vous utilisez un seul conteneur pour stocker les fichiers t
 
 5. Sélectionnez **OK** pour créer le conteneur. 
 
-  ![Recherche non structurée](media/storage-unstructured-search/storageactinfo.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/storageactinfo.png)
 
 ## <a name="upload-the-example-data"></a>Charger l’exemple de données
 
@@ -100,7 +100,7 @@ Le processus de chargement peut durer quelques minutes.
 
 Une fois qu’il est terminé, accédez à votre conteneur de données pour vérifier que les fichiers texte sont chargés.
 
-  ![Recherche non structurée](media/storage-unstructured-search/clinicalfolder.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/clinicalfolder.png)
 
 ## <a name="create-a-search-service"></a>Créer un service de recherche
 
@@ -124,7 +124,7 @@ Si vous ne connaissez pas le processus de création d’un service de recherche,
 
 8. Sélectionnez **Créer** pour créer le service de recherche.
 
-  ![Recherche non structurée](media/storage-unstructured-search/createsearch2.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/createsearch2.png)
 
 ## <a name="connect-your-search-service-to-your-container"></a>Connecter votre service de recherche à votre conteneur
 
@@ -150,7 +150,7 @@ Maintenant que vous avez un service de recherche, vous pouvez l’attacher à vo
     
     a. Dans vos propres futurs scénarios, vous pourrez éventuellement sélectionner [Autres modes d’analyse](../../search/search-howto-indexing-azure-blob-storage.md) selon le contenu de vos objets blob.
 
-  ![Recherche non structurée](media/storage-unstructured-search/datasources.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/datasources.png)
 
 3. Sélectionnez **Conteneur de stockage** pour répertorier les comptes de stockage disponibles.
 
@@ -158,7 +158,7 @@ Maintenant que vous avez un service de recherche, vous pouvez l’attacher à vo
 
 5. Cliquez sur **Sélectionner** pour revenir à **Nouvelle source de données** et sélectionnez **OK** pour continuer.
 
-  ![Recherche non structurée](media/storage-unstructured-search/datacontainer.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/datacontainer.png)
 
 ### <a name="configure-the-index"></a>Configurer l’index
 
@@ -170,7 +170,7 @@ Maintenant que vous avez un service de recherche, vous pouvez l’attacher à vo
 
 3. Cochez la case de l’attribut **Récupérable** sous **metadata_storage_name**.
 
-  ![Recherche non structurée](media/storage-unstructured-search/valuestoselect.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/valuestoselect.png)
 
 4. Cliquez sur **OK**, ce qui permet d’afficher **Créer un indexeur**.
 
@@ -195,7 +195,7 @@ La colonne **NOM DU CHAMP** contient les paramètres. Le tableau suivant fournit
 
 1. Entrez un nom dans le champ **Nom**, puis sélectionnez **OK**.
 
-  ![Recherche non structurée](media/storage-unstructured-search/exindexer.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/exindexer.png)
 
 2. Vous revenez à **Importer des données**, sélectionnez **OK** pour terminer le processus de connexion.
 
@@ -209,25 +209,25 @@ Les étapes suivantes vous indiquent où trouver l’Explorateur de recherche en
 
 1. Accédez à toutes les ressources et recherchez votre service de recherche nouvellement créé.
 
-  ![Recherche non structurée](media/storage-unstructured-search/exampleurl.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/exampleurl.png)
 
 3. Sélectionnez votre index pour l’ouvrir. 
 
-  ![Recherche non structurée](media/storage-unstructured-search/overview.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/overview.png)
 
 4. Sélectionnez **Explorateur de recherche** pour ouvrir l’Explorateur de recherche, où vous pouvez effectuer des requêtes actives sur vos données.
 
-  ![Recherche non structurée](media/storage-unstructured-search/indexespane.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/indexespane.png)
 
 5. Sélectionnez **Rechercher** alors que le champ de chaîne de requête est vide. Une requête vide retourne *toutes* les données de vos objets blob.
 
-  ![Recherche non structurée](media/storage-unstructured-search/emptySearch.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="full-text-search"></a>Recherche en texte intégral 
 
 Entrez « Myopia » dans le champ **Chaîne de requête**, puis sélectionnez **Rechercher**. Lancement d’une recherche du contenu des fichiers et retour d’un sous-ensemble de ces fichiers, contenant le mot « Myopia ».
 
-  ![Recherche non structurée](media/storage-unstructured-search/secondMyopia.png) 
+  ![Recherche de données non structurées](media/storage-unstructured-search/secondMyopia.png) 
 
 ### <a name="system-properties-search"></a>Recherche de propriétés système
 
@@ -237,7 +237,7 @@ La chaîne de requête modifie directement l’URL, donc les espaces ne sont pas
     
 Vous pouvez uniquement utiliser le paramètre `$select` avec des champs qui ont été marqués comme récupérables lors de la définition de votre index.
 
-  ![Recherche non structurée](media/storage-unstructured-search/metadatasearchunstructured.png) 
+  ![Recherche de données non structurées](media/storage-unstructured-search/metadatasearchunstructured.png) 
 
 Vous avez maintenant terminé ce didacticiel et vous avez un ensemble de données non structurées dans lequel vous pouvez effectuer des recherches.
 

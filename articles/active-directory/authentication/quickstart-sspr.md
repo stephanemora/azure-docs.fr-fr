@@ -10,21 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33870020"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057359"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Déploiement rapide de la réinitialisation de mot de passe en libre-service Azure AD
 
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, consultez [J’ai oublié mon mot de passe Azure AD](../active-directory-passwords-update-your-own-password.md).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, consultez [J’ai oublié mon mot de passe Azure AD](../user-help/active-directory-passwords-update-your-own-password.md).
 
 Grâce à la réinitialisation de mot de passe en libre-service, les administrateurs informatiques disposent d’un moyen simple pour permettre aux utilisateurs de réinitialiser ou de déverrouiller leurs comptes ou leurs mots de passe. Le système inclut des rapports détaillés de suivi d’accès au système, ainsi que des notifications pour vous prévenir de toute utilisation malveillante ou de tout abus.
 
-Ce guide part du principe que vous avez déjà une version d’essai opérationnelle ou une licence de locataire Azure Active Directory (Azure AD). Si vous avez besoin d’aide pour configurer Azure AD, consultez [Prise en main d’Azure AD](../get-started-azure-ad.md).
+Ce guide part du principe que vous avez déjà une version d’essai opérationnelle ou une licence de locataire Azure Active Directory (Azure AD). Si vous avez besoin d’aide pour configurer Azure AD, consultez [Prise en main d’Azure AD](../fundamentals/get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Activer la réinitialisation de mot de passe en libre-service (SSPR) pour votre locataire Azure AD
 
@@ -62,7 +62,7 @@ Ce guide part du principe que vous avez déjà une version d’essai opérationn
    * De notifier les utilisateurs lors des réinitialisations de mot de passe.
    * De notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe.
 
-À ce stade, vous avez configuré la réinitialisation de mot de passe en libre-service pour votre locataire Azure AD. Vos utilisateurs peuvent désormais utiliser les instructions figurant dans les articles [S’inscrire à la réinitialisation de mot de passe en libre-service](../active-directory-passwords-reset-register.md) et [Réinitialiser ou modifier votre mot de passe](../active-directory-passwords-update-your-own-password.md) pour mettre à jour leur mot de passe sans intervention de l’administrateur. Vous pouvez vous arrêter ici si vous êtes un client cloud uniquement. Ou vous pouvez passer à la section suivante pour configurer la synchronisation des mots de passe sur un domaine Active Directory local.
+À ce stade, vous avez configuré la réinitialisation de mot de passe en libre-service pour votre locataire Azure AD. Vos utilisateurs peuvent désormais utiliser les instructions figurant dans les articles [S’inscrire à la réinitialisation de mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md) et [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md) pour mettre à jour leur mot de passe sans intervention de l’administrateur. Vous pouvez vous arrêter ici si vous êtes un client cloud uniquement. Ou vous pouvez passer à la section suivante pour configurer la synchronisation des mots de passe sur un domaine Active Directory local.
 
 > [!TIP]
 > Testez la réinitialisation de mot de passe en libre-service avec un utilisateur plutôt qu’un administrateur, car Microsoft applique des spécifications d’authentification forte pour les comptes d’administrateur Azure. Pour plus d’informations sur la stratégie de mot de passe administrateur, consultez notre article [Stratégie de mot de passe](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -95,8 +95,8 @@ Il est facile de désactiver la réinitialisation du mot de passe libre-service.
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD :
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](howto-sspr-deployment.md)
-* [Réinitialiser ou modifier votre mot de passe](../active-directory-passwords-update-your-own-password.md)
-* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../active-directory-passwords-reset-register.md)
+* [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
 * [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)

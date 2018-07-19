@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ffd4480a13549caba17becff27a43f51fcaa1988
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308297"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Business Object Cloud
 
@@ -254,7 +254,7 @@ Pour assigner Britta Simon à SAP Business Object Cloud :
 
 2. Dans la liste des applications, sélectionnez **SAP Business Object Cloud**.
 
-    ![Configure Single Sign-On](./media/sapboc-tutorial/tutorial_sapboc_app.png) 
+    ![Configurer l'authentification unique](./media/sapboc-tutorial/tutorial_sapboc_app.png) 
 
 3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
@@ -278,7 +278,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 En cliquant sur la vignette SAP Business Object Cloud dans le panneau d’accès, vous êtes automatiquement connecté à votre application SAP Business Object Cloud.
 
-Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

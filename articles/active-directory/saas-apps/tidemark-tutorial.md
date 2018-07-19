@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 6f350daa58ca26654d74054b64bd0f6a7da93dc9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b0aaa1b6b24a1bd4012ad43eb183d3b56434c962
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224249"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Didacticiel : Intégration d’Azure Active Directory à Tidemark
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail Azure, dans la page d’intégration de l’application **Tidemark**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/tidemark-tutorial/tutorial_tidemark_samlbase.png)
+    ![Configurer l'authentification unique](./media/tidemark-tutorial/tutorial_tidemark_samlbase.png)
 
 3. Dans la section **Domaine et URL Tidemark**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/tidemark-tutorial/tutorial_tidemark_url.png)
+    ![Configurer l'authentification unique](./media/tidemark-tutorial/tutorial_tidemark_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : 
     | |
@@ -129,15 +129,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/tidemark-tutorial/tutorial_tidemark_certificate.png) 
+    ![Configurer l'authentification unique](./media/tidemark-tutorial/tutorial_tidemark_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/tidemark-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/tidemark-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Tidemark** , cliquez sur **Configurer Tidemark** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/tidemark-tutorial/tutorial_tidemark_configure.png) 
+    ![Configurer l'authentification unique](./media/tidemark-tutorial/tutorial_tidemark_configure.png) 
 
 7. Pour configurer l’authentification unique côté **Tidemark**, vous devez envoyer le **Certificat (Base64) téléchargé, l’ID d’entité SAML, l’URL de déconnexion et l’URL du service d’authentification unique SAML** à l’[équipe de support technique Tidemark](http://www.tidemark.com/contact-us). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -193,7 +193,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Tidemark**.
 
-    ![Configure Single Sign-On](./media/tidemark-tutorial/tutorial_tidemark_app.png) 
+    ![Configurer l'authentification unique](./media/tidemark-tutorial/tutorial_tidemark_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -214,7 +214,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Tidemark dans le volet d’accès, vous devez être connecté automatiquement à votre application Tidemark.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

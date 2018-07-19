@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06f316a7c96ff266e9f4593fa3a9ac871b2979aa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf6df6dd87de56ca3c8180d5377e35d9be9bbd79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929770"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036443"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Attribuer à une identité du service administré un accès à une ressource à l’aide du portail Azure
 
@@ -28,7 +28,6 @@ ms.locfileid: "33929770"
 Après avoir configuré une ressource Azure avec une identité du service administré (MSI), vous pouvez accorder à cette dernière un accès à une autre ressource, tout comme n’importe quel principal de sécurité. Cet article montre comment accorder à l’identité du service administré d’une machine virtuelle ou d’un groupe de machines virtuelles identiques Azure un accès à un compte de stockage Azure, à l’aide du portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -42,20 +41,20 @@ Après avoir activé l’identité du service administré sur une ressource Azur
 
 3. Pour une machine virtuelle Azure, sélectionnez la page **Contrôle d’accès (IAM)** de la ressource, puis sélectionnez **+ Ajouter**. Spécifiez le **rôle**, **attribuez un accès à une machine virtuelle** et spécifiez **l’abonnement** et le **groupe de ressources** correspondants où se situe la ressource. La ressource doit être située sous la zone de critères de recherche. Sélectionnez la ressource puis sélectionnez **Enregistrer**. 
 
-   ![Capture d’écran du contrôle d’accès (IAM)](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Capture d’écran du contrôle d’accès (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
    Pour un groupe de machines virtuelles identiques Azure, sélectionnez la page **Contrôle d’accès (IAM)** de la ressource, puis sélectionnez **+ Ajouter**. Spécifiez ensuite le **Rôle**, **Attribuer l’accès à**. Dans la zone de critères de recherche, recherchez votre groupe de machines virtuelles identiques. Sélectionnez la ressource puis sélectionnez **Enregistrer**.
    
-   ![Capture d’écran du contrôle d’accès (IAM)](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![Capture d’écran du contrôle d’accès (IAM)](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
 4. Vous être renvoyé à la page principale **Contrôle d’accès (IAM)**, où s’affiche une nouvelle entrée pour l’identité du service administré de la ressource.
 
     Machine virtuelle Azure :
 
-   ![Capture d’écran du contrôle d’accès (IAM)](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Capture d’écran du contrôle d’accès (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
     Groupe de machines virtuelles identiques Azure :
 
-    ![Capture d’écran du contrôle d’accès (IAM)](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+    ![Capture d’écran du contrôle d’accès (IAM)](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

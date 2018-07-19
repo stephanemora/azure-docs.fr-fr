@@ -1,6 +1,6 @@
 - name: Documentation Event Hubs
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Event Hubs\_?"
       href: event-hubs-about.md
@@ -26,6 +26,10 @@
   items:
     - name: Présentation de l’hôte du processeur d’événements
       href: event-hubs-event-processor-host.md
+    - name: Filtres de connexion IP
+      href: event-hubs-ip-filtering.md
+    - name: Points de terminaison du service Réseau virtuel
+      href: event-hubs-service-endpoints.md
     - name: Guide de programmation
       href: event-hubs-programming-guide.md
     - name: Intégration à Azure Event Grid
@@ -54,7 +58,7 @@
       maintainContext: true
 - name: Procédures
   items:
-    - name: Création d'un concentrateur d'événements
+    - name: Créer un hub d’événements
       href: event-hubs-create.md
     - name: Envoyer des événements à l’aide de .NET Framework
       href: event-hubs-dotnet-framework-getstarted-send.md
@@ -119,7 +123,7 @@
           href: event-hubs-streaming-azure-diags-data.md
         - name: Créer et déployer un Event Hub à l’aide d’un modèle Resource Manager
           href: event-hubs-resource-manager-namespace-event-hub.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Java
       items:
@@ -150,7 +154,7 @@
     - name: Forum Aux Questions
       href: event-hubs-faq.md
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Parcours d’apprentissage
       href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
     - name: Tarifs

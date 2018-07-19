@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901355"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035939"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurer l’identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure
 
@@ -59,7 +59,7 @@ Pour activer l’identité système affectée sur une machine virtuelle qui a é
     > [!NOTE]
     > Actuellement, l’ajout d’une identité à une machine virtuelle n’est pas pris en charge via le portail Azure.
 
-   ![Capture d’écran de la page Configuration](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Capture d’écran de la page Configuration](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Supprimer l’identité de service administré d’une machine virtuelle Azure
 
@@ -74,7 +74,7 @@ Si vous disposez d’une machine virtuelle qui ne nécessite l’identité affec
     > [!NOTE]
     > Actuellement, l’ajout d’une identité à une machine virtuelle n’est pas pris en charge via le portail Azure.
 
-   ![Capture d’écran de la page Configuration](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Capture d’écran de la page Configuration](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>Contenu connexe
 

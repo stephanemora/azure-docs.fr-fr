@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 5157e12e2afd40b8cfbc948e984747274764a276
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1a1a868302c4cd140d799fdf4962a0badf060c98
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218175"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Didacticiel : Intégration d’Azure Active Directory dans Dow Jones Factiva
 
@@ -102,23 +102,23 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Dow Jones Factiva**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_samlbase.png)
+    ![Configurer l'authentification unique](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_samlbase.png)
 
 3. Dans la section **Domaine et URL Dow Jones Factiva**, l’utilisateur n’a pas à effectuer les étapes, car l’application est déjà préintégrée à Azure.
 
-    ![Configure Single Sign-On](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_url.png)
+    ![Configurer l'authentification unique](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_url.png)
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_certificate.png) 
+    ![Configurer l'authentification unique](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/dowjones-factiva-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/dowjones-factiva-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique côté **Dow Jones Factiva**, vous devez envoyer les **métadonnées XML** téléchargées à [l’équipe du support technique Dow Jones Factiva](https://www.dowjones.com/contact/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -174,7 +174,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Dow Jones Factiva**.
 
-    ![Configure Single Sign-On](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_app.png) 
+    ![Configurer l'authentification unique](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -195,7 +195,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Dow Jones Factiva dans le volet d'accès, vous êtes connecté automatiquement à votre application Dow Jones Factiva.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

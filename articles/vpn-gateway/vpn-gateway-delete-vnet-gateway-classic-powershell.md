@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: b1bc18307227a728e2bc8fd95e30fdc1cbdb8c59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "24994495"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036286"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Supprimer une passerelle de réseau virtuel avec PowerShell (classique)
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Cet article vous aide à supprimer une passerelle VPN dans le modèle de déploi
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Installez les dernières applets de commande PowerShell.
 
-Téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+Téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Connectez-vous à votre compte Azure. 
 
@@ -92,7 +92,7 @@ Pour supprimer les informations de référence de site, apportez des modificatio
  </Gateway>
 ```
 
-Exemple :
+Exemple :
 
 ```
 <Gateway>
@@ -148,7 +148,7 @@ Si vous aviez une connexion P2S à votre réseau virtuel, vous avez un **VPNClie
  </Gateway>
 ```
 
-Exemple :
+Exemple :
 
 ```
 <Gateway>
@@ -171,7 +171,7 @@ Supprimez le **GatewaySubnet** qui correspond au réseau virtuel.
  </Subnets>
 ```
 
-Exemple :
+Exemple :
 
 ```
 <Subnets>
@@ -195,3 +195,4 @@ Si l’opération réussit, la valeur de retour affiche un contenu semblable à 
 OperationDescription        OperationId                      OperationStatus                                                
 --------------------        -----------                      ---------------                                           
 Set-AzureVNetConfig         e0ee6e66-9167-cfa7-a746-7casb9   Succeeded
+```

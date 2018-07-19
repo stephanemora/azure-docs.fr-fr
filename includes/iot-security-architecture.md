@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066082"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39030010"
 ---
 # <a name="internet-of-things-security-architecture"></a>Architecture de sécurité de l’Internet des objets
 
@@ -176,7 +176,7 @@ Dans chacune des catégories présentées dans l’architecture Azure IoT, cet e
 
 | **Composant** | **Menace** | **Atténuation** | **Risque** | **Implémentation** |
 | --- | --- | --- | --- | --- |
-| Appareil |S |Affectation d’une identité au périphérique et authentification de ce dernier. |Remplacement du périphérique ou d’une partie du périphérique par un autre périphérique. Comment savoir si vous vous adressez à l’appareil approprié ? |Authentification du périphérique à l’aide du protocole TLS (Transport Layer Security) ou IPSec. L’infrastructure doit prendre en charge l’utilisation d’une clé prépartagée (PSK) sur les périphériques qui ne peuvent pas gérer le chiffrement asymétrique complet. Exploitation d’Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| Appareil |S |Affectation d’une identité au périphérique et authentification de ce dernier. |Remplacement du périphérique ou d’une partie du périphérique par un autre périphérique. Comment savoir si vous vous adressez à l’appareil approprié ? |Authentification du périphérique à l’aide du protocole TLS (Transport Layer Security) ou IPSec. L’infrastructure doit prendre en charge l’utilisation d’une clé prépartagée (PSK) sur les périphériques qui ne peuvent pas gérer le chiffrement asymétrique complet. Exploitation d’Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Application de mécanismes inviolables à l’appareil, par exemple, en rendant difficile, voire impossible, l’extraction des clés et des autres éléments de chiffrement de cet appareil. |Falsification du périphérique (interférence physique) par un tiers. Comment être sûr de la non-falsification de l’appareil. |La prévention la plus efficace consiste à utiliser la fonctionnalité de module de plateforme sécurisée (TPM) qui permet de stocker des clés dans un ensemble de circuits de processeur spécial à partir duquel les clés ne peuvent pas être lues, et peuvent être utilisées uniquement pour les opérations de chiffrement qui utilisent la clé sans jamais la divulguer. Chiffrement de la mémoire du périphérique. Gestion des clés du périphérique. Signature du code. | |
 || E |Disposer du contrôle d’accès du périphérique. Schéma d’autorisation. |Si l’appareil permet d’effectuer des actions individuelles basées sur des commandes provenant d’une source externe, voire de capteurs compromis, il permet aux personnes malveillantes d’effectuer des opérations non accessibles par ailleurs. |Disposer du schéma d’autorisation pour le périphérique. | |
 | Passerelle de champ |S |Authentification de la passerelle de champ auprès de la passerelle cloud (par ex. basée sur les certificats, clé prépartagée, basée sur les revendications...) |Si quelqu’un peut usurper l’identité de la passerelle de champ, elle peut alors se présenter comme un périphérique. |TLS RSA/PSK, IPSe, [RFC 4279](https://tools.ietf.org/html/rfc4279). Mêmes préoccupations de stockage et d’attestation de clés des périphériques en général ; la meilleure approche consiste à utiliser le module de plateforme sécurisée. Extension 6LowPAN pour IPSec afin de prendre en charge des réseaux de capteurs sans fil (WSN). |

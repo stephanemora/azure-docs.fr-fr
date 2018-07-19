@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365778"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059201"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
 Beaucoup considèrent l’identité comme la nouvelle couche de sécurité assumant ce rôle du point classique du réseau. Les efforts en matière de gestion de la sécurité et les investissements ont changé de cible principale, car les périmètres réseau sont de plus en plus poreux et la défense du périmètre n’est plus aussi efficace qu’elle ne l’était avant l’explosion des appareils [BYOD](http://aka.ms/byodcg) et des applications cloud.
 
-Dans cet article, nous étudions une collection de bonnes pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure. Ces meilleures pratiques sont issues de notre expérience avec [Azure AD](../active-directory/active-directory-whatis.md), mais également de celle des clients, comme vous.
+Dans cet article, nous étudions une collection de bonnes pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure. Ces meilleures pratiques sont issues de notre expérience avec [Azure AD](../active-directory/fundamentals/active-directory-whatis.md), mais également de celle des clients, comme vous.
 
 Pour chaque bonne pratique, nous détaillons les éléments suivants :
 
@@ -65,7 +65,7 @@ Pour plus d’informations sur la synchronisation Azure AD, consultez l’articl
 
 La gestion de plusieurs annuaires pose un problème d’administration, non seulement pour l’informatique, mais également pour les utilisateurs finaux qui auront à mémoriser plusieurs mots de passe. L’utilisation de [l’authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) offre à vos utilisateurs la possibilité d’utiliser le même jeu d’informations d’identification pour s’authentifier et accéder aux ressources dont ils ont besoin, que cette ressource soit située en local ou dans le cloud.
 
-L’authentification unique permet aux utilisateurs d’accéder à leurs [applications SaaS](../active-directory/manage-apps/what-is-single-sign-on.md) avec leur compte professionnel dans Azure AD. Ceci s’applique non seulement aux applications SaaS de Microsoft, mais également à d’autres applications, telles que [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) et [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Votre application peut être configurée pour utiliser Azure AD en tant que fournisseur [d’identité SAML](../active-directory/fundamentals-identity.md). Pour contrôler la sécurité, Azure AD n'émettra pas de jeton permettant de se connecter à l'application avant que l'accès n'ait été octroyé par Azure AD. Les utilisateurs peuvent accorder un accès direct ou via un groupe dont ils sont membres.
+L’authentification unique permet aux utilisateurs d’accéder à leurs [applications SaaS](../active-directory/manage-apps/what-is-single-sign-on.md) avec leur compte professionnel dans Azure AD. Ceci s’applique non seulement aux applications SaaS de Microsoft, mais également à d’autres applications, telles que [Google Apps](../active-directory/saas-apps/google-apps-tutorial.md) et [Salesforce](../active-directory/saas-apps/salesforce-tutorial.md). Votre application peut être configurée pour utiliser Azure AD en tant que fournisseur [d’identité SAML](../active-directory/fundamentals-identity.md). Pour contrôler la sécurité, Azure AD n'émettra pas de jeton permettant de se connecter à l'application avant que l'accès n'ait été octroyé par Azure AD. Les utilisateurs peuvent accorder un accès direct ou via un groupe dont ils sont membres.
 
 > [!NOTE]
 > la décision d’utiliser l’authentification unique aura un impact sur l’intégration de votre annuaire local à votre annuaire de cloud. Si vous souhaitez utiliser l’authentification unique, vous devez utiliser la fédération, étant donné que la synchronisation d’annuaires proposera la [même expérience d’authentification](../active-directory/active-directory-aadconnect.md).
@@ -78,7 +78,7 @@ Pour en savoir plus sur l’authentification unique Azure AD, lisez l’article 
 
 ## <a name="deploy-password-management"></a>Déploiement de la gestion des mots de passe
 
-Si vous avez plusieurs locataires ou si vous souhaitez permettre aux utilisateurs de [réinitialiser leur mot de passe](../active-directory/active-directory-passwords-update-your-own-password.md), il est important d’utiliser des stratégies de sécurité appropriées afin d’éviter les abus. Dans Azure, vous pouvez tirer parti de la fonctionnalité de réinitialisation de mot de passe en libre-service et personnaliser les options de sécurité pour répondre aux besoins de votre entreprise.
+Si vous avez plusieurs locataires ou si vous souhaitez permettre aux utilisateurs de [réinitialiser leur mot de passe](../active-directory/user-help/active-directory-passwords-update-your-own-password.md), il est important d’utiliser des stratégies de sécurité appropriées afin d’éviter les abus. Dans Azure, vous pouvez tirer parti de la fonctionnalité de réinitialisation de mot de passe en libre-service et personnaliser les options de sécurité pour répondre aux besoins de votre entreprise.
 
 Il est important d’obtenir des commentaires à partir de ces utilisateurs et d’apprendre de leurs expériences quand ils tentent d’effectuer ces étapes. En fonction de ces expériences, élaborez un plan pour atténuer les problèmes potentiels qui peuvent se produire lors du déploiement pour un groupe de plus grande taille. Il est également recommandé d’utiliser le [Rapport d’activité de l’enregistrement de la réinitialisation de mot de passe](../active-directory/active-directory-passwords-get-insights.md) pour surveiller l’inscription des utilisateurs.
 

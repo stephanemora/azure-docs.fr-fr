@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: c608c1b40c7b4cdaedb2b7e7a609ad65c6357584
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 85e67be406b3d9723476821adfb09fc4db8dc1d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344214"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068571"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutoriel : Créer un modèle de langage personnalisé
 
@@ -102,7 +102,7 @@ Dans la page « Create Language Model» (Créer un modèle de langage), entrez u
 
 Comme avec la création d’un modèle acoustique, vous pouvez choisir de tester votre nouveau modèle en mode hors connexion lorsque le traitement est terminé. Les évaluations des modèles nécessitent un jeu de données acoustiques.
 
-Pour tester votre modèle de langage en mode hors connexion, cochez la case en regard de « Offline Testing » (Tests hors ligne). Sélectionnez ensuite un modèle acoustique dans le menu déroulant. Si vous n’avez créé de modèle acoustique personnalisé, le modèle acoustique de base de Microsoft sera le seul modèle dans le menu. Si vous avez sélectionné un modèle de base LM oral, vous devez utiliser un modèle AM oral ici. Si vous utilisez une recherche et dictez le modèle LM, vous devez sélectionner une recherche et un modèle AM de dictée.
+Pour tester votre modèle de langage en mode hors connexion, cochez la case en regard de « Offline Testing » (Tests hors ligne). Sélectionnez ensuite un modèle acoustique dans le menu déroulant. Si vous n’avez créé de modèle acoustique personnalisé, le modèle acoustique de base de Microsoft sera le seul modèle dans le menu. Si vous avez sélectionné un modèle de base LM conversationnel, vous devez utiliser un modèle AM conversationnel ici. Si vous utilisez une recherche et dictez le modèle LM, vous devez sélectionner une recherche et un modèle AM de dictée.
 
 Enfin, sélectionnez le jeu de données acoustiques que vous souhaitez utiliser pour l’évaluation.
 
@@ -115,5 +115,5 @@ Pour modifier à tout moment le « nom » ou la « description » du modèle, vo
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Obtenir votre abonnement d’essai gratuit du service Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconnaissance vocale dans C#](quickstart-csharp-windows.md)
+- [Reconnaissance vocale dans C#](quickstart-csharp-dotnet-windows.md)
 - [Exemples de données Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd59e7956855de52750614c800a46e6bf817cd14
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098870"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054775"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’extension NPS (Network Policy Server) pour Azure permet aux entreprises de protéger l’authentification du client RADIUS (Remote Authentication Dial-In User Service) à l’aide d’[Azure Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md) sur le cloud, qui offre une vérification en deux étapes.
 
@@ -305,7 +305,7 @@ Pour résoudre ces problèmes, l’idéal est d’examiner les journaux des év�
  
 ## <a name="configure-multi-factor-authentication"></a>Configurer l’authentification multifacteur
 
-Pour obtenir une assistance sur la configuration des utilisateurs pour l’authentification multifacteur, consultez les articles [Comment exiger la vérification en deux étapes pour un utilisateur ou groupe](howto-mfa-userstates.md) et [Configurer mon compte pour la vérification en deux étapes](end-user/current/multi-factor-authentication-end-user-first-time.md)
+Pour obtenir une assistance sur la configuration des utilisateurs pour l’authentification multifacteur, consultez les articles [Comment exiger la vérification en deux étapes pour un utilisateur ou groupe](howto-mfa-userstates.md) et [Configurer mon compte pour la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installer et configurer l’extension de serveur NPS
 

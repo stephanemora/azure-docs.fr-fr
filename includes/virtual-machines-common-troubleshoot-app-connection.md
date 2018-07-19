@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313511"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38764720"
 ---
 Plusieurs raisons peuvent expliquer le fait que vous ne puissiez pas démarrer ou vous connecter à une application exécutée sur une machine virtuelle Azure. Parmi elles figurent le fait que l’application ne s’exécute pas ou ne surveille pas les ports attendus, que le port d’écoute soit bloqué ou que les règles réseau ne transmettent pas correctement le trafic à l’application. Cet article décrit une approche méthodique permettant d’identifier et de corriger le problème.
 

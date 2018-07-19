@@ -1,6 +1,6 @@
 - name: Documentation LUIS
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que le service Language Understanding\_?"
       href: Home.md
@@ -17,6 +17,8 @@
           items:
             - name: 'C#'
               href: luis-get-started-cs-get-intent.md
+            - name: Go
+              href: luis-get-started-go-get-intent.md
             - name: Java
               href: luis-get-started-java-get-intent.md
             - name: JavaScript
@@ -33,6 +35,8 @@
           items:
             - name: 'C#'
               href: luis-get-started-cs-add-utterance.md
+            - name: Go
+              href: luis-get-started-go-add-utterance.md
             - name: Java
               href: luis-get-started-java-add-utterance.md
             - name: JavaScript
@@ -185,7 +189,7 @@
           href: luis-how-to-add-features.md
         - name: Ajouter des modèles
           href: luis-how-to-model-intent-pattern.md
-    - name: Entraîner
+    - name: Former
       href: luis-how-to-train.md
     - name: Test
       items:
@@ -220,7 +224,7 @@
             - name: Afficher l’utilisation du point de terminaison avec PowerShell
               href: luis-how-to-manage-from-cloud-shell.md
             - name: Diffuser le quota de point de terminaison dans les clés avec Traffic Manager
-              href: traffic-manager.md
+              href: luis-traffic-manager.md
     - name: Migrer vers l’API V2
       href: migration-v1-to-v2.md
     - name: Rechercher une région par programmation
@@ -229,7 +233,7 @@
           href: find-region-csharp.md
         - name: Utilisation de Node.js
           href: find-region-nodejs.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Confidentialité de l'utilisateur
       href: luis-reference-gdpr.md
