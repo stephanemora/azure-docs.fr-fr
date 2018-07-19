@@ -1,4 +1,0 @@
-- name: Utiliser une MSI de machine virtuelle pour accéder au stockage Azure
-  items:
-    - name: À partir d’une machine virtuelle Linux à l’aide d’une clé d’accès
-      href: msi-tutorial-linux-vm-access-storage.md
