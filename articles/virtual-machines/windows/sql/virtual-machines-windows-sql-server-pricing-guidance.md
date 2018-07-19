@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/02/2018
+ms.date: 07/02/2018
 ms.author: jroth
-ms.openlocfilehash: 71c86af9d4dcdf1026b4f539574b9932ef1cfc89
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e9033724f62b383ce70488b98a3a8919e3cb198a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767798"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345275"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Tarification des machines virtuelles SQL Server Azure
 
@@ -57,7 +57,7 @@ Si votre charge de travail de production n’est pas légère, utilisez l’une 
 | Édition SQL Server | Charge de travail |
 |-----|-----|
 | Web | Petits sites web |
-| standard | Charges de travail faibles ou moyennes |
+| Standard | Charges de travail faibles ou moyennes |
 | Entreprise | Charges de travail volumineuses ou critiques|
 
 Pour ces éditions, vous pouvez vous acquitter de la licence SQL Server de deux manières : par un *paiement à l’utilisation* ou par la méthode *BYOL (apportez votre propre licence)*.
@@ -66,7 +66,7 @@ Pour ces éditions, vous pouvez vous acquitter de la licence SQL Server de deux 
 
 **Le paiement d’une licence SQL Server à l’utilisation** signifie que le coût par seconde de l’exécution de la machine virtuelle Azure comprend le coût de la licence SQL Server. Les tarifs des différentes éditions de SQL Server (Web, Standard, Entreprise) sont indiqués dans la page des tarifs des machines virtuelles Azure pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
-Le coût est le même pour toutes les versions de SQL Server (de 2012 SP3 à 2017). Les frais de licence par seconde varient en fonction du nombre de cœurs de la machine virtuelle, ce qui est la norme pour toutes les licences SQL Server.
+Le coût est le même pour toutes les versions de SQL Server (de 2012 SP3 à 2017). Le coût de licence par seconde varie selon le nombre de processeurs virtuels de machine virtuelle.
 
 Le paiement de la licence SQL Server à l’utilisation est recommandé pour :
 
@@ -88,7 +88,7 @@ Pour créer une machine virtuelle SQL Server 2017 Azure avec l’une de ces ima
 >
 > ![Panneau Choisir la taille de la machine virtuelle](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
 >
->Elle n’inclut pas les coûts de licence SQL Server supplémentaires pour les éditions Web, Standard et Enterprise. Pour obtenir une estimation plus précise des tarifs, sélectionnez votre système d’exploitation et l’édition SQL Server dans la page des tarifs pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+>N’inclut pas les coûts de licence SQL Server supplémentaires pour les éditions Web, Standard et Enterprise. Pour obtenir une estimation plus précise des tarifs, sélectionnez votre système d’exploitation et l’édition SQL Server dans la page des tarifs pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 ## <a name="bring-your-own-license-byol"></a>BYOL (apportez votre propre licence)
 
@@ -128,7 +128,7 @@ Pour éviter des coûts inutiles, choisissez une taille de machine virtuelle opt
 
 ### <a id="machinesize"></a> Dimensionner correctement votre machine virtuelle
 
-Le coût de la licence SQL Server est directement lié au nombre de cœurs. Choisissez une taille de machine virtuelle qui correspond à vos besoins en termes de processeur, mémoire, stockage et bande passante d’E/S. Pour obtenir la liste complète des options de taille de machine virtuelle, consultez [Tailles de machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) et [Tailles de machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Le coût de la licence SQL Server est directement lié au nombre de processeurs virtuels. Choisissez une taille de machine virtuelle qui correspond à vos besoins en termes de processeur, mémoire, stockage et bande passante d’E/S. Pour obtenir la liste complète des options de taille de machine virtuelle, consultez [Tailles de machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) et [Tailles de machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Il existe de nouvelles tailles de machine virtuelle qui fonctionnent correctement avec certains types de charges de travail SQL Server. Ces tailles de machine virtuelle ont des niveaux élevés de mémoire, de stockage et de bande passante d’E/S, mais elles possèdent un nombre de cœurs virtualisés inférieur. Considérez l’exemple suivant :
 
@@ -140,7 +140,7 @@ Il existe de nouvelles tailles de machine virtuelle qui fonctionnent correctemen
 > [!IMPORTANT]
 > Il s’agit d’un exemple ponctuel. Pour les spécifications les plus récentes, consultez les articles sur les tailles de machine virtuelle et la page de tarification Azure pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) et [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-Dans l’exemple précédent, vous pouvez voir que les spécifications de **Standard_DS14v2** et **Standard_DS14-4v2** sont identiques à l’exception des processeurs virtuels. Le suffixe **-4v2** à la fin de la taille de machine **Standard_DS14-4v2** indique le nombre de processeurs virtuels actifs. Étant donné que les coûts de licence SQL Server sont liés au nombre de cœurs, cela réduit considérablement le coût de la machine virtuelle dans les scénarios où les processeurs virtuels supplémentaires ne sont pas nécessaires. Il s’agit d’un seul exemple. Il existe de nombreuses tailles de machine avec des processeurs virtuels limités qui sont identifiées par ce modèle de suffixe. Pour plus d’informations, consultez le billet de blog [Announcing new Azure VM sizes for more cost-effective database work](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+Dans l’exemple précédent, vous pouvez voir que les spécifications de **Standard_DS14v2** et **Standard_DS14-4v2** sont identiques à l’exception des processeurs virtuels. Le suffixe **-4v2** à la fin de la taille de machine **Standard_DS14-4v2** indique le nombre de processeurs virtuels actifs. Étant donné que les coûts de licence SQL Server sont liés au nombre de processeurs virtuels, cela réduit considérablement le coût de la machine virtuelle dans les scénarios où les processeurs virtuels supplémentaires ne sont pas nécessaires. Il s’agit d’un seul exemple. Il existe de nombreuses tailles de machine avec des processeurs virtuels limités qui sont identifiées par ce modèle de suffixe. Pour plus d’informations, consultez le billet de blog [Announcing new Azure VM sizes for more cost-effective database work](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 ### <a name="shut-down-your-vm-when-possible"></a>Arrêter votre machine virtuelle lorsque cela est possible
 

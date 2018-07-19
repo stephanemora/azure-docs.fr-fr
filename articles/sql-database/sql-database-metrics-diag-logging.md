@@ -3,25 +3,26 @@ title: Journalisation des métriques et diagnostics d’Azure SQL Database | Mic
 description: Découvrez comment configurer Azure SQL Database pour stocker les statistiques d’utilisation des ressources, de connectivité et d’exécution de requête.
 services: sql-database
 documentationcenter: ''
-author: veljko-msft
+author: Danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vvasic
-ms.openlocfilehash: c9126080db4d8091b672a9250c68a5c5590e10c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650177"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346023"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
 Azure SQL Database peut émettre des journaux de métriques et de diagnostics pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
 
 * **Stockage Azure** : utilisé pour archiver des quantités importantes de données de télémétrie à un petit prix.
-* **Cencentrateur d’événements Azure** : pour intégrer des données de télémétrie SQL Database à votre solution de surveillance personnalisée ou à vos pipelines très actifs.
+* **Concentrateur d’événements Azure** : pour intégrer des données de télémétrie SQL Database à votre solution de surveillance personnalisée ou à vos pipelines très actifs.
 * **Azure Log Analytics** : utilisé pour une solution de surveillance prête à l’emploi avec des fonctionnalités de génération de rapports, d’alerte et d’atténuation. Cette fonctionnalité fait partie [d’Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -49,8 +50,8 @@ Vous pouvez approvisionner une nouvelle ressource Azure ou sélectionner une res
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics) : contient des informations sur les statistiques d’attente des requêtes vous indiquant ce que vos requêtes ont attendu, comme CPU, LOG, LOCKING.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset) : contient des informations sur les erreurs SQL qui se sont produites dans cette base de données.
 - [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset) : contient des informations sur le temps qu’une base de données a passé à attendre différents types d’attente.
-- [Expirations](sql-database-metrics-diag-logging.md#time-outs-dataset) : contient des informations sur les expirations du délai d’attente qui ont eu lieu sur une base de données.
-- [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset) : contient des informations sur les événements bloquants qui se sont produits dans une base de données.
+- [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset) : contient des informations sur les expirations du délai d’attente qui ont eu lieu sur une base de données.
+- [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset) : contient des informations sur les événements bloquants qui se sont produits dans une base de données.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset) : contient les informations Intelligent Insights. [En savoir plus sur Intelligent Insights](sql-database-intelligent-insights.md).
 - **Audit** / **SQLSecurityAuditEvents** : actuellement indisponible.
 
@@ -58,7 +59,7 @@ Si vous sélectionnez Event Hubs ou un compte de stockage, vous pouvez spécifie
 
 Pour savoir comment activer la journalisation et comprendre les catégories de journaux et de métriques qui sont prises en charge par les différents services Azure, nous vous recommandons de lire : 
 
-* [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+* [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Vue d’ensemble des journaux de diagnostics Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
 ### <a name="azure-portal"></a>Portail Azure
@@ -154,7 +155,7 @@ Pour activer la journalisation des métriques et diagnostics à l’aide d’Azu
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
-### <a name="rest-api"></a>de l’API REST
+### <a name="rest-api"></a>API REST
 
 Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’API RESTS Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
 
@@ -273,11 +274,11 @@ Découvrez comment [télécharger les journaux de métriques et de diagnostics �
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|type|Toujours : AzureDiagnostics|
+|Type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
-|Catégorie|Nom de la catégorie. Toujours : QueryStoreRuntimeStatistics|
-|Nom d'opération|Nom de l’opération. Toujours : QueryStoreRuntimeStatisticsEvent|
-|Ressource|Nom de la ressource.|
+|Category|Nom de la catégorie. Toujours : QueryStoreRuntimeStatistics|
+|OperationName|Nom de l’opération. Toujours : QueryStoreRuntimeStatisticsEvent|
+|Resource|Nom de la ressource.|
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES|
 |SubscriptionId|Identificateur global unique auquel la base de données appartient.|
 |ResourceGroup|Nom du groupe de ressources auquel la base de données appartient.|
@@ -324,11 +325,11 @@ En savoir plus sur les [données de statistiques d’exécution du magasin des r
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|type|Toujours : AzureDiagnostics|
+|Type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
-|Catégorie|Nom de la catégorie. Toujours : QueryStoreWaitStatistics|
-|Nom d'opération|Nom de l’opération. Toujours : QueryStoreWaitStatisticsEvent|
-|Ressource|Nom de la ressource|
+|Category|Nom de la catégorie. Toujours : QueryStoreWaitStatistics|
+|OperationName|Nom de l’opération. Toujours : QueryStoreWaitStatisticsEvent|
+|Resource|Nom de la ressource|
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES|
 |SubscriptionId|Identificateur global unique auquel la base de données appartient.|
 |ResourceGroup|Nom du groupe de ressources auquel la base de données appartient.|
@@ -362,11 +363,11 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|type|Toujours : AzureDiagnostics|
+|Type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
-|Catégorie|Nom de la catégorie. Toujours : Errors|
-|Nom d'opération|Nom de l’opération. Toujours : ErrorEvent|
-|Ressource|Nom de la ressource|
+|Category|Nom de la catégorie. Toujours : Errors|
+|OperationName|Nom de l’opération. Toujours : ErrorEvent|
+|Resource|Nom de la ressource|
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES|
 |SubscriptionId|Identificateur global unique auquel la base de données appartient.|
 |ResourceGroup|Nom du groupe de ressources auquel la base de données appartient.|
@@ -376,8 +377,8 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 |ResourceId|URI de ressource.|
 |Message|Message d’erreur en texte brut.|
 |user_defined_b|Indique si l’erreur est un bit défini par l’utilisateur.|
-|error_number_d|Code d’erreur|
-|Niveau de gravité|Gravité de l’erreur.|
+|error_number_d|Code d’erreur.|
+|Severity|Gravité de l’erreur.|
 |state_d|État de l’erreur.|
 |query_hash_s|Hachage de requête de la requête ayant échoué si disponible.|
 |query_plan_hash_s|Hachage du plan de requête de la requête ayant échoué si disponible.|
@@ -391,11 +392,11 @@ En savoir plus sur les [messages d’erreur SQL Server](https://msdn.microsoft.c
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|type|Toujours : AzureDiagnostics|
+|Type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
-|Catégorie|Nom de la catégorie. Toujours  : DatabaseWaitStatistics|
-|Nom d'opération|Nom de l’opération. Toujours : DatabaseWaitStatisticsEvent|
-|Ressource|Nom de la ressource|
+|Category|Nom de la catégorie. Toujours  : DatabaseWaitStatistics|
+|OperationName|Nom de l’opération. Toujours : DatabaseWaitStatisticsEvent|
+|Resource|Nom de la ressource|
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES|
 |SubscriptionId|Identificateur global unique auquel la base de données appartient.|
 |ResourceGroup|Nom du groupe de ressources auquel la base de données appartient.|
@@ -420,11 +421,11 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|type|Toujours : AzureDiagnostics|
+|Type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
-|Catégorie|Nom de la catégorie. Toujours : Timeouts|
-|Nom d'opération|Nom de l’opération. Toujours : TimeoutEvent|
-|Ressource|Nom de la ressource|
+|Category|Nom de la catégorie. Toujours : Timeouts|
+|OperationName|Nom de l’opération. Toujours : TimeoutEvent|
+|Resource|Nom de la ressource|
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES|
 |SubscriptionId|Identificateur global unique auquel la base de données appartient.|
 |ResourceGroup|Nom du groupe de ressources auquel la base de données appartient.|
@@ -443,11 +444,11 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TenantId|Votre ID de client.|
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
-|type|Toujours : AzureDiagnostics|
+|Type|Toujours : AzureDiagnostics|
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
-|Catégorie|Nom de la catégorie. Toujours : Blocks|
-|Nom d'opération|Nom de l’opération. Toujours : BlockEvent|
-|Ressource|Nom de la ressource|
+|Category|Nom de la catégorie. Toujours : Blocks|
+|OperationName|Nom de l’opération. Toujours : BlockEvent|
+|Resource|Nom de la ressource|
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES|
 |SubscriptionId|Identificateur global unique auquel la base de données appartient.|
 |ResourceGroup|Nom du groupe de ressources auquel la base de données appartient.|
@@ -467,12 +468,12 @@ Apprenez-en davantage sur le [format de journal Intelligent Insights](sql-databa
 
 Pour savoir comment activer la journalisation et comprendre les catégories de journaux et métriques prises en charge par les différents services Azure, consultez :
 
- * [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+ * [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
  * [Vue d’ensemble des journaux de diagnostics Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
 
-Pour plus d'informations sur les concentrateurs d'événements, lisez :
+Pour plus d’informations sur les concentrateurs d’événements, lisez :
 
-* [Nouveautés des concentrateurs d'événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Nouveautés des concentrateurs d’événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Pour en savoir plus sur le stockage, découvrez comment [télécharger les journaux de métriques et de diagnostics à partir du stockage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

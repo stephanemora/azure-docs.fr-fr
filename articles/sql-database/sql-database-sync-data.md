@@ -7,19 +7,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: bb5a383828e98c773c079dcea8e3cf37f9a068f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017433"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342655"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
 SQL Data Sync est un service conçu sur la base de données SQL Azure qui vous permet de synchroniser les données choisies de manière bidirectionnelle sur plusieurs bases de données SQL et instances SQL Server.
+
+## <a name="architecture-of-sql-data-sync"></a>Architecture de SQL Data Sync
 
 Data Sync est basé sur le concept d’un groupe de synchronisation. Un groupe de synchronisation est un groupe de bases de données que vous souhaitez synchroniser.
 
@@ -39,7 +41,7 @@ Data Sync utilise une topologie hub and spoke pour synchroniser les données. Vo
 -   La **base de données de synchronisation** contient les métadonnées et le journal de Data Sync. La base de données de synchronisation doit être une base de données Azure SQL Database située dans la même région que la base de données Hub. La base de données de synchronisation est créée par le client et lui appartient.
 
 > [!NOTE]
-> Si vous utilisez une base de données locale, vous devez [configurer un agent local](sql-database-get-started-sql-data-sync.md#add-on-prem).
+> Si vous utilisez une base de données locale comme base de données membre, vous devez [installer et configurer un agent de synchronisation local](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Synchroniser des données entre des bases de données](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -73,9 +75,27 @@ Data Sync n’est pas la meilleure solution pour les scénarios suivants :
     -   Si vous sélectionnez *Priorité au hub*, les modifications dans le hub remplacent toujours les modifications dans le membre.
     -   Si vous sélectionnez *Priorité au membre*, les modifications dans le membre remplacent toujours les modifications dans le hub. S’il existe plusieurs membres, la valeur finale dépend du membre qui se synchronise en premier.
 
-## <a name="sync-req-lim"></a> Spécifications et limitations
+## <a name="get-started-with-sql-data-sync"></a>Prise en main de SQL Data Sync
 
-### <a name="general-considerations"></a>Considérations d’ordre général
+### <a name="set-up-data-sync-in-the-azure-portal"></a>Configurer Data Sync dans le portail Azure
+
+-   [Configurer Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+
+### <a name="set-up-data-sync-with-powershell"></a>Configurer Data Sync avec PowerShell
+
+-   [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+
+-   [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+### <a name="review-the-best-practices-for-data-sync"></a>Consultez les bonnes pratiques pour Data Sync
+
+-   [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+
+### <a name="did-something-go-wrong"></a>Un problème est survenu ?
+
+-   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+
+## <a name="consistency-and-performance"></a>Cohérence et performances
 
 #### <a name="eventual-consistency"></a>Cohérence éventuelle
 Étant donné que Data Sync est basé sur le déclencheur, la cohérence transactionnelle n’est pas garantie. Microsoft garantit que toutes les modifications sont effectuées par la suite et que Data Sync n’entraîne pas de perte de données.
@@ -84,6 +104,8 @@ Data Sync n’est pas la meilleure solution pour les scénarios suivants :
 Data Sync utilise des déclencheurs d’insertion, de mise à jour et de suppression pour effectuer le suivi des modifications. Cela crée des tables latérales dans la base de données utilisateur pour le suivi des modifications. Ces activités de suivi des modifications ont un impact sur votre charge de travail de base de données. Évaluez votre niveau de service et effectuez une mise à niveau si nécessaire.
 
 Le provisionnement et le déprovisionnement lors de la création, la mise à jour et la suppression du groupe de synchronisation peuvent également avoir un impact sur les performances de la base de données. 
+
+## <a name="sync-req-lim"></a> Spécifications et limitations
 
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -111,13 +133,21 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 
 -   Curseur, horodateur, hierarchyid
 
+#### <a name="unsupported-column-types"></a>Types de colonne non pris en charge
+
+Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées par le système. Par exemple : 
+
+-   Colonnes calculées.
+
+-   Colonnes générées par le système pour les tables temporelles.
+
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitations des dimensions de la base de données et du service
 
 | **Dimensions**                                                      | **Limite**              | **Solution de contournement**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
-| Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5                      |                             |
+| Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5.                      |                             |
 | Nombre maximal de points de terminaison dans un seul groupe de synchronisation              | 30                     | Créer plusieurs groupes de synchronisation |
-| Nombre maximal de points de terminaison locaux dans un seul groupe de synchronisation. | 5                      | Créer plusieurs groupes de synchronisation |
+| Nombre maximal de points de terminaison locaux dans un seul groupe de synchronisation. | 5.                      | Créer plusieurs groupes de synchronisation |
 | Noms de la base de données, de la table, du schéma et des colonnes                       | 50 caractères par nom |                             |
 | Tables dans un groupe de synchronisation                                          | 500                    | Créer plusieurs groupes de synchronisation |
 | Colonnes d’une table dans un groupe de synchronisation                              | 1 000                   |                             |
@@ -147,7 +177,8 @@ Oui. Vous pouvez synchroniser entre des SQL Databases qui appartiennent à des g
 -   Si les abonnements appartiennent au même locataire et que disposez d’autorisations sur tous les abonnements, vous pouvez configurer le groupe de synchronisation dans le portail Azure.
 -   Sinon, vous devez utiliser PowerShell pour ajouter les membres de synchronisation appartenant à différents abonnements.
    
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Puis-je utiliser Data Sync pour envoyer des données de ma base de données de production vers une base de données vide, et garder mes données synchronisées ? 
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Puis-je utiliser Data Sync pour envoyer des données de ma base de données de production vers une base de données vide, et ensuite les synchroniser ?
+
 Oui. Créez manuellement le schéma dans la nouvelle base de données en créant le script à partir de la base de données d’origine. Après avoir créé le schéma, ajoutez les tables à un groupe de synchronisation pour copier les données et les garder synchronisées.
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Dois-je utiliser SQL Data Sync pour sauvegarder et restaurer mes bases de données ?
@@ -176,20 +207,30 @@ La base de données racine de fédération peut être utilisée sans limitation 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur SQL Data Sync, consultez :
+### <a name="update-the-schema-of-a-synced-database"></a>Mettre à jour le schéma d’une base de données synchronisée
 
--   [Configurer Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
--   [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+Vous devez mettre à jour le schéma d’une base de données dans un groupe de synchronisation ? Les modifications de schéma ne sont pas répliquées automatiquement. Pour des solutions à ce problème, consultez les articles suivants :
+
+-   [Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync](sql-database-update-sync-schema.md)
+
+-   [Utiliser PowerShell pour mettre à jour le schéma de synchronisation dans un groupe de synchronisation existant](scripts/sql-database-sync-update-schema.md)
+
+### <a name="monitor-and-troubleshoot"></a>Surveiller et résoudre des problèmes
+
+SQL Data Sync s’exécute-t-il comme prévu ? Pour surveiller l’activité et résoudre les problèmes, consultez les articles suivants :
+
 -   [Surveiller Azure SQL Data Sync avec Log Analytics](sql-database-sync-monitor-oms.md)
+
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
--   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :
-    -   [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+### <a name="learn-more-about-azure-sql-database"></a>En savoir plus sur Azure SQL Database
 
--   [Télécharger la documentation de l’API REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
-
-Pour plus d’informations sur SQL Database, consultez :
+Pour plus d’informations sur SQL Database, voir les articles suivants :
 
 -   [Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
+
 -   [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
+
+### <a name="developer-reference"></a>Référence du développeur
+
+-   [Télécharger la documentation de l’API REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

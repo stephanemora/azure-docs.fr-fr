@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ebbb61b8612418fbec37769ee56907ff99d5214a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9355af15ed8156fee5f4b3584aa3342ea40c0628
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228762"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour JIRA
 
@@ -135,7 +135,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre serveur local JIRA en tant qu’administrateur.
 
-8. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
+8. Pointez sur la roue dentée, puis cliquez sur **Modules complémentaires**.
 
     ![Configure Single Sign-On](./media/kantegassoforjira-tutorial/addon1.png)
 

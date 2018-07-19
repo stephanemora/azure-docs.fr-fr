@@ -3,7 +3,7 @@ title: Collecter des données pour un environnement avec Azure Log Analytics | M
 description: Cette rubrique aide à comprendre comment collecter des données et effectuer le monitoring d’ordinateurs hébergés dans un environnement local ou tout autre environnement cloud avec Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: na
+ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235938"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133369"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Collecter des données d’ordinateurs dans un environnement avec Log Analytics
 
@@ -96,7 +97,7 @@ Pour l’agent Linux, le serveur proxy est indiqué pendant ou [après l’insta
 Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Si des caractères spéciaux, par exemple, « @ », sont utilisés dans le mot de passe, il se produit une erreur de connexion au proxy, car la valeur est mal analysée.  Pour contourner ce problème, encodez le mot de passe dans l’URL à l’aide d’un outil comme [URLDecode](https://www.urldecoder.org/).  
+> Si des caractères spéciaux, par exemple « \@ », sont utilisés dans le mot de passe, il se produit une erreur de connexion au proxy, car la valeur est mal analysée.  Pour contourner ce problème, encodez le mot de passe dans l’URL à l’aide d’un outil comme [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Installer et configurer l’agent 
 Pour connecter directement des ordinateurs locaux avec Log Analytics, différentes méthodes existent en fonction des besoins. Le tableau suivant décrit chacune d’entre elle, pour vous permettre d’identifier la plus adaptée à votre organisation.

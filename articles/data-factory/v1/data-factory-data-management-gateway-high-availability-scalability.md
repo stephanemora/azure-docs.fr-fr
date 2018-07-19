@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053834"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37113338"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -113,7 +113,7 @@ Cette section part du principe que vous avez parcouru les deux articles suivants
         ![Page d'accueil Data Factory](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
     2. Sélectionnez la **passerelle** pour afficher la page **Passerelle** :
     
-        ![Page d'accueil Data Factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
+        ![Page d’accueil Data Factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
     4. La page **Passerelle** s’affiche :   
 
         ![Affichage de la passerelle à nœud unique](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
@@ -165,7 +165,7 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 - Le certificat doit être un certificat X509 v3 approuvé publiquement. Nous vous recommandons d’utiliser des certificats émis par une autorité de certification (tierce) publique.
 - Chaque nœud de runtime d’intégration doit approuver ce certificat, ainsi que l’ordinateur client qui exécute l’application du gestionnaire d’informations d’identification. 
 > [!NOTE]
-> L’application du gestionnaire d’informations d’identification est utilisée lors de la définition en toute sécurité des informations d’identification à partir de l’Assistant Copie / portail Azure. Et elle peut être déclenchée à partir de n’importe quel ordinateur sur le même réseau que le magasin de données local / privé.
+> L’application du gestionnaire d’informations d’identification est utilisée lors de la définition en toute sécurité des informations d’identification à partir de l’Assistant Copie / portail Azure. Et elle peut être déclenchée à partir de n’importe quel ordinateur appartenant au même réseau que le magasin de données local ou privé.
 - Les certificats utilisant des caractères génériques sont pris en charge. Si votre nom de domaine complet est **node1.domain.contoso.com**, vous pouvez utiliser ***.domain.contoso.com** comme nom du sujet du certificat.
 - Les certificats SAN ne sont pas recommandés, car seul le dernier élément des Autres noms de l’objet sera utilisé et tous les autres seront ignorés en raison d’une limitation actuelle. Par exemple, si vous avez un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous ne pouvez utiliser ce certificat que sur l’ordinateur dont le FQDN est **node2.domain.contoso.com**.
 - Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.

@@ -1,6 +1,6 @@
 ---
-title: Architecture de la solution de surveillance à distance - Azure | Microsoft Docs
-description: Présentation détaillée de l’architecture de l’accélérateur de solution de surveillance à distance
+title: Vue d’ensemble des accélérateurs de solution de surveillance à distance | Microsoft Docs
+description: Cet article présente le déploiement de l’accélérateur de solution de surveillance à distance.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: a8b5d9e3917c854cb255a35d3bbc901bcce52c24
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757431"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084524"
 ---
-# <a name="remote-monitoring-solution-accelerator-architecture"></a>Architecture de l’accélérateur de solution de surveillance à distance
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Vue d’ensemble des accélérateurs de solution de surveillance à distance
 
 [L’accélérateur de solution](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) de surveillance à distance implémente une solution de surveillance de bout en bout, destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) pour répondre à vos propres exigences professionnelles.
 

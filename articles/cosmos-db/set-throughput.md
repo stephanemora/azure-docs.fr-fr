@@ -7,28 +7,28 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285771"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444259"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Définir et obtenir le débit des conteneurs Azure Cosmos DB et de base de données
 
-Vous pouvez définir le débit d’un conteneur Azure Cosmos DB ou d’un ensemble de conteneurs à l’aide du portail Azure ou des SDK clients. Lorsque vous approvisionnez le débit pour un ensemble de conteneurs, tous ces conteneurs partagent le débit approvisionné. L’approvisionnement de débit pour des conteneurs individuels garantit la réservation du débit pour ce conteneur spécifique. D’un autre côté, l’approvisionnement de débit pour une base de données permet de partager le débit entre tous les conteneurs appartenant à cette base de données. Dans une base de données Azure Cosmos DB, vous pouvez avoir un ensemble de conteneurs qui partagent le débit, ainsi que des conteneurs avec un débit dédié. 
+Vous pouvez définir le débit d’un conteneur Azure Cosmos DB ou d’un ensemble de conteneurs à l’aide du portail Azure ou des SDK clients. 
 
-Azure Cosmos DB allouera des partitions physiques pour héberger vos conteneurs en fonction du débit provisionné et répartira/rééquilibrera les données sur les partitions au fur et à mesure de leur croissance.
+**Approvisionner le débit pour un conteneur individuel :** lorsque vous approvisionnez le débit pour un ensemble de conteneurs, tous ces conteneurs partagent le débit approvisionné. L’approvisionnement de débit pour des conteneurs individuels garantit la réservation du débit pour ce conteneur spécifique. Quand vous affectez le nombre de RU/s au niveau du conteneur, les conteneurs peuvent être créés comme ayant une taille *fixe* ou *illimitée*. Les conteneurs de taille fixe ont une limite maximale de 10 Go et de 10 000 RU/s de débit. Pour créer un conteneur illimité, vous devez spécifier un débit minimal de 1 000 RU/s et une [clé de partition](partition-data.md). Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes). Le fait de sélectionner une clé de partition avec de nombreuses valeurs distinctes permet à Azure Cosmos DB de mettre à l’échelle votre conteneur/table/graphe et vos requêtes de façon uniforme. 
 
-Quand vous affectez le nombre de RU/s au niveau du conteneur, les conteneurs peuvent être créés comme ayant une taille *fixe* ou *illimitée*. Les conteneurs de taille fixe ont une limite maximale de 10 Go et de 10 000 RU/s de débit. Pour créer un conteneur illimité, vous devez spécifier un débit minimal de 1 000 RU/s et une [clé de partition](partition-data.md). Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes). Le fait de sélectionner une clé de partition avec de nombreuses valeurs distinctes permet à Azure Cosmos DB de mettre à l’échelle votre conteneur/table/graphe et vos requêtes de façon uniforme. 
+**Approvisionner le débit pour un ensemble de conteneurs ou une base de données :** l’approvisionnement de débit pour une base de données permet de partager le débit entre tous les conteneurs appartenant à cette base de données. Dans une base de données Azure Cosmos DB, vous pouvez avoir un ensemble de conteneurs qui partagent le débit, ainsi que des conteneurs avec un débit dédié. Quand vous affectez le nombre de RU/s sur un ensemble de conteneurs, les conteneurs appartenant à cet ensemble sont traités comme des conteneurs *illimités* et vous devez spécifier une clé de partition.
 
-Quand vous affectez le nombre de RU/s sur un ensemble de conteneurs, les conteneurs appartenant à cet ensemble sont traités comme des conteneurs *illimités* et vous devez spécifier une clé de partition.
+Azure Cosmos DB allouera des partitions physiques pour héberger vos conteneurs en fonction du débit provisionné et répartira/rééquilibrera les données sur les partitions au fur et à mesure de leur croissance. L’approvisionnement de débit au niveau du conteneur et de la base de données constitue des offres distinctes, et tout changement de l’un vers l’autre nécessite la migration de données de la source vers la destination. Cela signifie donc que vous devez créer une base de données ou une collection, puis migrer les données avec la [bibliothèque de l’exécuteur en bloc](bulk-executor-overview.md) ou [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). L’image suivante illustre l’approvisionnement de débit à différents niveaux :
 
 ![Provisionnement d’unités de requête pour des conteneurs individuels et des ensembles de conteneurs](./media/request-units/provisioning_set_containers.png)
 
-Cet article vous guide lors de la configuration du débit à différents niveaux d’un compte Azure Cosmos DB. 
+Dans les prochaines sections, vous apprendrez à configurer du débit à différents niveaux d’un compte Azure Cosmos DB. 
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Approvisionner le débit à l’aide du portail Azure
 
@@ -45,7 +45,7 @@ Cet article vous guide lors de la configuration du débit à différents niveaux
    |ID de base de données  |  Fournissez un nom unique pour identifier votre base de données. Une base de données est un conteneur logique d'une ou plusieurs collections. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères /, \\, # ou ?, ni d’espace de fin. |
    |ID de la collection  | Fournissez un nom unique pour identifier votre collection. Les ID de collection sont soumis aux mêmes spécifications de caractères que les noms de base de données. |
    |Capacité de stockage   | Cette valeur représente la capacité de stockage de la base de données. Lors de l’approvisionnement du débit d’une collection individuelle, la capacité de stockage peut être **fixe (10 Go)** ou **illimitée**. La capacité de stockage illimitée vous oblige à définir une clé de partition pour vos données.  |
-   |Throughput   | Chaque collection et chaque base de données peuvent avoir un débit en unités de requête par seconde.  Pour la capacité de stockage fixe, le débit minimal est de 400 unités de requête par seconde (RU/s), pour la capacité de stockage illimitée, le débit minimum est défini à 1000 RU/s.|
+   |Débit   | Chaque collection et chaque base de données peuvent avoir un débit en unités de requête par seconde.  Pour la capacité de stockage fixe, le débit minimal est de 400 unités de requête par seconde (RU/s), pour la capacité de stockage illimitée, le débit minimum est défini à 1000 RU/s.|
 
 6. Après avoir entré des valeurs pour ces champs, sélectionnez **OK** pour enregistrer les paramètres.  
 
@@ -88,7 +88,9 @@ Cet article vous guide lors de la configuration du débit à différents niveaux
 
 Voici quelques éléments qui vous aideront à choisir une stratégie de réservation de débit.
 
-Privilégiez un approvisionnement du débit au niveau de la base de données (pour un l’ensemble des conteneurs) dans les cas suivants :
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Considérations relatives au provisionnement du débit au niveau de la base de données
+
+Privilégiez un approvisionnement du débit au niveau de la base de données (pour un ensemble de conteneurs) dans les cas suivants :
 
 * Vous disposez d’une dizaine de conteneurs ou plus et tout ou partie de ces conteneurs peuvent se partager le débit.  
 
@@ -97,6 +99,8 @@ Privilégiez un approvisionnement du débit au niveau de la base de données (po
 * Vous souhaitez prendre en compte les pics non planifiés dans les charges de travail en regroupant le débit au niveau de la base de données.  
 
 * Au lieu de définir le débit dans un conteneur individuel, vous préférez répartir le débit d’agrégat sur un ensemble de conteneurs au sein de la base de données.
+
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Considérations relatives au provisionnement du débit au niveau du conteneur
 
 Approvisionnez le débit sur un conteneur individuel dans les cas suivants :
 
@@ -135,6 +139,7 @@ Le tableau suivant répertorie les débits disponibles pour les conteneurs :
 
 ## <a name="set-throughput-by-using-sql-api-for-net"></a>Définir le débit à l’aide de l’API SQL pour .NET
 
+### <a name="set-throughput-at-the-container-level"></a>Définir le débit au niveau du conteneur
 L’extrait de code suivant permet de créer un conteneur avec 3 000 unités de requête par seconde à l’aide du SDK .NET de l’API SQL :
 
 ```csharp
@@ -147,6 +152,8 @@ await client.CreateDocumentCollectionAsync(
     myCollection,
     new RequestOptions { OfferThroughput = 3000 });
 ```
+
+### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Définir le débit pour un ensemble de conteneurs ou au niveau de la base de données
 
 L’extrait de code suivant permet de provisionner 100 000 unités de requête par seconde sur un ensemble de conteneurs à l’aide du SDK .NET de l’API SQL :
 

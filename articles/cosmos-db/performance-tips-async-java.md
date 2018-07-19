@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 867a48674fe2489629a887ff9626d8e10b41e653
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613980"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101538"
 ---
 > [!div class="op_single_selector"]
 > * [Java asynchrone](performance-tips-async-java.md)
@@ -25,7 +25,7 @@ ms.locfileid: "34613980"
 > 
 
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Conseils sur les performances pour Azure Cosmos DB et Java Async
-Azure Cosmos DB est une base de données distribuée rapide et flexible qui peut être mise à l’échelle en toute transparence avec une latence et un débit garantis. Vous n’avez pas à apporter de modifications d’architecture majeures ou écrire de code complexe pour mettre à l’échelle votre base de données avec Azure Cosmos DB. La réduction et l’augmentation de l’échelle est aussi simple que le passage d’un appel d’API ou d’un appel du Kit de développement logiciel (SDK). Toutefois, étant donné qu’Azure Cosmos DB est accessible via des appels réseau, vous pouvez apporter des optimisations côté client de manière à atteindre des performances de pointe quand vous utilisez le [Kit de développement logiciel (SDK) Java Async SQL](sql-api-sdk-async-java.md).
+Azure Cosmos DB est une base de données distribuée rapide et flexible qui peut être mise à l’échelle en toute transparence avec une latence et un débit garantis. Vous n’avez pas à apporter de modifications d’architecture majeures ou écrire de code complexe pour mettre à l’échelle votre base de données avec Azure Cosmos DB. La réduction et l’augmentation de l’échelle est aussi simple que le passage d’un appel d’API ou de Kit de développement logiciel (SDK). Toutefois, étant donné qu’Azure Cosmos DB est accessible via des appels réseau, vous pouvez apporter des optimisations côté client de manière à atteindre des performances de pointe quand vous utilisez le [Kit de développement logiciel (SDK) Java Async SQL](sql-api-sdk-async-java.md).
 
 Si vous vous demandez comment améliorer les performances de votre base de données, lisez ce qui suit :
 
@@ -49,7 +49,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
 3. **Paramètre ConnectionPolicy**
 
-    Les requêtes Azure Cosmos DB sont effectuées par le biais de HTTPS/REST durant l’utilisation du Kit de développement logiciel (SDK) Async Java et sont soumises à la taille des pools de connexion maximale par défaut (1 000). Cette valeur par défaut doit être la solution idéale pour la plupart des cas d’usage. Toutefois, au cas où vous avez une très grande collection avec plusieurs partitions, vous pouvez définir la taille des pools de connexion maximale à un plus grand nombre (par exemple, 1 500) à l’aide de setMaxPoolSize.
+    Les requêtes Azure Cosmos DB sont effectuées par le biais de HTTPS/REST durant l’utilisation du Kit de développement logiciel (SDK) Async Java et sont soumises à la taille des pools de connexion maximale par défaut (1 000). Cette valeur par défaut doit être la solution idéale pour la plupart des cas d’usage. Toutefois, au cas où vous avez une grande collection avec plusieurs partitions, vous pouvez définir la taille des pools de connexion maximale à un plus grand nombre (par exemple, 1500) à l’aide de setMaxPoolSize.
 
 4. **Paramétrage des requêtes parallèles pour les collections partitionnées**
 
@@ -83,7 +83,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     Vous pouvez également définir la taille de la page à l’aide de la méthode setMaxItemCount.
     
-9. **Utiliser le Scheduler approprié (évitez le vol de threads Netty E/S Eventloop)**
+9. **Utilisation du Scheduler approprié (éviter le vol de threads Netty E/S Eventloop)**
 
     Le Kit de développement logiciel (SDK) Java Async utilise [netty](https://netty.io/) pour les E/S non bloquantes. Le Kit de développement logiciel (SDK) utilise un nombre fixe de threads d’E/S netty eventloop (autant de cœurs de processeur présents sur votre machine) pour l’exécution d’opérations d’E/S. L’Observable retourné par l’API émet le résultat sur l’un des threads netty d’eventloop d’E/S partagés. Il est donc important de ne pas bloquer les threads netty eventloop d’E/S partagés. Un travail intensif de l’UC ou le blocage de l’opération sur le thread netty eventloop d’E/S peut provoquer un interblocage ou réduire considérablement le débit du Kit de développement logiciel (SDK).
 
@@ -124,15 +124,15 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     En fonction de votre type de travail, vous devez utiliser le Scheduler RxJava existant approprié pour votre travail. Lire ici [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
-    Pour plus d’informations, consultez la [page Github](https://github.com/Azure/azure-cosmosdb-java) pour obtenir le Kit de développement logiciel (SDK) Java Async.
+    Pour plus d’informations, consultez la [page Github](https://github.com/Azure/azure-cosmosdb-java) concernant le Kit de développement logiciel (SDK) Java Async.
 
-10. **Désactiver la journalisation du netty** La journalisation de la bibliothèque Netty est bavarde et doit être désactivée (la suppression du journal dans la configuration peut être insuffisante) afin d’éviter des frais de l’UC supplémentaires. Si vous n’êtes pas en mode débogage, désactivez la journalisation de netty en même temps. Par conséquent, si vous utilisez log4j pour supprimer les coûts supplémentaires de l’UC induits par ``org.apache.log4j.Category.callAppenders()`` de netty, ajoutez la ligne suivante à votre codebase :
+10. **Désactivation de la journalisation du netty** La journalisation de la bibliothèque Netty est bavarde et doit être désactivée (la suppression du journal dans la configuration peut être insuffisante) afin d’éviter des coûts d’UC supplémentaires. Si vous n’êtes pas en mode débogage, désactivez la journalisation de netty en même temps. Par conséquent, si vous utilisez log4j pour supprimer les coûts supplémentaires de l’UC induits par ``org.apache.log4j.Category.callAppenders()`` de netty, ajoutez la ligne suivante à votre codebase :
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **Limite des ressources des fichiers ouverts du système d’exploitation** Certains systèmes Linux (par exemple, Redhat) ont une limite supérieure du nombre de fichiers ouverts et donc du nombre total de connexions. Exécutez la commande suivante pour afficher les limites actuelles :
+11. **Limite des ressources des fichiers ouverts du système d’exploitation** Certains systèmes Linux (par exemple, Red Hat) ont une limite supérieure du nombre de fichiers ouverts et donc du nombre total de connexions. Exécutez la commande suivante pour afficher les limites actuelles :
 
     ```bash
     ulimit -a
@@ -172,7 +172,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
 Pour d’autres plateformes (Redhat, Windows, Mac, etc.), reportez-vous à ces instructions https://netty.io/wiki/forked-tomcat-native.html
 
-## <a name="indexing-policy"></a>Stratégie d'indexation
+## <a name="indexing-policy"></a>Stratégie d’indexation
  
 1. **Exclusion des chemins d’accès inutilisés de l’indexation pour des écritures plus rapides**
 
@@ -190,14 +190,14 @@ Pour d’autres plateformes (Redhat, Windows, Mac, etc.), reportez-vous à ces i
 
     Pour plus d’informations, consultez [Stratégies d’indexation d’Azure Cosmos DB](indexing-policies.md).
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>Débit
 <a id="measure-rus"></a>
 
 1. **Mesure et réglage pour réduire l’utilisation d’unités de requête par seconde**
 
-    Azure Cosmos DB propose un riche ensemble d’opérations de base de données, dont les requêtes hiérarchiques et relationnelles avec les fonctions définies par l’utilisateur, les procédures stockées et les déclencheurs, qui fonctionnent toutes au niveau des documents d’une collection de base de données. Le coût associé à chacune de ces opérations varie en fonction du processeur, des E/S et de la mémoire nécessaires à l’exécution de l’opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de demande comme une mesure unique des ressources nécessaires à l'exécution des opérations de base de données et à la réponse à la demande de l'application.
+    Azure Cosmos DB propose un riche ensemble d’opérations de base de données, dont les requêtes hiérarchiques et relationnelles avec les fonctions définies par l’utilisateur, les procédures stockées et les déclencheurs, qui fonctionnent toutes au niveau des documents d’une collection de base de données. Le coût associé à chacune de ces opérations varie en fonction du processeur, des E/S et de la mémoire nécessaires à l’exécution de l’opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de demande comme une mesure unique des ressources nécessaires à l’exécution des opérations de base de données et à la réponse à la requête de l’application.
 
-    Le débit est provisionné en fonction du nombre [d’unités de requête](request-units.md) défini pour chaque conteneur. La consommation d'unités de demande est évaluée en fonction d'un taux par seconde. Les applications qui dépassent le taux d’unités de requête configuré pour le conteneur associé sont limitées jusqu’à ce que le taux soit inférieur au niveau configuré pour le conteneur. Si votre application requiert un niveau de débit plus élevé, vous pouvez augmenter le débit en provisionnant des unités de requête supplémentaires. 
+    Le débit est provisionné en fonction du nombre [d’unités de requête](request-units.md) défini pour chaque conteneur. La consommation d’unités de requête est évaluée en fonction d’un taux par seconde. Les applications qui dépassent le taux d’unités de requête configuré pour le conteneur associé sont limitées jusqu’à ce que le taux soit inférieur au niveau configuré pour le conteneur. Si votre application requiert un niveau de débit plus élevé, vous pouvez augmenter le débit en provisionnant des unités de requête supplémentaires. 
 
     La complexité d’une requête a un impact sur le nombre d’unités de requête consommées pour une opération. Le nombre de prédicats, la nature des prédicats, le nombre de fonctions définies par l’utilisateur et la taille du jeu de données sources ont tous une influence sur le coût des opérations de requête.
 
@@ -209,7 +209,7 @@ Pour d’autres plateformes (Redhat, Windows, Mac, etc.), reportez-vous à ces i
     response.getRequestCharge();
     ```             
 
-    Les frais de la requête retournée dans cet en-tête correspondent à une fraction du débit provisionné. Par exemple, si 2 000 RU/seconde sont provisionnées et que la requête ci-dessus retourne 1000 documents de 1 Ko, le coût de l’opération est de 1000. Par conséquent, en une seconde, le serveur honore uniquement deux requêtes avant de limiter les requêtes suivantes. Pour plus d’informations, consultez [Unités de requête](request-units.md) et la [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner).
+    Les frais de la requête retournée dans cet en-tête correspondent à une fraction du débit provisionné. Par exemple, si 2 000 RU/seconde sont provisionnées et que la requête ci-dessus retourne 1000 documents de 1 Ko, le coût de l’opération est de 1000. Par conséquent, en une seconde, le serveur honore uniquement deux requêtes avant de limiter le taux de requêtes suivantes. Pour plus d’informations, consultez [Unités de requête](request-units.md) et la [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Gestion de la limite de taux/du taux de requête trop importants**
 

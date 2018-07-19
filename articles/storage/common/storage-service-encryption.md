@@ -6,13 +6,14 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 06/12/2018
 ms.author: lakasa
-ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d469dfb5092f1269a6600ee8ee2f81778fd83b96
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449063"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
 
@@ -40,7 +41,7 @@ Pour afficher les paramètres de Storage Service Encryption, connectez-vous au [
 
 **Q : J’ai un compte de stockage classique. Puis-je y activer Storage Service Encryption ?**
 
-R : Storage Service Encryption est activé par défaut pour tous les comptes de stockage (comptes de stockage classiques et Resource Manager).
+R : Storage Service Encryption est activé pour tous les comptes de stockage (classiques et Gestionnaire des ressources).
 
 **Q : Comment chiffrer les données de mon compte de stockage classique ?**
 
@@ -52,7 +53,7 @@ R : Storage Service Encryption est activé par défaut sur tous les comptes de 
 
 **Q : comment chiffrer les données dans un compte de stockage Resource Manager ?**
 
-R : Le chiffrement du service de stockage est activé par défaut pour tous les comptes de stockage (comptes classiques et comptes du Gestionnaire des ressources). Tous les fichiers existants dans le compte de stockage créés avant l’activation du chiffrement sont chiffrés rétroactivement par un processus de chiffrement en arrière-plan.
+R : Storage Service Encryption est activé pour tous les comptes de stockage (comptes classiques et comptes du Gestionnaire des ressources). Tous les fichiers existants dans le compte de stockage créés avant l’activation du chiffrement sont chiffrés rétroactivement par un processus de chiffrement en arrière-plan.
 
 **Q : Puis-je créer des comptes de stockage dans lesquels Storage Service Encryption est activé à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure ?**
 
@@ -72,7 +73,7 @@ R : Oui, si vous [utilisez vos propres clés de chiffrement](storage-service-enc
 
 **Q : Storage Service Encryption est-il activé par défaut lorsque je crée un compte de stockage ?**
 
-R : Oui, Storage Service Encryption est activé par défaut pour tous les comptes de stockage et pour tous les services Stockage Azure.
+R : Oui, Storage Service Encryption est activé pour tous les comptes de stockage et pour tous les services Stockage Azure.
 
 **Q : En quoi est-ce différent d’Azure Disk Encryption ?**
 
@@ -92,7 +93,11 @@ R : Le chiffrement est activé par défaut, et il n’existe pas de configurati
 
 **Q : Storage Service Encryption est-il autorisé uniquement dans certaines régions ?**
 
-R : Storage Service Encryption est disponible dans toutes les régions et pour tous les services. 
+R : Storage Service Encryption est disponible dans toutes les régions et pour tous les services.
+
+**Q : Storage Service Encryption est-il conforme à la norme FIPS 140-2 ?**
+
+R : Oui, Storage Service Encryption est conforme à la norme FIPS 140-2.
 
 **Q : Comment obtenir de l’aide si je rencontre des problèmes ou que je souhaite envoyer des commentaires ?**
 

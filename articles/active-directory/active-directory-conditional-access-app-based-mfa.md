@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1501ca1c036a8db1d53b9b27170d9ae05d41f797
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0a2cddec1308b96b960cd0bbc5ccae9fd1a1a9a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724113"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449143"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Démarrage rapide - Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory 
 
@@ -42,8 +42,18 @@ Pour suivre le scénario décrit dans ce démarrage rapide, vous avez besoin de 
 
 - **Accès à l’édition Azure AD Premium** : l’accès conditionnel Azure AD est une fonctionnalité d’Azure AD Premium. 
 
-- **Un compte d’essai nommé Isabella Simonsen** : si vous ignorez comment créer un compte d’essai, voir [Ajouter des utilisateurs basés sur le cloud](add-users-azure-active-directory.md#add-cloud-based-users).
+- **Un compte d’essai nommé Isabella Simonsen** : si vous ignorez comment créer un compte d’essai, voir [Ajouter des utilisateurs basés sur le cloud](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
+
+## <a name="test-your-sign-in"></a>Tester la connexion
+
+L’objectif de cette étape consiste à obtenir une impression de l’expérience de connexion sans stratégie d’accès conditionnel.
+
+**Pour initialiser votre environnement :**
+
+1. Connectez-vous à votre portail Azure en tant que Isabella Simonsen.
+
+2. Déconnectez-vous.
 
 
 ## <a name="create-your-conditional-access-policy"></a>Créer votre stratégie d’accès conditionnel 
@@ -69,7 +79,7 @@ Dans votre stratégie, définissez :
 
 **Pour configurer votre stratégie d’accès conditionnel, procédez comme suit :**
 
-1. Connectez-vous à votre [portail Azure](https://portal.azure.com) en tant qu’administrateur général.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 
 2. Dans la barre de navigation gauche du portail Azure, cliquez sur **Azure Active Directory**. 
 
@@ -179,7 +189,7 @@ Pour initialiser l’outil d’évaluation de stratégie What If, définissez ce
 
     c. Cliquez sur **Sélectionner**.
 
-    d. Dans la page **Sélectionner**, choisissez Gestion Microsoft Azure**, puis cliquez sur **Sélectionner**.
+    d. Dans la page **Sélectionner**, choisissez **Gestion Microsoft Azure**, puis cliquez sur **Sélectionner**.
 
     e. Dans la page Applications cloud, cliquez sur **Terminé**.
 
@@ -199,7 +209,7 @@ Pour tester votre stratégie, essayez de vous connecter à votre [portail Azure]
 
 Lorsque vous n’en avez plus besoin, supprimez l’utilisateur de test et la stratégie d’accès conditionnel :
 
-- Si vous ignorez comment supprimer un utilisateur Azure AD, voir [Supprimer des utilisateurs d’Azure AD](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Si vous ignorez comment supprimer un utilisateur Azure AD, voir [Supprimer des utilisateurs d’Azure AD](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
 
 - Pour supprimer votre stratégie, sélectionnez-la, puis cliquez sur **Supprimer** dans la barre d’outils Accès rapide.
 
@@ -208,5 +218,6 @@ Lorsque vous n’en avez plus besoin, supprimez l’utilisateur de test et la st
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’accès conditionnel, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
+> [!div class="nextstepaction"]
+> [Exiger l’acceptation des conditions d’utilisation](./active-directory-conditional-access-tou.md)
+> [Bloquer l’accès lorsqu’un risque de session est détecté](./active-directory-conditional-access-app-sign-in-risk.md)

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 3c3fde3aefe02dd3919378d39afeff7cded763fc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 36c7bfeece12fe2bb2738e50de03ba2c8fc07bfa
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215560"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111944"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Didacticiel : Intégration d’Azure Active Directory à Coupa
 
@@ -60,14 +60,14 @@ Pour configurer l'intégration de Coupa avec Azure AD, vous devez ajouter Coupa 
 
 **Pour ajouter Coupa à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory][1]
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
-    
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
@@ -103,21 +103,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Boîte de dialogue Authentification unique](./media/coupa-tutorial/tutorial_coupa_samlbase.png)
 
 3. Dans la section **Domaine et URL Coupa**, procédez comme suit :
 
     ![Informations d’authentification unique dans Domaine et URL Coupa](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `http://<companyname>.Coupa.com`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.coupahost.com`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<companyname>.coupahost.com`
+    > [!NOTE]
+    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez l’[équipe de support technique de Coupa](https://success.coupa.com/Support/Contact_Us?).
 
-    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<companyname>.coupahost.com/sp/ACS.saml2`
+    b. Dans la zone de texte **Identificateur**, tapez l’URL suivante :
 
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Coupa](https://success.coupa.com/Support/Contact_Us?). Vous obtenez la valeur de l’URL de réponse à partir des métadonnées, qui sont expliquées plus loin dans le didacticiel.
+    | Environnement  | URL |
+    |:-------------|----|
+    | Bac à sable | `devsso35.coupahost.com`|
+    | Production | `prdsso40.coupahost.com`|
+    | | |
+
+    c. Dans la zone de texte **URL de réponse**, tapez l’URL suivante :
+
+    | Environnement | URL |
+    |------------- |----|
+    | Bac à sable | `https://devsso35.coupahost.com/sp/ACS.saml2`|
+    | Production | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | | |
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -130,24 +142,18 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 6. Connectez-vous à votre site d’entreprise Coupa en tant qu’administrateur.
 
 7. Accédez à **Setup \> Security controls**.
-   
+
    ![Security Controls](./media/coupa-tutorial/ic791900.png "Security Controls")
 
 8. Dans la section **Log in using Coupa credentials** , procédez comme suit :
 
     ![Coupa SP metadata](./media/coupa-tutorial/ic791901.png "Coupa SP metadata")
-    
-    a. Sélectionnez **Log in using SAML**.
-    
-    b. Pour télécharger le fichier de métadonnées Coupa sur votre ordinateur, cliquez sur **Download and import SP metadata**. Ouvrez les métadonnées et copiez la valeur **AssertionConsumerService index/URL**, collez-la dans la zone de texte **URL de réponse** dans la section **Domaine et URL Coupa**. 
-    
-    c. Cliquez sur **Parcourir** pour charger les métadonnées téléchargées à partir du portail Azure.
-    
-    d. Cliquez sur **Enregistrer**.
 
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Sélectionnez **Log in using SAML**.
+
+    b. Cliquez sur **Parcourir** pour charger les métadonnées téléchargées à partir du portail Azure.
+
+    c. Cliquez sur **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -180,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
     d. Cliquez sur **Créer**.
- 
+
 ### <a name="create-a-coupa-test-user"></a>Créer un utilisateur de test Coupa
 
 Pour se connecter à Coupa, les utilisateurs d’Azure AD doivent être approvisionnés dans Coupa.  
@@ -192,39 +198,39 @@ Pour se connecter à Coupa, les utilisateurs d’Azure AD doivent être approvis
 1. Connectez-vous à votre site d’entreprise **Coupa** en tant qu’administrateur.
 
 2. Dans le menu situé en haut, cliquez sur **Setup**, puis sur **Users**.
-   
+
    ![Utilisateurs](./media/coupa-tutorial/ic791908.png "Utilisateurs")
 
 3. Cliquez sur **Créer**.
-   
+
    ![Create Users](./media/coupa-tutorial/ic791909.png "Create Users")
 
 4. Dans la section **User Create** , procédez comme suit :
-   
+
    ![Détails de l’utilisateur](./media/coupa-tutorial/ic791910.png "Détails de l’utilisateur")
-   
+
    a. Tapez l’ID de connexion, le prénom, le nom, l’ID d’authentification unique et l’adresse électronique d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte **Login**, **First name**, **Last Name**, **Single Sign-On ID** et **Email**.
 
-   b. Cliquez sur **Créer**.   
-   
+   b. Cliquez sur **Créer**.
+
    >[!NOTE]
-   >Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien pour confirmer le compte et l’activer. 
-   > 
+   >Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien pour confirmer le compte et l’activer.
+   >
 
 >[!NOTE]
->Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par Coupa pour approvisionner des comptes d’utilisateurs AAD. 
+>Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur fourni par Coupa pour approvisionner des comptes d’utilisateurs AAD.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Coupa.
 
-![Attribuer le rôle utilisateur][200] 
+![Attribuer le rôle utilisateur][200]
 
 **Pour affecter Britta Simon à Coupa, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Affecter des utilisateurs][201]
 
 2. Dans la liste des applications, sélectionnez **Coupa**.
 
@@ -243,13 +249,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
 7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
+
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Coupa dans le volet d’accès, vous devez être connecté automatiquement à votre application Coupa.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
@@ -269,4 +275,3 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/coupa-tutorial/tutorial_general_201.png
 [202]: ./media/coupa-tutorial/tutorial_general_202.png
 [203]: ./media/coupa-tutorial/tutorial_general_203.png
-

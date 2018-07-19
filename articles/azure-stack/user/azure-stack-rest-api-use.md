@@ -3,22 +3,22 @@ title: Utilisation de l’API Azure Stack | Microsoft Docs
 description: Découvrez comment récupérer une authentification d’Azure pour effectuer des requêtes d’API auprès d’Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: cblackuk
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/02/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359109"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346788"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -26,7 +26,7 @@ ms.locfileid: "34359109"
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Vous pouvez utiliser l’interface de programmation d’application (API) Azure Stack pour automatiser des opérations comme la syndication d’éléments de Place de marché.
+Vous pouvez utiliser l’interface de programmation d’application (API) pour automatiser des opérations comme l’ajout de VM à votre cloud Azure Stack.
 
 L’API exige que votre client s’authentifie auprès du point de terminaison de connexion Microsoft Azure. Le point de terminaison renvoie un jeton à utiliser dans l’en-tête de chacune des requêtes transmises à l’API Azure Stack. Microsoft Azure utilise Oauth 2.0.
 
@@ -38,7 +38,7 @@ Cet article ne traite pas de l’ensemble des options disponibles pour la récup
 
 ## <a name="get-a-token-from-azure"></a>Récupérer un jeton d’Azure
 
-Créez un corps de demande mis en forme à l’aide du type de contenu x-www-form-urlencoded afin d’obtenir un jeton d’accès. Exécutez la commande POST afin de publier votre requête sur le point de terminaison de connexion et d’authentification Azure REST.
+Créez un corps de requête mis en forme à l’aide du type de contenu x-www-form-urlencoded afin d’obtenir un jeton d’accès. Exécutez la commande POST afin de publier votre requête sur le point de terminaison de connexion et d’authentification Azure REST.
 
 ### <a name="uri"></a>URI
 
@@ -69,7 +69,7 @@ Pour chaque valeur :
     Le type de schéma d’authentification que vous vous apprêtez à utiliser. Dans cet exemple, la valeur est `password`
 
  - **resource**  
-    La ressource à laquelle le jeton accède. Pour rechercher la ressource, interrogez le point de terminaison des métadonnées d’administration Azure Stack. Examinez la section **audiences**.
+    La ressource à laquelle le jeton accède. Pour rechercher la ressource, interrogez le point de terminaison des métadonnées d’administration Azure Stack. Examinez la section **audiences**
 
  - **Point de terminaison d’administration Azure Stack**  
     ```
@@ -134,11 +134,11 @@ Pour chaque valeur :
 
   **mot de passe**
 
-  Le mot de passe administrateur Azure Stack AAD
+  Le mot de passe administrateur Azure Stack AAD.
 
 ### <a name="example"></a>Exemples
 
-Demande :
+Requête :
 
 ```
 curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token" \
@@ -167,9 +167,9 @@ Réponse :
 
 ## <a name="api-queries"></a>Requêtes d’API
 
-Une fois que vous avez obtenu votre jeton d’accès, vous devez l’ajouter comme en-tête à chacune de vos requêtes d’API. Pour ce faire, vous devez créer un en-tête **authorization** avec la valeur : `Bearer <access token>`. Par exemple : 
+Une fois que vous avez obtenu votre jeton d’accès, vous devez l’ajouter comme en-tête à chacune de vos requêtes d’API. Pour ce faire, vous devez créer un en-tête **authorization** avec la valeur : `Bearer <access token>`. Par exemple :
 
-Demande :
+Requête :
 
 ```bash  
 curl -H "Authorization: Bearer eyJ0eXAiOi...truncated for readability..." 'https://adminmanagement.local.azurestack.external/subscriptions?api-version=2016-05-01'

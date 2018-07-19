@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738528"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342724"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -51,9 +51,17 @@ L’agent Azure File Sync ne présente aucune exigence particulière concernant 
 Azure File Sync prend en charge n’importe quel mode d’accès à Azure disponible, s’adaptant automatiquement aux différentes caractéristiques de réseau, telles que la bande passante et la latence, tout en offrant un contrôle d’administration pour optimiser les paramètres. Toutes les fonctionnalités ne sont pas disponibles pour le moment. Si vous souhaitez configurer un comportement spécifique, indiquez-le nous sur le [forum UserVoice consacré à Azure Files](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## <a name="proxy"></a>Proxy
-Actuellement, Azure File Sync prend en charge les paramètres de proxy au niveau des ordinateurs. Cette configuration de proxy est transparente pour l’agent Azure File Sync, car l’ensemble du trafic du serveur est acheminé à travers ce proxy.
+Azure File Sync prend en charge les paramètres de proxy au niveau des ordinateurs et relatifs à l’application.
 
-Les paramètres de proxy propres aux applications sont en cours de développement et seront pris en charge dans une prochaine version de l’agent Azure File Sync. Il sera ainsi possible de configurer un proxy spécifiquement pour le trafic d’Azure File Sync.
+Les configurations de proxy au niveau des ordinateurs sont transparentes pour l’agent Azure File Sync, car l’ensemble du trafic du serveur est acheminé à travers ce proxy.
+
+Les paramètre de proxy spécifiques à l’application permettent de configurer un proxy spécifiquement pour le trafic d’Azure File Sync. Les paramètres de proxy spécifiques à l’application sont pris en charge sur l’agent version 3.0.12.0 ou ultérieure, et peuvent être configurés pendant l’installation de l’agent ou à l’aide de l’applet de commande PowerShell Set-StorageSyncProxyConfiguration.
+
+Commandes PowerShell pour configurer les paramètres de proxy spécifiques à l’application :
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
 
 ## <a name="firewall"></a>Pare-feu
 Comme mentionné plus haut, le port 443 doit être ouvert en sortie. Selon les stratégies en place dans votre centre de données, votre succursale ou votre région, il se peut que vous souhaitiez ou deviez restreindre le trafic sur ce port à des domaines spécifiques.

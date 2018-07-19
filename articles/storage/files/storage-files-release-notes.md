@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 946311c42088d3a5840eb35387c8a552d3d5d70f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c1ca8146db8c5d67be53ba4e30d8ab0218aca104
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735642"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128756"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Notes de publication sur l’agent Azure File Sync (préversion)
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -25,7 +25,8 @@ Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 
 | Jalon | Numéro de version de l’agent | Date de lancement | Statut |
 |----|----------------------|--------------|------------------|
-| Actualiser 2 | 3.0.12.0 | 22 mai 2018 | Prise en charge (version recommandée) |
+| Correctif cumulatif de juin | 3.0.13.0 | 29 juin 2018 | Prise en charge (version recommandée) |
+| Actualiser 2 | 3.0.12.0 | 22 mai 2018 | Prise en charge |
 | Correctif cumulatif d’avril | 2.3.0.0 | 8 mai 2018 | Prise en charge |
 | Correctif cumulatif de mars | 2.2.0.0 | 12 mars 2018 | Prise en charge |
 | Correctif cumulatif de février | 2.1.0.0 | 28 février 2018 | Prise en charge |
@@ -37,6 +38,12 @@ Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-30130"></a>Version 3.0.13.0 de l’agent
+Les notes de publication suivantes concernent la version 3.0.13.0 de l’agent Azure File Sync mise en production le 29 juin 2018. Ces notes s’ajoutent aux notes de publication répertoriées pour la version 3.0.12.0.
+
+Cette mise en production inclut le correctif suivant :
+- La synchronisation échoue si un serveur est ajouté à un groupe de synchronisation existant s’il existe des points d’analyse dans l’emplacement du point de terminaison de serveur sur le serveur.
 
 ## <a name="agent-version-30120"></a>Version 3.0.12.0 de l’agent
 Les notes de publication suivantes concernent la version 3.0.12.0 de l’agent Azure File Sync (mise en production le 22 mai 2018).

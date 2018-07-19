@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/02/2018
 ms.reviewer: danha
 ms.author: mbullwin
-ms.openlocfilehash: 7f8f49cf88bda8e485d2365281c13680ef796196
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: aa86e2f3b1fb147ab167c948475a5207693143c2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295517"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341560"
 ---
 # <a name="using-analytics-in-application-insights"></a>Utilisation d’Analytics dans Application Insights
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
@@ -151,7 +151,7 @@ Le graphique épinglé au tableau de bord est actualisé automatiquement lorsque
 
 Certaines simplifications sont appliquées à un graphique lorsque vous l’épinglez à un tableau de bord.
 
-**Restriction de temps :** les requêtes sont automatiquement limitées aux 14 derniers jours. L’effet est le même que si votre requête inclut `where timestamp > ago(14d)`.
+**Restriction de temps :** les requêtes sont automatiquement limitées aux 30 derniers jours. L’effet est le même que si votre requête inclut `where timestamp > ago(30d)`.
 
 **Restriction du nombre d'emplacements :** si vous utilisez un graphique comportant un grand nombre d’emplacements discrets (généralement un graphique à barres), les emplacements les moins remplis sont automatiquement regroupés en un seul emplacement « autres ». Par exemple, cette requête :
 

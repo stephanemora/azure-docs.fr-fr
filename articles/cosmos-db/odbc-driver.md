@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725089"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096507"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -63,7 +63,7 @@ Familiarisons-nous à présent avec le pilote ODBC.
 4. Cliquez sur le bouton **Test** pour vérifier que vous pouvez vous connecter à votre compte Azure Cosmos DB. 
 5. Cliquez sur **Options avancées** et définissez les valeurs suivantes :
     - **Cohérence des requêtes** : sélectionnez le [niveau de cohérence](consistency-levels.md) de vos opérations. La valeur par défaut est Session.
-    - **Nombre de tentatives**: entrez le nombre de tentatives d’une opération si la demande initiale n’aboutit pas en raison d’une limitation de service.
+    - **Nombre de tentatives**: entrez le nombre de tentatives d’une opération si la demande initiale n’aboutit pas en raison d’une limitation du débit service.
     - **Fichier de schéma** : plusieurs options vous sont proposées ici.
         - Par défaut, si vous ne modifiez pas cette entrée (vide), le pilote analyse les données de la première page de toutes les collections afin de déterminer le schéma de chaque collection. Cette opération est appelée Mappage de la collection. Si aucun fichier de schéma n’est défini, le pilote doit effectuer l’analyse pour chaque session de pilote, ce qui peut allonger le délai de démarrage d’une application avec le DSN. Nous vous recommandons de toujours associer un fichier de schéma à un DSN.
         - Si vous disposez déjà d’un fichier de schéma (peut-être un fichier que vous avez créé à l’aide de [l’Éditeur de schéma](#schema-editor)), cliquez sur **Parcourir**, recherchez votre fichier, cliquez sur **Enregistrer**, puis sur **OK**.

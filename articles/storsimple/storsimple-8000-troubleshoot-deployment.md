@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: d6642231bf9d012b0015902c82d2bfde3b86285c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112257"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342423"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Résolution des problèmes de déploiement d’un appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -76,7 +76,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 | 3 |Invoke-HcsSetupWizard : il existe un conflit d’adresses IP avec un autre système sur le réseau (exception de HRESULT : 0x80070263). |L’adresse IP fournie pour DATA 0 était déjà utilisée par un autre système. |Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation. |
 | 4 |Invoke-HcsSetupWizard : échec de la ressource de cluster (Exception de HRESULT : 0x800713AE). |Adresse IP virtuelle en double. L’adresse IP fournie est déjà en cours d’utilisation. |Fournissez une nouvelle adresse IP qui n’est pas en cours d’utilisation. |
 | 5. |Invoke-HcsSetupWizard : adresse IPv4 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv4][1]. |
-| 6 |Invoke-HcsSetupWizard : adresse IPv6 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2]. |
+| 6. |Invoke-HcsSetupWizard : adresse IPv6 non valide. |L’adresse IP est fournie dans un format incorrect. |Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2]. |
 | 7 |Invoke-HcsSetupWizard : il n’y a plus de points de terminaison disponibles auprès du mappeur de point de terminaison. (Exception de HRESULT : 0x800706D9) |La fonctionnalité de cluster ne fonctionne pas. |[contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) . |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Erreurs pendant la configuration des paramètres de proxy web facultatifs
@@ -136,10 +136,10 @@ Vous utilisez le service StorSimple Device Manager en cours d’exécution dans 
 | 6. |Erreur 350016 : Échec de l’inscription de l’appareil. | |Vérifiez que la clé d’inscription est correcte. |
 | 7 |Invoke-HcsSetupWizard : Une erreur s’est produite lors de l’inscription de votre appareil ; cela peut être dû à une adresse IP ou un nom DNS incorrect. Vérifiez vos paramètres réseau et réessayez. Si le problème persiste, [contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md). (Erreur 350050) |Assurez-vous que votre appareil peut tester le réseau externe (avec une commande ping). Si vous n’avez pas de connectivité vers le réseau externe, l’inscription peut échouer avec cette erreur. Cette erreur peut être une combinaison d’un ou plusieurs des éléments suivants :<ul><li>IP incorrecte</li><li>Sous-réseau incorrect</li><li>Passerelle incorrecte</li><li>Paramètres DNS incorrects</li></ul> |Pour les étapes, consultez la page [Exemple de résolution de problème pas à pas](#step-by-step-storsimple-troubleshooting-example). |
 | 8 |Invoke-HcsSetupWizard : échec de l’opération en cours en raison d’une erreur de service interne [0x1FBE2]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |Il s’agit d’une erreur générique levée pour toutes les erreurs du service ou de l’agent invisibles pour l’utilisateur. La raison la plus courante est un échec de l’authentification ACS. Une cause possible de l’échec est l’existence de problèmes avec la configuration du serveur NTP et un paramétrage incorrect de l’heure sur l’appareil. |Corrigez l’heure (s’il existe des problèmes), puis réessayez l’opération d’inscription. Si vous utilisez la commande Set-HcsSystem - Fuseau horaire pour ajuster le fuseau horaire, mettez chaque mot du fuseau horaire en majuscule (par exemple « Pacifique »).  Si le problème persiste, contactez le [support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour les étapes suivantes. |
-| 9. |Avertissement : impossible d’activer l’appareil. Les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple n’ont pas été modifiés. |Si l’inscription échoue, les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple ne sont pas modifiés. | |
+| 9 |Avertissement : impossible d’activer l’appareil. Les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple n’ont pas été modifiés. |Si l’inscription échoue, les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple ne sont pas modifiés. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Outils de résolution des problèmes de déploiement de StorSimple
-StorSimple comprend plusieurs outils que vous pouvez utiliser pour résoudre les problèmes de votre solution StorSimple. Vous avez notamment vu les points suivants :
+StorSimple comprend plusieurs outils que vous pouvez utiliser pour résoudre les problèmes de votre solution StorSimple. Il s’agit des actions suivantes :
 
 * Packages de prise en charge et journaux d’appareil.
 * Applets de commande conçues spécialement pour la résolution des problèmes.
@@ -189,7 +189,7 @@ Au moment de configurer des interfaces réseau pour un premier déploiement d’
    * Si l’interface est intègre mais pas activée, l’état d’**ifIndex** indique **Absent**.
    * Si l’interface n’existe pas, il n’apparaît pas dans cette liste. L’interface utilisateur du service StorSimple Device Manager continue d’afficher cette interface avec l’état Échec.
 
-Pour plus d’informations sur l’utilisation de cette applet de commande, accédez à la page [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx) dans le document de référence des applets de commande Windows PowerShell.
+Pour plus d’informations sur l’utilisation de cette applet de commande, accédez à la page [GetNetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) dans le document de référence des applets de commande Windows PowerShell.
 
 Les sections suivantes présentent des exemples de sortie de l’applet de commande `Get-NetAdapter` .
 
@@ -235,7 +235,6 @@ Voici la sortie du contrôleur 1 (le contrôleur actif). Seule l’interface ré
 
 
 ## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Résolution des problèmes avec l’applet de commande Test-Connection
-
 Vous pouvez utiliser l’applet de commande `Test-Connection` pour déterminer si votre appareil StorSimple peut se connecter au réseau externe. Si tous les paramètres réseau, y compris le DNS, sont correctement configurés dans l’Assistant Installation, vous pouvez utiliser l’applet de commande `Test-Connection` pour effectuer un test ping sur une adresse connue à l’extérieur du réseau, comme outlook.com.
 
 Vous devez activer la commande ping pour résoudre les problèmes de connectivité avec cette applet de commande si la commande ping est désactivée.

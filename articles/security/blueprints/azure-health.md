@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
-ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "33894311"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37113229"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
@@ -163,7 +163,7 @@ Le plan comprend un jeu étendu de dossiers médicaux anonymes afin d’illustre
 
 *Adresse e-mail : Alex\_AdminSite*
 
-Le travail d’Alex consiste à évaluer les technologies susceptibles de réduire la charge liée à la gestion d’un réseau local et de réduire les coûts de gestion. Alex évalue Azure depuis quelque temps, mais il a des difficultés à configurer les services dont il a besoin pour répondre aux exigences de conformité HiTrust relatives au stockage des données des patients dans le cloud. Alex a sélectionné l’AI Azure Health pour déployer une solution de santé conforme et répondant aux exigences des clients pour HiTrust.
+Le travail d’Alex est d’évaluer les technologies susceptibles de réduire la charge de gestion d’un réseau local et de réduire les coûts de gestion. Alex évalue Azure depuis quelque temps, mais il a des difficultés à configurer les services dont il a besoin pour répondre aux exigences de conformité HiTrust relatives au stockage des données des patients dans le cloud. Alex a sélectionné l’AI Azure Health pour déployer une solution de santé conforme et répondant aux exigences des clients pour HiTrust.
 
 **Scientifique des données -- Marie**
 

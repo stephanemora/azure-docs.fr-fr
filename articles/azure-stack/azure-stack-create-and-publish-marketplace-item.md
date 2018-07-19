@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "35629988"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
 
@@ -35,6 +36,10 @@ ms.lasthandoff: 05/12/2018
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
 3. [Créez un modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) ou choisissez un modèle sur GitHub. L’article de Marketplace utilise ce modèle pour créer une ressource.
+
+    > [!Note]  
+    > Ne codez jamais en dur des secrets tels que des clés de produit, des mots de passe ou des informations d’identification de client dans le modèle Azure Resource Manager. Les fichiers modèles JSON sont accessibles sans authentification une fois qu’ils sont publiés dans la galerie.  Stockez tous les secrets dans [Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-keyvault-parameter) et appelez-les à partir du modèle.
+
 4. Pour vérifier que le déploiement de la ressource peut réussir, testez le modèle avec les API Microsoft Azure Stack.
 5. Si votre modèle repose sur une image de machine virtuelle, suivez les instructions pour [ajouter une image de machine virtuelle sur Azure Stack](azure-stack-add-vm-image.md).
 6. Enregistrez votre modèle Azure Resource Manager dans le dossier **/Contoso.TodoList/DeploymentTemplates/**.
@@ -72,9 +77,9 @@ ms.lasthandoff: 05/12/2018
 ## <a name="publish-a-marketplace-item"></a>Publier un élément du Marketplace
 1. Utilisez PowerShell ou l’Explorateur Stockage Azure pour charger votre article de Marketplace (.azpkg) sur le Stockage Blob Azure. Vous pouvez effectuer le chargement sur le stockage Azure Stack local ou sur le Stockage Azure. (Il s’agit d’un emplacement temporaire du package.) Assurez-vous que l’objet blob est accessible publiquement.
 2. Sur la machine virtuelle cliente de l’environnement Microsoft Azure Stack, assurez-vous que votre session PowerShell est configurée avec vos informations d’identification d’administrateur de services fédérés. Vous trouverez des instructions sur l’authentification de PowerShell dans Azure Stack sur la page [Déployer un modèle avec PowerShell](user/azure-stack-deploy-template-powershell.md).
-3. Utilisez la cmdlet PowerShell **Add-AzureRMGalleryItem** pour publier l’article de Marketplace sur Azure Stack. Par exemple : 
+3. Lorsque vous utilisez [PowerShell 1.3.0]( azure-stack-powershell-install.md) ou une version ultérieure, vous pouvez utiliser la cmdlet PowerShell **Add-AzsGalleryItem** pour publier l’élément de Place de marché sur Azure Stack. Avant d’utiliser PowerShell 1.3.0, utilisez la cmdlet **Add-AzureRMGalleryitem** à la place de la cmdlet **Add-AzsGalleryItem**.  Par exemple, lorsque vous utilisez PowerShell 1.3.0 ou une version ultérieure :
    
-       Add-AzureRMGalleryItem -GalleryItemUri `
+       Add-AzsGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
    | Paramètre | Description |
@@ -89,6 +94,12 @@ ms.lasthandoff: 05/12/2018
    > 
    > 
 5. Votre article de Marketplace est maintenant enregistré sur la Marketplace Azure Stack. Vous pouvez choisir de le supprimer de votre emplacement de Stockage Blob.
+    > [!Caution]  
+    > Tous les artefacts par défaut et vos artefacts personnalisés de la galerie sont désormais accessibles sans authentification sous les URL suivantes :  
+`https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
+`https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
+
 6. Vous pouvez supprimer un article de Marketplace avec la cmdlet **Remove-AzureRMGalleryItem**. Exemple :
    
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose

@@ -9,22 +9,22 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266498"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445209"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Élever l’accès d’un administrateur général dans Azure Active Directory
 
-Si vous êtes un [administrateur général](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) dans Azure Active Directory (Azure AD), il peut vous arriver de vouloir effectuer les opérations suivantes :
+Si vous êtes un [administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) dans Azure Active Directory (Azure AD), il peut vous arriver de vouloir effectuer les opérations suivantes :
 
 - récupérer l’accès à un abonnement Azure quand un utilisateur a perdu cet accès ;
 - accorder à un autre utilisateur ou à vous-même l’accès à un abonnement Azure ;
@@ -220,4 +220,5 @@ Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Contrôle d’accès en fonction du rôle avec REST](role-assignments-rest.md)
-- [Gérer les attributions d’accès](role-assignments-users.md)
+- [Gérer l’accès aux ressources Azure avec Privileged Identity Management](pim-azure-resource.md)
+- [Gérer l’accès à la gestion Azure avec l’accès conditionnel](conditional-access-azure-management.md)

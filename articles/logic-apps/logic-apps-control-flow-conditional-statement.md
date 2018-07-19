@@ -10,12 +10,12 @@ ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d4e69d33e07f484b4ccc5343786865230368c7ca
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298166"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096374"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Créer des instructions conditionnelles qui contrôlent des actions de workflow dans Azure Logic Apps
 
@@ -46,36 +46,31 @@ Par exemple, supposons que vous disposez d’une application logique qui envoie 
 
    Quand vous souhaitez ajouter une condition à la fin de votre flux de travail, accédez au bas de votre application logique et sélectionnez **+ Nouvelle étape** > **Ajouter une condition**.
 
-3. Sous **Condition**, créez votre condition. 
+3. Sous **Condition**, générez votre condition. 
 
    1. Dans la zone de gauche, spécifiez les données ou le champ que vous souhaitez comparer.
 
-      Dans la liste **Ajouter du contenu dynamique**, vous pouvez sélectionner des champs existants de votre application logique.
+      Lorsque vous cliquez dans la case de gauche, la liste de contenu dynamique s’affiche pour vous permettre de sélectionner les sorties des étapes précédentes dans votre application logique. 
+      Pour cet exemple, sélectionnez le résumé du flux RSS.
+
+      ![Générer votre condition](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
    2. Dans la liste du milieu, sélectionnez l’opération à effectuer. 
-   3. Dans la zone de droite, spécifiez une valeur ou un champ comme critères à respecter.
+   Dans cet exemple, sélectionnez « **contains** ». 
 
-   Par exemple : 
-
-   ![Modifier la condition en mode de base](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode.png)
+   3. Dans la zone de droite, spécifiez une valeur ou un champ comme critères à respecter. 
+   Pour cet exemple, spécifiez la chaîne suivante : **Microsoft**
 
    Voici la condition complète :
 
-   ![Condition complète](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Condition complète](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
+
+5. Sous **If true** et **If false**, ajoutez les étapes à effectuer si la condition est remplie ou non. Par exemple : 
+
+   ![Condition avec les chemins « If true » et « If false »](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Pour créer une condition plus avancée ou utiliser des expressions, choisissez **Edit in advanced mode** (Modifier en mode avancé). Vous pouvez utiliser des expressions définies par le [langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md).
-   > 
-   > Par exemple : 
-   >
-   > ![Modifier la condition dans le code](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
-
-5. Sous **SI OUI** et **SI NON**, ajoutez les étapes à effectuer si la condition est remplie ou non. Par exemple : 
-
-   ![Condition avec les chemins SI OUI et SI NON](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
-
-   > [!TIP]
-   > Vous pouvez faire glisser des actions existantes dans les chemins **SI OUI** et **SI NON**.
+   > Vous pouvez faire glisser des actions existantes dans les chemins **If true** et **If false**.
 
 6. Enregistrez votre application logique.
 
@@ -87,14 +82,21 @@ Maintenant que vous avez créé une application logique avec une instruction con
 
 ``` json
 "actions": {
-  "myConditionName": {
+  "Condition": {
     "type": "If",
-    "expression": "@contains(triggerBody()?['summary'], 'Microsoft')",
     "actions": {
       "Send_an_email": {
-        "inputs": { },
+        "inputs": {},
         "runAfter": {}
-      }
+    },
+    "expression": {
+      "and": [ 
+        { 
+          "contains": [ 
+            "@triggerBody()?['summary']", "Microsoft"
+          ]
+        } 
+      ]
     },
     "runAfter": {}
   }

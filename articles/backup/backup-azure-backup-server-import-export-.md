@@ -1,25 +1,19 @@
 ---
-title: Sauvegarde Azure - Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure | Microsoft Docs
+title: Sauvegarde Azure - Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 description: Découvrez comment la sauvegarde Azure vous permet d’envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article décrit l’amorçage hors connexion des données de sauvegarde initiale à l’aide du service Azure Import/Export.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: e3f7ae187bee8680fbff7e5c78c666a0bda7e48f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: saurse
+ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941257"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34606475"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. La sauvegarde Azure compresse les sauvegardes initiales. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure.
@@ -49,7 +43,6 @@ La sauvegarde en mode hors connexion est prise en charge pour tous les modèles 
 > * Sauvegarde de l’ensemble des charges de travail et fichiers avec Serveur Sauvegarde Microsoft Azure <br/>
 
 ## <a name="prerequisites"></a>Prérequis
-
 Assurez-vous que les prérequis suivants sont disponibles avant de lancer le flux de travail de sauvegarde en mode hors connexion
 * Un [coffre Recovery Services](backup-azure-recovery-services-vault-overview.md) a été créé. Pour en créer un, procédez de la manière décrite dans [cet article](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * L’agent Sauvegarde Azure, le serveur de sauvegarde Azure ou Microsoft System Center Data Protection Manager ont été installés sur un client Windows Server ou Windows, selon le besoin, et l’ordinateur est inscrit auprès du coffre Recovery Services. Assurez-vous que seule la [version la plus récente de Sauvegarde Azure](https://go.microsoft.com/fwlink/?linkid=229525) est utilisée. 
@@ -65,7 +58,7 @@ Assurez-vous que les prérequis suivants sont disponibles avant de lancer le flu
  ![Création d’un compte de stockage classique](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * Un emplacement intermédiaire est créé. Il peut s’agir d’un partage réseau ou de tout lecteur supplémentaire, interne ou externe, sur l’ordinateur offrant suffisamment d’espace disque pour conserver votre copie initiale. Par exemple, si vous tentez de sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go (bien qu’une quantité inférieure soit utilisée en raison de la compression).
-* En ce qui concerne les disques qui seront envoyés à Azure, assurez-vous que seuls des disques durs internes SSD de 2,5 pouces ou SATA II/III de 2,5 ou 3,5 pouces sont utilisés. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../storage/common/storage-import-export-service.md#hard-disk-drives) pour connaître la dernière série de disques pris en charge par le service.
+* En ce qui concerne les disques qui seront envoyés à Azure, assurez-vous que seuls des disques durs internes SSD de 2,5 pouces ou SATA II/III de 2,5 ou 3,5 pouces sont utilisés. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) pour connaître la dernière série de disques pris en charge par le service.
 * Les disques SATA doivent être connectés à un ordinateur (appelé *ordinateur de copie*) à partir duquel est effectuée la copie des données de sauvegarde de l’*emplacement intermédiaire* vers les disques SATA. Vérifiez que Bitlocker est activé sur l’*ordinateur de copie* 
 
 ## <a name="workflow"></a>Workflow
@@ -204,7 +197,7 @@ Pour vérifier l’état de la tâche d’importation, procédez comme suit.
 
     ![Vérification de l’état de la tâche d’importation](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
-Pour plus d’informations sur les différents états de la tâche d’importation Azure, voir [cet article](../storage/common/storage-import-export-service.md#how-does-the-azure-importexport-service-work)
+Pour plus d’informations sur les différents états de la tâche d’importation Azure, voir [cet article](../storage/common/storage-import-export-view-drive-status.md)
 
 ### <a name="complete-the-workflow"></a>Terminer le flux de travail
 Une fois le travail d’importation terminé, les données de sauvegarde initiale sont disponibles dans votre compte de stockage. Lors de la sauvegarde planifiée suivante, la sauvegarde Azure copie le contenu des données à partir du compte de stockage vers le coffre Recovery Services, comme ci-dessous : 

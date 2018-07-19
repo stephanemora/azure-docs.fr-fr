@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ae4edb82fa5e192a30d297dae82199bb7efca0c2
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182423"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344969"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -33,7 +33,7 @@ Même si les journaux de flux ciblent les groupes de sécurité réseau, ils ne 
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Les mêmes stratégies de conservation que celles des autres journaux s’appliquent aux journaux de flux. Vous pouvez définir la stratégie de conservation de journal entre 1 jour et 365 jours. Si aucune stratégie de rétention n’est définie, les journaux sont conservés indéfiniment.
+Les mêmes stratégies de conservation que celles des autres journaux s’appliquent aux journaux de flux. Vous pouvez définir la stratégie de conservation de journal entre 1 jour et 2147483647 jours. Si aucune stratégie de rétention n’est définie, les journaux sont conservés indéfiniment.
 
 ## <a name="log-file"></a>Fichier journal
 

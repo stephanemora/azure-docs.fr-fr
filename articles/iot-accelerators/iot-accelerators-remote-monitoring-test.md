@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628257"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088423"
 ---
 # <a name="create-a-new-simulated-device"></a>Créer un appareil simulé
 
@@ -191,15 +191,15 @@ Dans le didacticiel, vous travaillez avec une solution Visual Studio qui se conn
 
 Quand vous modifiez le service de simulation d’appareil, vous pouvez l’exécuter localement pour tester vos modifications. Avant d’exécuter le service de simulation d’appareil localement, vous devez arrêter l’instance en cours d’exécution sur la machine virtuelle en procédant comme suit :
 
-1. Pour rechercher le **CONTAINER ID** du service **device-simulation**, exécutez la commande suivante dans la session SSH connectée à la machine virtuelle :
+1. Pour rechercher le **CONTAINER ID** du service **device-simulation-dotnet**, exécutez la commande suivante dans la session SSH connectée à la machine virtuelle :
 
     ```sh
     docker ps
     ```
 
-    Prenez note de l’ID de conteneur du service **device-simulation**.
+    Prenez note de l’ID de conteneur du service **device-simulation-dotnet**.
 
-1. Pour arrêter le conteneur **device-simulation**, exécutez la commande suivante :
+1. Pour arrêter le conteneur **device-simulation-dotnet**, exécutez la commande suivante :
 
     ```sh
     docker stop container-id-from-previous-step
@@ -248,12 +248,6 @@ Tout est désormais en place et vous pouvez commencer à ajouter un nouveau type
 ## <a name="create-a-simulated-device-type"></a>Créer un type d’appareil simulé
 
 Pour créer un type d’appareil dans le service de simulation d’appareil, le plus simple consiste à copier et à modifier un type existant. Les étapes suivantes montrent comment copier l’appareil **Chiller** intégré pour créer un appareil **Lightbulb** :
-
-1. Dans Visual Studio, ouvrez le fichier de solution **device-simulation.sln** dans votre clone local du dépôt **device-simulation**.
-
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SimulationAgent**, choisissez **Propriétés**, puis **Déboguer**.
-
-1. Dans la section **Variables d’environnement**, modifiez la valeur de la variable **PCS\_IOTHUB\_CONNSTRING** pour qu’elle corresponde à la chaîne de connexion IoT Hub notée précédemment. Ensuite, enregistrez vos modifications.
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **WebService**, choisissez **Propriétés**, puis **Déboguer**.
 
@@ -385,18 +379,21 @@ Le fichier **scripts/lightbulb-01-state.js** définit le comportement de simulat
 1. Modifiez la fonction **main** pour implémenter le comportement comme le montre l’extrait de code suivant :
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -545,11 +542,11 @@ Les étapes suivantes partent du principe que vous avez un dépôt nommé **ligh
 
     Les scripts ont ajouté la balise **testing** à l’image.
 
-1. Utilisez le protocole SSH pour vous connecter à la machine virtuelle de votre solution dans Azure. Ensuite, accédez au dossier **App** et modifiez le fichier **docker-compose.yaml** :
+1. Utilisez le protocole SSH pour vous connecter à la machine virtuelle de votre solution dans Azure. Ensuite, accédez au dossier **App** et modifiez le fichier **docker-compose.yml** :
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Modifiez l’entrée du service de simulation d’appareil pour qu’elle corresponde à votre image docker :
@@ -605,7 +602,7 @@ Cette section explique comment modifier un type d’appareil simulé existant po
 
 Les étapes suivantes vous montrent comment rechercher les fichiers qui définissent l’appareil **Chiller** intégré :
 
-1. Si ce n’est déjà fait, utilisez la commande suivante pour cloner le dépôt GitHub **device-simulation** sur l’ordinateur local :
+1. Si ce n’est déjà fait, utilisez la commande suivante pour cloner le référentiel GitHub **device-simulation-dotnet** sur l’ordinateur local :
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -673,9 +670,9 @@ Les étapes suivantes vous montrent comment ajouter un nouveau type **Internal T
 
 ### <a name="test-the-chiller-device-type"></a>Tester le type d’appareil Chiller
 
-Pour tester le type d’appareil **Chiller** mis à jour, exécutez d’abord une copie locale du service **device-simulation** pour vérifier s’il se comporte normalement. Après avoir testé et débogué localement votre type d’appareil mis à jour, vous pouvez regénérer le conteneur et redéployer le service **device-simulation** sur Azure.
+Pour tester le type d’appareil **Chiller** mis à jour, exécutez d’abord une copie locale du service **device-simulation-dotnet** pour vérifier s’il se comporte normalement. Après avoir testé et débogué localement votre type d’appareil mis à jour, vous pouvez regénérer le conteneur et redéployer le service **device-simulation-dotnet** sur Azure.
 
-Quand vous exécutez le service **device-simulation** localement, il envoie les données de télémétrie à votre solution de surveillance à distance. Dans la page **Appareils**, vous pouvez provisionner des instances de votre type mis à jour.
+Quand vous exécutez le service **device-simulation-dotnet** localement, il envoie les données de télémétrie à votre solution de surveillance à distance. Dans la page **Appareils**, vous pouvez provisionner des instances de votre type mis à jour.
 
 Pour tester et déboguer localement vos modifications, consultez la section précédente [Tester le type d’appareil Lightbulb localement](#test-the-lightbulb-device-type-locally).
 

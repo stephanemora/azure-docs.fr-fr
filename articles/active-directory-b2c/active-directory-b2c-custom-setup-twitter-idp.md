@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b09bb295d889255dada0cebbb9ded2379d95d23
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34710234"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440945"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C : ajoutez Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -38,7 +38,7 @@ Pour utiliser Twitter en tant que fournisseur d’identité dans Azure Active Di
 
     b. Dans la zone **Site web**, collez **https://login.microsoftonline.com**. 
 
-    c. Dans la zone **URL de rappel**, entrez **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Remplacez {*locataire*} par le nom de votre locataire (par exemple contosob2c.onmicrosoft.com). Assurez-vous d'utiliser le schéma HTTPS. 
+    c. 4. Dans le champ **Callback URL** (URL de rappel), entrez `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Veillez à remplacer **{tenant}** par le nom de votre locataire (par exemple, contosob2c.onmicrosoft.com) et **{policyId}** par votre ID de stratégie (par exemple, b2c_1_policy).  **L’URL de rappel doit être en lettres minuscules.** Vous devez ajouter une URL de rappel pour toutes les stratégies qui utilisent la connexion Twitter. Veillez à utiliser `b2clogin.com` au lieu de ` login.microsoftonline.com` si vous l’utilisez dans votre application.
 
     d. En bas de la page, lisez les conditions et acceptez-les, puis sélectionnez **Create your Twitter application** (Créer votre application Twitter).
 

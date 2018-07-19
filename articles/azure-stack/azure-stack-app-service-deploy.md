@@ -12,100 +12,110 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: f44e6e917058306e37b9eb99819afda76a742389
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 22593fc470325fbfb74cfb432207abeea7d96ac2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604265"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343104"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-> [!IMPORTANT]
-> Appliquez la mise à jour 1804 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.2.
->
->
+Utilisez les instructions de cet article pour déployer App Service dans Azure Stack.
 
-En tant qu’opérateur cloud Azure Stack, vous pouvez donner à vos utilisateurs la possibilité de créer des applications web et API. Pour ce faire, vous devez d’abord ajouter le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) à votre déploiement Azure Stack comme décrit dans cet article. Après avoir installé le fournisseur de ressources App Service, vous pouvez l’inclure dans vos offres et vos plans. Les utilisateurs peuvent ensuite s’abonner pour obtenir le service et commencer à créer des applications.
+>[!IMPORTANT]  
+>Appliquez la mise à jour 1804 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.2.
 
-> [!IMPORTANT]
-> Avant d’exécuter le programme d’installation, assurez-vous d’avoir suivi notre guide dans [Avant de commencer](azure-stack-app-service-before-you-get-started.md).
->
->
+Vous pouvez donner à vos utilisateurs la possibilité de créer des applications web et API. Pour permettre aux utilisateurs de créer ces applications, vous devez :
+
+ - Ajouter le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) à votre déploiement Azure Stack comme décrit dans cet article.
+ - Après avoir installé le fournisseur de ressources App Service, vous pouvez l’inclure dans vos offres et vos plans. Les utilisateurs peuvent ensuite s’abonner pour obtenir le service et commencer à créer des applications.
+
+> [!IMPORTANT]  
+> Avant d’exécuter le programme d’installation de fournisseur de ressources, assurez-vous d’avoir suivi notre guide dans [Avant de commencer](azure-stack-app-service-before-you-get-started.md).
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Exécuter le programme d’installation du fournisseur de ressources App Service
 
-L’installation du fournisseur de ressources App Service dans votre environnement Azure Stack peut prendre au moins une heure en fonction du nombre d’instances de rôle que vous avez choisi de déployer. Au cours de ce processus, le programme d’installation :
+L’installation du fournisseur de ressources App Service prend au moins une heure. Le temps nécessaire dépend du nombre d’instances de rôle que vous déployez. Lors du déploiement, le programme d’installation exécute les tâches suivantes :
 
-* Crée un conteneur d’objets blob dans le compte de stockage Azure Stack spécifié.
-* Crée une zone DNS et les entrées pour App Service.
-* Inscrit le fournisseur de ressources App Service.
-* Inscrit les éléments de la galerie App Service.
+ - Crée un conteneur d’objets blob dans le compte de stockage Azure Stack spécifié.
+ - Crée une zone DNS et les entrées pour App Service.
+ - Inscrit le fournisseur de ressources App Service.
+ - Inscrit les éléments de la galerie App Service.
 
 Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
-1. Exécutez appservice.exe en tant qu’administrateur à partir d’un ordinateur pouvant atteindre le point de terminaison de gestion des ressources Azure de l’administrateur Azure Stack.
+1. Exécutez appservice.exe en tant qu’administrateur sur un ordinateur pouvant atteindre le point de terminaison de gestion des ressources Azure de l’administrateur Azure Stack.
 
-2. Cliquez sur **Déployer App Service ou effectuer une mise à niveau vers la dernière version**.
+2. Sélectionnez **Déployer App Service ou effectuer une mise à niveau vers la dernière version**.
 
     ![Programme d’installation App Service][1]
 
-3. Consultez et acceptez les termes du contrat de licence du logiciel Microsoft, puis cliquez sur **Suivant**.
+3. Consultez et acceptez les termes du contrat de licence logiciel Microsoft, puis sélectionnez **Suivant**.
 
-4. Consultez et acceptez les termes du contrat de licence tiers, puis cliquez sur **Suivant**.
+4. Consultez et acceptez les termes du contrat de licence tiers, puis sélectionnez **Suivant**.
 
-5. Vérifiez l’exactitude des informations de configuration du Cloud App Service. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack, vous pouvez accepter les valeurs par défaut ici. Toutefois, si vous avez personnalisé les options lors du déploiement d’Azure Stack, ou si vous effectuez le déploiement sur un système intégré, vous devez modifier les valeurs dans cette fenêtre pour le refléter. Par exemple, si vous utilisez le suffixe de domaine mycloud.com, vous devez remplacer votre point de terminaison Azure Resource Manager de locataire Azure Stack par management.&lt;région&gt;.mycloud.com. Après avoir confirmé vos informations, cliquez sur **suivant**.
+5. Vérifiez l’exactitude des informations de configuration du Cloud App Service. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack (ASDK), vous pouvez accepter les valeurs par défaut. Toutefois, si vous avez personnalisé les options lors du déploiement d’ASDK, ou que vous effectuez le déploiement sur un système Azure Stack intégré, vous devrez modifier les valeurs dans cette fenêtre de façon à indiquer les différences.
 
-    ![Programme d’installation App Service][2]
+   Par exemple, si vous utilisez le suffixe de domaine mycloud.com, vous devez remplacer votre point de terminaison Azure Resource Manager de locataire Azure Stack par management.&lt;région&gt;.mycloud.com. Vérifiez les paramètres, puis sélectionnez **Suivant** pour les enregistrer.
 
-6. Sur la page suivante :
-    1. Cliquez sur le bouton **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
-        * Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous avez indiqués lors du déploiement d’Azure Stack. Cliquez sur **Se connecter**.
-        * Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis cliquez sur **Se connecter**.
-    2. Dans la zone **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
-    
-    > [!NOTE]
-    > App Service peut uniquement être déployé sur **l’abonnement Fournisseur par défaut** pour l’instant.  Dans une prochaine mise à jour, App Service se déploiera sur le nouvel abonnement À l’usage introduit dans Azure Stack 1804, et tous les déploiements existants seront également migrés vers ce nouvel abonnement.
-    >
-    >
-    
-    3. Dans la zone **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
+   ![Programme d’installation App Service][2]
+
+6. Sur la page suivante du programme d’installation d’App Service, procédez comme suit :
+
+    a. Sélectionnez **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
+
+     - Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous avez indiqués lors du déploiement d’Azure Stack. Sélectionnez **Connexion**.
+     - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
+
+   b. Dans **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
+
+     >[!NOTE]
+     >Le déploiement d’App Service n’est possible à l’heure actuelle que sur **l’abonnement du fournisseur par défaut**.
+
+   c. Dans **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
 
     ![Programme d’installation App Service][3]
 
-7. Vous avez maintenant la possibilité d’effectuer le déploiement sur un réseau virtuel existant en suivant la configuration indiquée dans les étapes mentionnées [ici](azure-stack-app-service-before-you-get-started.md#virtual-network), ou d’autoriser le programme d’installation App Service à créer un réseau virtuel et des sous-réseaux associés.
-    1. Sélectionnez **Créer un réseau virtuel avec les paramètres par défaut**, acceptez les valeurs par défaut, puis cliquez sur **Suivant** ; ou
-    2. Sélectionnez **Utiliser un réseau virtuel et des sous-réseaux existants**.
-        1. Sélectionnez le **Groupe de ressources** qui contient votre réseau virtuel ;
-        2. Choisissez le nom du **Réseau virtuel** sur lequel vous voulez effectuer le déploiement ;
-        3. Sélectionnez les valeurs **Sous-réseau** correspondant à chacun des sous-réseaux de rôle nécessaires ;
-        4. Cliquez sur **Suivant**
+7. Maintenant, vous pouvez déployer dans un réseau virtuel existant que vous avez configuré [en suivant ces étapes](azure-stack-app-service-before-you-get-started.md#virtual-network), ou laisser le programme d’installation d’App Service créer un nouveau réseau et de nouveaux sous-réseaux virtuels. Pour créer un VNet, procédez comme suit :
 
-    ![Programme d’installation App Service][4]
+   a. Sélectionnez **Créer un réseau virtuel avec les paramètres par défaut**, acceptez les valeurs par défaut, puis cliquez sur **Suivant**.
 
-8. Entrez les informations du partage de fichiers, puis cliquez sur **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet ou l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
+   b. Vous pouvez aussi sélectionner **Utiliser un réseau virtuel et des sous-réseaux existants**. Effectuez les actions suivantes :
 
-   > [!NOTE]
-   > Le programme d’installation tente de tester la connectivité au partage de fichiers avant de continuer.  Toutefois, si vous avez choisi d’effectuer le déploiement sur un réseau virtuel existant, il est possible que le programme d’installation ne puisse pas se connecter au partage de fichiers, auquel cas un avertissement s’affiche, vous demandant si vous souhaitez continuer.  Vérifiez les informations du partage de fichiers et continuez si elles sont correctes.
-   >
-   >
+     - Sélectionnez le **Groupe de ressources** qui contient votre réseau virtuel.
+     - Choisissez le nom du **réseau virtuel** sur lequel vous souhaitez déployer.
+     - Sélectionnez les valeurs **Sous-réseau** correspondant à chacun des sous-réseaux de rôle nécessaires.
+     - Sélectionnez **Suivant**.
+
+   ![Programme d’installation App Service][4]
+
+8. Entrez les informations du partage de fichiers, puis sélectionnez **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet (FQDN) ou bien l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
+
+   >[!NOTE]
+   >Le programme d’installation tente de tester la connectivité au partage de fichiers avant de continuer. Toutefois, si vous effectuez un déploiement vers un réseau virtuel existant, ce test de connectivité peut échouer. Vous recevez un avertissement et un message d’invite pour continuer. Si les informations de partage de fichiers sont correctes, continuez le déploiement.
 
    ![Programme d’installation App Service][7]
 
-9. Sur la page suivante :
-    1. Dans la zone **ID d’application d’identité**, entrez le GUID de l’application que vous utilisez pour l’identité (à partir d’Azure AD).
-    2. Dans la zone **fichier de certificat d’application d’identité**, entrez (ou accédez à) l’emplacement du fichier de certificat.
-    3. Dans la zone **Mot de passe du certificat d’application d’identité**, entrez le mot de passe du certificat. Ce mot de passe est celui que vous avez noté lorsque vous avez utilisé le script pour créer les certificats.
-    4. Dans la zone **fichier de certificat racine Azure Resource Manager**, entrez (ou accédez à) l’emplacement du fichier de certificat.
-    5. Cliquez sur **Suivant**.
+9. Sur la page suivante du programme d’installation d’App Service, procédez comme suit :
 
-    ![Programme d’installation App Service][9]
+   a. Dans la zone **ID d’application d’identité**, entrez le GUID de l’application que vous utilisez pour l’identité (à partir d’Azure AD).
 
-10. Pour chacune des trois zones de fichier de certificat, cliquez sur **Parcourir** et accédez au fichier de certificat approprié. Vous devez fournir le mot de passe pour chaque certificat. Ces certificats sont ceux que vous avez créés lors de l’étape [Créer les certificats requis](azure-stack-app-service-before-you-get-started.md#get-certificates). Cliquez sur **Suivant** après avoir entré toutes les informations.
+   b. Dans la zone **fichier de certificat d’application d’identité**, entrez (ou accédez à) l’emplacement du fichier de certificat.
+
+   c. Dans la zone **Mot de passe du certificat d’application d’identité**, entrez le mot de passe du certificat. Ce mot de passe est celui que vous avez noté lorsque vous avez utilisé le script pour créer les certificats.
+
+   d. Dans la zone **fichier de certificat racine Azure Resource Manager**, entrez (ou accédez à) l’emplacement du fichier de certificat.
+
+   e. Sélectionnez **Suivant**.
+
+   ![Programme d’installation App Service][9]
+
+10. Pour chacune des trois zones de texte de fichier de certificat, cliquez sur **Parcourir** et accédez au fichier de certificat approprié. Vous devez fournir le mot de passe pour chaque certificat. Ces certificats sont ceux que vous avez créés lors de l’étape [Créer les certificats requis](azure-stack-app-service-before-you-get-started.md#get-certificates). Cliquez sur **Suivant** après avoir entré toutes les informations.
 
     | Box | Exemple de nom de fichier de certificat |
     | --- | --- |
@@ -117,25 +127,21 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     ![Programme d’installation App Service][10]
 
-11. Entrez les détails de SQL Server pour l’instance de serveur utilisée pour héberger les bases de données du fournisseur de ressources App Service, puis cliquez sur **Suivant**. Le programme d’installation valide les propriétés de connexion SQL.
+11. Entrez les détails SQL Server de l’instance de serveur utilisée pour héberger les bases de données du fournisseur de ressources App Service, puis sélectionnez **Suivant**. Le programme d’installation valide les propriétés de connexion SQL.
 
     > [!NOTE]
-    > Le programme d’installation tente de tester la connectivité au serveur SQL Server avant de continuer.  Toutefois, si vous avez choisi d’effectuer le déploiement sur un réseau virtuel existant, il est possible que le programme d’installation ne puisse pas se connecter au serveur SQL Server, auquel cas un avertissement s’affiche, vous demandant si vous souhaitez continuer.  Vérifiez les informations SQL Server et continuez si elles sont correctes.
-    >
-    >
+    > Le programme d’installation tente de tester la connectivité au serveur SQL Server avant de continuer. Toutefois, si vous effectuez un déploiement vers un réseau virtuel existant, ce test de connectivité peut échouer. Vous recevez un avertissement et un message d’invite pour continuer. Si les informations du serveur SQL Server sont correctes, continuez le déploiement.
 
     ![Programme d’installation App Service][11]
 
-12. Passez en revue de l’instance de rôle et les options de la référence SKU. Les valeurs par défaut sont remplies avec le nombre minimal d’instance et la référence (SKU) minimale pour chaque rôle dans un déploiement ASDK. Un résumé des exigences en termes de processeur virtuel et de mémoire est fourni pour vous aider à planifier votre déploiement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
+12. Passez en revue de l’instance de rôle et les options de la référence SKU. Les valeurs par défaut sont remplies avec le nombre minimal d’instances et de références (SKU) pour chaque rôle dans un déploiement ASDK. Un résumé des exigences en termes de processeur virtuel et de mémoire est fourni pour vous aider à planifier votre déploiement. Une fois vos sélections effectuées, sélectionnez **Suivant**.
 
-    > [!NOTE]
-    > Pour les déploiements de production, suivez le guide dans [Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack](azure-stack-app-service-capacity-planning.md).
-    >
-    >
+    >[!NOTE]
+    >Pour les déploiements de production, suivez le guide dans [Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack](azure-stack-app-service-capacity-planning.md).
 
     | Rôle | Nombre minimal d’instances | Nombre minimal de références (SKU) | Notes |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Gère et maintient l’intégrité du Cloud App Service. |
+    | Controller | 1 | Standard_A2 - (2 processeurs virtuels, 3584 Mo) | Gère et maintient l’intégrité du Cloud App Service. |
     | gestion | 1 | Standard_A2 - (2 processeurs virtuels, 3 584 Mo) | Gère les points de terminaison App Service Azure Resource Manager et d’API, les extensions du portail (admin, locataire, portail Functions) et du service des données. Pour prendre en charge le basculement, augmenter les instances recommandées à 2. |
     | Publisher | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Publie du contenu via FTP et un déploiement web. |
     | FrontEnd | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Achemine les demandes vers les applications App Service. |
@@ -143,28 +149,36 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     ![Programme d’installation App Service][13]
 
-    > [!NOTE]
-    > **Windows Server 2016 Core n’est pas une image de plateforme prise en charge pour une utilisation avec Azure App Service sur Azure Stack.  N’utilisez pas d’images d’évaluation pour les déploiements de production.**
+    >[!NOTE]
+    >**Windows Server 2016 Core n’est pas une image de plateforme prise en charge pour une utilisation avec Azure App Service sur Azure Stack.  N’utilisez pas d’images d’évaluation pour les déploiements en production.**
 
-13. Dans la zone **Sélectionner l’image de plateforme**, choisissez votre image de machine virtuelle Windows Server 2016 de déploiement parmi les images disponibles dans le fournisseur de ressources de calcul pour le cloud App Service. Cliquez sur **Suivant**.
+13. Dans la zone **Sélectionner l’image de plateforme**, choisissez votre image de machine virtuelle Windows Server 2016 de déploiement parmi les images disponibles dans le fournisseur de ressources de calcul pour le cloud App Service. Sélectionnez **Suivant**.
 
-14. Sur la page suivante :
-     1. Entrez le nom d’utilisateur et le mot de passe de l’administrateur de la machine virtuelle du rôle Worker.
-     2. Entrez le nom d’utilisateur et le mot de passe de l’administrateur de la machine virtuelle des autres rôles.
-     3. Cliquez sur **Suivant**.
+14. Sur la page suivante du programme d’installation d’App Service, procédez comme suit :
 
-    ![Programme d’installation App Service][15]    
+     a. Entrez le nom d’utilisateur et le mot de passe de l’administrateur de la machine virtuelle du rôle Worker.
 
-15. Sur la page de résumé :
-    1. Vérifiez les choix effectués. Pour apporter des modifications, utilisez les boutons **Précédent** pour visiter les pages précédentes.
-    2. Si les configurations sont correctes, cochez la case.
-    3. Cliquez sur **Suivant** pour commencer le déploiement.
+     b. Entrez le nom d’utilisateur et le mot de passe de l’administrateur de la machine virtuelle des autres rôles.
+
+     c. Sélectionnez **Suivant**.
+
+    ![Programme d’installation App Service][15]
+
+15. Sur la page suivante du programme d’installation d’App Service, procédez comme suit :
+
+    a. Vérifiez les choix effectués. Pour apporter des modifications, utilisez les boutons **Précédent** pour visiter les pages précédentes.
+
+    b. Si les configurations sont correctes, cochez la case.
+
+    c. Pour démarrer le déploiement, sélectionnez **Suivant**.
 
     ![Programme d’installation App Service][16]
 
-16. Sur la page suivante :
-    1. Suivez la progression de l’installation. Le déploiement d’App Service sur Azure Stack prend environ 60 minutes avec les sélections par défaut.
-    2. Une fois le programme d’installation terminé avec succès, cliquez sur **Quitter**.
+16. Sur la page suivante du programme d’installation d’App Service, procédez comme suit :
+
+    a. Suivez la progression de l’installation. Le déploiement d’App Service sur Azure Stack prend environ 60 minutes avec les sélections par défaut.
+
+    b. Une fois le programme d’installation terminé avec succès, sélectionnez **Quitter**.
 
     ![Programme d’installation App Service][17]
 
@@ -175,49 +189,52 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 2. Dans la vue d’ensemble, sous les statuts, vérifiez que le **Statut** affiche **Tous les rôles sont prêts**.
 
     ![Gestion d’App Service](media/azure-stack-app-service-deploy/image12.png)
-    
-> [!NOTE]
-> Si vous avez choisi de déployer un modèle dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
-> * Source : Toutes
-> * Plage de ports source : : *
-> * Destination : adresses IP
-> * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
-> * Plage de ports de destination : 445
-> * Protocole : TCP
-> * Action : Autoriser
-> * Priorité : 700
-> * Nom : Outbound_Allow_SMB445
+
+   >[!IMPORTANT]
+   >Si vous effectuez un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :<br>
+    >  - Source : Toutes
+    >  - Plage de ports source : : *
+    >  - Destination : adresses IP
+    >  - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+    >  - Plage de ports de destination : 445
+    >  - Protocole : TCP
+    >  - Action : Autoriser
+    >  - Priorité : 700
+    >  - Nom : Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Tester App Service sur Azure Stack
 
 Après avoir déployé et inscrit le fournisseur de ressources App Service, testez-le pour vous assurer que les utilisateurs peuvent déployer des applications web et d’API.
 
-> [!NOTE]
-> Vous devez créer une offre avec l’espace de noms Microsoft.Web dans le plan. Ensuite, vous devez avoir un abonnement locataire qui s’abonne à cette offre. Pour plus d’informations, consultez [Créer une offre](azure-stack-create-offer.md) et [Créer un plan](azure-stack-create-plan.md).
+>[!NOTE]
+>Vous devez créer une offre avec l’espace de noms Microsoft.Web dans le plan. Vous devez également avoir un abonnement locataire qui s’abonne à cette offre. Pour plus d’informations, consultez [Créer une offre](azure-stack-create-offer.md) et [Créer un plan](azure-stack-create-plan.md).
 >
-Vous *devez* disposer d’un abonnement locataire pour créer des applications qui utilisent App Service sur Azure Stack. Les seules fonctionnalités qu’un administrateur de service peut effectuer dans le portail d’administration sont liées à l’administration du fournisseur de ressources App Service. Ces fonctionnalités incluent l’ajout de capacité, la configuration de sources de déploiement, l’ajout de niveaux Worker et de références.
+>Vous *devez* disposer d’un abonnement locataire pour créer des applications qui utilisent App Service sur Azure Stack. Les seules fonctionnalités qu’un administrateur de service peut effectuer dans le portail d’administration sont liées à l’administration du fournisseur de ressources App Service. Ces fonctionnalités incluent l’ajout de capacité, la configuration de sources de déploiement, l’ajout de niveaux Worker et de références SKU.
 >
-Pour créer des applications web, d’API et Azure Functions, vous devez utiliser le portail du locataire et disposer d’un abonnement locataire.
+>Pour créer des applications web, d’API et Azure Functions, vous devez utiliser le portail du locataire et disposer d’un abonnement locataire.
+>
 
-1. Dans le portail du locataire Azure Stack, cliquez sur **Nouveau** > **Web + Mobile** > **Application web**.
+Pour créer une application web de test, procédez comme suit :
 
-2. Dans le panneau **Application web**, tapez un nom dans la zone **Application web**.
+1. Dans le portail du locataire Azure Stack, sélectionnez **Nouveau** > **Web + Mobile** > **Application web**.
 
-3. Sous **Groupe de ressources**, cliquez sur **Nouveau**. Tapez un nom dans la zone **Groupe de ressources**.
+2. Sous **application Web**, entrez un nom dans **application Web**.
 
-4. Cliquez sur **Plan App Service/Emplacement** > **Créer**.
+3. Sous **Groupe de ressources**, sélectionnez **Nouveau**. Entrez un nom pour le **groupe de ressources**.
 
-5. Dans le panneau **Plan App Service**, tapez un nom dans la zone **Plan App Service**.
+4. Sélectionnez **Plan App Service/Emplacement** > **Créer**.
 
-6. Cliquez sur **Niveau tarifaire** > **Libre-Partagé** ou **Partagé-Partagé** > **Sélectionnez** > **OK** > **Créer**.
+5. Sous **plan App Service**, entrez un nom pour le **plan App Service**.
 
-7. En moins d’une minute, une vignette pour la nouvelle application web s’affiche dans le tableau de bord. Cliquez sur la vignette.
+6. Sélectionnez **Niveau tarifaire** > **Libre-Partagé** ou **Partagé-Partagé** > **Sélectionnez** > **OK** > **Créer**.
+
+7. Une vignette pour la nouvelle application web s’affiche dans le tableau de bord. Sélectionnez la vignette.
 
 8. Dans le panneau **Application web**, cliquez sur **Parcourir** pour afficher le site web par défaut pour cette application.
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Déployer un site web WordPress, DNN ou Django (facultatif)
 
-1. Dans le portail du locataire Azure Stack, cliquez sur **+**, accédez à la Place de marché Azure, déployez un site web Django et attendez que l’opération se termine. La plateforme web Django utilise une base de données basée sur système de fichiers. Elle ne nécessite aucun fournisseur de ressources supplémentaire comme SQL ou MySQL.
+1. Dans le portail du locataire Azure Stack, sélectionnez **+**, accédez à la Place de marché Azure, déployez un site web Django et attendez que l’opération se termine. La plateforme web Django utilise une base de données basée sur système de fichiers. Elle ne nécessite aucun fournisseur de ressources supplémentaire comme SQL ou MySQL.
 
 2. Si vous avez également déployé un fournisseur de ressources MySQL, vous pouvez déployer un site web WordPress à partir de la Place de marché. Lorsque vous êtes invité à entrer les paramètres de la base de données, entrez le nom d’utilisateur *User1@Server1*, avec le nom d’utilisateur et le nom de serveur de votre choix.
 
@@ -227,8 +244,8 @@ Pour créer des applications web, d’API et Azure Functions, vous devez utilise
 
 Vous pouvez également tester d’autres [services PaaS](azure-stack-tools-paas-services.md).
 
-- [Fournisseur de ressources SQL Server](azure-stack-sql-resource-provider-deploy.md)
-- [Fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-deploy.md)
+ - [Fournisseur de ressources SQL Server](azure-stack-sql-resource-provider-deploy.md)
+ - [Fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531

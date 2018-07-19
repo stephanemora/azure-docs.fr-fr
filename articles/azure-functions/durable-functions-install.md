@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4dd4bbb9c382b772f8f60b259844e7e471ec73e3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762351"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343194"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installer l’extension Fonctions durables et des exemples (Azure Functions)
 
@@ -35,7 +35,6 @@ Actuellement, Visual Studio fournit la meilleure expérience de développement d
 
 ### <a name="prerequisites"></a>Prérequis
 
-
 * Installez la [dernière version de Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 ou plus). Incluez la charge de travail de **développement Azure** dans vos options d’installation.
 
 ### <a name="start-with-sample-functions"></a>Commencer par des exemples de fonctions 
@@ -50,14 +49,13 @@ Actuellement, Visual Studio fournit la meilleure expérience de développement d
 Suivez les instructions permettant de commencer par l’exemple, mais procédez comme suit au lieu de télécharger le fichier *.zip* :
 
 1. Créez un projet Function App.
-2. Recherchez la référence de package NuGet suivante à l’aide de *Gérer les packages NuGet* et ajoutez-la au projet : Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0 (cochez la case *Inclure la version préliminaire* pour rechercher ce package)
+2. Recherchez la référence de package NuGet suivante à l’aide de *Gérer les packages NuGet* et ajoutez-la au projet : Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
 Visual Studio Code fournit une expérience de développement local qui couvre toutes les principales plates-formes : Windows, macOS et Linux.  Vos fonctions peuvent être exécutées en local, et peuvent également être publiées dans Azure. Vous pouvez commencer par un projet vide, ou par un ensemble d’exemples de fonctions.
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 * Installer la [dernière version de Visual Studio Code](https://code.visualstudio.com/Download) 
 
@@ -81,7 +79,7 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
 3. Installez Azure Functions Durable Extension en lançant la commande suivante dans une invite de commande/fenêtre de terminal :
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. Installez Azure Functions Twilio Extension en exécutant la commande suivante dans une invite de commande/fenêtre de terminal :
 
@@ -96,14 +94,14 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
     func host start
     ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (fonctions v2 uniquement)
+#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
 
 1. Clonez le [référentiel des fonctions durables](https://github.com/Azure/azure-functions-durable-extension.git).
 2. Sur votre machine, accédez au [dossier des exemples de JavaScript](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
 3. Installez Azure Functions Durable Extension en lançant la commande suivante dans une invite de commande/fenêtre de terminal :
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. Restaurez les packages npm en exécutant la commande suivante dans une invite de commande/fenêtre de terminal :
     
@@ -124,7 +122,7 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
 2. Installez Azure Functions Durable Extension en lançant la commande suivante dans une invite de commande/fenêtre de terminal :
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 3. Créez un projet Function App en exécutant la commande suivante :
 

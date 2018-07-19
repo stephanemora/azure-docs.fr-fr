@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 9c43e887d66b1a0bec096810bcd899d907499c78
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fc3867ca79eb5f142f1d1caaa5569d93e7ea001e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230333"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Didacticiel : Intégration d’Azure Active Directory à JIRA SAML SSO by Microsoft
 
@@ -144,7 +144,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans une autre fenêtre de navigateur web, connectez-vous à votre instance JIRA en tant qu’administrateur.
 
-7. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
+7. Pointez sur la roue dentée, puis cliquez sur **Modules complémentaires**.
 
     ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon1.png)
 
@@ -221,7 +221,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-jira-saml-sso-by-microsoft-test-user"></a>Créer un utilisateur de test JIRA SAML SSO by Microsoft
 
-Pour permettre aux utilisateurs Azure AD de se connecter à un serveur local JIRA, vous devez les attribuer dans JIRA SAML SSO by Microsoft. Pour JIRA SAML SSO by Microsoft, l’attribution des utilisateurs se fait manuellement.
+Pour permettre aux utilisateurs Azure AD de se connecter à un serveur local JIRA, vous devez les provisionner dans JIRA SAML SSO by Microsoft. Pour JIRA SAML SSO by Microsoft, l’attribution des utilisateurs se fait manuellement.
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 

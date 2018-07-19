@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 300a8a15552fe1e8ec9d6b434a14a31b3d827f19
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709962"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445583"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Suivre le comportement des utilisateurs dans les parcours Azure AD B2C à l’aide d’Application Insights
 
@@ -286,7 +286,6 @@ Referenced using {OIDC:One of the property names below}
 |  MaxAge | max_age | N/A |
 | ClientId | client_id | N/A |
 | Nom d’utilisateur | login_hint | N/A |
-| Mot de passe | domain_hint | N/A |
 |  Ressource | resource| N/A |
 | AuthenticationContextReferences | acr_values | N/A |
 
@@ -304,11 +303,11 @@ Voici un exemple de requête de l’application :
 https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
-Vous pouvez ensuite ajouter les revendications en ajoutant un élément `Input Claim` à l’événement Application Insights :
+Vous pouvez ensuite ajouter les revendications en ajoutant un élément `Input Claim` à l’événement Application Insights. Les propriétés d’un événement sont ajoutées via la syntaxe {property:NAME}, où NAME représente la propriété ajoutée à l’événement. Par exemple : 
 
 ```
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="app_session" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="loyalty_number" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
+<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 ```
 
 ### <a name="other-system-claims"></a>Autres revendications système

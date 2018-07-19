@@ -2,19 +2,19 @@
 title: Utiliser Draft avec AKS et Azure Container Registry
 description: Utiliser Draft avec AKS et Azure Container Registry
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8f273a5a2c47b25dc339fd63df127d141fe2f8e2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257313"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130241"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Utiliser Draft avec Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,6 @@ Draft est un outil open source qui permet de contenir et de déployer ces conten
 Ce document détaille l'utilisation de Draft avec un cluster Kubernetes sur AKS.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, consultez le [guide de démarrage rapide d’ACS][aks-quickstart].
 
@@ -59,11 +58,11 @@ Draft génère les images conteneur localement, puis soit il les déploie à par
 
 ### <a name="create-trust-between-aks-cluster-and-acr"></a>Créer une relation d’approbation entre les clusters AKS et ACR
 
-Pour établir une relation d’approbation entre un cluster AKS et un registre ACR, vous devez modifier le principal de service Azure Active Directory utilisé avec AKS en y ajoutant le rôle de contributeur avec comme étendue le référentiel ACR. Pour ce faire, exécutez les commandes suivantes, en remplaçant _&lt;aks-rg-name&gt;_ et _&lt;aks-cluster-name&gt;_ par le groupe de ressources et le nom de votre cluster AKS, et _&lt;acr-rg-nam&gt;_ et _&lt;acr-repo-name&gt;_ par le groupe de ressources et le nom de référentiel de votre référentiel ACR avec lequel vous souhaitez établir une relation d’approbation.
+Pour établir une relation d’approbation entre un cluster AKS et un registre ACR, vous devez modifier le principal de service Azure Active Directory utilisé avec AKS en y ajoutant le rôle de contributeur avec comme étendue le registre ACR. Pour ce faire, exécutez les commandes suivantes, en remplaçant _&lt;aks-rg-name&gt;_ et _&lt;aks-cluster-name&gt;_ par le groupe de ressources et le nom de votre cluster AKS, et _&lt;acr-rg-nam&gt;_ et _&lt;acr-registry-name&gt;_ par le groupe de ressources et le nom de registre de votre registre ACR avec lequel vous souhaitez établir une relation d’approbation.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 

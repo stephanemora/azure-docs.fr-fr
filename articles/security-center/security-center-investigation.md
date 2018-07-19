@@ -3,36 +3,41 @@ title: Examiner les incidents et les alertes dans Azure Security Center | Micros
 description: Ce document vous aide à utiliser la fonctionnalité d’examen dans Azure Security Center pour examiner les incidents et alertes liés à la sécurité.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/29/2018
+ms.author: terrylan
+ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776478"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340788"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Examiner les incidents et les alertes dans Azure Security Center (version préliminaire)
 Ce document vous aide à utiliser la fonctionnalité d’examen dans Azure Security Center pour examiner les incidents et alertes liés à la sécurité.
 
 ## <a name="what-is-investigation-in-security-center"></a>Qu’est-ce que la fonctionnalité d’examen dans Security Center ?
 La fonctionnalité d’examen dans Security Center vous permet de trier, comprendre l’étendue et repérer la cause racine d’un potentiel [incident lié à la sécurité](https://docs.microsoft.com/azure/security-center/security-center-incident).
- 
+
 Le but est de facilité le processus d’examen en liant toutes les entités ([alertes de sécurité](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), utilisateurs, ordinateurs et incidents) impliquées dans l’incident en cours d’examen.  Security Center peut faire cela en mettant en corrélation des données pertinentes et n’importe quelle entité impliquée, et en exposant cette corrélation via un graphique en temps réel qui vous aide à naviguer entre les objets et à visualiser les informations importantes.
+
+> [!NOTE]
+> Les [Alertes personnalisées](security-center-custom-alert.md) ne sont pas prises en charge dans les fonctionnalités d’investigation de Security Center.
+>
+>
 
 
 ## <a name="how-investigation-works"></a>Comment fonctionne un examen ?
 L’examen intègre un graphique qui occupe la zone centrale du tableau de bord d’examen. Le graphique se concentre toujours sur une entité spécifique et présente les entités qui sont associées. Une alerte de sécurité, un utilisateur, un ordinateur ou un incident sont des entités.
- 
+
 ![Mappage](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 L’utilisateur peut naviguer d’une entité à une autre en cliquant dessus dans le graphique. Le graphique centralise automatiquement l’entité sélectionnée et celles qui lui sont associées. Les entités qui ne sont plus pertinentes peuvent être supprimées du graphique.
@@ -43,7 +48,7 @@ Le chemin d’examen aide à suivre le contexte d’examen et permet une navigat
 ![path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Informations générales
-Lorsqu’une entité est présentée dans le graphique, les onglets affichent des informations supplémentaires la concernant. L’onglet **Informations** présente des informations générales sur l’entité, de différentes sources d’informations disponibles. 
+Lorsqu’une entité est présentée dans le graphique, les onglets affichent des informations supplémentaires la concernant. L’onglet **Informations** présente des informations générales sur l’entité, de différentes sources d’informations disponibles.
 
 ![Informations générales](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -57,11 +62,11 @@ L’onglet **Entités** affiche toutes les entités associées, regroupées par 
 
 ![Entités](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>action
+### <a name="search"></a>Recherche
 
 L’onglet **Recherche** présente tous les types de journaux disponibles pour l’entité. Pour chaque type de journal, vous pouvez voir le nombre d’enregistrements disponibles. En cliquant sur n’importe quel type de journal, vous êtes amené à l’écran de recherche. Sur l’écran de recherche, vous pouvez affiner votre recherche et utiliser diverses fonctionnalités telles que la définition d’alertes. Dans la version actuelle, l’onglet Recherche n’est disponible que pour les entités Utilisateurs et Ordinateurs.
 
-![action](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Recherche](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Exploration
 
@@ -71,7 +76,7 @@ L’onglet **Exploration** permet à l’investigateur d’examiner les données
 
 ### <a name="timeline"></a>Chronologie
 
-La plupart des données présentées dans le graphique et dans les divers onglets sont pertinentes durant une période donnée. Cette durée est définie à l’aide du sélecteur de durée, situé dans le coin supérieur gauche du graphique. L’investigateur dispose de plusieurs méthodes pour sélectionner la durée. 
+La plupart des données présentées dans le graphique et dans les divers onglets sont pertinentes durant une période donnée. Cette durée est définie à l’aide du sélecteur de durée, situé dans le coin supérieur gauche du graphique. L’investigateur dispose de plusieurs méthodes pour sélectionner la durée.
 
 ![Chronologie](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -103,7 +108,7 @@ Vous pouvez démarrer un examen depuis un incident de sécurité, ou une alerte.
 
     ![Tableau de bord Examen](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-À ce stade, vous pouvez explorer les entités impliquées dans l’incident et en découvrir davantage sur chacune d’elles. 
+À ce stade, vous pouvez explorer les entités impliquées dans l’incident et en découvrir davantage sur chacune d’elles.
 
 ## <a name="see-also"></a>Voir aussi
 Dans ce document, vous avez vu comment utiliser la fonctionnalité d’examen dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
@@ -111,7 +116,6 @@ Dans ce document, vous avez vu comment utiliser la fonctionnalité d’examen da
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Présentation des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
-* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
+* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center.
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
-

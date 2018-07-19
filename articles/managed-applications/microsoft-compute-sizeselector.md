@@ -11,20 +11,27 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1b4974c78a5cdb7b4eb885797319b283be2d393
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9009d29e281ace179ad1dd2021c7cf35e3dc611a
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260838"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084803"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Élément d’interface utilisateur Microsoft.Compute.SizeSelector
 Contrôle permettant de sélectionner une taille pour une ou plusieurs instances de machine virtuelle.
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
+
+L’utilisateur voit un sélecteur comportant des valeurs par défaut issues de la définition d’élément.
+
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+
+Après avoir sélectionné le contrôle, l’utilisateur voit une vue développée des tailles disponibles.
+
+![Microsoft.Compute.SizeSelector développé](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
 
 ## <a name="schema"></a>Schéma
 ```json
@@ -44,6 +51,9 @@ Contrôle permettant de sélectionner une taille pour une ou plusieurs instances
     "numAvailabilityZonesRequired": 3,
     "zone": "3"
   },
+  "options": {
+    "hideDiskTypeFilter": false
+  },
   "osPlatform": "Windows",
   "imageReference": {
     "publisher": "MicrosoftWindowsServer",
@@ -56,14 +66,14 @@ Contrôle permettant de sélectionner une taille pour une ou plusieurs instances
 ```
 
 ## <a name="remarks"></a>Remarques
-- `recommendedSizes` doit contenir au moins une taille. La première taille recommandée est utilisée comme valeur par défaut.
+- `recommendedSizes` doit disposer au moins d’une taille. La première taille recommandée est utilisée comme valeur par défaut. La liste des tailles disponibles n’est pas triée par état recommandé. L’utilisateur peut sélectionner cette colonne pour trier par état recommandé.
 - Si une taille recommandée n’est pas disponible à l’emplacement sélectionné, la taille est automatiquement ignorée. La taille recommandée suivante est alors utilisée.
-- Toute taille non spécifiée dans `constraints.allowedSizes` est masquée et toute taille non spécifiée dans `constraints.excludedSizes` s’affiche.
-`constraints.allowedSizes`et `constraints.excludedSizes` sont tous deux facultatifs, mais ne peuvent pas être utilisés simultanément. La liste des tailles disponibles peut être déterminée en appelant [Répertorier les tailles de machines virtuelles disponibles pour un abonnement](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region).
+- `constraints.allowedSizes` et `constraints.excludedSizes` sont tous deux facultatifs, mais ne peuvent pas être utilisés simultanément. La liste des tailles disponibles peut être déterminée en appelant [Répertorier les tailles de machines virtuelles disponibles pour un abonnement](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Toute taille non spécifiée dans `constraints.allowedSizes` est masquée et toute taille non spécifiée dans `constraints.excludedSizes` s’affiche.
 - `osPlatform` doit être spécifié. Il peut s’agir de **Windows** ou de **Linux**. Il permet de déterminer le coût du matériel des machines virtuelles.
 - `imageReference` est omis pour les images internes, mais est indiqué pour les images issues de tiers. Il permet de déterminer le coût des logiciels des machines virtuelles.
 - `count` permet de définir le multiplicateur approprié pour l’élément. Il prend en charge une valeur statique, telle que **2**, ou une valeur dynamique issue d’un autre élément, comme `[steps('step1').vmCount]`. La valeur par défaut est **1**.
 - `numAvailabilityZonesRequired` peut être 1, 2 ou 3.
+- Par défaut, `hideDiskTypeFilter` est défini sur **false**. Le filtre du type de disque permet à l’utilisateur de voir tous les types de disques ou uniquement les disques SSD.
 
 ## <a name="sample-output"></a>Exemple de sortie
 ```json

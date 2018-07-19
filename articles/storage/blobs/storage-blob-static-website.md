@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: 7021a0499547818d702d14aecb9d8e451a820181
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025179"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131607"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Hébergement de sites web statiques dans le stockage Azure (préversion)
 Le stockage Azure propose désormais un hébergement de sites web statiques (préversion), ce qui vous permet de déployer des applications web modernes économiques et scalables sur Azure. Sur un site web statique, les pages web contiennent du contenu statique et JavaScript ou un autre code côté client. En revanche, les sites web dynamiques dépendent du code côté serveur et peuvent être hébergés avec [Azure Web Apps](/app-service/app-service-web-overview.md).
@@ -43,6 +43,9 @@ Pour démarrer l’hébergement de votre application web dans le stockage Azure,
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
 Chargez vos ressources web sur le conteneur $web qui a été créé dans le cadre de l’activation du site web statique. Vous pouvez effectuer cette opération directement dans le portail Azure ou tirer parti de [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des structures de répertoires entières. Veillez à inclure un document d’index avec le nom que vous avez configuré. Dans cet exemple, le nom du document est index.html.
+
+> [!NOTE]
+> Le nom du document respectant la casse, il doit correspondre exactement au nom du fichier dans le stockage.
 
 Enfin, accédez au point de terminaison web pour tester votre site web.
 

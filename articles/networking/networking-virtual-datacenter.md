@@ -1,5 +1,5 @@
 ---
-title: 'Centre de données virtuel Microsoft Azure : une perspective réseau | Microsoft Docs'
+title: 'Centre de données virtuel Azure : une perspective réseau'
 description: Découvrez comment créer votre centre de données virtuel dans Azure
 services: networking
 author: tracsman
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: a62d52e30b04b525dc8ff685ed6c3033d6029542
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942443"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445379"
 ---
-# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Centre de données virtuel Microsoft Azure : une perspective réseau
+# <a name="azure-virtual-datacenter-a-network-perspective"></a>Centre de données virtuel Azure : une perspective réseau
 **Microsoft Azure** : accélérez votre migration, faites des économies et intégrez des applications et des données locales
 
 ## <a name="overview"></a>Vue d'ensemble

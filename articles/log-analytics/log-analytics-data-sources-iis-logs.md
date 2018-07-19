@@ -1,24 +1,26 @@
 ---
 title: Journaux IIS dans Azure Log Analytics | Microsoft Docs
-description: "Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  Cet article décrit comment configurer la collecte des journaux IIS et les détails des enregistrements qu’ils créent dans l’espace de travail Log Analytics."
+description: Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  Cet article décrit comment configurer la collecte des journaux IIS et les détails des enregistrements qu’ils créent dans l’espace de travail Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/07/2018
+ms.date: 06/12/2018
 ms.author: bwren
-ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.comopnent: na
+ms.openlocfilehash: 65320e7d3cc97a3d53fd1a00fbbeab5559c02fce
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133380"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Journaux IIS dans Log Analytics
 Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  
@@ -33,10 +35,10 @@ Log Analytics ne collecte pas de journaux aux formats natifs NCSA ou IIS.
 
 Configurez les journaux IIS dans Log Analytics à partir du [menu Données dans Paramètres Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C**.
 
-Quand vous activez la collecte de journaux IIS, nous vous recommandons de configurer le paramètre de substitution de journal IIS sur chaque serveur.
 
 ## <a name="data-collection"></a>Collecte des données
-Log Analytics collecte les entrées du journal IIS de chaque source connectée toutes les 15 minutes environ.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion, Log Analytics collecte les événements à partir de la position où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.
+Log Analytics collecte les entrées de journal IIS à partir de chaque agent chaque fois que le journal est fermé et qu’un nouveau est créé. Cette fréquence est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Par exemple, si le paramètre est **horaire**, Log Analytics collecte le journal toutes les heures.  Si le paramètre est **quotidien**, Log Analytics collecte le journal toutes les 24 heures.
+
 
 ## <a name="iis-log-record-properties"></a>Propriétés d’enregistrement de journal IIS
 Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriétés sont décrites dans le tableau suivant :

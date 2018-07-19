@@ -3,7 +3,7 @@ title: Consulter les données d’application d’Azure Application Insights | M
 description: Vous pouvez utiliser la solution Application Insights Connector pour diagnostiquer les problèmes de performances et comprendre ce que les utilisateurs font avec votre application lorsqu’Application Insights les surveille.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,19 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186231"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131624"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solution de gestion Application Insights Connector (préversion)
 
 ![Symbole Application Insights](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> Grâce à la prise en charge des [requêtes inter-ressources](log-analytics-cross-workspace-search.md), la solution de gestion du connecteur Application Insights n’est plus nécessaire et sera déconseillée. À partir du mois de juillet, vous ne pourrez plus lier de nouvelles ressources Application Insights aux espaces de travail Log Analytics. Les liens et les tableaux de bord existants continueront de fonctionner jusqu’en novembre 2018. Pour plus d’informations, consultez la page [Migration du portail OMS vers Azure](log-analytics-oms-portal-transition.md).
 
 La solution Application Insights Connector vous aide à diagnostiquer les problèmes de performances et à comprendre ce que les utilisateurs font avec votre application lorsqu’[Application Insights](../application-insights/app-insights-overview.md) les surveille. Dans Log Analytics, vous pouvez voir les mêmes données de télémétrie que les développeurs voient dans Application Insights. Toutefois, lorsque vous intégrez vos applications Application Insights à Log Analytics, la visibilité de vos applications augmente lorsque les données de fonctionnement et d’application se trouvent au même emplacement. Avoir les mêmes vues vous aide à collaborer avec vos développeurs d’applications. Les vues communes peuvent aider à réduire le temps nécessaire à la détection et à la résolution des problèmes d’application et de plateforme.
 
@@ -46,7 +50,6 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Pour accéder aux informations d’Application Insights Connector, vous devez posséder un abonnement Azure.
 - Vous devez disposer d’au moins une ressource Application Insights configurée.

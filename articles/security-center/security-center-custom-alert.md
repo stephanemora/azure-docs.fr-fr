@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 326b07a18b07f15850e0283ad51a05b42c1ef0ab
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284775"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341311"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Règles d’alerte personnalisées dans Azure Security Center (préversion)
 Ce document est conçu pour vous aider à créer des règles d’alerte dans Azure Security Center.
@@ -28,10 +28,10 @@ Ce document est conçu pour vous aider à créer des règles d’alerte dans Azu
 
 Security Center possède un ensemble d’[alertes de sécurité prédéfinies](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts), qui sont déclenchées en cas de menace ou d’activité suspecte. Dans certains scénarios, vous souhaiterez peut-être créer une alerte personnalisée pour gérer les besoins spécifiques de votre environnement.
 
-Les règles d’alerte personnalisées de Security Center permettent de définir de nouvelles alertes de sécurité basées sur les données déjà collectées à partir de votre environnement. Vous pouvez créer des requêtes, dont le résultat peut être utilisé comme critère pour la règle personnalisée et une fois ce critère mis en correspondance, la règle est exécutée. Vous pouvez utiliser les événements de sécurité des ordinateurs, les journaux des solutions de sécurité du partenaire ou les données ingérées à l’aide d’API pour créer des requêtes personnalisées.
+Les règles d’alerte personnalisés de Security Center permettent de définir de nouvelles alertes de sécurité basées sur les données déjà collectées à partir de votre environnement. Vous pouvez créer des requêtes, dont le résultat peut être utilisé comme critère pour la règle personnalisée et une fois ce critère mis en correspondance, la règle est exécutée. Vous pouvez utiliser les événements de sécurité des ordinateurs, les journaux des solutions de sécurité du partenaire ou les données ingérées à l’aide d’API pour créer des requêtes personnalisées.
 
 > [!NOTE]
-> Vous devez disposer d’une autorisation en écriture dans l’espace de travail sélectionné pour stocker votre alerte personnalisée.
+> Les Alertes personnalisées ne sont pas prises en charge dans la [fonctionnalité d’investigation](security-center-investigation.md) de Security Center.
 >
 >
 
@@ -52,7 +52,14 @@ Ouvrez le tableau de bord **Security Center** et procédez comme suit pour crée
 5.  Entrez une brève description qui reflète l’objectif de cette règle dans le champ **Description**.
 6.  Sélectionnez le niveau de gravité (haute, moyenne, faible) en fonction de vos besoins dans le champ **Gravité**.
 7.  Sélectionnez l’abonnement dans lequel cette règle s’applique dans le champ **Abonnement**.
-8.  Sélectionnez l’espace de travail que vous souhaitez analyser à l’aide de cette règle dans le champ **Espace de travail** et la requête que vous voulez utiliser pour obtenir les résultats dans le champ **Rechercher**. Vous devez disposer d’une autorisation en écriture dans l’espace de travail sélectionné pour stocker votre alerte personnalisée. Le résultat de la requête déclenche l’alerte. Notez que lorsque vous tapez une requête valide, la coche verte s’affiche sur le côté droit de ce champ :
+8.  Sélectionnez l’espace de travail que vous souhaitez analyser à l’aide de cette règle dans le champ **Espace de travail** et la requête que vous voulez utiliser pour obtenir les résultats dans le champ **Rechercher**.
+
+    > [!NOTE]
+    > Vous devez disposer d’une autorisation en écriture dans l’espace de travail sélectionné pour stocker votre alerte personnalisée.
+    >
+    >
+
+    Le résultat de la requête déclenche l’alerte. Notez que lorsque vous tapez une requête valide, la coche verte s’affiche sur le côté droit de ce champ :
 
     ![Requête](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 04823409b209d1f35a27452321cfd37d30097dde
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808772"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444393"
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -36,13 +36,16 @@ Pour accéder à tout point de terminaison IoT Hub, vous devez disposer des auto
 Vous pouvez accorder des [autorisations](#iot-hub-permissions) de différentes manières :
 
 * **Stratégies d’accès partagé au niveau d’IoT Hub**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison d’[autorisations](#iot-hub-permissions). Vous pouvez définir des stratégies dans le [Portail Azure][lnk-management-portal] ou par programmation à l’aide des [API REST de fournisseur de ressources IoT Hub][lnk-resource-provider-apis]. Un hub IoT qui vient d’être créé a les stratégies par défaut suivantes :
+  
+  | Stratégie d’accès partagé | Autorisations |
+  | -------------------- | ----------- |
+  | iothubowner | Toutes les autorisations |
+  | service | Autorisations **ServiceConnect** |
+  | device | Autorisations **DeviceConnect** |
+  | registryRead | Autorisations **RegistryRead** |
+  | registryReadWrite | Autorisations **RegistryRead** et **RegistryWrite** |
 
-  * **iothubowner**: stratégie jouissant de toutes les autorisations.
-  * **service** : stratégie jouissant de l’autorisation **ServiceConnect**.
-  * **device** : stratégie jouissant de l’autorisation **DeviceConnect**.
-  * **registryRead** : stratégie jouissant de l’autorisation **RegistryRead**.
-  * **registryReadWrite** : stratégie jouissant des autorisations **RegistryRead** et RegistryWrite.
-  * **Informations d’identification de sécurité par appareil**. Chaque hub IoT contient un [registre des identités][lnk-identity-registry]. Pour chaque appareil figurant dans ce registre des identités, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
+* **Informations d’identification de sécurité par appareil**. Chaque hub IoT contient un [registre des identités][lnk-identity-registry]. Pour chaque appareil figurant dans ce registre des identités, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
 
 Par exemple, dans une solution IoT classique :
 
@@ -462,7 +465,7 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-openssl]: https://www.openssl.org/
-[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-selfsigned]: https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens

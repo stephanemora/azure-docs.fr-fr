@@ -2,18 +2,19 @@
 title: Déployer des conteneurs avec Helm dans Kubernetes sur Azure
 description: Utilisez l’outil d’empaquetage Helm pour déployer des conteneurs sur un cluster Kubernetes dans AKS
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
-ms.author: nepeters
+ms.date: 06/13/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c46bd64b3fec06e4ba4050542f27ba3e70862e45
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 531e6d9368b2bf91c48fd41b1e9330879b0df49a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101545"
 ---
 # <a name="use-helm-with-azure-kubernetes-service-aks"></a>Utiliser Helm avec Azure Kubernetes Service (AKS)
 
@@ -23,11 +24,11 @@ Ce document explique comment configurer et utiliser Helm dans un cluster Kuberne
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [guide de démarrage rapide d’ACS][aks-quickstart].
+Les étapes détaillées dans ce document supposent que vous ayez créé un cluster AKS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [guide de démarrage rapide d’AKS][aks-quickstart].
 
 ## <a name="install-helm-cli"></a>Installer l’interface de ligne de commande (CLI) Helm
 
-L’interface CLI Helm est un client qui s’exécute sur votre système de développement et vous permet de démarrer, d’arrêter et de gérer des applications avec des graphiques Helm.
+L’interface CLI Helm est un client qui s’exécute sur votre système de développement et vous permet de démarrer, d’arrêter et de gérer des applications avec Helm.
 
 Si vous utilisez Azure CloudShell, l’interface CLI Helm est déjà installée. Pour installer l’interface CLI Helm sur un Mac, utilisez `brew`. Pour connaître les autres options d’installation, consultez [Installation de Helm][helm-install-options].
 
@@ -35,7 +36,7 @@ Si vous utilisez Azure CloudShell, l’interface CLI Helm est déjà installée.
 brew install kubernetes-helm
 ```
 
-Output:
+Sortie :
 
 ```
 ==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
@@ -48,24 +49,47 @@ Bash completion has been installed to:
 🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
 ```
 
+## <a name="create-service-account"></a>Créer le compte de service
+
+Avant la configuration de Helm dans un cluster où RBAC est activé, vous avez besoin d’un compte de service et d’une liaison de rôle pour le service Tiller. Pour plus d’informations sur la sécurisation de Helm / Tiller dans un cluster où RBAC est activé, consultez [Tiller, Namespaces, and RBAC][tiller-rbac] (Tiller, espaces de noms et RBAC). Remarque : si RBAC n’est pas activé sur votre cluster, passez cette étape.
+
+Créez un fichier nommé `helm-rbac.yaml` et copiez-y le YAML suivant.
+
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
+```
+
+Créez le compte de service et la liaison de rôle avec la commande `kubectl create`.
+
+```
+kubectl create -f helm-rbac.yaml
+```
+
+Lorsque vous utilisez un cluster où RBAC est activé, vous disposez d’options concernant le niveau d’accès au cluster de Tiller. Consultez [Helm: role-based access controls][helm-rbac] (Helm : contrôles d’accès en fonction du rôle) pour plus d’informations sur les options de configuration.
+
 ## <a name="configure-helm"></a>Configurer Helm
 
-La commande [helm init][helm-init] permet d’installer les composants Helm dans un cluster Kubernetes et d’effectuer la configuration côté client. Exécutez la commande suivante pour installer Helm sur votre cluster AKS et configurer le client Helm.
-
-```azurecli-interactive
-helm init
-```
-
-Output:
+Installez maintenant tiller à l’aide de la commande [helm init][helm-init]. Si RBAC n’est pas activé sur votre cluster, supprimez l’argument et la valeur `--service-account`.
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
-
-Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
-
-Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
-For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
-Happy Helming!
+helm init --service-account tiller
 ```
 
 ## <a name="find-helm-charts"></a>Rechercher des graphiques Helm
@@ -104,7 +128,7 @@ Pour mettre à jour la liste des graphiques, utilisez la commande [helm repo upd
 helm repo update
 ```
 
-Output:
+Sortie :
 
 ```
 Hang tight while we grab the latest from your chart repositories...
@@ -115,52 +139,66 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Exécuter des graphiques Helm
 
-Pour déployer un contrôleur d’entrée NGINX, utilisez la commande [helm install][helm-install].
+Pour déployer Wordpress à l’aide d’un graphique Helm, utilisez la commande [helm install][helm-install].
 
 ```azurecli-interactive
-helm install stable/nginx-ingress
+helm install stable/wordpress
 ```
 
 La sortie ressemblera à ce qui suit, mais inclura des informations supplémentaires, telles que des instructions sur l’utilisation du déploiement Kubernetes.
 
 ```
-NAME:   tufted-ocelot
-LAST DEPLOYED: Thu Oct  5 00:48:04 2017
+NAME:   bilging-ibex
+LAST DEPLOYED: Tue Jun  5 14:31:49 2018
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
+==> v1/Pod(related)
+NAME                                     READY  STATUS   RESTARTS  AGE
+bilging-ibex-mariadb-7557b5474-dmdxn     0/1    Pending  0         1s
+bilging-ibex-wordpress-7494c545fb-tskhz  0/1    Pending  0         1s
+
+==> v1/Secret
+NAME                    TYPE    DATA  AGE
+bilging-ibex-mariadb    Opaque  2     1s
+bilging-ibex-wordpress  Opaque  2     1s
+
 ==> v1/ConfigMap
-NAME                                    DATA  AGE
-tufted-ocelot-nginx-ingress-controller  1     5s
+NAME                        DATA  AGE
+bilging-ibex-mariadb        1     1s
+bilging-ibex-mariadb-tests  1     1s
+
+==> v1/PersistentVolumeClaim
+NAME                    STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
+bilging-ibex-mariadb    Pending  default  1s
+bilging-ibex-wordpress  Pending  default  1s
 
 ==> v1/Service
-NAME                                         CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-tufted-ocelot-nginx-ingress-controller       10.0.140.10  <pending>    80:30486/TCP,443:31358/TCP  5s
-tufted-ocelot-nginx-ingress-default-backend  10.0.34.132  <none>       80/TCP                      5s
+NAME                    TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)                     AGE
+bilging-ibex-mariadb    ClusterIP     10.0.76.164   <none>       3306/TCP                    1s
+bilging-ibex-wordpress  LoadBalancer  10.0.215.250  <pending>    80:30934/TCP,443:31134/TCP  1s
 
 ==> v1beta1/Deployment
-NAME                                         DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-tufted-ocelot-nginx-ingress-controller       1        1        1           0          5s
-tufted-ocelot-nginx-ingress-default-backend  1        1        1           1          5s
+NAME                    DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+bilging-ibex-mariadb    1        1        1           0          1s
+bilging-ibex-wordpress  1        1        1           0          1s
 ...
 ```
 
-Pour plus d’informations sur l’utilisation d’un contrôleur d’entrée NGINX avec Kubernetes, consultez [NGINX Ingress Controller][nginx-ingress] (Contrôleur d’entrée NGINX).
+## <a name="list-helm-releases"></a>Liste des publications de Helm
 
-## <a name="list-helm-charts"></a>Répertorier les graphiques Helm
-
-Pour afficher la liste des graphiques installés sur votre cluster, utilisez la commande [helm list][helm-list].
+Pour afficher la liste des publications installées sur votre cluster, utilisez la commande [helm list][helm-list].
 
 ```azurecli-interactive
 helm list
 ```
 
-Output:
+Sortie :
 
 ```
-NAME            REVISION    UPDATED                     STATUS      CHART               NAMESPACE
-bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingress-0.8.7 default
+NAME            REVISION    UPDATED                     STATUS      CHART           NAMESPACE
+bilging-ibex    1           Tue Jun  5 14:31:49 2018    DEPLOYED    wordpress-1.0.9 default
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -172,14 +210,15 @@ Pour plus d’informations sur la gestion des graphiques Kubernetes, consultez l
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/
-[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-documentation]: https://docs.helm.sh/
 [helm-init]: https://docs.helm.sh/helm/#helm-init
 [helm-install]: https://docs.helm.sh/helm/#helm-install
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search
-[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

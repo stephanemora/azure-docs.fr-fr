@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287746"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341090"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gérer des instances dans Fonctions durables (Azure Functions)
 
@@ -81,6 +81,7 @@ La méthode [GetStatusAsync](https://azure.github.io/azure-functions-durable-ext
 * **CustomStatus** : état personnalisé de l’orchestration au format JSON. 
 * **Output** : sortie de la fonction sous forme de valeur JSON (si cette fonction est terminée). En cas d’échec de la fonction, cette propriété inclut les détails de l’échec. En cas d’interruption de la fonction de l’orchestrateur, cette propriété indique pour quel motif (le cas échéant).
 * **RuntimeStatus** : une des valeurs suivantes :
+    * **En attente** : l’instance a été planifiée mais n’est pas encore en cours d’exécution.
     * **Running** : l’instance a commencé à s’exécuter.
     * **Completed** : l’instance s’est terminée normalement.
     * **ContinuedAsNew** : l’instance a redémarré automatiquement d’elle-même avec un nouvel historique. Il s’agit d’un état temporaire.

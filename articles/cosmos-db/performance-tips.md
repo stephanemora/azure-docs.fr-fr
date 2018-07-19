@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9418525e60f255787f39a42657ee0dbdbd46957d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715018"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096931"
 ---
 > [!div class="op_single_selector"]
 > * [Java asynchrone](performance-tips-async-java.md)
@@ -174,7 +174,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     Pour plus d’informations, consultez [Stratégies d’indexation d’Azure Cosmos DB](indexing-policies.md).
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>Débit
 <a id="measure-rus"></a>
 
 1. **Mesure et réglage pour réduire l’utilisation d’unités de requête par seconde**
@@ -200,7 +200,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
          }
     ```             
 
-    Les frais de la requête retournée dans cet en-tête correspondent à une fraction du débit configuré (c’est-à-dire 2 000 RU/seconde). Par exemple, si la requête ci-dessus renvoie 1000 documents de 1 Ko, le coût de l’opération est de 1 000. Par conséquent, en une seconde, le serveur honore uniquement deux requêtes avant de limiter les requêtes suivantes. Pour plus d’informations, consultez [Unités de requête](request-units.md) et la [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner).
+    Les frais de la requête retournée dans cet en-tête correspondent à une fraction du débit configuré (c’est-à-dire 2 000 RU/seconde). Par exemple, si la requête ci-dessus renvoie 1000 documents de 1 Ko, le coût de l’opération est de 1 000. Par conséquent, en une seconde, le serveur honore uniquement deux requêtes avant de limiter le taux de requêtes suivantes. Pour plus d’informations, consultez [Unités de requête](request-units.md) et la [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Gestion de la limite de taux/du taux de requête trop importants**
 

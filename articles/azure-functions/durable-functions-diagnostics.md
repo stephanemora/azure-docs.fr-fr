@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ce5acda7e2beca1f3d6367708d5b96a5275b2c7f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764013"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340693"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostics dans Fonctions durables (Azure Functions)
 
@@ -67,7 +67,17 @@ Le niveau de détail des données de suivi transmises à Application Insights pe
 }
 ```
 
-Par défaut, tous les événements de suivi sont transmis. Le volume de données peut être réduit en définissant `Host.Triggers.DurableTask` sur `"Warning"` ou `"Error"`. Dans ce cas, les événements de suivi seront uniquement transmis en cas de situation exceptionnelle.
+Par défaut, tous les événements de suivi non rejoués sont transmis. Le volume de données peut être réduit en définissant `Host.Triggers.DurableTask` sur `"Warning"` ou `"Error"`. Dans ce cas, les événements de suivi seront uniquement transmis en cas de situation exceptionnelle.
+
+Pour activer l’émission d’événements de relecture d’orchestration détaillée, `LogReplayEvents` peut être défini sur `true` dans le fichier `host.json` sous `durableTask` comme indiqué :
+
+```json
+{
+    "durableTask": {
+        "logReplayEvents": true
+    }
+}
+```
 
 > [!NOTE]
 > Par défaut, les données de télémétrie Application Insights sont échantillonnées par le runtime Azure Functions pour éviter un transfert trop fréquent de données. Cela peut entraîner une perte des informations de suivi si de nombreux événements de cycle de vie se produisent sur une courte période. L’article sur [la surveillance d’Azure Functions](functions-monitoring.md#configure-sampling) explique comment configurer ce comportement.
@@ -87,7 +97,7 @@ traces
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
-| where isReplay == false
+| where isReplay != true
 | where instanceId == targetInstanceId
 | sort by timestamp asc, sequenceNumber asc
 | project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
@@ -112,7 +122,7 @@ traces
 | extend state = tostring(customDimensions["prop__state"])
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend output = tostring(customDimensions["prop__output"])
-| where isReplay == false
+| where isReplay != true
 | summarize arg_max(timestamp, *) by instanceId
 | project timestamp, instanceId, functionName, state, output, appName = cloud_RoleName
 | order by timestamp asc

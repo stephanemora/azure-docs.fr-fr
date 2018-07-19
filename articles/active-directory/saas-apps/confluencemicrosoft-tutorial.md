@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d8f3c0e4dec05b2ed968a3493a7cc560231e7331
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b57522933647c9d1d5518740d41b624b199a020e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215689"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Didacticiel : Intégration d’Azure Active Directory à Confluence SAML SSO by Microsoft
 
@@ -146,7 +146,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans une autre fenêtre de navigateur web, connectez-vous à votre instance de Confluence en tant qu’administrateur.
 
-7. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
+7. Pointez sur la roue dentée, puis cliquez sur **Modules complémentaires**.
     
     ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon1.png)
 
@@ -222,7 +222,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-a-confluence-saml-sso-by-microsoft-test-user"></a>Création d’un utilisateur de test Confluence SAML SSO by Microsoft
 
-Pour permettre aux utilisateurs Azure AD de se connecter à un serveur local Confluence, vous devez les attribuer dans Confluence SAML SSO by Microsoft. Pour Confluence SAML SSO by Microsoft, l’attribution des utilisateurs se fait manuellement.
+Pour permettre aux utilisateurs Azure AD de se connecter à un serveur local Confluence, ils doivent être provisionnés dans Confluence SAML SSO by Microsoft. Pour Confluence SAML SSO by Microsoft, l’attribution des utilisateurs se fait manuellement.
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 

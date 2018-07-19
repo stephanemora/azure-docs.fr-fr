@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: d993a29f5a7224c2346469b42309c11e55317756
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 698dbbba55ed32a5cef8034059ee8e36edd16ae5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808823"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37347733"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Diffuser en continu des données en tant qu’entrées dans Stream Analytics
 
@@ -62,7 +62,7 @@ Si vos données proviennent d’une entrée de données d’un concentrateur Eve
 | --- | --- |
 | **EventProcessedUtcTime** |Date et heure du traitement de l’événement par Stream Analytics |
 | **EventEnqueuedUtcTime** |Date et heure de la réception de l’événement par le hub d’événements. |
-| **PartitionId** |ID de partition de base zéro de l'adaptateur d'entrée. |
+| **PartitionId** |ID de partition de base zéro de l’adaptateur d’entrée. |
 
 Par exemple, en utilisant ces champs, vous pouvez écrire une requête semblable à l’exemple suivant :
 
@@ -109,7 +109,7 @@ Si vous utilisez des données de flux provenant d’un concentrateur IoT Hub, vo
 | --- | --- |
 | **EventProcessedUtcTime** | Date et heure du traitement de l'événement. |
 | **EventEnqueuedUtcTime** | Date et heure de la réception de l’événement par IoT Hub |
-| **PartitionId** | ID de partition de base zéro de l'adaptateur d'entrée. |
+| **PartitionId** | ID de partition de base zéro de l’adaptateur d’entrée. |
 | **IoTHub.MessageId** | Un ID utilisé pour corréler une communication bidirectionnelle dans un concentrateur IoT Hub. |
 | **IoTHub.CorrelationId** | Un ID utilisé dans les réponses de message et les commentaires dans un concentrateur IoT Hub. |
 | **IoTHub.ConnectionDeviceId** | ID d’authentification utilisé pour envoyer ce message. Cette valeur est marquée sur les messages liés aux services par le concentrateur IoT Hub. |
@@ -144,7 +144,7 @@ Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du
 | **Compte de stockage** | Nom du compte de stockage dans lequel se trouvent les fichiers d’objets blob. |
 | **Clé du compte de stockage** | Clé secrète associée au compte de stockage. Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres du stockage d’objets blob. |
 | **Conteneur** | Conteneur pour les entrées d’objets blob. Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous chargez un objet blob dans le service de stockage Blob Azure, vous devez spécifier un conteneur pour cet objet blob. Vous pouvez choisir l’option **Use existing container** (Utiliser un conteneur existant) ou **Créer nouveau**.|
-| **Modèle de chemin d’accès** (facultatif) | Chemin d’accès au fichier utilisé pour localiser les objets blob dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez spécifier une ou plusieurs instances de l’une des trois variables suivantes : `{date}`, `{time}` ou `{partition}`<br/><br/>Exemple 1 : `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemple 2 : `cluster1/logs/{date}`<br/><br/>Le caractère `*` n’est pas une valeur autorisée pour le préfixe du chemin d’accès. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés. |
+| **Modèle de chemin d’accès** (facultatif) | Chemin d’accès au fichier utilisé pour localiser les objets blob dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez spécifier une ou plusieurs instances de l’une des trois variables suivantes : `{date}`, `{time}` ou `{partition}`<br/><br/>Exemple 1 : `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemple 2 : `cluster1/logs/{date}`<br/><br/>Le caractère `*` n’est pas une valeur autorisée pour le préfixe du chemin d’accès. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés. N’incluez pas de noms de conteneurs ou de fichiers. |
 | **Format de date** (facultatif) | Format de date suivant lequel les fichiers sont organisés si vous utilisez la variable de date dans le chemin d’accès. Exemple : `YYYY/MM/DD` |
 | **Format d’heure** (facultatif) |  Format d’heure suivant lequel les fichiers sont organisés si vous utilisez la variable d’heure dans le chemin d’accès. Actuellement, la seule valeur possible est `HH` pour les heures. |
 | **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV ou Avro) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
@@ -158,7 +158,7 @@ Si vos données proviennent d’une source de stockage d’objets blob, vous ave
 | **BlobName** |Nom de l’objet blob d’entrée d’où provient l’événement. |
 | **EventProcessedUtcTime** |Date et heure du traitement de l’événement par Stream Analytics |
 | **BlobLastModifiedUtcTime** |Date et heure de la dernière modification apportée à l’objet blob. |
-| **PartitionId** |ID de partition de base zéro de l'adaptateur d'entrée. |
+| **PartitionId** |ID de partition de base zéro de l’adaptateur d’entrée. |
 
 Par exemple, en utilisant ces champs, vous pouvez écrire une requête semblable à l’exemple suivant :
 

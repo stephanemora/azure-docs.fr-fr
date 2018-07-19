@@ -1,23 +1,25 @@
 ---
-title: "Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics | Microsoft Docs"
-description: "Cet article décrit les portails que vous pouvez utiliser dans Azure Log Analytics pour créer et modifier les recherches dans les journaux."
+title: Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics | Microsoft Docs
+description: Cet article décrit les portails que vous pouvez utiliser dans Azure Log Analytics pour créer et modifier les recherches dans les journaux.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 06/11/2018
 ms.author: magoedte; bwren
-ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133350"
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics
 
@@ -37,9 +39,16 @@ Le portail d’analytique avancée est un portail dédié qui propose des foncti
 ![Portail Analytics avancé](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-En raison de ses fonctionnalités avancées, vous utiliserez généralement le portail Analytics avancé comme votre principal outil de création et modification des requêtes.  Une fois que vous avez la certitude que la requête fonctionne comme prévu, copiez-la et collez-la à un autre emplacement, par exemple dans la page Recherche dans les journaux ou dans le concepteur de vues.  Étant donné que le portail avancé Analytics avancé prend en charge les requêtes avec plusieurs lignes, vous devez prendre les éléments suivants en considération lors de la copie d’une requête à partir de ce portail.
+En raison de ses fonctionnalités avancées, vous utiliserez généralement le portail Analytics avancé comme votre principal outil de création et modification des requêtes.  Une fois que vous avez la certitude que la requête fonctionne comme prévu, copiez-la et collez-la à un autre emplacement, par exemple dans la page Recherche dans les journaux ou dans le concepteur de vues.  
 
-- Supprimez les commentaires à partir de la requête avant de la copier dans un autre emplacement.  Vous pouvez commenter une ligne en la précédant de deux barres obliques (//).  Lorsque vous collez une requête de lignes multiples dans une seule ligne, les sauts de ligne sont supprimés.  Si les commentaires sont inclus, tous les caractères suivant le premier commentaire sont considérés comme faisant partie du commentaire.
+### <a name="firewall-requirements"></a>Configuration requise du pare-feu
+Votre navigateur doit pouvoir accéder aux adresses suivantes pour pouvoir utiliser le portail Analytics avancé.  Si votre navigateur accède au portail Azure par le biais d’un pare-feu, vous devez activer l’accès à ces adresses.
+
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamique | 80,443 |
+| api.loganalytics.io    | Dynamique | 80,443 |
+| docs.loganalytics.io   | Dynamique | 80,443 |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

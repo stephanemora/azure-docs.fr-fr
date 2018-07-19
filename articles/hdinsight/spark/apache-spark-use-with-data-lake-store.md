@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: fa6f93231cba46e29206ec312fb82ad120ed45f6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c715ea3a3c4e113ec419919d240716517c28ffb8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517622"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099518"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Store
 
@@ -26,13 +26,12 @@ Dans ce didacticiel, vous utilisez le bloc-notes Jupyter disponible avec les clu
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Compte Azure Data Lake Store. Suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Cluster Azure HDInsight Spark avec Data Lake Store comme système de stockage. Suivez les instructions énoncées dans la section [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Cluster Azure HDInsight Spark avec Data Lake Store comme système de stockage. Suivez les instructions du [Démarrage rapide : Configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     
-## <a name="prepare-the-data"></a>Préparation des données
+## <a name="prepare-the-data"></a>Préparer les données
 
 > [!NOTE]
 > Vous n’avez pas besoin de suivre cette étape si vous avez créé le cluster HDInsight avec Data Lake Store comme stockage par défaut. Le processus de création de cluster ajoute quelques exemples de données dans le compte Data Lake Store spécifié durant la création du cluster. Passez à la section [Utilisation du cluster Azure HDInsight Spark avec Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
@@ -71,7 +70,7 @@ Si vous avez créé un cluster HDInsight avec Data Lake Store en tant que stock
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
    > [!NOTE]
-   > Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
+   > Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l’URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >

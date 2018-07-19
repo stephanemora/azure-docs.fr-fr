@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: fe55c84964d10be971c0f1d64d2c70313098a4ee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf262a42751e02c939696e4c8554fc19f5a4f4bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215707"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111199"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour FishEye/Crucible
 
@@ -135,7 +135,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre serveur local FishEye/Crucible en tant qu’administrateur.
 
-8. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
+8. Pointez sur la roue dentée, puis cliquez sur **Modules complémentaires**.
 
     ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
 
@@ -263,7 +263,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à FishEye/Crucible, vo
 
 1. Connectez-vous à votre serveur local Crucible en tant qu’administrateur.
 
-2. Pointez sur le roue dentée, puis cliquez sur **Users** (Utilisateurs).
+2. Pointez sur la roue dentée, puis cliquez sur **Users** (Utilisateurs).
 
     ![Ajouter un employé](./media/kantegassoforfisheyecrucible-tutorial/user1.png) 
 

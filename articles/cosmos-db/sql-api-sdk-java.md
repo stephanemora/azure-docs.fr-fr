@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/16/2018
-ms.author: khdang
+ms.date: 06/29/2018
+ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62555d3ba3513ce7183e24506530edcf78368247
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798625"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344935"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Java Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -52,6 +52,13 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
+* Ajout de la prise en charge du basculement de la diffusion en continu.
+* Ajout de la prise en charge des métadonnées personnalisées.
+* Amélioration de la logique de gestion de session.
+* Correction d’un bogue dans le cache de plage de clés de partition.
+* Correction d’un bogue NPE en mode direct.
 
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * Ajout de la prise en charge de l’index unique.
@@ -150,7 +157,7 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 * Propriété IPartitionResolver déconseillée basée sur un code de partitionnement personnalisé. Utilisez des collections partitionnées pour bénéficier d’un niveau de stockage et de débit supérieur.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
-* Ajout de la prise en charge d’une stratégie de nouvelle tentative pour la limitation.  
+* Ajout de la prise en charge d’une stratégie de nouvelle tentative pour la limitation du débit.  
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Ajout de la prise en charge de la durée de vie (TTL) pour les documents.
@@ -198,6 +205,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.16.2](#1.16.2) |29 Juin 2018 |--- |
 | [1.16.1](#1.16.1) |16 mai 2018 |--- |
 | [1.16.0](#1.16.0) |15 mars 2018 |--- |
 | [1.15.0](#1.15.0) |14 novembre 2017 |--- |

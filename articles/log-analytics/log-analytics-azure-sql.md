@@ -1,9 +1,9 @@
 ---
 title: Solution Azure SQL Analytics dans Log Analytics | Microsoft Docs
-description: La solution Azure SQL Analytics vous permet de gérer vos instances Azure SQL Database.
+description: La solution Azure SQL Analytics vous permet de gérer vos instances Azure SQL Database.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -11,24 +11,26 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: f57a47677f752a644975a25fa746d78bced5d766
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133351"
 ---
-# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Surveiller Azure SQL Database à l’aide d’Azure SQL Analytics (version préliminaire) dans Log Analytics
+# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Surveiller les instances Azure SQL Database avec Azure SQL Analytics (préversion)
 
 ![Symbole Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-La solution Azure SQL Analytics d’Azure Log Analytics collecte et affiche d’importantes mesures de performances de SQL Azure. En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes personnalisées de surveillance. Par ailleurs, vous pouvez surveiller les mesures associées à Azure SQL Database et aux pools élastiques au sein de plusieurs abonnements Azure et pools élastiques, et afficher ces données. La solution vous aide également à identifier les problèmes sur chacune des couches de votre pile applicative.  Elle utilise les [données de diagnostic Azure](log-analytics-azure-storage.md) avec les vues Log Analytics pour présenter les données relatives à l’ensemble de vos instances Azure SQL Database et de vos pools élastiques dans un espace de travail Log Analytics unique.
+Azure SQL Analytics est une solution de surveillance cloud pour les performances des instances Azure SQL Database à grande échelle sur plusieurs pools élastiques et abonnements. Cette solution collecte et affiche d’importantes mesures de performances pour Azure SQL Database avec des informations intégrées pour la résolution des problèmes également. 
+
+En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes de surveillance personnalisées. La solution vous aide à identifier les problèmes sur chacune des couches de votre pile applicative. Elle utilise les données de diagnostic Azure avec les vues Log Analytics pour présenter les données relatives à l’ensemble de vos instances Azure SQL Database et de vos pools élastiques dans un espace de travail Log Analytics unique. Log Analytics prend en charge la collecte, la mise en correspondance et l’affichage des données structurées et non structurées.
 
 Actuellement, cette solution en version préliminaire prend en charge jusqu’à 150 000 instances Azure SQL Database et 5 000 pools élastiques SQL par espace de travail.
-
-La solution Azure SQL Analytics, comme d’autres solutions disponibles pour Log Analytics, prend en charge la surveillance et la réception des notifications sur l’intégrité de vos ressources Azure, ici d’Azure SQL Database. Microsoft Azure SQL Database est un service évolutif de base de données relationnelle qui offre des fonctionnalités similaires à celles de SQL Server aux applications exécutées dans le cloud Azure. Log Analytics prend en charge la collecte, la mise en correspondance et l’affichage des données structurées et non structurées.
 
 Pour une présentation pratique sur l'utilisation de la solution Azure SQL Analytics et des scénarios d'utilisation standard, regardez la vidéo incorporée :
 
@@ -37,40 +39,34 @@ Pour une présentation pratique sur l'utilisation de la solution Azure SQL Analy
 
 ## <a name="connected-sources"></a>Sources connectées
 
-La solution Azure SQL Analytics n’utilise pas d’agent pour établir la connexion avec le service Log Analytics.
-
-Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
+Azure SQL Analytics est une solution de surveillance cloud prenant en charge la diffusion en continu de données de télémétrie de diagnostic pour les instances Azure SQL Database et les pools élastiques. Comme elle n’utilise pas les agents pour se connecter au service Log Analytics, la solution ne prend pas en charge la connectivité avec Windows, Linux ou les ressources SCOM. Consultez le tableau de compatibilité ci-dessous.
 
 | Source connectée | Support | Description |
 | --- | --- | --- |
+| **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
+| [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Log Analytics ne lit pas les données du compte de stockage. |
 | [Agents Windows](log-analytics-windows-agent.md) | Non  | Les agents directs Windows ne sont pas utilisés par la solution. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  | Les agents directs Linux ne sont pas utilisés par la solution. |
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne valorise aucune connexion directe entre l’agent SCOM et Log Analytics. |
-| [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Log Analytics ne lit pas les données du compte de stockage. |
-| [Azure Diagnostics](log-analytics-azure-storage.md) | OUI | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
-
-## <a name="prerequisites"></a>Prérequis
-
-
-- Un abonnement Azure. Si vous n’en avez pas, créez-en un [gratuitement](https://azure.microsoft.com/free/).
-- Un espace de travail Log Analytics. Vous pouvez utiliser un élément existant, ou en [créez un nouveau](log-analytics-quick-create-workspace.md) avant de commencer à utiliser cette solution.
-- Activez les diagnostics Azure pour vos instances Azure SQL Database et vos pools élastiques et [configurez-les pour l’envoi de leurs données vers Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ## <a name="configuration"></a>Configuration
 
 Exécutez la procédure suivante afin d’ajouter la solution Azure SQL Analytics dans votre espace de travail.
 
-1. Ajoutez la solution Azure SQL Analytics à votre espace de travail depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
-2. Dans le portail Azure, cliquez sur **Créer une ressource** > **Surveillance + Gestion**.  
+1. Ajoutez la solution Azure SQL Analytics à votre espace de travail à partir de la [marketplace Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
+2. Dans le portail Azure, cliquez sur **+ Créer une ressource**, puis recherchez **Azure SQL Analytics**.  
     ![Surveillance et gestion](./media/log-analytics-azure-sql/monitoring-management.png)
-3. Dans la liste **Surveillance et gestion**, cliquez sur **Afficher tout**.
-4. Dans la liste **Recommandé**, cliquez sur **Plus**. Ensuite, dans la nouvelle liste, recherchez **Azure SQL Analytics (version préliminaire)** et sélectionnez cet élément.  
-    ![Solution Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. Dans la zone **Azure SQL Analytics (version préliminaire)**, cliquez sur **Créer**.  
+3. Sélectionnez **Azure SQL Analytics (préversion)** dans la liste.
+4. Dans la zone **Azure SQL Analytics (version préliminaire)**, cliquez sur **Créer**.  
     ![Créer](./media/log-analytics-azure-sql/portal-create.png)
-6. Dans la zone **Créer une nouvelle solution**, sélectionnez l’espace de travail auquel vous souhaitez ajouter la solution, puis cliquez sur **Créer**.  
+5. Dans la zone **Créer une nouvelle solution**, créez une solution ou sélectionnez un espace de travail existant auquel vous souhaitez ajouter la solution, puis cliquez sur **Créer**.  
     ![ajouter à l’espace de travail](./media/log-analytics-azure-sql/add-to-workspace.png)
 
+### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>Configurer des instances Azure SQL Database et des pools élastiques pour diffuser en continu des données de télémétrie de diagnostic
+
+Une fois que vous avez créé la solution Azure SQL Analytics dans votre espace de travail, afin de surveiller les performances des instances Azure SQL Database et/ou des pools élastiques, vous devez **configurer chaque** ressource Azure SQL Database et de pool élastique à surveiller pour diffuser ses données de télémétrie de diagnostic vers la solution.
+
+- Activez les diagnostics Azure pour vos instances Azure SQL Database et vos pools élastiques et [configurez-les pour l’envoi de leurs données vers Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### <a name="to-configure-multiple-azure-subscriptions"></a>Pour configurer plusieurs abonnements Azure
 

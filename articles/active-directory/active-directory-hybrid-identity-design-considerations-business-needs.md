@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 68a7e71cf374f10b4c5ced3e64da36138b0d2e4d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a641464e04421b90de15cd953bb8a0fbf9b687d3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34800722"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084720"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins d’identité pour votre solution d’identités hybrides
 La première étape dans la conception d’une solution d’identités hybrides consiste à déterminer les exigences de l’entreprise qui va exploiter cette solution.  L’identité hybride démarre comme un rôle de support (elle prend en charge toutes les autres solutions cloud en assurant l’authentification), et continue en proposant des fonctionnalités nouvelles et intéressantes qui révèlent de nouvelles charges de travail pour les utilisateurs.  Ces charges de travail ou les services que vous souhaitez adopter pour vos utilisateurs déterminent les exigences pour la conception d’identités hybrides.  Ces services et charges de travail doivent exploiter l’identité hybride à la fois en local et dans le cloud.  
@@ -58,7 +58,7 @@ Vous devez également connaître les services cloud dont votre entreprise dispos
 * Cette intégration est-elle actuellement en production ou s’agit-il d’un pilote ?
 
 > [!NOTE]
-> Si vous ne disposez pas d’un mappage précis de l’ensemble de vos applications et services cloud, vous pouvez utiliser l’outil Cloud App Discovery. Cet outil peut fournir à votre service informatique une visibilité sur toutes les applications cloud d’entreprise et clientes de votre organisation. Il est ainsi plus facile de faire émerger les données informatiques de votre organisation, notamment les informations concernant les tendances d’utilisation et les utilisateurs qui accèdent à vos applications cloud. Pour commencer, consultez [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+> Cloud Discovery analyse vos journaux de trafic par rapport au catalogue d’applications cloud de Microsoft Cloud App Security, qui contient plus de 16 000 applications cloud classées et évaluées selon plus de 70 facteurs de risque, pour vous fournir une visibilité permanente sur l’utilisation du cloud, les clichés instantanés et le risque des clichés instantanés dans votre organisation. Pour commencer, consultez la [configuration de Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 

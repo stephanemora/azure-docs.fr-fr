@@ -10,25 +10,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 4f3cafd80c713697a8b8fdde56c021be1c5319fb
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: bb1c59fa7df9cf466ce1fd7f32f08d255fe656bd
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824585"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097061"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de table Azure Storage : conception de tables évolutives et performantes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Pour concevoir des tables évolutives et performantes, vous devez prendre en compte un certain nombre de facteurs, tels que la performance, l'extensibilité et le coût. Si vous avez déjà conçu des schémas pour des bases de données relationnelles, ces considérations doivent vous être familières, mais s'il existe quelques similitudes entre le modèle de stockage du service de Table Azure et les modèles relationnels, il existe également plusieurs différences importantes. Ces différences conduisent généralement à des conceptions très différentes qui peuvent sembler absurdes ou incorrectes à une personne ayant une bonne connaissance des bases de données relationnelles, mais qui sont logiques pour une personne menant une conception pour un magasin de paires clé/valeur NoSQL comme celui du service de Table Azure. Bon nombre de différences de conception refléteront le fait que le service de Table est conçu pour prendre en charge des applications à l’échelle du cloud qui peuvent contenir des milliards d’entités (que la terminologie de base de données relationnelle appelle « des lignes ») de données ou des jeux de données devant prendre en charge des volumes de transactions très élevés : par conséquent, vous devez concevoir différemment la façon dont vous stockez vos données et comprendre comment fonctionne le service de Table. Un magasin de données NoSQL bien conçu améliore l'étendue de la mise à l'échelle de votre solution, pour un coût inférieur à celui d'une solution utilisant une base de données relationnelle. Ce guide fournit une aide relative à ces sujets.  
+Pour concevoir des tables évolutives et performantes, vous devez prendre en compte un certain nombre de facteurs, tels que la performance, l'extensibilité et le coût. Si vous avez déjà conçu des schémas pour des bases de données relationnelles, ces considérations doivent vous être familières, mais s'il existe quelques similitudes entre le modèle de stockage du service de Table Azure et les modèles relationnels, il existe également plusieurs différences importantes. Ces différences conduisent généralement à des conceptions différentes qui peuvent sembler absurdes ou incorrectes à une personne ayant une bonne connaissance des bases de données relationnelles, mais qui sont logiques pour une personne menant une conception pour un magasin de paires clé/valeur NoSQL comme celui du service de Table Azure. Bon nombre de différences de conception refléteront le fait que le service de Table est conçu pour prendre en charge des applications à l’échelle du cloud qui peuvent contenir des milliards d’entités (que la terminologie de base de données relationnelle appelle « des lignes ») de données ou des jeux de données devant prendre en charge des volumes de transactions élevés : par conséquent, vous devez concevoir différemment la façon dont vous stockez vos données et comprendre comment fonctionne le service de Table. Un magasin de données NoSQL bien conçu améliore l'étendue de la mise à l'échelle de votre solution, pour un coût inférieur à celui d'une solution utilisant une base de données relationnelle. Ce guide fournit une aide relative à ces sujets.  
 
 ## <a name="about-the-azure-table-service"></a>À propos du service de Table Azure
 Cette section présente certaines des principales fonctionnalités du service de Table qui sont particulièrement adaptées aux conceptions orientées vers l'amélioration des performances et de l'extensibilité. Si vous ne connaissez pas Azure Storage et le service de Table, nous vous conseillons de commencer par lire les articles [Introduction à Microsoft Azure Storage](../storage/common/storage-introduction.md) et [Prise en main d’Azure Table Storage à l’aide de .NET](table-storage-how-to-use-dotnet.md) avant de lire le reste de cet article. Bien que ce guide porte sur le service de Table, il aborde également les services de File d'attente et BLOB Azure, en expliquant comment les utiliser avec le service de Table dans une solution.  
 
-Qu'est-ce que le service de Table ? Comme le laisse entendre son nom, le service de Table utilise un format tabulaire pour stocker des données. Selon la terminologie standard, chaque ligne de la table représente une entité et les colonnes stockent les différentes propriétés de cette entité. Le service de Table identifie chaque entité de façon unique en utilisant une paire de clés. Il procède au suivi de mise à jour des entités en utilisant une colonne d'horodatage (cela se produit automatiquement et vous ne pouvez pas remplacer manuellement l'horodatage par une valeur de votre choix). Le service de Table utilise le dernier horodatage modifié (ou LMT, pour Last Modified Timestamp) afin de gérer l’accès concurrentiel optimiste.  
+Qu'est-ce que le service de Table ? Comme le laisse entendre son nom, le service de Table utilise un format tabulaire pour stocker des données. Selon la terminologie standard, chaque ligne de la table représente une entité et les colonnes stockent les différentes propriétés de cette entité. Le service de Table identifie chaque entité de façon unique en utilisant une paire de clés. Il procède au suivi de mise à jour des entités en utilisant une colonne d’horodatage (ce champ d’horodatage est ajouté automatiquement et vous ne pouvez pas remplacer manuellement l’horodatage par une valeur de votre choix). Le service de Table utilise le dernier horodatage modifié (ou LMT, pour Last Modified Timestamp) afin de gérer l’accès concurrentiel optimiste.  
 
 > [!NOTE]
-> Les opérations d’API REST du service de Table renvoient également une valeur **ETag** dérivée du dernier horodatage modifié (LMT). Dans ce document, nous allons utiliser indifféremment les termes ETag et LMT, car ils font référence aux mêmes données sous-jacentes.  
+> Les opérations d’API REST du service de Table renvoient également une valeur **ETag** dérivée du dernier horodatage modifié (LMT). Dans ce document, vous allez remarquer les termes ETag et LMT, car ils font référence aux mêmes données sous-jacentes.  
 > 
 > 
 
@@ -122,14 +122,14 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 </table>
 
 
-Jusqu'ici, tout ceci ressemble à une table de base de données relationnelle, les principales différences étant les colonnes obligatoires et la possibilité de stocker plusieurs types d'entité dans la même table. En outre, chacune des propriétés définies par l’utilisateur, telles que **FirstName** ou **Age**, est caractérisée par un type de données, par exemple un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Bien que, contrairement à une base de données relationnelle, la nature sans schéma du service de Table signifie qu'une propriété n'a pas nécessairement besoin d'avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations sur les plages de dates et les types de données pris en charge, les règles d’affectation de noms et les contraintes de taille, consultez l’article [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Jusqu’ici, cette conception ressemble à une table de base de données relationnelle, les principales différences étant les colonnes obligatoires et la possibilité de stocker plusieurs types d’entité dans la même table. En outre, chacune des propriétés définies par l’utilisateur, telles que **FirstName** ou **Age**, est caractérisée par un type de données, par exemple un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Bien que, contrairement à une base de données relationnelle, la nature sans schéma du service de Table signifie qu'une propriété n'a pas nécessairement besoin d'avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations sur les plages de dates et les types de données pris en charge, les règles d’affectation de noms et les contraintes de taille, consultez l’article [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Comme vous le verrez, le choix d’une valeur de **PartitionKey** et de **RowKey** est important pour une bonne conception de table. Toutes les entités stockées dans une table doivent avoir une combinaison unique de **PartitionKey** et **RowKey**. Comme avec les clés d’une table de base de données relationnelle, les valeurs de **PartitionKey** et de **RowKey** sont indexées pour créer un index ordonné en clusters qui permet la recherche rapide. Toutefois, le service de Table ne crée pas d’index secondaires : ces deux propriétés sont donc les seules indexées (certains des modèles décrits plus loin montrent comment vous pouvez contourner cette limitation).  
 
 Une table est constituée d’une ou plusieurs partitions et comme vous le verrez, la plupart des décisions de conception que vous prendrez consisteront à choisir une valeur de **PartitionKey** et de **RowKey** adaptée pour optimiser votre solution. En guise de solution, vous pouvez utiliser une seule table contenant toutes vos entités organisées en partitions, mais généralement, une solution possède plusieurs tables. Les tables vous permettent d'organiser vos entités logiquement, de gérer l'accès aux données en utilisant des listes de contrôle d'accès, et de supprimer une table entière à l'aide d'une opération de stockage unique.  
 
 ### <a name="table-partitions"></a>Partitions de table
-Le nom du compte, le nom de la table et la valeur de **PartitionKey** identifient la partition dans le service de stockage où le service de Table stocke l’entité. Tout en appartenant au schéma d’adressage des entités, les partitions définissent une étendue pour les transactions (pour en savoir plus, consultez [Transactions de groupe d’entités](#entity-group-transactions) ci-dessous) et constituent la base de la méthode de mise à l’échelle du service de Table. Pour plus d’informations sur les partitions, consultez [Objectifs d’évolutivité et de performances d’Azure Storage](../storage/common/storage-scalability-targets.md).  
+Le nom du compte, le nom de la table et la valeur de **PartitionKey** identifient la partition dans le service de stockage où le service de Table stocke l’entité. Tout en appartenant au schéma d’adressage des entités, les partitions définissent une étendue pour les transactions (pour en savoir plus, consultez [Transactions de groupe d’entités](#entity-group-transactions) ci-dessous) et constituent la base de la méthode de mise à l’échelle du service de Table. Pour plus d’informations sur les partitions, consultez [Objectifs de scalabilité et de performances du Stockage Azure](../storage/common/storage-scalability-targets.md).  
 
 Dans le service de Table, un nœud individuel traite une ou plusieurs partitions complètes et le service se met à l'échelle en procédant à l'équilibrage de charge dynamique des partitions sur les nœuds. Si un nœud est en sous-charge, le service de Table peut *fractionner* la plage de partitions traitées par ce nœud en différents nœuds. En cas de réduction du trafic, le service peut *fusionner* les plages de partitions à partir des nœuds silencieux en un nœud unique.  
 
@@ -159,7 +159,7 @@ Pour plus d'informations, consultez la rubrique [Présentation du modèle de don
 Le stockage de table est relativement peu coûteux, mais vous devez y inclure les estimations de coût pour l'utilisation des capacités et la quantité de transactions dans le cadre de l'évaluation d'une solution qui utilise le service de Table. Toutefois, dans de nombreux scénarios, le stockage de données dénormalisées ou dupliquées afin d'améliorer les performances ou l'extensibilité de votre solution est une approche appropriée. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ## <a name="guidelines-for-table-design"></a>Conseils pour la conception de table
-Ces listes résument certains des principaux conseils que vous devez garder à l’esprit lorsque vous concevez vos tables. Ces conseils seront détaillés ultérieurement dans ce guide. Ils sont très différents de ceux généralement prodigués pour la conception d’une base de données relationnelle.  
+Ces listes résument certains des principaux conseils que vous devez garder à l’esprit lorsque vous concevez vos tables. Ces conseils seront détaillés ultérieurement dans ce guide. Ils sont différents de ceux généralement prodigués pour la conception d’une base de données relationnelle.  
 
 Conception de votre solution de service de Table pour une *lecture* efficace :
 
@@ -208,15 +208,15 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 | **Age** |Entier  |
 | **EmailAddress** |Chaîne |
 
-La section précédente [Présentation du service de Table Azure](#overview) décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. Notez que la syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+La section précédente [Présentation du service de Table Azure](#overview) décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. La syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
-* Une ***requête de pointage*** constitue la méthode de recherche la plus efficace. Elle est recommandée pour les recherches sur de gros volumes ou des recherches nécessitant la latence la plus faible. Une telle requête peut utiliser les index pour localiser une entité individuelle très efficacement en spécifiant les valeurs de **PartitionKey** et de **RowKey**. Par exemple : $filter=(PartitionKey eq ’Sales’) and (RowKey eq ’2’)  
+* Une ***requête de pointage*** constitue la méthode de recherche la plus efficace. Elle est recommandée pour les recherches sur de gros volumes ou des recherches nécessitant la latence la plus faible. Une telle requête peut utiliser les index pour localiser une entité individuelle efficacement en spécifiant les valeurs de **PartitionKey** et de **RowKey**. Par exemple : $filter=(PartitionKey eq ’Sales’) and (RowKey eq ’2’)  
 * La deuxième méthode conseillée consiste à utiliser une ***requête de plage*** de données qui utilise la valeur de **PartitionKey** et des filtres sur une plage de valeurs de **RowKey** pour retourner plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique, tandis que la valeur de **RowKey** identifie un sous-ensemble des entités de cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and RowKey ge ’S’ and RowKey lt ’T’  
 * La troisième méthode conseillée consiste à effectuer une ***analyse de partition*** qui utilise la valeur de **PartitionKey** et des filtres sur une autre propriété sans clé afin de renvoyer plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique et les valeurs des propriétés sélectionnent un sous-ensemble d’entités dans cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and LastName eq ’Smith’  
-* Une ***analyse de table*** n’inclut pas la valeur de **PartitionKey** et s’avère particulièrement inefficace, car elle lance une recherche sur toutes les partitions qui composent la table pour toutes les entités correspondantes. Elle effectue une analyse de table, que votre filtre utilise la valeur de **RowKey**ou non. Par exemple : $filter=LastName eq ’Jones’  
+* Une ***analyse de table*** n’inclut pas la valeur de **PartitionKey** et s’avère inefficace, car elle lance une recherche sur toutes les partitions qui composent la table pour toutes les entités correspondantes. Elle effectue une analyse de table, que votre filtre utilise la valeur de **RowKey**ou non. Par exemple : $filter=LastName eq ’Jones’  
 * Les requêtes qui retournent plusieurs entités les retournent triées dans l’ordre de la **PartitionKey** et de la **RowKey**. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de **RowKey** qui définit l’ordre de tri le plus répandu.  
 
-Notez que l’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de **RowKey** déclenche une analyse de partition et n’est pas traitée en tant que requête de plage de données. Par conséquent, vous devez éviter les requêtes qui utilisent des filtres comme : $filter=PartitionKey eq ’Sales’ and (RowKey eq ’121’ or RowKey eq ’322’)  
+L’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de **RowKey** déclenche une analyse de partition et n’est pas traitée en tant que requête de plage de données. Par conséquent, vous devez éviter les requêtes qui utilisent des filtres comme : $filter=PartitionKey eq ’Sales’ and (RowKey eq ’121’ or RowKey eq ’322’)  
 
 Pour obtenir des exemples de code côté client qui utilisent la bibliothèque cliente de stockage pour exécuter des requêtes efficaces, consultez les pages suivantes :  
 
@@ -298,17 +298,17 @@ Les modèles suivants de la section [Modèles de conception de table](#table-des
 ## <a name="encrypting-table-data"></a>Chiffrement de données de table
 La bibliothèque cliente de stockage .NET Azure Storage prend en charge le chiffrement des propriétés de l’entité de chaîne pour les opérations d’insertion et de remplacement. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.    
 
-Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut EncryptProperty \(pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
+Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut EncryptProperty \(pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Il n’est pas nécessaire de fournir ces informations pendant la lecture ou l’interrogation des entités.
 
-Notez que la fusion n’est pas prise en charge pour le moment. Si un sous-ensemble de propriétés a été chiffré précédemment à l’aide d’une clé différente, la fusion des nouvelles propriétés et la mise à jour des métadonnées entraîne une perte de données. L’opération de fusion nécessite d’effectuer des appels de service supplémentaires pour lire l’entité pré-existante à partir du service ou d’utiliser une nouvelle clé par propriété. Ces deux solutions ne conviennent pas pour des raisons de performances.     
+La fusion n’est pas prise en charge pour le moment. Si un sous-ensemble de propriétés a été chiffré précédemment à l’aide d’une clé différente, la fusion des nouvelles propriétés et la mise à jour des métadonnées entraîne une perte de données. L’opération de fusion nécessite d’effectuer des appels de service supplémentaires pour lire l’entité pré-existante à partir du service ou d’utiliser une nouvelle clé par propriété. Ces deux solutions ne conviennent pas pour des raisons de performances.     
 
 Pour plus d’informations sur le chiffrement des données de table, consultez [Chiffrement côté client et coffre de clés Azure pour Microsoft Azure Storage](../storage/common/storage-client-side-encryption.md).  
 
-## <a name="modelling-relationships"></a>Modélisation des relations
-La création de modèles de domaine est une étape importante pour concevoir des systèmes complexes. En règle générale, le processus de modélisation permet d'identifier les entités et les relations entre eux, pour mieux comprendre le domaine de l'entreprise et concevoir votre système. Cette section se concentre sur la manière dont vous pouvez traduire certains des types de relations courantes découverts dans les modèles du domaine pour les conceptions du service de Table. Le processus de mappage à partir d'un modèle de données logique vers un modèle de données NoSQL physique est très différent de celui utilisé lors de la conception d'une base de données relationnelle. La conception de bases de données relationnelles suppose généralement un processus de normalisation des données optimisé pour réduire la redondance, ainsi qu'une fonctionnalité de requête déclarative qui résume la façon dont fonctionne l'implémentation de la base de données.  
+## <a name="modeling-relationships"></a>Modélisation des relations
+La création de modèles de domaine est une étape importante pour concevoir des systèmes complexes. En règle générale, le processus de modélisation permet d’identifier les entités et les relations entre elles, pour mieux comprendre le domaine de l’entreprise et concevoir votre système. Cette section se concentre sur la manière dont vous pouvez traduire certains des types de relations courantes découverts dans les modèles du domaine pour les conceptions du service de Table. Le processus de mappage d’un modèle de données logique vers un modèle de données NoSQL physique est différent de celui utilisé pour la conception d’une base de données relationnelle. La conception de bases de données relationnelles suppose généralement un processus de normalisation des données optimisé pour réduire la redondance, ainsi qu'une fonctionnalité de requête déclarative qui résume la façon dont fonctionne l'implémentation de la base de données.  
 
 ### <a name="one-to-many-relationships"></a>Relations un-à-plusieurs
-Les relations un-à-plusieurs entre des objets de domaine d'entreprise se produisent très fréquemment : par exemple, un service a de nombreux employés. Il existe plusieurs méthodes pour implémenter des relations un-à-plusieurs dans le service de Table. Chacune d'elles a des inconvénients et des avantages qui peuvent être pertinents pour un scénario particulier.  
+Les relations un-à-plusieurs entre des objets de domaine d’entreprise se produisent fréquemment : par exemple, un service a de nombreux employés. Il existe plusieurs méthodes pour implémenter des relations un-à-plusieurs dans le service de Table. Chacune d'elles a des inconvénients et des avantages qui peuvent être pertinents pour un scénario particulier.  
 
 Prenons l'exemple d'une grande entreprise multinationale ayant des dizaines de milliers d'entités relatives aux services (department) et aux employés (employee) où chaque service a de nombreux employés et chaque employé est associé à un service spécifique. Une approche consiste à stocker séparément les entités relatives aux services (department) et aux employés (employee), comme ceci :  
 
@@ -337,7 +337,7 @@ Le tableau suivant récapitule les avantages et les inconvénients de chacune de
 <td>
 <ul>
 <li>Vous pouvez mettre à jour une entité de service en une seule opération.</li>
-<li>Vous pouvez utiliser une EGT pour maintenir la cohérence si vous avez besoin de modifier une entité de service à chaque mise à jour/insertion/suppression d'une entité d'employé. Par exemple, si vous conservez un nombre d'employés de service pour chaque service.</li>
+<li>Vous pouvez utiliser une EGT pour maintenir la cohérence si vous avez besoin de modifier une entité de service à chaque mise à jour/insertion/suppression d'une entité d'employé. Par exemple, si vous conservez un nombre d’employés de service pour chaque service.</li>
 </ul>
 </td>
 <td>
@@ -349,7 +349,7 @@ Le tableau suivant récapitule les avantages et les inconvénients de chacune de
 </td>
 </tr>
 <tr>
-<td>Types d'entités distincts, différentes partitions ou différentes tables ou différents comptes de stockage</td>
+<td>Types d’entités distincts, différentes partitions ou différentes tables ou différents comptes de stockage</td>
 <td>
 <ul>
 <li>Vous pouvez mettre à jour une entité de service ou une entité d'employé avec une seule opération.</li>
@@ -384,15 +384,15 @@ Votre choix entre ces options, ainsi que la détermination des avantages et des 
 ### <a name="one-to-one-relationships"></a>Relations un à un
 Les modèles de domaines peuvent inclure des relations un à un entre les entités. Si vous devez implémenter une relation un à un dans le service de Table, vous devez également choisir comment lier les deux entités associées lorsque vous avez besoin de récupérer les deux. Ce lien peut être implicite s’il est basé sur une convention dans les valeurs de clé, ou explicite si l’on stocke un lien sous forme de valeurs de **PartitionKey** et de **RowKey** dans chaque entité et son entité associée. Pour savoir quand stocker les entités associées dans la même partition, consultez la section [Relations un à plusieurs](#one-to-many-relationships).  
 
-Notez que certaines considérations sur l'implémentation peuvent vous conduire à implémenter des relations un à un dans le service de Table :  
+Certaines considérations sur l’implémentation peuvent vous conduire à implémenter des relations un à un dans le service de Table :  
 
 * Gestion des entités volumineuses (pour plus d’informations, consultez [Modèle d’entités volumineuses](#large-entities-pattern))  
 * L’implémentation de contrôles d’accès (pour plus d’informations, consultez [Contrôle d’accès avec des signatures d’accès partagé](#controlling-access-with-shared-access-signatures))  
 
 ### <a name="join-in-the-client"></a>Joindre le client
-Bien qu'il existe des façons de modéliser des relations dans le service de Table, n'oubliez pas que les deux principaux motifs pour utiliser le service de Table sont l'évolutivité et les performances. Si vous devez modéliser plusieurs relations pouvant compromettre les performances et l'évolutivité de votre solution, demandez-vous s'il est nécessaire de générer toutes les relations de données dans votre conception de table. Vous pouvez peut-être simplifier la conception et améliorer l'évolutivité et les performances de votre solution si vous laissez votre application cliente effectuer les jointures nécessaires.  
+Bien qu'il existe des façons de modéliser des relations dans le service de Table, n'oubliez pas que les deux principaux motifs pour utiliser le service de Table sont l'évolutivité et les performances. Si vous devez modéliser plusieurs relations pouvant compromettre les performances et la scalabilité de votre solution, demandez-vous s’il est nécessaire de générer toutes les relations de données dans votre conception de table. Vous pouvez peut-être simplifier la conception et améliorer l'évolutivité et les performances de votre solution si vous laissez votre application cliente effectuer les jointures nécessaires.  
 
-Par exemple, si vous avez des petites tables qui contiennent des données qui ne changent pas très souvent, vous pouvez récupérer ces données une fois et les mettre en cache sur le client. Cela peut éviter des allers-retours répétés pour récupérer les mêmes données. Dans les exemples que nous avons vus dans ce guide, l'ensemble des services d'une petite entreprise sera réduit et ne risque pas d'être modifié très souvent, ce qui en fait un bon candidat pour l'emploi de données que l'application cliente peut télécharger une fois et mettre en cache en tant que données de recherche.  
+Par exemple, si vous avez des petites tables qui contiennent des données qui ne changent pas souvent, vous pouvez récupérer ces données une fois et les mettre en cache sur le client. Cela peut éviter des allers-retours répétés pour récupérer les mêmes données. Dans les exemples que nous avons vus dans ce guide, l’ensemble des services d’une petite entreprise sera réduit et ne risque pas d’être modifié très souvent, ce qui en fait un bon candidat pour l’emploi de données que l’application cliente peut télécharger une fois et mettre en cache en tant que données de recherche.  
 
 ### <a name="inheritance-relationships"></a>Relations d'héritage
 Si votre application cliente utilise un ensemble de classes qui font partie d'une relation d'héritage pour représenter des entités métier, vous pouvez facilement conserver ces entités dans le service de Table. Par exemple, l’ensemble de classes suivant peut être défini dans votre application cliente, **Person** étant une classe abstraite.
@@ -474,7 +474,7 @@ Le service de Table indexe automatiquement les entités en utilisant les valeurs
 
 Si vous voulez également pouvoir trouver une entité d'employé en fonction de la valeur d'une autre propriété, comme l'adresse de messagerie, vous devez utiliser une analyse de partition moins efficace pour rechercher une correspondance. En effet, le service de Table ne fournit pas d'index secondaires. De plus, vous ne pouvez pas demander une liste des employés triés dans un ordre différent de celui de **RowKey** .  
 
-Vous prévoyez un volume très élevé de transactions sur ces entités et vous souhaitez réduire le risque de limitation de votre client par le service de Table.  
+Vous prévoyez un volume élevé de transactions sur ces entités et vous souhaitez réduire le risque de limitation du débit de votre client par le service de Table.  
 
 #### <a name="solution"></a>Solution
 Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs copies de chaque entité avec chaque copie à l’aide de différentes valeurs de **PartitionKey** et de **RowKey**. Si vous stockez une entité avec les structures indiquées ci-dessous, vous pouvez récupérer efficacement des entités d’employés selon leur adresse de messagerie ou leur ID d’employé. Les valeurs de préfixe pour **PartitionKey**, « empid » et « email » permettent d’identifier l’index à utiliser pour une requête.  
@@ -548,7 +548,7 @@ Certaines erreurs provenant des services de Table et de File d'attente sont des 
 #### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
 
-* Cette solution ne fournit pas d'isolation des transactions. Par exemple, un client peut lire les tables **Current** et **Archive** quand le rôle de travail est entre les étapes **4** et **5**, et voir des données incohérentes affichées. Notez que les données seront cohérentes par la suite.  
+* Cette solution ne fournit pas d'isolation des transactions. Par exemple, un client peut lire les tables **Current** et **Archive** quand le rôle de travail est entre les étapes **4** et **5**, et voir des données incohérentes affichées. Les données seront cohérentes par la suite.  
 * Vous pouvez être amené à vérifier que les étapes 4 et 5 sont idempotent afin d'assurer la cohérence.  
 * Vous pouvez mettre à l'échelle la solution en utilisant plusieurs files d'attente et instances de rôle de travail.  
 
@@ -585,7 +585,7 @@ Pour permettre la recherche par nom de famille en utilisant la structure d'entit
 
 <u>Méthode nº 1 : stockage d’objets blob</u>  
 
-Pour la première méthode, vous créez un objet blob pour chaque nom unique et dans chaque magasin d’objets blob vous stockez une liste des valeurs de **PartitionKey** (service) et de **RowKey** (ID d’employé) pour les employés portant ce nom. Lorsque vous ajoutez ou supprimez un employé, vous devez vous assurer que le contenu de l'objet blob adéquat est cohérent avec les entités de l'employé.  
+Pour la première méthode, vous créez un objet blob pour chaque nom unique et dans chaque magasin d’objets blob vous stockez une liste des valeurs de **PartitionKey** (service) et de **RowKey** (ID d’employé) pour les employés portant ce nom. Lorsque vous ajoutez ou supprimez un employé, vous devez vous assurer que le contenu de l’objet blob adéquat est cohérent avec les entités de l’employé.  
 
 <u>Méthode nº 2 :</u> création d’entités d’index dans la même partition  
 
@@ -599,7 +599,7 @@ Les étapes suivantes décrivent le processus à suivre lorsque vous ajoutez un 
 
 1. Récupérez l’entité de l’index par la valeur de **PartitionKey** « Sales » et la valeur de **RowKey** « Jones ». Enregistrez l'ETag de cette entité pour l'utiliser lors de l'étape 2.  
 2. Créez une transaction de groupe d’entités (c’est-à-dire une opération par lots) qui insère la nouvelle entité d’employé (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « 000152 ») et met à jour l’entité d’index (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « Jones ») en ajoutant l’ID d’employé à la liste du champ EmployeeIDs. Pour plus d’informations sur les transactions de groupe d’entités, consultez [Transactions de groupe d’entités](#entity-group-transactions).  
-3. Si la transaction de groupe d’entités échoue en raison d’une erreur d’accès concurrentiel optimiste (quelqu’un d’autre vient de modifier l’entité d’index), vous devez recommencer à l’étape 1.  
+3. Si la transaction de groupe d’entités échoue en raison d’une erreur d’accès concurrentiel optimiste (quelqu’un d’autre a modifié l’entité d’index), vous devez recommencer à l’étape 1.  
 
 Vous pouvez utiliser une approche similaire pour supprimer un employé si vous utilisez la deuxième option. La modification du nom d’un employé est légèrement plus complexe, car vous devrez exécuter une transaction de groupe d’entités qui met à jour trois entités : l’entité d’employé, l’entité d’index pour l’ancien nom et l’entité d’index pour le nouveau nom. Vous devez récupérer chaque entité avant d'apporter des modifications afin de récupérer les valeurs ETag que vous pouvez ensuite utiliser pour effectuer les mises à jour à l'aide de l'accès concurrentiel optimiste.  
 
@@ -623,7 +623,7 @@ Dans la troisième méthode, vous ne pouvez pas utiliser des EGT pour maintenir 
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
 
 * Cette solution nécessite au moins deux requêtes pour récupérer des entités correspondantes : une pour interroger les entités d’index afin d’obtenir la liste des valeurs **RowKey** , puis des requêtes pour récupérer chaque entité dans la liste.  
-* Étant donné qu'une entité a une taille maximale de 1 Mo, l'utilisation des méthodes #2 et #3 dans la solution supposent que la liste des ID d'employés pour n'importe quel nom donné n'est jamais supérieure à 1 Mo. Si la liste des ID d'employés est susceptible d'être supérieure à 1 Mo, utilisez la méthode #1 et stockez les données d'index dans le stockage d'objet blob.  
+* Étant donné qu’une entité a une taille maximale de 1 Mo, l’utilisation des méthodes #2 et #3 dans la solution supposent que la liste des ID d’employés pour n’importe quel nom donné n’est jamais supérieure à 1 Mo. Si la liste des ID d'employés est susceptible d'être supérieure à 1 Mo, utilisez la méthode #1 et stockez les données d'index dans le stockage d'objet blob.  
 * Si vous utilisez l’option #2 (à l’aide des EGT pour gérer l’ajout et la suppression des employés et la modification du nom d’un employé), vous devez évaluer si le volume des transactions atteint les limites de l’évolutivité dans une partition donnée. Si c'est le cas, vous devez envisager une solution cohérente (méthode 1# ou #3) qui utilisera des files d'attente pour gérer les demandes de mise à jour et vous permettra de stocker vos entités d'index dans une partition distincte à partir des entités d'employés.  
 * La méthode #2 de cette solution part du principe que vous souhaitez effectuer une recherche par nom de famille dans un service : par exemple, si vous souhaitez récupérer une liste des employés avec un nom de famille Jones dans le service des ventes. Si vous souhaitez être en mesure de rechercher dans toute l'organisation tous les employés portant le nom de famille Jones, suivez la méthode # 1 ou # 3.
 * Vous pouvez implémenter une solution basée sur la file d’attente qui assure la cohérence éventuelle (pour plus d’informations, voir le [modèle de transactions cohérentes](#eventually-consistent-transactions-pattern) ).  
@@ -674,7 +674,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Utilisez les valeurs de **RowKey** composée pour permettre à un client de rechercher des données associées en utilisant une seule requête de pointage.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
-Dans une base de données relationnelle, il est naturel d'utiliser des jointures dans les requêtes pour renvoyer les ensembles de données au client dans une seule requête. Par exemple, vous pouvez utiliser l'ID d'employé pour rechercher une liste d'entités associées qui contiennent des données sur les performances et les évaluations de cet employé.  
+Dans une base de données relationnelle, il est naturel d’utiliser des jointures dans les requêtes pour renvoyer les ensembles de données au client dans une seule requête. Par exemple, vous pouvez utiliser l'ID d'employé pour rechercher une liste d'entités associées qui contiennent des données sur les performances et les évaluations de cet employé.  
 
 Supposons que vous stockiez des entités relatives aux employés dans le service de Table à l'aide de la structure suivante :  
 
@@ -754,16 +754,16 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Activez la suppression d'un volume élevé d'entités en stockant toutes les entités pour les supprimer simultanément dans leur propre table distincte ; vous supprimez les entités en supprimant la table.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
-De nombreuses applications suppriment les anciennes données qui n'ont plus besoin d'être disponibles pour une application cliente ou archivées par l'application sur un autre support de stockage. Vous identifiez généralement ces données à une date : par exemple, vous devez supprimer les enregistrements de toutes les demandes de connexion datant de plus de 60 jours.  
+De nombreuses applications suppriment les anciennes données qui n’ont plus besoin d’être disponibles pour une application cliente ou archivées par l’application sur un autre support de stockage. Vous identifiez généralement ces données à une date : par exemple, vous devez supprimer les enregistrements de toutes les demandes de connexion datant de plus de 60 jours.  
 
 Une conception possible consiste à utiliser la date et l’heure de la demande de connexion dans la **RowKey**:  
 
 ![][21]
 
-Cette approche évite les zones sensibles de partition, car l'application peut insérer et supprimer des entités de connexion pour chaque utilisateur dans une partition séparée. Toutefois, cette approche peut être coûteuse et fastidieuse si vous avez beaucoup d'entités, car vous devez d'abord analyser la table pour identifier toutes les entités à supprimer, avant de supprimer chaque ancienne entité. Notez que vous pouvez réduire le nombre d'allers-retours vers le serveur requis pour supprimer les anciennes entités en traitant par lots plusieurs demandes de suppression dans les TGE.  
+Cette approche évite les zones sensibles de partition, car l’application peut insérer et supprimer des entités de connexion pour chaque utilisateur dans une partition séparée. Toutefois, cette approche peut être coûteuse et fastidieuse si vous avez beaucoup d'entités, car vous devez d'abord analyser la table pour identifier toutes les entités à supprimer, avant de supprimer chaque ancienne entité. Vous pouvez réduire le nombre d’allers-retours vers le serveur requis pour supprimer les anciennes entités en traitant par lots plusieurs demandes de suppression dans les TGE.  
 
 #### <a name="solution"></a>Solution
-Utilisez une table distincte pour chaque jour de tentative de connexion. Vous pouvez utiliser la conception de l'entité ci-dessus afin d'éviter les zones sensibles lorsque vous insérez des entités et la suppression des anciennes entités consiste désormais à simplement supprimer une table tous les jours (une seule opération de stockage) au lieu de rechercher et de supprimer des centaines de milliers d'entités de connexion individuelle chaque jour.  
+Utilisez une table distincte pour chaque jour de tentative de connexion. Vous pouvez utiliser la conception de l’entité ci-dessus afin d’éviter les zones sensibles lorsque vous insérez des entités et la suppression des anciennes entités consiste désormais à simplement supprimer une table tous les jours (une seule opération de stockage) au lieu de rechercher et de supprimer des centaines de milliers d’entités de connexion individuelle chaque jour.  
 
 #### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
@@ -771,7 +771,7 @@ Prenez en compte les points suivants lorsque vous choisissez comment implémente
 * Votre conception prend-elle en charge les autres méthodes de traitement des données que votre application va utiliser, telles que la recherche des entités spécifiques, les liaisons avec d'autres données ou la génération des informations d'agrégation ?  
 * Votre conception évite-t-elle les zones sensibles lorsque vous insérez de nouvelles entités ?  
 * Vous devez attendre un délai si vous voulez réutiliser le même nom de table après l'avoir supprimée. Il est préférable de toujours utiliser des noms de table uniques.  
-* Prévoyez une limitation lorsque vous utiliserez tout d'abord une table pendant que le service de Table assimile les modèles d'accès et distribue les partitions entre les nœuds. Vous devez réfléchir à la fréquence à laquelle vous devez créer des tables.  
+* Prévoyez une limitation du débit lorsque vous utiliserez tout d’abord une table pendant que le service de Table assimile les modèles d’accès et distribue les partitions entre les nœuds. Vous devez réfléchir à la fréquence à laquelle vous devez créer des tables.  
 
 #### <a name="when-to-use-this-pattern"></a>Quand utiliser ce modèle
 Utilisez ce modèle lorsque vous avez un volume élevé d'entités, que vous devez supprimer en même temps.  
@@ -892,7 +892,7 @@ Prenez en compte les points suivants lorsque vous choisissez comment implémente
 * Le volume prévu de transactions signifie-t-il que vous êtes susceptible d'atteindre les objectifs d'évolutivité pour une partition individuelle et d'être limité par le service de stockage ?  
 
 #### <a name="when-to-use-this-pattern"></a>Quand utiliser ce modèle
-Évitez l'ajout d'anti-modèle ou de suffixe d'anti-modèle lorsque votre volume de transactions est susceptible d'entraîner la limitation par le service de stockage lorsque vous accédez à une partition sensible.  
+Évitez l’ajout d’anti-modèle ou de suffixe d’anti-modèle lorsque votre volume de transactions est susceptible d’entraîner la limitation du débit par le service de stockage lorsque vous accédez à une partition sensible.  
 
 #### <a name="related-patterns-and-guidance"></a>Conseils et modèles connexes
 Les modèles et les conseils suivants peuvent également être pertinents lors de l'implémentation de ce modèle :  
@@ -926,7 +926,7 @@ Storage Analytics stocke les messages de journalisation dans un format délimit�
 
 Storage Analytics utilise une convention d'affectation des noms d'objets blob qui vous permet de localiser le ou les objets blob contenant les messages de journalisation que vous recherchez. Par exemple, un objet blob nommé « queue/2014/07/31/1800/000001.log » contient des messages de journalisation liés au service de File d'attente dont l'heure de début est à 18h00, le 31 juillet 2014. Le « 000001 » indique qu'il s'agit du premier fichier journal pour cette période. Storage Analytics enregistre également les horodatages du premier et du dernier messages stockés dans le fichier dans le cadre des métadonnées de l’objet blob. L'API pour le stockage d'objets blob vous permet de rechercher des objets blob dans un conteneur selon un préfixe de nom : pour rechercher tous les objets blob qui contiennent des données de journalisation des files d'attente correspondant à l'heure de début de 18h00, vous pouvez utiliser le préfixe « queue/2014/07/31/1800 ».  
 
-Storage Analytics met en mémoire tampon les messages de journalisation en interne, puis met à jour de façon périodique l'objet blob adéquat ou en crée un autre avec le dernier lot d'entrées de journalisation. Cela réduit le nombre d'écritures qu'il doit exécuter vers le service BLOB.  
+Storage Analytics met en mémoire tampon les messages de journalisation en interne, puis met à jour de façon périodique l’objet blob adéquat ou en crée un autre avec le dernier lot d’entrées de journalisation. Cela réduit le nombre d'écritures qu'il doit exécuter vers le service BLOB.  
 
 Si vous implémentez une solution similaire dans votre propre application, vous devez déterminer comment gérer le compromis entre la fiabilité (écrire chaque entrée de journalisation pour le stockage d'objets blob comme cela est le cas) et le coût, ainsi que l'évolutivité (mise en mémoire tampon des mises à jour dans votre application et écriture du stockage d'objet blob par lots).  
 
@@ -1078,9 +1078,9 @@ foreach (var e in entities)
 Notez comment la valeur de **RowKey** est disponible même si elle ne figurait pas dans la liste de propriétés à récupérer.  
 
 ### <a name="modifying-entities"></a>Modification des entités
-La bibliothèque cliente de stockage vous permet de modifier les entités stockées dans votre service de Table pour les insérer, les supprimer et les mettre à jour. Vous pouvez utiliser EGTs pour traiter par lot plusieurs opérations d'insertion, mise à jour et suppression afin de réduire le nombre d'allers-retours requis et améliorer les performances de votre solution.  
+La bibliothèque cliente de stockage vous permet de modifier les entités stockées dans votre service de Table pour les insérer, les supprimer et les mettre à jour. Vous pouvez utiliser EGTs pour traiter par lot plusieurs opérations d’insertion, mise à jour et suppression afin de réduire le nombre d’allers-retours requis et améliorer les performances de votre solution.  
 
-Notez que les exceptions levées lorsque la bibliothèque cliente de stockage exécute une EGT incluent généralement l'index de l'entité qui a provoqué l'échec du lot. Cela est utile lorsque vous déboguez du code qui utilise des EGT.  
+Les exceptions levées lorsque la bibliothèque cliente de stockage exécute une EGT incluent généralement l’index de l’entité qui a provoqué l’échec du lot. Cela est utile lorsque vous déboguez du code qui utilise des EGT.  
 
 Nous vous conseillons de réfléchir également à la façon dont votre conception affecte la méthode de votre application cliente pour gérer les opérations d'accès concurrentiel et de mises à jour.  
 
@@ -1187,7 +1187,7 @@ Le service de Table est un magasin de tables *sans schéma* , ce qui signifie qu
 </tr>
 </table>
 
-Notez que chaque entité doit toujours avoir les valeurs **PartitionKey**, **RowKey** et **Timestamp**, mais elle peut aussi avoir n’importe quel ensemble de propriétés. De plus, il n'y a rien pour indiquer le type d'une entité, sauf si vous choisissez de stocker ces informations quelque part. Il existe deux options pour identifier le type d'une entité :  
+Chaque entité doit toujours avoir les valeurs **PartitionKey**, **RowKey** et **Timestamp**, mais elle peut aussi avoir n’importe quel ensemble de propriétés. De plus, il n'y a rien pour indiquer le type d'une entité, sauf si vous choisissez de stocker ces informations quelque part. Il existe deux options pour identifier le type d'une entité :  
 
 * Ajout d’un préfixe de type d’entité à la **RowKey** (ou éventuellement à la **PartitionKey**). Par exemple, **EMPLOYEE_000123** ou **DEPARTMENT_SALES** en tant que valeurs de **RowKey**.  
 * Utilisez une propriété distincte pour enregistrer le type d'entité comme indiqué dans le tableau ci-dessous.  
@@ -1336,7 +1336,7 @@ if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
 }  
 ```
 
-Notez que pour récupérer d’autres propriétés, vous devez utiliser la méthode **TryGetValue** sur la propriété **Properties** de la classe **DynamicTableEntity**.  
+Pour récupérer d’autres propriétés, vous devez utiliser la méthode **TryGetValue** sur la propriété **Properties** de la classe **DynamicTableEntity**.  
 
 Une troisième option consiste à effectuer une combinaison à l’aide du type **DynamicTableEntity** et d’une instance **EntityResolver**. Cela vous permet de résoudre plusieurs types POCO dans la même requête. Dans cet exemple, le délégué **EntityResolver** utilise la propriété **EntityType** pour faire la distinction entre les deux types d’entités renvoyés par la requête. La méthode **Resolve** utilise le délégué **resolver** pour résoudre les instances de **DynamicTableEntity** en instances **TableEntity**.  
 
@@ -1410,7 +1410,7 @@ Vous pouvez utiliser des signature d'accès partagé (SAP) pour permettre aux ap
 
 Pour plus d’informations sur l’utilisation de jetons SAP avec le service de Table, consultez [Utilisation des signatures d’accès partagé (SAP)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
 
-Toutefois, vous devez toujours générer les jetons SAP qui permettent à une application cliente d'accéder aux entités du service de Table : vous devez le faire dans un environnement qui dispose d'un accès sécurisé à vos clés de compte de stockage. En règle générale, vous utilisez un rôle web ou de travail pour générer les jetons SAP et les transmettre vers les applications clientes qui ont besoin d'accéder à vos entités. Comme il existe toujours une surcharge impliquée dans la génération et l'envoi de jetons SAP aux clients, vous devez envisager la meilleure méthode pour réduire cette surcharge, en particulier dans les scénarios à volumes élevés.  
+Toutefois, vous devez toujours générer les jetons SAP qui permettent à une application cliente d’accéder aux entités du service de Table : faites-le dans un environnement qui dispose d’un accès sécurisé à vos clés de compte de stockage. En règle générale, vous utilisez un rôle web ou de travail pour générer les jetons SAP et les transmettre vers les applications clientes qui ont besoin d'accéder à vos entités. Comme il existe toujours une surcharge impliquée dans la génération et l'envoi de jetons SAP aux clients, vous devez envisager la meilleure méthode pour réduire cette surcharge, en particulier dans les scénarios à volumes élevés.  
 
 Il est possible de générer un jeton SAP qui accorde l'accès à un sous-ensemble d'entités dans une table. Par défaut, vous créez un jeton SAP pour une table entière, mais il est également possible d’indiquer que le jeton SAP accorde l’accès à une plage de valeurs de **PartitionKey**, ou de **PartitionKey** et de **RowKey**. Vous pouvez choisir de générer des jetons SAP pour des utilisateurs individuels de votre système, de sorte que chaque jeton SAP d’un utilisateur lui permet uniquement d’accéder à ses propres entités dans le service de Table.  
 
@@ -1474,7 +1474,7 @@ Dans cet exemple asynchrone, vous pouvez voir les modifications suivantes par ra
 
 L’application cliente peut appeler cette méthode plusieurs fois (avec des valeurs différentes pour le paramètre **department** ) et chaque requête s’exécute sur un thread distinct.  
 
-Notez qu’il n’existe aucune version asynchrone de la méthode **Execute** dans la classe **TableQuery**, car l’interface **IEnumerable** ne prend pas en charge l’énumération asynchrone.  
+Il n’existe aucune version asynchrone de la méthode **Execute** dans la classe **TableQuery**, car l’interface **IEnumerable** ne prend pas en charge l’énumération asynchrone.  
 
 Vous pouvez également insérer, mettre à jour et supprimer des entités de façon asynchrone. L'exemple C# suivant indique une méthode simple et synchrone pour insérer ou remplacer une entité d'employé :  
 
