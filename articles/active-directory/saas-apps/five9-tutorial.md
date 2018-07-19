@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 1698a1fc6f9acc2815ae982e090651301d0a8bc5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3caa9b6885b87664f4b63d629677e69f47768a29
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220605"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Didacticiel : Intégration d’Azure Active Directory avec Five9 Plus Adapter(CTI, agents de centre de contacts)
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
 1. Sur le portail Azure, à la page d’intégration de l’application **Five9 Plus Adapter (CTI, agents de centre de contacts)**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/five9-tutorial/tutorial_five9_samlbase.png)
+    ![Configurer l'authentification unique](./media/five9-tutorial/tutorial_five9_samlbase.png)
 
 3. Dans la section **Domaine et URL Five9 Plus Adapter (CTI, agents de centre de contacts)**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/five9-tutorial/tutorial_five9_url.png)
+    ![Configurer l'authentification unique](./media/five9-tutorial/tutorial_five9_url.png)
     
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
 
@@ -130,15 +130,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/five9-tutorial/tutorial_five9_certificate.png) 
+    ![Configurer l'authentification unique](./media/five9-tutorial/tutorial_five9_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/five9-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/five9-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Five9 Plus Adapter (CTI, agents de centre de contacts)**, cliquez sur **Configurer Five9 Plus Adapter (CTI, agents de centre de contacts)** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/five9-tutorial/tutorial_five9_configure.png) 
+    ![Configurer l'authentification unique](./media/five9-tutorial/tutorial_five9_configure.png) 
 
 7. Pour configurer l’authentification unique côté **Five9 Plus Adapter (CTI, agents de centre de contacts)**, vous devez envoyer le **certificat (en base64), l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** téléchargés à l’[équipe de support Five9 Plus Adapter (CTI, agents de centre de contacts)](https://www.five9.com/about/contact). En outre, pour poursuivre la configuration de l’authentification unique, suivez les étapes ci-dessous en fonction de l’adaptateur :
 
@@ -202,7 +202,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 2. Dans la liste des applications, sélectionnez **Five9 Plus Adapter (CTI, agents de centre de contacts)**.
 
-    ![Configure Single Sign-On](./media/five9-tutorial/tutorial_five9_app.png) 
+    ![Configurer l'authentification unique](./media/five9-tutorial/tutorial_five9_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -223,7 +223,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Five9 Plus Adapter (CTI, agents de centre de contacts) dans le volet d’accès, vous devez être connecté automatiquement à votre application Five9 Plus Adapter (CTI, agents de centre de contacts).
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

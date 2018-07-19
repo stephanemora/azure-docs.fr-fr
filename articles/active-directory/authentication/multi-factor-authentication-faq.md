@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128688"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049409"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes relatives à Azure Multi-Factor Authentication
 
@@ -118,7 +118,7 @@ Azure Active Directory est requis pour le modèle basé sur licence car les lice
 
 Espérons que tous vos utilisateurs ont configuré plus d’une méthode de vérification. Encouragez-les à tenter de se reconnecter, mais sélectionnez une autre méthode de vérification sur la page de connexion.
 
-Vous pouvez orienter vos utilisateurs vers le [Guide de dépannage de l’utilisateur final](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
+Vous pouvez orienter vos utilisateurs vers le [Guide de dépannage de l’utilisateur final](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **Q : Que dois-je faire si un de mes utilisateurs ne peut pas accéder son compte ?**
@@ -131,7 +131,7 @@ Supprimez tous les mots de passe d’applications de l’utilisateur afin d’em
 
 **Q : Que se passe-t-il si un utilisateur ne peut pas se connecter à des applications sans navigateur ?**
 
-Si votre organisation utilise encore des clients hérités et si vous [avez autorisé l’utilisation de mots de passe d’application](howto-mfa-mfasettings.md#app-passwords), vos utilisateurs ne peuvent pas se connecter à ces clients hérités avec leur nom d’utilisateur et leur mot de passe. Au lieu de cela, ils doivent [configurer des mots de passe d’application](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Vos utilisateurs doivent effacer (supprimer) leurs informations de connexion, redémarrer l’application, puis se connecter avec leur nom d’utilisateur et leur *mot de passe d’application* au lieu de leur mot de passe standard.
+Si votre organisation utilise encore des clients hérités et si vous [avez autorisé l’utilisation de mots de passe d’application](howto-mfa-mfasettings.md#app-passwords), vos utilisateurs ne peuvent pas se connecter à ces clients hérités avec leur nom d’utilisateur et leur mot de passe. Au lieu de cela, ils doivent [configurer des mots de passe d’application](../user-help/multi-factor-authentication-end-user-app-passwords.md). Vos utilisateurs doivent effacer (supprimer) leurs informations de connexion, redémarrer l’application, puis se connecter avec leur nom d’utilisateur et leur *mot de passe d’application* au lieu de leur mot de passe standard.
 
 Si votre organisation ne comporte pas de clients hérités, vous ne devez pas autoriser vos utilisateurs à créer de mots de passe d’application.
 

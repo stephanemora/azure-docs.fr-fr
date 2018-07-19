@@ -1,20 +1,20 @@
 ---
 title: Itinéraires multiples avec Azure Maps | Microsoft Docs
 description: Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ea68c70befde1922fc30d06386a2ae326460c722
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ca46ecb8f0cce2ff8c749016eb3ad1ac7df7cf
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601409"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988967"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -283,7 +283,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
     L’itinéraire réservé aux camions est bleu et plus épais, tandis que celui réservé aux voitures est mauve et plus fin. L’itinéraire réservé aux voitures passe au-dessus du Lac Washington via l’I-90, qui traverse des tunnels installés sous des zones résidentielles, ce qui interdit tout transport de déchets dangereux. L’itinéraire des camions, pour lequel est défini le type de chargement USHazmatClass2, utilise à raison une voie de circulation différente. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une page web à l’aide de l’API Map Control

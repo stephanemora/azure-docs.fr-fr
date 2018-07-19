@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 380b7e8fc48b88449cf43fda92af7f9503771777
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: bd84224f4c3a8a498a296ff50190713111895472
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287222"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051613"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Procore SSO
 
@@ -102,37 +102,37 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail de gestion Azure, sur la page d’intégration de l’application **Procore SSO**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_samlbase.png)
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/tutorial_procoresso_samlbase.png)
 
 3. Dans la section **Domaine SSO et URL de Procore**, l’utilisateur n’aura pas à effectuer les étapes que l’application a déjà intégrées préalablement avec Azure.
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_url.png)
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/tutorial_procoresso_url.png)
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_certificate.png) 
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/tutorial_procoresso_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Procore SSO** , cliquez sur **Configurer PProcore SSO** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_configure.png) 
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/tutorial_procoresso_configure.png) 
 
 7. Pour configurer l’authentification unique sur **Procore SSO**, connectez-vous à votre site d’entreprise Procore en tant qu’administrateur.
 
 8. Dans la liste déroulante de boîte à outils, cliquez sur **Admin** pour ouvrir la page de paramètres de l’authentification unique.
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/procore_tool_admin.png)
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/procore_tool_admin.png)
 
 9. Collez les valeurs dans les zones comme décrit ci-dessous-
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/procore_setting_admin.png)  
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/procore_setting_admin.png)  
 
     a. Dans la zone **Émetteur d’URL d’authentification unique**, collez l’ID d’entité SAML copiée à partir du portail Azure.
 
@@ -196,11 +196,11 @@ Suivez les étapes ci-dessous pour créer un utilisateur de test Procore de leur
 
 2. Dans la liste déroulante de boîte à outils, cliquez sur **Annuaire** pour ouvrir la page d’annuaire de l’entreprise.
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_sso_directory.png)
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. Cliquez sur l’option **Ajouter une personne** pour ouvrir le formulaire et réglez les options suivantes -
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_add.png)
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_user_add.png)
 
     a. Dans la zone de texte **First Name**, tapez le prénom de l’utilisateur, par exemple **Britta**.
 
@@ -214,11 +214,11 @@ Suivez les étapes ci-dessous pour créer un utilisateur de test Procore de leur
 
 4. Vérifiez et mettez à jour les détails du contact nouvellement ajouté.
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_check.png)
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_user_check.png)
 
 5. Cliquez sur **Enregistrer et envoyer l’invitation** (si une invitation par e-mail est requise) ou **Enregistrer** (enregistrer directement) pour terminer l’inscription de l’utilisateur.
     
-    ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_save.png)  
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_user_save.png)  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -234,7 +234,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Procore SSO**.
 
-    ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_app.png) 
+    ![Configurer l'authentification unique](./media/procoresso-tutorial/tutorial_procoresso_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -254,7 +254,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). Lorsque vous cliquez sur la mosaïque Procore SSO dans le volet d’accès, vous devez être connecté automatiquement à votre application Procore SSO.
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). Lorsque vous cliquez sur la mosaïque Procore SSO dans le volet d’accès, vous devez être connecté automatiquement à votre application Procore SSO.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

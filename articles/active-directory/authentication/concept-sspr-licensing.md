@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e185b67ae73b86b5f1c3b6cda884de05eb89c6fd
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855522"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049082"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Conditions de licence pour la réinitialisation du mot de passe en libre-service Azure AD
 
@@ -58,8 +58,8 @@ Certains services Microsoft ne sont pas disponibles dans tous les emplacements. 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](howto-sspr-deployment.md)
-* [Réinitialiser ou modifier votre mot de passe](../active-directory-passwords-update-your-own-password.md)
-* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../active-directory-passwords-reset-register.md)
+* [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)

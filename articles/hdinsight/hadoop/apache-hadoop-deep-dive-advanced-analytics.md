@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ff1f6fcae1d21d47b5ee0263b4e038287a588991
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048469"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008227"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondissement - Analytique avancée
 
@@ -85,7 +85,7 @@ Dans le cadre de HDInsight, vous pouvez créer un cluster HDInsight avec [ML Se
 
 ### <a name="spark-and-deep-learning"></a>Spark et apprentissage profond
 
-L’[apprentissage profond](https://www.microsoft.com/research/group/dltc/) est une branche du Machine Learning qui utilise les *réseaux neuronaux profonds* (DNN), inspirés par les processus biologiques du cerveau humain. De nombreux chercheurs voient l’apprentissage profond comme une approche prometteuse de l’intelligence artificielle. Voici quelques exemples d’apprentissage profond : traducteurs de langue parlée, systèmes de reconnaissance d’image et raisonnement de l’ordinateur. Dans le cadre de son travail sur l’apprentissage profond, Microsoft a développé [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/), open source, gratuit et facile à utiliser. Ce Toolkit est largement utilisé par un grand nombre de produits Microsoft, par des entreprises du monde entier ayant besoin de déployer l’apprentissage profond à l’échelle et par des étudiants intéressés par les algorithmes et techniques les plus récents. 
+L’[apprentissage profond](https://www.microsoft.com/research/group/dltc/) est une branche du Machine Learning qui utilise les *réseaux neuronaux profonds* (DNN), inspirés par les processus biologiques du cerveau humain. De nombreux chercheurs voient l’apprentissage profond comme une approche prometteuse de l’intelligence artificielle. Voici quelques exemples d’apprentissage profond : traducteurs de langue parlée, systèmes de reconnaissance d’image et raisonnement de l’ordinateur. Dans le cadre de son travail sur l’apprentissage profond, Microsoft a développé [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), open source, gratuit et facile à utiliser. Ce Toolkit est largement utilisé par un grand nombre de produits Microsoft, par des entreprises du monde entier ayant besoin de déployer l’apprentissage profond à l’échelle et par des étudiants intéressés par les algorithmes et techniques les plus récents. 
 
 ## <a name="scenario---score-images-to-identify-patterns-in-urban-development"></a>Scénario - Noter des images pour identifier les tendances en développement urbain
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: bf5fb050e81b59195d9bf9bfed9372e1fe8402ab
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8401462ed4bf5ef2ac1ff10cf3f6750cbed7b4e5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231268"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050799"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Didacticiel : Intégration d’Azure Active Directory à SuccessFactors
 
@@ -158,7 +158,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
     
 6. Dans la section **Configuration SuccessFactors**, cliquez sur **Configurer SuccessFactors** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/successfactors-tutorial/tutorial_successfactors_configure.png) 
+    ![Configurer l'authentification unique](./media/successfactors-tutorial/tutorial_successfactors_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre **Portail d’administration SuccessFactors** en tant qu’administrateur.
     
@@ -214,7 +214,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
 12. Suivez ces étapes si vous souhaitez que les noms d’utilisateur de connexion ne respectent pas la casse.
    
-    ![Configure Single Sign-On][29]
+    ![Configurer l'authentification unique][29]
     
     a. Accédez à **Company Settings** (Paramètres de l’entreprise) (en bas).
    
@@ -302,7 +302,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque SuccessFactors dans le volet d’accès, vous devez être connecté automatiquement à votre application SuccessFactors.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

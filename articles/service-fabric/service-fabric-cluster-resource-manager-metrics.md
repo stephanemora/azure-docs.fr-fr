@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e16f1ae28f2212d0cec61368a2fba946d48fd811
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643336"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006282"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestion de la consommation des ressources et des charges dans Service Fabric à l’aide de mesures
 Les *mesures* sont les ressources qui intéressent vos services et qui sont fournies par les nœuds dans le cluster. Une mesure représente ce que vous souhaitez gérer afin d’améliorer ou de surveiller les performances de vos services. Par exemple, vous pourrez surveiller la consommation de mémoire pour savoir si votre service est surchargé. Vous pouvez également déterminer si le service peut être déplacé vers un autre emplacement où la mémoire est moins contrainte afin d’obtenir de meilleures performances.
@@ -35,9 +35,9 @@ Supposons que vous souhaitez commencer à écrire et à déployer votre service.
 
 | Métrique | Charge de l’instance sans état | Charge secondaire avec état | Charge principale avec état | Poids |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |0 |
-| ReplicaCount |0 |1 |1 |0 |
-| Count |1 |1 |1 |0 |
+| PrimaryCount |0 |0 |1 |Élevé |
+| ReplicaCount |0 |1 |1 |Moyenne |
+| Count |1 |1 |1 |Faible |
 
 
 Pour les charges de travail de base, les mesures par défaut fournissent une distribution acceptable du travail dans le cluster. Dans l’exemple suivant, examinons ce qui se passe lorsque nous créons deux services et que nous utilisons les mesures par défaut pour l’équilibrage. Le premier est un service avec état présentant trois partitions et une taille de jeu de réplicas cible de trois. Le second est un service sans état présentant une partition et un nombre d’instances de trois.

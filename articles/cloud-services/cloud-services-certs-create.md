@@ -3,7 +3,7 @@ title: Services cloud et certificats de gestion | Microsoft Docs
 description: Découvrez comment créer et utiliser des certificats avec Microsoft Azure.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: jeconnoc
+ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969200"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001437"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Vue d’ensemble des certificats pour Azure Cloud Services
 Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les [déployer](#deploy) dans Azure.
@@ -46,7 +46,7 @@ Les certificats de gestion vous permettent de vous authentifier dans le modèle 
 > 
 > 
 
-### <a name="limitations"></a>Limites
+### <a name="limitations"></a>Limitations
 Le nombre de certificats de gestion est limité à 100 par abonnement. Il existe également une limite de 100 certificats de gestion pour l’ensemble des abonnements figurant sous un identificateur d’utilisateur d’administrateur de service spécifique. Si l’identificateur d’utilisateur de l’administrateur de compte a déjà été utilisé pour ajouter 100 certificats de gestion et que d’autres certificats sont nécessaires, vous pouvez ajouter un coadministrateur pour disposer des certificats supplémentaires. 
 
 <a name="create"></a>

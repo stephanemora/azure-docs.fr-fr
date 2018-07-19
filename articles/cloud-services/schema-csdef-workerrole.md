@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 96131a0bb928da7e22f3e26449c8b2279457d03f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e487bd3fda787cf9f869cc352de4c97d5c1678b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360255"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002175"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Schéma WorkerRole de définition d’Azure Cloud Services
 Le rôle de travail Azure est un rôle utile pour le développement généralisé. Il peut également effectuer le traitement en arrière-plan pour un rôle Web.
@@ -350,7 +350,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `NetFxEntryPoin
 | Attribut | type | Description |
 | --------- | ---- | ----------- |
 |assemblyName|chaîne|Requis. Chemin et nom de fichier de l’assembly contenant le point d’entrée. Le chemin est relatif au dossier **\\%ROLEROOT%\Approot** (ne spécifiez pas **\\%ROLEROOT%\Approot** dans `commandLine`, car il est supposé). **%ROLEROOT%** est une variable d’environnement gérée par Azure, qui représente l’emplacement du dossier racine de votre rôle. Le dossier **\\%ROLEROOT%\Approot** désigne le dossier d’application de votre rôle.|
-|targetFrameworkVersion|chaîne|Requis. La version de .NET framework sur laquelle l’assembly a été créé. Par exemple : `targetFrameworkVersion="v4.0"`.|
+|targetFrameworkVersion|chaîne|Requis. La version de .NET framework sur laquelle l’assembly a été créé. Par exemple : `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="ProgramEntryPoint"></a> ProgramEntryPoint
 L’élément `ProgramEntryPoint` spécifie le programme à exécuter pour un rôle. L’élément `ProgramEntryPoint` permet de spécifier un point d’entrée de programme non basé sur un assembly .NET.

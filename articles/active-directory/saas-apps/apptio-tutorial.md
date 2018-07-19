@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/6/2017
 ms.author: jeedes
-ms.openlocfilehash: e39bd40a25333f6b2e323439d29e2a85e67d20d5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ad5c8a61a83211147f5e4929a4f4f6fab738ba32
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284928"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043752"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Didacticiel : Intégration d’Azure Active Directory à Apptio
 
@@ -118,7 +118,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 5. Votre application Apptio attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. Notez que **Identificateur de l’utilisateur** est mappé à **user.mail**. Vous devez configurer trois autres attributs, **fullname, mail et role**. La capture d’écran suivante montre un exemple :
 
-    ![Configure Single Sign-On](./media/apptio-tutorial/tutorial_apptio_attributes.png)     
+    ![Configurer l'authentification unique](./media/apptio-tutorial/tutorial_apptio_attributes.png)     
     
     > [!NOTE]
     > Cliquez [ici](../../role-based-access-control/role-assignments-portal.md) pour savoir comment configurer un **rôle** dans Azure AD.
@@ -133,9 +133,9 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/apptio-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/apptio-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/apptio-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/apptio-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -223,7 +223,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Apptio dans le volet d’accès, vous devez être connecté automatiquement à votre application Apptio.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

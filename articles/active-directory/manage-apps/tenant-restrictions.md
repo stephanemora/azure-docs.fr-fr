@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: dd86ad6b9a60c8a44dd73b31d908838d9c213fd1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302238"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126658"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les Restrictions du client pour gérer l’accès aux applications cloud SaaS
 
@@ -116,7 +116,7 @@ Les Restrictions du client sont actuellement prises en charge par les applicatio
 
 Les clients Outlook et Skype Entreprise qui prennent en charge l’authentification moderne peuvent continuer à utiliser les protocoles hérités sur les clients pour lesquels l’authentification moderne n’est pas activée, contournant ainsi les Restrictions du client. Les applications qui utilisent des protocoles hérités risquent d’être bloquées par les Restrictions du client si elles contactent login.microsoftonline.com, login.microsoft.com ou login.windows.net lors de l’authentification.
 
-Pour Outlook sur Windows, les clients peuvent choisir d’implémenter des restrictions qui empêchent les utilisateurs finaux d’ajouter des comptes de messagerie non approuvés à leurs profils. Par exemple, consultez le paramètre de stratégie de groupe [Empêcher l’ajout de comptes Exchange personnalisés](http://gpsearch.azurewebsites.net/default.aspx?ref=1). Pour Outlook sur les plateformes non Windows et pour Skype Entreprise sur toutes les plateformes, la prise en charge complète des Restrictions du client n’est actuellement pas disponible.
+Pour Outlook sur Windows, les clients peuvent choisir d’implémenter des restrictions qui empêchent les utilisateurs finaux d’ajouter des comptes de messagerie non approuvés à leurs profils. Par exemple, consultez le paramètre de stratégie de groupe [Empêcher l’ajout de comptes Exchange personnalisés](http://gpsearch.azurewebsites.net/default.aspx?ref=1).
 
 ## <a name="testing"></a>Test
 

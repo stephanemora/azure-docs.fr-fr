@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 282869295f26f85683a2d28706280c4bf62fa54b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b83f452300295078e4edf797ec2ef2f0c5223031
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221374"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047471"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Didacticiel : Intégration d’Azure Active Directory à Directions on Microsoft
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Directions on Microsoft**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_samlbase.png)
+    ![Configurer l'authentification unique](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_samlbase.png)
 
 3. Dans la section **Domaine et URL Directions on Microsoft**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_url.png)
+    ![Configurer l'authentification unique](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
     |  |
@@ -129,11 +129,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_certificate.png) 
+    ![Configurer l'authentification unique](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/directions-microsoft-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/directions-microsoft-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique côté **Directions on Microsoft**, vous devez envoyer les **métadonnées XML** téléchargées à [l’équipe du support technique Directions on Microsoft](mailto:service@DirectionsOnMicrosoft.com). Pour permettre à l’équipe du support technique Directions on Microsoft de trouver votre adhésion au site fédéré, indiquez les informations de votre entreprise dans votre e-mail.
     
@@ -195,7 +195,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Directions on Microsoft**.
 
-    ![Configure Single Sign-On](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_app.png) 
+    ![Configurer l'authentification unique](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -217,7 +217,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
  
 Lorsque vous cliquez sur la vignette Directions on Microsoft dans le volet d’accès, vous devez être connecté automatiquement à votre application Directions on Microsoft.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

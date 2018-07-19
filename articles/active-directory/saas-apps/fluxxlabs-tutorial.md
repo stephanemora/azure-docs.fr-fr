@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0b5fb84f8d8fbed7e1d4112e96b00af3e460661a
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 7bb15323a1f4ead02a24c4ee451de8890a635032
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317100"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Didacticiel : Intégration d’Azure Active Directory à Fluxx Labs
 
@@ -264,7 +264,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Si vous cliquez sur la mosaïque Fluxx Labs dans le volet d’accès, vous devez vous connecter automatiquement à votre application Fluxx Labs.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

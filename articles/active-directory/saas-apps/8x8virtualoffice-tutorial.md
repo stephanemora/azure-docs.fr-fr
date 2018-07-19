@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: a7557a5dc19fd08461a18252d914b74306816c8a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3a33f9ba0ca744709e21e9e55acc22b657c2adc2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216842"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Didacticiel : Intégration d’Azure Active Directory à 8x8 Virtual Office
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **8x8 Virtual Office**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_samlbase.png)
+    ![Configurer l'authentification unique](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_samlbase.png)
 
 3. Dans la section **Domaine et URL 8x8 Virtual Office**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_url.png)
+    ![Configurer l'authentification unique](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_url.png)
 
     a. Dans la zone de texte **Identificateur**, entrez une URL au format suivant :
 
@@ -130,15 +130,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (brut)**, puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_certificate.png) 
+    ![Configurer l'authentification unique](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/8x8virtualoffice-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/8x8virtualoffice-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de 8x8 Virtual Office**, cliquez sur **Configurer 8x8 Virtual Office** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_configure.png) 
+    ![Configurer l'authentification unique](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_configure.png) 
 
 7. Connectez-vous à votre client 8x8 Virtual Office en tant qu’administrateur.
 
@@ -226,7 +226,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **8x8 Virtual Office**.
 
-    ![Configure Single Sign-On](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_app.png) 
+    ![Configurer l'authentification unique](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -247,7 +247,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette 8x8 Virtual Office dans le volet d’accès, vous devez être connecté automatiquement à votre application 8x8 Virtual Office.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

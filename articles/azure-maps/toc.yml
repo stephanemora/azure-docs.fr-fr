@@ -2,7 +2,7 @@
   href: ../iot-fundamentals/index.yml
 - name: Documentation sur Azure Maps
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Maps\_?"
       href: about-azure-maps.md
@@ -22,8 +22,16 @@
   items:
     - name: Niveaux de zoom et grille mosaïque
       href: zoom-levels-and-tile-grid.md
-    - name: Catégories de recherche prise en charge
-      href: supported-search-categories.md
+    - name: Couverture du service
+      items:
+        - name: Géocodage
+          href: geocoding-coverage.md
+        - name: Trafic
+          href: traffic-coverage.md
+        - name: Rendu
+          href: render-coverage.md
+        - name: Routage
+          href: routing-coverage.md
     - name: Langues prises en charge
       href: supported-languages.md
 - name: Procédures
@@ -62,24 +70,16 @@
           href: map-events.md
         - name: Applications de cartes accessibles
           href: map-accessibility.md
-- name: Informations de référence
+- name: Référence
   items:
-    - name: Couverture du service
-      items:
-        - name: Géocodage
-          href: geocoding-coverage.md
-        - name: Trafic
-          href: traffic-coverage.md
-        - name: Rendu
-          href: render-coverage.md
-        - name: Routage
-          href: routing-coverage.md
     - name: Extensions d’API et de paramètre
       items:
         - name: Modèle de consommation du véhicule
           href: consumption-model.md
         - name: Étendre le format geoJSON
           href: extend-geojson.md
+        - name: Catégories de recherche prise en charge
+          href: supported-search-categories.md
     - name: REST
       items:
         - name: Render Service
@@ -129,7 +129,7 @@
     - name: Centre de développement Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Tarifs

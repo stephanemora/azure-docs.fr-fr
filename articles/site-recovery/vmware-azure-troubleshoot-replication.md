@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951646"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126015"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
@@ -74,25 +74,7 @@ Si vous ne parvenez pas à vous connecter, vérifiez si le problème d’accès 
 
 * **Vérifiez si le pare-feu basé sur l’URL du serveur de traitement ne bloque pas l’accès** : si vous utilisez des règles de pare-feu basées sur l’URL sur le serveur, vérifiez que les URL suivantes figurent dans la configuration du pare-feu.
 
-  `*.accesscontrol.windows.net:` : élément utilisé pour la gestion des identités et le contrôle d’accès.
-
-  `*.backup.windowsazure.com:` : élément utilisé pour l’orchestration et le transfert des données de réplication.
-
-  `*.blob.core.windows.net:` : élément utilisé pour l’accès au compte de stockage qui stocke les données répliquées
-
-  `*.hypervrecoverymanager.windowsazure.com:` : élément utilisé pour l’orchestration et l’administration des opérations de gestion de la réplication.
-
-  `time.nist.gov` et `time.windows.com` : éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
-
-URL du **cloud Azure Government** :
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **Vérifiez si les paramètres de proxy sur le serveur de traitement ne bloque pas l’accès**.  Si vous utilisez un serveur proxy, vérifiez que le nom du serveur proxy résout le nom du serveur DNS.
 Pour vérifier les informations que vous avez fournies au moment de la configuration du serveur de configuration. Accédez à la clé de Registre

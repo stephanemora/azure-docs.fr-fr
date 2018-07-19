@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e28918fe9e26221738fe234ad41923c58a6ac260
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866666"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049019"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>La réinitialisation de mot de passe en libre-service Azure AD pour les professionnels de l’informatique
 
@@ -65,5 +65,5 @@ Vous trouverez plus d’informations sur les licences, les prix et les plans fut
 
 * Prêt à vous lancer avec SSPR ? [Configurez la réinitialisation de mot de passe en libre-service Azure AD](quickstart-sspr.md).
 * Planifiez un déploiement SSPR réussi pour vos utilisateurs à l’aide des conseils de notre [guide de lancement](howto-sspr-deployment.md).
-* [Réinitialisez ou modifiez votre mot de passe](../active-directory-passwords-update-your-own-password.md).
-* [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](../active-directory-passwords-reset-register.md).
+* [Réinitialisez ou modifiez votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md).

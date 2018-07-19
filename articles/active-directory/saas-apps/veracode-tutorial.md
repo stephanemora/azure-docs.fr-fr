@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: fe96581428b8a41219a4aff46ecc0316d97884ae
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2dd273a1a0b5a5af65c4c40337975cb6f3f858ae
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228667"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049828"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Didacticiel : Intégration d’Azure AD à Veracode
 
@@ -108,7 +108,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 3. Dans la section **Domaine et URL Veracode**, l’utilisateur n’aura à effectuer aucune étape, car l’application est déjà intégrée à Azure. 
 
-    ![Configure Single Sign-On](./media/veracode-tutorial/tutorial_veracode_url.png)
+    ![Configurer l'authentification unique](./media/veracode-tutorial/tutorial_veracode_url.png)
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
@@ -264,7 +264,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Si vous cliquez sur la mosaïque Veracode dans le volet d’accès, vous devez vous connecter automatiquement à votre application Veracode.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

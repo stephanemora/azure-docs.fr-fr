@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: f2d0b009c4451a4108222ac7aa7954ba6dd86699
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 04a446f43bd39ef7bfca590af67289813eab4032
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869005"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048877"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
 
@@ -95,7 +95,7 @@ Si vous démarrez avec une stratégie qui présente une seule méthode d’authe
 
 Si vous changez les types de méthodes d’authentification qu’un utilisateur peut employer, vous risquez d’empêcher par inadvertance les utilisateurs d’employer SSPR s’ils ne disposent pas de la quantité minimale de données.
 
-Exemple : 
+Exemple : 
 1. La stratégie d’origine est configurée avec deux méthodes d’authentification requises. Elle utilise uniquement le numéro de téléphone professionnel et les questions de sécurité. 
 2. L’administrateur change la stratégie pour ne plus utiliser les questions de sécurité, mais permet l’utilisation d’un téléphone mobile et d’une autre adresse de messagerie.
 3. Les utilisateurs dont les champs de téléphone mobile et d’autre adresse de messagerie ne sont pas renseignés ne peuvent pas réinitialiser leur mot de passe.
@@ -248,8 +248,8 @@ Pour tester ce scénario, accédez à http://passwordreset.microsoftonline.com a
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD :
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](howto-sspr-deployment.md)
-* [Réinitialiser ou modifier votre mot de passe](../active-directory-passwords-update-your-own-password.md)
-* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../active-directory-passwords-reset-register.md)
+* [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
 * [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)

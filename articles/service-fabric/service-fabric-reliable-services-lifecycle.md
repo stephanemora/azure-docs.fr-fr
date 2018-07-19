@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 42833323cbebf25ce2ca14e6ab7ec4fa5adbfd15
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206942"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044575"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Vue d’ensemble du cycle de vie de Reliable Services
 > [!div class="op_single_selector"]
@@ -79,7 +79,10 @@ Les services avec état ont un modèle semblable aux services sans état, avec q
     - Si le service est un service principal, la méthode `StatefulServiceBase.RunAsync()` du service est appelée.
 4. Une fois que tous les appels `OpenAsync()` de l’écouteur de réplica sont terminés et que `RunAsync()` est appelé, `StatefulServiceBase.OnChangeRoleAsync()` est appelé. Il est rare de remplacer cet appel dans le service.
 
-Comme pour les services sans état, il n’y a aucune coordination entre l’ordre dans lequel les écouteurs sont créés et ouverts, et le moment auquel **RunAsync** est appelé. Si vous avez besoin d’une coordination, les solutions à utiliser sont similaires. Il existe un autre cas pour un service avec état. Supposons que les appels qui arrivent sur les écouteurs de communication nécessitent des informations conservées dans des [collections fiables](service-fabric-reliable-services-reliable-collections.md). Étant donné que les écouteurs de communication peuvent s’ouvrir avant que les collections fiables ne soient accessibles en lecture ou en écriture, et avant que **RunAsync** ne démarre, une coordination supplémentaire est nécessaire. La solution la plus simple et la plus courante est que les écouteurs de communication retournent un code d’erreur que le client utilise pour relancer la requête.
+Comme pour les services sans état, il n’y a aucune coordination entre l’ordre dans lequel les écouteurs sont créés et ouverts, et le moment auquel **RunAsync** est appelé. Si vous avez besoin d’une coordination, les solutions à utiliser sont similaires. Il existe un autre cas pour un service avec état. Supposons que les appels qui arrivent sur les écouteurs de communication nécessitent des informations conservées dans des [collections fiables](service-fabric-reliable-services-reliable-collections.md).
+
+   > [!NOTE]  
+   > Étant donné que les écouteurs de communication peuvent s’ouvrir avant que les collections fiables ne soient accessibles en lecture ou en écriture, et avant que **RunAsync** ne démarre, une coordination supplémentaire est nécessaire. La solution la plus simple et la plus courante est que les écouteurs de communication retournent un code d’erreur que le client utilise pour relancer la requête.
 
 ## <a name="stateful-service-shutdown"></a>Arrêt de service avec état
 Comme pour les services sans état, les événements de cycle de vie lors de l’arrêt sont les mêmes que lors du démarrage, mais dans l’ordre inverse. Lorsqu’un service avec état est arrêté, les événements suivants se produisent :

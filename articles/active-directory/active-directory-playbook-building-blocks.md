@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38451697"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049467"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -157,7 +157,7 @@ Temps approximatif d’accomplissement : 60 minutes
 | Suivez les instructions de configuration de ServiceNow |  |
 | Dans le panneau Approvisionnement de l’application ServiceNow, activez l’approvisionnement Automatique | [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le nouveau portail Azure](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Patientez quelques minutes pour que la configuration se termine.  En attendant, vous pouvez vérifier les rapports d’approvisionnement |  |
-| Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test ayant accès | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
+| Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test ayant accès | [Présentation du volet d’accès](user-help/active-directory-saas-access-panel-introduction.md) |
 | Cliquez sur la mosaïque de l’application qui vient d’être créée. Confirmez l’accès |  |
 | Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -188,8 +188,8 @@ Temps approximatif d’accomplissement : 15 minutes
 | Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Affectez l’application au groupe identifié dans les conditions préalables | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) |
 | Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test ayant accès |  |
-| Cliquez sur la mosaïque de l’application qui vient d’être créée. | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| Fournissez les informations d’identification de l’application | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Cliquez sur la mosaïque de l’application qui vient d’être créée. | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Fournissez les informations d’identification de l’application | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Fermez le navigateur et reconnectez-vous. Cette fois-ci, l’utilisateur doit avoir un accès transparent à l’application. |  |
 | Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -308,7 +308,7 @@ Temps approximatif d’accomplissement : 10 minutes
 | L’application SaaS (authentification unique fédérée ou authentification unique par mot de passe) a déjà été configurée | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) |
 | Le groupe de cloud auquel l’accès à l’application est affecté en priorité est identifié | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Les informations d’identification du propriétaire du groupe sont disponibles | [Gérer l’accès aux ressources avec les groupes Azure Active Directory](fundamentals/active-directory-manage-groups.md) |
-| Les informations d’identification du professionnel de l’information qui accède aux applications ont été identifiées | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
+| Les informations d’identification du professionnel de l’information qui accède aux applications ont été identifiées | [Présentation du volet d’accès](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Étapes
@@ -318,7 +318,7 @@ Temps approximatif d’accomplissement : 10 minutes
 | Identifiez le groupe autorisé à accéder à l’application et configurez le propriétaire de ce groupe| [Manage the settings for a group in Azure Active Directory (Gérer les paramètres des groupes dans Azure Active Directory)](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Connectez-vous en tant que propriétaire du groupe et consultez l’appartenance au groupe dans l’onglet Groupes du volet d’accès | [Gérer l’accès aux ressources avec les groupes Azure Active Directory](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Ajoutez le professionnel de l’information que vous souhaitez tester |  |
-| Connectez-vous en tant que professionnel de l’information et confirmez la disponibilité de la mosaïque | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
+| Connectez-vous en tant que professionnel de l’information et confirmez la disponibilité de la mosaïque | [Présentation du volet d’accès](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### <a name="considerations"></a>Considérations
 
@@ -332,7 +332,7 @@ Si l’approvisionnement est activé pour l’application, vous devrez peut-êtr
 | --- | --- |
 | L’application SaaS (authentification unique fédérée ou authentification unique par mot de passe) a déjà été configurée | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) |
 | Le groupe de cloud auquel l’accès à l’application est affecté en priorité est identifié | Bloc de construction : [Configuration de l’authentification unique fédérée SaaS](#saas-federated-sso-configuration) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Les informations d’identification du professionnel de l’information qui accède aux applications ont été identifiées | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
+| Les informations d’identification du professionnel de l’information qui accède aux applications ont été identifiées | [Présentation du volet d’accès](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Étapes
@@ -380,7 +380,7 @@ Temps approximatif d’accomplissement : 15 minutes
 
 | Conditions préalables | Ressources |
 | --- | --- |
-| Activez la gestion des mots de passe en libre-service dans votre locataire. | [Réinitialisation de mot de passe Azure Active Directory pour les administrateurs informatiques](active-directory-passwords-update-your-own-password.md) |
+| Activez la gestion des mots de passe en libre-service dans votre locataire. | [Réinitialisation de mot de passe Azure Active Directory pour les administrateurs informatiques](user-help/active-directory-passwords-update-your-own-password.md) |
 | Activez l’écriture différée de mot de passe pour gérer les mots de passe en local. Cela nécessite des versions spécifiques d’Azure AD Connect | [Configuration requise pour la réécriture du mot de passe](authentication/howto-sspr-writeback.md) |
 | Identifiez les utilisateurs POC qui se serviront de cette fonctionnalité et vérifiez qu’ils sont bien membres d’un groupe de sécurité. Les utilisateurs doivent être des non-administrateurs pour présenter pleinement cette fonctionnalité | [Personnalisation : Gestion du mot de passe Azure AD : Limiter l’accès à la réinitialisation des mots de passe](authentication/howto-sspr-writeback.md) |
 
@@ -395,7 +395,7 @@ Temps approximatif d’accomplissement : 15 minutes
 | Fournissez les données de réinitialisation de mot de passe en libre-service comme configuré à l’étape 2 | https://aka.ms/ssprsetup |
 | Fermez le navigateur |  |
 | Recommencez le processus de connexion en tant que professionnel de l’information, déjà utilisé à l’étape 4 |  |
-| Réinitialisez le mot de passe | [Mettre à jour votre mot de passe : Réinitialiser mon mot de passe](active-directory-passwords-update-your-own-password.md) |
+| Réinitialisez le mot de passe | [Mettre à jour votre mot de passe : Réinitialiser mon mot de passe](user-help/active-directory-passwords-update-your-own-password.md) |
 | Essayez de vous connecter avec votre nouveau mot de passe Azure AD, ainsi qu’aux ressources locales |  |
 
 ### <a name="considerations"></a>Considérations
@@ -428,7 +428,7 @@ Temps approximatif d’accomplissement : 10 minutes
 ### <a name="considerations"></a>Considérations
 
 1. Les étapes de la POC dans ce bloc de construction configurent explicitement l’authentification MFA pour un utilisateur sur toutes les connexions. Il existe d’autres outils, tels que l’accès conditionnel et la protection d’identité, qui sollicitent l’authentification MFA sur plusieurs scénarios ciblés. C’est à prendre en compte lors du passage de la POC en production.
-2. Les étapes de la POC dans ce bloc de construction utilisent explicitement les appels téléphoniques en tant que méthode MFA pour plus de commodité. Lorsque vous passez de la POC à la production, nous vous recommandons d’utiliser des applications telles que [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) en tant que second facteur dans la mesure du possible.
+2. Les étapes de la POC dans ce bloc de construction utilisent explicitement les appels téléphoniques en tant que méthode MFA pour plus de commodité. Lorsque vous passez de la POC à la production, nous vous recommandons d’utiliser des applications telles que [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) en tant que second facteur dans la mesure du possible.
 En savoir plus : [DRAFT NIST Special Publication 800-63B (Publication spéciale NIST 800-63B - version préliminaire)](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Accès conditionnel MFA pour les applications SaaS
@@ -553,7 +553,7 @@ Temps approximatif d’accomplissement : 20 minutes
 | --- | --- |
 | Appareil avec certificat utilisateur alloué (Windows, iOS ou Android) à partir de la PKI d’entreprise | [Déployer des certificats d’utilisateur](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Domaine Azure AD fédéré avec ADFS | [Fédération avec Azure AD Connect](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Vue d’ensemble des services de certificats Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Pour les appareils iOS sur lesquels l’application Microsoft Authenticator est installée | [Prise en main de l’application Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| Pour les appareils iOS sur lesquels l’application Microsoft Authenticator est installée | [Prise en main de l’application Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Étapes
 

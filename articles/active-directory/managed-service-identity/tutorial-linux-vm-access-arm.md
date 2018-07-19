@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 690775bb2ff0d5ee16ec5d7f1869c4f23b3745ad
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 60a15c69f1ec748e366697640707804565245cea
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900913"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001583"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Utiliser une identité du service administré (MSI) pour une machine virtuelle Linux pour accéder à Azure Resource Manager
 
@@ -50,7 +50,7 @@ Pour ce didacticiel, nous créons une machine virtuelle Linux. Vous pouvez égal
 2. Sélectionnez **Compute**, puis sélectionnez **Ubuntu Server 16.04 LTS**.
 3. Saisissez les informations de la machine virtuelle. Dans **Type d’authentification**, sélectionnez **Clé publique SSH** ou **Mot de passe**. Les informations d’identification créées vous permettent de vous connecter à la machine virtuelle.
 
-    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choisissez un **Abonnement** pour la machine virtuelle dans la liste déroulante.
 5. Pour sélectionner un nouveau **Groupe de ressources** dans lequel vous souhaitez créer la machine virtuelle, choisissez **Créer nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
@@ -65,7 +65,7 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 3. **Identité du service administré** s’affiche. Pour enregistrer et activer l’identité du service administré, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non.
 4. Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.
 
-    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Accorder à votre machine virtuelle l’accès à un groupe de ressources dans Azure Resource Manager 
 
@@ -79,7 +79,7 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 6. Ensuite, vérifiez que l’abonnement approprié apparaît dans la liste déroulante **Abonnement**. Pour **Groupe de ressources**, sélectionnez **Tous les groupes de ressources**.
 7. Enfin, dans **Sélectionner**, choisissez votre machine virtuelle Linux dans la liste déroulante et cliquez sur **Enregistrer**.
 
-    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
+    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour appeler Gestionnaire des ressources 
 

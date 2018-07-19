@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e40c75319581a238d22d4ac17952ec706d17fcb
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f3212e55eab7ce74a44da9948cad8a0599580f42
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226653"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050543"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Didacticiel : Intégration d’Active Directory à Zscaler Beta
 
@@ -103,15 +103,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Zscaler Beta**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_samlbase.png)
+    ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_samlbase.png)
 
 3. Dans la section **Domaine et URL Zscaler Beta**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_url.png)
+    ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_url.png)
 
     Dans la zone de texte URL de connexion, entrez l’URL utilisée par vos utilisateurs pour se connecter à l’application Zscaler Beta.
 
@@ -120,15 +120,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_certificate.png) 
+    ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_general_400.png)
 
 6. Pour ouvrir la fenêtre **Configurer l’authentification**, dans la section **Configuration de Zscaler Beta**, cliquez sur **Configurer Zscaler Beta**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_configure.png) 
+    ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Beta en tant qu’administrateur.
 
@@ -279,7 +279,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Zscaler Beta**.
 
-    ![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_app.png) 
+    ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -300,7 +300,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Zscaler Beta dans le volet d’accès, vous devriez être connecté automatiquement à votre application Zscaler Beta.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

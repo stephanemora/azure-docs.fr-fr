@@ -3,7 +3,7 @@ title: Tailles des machines virtuelles pour Azure Cloud services | Microsoft Doc
 description: Répertorie les différentes tailles de machines virtuelles (et les identifiants) des rôles web et de travail des services cloud Azure.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jeconnoc
+ms.openlocfilehash: 60ee7c2be29791db91db78472cc002e15390d36b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34608812"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004786"
 ---
 # <a name="sizes-for-cloud-services"></a>Tailles de services cloud
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources. Chaque taille a un identifiant que vous placez dans votre [fichier de définition de service](cloud-services-model-and-package.md#csdef). Les prix pour chaque taille sont disponibles sur la page de [tarification des Services Cloud](https://azure.microsoft.com/pricing/details/cloud-services/).

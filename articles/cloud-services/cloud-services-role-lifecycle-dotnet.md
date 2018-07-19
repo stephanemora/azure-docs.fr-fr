@@ -3,7 +3,7 @@ title: Gérer les événements de cycle de vie du service cloud | Microsoft Docs
 description: Découvrez comment utiliser les méthodes de cycle de vie d'un rôle de service cloud dans .NET
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: eb78c05df3b3cdf3887334c11bdabd5cebb74747
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeconnoc
+ms.openlocfilehash: 56f7b5e3b303ce68868f15528d1ec200919b52aa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998784"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001556"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personnalisation du cycle de vie d'un rôle Web ou de travail dans .NET
 Lorsque vous créez un rôle de travail, vous étendez la classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) qui vous fournit des méthodes à substituer, vous permettant de répondre aux événements de cycle de vie. Cette classe est facultative pour les rôles Web. Vous devez donc l’utiliser pour répondre aux événements de cycle de vie.

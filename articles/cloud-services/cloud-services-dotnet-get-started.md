@@ -3,7 +3,7 @@ title: Prise en main des services cloud Azure et d’ASP.NET | Microsoft Docs
 description: Découvrez comment créer une application multiniveau avec ASP.NET MVC et Azure. L'application s'exécute dans un service cloud, avec un rôle web et un rôle de travail. Elle utilise Entity Framework, Base de données SQL et les files d'attente et objets blobs du stockage Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
-ms.author: adegeo
-ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: jeconnoc
+ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860018"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003111"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel explique comment créer une application .NET multiniveau avec un composant frontal ASP.NET MVC et comment la déployer sur un [service cloud Azure](cloud-services-choose-me.md). L’application utilise la [Base de données SQL Azure](http://msdn.microsoft.com/library/azure/ee336279), le [service Blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) et le [service de File d'attente Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Vous pouvez [télécharger le projet Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) dans la galerie de code MSDN.
 
 Le didacticiel vous apprend à générer et à exécuter l’application localement, à la déployer dans Azure, à l’exécuter dans le cloud et à la générer intégralement. Vous pouvez également démarrer à partir de zéro, puis effectuer les tests et le déploiement par la suite.
@@ -214,7 +214,7 @@ Utilisez une [transformation Web.config](http://www.asp.net/mvc/tutorials/deploy
     ![Chaînes de connexion](./media/cloud-services-dotnet-get-started/connstrings.png)
 3. Dans le fichier de transformation *Web.Release.config*, supprimez `{connectionstring}` et collez à la place la chaîne de connexion ADO.NET du portail Azure.
 4. Dans la chaîne de connexion que vous avez collée dans le fichier de transformation *Web.Release.config*, remplacez `{your_password_here}` par le mot de passe que vous avez créé pour la nouvelle base de données SQL.
-5. Enregistrez le fichier .  
+5. Enregistrez le fichier.  
 6. Sélectionnez et copiez la chaîne de connexion (sans les guillemets) pour l'utiliser dans les étapes suivantes de configuration du projet de rôle de travail.
 7. Dans **l’Explorateur de solutions**, sous **Rôles** dans le projet de service cloud, cliquez avec le bouton droit sur **ContosoAdsWorker**, puis sélectionnez **Propriétés**.
 

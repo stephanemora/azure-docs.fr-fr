@@ -3,7 +3,7 @@ title: Collecter les compteurs de performances dans Azure Cloud Services | Micro
 description: Découvrez comment découvrir, utiliser et créer des compteurs de performances dans Azure Cloud Services avec Azure Diagnostics et Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
-ms.author: adegeo
-ms.openlocfilehash: 3e0af48c172fa912f0ac9e05b7b761dd7eaad795
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: d3aeb930dcb325aebc8c6b0a9dfde3602312618b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29134046"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001461"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Collecter les compteurs de performances pour votre Azure Cloud Service
 

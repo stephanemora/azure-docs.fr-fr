@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: beb1c2f88eed8fc38bd32de113835122cfd4e9a4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 556a7d9d921e0f2307445f8f6738b9b845c83112
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837325"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006595"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop Azure HDInsight
 Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 
@@ -828,7 +828,7 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 ## <a name="references"></a>Références
 •    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
 •    [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•    [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

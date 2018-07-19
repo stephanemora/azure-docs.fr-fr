@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: a8905f4f14b5f4f78e9f3113ec5a655b12599609
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d46ff5563df1423e3c01ba945b328b748b5979b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294092"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091569"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
@@ -54,7 +54,7 @@ Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l
 
     Notez que les processeurs de télémétrie construisent une chaîne de traitement. Lorsque vous instanciez un processeur de télémétrie, vous transmettez un lien au processeur suivant dans la chaîne. Lorsqu’un point de données de télémétrie est transmis à la méthode de traitement, il effectue son travail, puis appelle le processeur de télémétrie suivant dans la chaîne.
 
-    ``` C#
+    ```csharp
 
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -101,7 +101,7 @@ Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l
     ```
 1. Insérez-la dans ApplicationInsights.config :
 
-```XML
+```xml
 
     <TelemetryProcessors>
       <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
@@ -141,7 +141,7 @@ Les clients de télémétrie créés après ce point utiliseront vos processeurs
 #### <a name="synthetic-requests"></a>Demandes synthétiques
 Excluez les robots et les tests web. Bien que Metrics Explorer vous donne la possibilité d’exclure les sources synthétiques, cette option réduit le trafic en les filtrant au niveau du Kit de développement (SDK).
 
-``` C#
+```csharp
 
     public void Process(ITelemetry item)
     {
@@ -182,7 +182,7 @@ Si vous souhaitez uniquement diagnostiquer les appels lents, excluez les appels 
 >
 >
 
-``` C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -255,6 +255,7 @@ Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque
 
 Dans ApplicationInsights.config :
 
+```xml
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
@@ -262,6 +263,7 @@ Dans ApplicationInsights.config :
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 *également* instancier l'initialiseur dans le code, par exemple dans Global.aspx.cs :
 

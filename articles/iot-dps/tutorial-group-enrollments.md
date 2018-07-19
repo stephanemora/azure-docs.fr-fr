@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 02cc3f861864d3bfa878be6501b8563715f88dac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 79f1b299417acbfa2d9e565f0ec9aebede2508e1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971317"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002653"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé pour le service IoT Hub Device Provisioning à l’aide du Kit de développement logiciel (SDK) pour services et appareils Java et de groupes d’inscription
 
@@ -32,7 +32,7 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
 
 1. Assurez-vous que l’élément `git` est installé sur votre machine et est ajouté aux variables d’environnement accessibles à la fenêtre de commande. Consultez la section relative aux [outils clients de Software Freedom Conservancy](https://git-scm.com/download/) pour accéder à la dernière version des outils `git` à installer, qui inclut **Git Bash**, l’application de ligne de commande que vous pouvez utiliser pour interagir avec votre référentiel Git local. 
 
-1. Utilisez la [Vue d’ensemble des certificats](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) suivante pour créer vos certificats de test. Pour obtenir des informations plus détaillées sur la création des certificats, voir [Scripts PowerShell permettant de gérer les certificats X.509 signés par une autorité de certification](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates).
+1. Utilisez la [Vue d’ensemble des certificats](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) suivante pour créer vos certificats de test.
 
     > [!NOTE]
     > Cette étape nécessite la boîte à outils [OpenSSL](https://www.openssl.org/), qui peut être générée et installée à partir d’une source ou téléchargée et installée à partir d’un [tiers](https://wiki.openssl.org/index.php/Binaries), par exemple [celui-ci](https://sourceforge.net/projects/openssl/). Si vous avez déjà créé vos certificats _racine_, _intermédiaires_ et de _périphérique_, vous pouvez ignorer cette étape.

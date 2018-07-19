@@ -28,14 +28,6 @@
 ### Support  
 #### [Support pour la Place de marché Microsoft Azure et Microsoft AppSource](./support-azure-marketplace.md)  
 
-### Guides de publication  
-#### [Service de conseil de la Place de marché Microsoft Azure](consulting-services.md)  
-#### [Guide de publication technique de l’application SaaS Place de marché Microsoft Azure](marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Activer votre essai sur la place de marché à l’aide d’Azure Active Directory](./enable-trial-using-azure-ad.md)  
-
-### [Développer votre activité avec la Place de marché](./grow-your-business-with-azure-marketplace.md)  
-#### [Solutions recommandées](./preferred-solutions.md) 
-
 ## [Portail des partenaires cloud](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 
 ## Ressources  

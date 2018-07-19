@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
 caps.latest.revision: 60
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 6db3edef937dc0b5cdd805d0045897e02b985e7b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e548841f334705aa71ada92c43ccde207a1f6318
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360340"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002311"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schéma WebRole de définition d’Azure Cloud Services
 Le rôle web Azure est un rôle personnalisé pour la programmation d’applications web, tel que pris en charge par IIS 7, ASP.NET, PHP, Windows Communication Foundation et FastCGI.
@@ -364,7 +364,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `NetFxEntryPoin
 | Attribut | type | Description |  
 | --------- | ---- | ----------- |  
 |assemblyName|chaîne|Requis. Chemin et nom de fichier de l’assembly contenant le point d’entrée. Le chemin est relatif au dossier **\\%ROLEROOT%\Approot** (ne spécifiez pas **\\%ROLEROOT%\Approot** dans `commandLine`, car il est supposé). **%ROLEROOT%** est une variable d’environnement gérée par Azure, qui représente l’emplacement du dossier racine de votre rôle. Le dossier **\\%ROLEROOT%\Approot** désigne le dossier d’application de votre rôle.<br /><br /> Pour les rôles HWC, le chemin est toujours relatif au dossier **\\%ROLEROOT%\Approot\bin**.<br /><br /> S’il est impossible de trouver l’assembly relatif au dossier **\\%ROLEROOT%\Approot** des rôles web IIS et IIS Express complets, le dossier **\\%ROLEROOT%\Approot\bin** est recherché.<br /><br /> Ce comportement de secours pour le rôle web IIS complet n’est pas une bonne pratique recommandée, et il est possible qu’il soit supprimé dans les prochaines versions.|  
-|targetFrameworkVersion|chaîne|Requis. La version de .NET framework sur laquelle l’assembly a été créé. Par exemple : `targetFrameworkVersion="v4.0"`.|  
+|targetFrameworkVersion|chaîne|Requis. La version de .NET framework sur laquelle l’assembly a été créé. Par exemple : `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="Sites"></a> Sites  
 L’élément `Sites` décrit une collection d’applications web et de sites web hébergés dans un rôle web. Cet élément est le parent de l’élément `Site`. Si vous ne spécifiez aucun élément `Sites`, votre rôle web est hébergé en tant que rôle web hérité, et vous ne pouvez disposer que d’un seul site web hébergé dans votre rôle web. Cet élément est facultatif, et un rôle ne peut avoir qu’un seul bloc sites.

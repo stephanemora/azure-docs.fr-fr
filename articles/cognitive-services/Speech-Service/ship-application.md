@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: d410dda09fdd30181b633c454b1d44610b10c472
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fe171ba9f6f0ff36a7c23c47f145d83f7a94fb5d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35378933"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069486"
 ---
 # <a name="shipping-an-application"></a>Expédition d’une application
 
@@ -63,5 +63,5 @@ sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir votre abonnement d’essai gratuit du service Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Découvrir comment utiliser la reconnaissance vocale dans C#](quickstart-csharp-windows.md)
+* [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-dotnet-windows.md)

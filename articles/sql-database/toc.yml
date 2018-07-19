@@ -135,7 +135,7 @@
         - name: Sauvegardes de base de données
           href: sql-database-automated-backups.md
         - name: Rétention des sauvegardes à long terme
-          itmes:
+          items:
             - name: Rétention des sauvegardes à long terme
               href: sql-database-long-term-retention.md
             - name: Configurer la rétention des sauvegardes à long terme - Stockage SQL
@@ -508,7 +508,7 @@
               href: saas-multitenantdb-schema-management.md
             - name: 'Extraction, transformation et chargement (ETL) pour analyse'
               href: saas-multitenantdb-tenant-analytics.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'

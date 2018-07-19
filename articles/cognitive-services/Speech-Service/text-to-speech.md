@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d7ec8648a8428558264c9bfd4d923523b90cce07
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 227fae2f38189a5b8ed5b6eff359e09bedc8e628
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855938"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071128"
 ---
 # <a name="about-the-text-to-speech-api"></a>À propos de l’API Synthèse vocale
 
@@ -42,4 +42,4 @@ Si vous voulez une voix unique pour votre application, vous pouvez créer des [p
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-windows.md)
+* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-dotnet-windows.md)

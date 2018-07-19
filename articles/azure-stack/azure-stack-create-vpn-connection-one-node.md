@@ -15,15 +15,16 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: e6520da6b866ebddd66604dd8f27acfc5a9bcef4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6225a12b50ebb7bf0a0cb9244153800ba734d93a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159849"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006901"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements différents du Kit de développement Azure Stack
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article vous explique comment créer une connexion VPN de site à site entre deux réseaux virtuels dans deux environnements distincts du Kit de développement Azure Stack. Pendant la configuration des connexions, vous allez découvrir le fonctionnement des passerelles VPN dans Azure Stack.
 
 ### <a name="connection-diagram"></a>Diagramme de connexions

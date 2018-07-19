@@ -4,21 +4,18 @@ description: Extrayez le texte sémantique par analyse d’image à l’aide de 
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dd26dbe34cd04d1ad3184e2cd62afae5166ac914
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad1946436b2b5bab55ff53dcce09446ef1220829
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640504"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011527"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 
@@ -51,6 +48,7 @@ Les paramètres respectent la casse.
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+    "context": "/document/normalized_images/*",
     "visualFeatures": [
         "Tags",
         "Faces",

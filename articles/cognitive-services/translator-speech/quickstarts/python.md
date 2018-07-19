@@ -7,14 +7,14 @@ author: v-jaswel
 ms.service: cognitive-services
 ms.component: translator-speech
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 29722b3fa7fe61aff0b2406002453020d999ea41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 40535f400bc5359019e89320489721bf481c1210
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368381"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124825"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Démarrage rapide pour l’API de traduction de conversation Microsoft Translator Speech avec Python 
 <a name="HOLTop"></a>
@@ -23,11 +23,11 @@ Cet article explique comment utiliser l’API de traduction de conversation Micr
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer de [Python 3.x](https://www.python.org/downloads/) pour exécuter ce code.
+Pour exécuter ce code, vous devez disposer de [Python 3.x](https://www.python.org/downloads/).
 
 Vous devez installer le [package websocket-client](https://pypi.python.org/pypi/websocket-client) pour Python.
 
-Vous devez disposer d’un fichier .wav nommé « speak.wav » dans le même dossier que le fichier exécutable que vous compilez à partir du code ci-dessous. Ce fichier .wav doit être au format PCM standard 16 bits, 16kHz, monocanal. Vous pouvez obtenir ce type de fichier .wav à partir de [l’API de traduction de texte Translator Text](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+Vous devez disposer d’un fichier .wav nommé « speak.wav » dans le même dossier que le fichier exécutable que vous compilez à partir du code ci-dessous. Ce fichier .wav doit être au format PCM standard 16 bits, 16kHz, monocanal.
 
 Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API de traduction de conversation Microsoft Translator Speech**. Vous devez disposer d’une clé d’abonnement payant à partir de votre [tableau de bord Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -127,9 +127,9 @@ Si l’opération réussit, un fichier nommé « speak2.wav » est créé. Le fi
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel de Traduction de conversation Translator Speech](../tutorial-translator-speech-csharp.md)
+> [Didacticiel sur l’API de traduction de conversation Translator Speech](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Voir aussi 
 
-[Vue d’ensemble de l’API de traduction de conversation Translator Speech](../overview.md)
+[API de traduction de conversation Microsoft Translator Speech](../overview.md)
 [Informations de référence sur l’API](http://docs.microsofttranslator.com/speech-translate.html)

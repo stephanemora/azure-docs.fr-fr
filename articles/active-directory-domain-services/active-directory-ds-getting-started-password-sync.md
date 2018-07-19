@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 701fe17869d6e7744751d80330422ea47361b411
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff2659ed7dbdb21bccb8b5858d946b47951e40cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216138"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048931"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Activer la synchronisation de hachage de mot de passe pour Azure Active Directory Domain Services
 Dans les tâches précédentes, vous avez activé Azure Active Directory Domain Services pour votre locataire Azure Active Directory (Azure AD). Dans la tâche suivante, vous allez activer la synchronisation des hachages de mot de passe requise pour l’authentification NT LAN Manager (NTLM) et Kerberos avec Azure AD Domain Services. Une fois la synchronisation des informations de hachage de mot de passe configurée, les utilisateurs peuvent se connecter au domaine managé à l’aide de leurs informations d’identification d’entreprise.
@@ -78,7 +78,7 @@ Voici les instructions que vous devez fournir aux utilisateurs pour qu’ils pui
 Quelques minutes après cette modification, le nouveau mot de passe est utilisable Azure AD DS. Au bout de 20 minutes environ, vous pouvez vous connecter aux ordinateurs joints au domaine managé à l’aide du nouveau mot de passe.
 
 ## <a name="related-content"></a>Contenu connexe
-* [Comment mettre à jour votre mot de passe](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [Comment mettre à jour votre mot de passe](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Prise en main de la gestion de mot de passe dans Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Activer la synchronisation du mot de passe pour Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administrer un domaine managé par Azure Active Directory Domain Services ](active-directory-ds-admin-guide-administer-domain.md)

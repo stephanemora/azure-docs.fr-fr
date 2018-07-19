@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9eb7f74a365b51431aabd78de3c6d36c3c969bb6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a7d657a21b414d51375f912513ae045adec6d6e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992194"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Surveillance d’un site SharePoint avec Application Insights
 Azure Application Insights surveille la disponibilité, les performances et l’utilisation de vos applications. Vous allez maintenant apprendre à le configurer pour un site SharePoint.
@@ -33,7 +34,7 @@ Dans la fenêtre qui s’ouvre, vous trouverez des données relatives à l’uti
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics tools about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -83,18 +84,6 @@ Les premiers événements s’affichent dans Search.
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Après quelques secondes, cliquez sur Actualiser pour obtenir des données supplémentaires.
-
-Dans le panneau de présentation, cliquez sur **Analyse de l’utilisation** pour accéder aux graphiques des utilisateurs, des sessions et des affichages de page :
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-Par exemple, cliquez sur un graphique, comme celui nommé Affichages de page, pour plus d’informations :
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-Ou bien Utilisateurs :
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## <a name="capturing-user-id"></a>Capture des ID d’utilisateur
 L’extrait de code d’une page Web standard ne capture pas l’ID d’utilisateur à partir de SharePoint, mais vous pouvez y parvenir en effectuant une simple modification.

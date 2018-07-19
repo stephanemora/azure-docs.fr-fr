@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 823b647dbc171050f7b36cfc729b0d3529e1f296
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 94e16156e8accc2460005cb1927a621ec7921c71
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901226"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043990"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutoriel : Utiliser Managed Service Identity sur une machine virtuelle Windows pour accéder au stockage Azure via une clé d’accès
 
@@ -54,7 +54,7 @@ Pour ce didacticiel, nous allons créer une machine virtuelle Windows. Vous pouv
 5.  Pour sélectionner un nouveau **Groupe de ressources** dans lequel vous souhaitez créer une machine virtuelle, choisissez **Créer un nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
 6.  Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. Conservez les valeurs par défaut dans le panneau des paramètres et cliquez sur **OK**.
 
-    ![Texte de remplacement d’image](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle
 
@@ -65,7 +65,7 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 3. Pour enregistrer et activer l’identité du service administré, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non.
 4. Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.
 
-    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage. 
 
@@ -78,7 +78,7 @@ Si vous n’en avez pas déjà un, vous allez maintenant créer un compte de sto
 5. Assurez-vous que les champs **Abonnement** et **Groupe de ressources** correspondent à ceux que vous avez spécifiés lorsque vous avez créé votre machine virtuelle à l’étape précédente.
 6. Cliquez sur **Créer**.
 
-    ![Créer un nouveau compte de stockage](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Créer un nouveau compte de stockage](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Création d’un conteneur d’objets blob dans le compte de stockage
 
@@ -89,7 +89,7 @@ Plus tard, nous chargerons et téléchargerons un fichier vers le nouveau compte
 3. Cliquez sur **+ Conteneur** en haut de la page et un panneau « Nouveau conteneur » apparait.
 4. Nommez le conteneur, sélectionnez un niveau d’accès, puis cliquez sur **OK**. Le nom spécifié sera utilisé plus loin dans le didacticiel. 
 
-    ![Créer un conteneur de stockage](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Créer un conteneur de stockage](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Autoriser l’identité MSI de votre machine virtuelle à accéder aux clés d’accès du compte de stockage 
 
@@ -103,7 +103,7 @@ Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode n
 6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante **Abonnement**, puis définissez **Groupe de ressources** sur « Tous les groupes de ressources ».  
 7. Enfin, sous **Sélectionner**, choisissez votre machine virtuelle Windows dans la liste déroulante, puis cliquez sur **Enregistrer**. 
 
-    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Texte de remplacement d’image](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour appeler Azure Resource Manager 
 

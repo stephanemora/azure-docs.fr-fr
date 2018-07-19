@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 72452382c4fd2f9c1acb0d773da5c7ed014f9bda
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902620"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001930"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Didacticiel : Utiliser une identité Managed Service Identity (MSI) de machine virtuelle Windows pour accéder à Azure SQL
 
@@ -53,7 +53,7 @@ Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pou
 5.  Pour sélectionner un nouveau **Groupe de ressources** dans lequel créer votre machine virtuelle, choisissez **Créer un nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
 6.  Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. Conservez les valeurs par défaut dans la page des paramètres et cliquez sur **OK**.
 
-    ![Texte de remplacement d’image](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle 
 
@@ -63,7 +63,7 @@ Une MSI de machine virtuelle permet d’obtenir des jetons d’accès émanant d
 2.  Dans la barre de navigation gauche, cliquez sur **Configuration**. 
 3.  **Identité du service administré** s’affiche. Pour enregistrer et activer l’identité du service administré, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non. 
 4.  Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.  
-    ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Accorder à votre machine virtuelle l’accès à une base de données sur un serveur Azure SQL
 

@@ -2,7 +2,7 @@
   href: ../iot-fundamentals/index.yml
 - name: Documentation Azure IoT Edge
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure IoT Edge
       href: about-iot-edge.md
@@ -165,7 +165,7 @@
     - name: Centre de développement Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Azure IoT Edge pour VS Code
       href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge'
     - name: Kit de ressources Azure IoT pour VS Code

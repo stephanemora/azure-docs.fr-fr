@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 471b53be4200ff728214876dd187c3c4e427c947
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: cebd98ec31ae6089c20952924c39ee240cb5d6a2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342874"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002696"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 
@@ -53,7 +53,7 @@ helm install svc-cat/catalog --name catalog --namespace catalog --set controller
 Si RBAC n’est pas activé sur votre cluster, exécutez cette commande.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.auth.enabled=false --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
 ```
 
 Une fois que le graphique Helm a été exécuté, vérifiez que `servicecatalog` s’affiche dans la sortie de la commande suivante :

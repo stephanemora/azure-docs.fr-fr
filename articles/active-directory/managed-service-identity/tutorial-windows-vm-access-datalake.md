@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: a7935aa245239ed32527d2c22fd41845c6da2ae1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904286"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007965"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Tutoriel : Utiliser Managed Service Identity (MSI) sur une machine virtuelle Windows pour accéder à Azure Data Lake Store
 
@@ -53,7 +53,7 @@ Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pou
 5. Pour sélectionner un nouveau **Groupe de ressources** dans lequel créer votre machine virtuelle, choisissez **Créer un nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
 6. Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. Conservez les valeurs par défaut dans la page des paramètres et cliquez sur **OK**.
 
-   ![Texte de remplacement d’image](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle 
 
@@ -63,11 +63,11 @@ Une MSI de machine virtuelle permet d’obtenir des jetons d’accès émanant d
 2. Dans la barre de navigation gauche, cliquez sur **Configuration**. 
 3. **Identité du service administré** s’affiche. Pour enregistrer et activer l’identité du service administré, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non. 
 4. Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.  
-   ![Texte de remplacement d’image](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Si vous souhaitez vérifier et confirmer les extensions sur cette machine virtuelle, cliquez sur **Extensions**. Si MSI est activée, l’extension **ManagedIdentityExtensionforWindows** s’affiche dans la liste.
 
-   ![Texte de remplacement d’image](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+   ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Accorder à votre machine virtuelle l’accès à Azure Data Lake Store
 
@@ -207,7 +207,7 @@ Dans ce didacticiel, vous vous authentifiez sur l’API REST du système de fich
 
 À l’aide d’autres API de système de fichiers de Data Lake Store, vous pouvez ajouter à des fichiers, télécharger des fichiers et bien plus encore.
 
-Félicitations !  Vous avez été authentifié auprès du système de fichiers de Data Lake Store à l’aide d’une identité du service administré d’une machine virtuelle.
+Félicitations !  Vous avez été authentifié auprès du système de fichiers de Data Lake Store à l’aide d’une identité du service administré d’une machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

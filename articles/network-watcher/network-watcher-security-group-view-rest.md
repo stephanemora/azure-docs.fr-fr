@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0eec45630fe3467db26620787038f6dd5a05cc72
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0fd96f9bd3027568e81e9c56ddb095297c699683
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23036874"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089772"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analyser la sécurité de votre machine virtuelle par le biais de la vue Groupe de sécurité dans l’API REST
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [interface de ligne de commande Azure](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 La vue Groupe de sécurité renvoie des règles de sécurité de réseau configurées et efficaces, appliquées à une machine virtuelle. Cette fonctionnalité permet d’auditer et de diagnostiquer les groupes de sécurité réseau ainsi que les règles configurées sur une machine virtuelle afin de garantir l’autorisation ou le refus appropriés du trafic. Dans cet article, nous vous montrons comment récupérer des règles de sécurité efficaces et appliquées à une machine virtuelle à l’aide de l’API REST
@@ -52,7 +51,7 @@ armclient login
 Exécutez le script suivant pour renvoyer une machine virtuelle. Le code suivant nécessite des variables :
 
 - **subscriptionId** : l’ID d’abonnement peut également être récupéré avec l’applet de commande **Get-AzureRMSubscription**.
-- **resourceGroupName** : le nom d’un groupe de ressources qui contient les machines virtuelles.
+- **resourceGroupName** - Le nom d’un groupe de ressources qui contient les machines virtuelles.
 
 ```powershell
 $subscriptionId = '<subscription id>'

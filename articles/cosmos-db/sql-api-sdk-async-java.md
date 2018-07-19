@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 97c7051252ecc8a29cf487f74a68055cd2b3e163
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300677"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990274"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -38,11 +38,11 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API Java](https://azure.github.io/azure-cosmosdb-java/)</td></tr>
+<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API Java](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Java Async](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
+<tr><td>**Démarrer**</td><td>[Prise en main du Kit de développement logiciel (SDK) Java Async](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
 <tr><td>**Code sample**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 

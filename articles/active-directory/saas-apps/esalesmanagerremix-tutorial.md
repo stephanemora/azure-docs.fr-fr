@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 07cbc047179c3de19d6f648d0342d47970c81dbc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 235ba5fd1365ed8b400edce3db22420369540cce
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231370"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052667"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Intégrer Azure Active Directory à E Sales Manager Remix
 
@@ -267,7 +267,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Lorsque vous cliquez sur la mosaïque E Sales Manager Remix dans le volet d’accès, vous devez être connecté automatiquement à votre application E Sales Manager Remix.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -9,16 +9,15 @@ editor: cgronlun
 ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 89d4110679d7a02d1468a9dab6816fb9e6b02181
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e5b04a4cfbf26011753715f02baea689ec3065b6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012047"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Opérations de gestion des comptes sur Azure Data Lake Store à l’aide de Python
 > [!div class="op_single_selector"]
@@ -31,7 +30,6 @@ ms.lasthandoff: 05/10/2018
 Découvrez comment utiliser le Kit de développement logiciel (SDK) Python pour Azure Data Lake Store afin d’effectuer des opérations simples de gestion des comptes (création de compte ou d’une liste des comptes existants, etc.). Pour obtenir des instructions sur l’exécution des opérations de gestion du système de fichiers sur Data Lake Store à l’aide de Python, consultez la section relative aux [opérations du système de fichiers sur Data Lake Store à l’aide de Python](data-lake-store-data-operations-python.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article utilise Python 3.6.2.
 
@@ -136,6 +134,6 @@ L’extrait de code suivant crée dans un premier temps le client du compte Data
 * [Opérations du système de fichiers sur Data Lake Store à l’aide de Python](data-lake-store-data-operations-python.md).
 
 ## <a name="see-also"></a>Voir aussi
-* [Documents de référence sur la gestion des comptes avec Azure Data Lake Store et Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+
 * [Documents de référence sur la gestion de système de fichiers avec Azure Data Lake Store et Python](http://azure-datalake-store.readthedocs.io/en/latest)
 * [Ouvrir des applications Big Data open source compatibles avec Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)

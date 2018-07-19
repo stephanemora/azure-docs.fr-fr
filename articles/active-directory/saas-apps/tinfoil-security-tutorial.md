@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d05a86d98bbdedc2200020aeeb1e561c3786a150
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1ad18bd1aea36c5f185f7a8e3062b1c2103017c5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218749"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Didacticiel : Intégration d’Azure Active Directory à TINFOIL SECURITY
 
@@ -99,7 +99,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **TINFOIL SECURITY**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
@@ -107,7 +107,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 3. Dans la section **Domaine et URL TINFOIL SECURITY**, l’utilisateur n’aura pas à effectuer les étapes que l’application a déjà intégrées préalablement à Azure.
 
-    ![Configure Single Sign-On](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
+    ![Configurer l'authentification unique](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
 
 
 4. Dans la section **Certificat de signature SAML**, copiez la valeur **THUMBPRINT**.
@@ -252,7 +252,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette TINFOIL SECURITY dans le volet d’accès, vous devez être connecté automatiquement à votre application TINFOIL SECURITY. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Lorsque vous cliquez sur la vignette TINFOIL SECURITY dans le volet d’accès, vous devez être connecté automatiquement à votre application TINFOIL SECURITY. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

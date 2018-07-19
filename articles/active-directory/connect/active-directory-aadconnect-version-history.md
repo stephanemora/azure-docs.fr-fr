@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2a830fa873f7277440d1baa9049a9c8eafcbf55
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261778"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049515"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -243,7 +243,7 @@ Where
 >[!NOTE] 
 >$credential.UserName doit être au format nom_de_domaine_complet\nom_utilisateur. Exemple : contoso.com\admin. 
 
-##### <a name="example"></a>Exemple :
+##### <a name="example"></a>Exemple :
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
@@ -917,7 +917,7 @@ Publication : novembre 2015
 **Nouvelles fonctionnalités préliminaires :**
 
 * [Azure AD Connect Health pour la synchronisation](../connect-health/active-directory-aadconnect-health-sync.md).
-* Prise en charge de la synchronisation de mot de passe pour les [services de domaine Azure AD](../active-directory-passwords-update-your-own-password.md) .
+* Prise en charge de la synchronisation de mot de passe pour les [services de domaine Azure AD](../user-help/active-directory-passwords-update-your-own-password.md) .
 
 **Nouveau scénario pris en charge :**
 

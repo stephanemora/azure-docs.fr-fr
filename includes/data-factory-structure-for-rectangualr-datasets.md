@@ -3,12 +3,12 @@ La section structure dans les jeux de données JSON est une section **facultati
 
 Chaque colonne contient les propriétés suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| name |Nom de la colonne. |Oui |
-| type |Type de données de la colonne. Pour plus d’informations sur le moment où vous devez spécifier les informations de type, consultez la section des conversions de type ci-dessous. |Non |
-| culture |Culture .NET à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. La valeur par défaut est « fr-fr ». |Non |
-| format |Chaîne de format à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. |Non |
+| Nom |Nom de la colonne. |Oui |
+| Type |Type de données de la colonne. Pour plus d’informations sur le moment où vous devez spécifier les informations de type, consultez la section des conversions de type ci-dessous. |Non  |
+| culture |Culture .NET à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. La valeur par défaut est « fr-fr ». |Non  |
+| format |Chaîne de format à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. |Non  |
 
 L’exemple suivant présente la section JSON structure d’une table qui comporte trois colonnes : userid, name et lastlogindate.
 
@@ -38,10 +38,10 @@ La fabrique de données prend en charge les valeurs de type .NET conformes CLS 
 * Int64
 * Single
 * Double
-* DÉCIMAL
+* Décimal
 * Byte[]
 * Bool
-* String 
+* Chaîne 
 * Guid
 * Datetime
 * Datetimeoffset

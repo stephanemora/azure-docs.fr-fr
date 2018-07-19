@@ -1,5 +1,5 @@
 ---
-title: Migrer des applications locales AD FS vers Azure. | Microsoft Docs
+title: Migrer des applications locales AD FS vers Azure. | Microsoft Docs
 description: Cet article a pour but d’aider les organisations à comprendre comment migrer des applications locales vers Azure AD, et se concentre sur les applications SaaS fédérées.
 services: active-directory
 author: barbkess
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 71fa305c0151ba2ff319694cdd3df55bf351e0c5
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: d3548e7640fa8ab59f7b11c66cf1d9492f23cf99
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946263"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044366"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrer des applications locales AD FS vers Azure 
 
@@ -202,7 +202,7 @@ Pour assigner des utilisateurs dans le portail Azure AD, naviguez jusqu’à la 
 
 ![Volet « Ajouter une attribution »](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-Pour vérifier l’accès, les utilisateurs doivent voir l’application SaaS dans leur [panneau d’accès](../active-directory-saas-access-panel-introduction.md) quand ils se connectent. Le panneau d’accès se trouve à l’adresse http://myapps.microsoft.com. Dans cet exemple, un utilisateur a obtenu l’accès à Salesforce et ServiceNow.
+Pour vérifier l’accès, les utilisateurs doivent voir l’application SaaS dans leur [panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md) quand ils se connectent. Le panneau d’accès se trouve à l’adresse http://myapps.microsoft.com. Dans cet exemple, un utilisateur a obtenu l’accès à Salesforce et ServiceNow.
 
 ![Exemple de panneau d’accès avec les applications Salesforce et ServiceNow](media/migrate-adfs-apps-to-azure/migrate8.png)
 

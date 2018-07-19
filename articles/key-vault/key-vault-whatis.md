@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce qu’Azure Key Vault ? | Microsoft Docs
+title: Qu’est-ce qu’Azure Key Vault ? | Microsoft Docs
 description: Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les clients peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM).
 services: key-vault
 documentationcenter: ''
@@ -14,17 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/26/2017
 ms.author: barclayn
-ms.openlocfilehash: d1c7a61522770d5bf590637629ec48ee35151623
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1fd39cf6363cb028b2f933934c95ea2b635b754a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28924946"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089303"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
-Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
-
-## <a name="introduction"></a>Introduction
 Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM. Dans ce cas, Microsoft traite vos clés dans des modules de sécurité matériels validés selon la norme « FIPS 140-2 Level 2 » (matériel et microprogramme).  
 
 Key Vault rationalise le processus de gestion de clés et vous permet de garder le contrôle des clés qui accèdent à vos données et les chiffrent. Les développeurs peuvent créer des clés pour le développement et le test en quelques minutes, puis les migrer en toute transparence en clés de production. Les administrateurs de sécurité peuvent accorder (et annuler) les autorisations sur les clés, si nécessaire.
@@ -60,3 +57,4 @@ Pour en savoir plus sur l’utilisation des clés et des secrets avec Azure Key
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
+Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).

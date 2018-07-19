@@ -2,21 +2,21 @@
 title: Documentation Azure Resource Manager - Didacticiels, informations de référence sur les API | Microsoft Docs
 description: Découvrez comment utiliser Resource Manager pour déployer et gérer des ressources de solution en tant que groupe et créer des modèles de déploiement de ressources cohérents et reproductibles.
 services: azure-resource-manager
-author: czeumault
-manager: carolz
+author: tfitzmac
 layout: LandingPage
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 07/16/2018
+ms.author: tomfitz
+ms.openlocfilehash: 59b13f38cb7071418d63d26242d6a4c8aaa0dfe2
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116731"
 ---
 # <a name="azure-resource-manager-documentation"></a>Documentation Azure Resource Manager
 
@@ -117,7 +117,7 @@ Apprenez à utiliser Resource Manager pour déployer, surveiller et gérer des r
 
 ---
  
-<h2>Informations de référence</h2>
+<h2>Référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -125,7 +125,7 @@ Apprenez à utiliser Resource Manager pour déployer, surveiller et gérer des r
                 <div class="card">
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
                         <p><a href="/cli/azure/resource">interface de ligne de commande Azure</a></p>
                     </div>
                 </div>
@@ -140,7 +140,7 @@ Apprenez à utiliser Resource Manager pour déployer, surveiller et gérer des r
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
+                        <p><a href="/python/azure/">Python</a></p>
                         <p><a href="/azure/templates/">Format de modèle</a></p>
                         <p><a href="/azure/resource-group-template-functions">Fonctions des modèles de gestionnaire des ressources Azure</a></p>
                         <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Fonctions de définition de l’interface utilisateur</a></p>

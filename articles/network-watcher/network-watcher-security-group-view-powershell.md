@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3983055cd580c263d39b908c61a16ed14353c9a4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9cc06e97730ac846e8aa42c2cee77dfe17be99bb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23036664"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089644"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analyser la sécurité de votre machine virtuelle par le biais de la vue Groupe de sécurité dans PowerShell
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [interface de ligne de commande Azure](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 La vue Groupe de sécurité renvoie des règles de sécurité de réseau configurées et efficaces, appliquées à une machine virtuelle. Cette fonctionnalité permet d’auditer et de diagnostiquer les groupes de sécurité réseau ainsi que les règles configurées sur une machine virtuelle afin de garantir l’autorisation ou le refus appropriés du trafic. Dans cet article, nous vous montrons comment récupérer des règles de sécurité configurées et efficaces pour une machine virtuelle à l’aide de PowerShell
@@ -43,7 +42,7 @@ Le scénario décrit dans cet article récupère des règles de sécurité confi
 
 ## <a name="retrieve-network-watcher"></a>Récupérer Network Watcher
 
-La première étape consiste à récupérer l’instance Network Watcher. Cette variable est transmise à l’applet de commande `Get-AzureRmNetworkWatcherSecurityGroupView`.
+La première étape consiste à récupérer l’instance de Network Watcher. Cette variable est transmise à l’applet de commande `Get-AzureRmNetworkWatcherSecurityGroupView`.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }

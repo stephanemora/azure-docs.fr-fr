@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 2bd4b6ee8575c3e70276870ebf91b2b8cfa35dac
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1dba198c747e52be18ed49aca271109997c86929
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226707"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052626"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Didacticiel : Intégration d’Azure Active Directory à IMPAC Risk Manager
 
@@ -147,7 +147,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
 7. Dans la section relative à la **configuration d’IMPAC Risk Manager**, cliquez sur le bouton permettant de **configurer IMPAC Risk Manager** pour ouvrir la fenêtre sur la **configuration de l’authentification unique**. Copiez **l’URL du service d’authentification unique SAML, l’ID d’entité SAML** et **l’URL de déconnexion** dans la section **Référence rapide**.
 
-    ![Configure Single Sign-On](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
+    ![Configurer l'authentification unique](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
 
 8. Pour configurer l’authentification unique côté **IMPAC Risk Manager**, vous devez envoyer le **certificat (Base64)** téléchargé, **l’URL de déconnexion, l’ID d’entité SAML** et **l’URL du service d’authentification unique SAML** à [l’équipe de support IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -225,7 +225,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette IMPAC Risk Manager dans le volet d’accès, vous devez être connecté automatiquement à votre application IMPAC Risk Manager.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

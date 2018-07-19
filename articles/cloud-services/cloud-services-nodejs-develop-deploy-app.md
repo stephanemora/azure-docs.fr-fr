@@ -3,7 +3,7 @@ title: Guide de mise en route Node.js
 description: Apprenez à créer une application web Node.js simple et à la déployer vers un service cloud Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
-ms.author: adegeo
-ms.openlocfilehash: 5d69f83aed9160f94260b71e60fcf0e15b435569
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: jeconnoc
+ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011677"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003450"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Création et déploiement d'une application Node.js dans Azure Cloud Services
 
@@ -37,7 +37,6 @@ Il s’agit d’une application « hello world » simple :
 ![Navigateur Web avec la page Web Hello World][A web browser displaying the Hello World web page]
 
 ## <a name="prerequisites"></a>Prérequis
-
 > [!NOTE]
 > Ce didacticiel utilise Azure PowerShell, qui nécessite Windows.
 
@@ -85,10 +84,10 @@ L’application Node.js est définie dans le fichier **server.js**, situé dans 
 
 Ce code est essentiellement identique à l’exemple « Hello World » sur le site web [nodejs.org] , sauf qu’il utilise le numéro de port attribué par l’environnement de cloud.
 
-## <a name="deploy-the-application-to-azure"></a>Déploiement de l'application dans Azure
+## <a name="deploy-the-application-to-azure"></a>Déploiement de l’application dans Azure
 
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>Télécharger les paramètres de publication Azure
 Pour déployer votre application sur Azure, vous devez télécharger les paramètres de publication de votre abonnement Azure.

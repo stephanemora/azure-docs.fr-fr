@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 884e07880b76ec1ff53071d03d0ce340188586e3
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 60d2f8109fbd5f11042d915dc7f43f3c9dd602d5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018148"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
 
@@ -382,7 +382,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Amazon Web Services (AWS).
+Dans cette section, vous autoriserz Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Amazon Web Services (AWS).
 
 ![Attribuer le rôle utilisateur][200] 
 
@@ -414,7 +414,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Amazon Web Services (AWS) dans le volet d’accès, vous devez être connecté automatiquement à votre application Amazon Web Services (AWS). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Lorsque vous cliquez sur la vignette Amazon Web Services (AWS) dans le volet d’accès, vous devez être connecté automatiquement à votre application Amazon Web Services (AWS). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

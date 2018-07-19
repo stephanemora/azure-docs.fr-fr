@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 690a58a939e6866bfcdf80d05e52d7bfc7fd3586
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eebaf679ada9da554f8582ad89db4e7491dcc134
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635601"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004351"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509
 
@@ -24,7 +24,7 @@ Cet article décrit comment utiliser des certificats d’autorité de certificat
 * Comment signer des appareils à l’aide de certificats d’autorité de certification X.509
 * Comment les appareils signés à l’aide d’une autorité de certification X.509 sont authentifiés
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La fonctionnalité d’autorité de certification X.509 permet l’authentification des appareils auprès d’IoT Hub à l’aide d’une autorité de certification. Elle simplifie considérablement le processus d’inscription initial des appareils et la logistique de la chaîne d’approvisionnement lors de la fabrication de l’appareil. [Pour en savoir plus, consultez cet article de scénario sur l’importance d’utiliser des certificats d’autorités de certification X.509](iot-hub-x509ca-concept.md) pour l’authentification des appareils.  Nous vous invitons à lire cet article de scénario avant de poursuivre car il explique l’objectif des étapes qui suivent.
 
@@ -42,7 +42,7 @@ Vous pouvez également créer une autorité de certification X.509 auto-signée 
 
 Quelle que soit la provenance de votre certificat d’autorité de certification X.509, veillez constamment à garder secrète et à protéger sa clé privée.  Cette condition est nécessaire pour établir une relation de confiance dans le cadre de l’authentification de l’autorité de certification X.509. 
 
-Découvrez comment [créer un certificat d’autorité de certification auto-signé](iot-hub-security-x509-create-certificates.md#createcerts) à des fins d’expérimentation tout au long de la description de cette fonctionnalité.
+Découvrez comment [créer un certificat d’autorité de certification auto-signé](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) à des fins d’expérimentation tout au long de la description de cette fonctionnalité.
 
 ## <a name="sign-devices-into-the-certificate-chain-of-trust"></a>Signature d’appareils dans la chaîne de certificats de confiance
 
@@ -50,7 +50,7 @@ Le propriétaire d’un certificat d’autorité de certification X.509 peut sig
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-Découvrez ici comment [créer une chaîne de certificats](iot-hub-security-x509-create-certificates.md#createcertchain) lors de la signature des appareils.
+Découvrez ici comment [créer une chaîne de certificats](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) lors de la signature des appareils.
 
 ## <a name="how-to-register-the-x509-ca-certificate-to-iot-hub"></a>Guide pratique pour inscrire le certificat de l’autorité de certification X.509 dans IoT Hub
 

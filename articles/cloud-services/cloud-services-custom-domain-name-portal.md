@@ -3,7 +3,7 @@ title: Configuration d’un nom de domaine personnalisé dans Services cloud | M
 description: Découvrez comment exposer votre application ou vos données Azure sur Internet, sur un domaine personnalisé, en configurant les paramètres DNS.  Ces exemples utilisent le portail Azure.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
-ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: jeconnoc
+ms.openlocfilehash: 43a3458ba0f08d73931b5ecddf6a2c7b1ae259f4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "25946772"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044813"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
 Lorsque vous créez un service cloud, Azure l'attribue à un sous-domaine de **cloudapp.net**. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs peuvent accéder à votre application par le biais d’une URL telle que http://contoso.cloudapp.net. Azure attribue également une adresse IP virtuelle.
@@ -124,7 +124,7 @@ Par exemple, l’enregistrement A suivant transfère tout le trafic de **contoso
 
 | Nom d'hôte/Sous domaine | Adresse IP |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l’ensemble des sous-domaines, entrez ***** comme sous-domaine.
 

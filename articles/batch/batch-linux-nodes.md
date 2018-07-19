@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3faa9e811216cc930354b76903519a66f3d3587
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 713583a6a184a583145c610b4e014f56941efa4c
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128809"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113509"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Configurer des nœuds de calcul Linux dans des pools Batch
 
@@ -324,10 +324,7 @@ Azure Batch est basé sur la technologie d’Azure Cloud Services et des machine
 Si vous déployez des applications sur vos nœuds Batch à l’aide de [packages d’application](batch-application-packages.md), vous êtes également facturé pour les ressources Stockage Azure que vos packages d’application consomment. En général, les coûts Stockage Azure sont minimes. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-### <a name="batch-python-tutorial"></a>Didacticiel Python Batch
-Pour accéder à un didacticiel plus détaillé sur l’utilisation de Batch avec Python, consultez la page [Prise en main du client Python Azure Batch](batch-python-tutorial.md). Son [exemple de code][github_samples_pyclient] associé comprend une fonction d’assistance, `get_vm_config_for_distro`, qui affiche une autre technique de configuration de machines virtuelles.
 
-### <a name="batch-python-code-samples"></a>Exemples de code Batch Python
 Les [exemples de code Python][github_samples_py] du dépôt [azure-batch-samples][github_samples] sur GitHub comprennent des scripts illustrant l’exécution d’opérations Batch communes telles que la création de pools, de travaux et de tâches. Le fichier [Lisez-moi][github_py_readme] qui accompagne les exemples de code Python contient des informations sur l’installation des packages nécessaires.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

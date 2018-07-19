@@ -9,18 +9,18 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod
-ms.openlocfilehash: c0842e53cbc297c1980a9d08733d838def073835
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368037"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112458"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Didacticiel : Application à page unique Recherche de vidéos
 
-Voici le code source complet indiqué dans le [didacticiel de l’application à page unique](tutorial-bing-video-search-single-page-app.md) pour Recherche de vidéos Bing. Pour exécuter l’application, copiez le code source dans le Bloc-notes ou dans un autre éditeur de texte et enregistrez-le sous `bing.html`. Ouvrez ensuite le fichier enregistré dans Microsoft Edge ou dans un autre navigateur populaire.
+Voici le code source complet indiqué dans le [didacticiel de l’application à page unique](tutorial-bing-video-search-single-page-app.md) pour Recherche de vidéos Bing. Pour exécuter l’application, copiez le code source dans le Bloc-notes ou dans un autre éditeur de texte et enregistrez-le sous `bing.html`. Ouvrez ensuite le fichier enregistré dans Microsoft Edge ou dans un autre navigateur courant.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -615,3 +615,4 @@ function doPrevSearchPage() {
 
 </body>
 </html>
+```

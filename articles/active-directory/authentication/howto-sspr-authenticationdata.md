@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257585"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044173"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Déployer la réinitialisation du mot de passe sans demander l’inscription de l’utilisateur final
 
@@ -155,8 +155,8 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](howto-sspr-deployment.md)
-* [Réinitialiser ou modifier votre mot de passe](../active-directory-passwords-update-your-own-password.md)
-* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../active-directory-passwords-reset-register.md)
+* [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
 * [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
 * [Quelles méthodes d'authentification sont accessibles aux utilisateurs ?](concept-sspr-howitworks.md#authentication-methods)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)

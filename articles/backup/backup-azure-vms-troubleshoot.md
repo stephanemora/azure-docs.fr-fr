@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/21/2018
 ms.author: trinadhk
-ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5828b4e4f42c349246845bd003e874fb0352bae
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607257"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008074"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure Backup à l’aide des informations figurant dans le tableau ci-dessous.
@@ -139,7 +139,7 @@ Une fois que la résolution de noms a été effectuée correctement, l’accès 
 
 1. Mettez sur liste blanche les plages IP de datacenter Azure.
    * Obtenez la liste des [adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) à débloquer.
-   * Débloquez les adresses IP à l’aide de l’applet de commande [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) . Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécution en tant qu’administrateur).
+   * Débloquez les adresses IP à l’aide de l’applet de commande [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) . Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécution en tant qu’administrateur).
    * Ajoutez des règles à un groupe de sécurité réseau (le cas échéant) pour autoriser l'accès aux adresses IP.
 2. Créez un chemin d'accès pour le trafic HTTP
    * Si vous des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTP pour acheminer le trafic. Les étapes du déploiement d’un serveur proxy HTTP sont expliquées [ici](backup-azure-arm-vms-prepare.md#establish-network-connectivity).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: ad3eed8886754c5785b7dfd19b36c9e18f1623ea
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: de46f3ded72b8f4444426b8754b1c1a14863321f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293011"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045877"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Didacticiel : Intégration d’Azure Active Directory avec Système de surveillance de température sans fil SensoScientific
 
@@ -102,33 +102,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration d’application **Système de surveillance de température sans fil SensoScientific**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_samlbase.png)
+    ![Configurer l'authentification unique](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_samlbase.png)
 
 3. Dans la section **Domaine et URL de Système de surveillance de température sans fil SensoScientific**, aucune action n’est requise car l’application est déjà pré-intégrée à Azure :
 
-    ![Configure Single Sign-On](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_url.png)
+    ![Configurer l'authentification unique](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_url.png)
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_certificate.png) 
+    ![Configurer l'authentification unique](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/sensoscientific-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/sensoscientific-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Système de surveillance de température sans fil SensoScientific**, cliquez sur **Configurer Système de surveillance de température sans fil SensoScientific** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML** et **l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_configure.png) 
+    ![Configurer l'authentification unique](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_configure.png) 
 
 7. Connectez-vous à votre application Système de surveillance de température sans fil SensoScientific en tant qu’administrateur.
 
 8. Dans le menu de navigation en haut, cliquez sur **Configuration** et accédez à **Configurer** sous **Authentification unique** pour ouvrir les paramètres de l’authentification unique.
 
-    ![Configure Single Sign-On](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_admin.png) 
+    ![Configurer l'authentification unique](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_admin.png) 
 
 9. Dans le formulaire **Paramètres de l’authentification unique** , procédez comme suit :
  
@@ -196,7 +196,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Système de surveillance de température sans fil SensoScientific**.
 
-    ![Configure Single Sign-On](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_app.png) 
+    ![Configurer l'authentification unique](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -214,7 +214,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Cliquez sur la vignette Système de surveillance de température sans fil SensoScientific dans le panneau d’accès. Vous êtes alors automatiquement connecté à votre application Système de surveillance de température sans fil SensoScientific. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. Cliquez sur la vignette Système de surveillance de température sans fil SensoScientific dans le panneau d’accès. Vous êtes alors automatiquement connecté à votre application Système de surveillance de température sans fil SensoScientific. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -2,7 +2,7 @@
   href: ../iot-fundamentals/index.yml
 - name: Documentation relative au service Azure IoT Hub Device Provisioning
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de l’approvisionnement d’appareils IoT
       href: about-iot-dps.md
@@ -125,7 +125,7 @@
       href: use-hsm-with-sdk.md
     - name: Utilisez les outils du Kit de développement logiciel pour le développement
       href: how-to-use-sdk-tools.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: REST
       href: /rest/api/iot-dps
@@ -176,7 +176,7 @@
     - name: Demandes de données client
       href: iot-dps-customer-data-requests.md
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Outil Device Explorer
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: Outil iothub-diagnostics

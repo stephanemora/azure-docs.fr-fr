@@ -1,6 +1,6 @@
 - name: Documentation sur le processus TDSP (Team Data Science Process)
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: overview.md
 - name: Cycle de vie
   href: lifecycle.md
@@ -149,7 +149,7 @@
       items:
         - name: Gérer la logistique des données
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ingest-data.md
             - name: Stockage d'objets blob
               href: move-azure-blob.md
@@ -178,7 +178,7 @@
               href: prepare-data.md
             - name: Explorer les données
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: explore-data.md
                 - name: Utiliser Pandas
                   href: explore-data-blob.md
@@ -188,7 +188,7 @@
                   href: explore-data-hive-tables.md
             - name: Exemples de données
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: sample-data.md
                 - name: Utiliser le stockage d’objets blob
                   href: sample-data-blob.md
@@ -216,7 +216,7 @@
       items:
         - name: Caractéristiques d’ingénierie
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: create-features.md
             - name: Utiliser SQL + Python
               href: create-features-sql-server.md
@@ -243,8 +243,8 @@
       maintainContext: true
     - name: Solutions de partenaires Cortana Intelligence
       items:
-        - name: galerie Cortana Intelligence
-          href: 'https://gallery.cortanaintelligence.com'
+        - name: Galerie Azure AI
+          href: 'https://gallery.azure.ai'
         - name: Guide de publication Cortana Intelligence
           href: cortana-intelligence-appsource-publishing-guide.md
         - name: Outil d’évaluation de la solution Cortana Intelligence
@@ -259,7 +259,7 @@
               href: 'https://docs.microsoft.com/azure/cognitive-services/'
             - name: Maintenance prédictive
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: cortana-analytics-playbook-predictive-maintenance.md
                 - name: Architecture
                   href: cortana-analytics-architecture-predictive-maintenance.md
@@ -267,7 +267,7 @@
                   href: cortana-analytics-technical-guide-predictive-maintenance.md
             - name: Télémétrie de véhicule
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: cortana-analytics-playbook-vehicle-telemetry.md
                 - name: Manuel
                   href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md

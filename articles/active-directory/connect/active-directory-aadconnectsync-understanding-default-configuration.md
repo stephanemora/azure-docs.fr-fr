@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f4278dc3af1074b6de299444d2b205396bc0a9c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7be5569654cb537260117ecd452e58cff9824a88
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595306"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044772"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect Sync : comprendre la configuration par défaut
 Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
@@ -77,9 +77,9 @@ Un objet contact doit remplir les conditions suivantes pour être synchronisé :
 
 * Le contact doit être à extension messagerie. Il est vérifié par les règles suivantes :
   * `IsPresent([proxyAddresses]) = True)`. L'attribut proxyAddresses doit être renseigné.
-  * L'attribut proxyAddresses ou l'attribut de messagerie peuvent comporter une adresse de messagerie principale. La présence d’un @ est utilisée pour vérifier que le contenu est une adresse de messagerie. L’une de ces deux règles doit prendre la valeur True.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Existe-t-il une entrée avec « SMTP: », et si tel est le cas, est-il possible de trouver un @ dans la chaîne ?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. L’attribut de messagerie est-il renseigné, et si tel est le cas, est-il possible de trouver un @ dans la chaîne ?
+  * L'attribut proxyAddresses ou l'attribut de messagerie peuvent comporter une adresse de messagerie principale. La présence d’un \@ est utilisée pour vérifier que le contenu est une adresse de messagerie. L’une de ces deux règles doit prendre la valeur True.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Existe-t-il une entrée avec « SMTP: », et si tel est le cas, est-il possible de trouver un \@ dans la chaîne ?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. L’attribut de messagerie est-il renseigné, et si tel est le cas, est-il possible de trouver un \@ dans la chaîne ?
 
 Les objets contact suivants ne sont **pas** synchronisés avec Azure AD :
 

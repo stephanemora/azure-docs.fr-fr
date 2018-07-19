@@ -1,20 +1,20 @@
 ---
 title: Rechercher avec Azure Maps | Microsoft Docs
 description: Rechercher un point d’intérêt de proximité à l’aide d’Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4a414b5b865d31dd99b54ef9693abafb5490a50f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ffc4b7625a6c43f8e2801313c61f14c785a3ec5f
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601783"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988872"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -28,7 +28,7 @@ Ce didacticiel montre comment configurer un compte avec Azure Maps, puis utilise
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
@@ -46,7 +46,7 @@ Créez un compte Maps en suivant la procédure suivante :
     - Le *Groupe de ressources* pour ce compte. Vous pouvez choisir de *Créer* ou d’utiliser un groupe de ressources *Existant*.
     - Sélectionnez *l’Emplacement du groupe de ressources*.
     - Lisez la *Licence* et la *Déclaration de confidentialité*, puis cochez la case pour accepter les conditions. 
-    - Cliquez sur le bouton **Créer** .
+    - Cliquez sur le bouton **Créer**.
    
     ![Créer un compte Maps sur le Portail](./media/tutorial-search-location/create-account.png)
 
@@ -256,7 +256,7 @@ La carte développée jusqu’à présent produit des résultats de recherche co
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un compte avec Azure Maps

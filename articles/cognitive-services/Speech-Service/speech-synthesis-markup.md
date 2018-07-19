@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d955e7fd7805688ba103897c0d900c44f16514f8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4074ba91f5029d6c132982d1d81a4888a5e42721
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369893"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071213"
 ---
 # <a name="speech-synthesis-markup-language"></a>Langage de balisage de synthèse vocale
 
@@ -78,5 +78,5 @@ Les exemples suivants montrent comment utiliser SSML pour répondre aux besoins 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir votre abonnement d’essai gratuit de Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Découvrir comment utiliser la reconnaissance vocale dans C#](quickstart-csharp-windows.md)
+* [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-dotnet-windows.md)

@@ -3,7 +3,7 @@ title: Guide Bien démarrer avec les opérateurs informatiques Azure | Microsoft
 description: Guide Bien démarrer avec les opérateurs informatiques Azure
 services: ''
 documentationcenter: ''
-author: iainfoulds
+author: themichaelbender-ms
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: iainfou
-ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: mibender
+ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099491"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072332"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Présentation du cloud computing et de Microsoft Azure
 
@@ -141,13 +141,11 @@ Pour obtenir une documentation détaillée des services Azure, consultez [Docume
 
 ### <a name="datacenters-and-regions"></a>Centres de données et régions
 
-
 Azure est une plateforme cloud mondiale, disponible dans de nombreuses régions du monde. Lorsque vous configurez un service, une application ou une machine virtuelle dans Azure, vous êtes invité à sélectionner une région. La région sélectionnée représente un centre de données spécifique dans lequel votre application s’exécute. Pour plus d’informations, consultez [Régions Azure](https://azure.microsoft.com/regions/).
 
 L’un des avantages à utiliser Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Il est préférable de choisir une région plus proche de la majorité de vos clients pour réduire la latence des demandes réseau. Vous pouvez également sélectionner une région pour respecter la réglementation de distribution de votre application dans certains pays.
 
 ### <a name="azure-portal"></a>Portail Azure
-
 
 Le portail Azure est une application web qui peut être utilisée pour créer, gérer et supprimer des services et des ressources Azure. Le portail Azure se trouve à l’adresse https://portal.azure.com. Il comprend un tableau de bord personnalisable et des outils de gestion des ressources Azure. Il fournit également des informations de facturation et d’abonnement. Pour plus d’informations, consultez [Présentation du portail Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) et [Gérer des ressources Azure sur le portail](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
@@ -165,7 +163,6 @@ Un modèle Resource Manager est un fichier JSON (JavaScript Objet Notation) qui 
 
 ### <a name="automation"></a>Automatisation
 
-
 En plus de créer, gérer et supprimer des ressources sur le portail Azure, vous pouvez automatiser ces activités à l’aide de PowerShell ou de l’interface de ligne de commande (CLI) Azure.
 
 **Azure PowerShell**
@@ -178,9 +175,7 @@ L’interface de ligne de commande Azure est un outil que vous pouvez utiliser p
 
 **API REST** Azure repose sur un ensemble d’API REST prenant en charge l’interface utilisateur du portail Azure. La plupart de ces API REST sont également prises en charge pour vous permettre de configurer et de gérer par programmation vos ressources et applications Azure à partir de n’importe quel appareil connecté à Internet. Pour plus d’informations, consultez [Informations de référence sur les API REST Azure](https://docs.microsoft.com/rest/api/index).
 
-
 ## <a name="azure-subscriptions"></a>Abonnements Azure
-
 
 Un abonnement est un regroupement logique de services Azure, associé à un compte Azure. Un seul compte Azure peut contenir plusieurs abonnements. La facturation des services Azure est effectuée par abonnement. Les abonnements Azure sont dotés d’un administrateur de compte ayant un contrôle total sur l’abonnement et d’un administrateur de service ayant le contrôle sur tous les services de l’abonnement. En plus des administrateurs, les comptes individuels peuvent bénéficier d’un contrôle détaillé des ressources Azure par le biais de RBAC.
 
@@ -200,10 +195,7 @@ Si vous dépassez le montant du crédit, vos services sont désactivés jusqu’
 
 **Accords Entreprise** : avec un accord Entreprise, vous vous engagez à utiliser un certain nombre de services dans Azure sur l’année à venir et vous payez ce montant à l’avance. L’engagement que vous contractez court tout au long de l’année. Si vous dépassez le montant de l’engagement, vous pouvez régler le surplus en retard. Selon le montant de l’engagement, vous bénéficiez d’une remise sur les services dans Azure.
 
-
-
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Accorder un accès administratif à un abonnement Azure
-
 
 Plusieurs rôles d’administrateur de compte sont disponibles et peuvent être modifiés à tout moment. Les deux rôles clés sont les suivants :
 
@@ -215,13 +207,11 @@ Pour plus d’informations, consultez [Ajouter ou modifier des rôles d’admini
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Afficher les informations de facturation dans le portail Azure
 
-
 Un aspect essentiel de l’utilisation d’Azure est la possibilité d’afficher les informations de facturation. Le portail Azure fournit un aperçu détaillé des informations de facturation Azure.
 
 Pour plus d’informations, consultez [Comment télécharger votre facture Azure et vos données d’utilisation quotidienne](../../billing/billing-download-azure-invoice-daily-usage-date.md).
 
 ### <a name="get-billing-information-from-billing-apis"></a>Obtenir des informations de facturation à partir des API de facturation
-
 
 En plus de l’affichage de la facturation dans le portail, vous pouvez accéder aux informations de facturation à l’aide d’un script ou d’un programme par le biais des API REST de facturation Azure :
 
@@ -262,7 +252,6 @@ Resource Manager offre plusieurs avantages :
 -   Vous pouvez clarifier la facturation de votre organisation en affichant les coûts d’un groupe de ressources partageant le même marqueur.
 
 ### <a name="tips-for-creating-resource-groups"></a>Conseils pour la création de groupes de ressources
-
 
 Lorsque vous prenez des décisions concernant vos groupes de ressources, tenez compte des conseils suivants :
 
@@ -347,7 +336,6 @@ Vous pouvez déployer Machines virtuelles Azure par l’intermédiaire du portai
 Pour déployer une machine virtuelle en utilisant le portail Azure, vous avez besoin uniquement d’un abonnement Azure actif et d’un accès à un navigateur web. Vous pouvez sélectionner de nombreuses images de systèmes d’exploitation avec des configurations différentes. Toutes les exigences au niveau du stockage et de la mise en réseau sont configurées au cours du déploiement. Pour plus d’informations, consultez « Créer une machine virtuelle dans le portail Azure » pour [Windows](../../virtual-machines/windows/quick-create-portal.md) et [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
 En plus de déployer une machine virtuelle à partir du portail Azure, vous pouvez déployer un modèle Azure Resource Manager à partir de ce même portail. Toutes les ressources, telles que définies dans le modèle, sont alors déployées et configurées. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
 
 **PowerShell**
 

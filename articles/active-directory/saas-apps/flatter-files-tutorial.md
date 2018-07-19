@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 1189a60b33c385377767ea44877dd5fdf853f260
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4ae5c9834352bd2413075e87c79e27a9a3c354b9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221529"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Didacticiel : Intégration d’Azure Active Directory à Flatter Files
 
@@ -102,37 +102,37 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Flatter Files**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatterfiles_samlbase.png)
+    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_samlbase.png)
 
 3. Dans la section **Domaine et URL Flatter Files**, l’utilisateur n’aura pas à effectuer les étapes que l’application a déjà intégrées préalablement avec Azure.
 
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatterfiles_url.png)
+    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_url.png)
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatterfiles_certificate.png) 
+    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Flatter Files**, cliquez sur **Configurer Flatter Files** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatterfiles_configure.png) 
+    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_configure.png) 
 
 7. Connectez-vous à votre application Flatter Files en tant qu’administrateur.
 
 8. Cliquez sur **TABLEAU DE BORD**. 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 9. Cliquez sur **Settings**, puis procédez comme suit dans l’onglet **Company** : 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. Sélectionnez **Use SAML 2.0 for Authentication**.
     
@@ -140,7 +140,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Dans la boîte de dialogue **SAML Configuration** , procédez comme suit : 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
+    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
     a. Dans la zone de texte **Domaine**, entrez votre domaine enregistré.
    
@@ -229,7 +229,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Flatter Files**.
 
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatterfiles_app.png) 
+    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -250,7 +250,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Flatter Files dans le volet d’accès, vous devez être connecté automatiquement à votre application Flatter Files.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

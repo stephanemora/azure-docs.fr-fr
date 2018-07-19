@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 4fbb0e5512511842e020e5670f1290c6b6359305
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ea6008092f8fbfde8963da50d5273d36a4a30fe3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308728"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Didacticiel : Intégration d’Azure Active Directory avec Zscaler ZSCloud
 
@@ -103,15 +103,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Zscaler ZSCloud**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_samlbase.png)
+    ![Configurer l'authentification unique](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_samlbase.png)
 
 3. Dans la section **Domaine et URL Zscaler ZSCloud**, réalisez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_url.png)
+    ![Configurer l'authentification unique](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_url.png)
 
      Dans la zone de texte **URL de connexion**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application Zscaler ZSCloud.
     
@@ -120,15 +120,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_certificate.png) 
+    ![Configurer l'authentification unique](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/zscaler-zscloud-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/zscaler-zscloud-tutorial/tutorial_general_400.png)
 
 6. Pour ouvrir la fenêtre **Configurer l’authentification**, sur la section **Configuration de Zscaler ZSCloud**, cliquez sur **Configurer Zscaler ZSCloud**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_configure.png) 
+    ![Configurer l'authentification unique](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, ouvrez une session sur votre site d’entreprise ZScaler ZSCloud en tant qu’administrateur.
 
@@ -276,7 +276,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Zscaler ZSCloud**.
 
-    ![Configure Single Sign-On](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_app.png) 
+    ![Configurer l'authentification unique](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -298,7 +298,7 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 
 En cliquant sur la vignette Zscaler ZSCloud dans le Panneau d’accès, vous allez en principe être connecté automatiquement à votre application Zscaler ZSCloud.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

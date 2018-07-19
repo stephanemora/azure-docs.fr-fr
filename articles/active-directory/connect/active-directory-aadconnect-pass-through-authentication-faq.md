@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e62117ee98b1d47600141249dcd3b17ec58a9654
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918153"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048966"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
@@ -60,7 +60,7 @@ Pour que cette fonctionnalité puisse fonctionner, vous devez utiliser la versio
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Que se passe-t-il si mon mot de passe utilisateur a expiré et qu’ils essaient de se connecter à l’aide de l’authentification directe ?
 
-Dans le cas où vous avez configuré [la réécriture du mot de passe](../active-directory-passwords-update-your-own-password.md) pour un utilisateur spécifique et que cet utilisateur se connecte à l’aide de l’authentification directe, leurs mots de passe peuvent être modifiés ou réinitialisés. Les mots de passe seront réécrits dans l’annuaire Active Directory local comme prévu.
+Dans le cas où vous avez configuré [la réécriture du mot de passe](../user-help/active-directory-passwords-update-your-own-password.md) pour un utilisateur spécifique et que cet utilisateur se connecte à l’aide de l’authentification directe, leurs mots de passe peuvent être modifiés ou réinitialisés. Les mots de passe seront réécrits dans l’annuaire Active Directory local comme prévu.
 
 Si la réécriture du mot de passe n’est pas configurée pour un utilisateur spécifique ou si l’utilisateur n’a aucune licence Azure AD valide attribuée, il ne peut pas mettre à jour son mot de passe dans le cloud. Il ne peut pas mettre à jour son mot de passe même si le mot de passe a expiré. À la place, l’utilisateur voit le message : « Votre organisation ne vous autorise pas à mettre à jour votre mot de passe sur ce site. Mettez-le à jour en fonction de la méthode recommandée par votre organisation, ou contactez votre administrateur si vous avez besoin d’aide ». L’utilisateur ou l’administrateur doit réinitialiser son mot de passe dans Active Directory sur site.
 

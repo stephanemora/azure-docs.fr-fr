@@ -2,7 +2,7 @@
   href: ../iot-fundamentals/index.yml
 - name: Documentation Azure Time Series Insights
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Time Series Insights
       href: time-series-insights-overview.md
@@ -62,7 +62,7 @@
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
     - name: Forme JSON pour les requêtes
       href: how-to-shape-query-json.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: API de requête
       href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
@@ -101,7 +101,7 @@
     - name: Demandes de données client
       href: time-series-insights-customer-data-requests.md
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
     - name: Calculatrice de prix

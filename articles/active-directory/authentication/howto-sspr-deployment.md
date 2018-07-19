@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3e14c51d644a29985e759da7c8a29927680d3891
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866981"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048949"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
@@ -86,8 +86,8 @@ Il est facile de désactiver la réinitialisation du mot de passe libre-service.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Réinitialiser ou modifier votre mot de passe](../active-directory-passwords-update-your-own-password.md)
-* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../active-directory-passwords-reset-register.md)
+* [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
 * [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)

@@ -1,8 +1,8 @@
 ---
 title: Approvisionner un appareil TPM simulé vers Azure IoT Hub à l’aide de Java | Microsoft Docs
 description: 'Démarrage rapide d’Azure : Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel (SDK) d’appareil Java pour le service d’approvisionnement d’appareil Azure IoT Hub'
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: f33e5e364f72d35797343084deb0a10e19c39031
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a75087c980a98726cc9f871c78b5cd6cb9278643
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630406"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090681"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel (SDK) d’appareil Java pour le service d’approvisionnement d’appareil Azure IoT Hub
 
@@ -119,7 +119,7 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
     Si vous avez modifié la valeur par défaut de l’*état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez de continuer à manipuler et explorer l’exemple de client d’appareil, ne nettoyez pas les ressources créées lors de ce démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
 

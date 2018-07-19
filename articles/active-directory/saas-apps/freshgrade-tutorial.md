@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 93912a693058e550c50d740e14d23b03b06e3430
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7a24f69e19d492647a24284a13342795559e0542
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224767"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Didacticiel : Intégration d’Azure Active Directory à FreshGrade
 
@@ -102,15 +102,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Sur le portail Azure, à la page d’intégration de l’application **FreshGrade**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
-    ![Configure Single Sign-On](./media/freshgrade-tutorial/tutorial_freshgrade_samlbase.png)
+    ![Configurer l'authentification unique](./media/freshgrade-tutorial/tutorial_freshgrade_samlbase.png)
 
 3. Dans la section **Domaine et URL FreshGrade**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/freshgrade-tutorial/tutorial_freshgrade_url.png)
+    ![Configurer l'authentification unique](./media/freshgrade-tutorial/tutorial_freshgrade_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
       | |
@@ -129,15 +129,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
     
-    ![Configure Single Sign-On](./media/freshgrade-tutorial/tutorial_metadataurl.png)
+    ![Configurer l'authentification unique](./media/freshgrade-tutorial/tutorial_metadataurl.png)
      
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/freshgrade-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/freshgrade-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de FreshGrade**, cliquez sur **Configurer FreshGrade** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/freshgrade-tutorial/tutorial_freshgrade_configure.png)
+    ![Configurer l'authentification unique](./media/freshgrade-tutorial/tutorial_freshgrade_configure.png)
 
 7. Pour configurer l’authentification unique côté **FreshGrade**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** et **l’URL du service d’authentification unique SAML** à [l’équipe du support technique FreshGrade](mailTo:support@freshgrade.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -190,7 +190,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 2. Dans la liste des applications, sélectionnez **FreshGrade**.
 
-    ![Configure Single Sign-On](./media/freshgrade-tutorial/tutorial_freshgrade_app.png) 
+    ![Configurer l'authentification unique](./media/freshgrade-tutorial/tutorial_freshgrade_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -211,7 +211,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette FreshGrade dans le volet d’accès, vous devez être connecté automatiquement à votre application FreshGrade.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

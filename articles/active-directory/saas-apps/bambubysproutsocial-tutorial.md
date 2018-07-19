@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 12859384ce79a34dbdb437aa402189fbf039c44c
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: eba6f2a22de42ce65996dbe0f9b75533d2a4dacc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285337"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Didacticiel : Intégration d’Azure Active Directory à Bambu by Sprout Social
 
@@ -102,27 +102,27 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **Bambu by Sprout Social**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_samlbase.png)
+    ![Configurer l'authentification unique](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_samlbase.png)
 
 3. Dans la section **Domaine et URL de Bambu by Sprout Social**, l’utilisateur n’aura pas à effectuer les étapes que l’application a déjà intégrées préalablement avec Azure. 
 
-    ![Configure Single Sign-On](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_url.png)
+    ![Configurer l'authentification unique](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_url.png)
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_certificate.png) 
+    ![Configurer l'authentification unique](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/bambubysproutsocial-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/bambubysproutsocial-tutorial/tutorial_general_400.png)
     
 6. Dans la section **Configuration de Bambu by Sprout Social**, cliquez sur **Configurer Bambu by Sprout Social** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_configure.png) 
+    ![Configurer l'authentification unique](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_configure.png) 
 
 7. Pour configurer l’authentification unique côté **Bambu by Sprout Social**, vous devez envoyer le **XML de métadonnées** et l’**URL du service d’authentification unique SAML** téléchargés à l’équipe de support [Bambu by Sprout Social](mailto:support@getbambu.com). Ils effectueront les réglages nécessaires pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -192,7 +192,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Bambu by Sprout Social**.
 
-    ![Configure Single Sign-On](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_app.png) 
+    ![Configurer l'authentification unique](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -212,7 +212,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Bambu by Sprout Social dans le volet d’accès, vous devez être connecté automatiquement à votre application Bambu by Sprout Social. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Lorsque vous cliquez sur la vignette Bambu by Sprout Social dans le volet d’accès, vous devez être connecté automatiquement à votre application Bambu by Sprout Social. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
