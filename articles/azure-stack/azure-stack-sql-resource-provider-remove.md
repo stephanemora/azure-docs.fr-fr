@@ -11,19 +11,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 150d1c40463aa04527bdd6e356a4c24ef68b02ef
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b73deebb10d0c81a06df9cd192eaa2ef28de744d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301896"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083037"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Supprimer le fournisseur de ressources SQL
 
 Avant de supprimer le fournisseur de ressources SQL, vous devez supprimer toutes les dépendances de fournisseurs. Vous aurez également besoin d’une copie du package de déploiement qui a été utilisé pour installer le fournisseur de ressources.
+
+Vous devez effectuer plusieurs tâches de nettoyage avant d’exécuter le script _DeploySqlProvider.ps1_ pour supprimer le fournisseur de ressources.
+Les locataires sont responsables des tâches de nettoyage suivantes :
+
+* Supprimer toutes les bases de données du fournisseur de ressources. (La suppression des bases de données de locataires ne supprime pas les données.)
+* Annuler l’inscription auprès de l’espace de noms du fournisseur de ressources.
+
+L’administrateur est responsable des tâches de nettoyage suivantes :
+
+* Supprime les serveurs d’hébergement du fournisseur de ressources SQL.
+* Supprime tous les plans qui référencent le fournisseur de ressources SQL.
+* Supprime tous les quotas associés au fournisseur de ressources SQL.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Pour supprimer le fournisseur de ressources SQL
 
@@ -38,10 +50,10 @@ Avant de supprimer le fournisseur de ressources SQL, vous devez supprimer toutes
 
 4. Exécutez le script DeploySqlProvider.ps1 à l’aide des paramètres suivants :
 
-    - **Désinstaller**. Supprime le fournisseur de ressources et toutes les ressources associées.
-    - **PrivilegedEndpoint**. Adresse IP ou nom DNS du point de terminaison privilégié.
-    - **CloudAdminCredential**. Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié.
-    - **AzCredential**. Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack.
+    * **Désinstaller**. Supprime le fournisseur de ressources et toutes les ressources associées.
+    * **PrivilegedEndpoint**. Adresse IP ou nom DNS du point de terminaison privilégié.
+    * **CloudAdminCredential**. Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié.
+    * **AzCredential**. Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

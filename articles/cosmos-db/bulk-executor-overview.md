@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 893888904b6afc583c3c20b94d08eb3255a98cad
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303990"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096173"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Vue d’ensemble de la bibliothèque d’exécuteur en bloc Azure Cosmos DB
  
@@ -33,7 +33,7 @@ La bibliothèque d’exécuteur en bloc permet de tirer parti de ces formidables
  
 * Elle réduit considérablement la quantité de ressources de calcul côté client nécessaires pour saturer le débit alloué à un conteneur. Une application monothread qui écrit des données à l’aide de l’API d’importation en bloc atteint un débit d’écriture 10 fois supérieur à celui d’une application multithread qui écrit des données en parallèle tout en saturant l’UC de l’ordinateur client.  
 
-* Elle élimine les tâches fastidieuses liées à l’écriture de la logique d’application qui gère la limitation des requêtes, les délais d’attente de requêtes et autres exceptions temporaires en les traitant efficacement au sein de la bibliothèque.  
+* Elle élimine les tâches fastidieuses liées à l’écriture de la logique d’application qui gère la limitation du taux des requêtes, les délais d’attente des requêtes et autres exceptions temporaires en les traitant efficacement dans la bibliothèque.  
 
 * Elle fournit un mécanisme simplifié pour la montée en puissance des applications effectuant des opérations en bloc. Une seule instance d’exécuteur en bloc sur une machine virtuelle Azure peut consommer plus de 500 000 RU/s. Vous pouvez atteindre un débit plus élevé en ajoutant des instances supplémentaires à chacune des machines virtuelles clientes.  
  
@@ -47,7 +47,7 @@ Quand une opération en bloc visant à importer ou mettre à jour des documents 
 
 ![Architecture de BulkExecutor](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-La bibliothèque BulkExecutor utilise de manière optimale le débit alloué à une collection. Elle utilise un  [mécanisme de contrôle de congestion de style AIMD](https://tools.ietf.org/html/rfc5681) pour chaque plage de clés de partition Azure Cosmos DB afin de gérer efficacement la limitation et les délais d’attente. 
+La bibliothèque BulkExecutor utilise de manière optimale le débit alloué à une collection. Elle utilise un  [mécanisme de contrôle de congestion de style AIMD](https://tools.ietf.org/html/rfc5681) pour chaque plage de clés de partition Azure Cosmos DB afin de gérer efficacement la limitation du taux et les délais d’attente. 
 
 ## <a name="next-steps"></a>Étapes suivantes 
   
