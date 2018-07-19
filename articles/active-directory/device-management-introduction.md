@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850006"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970898"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Présentation de la gestion des appareils dans Azure Active Directory
 
@@ -75,8 +75,8 @@ Les appareils joints Azure AD ont pour objectif de simplifier :
 ![Appareils inscrits sur Azure AD](./media/device-management-introduction/02.png)
 
 Il existe différentes manières de déployer Azure AD Join : 
- - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
- - [Déploiement en bloc](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Déploiement en bloc](https://docs.microsoft.com/intune/windows-bulk-enroll)
  - [Expérience en libre-service](device-management-azuread-joined-devices-frx.md) 
 
 **Azure AD Join** est destiné aux organisations qui souhaitent donner la priorité au cloud (autrement dit, qui utilisent principalement des services cloud, dans l’objectif de réduire l’usage d’une infrastructure locale) ou utiliser exclusivement le cloud (aucune infrastructure locale). Il n’existe aucune restriction quant à la taille ou au type des organisations qui peuvent déployer Azure AD Join. Azure AD Join fonctionne parfaitement même dans un environnement hybride et permet l’accès aux applications et ressources locales et cloud.
@@ -93,7 +93,7 @@ L’implémentation d’appareils joints Azure AD vous offre les avantages suiva
 
 - **La restriction d’accès** aux applications ne s’applique qu’aux appareils qui répondent à la stratégie de conformité.
 
-- **Un accès transparent aux ressources locales** lorsque l’appareil dispose d’une ligne de vue sur le contrôleur de domaine local. 
+- **Un accès fluide aux ressources locales** lorsque l’appareil dispose d’une ligne de vue sur le contrôleur de domaine local. 
 
 
 Bien qu’Azure AD Join soit principalement conçu pour les organisations qui ne disposent pas d’une infrastructure Windows Server Active Directory locale, vous pouvez tout à fait l’utiliser dans les scénarios où :

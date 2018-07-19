@@ -1,5 +1,5 @@
 ---
-title: Copier des données vers/à partir d’Oracle à l’aide de Data Factory | Microsoft Docs
+title: Copier des données vers ou depuis Oracle à l’aide de Data Factory | Microsoft Docs
 description: Découvrez comment copier des données vers et à partir d’une base de données Oracle locale à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe1ca45b0f79781b2fa17bfb605df03d334cc8d1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 10535e75a32a9f95e759340cf14d693f43639473
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046711"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856839"
 ---
-# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copier des données vers/à partir d’Oracle en local à l’aide d’Azure Data Factory
+# <a name="copy-data-to-or-from-on-premises-oracle-using-azure-data-factory"></a>Copier des données vers ou depuis Oracle en local à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](data-factory-onprem-oracle-connector.md)
-> * [Version 2 (version actuelle)](../connector-oracle.md)
+> * [Version 1](data-factory-onprem-oracle-connector.md)
+> * [Version 2 (version actuelle)](../connector-oracle.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur Oracle dans V2](../connector-oracle.md).
@@ -103,6 +103,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | gatewayName | Nom de la passerelle utilisée pour se connecter au serveur Oracle local |OUI |
 
 **Exemple : avec le pilote Microsoft**
+
+>[!TIP]
+>Si vous recevez un message d’erreur indiquant « ORA-01025: UPI parameter out of range » (ORA-01025 : paramètre UPI en dehors de la plage) et que votre version Oracle est la version 8i, ajoutez `WireProtocolMode=1` à votre chaîne de connexion, puis réessayez.
+
 ```json
 {
     "name": "OnPremisesOracleLinkedService",

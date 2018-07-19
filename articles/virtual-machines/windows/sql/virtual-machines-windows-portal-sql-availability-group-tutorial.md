@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287801"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531577"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
@@ -86,7 +86,7 @@ Une fois les conditions préalables remplies, la première étape consiste à cr
 
    ![Propriétés du cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Sélectionnez **Adresse IP statique** et indiquez une adresse disponible dans la plage d’adressage IP privé automatique (APIPA, Automatic Private IP Addressing) allant de 169.254.0.1 à 169.254.255.254 dans la zone de texte Adresse. Pour cet exemple, vous pouvez utiliser n’importe quelle adresse de cette plage. Par exemple, `169.254.0.1`. Cliquez ensuite sur **OK**.
+3. Sélectionnez **Adresse IP statique** et spécifiez une adresse disponible dans le même sous-réseau que vos machines virtuelles.
 
 4. Dans la section **Principales ressources du cluster**, cliquez avec le bouton droit sur le nom du cluster et cliquez sur **Mettre en ligne**. Attendez que les deux ressources soient en ligne. Lorsque la ressource du cluster apparaît en ligne, elle met à jour le serveur de contrôleur de domaine avec un nouveau compte d’ordinateur Active Directory (AD). Utilisez ce compte AD pour exécuter le service en cluster du groupe de disponibilité ultérieurement.
 
@@ -341,7 +341,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
 ## <a name="create-an-azure-load-balancer"></a>Crée un équilibrage de charge Azure
 
-Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requiert un équilibrage de charge. Cet équilibrage de charge stocke l’adresse IP de l’écouteur du groupe de disponibilité. Cette section indique comment créer l’équilibrage de charge dans le portail Azure.
+Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requiert un équilibrage de charge. Cet équilibreur de charge stocke les adresses IP des écouteurs du groupe de disponibilité et du cluster de basculement Windows Server. Cette section indique comment créer l’équilibrage de charge dans le portail Azure.
 
 1. Dans le portail Azure, accédez au groupe de ressources où se trouvent vos serveurs SQL Server et cliquez sur **+ Ajouter**.
 2. Recherchez **Équilibrage de charge**. Choisissez l’équilibrage de charge publié par Microsoft.
@@ -370,7 +370,7 @@ Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requi
 
 Pour configurer l’équilibrage de charge, vous devez créer un pool principal ainsi qu’une sonde et définir les règles d’équilibrage de charge. Effectuez ces opérations dans le portail Azure.
 
-### <a name="add-backend-pool"></a>Ajouter le pool principal
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>Ajouter un pool principal pour l’écouteur de groupe de disponibilité
 
 1. Dans le portail Azure, accédez à votre groupe de disponibilité. Vous devrez peut-être actualiser l’affichage pour voir l’équilibrage de charge tout juste créé.
 
@@ -416,6 +416,46 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
    | **Port** | Utiliser le port pour l'écouteur de groupe de disponibilité | 1435 |
    | **Port principal** | Ce champ est inutilisé lorsque l’option IP flottante est définie pour Retour au serveur direct. | 1435 |
    | **Sonde** |Nom que vous avez spécifié pour la sonde. | SQLAlwaysOnEndPointProbe |
+   | **Persistance de session** | Liste déroulante | **Aucun** |
+   | **Délai d’inactivité** | Délai en minutes de maintien d’une connexion TCP ouverte | 4 |
+   | **Adresse IP flottante (retour serveur direct)** | |activé |
+
+   > [!WARNING]
+   > Le retour au serveur direct est configuré lors de la création. Cette valeur n’est pas modifiable.
+
+1. Cliquez sur **OK** pour définir les règles d’équilibrage de charge.
+
+### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Ajouter l’adresse IP frontale pour le cluster WSFC
+
+L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur de charge. 
+
+1. Dans le portail, ajoutez une nouvelle configuration d’adresse IP frontale pour le cluster WSFC. Utilisez l’adresse IP que vous avez configurée pour le cluster WSFC dans les ressources principales du cluster. Définissez l’adresse IP comme statique. 
+
+1. Cliquez sur l’équilibrage de charge, sur **Health probes (Sondes d’intégrité)**, puis sur **+Ajouter**.
+
+1. Configurez la sonde d’intégrité comme suit :
+
+   | Paramètre | Description | Exemples
+   | --- | --- |---
+   | **Name** | Texte | WSFCEndPointProbe |
+   | **Protocole** | Choisissez TCP. | TCP |
+   | **Port** | Tout port inutilisé. | 58888 |
+   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5. |
+   | **Seuil de défaillance sur le plan de l’intégrité** | Nombre d’échecs de sonde consécutifs qui doivent se produire pour qu’une machine virtuelle soit considérée comme défectueuse.  | 2 |
+
+1. Cliquez sur **OK** pour configurer la sonde d’intégrité.
+
+1. Configurez les règles d’équilibrage de charge. Cliquez sur **Règles d’équilibrage de charge**, puis sur **+Ajouter**.
+
+1. Configurez les règles d’équilibrage de charge comme suit :
+   | Paramètre | Description | Exemples
+   | --- | --- |---
+   | **Name** | Texte | WSFCPointListener |
+   | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée quand vous avez configuré l’adresse IP du cluster WSFC. |
+   | **Protocole** | Choisissez TCP. |TCP |
+   | **Port** | Utiliser le port pour l'écouteur de groupe de disponibilité | 58888 |
+   | **Port principal** | Ce champ est inutilisé lorsque l’option IP flottante est définie pour Retour au serveur direct. | 58888 |
+   | **Sonde** |Nom que vous avez spécifié pour la sonde. | WSFCEndPointProbe |
    | **Persistance de session** | Liste déroulante | **Aucun** |
    | **Délai d’inactivité** | Délai en minutes de maintien d’une connexion TCP ouverte | 4 |
    | **Adresse IP flottante (retour serveur direct)** | |activé |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 18ac9fcf5a8b0c66d3c9e3d3b4e3064099e201c4
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3b2da2680adbc92655030351cc9e1269a4cccccd
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287607"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory avec ScaleX Enterprise
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **ScaleX Enterprise**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
 3. Dans la section **Domaines et URL ScaleX Enterprise**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP**:
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
     a. Dans la zone de texte **Identificateur**, tapez la valeur au format suivant : `https://platform.rescale.com/saml2/<company id>/`
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
     Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant : `https://platform.rescale.com/saml2/<company id>/sso/`
      
@@ -127,27 +127,27 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Votre application ScaleX s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à modifier des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. Cliquez sur la case **Afficher et modifier tous les autres attributs utilisateur** pour ouvrir les attributs personnalisés.
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/scalex_attributes.png)
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/scalex_attributes.png)
     
     a. Cliquez avec le bouton droit sur l’attribut **name** et cliquez sur Supprimer.
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/delete_attribute_name.png)
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/delete_attribute_name.png)
 
     b. Cliquez sur l’attribut **emailaddress** pour ouvrir la fenêtre Modifier l’attribut. Modifiez sa valeur de **user.mail** en **user.userprincipalname** et cliquez sur OK.
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/edit_email_attribute.png) 
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/edit_email_attribute.png) 
     
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/tutorial_general_400.png)
     
 7. Dans la section **Configuration de ScaleX Enterprise** , cliquez sur **Configurer ScaleX Enterprise** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** et **l’URL du service d’authentification unique SAML** à partir de la section **Référence rapide.**
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
 8. Pour configurer l’authentification unique sur **ScaleX Enterprise**, connectez-vous au site web ScaleX Enterprise de votre société en tant qu’administrateur.
 
@@ -156,15 +156,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Contoso est simplement un exemple. Ce doit être le nom réel de votre société. 
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/Test_Admin.png) 
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/Test_Admin.png) 
 
 10. Sélectionnez **Intégrations** dans le menu supérieur, puis **Authentification unique**.
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/admin_sso.png) 
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/admin_sso.png) 
 
 11. Remplissez le formulaire comme suit :
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
     
     a. Sélectionnez **Créer n’importe quel utilisateur pouvant s’authentifier avec l’authentification unique.**
 
@@ -235,7 +235,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **ScaleX Enterprise**.
 
-    ![Configure Single Sign-On](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
+    ![Configurer l'authentification unique](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -255,7 +255,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Cliquez sur la mosaïque ScaleX Enterprise dans le volet d’accès pour vous connecter automatiquement à votre application ScaleX Enterprise. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Cliquez sur la mosaïque ScaleX Enterprise dans le volet d’accès pour vous connecter automatiquement à votre application ScaleX Enterprise. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

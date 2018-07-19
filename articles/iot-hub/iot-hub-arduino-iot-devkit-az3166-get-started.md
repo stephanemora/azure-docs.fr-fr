@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ce20ae800887d8c9e865ecec46d0cf9a49fb7c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cf9ee5339c53eb4f9c74f6b5f251a7963555d676
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631623"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928747"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Connecter IoT DevKit AZ3166 à Azure IoT Hub dans le cloud
 
@@ -274,7 +274,7 @@ Le DevKit redémarre et commence à exécuter le code.
 
 ## <a name="test-the-project"></a>Tester le projet
 
-Dans VS Code, procédez comme suit pour ouvrir et configurer Serial Monitor (analyse en série) :
+Dans VS Code, procédez comme suit pour ouvrir et configurer Serial Monitor (analyse en série) :
 
 1. Cliquez sur le mot `COM[X]` dans la barre d’état pour définir le port COM approprié avec `STMicroelectronics` : ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
 
@@ -285,7 +285,7 @@ Dans VS Code, procédez comme suit pour ouvrir et configurer Serial Monitor (ana
 L’exemple d’application s’exécute correctement si les résultats suivants s’affichent :
 
 * L’analyse en série affiche les mêmes informations que dans la capture d’écran ci-dessous.
-* La LED de MXChip IoT DevKit clignote.
+* La LED RVB de MXChip IoT DevKit clignote.
 
 ![Sortie finale dans VS Code](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 

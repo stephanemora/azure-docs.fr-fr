@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 293a8921e64bae03d036f847d2f9138d88ebef4a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3898f64ebc32db2a512b04949e9b33a36694cdb6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210256"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046484"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Didacticiel : Intégration d’Azure Active Directory à mindWireless
 
@@ -119,7 +119,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. La capture d’écran suivante montre un exemple : Le nom de la revendication sera toujours l’**ID d’employé** et la valeur mappée à user.employeeid, qui contient l’ID d’employé de l’utilisateur. Ici, le mappage utilisateur entre Azure AD et mindWireless s’effectue sur l’ID d’employé, mais vous pouvez le mapper à une valeur différente également basée sur les paramètres de votre application. Vous pouvez collaborer avec l’[équipe de support technique de mindWireless](mailto:sdulloor@mindwireless.com) pour utiliser l’identificateur correct d’un utilisateur et mapper cette valeur à la revendication d’**ID d’employé**.
 
-    ![Configure Single Sign-On](./media/mindwireless-tutorial/tutorial_attribute.png)
+    ![Configurer l'authentification unique](./media/mindwireless-tutorial/tutorial_attribute.png)
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
     
@@ -129,9 +129,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/mindwireless-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/mindwireless-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/mindwireless-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/mindwireless-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -226,7 +226,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Si vous cliquez sur la vignette mindWireless dans le volet d’accès, vous vous connectez automatiquement à votre application mindWireless.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

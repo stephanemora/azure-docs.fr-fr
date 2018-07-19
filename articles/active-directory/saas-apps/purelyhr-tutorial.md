@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ba24422f7ff5759153a6e067cc61251b43a7a091
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3e3546a5161c62c137af0a29daf5140133f91eb6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286930"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Didacticiel : Intégration d’Azure Active Directory avec PurelyHR
 
@@ -102,21 +102,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **PurelyHR**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/purelyhr-tutorial/tutorial_purelyhr_samlbase.png)
+    ![Configurer l'authentification unique](./media/purelyhr-tutorial/tutorial_purelyhr_samlbase.png)
 
 3. Dans la section **Domaines et URL PurelyHR**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
 
-    ![Configure Single Sign-On](./media/purelyhr-tutorial/tutorial_purelyhr_url.png)
+    ![Configurer l'authentification unique](./media/purelyhr-tutorial/tutorial_purelyhr_url.png)
    
     Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<companyID>.purelyhr.com/sso-consume`
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/purelyhr-tutorial/tutorial_purelyhr_url1.png)
+    ![Configurer l'authentification unique](./media/purelyhr-tutorial/tutorial_purelyhr_url1.png)
     
     Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant : `https://<companyID>.purelyhr.com/sso-initiate`
      
@@ -125,15 +125,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/purelyhr-tutorial/tutorial_purelyhr_certificate.png) 
+    ![Configurer l'authentification unique](./media/purelyhr-tutorial/tutorial_purelyhr_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/purelyhr-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/purelyhr-tutorial/tutorial_general_400.png)
     
 7. Dans la section **Configuration de PurelyHR**, cliquez sur **Configurer PurelyHR** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/purelyhr-tutorial/tutorial_purelyhr_configure.png) 
+    ![Configurer l'authentification unique](./media/purelyhr-tutorial/tutorial_purelyhr_configure.png) 
 
 8. Pour configurer l’authentification unique côté **PurelyHR**, connectez-vous au site web en tant qu’administrateur.
 
@@ -141,7 +141,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 10. Collez les valeurs dans les zones comme décrit ci-dessous :
 
-    ![Configure Single Sign-On](./media/purelyhr-tutorial/purelyhr-dashboard-sso-settings.png)  
+    ![Configurer l'authentification unique](./media/purelyhr-tutorial/purelyhr-dashboard-sso-settings.png)  
 
     a. Ouvrez le **Certificat (Base64)** téléchargé à partir du portail Azure dans le bloc-notes et copiez la valeur du certificat. Collez la valeur copiée dans la zone **Certificat x509**.
 
@@ -206,7 +206,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **PurelyHR**.
 
-    ![Configure Single Sign-On](./media/purelyhr-tutorial/tutorial_purelyhr_app.png) 
+    ![Configurer l'authentification unique](./media/purelyhr-tutorial/tutorial_purelyhr_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -228,7 +228,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Lorsque vous cliquez sur la mosaïque Absorb LMS dans le volet d’accès, vous êtes automatiquement connecté à votre application Absorb LMS.
 
-Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

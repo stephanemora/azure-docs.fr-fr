@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 93f62bac3e2207caa265b3fca6634656d64b1491
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876006"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918235"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des serveurs physiques répliqués vers Azure
 
@@ -70,7 +70,7 @@ Le serveur de processus reçoit des données de la machine virtuelle Azure et le
 Par défaut, le serveur cible maître reçoit les données de la restauration automatique. Il s’exécute sur le serveur de configuration local.
 
 - Si la machine virtuelle VMware vers laquelle vous effectuez la restauration automatique est sur un hôte ESXi qui est géré par VMware vCenter Server, le serveur cible maître doit avoir accès au magasin de données de la machine virtuelle (VMDK) pour écrire les données répliquées sur les disques de la machine virtuelle. Vérifiez que le magasin de données de la machine virtuelle est monté sur l’hôte du serveur cible maître avec accès en lecture/écriture.
-- Si l’hôte ESXi n’est pas géré par un serveur vCenter, le service Site Recovery crée une machine virtuelle lors de la reprotection. La machine virtuelle est créée sur l’hôte ESX où vous créez la machine virtuelle cible du serveur maître. Le disque dur de la machine virtuelle doit être dans un magasin de données accessible par l’hôte sur lequel le serveur cible maître s’exécute.
+- Si l’hôte ESXi n’est pas géré par un serveur vCenter, le service Site Recovery crée une machine virtuelle lors de la reprotection. La machine virtuelle est créée sur l’hôte ESX où vous créez la machine virtuelle cible du serveur maître. Le disque dur de la machine virtuelle doit être dans une banque de données accessible par l’hôte sur lequel le serveur cible maître s’exécute.
 - Pour les machines physiques que vous restaurez automatiquement, vous devez effectuer la détection de l’hôte sur lequel le serveur cible maître s’exécute avant de pouvoir reprotéger la machine.
 - Une autre option, si la machine virtuelle locale existe pour la restauration automatique, consiste à la supprimer avant de procéder à une restauration automatique. L’opération de restauration automatique crée ensuite une machine virtuelle sur le même hôte que l’ordinateur hôte ESX cible maître. Si vous effectuez la restauration automatique vers un autre emplacement, les données sont récupérées dans la même banque de données et sur le même ordinateur hôte ESX que ceux qui sont utilisés par le serveur cible maître local.
 - Vous ne pouvez pas utiliser Storage vMotion sur le serveur cible maître. Si vous le faites, la restauration automatique ne fonctionne pas, car les disques ne sont pas disponibles pour cela. Excluez les serveurs cibles maîtres de votre liste vMotion.

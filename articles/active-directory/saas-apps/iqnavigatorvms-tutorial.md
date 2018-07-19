@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e1219134b398219d653a87b18aa9ed582f84a33d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9b264a7ba1479e485ff528ee242c78c4b39010dc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226269"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Didacticiel : intégration d’Azure Active Directory à IQNavigator VMS
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **IQNavigator VMS**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
-    ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_samlbase.png)
+    ![Configurer l'authentification unique](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_samlbase.png)
 
 3. Dans la section **Domaine et URL IQNavigator VMS**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url.png)
+    ![Configurer l'authentification unique](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url.png)
 
     a. Dans la zone de texte **Identificateur**, saisissez l’URL :`iqn.com`
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cochez l’option **Afficher les paramètres d’URL avancés**, puis procédez comme suit :
 
-    ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url1.png)
+    ![Configurer l'authentification unique](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url1.png)
 
     Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<subdomain>.iqnavigator.com`
 
@@ -127,19 +127,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
     
-    ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
+    ![Configurer l'authentification unique](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
 6. L’application IQNavigator attend la valeur d’identificateur utilisateur unique dans la revendication Identificateur de nom. Le client peut mapper la valeur correcte pour la revendication Identificateur de nom. Dans ce cas, nous avons mappé l’user.UserPrincipalName aux fins de démonstration. Mais, en fonction des paramètres de votre organisation, vous devez mapper la valeur correcte.
 
-    ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
+    ![Configurer l'authentification unique](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/iqnavigatorvms-tutorial/tutorial_general_400.png)
 
 8. Dans la section **Configuration dIQNavigator VMS**, cliquez sur **Configurer IQNavigator VMS** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
+    ![Configurer l'authentification unique](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
 
 9. Pour configurer l’authentification unique côté **IQNavigator VMS**, vous devez envoyer **l’URL des métadonnées de fédération de l’application**, **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe du support technique IQNavigator VMS](https://www.beeline.com/iqn-product-support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -192,7 +192,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **IQNavigator VMS**.
 
-    ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png)
+    ![Configurer l'authentification unique](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png)
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -213,7 +213,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette IQNavigator VMS dans le volet d’accès, vous devez être connecté automatiquement à votre application IQNavigator VMS.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

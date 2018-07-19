@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613963"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858804"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions
 
@@ -27,8 +27,8 @@ Grâce à l’intégration native entre [Azure Cosmos DB](https://azure.microsof
 Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de données et applications sans serveur comme suit :
 
 * Créez un événement piloté par un **déclencheur Azure Cosmos DB** dans une fonction Azure. Ce déclencheur se base sur les [flux de modification](change-feed.md) pour effectuer le monitoring des modifications du conteneur Azure Cosmos DB. Quand des modifications sont apportées à un conteneur, le flux de modification est envoyé au déclencheur, qui appelle la fonction Azure.
-* Vous pouvez également lier une fonction Azure à une collection Azure Cosmos DB à l’aide d’une **liaison d’entrée**. Les liaisons d’entrée lisent les données d’un conteneur lorsqu’une fonction s’exécute.
-* Liez une fonction à une collection Azure Cosmos DB à l’aide d’une **liaison de sortie**. Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
+* Vous pouvez également lier une fonction Azure à un conteneur Azure Cosmos DB à l’aide d’une **liaison d’entrée**. Les liaisons d’entrée lisent les données d’un conteneur lorsqu’une fonction s’exécute.
+* Liez une fonction à un conteneur Azure Cosmos DB à l’aide d’une **liaison de sortie**. Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
 
 > [!NOTE]
 > À l’heure actuelle, le déclencheur Azure Cosmos DB, les liaisons d’entrée et les liaisons de sortie fonctionnent uniquement avec les comptes d’API SQL et d’API Graph.
@@ -58,7 +58,7 @@ Dans les implémentations IoT, vous pouvez appeler une fonction quand le voyant 
 4. Le déclencheur est appelé à chaque modification de données de la collection de données de capteur, étant donné que toutes les modifications sont transmises via le flux de modification.
 5. Une condition de seuil est utilisée dans la fonction pour envoyer les données de capteur au service de garanties.
 6. Si la température dépasse une certaine valeur, une alerte est également envoyée au propriétaire.
-7. La **liaison de sortie** sur la fonction met à jour l’enregistrement de la voiture dans une autre collection Azure Cosmos DB pour stocker les informations sur l’événement de vérification du moteur.
+7. La **liaison de sortie** sur la fonction met à jour l’enregistrement de la voiture dans un autre conteneur Azure Cosmos DB pour stocker les informations sur l’événement de vérification du moteur.
 
 L’illustration suivante montre le code écrit dans le portail Azure pour ce déclencheur.
 
@@ -95,7 +95,7 @@ Dans le gaming, lorsqu’un nouvel utilisateur est créé, vous pouvez recherche
 
 Dans les implémentations de vente au détail, lorsqu’un utilisateur ajoute un élément à son panier, vous pouvez désormais créer et appeler des fonctions pour des composants de pipeline commercial facultatifs.
 
-**Implémentation :** Déclencheurs Azure Cosmos DB multiples écoutant une collection
+**Implémentation :** Déclencheurs Azure Cosmos DB multiples écoutant un conteneur
 
 1. Vous pouvez créer plusieurs fonctions Azure en ajoutant à chacune d’elles des déclencheurs Azure Cosmos DB, qui écoutent tous le même flux de modification des données des paniers. Notez que lorsque plusieurs fonctions écoutent le même flux de modification, une nouvelle collection de baux est requise pour chaque fonction. Pour plus d’informations sur les collections de baux, consultez [Présentation de la bibliothèque du processeur de flux de modification](change-feed.md#understand-cf).
 2. Lorsqu’un utilisateur ajoute un nouvel élément à son panier, chaque fonction est appelée indépendamment par le flux de modification à partir du conteneur de panier.
@@ -130,7 +130,7 @@ Azure Cosmos DB est la base de données recommandée pour l’architecture infor
 
 * **Sans schéma** : Azure Cosmos DB est une base de données sans schéma, ce qui lui permet en particulier de gérer toute sortie de données à partir d’une fonction Azure. Cette approche de « gestion totale » simplifie la création de toute une variété de fonctions qui ont toutes une sortie vers Azure Cosmos DB.
 
-* **Débit évolutif** : il est possible de monter ou descendre en puissance le débit de manière instantanée dans Azure Cosmos DB. Si vous avez des centaines ou des milliers de fonctions interrogeant et écrivant dans la même collection, vous pouvez monter en puissance votre [RU/s](request-units.md) pour gérer la charge. Toutes les fonctions peuvent fonctionner en parallèle à l’aide de votre RU/s alloué, et la [cohérence](consistency-levels.md) de vos données est garantie.
+* **Débit évolutif** : il est possible de monter ou descendre en puissance le débit de manière instantanée dans Azure Cosmos DB. Si vous avez des centaines ou des milliers de fonctions interrogeant et écrivant dans le même conteneur, vous pouvez monter en puissance votre [RU/s](request-units.md) pour gérer la charge. Toutes les fonctions peuvent fonctionner en parallèle à l’aide de votre RU/s alloué, et la [cohérence](consistency-levels.md) de vos données est garantie.
 
 * **Réplication globale** : vous pouvez répliquer des données Azure Cosmos DB [dans le monde entier](distribute-data-globally.md) pour réduire la latence, en géolocalisant vos données le plus proche possible de vos utilisateurs. Comme avec toutes les requêtes Azure Cosmos DB, les données provenant de déclencheurs basés sur les événements sont lues à partir de la base de données Azure Cosmos DB la plus proche de l’utilisateur.
 

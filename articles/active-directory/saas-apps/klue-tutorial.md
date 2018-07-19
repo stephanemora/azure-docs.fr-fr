@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: e2a625c733aac82b5db8529f2d770d31578a6246
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3a6d4b41d3b3994af08ba5492e542b7c31a9ebfe
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220418"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052599"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Didacticiel : Intégration d’Azure Active Directory avec Klue
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Klue**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_samlbase.png)
+    ![Configurer l'authentification unique](./media/klue-tutorial/tutorial_klue_samlbase.png)
 
 3. Dans la section **Domaine et URL Klue**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_url1.png)
+    ![Configurer l'authentification unique](./media/klue-tutorial/tutorial_klue_url1.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `urn:klue:<Customer ID>`
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_url2.png)
+    ![Configurer l'authentification unique](./media/klue-tutorial/tutorial_klue_url2.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://app.klue.com/account/auth/saml/<Customer UUID>/`
      
@@ -127,7 +127,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. L’application Klue s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML . Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. 
 
-    ![Configure Single Sign-On](./media/klue-tutorial/attribute.png)
+    ![Configurer l'authentification unique](./media/klue-tutorial/attribute.png)
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
     
@@ -139,9 +139,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/klue-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/klue-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/klue-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/klue-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -151,15 +151,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_certificate.png) 
+    ![Configurer l'authentification unique](./media/klue-tutorial/tutorial_klue_certificate.png) 
 
 8. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/klue-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/klue-tutorial/tutorial_general_400.png)
     
 9. Dans la section **Configuration de Klue**, cliquez sur **Configurer Klue** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_configure.png) 
+    ![Configurer l'authentification unique](./media/klue-tutorial/tutorial_klue_configure.png) 
 
 10. Pour configurer l’authentification unique côté **Klue**, vous devez envoyer le **Certificat (en base64) téléchargé, l’URL du service d’authentification unique SAML et l’ID d’entité SAML** à l’[équipe de support technique Klue](mailto:support@klue.com).
 
@@ -218,7 +218,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Klue**.
 
-    ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_app.png) 
+    ![Configurer l'authentification unique](./media/klue-tutorial/tutorial_klue_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -239,7 +239,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Klue dans le volet d’accès, vous devez être connecté automatiquement à votre application Klue.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

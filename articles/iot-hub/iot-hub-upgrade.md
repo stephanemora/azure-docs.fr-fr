@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637274"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903062"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Procédure de mise à niveau de votre IoT Hub
 
-À mesure que votre solution IoT croît, Azure IoT Hub est prêt à vous aider à mettre en place le « scale up » (croissance interne). Azure IoT Hub offre deux niveaux, De base (B) et Standard (S), pour prendre en charge les clients qui souhaitent utiliser différentes fonctionnalités. Chaque niveau comporte trois tailles (1, 2 et 3) qui déterminent le nombre de messages qui peuvent être envoyés chaque jour. 
+À mesure que votre solution IoT croît, Azure IoT Hub est prêt à vous aider à monter en puissance (« scale up »). Azure IoT Hub offre deux niveaux, De base (B) et Standard (S), pour prendre en charge les clients qui souhaitent utiliser différentes fonctionnalités. Chaque niveau comporte trois tailles (1, 2 et 3) qui déterminent le nombre de messages qui peuvent être envoyés chaque jour. 
 
 Lorsque vous avez plus d’appareils et avez besoin de davantage de fonctionnalités, il existe trois façons d’ajuster votre IoT Hub selon vos besoins :
 
@@ -45,7 +45,7 @@ Ces exemples sont destinés à vous aider à comprendre comment ajuster votre Io
 4. Pour modifier le nombre d’unités de votre hub, entrez une nouvelle valeur sous **Unités IoT Hub**. 
 5. Cliquez sur **Enregistrer** pour enregistrer vos modifications. 
 
-Votre IoT Hub est maintenant ajusté et vos configurations restent inchangées. 
+Votre IoT Hub est maintenant ajusté et vos configurations restent inchangées. Notez que la limite de partition pour le niveau De base d’IoT Hub est 8. Cette limite ne change pas quand vous migrez du niveau De base vers le niveau Standard.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

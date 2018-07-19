@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 07533670a188c7f50a2848e76ed9d83a96c54cf7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4a4d4fa704381ed9ab7c79c6ad0f6196a9ac37f2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211980"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Tutoriel: Intégration d’Azure Active Directory à Settling music
 
@@ -151,7 +151,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     c. Dans la zone de texte **ID provider Logout URL** (URL de déconnexion du fournisseur d’identité), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    d. Cliquez sur **Choisir un fichier** pour charger le certificat (**Certificate (Base64)**) que vous avez téléchargé à partir du portail Azure.
+    d. Cliquez sur **Choisir un fichier** pour charger le **certificat (Base64)** que vous avez téléchargé à partir du portail Azure.
 
     e. Cliquez sur le bouton **Enregistrer** .
 
@@ -226,7 +226,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la mosaïque Settling music dans le volet d’accès, vous devez être connecté automatiquement à votre application Settling music.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

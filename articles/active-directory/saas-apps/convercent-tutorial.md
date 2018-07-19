@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 7f2bb181b08720d096c5abf4e73b16de8306bd58
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 17c7763c514d64cf25cfd0a3bb629f54030d4a39
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218518"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Didacticiel : Intégration d’Azure Active Directory à Convercent
 
@@ -102,21 +102,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Convercent**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/convercent-tutorial/tutorial_convercent_samlbase.png)
+    ![Configurer l'authentification unique](./media/convercent-tutorial/tutorial_convercent_samlbase.png)
 
 3. Dans la section **Domaines et URL Convercent**, si vous souhaitez configurer l’application en **Mode initié par IDP**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/convercent-tutorial/tutorial_convercent_url.png)
+    ![Configurer l'authentification unique](./media/convercent-tutorial/tutorial_convercent_url.png)
 
     Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<instancename>.convercent.com/`
  
 4. Si vous souhaitez configurer l’application en **Mode initié par SP**, dans la section **Domaine et URL Convercent**, procédez comme suit :
     
-    ![Configure Single Sign-On](./media/convercent-tutorial/tutorial_convercent_url1.png)
+    ![Configurer l'authentification unique](./media/convercent-tutorial/tutorial_convercent_url1.png)
 
      a. Cliquez sur **Afficher les paramètres d’URL avancés**. 
 
@@ -129,11 +129,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/convercent-tutorial/tutorial_convercent_certificate.png) 
+    ![Configurer l'authentification unique](./media/convercent-tutorial/tutorial_convercent_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/convercent-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/convercent-tutorial/tutorial_general_400.png)
 
 7. Pour obtenir la configuration de l’authentification unique pour votre application, contactez [l’équipe de support Convercent](mailto:support@convercent.com) en lui fournissant les **métadonnées XML** téléchargées.
 
@@ -189,7 +189,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Convercent**.
 
-    ![Configure Single Sign-On](./media/convercent-tutorial/tutorial_convercent_app.png) 
+    ![Configurer l'authentification unique](./media/convercent-tutorial/tutorial_convercent_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -210,7 +210,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Convercent dans le volet d’accès, vous devez être connecté automatiquement à votre application Convercent.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bb340b8439927f191bc4a22f385d85d4e21b1cdb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064345"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929347"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -204,6 +204,20 @@ Un runbook peut être interrompu pour plusieurs raisons. Les suspensions sont g�
 #### <a name="resolution"></a>Résolution :
 
 La solution documentée pour éviter ce problème consiste à utiliser des points de contrôle dans un flux de travail. Pour plus d’informations, consultez [Découverte des flux de travail PowerShell](../automation-powershell-workflow.md#checkpoints). Vous trouverez une explication plus détaillée de la distribution de charge équilibrée dans le billet de blog [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) (Utilisation de points de contrôle dans des runbooks).
+
+### <a name="long-running-runbook"></a>Scénario : échec de l’exécution d’un long runbook
+
+#### <a name="issue"></a>Problème
+
+Il s’agit du comportement par défaut dans les bacs à sable Azure dû à la surveillance de la répartition de charge équilibrée des processus au sein d’Azure Automation, qui suspend automatiquement un runbook s’il s’exécute pendant plus de 3 heures.
+
+#### <a name="cause"></a>Cause :
+
+Le runbook s’est exécuté au-delà de la limite de 3 heures autorisée par la répartition de charge équilibrée dans un bac à sable Azure
+
+#### <a name="resolution"></a>Résolution :
+
+La solution recommandée consiste à exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md). Les Workers hybrides ne sont pas restreints par la limite d’exécution de runbook de 3 heures autorisée par la [répartition de charge équilibrée](../automation-runbook-execution.md#fair-share).
 
 ## <a name="common-errors-when-importing-modules"></a>Erreurs courantes survenant lors de l’importation de modules
 

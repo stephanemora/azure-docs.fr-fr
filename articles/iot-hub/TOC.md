@@ -1,7 +1,7 @@
 # [Notions de base d’Azure IoT](/azure/iot-fundamentals)
 # [Documentation IoT Hub](index.yml)
 
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce qu’Azure IoT Hub ?](about-iot-hub.md)
 
 # Démarrages rapides
@@ -67,6 +67,44 @@
 ### [Concepts d’un certificat d’autorité de certification X.509](iot-hub-x509ca-concept.md)
 
 # Procédures
+## Planification
+### [Comparer IoT Hub et Event Hubs](iot-hub-compare-event-hubs.md)
+### [Choisir le niveau adapté à vos besoins](iot-hub-scaling.md)
+### [Haute disponibilité et récupération d’urgence](iot-hub-ha-dr.md)
+### [Protocoles supplémentaires pris en charge](iot-hub-protocol-gateway.md)
+### [Comparer le message et le routage d’événement](iot-hub-event-grid-routing-comparison.md)
+## [Développement](iot-hub-how-to.md)
+### [Guide du développeur](iot-hub-devguide.md)
+#### [Guide des fonctionnalités appareil-à-cloud](iot-hub-devguide-d2c-guidance.md)
+#### [Guide des fonctionnalités cloud-à-appareil](iot-hub-devguide-c2d-guidance.md)
+#### [Envoyer et recevoir des messages](iot-hub-devguide-messaging.md)
+##### [Envoyer des messages appareil-à-cloud sur IoT Hub](iot-hub-devguide-messages-d2c.md)
+##### [Lire des messages appareil-à-cloud à partir du point de terminaison intégré](iot-hub-devguide-messages-read-builtin.md)
+##### [Réagir aux événements IoT Hub](iot-hub-event-grid.md)
+##### [Utiliser des points de terminaison et des règles de routage personnalisés pour les messages appareil-à-cloud](iot-hub-devguide-messages-read-custom.md)
+##### [Envoyer des messages cloud-à-appareil à partir d’IoT Hub](iot-hub-devguide-messages-c2d.md)
+##### [Créer et lire des messages IoT Hub](iot-hub-devguide-messages-construct.md)
+##### [Choisir un protocole de communication](iot-hub-devguide-protocols.md)
+#### [Charger des fichiers à partir d’un appareil](iot-hub-devguide-file-upload.md)
+#### [Gérer les identités des appareils](iot-hub-devguide-identity-registry.md)
+#### [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md)
+#### [Comprendre les représentations d’appareils](iot-hub-devguide-device-twins.md)
+#### [Comprendre les jumeaux de module](iot-hub-devguide-module-twins.md)
+#### [Appeler des méthodes directes sur un appareil](iot-hub-devguide-direct-methods.md)
+#### [Planifier des travaux sur plusieurs appareils](iot-hub-devguide-jobs.md)
+#### [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md)
+#### [Langage de requête](iot-hub-devguide-query-language.md)
+#### [Quotas et limitation](iot-hub-devguide-quotas-throttling.md)
+#### [Exemples de tarification](iot-hub-devguide-pricing.md)
+#### [Support MQTT](iot-hub-mqtt-support.md)
+#### [Glossaire](iot-hub-devguide-glossary.md)
+### [Utiliser les Kits de développement logiciel (SDK) de services et d’appareils](iot-hub-devguide-sdks.md)
+#### [Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C](iot-hub-device-sdk-c-intro.md)
+##### [Utiliser IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+##### [Utiliser le sérialiseur](iot-hub-device-sdk-c-serializer.md)
+#### [Développer pour des appareils avec contraintes](iot-hub-devguide-develop-for-constrained-devices.md)
+#### [Développer pour appareils mobiles](iot-hub-how-to-develop-for-mobile-devices.md)
+#### [Gérer la connectivité et la messagerie fiable](iot-hub-reliability-features-in-sdks.md)
 
 ## Développement
 ### [Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C](iot-hub-device-sdk-c-intro.md)
@@ -162,7 +200,7 @@
 #### [Gestion des appareils avec l’extension IoT pour Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 #### [Surveillance à distance et notifications avec Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-# Informations de référence
+# Référence
 ## [interface de ligne de commande Azure](/cli/azure/iot)
 ## [.NET (service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (appareils)](/dotnet/api/microsoft.azure.devices.client)
@@ -200,7 +238,7 @@
 ## [Catalogue d’appareils certifiés Azure pour l’IoT](https://catalog.azureiotsuite.com/)
 ## [Centre de développement Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Demandes de données client](iot-hub-customer-data-requests.md)
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=iot)
 ## [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 ## [Outil DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Outil iothub-diagnostics](https://github.com/Azure/iothub-diagnostics)

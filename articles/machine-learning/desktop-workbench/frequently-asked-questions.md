@@ -7,16 +7,16 @@ ms.author: serinak
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 8a0d26a1ba1ca5fa7a3bd5cfca078ee6c94b229d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 94a1f3bbba83e8e71cf9440b5ded0784f4616c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831572"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674153"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Forum aux questions sur Azure Machine Learning
 
@@ -30,7 +30,7 @@ Stockage Blob Azure et Azure Container Registry sont utilisés par Azure Machine
 
 **Quelle est la relation entre Azure Machine Learning et Machine Learning Services dans SQL Server 2017 ?**   
 
-Machine Learning Services dans SQL Server 2017 est une plateforme extensible évolutive pour l’intégration de tâches d’apprentissage automatique (Machine Learning) dans des flux de travail de base de données. Elle convient parfaitement quand une solution locale est requise, par exemple, lorsque le déplacement de données est coûteux ou intenable. En revanche, les charges de travail dans le cloud ou hybrides sont parfaitement adaptées à nos nouveaux services Azure. 
+Machine Learning Services dans SQL Server 2017 est une plateforme extensible évolutive pour l’intégration de tâches d’apprentissage automatique (Machine Learning) dans des flux de travail de base de données. Elle convient parfaitement quand une solution locale est nécessaire, par exemple, lorsque le déplacement de données est coûteux ou infaisable. En revanche, les charges de travail dans le cloud ou hybrides sont parfaitement adaptées à nos nouveaux services Azure. 
 
 **Prenez-vous en charge les langages Python et R ? Qu’en est-il d’autres langages de programmation tels que C++ ?**
 
@@ -172,4 +172,4 @@ Nos produits et services en préversion incluent ce qu’il y a de meilleur au s
 
 **Quelle est la relation entre Azure Machine Learning et Microsoft Cognitive Toolkit ?**
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) est l’une des nombreuses infrastructures que nos nouveaux outils et services prennent en charge. Microsoft Cognitive Toolkit est une boîte à outils unifiée d’apprentissage profond qui vous permet de consommer et de combiner des modèles populaires d’apprentissage automatique, dont les réseaux neuronaux profonds en aval, les réseaux convolutifs, les réseaux séquence-à-séquence et les réseaux récurrents. Pour plus d’informations sur Microsoft Cognitive Toolkit, consultez la [documentation du produit](https://docs.microsoft.com/cognitive-toolkit/). 
+[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) est l’une des nombreuses infrastructures que nos nouveaux outils et services prennent en charge. Microsoft Cognitive Toolkit est une boîte à outils unifiée d’apprentissage profond qui vous permet de consommer et de combiner des modèles populaires d’apprentissage automatique, dont les réseaux neuronaux profonds en aval, les réseaux convolutifs, les réseaux séquence-à-séquence et les réseaux récurrents. Pour plus d’informations sur Microsoft Cognitive Toolkit, consultez la [documentation du produit](https://docs.microsoft.com/cognitive-toolkit/). 

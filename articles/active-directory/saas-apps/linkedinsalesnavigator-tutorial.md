@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 2bc4f42b0a22ce804db9290728944575888f9c72
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 1df301e197c90970aa1e73620f94f977ecd34ba0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287444"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Didacticiel : Intégration d’Azure Active Directory avec LinkedIn Sales Navigator
 
@@ -102,25 +102,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **LinkedIn Sales Navigator**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** afin d’activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_samlbase.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_samlbase.png)
 
 3. Dans une autre fenêtre de navigateur web, connectez-vous à votre site web **LinkedIn Sales Navigator** en tant qu’administrateur.
 
 4. Dans le **Centre des comptes**, cliquez sur **Paramètres globaux** sous **Paramètres**. En outre, sélectionnez **Sales Navigator** dans la liste déroulante.
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
 5. Cliquez sur **OU cliquez ici pour charger et copier des champs du formulaire** et copiez **ID d’entité** et **URL ACS**.
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
 6. Dans la section **Domaines et URL LinkedIn Sales Navigator** du portail Azure, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP**.
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
     a. Dans la zone de texte **Identificateur**, entrez **l’ID d’entité** copié à partir de LinkedIn Portal 
 
@@ -128,13 +128,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**.
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
     Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant : `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
 
 8. Votre application **LinkedIn Sales Navigator** attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante présente un exemple. La valeur par défaut pour **Identificateur d’utilisateur** est **user.userprincipalname**, mais LinkedIn Sales Navigator s’attend à ce qu’elle soit mappée sur l’adresse de messagerie de l’utilisateur. Vous pouvez utiliser l’attribut **user.mail** dans la liste ou utiliser la valeur d’attribut appropriée en fonction de la configuration de votre organisation. 
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/updateusermail.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/updateusermail.png)
     
 9. Dans **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** et définissez les attributs. L’utilisateur doit ajouter quatre revendications nommées **email**, **department**, **firstname** et **lastname** et la valeur doit être mappée respectivement à **user.mail**, **user.department**, **user.givenname** et **user.surname**.
 
@@ -163,7 +163,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur l’attribut pour ouvrir la fenêtre **Modifier l’attribut**.
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/url_update.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/url_update.png)
 
     b. Supprimez la valeur d’URL dans **namespace**.
     
@@ -171,19 +171,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 11. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
 12. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
 13. Accédez à la section **Paramètres de l’administrateur LinkedIn**. Cliquez sur **Télécharger fichier XML** pour charger le fichier XML de métadonnées que vous avez téléchargé à partir du portail Azure.
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
 14. Cliquez sur **Activer** pour activer l’authentification unique. L’état de l’authentification unique passe de **Non connecté** à **Connecté**
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
 
 > [!TIP]
@@ -241,7 +241,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **LinkedIn Sales Navigator**.
 
-    ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_app.png) 
+    ![Configurer l'authentification unique](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -261,7 +261,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette LinkedIn Sales Navigator dans le volet d’accès, vous êtes normalement redirigé vers page d’organisation où vous devez fournir vos informations de compte personnelles LinkedIn. Votre compte personnel est ainsi lié à votre compte professionnel LinkedIn. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Lorsque vous cliquez sur la vignette LinkedIn Sales Navigator dans le volet d’accès, vous êtes normalement redirigé vers page d’organisation où vous devez fournir vos informations de compte personnelles LinkedIn. Votre compte personnel est ainsi lié à votre compte professionnel LinkedIn. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

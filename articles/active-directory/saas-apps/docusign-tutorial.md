@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 027bf154fb57e8f324757fd6b32ea6c421bbc705
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 05ec113db5fbdc0f2ea7d1f176c9be654f53a946
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229510"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Didacticiel : Intégration d’Azure Active Directory avec DocuSign
 
@@ -102,19 +102,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
 1. Sur le portail Azure, à la page d’intégration de l’application **DocuSign**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_docusign_samlbase.png)
+    ![Configurer l'authentification unique](./media/docusign-tutorial/tutorial_docusign_samlbase.png)
 
 3. Dans la section **Certificat de signature SAML**, cliquez sur **Télécharger le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_docusign_certificate.png) 
+    ![Configurer l'authentification unique](./media/docusign-tutorial/tutorial_docusign_certificate.png) 
 
 4. Dans la section **Configuration de DocuSign** du portail Azure, cliquez sur **Configurer DocuSign** pour ouvrir la fenêtre Configurer l’authentification. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
     
-    ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_docusign_configure.png)
+    ![Configurer l'authentification unique](./media/docusign-tutorial/tutorial_docusign_configure.png)
 
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre **portail d’administration DocuSign** en tant qu’administrateur.
 
@@ -180,13 +180,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
    
     b. Copiez la valeur **Service Provider Login URL** (URL de connexion du fournisseur d’identité), puis collez-la dans la zone de texte **URL d’authentification** dans la section du portail Azure **DocuSign Domain and URLs** (Domaine et URL DocuSign), suivant le modèle : `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/`.
 
-    ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_docusign_url.png)
+    ![Configurer l'authentification unique](./media/docusign-tutorial/tutorial_docusign_url.png)
       
     c.  Cliquez sur **Fermer**
     
 17. Sur le portail Azure, cliquez sur **Enregistrer**.
     
-    ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/docusign-tutorial/tutorial_general_400.png)
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -240,7 +240,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **DocuSign**.
 
-    ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_docusign_app.png) 
+    ![Configurer l'authentification unique](./media/docusign-tutorial/tutorial_docusign_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -261,7 +261,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette DocuSign dans le volet d’accès, vous devez être connecté automatiquement à votre application DocuSign.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

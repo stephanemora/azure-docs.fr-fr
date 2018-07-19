@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: a6e3bb31886f1b682ef20404b536bfc4a0c07151
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b584dfa49c42328a44fff0645dcdec2504abaa2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656881"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904218"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Créer, modifier ou supprimer une interface réseau
 
@@ -35,7 +35,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
 - Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel requiert le module Azure PowerShell version 5.4.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.28 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.28 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations](#permissions).
 
@@ -58,11 +58,11 @@ Lorsque vous créez une machine virtuelle par le biais du portail Azure, ce dern
     |Adresse IP privée (IPv6)|Non | Si vous cochez cette case, une adresse IPv6 est assignée à l’interface réseau, en plus de l’adresse IPv4 assignée à l’interface réseau. Consultez la section [IPv6](#IPv6) de cet article pour obtenir des informations importantes sur l’utilisation du protocole IPv6 avec des interfaces réseau. Vous ne pouvez pas sélectionner de méthode d’attribution pour l’adresse IPv6. Si vous choisissez d’assigner une adresse IPv6, c’est la méthode dynamique qui est sélectionnée.
     |Nom IPv6 (apparaît uniquement lorsque la case **Adresse IP privée (IPv6)** est cochée) |Oui, si la case **Adresse IP privée (IPv6)** est cochée.| Ce nom est assigné à une configuration IP secondaire pour l’interface réseau. Pour en savoir plus sur les configurations IP, consultez la section [Afficher les paramètres d’interface réseau](#view-network-interface-settings).|
     |Groupe de ressources|OUI|Sélectionnez un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) ou créez-en un. Une interface réseau peut se trouver ou non dans le même groupe de ressources que celui de la machine virtuelle à laquelle vous l’attachez ou du réseau virtuel auquel vous la connectez.|
-    |Lieu|OUI|La machine virtuelle à laquelle vous attachez une interface réseau et le réseau virtuel auquel vous la connectez doivent être dans le même [emplacement](https://azure.microsoft.com/regions), également appelé région.|
+    |Emplacement|OUI|La machine virtuelle à laquelle vous attachez une interface réseau et le réseau virtuel auquel vous la connectez doivent être dans le même [emplacement](https://azure.microsoft.com/regions), également appelé région.|
 
 Le portail ne permet pas d’assigner une adresse IP publique à l’interface réseau lorsque vous la créez, bien qu’il crée une adresse IP publique et l’assigne à une interface réseau lorsque vous créez une machine virtuelle à l’aide du portail. Pour savoir comment ajouter une adresse IP publique à l’interface réseau après sa création, consultez l’article [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md). Si vous souhaitez créer une interface réseau avec une adresse IP publique, vous devez utiliser l’interface de ligne de commande ou PowerShell pour la créer.
 
-Le portail ne permet pas d’affecter l’interface réseau aux groupes de sécurité d’application, contrairement à l’interface de ligne de commande Azure et à PowerShell. Pour en savoir plus sur les groupes de sécurité d’application, consultez [Groupes de sécurité d’application](security-overview.md#application-security-groups).
+Le portail ne permet pas d’affecter l’interface réseau aux groupes de sécurité d’application lors de la création de l’interface réseau, contrairement à Azure CLI et à PowerShell. Vous pouvez attribuer une interface réseau existante à un groupe de sécurité d’application à l’aide du portail, tant que l’interface réseau est attachée à une machine virtuelle. Pour savoir comment attribuer une interface réseau à un groupe de sécurité d’application, consultez [Ajouter ou supprimer une interface réseau dans un groupe de sécurité d’application](#add-to-or-remove-from-application-security-groups).
 
 >[!Note]
 > Azure attribue une adresse MAC à l’interface réseau une fois que l’interface réseau est attachée à une machine virtuelle et que la machine virtuelle est démarrée pour la première fois. Vous ne pouvez pas spécifier l’adresse MAC qu’Azure assigne à l’interface réseau. L’adresse MAC reste assignée à l’interface réseau jusqu’à ce que l’interface réseau soit supprimée ou que l’adresse IP privée assignée à la configuration IP principale de l’interface réseau principale soit modifiée. Pour en savoir plus sur les adresses IP et les configurations IP, consultez [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md).
@@ -161,7 +161,10 @@ Vous pouvez modifier le sous-réseau, mais pas le réseau virtuel auquel une int
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Ajouter une interface aux groupes de sécurité d’application ou la supprimer de ces derniers
 
-Le portail ne permet pas d’affecter une interface réseau aux groupes de sécurité d’application, ou d’en supprimer une de ces derniers, contrairement à l’interface de ligne de commande Azure et à PowerShell. Pour en savoir plus sur les groupes de sécurité d’application, consultez [Groupes de sécurité d’application](security-overview.md#application-security-groups) et [Créer un groupe de sécurité d’application](#create-an-application-security-group).
+Vous ne pouvez ajouter ou supprimer une interface réseau dans un groupe de sécurité d’application à l’aide du portail que si l’interface réseau est attachée à une machine virtuelle. Vous pouvez utiliser PowerShell ou Azure CLI pour ajouter ou supprimer une interface réseau dans un groupe de sécurité d’application, que l’interface réseau soit attachée ou non à une machine virtuelle. Apprenez-en davantage sur les [groupes de sécurité d’application](security-overview.md#application-security-groups) et sur la création d’un [groupe de sécurité d’application](manage-network-security-group.md#create-an-application-security-group).
+
+1. Dans la zone *Rechercher parmi les ressources, services et documents* en haut du portail, commencez à taper le nom d’une machine virtuelle qui a une interface réseau que vous souhaitez ajouter ou supprimer dans un groupe de sécurité d’application. Quand le nom de votre machine virtuelle apparaît dans les résultats de la recherche, sélectionnez-le.
+2. Sous **PARAMÈTRES**, sélectionnez **Mise en réseau**.  Sélectionnez **Configure the application security groups (Configurer les groupes de sécurité d’application)**, sélectionnez les groupes de sécurité d’application auxquels vous souhaitez ajouter l’interface réseau ou désélectionnez les groupes de sécurité d’application desquels vous souhaitez supprimer l’interface réseau, puis sélectionnez **Enregistrer**. Seules les interfaces réseau qui existent dans le même réseau virtuel peuvent être ajoutées au même groupe de sécurité d’application. Le groupe de sécurité d’application doit exister dans le même emplacement que l’interface réseau.
 
 **Commandes**
 
@@ -264,6 +267,6 @@ Pour effectuer des tâches sur des interfaces réseau, votre compte doit posséd
 
 - Créer une machine virtuelle avec plusieurs cartes réseau à l’aide [d’Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou de [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Créer une machine virtuelle à carte réseau unique avec plusieurs adresses IPv4 avec [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) ou [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-- Créer une machine virtuelle à carte réseau unique avec une adresse IPv6 privée (derrière Azure Load Balancer) à l’aide [d’Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), de [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ou d’un [modèle Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-- Créez une interface réseau avec les exemples de scripts [PowerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md), ou à l’aide des[modèles Azure Resource Manager](template-samples.md)
+- Créer une machine virtuelle à carte réseau unique avec une adresse IPv6 privée (derrière Azure Load Balancer) à l’aide [d’Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), de [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ou d’un [modèle Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Créer une interface réseau avec les exemples de scripts [PowerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md), ou à l’aide des[modèles Azure Resource Manager](template-samples.md)
 - Créer et appliquer une [stratégie Azure](policy-samples.md) pour des réseaux virtuels

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 803064033df63fb260319fc46c59f77ca7490ef4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 65c70cd67a9fb77977b083027c79d3c96ffa96b1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225134"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Didacticiel : intégration d’Azure Active Directory à Softeon WMS
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Softeon WMS**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/softeon-tutorial/tutorial_softeon_samlbase.png)
+    ![Configurer l'authentification unique](./media/softeon-tutorial/tutorial_softeon_samlbase.png)
 
 3. Dans la section **Domaine et URL Softeon WMS**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/softeon-tutorial/tutorial_softeon_url.png)
+    ![Configurer l'authentification unique](./media/softeon-tutorial/tutorial_softeon_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.softeon.com/<instancename>`
 
@@ -121,15 +121,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/softeon-tutorial/tutorial_softeon_certificate.png) 
+    ![Configurer l'authentification unique](./media/softeon-tutorial/tutorial_softeon_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/softeon-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/softeon-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Softeon WMS**, cliquez sur **Configurer Softeon WMS** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/softeon-tutorial/tutorial_softeon_configure.png) 
+    ![Configurer l'authentification unique](./media/softeon-tutorial/tutorial_softeon_configure.png) 
 
 7. Pour configurer l’authentification unique côté **Softeon WMS**, vous devez envoyer le **Certificat (Base64) téléchargé, l’URL d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe du support technique Softeon WMS](mailto:contact@softeon.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -186,7 +186,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Softeon WMS**.
 
-    ![Configure Single Sign-On](./media/softeon-tutorial/tutorial_softeon_app.png) 
+    ![Configurer l'authentification unique](./media/softeon-tutorial/tutorial_softeon_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Softeon WMS dans le panneau d’accès, la page de connexion de l’application Softeon WMS doit s’afficher.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

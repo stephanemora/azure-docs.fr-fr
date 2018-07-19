@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
-ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.reviewer: jeffgo
+ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060040"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970549"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
@@ -28,15 +29,15 @@ Vous pouvez héberger une instance SQL sur une machine virtuelle dans [Azure Sta
 
 Avant d’ajouter un serveur d’hébergement SQL, consultez les exigences générales et obligations suivantes.
 
-**Obligations**
+### <a name="mandatory-requirements"></a>Obligations
 
 * Activez l’authentification SQL sur l’instance SQL Server. Étant donné que la machine virtuelle du fournisseur de ressources SQL n’est pas jointe à un domaine, elle ne peut se connecter à un serveur d’hébergement qu’à l’aide de l’authentification SQL.
-* Configurez les adresses IP pour les instances SQL avec la valeur Public. Le fournisseur de ressources et les utilisateurs, notamment Web Apps, communiquent sur le réseau de l’utilisateur ; c’est pourquoi une connectivité à l’instance SQL sur ce réseau est nécessaire.
+* Configurez les adresses IP pour les instances SQL avec la valeur Public quand elles sont installées sur Azure Stack. Le fournisseur de ressources et les utilisateurs, notamment Web Apps, communiquent sur le réseau de l’utilisateur ; c’est pourquoi une connectivité à l’instance SQL sur ce réseau est nécessaire.
 
-**Exigences générales**
+### <a name="general-requirements"></a>Conditions générales
 
 * Dédiez l’instance SQL à une utilisation par le fournisseur de ressources et les charges de travail utilisateur. Vous ne pouvez pas utiliser d’instance SQL utilisée par un autre consommateur. Cette restriction s’applique également à App Services.
-* Configurez un compte avec les niveaux de privilège appropriés pour le fournisseur de ressources.
+* Configurez un compte avec les niveaux de privilège appropriés pour le fournisseur de ressources (voir plus bas).
 * Vous êtes chargé de gérer les instances SQL et leurs hôtes.  Par exemple, le fournisseur de ressources n’applique pas les mises à jour, ne gère pas les sauvegardes et ne gère pas non plus la rotation des informations d’identification.
 
 ### <a name="sql-server-virtual-machine-images"></a>Images de machines virtuelles SQL Server
@@ -48,7 +49,7 @@ Veillez à toujours télécharger la dernière version de **l’extension IaaS S
 Il existe d’autres options pour le déploiement de machines virtuelles SQL, y compris des modèles dans la [Galerie de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
 > [!NOTE]
-> Les serveurs d’hébergement installés sur un Azure Stack à plusieurs nœuds doivent être créés à partir d’un abonnement utilisateur. Ils ne peuvent pas être créés à partir de l’abonnement du fournisseur par défaut. Ils doivent être créés à partir du portail de l’utilisateur ou à partir d’une session PowerShell avec un nom de connexion approprié. Tous les serveurs d’hébergement sont des machines virtuelles facturables et doivent disposer des licences SQL appropriées. L’administrateur de service _peut_ être le propriétaire de cet abonnement.
+> Les serveurs d’hébergement installés sur un Azure Stack à plusieurs nœuds doivent être créés à partir d’un abonnement utilisateur et non de l’abonnement du fournisseur par défaut. Ils doivent être créés à partir du portail de l’utilisateur ou à partir d’une session PowerShell avec un nom de connexion approprié. Tous les serveurs d’hébergement sont des machines virtuelles facturables et doivent disposer des licences SQL appropriées. L’administrateur de service _peut_ être le propriétaire de cet abonnement.
 
 ### <a name="required-privileges"></a>Privilèges requis
 
@@ -58,6 +59,16 @@ Vous pouvez créer un utilisateur administratif avec des privilèges plus faible
 * Groupe de disponibilité : Modifier, Joindre, Ajouter/Supprimer une base de données
 * Connexion : Créer, Sélectionner, Modifier, Supprimer, Révoquer
 * Sélection d’opérations : \[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[sys\].\[dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[sys\].\[availability_groups\] (AlwaysOn), sys.master_files
+
+### <a name="additional-security-information"></a>Informations supplémentaires relatives à la sécurité
+
+Les informations suivantes fournissent des conseils de sécurité supplémentaires :
+
+* Tout le stockage Azure Stack étant chiffré à l’aide de BitLocker, toute instance SQL sur Azure Stack utilise le stockage d’objets blob chiffré.
+* Le fournisseur de ressources SQL prend entièrement en charge TLS 1.2. Vérifiez que tout serveur SQL géré par le biais du fournisseur de ressources SQL est configuré pour TLS 1.2 _uniquement_ et que le fournisseur de ressources utilise ce dernier par défaut. Toutes les versions prises en charge de SQL Server prennent en charge TLS 1.2 ; consultez [Prise en charge de TLS 1.2 pour Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+* Utilisez le Gestionnaire de configuration SQL Server pour définir l’option **ForceEncryption** afin que toutes les communications vers le serveur SQL soient toujours chiffrées. Consultez [Pour configurer le serveur afin qu’il force les connexions chiffrées](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
+* Vérifiez que toute application cliente communique également via une connexion chiffrée.
+* Le fournisseur de ressources est configuré pour approuver les certificats utilisés par les instances de SQL Server.
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>Fournir une capacité par le biais d’une connexion à un serveur SQL d’hébergement
 
@@ -89,53 +100,50 @@ Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez l
    * Pour utiliser une référence (SKU) existante, choisissez-en une disponible, puis sélectionnez **Créer**.
    * Pour créer une référence (SKU), sélectionnez **+ Créer une référence**. Dans **Créer une référence SKU**, entez les informations obligatoires, puis sélectionnez **OK**.
 
-     > [!IMPORTANT]
-     > Les caractères spéciaux, dont les espaces et les points, ne sont pas pris en charge dans le champ **Nom**. Utilisez les exemples de la capture d’écran suivante pour entrer des valeurs pour les champs **Famille**, **Niveau** et **Édition**.
-
      ![Créer une référence (SKU)](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
-
-      Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Les utilisateurs ne peuvent pas créer de base de données tant que la référence (SKU) n’a pas été complètement créée.
-
-### <a name="sku-notes"></a>Remarques relatives aux références (SKU)
-
-Vous pouvez utiliser des références (SKU) pour différencier les offres de service. Par exemple, vous pouvez avoir une instance de SQL Enterprise présentant les caractéristiques suivantes :
-  
-* haute capacité
-* hautes performances
-* haute disponibilité
-
-Vous pouvez créer une référence (SKU) pour l’exemple précédent, en limitant l’accès à des groupes spécifiques qui ont besoin d’une base de données hautes performances.
-
->[!TIP]
->Utilisez un nom de référence (SKU) qui reflète les fonctionnalités des serveurs de la référence, comme la capacité et les performances. Le nom aide les utilisateurs à déployer leurs bases de données dans la référence (SKU) appropriée.
-
-Il est considéré comme une bonne pratique que tous les serveurs d’hébergement d’une référence (SKU) aient les mêmes caractéristiques de performances et de ressources.
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Fournir une haute disponibilité à l’aide de groupes de disponibilité Always On SQL
 
 La configuration d’instances Always On SQL nécessite des étapes supplémentaires et exige trois machines virtuelles (ou machines physiques). Cet article suppose que vous disposiez déjà d’une connaissance approfondie des groupes de disponibilité Always On. Pour plus d’informations, consultez les articles suivants :
 
-* [Présentation des groupes de disponibilité SQL Server Always On sur des machines virtuelles Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Groupes de disponibilité SQL Server Always On (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Présentation des groupes de disponibilité SQL Server Always On sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Groupes de disponibilité SQL Server Always On (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
-> Le fournisseur de ressources de l’adaptateur SQL prend en charge _uniquement_ SQL 2016 SP1 Enterprise ou les instances ultérieures pour Always On. Cette configuration de l’adaptateur requiert des nouvelles fonctionnalités SQL telles que l’amorçage automatique.
+> Le fournisseur de ressources de l’adaptateur SQL prend en charge _uniquement_ SQL 2016 SP1 Enterprise ou les instances ultérieures pour les groupes de disponibilité Always On. Cette configuration de l’adaptateur requiert des nouvelles fonctionnalités SQL telles que l’amorçage automatique.
 
-De plus, vous devez activer [l’amorçage automatique](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) sur chaque groupe de disponibilité pour chaque instance de SQL Server.
+### <a name="automatic-seeding"></a>Amorçage automatique
 
-Pour activer l’amorçage automatique sur toutes les instances, modifiez, puis exécutez la commande SQL suivante pour chaque instance :
+Vous devez activer [l’amorçage automatique](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) sur chaque groupe de disponibilité pour chaque instance de SQL Server.
 
-  ```
+Pour activer l’amorçage automatique sur toutes les instances, modifiez, puis exécutez la commande SQL suivante sur le réplica principal pour chaque instance secondaire :
+
+  ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-Sur les instances secondaires, modifiez, puis exécutez la commande SQL suivante pour chaque instance :
+Notez que le groupe de disponibilité doit être placé entre crochets.
 
-  ```
+Sur les nœuds secondaires, exécutez la commande SQL suivante :
+
+  ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
+
+### <a name="configure-contained-database-authentication"></a>Configurer l’option contained database authentication
+
+Avant d’ajouter une base de données autonome à un groupe de disponibilité, vérifiez que l’option de serveur contained database authentication est définie sur 1 sur chaque instance de serveur qui héberge un réplica de disponibilité pour le groupe de disponibilité. Pour plus d’informations, consultez [contained database authentication (option de configuration de serveur)](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+
+Utilisez ces commandes pour définir l’option de serveur contained database authentication pour chaque instance :
+
+  ```sql
+  EXEC sp_configure 'contained database authentication', 1
+  GO
+  RECONFIGURE
   GO
   ```
 
@@ -147,7 +155,7 @@ Sur les instances secondaires, modifiez, puis exécutez la commande SQL suivante
 
    Sous **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL Server à des instances réelles de SQL Server qui font office de serveur principal du fournisseur de ressources.
 
-3. Remplissez le formulaire avec les détails de connexion de votre instance de SQL Server. Assurez-vous que vous utilisez l’adresse de nom de domaine complet de l’écouteur Always On (et le numéro de port facultatif.) Fournissez les informations du compte que vous avez configuré avec des privilèges d’administrateur système.
+3. Remplissez le formulaire avec les détails de connexion de votre instance de SQL Server. Assurez-vous que vous utilisez l’adresse de nom de domaine complet de l’écouteur Always On (et les numéro de port et nom d’instance facultatifs). Fournissez les informations du compte que vous avez configuré avec des privilèges d’administrateur système.
 
 4. Cochez la case Groupe de disponibilité Always On pour activer la prise en charge des instances de groupe de disponibilité Always On SQL.
 
@@ -158,11 +166,26 @@ Sur les instances secondaires, modifiez, puis exécutez la commande SQL suivante
    > [!IMPORTANT]
    > Vous ne pouvez pas mélanger des serveurs autonomes avec des instances Always On dans la même référence SKU. Toute tentative de mélange de types après l’ajout du premier serveur d’hébergement entraîne une erreur.
 
+## <a name="sku-notes"></a>Remarques relatives aux références (SKU)
+
+Vous pouvez utiliser des références (SKU) pour différencier les offres de service. Par exemple, vous pouvez avoir une instance de SQL Enterprise présentant les caractéristiques suivantes :
+  
+* haute capacité
+* hautes performances
+* haute disponibilité
+
+Vous ne pouvez pas attribuer de références SKU à des utilisateurs ou groupes spécifiques dans cette version.
+
+ Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Les utilisateurs ne peuvent pas créer de base de données tant que la référence (SKU) n’a pas été complètement créée.
+
+>[!TIP]
+>Utilisez un nom de référence (SKU) qui reflète les fonctionnalités des serveurs de la référence, comme la capacité et les performances. Le nom aide les utilisateurs à déployer leurs bases de données dans la référence (SKU) appropriée.
+
+Il est considéré comme une bonne pratique que tous les serveurs d’hébergement d’une référence (SKU) aient les mêmes caractéristiques de performances et de ressources.
+
 ## <a name="make-the-sql-databases-available-to-users"></a>Mettre à disposition des bases de données SQL pour les utilisateurs
 
-Créez des plans et des offres pour mettre des bases de données SQL à la disposition d’utilisateurs. Ajoutez le service **Microsoft.SqlAdapter** au plan, puis ajoutez le Quota par défaut ou créez un nouveau Quota.
-
-![Créer des plans et des offres pour inclure des bases de données](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
+Créez des plans et des offres pour mettre des bases de données SQL à la disposition d’utilisateurs. Ajoutez le service **Microsoft.SqlAdapter** au plan, puis créez un quota.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/29/2018
+ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c8f043fdcaa7554d73be6ac3928a37630baab845
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654281"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630419"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
-Pour tirer parti des fonctionnalités GPU de machines virtuelles de série N Azure sous Linux, installez des pilotes graphiques NVIDIA. Cet article vous offre des étapes de configuration de pilote lorsque vous avez déployé une machine virtuelle de série N. Des informations de configuration du pilote sont également disponibles pour [les machines virtuelles Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour tirer parti des fonctionnalités GPU de machines virtuelles de série N Azure sous Linux, installez des pilotes GPU NVIDIA. [L’extension du pilote GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) installe les pilotes CUDA ou GRID NVIDIA appropriés sur une machine virtuelle de série N. Installez ou gérez l’extension à l’aide du portail Azure ou d’outils tels qu’Azure CLI ou les modèles Azure Resource Manager. Consultez la [documentation sur l’extension du pilote GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) pour connaître les distributions prises en charge et les étapes de déploiement.
+
+Si vous choisissez d’installer manuellement les pilotes GPU, cet article indique les distributions prises en charge, les pilotes et les étapes d’installation et de vérification. Des informations de configuration manuelle du pilote sont également disponibles pour [les machines virtuelles Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Pour plus d’informations sur les spécifications, les capacités de stockage et les disques des machines virtuelles série N, consultez l’article [Tailles de machine virtuelle Linux GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -302,7 +304,7 @@ Si le pilote est installé, vous obtenez un résultat qui ressemble à celui ind
  
 
 ### <a name="x11-server"></a>Serveur X11
-Si vous avez besoin d’un serveur X11 pour les connexions à distance vers une machine virtuelle NV, [x11vnc](http://www.karlrunge.com/x11vnc/) est recommandé, car il permet l’accélération matérielle des graphiques. Le BusID de l’appareil M60 doit être ajouté manuellement au fichier xconfig (`etc/X11/xorg.conf` sur Ubuntu 16.04 LTS, `/etc/X11/XF86config` sur CentOS 7.3 ou Red Hat Enterprise Server 7.3). Ajoutez une section `"Device"` similaire à la suivante :
+Si vous avez besoin d’un serveur X11 pour les connexions à distance vers une machine virtuelle NV, [x11vnc](http://www.karlrunge.com/x11vnc/) est recommandé, car il permet l’accélération matérielle des graphiques. Le BusID de l’appareil M60 doit être ajouté manuellement au fichier de configuration de X11 (en règle générale, `etc/X11/xorg.conf`). Ajoutez une section `"Device"` similaire à la suivante :
  
 ```
 Section "Device"
@@ -310,7 +312,7 @@ Section "Device"
     Driver         "nvidia"
     VendorName     "NVIDIA Corporation"
     BoardName      "Tesla M60"
-    BusID          "your-BusID:0:0:0"
+    BusID          "PCI:0@your-BusID:0:0"
 EndSection
 ```
  
@@ -319,16 +321,23 @@ En outre, mettez à jour votre section `"Screen"` pour utiliser cet appareil.
 Vous trouverez le BusID décimal en exécutant :
 
 ```bash
-echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'
 ```
  
-Le BusID peut changer lorsqu’une machine virtuelle est réaffectée ou redémarrée. Par conséquent, il peut être judicieux de créer un script pour mettre à jour le BusID dans la configuration X11 lors du redémarrage d’une machine virtuelle. Par exemple, créez un script nommé `busidupdate.sh` (ou un autre nom de votre choix) avec le contenu suivant :
+Le BusID peut changer lorsqu’une machine virtuelle est réaffectée ou redémarrée. Par conséquent, il peut être judicieux de créer un script pour mettre à jour le BusID dans la configuration X11 lors du redémarrage d’une machine virtuelle. Par exemple, créez un script nommé `busidupdate.sh` (ou un autre nom de votre choix) avec un contenu similaire à ce qui suit :
 
 ```bash 
 #!/bin/bash
-BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+XCONFIG="/etc/X11/xorg.conf"
+OLDBUSID=`awk '/BusID/{gsub(/"/, "", $2); print $2}' ${XCONFIG}`
+NEWBUSID=`nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'`
 
-if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
+if [[ "${OLDBUSID}" == "${NEWBUSID}" ]] ; then
+        echo "NVIDIA BUSID not changed - nothing to do"
+else
+        echo "NVIDIA BUSID changed from \"${OLDBUSID}\" to \"${NEWBUSID}\": Updating ${XCONFIG}" 
+        sed -e 's|BusID.*|BusID          '\"${NEWBUSID}\"'|' -i ${XCONFIG}
+fi
 ```
 
 Ensuite, créez une entrée pour votre script de mise à jour dans `/etc/rc.d/rc3.d` afin qu’il soit appelé en tant que racine au démarrage.

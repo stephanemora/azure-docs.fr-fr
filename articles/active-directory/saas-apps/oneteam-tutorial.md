@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 173d0ba6a93e4db1c39bb777a1290dc933fa4a78
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ecc8799e9d9fa711d2e2f52427cd5314a64dfc26
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230231"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Didacticiel : Intégration d’Azure Active Directory à Oneteam
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **Oneteam**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/oneteam-tutorial/tutorial_oneteam_samlbase.png)
+    ![Configurer l'authentification unique](./media/oneteam-tutorial/tutorial_oneteam_samlbase.png)
 
 3. Dans la section **Domaines et URL Oneteam**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Configure Single Sign-On](./media/oneteam-tutorial/tutorial_oneteam_url.png)
+    ![Configurer l'authentification unique](./media/oneteam-tutorial/tutorial_oneteam_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.one-team.io/teams/<team name>`
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/oneteam-tutorial/tutorial_oneteam_url1.png)
+    ![Configurer l'authentification unique](./media/oneteam-tutorial/tutorial_oneteam_url1.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<team name>.one-team.io/`
      
@@ -129,11 +129,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/oneteam-tutorial/tutorial_oneteam_certificate.png) 
+    ![Configurer l'authentification unique](./media/oneteam-tutorial/tutorial_oneteam_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/oneteam-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/oneteam-tutorial/tutorial_general_400.png)
     
 7. Pour configurer l’authentification unique pour votre application, vous pouvez ouvrir un ticket de support auprès de [l’équipe Oneteam](https://support.one-team.com/hc/requests/new) et lui fournir les **métadonnées** téléchargées. 
 
@@ -195,7 +195,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Oneteam**.
 
-    ![Configure Single Sign-On](./media/oneteam-tutorial/tutorial_oneteam_app.png) 
+    ![Configurer l'authentification unique](./media/oneteam-tutorial/tutorial_oneteam_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -216,7 +216,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Oneteam dans le volet d’accès, vous devez être connecté automatiquement à votre application Oneteam.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a44c9ec9270e4ba76f0ff367e039f5ef72eb04a5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31601635"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38678738"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Créer une machine virtuelle Windows avec l’applet de commande New-AzureRMVM simplifiée dans Cloud Shell 
 
@@ -46,11 +46,11 @@ New-AzureRMVm -Name myVM
 
 Vous êtes invité à créer un nom d’utilisateur et un mot de passe pour la machine virtuelle, qui seront utilisés quand vous vous connecterez à la machine virtuelle plus loin dans cette rubrique. Le mot de passe doit compter 12 à 123 caractères et comprendre trois des quatre caractères suivants : une minuscule, une majuscule, un chiffre et un caractère spécial.
 
-La création de la machine virtuelle et des ressources associées prend une minute. Lorsque vous avez terminé, vous pouvez voir toutes les ressources qui ont été créées avec l’applet de commande [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource).
+La création de la machine virtuelle et des ressources associées prend une minute. Quand vous avez terminé, vous pouvez voir toutes les ressources qui ont été créées avec l’applet de commande [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource).
 
 ```azurepowershell-interactive
-Find-AzureRmResource `
-    -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+Get-AzureRmResource `
+    -ResourceGroupName myVMResourceGroup | Format-Table Name
 ```
 
 ## <a name="connect-to-the-vm"></a>Connexion à la machine virtuelle
@@ -85,7 +85,7 @@ New-AzureRmVm `
     -OpenPorts 3389
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 

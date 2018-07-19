@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 4073fbb534ae712f8a5cad6c2e4aa750cec365b7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f3bbcbb70759e7a995797cf89ad75a2a39314927
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213282"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Didacticiel : Intégration d’Azure Active Directory à AirWatch
 
@@ -103,15 +103,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **AirWatch**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/airwatch-tutorial/tutorial_airwatch_samlbase.png)
+    ![Configurer l'authentification unique](./media/airwatch-tutorial/tutorial_airwatch_samlbase.png)
 
 3. Dans la section **Domaine et URL AirWatch**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/airwatch-tutorial/tutorial_airwatch_url.png)
+    ![Configurer l'authentification unique](./media/airwatch-tutorial/tutorial_airwatch_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
@@ -122,11 +122,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/airwatch-tutorial/tutorial_airwatch_certificate.png) 
+    ![Configurer l'authentification unique](./media/airwatch-tutorial/tutorial_airwatch_certificate.png) 
 
 5. Dans la section **Configuration d’AirWatch** , cliquez sur **Configurer AirWatch** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/airwatch-tutorial/tutorial_airwatch_configure.png) 
+    ![Configurer l'authentification unique](./media/airwatch-tutorial/tutorial_airwatch_configure.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
@@ -266,7 +266,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **AirWatch**.
 
-    ![Configure Single Sign-On](./media/airwatch-tutorial/tutorial_airwatch_app.png) 
+    ![Configurer l'authentification unique](./media/airwatch-tutorial/tutorial_airwatch_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -286,7 +286,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

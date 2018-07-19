@@ -1,6 +1,6 @@
 - name: Documentation des fonctions
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des fonctions
       href: functions-overview.md
@@ -95,7 +95,7 @@
       href: functions-runtime-overview.md
     - name: Fonctions durables
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: durable-functions-overview.md
         - name: Types de fonctions et fonctionnalités
           href: durable-functions-types-features-overview.md
@@ -145,6 +145,8 @@
           href: functions-develop-vs.md
         - name: Développement d’outils de base
           href: functions-run-local.md
+        - name: Développement IntelliJ IDEA
+          href: functions-create-maven-intellij.md
         - name: Gérer des connexions
           href: manage-connections.md
         - name: Gestion des erreurs
@@ -199,7 +201,7 @@
           href: durable-functions-event-publishing.md
         - name: Utiliser le kit de développement logiciel (SDK) WebJobs
           href: durable-functions-webjobs-sdk.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Liaisons
       items:

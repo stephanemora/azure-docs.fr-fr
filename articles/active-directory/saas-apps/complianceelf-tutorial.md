@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d8b95b74b026ca8dc7776bc4faccec867c5ee36f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e5a7bfc51bcd1931def202d701127de701afb595
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230449"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Didacticiel : Intégration de Azure Active Directory à Compliance ELF
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
     
-    ![Configure Single Sign-On](./media/complianceelf-tutorial/tutorial_metadataurl.png)
+    ![Configurer l'authentification unique](./media/complianceelf-tutorial/tutorial_metadataurl.png)
      
 6. Cliquez sur le bouton **Enregistrer** .
 
@@ -202,7 +202,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Compliance ELF dans le volet d’accès, vous devez être connecté automatiquement à votre application Compliance ELF.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

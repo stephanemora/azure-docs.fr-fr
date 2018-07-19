@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 6a34187a87c6ecda461357a1c2fc8747ddf4b056
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f758939964045ed373703a211d4cbef00f0e42e7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294290"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919544"
 ---
 # <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
 
@@ -38,18 +38,22 @@ Assurez-vous qu’il n’existe aucun instantané sur la machine virtuelle et qu
 Le basculement et la restauration automatique comportent trois étapes :
 
 1. **Basculement vers Azure** : basculement de machines virtuelles Hyper-V du site local vers Azure.
-2. **Restauration automatique sur un site local** : basculement de machines virtuelles Azure vers votre site local, lorsqu’il est disponible. Ceci redémarre la réplication des machines virtuelles sur les machines virtuelles Hyper-V locales. Après la synchronisation de données initiale, basculez les machines virtuelles Azure vers le site local.  
-3. **Inverser la réplication de machines virtuelles locales** : une fois les données restaurées automatiquement, inversez la réplication des machines virtuelles locales pour démarrer leur réplication vers Azure.
+2. **Restauration automatique sur un site local** : basculement de machines virtuelles Azure vers votre site local, lorsqu’il est disponible. La synchronisation des données à partir d’Azure vers le site local débute et une fois l’opération terminée, les machines virtuelles se trouvent en local.  
+3. **Inverser la réplication de machines virtuelles locales** : une fois le basculement en local effectué, inversez la réplication des machines virtuelles locales pour démarrer leur réplication vers Azure.
 
 ## <a name="verify-vm-properties"></a>Vérifier les propriétés de la machine virtuelle
 
 Avant le basculement, vérifiez les propriétés de la machine virtuelle et que la machine virtuelle est conforme aux [conditions requises pour Azure](hyper-v-azure-support-matrix.md#replicated-vms).
 
-1. Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > <VM-name>.
+Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > Machine virtuelle.
 
-2. Dans le volet **Élément répliqué**, examinez les informations de la machine virtuelle, son état d’intégrité et ses derniers points de récupération disponibles. Cliquez sur **Propriétés** pour obtenir plus de détails.
-     - Dans **Calcul et réseau**, vous pouvez modifier les paramètres de la machine virtuelle, et les paramètres réseau, notamment le réseau/sous-réseau dans lequel la machine virtuelle Azure se trouvera après le basculement et l’adresse IP qui lui sera assignée. Les disques managés ne sont pas pris en charge pour la restauration automatique à partir d’Azure vers Hyper-V.
-      - Des informations sur les disques de données et du système d’exploitation de la machine virtuelle s’affichent dans **Disques** .
+2. Dans le volet **Élément répliqué**, vous voyez un récapitulatif des informations de la machine virtuelle, son état d’intégrité et ses derniers points de récupération disponibles. Cliquez sur **Propriétés** pour obtenir plus de détails.
+
+3. Dans **Calcul et réseau**, vous pouvez modifier le nom Azure, le groupe de ressources, la taille cible, le [groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) et les paramètres de disque managé.
+
+4. Vous pouvez afficher et modifier les paramètres réseau, notamment le réseau/sous-réseau dans lequel la machine virtuelle Azure se trouvera après le basculement et l’adresse IP à lui affecter.
+
+5. Des informations sur les disques de données et du système d’exploitation de la machine virtuelle s’affichent dans **Disques** .
 
 ## <a name="failover-to-azure"></a>Basculement vers Azure
 

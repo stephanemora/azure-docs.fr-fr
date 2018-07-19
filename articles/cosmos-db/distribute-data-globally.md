@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 4f548e180ca315013d5ca91118041cac2e622520
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611447"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856638"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Comment distribuer des données mondialement avec Azure Cosmos DB
 Avec plus de 50 régions géographiques, Azure est partout et continue de s’étendre. Présente dans le monde entier, l’une des fonctionnalités différenciées qu’Azure offre à ses développeurs est la possibilité de générer, de déployer et de gérer facilement des applications mondialement distribuées. 
@@ -22,7 +22,7 @@ Avec plus de 50 régions géographiques, Azure est partout et continue de s’é
 [Azure Cosmos DB](../cosmos-db/introduction.md) est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale pour les applications stratégiques. Azure Cosmos DB fournit la distribution mondiale clés en main, la [mise à l’échelle élastique du débit et du stockage](../cosmos-db/partition-data.md), des latences de l’ordre de quelques millisecondes dans le monde entier dans plus de 99 pour cent des cas, [cinq modèles de cohérence bien définis](consistency-levels.md) et la garantie d’une haute disponibilité, le tout soutenu par des [contrats SLA complets de pointe](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexe automatiquement toutes vos données](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sans que vous ayez à vous occuper de la gestion des schémas ou des index. C’est un service multimodèle, qui prend en charge les modèles de données de types documents, valeurs clés, graphes et colonnes. En tant que service qui prend racine dans le cloud, Azure Cosmos DB est dès le départ conçu avec des fonctions d’architecture mutualisée et de distribution mondiale.
 
 
-![Collection Azure Cosmos DB partitionnée et distribuée dans trois régions](./media/distribute-data-globally/global-apps.png)
+![Conteneur Azure Cosmos DB partitionné et distribué dans trois régions](./media/distribute-data-globally/global-apps.png)
 
 **Conteneur Azure Cosmos DB unique, partitionné et distribué dans plusieurs régions Azure**
 
@@ -92,7 +92,7 @@ Actuellement, les fonctionnalités de basculement automatiques et manuelles sont
 ### <a id="MultiHomingAPIs"></a>Multihébergement dans Azure Cosmos DB
 Azure Cosmos DB vous permet d’interagir avec une la base de données à l’aide des points de terminaison *logiques* (sans région) ou *physiques* (spécifiques à une région). L’utilisation de points de terminaison logiques garantit que l’application peut en toute transparence être multihébergée en cas de basculement. Un point de terminaison physique, quant à lui, fournit un contrôle précis à l’application pour rediriger les lectures et écritures vers des régions spécifiques.
 
-Vous trouverez plus d’informations sur la configuration des préférences de lecture de [l’API SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), de [l’API Gremlin](../cosmos-db/tutorial-global-distribution-graph.md), de [l’API Table](../cosmos-db/tutorial-global-distribution-table.md) et de [l’API MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) dans ces articles.
+Vous trouverez plus d’informations sur la configuration des préférences de lecture pour [l’API SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), [l’API Table](../cosmos-db/tutorial-global-distribution-table.md) et [l’API MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) dans ces articles.
 
 ### <a id="TransparentSchemaMigration"></a>Schéma de base de données et migration d’index transparents et cohérents 
 Azure Cosmos DB est entièrement [sans schéma](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). La conception unique du moteur de base de données permet à Azure Cosmos DB d’indexer automatiquement et de manière synchrone toutes les données dès l’ingestion, sans demander à l’utilisateur de fournir un schéma ou des index secondaires. Cela vous permet d’itérer votre application mondialement distribuée rapidement et sans soucis liés au schéma de base de données et à la migration d’index de base de données ou à la coordination des déploiements d’application en plusieurs phases de modifications de schéma. Azure Cosmos DB garantit que les modifications apportées à l’indexation de stratégies explicitement faites par vous n’entraînent pas de dégradation des performances ou de la disponibilité.  
@@ -187,7 +187,7 @@ Une variation plus complète du théorème CAP est appelée [PACELC](http://cs-w
 ## <a id="ThroughputGuarantees"></a>Garanties de débit 
 Azure Cosmos DB vous permet, en toute flexibilité, de mettre à l’échelle le débit, ainsi que le stockage, dans un nombre quelconque de régions en fonction de la demande ou de vos besoins. 
 
-![Collections distribuées et partitionnées d’Azure Cosmos DB](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
+![Conteneurs distribués et partitionnés d’Azure Cosmos DB](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
 **Un seul conteneur Azure Cosmos DB partitionné horizontalement (entre trois partitions de ressources dans une région), puis distribué mondialement entre trois régions Azure**
 

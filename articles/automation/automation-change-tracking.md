@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258258"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867951"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -57,6 +57,7 @@ Utilisez les étapes ci-dessous pour configurer le suivi des fichiers sur des or
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
 |Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du contenu retourné.     |
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
 > [!NOTE]
 > L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.
@@ -75,6 +76,13 @@ Utilisez les étapes suivantes pour configurer le suivi des fichiers sur des ord
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
 |Entrer le chemin     | Chemin dans lequel rechercher le fichier. Exemple : « c:\temp\myfile.txt ».       |
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+
+## <a name="configure-file-content-tracking"></a>Configurer le suivi de contenu de fichier
+
+Avec File Content Change Tracking, vous pouvez voir le contenu d’un fichier avant et après modification. Cette fonctionnalité est disponible pour les fichiers Windows et Linux. À chaque modification du fichier, le contenu est stocké dans un compte de stockage, puis il est montré avant et après modification, à la suite ou côte à côte. Pour plus d’informations, consultez [Afficher le contenu d’un fichier suivi](change-tracking-file-contents.md).
+
+![Afficher les modifications d’un fichier](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Configurer les clés de Registre Windows pour effectuer le suivi
 
@@ -125,11 +133,22 @@ Le tableau suivant indique la fréquence de collecte de données selon les types
 | Registre Windows | 50 minutes |
 | Fichier Windows | 30 minutes |
 | Fichier Linux | 15 minutes |
-| Services Windows | 30 minutes |
+| Services Windows | 10 secondes à 30 minutes</br> Par défaut : 30 minutes |
 | Démons Linux | 5 minutes |
 | Logiciels Windows | 30 minutes |
 | Logiciels Linux | 5 minutes |
 
+### <a name="windows-service-tracking"></a>Suivi du service Windows
+
+Pour les services Windows, la fréquence de collecte par défaut est de 30 minutes. Pour configurer la fréquence, ouvrez **Change Tracking**. Sous **Modifier les paramètres** de l’onglet **Services Windows**, un curseur vous permet de modifier la fréquence de collecte des services Windows (de 10 secondes à 30 minutes). Déplacez la barre du curseur sur la fréquence de votre choix (celle-ci est automatiquement enregistrée).
+
+![Curseur des services Windows](./media/automation-change-tracking/windowservices.png)
+
+L’agent effectue uniquement le suivi des modifications, ce qui permet d’optimiser ses performances. Si vous définissez un seuil trop élevé, des modifications risquent d’être omises lorsque le service est rétabli à son état d’origine. Le fait de définir une fréquence moins élevée vous permet d’intercepter les modifications susceptibles d’être omises.
+
+> [!NOTE]
+> Même si l’agent peut enregistrer les modifications toutes les 10 secondes, les données mettent quelques minutes à s’afficher dans le portail. Les modifications effectuées pendant l’affichage des données dans le portail continuent d’être suivies et enregistrées.
+  
 ### <a name="registry-key-change-tracking"></a>Suivi des modifications des clés de Registre
 
 Le contrôle des modifications apportées aux clés de Registre a pour objectif d’identifier les points d’extension où peuvent s’activer du code tiers et des logiciels malveillants. La liste suivante présente les clés de Registre préconfigurées. Ces clés sont configurées, mais pas activées. Pour suivre ces clés de Registre, vous devez les activer.

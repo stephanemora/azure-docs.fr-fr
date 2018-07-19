@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 9c8ecac3adc3ac06eed5c87c3e1c92c91ed67d70
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 428878d3b1a8a369b58b045544f034eb4235c74c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227157"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047866"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Didacticiel : Intégration d’Azure Active Directory à DigiCert
 
@@ -102,21 +102,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **DigiCert**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/digicert-tutorial/tutorial_digicert_samlbase.png)
+    ![Configurer l'authentification unique](./media/digicert-tutorial/tutorial_digicert_samlbase.png)
 
 3. Dans la section **DigiCert Domain and URLs** (Domaine et URL DigiCert), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/digicert-tutorial/tutorial_digicert_url.png)
+    ![Configurer l'authentification unique](./media/digicert-tutorial/tutorial_digicert_url.png)
     
     Dans la zone de texte **Identificateur**, tapez l’URL : `https://www.digicert.com/sso`
 
 4. L’application DigiCert attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple de cette configuration. 
 
-    ![Configure Single Sign-On](./media/digicert-tutorial/tutorial_digicert_attributes.png)
+    ![Configurer l'authentification unique](./media/digicert-tutorial/tutorial_digicert_attributes.png)
     
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
@@ -130,9 +130,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/digicert-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/digicert-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/digicert-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/digicert-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -142,11 +142,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/digicert-tutorial/tutorial_digicert_certificate.png) 
+    ![Configurer l'authentification unique](./media/digicert-tutorial/tutorial_digicert_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/digicert-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/digicert-tutorial/tutorial_general_400.png)
 
 8. Pour configurer l’authentification unique du côté **DigiCert**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique DigiCert](mailto:support@digicert.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -199,7 +199,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **DigiCert**.
 
-    ![Configure Single Sign-On](./media/digicert-tutorial/tutorial_digicert_app.png) 
+    ![Configurer l'authentification unique](./media/digicert-tutorial/tutorial_digicert_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -220,7 +220,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette DigiCert dans le panneau d’accès, vous devez être connecté automatiquement à votre application DigiCert.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

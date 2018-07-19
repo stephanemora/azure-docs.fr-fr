@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: ba44a8988c4af68abf4d155a2b9cb490b6122d39
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656412"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923427"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -28,6 +28,8 @@ ms.locfileid: "34656412"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#memory-preserving-maintenance
+[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#memory-preserving-maintenance
 
 Pour configurer un cluster Pacemaker dans Azure, deux options s’offrent à vous : vous pouvez soit utiliser un agent d’isolation, qui s’occupe de redémarrer les nœuds défaillants via les API Azure, soit utiliser un appareil SBD.
 
@@ -277,10 +279,10 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Installer l’extension de haute disponibilité
+1. **[A]**  Installer des agents Fence
    
    <pre><code>
-   sudo zypper install sle-ha-release fence-agents
+   sudo zypper install fence-agents
    </code></pre>
 
 1. **[A]** Configurer la résolution de nom d’hôte   
@@ -335,11 +337,11 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Ajoutez le contenu ci-dessous en gras dans le fichier si les valeurs sont absentes ou différentes.
+   Ajoutez le contenu ci-dessous en gras dans le fichier si les valeurs sont absentes ou différentes. Veillez à modifier le jeton sur 30 000 pour autoriser la maintenance avec préservation de la mémoire. Pour en savoir plus, consultez [cet article pour Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance].
    
    <pre><code> 
    [...]
-     <b>token:          5000
+     <b>token:          30000
      token_retransmits_before_loss_const: 10
      join:           60
      consensus:      6000

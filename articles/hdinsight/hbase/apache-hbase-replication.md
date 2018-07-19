@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077324"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951111"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster HBase dans les réseaux virtuels Azure
 
@@ -43,7 +43,6 @@ Cas d’utilisation de la réplication HBase pour deux réseaux virtuels :
 Vous pouvez répliquer des clusters à l’aide de scripts [d’action de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles dans [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurer les environnements
@@ -63,7 +62,7 @@ Pour vous aider à configurer les environnements, nous avons créé des [modèle
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurer deux réseaux virtuels dans deux régions différentes
 
-Pour créer deux réseaux virtuels dans deux régions différentes, ainsi que la connexion VPN entre les deux, sélectionnez l’image suivante. Le modèle est stocké dans un [stockage d'objets blob]](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
+Pour utiliser un modèle qui crée deux réseaux virtuels dans deux régions différentes et la connexion VPN entre les deux, sélectionnez le bouton suivant **Déployer sur Azure**. La définition de modèle est stockée dans un [stockage Blob public](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -73,7 +72,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Lieu | États-Unis de l’Ouest |
+| Emplacement | États-Unis de l’Ouest |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet1 |
 | Préfixe de l’espace d’adressage | 10.1.0.0/16 |
 | Nom du sous-réseau | subnet 1 |
@@ -90,7 +89,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Lieu | Est des États-Unis |
+| Emplacement | Est des États-Unis |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet2 |
 | Préfixe de l’espace d’adressage | 10.2.0.0/16 |
 | Nom du sous-réseau | subnet 1 |

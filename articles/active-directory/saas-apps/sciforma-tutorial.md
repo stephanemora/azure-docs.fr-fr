@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ae5cbd2926f4429cda3138f40a40426efe64627a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: edfa9d31688cc88fb8e50ec0f5f7d2d366487030
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216981"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Didacticiel : intégration d’Azure Active Directory à Sciforma
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Sciforma**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_sciforma_samlbase.png)
+    ![Configurer l'authentification unique](./media/sciforma-tutorial/tutorial_sciforma_samlbase.png)
 
 3. Sur la section **Domaine et URL Sciforma**, réalisez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_sciforma_url.png)
+    ![Configurer l'authentification unique](./media/sciforma-tutorial/tutorial_sciforma_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.sciforma.net/sciforma/main.html`
 
@@ -123,11 +123,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_sciforma_certificate.png) 
+    ![Configurer l'authentification unique](./media/sciforma-tutorial/tutorial_sciforma_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/sciforma-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique côté **Sciforma**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à [l’équipe de support Sciforma](http://www.sciforma.com/company/contact_us).
 
@@ -186,7 +186,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Sciforma**.
 
-    ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_sciforma_app.png) 
+    ![Configurer l'authentification unique](./media/sciforma-tutorial/tutorial_sciforma_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -204,7 +204,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

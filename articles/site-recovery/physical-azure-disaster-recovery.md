@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 173423c1a578500a990d6a7b43017d06ea96f6e7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643309"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704898"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -32,7 +32,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de s
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 - Veillez à bien comprendre [l’architecture et les composants](physical-azure-architecture.md) de ce scénario.
 - Vérifiez les [exigences de prise en charge](vmware-physical-secondary-support-matrix.md) pour tous les composants.
@@ -95,7 +95,7 @@ Le service Mobilité doit être installé sur chaque serveur que vous souhaitez 
 - Pour Linux, le compte doit être un utilisateur racine sur le serveur Linux source.
 
 
-## <a name="create-a-vault"></a>création d'un coffre
+## <a name="create-a-vault"></a>Création d'un coffre
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
@@ -124,19 +124,25 @@ Configurez le serveur de configuration, inscrivez-le dans le coffre et découvre
 
 Avant de commencer, procédez comme suit : 
 
-- Sur la machine du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [Serveur de temps](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Elles doivent correspondre. S’il y a 15 minutes d’avance ou de retard, le programme d’installation peut échouer.
-- Vérifiez que la machine peut accéder à ces URL :       [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### <a name="verify-time-accuracy"></a>Vérifier la précision de l’heure
+Sur la machine du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [Serveur de temps](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Elles doivent correspondre. S’il y a 15 minutes d’avance ou de retard, le programme d’installation peut échouer.
 
-- Les règles de pare-feu basées sur une adresse IP doivent autoriser les communications vers Azure.
-- Autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443).
-- Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région des États-Unis de l’Ouest (utilisées pour la gestion du contrôle d’accès et des identités).
+#### <a name="verify-connectivity"></a>Vérifier la connectivité
+Vérifiez que la machine peut accéder à ces URL en fonction de votre environnement : 
 
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+Les règles de pare-feu basées sur l’adresse IP doivent autoriser les communications vers toutes les URL Azure qui sont répertoriées ci-dessus sur le port HTTPS (443). Pour simplifier et limiter les plages d’adresses IP, il est recommandé de filtrer les URL.
+
+- **Adresses IP d’entreprise** : autorisez [les plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443). Autorisez les plages d’adresses IP pour la région Azure de votre abonnement afin de prendre en charge les URL AAD, de sauvegarde, de réplication et de stockage.  
+- **Adresses IP d’une administration** : autorisez les [plages d’adresses IP du centre de données Azure Government](https://www.microsoft.com/en-us/download/details.aspx?id=57063) et le port HTTPS (443) pour toutes les régions USGov (Virginie, Texas, Arizona et Iowa) afin de prendre en charge les URL AAD, de sauvegarde, de réplication et de stockage.  
+
+#### <a name="run-setup"></a>Exécuter le programme d’installation
 Exécutez le programme d’installation unifiée en tant qu’administrateur local pour installer le serveur de configuration. Le serveur de processus et le serveur cible maître sont également installés par défaut sur le serveur de configuration.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 Une fois l’inscription terminée, le serveur de configuration s’affiche sur la page **Paramètres** > **Serveurs** du coffre.
-
 
 ## <a name="set-up-the-target-environment"></a>Configurer l’environnement cible
 

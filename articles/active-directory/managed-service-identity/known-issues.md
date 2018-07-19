@@ -10,17 +10,17 @@ ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
 ms.component: msi
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930984"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906215"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory
 
@@ -60,7 +60,7 @@ Toutes les distributions Linux prises en charge par Azure IaaS sont utilisables 
 Remarque : l’extension de machine virtuelle MSI prend uniquement en charge les distributions Linux suivantes :
 - CoreOS Stable
 - CentOS 7.1
-- RedHat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
@@ -128,7 +128,8 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 - L’approvisionnement de l’extension de machine virtuelle sur une machine virtuelle peut échouer en raison d’échecs de recherche DNS. Redémarrez la machine virtuelle, puis réessayez. 
 - Ajouter une identité affectée par l’utilisateur « inexistante » entraîne la défaillance de la machine virtuelle. 
 - La création d’une identité affectée par l’utilisateur avec des caractères spéciaux (tels qu’un trait de soulignement) dans le nom n’est pas prise en charge.
-- Les noms d’identité affectés par l’utilisateur sont limités à 24 caractères pour le scénario de bout en bout. Les identités affectées par l’utilisateur avec des noms de plus de 24 caractères ne pourront pas être affectées.  
+- Les noms d’identité affectés par l’utilisateur sont limités à 24 caractères pour le scénario de bout en bout. Les identités affectées par l’utilisateur avec des noms de plus de 24 caractères ne pourront pas être affectées.
+- Si vous utilisez l’extension de machine virtuelle d’identité managée, la prise en charge est limitée à 32 identités managées affectées par l’utilisateur. Sans l’extension de machine virtuelle d’identité managée, la prise en charge est limitée à 512 identités managées.  
 - Lors de l’ajout d’une deuxième identité affectée par l’utilisateur, l’ID de client n’est peut-être pas disponible pour les demandes de jetons pour l’extension de machine virtuelle. Pour résoudre le problème, redémarrez l’extension de machine virtuelle MSI avec les commandes deux bash suivantes :
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

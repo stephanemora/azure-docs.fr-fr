@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be79f0111cb569509cb05b24c99f86d4ca9534b0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e834a1cfa7eba3c1ff12523982e6704c73ef8078
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064333"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488506"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride
 
@@ -95,9 +95,9 @@ Pour supprimer un groupe, vous devez tout d’abord supprimer les Runbooks Worke
 
 ### <a name="hybrid-worker-role"></a>Worker hybride
 
-Pour que le Runbook Worker hybride se connecte à Log Analytics et y soit inscrit, il doit avoir accès au numéro de port et aux URL décrits dans cette section. Il s’agit d’un ajout aux [ports et URL nécessaires pour que Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) puisse se connecter à Log Analytics.
+Pour que le Runbook Worker hybride se connecte à Log Analytics et y soit inscrit, il doit avoir accès au numéro de port et aux URL décrits dans cette section. Il s’agit d’un ajout aux [ports et URL nécessaires pour que Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) puisse se connecter à Log Analytics. 
 
-Si vous utilisez un serveur proxy pour la communication entre l’agent et le service Log Analytics, assurez-vous que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès.
+Si vous utilisez un serveur proxy pour la communication entre l’agent et le service Log Analytics, assurez-vous que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès. Si vous utilisez la passerelle OMS en tant que proxy, vérifiez qu’elle est configurée pour les workers hybrides. Pour obtenir des instructions à ce sujet, consultez [Configuration pour les Workers hybrides Automation](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
 Les port et URL suivants sont requis pour que le rôle Runbook Worker hybride communique avec Automation :
 
@@ -105,6 +105,8 @@ Les port et URL suivants sont requis pour que le rôle Runbook Worker hybride co
 * URL globale : *.azure-automation.net
 * URL globale d’US Gov Virginie : *.azure-automation.us
 * Service de l’agent : https://\<ID_espace_de_travail\>.agentsvc.azure-automation.net
+
+Il est recommandé d’utiliser les adresses répertoriées lors de la définition des exceptions. Pour les adresses IP, vous pouvez télécharger les [Plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, reflète les plages actuellement déployées et tous les changements à venir des plages d’adresses IP.
 
 Si vous avez un compte Automation défini pour une région spécifique, vous pouvez limiter les communications à ce centre de données régional. Le tableau suivant indique l’enregistrement DNS pour chaque région :
 

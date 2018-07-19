@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e1505761a0bd1ea9dabdd0b2cbab7af902198311
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: b06f53b0169e3afd140be81d9d633844a5876c09
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938330"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38487645"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Déployer le fournisseur de ressources SQL Server sur Azure Stack
 
@@ -30,7 +30,8 @@ Utilisez le fournisseur de ressources SQL Server d’Azure Stack pour exposer de
 Plusieurs prérequis doivent être remplis avant de déployer le fournisseur de ressources SQL d’Azure Stack. Afin de répondre à ces exigences, complétez les étapes suivantes sur un ordinateur ayant accès à la machine virtuelle du point de terminaison privilégié :
 
 - Si vous ne l’avez pas encore fait, vous devez [inscrire Azure Stack](.\azure-stack-registration.md) auprès d’Azure pour pouvoir ensuite télécharger des éléments de la Place de marché Azure.
-- Ajoutez la machine virtuelle Windows Server standard sur la Place de marché Azure Stack en téléchargeant l’image de **Windows Server 2016 Datacenter Server Core**. Vous pouvez également utiliser un script pour créer une [image de Windows Server 2016](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). Assurez-vous d’avoir sélectionné l’option principale lorsque vous exécutez le script.
+- Vous devez installer les modules PowerShell Azure Stack et Azure sur le système où vous allez exécuter cette installation. Le système doit être une image Windows 10 ou Windows Server 2016 dotée de la dernière version du runtime .NET. Consultez [Installer PowerShell pour Azure Stack](.\azure-stack-powershell-install.md).
+- Ajoutez la machine virtuelle Windows Server standard sur la Place de marché Azure Stack en téléchargeant l’image de **Windows Server 2016 Datacenter Server Core**. 
 
   >[!NOTE]
   >Si vous devez installer une mise à jour, vous pouvez placer un seul package MSU dans le chemin de dépendance local. Si plusieurs fichiers MSU sont trouvés, l’installation du fournisseur de ressources SQL échoue.
@@ -41,19 +42,14 @@ Plusieurs prérequis doivent être remplis avant de déployer le fournisseur de 
     |-----|-----|
     |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
     |Version 1802 (1.0.180302.1)|[SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
-    |Version 1712 (1.0.180102.3, 1.0.180103.2 ou 1.0.180106.1 (systèmes intégrés))|[SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
-    |     |     |
 
 ### <a name="certificates"></a>Certificats
 
-Pour les installations de systèmes intégrés uniquement. Vous devez fournir le certificat PKI SQL Paas décrit dans la section sur les certificats PaaS facultatif de [Exigences relatives à l’infrastructure de clé publique pour le déploiement Azure Stack](.\azure-stack-pki-certs.md#optional-paas-certificates). Copiez le fichier .pfx à l’emplacement spécifié par le paramètre **DependencyFilesLocalPath**.
+_Pour les installations de systèmes intégrés uniquement_. Vous devez fournir le certificat PKI SQL Paas décrit dans la section sur les certificats PaaS facultatif de [Exigences relatives à l’infrastructure de clé publique pour le déploiement Azure Stack](.\azure-stack-pki-certs.md#optional-paas-certificates). Copiez le fichier .pfx à l’emplacement spécifié par le paramètre **DependencyFilesLocalPath**. Ne fournissez pas un certificat pour les systèmes ASDK.
 
 ## <a name="deploy-the-sql-resource-provider"></a>Déployer le fournisseur de ressources SQL
 
 Une fois tous les composants requis installés, exécutez le script **DeploySqlProvider.ps1** pour déployer le fournisseur de ressources SQL. Le script DeploySqlProvider.ps1 est extrait du binaire du fournisseur de ressources SQL que vous avez téléchargé pour votre version d’Azure Stack.
-
-> [!IMPORTANT]
-> Le système sur lequel le script est en cours d’exécution doit être un système Windows 10 ou Windows Server 2016 avec la dernière version du runtime .NET installé.
 
 Pour déployer le fournisseur de ressources SQL, ouvrez une **nouvelle** fenêtre de console PowerShell avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources SQL. Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés.
 
@@ -68,11 +64,11 @@ Exécutez le script DeploySqlProvider.ps1, qui complète les tâches suivantes :
 - Si nécessaire, installez une seule mise à jour Windows Server durant l’installation du fournisseur de ressources.
 
 > [!NOTE]
-> Lorsque le déploiement du fournisseur de ressources SQL démarre, le groupe de ressources **system.local.sqladapter** est créé. Il peut falloir jusqu’à 75 minutes pour terminer les quatre déploiements requis dans ce groupe de ressources.
+> Lorsque le déploiement du fournisseur de ressources SQL démarre, le groupe de ressources **system.local.sqladapter** est créé. Il peut falloir jusqu’à 75 minutes pour terminer les déploiements requis dans ce groupe de ressources.
 
 ### <a name="deploysqlproviderps1-parameters"></a>Paramètres de DeploySqlProvider.ps1
 
-Vous pouvez spécifier les paramètres suivants à partir de la ligne de commande. Si vous ne le faites pas, ou si la validation d’un paramètre échoue, vous êtes invité à fournir les paramètres obligatoires.
+Vous pouvez spécifier les paramètres suivants à partir de la ligne de commande. Si vous ne le faites pas, ou si la validation d’un paramètre échoue, vous êtes invité à fournir les paramètres requis.
 
 | Nom du paramètre | Description | Commentaire ou valeur par défaut |
 | --- | --- | --- |
@@ -80,24 +76,22 @@ Vous pouvez spécifier les paramètres suivants à partir de la ligne de command
 | **AzCredential** | Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _Obligatoire_ |
 | **VMLocalCredential** | Informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _Obligatoire_ |
 | **PrivilegedEndpoint** | Adresse IP ou nom DNS du point de terminaison privilégié. |  _Obligatoire_ |
-| **DependencyFilesLocalPath** | Votre fichier de certificat .pfx doit également être placé dans ce répertoire. | _Facultatif_ (_obligatoire_ pour les systèmes intégrés) |
+| **DependencyFilesLocalPath** | Pour les systèmes intégrés uniquement, votre fichier de certificat .pfx doit être placé dans ce répertoire. Vous pouvez éventuellement copier un package MSU Windows Update ici. | _Facultatif_ (_obligatoire_ pour les systèmes intégrés) |
 | **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _Obligatoire_ |
 | **MaxRetryCount** | Nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 |
 | **RetryDuration** | Délai d’attente entre les tentatives, en secondes. | 120 |
 | **Désinstaller** | Supprime le fournisseur de ressources et toutes les ressources associées (voir les remarques ci-dessous). | Non  |
 | **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non  |
 
->[!NOTE]
-> Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Vous ne pouvez pas créer de base de données tant que la référence (SKU) n’a pas été déployée et exécutée.
-
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Déployer le fournisseur de ressources SQL à l’aide d’un script personnalisé
 
 Pour éliminer toute configuration manuelle lors du déploiement du fournisseur de ressources, vous pouvez personnaliser le script suivant. Modifiez les informations de compte et les mots de passe par défaut en fonction des besoins de votre déploiement Azure Stack.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module and set the profile.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module  -Name AzureStack -RequiredVersion 1.3.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -124,8 +118,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change to the directory If folder where you extracted the installation files.
-# Then adjust the endpoints.
+# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
@@ -145,11 +138,9 @@ Vous pouvez utiliser les étapes suivantes pour vérifier que le fournisseur de 
 1. Connectez-vous au portail d’administration en tant qu’administrateur de service.
 2. Sélectionnez **Groupes de ressources**.
 3. Sélectionnez le groupe de ressources **system.\<location\>.sqladapter**.
-4. Le message sous **Déploiements**, illustré dans la capture d’écran suivante, doit être **Succeeded 4**.
+4. La page de la vue d’ensemble du groupe de ressources ne doit pas indiquer que des déploiements ont échoué.
 
       ![Vérifiez le déploiement du fournisseur de ressources SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
-5. Vous pouvez obtenir des informations plus détaillées sur le déploiement du fournisseur de ressources sous **PARAMÈTRES**. Sélectionnez **Déploiements** pour obtenir des informations telles que ÉTAT, TIMESTAMP et DURÉE pour chaque déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

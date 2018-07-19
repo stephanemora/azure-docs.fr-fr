@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: d089e35e28c466f91c550a41898731f683bf5033
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4bb0d3cd247862d7bb8d4b17e26c26f7cda48c95
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216329"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042426"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Didacticiel : Intégration d’Azure Active Directory à FM:Systems
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **FM:Systems**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/fm-systems-tutorial/tutorial_fmsystems_samlbase.png)
+    ![Configurer l'authentification unique](./media/fm-systems-tutorial/tutorial_fmsystems_samlbase.png)
 
 3. Dans la section **Domaine et URL FM:Systems**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/fm-systems-tutorial/tutorial_fmsystems_url.png)
+    ![Configurer l'authentification unique](./media/fm-systems-tutorial/tutorial_fmsystems_url.png)
 
     Dans la zone de texte **URL de réponse**, tapez **l’URL de réponse de FM:Systems** au format suivant : `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
 
@@ -119,11 +119,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/fm-systems-tutorial/tutorial_fmsystems_certificate.png) 
+    ![Configurer l'authentification unique](./media/fm-systems-tutorial/tutorial_fmsystems_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/fm-systems-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/fm-systems-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique côté **FM:Systems**, vous devez envoyer les **métadonnées XML** téléchargées à [l’équipe du support technique FM:Systems](https://fmsystems.com/ask-us/). Elle configure ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés. Vous recevrez une notification dès que l’authentification unique aura été activée pour votre abonnement.
 
@@ -195,7 +195,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **FM:Systems**.
 
-    ![Configure Single Sign-On](./media/fm-systems-tutorial/tutorial_fmsystems_app.png) 
+    ![Configurer l'authentification unique](./media/fm-systems-tutorial/tutorial_fmsystems_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -216,7 +216,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette FM:Systems dans le volet d’accès, vous devez être connecté automatiquement à votre application FM:Systems.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

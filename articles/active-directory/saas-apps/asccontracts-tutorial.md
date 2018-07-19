@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.openlocfilehash: c5a55f00273ea070d824f0b3d75fc86b4ff6be11
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 791d1d7c514815962d815925f49a03ccfa1f76f3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286889"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutoriel : Intégration d’Azure Active Directory à ASC Contracts
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **ASC Contracts**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/asccontracts-tutorial/tutorial_asccontracts_samlbase.png)
+    ![Configurer l'authentification unique](./media/asccontracts-tutorial/tutorial_asccontracts_samlbase.png)
 
 3. Dans la section **Domaine et URL ASC Contracts**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/asccontracts-tutorial/tutorial_asccontracts_url.png)
+    ![Configurer l'authentification unique](./media/asccontracts-tutorial/tutorial_asccontracts_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.asccontracts.com/shibboleth`
 
@@ -121,11 +121,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/asccontracts-tutorial/tutorial_asccontracts_certificate.png) 
+    ![Configurer l'authentification unique](./media/asccontracts-tutorial/tutorial_asccontracts_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/asccontracts-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/asccontracts-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique du côté de **ASC Contracts**, appelez ASC Networks Inc. (ASC) au **613.599.6178** et fournissez-leur le fichier **XML de métadonnées** téléchargé. Ils effectuent les réglages nécessaires sur l’application pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -181,7 +181,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **ASC Contracts**.
 
-    ![Configure Single Sign-On](./media/asccontracts-tutorial/tutorial_asccontracts_app.png) 
+    ![Configurer l'authentification unique](./media/asccontracts-tutorial/tutorial_asccontracts_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -201,7 +201,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette ASC Contracts dans le volet d’accès, vous devez être connecté automatiquement à votre application ASC Contracts. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Lorsque vous cliquez sur la vignette ASC Contracts dans le volet d’accès, vous devez être connecté automatiquement à votre application ASC Contracts. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

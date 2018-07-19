@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 613c1a0c9998d79961202beae4d7820bdaaf8c93
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fbe3ceb3d26de90bd46ee02263d09c822ee90c29
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227538"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Didacticiel : intégration d’Azure Active Directory à Intralinks
 
@@ -237,7 +237,7 @@ Après cela, vous pouvez suivre la procédure ci-dessous pour ajouter une autre 
  
     ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-8. Récupérez l’URL d’authentification unique initiée par le fournisseur de services depuis [l’équipe Intralinks](https://www.intralinks.com/contact-1) pour l’autre application Intralinks. Saisissez l’URL ainsi obtenue dans **Configurer l’URL d’authentification** comme indiqué ci-dessous. 
+8. Récupérez l’URL d’authentification unique initiée par le fournisseur de services depuis [l’équipe Intralinks](https://www.intralinks.com/contact-1) pour l’autre application Intralinks. Entrez l’URL ainsi obtenue dans **Configurer l’URL d’authentification** comme indiqué ci-dessous. 
     
      ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

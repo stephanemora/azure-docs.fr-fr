@@ -15,12 +15,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6ea1d249b7f9aec3a45923b162a97ce7f83d0d31
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29397595"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901151"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Application Web Ruby on Rails sur une machine virtuelle Azure
 Ce didacticiel explique comment héberger un site web Ruby on Rails sur Azure à l'aide d'une machine virtuelle Linux.  
@@ -100,7 +100,7 @@ Le résultat ressemble à ce qui suit.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Ajout d’un point de terminaison
-1. Accédez au [portail Azure] [https://portal.azure.com] et sélectionnez votre machine virtuelle.
+1. Accédez au [portail Azure][https://portal.azure.com] et sélectionnez votre machine virtuelle.
 
 2. Sélectionnez **Points de terminaison** dans les **Paramètres** sur le bord gauche de la page.
 
@@ -128,8 +128,8 @@ Le résultat ressemble à ce qui suit.
 
     ![page rails par défaut][default-rails-cloud]
 
-## <a name="next-steps"></a>étapes suivantes
-Dans ce didacticiel, vous avez effectué la plupart des étapes manuellement. Dans un environnement de production, vous écririez votre application sur un ordinateur de développement et la déploieriez sur la machine virtuelle Azure. En outre, la plupart des environnements de production hébergent l'application Rails en association avec un autre processus serveur tel que Apache ou NginX, qui traite l'acheminement des requêtes vers plusieurs instances de l'application Rails et l'envoi des ressources statiques. Pour plus d’informations, consultez http://rubyonrails.org/deploy/.
+## <a name="next-steps"></a>Étapes suivantes
+Dans ce didacticiel, vous avez effectué la plupart des étapes manuellement. Dans un environnement de production, vous écririez votre application sur un ordinateur de développement et la déploieriez sur la machine virtuelle Azure. En outre, la plupart des environnements de production hébergent l'application Rails en association avec un autre processus serveur tel que Apache ou NginX, qui traite l'acheminement des requêtes vers plusieurs instances de l'application Rails et l'envoi des ressources statiques. Pour plus d’informations, consultez http://guides.rubyonrails.org/routing.html.
 
 Pour en savoir plus sur Ruby on Rails, consultez les [guides Ruby on Rails][rails-guides].
 

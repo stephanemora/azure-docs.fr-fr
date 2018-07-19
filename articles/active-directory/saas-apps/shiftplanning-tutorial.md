@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b0cd33370f5940e7f74fed0938320c96ae15a447
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a0f9a0a76f001d6126e5b0924d0e5a3aaefa528b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226892"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Didacticiel : intégration d’Azure Active Directory à Humanity
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Humanity**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/shiftplanning-tutorial/tutorial_humanity_samlbase.png)
+    ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_samlbase.png)
 
 3. Sur la section **Domaine et URL Humanity**, réalisez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/shiftplanning-tutorial/tutorial_humanity_url.png)
+    ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://company.humanity.com/includes/saml/`
 
@@ -121,15 +121,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/shiftplanning-tutorial/tutorial_humanity_certificate.png) 
+    ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/shiftplanning-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_general_400.png)
 
 6. Pour ouvrir la fenêtre **Configurer l’authentification**, sur la section **Configuration Humanity**, cliquez sur **Configurer Humanity**. Copiez l’**URL du service d’authentification unique SAML et l’URL de déconnexion** à partir de la section **Référence rapide**.
 
-    ![Configure Single Sign-On](./media/shiftplanning-tutorial/tutorial_humanity_configure.png) 
+    ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, ouvrez une session sur votre site d’entreprise **Humanity** en tant qu’administrateur.
 
@@ -237,7 +237,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Humanity**.
 
-    ![Configure Single Sign-On](./media/shiftplanning-tutorial/tutorial_humanity_app.png) 
+    ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -258,7 +258,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 En cliquant sur la vignette Humanity dans le Panneau d’accès, vous allez en principe être connecté automatiquement à votre application Humanity.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

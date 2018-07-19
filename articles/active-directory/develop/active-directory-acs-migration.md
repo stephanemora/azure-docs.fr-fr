@@ -16,19 +16,19 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 0b3e7d9b7a01767e44c7c59c7250808290a03c30
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 803dd69aed91f6e33c354d01d3f5419597d98de9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319222"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115882"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Effectuer une migration à partir d’Azure Access Control Service
 
 Azure Access Control Service, un service d’Azure Active Directory (Azure AD), sera mis hors service le 7 novembre 2018. Les applications et services qui utilisent actuellement Access Control Service doivent être entièrement migrés vers un autre mécanisme d’authentification d’ici-là. Cet article fournit des recommandations aux clients actuels qui prévoient de ne plus utiliser Access Control Service. Si vous n’utilisez pas Access Control Service, aucune action n’est requise de votre part.
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Access Control Service est un service d’authentification de cloud qui permet d’authentifier les utilisateurs et de les autoriser à accéder à vos applications et services web. Il permet également de sortir de votre code, de nombreuses fonctionnalités d’authentification et d’autorisation. Access Control Service est principalement utilisé par les développeurs et architectes de clients Microsoft .NET, d’applications web ASP.NET et des services web WCF (Windows Communication Foundation).
 
@@ -57,7 +57,7 @@ Pour utiliser ces composants, vous devez créer un ou plusieurs espaces de noms 
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Toutes les communications avec le service STS et les opérations de gestion s’effectuent au niveau de cette URL. Vous utilisez différents chemins d’accès pour différents usages. Pour déterminer si vos applications ou vos services utilisent Access Control, surveillez le trafic vers https://<namespace>.accesscontrol.windows.net. Tout trafic vers cette URL est géré par Access Control Service. Il doit être supprimé. 
+Toutes les communications avec le service STS et les opérations de gestion s’effectuent au niveau de cette URL. Vous utilisez différents chemins d’accès pour différents usages. Pour déterminer si vos applications ou services utilisent Access Control Service, surveillez le trafic vers https://&lt;espace_de_noms&gt;.accesscontrol.windows.net. Tout trafic vers cette URL est géré par Access Control Service. Il doit être supprimé. 
 
 Le trafic vers l’URL `https://accounts.accesscontrol.windows.net` fait figure d’exception. Déjà géré par un autre service, il **n’est pas** affecté par la mise hors service d’Access Control. 
 

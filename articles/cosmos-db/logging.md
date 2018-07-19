@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612212"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857097"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Journalisation des diagnostics Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Dans cet article, nous allons nous concentrer sur le journal d’activité Azure
 
 Le journal d’activité Azure est un journal d’abonnement qui fournit un aperçu de tous les événements relatifs aux abonnements qui se sont produits dans Azure. Le journal d’activité signale les événements de plan de contrôle de vos abonnements sous la catégorie Administratif. Vous pouvez utiliser le journal d’activité pour déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état de l’opération et d’autres propriétés pertinentes. 
 
-Le journal d’activité est différent du journal de diagnostic. Le journal d’activité fournit des données sur les opérations effectuées sur une ressource à partir de l’extérieur (le _plan de contrôle_). Dans le contexte d’Azure Cosmos DB, les opérations de plan de contrôle incluent notamment Créer une collection, Répertorier les clés, Supprimer les clés, Répertorier les bases de données de liste, etc. Les journaux de diagnostic sont émis par une ressource et fournissent des informations sur le fonctionnement de cette ressource (le _plan de données_). Les opérations de plan de données du journal de diagnostic incluent par exemple Delete, Insert et ReadFeed.
+Le journal d’activité est différent du journal de diagnostic. Le journal d’activité fournit des données sur les opérations effectuées sur une ressource à partir de l’extérieur (le _plan de contrôle_). Dans le contexte d’Azure Cosmos DB, les opérations de plan de contrôle incluent notamment Créer un conteneur, Répertorier les clés, Supprimer les clés, Répertorier les bases de données, etc. Les journaux de diagnostic sont émis par une ressource et fournissent des informations sur le fonctionnement de cette ressource (le _plan de données_). Les opérations de plan de données du journal de diagnostic incluent par exemple Delete, Insert et ReadFeed.
 
 Les journaux d’activité (opérations de plan de contrôle) peuvent être beaucoup plus complets par nature et inclure l’adresse e-mail complète de l’appelant, l’adresse IP de l’appelant, le nom de la ressource, le nom de l’opération, l’ID du locataire, etc. Le journal d’activité contient plusieurs [catégories](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de données. Pour plus d’informations sur le schéma de ces catégories, consultez [Schéma d’événements du journal d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Cependant, les journaux de diagnostic peuvent être restrictifs par nature, car les données personnelles n’y sont généralement pas incluses. Si vous avez l’adresse IP de l’appelant, le dernier octet de l’adresse ne sera pas inclus.
 
@@ -354,7 +354,7 @@ Les journaux de diagnostic sont disponibles dans votre compte pendant les deux h
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Afficher les journaux dans Log Analytics
 
-Si vous avez sélectionné l’option **Envoyer à Log Analytics** lorsque vous avez activé la journalisation des diagnostics, les données de diagnostic de votre collection sont transférées à Log Analytics dans les deux heures qui suivent. Si vous consultez Log Analytics immédiatement après l’activation de la journalisation, aucune donnée ne s’affichera. Il vous suffit alors d’attendre deux heures et de réessayer. 
+Si vous avez sélectionné l’option **Envoyer à Log Analytics** lorsque vous avez activé la journalisation des diagnostics, les données de diagnostic de votre conteneur sont transférées à Log Analytics dans les deux heures qui suivent. Si vous consultez Log Analytics immédiatement après l’activation de la journalisation, aucune donnée ne s’affichera. Il vous suffit alors d’attendre deux heures et de réessayer. 
 
 Avant de consulter vos journaux, vérifiez que votre espace de travail Log Analytics a été mis à niveau pour utiliser le nouveau langage de requête Log Analytics. Pour effectuer cette vérification, ouvrez le [portail Azure](https://portal.azure.com), sélectionnez **Log Analytics** tout à gauche, puis sélectionnez le nom de l’espace de travail, comme indiqué dans l’image suivante. La page **Espace de travail OMS** s’affiche :
 
@@ -446,7 +446,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 | **properties** | n/a | Le contenu de ce champ est décrit dans les lignes suivantes. |
 | **activityId** | **activityId_g** | GUID unique de l’opération journalisée. |
 | **userAgent** | **userAgent_s** | Chaîne qui spécifie l’agent utilisateur client effectuant la demande. Le format est {nom de l’agent utilisateur}/{version}.|
-| **resourceType** | **ResourceType** | Type de la ressource faisant l’objet de l’accès. Cette valeur peut être l’un des types de ressources suivants : Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
+| **resourceType** | **ResourceType** | Type de la ressource faisant l’objet de l’accès. Cette valeur peut être l’un des types de ressources suivants : Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
 | **statusCode** | **statusCode_s** | État de réponse de l’opération. |
 | **requestResourceId** | **ResourceId** | L’ID de ressource qui se rapporte à la demande. Cette valeur peut pointer vers databaseRid, collectionRid ou documentRid en fonction de l’opération exécutée.|
 | **clientIpAddress** | **clientIpAddress_s** | Adresse IP du client. |

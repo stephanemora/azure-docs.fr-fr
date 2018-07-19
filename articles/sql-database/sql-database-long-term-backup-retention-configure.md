@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0ce22cae50e70ca7232e025d4009b23d62f6a198
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649225"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969185"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la rétention des sauvegardes à long terme Azure SQL Database
 
@@ -83,8 +83,10 @@ Affichez les sauvegardes qui sont conservées pour une base de données spécifi
 Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage SQL Azure et restaurer à partir d’une sauvegarde dans le stockage SQL Azure.
 
 > [!IMPORTANT]
-> Vous devez utiliser la dernière version d’AzureRM PowerShell pour configurer des stratégies LTR V2. La version actuelle est [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview). Comme il s’agit d’une préversion, utilisez la commande suivante pour l’installer : `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
-> Pour obtenir des conseils sur l’installation de la préversion, consultez [Obtenir le module PowerShellGet](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). La version de mai 2018 d’AzureRM PowerShell sera disponible dans quelques jours (normalement le 18/05/2018). Vous pouvez ignorer le commutateur -AllowPrelease lors de l’installation de la préversion quand elle sera disponible et utiliser la commande suivante : `Install-Module -Name AzureRM.Sql -Force`.
+> L’API de rétention à long terme V2 est prise en charge dans les versions de PowerShell suivantes :
+- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) ou version ultérieure
+- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ou version ultérieure
+> 
 
 ### <a name="create-an-ltr-policy"></a>Créer une stratégie de rétention à long terme
 

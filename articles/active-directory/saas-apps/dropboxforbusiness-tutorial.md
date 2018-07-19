@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: a0481b2eb688b70d5e56b2b6793b026d6b4c96a2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3423f723b3f4857db44c609cd0e2143b6b04653e
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219997"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868627"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Didacticiel : Intégration d'Azure Active Directory à Dropbox for Business
 
@@ -158,7 +158,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     a. Cliquez sur **Obligatoire**.
    
-    b. Dans la zone de texte **URL de connexion**, collez la valeur de **URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+    b. Dans la zone de texte **URL de connexion**, collez la valeur de **l’URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
     c. Cliquez sur **Choisir un certificat**, puis recherchez votre **fichier de certificat codé en base 64**.
 

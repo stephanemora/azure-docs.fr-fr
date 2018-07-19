@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 4899c6d27c034ce3f92efc3b0ddfb8b3446a6115
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ccedc0288e313df2639862a14078d8cad9951286
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229648"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054547"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Didacticiel : intégration d’Azure Active Directory à AppNeta Performance Monitor
 
@@ -117,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. L’application AppNeta Performance Monitor s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications.
 
-    ![Configure Single Sign-On](./media/appneta-tutorial/attribute.png)
+    ![Configurer l'authentification unique](./media/appneta-tutorial/attribute.png)
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
            
@@ -136,9 +136,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
         
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/appneta-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/appneta-tutorial/tutorial_attribute_04.png)
     
-    ![Configure Single Sign-On](./media/appneta-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/appneta-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -231,7 +231,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette AppNeta Performance Monitor dans le panneau d’accès, vous devriez être connecté automatiquement à votre application AppNeta Performance Monitor.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

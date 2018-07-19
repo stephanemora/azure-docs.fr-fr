@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: d99311dfe096c1fca94bafd630385ef856123ca1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6c13bb4c10adeeba59ff8d0f2c8d7120d6fae43a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209831"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050644"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Didacticiel : Intégration d’Azure AD à TeamSeer
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **TeamSeer**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/teamseer-tutorial/tutorial_teamseer_samlbase.png)
+    ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_samlbase.png)
 
 3. Dans la section **TeamSeer Domain and URLs** (Domaine et URL TeamSeer), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/teamseer-tutorial/tutorial_teamseer_url.png)
+    ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_url.png)
 
      Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.teamseer.com/<companyid>`
 
@@ -119,15 +119,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/teamseer-tutorial/tutorial_teamseer_certificate.png) 
+    ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/teamseer-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_general_400.png)
 
 6. Dans la section **TeamSeer Configuration** (Configuration de TeamSeer), cliquez sur **Configure TeamSeer** (Configurer TeamSeer) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/teamseer-tutorial/tutorial_teamseer_configure.png)
+    ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_configure.png)
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise TeamSeer en tant qu’administrateur.
 
@@ -239,7 +239,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **TeamSeer**.
 
-    ![Configure Single Sign-On](./media/teamseer-tutorial/tutorial_teamseer_app.png) 
+    ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -257,7 +257,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

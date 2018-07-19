@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063627"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859950"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scénario pris en charge pour des grandes instances HANA
 Ce document décrit les scénarios pris en charge, avec les détails de leur architecture pour les grandes instances HANA.
@@ -54,10 +54,11 @@ Ce document détaille les deux composants dans chaque architecture prise en char
 
 ### <a name="ethernet"></a>Ethernet
 
-Chaque serveur provisionné est préconfiguré avec les jeux d’Ethernet. Voici les détails de l’Ethernet configuré sur chaque unité HLI.
+Chaque serveur provisionné est préconfiguré avec les jeux d’interfaces Ethernet. Voici les détails des interfaces Ethernet configurées sur chaque unité HLI.
 
 - **A** : interface utilisée pour/par l’accès client.
-- **B** : interface utilisée pour la communication nœud à nœud. Configurée sur tous les serveurs (quelle que soit la topologie demandée), mais n’est utilisée que pour les scénarios de montée en charge.
+- **B** : interface utilisée pour la communication nœud à nœud. Interface configurée sur tous les serveurs (quelle que soit la topologie demandée), mais n’est utilisée que pour les 
+- scénarios de scale-out.
 - **C** : interface utilisée pour la connectivité nœud au stockage.
 - **D** : interface utilisée pour la connexion nœud à appareil ISCSI dans l’installation STONITH. Configurée uniquement lorsque l’installation de HSR est demandée.  
 
@@ -81,19 +82,19 @@ Si nécessaire, vous pouvez définir vous-même des cartes réseau supplémentai
 
 Pour les unités avec deux adresses IP affectées, voici à quoi devrait ressembler la distribution :
 
-L’adresse IP affectée à « Ethernet A » doit se trouver hors de la plage du pool d’adresses IP du serveur envoyé à Microsoft. Cette adresse IP doit être utilisée pour maintenir le fichier /etc/hosts du système d’exploitation à jour.
+- L’adresse IP affectée à « Ethernet A » doit se trouver hors de la plage du pool d’adresses IP du serveur envoyé à Microsoft. Cette adresse IP doit être utilisée pour maintenir le fichier /etc/hosts du système d’exploitation à jour.
 
-L’adresse IP affectée à « Ethernet B » doit être utilisée pour la communication à NFS. Par conséquent, ces adresses **N’ONT PAS BESOIN** d’être mises à jour dans le fichier etc/hosts pour autoriser un trafic interinstance au sein du locataire.
+- L’adresse IP affectée à « Ethernet C » doit être utilisée pour la communication à NFS. Par conséquent, ces adresses **N’ONT PAS BESOIN** d’être mises à jour dans le fichier etc/hosts pour autoriser un trafic interinstance au sein du locataire.
 
 Une configuration à deux adresses IP ne convient pas aux déploiements de réplication système HANA ou aux montées en charge HANA. Si seules deux adresses IP sont affectées et si vous souhaitez déployer une telle configuration, contactez SAP HANA sur Azure Service Management pour obtenir une troisième adresse IP dans un troisième VLAN. Pour les unités de grande instance HANA avec trois adresses IP affectées à trois ports de carte réseau, les règles d’utilisation suivantes s’appliquent :
 
 - L’adresse IP affectée à « Ethernet A » doit se trouver hors de la plage du pool d’adresses IP du serveur envoyé à Microsoft. Par conséquent, cette adresse IP ne doit pas être utilisée pour maintenir le fichier /etc/hosts du système d’exploitation à jour.
 
-- L’adresse IP affectée à « Ethernet B » doit être utilisée pour la communication avec le stockage NFS. Ce type d’adresse ne doit donc pas être mis à jour dans le fichier etc/hosts.
+- Ethernet « B » doit être utilisé exclusivement dans le cadre de la mise à jour du fichier etc/hosts pour la communication entre les différentes instances. Ces adresses doivent également être mises à jour dans les configurations HANA de montée en charge : ce sont les adresses IP que HANA utilise pour la communication entre les nœuds.
 
-- Ethernet « C » doit être utilisé exclusivement dans le cadre de la mise à jour du fichier etc/hosts pour la communication entre les différentes instances. Ces adresses doivent également être mises à jour dans les configurations HANA de montée en charge : ce sont les adresses IP que HANA utilise pour la communication entre les nœuds.
+- L’adresse IP affectée à « Ethernet C » doit être utilisée pour la communication avec le stockage NFS. Ce type d’adresse ne doit donc pas être mis à jour dans le fichier etc/hosts.
 
-- Ethernet « D » doit être utilisé exclusivement dans le cadre de l’accès à l’appareil STONITH pour Pacemaker. Cela est nécessaire lorsque vous configurez la réplication de système HANA (HSR) et que vous voulez obtenir le basculement automatique au niveau du système d’exploitation à l’aide d’un appareil SBD.
+- Ethernet « D » doit être utilisé exclusivement dans le cadre de l’accès à l’appareil STONITH pour Pacemaker. Cette interface est nécessaire quand vous configurez la réplication de système HANA (HSR) et que vous voulez obtenir le basculement automatique au niveau du système d’exploitation à l’aide d’un appareil SBD.
 
 
 ### <a name="storage"></a>Stockage
@@ -118,9 +119,9 @@ La liste suivante présente les scénarios pris en charge :
 5. HSR avec STONITH
 6. HSR avec reprise d’activité après sinistre (Normale / Polyvalente) 
 7. Basculement automatique avec hôte (1+1) 
-8. Montée en charge avec nœud de secours
-9. Montée en charge sans nœud de secours
-10. Montée en charge avec reprise d’activité après sinistre
+8. Scale-out avec nœud de secours
+9. Scale-out sans nœud de secours
+10. Scale-out avec reprise d’activité après sinistre
 
 
 
@@ -236,7 +237,7 @@ Les points de montage suivants sont préconfigurés :
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
 - Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
 - Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus de détails, reportez-vous à [Procédure de basculement en cas de reprise d’activité après sinistre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
+- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
 
@@ -285,13 +286,13 @@ Les points de montage suivants sont préconfigurés :
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
 - Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
 - Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus de détails, reportez-vous à [Procédure de basculement en cas de reprise d’activité après sinistre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Sur le site de reprise après sinistre : les volumes partagés de données, de fichiers journaux et de sauvegardes de fichiers journaux pour l’AQ, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR avec STONITH
  
-Cette topologie prend en charge deux nœuds pour la configuration HSR (HANA System Replication). 
+Cette topologie prend en charge deux nœuds pour la configuration HSR (HANA System Replication). Cette configuration est uniquement prise en charge pour les instances HANA uniques sur un nœud. Cela signifie que les scénarios MCOS ne sont pas pris en charge.
 
 **À partir de maintenant, cette architecture est uniquement prise en charge pour le système d’exploitation de SUSE.**
 
@@ -340,7 +341,7 @@ Les points de montage suivants sont préconfigurés :
 
 ## <a name="6-hsr-with-dr"></a>6. HSR avec reprise après sinistre
  
-Cette topologie prend en charge deux nœuds pour la configuration HSR (HANA System Replication). Les deux possibilités de reprise après sinistre, normale et polyvalente, sont prises en charge. 
+Cette topologie prend en charge deux nœuds pour la configuration HSR (HANA System Replication). Les deux possibilités de reprise après sinistre, normale et polyvalente, sont prises en charge. Ces configurations sont uniquement prises en charge pour les instances HANA uniques sur un nœud. Cela signifie que les scénarios MCOS NE sont PAS pris en charge avec ces configurations.
 
 Dans le diagramme, le scénario polyvalent est décrit où, sur le site de reprise après sinistre, l’unité HLI est utilisée pour l’instance AQ pendant l’exécution des opérations de production à partir du site principal. Au moment du basculement de la reprise après sinistre (ou du test de basculement), l’instance AQ sur le site de reprise après sinistre est arrêté. 
 
@@ -394,7 +395,7 @@ Les points de montage suivants sont préconfigurés :
 - STONITH : un SBD est configuré pour l’installation STONITH. L’utilisation de STONITH est néanmoins facultative.
 - Sur le site de reprise après sinistre : **deux jeux de volumes de stockage sont nécessaires** pour la réplication du nœud principal et du nœud secondaire.
 - Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus de détails, reportez-vous à [Procédure de basculement en cas de reprise d’activité après sinistre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Sur le site de reprise après sinistre : les volumes partagés de données, de fichiers journaux et de sauvegardes de fichiers journaux pour l’AQ, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
@@ -441,9 +442,9 @@ Les points de montage suivants sont préconfigurés :
 - Sur le nœud de secours : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA sur l’unité de secours.
  
 
-## <a name="8-scale-out-with-standby"></a>8. Montée en charge avec nœud de secours
+## <a name="8-scale-out-with-standby"></a>8. Scale-out avec nœud de secours
  
-Cette topologie prend en charge plusieurs nœuds dans une configuration de montée en charge. Elle est composée d’un nœud doté du rôle principal, d’un ou de plusieurs nœuds dotés du rôle de travail et d’un ou plusieurs nœuds de secours. Toutefois, il ne peut jamais exister qu’un seul nœud principal.
+Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal, d’un ou de plusieurs nœuds dotés du rôle de travail et d’un ou plusieurs nœuds de secours. Toutefois, il ne peut jamais exister qu’un seul nœud principal.
 
 
 ### <a name="architecture-diagram"></a>Diagramme de l’architecture  
@@ -476,9 +477,9 @@ Les points de montage suivants sont préconfigurés :
 |/hana/logbackups/SID | Fichiers de rétablissement pour SID de production |
 
 
-## <a name="9-scale-out-without-standby"></a>9. Montée en charge sans nœud de secours
+## <a name="9-scale-out-without-standby"></a>9. Scale-out sans nœud de secours
  
-Cette topologie prend en charge plusieurs nœuds dans une configuration de montée en charge. Elle est composée d’un nœud doté du rôle principal et d’un ou de plusieurs nœuds dotés du rôle de travail. Toutefois, il ne peut jamais exister qu’un seul nœud principal.
+Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out. Elle est composée d’un nœud doté du rôle principal et d’un ou de plusieurs nœuds dotés du rôle de travail. Toutefois, il ne peut jamais exister qu’un seul nœud principal.
 
 
 ### <a name="architecture-diagram"></a>Diagramme de l’architecture  
@@ -515,9 +516,9 @@ Les points de montage suivants sont préconfigurés :
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
 
-## <a name="10-scale-out-with-dr"></a>10. Montée en charge avec reprise d’activité après sinistre
+## <a name="10-scale-out-with-dr"></a>10. Scale-out avec reprise d’activité après sinistre
  
-Cette topologie prend en charge plusieurs nœuds dans une configuration de montée en charge avec un site de reprise après sinistre. Les deux possibilités de reprise après sinistre, normale et polyvalente, sont prises en charge. Dans le diagramme, seul le site de reprise après sinistre à objectif unique est décrit. Vous pouvez demander cette topologie avec ou sans nœud de secours.
+Cette topologie prend en charge plusieurs nœuds dans une configuration de scale-out avec reprise d’activité après sinistre. Les deux possibilités de reprise après sinistre, normale et polyvalente, sont prises en charge. Dans le diagramme, seul le site de reprise après sinistre à objectif unique est décrit. Vous pouvez demander cette topologie avec ou sans nœud de secours.
 
 
 ### <a name="architecture-diagram"></a>Diagramme de l’architecture  
@@ -558,7 +559,7 @@ Les points de montage suivants sont préconfigurés :
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
 -  Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus de détails, reportez-vous à [Procédure de basculement en cas de reprise d’activité après sinistre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
 

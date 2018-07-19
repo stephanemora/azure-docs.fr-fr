@@ -1,6 +1,6 @@
 ---
 title: Forum Aux Questions Azure Cosmos DB | Microsoft Docs
-description: Obtenez des réponses aux questions fréquemment posées sur Azure Cosmos DB, un service de base de données multimodèle distribué globalement. Découvrez la capacité, les niveaux de performances et la mise à l’échelle.
+description: Obtenez des réponses aux questions fréquemment posées sur Azure Cosmos DB, service de base de données multimodèle distribué à l’échelle mondiale. Découvrez la capacité, les niveaux de performances et la mise à l’échelle.
 keywords: Questions sur la base de données, Forum aux questions, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
@@ -8,19 +8,19 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261557"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37859698"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Notions fondamentales concernant Cosmos DB Azure
 ### <a name="what-is-azure-cosmos-db"></a>Qu’est-ce qu’Azure Cosmos DB ?
-Azure Cosmos DB est un service de base de données multimodèle répliqué globalement, qui offre des requêtes enrichies sur des données sans schéma, aide à produire des performances configurables et fiables, et permet un développement rapide. Tout cela s’effectue via une plateforme gérée s’appuyant sur la puissance et l’étendue de Microsoft Azure. 
+Azure Cosmos DB est un service de base de données multimodèle répliqué à l’échelle mondiale, qui offre des requêtes enrichies sur des données sans schéma, aide à produire des performances configurables et fiables, et permet un développement rapide. Tout cela s’effectue via une plateforme gérée s’appuyant sur la puissance et l’étendue de Microsoft Azure. 
 
 Azure Cosmos DB est la solution idéale pour les applications web, mobiles, de jeu et IoT lorsqu’un débit prévisible, une haute disponibilité, une faible latence et un modèle de données sans schéma sont primordiaux. Cette solution offre une flexibilité des schémas et une indexation riche. Elle inclut également une prise en charge transactionnelle multidocument avec JavaScript intégré. 
 
@@ -116,6 +116,11 @@ Azure Cosmos DB est présent dans toutes les régions Azure, comme l’indique l
 
 Lorsque vous définissez une région, n’oubliez pas qu’Azure Cosmos DB respecte les clouds souverains et du secteur public. Autrement dit, si vous créez un compte dans une [région souveraine](https://azure.microsoft.com/global-infrastructure/), vous ne pouvez pas répliquer en dehors de cette [région souveraine](https://azure.microsoft.com/global-infrastructure/). De même, vous ne pouvez pas activer la réplication dans d’autres emplacements souverains à partir d’un compte externe. 
 
+### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>Est-il possible de passer du provisionnement de débit au niveau du conteneur au provisionnement de débit au niveau de la base de données ? Et inversement ?
+
+Le provisionnement de débit au niveau du conteneur et de la base de données constituent des offres distinctes, et tout changement de l’un vers l’autre nécessite la migration de données de la source vers la destination. Cela signifie donc que vous devez créer une base de données ou une collection, puis migrer les données avec la [bibliothèque de l’exécuteur en bloc](bulk-executor-overview.md) ou [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+
+
 ## <a name="develop-against-the-sql-api"></a>Développer par rapport à l’API SQL
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Comment commencer à développer par rapport l’API SQL ?
@@ -131,12 +136,16 @@ Des exemples pour les SDK [.NET](sql-api-dotnet-samples.md), [Java](https://gith
 Oui, l’API SQL permet aux applications de stocker des documents JSON arbitraires sans définition ou conseil de schéma. Les données peuvent être interrogées immédiatement via l’interface de requête SQL d’Azure Cosmos DB.  
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>L’API SQL prend-elle en charge les transactions ACID ?
-Oui, l’API SQL prend en charge les transactions entre documents exprimées sous forme de procédures stockées et de déclencheurs JavaScript. Les transactions sont étendues à une seule partition au sein de chaque collection, et exécutées en mode « Tout ou rien » avec des sémantiques ACID, isolément d’autres codes et requêtes utilisateur s’exécutant simultanément. Si des exceptions surviennent lors de l’exécution du code d’application JavaScript côté serveur, la transaction entière est annulée. Pour plus d’informations sur les transactions, consultez [Transactions de programme de base de données](programming.md#database-program-transactions).
+Oui, l’API SQL prend en charge les transactions entre documents exprimées sous forme de procédures stockées et de déclencheurs JavaScript. Les transactions sont étendues à une seule partition au sein de chaque conteneur, et exécutées en mode « Tout ou rien » avec des sémantiques ACID, isolément d’autres codes et requêtes utilisateur s’exécutant simultanément. Si des exceptions surviennent lors de l’exécution du code d’application JavaScript côté serveur, la transaction entière est annulée. Pour plus d’informations sur les transactions, consultez [Transactions de programme de base de données](programming.md#database-program-transactions).
 
-### <a name="what-is-a-collection"></a>Qu'est-ce qu'une collection ?
-Une collection consiste en un groupe de documents et la logique d’application JavaScript associée. Une collection est une entité facturable, où le [coût](performance-levels.md) est déterminé par le débit et le stockage utilisé. Des collections peuvent s’étendre à un ou plusieurs serveurs ou partitions, et peuvent être mises à l’échelle pour gérer des volumes de stockage ou de débit pratiquement illimités.
+### <a name="what-is-a-container"></a>Qu’est-ce qu’un conteneur ?
+Un conteneur est un groupe de documents accompagnés de leur logique d’application JavaScript. Un conteneur est une entité facturable, où le [coût](performance-levels.md) est déterminé par le débit et le stockage utilisé. Des conteneurs peuvent s’étendre à un ou plusieurs serveurs ou partitions, et peuvent être mis à l’échelle pour gérer des volumes de stockage ou de débit pratiquement illimités. 
 
-Les collections constituent également les entités de facturation d’Azure Cosmos DB. Chaque collection est facturée à l’heure, sur la base du débit approvisionné et de l’espace de stockage utilisé. Pour plus d’informations, consultez la [Tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+* Pour les comptes d’API SQL et MongoDB, les conteneurs sont mappés vers des collections. 
+* Pour les comptes d’API Cassandra et Table, les conteneurs sont mappés vers des tables. 
+* Pour les comptes d’API Gremlin, les conteneurs sont mappés vers des graphes. 
+
+Les conteneurs constituent également les entités de facturation d’Azure Cosmos DB. Chaque conteneur est facturé à l’heure, sur la base du débit provisionné et de l’espace de stockage utilisé. Pour plus d’informations, consultez la [Tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Comment créer une base de données ?
 Vous pouvez créer des bases de données à l’aide du [portail Azure](https://portal.azure.com) comme décrit dans [Ajouter une collection](create-sql-api-dotnet.md#create-collection), de l’un des [Kits de développement logiciel (SDK) Azure Cosmos DB](sql-api-sdk-dotnet.md) ou d’[API REST](/rest/api/cosmos-db/). 
@@ -165,7 +174,7 @@ Vous pouvez insérer en bloc des documents dans Azure Cosmos DB de l’une des f
 * Avec l’outil de migration de données, comme décrit dans [Outil de migration de base de données pour Azure Cosmos DB](import-data.md).
 * Avec des procédures stockées, comme décrit dans [Programmation en JavaScript côté serveur pour Azure Cosmos DB](programming.md).
 
-### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>J’ai configuré ma collection pour utiliser une indexation différée, je constate que mes requêtes ne retournent pas les résultats attendus. 
+### <a name="i-have-setup-my-container-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>J’ai configuré mon conteneur de façon à utiliser une indexation différée, et je constate que mes requêtes ne retournent pas les résultats attendus. 
 Comme expliqué dans la section d’indexation, l’indexation différée peut entraîner ce comportement. Vous devez toujours utiliser l’indexation cohérente pour toutes les applications. 
 
 
@@ -180,7 +189,7 @@ Il s’agit d’une limitation propre à JavaScript. Ce dernier utilise des nomb
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Où se trouvent les autorisations accordées dans la hiérarchie d’objets ?
 
-La création d’autorisations à l’aide de ResourceTokens est autorisée au niveau de la collection et de ses descendants (tels que les documents, pièces jointes). Cela implique qu’une tentative de création d’une autorisation au niveau de la base de données ou du compte n’est pas autorisée actuellement.
+La création d’autorisations à l’aide de ResourceTokens est autorisée au niveau du conteneur et de ses descendants (tels que les documents ou les pièces jointes). Cela implique qu’une tentative de création d’une autorisation au niveau de la base de données ou du compte n’est pas autorisée actuellement.
 
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Développer par rapport à l’API pour MongoDB
@@ -280,9 +289,6 @@ Vous pouvez utiliser le portail Azure pour parcourir les données. Vous pouvez �
 Vous pouvez utiliser [l’Explorateur Stockage Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 Les outils offrant la flexibilité nécessaire pour prendre une chaîne de connexion au format spécifié précédemment peuvent prendre en charge la nouvelle API Table. Vous trouverez une liste des outils de table dans la page [Outils clients d’Azure Storage](../storage/common/storage-explorers.md). 
-
-### <a name="do-powershell-or-azure-cli-work-with-the-table-api"></a>PowerShell et Azure CLI fonctionnent-ils avec l’API Table ?
-[PowerShell](table-powershell.md) est pris en charge. Azure CLI n’est pas pris en charge pour l’instant.
 
 ### <a name="is-the-concurrency-on-operations-controlled"></a>L’accès concurrentiel sur les opérations est-il contrôlé ?
 Oui, l’accès concurrentiel optimiste est fourni via l’utilisation du mécanisme ETag. 
@@ -410,7 +416,7 @@ Aucune. Le tarif reste inchangé pour les clients existants du stockage Table Az
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Comment le prix est-il calculé pour l’API Table ? 
 Cela dépend du débit de table (TableThroughput) alloué. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Comment faire pour gérer les limitations qui affectent les tables dans l’offre API Table ? 
+### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>Comment faire pour gérer les limitations de taux qui affectent les tables dans l’offre API Table ? 
 Si le taux de demandes dépasse la capacité du débit provisionné pour le conteneur sous-jacent ou un ensemble de conteneurs, vous recevez une erreur et le SDK essaie de renouveler l’appel en appliquant la stratégie de nouvelle tentative.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Pourquoi dois-je choisir un débit en dehors de PartitionKey et de RowKey pour tirer parti de l’offre API Table d’Azure Cosmos DB ?

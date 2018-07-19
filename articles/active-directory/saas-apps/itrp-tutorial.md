@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 0834980cf4cba1e3b9eef3b8f938b67e61a8eafe
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e29f167abeb2cfabcf874dd4a0162745e5575deb
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218144"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Didacticiel : Intégration d’Azure Active Directory avec ITRP
 
@@ -103,15 +103,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **ITRP**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/itrp-tutorial/tutorial_itrp_samlbase.png)
+    ![Configurer l'authentification unique](./media/itrp-tutorial/tutorial_itrp_samlbase.png)
 
 3. Dans la section **Domaine et URL ITRP**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/itrp-tutorial/tutorial_itrp_url.png)
+    ![Configurer l'authentification unique](./media/itrp-tutorial/tutorial_itrp_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant-name>.itrp.com`
 
@@ -122,15 +122,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
  
 4. Dans la section **Certificat de signature SAML**, copiez la valeur **EMPREINTE** du certificat.
 
-    ![Configure Single Sign-On](./media/itrp-tutorial/tutorial_itrp_certificate.png) 
+    ![Configurer l'authentification unique](./media/itrp-tutorial/tutorial_itrp_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/itrp-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/itrp-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration d’ITRP**, cliquez sur **Configurer ITRP** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**URL du service d’authentification unique SAML et l’URL de déconnexion** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/itrp-tutorial/tutorial_itrp_configure.png) 
+    ![Configurer l'authentification unique](./media/itrp-tutorial/tutorial_itrp_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise ITRP en tant qu’administrateur.
 
@@ -241,7 +241,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **ITRP**.
 
-    ![Configure Single Sign-On](./media/itrp-tutorial/tutorial_itrp_app.png) 
+    ![Configurer l'authentification unique](./media/itrp-tutorial/tutorial_itrp_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -262,7 +262,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette ITRP dans le panneau d’accès, vous êtes automatiquement connecté à votre application ITRP.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

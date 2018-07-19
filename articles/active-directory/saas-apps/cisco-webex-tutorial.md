@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 76980214daf6e7dd019c56db089095ae121b853f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: accafab55c6c1aa34ccf7aa9cfc4adb2a902f5e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215349"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Didacticiel : Intégration d’Azure Active Directory à Cisco Webex
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
 6. Dans la section **Configuration de Cisco Webex**, sélectionnez **Configurer Cisco Webex** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**URL de déconnexion**, l’**ID d’entité SAML** et l’**URL du service d’authentification unique SAML** à partir de la section **Référence rapide**.
 
-    ![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_ciscowebex_configure.png) 
+    ![Configurer l'authentification unique](./media/cisco-webex-tutorial/tutorial_ciscowebex_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Cisco Webex en tant qu’administrateur.
 
@@ -275,7 +275,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Quand vous sélectionnez la vignette Cisco Webex dans le volet d’accès, vous êtes connecté automatiquement à votre application Cisco Webex.
 
-Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

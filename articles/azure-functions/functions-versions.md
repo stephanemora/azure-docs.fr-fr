@@ -12,26 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: 9f916aaa8032ff519709d73a1c1f51195f811686
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28919353"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602115"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
- Il existe deux versions principales du runtime Azure Functions : 1.x et 2.x. Cet article explique comment choisir la version principale à utiliser.
-
-> [!IMPORTANT] 
-> Runtime 1.x est la seule version approuvée pour une utilisation en production.
+ Il existe deux versions principales du runtime Azure Functions : 1.x et 2.x. La version 1.x est destinée à la production. Cet article explique quelles sont les nouveautés de la version 2.x qui est disponible en préversion.
 
 | Runtime | Statut |
 |---------|---------|
 |1.x|Disponibilité générale (GA)|
 |2.x|VERSION PRÉLIMINAIRE|
 
-Pour plus d’informations sur la façon de configurer une application de fonction ou votre environnement de développement pour une version particulière, consultez [Comment cibler des versions du runtime Azure fonctions](set-runtime-version.md) et [Code and test Azure Functions locally](functions-run-local.md) (Coder et tester localement Azure Functions).
+> [!NOTE] 
+> Cet article fait référence au service cloud Azure Functions. Pour plus d’informations sur le produit qui vous permet d’exécuter Azure Functions localement, consultez [Vue d’ensemble du runtime d’Azure Functions](functions-runtime-overview.md).
 
 ## <a name="cross-platform-development"></a>Développement multiplateforme
 
@@ -63,10 +61,10 @@ Le tableau suivant indique les liaisons prises en charge dans chaque version du 
 
 Pour plus d’informations sur la prise en charge des liaisons et d’autres écarts fonctionnels dans la version 2.x, consultez [Runtime 2.0 known issues (Problèmes connus dans le runtime 2.0)](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Cibler le runtime 2.0 dans votre environnement de développement local](functions-run-local.md)
+Pour plus d’informations, consultez les ressources suivantes :
 
-> [!div class="nextstepaction"]
-> [Consulter les notes de publication pour les versions du runtime](https://github.com/Azure/azure-webjobs-sdk-script/releases)
+* [Coder et tester Azure Functions localement](functions-run-local.md)
+* [Procédure pour cibler des versions du runtime Azure Functions](set-runtime-version.md)
+* [Notes de publication](https://github.com/Azure/azure-functions-host/releases)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 68437cd1fe7d6aa82ff36a139a70b208a4b0abde
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ece3509743bc3712d144a3547c5ff91f9ea101e7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217280"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Didacticiel : Intégration d’Azure Active Directory à Sprinklr
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Sprinklr**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/sprinklr-tutorial/tutorial_sprinklr_samlbase.png)
+    ![Configurer l'authentification unique](./media/sprinklr-tutorial/tutorial_sprinklr_samlbase.png)
 
 3. Dans la section **Domaine et URL Sprinklr**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/sprinklr-tutorial/tutorial_sprinklr_url.png)
+    ![Configurer l'authentification unique](./media/sprinklr-tutorial/tutorial_sprinklr_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.sprinklr.com`
 
@@ -121,11 +121,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/sprinklr-tutorial/tutorial_sprinklr_certificate.png) 
+    ![Configurer l'authentification unique](./media/sprinklr-tutorial/tutorial_sprinklr_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/sprinklr-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/sprinklr-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Sprinklr**, cliquez sur **Configurer Sprinklr** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
@@ -261,7 +261,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Sprinklr**.
 
-    ![Configure Single Sign-On](./media/sprinklr-tutorial/tutorial_sprinklr_app.png) 
+    ![Configurer l'authentification unique](./media/sprinklr-tutorial/tutorial_sprinklr_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -281,7 +281,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Sprinklr dans le volet d'accès, vous serez connecté automatiquement à votre application Sprinklr. Pour en savoir plus sur le volet d’accès, consultez l’article [Présentation du volet d’accès](../active-directory-saas-access-panel-introduction.md). 
+Lorsque vous cliquez sur la vignette Sprinklr dans le volet d'accès, vous serez connecté automatiquement à votre application Sprinklr. Pour en savoir plus sur le volet d’accès, consultez l’article [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

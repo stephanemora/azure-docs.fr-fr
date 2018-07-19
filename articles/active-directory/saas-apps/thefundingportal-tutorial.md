@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 5e6707e8f537e173a851e575a5c32622951dda99
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 98ddd26bce7a8e2741db4f8e064a1b5bf2b6bed5
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222687"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Didacticiel : Intégration d’Azure Active Directory au Portail du financement
 
@@ -224,7 +224,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la mosaïque Portail du financement dans le volet d’accès, vous devez être connecté automatiquement à votre application Portail du financement.
+Lorsque vous cliquez sur la vignette Portail du financement dans le volet d’accès, vous devez être connecté automatiquement à votre application Portail du financement.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

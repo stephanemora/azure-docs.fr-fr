@@ -1,9 +1,9 @@
 ---
-title: Fonctionnalités de Log Analytics pour les fournisseurs de services | Microsoft Docs
+title: Log Analytics pour les fournisseurs de services | Microsoft Docs
 description: Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
+author: MeirMen
 manager: jochan
 editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
@@ -11,76 +11,77 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/22/2016
-ms.author: richrund
-ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.topic: conceptual
+ms.date: 07/05/2018
+ms.author: meirm
+ms.component: na
+ms.openlocfilehash: ad0a3b8e0ee5f1114ea1db95cfe2f4176b8e2ddb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593047"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931988"
 ---
-# <a name="log-analytics-features-for-service-providers"></a>Fonctionnalités de Log Analytics pour les fournisseurs de services
+# <a name="log-analytics-for-service-providers"></a>Log Analytics pour les fournisseurs de services
 Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client. 
 
 Les grandes entreprises et les fournisseurs de services présentent de nombreux points communs, en particulier si les ressources informatiques de plusieurs divisions sont gérées par une équipe informatique centralisée. Le terme *fournisseur de services* est utilisé dans ce document par souci de simplicité, mais sachez que les entreprises et d’autres clients bénéficient de la même fonctionnalité.
 
-## <a name="cloud-solution-provider"></a>Fournisseur de solutions cloud
 Pour les partenaires et fournisseurs de services qui font partie du programme [Fournisseur de solutions cloud (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview), Log Analytics est l’un des services Azure offerts dans le cadre d’un [abonnement Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
-Pour Log Analytics, les fonctionnalités suivantes sont activées dans les abonnements *Fournisseur de solutions cloud*.
+## <a name="architectures-for-service-providers"></a>Architecture des fournisseurs de services
 
-En tant que *fournisseur de solutions cloud*, vous pouvez :
+Les espaces de travail Log Analytics fournissent une méthode à l’administrateur pour qu’il contrôle le flux et l’isolation des journaux, et pour qu’il crée une architecture de journaux qui réponde à ses besoins métier. [Cet article](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) apporte des informations générales sur la gestion des espaces de travail. Les fournisseurs de services n’y sont pas abordés.
 
-* Créer des espaces de travail Log Analytics dans l’abonnement d’un client.
-* Accéder aux espaces de travail créés par des clients. 
-* Ajouter et supprimer l’accès utilisateur à l’espace de travail à l’aide de la gestion des utilisateurs Azure. Notez que la page de gestion des utilisateurs sous Paramètres n’est pas accessible à partir de l’espace de travail d’un client dans le portail OMS.
-  * Log Analytics ne prend pas encore en charge l’accès en fonction du rôle ; si un utilisateur se voit affecter l’autorisation `reader` dans le portail Azure, il peut apporter des modifications de configuration dans le portail OMS.
+En ce qui concerne les espaces de travail Log Analytics, il existe trois architectures possibles pour les fournisseurs de services :
 
-Pour vous connecter à l’abonnement d’un client, vous devez spécifier l’identificateur du client. L’identificateur du client est souvent constitué de la dernière partie de l’adresse e-mail utilisée pour la connexion.
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Distribuée : les journaux sont stockés dans les espaces de travail situés dans le locataire du client 
 
-* Dans le portail OMS, ajoutez `?tenant=contoso.com` dans l’URL du portail. Par exemple, `mms.microsoft.com/?tenant=contoso.com`
-* Dans PowerShell, utilisez le paramètre `-Tenant contoso.com` quand vous utilisez l’applet de commande `Connect-AzureRmAccount`.
-* L’identificateur du client est ajouté automatiquement quand vous utilisez le lien `OMS portal` à partir du portail Azure pour ouvrir le portail OMS pour l’espace de travail sélectionné et vous y connecter.
+Dans cette architecture, l’espace de travail est déployé dans le locataire du client qui est utilisé pour tous les journaux de ce client. Les administrateurs des fournisseurs de services obtiennent l’accès à cet espace de travail à l’aide des [utilisateurs invités d’Azure Active Directory (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). Pour accéder à ces espaces de travail, l’administrateur du fournisseur de services doit basculer vers l’annuaire du client dans le portail Azure.
 
-En tant que *client* d’un fournisseur de solutions cloud, vous pouvez :
+Les avantages de cette architecture sont les suivants :
+* Le client peut gérer l’accès aux journaux à l’aide de son propre [accès en fonction du rôle](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* Chaque client peut avoir des paramètres différents pour son espace de travail, par exemple, pour la rétention ou la limitation des données.
+* Elle permet l’isolation entre les clients pour répondre aux exigences réglementaires et de conformité.
+* Les frais liés à chaque espace de travail sont intégrés à l’abonnement du client.
+* Les journaux peuvent être collectés à partir de tous les types de ressources, et non uniquement celles basées sur l’agent. Par exemple, l’audit Azure.
 
-* Créer des espaces de travail Log Analytics dans un abonnement CSP.
-* Accéder aux espaces de travail créés par le CSP.
-  * Utilisez le lien `OMS portal` à partir du portail Azure pour ouvrir le portail OMS pour l’espace de travail sélectionné et vous y connecter.
-* Afficher et utiliser la page de gestion des utilisateurs sous Paramètres dans le portail OMS
+Les désavantages de cette architecture sont les suivants :
+* Il est plus difficile pour le fournisseur de services de gérer tous les locataires du client à la fois.
+* Les administrateurs des fournisseurs de services doivent être provisionnés dans l’annuaire du client.
+* Le fournisseur de services ne peut pas analyser les données de tous ses clients.
 
-> [!NOTE]
-> Les solutions Sauvegarde et Site Recovery incluses pour Log Analytics ne peuvent pas se connecter à un coffre Recovery Services et ne peuvent pas être configurées dans le cadre d’un abonnement CSP. 
-> 
-> 
+### <a name="2-central---logs-are-stored-in-workspace-located-in-the-service-provider-tenant"></a>2. Centrale : les journaux sont stockés dans l’espace de travail situé dans le locataire du fournisseur de services
 
-## <a name="managing-multiple-customers-using-log-analytics"></a>Gestion de plusieurs clients à l’aide de Log Analytics
-Nous vous recommandons de créer un espace de travail Log Analytics pour chaque client que vous gérez. Un espace de travail Log Analytics offre :
+Dans cette architecture, les journaux ne sont pas stockés dans les locataires du client, mais dans un emplacement central situé dans l’un des abonnements du fournisseur de services. Les agents qui sont installés sur les machines virtuelles du client sont configurés pour envoyer leurs journaux vers cet espace de travail à l’aide de l’ID et de la clé secrète de l’espace de travail.
 
-* un emplacement géographique pour le stockage des données ; 
-* des données granulaires pour la facturation ; 
-* l’isolation des données. 
-* une configuration unique.
+Les avantages de cette architecture sont les suivants :
+* Il est facile de gérer le grand nombre de clients et de les intégrer à divers systèmes backend.
+* Le fournisseur de services dispose d’une propriété complète sur les journaux et les divers artefacts, tels que les fonctions et les requêtes enregistrées.
+* Le fournisseur de services peut lancer des analyses sur l’ensemble des clients.
 
-En créant un espace de travail par client, vous pouvez séparer les données des clients et faire le suivi de l’utilisation de chaque client.
+Les désavantages de cette architecture sont les suivants :
+* Cette architecture est applicable uniquement pour les données de machines virtuelles basées sur agent. Elle ne prend pas en compte les sources de données PaaS, SaaS et Azure Fabric.
+* Il peut être difficile de distinguer les données des différents clients lorsqu’elles sont fusionnées dans un même espace de travail. La seule bonne méthode consiste à utiliser le nom de domaine complet (FQDN) de l’ordinateur ou l’ID de l’abonnement Azure. 
+* Toutes les données de tous les clients sont stockées dans la même région avec une seule facture, et les mêmes paramètres de rétention et de configuration.
+* Les services Azure Fabric et PaaS, tels qu’Azure Diagnostics et l’audit Azure, nécessitent que l’espace de travail se trouve dans le même locataire que la ressource. Ils ne peuvent donc pas envoyer les journaux vers l’espace de travail central.
+* Tous les agents de machine virtuelle de l’ensemble des clients sont authentifiés auprès de l’espace de travail central à l’aide du même ID et de la même clé d’espace de travail. Il n’existe aucune méthode permettant de bloquer les journaux d’un client sans interrompre les autres clients.
 
-Vous trouverez plus d’informations sur quand et pourquoi créer plusieurs espaces de travail dans [Gestion de l’accès à Log Analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
 
-Vous pouvez automatiser les opérations de création et de configuration d’espaces de travail pour des clients à l’aide de [PowerShell](log-analytics-powershell-workspace-configuration.md), de [modèles Resource Manager](log-analytics-template-workspace-configuration.md) ou de l’[API REST](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
+### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Hybride : les journaux sont stockés dans l’espace de travail situé dans le locataire du client, et certains d’entre eux sont envoyés vers un emplacement central.
 
-Les modèles Resource Manager vous permettent d’utiliser une configuration maître pour créer et configurer des espaces de travail. Chaque fois qu’un espace de travail est créé pour un client, vous avez la certitude qu’il est automatiquement configuré selon vos exigences. Quand vous mettez à jour vos exigences, le modèle est mis à jour et réappliqué aux espaces de travail existants. Grâce à ce processus, même les espaces de travail existants répondent à vos nouvelles normes.    
+Cette troisième architecture est un mélange des deux précédentes. Elle est basée sur l’architecture distribuée où les journaux sont stockés localement pour chaque client, mais elle utilise un mécanisme permettant de créer un référentiel central pour les journaux. Une partie des journaux est extraite et envoyée vers un emplacement central à des fins de création de rapports et d’analyse. Cette partie peut correspondre à un petit nombre de types de données ou à un récapitulatif d’activité, comme des statistiques quotidiennes.
 
-Si vous gérez plusieurs espaces de travail Log Analytics, nous vous recommandons d’intégrer chacun d’entre eux à votre système de création de tickets/console Opérateur existant à l’aide de la fonctionnalité [Alertes](log-analytics-alerts.md). L’avantage de l’intégration des espaces de travail à des systèmes existants, c’est que l’équipe du support peut continuer à suivre les mêmes processus. Log Analytics vérifie régulièrement chaque espace de travail selon les critères d’alerte que vous spécifiez et génère une alerte quand une action est nécessaire.
+Il existe deux options pour implémenter l’emplacement central dans Log Analytics :
 
-Pour obtenir des vues personnalisées des données, utilisez la fonctionnalité [tableau de bord](../azure-portal/azure-portal-dashboards.md) dans le portail Azure.  
+1. Espace de travail central : le fournisseur de services peut créer un espace de travail dans son locataire et utiliser un script qui utilise [l’API de requête](https://dev.loganalytics.io/) avec [l’API de collecte de données](log-analytics-data-collector-api.md) pour importer les données des différents espaces de travail dans l’emplacement central. Une autre option, autre que le script, consiste à utiliser une [application logique Azure](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
 
-Pour les rapports exécutifs qui résument les données de plusieurs espaces de travail, vous pouvez utiliser l’intégration entre Log Analytics et [PowerBI](log-analytics-powerbi.md). Si vous souhaitez intégrer un autre système de création de rapports, utilisez l’API Recherche (par le biais de PowerShell ou de [REST](log-analytics-log-search-api.md)) pour exécuter des requêtes et exporter les résultats de la recherche.
+2. Power BI comme emplacement central : Power BI peut servir d’emplacement central quand les différents espaces de travail exportent des données vers lui en utilisant l’intégration de Log Analytics à [Power BI](log-analytics-powerbi.md). 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Automatiser la création et la configuration des espaces de travail à l’aide de [modèles Resource Manager](log-analytics-template-workspace-configuration.md)
 * Automatiser la création des espaces de travail à l’aide de [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Utiliser [Alertes](log-analytics-alerts.md) pour intégrer les espaces de travail aux systèmes existants
-* Générer des rapports de synthèse à l’aide de [PowerBI](log-analytics-powerbi.md)
+* Générer des rapports de synthèse à l’aide de [Power BI](log-analytics-powerbi.md)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: ec30832e6863ad92eff8f5c2e613adc503c73af5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 06a2d4ab12d2a7e03a538a98f5232a417fb39e4f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075746"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969467"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Meilleures pratiques concernant le service de sauvegarde de l’infrastructure
 
@@ -42,9 +42,7 @@ La chaîne UNC (convention d’affectation des noms) du chemin d’accès doit u
 
 ### <a name="encryption"></a>Chiffrement
 
-La clé de chiffrement est utilisée pour chiffrer les données de sauvegarde exportées vers le stockage externe. La clé peut être générée à l’aide des outils AzureStack. 
-
-![Outils AzureStack](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+La clé de chiffrement est utilisée pour chiffrer les données de sauvegarde exportées vers le stockage externe. La clé est générée dans le cadre de [l’activation de la sauvegarde pour Azure Stack avec PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 La clé doit être stockée dans un emplacement sécurisé (par exemple, un secret Azure Key Vault public). Cette clé doit être utilisée au cours du redéploiement d’Azure Stack. 
 

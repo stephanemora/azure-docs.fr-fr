@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420769"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718911"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Utilisation du stockage d’objets blob à partir d’iOS
 
@@ -87,7 +87,7 @@ Si vous utilisez Swift, vous devez créer un en-tête de pontage et importer <AZ
 1. Créez un fichier d’en-tête `Bridging-Header.h`, puis ajoutez l’instruction import ci-dessus.
 2. Accédez à l’onglet *Paramètre de génération* et recherchez *En-tête de pontage Objective-C*.
 3. Double-cliquez sur le champ *En-tête de pontage Objective-C* et ajoutez le chemin d’accès à votre fichier d’en-tête :`ProjectName/Bridging-Header.h`
-4. Générez le projet (⌘ + B) pour vérifier que l’en-tête de pontage a été récupéré par le Xcode.
+4. Créez le projet (⌘ + B) pour vérifier que l’en-tête de pontage a été récupéré par Xcode.
 5. Vous pouvez alors utiliser la bibliothèque directement dans n’importe quel fichier Swift sans instructions d’importation.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]

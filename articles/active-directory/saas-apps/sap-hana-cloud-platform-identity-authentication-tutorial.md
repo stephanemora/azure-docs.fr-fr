@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: dc62d7a24a53ffa04026c0f1a40b05b18e6db71d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 97e77fdbb352e1fcf66044f48e17cb19a8aa2e1d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231387"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042144"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Didacticiel : Intégration d’Azure Active Directory à SAP Cloud Platform Identity Authentication
 
@@ -275,7 +275,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Quand vous sélectionnez la vignette SAP Cloud Platform Identity Authentication dans le volet d’accès, vous êtes automatiquement connecté à votre application SAP Cloud Platform Identity Authentication.
 
-Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

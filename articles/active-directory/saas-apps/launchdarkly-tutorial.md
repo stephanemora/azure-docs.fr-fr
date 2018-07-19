@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 8653fe2053b2a49967b5b0f98654c20f8999d7ff
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6d0024adfde82480d46f876021a25bb8f42ba6ff
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217494"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutoriel : Intégration d’Azure Active Directory à LaunchDarkly
 
@@ -232,7 +232,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Le fait de cliquer sur la vignette LaunchDarkly dans le volet d’accès vous connecte automatiquement à votre application LaunchDarkly.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

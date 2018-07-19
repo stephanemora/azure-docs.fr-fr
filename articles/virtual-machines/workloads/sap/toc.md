@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Démarrer](get-started.md)
 ## [Certifications](sap-certifications.md)
 # SAP HANA sur Azure (grandes instances)
@@ -24,7 +24,8 @@
 ## [Vue d’ensemble de la sauvegarde SAP HANA](sap-hana-backup-guide.md)
 ## [Sauvegarde SAP HANA au niveau des fichiers](sap-hana-backup-file-level.md)
 ## [Capture instantanée de stockage SAP HANA](sap-hana-backup-storage-snapshots.md)
-# SAP NetWeaver sur les machines virtuelles Azure
+# SAP NetWeaver et Business One sur les machines virtuelles Azure
+## [SAP Business One sur les machines virtuelles Azure](business-one-azure.md)
 ## [Guide de déploiement SAP IDES sur Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver sur les machines virtuelles Azure Linux](suse-quickstart.md)
 ## [Planifier l’implémentation de SAP NetWeaver dans Azure](planning-guide.md)

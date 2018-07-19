@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 3deb7f23f6fb54cc832ec52fcdbe34aa58a24668
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 30cf33de7385add20ec5c255bf20b4e3cb7580fc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227072"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Didacticiel : Intégration de Pluralsight à Azure Active Directory
 
@@ -127,7 +127,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     L’application Pluralsight s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre un exemple :
 
-    ![Configure Single Sign-On](./media/pluralsight-tutorial/tutorial_pluralsight_attribute.png)
+    ![Configurer l'authentification unique](./media/pluralsight-tutorial/tutorial_pluralsight_attribute.png)
 
     >[!NOTE]
     >Vous pouvez également ajouter l’attribut **« Unique ID »** avec la valeur appropriée, comme EmployeeID ou autre valeur convenant à votre entreprise. Notez qu’il ne s’agit pas de l’attribut nécessaire, mais qu’il peut être ajouté pour l’identification de l’utilisateur unique. 
@@ -142,7 +142,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
    a. Cliquez sur **add user attribute** to open the **Ajouter un attribut utilisateur** .
     
-     ![Configure Single Sign-On](./media/pluralsight-tutorial/tutorial_pluralsight_addattribute.png)
+     ![Configurer l'authentification unique](./media/pluralsight-tutorial/tutorial_pluralsight_addattribute.png)
   
    b. Dans la zone de texte **Nom de l’attribut** , indiquez le nom d’attribut pour cette ligne.
   
@@ -152,7 +152,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/pluralsight-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/pluralsight-tutorial/tutorial_general_400.png)
 
 8. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe [Services professionnels de Pluralsight](mailTo:professionalservices@pluralsight.com) et envoyez-lui le fichier de métadonnées téléchargé.
 
@@ -230,7 +230,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Pluralsight dans le volet d’accès, vous êtes connecté automatiquement à votre application Pluralsight.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

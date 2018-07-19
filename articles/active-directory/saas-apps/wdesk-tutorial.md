@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: fc1d21545cf8ad6f173cebfc8ebce95f4bcce0e5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 909e6441b75e4a43ebf1d9e690a14a0d65c74367
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213265"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Didacticiel : Intégration d’Azure Active Directory à Wdesk
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Wdesk**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_samlbase.png)
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_samlbase.png)
 
 3. Dans la section **Domaines et URL Wdesk**, si vous souhaitez configurer l’application en Mode initié par **IDP**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_url.png)
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_url1.png)
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_url1.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
      
@@ -127,29 +127,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
   
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_certificate.png) 
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_general_400.png)
     
 7. Ouvrez une autre fenêtre de navigateur web, puis connectez-vous à Wdesk en tant qu’administrateur de la sécurité.
 
 8. En bas à gauche, cliquez sur **administrateur** et sélectionnez **Administrateur de compte** :
  
-     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+     ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
 9. Dans Administrateur Wdesk, accédez à **Sécurité**, puis **SAML** > **Paramètres SAML** :
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
 10. Dans **Paramètres généraux**, cochez l’option **Activer l’authentification unique SAML** :
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
 
 11. Dans **Détails sur le fournisseur de services**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
       a. Copiez l’**URL de connexion** et collez-la dans la zone de texte **URL d’authentification** sur le portail Azure.
    
@@ -161,11 +161,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 12. Cliquez sur **Configurer les paramètres du fournisseur d’identité** pour ouvrir la boîte de dialogue **Modifier les paramètres du fournisseur d’identité**. Cliquez sur **Choisir un fichier** pour trouver le fichier **Metadata.xml** que vous avez enregistré depuis le portail, puis chargez-le.
     
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
 13. Cliquez sur **Save changes**.
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -210,7 +210,7 @@ Pour se connecter à Wdesk, les utilisateurs d’Azure AD doivent être approvi
 1. Connectez-vous à Wdesk en tant qu’administrateur de la sécurité.
 2. Accédez à **Administrateur** > **Compte Administrateur**.
 
-     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+     ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
 3. Dans **Personnes**, cliquez sur **Membres**.
 
@@ -250,7 +250,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Wdesk**.
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_app.png) 
+    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -271,7 +271,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Wdesk dans le volet d’accès, vous êtes connecté automatiquement à votre application Wdesk.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

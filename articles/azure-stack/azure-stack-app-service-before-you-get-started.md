@@ -12,64 +12,71 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/05/2018
 ms.author: anwestg
-ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796731"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857863"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Avant de commencer avec App Service sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-> [!IMPORTANT]
-> Appliquez la mise à jour 1804 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.2.
->
->
+Avant de déployer Azure App Service sur Azure Stack, vous devez effectuer les étapes de prérequis décrites dans cet article.
 
-Avant de déployer Azure App Service sur Azure Stack, vous devez remplir les conditions requises décrites dans cet article.
+> [!IMPORTANT]
+> Appliquez la mise à jour 1804 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.2.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Téléchargez le programme d’installation et les scripts d’assistance
 
 1. Téléchargez les [scripts d’assistance au déploiement App Service sur Azure Stack](https://aka.ms/appsvconmashelpers).
 2. Téléchargez le [programme d’installation d’App Service sur Azure Stack](https://aka.ms/appsvconmasinstaller).
-3. Extrayez les fichiers à partir du fichier zip des scripts d’assistance. La structure de fichiers et de dossier suivante s’affiche :
+3. Extrayez les fichiers à partir du fichier zip des scripts d’assistance. Les fichiers et dossiers suivants sont extraits :
+
    - Common.ps1
    - Create-AADIdentityApp.ps1
    - Create-ADFSIdentityApp.ps1
    - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
    - Remove-AppService.ps1
-   - Modules
+   - Dossier Modules
      - GraphAPI.psm1
 
 ## <a name="high-availability"></a>Haute disponibilité
 
-En raison du lancement de la version 1802 d’Azure Stack, qui prend en charge les domaines d’erreur, les nouveaux déploiements d’Azure App Service sur Azure Stack seront distribués sur différents domaines d’erreur et assureront une tolérance de panne.  Pour les déploiements existant d’Azure App Service sur Azure Stack qui ont été effectués avant la publication de la mise à jour 1802, consultez la [documentation](azure-stack-app-service-fault-domain-update.md) pour savoir comment rééquilibrer le déploiement.
+La mise à jour 1802 d’Azure Stack prend en charge les domaines d’erreur. Les nouveaux déploiements d’Azure App Service sur Azure Stack sont distribués sur différents domaines d’erreur et assurent une tolérance de panne.
 
-Pour ajouter la haute disponibilité à Azure App Service sur Azure Stack, déployez le serveur de fichier et l’instance SQL Server nécessaires dans une configuration hautement disponible.
+Pour les déploiements existants d’Azure App Service sur Azure Stack, qui ont été effectués avant la mise à jour 1802, consultez l’article [Rééquilibrer un fournisseur de ressources App Service sur les domaines d’erreur](azure-stack-app-service-fault-domain-update.md).
+
+En outre, déployez le serveur de fichiers requis et les instances de SQL Server dans une configuration hautement disponible.
 
 ## <a name="get-certificates"></a>Obtenir des certificats
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Certificat racine Azure Resource Manager pour Azure Stack
 
-Dans une session PowerShell exécutée comme AzureStack\CloudAdmin sur une machine pouvant atteindre le point de terminaison privilégié sur le système intégré Azure Stack ou sur l’hôte du Kit de développement Azure Stack, exécutez le script Get-AzureStackRootCert.ps1 à partir du dossier dans lequel vous avez extrait les scripts d’assistance. Le script crée un certificat racine dans le même dossier que le script dont App Service a besoin pour créer des certificats.
+Ouvrez une session PowerShell avec élévation de privilèges sur un ordinateur qui peut atteindre le point de terminaison privilégié sur le système intégré Azure Stack ou l’hôte du Kit de développement Azure Stack.
+
+Exécutez le script *Get-AzureStackRootCert.ps1* à partir du dossier où vous avez extrait les scripts d’assistance. Le script crée un certificat racine dans le même dossier que le script dont App Service a besoin pour créer des certificats.
+
+Quand vous exécutez la commande PowerShell suivante, vous devez fournir le point de terminaison privilégié et les informations d’identification du compte AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
 ```
+
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Paramètres du script Get-AzureStackRootCert.ps1
 
 | Paramètre | Obligatoire ou facultatif | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Obligatoire | AzS-ERCS01 | Point de terminaison privilégié |
 | CloudAdminCredential | Obligatoire | AzureStack\CloudAdmin | Informations d’identification du compte de domaine pour les administrateurs cloud d’Azure Stack |
 
-### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Certificats requis pour le Kit de développement Azure Stack
+### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Certificats requis pour le déploiement ASDK d’Azure App Service
 
-Le premier script fonctionne avec l’autorité de certification Azure Stack pour créer quatre certificats dont App Service a besoin :
+Le script *Create-AppServiceCerts.ps1* fonctionne avec l’autorité de certification Azure Stack pour créer les quatre certificats dont App Service a besoin.
 
 | Nom de fichier | Utilisation |
 | --- | --- |
@@ -78,29 +85,32 @@ Le premier script fonctionne avec l’autorité de certification Azure Stack pou
 | ftp.appservice.local.azurestack.external.pfx | Certificat SSL d’App Service Publisher |
 | sso.appservice.local.azurestack.external.pfx | Certificat d’application d’identité App Service |
 
-Exécutez le script sur l’hôte du Kit de développement Azure Stack et vérifiez que vous exécutez PowerShell en tant que azurestack\CloudAdmin :
+Pour créer les certificats, suivez les étapes ci-dessous :
 
-1. Dans une session PowerShell exécutée en tant que azurestack\AzureStackAdmin, exécutez le script Create-AppServiceCerts.ps1 à partir du dossier où vous avez extrait les scripts d’assistance. Le script crée quatre certificats dans le même dossier que le script dont App Service a besoin pour créer des certificats.
-2. Entrez un mot de passe pour sécuriser les fichiers .pfx et prenez-en note. Vous devez l’entrer dans le programme d’installation d’App Service sur Azure Stack.
+1. Connectez-vous à l’hôte du Kit de développement Azure Stack en utilisant le compte AzureStack\AzureStackAdmin.
+2. Ouvrez une session PowerShell avec élévation de privilèges.
+3. Exécutez le script *Create-AppServiceCerts.ps1* à partir du dossier où vous avez extrait les scripts d’assistance. Ce script crée quatre certificats dans le même dossier que le script dont App Service a besoin pour créer des certificats.
+4. Entrez un mot de passe pour sécuriser les fichiers .pfx et prenez-en note. Vous devez l’entrer dans le programme d’installation App Service sur Azure Stack.
 
-#### <a name="create-appservicecertsps1-parameters"></a>Paramètres Create-AppServiceCerts.ps1
-
-```PowerShell
-    Create-AppServiceCerts.ps1
-```
+#### <a name="create-appservicecertsps1-script-parameters"></a>Paramètres du script Create-AppServiceCerts.ps1
 
 | Paramètre | Obligatoire ou facultatif | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | pfxPassword | Obligatoire | Null | Mot de passe pour aider à protéger la clé privée du certificat |
 | DomainName | Obligatoire | local.azurestack.external | Suffixe de la région et du domaine Azure Stack |
 
-### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certificats requis pour un déploiement de production d’Azure App Service sur Azure Stack
+### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Certificats requis pour un déploiement de production Azure Stack d’Azure App Service
 
-Pour utiliser le fournisseur de ressources en production, vous devez fournir les quatre certificats suivants :
+Pour exécuter le fournisseur de ressources en production, vous devez fournir les certificats suivants :
+
+- Certificat de domaine par défaut
+- Certificat d’API
+- Certificat de publication
+- Certificat d’identité
 
 #### <a name="default-domain-certificate"></a>Certificat de domaine par défaut
 
-Le certificat de domaine par défaut est placé sur le rôle de serveur frontal. Les applications utilisateur pour les demandes de domaine par défaut ou de caractères génériques à Azure App Service utilisent ce certificat. Le certificat est également utilisé pour les opérations de contrôle de code source (Kudu).
+Le certificat de domaine par défaut est placé sur le rôle de serveur frontal. Les applications utilisateur pour une demande de domaine par défaut ou de caractères génériques à Azure App Service utilisent ce certificat. Le certificat est également utilisé pour les opérations de contrôle de code source (Kudu).
 
 Le certificat doit être un certificat générique à trois sujets au format .pfx. Cette exigence permet à un seul certificat de couvrir à la fois au domaine par défaut et au point de terminaison SCM pour les opérations de contrôle de code source.
 
@@ -133,7 +143,7 @@ Le certificat de l’application de l’identité permet :
 - l’intégration entre le répertoire Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS), Azure Stack et App Service pour prendre en charge l’intégration avec le fournisseur de ressources de calcul.
 - Des scénarios d’authentification unique pour les outils de développement avancés dans Azure App Service sur Azure Stack.
 
-Le certificat d’identité doit contenir un objet qui correspond au format suivant :
+Le certificat d’identité doit contenir un objet qui correspond au format suivant.
 
 | Format | Exemples |
 | --- | --- |
@@ -141,7 +151,7 @@ Le certificat d’identité doit contenir un objet qui correspond au format suiv
 
 ## <a name="virtual-network"></a>Réseau virtuel
 
-Azure App Service sur Azure Stack permet de déployer le fournisseur de ressources dans un réseau virtuel existant ou en crée un dans le cadre du déploiement.  Le fait d’utiliser un réseau virtuel existant permet d’utiliser des adresses IP internes pour se connecter au serveur de fichiers et au serveur SQL Server requis par Azure App Service sur Azure Stack.  Vous devrez configurer le réseau virtuel avec la plage d’adresses et les sous-réseaux suivants avant d’installer Azure App Service sur Azure Stack :
+Azure App Service sur Azure Stack permet de déployer le fournisseur de ressources sur un réseau virtuel existant ou de créer un réseau virtuel dans le cadre du déploiement. Le fait d’utiliser un réseau virtuel existant permet d’utiliser des adresses IP internes pour se connecter au serveur de fichiers et au serveur SQL Server requis par Azure App Service sur Azure Stack. Vous devrez configurer le réseau virtuel avec la plage d’adresses et les sous-réseaux suivants avant d’installer Azure App Service sur Azure Stack :
 
 Virtual Network - /16
 
@@ -161,49 +171,59 @@ Pour les déploiements du Kit de développement Azure Stack uniquement, vous pou
 
 >[!IMPORTANT]
 > Si vous choisissez de déployer App Service dans un réseau virtuel existant, le serveur de fichiers devra être déployé dans un sous-réseau distinct d’App Service.
->
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Approvisionner des groupes et des comptes dans Active Directory
 
 1. Créez les groupes de sécurité globaux Active Directory suivants :
+
    - FileShareOwners
    - FileShareUsers
+
 2. Créez les comptes Active Directory suivants en tant que comptes du service :
+
    - FileShareOwner
    - FileShareUser
 
-   En ce qui concerne les meilleures pratiques en termes de sécurité, les utilisateurs de ces comptes (et pour tous les rôles Web) doivent être distincts les uns des autres et détenir des noms d’utilisateur et des mots de passe sécurisés. Définissez les mots de passe avec les conditions suivantes :
+   En ce qui concerne les meilleures pratiques en termes de sécurité, les utilisateurs de ces comptes (et pour tous les rôles web) doivent être uniques et détenir des noms d’utilisateur et des mots de passe sécurisés. Définissez les mots de passe avec les conditions suivantes :
+
    - Activez **Le mot de passe n’expire jamais**.
    - Activez **L’utilisateur ne peut pas changer de mot de passe**.
    - Désactivez **L’utilisateur doit changer de mot de passe à la prochaine ouverture de session**.
+
 3. Ajoutez les comptes aux appartenances aux groupes comme suit :
+
    - Ajoutez **FileShareOwner** au groupe **FileShareOwners**.
    - Ajoutez **FileShareUser** au groupe **FileShareUsers**.
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Approvisionner des groupes et des comptes dans un groupe de travail
 
 >[!NOTE]
-> Lorsque vous configurez un serveur de fichiers, exécutez toutes les commandes suivantes dans une fenêtre d’invite de commandes administrative. *N’utilisez pas PowerShell.*
+> Quand vous configurez un serveur de fichiers, exécutez toutes les commandes suivantes à partir d’une **invite de commandes en mode Administrateur**. <br>***N’utilisez pas PowerShell.***
 
 Lorsque vous utilisez le modèle Azure Resource Manager, les utilisateurs sont déjà créés.
 
 1. Exécutez les commandes suivantes pour créer les comptes FileShareOwner et FileShareUser. Remplacez `<password>` par vos propres valeurs.
-    ``` DOS
-    net user FileShareOwner <password> /add /expires:never /passwordchg:no
-    net user FileShareUser <password> /add /expires:never /passwordchg:no
-    ```
+
+   ``` DOS
+   net user FileShareOwner <password> /add /expires:never /passwordchg:no
+   net user FileShareUser <password> /add /expires:never /passwordchg:no
+   ```
+
 2. Définissez les mots de passe pour les comptes de sorte qu’ils n’expirent jamais en exécutant les commandes WMIC suivantes :
-    ``` DOS
-    WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-    WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
-    ```
+
+   ``` DOS
+   WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+   WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+   ```
+
 3. Créez les groupes locaux FileShareUsers et FileShareOwners et ajoutez-y les comptes lors de la première étape :
-    ``` DOS
-    net localgroup FileShareUsers /add
-    net localgroup FileShareUsers FileShareUser /add
-    net localgroup FileShareOwners /add
-    net localgroup FileShareOwners FileShareOwner /add
-    ```
+
+   ``` DOS
+   net localgroup FileShareUsers /add
+   net localgroup FileShareUsers FileShareUser /add
+   net localgroup FileShareOwners /add
+   net localgroup FileShareOwners FileShareOwner /add
+   ```
 
 ### <a name="provision-the-content-share"></a>Approvisionner le partage de contenu
 
@@ -318,7 +338,7 @@ Procédez comme suit :
 10. Sélectionner **Inscriptions des applications**.
 11. Recherchez l’ID d’application retourné à l’étape 7. Une application App Service est répertoriée.
 12. Sélectionnez **Application** dans la liste.
-13. Cliquez sur **Settings**.
+13. Sélectionnez **Paramètres**.
 14. Sélectionnez **Autorisations requises** > **Accorder des autorisations** > **Oui**.
 
 ```PowerShell

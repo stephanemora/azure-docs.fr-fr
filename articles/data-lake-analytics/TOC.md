@@ -1,10 +1,10 @@
 # [Documentation Data Lake Analytics](index.md)
 
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce que Data Lake Analytics ?](data-lake-analytics-overview.md)
 
 # Prise en main
-## [Portail Azure](data-lake-analytics-get-started-portal.md)
+## [portail Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -13,7 +13,7 @@
 # Procédures
 
 ## Gérer Data Lake Analytics
-### [Portail Azure](data-lake-analytics-manage-use-portal.md)
+### [portail Azure](data-lake-analytics-manage-use-portal.md)
 ### Ligne de commande
 #### [interface de ligne de commande Azure](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
@@ -59,12 +59,15 @@
 #### [Code personnalisé](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Exécution et débogage locaux](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+## Planifier des tâches U-SQL
+### [Planifier des tâches avec SSIS](data-lake-analytics-schedule-jobs-ssis.md)
+
 ## Intégration et déploiement continus
 ### [Vue d’ensemble](data-lake-analytics-cicd-overview.md)
 ### [Configurer des tests](data-lake-analytics-cicd-test.md)
 ### [Kit de développement logiciel (SDK) U-SQL](data-lake-analytics-u-sql-sdk.md)
 
-# Informations de référence
+# Référence
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)

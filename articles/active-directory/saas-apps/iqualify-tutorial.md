@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 166dfa8c5b3456de59055e5f62a566064540db31
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3ff5a833da5bbe99c5c6d1576b9775051b3ce07b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225022"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Didacticiel : Intégration d’Azure Active Directory à iQualify LMS
 
@@ -137,7 +137,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. L’application iQualify LMS attend les assertions Security Assertion Markup Language (SAML) à afficher dans un format spécifique. Configurez les revendications et gérez les valeurs des attributs dans la section **Attributs utilisateur** de la page d’intégration de l’application iQualify LMS, comme illustré dans la capture d’écran suivante :
     
-    ![Configure Single Sign-On](./media/iqualify-tutorial/atb.png)
+    ![Configurer l'authentification unique](./media/iqualify-tutorial/atb.png)
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, effectuez les étapes suivantes pour chaque ligne indiquée dans le tableau ci-dessous :
     
@@ -150,9 +150,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/iqualify-tutorial/atb2.png)
+    ![Configurer l'authentification unique](./media/iqualify-tutorial/atb2.png)
 
-    ![Configure Single Sign-On](./media/iqualify-tutorial/atb3.png)
+    ![Configurer l'authentification unique](./media/iqualify-tutorial/atb3.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -287,7 +287,7 @@ Quand vous cliquez sur la vignette iQualify LMS dans le panneau d’accès, la p
 
 Cliquez sur le bouton **Sign in with Azure AD**. Vous devriez être authentifié automatiquement auprès de votre application iQualify LMS.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

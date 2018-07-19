@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062572"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930305"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Exécution de Runbooks sur un Runbook Worker hybride
 
@@ -77,7 +77,7 @@ Utilisez la procédure suivante pour spécifier un compte RunAs pour un groupe d
 
 ### <a name="automation-run-as-account"></a>Compte d’identification Automation
 
-Dans le cadre de votre processus de génération automatisé pour le déploiement de ressources dans Azure, vous pouvez avoir besoin d’accéder aux systèmes locaux pour prendre en charge une tâche ou un ensemble d’étapes de votre séquence de déploiement. Pour prendre en charge l’authentification auprès d’Azure avec le compte d’identification, vous devez installer le certificat du compte d’identification.
+Dans le cadre de votre processus de génération automatisé pour le déploiement de ressources dans Azure, vous pouvez avoir besoin d’accéder aux systèmes locaux afin de prendre en charge une tâche ou un ensemble d’étapes de votre séquence de déploiement. Pour prendre en charge l’authentification auprès d’Azure avec le compte d’identification, vous devez installer le certificat du compte d’identification.
 
 Le Runbook PowerShell suivant, *RunAsCertificateToHybridWorker-Export*, exporte le certificat d’identification de votre compte Azure Automation, le télécharge et l’importe dans le magasin de certificats de l’ordinateur local sur un Worker hybride connecté au même compte. Une fois cette étape terminée, il vérifie que le Worker peut s’authentifier auprès d’Azure avec le compte d’identification.
 
@@ -151,11 +151,14 @@ Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbo
 Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 ```
 
+> [!IMPORTANT]
+> **Add-AzureRmAccount** est désormais un alias de **Connect-AzureRMAccount**. Quand vous effectuez une recherche dans vos éléments de bibliothèque, si vous ne voyez pas **Connect-AzureRMAccount**, vous pouvez utiliser **Add-AzureRmAccount** ou mettre à jour vos modules dans votre compte Automation.
+
 Enregistrez le Runbook *Export-RunAsCertificateToHybridWorker* sur votre ordinateur avec une extension `.ps1`. Importez-le dans votre compte Automation et modifiez le Runbook, en remplaçant la valeur de la variable `$Password` par votre mot de passe. Publiez, puis exécutez le Runbook ciblant le groupe de Workers hybrides qui exécute et authentifie les Runbooks avec le compte d’identification. Le flux de travaux signale la tentative d’importer le certificat dans le magasin de l’ordinateur local et complète par plusieurs lignes, en fonction du nombre de comptes Automation définis dans votre abonnement et du résultat de l’authentification.
 
 ## <a name="job-behavior"></a>Comportement du travail
 
-Les travaux sont gérés de façon légèrement différente sur des Runbooks Workers hybrides que lorsqu’ils s’exécutent sur des bacs à sable Azure. Une différence essentielle est qu’il n’existe aucune limite sur la durée du travail sur des Runbooks Workers hybrides. Si vous disposez d’un runbook à long terme que vous souhaitez être résilient aux possibles redémarrages, par exemple si la machine qui héberge le Runbook Worker hybride redémarre. Si la machine hôte du Worker hybride redémarre, tous les travaux du runbook en cours d’exécution redémarrent du début ou à partir du dernier point de contrôle pour les runbooks PowerShell Workflow. Si un travail de runbook est redémarré plus de 3 fois, il est suspendu.
+Les travaux sont gérés de façon légèrement différente sur des Runbooks Workers hybrides que lorsqu’ils s’exécutent sur des bacs à sable Azure. Une différence essentielle est qu’il n’existe aucune limite sur la durée du travail sur des Runbooks Workers hybrides. Les Runbooks exécutés dans les bacs à sable Azure sont limités à 3 heures, pour une [répartition de charge équilibrée](automation-runbook-execution.md#fair-share). Si vous disposez d’un runbook à long terme que vous souhaitez être résilient aux possibles redémarrages, par exemple si la machine qui héberge le Runbook Worker hybride redémarre. Si la machine hôte du Worker hybride redémarre, tous les travaux du runbook en cours d’exécution redémarrent du début ou à partir du dernier point de contrôle pour les runbooks PowerShell Workflow. Si un travail de runbook est redémarré plus de 3 fois, il est suspendu.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 

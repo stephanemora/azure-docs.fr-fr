@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160748"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952822"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Frameworks d’apprentissage profond et d’intelligence artificielle
 La machine virtuelle [DSVM](http://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](http://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue. 
@@ -66,7 +66,7 @@ Voici les détails de tous les frameworks d’apprentissage profond disponibles 
 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
+| Qu’est-ce que c’est ?   | API d’apprentissage profond de haut niveau      |
 | Éditions DSVM prises en charge      | Windows, Linux     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | TensorFlow est installé en Python 3.5 sur [Linux et Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition), et en Python 3.6 sur [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Liens vers des exemples      | https://github.com/fchollet/keras/tree/master/examples      |
@@ -178,7 +178,7 @@ Le démarrage du service prend environ une minute. Démarrez un navigateur web e
 
 
 
-## <a name="nvdia-smi"></a>nvdia-smi
+## <a name="nvidia-smi"></a>nvidia-smi
 
 |    |           |
 | ------------- | ------------- |

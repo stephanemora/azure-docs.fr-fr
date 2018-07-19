@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 612cce99b1a510dfb53ec4a6c1e2a40185367db1
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 046673abd2b17118732439f2895e36ca18ad8321
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323624"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innovation-hub"></a>Tutoriel : Intégration d’Azure Active Directory avec Innovation Hub
 
@@ -116,7 +116,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
 4. L’application Innovation Hub attend les assertions SAML dans un certain format. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
 
-    ![Configure Single Sign-On](./media/innovationhub-tutorial/attribute.png)
+    ![Configurer l'authentification unique](./media/innovationhub-tutorial/attribute.png)
 
 5. Dans la section **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** pour développer les attributs. Dans chacun des attributs affichés, procédez comme suit :
 
@@ -127,9 +127,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/innovationhub-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/innovationhub-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/innovationhub-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/innovationhub-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -222,7 +222,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Innovation Hub dans le volet d’accès, la connexion à votre application Innovation Hub doit se faire automatiquement.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

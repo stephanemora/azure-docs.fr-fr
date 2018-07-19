@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d5fe4b6703f9b860932e36a296f3d103a4f94807
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4f5ff9906ec5a4f57d64704a4b10cf7027878e72
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219854"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Tutoriel : Intégration d’Azure Active Directory à iWellnessNow
 
@@ -216,7 +216,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque iWellnessNow dans le panneau d’accès, vous devriez être connecté automatiquement à votre application iWellnessNow.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

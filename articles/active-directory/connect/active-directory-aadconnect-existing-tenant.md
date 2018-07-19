@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44d9aa988e8344f76ddb5430e2aacbd4c818c033
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725205"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969399"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect : lorsque vous avez un client existant
 La plupart des rubriques sur l’utilisation d’Azure AD Connect suppose que vous démarrez avec un nouveau client Azure AD qui ne contient aucun utilisateur ni autres objets. Mais si vous avez démarré avec un client Azure AD, auquel vous avez ajouté des utilisateurs et d’autres objets, et que vous souhaitez désormais utiliser Connect, alors cette rubrique est faite pour vous.
@@ -48,6 +48,9 @@ Si AD Azure détecte un objet dans lequel les valeurs d’attribut sont les mêm
 La section précédente et l’avertissement qu’elle contient doivent être pris en compte lors de la planification. Si vous avez effectué de nombreuses modifications dans Azure AD qui ne sont pas reflétées dans AD DS en local, vous devez alors planifier comment renseigner AD DS avec les valeurs mises à jour avant de synchroniser vos objets avec Azure AD Connect.
 
 Si vous avez exécuté la correspondance de vos objets avec une correspondance souple, l’attribut **sourceAnchor** est ajouté à l’objet dans Azure AD afin qu’une correspondance exacte soit utilisée ultérieurement.
+
+>[!IMPORTANT]
+> Microsoft déconseille fortement de synchroniser des comptes locaux avec des comptes d’administration préexistants dans Azure Active Directory.
 
 ### <a name="hard-match-vs-soft-match"></a>Correspondance exacte et correspondance souple
 Pour une nouvelle installation de Connect, il n’existe aucune différence pratique entre une correspondance souple et une correspondance exacte. La différence réside dans une situation de récupération d’urgence. Si votre serveur avec Azure AD Connect a connu une défaillance, vous pouvez réinstaller une nouvelle instance sans perdre de données. Un objet avec un attribut sourceAnchor est envoyé à Connect lors de l’installation initiale. La correspondance peut ensuite être évaluée par le client (Azure AD Connect), ce qui est beaucoup plus rapide que de faire la même chose dans Azure AD. Une correspondance exacte est évaluée à la fois par Connect et par Azure AD. Une correspondance souple n’est évaluée que par Azure AD.

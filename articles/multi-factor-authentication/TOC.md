@@ -4,7 +4,7 @@
 
 ## [Présentation d'Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 ## [Fonctionnement](../active-directory/authentication/concept-mfa-howitworks.md)
-## [Comment obtenir Azure FMA](../active-directory/authentication/concept-mfa-licensing.md)
+## [Comment obtenir Azure MFA](../active-directory/authentication/concept-mfa-licensing.md)
 
 # Prise en main
 

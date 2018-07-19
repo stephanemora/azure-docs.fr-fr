@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 5accb676c7fb732c9b59dbbbeda944a3a3015d50
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 64019237370d867b2f9a35a59139b5c4cc719ffa
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285414"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Didacticiel : Intégration d’Azure Active Directory à BenefitHub
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **BenefitHub**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/benefithub-tutorial/tutorial_benefithub_samlbase.png)
+    ![Configurer l'authentification unique](./media/benefithub-tutorial/tutorial_benefithub_samlbase.png)
 
 3. Dans la section **Domaine et URL BenefitHub**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/benefithub-tutorial/tutorial_benefithub_url1.png)
+    ![Configurer l'authentification unique](./media/benefithub-tutorial/tutorial_benefithub_url1.png)
   
     a. Dans la zone de texte **Identificateur**, tapez : `urn:benefithub:passport`
     
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. L’application BenefitHub s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. 
 
-    ![Configure Single Sign-On](./media/benefithub-tutorial/tutorial_benefithub_attribute.png)
+    ![Configurer l'authentification unique](./media/benefithub-tutorial/tutorial_benefithub_attribute.png)
 
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
     
@@ -131,9 +131,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/benefithub-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/benefithub-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/benefithub-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/benefithub-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -146,11 +146,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/benefithub-tutorial/tutorial_benefithub_certificate.png) 
+    ![Configurer l'authentification unique](./media/benefithub-tutorial/tutorial_benefithub_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/benefithub-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/benefithub-tutorial/tutorial_general_400.png)
 
 8. Pour configurer l’authentification unique côté **BenefitHub**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à [l’équipe du support BenefitHub](https://www.benefithub.com/Home/ContactUs). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -206,7 +206,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **BenefitHub**.
 
-    ![Configure Single Sign-On](./media/benefithub-tutorial/tutorial_benefithub_app.png) 
+    ![Configurer l'authentification unique](./media/benefithub-tutorial/tutorial_benefithub_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -227,7 +227,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette BenefitHub dans le volet d’accès, vous devez être connecté automatiquement à votre application BenefitHub.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

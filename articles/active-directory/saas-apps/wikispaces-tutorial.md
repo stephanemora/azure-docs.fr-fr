@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 334dd3b2f126d42c9c71f5fabb3515a68eb52c57
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 920777aa56d9ea9c619815b99b234b66bd676b44
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227317"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Didacticiel : Intégration d’Azure AD à Wikispaces
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Wikispaces**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/wikispaces-tutorial/tutorial_wikispaces_samlbase.png)
+    ![Configurer l'authentification unique](./media/wikispaces-tutorial/tutorial_wikispaces_samlbase.png)
 
 3. Dans la section **Domaine et URL Wikispaces**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/wikispaces-tutorial/tutorial_wikispaces_url.png)
+    ![Configurer l'authentification unique](./media/wikispaces-tutorial/tutorial_wikispaces_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.wikispaces.net`
 
@@ -121,11 +121,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/wikispaces-tutorial/tutorial_wikispaces_certificate.png) 
+    ![Configurer l'authentification unique](./media/wikispaces-tutorial/tutorial_wikispaces_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/wikispaces-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/wikispaces-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique côté **Wikispaces**, vous devez envoyer les **métadonnées XML** téléchargées à [l’équipe de support technique de Wikispaces](https://www.wikispaces.com/site/help). Vous recevez une notification dès qu’elle est terminée.
 
@@ -206,7 +206,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Wikispaces**.
 
-    ![Configure Single Sign-On](./media/wikispaces-tutorial/tutorial_wikispaces_app.png) 
+    ![Configurer l'authentification unique](./media/wikispaces-tutorial/tutorial_wikispaces_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -227,7 +227,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Si vous cliquez sur la mosaïque Wikispaces dans le volet d’accès, vous devriez être connecté automatiquement à votre application Wikispaces.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

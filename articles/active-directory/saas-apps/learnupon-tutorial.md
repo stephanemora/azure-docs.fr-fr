@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 7a50d1f17293bb86c69ece10e05af0017b1fabf9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3409545169208adc87eb63358082afc6c6d8d575
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219453"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Didacticiel : intégration d’Azure Active Directory à LearnUpon
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **LearnUpon**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_samlbase.png)
+    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_samlbase.png)
 
 3. Dans la section **LearnUpon Domain and URLs** (Domaine et URL LearnUpon), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_url.png)
+    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_url.png)
 
     Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<companyname>.learnupon.com/saml/consumer`
 
@@ -121,29 +121,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, recherchez l’élément **Empreinte numérique**. Celui-ci sera ajouté à vos paramètres SAML LearnUpon.
 
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_certificate.png) 
+    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_general_400.png)
 
 6. Dans la section **LearnUpon Configuration** (Configuration de LearnUpon), cliquez sur **Configure LearnUpon** (Configurer LearnUpon) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_configure.png) 
+    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_configure.png) 
 
 7. Ouvrez une autre instance du navigateur et connectez-vous à LearnUpon avec un compte d’administrateur. 
 
 8. Cliquez sur l’onglet **Paramètres** .
    
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_06.png)
+    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
 9. Cliquez sur **Authentification unique - SAML**, puis cliquez sur **Paramètres généraux** pour configurer les paramètres SAML.
    
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
+    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
 10. Dans la section **Paramètres généraux** procédez comme suit :
    
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
+    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
     a. Sélectionnez **Enabled**.
 
@@ -163,7 +163,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 11. Cliquez sur **Paramètres utilisateur**, puis procédez comme suit :
    
-     ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
+     ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
  
     a. Dans la zone de texte **First Name Identifier Format** (Format de l’identificateur du prénom), entrez la valeur indiquant à quel emplacement dans votre assertion SAML réside le prénom des utilisateurs, par exemple, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
   
@@ -227,7 +227,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **LearnUpon**.
 
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_app.png) 
+    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -248,7 +248,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette LearnUpon dans le volet d’accès, vous devez être connecté automatiquement à votre application LearnUpon.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

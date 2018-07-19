@@ -3,15 +3,15 @@ title: Exclure des disques de la protection à l’aide d’Azure Site Recovery 
 description: Décrit pourquoi et comment exclure des disques de machine virtuelle de la réplication pour VMware vers Azure.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.workload: storage-backup-recovery
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 59c8d38d94604a9950693d6bb73b6263f9cdb23b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285088"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921278"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Exclure des disques de la réplication pour un scénario de VMware vers Azure
 
@@ -50,7 +50,7 @@ Pour protéger une machine virtuelle du portail Azure Site Recovery, suivez le w
 
 >[!NOTE]
 >
-> * Vous pouvez uniquement exclure des disques sur lesquels le service Mobilité est déjà installé. Vous devez installer le service Mobilité manuellement, car il n’est installé qu’à l’aide du mécanisme Push après l’activation de la réplication.
+> * Vous pouvez exclure uniquement les disques sur les machines virtuelles sur lesquelles le service Mobilité est déjà installé. Vous devez installer le service Mobilité manuellement, car il n’est installé qu’à l’aide du mécanisme Push après l’activation de la réplication.
 > * Seuls les disques de base peuvent être exclus de la réplication. Vous ne pouvez pas exclure de système d’exploitation ni de disque dynamique.
 > * Une fois la réplication activée, vous ne pouvez pas ajouter ni supprimer de disques pour la réplication. Si vous voulez ajouter ou exclure un disque, vous devez désactiver la protection de la machine, puis la réactiver.
 > * Si vous excluez un disque requis pour le bon fonctionnement d’une application, après le basculement vers Azure, vous devez créer manuellement le disque dans Azure afin que l’application répliquée puisse s’exécuter. Vous pouvez également intégrer Azure Automation dans un plan de récupération afin de créer le disque pendant le basculement de la machine.

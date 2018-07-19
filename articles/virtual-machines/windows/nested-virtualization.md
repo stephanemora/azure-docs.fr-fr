@@ -11,18 +11,18 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 0648a7555cb94543dadf5d73e0187927a90f5b5a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526516"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857942"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
 
 La virtualisation imbriquée est prise en charge dans les séries Dv3 et Ev3 de machines virtuelles Azure. Cette fonctionnalité offre une grande souplesse pour la prise en charge de scénarios comme les environnements de développement, de test, de formation et de démonstration. 
 
-Cet article parcourt l’activation de la virtualisation imbriquée sur une machine virtuelle Azure et la configuration de la connectivité Internet pour cette machine virtuelle invitée.
+Toutes les machines virtuelles des gammes Dv3 et Ev3 prennent en charge la virtualisation imbriquée sans configuration supplémentaire.  Cet article parcourt l’activation de Hyper-V sur une machine virtuelle Azure et la configuration de la connectivité Internet pour cette machine virtuelle invitée.
 
 ## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Créer une machine virtuelle Azure de série Dv3 ou Ev3
 

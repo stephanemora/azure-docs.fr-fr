@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84b5bf3be09083a69216802fc7f557de1a7f0ee6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186289"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917531"
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Surveillance et résolution des problèmes d’Azure Site Recovery
 
@@ -146,7 +146,7 @@ Une vue d’infrastructure limitée à une seule machine en cours de réplicatio
 **A.** La fonctionnalité de vue d’infrastructure n’est disponible que pour les machines virtuelles qui sont répliquées vers Azure. Elle n’est actuellement pas disponible pour les machines virtuelles qui se répliquent entre des sites locaux.
 
 **Q.** Pourquoi le nombre de machines virtuelles dans la vue d’infrastructure du coffre diffère-t-il du nombre total affiché dans l’anneau des éléments répliqués ?</br>
-**A.** La vue d’infrastructure du coffre est limitée par les scénarios de réplication. Seules les machines virtuelles participant au scénario de réplication sélectionné sont incluses dans le nombre de machines virtuelles affichées dans la vue d’infrastructure. De plus, pour le scénario sélectionné, seules les machines virtuelles qui sont actuellement configurées pour répliquer sur Azure sont également incluses dans le nombre de machines virtuelles affichées dans la vue d’infrastructure (par exemple, parmi les machines virtuelles basculées, celles qui se répliquent sur un site local ne figurent pas dans la vue d’infrastructure).
+**A.** La vue d’infrastructure du coffre est limitée par les scénarios de réplication. Seules les machines virtuelles participant au scénario de réplication sélectionné sont incluses dans le nombre de machines virtuelles affichées dans la vue d’infrastructure. De plus, pour le scénario sélectionné, seules les machines virtuelles qui sont configurées pour répliquer sur Azure sont également incluses dans le nombre de machines virtuelles affichées dans la vue d’infrastructure (par exemple, parmi les machines virtuelles basculées, celles qui se répliquent sur un site local ne figurent pas dans la vue d’infrastructure).
 
 **Q.** Pourquoi le nombre d’éléments répliqués affichés dans la partie des éléments principaux sur la page Vue d’ensemble diffère-t-il du nombre total d’éléments répliqués indiqués dans le graphique en anneau sur le tableau de bord ?</br>
 **A.** Seules les machines virtuelles sur lesquelles la réplication initiale est terminée sont incluses dans le nombre indiqué dans la section des éléments principaux. Le nombre total d’éléments répliqués inclut toutes les machines virtuelles dans le coffre, y compris les serveurs dont la réplication initiale est en cours.

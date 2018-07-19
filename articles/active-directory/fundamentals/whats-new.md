@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d86a2b702eac4fc976fd59ca24fd7122a76005b4
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061675"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920812"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
-> Tenez-vous informé des nouveautés d’Azure Active Directory (Azure AD) en vous abonnant au [![flux](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [RSS](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Abonnez-vous au [![flux](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [RSS](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) pour recevoir des notifications lorsque vous devez revisiter cette page pour obtenir des mises à jour.
 
 Azure AD bénéficie d’améliorations en continu. Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
--   Versions les plus récentes
--   Problèmes connus
--   Résolution des bogues
--   Fonctionnalités dépréciées
--   Modifications planifiées
+- Versions les plus récentes
+- Problèmes connus
+- Résolution des bogues
+- Fonctionnalités dépréciées
+- Modifications planifiées
 
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement.
 
@@ -40,8 +40,8 @@ Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement.
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Notification de modification : correctif de sécurité pour le flux d’autorisation déléguée pour les applications qui utilisent les API de journal d’activité Azure AD
 
 **Type :** modification planifiée  
-**Catégorie de service :** surveillance et création de rapports  
-**Fonctionnalité de produit :** création de rapports
+**Catégorie de service :** création de rapports  
+**Fonctionnalité de produit :** surveillance et création de rapports
 
 En raison du renforcement de la sécurité, nous avons dû modifier les autorisations pour les applications qui utilisent un flux d’autorisation déléguée pour accéder aux [API de journal d’activité Azure AD](https://aka.ms/aadreportsapi). Cette modification prendra effet d’ici **le 26 juin 2018**.
 
@@ -64,7 +64,7 @@ Pour plus d’informations, consultez la section [Accorder des autorisations](ht
 ### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Configurer les paramètres TLS de connexion aux services Azure AD pour la conformité PCI DSS
 
 **Type :** nouvelle fonctionnalité  
-**Catégorie de service :** nouvelle fonctionnalité  
+**Catégorie de service :** N/D  
 **Fonctionnalité de produit :** plateforme
 
 Le protocole TLS (Transport Layer Security) garantit la confidentialité et l’intégrité des données entre deux applications qui communiquent. Il s’agit du protocole de sécurité le plus largement utilisé aujourd’hui.
@@ -105,7 +105,7 @@ Les navigateurs obsolètes risquent de ne pas prendre en charge les versions les
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
  
 En juin 2018, nous avons ajouté à notre galerie d’applications les 15 applications suivantes qui prennent en charge la fédération :
 
@@ -161,7 +161,7 @@ Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisatio
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** autres  
-**Fonctionnalité du produit :** sécurité et protection de l’identité
+**Fonctionnalité de produit :** sécurité et protection de l’identité
  
 Nous avons publié de nouvelles instructions étape par étape sur le déploiement d’Azure Multi-Factor Authentication (MFA) dans une organisation.
 
@@ -172,7 +172,8 @@ Pour consulter le guide de déploiement MFA, accédez au dépôt GitHub [Identit
 ### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Rôles délégués de gestion des applications Azure AD en préversion publique
 
 **Type :** nouvelle fonctionnalité  
-**Catégorie de service :** applications d’entreprise **Fonctionnalité du produit :** contrôle d’accès
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** contrôle d’accès
 
 Les administrateurs peuvent désormais déléguer des tâches de gestion des applications sans avoir à affecter le rôle Administrateur général. Les nouveaux rôles et nouvelles fonctionnalités sont les suivants :
 
@@ -268,7 +269,7 @@ Les clients européens veulent que leurs données restent en Europe. Ils ne veul
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** approvisionnement d’application  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
  
 Azure AD vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans des applications SaaS comme Dropbox, Salesforce, ServiceNow, etc. En mai 2018, nous avons ajouté une prise en charge de l’attribution des utilisateurs pour les applications suivantes dans la galerie d’applications Azure AD :
 
@@ -320,7 +321,7 @@ Des journaux d’activité Azure AD (connexions et audit) sont à présent dispo
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
  
 En mai 2018, nous avons ajouté à notre galerie d’applications les 18 applications suivantes qui prennent en charge la fédération :
 
@@ -491,7 +492,7 @@ Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux 
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
 
 En avril 2018, nous avons ajouté à notre galerie d’applications les 13 applications suivantes qui prennent en charge la fédération :
 
@@ -519,7 +520,7 @@ Pour plus d’informations, consultez [Accorder aux utilisateurs B2B dans Azure 
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** autres  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
 
 Si une application qui est répertoriée dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) prend en charge l’authentification unique SAML, en cliquant sur **Obtenir maintenant**, vous accédez au tutoriel sur l’intégration associé à cette application. 
 
@@ -529,7 +530,7 @@ Si une application qui est répertoriée dans la [Place de marché Azure](https:
 
 **Type :** fonctionnalité modifiée  
 **Catégorie de service :** approvisionnement d’application  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
  
 Auparavant, les clients qui utilisaient les connecteurs d’attribution d’utilisateurs Azure Active Directory pour les applications SaaS (Salesforce, ServiceNow et Box par exemple) pouvaient rencontrer une baisse de performances si leurs locataires Azure AD contenaient plus de 100 000 utilisateurs et groupes combinés, et s’ils utilisaient les attributions de groupes et d’utilisateurs pour déterminer les utilisateurs à attribuer.
 
@@ -658,7 +659,7 @@ Pour plus d’informations, consultez la page [Authentification unique transpare
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
 
 En mars 2018, nous avons ajouté à notre galerie d’applications les 15 applications suivantes qui prennent en charge la fédération :
 
@@ -710,7 +711,7 @@ Pour plus d’informations, consultez [Demander un code d’autorisation](https:
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** approvisionnement d’application  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
  
 La version préliminaire publique de l’approvisionnement entrant de Workday vers Active Directory et Azure AD prend désormais en charge la possibilité d’extraire et d’approvisionner toutes les valeurs d’attribut disponibles dans l’API Workday Get_Workers. Cela permet la prise en charge de centaines d’attributs standard et personnalisés supplémentaires, en plus de ceux fournis avec la version initiale du connecteur d’approvisionnement entrant Workday.
 
@@ -980,7 +981,7 @@ Lorsque les conditions d’utilisation s’affichent, vous pouvez maintenant cli
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
 
 En janvier 2018, les applications suivantes prenant en charge la fédération ont été ajoutées à la galerie d’applications :
 
@@ -1158,7 +1159,7 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure AD Privileged Iden
 
 **Type :** nouvelle fonctionnalité  
 **Catégorie de service :** applications d’entreprise  
-**Fonctionnalité du produit :** intégration tierce
+**Fonctionnalité de produit :** intégration de tierce partie
 
 En décembre 2017, nous avons ajouté à notre galerie d’applications les applications suivantes qui prennent en charge la fédération :
 

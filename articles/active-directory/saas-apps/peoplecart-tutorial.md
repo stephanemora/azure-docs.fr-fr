@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: aa7a97a7233e84e19671f77974495eedbe083177
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7188be263ccf73c6bb7e503c1ef7a28b7b721758
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219820"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peoplecart"></a>Didacticiel : Intégration d’Azure Active Directory à Peoplecart
 
@@ -99,11 +99,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Peoplecart**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/peoplecart-tutorial/tutorial_peoplecart_samlbase.png)
+    ![Configurer l'authentification unique](./media/peoplecart-tutorial/tutorial_peoplecart_samlbase.png)
 
 3. Dans la section **Domaine et URL Peoplecart**, procédez comme suit :
 
@@ -204,7 +204,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Peoplecart dans le volet d’accès, la page de connexion de l’application Peoplecart devrait apparaître.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266959"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923467"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice de prise en charge pour la réplication d’Hyper-V vers Azure
 
@@ -33,7 +33,7 @@ Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d
 
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
-Hyper-V (exécuté sans Virtual Machine Manager) | Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour | Lorsque vous configurez un site Hyper-V dans Site Recovery, le mélange d’ordinateurs hôtes exécutant Windows Server 2016 et 2012 R2 n’est pas pris en charge.<br/><br/> Pour les machines virtuelles situées sur un hôte exécutant Windows Server 2016, la récupération vers un autre emplacement n’est pas prise en charge.
+Hyper-V (exécuté sans Virtual Machine Manager) | Windows Server 2016 (installation de Server Core incluse), Windows Server 2012 R2 avec les dernières mises à jour | Lorsque vous configurez un site Hyper-V dans Site Recovery, le mélange d’ordinateurs hôtes exécutant Windows Server 2016 et 2012 R2 n’est pas pris en charge.<br/><br/> Pour les machines virtuelles situées sur un hôte exécutant Windows Server 2016, la récupération vers un autre emplacement n’est pas prise en charge.
 Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2016 doivent être managés dans Virtual Machine Manager 2016.<br/><br/> Un cloud Virtual Machine Manager combinant des hôtes Hyper-V s’exécutant sur Windows Server 2016 et 2012 R2 n’est actuellement pas pris en charge.<br/><br/> Les environnements qui incluent une mise à niveau d’un serveur Virtual Machine Manager 2012 R2 existant vers 2016 ne sont pas pris en charge.
 
 

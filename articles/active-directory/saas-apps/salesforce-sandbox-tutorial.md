@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d362228406b71e01bf74aa6082a268d4b603830
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1c87acb427a4d31a6eee1e215d43a601adbc17ec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219038"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox
 
@@ -127,29 +127,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Configuration de Salesforce Sandbox**, cliquez sur **Configurer Salesforce Sandbox** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png) 
+    ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png) 
 
 7. Ouvrez un nouvel onglet dans votre navigateur et connectez-vous à votre compte d’administrateur Salesforce Sandbox.
 
 8. Cliquez sur **Setup** sous **l’icône de paramètres** en haut à droite de la page.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/configure1.png)
 
 9. Dans le volet de navigation, accédez à **SETTINGS** et cliquez sur **Identity** pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 10. Sélectionnez **SAML activé**, puis cliquez sur **Enregistrer**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 11. Pour configurer vos paramètres d’authentification unique SAML, cliquez sur **Nouveau**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 12. Dans la section SAML Single Sign-On Settings, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
     a. Dans la zone de texte **Name**, tapez le nom de la configuration (par exemple, *SPSSOWAAD_Test*). 
 
@@ -185,14 +185,14 @@ Cette section suppose que vous avez déjà créé un domaine.  Pour plus d’inf
 
 1. Dans le volet de navigation de gauche de Salesforce, cliquez sur **Company Settings** pour développer la section associée, puis cliquez sur **My Domain**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
    >[!NOTE]
    >Vérifiez que votre domaine a été correctement configuré.
 
 2. Dans la section **Authentication Configuration**, cliquez sur **Edit** puis, pour **Authentication Service**, sélectionnez le nom du paramètre d’authentification unique SAML de la section précédente, avant de cliquer sur **Save**.
 
-   ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+   ![Configurer l'authentification unique](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 Dès qu’un domaine est configuré, vos utilisateurs doivent utiliser l’URL du domaine pour se connecter au sandbox Salesforce.
 
@@ -269,7 +269,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Salesforce Sandbox dans le panneau d’accès, vous devez être connecté automatiquement à votre application Salesforce Sandbox.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

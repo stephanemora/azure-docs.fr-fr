@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: a6b3751361b198126c2d05d1650acbf89d2bbc1b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7285ef4bea1dccb651360520bfe8bc4289d54f8c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215798"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Didacticiel : Intégration d’Azure Active Directory avec Panorama9
 
@@ -103,15 +103,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Panorama9**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_samlbase.png)
+    ![Configurer l'authentification unique](./media/panorama9-tutorial/tutorial_panorama9_samlbase.png)
 
 3. Dans la section **Domaine et URL Panorama9**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_url.png)
+    ![Configurer l'authentification unique](./media/panorama9-tutorial/tutorial_panorama9_url.png)
 
     a. Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://dashboard.panorama9.com/saml/access/3262`
 
@@ -122,15 +122,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, copiez la valeur **THUMBPRINT** du certificat.
 
-    ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_certificate.png) 
+    ![Configurer l'authentification unique](./media/panorama9-tutorial/tutorial_panorama9_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/panorama9-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Panorama9**, cliquez sur **Configurer Panorama9** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_configure.png) 
+    ![Configurer l'authentification unique](./media/panorama9-tutorial/tutorial_panorama9_configure.png) 
 
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Panorama9 en tant qu’administrateur.
 
@@ -224,7 +224,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Panorama9**.
 
-    ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_app.png) 
+    ![Configurer l'authentification unique](./media/panorama9-tutorial/tutorial_panorama9_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -245,7 +245,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Panorama9 dans le volet d’accès, vous devez être connecté automatiquement à votre application Panorama9.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

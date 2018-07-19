@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 71f3a850d4b60c9ca2e3742ea8c83587e04f1dca
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 70b9d41ff9ed47e9ac376f1e13627cc82d87130f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221459"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048291"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Didacticiel : Intégration d’Azure Active Directory à Abintegro
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Abintegro**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/abintegro-tutorial/tutorial_abintegro_samlbase.png)
+    ![Configurer l'authentification unique](./media/abintegro-tutorial/tutorial_abintegro_samlbase.png)
 
 3. Dans la section **Domaine et URL Abintegro**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/abintegro-tutorial/tutorial_abintegro_url.png)
+    ![Configurer l'authentification unique](./media/abintegro-tutorial/tutorial_abintegro_url.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`
 
@@ -119,11 +119,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/abintegro-tutorial/tutorial_abintegro_certificate.png) 
+    ![Configurer l'authentification unique](./media/abintegro-tutorial/tutorial_abintegro_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/abintegro-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/abintegro-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique côté **Abintegro**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à l’[équipe de support technique Abintegro](mailto:support@abintegro.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -181,7 +181,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Abintegro**.
 
-    ![Configure Single Sign-On](./media/abintegro-tutorial/tutorial_abintegro_app.png) 
+    ![Configurer l'authentification unique](./media/abintegro-tutorial/tutorial_abintegro_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -202,7 +202,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Abintegro dans le panneau d’accès, la page de connexion de l’application Abintegro doit apparaître.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

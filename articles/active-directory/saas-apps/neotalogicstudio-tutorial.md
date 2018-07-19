@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 01987f3a5f2a37d7cf2b16202310b7d442c9d7a8
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5861d709e238e5da07cd6a44fefdcc456422ad9d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285829"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Didacticiel : Intégration d’Azure Active Directory à Neota Logic Studio
 
@@ -105,15 +105,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Neota Logic Studio**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_samlbase.png)
+    ![Configurer l'authentification unique](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_samlbase.png)
 
 3. Dans la section **Domaine et URL Neota Logic Studio**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_url.png)
+    ![Configurer l'authentification unique](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<sub domain>.neotalogic.com/a/<sub application>`
 
@@ -124,11 +124,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_certificate.png) 
+    ![Configurer l'authentification unique](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/neotalogicstudio-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/neotalogicstudio-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique (SSO) pour votre application, contactez l’[équipe de support technique Neota Logic Studio](https://www.neotalogic.com/contact-us/) en lui fournissant le fichier **XML de métadonnées** téléchargé.
 
@@ -184,7 +184,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentif
 
 2. Dans la liste des applications, sélectionnez **Neota Logic Studio**.
 
-    ![Configure Single Sign-On](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_app.png) 
+    ![Configurer l'authentification unique](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -204,7 +204,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentif
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Cliquez sur la mosaïque Neota Logic Studio dans le volet d’accès. Vous êtres alors redirigé vers la page de connexion à Organization. Une fois la connexion établie, vous êtes connecté à votre application Neota Logic Studio. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Cliquez sur la mosaïque Neota Logic Studio dans le volet d’accès. Vous êtres alors redirigé vers la page de connexion à Organization. Une fois la connexion établie, vous êtes connecté à votre application Neota Logic Studio. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

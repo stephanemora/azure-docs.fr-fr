@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 50c5deab6cdfced64299fc770e19b504d4846807
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 330dbf31a1c1af6146ae1272a42ecc3621271bb1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228738"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Didacticiel : Intégration d’Azure Active Directory avec Onit
 
@@ -124,7 +124,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 5. L’application Onit attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet **Attribut** de l’application. La capture d’écran suivante montre un exemple : 
 
-    ![Configure Single Sign-On](./media/onit-tutorial/tutorial_onit_attribute.png) 
+    ![Configurer l'authentification unique](./media/onit-tutorial/tutorial_onit_attribute.png) 
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
@@ -134,9 +134,9 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/onit-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/onit-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/onit-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/onit-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -272,7 +272,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Onit dans le volet d’accès, vous devez être connecté automatiquement à votre application Onit.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

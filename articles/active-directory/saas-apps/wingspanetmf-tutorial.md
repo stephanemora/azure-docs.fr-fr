@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: ee9c1494cb2bca4193bfe8b16b72ba5d317f9f3e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cbfb35df529a8caef59c459729225051a45a8ab1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295468"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF
 
@@ -102,15 +102,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le p
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Wingspan eTMF**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_samlbase.png)
+    ![Configurer l'authentification unique](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_samlbase.png)
 
 3. Dans la section **Domaine et URL Wingspan eTMF**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_url11.png)
+    ![Configurer l'authentification unique](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_url11.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<customer name>.<instance name>.mywingspan.com/saml`
 
@@ -123,11 +123,11 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le p
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_certificate.png) 
+    ![Configurer l'authentification unique](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/wingspanetmf-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/wingspanetmf-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique du côté **Wingspan eTMF**, vous devez envoyer le fichier **XML des métadonnées** téléchargé au [support technique de Wingspan eTMF](http://www.wingspan.com/contact-us/). Ils configurent les éléments pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -184,7 +184,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Wingspan eTMF**.
 
-    ![Configure Single Sign-On](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_app.png) 
+    ![Configurer l'authentification unique](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -204,7 +204,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. 
 
-Cliquez sur la vignette Wingspan eTMF dans le volet d’accès. Vous êtes redirigé vers la page d’authentification d’une organisation. Une fois authentifié, vous êtes connecté à votre application Wingspan eTMF. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Cliquez sur la vignette Wingspan eTMF dans le volet d’accès. Vous êtes redirigé vers la page d’authentification d’une organisation. Une fois authentifié, vous êtes connecté à votre application Wingspan eTMF. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

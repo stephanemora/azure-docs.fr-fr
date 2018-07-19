@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 4d475ec93bd8bfa5cc84848ed61afa6a9d6e319b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605386"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902178"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considérations relatives à l’utilisation des machines virtuelles dans Azure Stack
 
@@ -47,7 +47,7 @@ Azure Stack impose des limites de ressources pour éviter la consommation excess
 
 - Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place. Les limites dans Azure Stack sont les mêmes que celles appliquées dans Azure.
 - Pour les ressources de stockage, Azure Stack implémente des limites d’E/S par seconde de stockage pour éviter une consommation excessive de base des ressources par les locataires pour l’accès au stockage.
-- Pour les machines virtuelles avec plusieurs disques de données joints, le débit maximal de chaque disque de données est de 500 E/S par seconde pour les disques HHD et de 2300 E/S par seconde pour les disques SSD.
+- Pour les machines virtuelles avec plusieurs disques de données joints, le débit maximal de chaque disque de données est de 500 E/S par seconde pour les disques HHD et de 2 300 E/S par seconde pour les disques SSD.
 
 Le tableau suivant répertorie les machines virtuelles prises en charge sur Azure Stack, ainsi que leur configuration :
 

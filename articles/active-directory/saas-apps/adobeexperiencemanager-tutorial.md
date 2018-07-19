@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 4279211d130c8fe00a6b89c66222071de480fc52
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 56b392e57809cea0ae93800df39bb9dacd164ce2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216257"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Didacticiel : Intégration d’Azure Active Directory à Adobe Experience Manager
 
@@ -278,7 +278,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Quand vous sélectionnez la vignette Adobe Experience Manager dans le volet d’accès, vous devez être connecté automatiquement à votre application Adobe Experience Manager.
 
-Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

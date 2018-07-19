@@ -9,25 +9,25 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: c915c692a12781538e10d367d40e3efe473a6853
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1ba9f827abeb0c0cf6430089e1fb504288550737
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929041"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900461"
 ---
-# <a name="configure-a-vmss-managed-service-identity-msi-using-the-azure-portal"></a>Configurer l’identité du service administré (MSI) VMSS à l’aide du portail Azure
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurer Managed Service Identity (MSI) pour un groupe de machines virtuelles identiques à l’aide du portail Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 L’identité du service administré fournit des services Azure avec une identité gérée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
 
-Dans cet article, vous allez apprendre à activer et désactiver l’identité affectée à une VMSS, à l’aide du portail Azure. L’affectation et la suppression des identités affectées par l’utilisateur à partir de VMSS ne sont actuellement pas prises en charge via le portail Azure.
+Dans cet article, vous apprenez à activer et désactiver l’identité affectée par le système à un groupe de machines virtuelles identiques dans le portail Azure. L’attribution et la suppression des identités affectées par l’utilisateur pour un groupe de machines virtuelles identiques ne sont actuellement pas prises en charge via le portail Azure.
 
 > [!NOTE]
 > Actuellement, les opérations d’identité affectées par l’utilisateur ne sont pas prises en charge via le portail Azure. Revenez ultérieurement pour des mises à jour.
@@ -35,8 +35,7 @@ Dans cet article, vous allez apprendre à activer et désactiver l’identité a
 ## <a name="prerequisites"></a>Prérequis
 
 
-
-- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md).
+- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md).
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Identité de service administrée lors de la création d’un groupe de machines virtuelles identiques Azure

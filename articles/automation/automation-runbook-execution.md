@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff58e22f8b9b837ec272cd2cd6193da80a7b718e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4b9bfc0df01dd8fc8a6a1b7aed5ade466164a82f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195418"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930050"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -137,7 +137,7 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 Afin de partager les ressources entre tous les Runbooks du cloud, Azure Automation décharge temporairement toute tâche après leur exécution pendant 3 heures. Pendant ce temps, les travaux correspondant aux [Runbooks basés sur PowerShell](automation-runbook-types.md#powershell-runbooks) sont arrêtés et pas redémarrés. L’état de la tâche indique **Arrêté**. Ce type de Runbook est toujours redémarré depuis le début puisqu’il ne prend pas en charge les points de contrôle.
 
-[Les runbooks basés sur le flux de travail PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) reprennent depuis leur dernier [point de contrôle](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Après avoir été exécutée pendant trois heures, la tâche Runbook est interrompue par le service et son état indique **En cours d’exécution, en attente de ressources**. Lorsqu’un bac à sable est disponible, le runbook est automatiquement redémarré par le service Automation et reprend à partir du dernier point de contrôle. Ce comportement de flux de travail PowerShell est normal pour la suspension/reprise. Si le Runbook dépasse à nouveau trois heures d’exécution, le processus se répète, jusqu'à trois fois. Après le troisième redémarrage, si le Runbook n’est toujours pas terminé en trois heures, la tâche du Runbook échoue et l’état de la tâche affiche **Échec, en attente de ressources**. Dans ce cas, vous recevez l'exception suivante avec l'échec.
+[Les runbooks basés sur le flux de travail PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) reprennent depuis leur dernier [point de contrôle](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Après avoir été exécuté pendant trois heures, le travail du runbook est interrompu par le service, et son état indique **En cours d’exécution, en attente de ressources**. Lorsqu’un bac à sable est disponible, le runbook est automatiquement redémarré par le service Automation et reprend à partir du dernier point de contrôle. Ce comportement de flux de travail PowerShell est normal pour la suspension/reprise. Si le Runbook dépasse à nouveau trois heures d’exécution, le processus se répète, jusqu'à trois fois. Après le troisième redémarrage, si le Runbook n’est toujours pas terminé en trois heures, la tâche du Runbook échoue et l’état de la tâche affiche **Échec, en attente de ressources**. Dans ce cas, vous recevez l'exception suivante avec l'échec.
 
 *La tâche ne peut pas continuer, car elle a été exclue à plusieurs reprises du même point de contrôle. Assurez-vous que votre Runbook n’effectue pas des opérations de longue durée sans conserver son état.*
 
@@ -145,7 +145,9 @@ L'objectif est d'empêcher que les Runbooks ne s'exécutent indéfiniment sans s
 
 Si le Runbook n'a aucun point de contrôle ou si la tâche n'a pas atteint le premier point de contrôle avant d'être déchargée, il redémarre depuis le début.
 
-Lorsque vous créez un Runbook, vous devez vous assurer que la durée d'exécution de toute activité entre deux points de contrôle ne dépasse pas 3 heures. Vous devrez peut-être ajouter des points de contrôle à votre runbook pour vous assurer qu’il n’excède pas cette limite de trois heures ou n’interrompt pas les opérations de longue durée. Par exemple, votre Runbook peut effectuer une réindexation sur une base de données SQL volumineuse. Si cette opération unique ne se termine pas dans la limite de la répartition de charge équilibrée, la tâche est déchargée et redémarrée depuis le début. Dans ce cas, vous devez décomposer l'opération de réindexation en plusieurs étapes, comme la réindexation d'une table à la fois, puis insérer un point de contrôle après chaque opération, afin que la tâche puisse reprendre après que la dernière opération s'est terminée.
+Pour les tâches de longue durée, il est recommandé d’utiliser un [Runbook Worker hybride](automation-hrw-run-runbooks.md#job-behavior). Les Runbooks Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n’ont pas de limitation en termes de durée d’exécution d’un runbook.
+
+Si vous utilisez un runbook PowerShell Workflow sur Azure, lorsque vous créez un runbook, vous devez vous assurer que la durée d’exécution de toute activité entre deux points de contrôle ne dépasse pas trois heures. Vous devrez peut-être ajouter des points de contrôle à votre runbook pour vous assurer qu’il n’excède pas cette limite de trois heures ou n’interrompt pas les opérations de longue durée. Par exemple, votre Runbook peut effectuer une réindexation sur une base de données SQL volumineuse. Si cette opération unique ne se termine pas dans la limite de la répartition de charge équilibrée, la tâche est déchargée et redémarrée depuis le début. Dans ce cas, vous devez décomposer l'opération de réindexation en plusieurs étapes, comme la réindexation d'une table à la fois, puis insérer un point de contrôle après chaque opération, afin que la tâche puisse reprendre après que la dernière opération s'est terminée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

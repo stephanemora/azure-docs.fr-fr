@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: c1bf5ba68d8242a0ef0831987ac6fd041c62ace9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eafd7998e5bc21a539b6709794fe3cd70d9e3179
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969365"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutoriel : Intégration d’Azure Active Directory à Arc Publishing - Authentification unique
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. L’application Arc Publishing - Authentification unique attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configure Single Sign-On](./media/arc-tutorial/tutorial_arc_attribute.png)
+    ![Configurer l'authentification unique](./media/arc-tutorial/tutorial_arc_attribute.png)
 
 1. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
@@ -136,9 +136,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     1. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-     ![Configure Single Sign-On](./media/arc-tutorial/tutorial_attribute_04.png)
+     ![Configurer l'authentification unique](./media/arc-tutorial/tutorial_attribute_04.png)
 
-     ![Configure Single Sign-On](./media/arc-tutorial/tutorial_attribute_05.png)
+     ![Configurer l'authentification unique](./media/arc-tutorial/tutorial_attribute_05.png)
     
     1. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -239,7 +239,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Arc Publishing - Authentification unique dans le volet d’accès, vous devez être connecté automatiquement à votre application Arc Publishing - Authentification unique.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 07/03/2018
 ms.author: shlo
-ms.openlocfilehash: c07199887faf073d19007f1ef410c193bbdbf3ee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049364"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859276"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 L’activité GetMetadata peut être utilisée pour récupérer les **métadonnées** de n’importe quelle donnée dans Azure Data Factory. Cette activité peut être utilisée dans les scénarios suivants :
@@ -34,7 +34,7 @@ La fonctionnalité suivante est disponible dans le flux de contrôle :
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-L’activité GetMetadata sélectionne un jeu de données comme entrée requise, puis génère les informations de métadonnées disponibles comme sortie. Pour l’instant, les connecteurs suivants avec les métadonnées récupérables correspondantes sont pris en charge :
+L’activité GetMetadata sélectionne un jeu de données comme entrée requise, puis génère les informations de métadonnées disponibles comme sortie. Pour l’instant, les connecteurs suivants avec les métadonnées récupérables correspondantes sont pris en charge, et la taille de métadonnée maximale prise en charge est de **1 Mo**.
 
 >[!NOTE]
 >Si vous exécutez l’activité GetMetadata sur un runtime d’intégration auto-hébergé, la dernière fonctionnalité est prise en charge sur la version 3.6 ou ultérieure. 

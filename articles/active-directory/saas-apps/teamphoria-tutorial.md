@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 0ff053b88a718c152d31b593a7759b034347f3ef
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 794945caeea113dc6f1cc2ab5e11a76c3e88c83e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293664"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Didacticiel : Intégration d’Azure Active Directory à Teamphoria
 
@@ -101,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **Teamphoria**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/tutorial_teamphoria_samlbase.png)
+    ![Configurer l'authentification unique](./media/teamphoria-tutorial/tutorial_teamphoria_samlbase.png)
 
 3. Dans la section **Domaine et URL Teamphoria**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/tutorial_teamphoria_url.png)
+    ![Configurer l'authentification unique](./media/teamphoria-tutorial/tutorial_teamphoria_url.png)
 
     Dans la zone de texte **URL de connexion**, tapez l’URL au format suivant : `https://<sub-domain>.teamphoria.com/login`   
 
@@ -118,29 +118,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/tutorial_teamphoria_certificate.png)
+    ![Configurer l'authentification unique](./media/teamphoria-tutorial/tutorial_teamphoria_certificate.png)
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/teamphoria-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Teamphoria**, cliquez sur **Configurer Teamphoria** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/tutorial_teamphoria_configure.png)
+    ![Configurer l'authentification unique](./media/teamphoria-tutorial/tutorial_teamphoria_configure.png)
 
 7. Pour configurer l’authentification unique côté **Teamphoria**, connectez-vous à votre application Teamphoria en tant qu’administrateur.
 
 8. Accédez à l’option **ADMIN SETTINGS** (Paramètres d’administration) dans la barre d’outils gauche puis, sous l’onglet Configure (Configurer), cliquez sur **SINGLE SIGN-ON** (Authentification unique) pour ouvrir la fenêtre de configuration de l’authentification unique (SSO).
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/admin_sso_configure.png)
+    ![Configurer l'authentification unique](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 9. Cliquez sur l’option **ADD NEW IDENTITY PROVIDER** (Ajouter un nouveau fournisseur d’identité) dans le coin supérieur droit pour ouvrir le formulaire permettant d’ajouter les paramètres pour l’authentification unique.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/add_new_identity_provider.png)
+    ![Configurer l'authentification unique](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 10. Entrez les informations dans les champs comme indiqué ci-dessous :
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+    ![Configurer l'authentification unique](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
     a. **DISPLAY NAME** (Nom d’affichage) : entrez le nom d’affichage du plug-in sur la page d’administration.
 
@@ -225,7 +225,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Teamphoria**.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/tutorial_teamphoria_app.png) 
+    ![Configurer l'authentification unique](./media/teamphoria-tutorial/tutorial_teamphoria_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -245,7 +245,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

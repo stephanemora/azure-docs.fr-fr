@@ -3,7 +3,7 @@ title: Utilisation du Bureau à distance sur une machine virtuelle Linux dans Az
 description: Découvrez comment installer et configurer le Bureau à distance (xrdp) pour effectuer une connexion à une machine virtuelle Linux dans Azure à l’aide des outils graphiques
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: iainfou
-ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 5e79cfa2c428323d8531bec7eab875a2dace4ff2
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716616"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934211"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://www.xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
@@ -101,6 +101,8 @@ Ouvrez votre client Bureau à distance local et connectez-vous à l’adresse IP
 Une fois l’authentification effectuée, l’environnement de bureau xfce se charge et ressemble à l’exemple suivant :
 
 ![Environnement de bureau xfce via xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
+
+Si votre client RDP local utilise l’authentification au niveau du réseau, vous devrez peut-être désactiver ce paramètre de connexion. XRDP ne prend pas en charge l’authentification au niveau du réseau. Vous pouvez également consulter les solutions RDP alternatives qui prennent en charge l’authentification au niveau du réseau, telles que [FreeRDP](http://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Résolution des problèmes

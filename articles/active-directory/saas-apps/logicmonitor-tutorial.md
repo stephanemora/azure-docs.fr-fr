@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: eda98e4ed7e5ac4fad2ea6f0cef00a117959f4f9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 10bf78e4ea09b521138d62b29ffd0e4908ffb34d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220741"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040988"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Didacticiel : Intégration d’Azure Active Directory à LogicMonitor
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **LogicMonitor**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_logicmonitor_samlbase.png)
+    ![Configurer l'authentification unique](./media/logicmonitor-tutorial/tutorial_logicmonitor_samlbase.png)
 
 3. Dans la section **Domaine et URL LogicMonitor**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_logicmonitor_url.png)
+    ![Configurer l'authentification unique](./media/logicmonitor-tutorial/tutorial_logicmonitor_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.logicmonitor.com`
 
@@ -123,11 +123,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_logicmonitor_certificate.png) 
+    ![Configurer l'authentification unique](./media/logicmonitor-tutorial/tutorial_logicmonitor_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/logicmonitor-tutorial/tutorial_general_400.png)
 
 6. Connectez-vous au site d’entreprise **LogicMonitor** en tant qu’administrateur.
 
@@ -227,7 +227,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **LogicMonitor**.
 
-    ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_logicmonitor_app.png) 
+    ![Configurer l'authentification unique](./media/logicmonitor-tutorial/tutorial_logicmonitor_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -248,7 +248,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
  
 Lorsque vous cliquez sur la vignette LogicMonitor dans le volet d’accès, vous devez être connecté automatiquement à votre application LogicMonitor.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

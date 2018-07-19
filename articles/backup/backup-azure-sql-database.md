@@ -13,19 +13,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2018
+ms.date: 7/6/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235411"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38302821"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Sauvegarder une base de données SQL Server dans Azure
 
-Les bases de données SQL Server sont des charges de travail critiques nécessitant un faible objectif de point de récupération (RPO) et une conservation à long terme. Sauvegarde Azure offre une solution de sauvegarde de SQL Server qui ne requiert aucune infrastructure, ce qui implique l’absence de serveur de sauvegarde complexe, d’agent de gestion ou de stockage de sauvegarde à gérer. Sauvegarde Azure assure la gestion centralisée de vos sauvegardes entre tous les serveurs SQL Server, voire entre différentes charges de travail.
+Les bases de données SQL Server sont des charges de travail critiques nécessitant un faible objectif de point de récupération (RPO) et une conservation à long terme. La Sauvegarde Azure offre une solution de sauvegarde SQL Server qui ne nécessite aucune infrastructure. Cela signifie donc que vous n’avez pas à gérer de serveur de sauvegarde complexe, ni d’agent de gestion ou de stockage de sauvegarde. Sauvegarde Azure assure la gestion centralisée de vos sauvegardes entre tous les serveurs SQL Server, voire entre différentes charges de travail.
 
  Dans cet article, vous apprenez :
 
@@ -78,7 +78,7 @@ Les éléments suivants sont les limitations connues de la préversion publique.
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Systèmes d’exploitation et versions de SQL server pris en charge
 
-Les systèmes d’exploitation et versions de SQL Server pris en charge suivants s’appliquent aux machines virtuelles Azure de la Place de marché ou non (sur lesquelles SQL Server est installé manuellement).
+Les systèmes d’exploitation suivants sont pris en charge. Les machines virtuelles Azure de la Place de marché SQL et les machines virtuelles autres que celles de la Place de marché (sur lesquelles SQL Server est installé manuellement) sont prises en charge.
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
@@ -131,7 +131,7 @@ Les compromis entre les choix sont les suivants : facilité de gestion, contrôl
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Définir des autorisations pour les machines virtuelles SQL autres que de la Place de marché
 
-Pour sauvegarder une machine virtuelle, Sauvegarde Azure nécessite l’installation de l’extension **AzureBackupWindowsWorkload**. Si vous utilisez des machines virtuelles de la Place de marché Azure, passez directement à [Détecter les bases de données SQL server](backup-azure-sql-database.md#discover-sql-server-databases). Si la machine virtuelle hébergeant vos bases de données SQL n’a pas été créée à partir de la Place de marché Azure, complétez la section suivante pour installer l’extension et définir les autorisations appropriées. Outre l’extension **AzureBackupWindowsWorkload**, Sauvegarde Azure nécessite des privilèges d’administrateur système SQL pour protéger les bases de données SQL. Lors de la détection des bases de données sur la machine virtuelle, Sauvegarde Azure crée un compte NT Service\AzureWLBackupPluginSvc. Pour que Sauvegarde Azure détecte les bases de données SQL, le compte NT Service\AzureWLBackupPluginSvc doit disposer des autorisations de connexion SQL et des autorisations d’administrateur système SQL. La procédure suivante explique comment fournir ces autorisations.
+Pour sauvegarder une machine virtuelle, Sauvegarde Azure nécessite l’installation de l’extension **AzureBackupWindowsWorkload**. Si vous utilisez des machines virtuelles de la Place de marché Azure, passez directement à [Détecter les bases de données SQL server](backup-azure-sql-database.md#discover-sql-server-databases). Si la machine virtuelle hébergeant vos bases de données SQL n’a pas été créée à partir de la Place de marché Azure, complétez la section suivante pour installer l’extension et définir les autorisations appropriées. Outre l’extension **AzureBackupWindowsWorkload**, Sauvegarde Azure nécessite des privilèges d’administrateur système SQL pour protéger les bases de données SQL. Lors de la détection des bases de données sur la machine virtuelle, Sauvegarde Azure crée un compte NT Service\AzureWLBackupPluginSvc. Pour que la Sauvegarde Azure découvre les bases de données SQL, le compte NT Service\AzureWLBackupPluginSvc doit disposer des autorisations SQL et des autorisations d’administrateur système SQL. La procédure suivante explique comment fournir ces autorisations.
 
 Pour configurer des autorisations :
 
@@ -168,13 +168,13 @@ Dès que vous avez associé la base de données au coffre Recovery Services, l�
 
 ### <a name="fixing-sql-sysadmin-permissions"></a>Correction des autorisations d’administrateur système SQL
 
-Pendant l’installation, si vous rencontrez l’erreur **UserErrorSQLNoSysadminMembership**, connectez-vous à SQL Server Management Studio (SSMS) avec un compte qui possède l’autorisation d’administrateur système SQL. À moins que vous n’ayez besoin d’autorisations spéciales, vous devez être en mesure d’utiliser l’authentification Windows pour identifier le compte.
+Pendant l’installation, si vous rencontrez l’erreur **UserErrorSQLNoSysadminMembership**, utilisez un compte disposant d’autorisations d’administrateur système SQL pour vous connecter à SQL Server Management Studio (SSMS). À moins que vous ayez besoin d’autorisations spéciales, l’authentification Windows doit fonctionner.
 
 1. Sur le serveur SQL Server, ouvrez le dossier **Security/Logins**.
 
     ![Ouvrir les dossiers SQL Server, de sécurité et de connexion pour afficher les comptes](./media/backup-azure-sql-database/security-login-list.png)
 
-2. Dans le dossier Connexions, cliquez avec le bouton droit et sélectionnez **Nouvelle connexion**, puis dans la boîte de dialogue Connexion - Nouveau, cliquez sur **Rechercher**.
+2. Dans le dossier Connexions, cliquez avec le bouton droit et sélectionnez **Nouvelle connexion**, puis, dans la boîte de dialogue Connexion - Nouveau, cliquez sur **Rechercher**.
 
     ![Ouvrir Rechercher dans la boîte de dialogue Connexion - Nouveau](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -251,7 +251,7 @@ Lorsque vous utilisez l’outil **Découvrir les bases de données**, le service
 
 - Il installe l’extension **AzureBackupWindowsWorkload** sur la machine virtuelle. La sauvegarde d’une base de données SQL est une solution sans agent ; autrement dit, avec l’extension installée sur la machine virtuelle, aucun agent n’est installé dans la base de données SQL.
 
-- Il crée le compte de service, **NT Service\AzureWLBackupPluginSvc**, sur la machine virtuelle. Toutes les opérations de sauvegarde et de restauration utilisent le compte de service. Le compte **NT Server\AzureWLBackupPluginSvc** doit disposer d’autorisations d’administrateur système SQL. Toutes les machines virtuelles de la Place de marché SQL sont fournies avec l’extension SQLIaaSExtension installée, et AzureBackupWindowsWorkload l’utilise pour obtenir automatiquement les autorisations requises. Si l’extension SQLIaaSExtension n’est pas installée sur votre machine virtuelle, la détection des bases de données échoue et le message d’erreur **UserErrorSQLNoSysAdminMembership** s’affiche. Pour ajouter l’autorisation d’administrateur système pour la sauvegarde, suivez les instructions indiquées dans [Setting up Azure Backup permissions for non-marketplace SQL VMs](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms) (Configuration des autorisations Sauvegarde Azure pour les machines virtuelles SQL autres que de la Place de marché).
+- Il crée le compte de service, **NT Service\AzureWLBackupPluginSvc**, sur la machine virtuelle. Toutes les opérations de sauvegarde et de restauration utilisent le compte de service. **NT Service\AzureWLBackupPluginSvc** nécessite des autorisations d’administrateur système SQL. Toutes les machines virtuelles de la Place de marché SQL sont fournies avec l’extension SQLIaaSExtension installée, et AzureBackupWindowsWorkload l’utilise pour obtenir automatiquement les autorisations requises. Si l’extension SQLIaaSExtension n’est pas installée sur votre machine virtuelle, la détection des bases de données échoue et le message d’erreur **UserErrorSQLNoSysAdminMembership** s’affiche. Pour ajouter l’autorisation d’administrateur système pour la sauvegarde, suivez les instructions indiquées dans [Setting up Azure Backup permissions for non-marketplace SQL VMs](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms) (Configuration des autorisations Sauvegarde Azure pour les machines virtuelles SQL autres que de la Place de marché).
 
     ![sélectionner la machine virtuelle et la base de données](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -286,7 +286,7 @@ Pour configurer la protection de votre base de données SQL :
     Le service Sauvegarde Azure affiche toutes les instances SQL avec des bases de données autonomes, ainsi que les groupes de disponibilité SQL AlwaysOn. Pour afficher les bases de données autonomes dans l’instance SQL, cliquez sur le chevron situé en regard du nom de l’instance. Les images suivantes illustrent des exemples d’une instance autonome et d’un groupe de disponibilité Always On.
 
     > [!NOTE]
-    > Les sauvegardes complètes et différentielles se produisent à partir du nœud principal, car la plateforme SQL présente cette limitation. La sauvegarde de fichier journal peut se produire en fonction de votre préférence de sauvegarde. En raison de cette limitation, le nœud principal doit être inscrit.
+    > En présence d’un groupe de disponibilité AlwaysOn SQL, la sauvegarde SQL est prioritaire. Toutefois, en raison de limitations de la plateforme SQL, les sauvegardes complètes et différentielles doivent être effectuées sur le nœud principal. La sauvegarde de fichier journal peut se produire en fonction de votre préférence de sauvegarde. En raison de ces limitations, le nœud principal doit toujours être inscrit pour les groupes de disponibilité.
     >
 
     ![Liste des bases de données de l’instance SQL](./media/backup-azure-sql-database/discovered-databases.png)
@@ -335,7 +335,7 @@ Pour configurer la protection de votre base de données SQL :
 
 Une stratégie de sauvegarde définit une matrice indiquant le moment auquel les sauvegardes sont effectuées ainsi que la durée de leur rétention. Vous pouvez utiliser Sauvegarde Azure pour planifier trois types de sauvegarde pour les bases de données SQL :
 
-* Sauvegarde complète : une sauvegarde complète de base de données sauvegarde l’intégralité de la base de données. Une sauvegarde complète contient toutes les données d’une base de données spécifique ou d’un ensemble de groupes de fichiers ou de fichiers et un journal suffisant pour récupérer ces données. Vous pouvez déclencher au plus une sauvegarde complète par jour. Vous pouvez choisir d’effectuer une sauvegarde complète tous les jours ou toutes les semaines. 
+* Sauvegarde complète : une sauvegarde complète de base de données sauvegarde l’intégralité de la base de données. Une sauvegarde complète contient toutes les données d’une base de données, ou d’un ensemble de groupes de fichiers ou de fichiers, ainsi qu’un journal suffisant pour récupérer ces données. Vous pouvez déclencher au plus une sauvegarde complète par jour. Vous pouvez choisir d’effectuer une sauvegarde complète tous les jours ou toutes les semaines. 
 * Sauvegarde différentielle : une sauvegarde différentielle est basée sur la sauvegarde de données complète précédente la plus récente. Une sauvegarde différentielle capture uniquement les données qui ont changé depuis la sauvegarde complète. Vous pouvez déclencher au plus une sauvegarde différentielle par jour. Vous ne pouvez pas configurer une sauvegarde complète et une sauvegarde différentielle le même jour.
 * Sauvegarde du journal des transactions : une sauvegarde de fichier journal permet d’effectuer une restauration ponctuelle à la seconde donnée. Au plus, vous pouvez configurer des sauvegardes du journal des transactions toutes les 15 minutes.
 
@@ -394,13 +394,16 @@ Pour créer une stratégie de sauvegarde
 
 8. Lorsque vous avez apporté toutes les modifications à la stratégie de sauvegarde, cliquez sur **OK**. 
 
-   ![durée de rétention différentielle](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![accepter la nouvelle stratégie](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Restaurer une base de données SQL
 
 Sauvegarde Azure fournit les fonctionnalités permettant de restaurer des bases de données particulières à une date ou à une heure spécifiques, jusqu’à la seconde près, à l’aide des sauvegardes du journal des transactions. En fonction des heures de restauration que vous indiquez, Sauvegarde Azure détermine automatiquement la sauvegarde complète, la sauvegarde différentielle et la chaîne des sauvegardes de fichiers journaux requis pour restaurer vos données.
 
 Vous pouvez également sélectionner une sauvegarde complète ou différentielle spécifique à restaurer à un point de récupération spécifique plutôt qu’à un moment donné.
+ > [!Note]
+ > Avant de déclencher la restauration de la base de données « Master », démarrez SQL Server en mode mono-utilisateur, avec l’option de démarrage « -m AzureWorkloadBackup ». L’argument -m correspond au nom du client. Seul ce client est autorisé à établir la connexion. Pour toutes les bases de données système (model, master, msdb), arrêtez le service SQL Agent avant de déclencher la restauration. Fermez toutes les applications qui tentent de voler une connexion à l’une de ces bases de données.
+>
 
 Pour restaurer une base de données
 
@@ -442,6 +445,10 @@ Pour restaurer une base de données
 ### <a name="restore-to-an-alternate-location"></a>Restaurer à un autre emplacement
 
 Cette procédure décrit la restauration des données à un autre emplacement. Si vous souhaitez remplacer la base de données lors de la restauration, passez à la section [Restaurer et remplacer la base de données](backup-azure-sql-database.md#restore-and-overwrite-the-database). Pour cette procédure, vous devez avoir ouvert votre coffre Recovery Services et le menu Recovery Services doit être actif. Si vous ne l’êtes pas, commencez par la section [Restaurer une base de données SQL](backup-azure-sql-database.md#restore-a-sql-database).
+
+> [!NOTE]
+> Vous pouvez restaurer la base de données vers un serveur SQL Server appartenant à la même région Azure. En outre, le serveur de destination doit être inscrit auprès du coffre Recovery Services. 
+>
 
 Le menu déroulant **Serveur** affiche uniquement les serveurs SQL inscrits auprès du coffre Recovery Services. Si le serveur souhaité ne figure pas dans la liste **Serveur**, consultez la section [Détecter les bases de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) pour rechercher le serveur. Pendant le processus de détection des bases de données, tous les nouveaux serveurs sont inscrits auprès du coffre Recovery Services.
 
@@ -607,10 +614,40 @@ Cette section fournit des informations sur les différentes opérations de gesti
 * Annuler l’inscription d’un serveur SQL Server
 
 ### <a name="monitor-jobs"></a>Surveiller des travaux
+Étant donné que la Sauvegarde Azure est une solution d’entreprise, elle fournit des alertes et des notifications de sauvegarde avancées en cas d’échec (reportez-vous à la section Alertes de sauvegarde ci-dessous). Si vous souhaitez toujours surveiller certains travaux, vous pouvez utiliser l’une des options suivantes selon vos besoins :
 
-Le service Sauvegarde Azure utilise des API natives de SQL pour toutes les opérations de sauvegarde. À l’aide des API natives, vous pouvez extraire toutes les informations des travaux à partir de la [table backupset SQL](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) de la base de données msdb. En outre, Sauvegarde Azure affiche tous les travaux déclenchés manuellement, ou ad hoc, dans le portail des travaux de sauvegarde. Les travaux disponibles dans le portail sont les suivants : ensemble des opérations de configuration de sauvegarde, des opérations de restauration, des opérations d’inscription et de détection de bases de données, et opérations d’arrêt de sauvegarde. Tous les travaux planifiés peuvent également être surveillés avec OMS Log analytics. L’utilisation de Log Analytics permet de supprimer l’encombrement des travaux, et apporte la flexibilité granulaire permettant de surveiller ou de filtrer les travaux spécifiques.
-
+#### <a name="use-azure-portal-for-all-adhoc-operations"></a>Utiliser le portail Azure pour toutes les opérations ad hoc
+La Sauvegarde Azure affiche tous les travaux déclenchés manuellement, ou ad hoc, dans le portail des travaux de sauvegarde. Les travaux disponibles dans le portail sont les suivants : ensemble des opérations de configuration de sauvegarde, des opérations de sauvegarde déclenchées manuellement, des opérations de restauration, des opérations d’inscription et de découverte des bases de données, et des opérations d’arrêt de sauvegarde. 
 ![menu configuration avancée](./media/backup-azure-sql-database/jobs-list.png)
+
+> [!NOTE]
+> Tous les travaux de sauvegarde planifiés, y compris les sauvegardes complètes, les sauvegardes différentielles et les sauvegardes de fichiers journaux, ne s’affichent pas dans le portail, et peuvent être surveillés à l’aide de SQL Server Management Studio, comme décrit ci-dessous.
+>
+
+#### <a name="use-sql-server-management-studio-for-backup-jobs"></a>Utiliser SQL Server Management Studio pour les travaux de sauvegarde
+Le service Sauvegarde Azure utilise des API natives de SQL pour toutes les opérations de sauvegarde. Avec les API natives, vous pouvez extraire toutes les informations des travaux à partir de la [table backupset SQL](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) de la base de données msdb.
+
+L’exemple suivant est une requête permettant d’extraire tous les travaux de sauvegarde pour la base de données nommée **DB1**. Personnalisez la requête pour une surveillance plus avancée.
+```
+select CAST (
+Case type
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
+server_name,
+machine_name,
+backup_start_date,
+backup_finish_date,
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+ 
+```
 
 ### <a name="backup-alerts"></a>Alertes de sauvegarde
 
@@ -711,6 +748,42 @@ Pour annuler l’inscription d’un serveur SQL Server après la suppression de 
 5. Dans le menu Serveurs protégés, cliquez avec le bouton droit sur le serveur protégé, puis sélectionnez **Supprimer**. 
 
    ![rétablir la protection d’une base de données](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## <a name="sql-database-backup-faq"></a>Questions fréquentes (FAQ) sur la sauvegarde de bases de données SQL
+
+La section suivante fournit des informations supplémentaires sur la sauvegarde de base de données SQL.
+
+### <a name="can-i-throttle-the-speed-of-the-sql-backup-policy-so-it-minimizes-impact-on-the-sql-server"></a>Puis-je limiter la vitesse de la stratégie de sauvegarde SQL afin de réduire l’impact sur le serveur SQL ?
+
+Oui, vous pouvez limiter la fréquence d’exécution de la stratégie de sauvegarde. Pour modifier ce paramètre :
+
+1. Sur le serveur SQL Server, dans le dossier `C:\Program Files\Azure Workload Backup\bin`, ouvrez **TaskThrottlerSettings.json**.
+
+2. Dans le fichier **TaskThrottlerSettings.json**, remplacez la valeur de **DefaultBackupTasksThreshold** par une valeur inférieure, par exemple, 5.
+
+3. Enregistrez vos modifications, puis fermez le fichier.
+
+4. Sur le serveur SQL Server, ouvrez le Gestionnaire des tâches, puis redémarrez le **service Coordinateur des charges de travail de la Sauvegarde Azure**.
+
+### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Puis-je effectuer la sauvegarde complète d’un réplica secondaire ?
+
+Non, cette fonctionnalité n’est pas prise en charge.
+
+### <a name="do-successful-backup-jobs-create-alerts"></a>La réussite des sauvegardes de travaux génère-t-elle des alertes ?
+
+Non. Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde.
+
+### <a name="are-scheduled-backup-job-details-shown-in-the-jobs-menu"></a>Les détails concernant les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux ?
+
+Non. Le menu Travaux affiche les détails des travaux ad hoc, mais pas ceux des travaux de sauvegarde planifiés. Si un travail de sauvegarde échoue, tous les détails concernant cet échec sont fournis dans l’alerte d’échec. Si vous souhaitez surveiller tous les travaux de sauvegarde ad hoc et planifiés, [utilisez SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+
+### <a name="if-i-select-a-sql-server-will-future-databases-automatically-be-added"></a>Si je sélectionne un serveur SQL Server, les futures bases de données y seront-elles automatiquement ajoutées ?
+
+Non. Quand vous configurez la protection pour un serveur SQL, si vous cochez la case au niveau du serveur, cela ajoute toutes les bases de données. Toutefois, si vous ajoutez des bases de données au serveur SQL Server après avoir configuré la protection, vous devez ajouter manuellement les nouvelles bases de données pour les protéger. Les bases de données ne sont pas automatiquement incluses dans la protection configurée.
+
+### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Si je modifie le modèle de récupération, comment redémarrer la protection ?
+
+Si vous modifiez le modèle de récupération, déclenchez une sauvegarde complète pour démarrer la sauvegarde des fichiers journaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

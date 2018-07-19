@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 75a5713af0f5c6bbfca95bca2a345509cc154f4c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f579f914496427febdf60c3a8d3dc368ef265a9d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224954"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045323"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutoriel : intégration d’Azure Active Directory à Trisotech Digital Enterprise Server
 
@@ -127,15 +127,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 7. Cliquez sur l’**icône de menu**, puis sélectionnez **Administration**.
 
-    ![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
+    ![Configurer l'authentification unique](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
 8. Sélectionnez **User Provider (Fournisseur d’utilisateur)**.
 
-    ![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
+    ![Configurer l'authentification unique](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
 
 9. Dans la section **User Provider Configuration**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
+    ![Configurer l'authentification unique](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
     a. Sélectionnez **Secured Assertion Markup Language 2 (SAML 2)** dans la liste déroulante dans **Authentication Method**.
 
@@ -222,7 +222,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Trisotech Digital Enterprise Server dans le volet d’accès, vous devez être connecté automatiquement à votre application Trisotech Digital Enterprise Server.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

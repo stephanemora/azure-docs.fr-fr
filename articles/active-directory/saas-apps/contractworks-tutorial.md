@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: db6fa96e713878c75fd6ebc6056ee825458e986b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1fd442556a5634cdd4fb358a9c977abedd99f3d3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231227"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043378"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutoriel : Intégration d’Azure Active Directory à ContractWorks
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
      
 5. L’application ContractWorks attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configure Single Sign-On](./media/contractworks-tutorial/tutorial_ContractWorks_attribute.png)
+    ![Configurer l'authentification unique](./media/contractworks-tutorial/tutorial_ContractWorks_attribute.png)
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
@@ -129,9 +129,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/contractworks-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/contractworks-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/contractworks-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/contractworks-tutorial/tutorial_attribute_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -143,7 +143,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
     
-    ![Configure Single Sign-On](./media/contractworks-tutorial/tutorial_metadataurl.png)
+    ![Configurer l'authentification unique](./media/contractworks-tutorial/tutorial_metadataurl.png)
      
 8. Cliquez sur le bouton **Enregistrer** .
 
@@ -222,7 +222,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette ContractWorks dans le volet d’accès, vous devez être connecté automatiquement à votre application ContractWorks.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

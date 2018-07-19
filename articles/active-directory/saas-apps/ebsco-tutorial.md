@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 993d03e05c7d97634b7ed12c50d248643ce9e51d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 50e9a65f881981964270e0a8bbc7af46a9dfd27a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221282"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Didacticiel : Intégration d’Azure Active Directory à EBSCO
 
@@ -127,7 +127,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 5. L’application EBSCO attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configure Single Sign-On](./media/ebsco-tutorial/tutorial_ebsco_attribute.png)
+    ![Configurer l'authentification unique](./media/ebsco-tutorial/tutorial_ebsco_attribute.png)
 
     > [!Note]
     > L’attribut **name** est obligatoire et il est mappé avec **User Identifier** (Identificateur d’utilisateur) dans l’application EBSCO. C’est ajouté par défaut pour vous éviter d’avoir à le faire manuellement.
@@ -142,9 +142,9 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/ebsco-tutorial/tutorial_officespace_04.png)
+    ![Configurer l'authentification unique](./media/ebsco-tutorial/tutorial_officespace_04.png)
 
-    ![Configure Single Sign-On](./media/ebsco-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/ebsco-tutorial/tutorial_attribute_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -243,7 +243,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 1. Quand vous cliquez sur la vignette EBSCO dans le volet d’accès, vous devez être connecté automatiquement à votre application EBSCO.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 2. Une fois connecté à l’application, cliquez sur le bouton **Sign In** (Se connecter) dans l’angle supérieur droit.
 

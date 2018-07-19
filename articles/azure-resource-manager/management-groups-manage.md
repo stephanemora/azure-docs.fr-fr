@@ -10,16 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/09/2018
 ms.author: rithorn
-ms.openlocfilehash: 0a13627232904f4b14cdb5cbf5c3ca927d9ea167
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 730f79ce0a70da92dbb6332ad824b17e6c2327ff
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754284"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488376"
 ---
-# <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration 
+# <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
+
 Les groupes d’administration sont des conteneurs qui vous aident à gérer l’accès, la stratégie et la conformité dans plusieurs abonnements. Vous pouvez modifier, supprimer et gérer ces conteneurs pour pouvoir utiliser des hiérarchies avec [Azure Policy](../azure-policy/azure-policy-introduction.md) et les [contrôles d’accès en fonction du rôle Azure](../role-based-access-control/overview.md). Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](management-groups-overview.md).
 
 La fonctionnalité de groupe d’administration est disponible dans une préversion publique. Pour commencer à utiliser des groupes d’administration, connectez-vous au [portail Azure](https://portal.azure.com) ou utilisez [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) ou [l’API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) pour gérer vos groupes d’administration.
@@ -28,21 +29,22 @@ Pour apporter des modifications à un groupe d’administration, vous devez avoi
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="change-the-name-of-a-management-group"></a>Modifier le nom d’un groupe d’administration 
+## <a name="change-the-name-of-a-management-group"></a>Modifier le nom d’un groupe d’administration
+
 Vous pouvez modifier le nom du groupe d’administration en utilisant le portail, PowerShell ou Azure CLI.
 
 ### <a name="change-the-name-in-the-portal"></a>Modifier le nom dans le portail
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Groupes d’administration**.  
-3. Sélectionnez le groupe d’administration à renommer. 
-4. Sélectionnez l’option **Renommer le groupe** en haut de la page. 
+3. Sélectionnez le groupe d’administration à renommer.
+4. Sélectionnez l’option **Renommer le groupe** en haut de la page.
 
     ![Renommer le groupe](media/management-groups/detail_action_small.png)
 5. Lorsque le menu s’ouvre, entrez le nouveau nom à afficher.
 
-    ![Renommer le groupe](media/management-groups/rename_context.png) 
-4. Sélectionnez **Enregistrer**. 
+    ![Renommer le groupe](media/management-groups/rename_context.png)
+6. Sélectionnez **Enregistrer**.
 
 ### <a name="change-the-name-in-powershell"></a>Modifier le nom dans PowerShell
 
@@ -54,34 +56,35 @@ C:\> Update-AzureRmManagementGroup -GroupName ContosoIt -DisplayName "Contoso Gr
 
 ### <a name="change-the-name-in-azure-cli"></a>Modifier le nom dans Azure CLI
 
-Pour Azure CLI, utilisez la commande update. 
+Pour Azure CLI, utilisez la commande update.
 
 ```azurecli-interactive
 az account management-group update --name Contoso --display-name "Contoso Group" 
 ```
 
 ---
- 
+
 ## <a name="delete-a-management-group"></a>Supprimer un groupe d’administration
+
 Pour supprimer un groupe d’administration, les conditions suivantes doivent être remplies :
-1. Le groupe d’administration ne contient pas de groupes d’administration enfants ni d’abonnements. 
-    - Pour déplacer un abonnement en dehors d’un groupe d’administration, consultez [Déplacer un abonnement vers un autre groupe d’administration](#Move-subscriptions-in-the-hierarchy). 
-    - Pour déplacer un groupe d’administration vers un autre groupe d’administration, consultez [Déplacer des groupes d’administration dans la hiérarchie](#Move-management-groups-in-the-hierarchy). 
+
+1. Le groupe d’administration ne contient pas de groupes d’administration enfants ni d’abonnements.
+    - Pour déplacer un abonnement en dehors d’un groupe d’administration, consultez [Déplacer un abonnement vers un autre groupe d’administration](#Move-subscriptions-in-the-hierarchy).
+    - Pour déplacer un groupe d’administration vers un autre groupe d’administration, consultez [Déplacer des groupes d’administration dans la hiérarchie](#Move-management-groups-in-the-hierarchy).
 2. Vous avez des autorisations en écriture sur le rôle de propriétaire ou contributeur du groupe d’administration. Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Supprimer dans le portail
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Groupes d’administration**.  
-3. Sélectionnez le groupe d’administration à supprimer. 
-    
+3. Sélectionnez le groupe d’administration à supprimer.
+4. Sélectionnez **Supprimer**.
+    - Si l’icône est désactivée, placez le curseur de la souris au-dessus d’elle pour en connaître la raison.
     ![Supprimer un groupe](media/management-groups/delete.png)
-4. Sélectionnez **Supprimer**. 
-    - Si l’icône est désactivée, placez le curseur de la souris au-dessus d’elle pour en connaître la raison. 
-5. Une fenêtre s’ouvre pour que vous confirmiez la suppression du groupe d’administration. 
+5. Une fenêtre s’ouvre pour que vous confirmiez la suppression du groupe d’administration.
 
-    ![Supprimer un groupe](media/management-groups/delete_confirm.png) 
-6. Sélectionnez **Oui**. 
+    ![Supprimer un groupe](media/management-groups/delete_confirm.png)
+6. Sélectionnez **Oui**.
 
 
 ### <a name="delete-in-powershell"></a>Supprimer dans PowerShell
@@ -93,7 +96,8 @@ Remove-AzureRmManagementGroup -GroupName Contoso
 ```
 
 ### <a name="delete-in-azure-cli"></a>Supprimer dans Azure CLI
-Avec Azure CLI, utilisez la commande az account management-group delete. 
+
+Avec Azure CLI, utilisez la commande az account management-group delete.
 
 ```azurecli-interactive
 az account management-group delete --name Contoso
@@ -101,9 +105,11 @@ az account management-group delete --name Contoso
 ---
 
 ## <a name="view-management-groups"></a>Afficher des groupes d’administration
+
 Vous pouvez afficher tous les groupes pour lesquels vous avez un rôle RBAC direct ou hérité.  
 
 ### <a name="view-in-the-portal"></a>Afficher dans le portail
+
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Groupes d’administration**. 
 3. La page de la hiérarchie du groupe d’administration apparaît, dans laquelle vous pouvez explorer tous les groupes d’administration et abonnements auxquels vous avez accès. Sélectionner le nom du groupe vous fait descendre d’un niveau dans la hiérarchie. La navigation fonctionne comme dans un explorateur de fichiers. 
@@ -111,6 +117,7 @@ Vous pouvez afficher tous les groupes pour lesquels vous avez un rôle RBAC dire
 4. Pour afficher les détails du groupe d’administration, sélectionnez le lien **(détails)** en regard du titre du groupe d’administration. Si ce lien n’est pas disponible, vous n’avez pas les autorisations pour afficher ce groupe d’administration.  
 
 ### <a name="view-in-powershell"></a>Afficher dans PowerShell
+
 Utilisez la commande Get-AzureRmManagementGroup pour récupérer tous les groupes.  
 
 ```azurepowershell-interactive
@@ -123,6 +130,7 @@ Get-AzureRmManagementGroup -GroupName Contoso
 ```
 
 ### <a name="view-in-azure-cli"></a>Afficher dans Azure CLI
+
 Utilisez la commande list pour récupérer tous les groupes.  
 
 ```azurecli-interactive
@@ -136,28 +144,32 @@ az account management-group show --name Contoso
 ---
 
 ## <a name="move-subscriptions-in-the-hierarchy"></a>Déplacer des abonnements dans la hiérarchie
-L’une des raisons de créer un groupe d’administration est de regrouper des abonnements. Seuls les groupes d’administration et les abonnements peuvent être enfants d’un autre groupe d’administration. Un abonnement déplacé vers un groupe d’administration hérite de toutes les stratégies et de tous les accès utilisateur du groupe d’administration parent. 
 
-Pour déplacer l’abonnement, vous devez avoir deux autorisations : 
+L’une des raisons de créer un groupe d’administration est de regrouper des abonnements. Seuls les groupes d’administration et les abonnements peuvent être enfants d’un autre groupe d’administration. Un abonnement déplacé vers un groupe d’administration hérite de toutes les stratégies et de tous les accès utilisateur du groupe d’administration parent.
+
+Pour déplacer l’abonnement, vous devez avoir deux autorisations :
+
 - Rôle de « propriétaire » sur l’abonnement enfant.
-- Rôle de « propriétaire » ou « contributeur » sur le nouveau groupe d’administration parent. 
+- Rôle de « propriétaire » ou « contributeur » sur le nouveau groupe d’administration parent.
 - Rôle de « propriétaire » ou « contributeur » sur l’ancien groupe d’administration parent.
-Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md). 
+
+Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md).
 
 ### <a name="move-subscriptions-in-the-portal"></a>Déplacer des abonnements dans le portail
 
 **Ajouter un abonnement existant à un groupe d’administration**
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Tous les services** > **Groupes d’administration**. 
-3. Sélectionnez le groupe d’administration que vous envisagez d’utiliser comme parent.      
-5. En haut de la page, sélectionnez **Ajouter existant**. 
-6. Dans le menu ouvert, sélectionnez le **type de ressource** de l’élément que vous essayez de déplacer, autrement dit **Abonnement**.
-7. Sélectionnez l’abonnement dans la liste portant le bon ID. 
 
-    ![Enfants](media/management-groups/add_context_2.png)
-8. Sélectionnez « Enregistrer ».
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Sélectionnez **Tous les services** > **Groupes d’administration**.
+3. Sélectionnez le groupe d’administration que vous envisagez d’utiliser comme parent.
+4. En haut de la page, sélectionnez **Ajouter un abonnement**.
+5. Sélectionnez l’abonnement dans la liste portant le bon ID.
+
+    ![Enfants](media/management-groups/add_context_sub.png)
+1. Sélectionnez « Enregistrer ».
 
 **Supprimer un abonnement d’un groupe d’administration**
+
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Groupes d’administration**. 
 3. Sélectionnez le groupe d’administration qui est le parent actuel.  
@@ -171,6 +183,7 @@ Pour connaître vos autorisations, sélectionnez le groupe d’administration, p
 7. Sélectionnez **Enregistrer**.
 
 ### <a name="move-subscriptions-in-powershell"></a>Déplacer des abonnements dans PowerShell
+
 Pour déplacer un abonnement dans PowerShell, utilisez la commande Add-AzureRmManagementGroupSubscription.  
 
 ```azurepowershell-interactive
@@ -184,7 +197,8 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 ```
 
 ### <a name="move-subscriptions-in-azure-cli"></a>Déplacer des abonnements dans Azure CLI
-Pour déplacer un abonnement dans CLI, utilisez la commande add. 
+
+Pour déplacer un abonnement dans CLI, utilisez la commande add.
 
 ```azurecli-interactive
 az account management-group subscription add --name Contoso --subscription 12345678-1234-1234-1234-123456789012
@@ -199,39 +213,46 @@ az account management-group subscription remove --name Contoso --subscription 12
 ---
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>Déplacer des groupes d’administration dans la hiérarchie  
+
 Lorsque vous déplacez un groupe d’administration parent, toutes les ressources enfants qui incluent des groupes d’administration, des abonnements, des groupes de ressources et des ressources se déplacent avec le parent.   
 
 ### <a name="move-management-groups-in-the-portal"></a>Déplacer des groupes d’administration dans le portail
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Tous les services** > **Groupes d’administration**. 
-3. Sélectionnez le groupe d’administration que vous envisagez d’utiliser comme parent.      
-5. En haut de la page, sélectionnez **Ajouter existant**.
-6. Dans le menu ouvert, sélectionnez le **type de ressource** de l’élément que vous essayez de déplacer, autrement dit **Groupe d’administration**.
-7. Sélectionnez le groupe d’administration portant le bon ID et le bon nom.
+2. Sélectionnez **Tous les services** > **Groupes d’administration**.
+3. Sélectionnez le groupe d’administration que vous envisagez d’utiliser comme parent.
+5. En haut de la page, sélectionnez **Ajouter un groupe d’administration**.
+6. Dans le menu qui s’ouvre, indiquez si vous souhaitez créer un groupe d’administration ou en utiliser un existant.
+    - Si vous sélectionnez Nouveau, vous créez un groupe d’administration.
+    - Si vous sélectionnez un groupe existant, une liste déroulante répertoriant tous les groupes d’administration s’affiche. Vous pouvez les déplacer vers ce groupe d’administration.  
 
-    ![déplacer](media/management-groups/add_context.png)
-8. Sélectionnez **Enregistrer**.
+    ![déplacer](media/management-groups/add_context_MG.png)
+7. Sélectionnez **Enregistrer**.
 
 ### <a name="move-management-groups-in-powershell"></a>Déplacer des groupes d’administration dans PowerShell
+
 Utilisez la commande Update-AzureRmManagementGroup dans PowerShell pour déplacer un groupe d’administration sous un autre groupe.  
 
 ```powershell
 Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
 ```  
+
 ### <a name="move-management-groups-in-azure-cli"></a>Déplacer des groupes d’administration dans Azure CLI
-Utilisez la commande update pour déplacer un groupe d’administration avec Azure CLI. 
+
+Utilisez la commande update pour déplacer un groupe d’administration avec Azure CLI.
 
 ```azurecli-interactive
-az account management-group update --name Contoso --parent "Contoso Tenant" 
-``` 
+az account management-group update --name Contoso --parent "Contoso Tenant"
+```
 
 ---
 
-## <a name="next-steps"></a>Étapes suivantes 
-Pour en savoir plus sur les groupes d’administration, consultez : 
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour en savoir plus sur les groupes d’administration, consultez :
+
 - [Organiser vos ressources avec des groupes d’administration Azure](management-groups-overview.md)
 - [Créer des groupes d’administration pour organiser les ressources Azure](management-groups-create.md)
 - [Installer le module Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
-- [Passer en revue les spécifications de l’API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
+- [Passer en revue les spécifications de l’API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [Installer l’extension Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b42b9551a297d6c506e0dbca7e7c9898a002a9b5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a2815b60799f98071915a0f06908fd92ff3fb2f2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215169"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043929"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Didacticiel : Intégration d’Azure Active Directory à Amplitude
 
@@ -133,15 +133,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Cliquez sur **Plan Admin** (Admin de plan) dans la barre de navigation gauche.
 
-    ![Configure Single Sign-On](./media/amplitude-tutorial/configure1.png)
+    ![Configurer l'authentification unique](./media/amplitude-tutorial/configure1.png)
 
 9. Sélectionnez **Microsoft Azure Active Directory Metadata** (Métadonnées Microsoft Azure Active Directory) dans **SSO Integration** (Intégration SSO).
 
-    ![Configure Single Sign-On](./media/amplitude-tutorial/configure2.png)
+    ![Configurer l'authentification unique](./media/amplitude-tutorial/configure2.png)
 
 10. Dans la section **Setup Single Sign-On** , procédez comme suit :
 
-    ![Configure Single Sign-On](./media/amplitude-tutorial/configure3.png)
+    ![Configurer l'authentification unique](./media/amplitude-tutorial/configure3.png)
 
     a. Ouvrez le fichier **Metadata.Xml** téléchargé à partir du portail Azure dans le Bloc-notes, puis collez son contenu dans la zone de texte **Microsoft Azure Active Directory Metadata** (Métadonnées Microsoft Azure Active Directory).
 
@@ -225,7 +225,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Amplitude dans le panneau d’accès, vous devez vous connecter automatiquement à votre application Amplitude.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

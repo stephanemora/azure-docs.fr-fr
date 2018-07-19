@@ -4,20 +4,19 @@ description: Recommandations sur la création de modèles Azure Resource Manager
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c29cf5a65e9587b281a6000b5b4eff47f11da91
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807320"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927670"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Aide au déploiement d’applications web avec des modèles Azure Resource Manager
 
@@ -110,6 +109,30 @@ Le nom de votre application web doit être globalement unique. Vous pouvez utili
   ...
 }
 ```
+
+## <a name="deploy-web-app-certificate-from-key-vault"></a>Déployer un certificat d’application web à partir de Key Vault
+
+Si votre modèle inclut une ressource [Microsoft.Web/Certificates](/azure/templates/microsoft.web/certificates) pour la liaison SSL et que le certificat est stocké dans une instance Key Vault, vous devez vous assurer que l’identité App Service peut accéder au certificat.
+
+Dans Azure, le principal du service App Service est doté de l’ID **abfa0a7c-a6b6-4736-8310-5855508787cd**. Pour accorder l’accès à Key Vault au principal du service App Service, utilisez :
+
+```azurepowershell-interactive
+Set-AzureRmKeyVaultAccessPolicy `
+  -VaultName KEY_VAULT_NAME `
+  -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
+  -PermissionsToSecrets get `
+  -PermissionsToCertificates get
+```
+
+Dans Azure Government, le principal du service App Service est doté de l’ID **6a02c803-dafd-4136-b4c3-5a6f318b4714**. Utilisez cet ID dans l’exemple précédent.
+
+Dans votre instance Key Vault, sélectionnez **Certificats** et **Générer/Importer** pour charger le certificat.
+
+![Importation d’un certificat](media/web-sites-rm-template-guidance/import-certificate.png)
+
+Dans votre modèle, indiquez le nom du certificat pour le `keyVaultSecretName`.
+
+Pour un exemple de modèle, consultez [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault) (Déployer un certificat d’application web à partir d’un secret Key Vault et l’utiliser pour créer une liaison SSL).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

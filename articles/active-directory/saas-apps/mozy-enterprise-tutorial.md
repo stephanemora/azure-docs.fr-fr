@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 6c814de45fe91990af61bb47c10a43e81e6c4159
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a0e3d6822c3aa79018482ec601a3f821f9fda254
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224705"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory avec Mozy Enterprise
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Mozy Enterprise**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_samlbase.png)
+    ![Configurer l'authentification unique](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_samlbase.png)
 
 3. Dans la section **Domaine et URL Mozy Enterprise**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_url.png)
+    ![Configurer l'authentification unique](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_url.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenantname>.Mozyenterprise.com`
 
@@ -119,15 +119,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_certificate.png) 
+    ![Configurer l'authentification unique](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/mozy-enterprise-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/mozy-enterprise-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Mozy Enterprise**, cliquez sur **Configurer Mozy Enterprise** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_configure.png) 
+    ![Configurer l'authentification unique](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Mozy Enterprise en tant qu’administrateur.
 
@@ -241,7 +241,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Mozy Enterprise**.
 
-    ![Configure Single Sign-On](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_app.png) 
+    ![Configurer l'authentification unique](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -262,7 +262,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Mozy Enterprise dans le panneau d’accès, la page de connexion de l’application Mozy Enterprise doit apparaître.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

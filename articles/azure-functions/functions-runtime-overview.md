@@ -14,16 +14,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 557f071e2cd8d4f639c881274e6e74a8fb745859
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2be04c7037dd26755300cf8b7794678a6a958278
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
-ms.locfileid: "26290222"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488458"
 ---
-# <a name="azure-functions-runtime-overview"></a>Vue d’ensemble du runtime d’Azure Functions
+# <a name="azure-functions-runtime-overview-preview"></a>Vue d’ensemble du runtime d’Azure Functions (préversion)
 
-Le runtime d’Azure Functions vous fournit une nouvelle façon de tirer parti de la simplicité et de la flexibilité du modèle de programmation Azure Functions sur site. Basé sur les mêmes racines open source qu’Azure Functions, le runtime d’Azure Functions est déployé sur site pour fournir une expérience de développement quasiment identique à celle du service cloud.
+Le runtime d’Azure Functions (préversion) vous fournit une nouvelle façon de tirer parti de la simplicité et de la flexibilité du modèle de programmation Azure Functions sur site. Basé sur les mêmes racines open source qu’Azure Functions, le runtime d’Azure Functions est déployé sur site pour fournir une expérience de développement quasiment identique à celle du service cloud.
 
 ![Portail du runtime d’Azure Functions en version préliminaire][1]
 
@@ -52,7 +52,7 @@ Pour bien démarrer avec le runtime Azure Functions, vous devez disposer d’une
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Installer la [préversion du runtime d’Azure Functions](https://aka.ms/azafrdoc)
+Installer la [version préliminaire du runtime d’Azure Functions](https://aka.ms/azafrdoc)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

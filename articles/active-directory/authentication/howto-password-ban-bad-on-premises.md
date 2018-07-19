@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6fda373f832d6e24d1252587a19c88b0f464dda6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5065399f161bcaee2f9518236a28f0f5faa0ea5b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231957"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902025"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Préversion : Déployer la protection de mot de passe Azure AD
 
@@ -103,7 +103,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
          L’exemple fonctionne uniquement si l’utilisateur actuellement connecté est également un administrateur de domaine Active Directory pour le domaine racine. Une alternative consiste à fournir les informations d’identification de domaine nécessaires via le paramètre -ForestCredential.
 
          > [!NOTE]
-         > Si plusieurs serveurs proxy sont installés dans votre environnement, peu importe le serveur proxy spécifique sur lequel la procédure ci-dessus est exécutée.
+         > Si plusieurs serveurs proxy sont installés dans votre environnement, peu importe le serveur proxy spécifié dans la procédure ci-dessus.
 
          > [!TIP]
          > Il peut y avoir un retard important (plusieurs secondes) la première fois que cette cmdlet est exécutée pour un locataire Azure donné avant la fin d’exécution de la cmdlet. Sauf si une erreur est signalée, ce délai ne doit pas être considéré comme inquiétant.

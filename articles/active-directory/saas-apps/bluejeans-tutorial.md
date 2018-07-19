@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e6875fb3795d558afdf05b0a57c6c9d3bf9dc78
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d485c16719c07062249e8d40f0feca9685851834
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216427"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043463"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Didacticiel : Intégration d’Azure Active Directory à BlueJeans
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **BlueJeans**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
-    ![Configure Single Sign-On](./media/bluejeans-tutorial/tutorial_bluejeans_samlbase.png)
+    ![Configurer l'authentification unique](./media/bluejeans-tutorial/tutorial_bluejeans_samlbase.png)
 
 3. Dans la section **Domaine et URL BlueJeans**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/bluejeans-tutorial/tutorial_bluejeans_url.png)
+    ![Configurer l'authentification unique](./media/bluejeans-tutorial/tutorial_bluejeans_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.BlueJeans.com`
 
@@ -121,15 +121,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/bluejeans-tutorial/tutorial_bluejeans_certificate.png) 
+    ![Configurer l'authentification unique](./media/bluejeans-tutorial/tutorial_bluejeans_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/bluejeans-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/bluejeans-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de BlueJeans**, cliquez sur **Configurer BlueJeans** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’URL de modification du mot de passe et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/bluejeans-tutorial/tutorial_bluejeans_configure.png) 
+    ![Configurer l'authentification unique](./media/bluejeans-tutorial/tutorial_bluejeans_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **BlueJeans** en tant qu’administrateur.
 
@@ -202,7 +202,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans BlueJeans. BlueJeans prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Vous trouverez [ici](bluejeans-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
 
-**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
+**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
 1. Connectez-vous à votre site d’entreprise **BlueJeans** en tant qu’administrateur.
 
@@ -238,7 +238,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **BlueJeans**.
 
-    ![Configure Single Sign-On](./media/bluejeans-tutorial/tutorial_bluejeans_app.png)
+    ![Configurer l'authentification unique](./media/bluejeans-tutorial/tutorial_bluejeans_app.png)
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -259,7 +259,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette BlueJeans dans le panneau d’accès, la page de connexion de l’application BlueJeans doit s’afficher.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

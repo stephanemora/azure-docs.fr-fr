@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: bb70b3ff84392797ce0d93b8cf5d4018ff8ebdd8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ea202cad06130cfaaa134cad94ac08bede2f41a9
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941967"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867699"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Créer une image d’une machine virtuelle ou d’un disque dur virtuel
 
@@ -72,7 +72,7 @@ Utilisez l’interface Azure CLI 2.0 pour marquer la machine virtuelle comme é
       --name myVM
     ```
 
-2. Définissez l’état de la machine virtuelle sur généralisé avec [az vm generalize](/cli//azure/vm#generalize). L’exemple suivant marque comme généralisée la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
+2. Définissez l’état de la machine virtuelle sur généralisé avec [az vm generalize](/cli//azure/vm#generalize). L’exemple suivant marque comme généralisée la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
    
     ```azurecli
     az vm generalize \

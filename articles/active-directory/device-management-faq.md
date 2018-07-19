@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311113"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901134"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -86,11 +86,18 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 3.  Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-** Q : Comment disjoindre un appareil joints à Azure AD localement sur l’appareil ?
+**Q : Comment disjoindre un appareil joint à Azure AD localement sur l’appareil ?**
+
 **R :** 
 - Pour les appareils joints à Azure AD hybride, veillez à désactiver l’inscription automatique afin que la tâche planifiée n’inscrive pas à nouveau l’appareil. Ensuite, ouvrez une invite de commandes en tant qu’administrateur et saisissez `dsregcmd.exe /debug /leave`. Cette commande peut également être exécutée en tant que script entre plusieurs appareils pour disjoindre en bloc.
 
 - Pour les appareils uniquement joints à Azure AD, assurez-vous d’avoir un administrateur local en mode hors connexion de compte ou créez-en un, car vous ne pourrez pas vous connecter avec des informations d’identification d’utilisateur Azure AD. Ensuite, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez votre compte et cliquez sur **Se déconnecter**. Suivez les invites et fournissez les informations d’identification de l’administrateur local lorsque vous y êtes invité. Redémarrez l’appareil pour terminer le processus de disjonction.
+
+---
+
+**Q : Mes utilisateurs ne peuvent pas rechercher d’imprimantes à partir d’appareils joints à Azure AD. Comment activer l’impression à partir d’appareils joints à Azure AD ?**
+
+**R :** Pour le déploiement d’imprimantes pour les appareils joints à Azure AD, consultez [Impression cloud hybride](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
 
 ---
 
@@ -124,6 +131,11 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 ---
 
+**Q : Pourquoi certains de mes utilisateurs ne reçoivent pas d’invites MFA sur des appareils joints à Azure AD ?**
+
+**R :** Si l’utilisateur joint ou inscrit un appareil auprès d’Azure AD à l’aide de l’authentification multifacteur, l’appareil lui-même devient un second facteur approuvé pour cet utilisateur particulier. Par la suite, chaque fois que le même utilisateur se connecte à l’appareil et accède à une application, Azure AD considère l’appareil comme second facteur et permet à l’utilisateur d’accéder en toute transparence à ses applications sans invites MFA supplémentaires. Ce comportement n’est pas applicable à un autre utilisateur se connectant à cet appareil. Par conséquent, les autres utilisateurs accédant à cet appareil sont toujours invités à répondre à un Challenge MFA avant d’accéder aux applications qui requièrent l’authentification MFA.
+
+---
 
 **Q : Je vois l’enregistrement d’appareil sous les informations UTILISATEUR dans le portail Azure, ainsi que l’état Inscrit sur l’appareil. Ma configuration est-elle correcte pour l’utilisation de l’accès conditionnel ?**
 
@@ -173,5 +185,6 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 - [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD pour les clients de bas niveau Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

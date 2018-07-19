@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 1ce186978d910cfdae068e68b5f86a8ebd5fa712
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2957fffecbf448fa456d80200aba9752569b5f69
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227419"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Tutoriel : Intégration d’Azure Active Directory à Elium
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. L’application Elium attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications.
 
-    ![Configure Single Sign-On](./media/elium-tutorial/tutorial_attribute.png)
+    ![Configurer l'authentification unique](./media/elium-tutorial/tutorial_attribute.png)
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
            
@@ -140,11 +140,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/elium-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/elium-tutorial/tutorial_attribute_04.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    ![Configure Single Sign-On](./media/elium-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/elium-tutorial/tutorial_attribute_05.png)
 
     c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
 
@@ -164,15 +164,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Cliquez sur le **Profil utilisateur** dans le coin supérieur droit, puis sélectionnez **Administration**.
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user1.png)
+    ![Configurer l'authentification unique](./media/elium-tutorial/user1.png)
 
 9. Sélectionnez l’onglet **Sécurité**.
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user2.png)
+    ![Configurer l'authentification unique](./media/elium-tutorial/user2.png)
 
 10. Faites défiler jusqu’à la section **Single Sign-On SSO** (Authentification unique) et effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user3.png)
+    ![Configurer l'authentification unique](./media/elium-tutorial/user3.png)
 
     a. Copiez la valeur de **Verify that SAML2 authentication works for your account** (Vérifiez que l’authentification SAML2 fonctionne pour votre compte) et collez-la dans la zone de texte **URL de connexion** de la section **Domaine et URL Elium** du portail Azure.
 
@@ -187,11 +187,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Recherchez l’**entityID** (identificateur d’utilisateur) dans le fichier **SP Metadata** (Métadonnées du fournisseur de service), copiez la valeur de **entityID** et collez-la dans la zone de texte **Identificateur** de la section **Domaine et URL Elium** du portail Azure. 
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user4.png)
+    ![Configurer l'authentification unique](./media/elium-tutorial/user4.png)
 
     f. Recherchez **AssertionConsumerService** dans le fichier **SP Metadata** (Métadonnées du fournisseur de service), copiez la valeur de **Location** et collez-la dans la zone de texte **URL de réponse** de la section **Domaine et URL Elium** du portail Azure.
 
-    ![Configure Single Sign-On](./media/elium-tutorial/user5.png)
+    ![Configurer l'authentification unique](./media/elium-tutorial/user5.png)
 
     g. Dans le Bloc-notes, ouvrez le fichier de métadonnées téléchargé depuis le portail Azure, copiez son contenu et collez-le dans la zone de texte **IdP Metadata** (Métadonnées du fournisseur d’identité).
 
@@ -270,7 +270,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Elium du panneau d’accès, vous devriez être connecté automatiquement à votre application Elium.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

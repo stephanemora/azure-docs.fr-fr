@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: na
+ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263528"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481988"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Solutions d’analyse réseaux Azure dans Log Analytics
 
@@ -77,7 +78,8 @@ Les journaux pris en charge pour les passerelles d’application sont les suivan
 * ApplicationGatewayPerformanceLog
 * ApplicationGatewayFirewallLog
 
-Les métriques prises en charge pour les passerelles d’application sont les suivantes :
+Les métriques prises en charge pour les passerelles d’application sont les suivantes :
+
 
 * Débit de 5 minutes
 
@@ -140,6 +142,12 @@ Sur l’une des pages de recherche de journal, vous pouvez afficher les résulta
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Solution d’analytique Azure Network Security Group dans Log Analytics
 
 ![Symbole d’Azure Network Security Group Analytics](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> La solution d’analytique Groupe de sécurité réseau passe au support Communauté, puisqu’elle a été remplacée par [Traffic Analytics](../network-watcher/traffic-analytics.md).
+> - Cette solution est désormais disponible dans les [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/), et ne sera bientôt plus disponible dans la Place de marché Azure.
+> - Pour les clients existants qui ont déjà ajouté la solution à leur espace de travail, elle continuera de fonctionner comme avant.
+> - Microsoft continuera de prendre en charge l’envoi des journaux de diagnostic NSG vers votre espace de travail à l’aide des paramètres de diagnostic.
 
 Les fichiers journaux suivants sont pris en charge pour les groupes de sécurité réseau :
 

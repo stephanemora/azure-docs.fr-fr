@@ -9,18 +9,21 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe263346d8794b3dc85b6420d8b9b02efa5f9684
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 90aa19d690b1b4ab28c3a65a287a10aaf6a03ac6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193503"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929030"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Guide de mise à jour des modules Azure PowerShell dans Azure Automation
 
-Les modules Azure PowerShell courants sont fournis par défaut dans chaque compte Automation. L’équipe Azure met à jour régulièrement les modules Azure. Vous disposez donc dans le compte Automation d’une méthode permettant de mettre à jour les modules dans le compte lorsque de nouvelles versions sont disponibles dans le portail.  
+Les modules Azure PowerShell courants sont fournis par défaut dans chaque compte Automation. L’équipe Azure met à jour régulièrement les modules Azure. Vous disposez donc dans le compte Automation d’une méthode permettant de mettre à jour les modules dans le compte lorsque de nouvelles versions sont disponibles dans le portail.
 
 Étant donné que les modules sont régulièrement mis à jour par le groupe de produits, les modifications peuvent se produire avec les cmdlets inclus. Cela peut avoir un impact négatif sur vos runbooks suivant le type de modification, comme renommer un paramètre ou désapprouver entièrement un cmdlet. Pour éviter toute incidence sur vos runbooks ainsi que les processus qu’ils automatisent, il est conseillé de tester et valider les mises à jour avant de les appliquer. Si vous ne possédez pas de compte Automation dédié destiné à cet usage, pensez à en créer un. Vous pourrez tester de nombreux scénarios et différentes permutations lors du développement de vos runbooks, en plus des modifications répétitives comme la mise à jour des modules PowerShell. Dès que les résultats sont validés et une fois les modifications requises appliquées, passez à la coordination de la migration de tout runbook nécessitant une modification, puis réalisez la mise à jour comme décrit dans la production.
+
+> [!NOTE]
+> Un nouveau compte Automation peut ne pas contenir les derniers modules.
 
 ## <a name="updating-azure-modules"></a>Mise à jour de modules Azure
 
@@ -44,7 +47,7 @@ Les modules Azure PowerShell courants sont fournis par défaut dans chaque compt
 > [!NOTE]
 > Azure Automation utilise les modules les plus récents de votre compte Automation durant l’exécution d’un nouveau travail planifié.    
 
-Si vous utilisez des cmdlets à partir de ces modules Azure PowerShell dans des runbooks, vous devez effectuer cette mise à jour chaque mois pour être certain d’avoir les derniers modules.
+Si vous utilisez des cmdlets à partir de ces modules Azure PowerShell dans des runbooks, vous devez effectuer cette mise à jour chaque mois pour être certain d’avoir les derniers modules. Azure Automation utilise la connexion AzureRunAsConnection pour l’authentification lors de la mise à jour des modules. Si le principal de service est arrivé à expiration ou n’existe plus au niveau de l’abonnement, la mise à jour du module échoue.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

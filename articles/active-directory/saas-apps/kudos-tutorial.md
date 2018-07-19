@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c7bf7efe76f9fdee6a5508131c4d86d503a87366
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5807ab0090f401c02599db40f110b7a9b1504060
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217062"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Didacticiel : Intégration d’Azure Active Directory à Kudos
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Kudos**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/kudos-tutorial/tutorial_kudos_samlbase.png)
+    ![Configurer l'authentification unique](./media/kudos-tutorial/tutorial_kudos_samlbase.png)
 
 3. Dans la section **Kudos Domain and URLs** (Domaine et URL Kudos), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/kudos-tutorial/tutorial_kudos_url.png)
+    ![Configurer l'authentification unique](./media/kudos-tutorial/tutorial_kudos_url.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company>.kudosnow.com`
     
@@ -119,15 +119,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/kudos-tutorial/tutorial_kudos_certificate.png) 
+    ![Configurer l'authentification unique](./media/kudos-tutorial/tutorial_kudos_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/kudos-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/kudos-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Kudos Configuration** (Configuration de Kudos), cliquez sur **Configure Kudos** (Configurer Kudos) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/kudos-tutorial/tutorial_kudos_configure.png) 
+    ![Configurer l'authentification unique](./media/kudos-tutorial/tutorial_kudos_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Kudos en tant qu’administrateur.
 
@@ -231,7 +231,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Kudos**.
 
-    ![Configure Single Sign-On](./media/kudos-tutorial/tutorial_kudos_app.png) 
+    ![Configurer l'authentification unique](./media/kudos-tutorial/tutorial_kudos_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -251,7 +251,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Kudos dans le panneau d’accès, vous devez être connecté automatiquement à votre application Kudos. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Lorsque vous cliquez sur la vignette Kudos dans le panneau d’accès, vous devez être connecté automatiquement à votre application Kudos. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 287204afa7ace9e39507c9dc006549a731b3b992
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b699714a2ab90fd0ad1c2f290681ccdae7aeb1ba
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230384"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Lifesize Cloud
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Lifesize Cloud**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_samlbase.png)
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_samlbase.png)
 
 3. Dans la section **Domaine et URL Lifesize Cloud**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_url.png)
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://login.lifesizecloud.com/ls/?acs`
 
@@ -119,7 +119,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
      
 4. Cochez l’option **Afficher les paramètres d’URL avancés**, puis procédez comme suit :    
    
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_url1.png)
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_url1.png)
 
     Dans la zone de texte **État de relais**, entrez une valeur en respectant le format suivant : `https://webapp.lifesizecloud.com/?ent=<identifier>`
    
@@ -128,29 +128,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_certificate.png) 
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_general_400.png)
 
 6. Pour ouvrir la fenêtre **Configurer l’authentification**, dans la section **Configuration Lifesize Cloud**, cliquez sur **Configurer Lifesize Cloud**. Copiez **l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_configure.png) 
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_configure.png) 
 
 7. Pour configurer SSO pour votre application, connectez-vous à l’application Lifesize Cloud avec les privilèges d’administrateur.
 
 8. Dans le coin supérieur droit, cliquez sur votre nom, puis cliquez sur **Paramètres avancés**.
    
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 9. Dans les Paramètres avancés, cliquez maintenant sur le lien **Configuration de l’authentification unique**. La page Configuration SSO de l’instance s’ouvre.
    
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 10. Maintenant, configurez les valeurs suivantes dans l’interface utilisateur de configuration de l’authentification unique.    
    
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
     
     a. Dans la zone de texte **Émetteur du fournisseur d'identité**, collez la valeur de l’**ID d’entité SAML** copié à partir du portail Azure.
 
@@ -227,7 +227,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Lifesize Cloud**.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_app.png) 
+    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesize-cloud_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -248,7 +248,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 En cliquant sur la vignette Lifesize Cloud dans le Panneau d’accès, vous allez en principe être connecté automatiquement à votre application Lifesize Cloud.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

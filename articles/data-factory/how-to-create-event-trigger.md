@@ -10,20 +10,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/10/2018
 ms.author: douglasl
-ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062119"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969576"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement
 
 Cet article décrit les déclencheurs basés sur un événement que vous pouvez créer dans vos pipelines Data Factory.
 
 L’architecture basée sur les événements (EDA) est un modèle d’intégration de données courant qui implique la production, la détection, la consommation et la réaction à des événements. Les scénarios d’intégration de données nécessitent souvent des clients Data Factory pour déclencher des pipelines basés sur des événements. Data Factory est désormais intégré à [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), qui vous permet de déclencher des pipelines sur un événement.
+
+> [!NOTE]
+> L’intégration décrite dans cet article dépend [d’Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Vérifiez que votre abonnement est inscrit auprès du fournisseur de ressources Event Grid. Pour plus d’informations, consultez [Types et fournisseurs de ressources](../azure-resource-manager/resource-manager-supported-services.md#portal).
 
 ## <a name="data-factory-ui"></a>IU de la fabrique de données
 
@@ -36,17 +39,17 @@ Un événement type est l’arrivée d’un fichier, ou la suppression d’un fi
 
 ![Créer un déclencheur d’événement](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-### <a name="select-the-event-trigger-type"></a>Sélectionner le type de déclencheur d’événement
-
-Dès que le fichier arrive dans votre emplacement de stockage et que l’objet blob correspondant est créé, cet événement se déclenche et exécute votre pipeline Data Factory. Vous pouvez créer un déclencheur qui répond à un événement de création d’objet blob, un événement de suppression d’objet blob, ou les deux, dans vos pipelines Data Factory.
-
-![Sélectionner le type de déclencheur en tant qu’événement](media/how-to-create-event-trigger/event-based-trigger-image2.png)
-
 ### <a name="configure-the-event-trigger"></a>Configurer le déclencheur d’événement
 
 Avec les propriétés **Blob path begins with** (Chemin d’accès de l’objet blob commence par) et **Blob path ends with** (Chemin d’accès de l’objet blob se termine par), vous pouvez spécifier les conteneurs, les dossiers et les noms d’objets blob pour lesquels vous souhaitez recevoir des événements. Vous pouvez utiliser divers modèles pour les deux propriétés **Blob path begins with** (Chemin d’accès de l’objet blob commence par) et **Blob path ends with** (Chemin d’accès de l’objet blob se termine par), comme indiqué dans les exemples plus loin dans cet article. Au moins une de ces propriétés est requise.
 
-![Configurer le déclencheur d’événement](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+![Configurer le déclencheur d’événement](media/how-to-create-event-trigger/event-based-trigger-image2.png)
+
+### <a name="select-the-event-trigger-type"></a>Sélectionner le type de déclencheur d’événement
+
+Dès que le fichier arrive dans votre emplacement de stockage et que l’objet blob correspondant est créé, cet événement se déclenche et exécute votre pipeline Data Factory. Vous pouvez créer un déclencheur qui répond à un événement de création d’objet blob, un événement de suppression d’objet blob, ou les deux, dans vos pipelines Data Factory.
+
+![Sélectionner le type de déclencheur en tant qu’événement](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
 ## <a name="json-schema"></a>Schéma JSON
 
@@ -66,18 +69,20 @@ Cette section fournit des exemples de paramètres de déclencheur basé sur un �
 -   **Blob path begins with**('/containername/') : reçoit des événements pour tout objet blob dans le conteneur.
 -   **Blob path begins with**('/containername/blobs/foldername') : reçoit des événements pour tout objet blob dans le conteneur containername et le dossier foldername.
 -   **Blob path begins with**('/containername/blobs/foldername/file.txt') : reçoit des événements pour un objet blob nommé file.txt dans le dossier foldername sous le conteneur containername.
--   **Blob path ends with**('file.txt') : reçoit des événements pour un objet blob nommé file.txt dans n’importe quel chemin.
+-   **Blob path ends with**('file.txt') : reçoit des événements pour un objet blob nommé « file.txt » dans n’importe quel chemin d’accès.
 -   **Blob path ends with**('/containername/blobs/file.txt') : reçoit des événements pour un objet blob nommé file.txt sous le conteneur containername.
--   **Blob path ends with**('/foldername/file.txt') : reçoit des événements pour un objet blob nommé file.txt dans le dossier foldername sous n’importe quel conteneur.
+-   **Blob path ends with**('/foldername/file.txt') : reçoit des événements pour un objet blob nommé « file.txt » dans le dossier « foldername » sous n’importe quel conteneur.
 
 > [!NOTE]
 > Vous devez inclure le segment `/blobs/` du chemin chaque fois que vous spécifiez conteneur et dossier, conteneur et fichier, ou conteneur, dossier et fichier.
 
-## <a name="using-blob-events-trigger-properties"></a>Utilisation de propriétés de déclencheur d’événements blob
+## <a name="map-trigger-properties-to-pipeline-parameters"></a>Mapper des propriétés de déclencheur à des paramètres de pipeline
 
-Lors de l’activation d’un déclencheur d’événements blob, deux variables sont mises à disposition de votre pipeline : *folderPath* et *fileName*. Pour accéder à ces variables, utilisez les expressions `@triggerBody().fileName` ou `@triggerBody().folderPath`.
+Quand un déclencheur d’événement est déclenché pour un objet blob spécifique, l’événement capture le chemin de dossier et le nom de fichier de l’objet blob dans les propriétés `@triggerBody().folderPath` et `@triggerBody().fileName`. Pour utiliser les valeurs de ces propriétés dans un pipeline, vous devez mapper les propriétés aux paramètres de pipeline. Après le mappage des propriétés aux paramètres, vous pouvez accéder aux valeurs capturées par le déclencheur à l’aide de l’expression `@pipeline.parameters.parameterName` tout au long du pipeline.
 
-Par exemple, considérez un déclencheur configuré pour se déclencher quand un objet blob est créé avec `.csv` comme valeur de `blobPathEndsWith`. Quand un fichier .csv est déposé dans le compte de stockage, *folderPath* et *fileName* décrivent l’emplacement du fichier .csv. Par exemple, *folderPath* a la valeur `/containername/foldername/nestedfoldername` et *fileName* a la valeur `filename.csv`.
+![Mappage des propriétés aux paramètres de pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Par exemple, dans la capture d’écran précédente, le déclencheur est configuré pour se déclencher quand un chemin d’objet blob se terminant par `.csv` est créé dans le compte de stockage. Par conséquent, quand un objet blob avec l’extension `.csv` est créé n’importe où dans le compte de stockage, les propriétés `folderPath` et `fileName` capturent l’emplacement du nouvel objet blob. Par exemple, `@triggerBody().folderPath` a une valeur de type `/containername/foldername/nestedfoldername` et `@triggerBody().fileName` a une valeur de type `filename.csv`. Ces valeurs sont mappées dans l’exemple aux paramètres de pipeline `sourceFolder` et `sourceFile`. Vous pouvez les utiliser dans le pipeline comme `@pipeline.parameters.sourceFolder` et `@pipeline.parameters.sourceFile` respectivement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).

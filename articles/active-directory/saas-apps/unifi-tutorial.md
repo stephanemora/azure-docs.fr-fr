@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 589366bc3a079cdf1cacc21982cd03a1ff6d74ce
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0aa3ec013e93ddb89cd6982c01a38411f67b34c4
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220775"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Didacticiel : Intégration d’Azure Active Directory à UNIFI
 
@@ -148,7 +148,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     a. Dans la zone de texte **Nom du fournisseur**, entrez le nom du fournisseur d’identité.
 
-    b. Dans la zone de texte **URL du fournisseur**, collez l’**URL du service d’authentification unique SAML** que vous avez copiée sur le portail Azure.
+    b. Dans la zone de texte **URL du fournisseur**, collez **l’URL du service d’authentification unique SAML** que vous avez copiée sur le portail Azure.
 
     c. Ouvrez le certificat que vous avez téléchargé à partir du portail Azure dans le bloc-notes, supprimez les balises **---BEGIN CERTIFICATE---** et **---END CERTIFICATE---**, puis collez le contenu restant dans la zone de texte **Certificat**.
 

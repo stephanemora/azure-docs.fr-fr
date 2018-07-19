@@ -1,4 +1,4 @@
-﻿---
+---
 title: Guide Azure AI pour les solutions de maintenance prédictive | Microsoft Docs
 description: Une description complète de la science des données qui alimente les solutions de maintenance prédictive dans plusieurs secteurs d’activité.
 services: machine-learning
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938007"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972381"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -415,7 +415,7 @@ La dernière section de ce guide fournit une liste de modèles de solutions de P
 | # | Intitulé | Description |
 |--:|:------|-------------|
 | 1 | [Exemple d’apprentissage de maintenance prédictive Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Échantillon de PdM pour prédire une défaillance pendant les N prochaines unités de temps. Cet échantillon est écrit sous forme de projet Azure ML Workbench et est idéal pour les débutants dans la PDM. [Documentation supplémentaire](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) concernant cet échantillon.|
-| 2 | [Échantillon de solution de maintenance prédictive Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Une infrastructure de bout en bout pour illustrer plusieurs scénarios de PdM. Ce modèle présente deux scénarios : le premier est un nouveau cas d’usage de la classification de conditions de défaillance en temps réel. Le second scénario est simplement une intégration de la solution [1] dans ce modèle de solution. Il montre comment réutiliser la même infrastructure déployée pour ajouter d’autres scénarios, nouveaux ou existants.|
+| 2 | [Échantillon de solution de maintenance prédictive Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Un modèle de solution open source qui illustre la modélisation ML et une infrastructure Azure complète pouvant prendre en charge des scénarios de maintenance prédictive dans le contexte de la surveillance à distance IoT. |
 | 3 | [Apprentissage profond pour la maintenance prédictive](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook avec une solution de démonstration de l’utilisation des réseaux LSTM (Long Short-Term Memory) (une classe de réseaux de neurones récurrents) pour une maintenance prédictive, avec un [billet de blog sur cet échantillon](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guide de modélisation de maintenance prédictive dans R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide de modélisation de PdM avec scripts dans R.|
 | 5. | [Maintenance prédictive Azure pour l’aérospatiale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Un des premiers modèles de solution de PdM basés sur Azure ML v1.0 pour la maintenance des avions. Ce guide résulte de ce projet. |

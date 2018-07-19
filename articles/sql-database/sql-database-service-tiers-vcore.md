@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/23/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309577"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859933"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Choix du niveau de service et des ressources de calcul, de mémoire, de stockage et d’E/S pour vCore
 
@@ -25,8 +25,8 @@ Le tableau suivant montre les différences entre ces deux niveaux :
 ||**Usage général**|**Critique pour l’entreprise**|
 |---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|
-|Calcul|Entre 1 et 80 vCore, générations 4 et 5 |Entre 1 et 80 vCore, générations 4 et 5|
-|Mémoire|7 Go par cœur |7 Go par cœur |
+|Calcul|1 à 80 cœurs, Gen4 et Gen5 |1 à 80 cœurs, Gen4 et Gen5|
+|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,5 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,5 Go par cœur |
 |Stockage|Stockage distant Premium, de 5 Go à 4 To|Stockage sur SSD local, de 5 Go à 4 To|
 |Débit d’E/S (approximatif)|500 IOPS par vCore avec 7000 IOPS au maximum|5000 IOPS par cœur avec 200 000 IOPS au maximum|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [échelle lecture](sql-database-read-scale-out.md), haute disponibilité redondante dans une zone|
@@ -81,10 +81,10 @@ Le tableau suivant fournit des conseils pour certains scénarios de migration :
 
 |Niveau de service actuel|Niveau de service cible|Type de migration|Actions utilisateur|
 |---|---|---|---|
-|standard|Usage général|Latéral|Peut effectuer la migration dans n’importe quel ordre, mais doit garantir un redimensionnement vCore adapté*|
+|Standard|Usage général|Latéral|Peut effectuer la migration dans n’importe quel ordre, mais doit garantir un redimensionnement vCore adapté*|
 |Premium|Critique pour l’entreprise|Latéral|Peut effectuer la migration dans n’importe quel ordre, mais doit garantir un redimensionnement vCore adapté*|
-|standard|Critique pour l’entreprise|Mise à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
-|Critique pour l’entreprise|standard|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|
+|Standard|Critique pour l’entreprise|Mise à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
+|Critique pour l’entreprise|Standard|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|
 |Premium|Usage général|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|
 |Usage général|Premium|Mise à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
 |Critique pour l’entreprise|Usage général|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|

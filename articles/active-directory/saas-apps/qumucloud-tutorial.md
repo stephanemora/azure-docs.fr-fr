@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 488c9c62138cf9b042de749c35b8e8932b1da30f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: efa2c421b405b11acb605106bc14ccc76f1a2149
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226933"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutoriel : Intégration d’Azure Active Directory à Qumu Cloud
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. L’application Qumu Cloud attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configure Single Sign-On](./media/qumucloud-tutorial/attribute.png)
+    ![Configurer l'authentification unique](./media/qumucloud-tutorial/attribute.png)
     
 5. Dans la section **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** pour développer les attributs. Dans chacun des attributs affichés, procédez comme suit :
 
@@ -136,11 +136,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Cliquez sur l’attribut pour ouvrir la fenêtre **Modifier l’attribut**.
 
-    ![Configure Single Sign-On](./media/qumucloud-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/qumucloud-tutorial/tutorial_attribute_04.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    ![Configure Single Sign-On](./media/qumucloud-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/qumucloud-tutorial/tutorial_attribute_05.png)
 
     c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
 
@@ -234,7 +234,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Qumu Cloud dans le volet d’accès, vous devez être automatiquement authentifié auprès de votre application Qumu Cloud.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764398"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970487"
 ---
 # <a name="durable-functions-overview"></a>Vue d’ensemble de Fonctions durables
 
 *Fonctions durables* est une extension d[’Azure Functions](functions-overview.md) et d[’Azure WebJobs](../app-service/web-sites-create-web-jobs.md) qui vous permet d’écrire des fonctions avec état dans un environnement sans serveur. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
 
-L’extension vous permet de définir des flux de travail avec état dans un nouveau type de fonction appelé une *fonction d’orchestrateur*. Voici quelques-uns des avantages des fonctions d’orchestrateur :
+L’extension vous permet de définir des flux de travail avec état dans un nouveau type de fonction appelé [*fonction d’orchestrateur*](durable-functions-types-features-overview.md#orchestrator-functions). Voici quelques-uns des avantages des fonctions d’orchestrateur :
 
 * Elles définissent des flux de travail dans le code. Elles ne nécessitent aucun schéma JSON ou concepteur.
 * Elles peuvent appeler d’autres fonctions de façon synchrone et asynchrone. La sortie des fonctions appelées peut être enregistrée dans des variables locales.
@@ -340,7 +340,7 @@ Les fonctions d’orchestrateur conservent de façon fiable leur état d’exéc
 
 L’utilisation de l’approvisionnement d’événements par cette extension est transparente. En coulisse, l’opérateur `await` d’une fonction d’orchestrateur cède le contrôle du thread orchestrateur au répartiteur de l’infrastructure des tâches durables. Le répartiteur valide ensuite dans le stockage toutes les actions que la fonction d’orchestrateur a planifiées (par exemple, l’appel d’une ou plusieurs fonctions enfant ou la planification d’un minuteur durable). Cette action de validation transparente s’ajoute à *l’historique d’exécution* de l’instance d’orchestration. L’historique est stocké dans une table de stockage. L’action de validation ajoute ensuite des messages à une file d’attente pour planifier le travail réel. À ce stade, la fonction d’orchestrateur peut être déchargée de la mémoire. Sa facturation s’arrête si vous utilisez le plan de consommation Azure Functions.  Si d’autres tâches doivent être effectuées, la fonction redémarre et son état est reconstruit.
 
-Lorsqu’une fonction d’orchestration reçoit plus de tâches à effectuer (par exemple, un message de réponse est reçu ou un minuteur durable expire), l’orchestrateur sort à nouveau de veille et réexécute toute la fonction depuis le début afin de reconstruire l’état local. Si au cours de la réexécution, le code tente d’appeler une fonction (ou toute autre tâche asynchrone), l’infrastructure des tâches durables consulte *l’historique d’exécution* de l’orchestration en cours. Si elle constate que la fonction de l’activité a déjà été exécutée et a produit un résultat, elle réexécute les résultats de cette fonction, et le code d’orchestrateur continue de s’exécuter. Ce processus se poursuit jusqu'à ce que le code de la fonction atteint un point où il se termine ou s’il a planifié une nouvelle tâche asynchrone.
+Lorsqu’une fonction d’orchestration reçoit plus de tâches à effectuer (par exemple, un message de réponse est reçu ou un minuteur durable expire), l’orchestrateur sort à nouveau de veille et réexécute toute la fonction depuis le début afin de reconstruire l’état local. Si au cours de la réexécution, le code tente d’appeler une fonction (ou toute autre tâche asynchrone), l’infrastructure des tâches durables consulte *l’historique d’exécution* de l’orchestration en cours. Si elle constate que la [fonction d’activité](durable-functions-types-features-overview.md#activity-functions) a déjà été exécutée et a produit un résultat, elle réexécute les résultats de cette fonction, et le code d’orchestrateur continue de s’exécuter. Ce processus se poursuit jusqu'à ce que le code de la fonction atteint un point où il se termine ou s’il a planifié une nouvelle tâche asynchrone.
 
 ### <a name="orchestrator-code-constraints"></a>Contraintes du code d’orchestrateur
 
@@ -348,7 +348,7 @@ Le comportement de réexécution crée des contraintes concernant le type de cod
 
 ## <a name="language-support"></a>Support multilingue
 
-Actuellement, C# (Functions v1 et v2) et JavaScript (Functions v2 uniquement) sont les seuls langages pris en charge uniquement pour Fonctions durables. Cela inclut les fonctions d’orchestrateur et les fonctions d’activité. À l’avenir, nous inclurons tous les langages pris en charge par Azure Functions. Consultez la liste des [problèmes de référentiel GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) Azure Functions pour afficher les dernières informations concernant la prise en charge de langages supplémentaires.
+Actuellement, C# (Functions v1 et v2), F# et JavaScript (Functions v2 uniquement) sont les seuls langages pris en charge uniquement pour Fonctions durables. Cela inclut les fonctions d’orchestrateur et les fonctions d’activité. À l’avenir, nous inclurons tous les langages pris en charge par Azure Functions. Consultez la liste des [problèmes de référentiel GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) Azure Functions pour afficher les dernières informations concernant la prise en charge de langages supplémentaires.
 
 ## <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 
@@ -384,7 +384,7 @@ Tous les problèmes connus doivent être répertoriés dans la liste [Problèmes
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Poursuivre la lecture de la documentation Fonctions durables](durable-functions-bindings.md)
+> [Poursuivre la lecture de la documentation Fonctions durables](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [Installer l’extension Fonctions durables et des exemples](durable-functions-install.md)

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65aad3244ce49e77bdd2e207bf14cf2e7ef459b9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32ad5ef4f297a64f0925febb247ccb117dffedf0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195360"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928588"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mon premier runbook PowerShell Workflow
 
@@ -30,7 +30,6 @@ ms.locfileid: "34195360"
 Ce didacticiel décrit la création d’un [Runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) dans Azure Automation. Vous commencez avec un simple runbook que vous testez et publiez tout en expliquant comment suivre l’état du travail du runbook. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous le rendrez plus robuste en lui ajoutant des paramètres.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -112,6 +111,13 @@ Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait 
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** et **Login-AzureRmAccount** sont désormais des alias pour **Connect-AzureRMAccount**. Si l’applet de commande **Connect-AzureRMAccount** n’existe pas, vous pouvez utiliser **Add-AzureRmAccount** ou **Login-AzureRmAccount**, ou encore [mettre à jour vos modules](automation-update-azure-modules.md) dans votre compte Automation avec les dernières versions. 
+
+> [!NOTE]
+> Il est possible que vous deviez [mettre à jour vos modules](automation-update-azure-modules.md), même si vous venez de créer un compte Automation.
+
 5. Cliquez sur le volet de **Test** afin de tester le runbook.
 6. Cliquez sur **Démarrer** pour démarrer le test. Une fois terminé, la sortie générée semblable à celle illustrée ci-dessous devrait afficher les informations de base sur votre compte. Cette sortie confirme la validité des informations d’identification.<br><br> ![Authentifier](media/automation-first-runbook-textual/runbook-auth-output.png)
 

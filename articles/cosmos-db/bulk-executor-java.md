@@ -1,6 +1,6 @@
 ---
 title: Utilisation de la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc dans Azure Cosmos DB | Microsoft Docs
-description: Utilisez la bibliothèque Java de l’exécuteur en bloc d’Azure Cosmos DB pour importer et mettre à jour en bloc des documents vers des collections Azure Cosmos DB.
+description: Utiliser la bibliothèque Java de l’exécuteur en bloc d’Azure Cosmos DB pour importer en bloc et mettre à jour des documents vers des conteneurs Azure Cosmos DB.
 keywords: Exécuteur en bloc Java
 services: cosmos-db
 author: tknandu
@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300711"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859974"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc sur les données Azure Cosmos DB
 
@@ -77,7 +77,7 @@ Le dépôt cloné contient deux exemples « bulkimport » et « bulkupdate �
      DATABASE_NAME,
      COLLECTION_NAME,
      collection.getPartitionKey(),
-     offerThroughput) // throughput you want to allocate for bulk import out of the collection's total throughput
+     offerThroughput) // throughput you want to allocate for bulk import out of the container's total throughput
 
    // Instantiate DocumentBulkExecutor
    DocumentBulkExecutor bulkExecutor = bulkExecutorBuilder.build()
@@ -87,7 +87,7 @@ Le dépôt cloné contient deux exemples « bulkimport » et « bulkupdate �
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
 ```
 
-4. Appelez l’API importAll qui génère des documents aléatoires pour importer en bloc dans une collection Azure Cosmos DB. Vous pouvez configurer les configurations de la ligne de commande dans le fichier CmdLineConfiguration.java.
+4. Appelez l’API importAll qui génère des documents aléatoires à importer en bloc dans un conteneur Azure Cosmos DB. Vous pouvez configurer les configurations de la ligne de commande dans le fichier CmdLineConfiguration.java.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -154,7 +154,7 @@ Vous pouvez mettre à jour des documents existants à l’aide de l’API BulkUp
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. Appelez l’API updateAll qui génère des documents aléatoires qui seront ensuite importés en bloc dans une collection Azure Cosmos DB. Vous pouvez configurer les configurations de la ligne de commande à passer dans le fichier CmdLineConfiguration.java.
+2. Appelez l’API updateAll qui génère des documents aléatoires à importer en bloc dans un conteneur Azure Cosmos DB. Vous pouvez configurer les configurations de la ligne de commande à passer dans le fichier CmdLineConfiguration.java.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -205,9 +205,9 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
    * Affectez à la taille du tas de la machine virtuelle Java une valeur suffisamment élevée pour éviter tout problème de mémoire lors du traitement d’un grand nombre de documents. Suggestion de taille de tas : max(3GB, 3 * sizeof(tous les documents transmis à l’API d’importation en bloc dans un lot)).  
    * Il y a un temps de prétraitement, grâce auquel vous obtiendrez un débit supérieur lors de l’exécution d’opérations en bloc avec un grand nombre de documents. Si vous souhaitez importer 10 000 000 documents, il est préférable d’exécuter une importation en bloc 10 fois sur 10 lots de documents en contenant chacun 1 000 000, plutôt que d’exécuter une importation en bloc 100 fois sur 100 lots de documents en contenant chacun 100 000.  
 
-* Nous vous recommandons d’instancier un objet DocumentBulkExecutor unique pour l’ensemble de l’application au sein d’une seule machine virtuelle qui correspond à une collection Azure Cosmos DB spécifique.  
+* Nous vous recommandons d’instancier un objet DocumentBulkExecutor unique pour l’ensemble de l’application au sein d’une seule machine virtuelle qui correspond à un conteneur Azure Cosmos DB spécifique.  
 
-* L’exécution d’une API d’opération en bloc consomme une grande partie des E/S réseau et du processeur de l’ordinateur client. Cela est dû à la génération automatique de plusieurs tâches en interne. Évitez de générer plusieurs tâches simultanées dans votre processus d’application, exécutant chacune des appels d’API d’opérations en bloc. Si un appel d’API d’opération en bloc en cours d’exécution sur une seule machine virtuelle ne peut pas consommer le débit complet de votre collection (si le débit de votre collection est supérieur à 1 million RU/s), il est préférable de créer des machines virtuelles distinctes pour exécuter simultanément les appels d’API d’opérations en bloc.
+* L’exécution d’une API d’opération en bloc consomme une grande partie des E/S réseau et du processeur de l’ordinateur client. Cela est dû à la génération automatique de plusieurs tâches en interne. Évitez de générer plusieurs tâches simultanées dans votre processus d’application, exécutant chacune des appels d’API d’opérations en bloc. Si un appel d’API d’opération en bloc en cours d’exécution sur une seule machine virtuelle ne peut pas consommer le débit complet de votre conteneur (si le débit de votre conteneur est supérieur à 1 million RU/s), il est préférable de créer des machines virtuelles distinctes pour exécuter simultanément les appels d’API d’opérations en bloc.
 
     
 ## <a name="next-steps"></a>Étapes suivantes

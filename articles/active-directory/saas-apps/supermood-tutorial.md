@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9cd6a373f23c69f920d0e46bad368f17c8d21035
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ebd8e28e8adc357f0e6a0582f422085ddf50749f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214994"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041022"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Tutoriel : Intégration d’Azure Active Directory à Supermood
 
@@ -116,7 +116,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. L’application Supermood attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configure Single Sign-On](./media/supermood-tutorial/tutorial_supermood_attribute.png)
+    ![Configurer l'authentification unique](./media/supermood-tutorial/tutorial_supermood_attribute.png)
 
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
@@ -127,9 +127,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/supermood-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/supermood-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/supermood-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/supermood-tutorial/tutorial_attribute_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -241,7 +241,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Supermood dans le volet d’accès, vous devez être connecté automatiquement à votre application Supermood.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

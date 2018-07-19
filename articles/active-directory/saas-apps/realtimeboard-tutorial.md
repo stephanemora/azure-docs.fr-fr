@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: cd287748c3630ed8164f17f9ba7b731aace77a0d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 00b0844deb8cc81f770f6c98f8b020f1402d2ff7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230115"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Didacticiel : Intégration d’Azure Active Directory à RealtimeBoard
 
@@ -114,7 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
+    ![Configurer l'authentification unique](./media/realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
 
     Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://realtimeboard.com/sso/saml`
 
@@ -205,7 +205,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette RealtimeBoard dans le volet d’accès, vous êtes connecté automatiquement à votre application RealtimeBoard.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -7,23 +7,24 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831987"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973171"
 ---
 # <a name="consuming-web-services"></a>Utilisation de services web
 Après avoir déployé un modèle en tant que service web en temps réel, vous pouvez lui envoyer des données et obtenir les prédictions de diverses plateformes et applications. Le service web en temps réel expose une API REST pour obtenir les prédictions. Vous pouvez envoyer des données au service web dans un format à une ou plusieurs lignes pour obtenir une ou plusieurs prédictions à la fois.
 
 Avec le [service web Azure Machine Learning](model-management-service-deploy.md), une application externe communique de manière synchrone avec un modèle prédictif en adressant un appel HTTP POST à l’URL du service. Pour appeler un service web, l’application cliente doit spécifier la clé d’API qui est créée au moment où vous déployez une prédiction et placer les données de la demande dans le corps de la demande POST.
 
-Notez que les clés d’API sont disponibles uniquement dans le mode de déploiement de cluster. Les services web locaux n’ont pas de clés.
+> [!NOTE]
+> Notez que les clés d’API sont disponibles uniquement dans le mode de déploiement de cluster. Les services web locaux n’ont pas de clés.
 
 ## <a name="service-deployment-options"></a>Options de déploiement de service
 Les services web Azure Machine Learning peuvent être déployés sur des clusters cloud pour des scénarios de production et de test et sur des stations de travail locales utilisant le moteur Docker. Dans les deux cas, la fonctionnalité du modèle prédictif reste la même. Le déploiement sur cluster offre une solution scalable et performante basée sur Azure Container Services, alors que le déploiement local peut être utilisé pour le débogage. 
@@ -72,11 +73,11 @@ Utilisez l’URL du service pour envoyer une demande à partir d’une applicati
 1. Dans Visual Studio, créez une application console : 
     * Dans le menu, cliquez sur Fichier -> Nouveau -> Projet.
     * Sous Visual Studio C#, cliquez sur Windows Class Desktop, puis sélectionnez Application console.
-2. Entrez _MyFirstService_ en guise de nom de projet, puis cliquez sur OK.
-3. Dans Références du projet, définissez les références _System.Net_ et _System.Net.Http_.
-4. Cliquez sur Outils -> Gestionnaire de package NuGet -> Console du Gestionnaire de package, puis installez le package Microsoft.AspNet.WebApi.Client.
-5. Ouvrez le fichier Program.cs et remplacez le code par le code suivant :
-6. Mettez à jour les paramètres _SERVICE_URL_ et _API_KEY_ avec les informations de votre service web.
+2. Entrez `MyFirstService` en guise de nom de projet, puis cliquez sur OK.
+3. Dans Références du projet, définissez les références sur `System.Net` et `System.Net.Http`.
+4. Cliquez sur Outils -> Gestionnaire de package NuGet -> Console du Gestionnaire de package, puis installez le package **Microsoft.AspNet.WebApi.Client**.
+5. Ouvrez le fichier **Program.cs** et remplacez le code par le code suivant :
+6. Mettez à jour les paramètres `SERVICE_URL` et `API_KEY` avec les informations de votre service web.
 7. Exécutez le projet.
 
 ```csharp

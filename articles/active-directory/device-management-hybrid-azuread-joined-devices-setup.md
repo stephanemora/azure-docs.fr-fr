@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261183"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868433"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Comment configurer des appareils hybrides joints à Azure Active Directory
 
@@ -57,8 +57,8 @@ Pour améliorer la lisibilité des descriptions, cet article utilise les termes 
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- L’inscription d’appareils de bas niveau Windows **est** prise en charge dans les environnements non fédérés via l’authentification unique transparente [Authentification unique transparente d’Azure Active Directory](https://aka.ms/hybrid/sso). 
-- L’inscription d’appareils de bas niveau Windows **n’est pas** prise en charge lors de l’utilisation de l’authentification directe Azure AD.
+- L’inscription d’appareils de bas niveau Windows **est** prise en charge dans les environnements non fédérés via l’authentification unique transparente [Authentification unique transparente d’Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- L’inscription d’appareils de bas niveau Windows **n’est pas** prise en charge lors de l’utilisation de l’authentification directe Azure AD sans authentification unique transparente.
 - L’inscription des appareils Windows de bas niveau **n’est pas** prise en charge pour les appareils utilisant des profils d’itinérance. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
 
 
@@ -92,8 +92,6 @@ Si ce n’est pas déjà fait, le STS de votre organisation (pour les domaines f
 Si votre organisation envisage d’utiliser l’authentification unique transparente, les URL suivantes doivent être accessibles à partir des ordinateurs au sein de votre organisation, et ils doivent également être ajoutés à la zone intranet locale de l’utilisateur :
 
 - https://autologon.microsoftazuread-sso.com
-
-- https://aadg.windows.net.nsatc.net
 
 - En outre, le paramètre suivant doit être activé dans la zone intranet de l’utilisateur : « Autoriser les mises à jour de la barre d’état via le script ».
 
@@ -179,7 +177,6 @@ Dans une configuration à forêts multiples, vous devez utiliser le script ci-de
 
     $de = New-Object System.DirectoryServices.DirectoryEntry
     $de.Path = "LDAP://CN=Services," + $configNC
-
     $deDRC = $de.Children.Add("CN=Device Registration Configuration", "container")
     $deDRC.CommitChanges()
 
@@ -272,7 +269,7 @@ La définition vous permet de vérifier si les valeurs sont présentes ou si vou
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Émission de la valeur objectSID du compte d’ordinateur local
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** : cette revendication doit contenir la valeur **objectSid** du compte d’ordinateur local. Dans AD FS, vous pouvez ajouter une règle de transformation d’émission ressemblant à ceci :
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** : cette revendication doit contenir la valeur de **objectSid** du compte d’ordinateur local. Dans AD FS, vous pouvez ajouter une règle de transformation d’émission ressemblant à ceci :
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -572,7 +569,7 @@ Une fois que vous avez exécuté les étapes requises, les appareils joints à u
 
 ### <a name="remarks"></a>Remarques
 
-- Vous pouvez utiliser un objet de stratégie de groupe pour contrôler le déploiement de l’inscription automatique des ordinateurs Windows 10 et Windows Server 2016 joints à un domaine. **Si vous ne souhaitez pas que ces appareils soient automatiquement inscrits auprès d’Azure AD ou si vous souhaitez contrôler leur inscription**, vous devez déployer la stratégie de groupe. Pour cela, désactivez l’inscription automatique pour tous les appareils, puis effectuez les étapes de configuration. Une fois la configuration terminée, et lorsque vous êtes prêt à effectuer les tests, vous devez déployer la stratégie de groupe en activant l’inscription automatique uniquement pour les appareils de test, puis pour les appareils de votre choix.
+- Vous pouvez utiliser un objet de stratégie de groupe ou un paramètre client System Center Configuration Manager pour contrôler le déploiement de l’inscription automatique des ordinateurs Windows 10 et Windows Server 2016 joints à un domaine. **Si vous ne souhaitez pas que ces appareils soient inscrits automatiquement auprès d’Azure AD ou si vous souhaitez contrôler leur inscription**, vous devez déployer une stratégie de groupe en désactivant l’inscription automatique pour tous ces appareils. Si vous utilisez Configuration Manager, vous devez définir le paramètre client sous Cloud Services -> Inscrire automatiquement les nouveaux appareils Windows 10 joints à un domaine auprès d’Azure Active Directory sur « Non », avant de commencer l’une des étapes de configuration. Une fois la configuration terminée, et lorsque vous êtes prêt à effectuer les tests, vous devez déployer la stratégie de groupe en activant l’inscription automatique uniquement pour les appareils de test, puis pour les appareils de votre choix.
 
 - Pour un lancement des ordinateurs Windows de bas niveau, vous pouvez déployer un [package Windows Installer](#windows-installer-packages-for-non-windows-10-computers) sur les ordinateurs que vous sélectionnez.
 

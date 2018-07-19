@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: cea66f48d3ec1ab99b2b1e3dc40ab559e0ca55a5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: acec9379661226dc53607aa9fd12197a193166e0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229156"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042393"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Igloo Software**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_samlbase.png)
+    ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_samlbase.png)
 
 3. Dans la section **Igloo Software Domain and URLs** (Domaine et URL Igloo Software), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_url.png)
+    ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_url.png)
     
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.igloocommmunities.com`
 
@@ -123,15 +123,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_certificate.png) 
+    ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_general_400.png)
     
 6. Dans la section **Igloo Software Configuration** (Configuration d’Igloo Software), cliquez sur **Configure Igloo Software** (Configurer Igloo Software) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_configure.png) 
+    ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Igloo Software en tant qu’administrateur.
 
@@ -239,7 +239,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Igloo Software**.
 
-    ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_app.png) 
+    ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -260,7 +260,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Igloo Software dans le panneau d’accès, vous devez être connecté automatiquement à votre application Igloo Software.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876954"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919561"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Répliquer une application Dynamics AX multiniveau à l’aide d’Azure Site Recovery
 
@@ -35,7 +35,6 @@ Cet article explique comment créer une solution de récupération d’urgence p
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 L’implémentation de la récupération d’urgence pour l’application Dynamics AX à l’aide de Site Recovery nécessite les prérequis suivants :
 
@@ -115,7 +114,7 @@ Vous pouvez créer un plan de récupération dans Site Recovery pour automatiser
 
     ![Créer un plan de récupération](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
-4. Sélectionnez le serveur d’objets d’application et les machines virtuelles clientes pour le plan de récupération, puis sélectionnez ✓.
+4. Sélectionnez le serveur d’objets d’application et les machines virtuelles clientes pour le plan de récupération, puis sélectionnez la coche ✓.
 
     ![Sélectionner des éléments](./media/site-recovery-dynamics-ax/selectvms.png)
 
@@ -165,7 +164,7 @@ Pour plus d’informations sur l’exécution d’un basculement de test, consul
 
 3. Cliquez sur **Basculement**, puis de nouveau sur **Basculement**.
 
-4. Sélectionnez le réseau cible, puis sélectionnez **✓** pour démarrer le processus de basculement.
+4. Sélectionnez le réseau cible, puis la coche **✓** pour démarrer le processus de basculement.
 
 Pour plus d’informations sur le processus de basculement, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
@@ -183,7 +182,7 @@ Pour plus d’informations sur SQL Server pendant une restauration automatique, 
 
 5. Sélectionnez les options de synchronisation de données et de création de machines virtuelles appropriées.
 
-6. Sélectionnez **✓** pour démarrer le processus de restauration automatique.
+6. Sélectionnez la coche **✓** pour démarrer le processus de basculement.
 
 
 Pour plus d’informations sur le processus de restauration automatique, consultez [Restaurer automatiquement des machines virtuelles VMware d’Azure vers un site local](site-recovery-failback-azure-to-vmware.md).

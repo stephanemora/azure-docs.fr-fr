@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.openlocfilehash: e0b20acb29aaf489dd3f449f883c011a26b7862a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9811be78bd6260b17c462c077ed299dff8309b83
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223397"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Didacticiel : Intégration d’Azure Active Directory à Canvas LMS
 
@@ -102,15 +102,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Canvas**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
+    ![Configurer l'authentification unique](./media/canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
 
 3. Dans la section **Domaine et URL Canvas**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_url.png)
+    ![Configurer l'authentification unique](./media/canvas-lms-tutorial/tutorial_canvaslms_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant-name>.instructure.com`
 
@@ -121,15 +121,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
  
 4. Dans la section **Certificat de signature SAML**, copiez la valeur **THUMBPRINT** du certificat.
 
-    ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
+    ![Configurer l'authentification unique](./media/canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/canvas-lms-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration Canvas**, cliquez sur **Configurer Canvas** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de modification de mot de passe, l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
+    ![Configurer l'authentification unique](./media/canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
  
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Canvas en tant qu’administrateur.
 
@@ -248,7 +248,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 2. Dans la liste des applications, sélectionnez **Canvas**.
 
-    ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_app.png) 
+    ![Configurer l'authentification unique](./media/canvas-lms-tutorial/tutorial_canvaslms_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -269,7 +269,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Dans le volet d’accès, lorsque vous cliquez sur la vignette Canvas, vous devez automatiquement être connecté à votre application Canvas.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

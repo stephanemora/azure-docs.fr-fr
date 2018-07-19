@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 841176d8c5f215d18edf25b1f191792b37555fa9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318117"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718955"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -99,8 +99,10 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 1. Dans l’Assistant Gestion de serveur de configuration, sélectionnez **Configurer la connectivité**, puis la carte d’interface réseau utilisé par le serveur de processus pour recevoir le trafic de réplication des machines virtuelles. Ensuite, sélectionnez **Enregistrer**. Vous ne pourrez pas modifier ce paramètre une fois qu’il aura été configuré.
 2. Dans **Sélectionner le coffre Recovery Services**, connectez-vous à Microsoft Azure et sélectionnez votre abonnement Azure ainsi que le groupe de ressources et le coffre souhaités.
-    >[!NOTE]
+
+    > [!NOTE]
     > Une fois inscrit, le coffre Recovery Services n’est plus modifiable.
+    
 3. Dans **Installer des logiciels tiers** :
 
     |Scénario   |Procédure à suivre  |
@@ -117,11 +119,27 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 ## <a name="faq"></a>Forum Aux Questions
 
-1. Peut-on utiliser la machine virtuelle si le serveur de configuration est installé à des fins différentes ? **Non**. Le serveur de configuration doit être un serveur à usage unique et il n’est pas possible de l’utiliser comme serveur partagé.
-2. Peut-on remplacer le coffre déjà inscrit dans le serveur de configuration par un nouveau ? **Non**. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable.
-3. Peut-on utiliser le même serveur de configuration pour protéger à la fois des machines physiques et des machines virtuelles ? **Oui**. Un même serveur de configuration peut être utilisé pour répliquer des machines physiques et virtuelles. Toutefois, la restauration automatique sur une machine physique n’est pas prise en charge.
-4. Où le serveur de configuration sera-t-il utilisé ? Pour plus d’informations sur le serveur de configuration et ses fonctionnalités, référez-vous à notre [architecture Azure Site Recovery](vmware-azure-architecture.md).
-5. Où peut-on trouver la dernière version du serveur de configuration ? Vous pouvez la télécharger directement dans le [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver). Lisez [cet article](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) pour connaître la procédure de mise à niveau du serveur de configuration.
+1. Puis-je utiliser la machine virtuelle sur laquelle le serveur de configuration est installé à des fins différentes ?
+
+    **Non**. Nous vous recommandons d’utiliser la machine virtuelle pour le seul usage de serveur de configuration. Veillez à suivre toutes les spécifications mentionnées dans la [section précédente](vmware-azure-deploy-configuration-server.md#Prerequisites) pour une gestion efficace de la récupération d’urgence.
+2. Peut-on remplacer le coffre déjà inscrit dans le serveur de configuration par un nouveau ?
+
+    **Non**. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable.
+3. Peut-on utiliser le même serveur de configuration pour protéger à la fois des machines physiques et des machines virtuelles ?
+
+    **Oui**. Un même serveur de configuration peut être utilisé pour répliquer des machines physiques et virtuelles. Toutefois, une machine physique ne peut être restaurée automatiquement que vers une machine virtuelle VMware.
+4. Quelle est l’utilité d’un serveur de configuration et où est-il utilisé ?
+
+    Pour plus d’informations sur le serveur de configuration et ses fonctionnalités, référez-vous à notre [architecture Azure Site Recovery](vmware-azure-architecture.md).
+5. Où peut-on trouver la dernière version du serveur de configuration ?
+
+    Reportez-vous à cet article pour connaître la procédure de mise à niveau du serveur de configuration [via le portail](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Vous pouvez également la télécharger directement à partir du [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
+6. Où puis-je télécharger la phrase secrète du serveur de configuration ?
+
+    Reportez-vous à [cet article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) pour télécharger la phrase secrète.
+7. Où puis-je télécharger les clés d’inscription du coffre ?
+
+    Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**. Dans Serveurs, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
 
 ## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
 

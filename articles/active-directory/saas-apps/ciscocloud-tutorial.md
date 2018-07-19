@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a0f9e54b920ee2c16a141ee62d22784f75c0af6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 79b0aa9ae435defa980b4da0c8d376fdb69542f3
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224152"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutoriel : intégration d’Azure Active Directory à Cisco Cloud
 
@@ -101,7 +101,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Boîte de dialogue Authentification unique](./media/ciscocloud-tutorial/tutorial_ciscocloud_samlbase.png)
 
 3. Dans la section **Domaine et URL Cisco Cloud**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en **Mode initié par IDP** :
@@ -117,19 +117,45 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Informations d’authentification unique dans Domaine et URL Cisco Cloud](./media/ciscocloud-tutorial/tutorial_ciscocloud_url1.png)
 
     Dans la zone de texte **URL d’authentification**, tapez l’URL `https://<subdomain>.cloudapps.cisco.com`
-     
-    > [!NOTE] 
+
+    > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe du support client Cisco Cloud](mailto:cpr-ops@cisco.com).
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+5. L’application Cisco Cloud attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications.
+ La capture d’écran suivante en présente un exemple.
+
+    ![Configure Single Sign-On](./media/ciscocloud-tutorial/attribute.png)
+
+6. Dans la section **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** pour développer les attributs. Dans chacun des attributs affichés, procédez comme suit :
+
+    | Nom de l'attribut | Valeur de l’attribut |
+    | ---------------| ----------------|
+    | country      |user.country |
+    | société      |user.companyname |
+
+    a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
+
+    ![Configure Single Sign-On](./media/ciscocloud-tutorial/tutorial_attribute_04.png)
+
+    ![Configure Single Sign-On](./media/ciscocloud-tutorial/tutorial_attribute_05.png)
+
+    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
+
+    c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
+
+    d. Laissez le champ **Espace de noms** vide.
+
+    e. Cliquez sur **OK**.
+
+7. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
 
     ![Lien Téléchargement de certificat](./media/ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
 
-6. Cliquez sur le bouton **Enregistrer** .
+8. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/ciscocloud-tutorial/tutorial_general_400.png)
 
-7. Pour configurer l’authentification unique côté **Cisco Cloud**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à [l’équipe du support technique Cisco Cloud](mailto:cpr-ops@cisco.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+9. Pour configurer l’authentification unique côté **Cisco Cloud**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à [l’équipe du support technique Cisco Cloud](mailto:cpr-ops@cisco.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

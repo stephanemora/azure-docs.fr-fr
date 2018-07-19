@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: d083783fb4c648cde5d8f4ab611990f65e48a16e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 28f5ac882051250903fc2f45def95eb65d1b1ce3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129995"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635536"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -35,7 +35,7 @@ Network Performance Monitor offre trois fonctionnalités générales :
 
 * [Analyseur des performances](log-analytics-network-performance-monitor-performance-monitor.md) : vous permet d’analyser la connectivité réseau dans les déploiements de cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications micro-services multiniveaux critiques. Avec l’Analyseur de performances, vous pouvez détecter les problèmes réseau avant que vos utilisateurs ne se plaignent.
 
-* [Moniteur des points de terminaison de service](log-analytics-network-performance-monitor-service-endpoint.md) : vous permet d’analyser la connectivité entre vos utilisateurs et les services qui vous intéressent, de déterminer l’infrastructure présente dans le chemin d’accès et d’identifier l’emplacement des goulots d’étranglement. Découvrez les pannes avant vos utilisateurs et déterminez l’emplacement exact des problèmes sur votre chemin d’accès réseau. 
+* [Moniteur de connectivité de service](log-analytics-network-performance-monitor-service-endpoint.md) : vous permet d’analyser la connectivité entre vos utilisateurs et les services qui vous intéressent, de déterminer l’infrastructure présente dans le chemin et d’identifier l’emplacement des goulots d’étranglement. Découvrez les pannes avant vos utilisateurs et déterminez l’emplacement exact des problèmes sur votre chemin d’accès réseau. 
 
     Cette fonctionnalité vous permet d’effectuer des tests HTTP, HTTPS, TCP et ICMP afin d’analyser, en temps quasi réel ou dans le temps, la disponibilité et le temps de réponse de votre service. Vous pouvez également analyser la contribution du réseau en perte de paquets et en latence. Avec un mappage de topologie réseau, vous pouvez isoler les ralentissements du réseau. Vous pouvez identifier les points problématiques sur le chemin d’accès réseau entre le nœud et le service, avec les données de latence sur chaque tronçon. Au moyen de tests intégrés, analysez la connectivité réseau vers Office 365 et Dynamics CRM sans aucune configuration préalable. Avec cette fonctionnalité, vous pouvez analyser la connectivité réseau vers n’importe quel point de terminaison compatible TCP, comme des sites web, des applications SaaS, des applications PaaS et des bases de données SQL.
 
@@ -68,13 +68,13 @@ Utilisez les procédures de base d’installation des agents décrites dans [Con
 
     Pour analyser un lien réseau, installez des agents sur les deux points de terminaison de cette dernière. Si vous n’êtes pas certain de la topologie de votre réseau, installez les agents sur des serveurs présentant des charges de travail critiques entre lesquels vous souhaitez analyser les performances réseau. Par exemple, si vous souhaitez analyser la connexion réseau entre un serveur web et un serveur exécutant SQL Server, installez un agent sur les deux serveurs. Les agents surveillent la connectivité (liens) réseau entre les hôtes et non les hôtes proprement dits. 
 
-* **Moniteur de points de terminaison de service** : installez un agent Operations Management Suite sur chaque nœud à partir duquel vous souhaitez analyser la connectivité réseau vers le point de terminaison de service. Par exemple, si vous souhaitez analyser la connectivité réseau à Office 365 à partir de vos sites Office étiquetés O1, O2 et O3. Installez l’agent Operations Management Suite sur au moins un nœud dans O1, O2 et O3. 
+* **Moniteur de connectivité de service** : installez un agent Operations Management Suite sur chaque nœud à partir duquel vous souhaitez analyser la connectivité réseau au point de terminaison de service. Par exemple, si vous souhaitez analyser la connectivité réseau à Office 365 à partir de vos sites Office étiquetés O1, O2 et O3. Installez l’agent Operations Management Suite sur au moins un nœud dans O1, O2 et O3. 
 
 * **Moniteur d’ExpressRoute**: installez au moins un agent Operations Management Suite dans votre réseau virtuel Azure. De plus, installez au moins un agent dans votre sous-réseau local, connecté via l’homologation privée ExpressRoute.  
 
 ### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Configurer les agents Operations Management Suite pour l’analyse 
 
-Network Performance Monitor utilise des transactions synthétiques pour analyser les performances réseau entre les agents sources et cibles. Vous pouvez choisir une analyse effectuée par le biais du protocole TCP et ICMP dans les fonctionnalités de l’Analyseur de performances et du Moniteur de points de terminaison de service. TCP est utilisé pour le Moniteur ExpressRoute. Vérifiez que le pare-feu autorise les communications entre les agents Operations Management Suite utilisés pour l’analyse sur le protocole que vous avez choisi. 
+Network Performance Monitor utilise des transactions synthétiques pour analyser les performances réseau entre les agents sources et cibles. Vous pouvez choisir une analyse effectuée par le biais du protocole TCP et ICMP dans les fonctionnalités de l’Analyseur de performances et du Moniteur de connectivité de service. Seul le protocole TCP est disponible comme protocole d’analyse pour le Moniteur ExpressRoute. Vérifiez que le pare-feu autorise les communications entre les agents Operations Management Suite utilisés pour l’analyse sur le protocole que vous avez choisi. 
 
 * **Protocole TCP** : si vous choisissez le protocole TCP pour l’analyse, ouvrez le port du pare-feu sur les agents utilisés pour Network Performance Monitor et le Moniteur ExpressRoute afin de vous assurer que les agents peuvent se connecter entre eux. Pour ouvrir le port, exécutez le script PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sans paramètre dans une fenêtre PowerShell avec des privilèges d’administrateur.
 
@@ -114,7 +114,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
 
    ![Affichage Analyseur de performances](media/log-analytics-network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Moniteur de points de terminaison de service** : cette fonctionnalité fournit des tests préconfigurés intégrés afin d’analyser la connectivité réseau à Office 365 et Dynamics 365 à partir de vos agents. Choisissez les services Office 365 et Dynamics 365 que vous souhaitez analyser en cochant les cases à côté d’eux. Pour sélectionnez les agents à partir desquels vous souhaitez effectuer une analyse, cliquez sur **Ajouter des agents**. Si vous ne souhaitez pas utiliser cette fonctionnalité ou la configurer ultérieurement, ne choisissez aucune option et sélectionnez **Enregistrer et continuer**.
+   **Moniteur de connectivité de service** : cette fonctionnalité fournit des tests préconfigurés intégrés afin d’analyser la connectivité réseau à Office 365 et Dynamics 365 à partir de vos agents. Choisissez les services Office 365 et Dynamics 365 que vous souhaitez analyser en cochant les cases à côté d’eux. Pour sélectionnez les agents à partir desquels vous souhaitez effectuer une analyse, cliquez sur **Ajouter des agents**. Si vous ne souhaitez pas utiliser cette fonctionnalité ou la configurer ultérieurement, ne choisissez aucune option et sélectionnez **Enregistrer et continuer**.
 
    ![Affichage Moniteur de points de terminaison de service](media/log-analytics-network-performance-monitor/npm-service-endpoint-monitor.png)
 
@@ -196,7 +196,7 @@ Une fois la solution Network Performance Monitor activée, la mosaïque de la so
 
 * **Moniteur d’ExpressRoute** : cette page fournit des résumés d’intégrité pour plusieurs connexions d’homologation ExpressRoute analysées par la solution. La mosaïque **Topologie** indique le nombre de chemins d’accès réseau par le biais des circuits ExpressRoute analysés dans votre réseau. Sélectionnez cette mosaïque pour accéder à l’affichage **Topologie**.
 
-* **Moniteur de point de terminaison de service** : cette page fournit des résumés de l’intégrité pour les différents tests que vous avez créé. La mosaïque **Topologie** indique le nombre de points de terminaison analysés. Sélectionnez cette mosaïque pour accéder à l’affichage **Topologie**.
+* **Moniteur de connectivité de service** : cette page fournit des récapitulatifs d’intégrité pour les différents tests que vous avez créés. La mosaïque **Topologie** indique le nombre de points de terminaison analysés. Sélectionnez cette mosaïque pour accéder à l’affichage **Topologie**.
 
 * **Analyseur de performances** : cette page fournit des résumés d’intégrité pour les liens **Réseau** et les liens **Sous-réseau** analysés par la solution. La mosaïque **Topologie** indique le nombre de chemins d’accès réseau analysés dans votre réseau. Sélectionnez cette mosaïque pour accéder à l’affichage **Topologie**. 
 
@@ -281,4 +281,4 @@ Les informations sur les tarifs sont disponibles [en ligne](log-analytics-networ
 * **Rejoignez notre cohorte :** nous sommes toujours ravis d’accueillir de nouveaux clients dans notre cohorte. Dans ce cadre, vous pouvez accéder en avant-première aux nouvelles fonctionnalités et avoir l’opportunité de nous aider à améliorer Network Performance Monitor. Si vous souhaitez y participer, répondez à cette  [enquête rapide](https://aka.ms/npmcohort). 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-En savoir plus sur [Analyseur de performances](log-analytics-network-performance-monitor-performance-monitor.md), [Moniteur de points de terminaison de service](log-analytics-network-performance-monitor-performance-monitor.md) et [Moniteur ExpressRoute](log-analytics-network-performance-monitor-expressroute.md). 
+En savoir plus sur [Analyseur de performances](log-analytics-network-performance-monitor-performance-monitor.md), [Moniteur de connectivité de service](log-analytics-network-performance-monitor-performance-monitor.md) et [Moniteur ExpressRoute](log-analytics-network-performance-monitor-expressroute.md) 

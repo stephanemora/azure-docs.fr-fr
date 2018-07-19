@@ -3,7 +3,7 @@ title: Surveillance et débogage à l’aide de métriques dans Azure Cosmos DB 
 description: Utilisez les métriques d’Azure Cosmos DB pour déboguer les problèmes courants et surveiller la base de données.
 keywords: Mesures
 services: cosmos-db
-author: gnot
+author: kanshiG
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 49a381efa0603889336f43e409698bbcef44f41f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615639"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858661"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Surveillance et débogage à l’aide de métriques dans Azure Cosmos DB
 
@@ -33,13 +33,13 @@ Cet article explique des cas d’utilisation courants et montre comment utiliser
 
 Pour commencer, accédez au [portail Azure](https://portal.azure.com), puis accédez au panneau **Métriques**. Dans le panneau, recherchez le graphique **Nombre de requêtes ayant dépassé la capacité par tranche de 1 minute**. Ce graphique montre, minute par minute, le nombre total de requêtes, segmentées par code d’état. Pour plus d’informations sur les codes d’état HTTP, consultez [Codes d’état HTTP pour Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-Le code d’état d’erreur le plus commun est le code 429 (erreur de limitation), qui indique que les requêtes envoyées à Azure Cosmos DB dépassent le débit approvisionné. Dans ce cas, la solution la plus courante consiste à [effectuer une montée en puissance des unités de requête](./set-throughput.md) pour une collection donnée.
+Le code d’état d’erreur le plus commun est le code 429 (erreur de limitation), qui indique que les requêtes envoyées à Azure Cosmos DB dépassent le débit provisionné. Dans ce cas, la solution la plus courante consiste à [effectuer une montée en puissance des unités de requête](./set-throughput.md) pour une collection donnée.
 
 ![Nombre de requêtes par minute](media/use-metrics/metrics-12.png)
 
 ## <a name="determining-the-throughput-distribution-across-partitions"></a>Détermination de la distribution du débit entre les partitions
 
-Il est essentiel d’avoir une bonne cardinalité des clés de partition pour vos applications évolutives. Pour déterminer la distribution du débit au sein d’une collection partitionnée, accédez au **panneau Métriques** dans le [portail Azure](https://portal.azure.com). Sous l’onglet **Débit**, la répartition du débit est affichée dans le graphique **Nombre maximal de RU/seconde consommées par chaque partition physique**. Le graphique suivant montre un exemple de mauvaise distribution des données mise en évidence par l’asymétrie de la partition située à l’extrême gauche. 
+Il est essentiel d’avoir une bonne cardinalité des clés de partition pour vos applications évolutives. Pour déterminer la distribution du débit au sein d’un conteneur partitionné, accédez au **panneau Métriques** dans le [portail Azure](https://portal.azure.com). Sous l’onglet **Débit**, la répartition du débit est affichée dans le graphique **Nombre maximal de RU/seconde consommées par chaque partition physique**. Le graphique suivant montre un exemple de mauvaise distribution des données mise en évidence par l’asymétrie de la partition située à l’extrême gauche. 
 
 ![Partition fortement utilisée à 15 h 05](media/use-metrics/metrics-17.png)
 
@@ -47,7 +47,7 @@ Une distribution inégale du débit peut aboutir à une *forte utilisation* de c
 
 ## <a name="determining-the-storage-distribution-across-partitions"></a>Détermination de la distribution du stockage entre les partitions
 
-Il est essentiel d’avoir une bonne cardinalité de partition pour vos applications évolutives. Pour déterminer la distribution du stockage au sein d’une collection partitionnée, accédez au panneau Métriques dans le [portail Azure](https://portal.azure.com). Sous l’onglet Stockage, la répartition du stockage est affichée dans le graphique Nombre maximal de RU/seconde consommées par chaque partition physique. Le graphique suivant montre une mauvaise distribution des données mise en évidence par l’asymétrie de la partition située à l’extrême gauche. 
+Il est essentiel d’avoir une bonne cardinalité de partition pour vos applications évolutives. Pour déterminer la distribution du débit au sein d’un conteneur partitionné, accédez au panneau Métriques dans le [portail Azure](https://portal.azure.com). Sous l’onglet Stockage, la répartition du stockage est affichée dans le graphique Nombre maximal de RU/seconde consommées par chaque partition physique. Le graphique suivant montre une mauvaise distribution des données mise en évidence par l’asymétrie de la partition située à l’extrême gauche. 
 
 ![Exemple de mauvaise distribution des données](media/use-metrics/metrics-07.png)
 
@@ -55,7 +55,7 @@ Vous pouvez connaître la clé de partition à l’origine du déséquilibre de 
 
 ![Clé de partition provoquant un déséquilibre de la distribution](media/use-metrics/metrics-05.png)
 
-Une fois que vous avez identifié la clé de partition qui est à l’origine du déséquilibre, il est possible que vous deviez repartitionner votre collection avec une clé de partition mieux distribuée. Pour plus d’informations sur le partitionnement dans Azure Cosmos DB, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](./partition-data.md).
+Une fois que vous avez identifié la clé de partition qui est à l’origine du déséquilibre, il est possible que vous deviez repartitionner votre conteneur avec une clé de partition mieux distribuée. Pour plus d’informations sur le partitionnement dans Azure Cosmos DB, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](./partition-data.md).
 
 ## <a name="comparing-data-size-against-index-size"></a>Comparaison entre la taille des données et la taille de l’index
 

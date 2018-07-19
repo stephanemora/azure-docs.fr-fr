@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6928242f39e079af0238b21f6e06c2afbb4eca22
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cfbf431f8fa483b9a34beb71d9b1dbe3e691cdba
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219402"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Didacticiel : Intégration d’Azure Active Directory à Cornerstone OnDemand
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Cornerstone OnDemand**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
-    ![Configure Single Sign-On](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_samlbase.png)
+    ![Configurer l'authentification unique](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_samlbase.png)
 
 3. Dans la section **Domaine et URL Cornerstone OnDemand**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_url.png)
+    ![Configurer l'authentification unique](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company>.csod.com`
 
@@ -121,15 +121,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_certificate.png) 
+    ![Configurer l'authentification unique](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/cornerstone-ondemand-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/cornerstone-ondemand-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Cornerstone OnDemand**, cliquez sur **Configurer Cornerstone OnDemand** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_configure.png) 
+    ![Configurer l'authentification unique](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_configure.png) 
 
 7. Pour configurer l’authentification unique côté **Cornerstone OnDemand**, vous devez envoyer le **Certificat** téléchargé, **l’URL de déconnexion** et **l’URL du service d’authentification unique SAML** à [l’équipe de support Cornerstone OnDemand](mailTo:moreinfo@csod.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Cornerstone OnDemand. Cornerstone OnDemand prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Des informations supplémentaires sur la configuration de l’attribution automatique d’utilisateurs sont disponibles [ici](cornerstone-ondemand-provisioning-tutorial.md).
 
-**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
+**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
 Pour configurer l’attribution d’utilisateurs, envoyez les informations sur l’utilisateur Azure AD que vous souhaitez approvisionner (par exemple le nom, l’adresse e-mail) à [l’équipe du support technique Cornerstone OnDemand](mailTo:moreinfo@csod.com).
 
@@ -189,7 +189,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Cornerstone OnDemand**.
 
-    ![Configure Single Sign-On](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_app.png) 
+    ![Configurer l'authentification unique](./media/cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -210,7 +210,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Cornerstone OnDemand dans le volet d’accès, vous devez être connecté automatiquement à votre application Cornerstone OnDemand.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

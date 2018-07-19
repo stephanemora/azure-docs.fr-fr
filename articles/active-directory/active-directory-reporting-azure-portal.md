@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1bcd7f9e0a134173a8942b71259428a720a3d076
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 06179d42d2904a4d82f466be0719768f9f010858
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222499"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868556"
 ---
 # <a name="azure-active-directory-reporting"></a>Création de rapports Active Directory
 
@@ -113,7 +113,7 @@ Pour en savoir plus sur les différents types de rapports dans Azure Active Di
 - [Rapport de journaux d’audit](active-directory-reporting-activity-audit-logs.md)
 - [Rapport de journaux de connexions](active-directory-reporting-activity-sign-ins.md)
 
-Pour en savoir plus sur l’accès aux données des rapports à l’aide de l’API de création de rapports, voir : 
+Pour en savoir plus sur l’accès aux données des rapports à l’aide de l’API de création de rapports, consultez : 
 
 - [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started-azure-portal.md)
 

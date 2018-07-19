@@ -2,20 +2,20 @@
 title: Découverte et classification des données Azure SQL Database | Microsoft Docs
 description: Découverte et classification des données Azure SQL Database
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc093bebb4b3c39140d6fa5370a78d59168990fa
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646777"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950803"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Découverte et classification des données Azure SQL Database
 Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage**  & et la **protection** des données sensibles dans vos bases de données.
@@ -49,55 +49,66 @@ La classification comprend deux attributs de métadonnées :
 
 2. Accédez à **Advanced Threat Protection** sous l’en-tête Sécurité du volet Azure SQL Database. Cliquez pour activer Advanced Threat Protection, puis cliquez sur la carte **Découverte et classification des données (préversion)**.
 
-   ![Analyser une base de données](./media/sql-data-discovery-and-classification/data_classification.png) 
+   ![Analyser une base de données](./media/sql-data-discovery-and-classification/data_classification.png)
 
 3. L’onglet **Vue d’ensemble** comprend une synthèse de l’état actuel de la classification de la base de données, notamment une liste détaillée de toutes les colonnes classifiées, que vous pouvez aussi filtrer pour afficher uniquement des parties de schéma, des types d’informations et des étiquettes spécifiques. Si vous n’avez pas encore classifié de colonne, [passez à l’étape 5](#step-5).
 
-   ![Résumé de l’état actuel de la classification](./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png) 
+   ![Résumé de l’état actuel de la classification](./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png)
 
 4. Pour télécharger un rapport au format Excel, cliquez sur l’option **Exporter** dans le menu en haut de la fenêtre.
 
-   ![Exporter vers Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png) 
+   ![Exporter vers Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
 5.  <a id="step-5"></a>Pour commencer à classifier vos données, cliquez sur l’onglet **Classification** en haut de la fenêtre.
 
-    ![Classer les données](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png) 
+    ![Classer les données](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. Le moteur de classification analyse votre base de données à la recherche de colonnes contenant des données potentiellement sensibles, et il fournit une liste de **classifications de colonnes recommandées**. Pour afficher et appliquer les recommandations de classification :
 
     * Pour afficher la liste des classifications de colonnes recommandées, cliquez sur le panneau de recommandations en bas de la fenêtre :
-    
-      ![Classer les données](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png) 
+
+      ![Classer les données](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
     * Passez en revue la liste des recommandations. Pour accepter une recommandation pour une colonne spécifique, cochez la case dans la colonne de gauche de la ligne concernée. Vous pouvez également accepter *toutes les recommandations* en cochant la case dans l’en-tête de table de recommandations.
 
-       ![Passer en revue la liste des recommandations](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png) 
+       ![Passer en revue la liste des recommandations](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
     * Pour appliquer les recommandations sélectionnées, cliquez sur le bouton bleu **Accepter les recommandations sélectionnées**.
 
-      ![Appliquer les recommandations](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png) 
+      ![Appliquer les recommandations](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
 7. Vous pouvez aussi, en guise d’alternative, **classifier manuellement** des colonnes ou, en plus de la classification basée sur les recommandations :
 
     * Cliquez sur **Ajouter une classification** dans le menu en haut de la fenêtre.
-  
-      ![Ajouter manuellement une classification](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png) 
+
+      ![Ajouter manuellement une classification](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
     * Dans la fenêtre contextuelle qui apparaît, sélectionnez le schéma > table > colonne que vous souhaitez classifier, ainsi que l’étiquette de sensibilité et le type d’informations. Cliquez sur le bouton bleu **Ajouter une classification** en bas de la fenêtre contextuelle.
 
-      ![Sélectionner une colonne à classer](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png) 
+      ![Sélectionner une colonne à classer](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
 8. Pour terminer votre classification et étiqueter de manière permanente les colonnes de base de données avec les nouvelles métadonnées de classification, cliquez sur **Enregistrer** dans le menu en haut de la fenêtre.
 
-   ![Enregistrer](./media/sql-data-discovery-and-classification/10_data_classification_save.png) 
+   ![Enregistrer](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a id="subheading-3"></a>Audit de l’accès aux données sensibles
 
 Un aspect important du paradigme de protection des informations est la possibilité de surveiller l’accès aux données sensibles. [L’audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) a été amélioré pour inclure dans le journal d’audit un nouveau champ nommé *data_sensitivity_information*, qui enregistre las classifications de la sensibilité (étiquettes) des données réelles retournées par la requête.
 
-![Journal d’audit](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png) 
+![Journal d’audit](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Étapes suivantes
+## <a id="subheading-4"></a>Classification automatisée/par programmation
+
+Vous pouvez utiliser T-SQL pour ajouter/supprimer des classifications de colonne, ainsi que pour récupérer toutes les classifications pour la base de données entière.
+
+> [!NOTE]
+> Quand vous utilisez T-SQL pour gérer les étiquettes, aucune validation n’est effectuée pour vérifier que les étiquettes ajoutées à une colonne existent dans la stratégie de protection des informations de l’organisation (ensemble des étiquettes qui apparaissent dans les recommandations du portail). Il vous appartient d’effectuer cette validation.
+
+* Ajouter/mettre à jour la classification d’une ou plusieurs colonnes : [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* Supprimer la classification d’une ou plusieurs colonnes : [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* Voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+## <a id="subheading-5"></a>Étapes suivantes
 
 - En savoir plus sur [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
 - Vous pouvez configurer [l’audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) pour effectuer la surveillance et l’audit de l’accès à vos données sensibles classifiées.
@@ -106,4 +117,5 @@ Un aspect important du paradigme de protection des informations est la possibili
 [SQL Data Discovery & Classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
-[Next Steps]: #subheading-4
+[Automated/Programmatic classification]: #subheading-4
+[Next Steps]: #subheading-5

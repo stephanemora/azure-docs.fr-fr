@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 925d4b0d8c116887c14d22f821500273daefba40
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 245482ec708534a8a6df2efaac193c6bb2e26397
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218592"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Didacticiel : Intégration d’Azure Active Directory à Workpath | Microsoft Docs
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Workpath**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_samlbase.png)
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_samlbase.png)
 
 3. Dans la section **Domaines et URL Workpath**, si vous souhaitez configurer l’application en Mode initié par **IDP**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_url.png)
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_url1.png)
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.workpath.com/ `
 
@@ -127,7 +127,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. L’application Workpath attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple de cette configuration. 
 
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_attributes.png)
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_attributes.png)
     
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
@@ -138,11 +138,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_attribute_04.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_attribute_05.png)
 
     c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
 
@@ -153,15 +153,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_certificate.png) 
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_certificate.png) 
 
 8. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_general_400.png)
 
 9. Dans la section **Configuration de Workpath**, cliquez sur **Configurer Workpath** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_configure.png) 
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_configure.png) 
 
 10. Pour configurer l’authentification unique côté **Workpath**, vous devez envoyer le **XML de métadonnées**, **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** téléchargés à [l’équipe de support Workpath](https://help.workpath.com). 
 
@@ -219,7 +219,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Workpath**.
 
-    ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_app.png) 
+    ![Configurer l'authentification unique](./media/workpath-tutorial/tutorial_workpath_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -240,7 +240,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Workpath dans le volet d’accès, vous devez être connecté automatiquement à votre application Workpath.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

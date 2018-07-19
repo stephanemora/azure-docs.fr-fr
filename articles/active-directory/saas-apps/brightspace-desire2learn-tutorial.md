@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b15012fae7ffacd63762c723f14cae62f9a0817d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2387cb6517675e59bc84c6283d31575c9a0aff60
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211143"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043585"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Didacticiel : Intégration d’Azure Active Directory à Brightspace by Desire2Learn
 
@@ -102,15 +102,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **Brightspace de Desire2Learn**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_samlbase.png)
+    ![Configurer l'authentification unique](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_samlbase.png)
 
 3. Dans la section **Domaine et URL Brightspace de Desire2Learn**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_url.png)
+    ![Configurer l'authentification unique](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
     | |
@@ -127,11 +127,11 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_certificate.png) 
+    ![Configurer l'authentification unique](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/brightspace-desire2learn-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique du côté de **Brightspace de Desire2Learn**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [ l’équipe du support technique Brightspace de Desire2Learn](https://www.d2l.com/contact/).
 
@@ -193,7 +193,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 2. Dans la liste des applications, sélectionnez **Brightspace de Desire2Learn**.
 
-    ![Configure Single Sign-On](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_app.png) 
+    ![Configurer l'authentification unique](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -214,7 +214,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Dans le volet d’accès, lorsque vous cliquez sur la vignette Brightspace de Desire2Learn, vous devez automatiquement être connecté à votre application Brightspace de Desire2Learn.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

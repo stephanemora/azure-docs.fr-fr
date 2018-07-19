@@ -1,6 +1,6 @@
 ---
-title: Charger des données dans Azure Data Lake Store à l’aide d’Azure Data Factory | Microsoft Docs
-description: Utiliser Azure Data Factory pour copier des données dans Azure Data Lake Store
+title: Charger des données dans Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory | Microsoft Docs
+description: Utiliser Azure Data Factory pour copier des données dans Azure Data Lake Storage Gen1
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055368"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857199"
 ---
-# <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Charger des données dans Azure Data Lake Store à l’aide d’Azure Data Factory
+# <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 
-[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Azure Data Lake vous permet de capturer des données de toute taille, de tout type et dont les vitesses de réception sont variées. Les données sont capturées à un emplacement unique, à des fins d’analytique opérationnelle et exploratoire.
+[Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (connu préalablement sous le nom Azure Data Lake Store) est un référentiel d’entreprise à très grande échelle pour les charges de travail d’analyse du Big Data. Azure Data Lake vous permet de capturer des données de toute taille, de tout type et dont les vitesses de réception sont variées. Les données sont capturées à un emplacement unique, à des fins d’analytique opérationnelle et exploratoire.
 
 Azure Data Factory est un service informatique d’intégration de données informatique intégralement managé. Vous pouvez utiliser le service pour remplir le lac de données avec les données de votre système existant et gagner du temps lors de la création de vos solutions d’analyse.
 
@@ -52,14 +52,14 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
  
     * **Nom** : saisissez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données \"LoadADLSDemo\" n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Essayez à nouveau de créer la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
     * **Abonnement** : sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. 
-    * **Groupe de ressources** : sélectionnez un groupe de ressources existant dans la liste déroulante, ou sélectionnez l’option **Créer** et indiquez le nom d’un groupe de ressources. Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Groupe de ressources** : sélectionnez un groupe de ressources existant dans la liste déroulante, ou sélectionnez l’option **Créer** et indiquez le nom d’un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
     * Pour **Version** : sélectionnez **V2**.
     * **Emplacement** : sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. Ces magasins de données incluent Azure Data Lake Store, le Stockage Azure, Microsoft Azure SQL Database, etc.
 
 3. Sélectionnez **Créer**.
 4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante : 
    
-   ![Page d'accueil Data Factory](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
+   ![Page d’accueil Data Factory](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
    Sélectionnez la vignette **Créer et surveiller** pour lancer l’application d’intégration de données dans un onglet séparé.
 

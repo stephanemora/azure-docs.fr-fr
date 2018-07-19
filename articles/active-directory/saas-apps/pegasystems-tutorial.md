@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 005f487b46ca3894ed2d94ec032bb009c3051796
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c1b29cb7d09bcaa25457cf6f99731beae30fa7b2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223380"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Didacticiel : Intégration d’Azure Active Directory à Pega Systems
 
@@ -125,7 +125,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 5. L’application Pega Systems attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. Ces revendications sont spécifiques au client et varient en fonction de vos besoins. Les revendications facultatives suivantes sont des exemples que vous pouvez configurer pour votre application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. 
 
-    ![Configure Single Sign-On](./media/pegasystems-tutorial/tutorial_attribute.png)
+    ![Configurer l'authentification unique](./media/pegasystems-tutorial/tutorial_attribute.png)
 
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
     
@@ -146,9 +146,9 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/pegasystems-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/pegasystems-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/pegasystems-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/pegasystems-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -276,7 +276,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Pega Systems dans le volet d’accès, vous devez être connecté automatiquement à votre application Pega Systems.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

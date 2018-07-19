@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413226"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923487"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs Hyper-V locaux à la récupération d’urgence vers Azure
 
-Ce didacticiel vous montre comment préparer votre infrastructure Hyper-V locale quand vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, dans le cadre de la récupération d’urgence. Les hôtes Hyper-V peuvent être gérés par System Center Virtual Machine Manager (VMM), mais ce n’est pas une condition obligatoire.  Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment préparer votre infrastructure Hyper-V locale quand vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, dans le cadre de la récupération d’urgence. Les hôtes Hyper-V peuvent être gérés par System Center Virtual Machine Manager (VMM), mais ce n’est pas une condition obligatoire.  Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Examinez les exigences pour Hyper-V et VMM, le cas échéant.
@@ -66,7 +66,7 @@ Préparez VMM pour le mappage réseau comme suit :
     
 3. Si vous contrôlez l’accès par adresse IP, vérifiez les points suivants :
     - Assurez-vous que les règles de pare-feu basées sur une adresse IP peuvent se connecter aux [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), ainsi qu’au port HTTPS (443).
-    - Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région des États-Unis de l’Ouest (utilisées pour la gestion du contrôle d’accès et des identités).
+    - Autorisez les plages d’adresse IP pour la région Azure de votre abonnement.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b092b8fa5f3b410788ca56a0d1a43e27e3ac3e97
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 22197f3ea91a014b6afee014463b709705bf33a0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216172"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042450"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Didacticiel : Intégration d’Azure Active Directory à Concur
 
@@ -105,15 +105,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Concur**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/concur-tutorial/tutorial_concur_samlbase.png)
+    ![Configurer l'authentification unique](./media/concur-tutorial/tutorial_concur_samlbase.png)
 
 3. Dans la section **Domaine et URL Concur**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/concur-tutorial/tutorial_concur_url.png)
+    ![Configurer l'authentification unique](./media/concur-tutorial/tutorial_concur_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant : `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
@@ -124,7 +124,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/concur-tutorial/tutorial_concur_certificate.png) 
+    ![Configurer l'authentification unique](./media/concur-tutorial/tutorial_concur_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -190,7 +190,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Concur**.
 
-    ![Configure Single Sign-On](./media/concur-tutorial/tutorial_concur_app.png) 
+    ![Configurer l'authentification unique](./media/concur-tutorial/tutorial_concur_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -211,7 +211,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la mosaïque Concur dans le panneau d’accès, la page de connexion de l’application Concur doit apparaître.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

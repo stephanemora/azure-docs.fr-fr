@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 413ae4197b95932321e29eb1662fe8168c77799a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 24f49cac136335493fcc9290f29a08efcc5eb5da
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216937"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Didacticiel : Intégration d’Azure Active Directory avec eKincare
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **eKincare**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/ekincare-tutorial/tutorial_ekincare_samlbase.png)
+    ![Configurer l'authentification unique](./media/ekincare-tutorial/tutorial_ekincare_samlbase.png)
 
 3. Dans la section **Domaine et URL eKincare**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/ekincare-tutorial/tutorial_ekincare_url.png)
+    ![Configurer l'authentification unique](./media/ekincare-tutorial/tutorial_ekincare_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<instancename>.ekincare.com/`
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     Le nom de la revendication sera toujours **« employeeid »** et sa valeur mappée à user.extensionattribute1 qui contient la valeur employeeid de l’utilisateur. Les deux autres noms de revendication, à savoir **« organizationid »** et **« organizationname »**, seront toujours identiques et leur valeur correspond aux détails de l’organisation de l’utilisateur.
     
-    ![Configure Single Sign-On](./media/ekincare-tutorial/attribute.png)
+    ![Configurer l'authentification unique](./media/ekincare-tutorial/attribute.png)
     
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
@@ -135,9 +135,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/ekincare-tutorial/04.png)
+    ![Configurer l'authentification unique](./media/ekincare-tutorial/04.png)
 
-    ![Configure Single Sign-On](./media/ekincare-tutorial/05.png)
+    ![Configurer l'authentification unique](./media/ekincare-tutorial/05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -147,11 +147,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/ekincare-tutorial/tutorial_ekincare_certificate.png) 
+    ![Configurer l'authentification unique](./media/ekincare-tutorial/tutorial_ekincare_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/ekincare-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/ekincare-tutorial/tutorial_general_400.png)
 
 8. Pour configurer l’authentification unique du côté **eKincare**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique d’eKincare](mailto:tech@ekincare.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -208,7 +208,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **eKincare**.
 
-    ![Configure Single Sign-On](./media/ekincare-tutorial/tutorial_ekincare_app.png) 
+    ![Configurer l'authentification unique](./media/ekincare-tutorial/tutorial_ekincare_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -229,7 +229,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Si vous cliquez sur la mosaïque eKincare dans le volet d’accès, vous devez vous connecter automatiquement à votre application eKincare.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

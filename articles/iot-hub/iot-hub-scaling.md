@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030435"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901039"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -31,7 +31,7 @@ Chaque niveau IoT Hub est disponible en trois tailles, en fonction du débit de 
 
 Le niveau standard de IoT Hub active toutes les fonctionnalités. Il est requis pour toutes les solutions IoT qui comptent utiliser les fonctionnalités de communication bidirectionnelle. Le niveau de base active un sous-ensemble de fonctionnalités. Il est destiné aux solutions IoT qui nécessitent uniquement une communication unidirectionnelle, des appareils vers le cloud. Ces deux niveaux offrent les mêmes fonctionnalités de sécurité et d’authentification.
 
-Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau de base au niveau standard sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md).
+Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau de base au niveau standard sans interrompre vos opérations existantes. Pour plus d’informations, consultez [Comment mettre à niveau votre IoT Hub](iot-hub-upgrade.md). Notez que la limite de partition pour le niveau de base d’IoT Hub est 8. Cette limite ne change pas quand vous migrez du niveau de base vers le niveau standard.
 
 | Fonctionnalité | Niveau de base | Niveau standard |
 | ---------- | ---------- | ------------- |
@@ -43,7 +43,7 @@ Une fois votre IoT Hub créé, vous pouvez le faire évoluer et passer du niveau
 | [Surveillance et diagnostics](iot-hub-monitor-resource-health.md) | OUI | OUI |
 | [Messages de cloud-à-appareil](iot-hub-devguide-c2d-guidance.md) |   | OUI |
 | [Jumeaux d’appareil](iot-hub-devguide-device-twins.md), [Jumeaux de module](iot-hub-devguide-module-twins.md) et [Gestion des appareils](iot-hub-device-management-overview.md) |   | OUI |
-| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | OUI |
+| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | OUI |
 
 IoT Hub propose également un niveau gratuit à des fins de test et d’évaluation. Il possède toutes les fonctionnalités du niveau standard, mais ses allocations en termes de messages sont limitées. Vous ne pouvez pas faire évoluer le niveau gratuit vers le niveau de base ou standard. 
 
@@ -59,9 +59,9 @@ La différence de fonctionnalités prises en charge entre les niveaux de base et
 | Obtenir le module | OUI | OUI |
 | [Obtenir les statistiques de Registre](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | OUI | OUI |
 | [Obtenir les statistiques de services](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | OUI | OUI |
-| [Créer ou mettre à jour un appareil](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | OUI | OUI |
+| [Placer l’appareil](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | OUI | OUI |
 | Placer le module | OUI | OUI |
-| [Interroger IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | OUI | OUI |
+| [Interroger les appareils](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | OUI | OUI |
 | Interroger les modules | OUI | OUI |
 | [Créer l’URI SAS de téléchargement des fichiers](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | OUI | OUI |
 | [Recevoir une notification d’appareil lié](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | OUI | OUI |

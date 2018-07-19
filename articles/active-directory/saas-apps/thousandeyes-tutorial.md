@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0bbab96988c801f4078fb3a543cbcc20b781a6ec
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b6dcc2e057ab0877646bb5ace962cfd00cfb8839
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218375"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Didacticiel : Intégration d’Azure AD à ThousandEyes
 
@@ -102,29 +102,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail Azure, dans la page d’intégration de l’application **ThousandEyes**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
-    ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_samlbase.png)
+    ![Configurer l'authentification unique](./media/thousandeyes-tutorial/tutorial_thousandeyes_samlbase.png)
 
 3. Dans la section **Domaine et URL ThousandEyes**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_url.png)
+    ![Configurer l'authentification unique](./media/thousandeyes-tutorial/tutorial_thousandeyes_url.png)
 
     Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://app.thousandeyes.com/login/sso`
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_certificate.png)
+    ![Configurer l'authentification unique](./media/thousandeyes-tutorial/tutorial_thousandeyes_certificate.png)
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/thousandeyes-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de ThousandEyes**, cliquez sur **Configurer ThousandEyes** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_configure.png) 
+    ![Configurer l'authentification unique](./media/thousandeyes-tutorial/tutorial_thousandeyes_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **ThousandEyes** en tant qu’administrateur.
 
@@ -191,7 +191,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans ThousandEyes. ThousandEyes prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Vous trouverez [ici](thousandeyes-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
 
-**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
+**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
 1. Connectez-vous à votre site d’entreprise ThousandEyes en tant qu’administrateur.
 
@@ -237,7 +237,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **ThousandEyes**.
 
-    ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_app.png) 
+    ![Configurer l'authentification unique](./media/thousandeyes-tutorial/tutorial_thousandeyes_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -259,7 +259,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Si vous cliquez sur la vignette ThousandEyes dans le volet d’accès, vous devez vous connecter automatiquement à votre application ThousandEyes.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

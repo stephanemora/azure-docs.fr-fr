@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 72338a4c168b4d3b7c918fbb16758724f73fefc2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29844103"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856458"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Vue d’ensemble d’Azure Cloud Shell
 Azure Cloud Shell est un shell interactif, accessible par navigateur pour la gestion des ressources Azure.
@@ -49,7 +49,7 @@ Les utilisateurs Linux peuvent utiliser Bash dans Cloud Shell, et les utilisateu
 ### <a name="authenticated-and-configured-azure-workstation"></a>Station de travail Azure configurée et authentifiée
 Service managé par Microsoft, Cloud Shell est livré avec des outils en ligne de commande usuels et une prise en charge de langages. De plus, il s’authentifie automatiquement de façon sécurisée pour garantir un accès immédiat aux ressources par l’intermédiaire d’Azure CLI 2.0 ou des cmdlets Azure PowerShell.
 
-Affichez la liste complète des outils pour les expériences [Bash](features.md#tools) et [PowerShell (préversion).](features-powershell.md#tools)
+Affichez la [liste d’outils](features.md#tools) complète.
 
 ### <a name="multiple-access-points"></a>Plusieurs points d’accès
 Cloud Shell est un outil flexible qui s’utilise à partir de :
@@ -94,7 +94,7 @@ Vous disposez d’une option avancée qui permet d’associer des ressources exi
 * Cloud Shell requiert qu’un partage de fichiers Azure soit monté
 * Cloud Shell utilise le même partage de fichiers Azure pour Bash et PowerShell
 * Cloud Shell est affecté à une machine par compte d’utilisateur
-* Bash rend $Home persistant en conservant une image de 5 Go dans votre partage de fichiers
+* Cloud Shell rend $Home persistant en conservant une image de 5 Go dans votre partage de fichiers
 * Les autorisations sont définies en tant qu’utilisateur Linux standard dans Bash
 
 En savoir plus sur les fonctionnalités de [Bash dans Cloud Shell](features.md) et [PowerShell dans Cloud Shell (préversion)](features-powershell.md).

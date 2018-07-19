@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8680f01e8c23ba8e164ec3da3ac116ced37a3c97
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 97154f0ee8f07e0fa4fe8d70fef997144251c27d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219130"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Didacticiel : Intégration d’Azure Active Directory avec PolicyStat
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **PolicyStat**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/policystat-tutorial/tutorial_policystat_samlbase.png)
+    ![Configurer l'authentification unique](./media/policystat-tutorial/tutorial_policystat_samlbase.png)
 
 3. Dans la section **Domaine et URL PolicyStat**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/policystat-tutorial/tutorial_policystat_url.png)
+    ![Configurer l'authentification unique](./media/policystat-tutorial/tutorial_policystat_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.policystat.com`
 
@@ -121,7 +121,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/policystat-tutorial/tutorial_policystat_certificate.png) 
+    ![Configurer l'authentification unique](./media/policystat-tutorial/tutorial_policystat_certificate.png) 
 
 5. Cette section explique comment permettre aux utilisateurs de s’authentifier sur PolicyStat avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
@@ -139,9 +139,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/policystat-tutorial/tutorial_policystat_04.png)
+    ![Configurer l'authentification unique](./media/policystat-tutorial/tutorial_policystat_04.png)
 
-    ![Configure Single Sign-On](./media/policystat-tutorial/tutorial_policystat_addatribute.png)
+    ![Configurer l'authentification unique](./media/policystat-tutorial/tutorial_policystat_addatribute.png)
     
     b. Dans la zone de texte **Nom de l’attribut**, entrez **uid**.
 
@@ -153,7 +153,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/policystat-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/policystat-tutorial/tutorial_general_400.png)
 
 8. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise PolicyStat en tant qu’administrateur.
 
@@ -246,7 +246,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **PolicyStat**.
 
-    ![Configure Single Sign-On](./media/policystat-tutorial/tutorial_policystat_app.png) 
+    ![Configurer l'authentification unique](./media/policystat-tutorial/tutorial_policystat_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -267,7 +267,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette PolicyStat dans le volet d’accès, vous êtes connecté automatiquement à votre application PolicyStat.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

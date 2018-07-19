@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 8266da9c6b7aaa0aea2cd5cefb73febc090f3ba5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3c0c91e293f04665bc284daa4f496b9bff74aa3c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214890"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Didacticiel : Intégration d'Azure Active Directory avec Moxtra
 
@@ -102,21 +102,21 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Moxtra**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_samlbase.png)
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_samlbase.png)
 
 3. Dans la section **Domaine et URL Moxtra**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_url.png)
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_url.png)
 
     Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://www.moxtra.com/service/#login`
 
 4. L’application Moxtra attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple de cette configuration. 
 
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_attributes.png)
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_attributes.png)
     
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
@@ -131,11 +131,11 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_attribute_04.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_attribute_05.png)
 
     c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
 
@@ -143,25 +143,25 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_certificate.png) 
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_general_400.png)
 
 7. Dans la section **Configuration de Moxtra**, cliquez sur **Configurer Moxtra** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_configure.png) 
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_configure.png) 
 
 8. Dans une autre fenêtre de navigateur, connectez-vous à votre site d'entreprise Moxtra en tant qu'administrateur.
 
 9. Dans la barre d’outils située à gauche, cliquez sur **Console Administrateur > Authentification unique SAML**, puis sur **Nouveau**.
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 10. Sur la page **SAML** , procédez comme suit :
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. Dans la zone de texte **Nom**, saisissez le nom de votre configuration (par ex., *SAML*). 
   
@@ -226,7 +226,7 @@ L'objectif de cette section est de créer un utilisateur appelé Britta Simon da
 
 2. Dans la barre d’outils située à gauche, cliquez sur **Console Administrateur > Gestion des utilisateurs**, puis sur **Ajouter un utilisateur**.
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 3. Dans la boîte de dialogue **Ajouter un utilisateur** , procédez comme suit :
   
@@ -258,7 +258,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Moxtra**.
 
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_app.png) 
+    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -279,7 +279,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Moxtra dans le volet d'accès, vous êtes connecté automatiquement à votre application Moxtra.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

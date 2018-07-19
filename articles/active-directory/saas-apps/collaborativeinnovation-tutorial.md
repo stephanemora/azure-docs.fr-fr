@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 897db5a4d794c22f436fa074ec2c359edc5b590c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0e2936d0b428249226e428ddc0912d62e29a84f3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225056"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042395"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Didacticiel : intégration d’Azure Active Directory à Collaborative Innovation
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Collaborative Innovation**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_samlbase.png)
+    ![Configurer l'authentification unique](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_samlbase.png)
 
 3. Dans la section **Domaine et URL Collaborative Innovation**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_url.png)
+    ![Configurer l'authentification unique](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<instancename>.foundry.<companyname>.com/`
 
@@ -121,7 +121,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. L’application Collaborative Innovation attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/attribute.png)
+    ![Configurer l'authentification unique](./media/collaborativeinnovation-tutorial/attribute.png)
     
 5. Dans la section **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** pour développer les attributs. Dans chacun des attributs affichés, procédez comme suit :
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Cliquez sur l’attribut pour ouvrir la fenêtre **Modifier l’attribut**.
 
-    ![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/url_update.png)
+    ![Configurer l'authentification unique](./media/collaborativeinnovation-tutorial/url_update.png)
 
     b. Supprimez la valeur de l’URL dans **Espace de noms**.
     
@@ -142,11 +142,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_certificate.png) 
+    ![Configurer l'authentification unique](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/collaborativeinnovation-tutorial/tutorial_general_400.png)
 
 8. Pour configurer l’authentification unique côté **Collaborative Innovation**, vous devez envoyer les **métadonnées XML** téléchargées à [l’équipe du support technique Collaborative Innovation](https://www.unilever.com/contact/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -205,7 +205,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Collaborative Innovation**.
 
-    ![Configure Single Sign-On](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_app.png) 
+    ![Configurer l'authentification unique](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -226,7 +226,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Collaborative Innovation dans le volet d’accès, vous devez accéder à sa page de connexion.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

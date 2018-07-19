@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: be600fa6707e86e483e21f638d0d80515f9372b4
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 4c88d6a8b22e4c5c19112c30e15bc960bc8ed1b5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294990"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Didacticiel : Intégration d’Azure Active Directory à Tableau Server
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Tableau Server**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial_tableauserver_samlbase.png)
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial_tableauserver_samlbase.png)
 
 3. Dans la section **Domaine et URL Tableau Server**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial_tableauserver_url.png)
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial_tableauserver_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://azure.<domain name>.link`
     
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. L’application Tableau Server attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **« Attributs utilisateur »** sur la page d’intégration de l’application. La capture d’écran suivante montre un exemple identique.
     
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/3.png)
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/3.png)
     
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
     
@@ -133,9 +133,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial_officespace_04.png)
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial_officespace_04.png)
 
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial_officespace_05.png)
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial_officespace_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -146,7 +146,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial_tableauserver_certificate.png) 
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial_tableauserver_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
@@ -156,7 +156,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
    
    a. Dans Tableau Server configuration (Configuration de Tableau Server), cliquez sur l’onglet **SAML** .
   
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial_tableauserver_001.png) 
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial_tableauserver_001.png) 
   
    b. Cochez la case **Use SAML for single sign-on**(Utiliser SAML pour l’authentification unique).
    
@@ -236,7 +236,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Tableau Server**.
 
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial_tableauserver_app.png) 
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial_tableauserver_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -257,7 +257,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Tableau Server dans le volet d’accès, vous devez être connecté automatiquement à votre application Tableau Server.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

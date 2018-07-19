@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: ef1cdb51f10e834ef9f2d3dd4623db348db9483e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bcbcefa9db5caa2a77aabd0e482473a01f706ad8
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215366"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053493"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Didacticiel : Intégration d’Azure Active Directory à ChronicX®
 
@@ -82,7 +82,7 @@ Dans cette section, vous allez configurer et tester l’authentification unique 
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur ChronicX® équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur ChronicX® associé doit être établie.
 
-Pour configurer et tester l'authentification unique Azure AD avec ChronicX®, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec ChronicX®, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
@@ -94,7 +94,7 @@ Pour configurer et tester l'authentification unique Azure AD avec ChronicX®, vo
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application ChronicX®.
 
-**Pour configurer l'authentification unique Azure AD avec ChronicX®, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec ChronicX®, procédez comme suit :**
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **ChronicX®**, cliquez sur **Authentification unique**.
 
@@ -159,7 +159,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-chronicx-test-user"></a>Créer un utilisateur de test ChronicX®
 
-L'objectif de cette section est de créer un utilisateur appelé Britta Simon dans ChronicX®. ChronicX® prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à ChronicX® s’il n’existe pas déjà.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans ChronicX®. ChronicX® prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à ChronicX® s’il n’existe pas déjà.
 
 >[!Note]
 >Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support ChronicX®](https://www.casebank.com/contact-us/).
@@ -199,7 +199,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque ChronicX® dans le volet d’accès, vous devez être connecté automatiquement à votre application ChronicX®.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

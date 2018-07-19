@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: cynthn
-ms.openlocfilehash: 1d543bd9590664e74cff70cf55e8f7bd42f2c6f0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6baf784068b1fba0c35d2848b8d2dda4f1064a2d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239053"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867978"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Créer une machine virtuelle à partir d’une image gérée
 
@@ -33,7 +33,7 @@ Vous devez déjà avoir [créé une image de machine virtuelle managée](capture
 2. Dans le menu de gauche, sélectionnez **Toutes les ressources**. Vous pouvez trier les ressources par **Type** pour rechercher facilement vos images.
 3. Sélectionnez l’image à utiliser dans la liste. La page **Vue d’ensemble** de l’image s’ouvre.
 4. Cliquez sur **+ Créer machine virtuelle** dans le menu.
-5. Saisissez les informations de la machine virtuelle. Le nom d’utilisateur et le mot de passe que vous avez entrés vous serviront pour vous connecter à la machine virtuelle. Lorsque vous avez terminé, cliquez sur **OK**. Vous pouvez créer la nouvelle machine virtuelle dans un groupe de ressources existant ou sélectionner **Créer nouveau** pour créer un nouveau groupe de ressources pour stocker la machine virtuelle.
+5. Saisissez les informations de la machine virtuelle. Le nom d’utilisateur et le mot de passe que vous avez entrés vous serviront pour vous connecter à la machine virtuelle. Lorsque vous avez terminé, cliquez sur **OK**. Vous pouvez créer la machine virtuelle dans un groupe de ressources existant ou sélectionner **Créer nouveau** pour créer un groupe de ressources pour stocker la machine virtuelle.
 6. Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. 
 7. Sous **Paramètres**, procédez aux modifications nécessaires et cliquez sur **OK**. 
 8. Dans la page Résumé, vous pouvez voir le nom de votre image dans la liste **Image privée**. Cliquez sur **Ok** pour démarrer le déploiement de la machine virtuelle.

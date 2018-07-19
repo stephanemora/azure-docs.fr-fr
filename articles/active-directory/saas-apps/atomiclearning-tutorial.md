@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 785a2af9cf736bad0aa0520898664c2939720a78
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b69050ef85bd7108fcfb5dc5d2f6742af6218618
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212115"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Didacticiel : Intégration d’Azure Active Directory à Atomic Learning
 
@@ -102,15 +102,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Atomic Learning**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/atomiclearning-tutorial/tutorial_atomiclearning_samlbase.png)
+    ![Configurer l'authentification unique](./media/atomiclearning-tutorial/tutorial_atomiclearning_samlbase.png)
 
 3. Dans la section **Domaine et URL Atomic Learning**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/atomiclearning-tutorial/tutorial_atomiclearning_url.png)
+    ![Configurer l'authentification unique](./media/atomiclearning-tutorial/tutorial_atomiclearning_url.png)
 
      Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://secure2.atomiclearning.com/sso/shibboleth/<companyname>`
     
@@ -119,11 +119,11 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/atomiclearning-tutorial/tutorial_atomiclearning_certificate.png) 
+    ![Configurer l'authentification unique](./media/atomiclearning-tutorial/tutorial_atomiclearning_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/atomiclearning-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/atomiclearning-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique du côté d’**Atomic Learning**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe du support technique d’Atomic Learning](mailto:cs@atomiclearning.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -181,7 +181,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 2. Dans la liste des applications, sélectionnez **Atomic Learning**.
 
-    ![Configure Single Sign-On](./media/atomiclearning-tutorial/tutorial_atomiclearning_app.png) 
+    ![Configurer l'authentification unique](./media/atomiclearning-tutorial/tutorial_atomiclearning_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -202,7 +202,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Atomic Learning dans le volet d’accès, vous devez être connecté automatiquement à votre application Atomic Learning.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

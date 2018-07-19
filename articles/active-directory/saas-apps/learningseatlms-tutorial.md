@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 96608c491fe4d62b6b4bdb48ee5386c9a72212cf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d1a15617830f7b517210c7e86146a88d38ae8343
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286243"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046819"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Didacticiel : intégration d’Azure Active Directory à Learning Seat LMS
 
@@ -101,15 +101,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Learning Seat LMS**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/learningseatlms-tutorial/tutorial_learnconnect_samlbase.png)
+    ![Configurer l'authentification unique](./media/learningseatlms-tutorial/tutorial_learnconnect_samlbase.png)
 
 3. Dans la section **Domaines et URL Learning Seat LMS**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
 
-    ![Configure Single Sign-On](./media/learningseatlms-tutorial/tutorial_learnconnect_url.png)
+    ![Configurer l'authentification unique](./media/learningseatlms-tutorial/tutorial_learnconnect_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.learningseatlms.com`
 
@@ -117,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/learningseatlms-tutorial/tutorial_learnconnect_url2.png)
+    ![Configurer l'authentification unique](./media/learningseatlms-tutorial/tutorial_learnconnect_url2.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.learningseatlms.com`
      
@@ -126,11 +126,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/learningseatlms-tutorial/tutorial_learnconnect_certificate.png) 
+    ![Configurer l'authentification unique](./media/learningseatlms-tutorial/tutorial_learnconnect_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/learningseatlms-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/learningseatlms-tutorial/tutorial_general_400.png)
 
 7. Pour configurer l’authentification unique du côté de **Learning Seat LMS**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de Learning Seat](http://help.learningseatlms.com/help).
 
@@ -187,7 +187,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Learning Seat LMS**.
 
-    ![Configure Single Sign-On](./media/learningseatlms-tutorial/tutorial_learnconnect_app.png) 
+    ![Configurer l'authentification unique](./media/learningseatlms-tutorial/tutorial_learnconnect_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès. 
 
-Lorsque vous cliquez sur la vignette Learning Seat LMS dans le volet d’accès, vous êtes automatiquement connecté à votre application Learning Seat LMS. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Lorsque vous cliquez sur la vignette Learning Seat LMS dans le volet d’accès, vous êtes automatiquement connecté à votre application Learning Seat LMS. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

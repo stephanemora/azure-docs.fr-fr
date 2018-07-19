@@ -1,6 +1,6 @@
 - name: Documentation Service Fabric Mesh
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: À propos de Service Fabric Mesh
@@ -9,17 +9,17 @@
   items:
     - name: Déployer Hello world
       href: service-fabric-mesh-quickstart-deploy-container.md
-    - name: Créer et déployer une application web
+    - name: Créer et déployer une application web dans Azure Service Fabric Mesh
       href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Didacticiels
   items:
-    - name: Créer et déployer une application web multiservice
+    - name: 'Créer, déboguer et déployer une application web multiservice Service Fabric Mesh'
       items:
-        - name: 1 - Créer une application ASP.NET Core
+        - name: 1 - Créer une application web Service Fabric Mesh
           href: service-fabric-mesh-tutorial-create-dotnetcore.md
-        - name: 2 - Déboguer l’application
+        - name: 2 - Déboguer une application web Service Fabric Mesh
           href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-        - name: 3- Déployer l’application
+        - name: 3 - Déployer une application web Service Fabric Mesh
           href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
 - name: Concepts
   items:

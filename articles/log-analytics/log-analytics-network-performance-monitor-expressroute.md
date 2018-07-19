@@ -1,6 +1,6 @@
 ---
 title: Solution Analyseur de performances réseau dans Azure Log Analytics | Microsoft Docs
-description: Utilisez la fonctionnalité ExpressRoute Manager de Network Performance Monitor pour surveiller les performances et la connectivité de bout en bout entre vos succursales et Azure, sur Azure ExpressRoute.
+description: Utilisez la fonctionnalité Moniteur ExpressRoute de Network Performance Monitor afin de surveiller les performances et la connectivité de bout en bout entre vos succursales et Azure, via Azure ExpressRoute.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 55308c2f144ea90636fb477f82c19fd3f8276af5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 27169193a468d98be879164b80e63fffde419002
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131126"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633347"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute Manager
+# <a name="expressroute-monitor"></a>Moniteur ExpressRoute
 
-Vous pouvez utiliser la fonctionnalité ExpressRoute Manager de [Network Performance Monitor](log-analytics-network-performance-monitor.md) pour surveiller les performances et la connectivité de bout en bout entre vos succursales et Azure, sur Azure ExpressRoute. Les avantages clés sont les suivants : 
+Vous pouvez utiliser la fonctionnalité Moniteur Azure ExpressRoute de [Network Performance Monitor](log-analytics-network-performance-monitor.md) pour surveiller les performances et la connectivité de bout en bout entre vos succursales et Azure, via Azure ExpressRoute. Les avantages clés sont les suivants : 
 
 - Détection automatique des circuits ExpressRoute associés à votre abonnement.
 - Suivi de l’utilisation de la bande passante, perte et latence au niveau du circuit, appairage et niveau du réseau virtuel Azure d’ExpressRoute.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 957a68c80f9fcc07ef6f84b2b08f344745a58d95
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282196"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866022"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -62,8 +62,16 @@ Exemple :
 
 **Q : Azure AD Connect Health prend-il en charge Azure Germany Cloud ?**
 
-Azure AD Connect Health propose une [installation](active-directory-aadconnect-health-agent-install.md) compatible avec Azure Germany. Toutes les données des clients du cloud allemand sont stockées dans Azure Germany Cloud.
+Azure AD Connect Health n’est pas pris en charge dans Germany Cloud à l’exception de la [fonctionnalité de rapport d’erreurs de synchronisation](active-directory-aadconnect-health-sync.md#object-level-synchronization-error-report-preview). 
 
+| contrôleur | Caractéristiques | Prise en charge dans Germany Cloud |
+| ------ | --------------- | --- |
+| Connect Health pour la synchronisation | Supervision/Insight/Alertes/Analyse | Non  |
+|  | Rapport d’erreurs de synchronisation | OUI |
+| Connect Health pour ADFS | Supervision/Insight/Alertes/Analyse | Non  |
+| Connect Health pour ADDS | Supervision/Insight/Alertes/Analyse | Non  |
+
+Pour garantir la connectivité de l’agent de Connect Health pour la synchronisation, configurez [l’installation requise](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) en conséquence.   
 
 ## <a name="installation-questions"></a>Questions sur l’installation
 

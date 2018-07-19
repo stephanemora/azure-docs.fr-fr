@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264549"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917225"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
-Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données.
+Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./monitoring-diagnostic-logs-schema.md) est fourni à la fin de cet article.
 
 ## <a name="administrative"></a>Administratif
 Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
@@ -115,7 +115,7 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 | autorisation |Objet blob des propriétés RBAC de l’événement. Inclut généralement les propriétés « action », « role » et « scope ». |
 | caller |Adresse e-mail de l’utilisateur qui a effectué l’opération, la revendication UPN ou la revendication SPN basée sur la disponibilité. |
 | channels |L’une des valeurs suivantes : « Admin », « Operation ». |
-| réclamations |Le jeton JWT utilisé par Active Directory pour authentifier l’utilisateur ou l’application afin d’effectuer cette opération dans le gestionnaire de ressources. |
+| réclamations |Le jeton JWT utilisé par Active Directory pour authentifier l’utilisateur ou l’application afin d’effectuer cette opération dans Resource Manager. |
 | correlationId |Généralement un GUID au format chaîne. Les événements qui partagent un correlationId appartiennent à la même action uber. |
 | description |Description textuelle statique d’un événement. |
 | eventDataId |Identificateur unique d’un événement. |
@@ -560,6 +560,30 @@ Cette catégorie contient l’enregistrement de toutes les nouvelles recommandat
 | properties.recommendationImpact| Impact de la recommandation. Les valeurs possibles sont « High » (Élevé), « Medium » (Moyen) ou « Low » (Bas) |
 | properties.recommendationRisk| Risque de la recommandation. Les valeurs possibles sont « Error » (Erreur), « Warning » (Avertissement) et « None » (Aucun). |
 
+## <a name="mapping-to-diagnostic-logs-schema"></a>Mappage vers le schéma des journaux de diagnostic
+
+Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers un espace de noms Event Hubs, les données suivent le [schéma des journaux de diagnostic Azure](./monitoring-diagnostic-logs-schema.md). Voici le mappage des propriétés du schéma ci-dessus vers le schéma des journaux de diagnostic :
+
+| Propriété du schéma des journaux de diagnostic | Propriété du schéma de l’API REST Journal d’activité | Notes |
+| --- | --- | --- |
+| time | eventTimestamp |  |
+| ResourceId | ResourceId | subscriptionId, resourceType et resourceGroupName sont déduits à partir de resourceId. |
+| operationName | operationName.value |  |
+| category | Partie du nom de l’opération | Fraction du type d’opération - « Écrire »/« Supprimer »/« Action » |
+| resultType | status.value | |
+| resultSignature | substatus.value | |
+| resultDescription | description |  |
+| durationMS | N/A | Toujours 0 |
+| callerIpAddress | httpRequest.clientIpAddress |  |
+| correlationId | correlationId |  |
+| identité | propriétés de revendication et d’autorisation |  |
+| Level | Level |  |
+| location | N/A | Emplacement de traitement de l’événement. *Il ne s’agit pas de l’emplacement de la ressource, mais de l’endroit où l’événement a été traité. Cette propriété sera supprimée dans une prochaine mise à jour.* |
+| properties | properties.eventProperties |  |
+| properties.eventCategory | category | Si properties.eventCategory n’est pas présent, la catégorie est « Administrative » |
+| properties.eventName | eventName |  |
+| properties.operationId | operationId |  |
+| properties.eventProperties | properties |  |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 43745e43cd7df4a91cf0080816c4ed423f352f3d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ddc3df7aacad7ad31c41da99916b252b6496a989
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219344"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054146"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Didacticiel : intégration d’Azure Active Directory à Domo
 
@@ -102,15 +102,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Domo**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_samlbase.png)
+    ![Configurer l'authentification unique](./media/domo-tutorial/tutorial_domo_samlbase.png)
 
 3. Dans la section **Domaine et URL Domo**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_url.png)
+    ![Configurer l'authentification unique](./media/domo-tutorial/tutorial_domo_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.domo.com`
 
@@ -135,7 +135,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 4. L’application Domo attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple de cette configuration. 
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_attributes.png)
+    ![Configurer l'authentification unique](./media/domo-tutorial/tutorial_domo_attributes.png)
     
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
@@ -146,9 +146,9 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/domo-tutorial/tutorial_attribute_04.png)
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/domo-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -158,16 +158,16 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
  
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_certificate.png) 
+    ![Configurer l'authentification unique](./media/domo-tutorial/tutorial_domo_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/domo-tutorial/tutorial_general_400.png)
 
 
 8. Dans la section **Configuration de Domo**, cliquez sur **Configurer Domo** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**   
 
-   ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_configure.png) 
+   ![Configurer l'authentification unique](./media/domo-tutorial/tutorial_domo_configure.png) 
 
 9. Pour configurer l’authentification unique côté **Domo**, accédez à l’article de la Base de connaissances de Domo [ici](http://knowledge.domo.com?cid=azuread), puis suivez les instructions.
 
@@ -225,7 +225,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Domo**.
 
-    ![Configure Single Sign-On](./media/domo-tutorial/tutorial_domo_app.png) 
+    ![Configurer l'authentification unique](./media/domo-tutorial/tutorial_domo_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -246,7 +246,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 Lorsque vous cliquez sur la mosaïque Domo dans le volet d’accès, vous devez être connecté automatiquement à votre application Domo.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

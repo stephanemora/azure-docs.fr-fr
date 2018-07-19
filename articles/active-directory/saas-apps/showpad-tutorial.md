@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a2eaee7af1ae87900fb989f52573200838f6c888
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 74ab20c7ae7e70f04cce224e4fb45d7eb646c085
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222921"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Didacticiel : intégration d’Azure Active Directory à Showpad
 
@@ -104,15 +104,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Showpad**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/showpad-tutorial/tutorial_showpad_samlbase.png)
+    ![Configurer l'authentification unique](./media/showpad-tutorial/tutorial_showpad_samlbase.png)
 
 3. Dans la section **Domaine et URL Showpad**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/showpad-tutorial/tutorial_showpad_url.png)
+    ![Configurer l'authentification unique](./media/showpad-tutorial/tutorial_showpad_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<comapany-name>.showpad.biz/login`
 
@@ -125,11 +125,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/showpad-tutorial/tutorial_showpad_certificate.png) 
+    ![Configurer l'authentification unique](./media/showpad-tutorial/tutorial_showpad_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/showpad-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/showpad-tutorial/tutorial_general_400.png)
 
 6. Connectez-vous à votre client Showpad en tant qu’administrateur.
 
@@ -212,7 +212,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Showpad**.
 
-    ![Configure Single Sign-On](./media/showpad-tutorial/tutorial_showpad_app.png) 
+    ![Configurer l'authentification unique](./media/showpad-tutorial/tutorial_showpad_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -233,7 +233,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Showpad dans le volet d’accès, vous devez être connecté automatiquement à l’application Showpad.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

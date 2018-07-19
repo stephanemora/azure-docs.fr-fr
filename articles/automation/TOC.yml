@@ -1,6 +1,6 @@
 - name: "Documentation de l’utilisateur Azure\_Automation"
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Automation\_?"
       href: automation-intro.md
@@ -41,6 +41,8 @@
           href: automation-update-management.md
         - name: Gérer les mises à jour pour plusieurs machines virtuelles
           href: manage-update-multi.md
+        - name: Migrer des déploiements de mises à jour OMS vers Azure
+          href: migrate-oms-update-deployments.md
         - name: Intégrer SCCM avec Update Management
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Suivi des modifications
@@ -207,7 +209,7 @@
           href: troubleshoot/hybrid-runbook-worker.md
         - name: Update Management
           href: troubleshoot/update-management.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation

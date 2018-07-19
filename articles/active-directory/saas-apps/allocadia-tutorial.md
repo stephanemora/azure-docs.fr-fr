@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 5aacb6a1df10b32fe5310138d19532eff249c677
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a25fbd4daaa4d1fb09d788ba7ab61392ffb100f2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222581"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Didacticiel : Intégration d’Azure Active Directory à Allocadia
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Allocadia**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_allocadia_samlbase.png)
+    ![Configurer l'authentification unique](./media/allocadia-tutorial/tutorial_allocadia_samlbase.png)
 
 3. Dans la section **Domaine et URL Allocadia**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_allocadia_url.png)
+    ![Configurer l'authentification unique](./media/allocadia-tutorial/tutorial_allocadia_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : 
        
@@ -129,7 +129,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. L’application Allocadia attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple de cette configuration. 
 
-    ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_allocadia_attributes.png)
+    ![Configurer l'authentification unique](./media/allocadia-tutorial/tutorial_allocadia_attributes.png)
     
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
@@ -141,11 +141,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_attribute_04.png)
+    ![Configurer l'authentification unique](./media/allocadia-tutorial/tutorial_attribute_04.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_attribute_05.png)
+    ![Configurer l'authentification unique](./media/allocadia-tutorial/tutorial_attribute_05.png)
 
     c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
  
@@ -155,12 +155,12 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_allocadia_certificate.png) 
+    ![Configurer l'authentification unique](./media/allocadia-tutorial/tutorial_allocadia_certificate.png) 
 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/allocadia-tutorial/tutorial_general_400.png)
 
 8. Pour configurer l’authentification unique côté **Allocadia**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à [l’équipe du support Allocadia](mailTo:support@allocadia.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -217,7 +217,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Allocadia**.
 
-    ![Configure Single Sign-On](./media/allocadia-tutorial/tutorial_allocadia_app.png) 
+    ![Configurer l'authentification unique](./media/allocadia-tutorial/tutorial_allocadia_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -238,7 +238,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Allocadia dans le volet d’accès, vous devez être connecté automatiquement à votre application Allocadia.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

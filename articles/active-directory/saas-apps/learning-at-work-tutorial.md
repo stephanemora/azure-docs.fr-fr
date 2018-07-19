@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 47640b2b8145372f372f4f1129eb992bd4f247ed
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b7a097107f68c692c960efc465d00b05e81f7c81
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216410"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>Didacticiel : Intégration d’Azure Active Directory à Learning at Work
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Learning at Work**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_samlbase.png)
+    ![Configurer l'authentification unique](./media/learning-at-work-tutorial/tutorial_learningatwork_samlbase.png)
 
 3. Dans la section **Learning at Work Domain and URLs** (Domaine et URL Learning at Work), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_url.png)
+    ![Configurer l'authentification unique](./media/learning-at-work-tutorial/tutorial_learningatwork_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.sabacloud.com/Saba/Web/<company code>`
 
@@ -121,15 +121,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_certificate.png) 
+    ![Configurer l'authentification unique](./media/learning-at-work-tutorial/tutorial_learningatwork_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/learning-at-work-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Learning at Work Configuration** (Configuration de Learning at Work), cliquez sur **Configure Learning at Work** (Configurer Learning at Work) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_configure.png) 
+    ![Configurer l'authentification unique](./media/learning-at-work-tutorial/tutorial_learningatwork_configure.png) 
 
 7. Pour configurer l’authentification unique côté **Learning at Work**, vous devez envoyer le fichier **XML des métadonnées** téléchargé, **l’ID d’entité SAML**, **l’URL du service d’authentification unique SAML** et **l’URL de déconnexion** au [support technique Learning at Work](https://www.learninga-z.com/site/contact/support).
 
@@ -185,7 +185,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Learning at Work**.
 
-    ![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_app.png) 
+    ![Configurer l'authentification unique](./media/learning-at-work-tutorial/tutorial_learningatwork_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -206,7 +206,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Learning at Work dans le volet d’accès, vous devez être connecté automatiquement à votre application Learning at Work.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

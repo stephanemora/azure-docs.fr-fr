@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 3898a9ffffede5d5b286f187d1ca8b663f322974
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b37c62bbdf0eb6c232c47ef257bb7c0da75e1948
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222523"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Didacticiel : Intégration d’Azure Active Directory à FloQast
 
@@ -232,7 +232,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Le fait de cliquer sur la vignette FloQast dans le volet d’accès vous connecte automatiquement à votre application FloQast.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -1,6 +1,6 @@
 - name: Documentation Batch
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation d’Azure Batch
       href: batch-technical-overview.md
@@ -121,19 +121,15 @@
           href: batch-get-resource-counts.md
         - name: Interroger des ressources de manière efficace
           href: batch-efficient-list-queries.md
-    - name: Utiliser des outils de développement
+    - name: Utiliser les outils de script
       items:
-        - name: Utiliser Batch .NET
-          href: batch-dotnet-get-started.md
-        - name: Utiliser le code Python Batch
-          href: batch-python-tutorial.md
-        - name: Utiliser le fichier Node.js Batch
-          href: batch-nodejs-get-started.md
         - name: Utiliser des cmdlets PowerShell
           href: batch-powershell-cmdlets-get-started.md
         - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
           href: batch-cli-get-started.md
-- name: Informations de référence
+    - name: Utiliser le kit de développement logiciel (SDK) Node.js Batch
+      href: batch-nodejs-get-started.md
+- name: Référence
   items:
     - name: Azure CLI
       href: /cli/azure/batch

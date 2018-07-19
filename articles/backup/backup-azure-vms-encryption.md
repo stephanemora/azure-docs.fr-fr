@@ -6,27 +6,23 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49361aef774e9eb5a0995bc106e73b236a71b0bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16620678c38dcdc1564d8cb18f3393352170cefe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441129"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598422"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure
 Cet article présente les étapes pour sauvegarder et restaurer des machines virtuelles à l’aide de Sauvegarde Azure. Il fournit également des détails sur les scénarios pris en charge, les composants requis et les étapes de dépannage en cas d’erreur.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
- * La sauvegarde et la restauration de machines virtuelles chiffrées sont prises en charge uniquement pour les machines virtuelles qui utilisent le modèle de déploiement Azure Resource Manager. Ces opérations ne sont pas prises en charge pour les machines virtuelles qui utilisent le modèle de déploiement classique. <br>
- * La sauvegarde et la restauration de machines virtuelles chiffrées sont prises en charge pour les machines virtuelles Windows et Linux qui utilisent Azure Disk Encryption. Disk Encryption utilise la fonctionnalité standard BitLocker Windows et la fonctionnalité dm-crypt de Linux pour assurer le chiffrement des disques. <br>
- 
- Le tableau suivant montre les scénarios pris en charge par les machines virtuelles chiffrées avec une clé de chiffrement BitLocker (BEK) uniquement et chiffrées avec une clé de chiffrement de clé (KEK) :
- 
- 
+ La sauvegarde et la restauration de machines virtuelles chiffrées sont prises en charge uniquement pour les machines virtuelles qui utilisent le modèle de déploiement Azure Resource Manager. Ces opérations ne sont pas prises en charge pour les machines virtuelles qui utilisent le modèle de déploiement classique. La sauvegarde et la restauration de machines virtuelles chiffrées sont prises en charge pour les machines virtuelles Windows et Linux qui utilisent Azure Disk Encryption. Disk Encryption utilise la fonctionnalité standard BitLocker Windows et la fonctionnalité dm-crypt de Linux pour assurer le chiffrement des disques. Le tableau suivant présente le type de chiffrement et la prise en charge pour les machines virtuelles.
+
    |  | Machines virtuelles avec BEK et KEK | Machines virtuelles BEK uniquement |
    | --- | --- | --- |
    | **Machines virtuelles non gérées**  | OUI | OUI  |

@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 07/09/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: db5941528eedd10cf252607dbe2160bd498a70de
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054719"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951965"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory
 Cet article décrit comment exécuter un package SSIS dans un pipeline Azure Data Factory à l’aide d’une activité Exécuter le Package SSIS. 
@@ -55,7 +55,7 @@ La première étape consiste à créer une fabrique de données à l’aide du p
       - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante. 
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
          
-    Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Sélectionnez **V2** pour la **version**.
 5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge par Data Factory sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements.
 6. Sélectionnez **Épingler au tableau de bord**.     
@@ -65,7 +65,7 @@ La première étape consiste à créer une fabrique de données à l’aide du p
     ![mosaïque déploiement de fabrique de données](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
-    ![Page d'accueil Data Factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+    ![Page d’accueil Data Factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’application d’interface utilisateur (IU) d’Azure Data Factory dans un onglet séparé. 
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Créer un pipeline avec une activité Exécuter le Package SSIS
@@ -92,9 +92,11 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
 
 ### <a name="optionally-parameterize-the-activity"></a>Le cas échéant, paramétrer l’activité
 
-Si vous le souhaitez, assignez des valeurs, des expressions ou des fonctions, qui peuvent faire référence à des variables système Data Factory, aux paramètres de votre projet ou package au format JSON dans l’onglet **Avancé**. Par exemple, vous pouvez affecter des paramètres de pipeline Data Factory à votre projet SSIS ou des paramètres de package, comme indiqué dans la capture d’écran suivante :
+Si vous le souhaitez, vous pouvez attribuer des valeurs, des expressions ou des fonctions pouvant faire référence à des variables système Data Factory, aux paramètres de votre projet ou de votre package, au format JSON. Pour cela, utilisez le bouton **Afficher le code source** situé au bas de la fenêtre d’activité Exécuter le package SSIS ou le bouton **Code** en haut à droite de la zone de pipeline. Par exemple, vous pouvez affecter des paramètres de pipeline Data Factory aux paramètres de votre projet SSIS ou de votre package, comme indiqué dans les captures d’écran suivantes :
 
-![Ajouter des paramètres à l’activité Exécuter le Package SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+![Modifier le script JSON pour l’activité Exécuter le package SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Ajouter des paramètres à l’activité Exécuter le Package SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ### <a name="run-and-monitor-the-pipeline"></a>Exécuter et surveiller le pipeline
 Dans cette section, vous déclenchez une exécution du pipeline puis vous la surveillez. 
@@ -166,7 +168,7 @@ Vous pouvez utiliser la fabrique de données qui a le runtime d’intégration A
                                             -Name $dataFactoryName 
     ```
 
-Notez les points suivants :
+Notez les points suivants :
 
 * Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez l’erreur suivante, changez le nom, puis réessayez.
 
@@ -174,7 +176,7 @@ Notez les points suivants :
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Pour créer des instances de fabrique de données, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être un membre des rôles **contributeur** ou **propriétaire**, ou un **administrateur** de l’abonnement Azure.
-* À l’heure actuelle, Data Factory vous permet de créer des fabriques de données uniquement dans les régions Est des États-Unis, Est des États-Unis 2, Europe de l’Ouest et Asie du Sud-Est. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>Créer un pipeline avec une activité SSIS 
 Dans cette étape, vous allez créer un pipeline avec une activité SSIS. L’activité exécute votre package SSIS. 
@@ -267,7 +269,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité SSIS. L’ac
                                                    -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
 
-    Voici l'exemple de sortie :
+    Voici l’exemple de sortie :
 
     ```
     PipelineName      : Adfv2QuickStartPipeline
@@ -286,7 +288,7 @@ $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataF
                                              -PipelineName $DFPipeLine.Name
 ```
 
-### <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
+### <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline
 
 Exécutez le script PowerShell suivant afin de vérifier continuellement l’état de l’exécution du pipeline jusqu’à la fin de la copie des données. Copiez/collez le script suivant dans la fenêtre PowerShell et appuyez sur ENTRÉE. 
 

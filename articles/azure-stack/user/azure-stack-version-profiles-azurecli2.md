@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: eb01d31d00177560aca3aa71750cd2d1ec096f8f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939650"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866856"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI 2.0 dans Azure Stack
 
@@ -44,7 +44,7 @@ Vous devriez voir la version d’Azure CLI et d’autres bibliothèques dépenda
     python -c "import certifi; print(certifi.where())"
   ```
 
-  Notez l’emplacement du certificat. Par exemple : `~/lib/python3.5/site-packages/certifi/cacert.pem`. Votre chemin d’accès particulier dépend de votre système d’exploitation et de la version de Python que vous avez installée.
+  Notez l’emplacement du certificat. Par exemple : `~/lib/python3.5/site-packages/certifi/cacert.pem`. Votre chemin d’accès particulier dépend de votre système d’exploitation et de la version de Python que vous avez installée.
 
 ### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Définissez le chemin d’accès pour un ordinateur de développement à l’intérieur du cloud
 

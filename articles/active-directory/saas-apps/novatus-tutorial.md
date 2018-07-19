@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2017
 ms.author: jeedes
-ms.openlocfilehash: f1dbbc2695234e5196b76b13d2b71848eb7f00a6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7d26ac2d4e7ab3cdb7603a201b4238bf9068cdab
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212806"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051333"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Didacticiel : Intégration d’Azure Active Directory à Novatus
 
@@ -102,15 +102,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Novatus**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/novatus-tutorial/tutorial_novatus_samlbase.png)
+    ![Configurer l'authentification unique](./media/novatus-tutorial/tutorial_novatus_samlbase.png)
 
 3. Dans la section **Domaine et URL Novatus**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/novatus-tutorial/tutorial_novatus_url.png)
+    ![Configurer l'authentification unique](./media/novatus-tutorial/tutorial_novatus_url.png)
 
      Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://sso.novatuscontracts.com/<companyname>`
 
@@ -121,15 +121,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/novatus-tutorial/tutorial_novatus_certificate.png) 
+    ![Configurer l'authentification unique](./media/novatus-tutorial/tutorial_novatus_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/novatus-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/novatus-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Novatus**, cliquez sur **Configurer Novatus** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/novatus-tutorial/tutorial_novatus_configure.png) 
+    ![Configurer l'authentification unique](./media/novatus-tutorial/tutorial_novatus_configure.png) 
 
 7. Pour que l’authentification unique soit configurée pour votre application, contactez [l’équipe du support technique Novatus](mailto:jvinci@novatusinc.com). Joignez le fichier de **certificat téléchargé** à votre courrier et partagez les **URL des métadonnées** (**ID d’entité SAML, URL du service d’authentification unique SAML et URL de déconnexion**) avec l’équipe Novatus pour configurer l’authentification unique de son côté.
 
@@ -192,7 +192,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Novatus**.
 
-    ![Configure Single Sign-On](./media/novatus-tutorial/tutorial_novatus_app.png) 
+    ![Configurer l'authentification unique](./media/novatus-tutorial/tutorial_novatus_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -212,7 +212,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Novatus dans le volet d’accès, vous devez être connecté automatiquement à votre application Novatus. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Lorsque vous cliquez sur la vignette Novatus dans le volet d’accès, vous devez être connecté automatiquement à votre application Novatus. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

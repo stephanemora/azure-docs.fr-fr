@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 3e058242840a3fa8b86c9ae9d5a0940cc02f04d2
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020387"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866176"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configuration des services fiables (Reliable Services) avec état
 Il existe deux ensembles de paramètres de configuration pour les services fiables (Reliable Services). L’un des ensembles est global pour tous les services fiables dans le cluster, alors que l’autre est spécifique à un service fiable.
@@ -66,7 +66,7 @@ Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble po
 
 SharedLogSizeInMB spécifie la quantité d’espace disque à préallouer pour le journal partagé par défaut sur tous les nœuds.  Il n’est pas nécessaire de spécifier SharedLogId et SharedLogPath pour spécifier SharedLogSizeInMB.
 
-## <a name="service-specific-configuration"></a>Configuration spécifique à un service
+## <a name="service-specific-configuration"></a>Configuration spécifiques à un service
 Vous pouvez modifier la configuration par défaut des Reliable Services avec état par le biais du package de configuration (Config) ou l'implémentation du service (Code).
 
 * **Config** : vous pouvez réaliser la configuration par le biais du package de configuration en modifiant le fichier Settings.xml généré dans la racine du package Microsoft Visual Studio, dans le dossier Config de chaque service dans l'application.
@@ -119,8 +119,8 @@ ReplicatorConfig
 | MaxRecordSizeInKB |Ko |1 024 |Taille maximale de l'enregistrement que le réplicateur peut écrire dans le journal. Cette valeur doit être un multiple de 4 et supérieure à 16. |
 | MinLogSizeInMB |Mo |0 (système déterminé) |Taille minimale du journal des transactions. Le journal ne peut pas être tronqué à une taille inférieure à ce paramètre. 0 indique que le réplicateur détermine la taille minimale du journal. Si vous augmentez cette valeur, vous augmentez la possibilité de faire des copies partielles et des sauvegardes incrémentielles, car la probabilité de la troncation des enregistrements de journaux pertinents est réduite. |
 | TruncationThresholdFactor |Facteur |2 |Détermine à partir de quelle taille du journal la troncation est déclenchée. Le seuil de troncation est déterminé par MinLogSizeInMB multiplié par TruncationThresholdFactor. TruncationThresholdFactor doit être supérieur à 1. MinLogSizeInMB * TruncationThresholdFactor doit être inférieur à MaxStreamSizeInMB. |
-| ThrottlingThresholdFactor |Facteur |4 |Détermine à partir de quelle taille du journal la troncation du réplica commence. Le seuil de limitation (en Mo) est déterminé par Max ((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). Le seuil de limitation (en Mo) doit être supérieur au seuil de troncation (en Mo). Le seuil de troncation (en Mo) doit être inférieur à MaxStreamSizeInMB. |
-| MaxAccumulatedBackupLogSizeInMB |Mo |800 |Taille cumulée maximale (en Mo) des journaux de sauvegarde dans une séquence de journaux de sauvegarde donnée. Des demandes de sauvegarde incrémentielle échouent si la sauvegarde incrémentielle génère un journal de sauvegarde qui provoque l’accumulation des journaux de sauvegarde, étant donné que la sauvegarde complète pertinente est supérieure à cette taille. Dans ce cas, l’utilisateur doit effectuer une sauvegarde complète. |
+| ThrottlingThresholdFactor |Facteur |4 |Détermine à partir de quelle taille du journal la troncation du réplication commence. Le seuil de limitation (en Mo) est déterminé par Max ((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). Le seuil de limitation (en Mo) doit être supérieur au seuil de troncation (en Mo). Le seuil de troncation (en Mo) doit être inférieur à MaxStreamSizeInMB. |
+| MaxAccumulatedBackupLogSizeInMB |Mo |800 |Taille cumulée maximale (en Mo) des journaux de sauvegarde dans une séquence de journaux de sauvegarde donnée. Des demandes de sauvegarde incrémentielle échouent si la sauvegarde incrémentielle génère un journal de sauvegarde qui provoque la cumulation des journaux de sauvegarde, étant donné que la sauvegarde complète pertinente est supérieure à cette taille. Dans ce cas, l’utilisateur doit effectuer une sauvegarde complète. |
 | SharedLogId |GUID |"" |Spécifie un GUID unique à utiliser pour identifier le fichier journal partagé utilisé avec ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogId est spécifié, SharedLogPath doit l'être aussi. |
 | SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d'accès complet où sera créé le fichier journal partagé pour ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
 | SlowApiMonitoringDuration |Secondes |300 |Définit l’intervalle de surveillance pour les appels d’API gérées. Exemple : fonction de rappel de sauvegarde fournie par l’utilisateur. Une fois l’intervalle écoulé, un rapport d’intégrité Warning sera adressé au Gestionnaire d’intégrité. |

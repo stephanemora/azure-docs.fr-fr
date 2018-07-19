@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 5c2971a59bbaa241a2e1eb4ecca0db7e8b95a885
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227130"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Didacticiel : Intégration d’Azure Active Directory à Salesforce
 
@@ -141,29 +141,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Cliquez sur **Setup** sous **l’icône de paramètres** en haut à droite de la page.
 
-    ![Configure Single Sign-On](./media/salesforce-tutorial/configure1.png)
+    ![Configurer l'authentification unique](./media/salesforce-tutorial/configure1.png)
 
 9. Dans le volet de navigation, accédez à **SETTINGS** et cliquez sur **Identity** pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique**.
 
-    ![Configure Single Sign-On](./media/salesforce-tutorial/sf-admin-sso.png)
+    ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-admin-sso.png)
 
 10. Sur la page **Paramètres de l’authentification unique**, cliquez sur le bouton **Modifier**.
 
-    ![Configure Single Sign-On](./media/salesforce-tutorial/sf-admin-sso-edit.png)
+    ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-admin-sso-edit.png)
     
     > [!NOTE]
     > Si vous ne pouvez pas activer les paramètres de l’authentification unique pour votre compte Salesforce, il vous faudra peut-être contacter [l’équipe du support technique de Salesforce](https://help.salesforce.com/support). 
 
 11. Sélectionnez **SAML activé**, puis cliquez sur **Enregistrer**.
 
-      ![Configure Single Sign-On](./media/salesforce-tutorial/sf-enable-saml.png)
+      ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-enable-saml.png)
 12. Pour configurer vos paramètres d’authentification unique SAML, cliquez sur **Nouveau**.
 
-    ![Configure Single Sign-On](./media/salesforce-tutorial/sf-admin-sso-new.png)
+    ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
 13. Sur la page **Modifier les paramètres d’authentification unique SAML** , procédez à la configuration suivante :
 
-    ![Configure Single Sign-On](./media/salesforce-tutorial/sf-saml-config.png)
+    ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-saml-config.png)
 
     a. Dans le champ **Nom** , entrez un nom convivial pour cette configuration. Le fait d’entrer une valeur pour **Nom** entraîne le remplissage automatique de la zone de texte **Nom API**.
 
@@ -194,15 +194,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 14. Dans le volet de navigation de gauche de Salesforce, cliquez sur **Company Settings** pour développer la section associée, puis cliquez sur **My Domain**.
 
-    ![Configure Single Sign-On](./media/salesforce-tutorial/sf-my-domain.png)
+    ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-my-domain.png)
 
 15. Faites défiler le contenu de la fenêtre jusqu’à la section **Configuration de l’authentification**, puis cliquez sur le bouton **Modifier**.
 
-    ![Configure Single Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
+    ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
 16. Dans la section **Configuration de l’authentification**, cochez **Page de connexion** comme **Service d’authentification** de votre configuration SSO SAML, puis cliquez sur **Enregistrer**.
 
-    ![Configure Single Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
+    ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
     > Si plusieurs services d’authentification sont sélectionnés, les utilisateurs sont invités à choisir le service d’authentification qu’ils préfèrent utiliser pour se connecter lors de l’initialisation d’une authentification unique sur votre environnement Salesforce. Si vous ne voulez pas que cela se produise, vous devez **décocher toutes les cases en regard des autres services d’authentification**.
@@ -278,7 +278,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Salesforce dans le volet d’accès, vous êtes automatiquement connecté à votre application Salesforce.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: bf3afa56aeb51d3bcdaa84c1c2d75c86ee764f7b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0e6a34ba9df96f904ebee3fc25dc849f7ce6f2ee
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216240"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Didacticiel : Intégration d’Azure Active Directory à Help Scout
 
@@ -131,21 +131,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Dans la section **Configuration de Help Scout**, cliquez sur **Configurer Help Scout** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/helpscout-tutorial/config.png) 
+    ![Configurer l'authentification unique](./media/helpscout-tutorial/config.png) 
 
 8. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Help Scout en tant qu’administrateur.
 
 9. Une fois que vous êtes connecté, cliquez sur **Gérer** dans le menu supérieur, puis sélectionnez **Company** (Société) dans le menu déroulant.
 
-    ![Configure Single Sign-On](./media/helpscout-tutorial/settings1.png) 
+    ![Configurer l'authentification unique](./media/helpscout-tutorial/settings1.png) 
  
 10. Sélectionnez **Authentification** dans le menu de gauche. 
 
-    ![Configure Single Sign-On](./media/helpscout-tutorial/settings2.png) 
+    ![Configurer l'authentification unique](./media/helpscout-tutorial/settings2.png) 
 
 11. Vous accédez ainsi à la section des paramètres SAML où vous effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/helpscout-tutorial/settings3.png) 
+    ![Configurer l'authentification unique](./media/helpscout-tutorial/settings3.png) 
  
     a. Copiez la valeur **URL de publication (URL Assertion Consumer Service)** et collez-la dans la zone **URL de réponse** dans le portail Azure, sous la section **Domaine et URL** Help Scout.
     
@@ -153,7 +153,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 12. Activez **Activer SAML** et effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png) 
+    ![Configurer l'authentification unique](./media/helpscout-tutorial/settings4.png) 
  
     a. Dans la zone de texte **URL d’authentification unique**, collez la valeur de l’**URL du service d’authentification unique** que vous avez copiée à partir du portail Azure.
     
@@ -241,7 +241,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Help Scout dans le volet d’accès, vous devez être connecté automatiquement à votre application Help Scout.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

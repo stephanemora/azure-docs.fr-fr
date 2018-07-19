@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 67758e527549827b673d00ad82911d3114a44ca7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2f77fedddd84303ae489379a62a3b1845127b16b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227837"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Didacticiel : Intégration d’Azure Active Directory à Pantheon
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **Pantheon**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/pantheon-tutorial/tutorial_pantheon_samlbase.png)
+    ![Configurer l'authentification unique](./media/pantheon-tutorial/tutorial_pantheon_samlbase.png)
 
 3. Dans la section **Domaine et URL Pantheon**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/pantheon-tutorial/tutorial_pantheon_url.png)
+    ![Configurer l'authentification unique](./media/pantheon-tutorial/tutorial_pantheon_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `urn:auth0:pantheon:<orgname>-SSO`
 
@@ -121,20 +121,20 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. L’application Pantheon attend l’assertion SAML dans un format spécifique. Vous devez donc définir la valeur de l’attribut UserIdentifier avec l’adresse e-mail de l’utilisateur. Par défaut, Azure AD utilise UserPrincipalName pour l’attribut UserIdentifier. Mais pour une intégration réussie, vous devez ajuster cette valeur pour la faire correspondre à l’adresse électronique de l’utilisateur. L’intégration ne fonctionnera qu’une fois le mappage correct effectué.
 
-    ![Configure Single Sign-On](./media/pantheon-tutorial/tutorial_attribute.png)    
+    ![Configurer l'authentification unique](./media/pantheon-tutorial/tutorial_attribute.png)    
 
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/pantheon-tutorial/tutorial_pantheon_certificate.png)
+    ![Configurer l'authentification unique](./media/pantheon-tutorial/tutorial_pantheon_certificate.png)
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/pantheon-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/pantheon-tutorial/tutorial_general_400.png)
 
 7. Dans la section **Configuration de Pantheon**, cliquez sur **Configurer Pantheon** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/pantheon-tutorial/tutorial_pantheon_configure.png) 
+    ![Configurer l'authentification unique](./media/pantheon-tutorial/tutorial_pantheon_configure.png) 
 
 8. Pour configurer l’authentification unique côté **Pantheon**, vous devez envoyer le **Certificat** téléchargé et **l’URL du service d’authentification unique SAML** à [l’équipe de support technique Pantheon](https://pantheon.io/docs/getting-support/).
 
@@ -210,7 +210,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Pantheon**.
 
-    ![Configure Single Sign-On](./media/pantheon-tutorial/tutorial_pantheon_app.png) 
+    ![Configurer l'authentification unique](./media/pantheon-tutorial/tutorial_pantheon_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -231,7 +231,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Pantheon dans le volet d’accès, vous devez être connecté automatiquement à votre application Pantheon.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

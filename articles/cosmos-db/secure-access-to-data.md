@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: sngun
-ms.openlocfilehash: 079cbff3a1669efb7ba7cd7a97da9256dbbfe9f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613215"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901117"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Sécurisation de l’accès aux données d’Azure Cosmos DB
 Cet article fournit une vue d’ensemble de la sécurisation de l’accès aux données stockées dans [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -24,7 +24,7 @@ Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs e
 |Type de clé|Ressources|
 |---|---|
 |[Clés principales](#master-keys) |Utilisées pour les ressources d’administration : comptes de base de données, bases de données, utilisateurs et autorisations|
-|[Jetons de ressource](#resource-tokens)|Utilisés pour les ressources de l’application : collections, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur|
+|[Jetons de ressource](#resource-tokens)|Utilisés pour les ressources de l’application : conteneurs, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur|
 
 <a id="master-keys"></a>
 
@@ -32,7 +32,7 @@ Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs e
 
 Les clés principales fournissent un accès à toutes les ressources d’administration du compte de base de données. Clés principales :  
 - Fournissent un accès aux comptes, aux bases de données, aux utilisateurs et aux autorisations. 
-- Ne peuvent pas être utilisées pour fournir un accès précis aux collections et aux documents.
+- Ne peuvent pas être utilisées pour fournir un accès précis aux conteneurs et aux documents.
 - Sont créées lors de la création d’un compte.
 - Peuvent être régénérées à tout moment.
 
@@ -75,7 +75,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>Jetons de ressource
 
 Les jetons de ressource fournissent un accès aux ressources d’application au sein d’une base de données. Jetons de ressource :
-- Fournissent un accès à des collections, clés de partition, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur spécifiques.
+- Fournissent un accès à des conteneurs, clés de partition, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur spécifiques.
 - Sont créés lorsqu’un [utilisateur](#users) dispose des [autorisations](#permissions) sur une ressource spécifique.
 - Sont recréés lorsqu’une ressource d’autorisation est exécutée par un appel POST, GET ou PUT.
 - Utilisent un jeton de ressource de hachage créé spécifiquement pour l’utilisateur, la ressource et les autorisations.
@@ -134,7 +134,7 @@ Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une 
 * Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, mais il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
 
 > [!NOTE]
-> Pour exécuter les procédures stockées Azure Cosmos DB, l’utilisateur doit disposer de toutes les autorisations sur la collection dans laquelle la procédure stockée sera exécutée.
+> Pour exécuter des procédures stockées Azure Cosmos DB, l’utilisateur doit disposer de toutes les autorisations sur le conteneur dans lequel la procédure stockée est exécutée.
 > 
 > 
 
@@ -174,6 +174,11 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="delete-or-export-user-data"></a>Supprimer ou exporter des données utilisateur
+Azure Cosmos DB vous permet de rechercher, de sélectionner, de modifier et de supprimer des données personnelles, situées dans une base de données ou des collections. Azure Cosmos DB propose des API pour rechercher et supprimer des données personnelles. Toutefois, il vous incombe d’utiliser les API et de définir la logique nécessaire pour effacer les données personnelles. Chaque API multimodèle (API SQL, API MongoDB, API Gremlin, API Cassandra, API Table) fournit différents SDK de langage qui contiennent des méthodes pour rechercher et supprimer les données personnelles. Vous pouvez également activer la fonctionnalité de [durée de vie (TTL)](time-to-live.md) pour supprimer automatiquement les données après une période spécifiée, sans frais supplémentaires.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la sécurité de la base de données Azure Cosmos DB, consultez [Sécurité de la base de données Azure Cosmos DB](database-security.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 0052abf3dc3aae6be51d66d86a71830547106a23
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ebbd6efaa2acccebcfdafa5ccd7c945b588d763b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226593"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046516"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Didacticiel : Intégration d’Azure Active Directory à Mixpanel
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Mixpanel**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/mixpanel-tutorial/tutorial_mixpanel_samlbase.png)
+    ![Configurer l'authentification unique](./media/mixpanel-tutorial/tutorial_mixpanel_samlbase.png)
 
 3. Dans la section **Domaine et URL Mixpanel**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/mixpanel-tutorial/tutorial_mixpanel_url.png)
+    ![Configurer l'authentification unique](./media/mixpanel-tutorial/tutorial_mixpanel_url.png)
 
      Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://mixpanel.com/login/`
 
@@ -119,15 +119,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/mixpanel-tutorial/tutorial_mixpanel_certificate.png) 
+    ![Configurer l'authentification unique](./media/mixpanel-tutorial/tutorial_mixpanel_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/mixpanel-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/mixpanel-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Mixpanel**, cliquez sur **Configurer Mixpanel** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/mixpanel-tutorial/tutorial_mixpanel_configure.png) 
+    ![Configurer l'authentification unique](./media/mixpanel-tutorial/tutorial_mixpanel_configure.png) 
 
 7. Dans une autre fenêtre de navigateur, connectez-vous à votre application Mixpanel en tant qu’administrateur.
 
@@ -216,7 +216,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Mixpanel**.
 
-    ![Configure Single Sign-On](./media/mixpanel-tutorial/tutorial_mixpanel_app.png) 
+    ![Configurer l'authentification unique](./media/mixpanel-tutorial/tutorial_mixpanel_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -237,7 +237,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Mixpanel dans le volet d’accès, vous êtes connecté automatiquement à votre application Mixpanel.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

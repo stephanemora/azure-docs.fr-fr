@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 14ac5aab1488c86949f44f712d80966719f60c4c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c2d8470581fb5bb25b6c1271079508b0e951694d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231438"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Didacticiel : Intégration d’Azure Active Directory avec InTime
 
@@ -206,7 +206,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette InTime dans le panneau d’accès, la page de connexion de l’application InTime doit apparaître. Cliquez sur le bouton **Connexion** : une série de fournisseurs d’identité s’affiche sur une liste de boutons. Cliquez sur le **nom de l’IDP** donné par l’[équipe de support InTime](mailto:hdollard@intimesoft.com) pour vous connecter à votre application InTime. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Lorsque vous cliquez sur la vignette InTime dans le panneau d’accès, la page de connexion de l’application InTime doit apparaître. Cliquez sur le bouton **Connexion** : une série de fournisseurs d’identité s’affiche sur une liste de boutons. Cliquez sur le **nom de l’IDP** donné par l’[équipe de support InTime](mailto:hdollard@intimesoft.com) pour vous connecter à votre application InTime. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

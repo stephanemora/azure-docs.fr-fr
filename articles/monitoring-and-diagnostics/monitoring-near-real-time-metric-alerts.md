@@ -5,21 +5,30 @@ author: snehithm
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4d51b099532d3052acc190231ec4be17765a427e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264508"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971021"
 ---
-# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Métriques prises en charge et méthodes de création de nouvelles alertes de métrique
-Azure Monitor prend désormais en charge un [nouveau type d’alerte de métrique](monitoring-overview-unified-alerts.md) qui présente d’importants avantages par rapport aux anciennes [alertes de métrique classiques](insights-alerts-portal.md). Les anciennes alertes prennent en charge une [longue liste de métriques](monitoring-supported-metrics.md). Les alertes plus récentes prennent en charge un sous-ensemble (croissant) de cette liste plus large. Cet article répertorie ce sous-ensemble. 
+# <a name="introduction"></a>Introduction
+Azure Monitor prend désormais en charge un [nouveau type d’alerte de métrique](monitoring-overview-unified-alerts.md) qui présente d’importants avantages par rapport aux anciennes [alertes de métrique classiques](insights-alerts-portal.md). Des métriques sont disponibles pour une [longue liste de services Azure](monitoring-supported-metrics.md). Les alertes plus récentes prennent en charge un sous-ensemble (croissant) des types de ressource. Cet article répertorie ce sous-ensemble. 
+
+Vous pouvez également utiliser des alertes métriques plus récentes sur des journaux Log Analytics populaires extraits en tant que métriques dans le cadre des métriques de journaux (préversion).  
+- [Les compteurs de performance](../log-analytics/log-analytics-data-sources-performance-counters.md) pour les machines Windows et Linux
+- [Enregistrements de pulsations pour Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
+- Enregistrements de la [gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md)
+- Journaux sur les [données d’événement](../log-analytics/log-analytics-data-sources-windows-events.md)
+ 
+> [!NOTE]
+> La métrique et/ou la dimension spécifique ne s’affichera que si des données correspondantes existent pour la période choisie. Ces métriques sont disponibles pour les clients qui ont des espaces de travail Log Analytics dans les régions USA Est, USA Centre-Ouest et Europe Ouest. Les métriques Log Analytics sont actuellement en préversion et susceptibles d’être modifiées.
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portail, PowerShell, CLI, prise en charge de REST
-À l’heure actuelle, il n’est possible de créer des alertes métriques plus récentes que sur le Portail Azure, [l’API REST](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) ou les [modèles Resource Manager](monitoring-create-metric-alerts-with-templates.md). La prise en charge de la configuration d’alertes plus récentes en utilisant PowerShell l’interface de ligne de commande Azure (Azure CLI 2.0) est bientôt disponible.
+À l’heure actuelle, il n’est possible de créer des alertes métriques plus récentes que sur le Portail Azure, [l’API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) ou les [modèles Resource Manager](monitoring-create-metric-alerts-with-templates.md). La prise en charge de la configuration d’alertes plus récentes en utilisant PowerShell et l’interface de ligne de commande Azure (Azure CLI 2.0) est bientôt disponible.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métriques et dimensions prises en charge
 Les alertes métriques plus récentes prennent en charge la génération d’alertes pour les métriques qui utilisent des dimensions. Vous pouvez utiliser les dimensions pour filtrer votre métrique au niveau approprié. Toutes les métriques prises en charge, ainsi que les dimensions applicables, peuvent être examinées et visualisés à partir d’[Azure Monitor – Metrics Explorer (préversion)](monitoring-metric-charts.md).
@@ -32,9 +41,11 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.Automation/automationAccounts     |     OUI   | [Comptes Automation](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
 |Microsoft.Batch/batchAccounts | N/A| [Comptes Batch](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
 |Microsoft.Cache/Redis     |    N/A     |[Cache Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [Machines virtuelles](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Groupe de machines virtuelles identiques](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | OUI| [Groupes de conteneur](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
+|Microsoft.ContainerService/managedClusters | OUI | [Clusters managés](monitoring-supported-metrics.md#microsoftcontainerservicemanagedclusters)|
 |Microsoft.DataFactory/datafactories| OUI| [Fabriques de données V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories     |   OUI     |[Fabriques de données V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[Base de données pour MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
@@ -43,101 +54,19 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.KeyVault/vaults| Non  | [Coffres](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [Application Gateways](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/expressRouteCircuits | N/A |  [Circuits Express Route](monitoring-supported-metrics.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/dnsZones | N/A| [Zones DNS](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
 |Microsoft.Network/loadBalancers (uniquement pour les références SKU Standard)| OUI| [Équilibreurs de charge](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/A       |[Adresses IP publiques](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.PowerBIDedicated/capacities | N/A | [Capacités](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
+|Microsoft.Network/trafficManagerProfiles | OUI | [Profils Traffic Manager](monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.Search/searchServices     |   N/A      |[Services Recherche](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  OUI       |[Service Bus](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    OUI     | [Comptes de stockage](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAccounts/services     |     OUI    | [Services blob](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Services de fichiers](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Services de file d’attente](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) et [Services de table](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
-|Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.OperationalInsights/workspaces (Préversion) | OUI|[Espaces de travail Log Analytics](#log-analytics-logs-as-metrics-for-alerting)|
-
-
-## <a name="log-analytics-logs-as-metrics-for-alerting"></a>Journaux Log Analytics comme métriques pour les alertes 
-
-Vous pouvez également utiliser des alertes métriques plus récentes sur des journaux Log Analytics populaires extraits comme des métriques dans le cadre des Métriques de la préversion des Journaux.  
-- [Les compteurs de performance](../log-analytics/log-analytics-data-sources-performance-counters.md) pour les machines Windows et Linux
-- [Enregistrements de pulsations pour Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
-- Enregistrements de la [gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md)
- 
-> [!NOTE]
-> La métrique et/ou la dimension spécifique ne s’affichera que si des données correspondantes existent pour la période choisie. Ces métriques sont disponibles pour les clients avec les espaces de travail de l’est des États-Unis, ouest du centre des États-Unis et Europe de l’Ouest qui ont souscrit à la préversion. Si vous souhaitez faire partie de cette préversion, inscrivez-vous à l’aide de [l’enquête](https://aka.ms/MetricLogPreview).
-
-La liste suivante des sources de métriques basées sur le journal Log Analytics est prise en charge :
-
-Nom de la métrique/Détails  |Dimensions prises en charge  | Type de journal  |
-|---------|---------|---------|
-|Average_Avg. Disk sec/Read     |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-| Average_Avg. Disk sec/Write     |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-| Longueur de file d’attente du disque Average_Current   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-| Average_Disk Reads/sec    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-| Average_Disk Transfers/sec    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-|   Average_% Free Space    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-| Average_Available MBytes     |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-| Octets validés en cours d’utilisation Average_%    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-| Average_Bytes Received/sec    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-|  Average_Bytes Sent/sec    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-|  Average_Bytes Total/sec    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-|  Temps processeur Average_%    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-|   Longueur de la file d’attente Average_Processor    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Windows      |
-|   Inodes libres Average_%   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% Free Space   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Inodes utilisés Average_%  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Inodes utilisés Average_%   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Octets de lecture/s Average_Disk    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Disk Reads/sec |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Disk Transfers/sec |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Octets d’écriture/s Average_Disk   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Disk Writes/sec    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Mégaoctets Average_Free |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Logical Disk Bytes/sec |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% Available Memory |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% Available Swap Space |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% Used Memory  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% Used Swap Space  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Available MBytes Memory    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Available MBytes Swap  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Page Reads/sec |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Page Writes/sec    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Pages/sec  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Used MBytes Swap Space |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Used Memory MBytes |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Total Bytes Transmitted    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Total Bytes Received   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Total Bytes    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Total Packets Transmitted  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Total Bytes Received |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Total Rx Errors    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Total Rx Errors    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Total Collisions   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Avg. Disk sec/Read |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Avg. Disk sec/Transfer |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Avg. Disk sec/Write    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Physical Disk Bytes/sec    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Pct Privileged Time    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Pct User Time  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Used Memory MBytes |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Virtual Shared Memory  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% DPC Time |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% Idle Time    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% Interrupt Time   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% IO Wait Time |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% Nice Time    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% Privileged Time  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Temps processeur Average_%   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_% User Time    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Free Physical Memory   |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Free Space in Paging Files |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Free Virtual Memory    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Processes  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Size Stored In Paging Files    |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Uptime |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Average_Users  |     Oui – Computer, ObjectName, InstanceName, CounterPath et SourceSystem    |   Compteur de performances Linux      |
-|    Heartbeat  |     Oui – Computer, OSType, Version et SourceComputerId    |   Enregistrements de pulsation |
-|    Mettre à jour |     Oui - Computer, Product, Classification, UpdateState, facultatif et approuvée    |   Update Management |
+| Microsoft.Web/serverfarms | OUI | [Plans App Service](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
+|Microsoft.OperationalInsights/workspaces (Préversion) | OUI|[Espaces de travail Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

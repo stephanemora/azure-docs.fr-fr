@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: e07e85e60c8a4b93e4b0fd7bf43f470c4e3acc61
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f3dd1c0043a4516bfba0801d403f4b475fa2817a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221187"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Didacticiel : Intégration d’Azure Active Directory avec Pingboard
 
@@ -135,7 +135,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Dans le menu supérieur, sélectionnez **Applications > Intégrations**
 
-    ![Configure Single Sign-On](./media/pingboard-tutorial/Pingboard_integration.png)
+    ![Configurer l'authentification unique](./media/pingboard-tutorial/Pingboard_integration.png)
 
 9. Sur la page **Intégrations**, recherchez la mosaïque **« Azure Active Directory »**, puis cliquez dessus.
 
@@ -187,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Pingboard. Pingboard prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Des informations supplémentaires sur la configuration de l’attribution automatique d’utilisateurs sont disponibles [ici](pingboard-provisioning-tutorial.md).
 
-**Si vous avez besoin de créer un utilisateur manuellement, effectuez les étapes suivantes :**
+**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
 1. Connectez-vous au site d’entreprise Pingboard en tant qu’administrateur.
 
@@ -249,7 +249,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 Lorsque vous cliquez sur la mosaïque Pingboard dans le volet d’accès, vous devez être connecté automatiquement à votre application Pingboard.
 

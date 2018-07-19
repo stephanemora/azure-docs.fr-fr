@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 64f47954d3d8c393bd5bf236fbd265e49f10fe5c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4936e8d3c48486247677cf072513b7e450f1bf17
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211405"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Didacticiel : Intégration d’Azure Active Directory à Anaplan
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **Anaplan**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/anaplan-tutorial/tutorial_anaplan_samlbase.png)
+    ![Configurer l'authentification unique](./media/anaplan-tutorial/tutorial_anaplan_samlbase.png)
 
 3. Dans la section **Domaine et URL Anaplan**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/anaplan-tutorial/tutorial_anaplan_url.png)
+    ![Configurer l'authentification unique](./media/anaplan-tutorial/tutorial_anaplan_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`
 
@@ -121,15 +121,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/anaplan-tutorial/tutorial_anaplan_certificate.png) 
+    ![Configurer l'authentification unique](./media/anaplan-tutorial/tutorial_anaplan_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/anaplan-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/anaplan-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration d’Anaplan**, cliquez sur **Configurer Anaplan** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configure Single Sign-On](./media/anaplan-tutorial/tutorial_anaplan_configure.png) 
+    ![Configurer l'authentification unique](./media/anaplan-tutorial/tutorial_anaplan_configure.png) 
 
 7. Pour configurer l’authentification unique côté **Anaplan**, vous devez envoyer le fichier **XML des métadonnées** téléchargé, **l’ID d’entité SAML**, **l’URL du service d’authentification unique SAML** et **l’URL de déconnexion** à [l’équipe du support Anaplan](mailto:support@anaplan.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -185,7 +185,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Anaplan**.
 
-    ![Configure Single Sign-On](./media/anaplan-tutorial/tutorial_anaplan_app.png) 
+    ![Configurer l'authentification unique](./media/anaplan-tutorial/tutorial_anaplan_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -207,7 +207,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Lorsque vous cliquez sur la vignette Anaplan dans le volet d’accès, vous devez être connecté automatiquement à votre application Anaplan.
 
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

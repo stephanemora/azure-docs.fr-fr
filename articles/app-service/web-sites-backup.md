@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: b87838a80c7c7706b9af2bd4ea274335d04a5c52
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e8e41c51b6df9962e561d56be75108ba9cd76377
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751511"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901617"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](app-service-web-overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
@@ -53,6 +53,10 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
   Le niveau **Premium** permet un plus grand nombre de sauvegardes quotidiennes que le niveau **Standard**.
 * Vous avez besoin d’un compte de stockage Azure et d’un conteneur dans le même abonnement que l’application que vous souhaitez sauvegarder. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) situés en bas de cet article.
 * Les sauvegardes peuvent contenir jusqu’à 10 Go de contenu d’applications et de bases de données. Une erreur se produit si la taille de la sauvegarde dépasse cette limite.
+* La sauvegarde d’Azure Database pour MySQL avec SSL activé n’est pas prise en charge. Si une sauvegarde est configurée, celle-ci échoue.
+* La sauvegarde d’Azure Database pour PostgreSQL avec SSL activé n’est pas prise en charge. Si une sauvegarde est configurée, celle-ci échoue.
+* L’utilisation d’un compte de stockage avec pare-feu comme destination de vos sauvegardes n’est pas prise en charge. Si une sauvegarde est configurée, celle-ci échoue.
+
 
 <a name="manualbackup"></a>
 

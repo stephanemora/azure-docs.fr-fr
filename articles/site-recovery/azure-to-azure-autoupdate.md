@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209829"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922747"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication Azure à Azure
 
@@ -29,6 +29,11 @@ Une fois que vous autorisez Site Recovery à gérer les mises à jour, un runboo
 
 > [!NOTE]
 > L’activation des mises à jour automatiques ne nécessite pas un redémarrage de vos machines virtuelles Azure et n’affecte pas la réplication en cours.
+
+> [!NOTE]
+> La facturation des tâches utilisées par le compte Automation est basée sur la durée en minutes de l’exécution d’une tâche au cours du mois. Par défaut, 500 minutes sont incluses comme unités gratuites pour un compte Automation. L’exécution de tâche quotidienne s’élève à **quelques secondes à une minute environ** et sera **couverte dans les crédits gratuits**.
+
+UNITÉS GRATUITES INCLUSES (PAR MOIS)**   Prix de durée d’exécution de tâche    500 minutes 0,14₹/minute
 
 ## <a name="enable-automatic-updates"></a>Activation des mises à jour automatiques
 
@@ -64,7 +69,7 @@ S’il existe un problème avec les mises à jour automatiques, vous en êtes av
 Si vous avez tenté d’activer les mises à jour automatiques et que l’opération a échoué, reportez-vous à la section ci-dessous relative à la résolution des problèmes.
 
 **Erreur** : Vous ne disposez pas des autorisations nécessaires pour créer un compte d’identification Azure (principal du service) ni pour accorder le rôle de contributeur au principal du service. 
-- Action recommandée : Vérifiez que le rôle Contributeur est attribué au compte connecté et recommencez l’opération.
+- Action recommandée : Vérifiez que le rôle Contributeur est attribué au compte connecté et recommencez l’opération. Reportez-vous à [ce document](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) pour en savoir plus sur l’attribution des autorisations adéquates.
  
 Une fois que les mises à jour automatiques sont activées, la plupart des problèmes peuvent être corrigés par le service Site Recovery. Vous devez pour cela cliquer sur le bouton **Réparation**.
 

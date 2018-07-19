@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que le processus Team Data Science Process ? | Microsoft Docs
+title: Qu’est-ce que le processus Team Data Science Process ? | Microsoft Docs
 description: Propose une méthodologie de science des données permettant de fournir des solutions d’analyse prédictive et des applications intelligentes.
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 8479b23f49402962acbf50016226ea0f2eb67b68
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 474efbf3a9255e4699c27c6b0bfcc30ff54c4b45
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839076"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971449"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Qu’est-ce que le processus Team Data Science Process ?
 

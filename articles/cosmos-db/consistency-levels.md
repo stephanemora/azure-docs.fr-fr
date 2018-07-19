@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e60a69e69f13dd6b8b34fafaa384f032f2ece11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 20edcd5e8e3ec3a9d3d294f7a81a2e97b4958f50
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611821"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857182"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence des données paramétrables dans Azure Cosmos DB
 Azure Cosmos DB a été conçu dès le départ pour être distribué à l’échelle mondiale. Il offre des garanties de latence faible prévisible et plusieurs modèles de cohérence souples bien définis. Pour le moment, Azure Cosmos DB prend en charge cinq niveaux de cohérence : Fort, Obsolescence limitée, Session, Préfixe cohérent et Éventuel. Les termes « obsolescence limitée », « session », « préfixe cohérent » et « éventuelle » font référence à des modèles de « cohérence souple », qui fournissent un niveau de cohérence inférieur à celui de la cohérence forte (qui constitue le niveau de cohérence le plus élevé). 
@@ -58,7 +58,7 @@ Azure Cosmos DB propose des [contrats SLA](https://azure.microsoft.com/support/l
 La granularité de la cohérence est limitée à la demande d’un utilisateur unique. Une demande d’écriture peut correspondre à une transaction d’insertion, de remplacement, d’upsert ou de suppression. Comme dans le cas des écritures, une transaction de lecture/requête est également limitée à une demande d’utilisateur unique. L’utilisateur peut être amené à paginer un grand jeu de résultats, s’étendant sur plusieurs partitions, mais chaque transaction de lecture se limite à une seule page et est traitée à partir d’une seule partition.
 
 ## <a name="consistency-levels"></a>Niveaux de cohérence
-Vous pouvez configurer un niveau de cohérence par défaut sur votre compte de base de données, qui s’applique à toutes les collections (et bases de données) sous votre compte Cosmos DB. Par défaut, toutes les lectures et requêtes émises vers les ressources définies par l’utilisateur utilisent le niveau de cohérence par défaut spécifié sur le compte de base de données. Vous pouvez assouplir le niveau de cohérence d’une demande spécifique de lecture/requête donnée dans chacune des API prises en charge. Cinq types de niveaux de cohérence sont pris en charge par le protocole de réplication de d’Azure Cosmos DB. Ils offrent un compromis clair entre les garanties de cohérence spécifiques et les performances, comme décrit dans cette section.
+Vous pouvez configurer un niveau de cohérence par défaut sur votre compte de base de données, qui s’applique à tous les conteneurs (et bases de données) sous votre compte Cosmos DB. Par défaut, toutes les lectures et requêtes émises vers les ressources définies par l’utilisateur utilisent le niveau de cohérence par défaut spécifié sur le compte de base de données. Vous pouvez assouplir le niveau de cohérence d’une demande spécifique de lecture/requête donnée dans chacune des API prises en charge. Cinq types de niveaux de cohérence sont pris en charge par le protocole de réplication de d’Azure Cosmos DB. Ils offrent un compromis clair entre les garanties de cohérence spécifiques et les performances, comme décrit dans cette section.
 
 <a id="strong"></a>
 **Remarque** : 
@@ -112,7 +112,7 @@ Vous pouvez configurer un niveau de cohérence par défaut sur votre compte de b
     ![Capture d’écran montrant l’icône Paramètres et l’entrée Cohérence par défaut](./media/consistency-levels/database-consistency-level-1.png)
 
 ## <a name="consistency-levels-for-queries"></a>Niveaux de cohérence des requêtes
-Par défaut, pour les ressources définies par l’utilisateur, le niveau de cohérence des requêtes est identique à celui des lectures. Par défaut, l’index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d’un élément dans le conteneur Cosmos DB. Cela permet aux requêtes d’offrir le même niveau de cohérence que celui des lectures de point. Si Azure Cosmos DB est optimisé pour les écritures et prend en charge des volumes soutenus d’écritures, la maintenance d’index synchrone et les requêtes cohérentes, vous pouvez configurer certaines collections de manière à ce que la mise à jour de l’index soit effectuée en différé. Ce processus permet d'optimiser encore plus les performances des écritures. Il est idéal pour les scénarios d'ingestion en bloc lorsqu'une charge de travail implique principalement des lectures.  
+Par défaut, pour les ressources définies par l’utilisateur, le niveau de cohérence des requêtes est identique à celui des lectures. Par défaut, l’index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d’un élément dans le conteneur Cosmos DB. Cela permet aux requêtes d’offrir le même niveau de cohérence que celui des lectures de point. Si Azure Cosmos DB est optimisé pour les écritures et prend en charge des volumes soutenus d’écritures, la maintenance d’index synchrone et les requêtes cohérentes, vous pouvez configurer certains conteneurs de manière à ce que la mise à jour de l’index soit effectuée en différé. Ce processus permet d'optimiser encore plus les performances des écritures. Il est idéal pour les scénarios d'ingestion en bloc lorsqu'une charge de travail implique principalement des lectures.  
 
 | Mode d'indexation | Lectures | Requêtes |
 | --- | --- | --- |

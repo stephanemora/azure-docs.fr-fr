@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d4e754192d15bce6f7803ba34500e7c018c4dc54
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5be27723e6dfea9ce0d720baab2b650cff9c0f64
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222763"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866285"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Didacticiel : Intégration d’Azure Active Directory à Jostle
 
@@ -49,7 +49,8 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Jostle à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -59,21 +60,21 @@ Pour configurer l’intégration de Jostle à Azure AD, vous devez ajouter Jostl
 
 **Pour ajouter Jostle à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
     ![Active Directory][1]
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
-    
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![APPLICATIONS][3]
+3. Cliquez sur **Ajouter** dans la partie supérieure de la fenêtre.
 
-4. Dans la zone de recherche, tapez **Jostle**.
+    ![add_01](./media/jostle-tutorial/add_01.png)
 
-    ![Création d’un utilisateur de test Azure AD](./media/jostle-tutorial/tutorial_jostle_search.png)
+4. Dans la zone de recherche sous **Ajouter une application**, tapez **Jostle**.
+
+    ![add_02](./media/jostle-tutorial/add_02.png)
 
 5. Dans le panneau des résultats, sélectionnez **Jostle**, puis cliquez sur **Ajouter** pour ajouter l’application.
 
@@ -105,35 +106,36 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_samlbase.png)
 
 3. Dans la section **Domaine et URL Jostle**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_url.png)
+    ![url_01](./media/jostle-tutorial/url_01.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tanent name>.jostle.us/jostle-prod/`
+    a. Dans la zone de texte **URL d’authentification**, entrez `https://login-prod.jostle.us`.
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<tanent name>.jostle.us`
+    b. Dans la zone de texte **Identificateur**, entrez `https://jostle.us`.
 
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[l’équipe de support technique Jostle](mailto:support@jostle.me). 
- 
+    c. Cochez la case en regard de **Afficher les paramètres d’URL avancés**.
 
+    d. Dans la zone de texte **URL de réponse**, entrez `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`.
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+4. Dans la section **Attributs utilisateur**, dans le champ **Identificateur utilisateur**, entrez `user.userprincipalname`.
 
-    ![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_certificate.png) 
+    ![url_02](./media/jostle-tutorial/url_02.png)
 
-5. Cliquez sur le bouton **Enregistrer** .
+5. Cliquez sur **Enregistrer** dans la partie supérieure de la fenêtre.
 
-    ![Configure Single Sign-On](./media/jostle-tutorial/tutorial_general_400.png)
+6. Accédez à **Certificat de signature SAML** et vérifiez qu’il est défini sur **Actif**. Cliquez sur **XML des métadonnées** pour télécharger le fichier de métadonnées.
 
-7. Pour configurer l’authentification unique du côté Jostle, vous devez envoyer le fichier XML de métadonnées téléchargé à [l’équipe de support technique de Jostle](mailto:support@jostle.me). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés. 
+    ![url_03](./media/jostle-tutorial/url_03.png)
+
+7. Pour configurer l’authentification unique du côté de Jostle, vous devez envoyer le fichier XML de métadonnées téléchargé à [l’équipe de support technique de Jostle](mailto:support@jostle.me). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+>
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -144,19 +146,19 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/jostle-tutorial/create_aaduser_01.png) 
+    ![Création d’un utilisateur de test Azure AD](./media/jostle-tutorial/create_aaduser_01.png)
 
 2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
-    
-    ![Création d’un utilisateur de test Azure AD](./media/jostle-tutorial/create_aaduser_02.png) 
+
+    ![Création d’un utilisateur de test Azure AD](./media/jostle-tutorial/create_aaduser_02.png)
 
 3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
- 
-    ![Création d’un utilisateur de test Azure AD](./media/jostle-tutorial/create_aaduser_03.png) 
+
+    ![Création d’un utilisateur de test Azure AD](./media/jostle-tutorial/create_aaduser_03.png)
 
 4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
- 
-    ![Création d’un utilisateur de test Azure AD](./media/jostle-tutorial/create_aaduser_04.png) 
+
+    ![Création d’un utilisateur de test Azure AD](./media/jostle-tutorial/create_aaduser_04.png)
 
     a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
 
@@ -165,7 +167,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
     d. Cliquez sur **Créer**.
- 
+
 ### <a name="creating-a-jostle-test-user"></a>Création d’un utilisateur de test Jostle
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Jostle. Si vous ne savez pas comment ajouter Britta Simon dans Jostle, veuillez contacter [l’équipe de support Jostle](mailto:support@jostle.me) pour ajouter l’utilisateur de test et activer l’authentification unique.
@@ -177,21 +179,21 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans J
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Jostle.
 
-![Affecter des utilisateurs][200] 
+![Affecter des utilisateurs][200]
 
 **Pour affecter Britta Simon à Jostle, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Affecter des utilisateurs][201]
 
 2. Dans la liste des applications, sélectionnez **Jostle**.
 
-    ![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_app.png) 
+    ![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_app.png)
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Affecter des utilisateurs][202] 
+    ![Affecter des utilisateurs][202]
 
 4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
@@ -202,7 +204,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
 7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
+
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
@@ -230,4 +232,3 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/jostle-tutorial/tutorial_general_201.png
 [202]: ./media/jostle-tutorial/tutorial_general_202.png
 [203]: ./media/jostle-tutorial/tutorial_general_203.png
-

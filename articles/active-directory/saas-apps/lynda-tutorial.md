@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 09527d5e204d2bbc7ebe56cc56288e79e7f1507b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 25a61f03989e2a531e83ea2750c51d2deb92e650
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217311"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Didacticiel : Intégration d’Azure Active Directory à Lynda.com
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Lynda.com**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/lynda-tutorial/tutorial_lynda.com_samlbase.png)
+    ![Configurer l'authentification unique](./media/lynda-tutorial/tutorial_lynda.com_samlbase.png)
 
 3. Dans la section **Domaine et URL Lynda.com**, réalisez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/lynda-tutorial/tutorial_lynda.com_url.png)
+    ![Configurer l'authentification unique](./media/lynda-tutorial/tutorial_lynda.com_url.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.lynda.com/Shibboleth.sso/InCommon?providerId=<url>&target=<url> `
 
@@ -119,11 +119,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/lynda-tutorial/tutorial_lynda.com_certificate.png) 
+    ![Configurer l'authentification unique](./media/lynda-tutorial/tutorial_lynda.com_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/lynda-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/lynda-tutorial/tutorial_general_400.png)
 
 6. Pour configurer l’authentification unique du côté **Lynda.com**, vous devez envoyer le **XML des métadonnées** téléchargé à l’[équipe de support Lynda.com](https://www.linkedin.com/help/lynda/ask).
 
@@ -182,7 +182,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Lynda.com**.
 
-    ![Configure Single Sign-On](./media/lynda-tutorial/tutorial_lynda.com_app.png) 
+    ![Configurer l'authentification unique](./media/lynda-tutorial/tutorial_lynda.com_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -200,7 +200,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

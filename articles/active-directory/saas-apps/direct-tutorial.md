@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e74138deda20ebb4fbb83ceaa3304dcca82767e7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ad0aed1ded41a422160679dc238ee8814cac4b71
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228847"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053323"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Didacticiel : Intégration d’Azure Active Directory à Direct
 
@@ -102,31 +102,31 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Direct**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_samlbase.png)
+    ![Configurer l'authentification unique](./media/direct-tutorial/tutorial_direct_samlbase.png)
 
 3. Dans la section **Domaine et URL Direct**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_url.png)
+    ![Configurer l'authentification unique](./media/direct-tutorial/tutorial_direct_url.png)
 
     Dans la zone de texte **Identificateur**, tapez l’URL : `https://direct4b.com/`
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_url1.png)
+    ![Configurer l'authentification unique](./media/direct-tutorial/tutorial_direct_url1.png)
 
      Dans la zone de texte **URL de connexion**, tapez l’URL : `https://direct4b.com/sso` 
     
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_certificate.png) 
+    ![Configurer l'authentification unique](./media/direct-tutorial/tutorial_direct_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/direct-tutorial/tutorial_general_400.png)
 
 7. Pour configurer l’authentification unique côté **Direct**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de Direct](https://direct4b.com/ja/support.html#inquiry). 
 
@@ -183,7 +183,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Direct**.
 
-    ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_app.png) 
+    ![Configurer l'authentification unique](./media/direct-tutorial/tutorial_direct_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -213,7 +213,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
     b. Entrez votre `subdomain` dans la zone de texte affichée et appuyez sur « 次へ (Suivant) ». Vous devriez être automatiquement connecté à votre application **Direct**.
     
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

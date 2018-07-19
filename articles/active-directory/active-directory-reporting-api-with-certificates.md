@@ -15,97 +15,73 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: aa0891126ad6fa05a39b9245e4fe85b61218ec40
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0da0e5d4b7dd8ff000d6c56716bea1b36935af01
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222458"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928904"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats
 
-Les [API de création de rapports Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) vous fournissent un accès par programmation aux données par le biais d’un ensemble d’API REST. Vous pouvez appeler ces API à partir de divers outils et langages de programmation.
+Les [API de création de rapports Azure Active Directory (Azure AD)](active-directory-reporting-api-getting-started-azure-portal.md) vous fournissent un accès par programmation aux données par le biais d’un ensemble d’API REST. Vous pouvez appeler ces API à partir de divers outils et langages de programmation. Pour accéder à l’API de création de rapports Azure AD sans intervention de l’utilisateur, vous pouvez configurer votre accès afin d’utiliser des certificats.
 
-Pour accéder à l’API de création de rapports Azure AD sans intervention de l’utilisateur, vous pouvez configurer votre accès de sorte à utiliser des certificats.
+Cela implique les étapes suivantes :
 
-Cet article :
+1. [Installer les composants requis](#install-prerequisites)
+2. [Inscrire le certificat dans votre application](#register-the-certificate-in-your-app)
+3. [Obtenir un jeton accès pour l’API MS Graph](#get-an-access-token-for-ms-graph-api)
+4. [Interroger les points de terminaison de l’API MS Graph](#query-the-ms-graph-api-endpoints)
 
-- Fournit les étapes nécessaires pour accéder à l’API de création de rapports Azure AD à l’aide de certificats.
-- Suppose que les [prérequis à l’accès à l’API de création de rapports Azure Active Directory](active-directory-reporting-api-prerequisites-azure-portal.md) sont satisfaits. 
-
-
-Pour accéder à l’API de création de rapports avec des certificats, vous devez :
-
-1. Installer les composants requis
-2. Définition du certificat dans votre application 
-3. Accorder des autorisations
-4. Obtention d’un jeton d’accès
-
-
-
-
-Pour plus d’informations sur le code source, consultez [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Utiliser le module d’API Génération de rapports). 
 
 ## <a name="install-prerequisites"></a>Installation des composants requis
 
-Vous devez avoir installé Azure AD PowerShell V2 et le module AzureADUtils.
+1. Commencez par vous assurer que les [prérequis à l’accès à l’API de création de rapports Azure Active Directory](active-directory-reporting-api-prerequisites-azure-portal.md) sont satisfaits. 
 
-1. Téléchargez et installez Azure AD Powershell V2 en suivant les instructions dans [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).
+2. Téléchargez et installez Azure AD Powershell V2 en suivant les instructions indiquées dans [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).
 
-2. Téléchargez le module Azure AD Utils à partir de [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1). 
-  Ce module fournit plusieurs applets de commande d’utilitaire, notamment :
-    - La dernière version d’ADAL à l’aide de Nuget
+3. Installez MSCloudIDUtils à partir de [PowerShellGallery - MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Ce module fournit plusieurs applets de commande d’utilitaire, notamment :
+    - Les bibliothèques d’authentification Active Directory (ADAL) nécessaires pour l’authentification
     - Les jetons d’accès d’utilisateur, de clés d’application et de certificats à l’aide d’ADAL
     - L’API Graph gérant les résultats paginés
 
-**Pour installer le module Azure AD Utils :**
+4. S’il s’agit de la première utilisation du module, exécutez **Install-MSCloudIdUtilsModule** pour terminer l’installation. Dans le cas contraire, vous pouvez l’importer simplement à l’aide de la commande Powershell **Import-Module**.
 
-1. Créez un répertoire pour enregistrer le module d’utilitaires (par exemple, c:\azureAD) et téléchargez le module à partir de GitHub.
-2. Ouvrez une session PowerShell et accédez au répertoire que vous venez de créer. 
-3. Importez le module et installez-le dans le chemin d’accès du module PowerShell à l’aide de l’applet de commande Install-AzureADUtilsModule. 
+Votre session doit ressembler à ce qui suit :
 
-La session doit ressembler à ce qui suit :
+  ![Windows PowerShell](./media/active-directory-reporting-api-with-certificates/module-install.png)
 
-  ![Windows PowerShell](./media/active-directory-report-api-with-certificates/windows-powershell.png)
+## <a name="register-the-certificate-in-your-app"></a>Inscrire le certificat dans votre application
 
-## <a name="set-the-certificate-in-your-app"></a>Définition du certificat dans votre application
+1. Tout d’abord, accédez à la page d’inscription de votre application. Pour ce faire, accédez au [portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**, puis sur **Inscriptions des applications** et choisissez votre application dans la liste. 
 
-**Pour définir le certificat dans votre application :**
+2. Ensuite, suivez les étapes pour [enregistrer votre certificat auprès d’Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials#register-your-certificate-with-azure-ad) pour l’application. 
 
-1. [Obtenez l’ID d’objet](active-directory-reporting-api-prerequisites-azure-portal.md#get-your-applications-client-id) de votre application à partir du portail Azure. 
+3. Notez l’ID de l’application et l’empreinte du certificat que vous venez d’enregistrer avec votre application. Pour rechercher l’empreinte, à partir de la page de votre application dans le portail, accédez à **Paramètres** et cliquez sur **Clés**. L’empreinte se trouve sous la liste **Clés publiques**.
 
-  ![Portail Azure](./media/active-directory-report-api-with-certificates/azure-portal.png)
-
-2. Ouvrez une session PowerShell et connectez-vous à Azure AD à l’aide de l’applet de commande Connect-AzureAD.
-
-  ![Portail Azure](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
-
-3. Utilisez l’applet de commande New-AzureADApplicationCertificateCredential d’AzureADUtils pour y ajouter des informations d’identification de certificat. 
-
->[!Note]
->Vous devez fournir l’ID d’objet de l’application que vous avez récupéré précédemment, ainsi que l’objet de certificat (récupérez-le à l’aide du lecteur Cert :).
->
-
-
-  ![Portail Azure](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
   
-## <a name="get-an-access-token"></a>Obtention d’un jeton d’accès
+## <a name="get-an-access-token-for-ms-graph-api"></a>Obtenir un jeton accès pour l’API MS Graph
 
-Pour obtenir un jeton d’accès, utilisez l’applet de commande **Get-AzureADGraphAPIAccessTokenFromCert** depuis AzureADUtils. 
+Pour obtenir un jeton d’accès pour l’API MS Graph, utilisez la cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** à partir du module PowerShell MSCloudIdUtils. 
 
 >[!NOTE]
->Vous devez utiliser l’ID d’application plutôt que l’ID d’objet que vous avez utilisé dans la dernière section.
+>Vous devez utiliser l’ID de l’application (également appelé ID de client) et l’empreinte du certificat avec la clé privée installée dans le magasin de certificats de votre ordinateur (magasin de certificats CurrentUser ou LocalMachine).
 >
 
- ![Portail Azure](./media/active-directory-report-api-with-certificates/application-id.png)
+ ![Portail Azure](./media/active-directory-reporting-api-with-certificates/getaccesstoken.png)
 
 ## <a name="use-the-access-token-to-call-the-graph-api"></a>Utilisation du jeton d’accès pour appeler l’API Graph
 
-Vous pouvez maintenant créer le script. Voici un exemple d’utilisation de l’applet de commande **Invoke-AzureADGraphAPIQuery** à partir du module AzureADUtils. Cette applet de commande gère les résultats composés de plusieurs pages et les envoie ensuite dans le pipeline PowerShell. 
+Maintenant, vous pouvez utiliser le jeton d’accès dans votre script PowerShell pour interroger l’API Graph. Vous trouverez ci-dessous un exemple utilisant la cmdlet **Invoke-MSCloudIdMSGraphQuery** à partir de MSCloudIDUtils pour énumérer le point de terminaison SignIns ou DirectoryAudits. Cette applet de commande gère les résultats composés de plusieurs pages et les envoie ensuite dans le pipeline PowerShell.
 
- ![Portail Azure](./media/active-directory-report-api-with-certificates/script-completed.png)
+### <a name="query-the-directoryaudits-endpoint"></a>Interroger le point de terminaison DirectoryAudits
+ ![Portail Azure](./media/active-directory-reporting-api-with-certificates/query-directoryAudits.png)
 
-Vous êtes maintenant prêt à exporter vers un fichier CSV et enregistrer dans un système SIEM. Vous pouvez également encapsuler votre script dans une tâche planifiée pour obtenir régulièrement des données Azure AD à partir de votre client sans avoir à stocker des clés d’application dans le code source. 
+ ### <a name="query-the-signins-endpoint"></a>Interroger le point de terminaison SignIns
+ ![Portail Azure](./media/active-directory-reporting-api-with-certificates/query-signins.png)
+
+Vous pouvez maintenant choisir d’exporter ces données dans un fichier CSV et de les enregistrer dans un système SIEM. Vous pouvez également encapsuler votre script dans une tâche planifiée pour obtenir régulièrement des données Azure AD à partir de votre client sans avoir à stocker des clés d’application dans le code source. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

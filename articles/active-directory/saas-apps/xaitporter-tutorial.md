@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: ef43f7cc91467d4f9b7ab2f4cbc8c35e9b7f4586
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e7cc2779661f4359c3c30fe76a387740f5f044f2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211791"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055574"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Didacticiel : Intégration de Azure Active Directory à XaitPorter
 
@@ -131,15 +131,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Cliquez sur le titre **Admin**.
 
-    ![Configure Single Sign-On](./media/xaitporter-tutorial/user1.png)
+    ![Configurer l'authentification unique](./media/xaitporter-tutorial/user1.png)
 
 9. Sélectionnez **Gérer l’authentification unique** à partir de la liste déroulante **Configuration système**.
 
-    ![Configure Single Sign-On](./media/xaitporter-tutorial/user2.png)
+    ![Configurer l'authentification unique](./media/xaitporter-tutorial/user2.png)
 
 10. Dans la section **GÉRER L’AUTHENTIFICATION UNIQUE**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/xaitporter-tutorial/user3.png)
+    ![Configurer l'authentification unique](./media/xaitporter-tutorial/user3.png)
 
     a. Sélectionnez **Activer l'authentification unique**.
 
@@ -220,7 +220,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque XaitPorter dans le volet d’accès, vous devez être connecté automatiquement à votre application XaitPorter.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
