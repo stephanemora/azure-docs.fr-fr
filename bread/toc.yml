@@ -6,6 +6,9 @@
       tocHref: /azure/active-directory/
       topicHref: /azure/active-directory/
       items:
+        - name: Authentification
+          tocHref: /azure/active-directory/authentication/
+          topicHref: /azure/active-directory/authentication/
         - name: Connecter
           tocHref: /azure/active-directory/connect/
           topicHref: /azure/active-directory/connect/
@@ -511,7 +514,7 @@
     - name: SQL Data Warehouse
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
-    - name: Base de données SQL
+    - name: SQL Database
       tocHref: /azure/sql-database/
       topicHref: /azure/sql-database/
     - name: SQL Server Stretch Database
