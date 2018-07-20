@@ -3,8 +3,8 @@
 | Comptes Batch par région et par abonnement | 1 à 3 |50 |
 | Cœurs dédiés par compte Batch | 10 à 100 | N/A<sup>1</sup> |
 | Cœurs à priorité basse par compte Batch | 10 à 100 | N/A<sup>2</sup> |
-| Travaux et planifications de travaux actifs<sup>3</sup> par compte Batch | 20 à 100 | 5000<sup>4</sup> |
-| Pools par compte Batch | 20 à 100 | 2 500 |
+| Travaux et planifications de travaux actifs<sup>3</sup> par compte Batch | 100 à 300 | 2500<sup>4</sup> |
+| Pools par compte Batch | 20 à 100 | 500 |
 
 > [!NOTE]
 > Les limites par défaut varient selon le type d’abonnement que vous utilisez pour créer un compte Batch. Les quotas de cœurs affichés correspondent aux comptes Batch en mode service Batch. [Affichez les quotas dans votre compte Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
