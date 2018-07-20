@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation sur l’authentification Azure AD
+metadata:
+  document_id: 
+  title: Documentation relative à Azure Active Directory Managed Service Identity
+  description: Découvrez comment gérer et déployer une réinitialisation de mot de passe libre-service Azure Active Directory, une authentification multifacteur, une liste de mots de passe interdits et un verrouillage intelligent.
+  services: active-directory
+  ms.component: authentication
+  author: MicrosoftGuyJFlo
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/11/2018
+  ms.author: joflore
+  ms.openlocfilehash: 3830c63ec7121ddc3174b9867ca95964cde4154b
+  ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/19/2018
+  ms.locfileid: "39163192"
+abstract:
+  description: Découvrez comment déployer et gérer une réinitialisation de mot de passe libre-service Azure Active Directory, une authentification multifacteur, une liste de mots de passe interdits et un verrouillage intelligent. Ces fonctionnalités s’assemblent afin de définir une authentification forte avec diverses méthodes de vérification tout en simplifiant le processus d’authentification pour votre entreprise.
+sections:
+- title: Démarrages en 5 minutes
+  items:
+  - type: paragraph
+    text: Découvrez comment activer la réinitialisation de mot de passe libre-service pour réduire les appels d’utilisateurs au support technique.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_protect.png
+      text: Activer la réinitialisation du mot de passe libre-service
+      href: https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr
+- title: Didacticiels pas à pas
+  items:
+  - type: paragraph
+    text: Découvrez comment activer un processus d’authentification simple et sécurisé pour votre entreprise.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Activer un pilote de réinitialisation de mot de passe libre-service</a>
+    - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Exiger l’authentification multifacteur pour le portail Azure</a>
+    - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Activer l’intégration de la réinitialisation de mot de passe libre-service en local</a>
+    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Activer la réinitialisation de mot de passe pour Windows 10</a>
+    - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Intégrer avec Azure Identity Protection</a>

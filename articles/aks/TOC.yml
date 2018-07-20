@@ -1,6 +1,6 @@
 - name: Service Azure Kubernetes (AKS)
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de AKS
       href: intro-kubernetes.md
@@ -49,6 +49,8 @@
           href: aad-integration.md
         - name: Utiliser Virtual Kubelet
           href: virtual-kubelet.md
+        - name: Utiliser Cluster AutoScaler
+          href: autoscaler.md
         - name: Déployer AKS avec Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
@@ -115,13 +117,13 @@
       items:
         - name: Utiliser le tableau de bord Kubernetes
           href: kubernetes-dashboard.md
-    - name: Résolution des problèmes
+    - name: Résoudre les problèmes
       items:
         - name: Accès au nœud SSH
           href: aks-ssh.md
         - name: Obtenir des journaux kubelet
           href: kubelet-logs.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Azure CLI
       href: /cli/azure/aks

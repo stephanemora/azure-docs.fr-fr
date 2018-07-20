@@ -1,6 +1,6 @@
 - name: "Documentation Application\_Insights"
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Présentation d’Application\_Insights"
       href: app-insights-overview.md
@@ -164,6 +164,8 @@
               href: app-insights-proactive-application-security-detection-pack.md
             - name: Services cloud Azure
               href: app-insights-proactive-cloud-services.md
+            - name: Gérer des règles de détection intelligente
+              href: app-insights-proactive-arm-config.md
         - name: Créer une ressource
           href: app-insights-create-new-resource.md
     - name: Analyser
@@ -194,7 +196,7 @@
               href: app-insights-visual-studio-codelens.md
         - name: Usage
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: app-insights-usage-overview.md
             - name: Envoyer du contexte utilisateur
               href: app-insights-usage-send-user-context.md
@@ -214,7 +216,7 @@
               href: app-insights-usage-workbooks.md
         - name: Analytics
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: app-insights-analytics.md
             - name: Importer des journaux personnalisés
               href: app-insights-analytics-import.md
@@ -278,7 +280,7 @@
           href: app-insights-resources-roles-access-control.md
         - name: "Adresses\_IP"
           href: app-insights-ip-addresses.md
-    - name: Résolution des problèmes
+    - name: Résoudre les problèmes
       items:
         - name: Aucune donnée pour .NET
           href: app-insights-asp-net-troubleshoot-no-data.md
@@ -294,7 +296,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
-- name: Informations de référence
+- name: Référence
   items:
     - name: Langage de requête Analytics
       href: 'https://docs.loganalytics.io/'
@@ -308,7 +310,7 @@
       href: 'https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md'
     - name: API d’accès aux données
       href: 'https://dev.applicationinsights.io/'
-    - name: de l’API REST
+    - name: API REST
       href: 'https://docs.microsoft.com/rest/api/application-insights/'
     - name: Modèle de données
       href: application-insights-data-model.md

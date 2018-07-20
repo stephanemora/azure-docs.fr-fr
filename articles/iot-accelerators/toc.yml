@@ -2,19 +2,19 @@
   href: ../iot-fundamentals/index.yml
 - name: Documentation sur les accélérateurs de solution IoT
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Que sont les accélérateurs de solution IoT ?
       href: about-iot-accelerators.md
 - name: Démarrages rapides
   items:
-    - name: Déployer une solution de surveillance à distance
+    - name: Essayer une solution de surveillance à distance
       href: quickstart-remote-monitoring-deploy.md
-    - name: Déployer une solution de fabrique connectée
+    - name: Essayer une solution de fabrique connectée
       href: quickstart-connected-factory-deploy.md
-    - name: Déployer une solution de maintenance prédictive
+    - name: Essayer une solution de maintenance prédictive
       href: quickstart-predictive-maintenance-deploy.md
-    - name: Déployer une solution de simulation d’appareil
+    - name: Essayer une solution de simulation d’appareil
       href: quickstart-device-simulation-deploy.md
 - name: Didacticiels
   items:
@@ -137,10 +137,6 @@
               href: ../iot-suite/iot-suite-v1-custom-rule.md
             - name: Informations sur l’appareil dans la solution de surveillance à distance
               href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
-    - name: Maintenance prédictive
-      items:
-        - name: Déployer un accélérateur de solution
-          href: iot-accelerators-predictive-overview.md
     - name: Fabrique connectée
       items:
         - name: Utiliser le tableau de bord
@@ -159,7 +155,7 @@
           href: iot-accelerators-device-simulation-choose-hub.md
         - name: Utiliser un modèle d’appareil personnalisé
           href: iot-accelerators-device-simulation-custom-model.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Guide d’informations de référence pour les développeurs
       href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
