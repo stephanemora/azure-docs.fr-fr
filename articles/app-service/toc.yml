@@ -23,8 +23,6 @@
       href: app-service-web-get-started-php.md
     - name: Créer une application Java
       href: app-service-web-get-started-java.md
-    - name: Créer une application Python
-      href: app-service-web-get-started-python.md
     - name: Créer un site HTML statique
       href: app-service-web-get-started-html.md
 - name: Didacticiels
@@ -41,8 +39,6 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java avec MySQL
           href: app-service-web-tutorial-java-mysql.md
-        - name: Python avec PostgreSQL
-          href: app-service-web-tutorial-python-postgresql.md
     - name: Accéder à la base de données SQL en toute sécurité
       href: app-service-web-tutorial-connect-msi.md
     - name: Héberger des API RESTful
@@ -204,7 +200,7 @@
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
-    - name: de l’API REST
+    - name: API REST
       href: /rest/api/appservice/
 - name: Ressources
   items:

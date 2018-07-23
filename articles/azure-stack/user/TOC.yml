@@ -1,6 +1,6 @@
 - name: Documentation sur les utilisateurs Azure Stack
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Considérations relatives aux clés
       href: azure-stack-considerations.md
@@ -49,7 +49,7 @@
           href: azure-stack-considerations.md
         - name: Calcul
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-compute-overview.md
             - name: Considérations relatives à la machine virtuelle
               href: azure-stack-vm-considerations.md
@@ -63,7 +63,7 @@
               href: azure-stack-sql-server-vm-considerations.md
         - name: Stockage
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-storage-overview.md
             - name: Considérations relatives au stockage
               href: azure-stack-acs-differences.md
@@ -75,7 +75,7 @@
               href: azure-stack-storage-connect-se.md
         - name: Réseau
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-network-overview.md
             - name: Mise en réseau - Éléments à prendre en compte
               href: azure-stack-network-differences.md
@@ -85,7 +85,7 @@
               href: azure-stack-dns.md
         - name: Key Vault
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-kv-intro.md
             - name: Gérer avec le portail
               href: azure-stack-kv-manage-portal.md
@@ -110,7 +110,8 @@
         - name: Configurer l’environnement de développement
           items:
             - name: Installer Azure Stack PowerShell
-              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
+              href: ../azure-stack-powershell-install.md
+              maintainContext: true
             - name: Télécharger les outils Azure Stack
               href: azure-stack-powershell-download.md
             - name: Configurer PowerShell - Utilisateur
@@ -150,7 +151,7 @@
               href: azure-stack-deploy-template-visual-studio.md
     - name: Activer un fournisseur de service cloud
       href: azure-stack-csp-enable-billing-usage-tracking.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10

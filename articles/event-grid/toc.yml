@@ -1,6 +1,6 @@
 - name: Documentation Event Grid
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Event Grid
       href: overview.md
@@ -81,7 +81,7 @@
       href: input-mappings.md
     - name: Utiliser le schéma CloudEvents
       href: cloudevents-schema.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Azure CLI
       href: /cli/azure/eventgrid
@@ -89,14 +89,6 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
-    - name: Ressources de modèle
-      items:
-        - name: Abonnements à des événements
-          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
-        - name: Rubriques
-          href: /azure/templates/microsoft.eventgrid/topics
-    - name: Kits de développement logiciel (SDK)
-      href: sdk-overview.md
     - name: Schéma d’abonnement
       href: subscription-creation-schema.md
     - name: Schéma d’événement
@@ -106,6 +98,8 @@
           href: event-schema-subscriptions.md
         - name: Stockage d'objets blob
           href: event-schema-blob-storage.md
+        - name: Container Registry
+          href: event-schema-container-registry.md
         - name: Event Hubs
           href: event-schema-event-hubs.md
         - name: IoT Hub
@@ -116,6 +110,14 @@
           href: event-schema-resource-groups.md
         - name: Service Bus
           href: event-schema-service-bus.md
+    - name: Ressources de modèle
+      items:
+        - name: Abonnements à des événements
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: Rubriques
+          href: /azure/templates/microsoft.eventgrid/topics
+    - name: Kits de développement logiciel (SDK)
+      href: sdk-overview.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

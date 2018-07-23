@@ -1,6 +1,6 @@
 - name: Azure Container Registry
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Azure Container Registry
       href: container-registry-intro.md
@@ -67,9 +67,9 @@
           href: container-registry-auth-service-principal.md
         - name: Azure Container Instances
           href: container-registry-auth-aci.md
-        - name: Azure Container Service
+        - name: Service Azure Kubernetes (AKS)
           href: container-registry-auth-aks.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Azure CLI
       href: /cli/azure/acr
