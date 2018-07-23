@@ -79,6 +79,10 @@
           href: luis-tutorial-batch-testing.md
         - name: Avec des modèles
           href: luis-tutorial-pattern.md
+        - name: Avec des rôles
+          href: luis-tutorial-pattern-roles.md
+        - name: Avec une entité Pattern.any
+          href: luis-tutorial-pattern-any.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -194,7 +198,7 @@
     - name: Test
       items:
         - name: Test interactif
-          href: interactive-test.md
+          href: luis-interactive-test.md
         - name: Test par lot
           href: luis-how-to-batch-test.md
     - name: Publier une application
@@ -226,7 +230,7 @@
             - name: Diffuser le quota de point de terminaison dans les clés avec Traffic Manager
               href: luis-traffic-manager.md
     - name: Migrer vers l’API V2
-      href: migration-v1-to-v2.md
+      href: luis-migration-api-v1-to-v2.md
     - name: Rechercher une région par programmation
       items:
         - name: 'Utilisation de C#'

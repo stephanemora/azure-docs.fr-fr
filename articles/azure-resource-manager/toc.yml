@@ -15,6 +15,13 @@
       href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
     - name: Créer des modèles - Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+- name: Didacticiels
+  expanded: true
+  items:
+    - name: Créer un compte de stockage chiffré
+      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+    - name: Créer plusieurs ressources
+      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
 - name: Concepts
   items:
     - name: Fournisseurs et types de ressources

@@ -1,6 +1,6 @@
 - name: Documentation de l’API de traduction de texte Translator Text
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que l’API de traduction de texte Translator Text\_?"
       href: translator-info-overview.md
@@ -105,6 +105,10 @@
           href: quickstart-ruby-languages.md
         - name: Obtenir les longueurs de phrase du texte
           href: quickstart-ruby-sentences.md
+- name: Didacticiels
+  items:
+    - name: Créer une application WPF pour l’API de traduction de texte Translator Text
+      href: tutorial-wpf-translation-csharp.md
 - name: Concepts
   items:
     - name: Langues prises en charge
@@ -125,18 +129,16 @@
       href: word-alignment.md
     - name: Utiliser la fonctionnalité du dictionnaire dynamique
       href: dynamic-dictionary.md
-    - name: Créer une application Translator Text avec WPF
-      href: tutorial-wpf-translation-csharp.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Référence de l’API Translator Text v3
       href: reference/v3-0-reference.md
       items:
         - name: Langues
           href: reference/v3-0-languages.md
-        - name: Traduire
+        - name: Translate
           href: reference/v3-0-translate.md
-        - name: Translittérer
+        - name: Transliterate
           href: reference/v3-0-transliterate.md
         - name: Détection
           href: reference/v3-0-detect.md

@@ -1,6 +1,6 @@
 # [Documentation Azure Active Directory](index.md)
 
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce qu’Azure Active Directory ?](fundamentals/active-directory-whatis.md)
 ## [À propos de la gestion des identités Azure](fundamentals/identity-fundamentals.md)
 ## [Comprendre les solutions d’identité Azure](fundamentals/understand-azure-identity-solutions.md)
@@ -82,7 +82,7 @@
 
 ## [Gérer les groupes et les membres](fundamentals/active-directory-manage-groups.md)
 ### Gérer les groupes
-#### [Portail Azure](fundamentals/active-directory-groups-create-azure-portal.md)
+#### [portail Azure](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell pour Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Sélectionner les membres du groupe](fundamentals/active-directory-groups-members-azure-portal.md)
@@ -103,7 +103,7 @@
 ### [Restaurer un groupe Office 365 supprimé](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Gérer les paramètres de groupe](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Créer des règles avancées
-#### [Portail Azure](users-groups-roles/groups-dynamic-membership.md)
+#### [portail Azure](users-groups-roles/groups-dynamic-membership.md)
 ### [Configurer des groupes libre-service](users-groups-roles/groups-self-service-management.md)
 ### [Résolution des problèmes](users-groups-roles/groups-troubleshooting.md)
 
@@ -119,7 +119,7 @@
 #### [Afficher les rapports d’activité](active-directory-reporting-migration.md)
 #### [Utiliser le pack de contenu Power BI Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Corriger les problèmes d’utilisateurs avec indicateur de risque](active-directory-report-security-user-at-risk-remediation.md)
-### Informations de référence
+### Référence
 #### [Rétention](active-directory-reporting-retention.md)
 #### [Latences](active-directory-reporting-latencies-azure-portal.md)
 #### [Référence d’activité d’audit](active-directory-reporting-activity-audit-reference.md)
@@ -127,7 +127,7 @@
 #### [Authentification multifacteur](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-### Résolution des problèmes
+### Résoudre les problèmes
 #### [Données d’audit manquantes](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Données manquantes dans les téléchargements](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Erreurs de pack de contenu des journaux d’activité Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
@@ -140,33 +140,13 @@
 #### [Exemples de connexion](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Utilisation des certificats](active-directory-reporting-api-with-certificates.md)
 
-## Gestion des mots de passe
-### [Vue d’ensemble des mots de passe](authentication/active-directory-passwords-overview.md)
+## Gérer des mots de passe(active-directory/authentication/concept-sspr-howitworks.md)
 ### Documents utilisateur
 #### [Réinitialiser ou modifier votre mot de passe](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Meilleures pratiques relatives aux mots de passe](active-directory-secure-passwords.md)
 #### [S’inscrire pour la réinitialisation du mot de passe en libre-service](user-help/active-directory-passwords-reset-register.md)
-### [Fonctionnement SSPR](authentication/concept-sspr-howitworks.md)
-### [Guide de déploiement SSPR](authentication/howto-sspr-deployment.md)
-### [SSPR et Windows 10](authentication/tutorial-sspr-windows.md)
-### [Stratégies SSPR](authentication/concept-sspr-policy.md)
-### [Personnalisation SSPR](authentication/concept-sspr-customization.md)
-### [Spécifications des données SSPR](authentication/howto-sspr-authenticationdata.md)
-### [SSPR Reporting](authentication/howto-sspr-reporting.md)
-### [Verrouillage intelligent](authentication/howto-password-smart-lockout.md)
-### [Éliminer les mots de passe faibles](authentication/concept-password-ban-bad.md)
-### [Configurer la liste des mots de passe interdits](authentication/howto-password-ban-bad.md)
-### [Intégration locale](authentication/concept-password-ban-bad-on-premises.md)
-### [Déployer la protection par mot de passe d’Azure AD](authentication/howto-password-ban-bad-on-premises.md)
-### [Configurer la protection par mot de passe d’Azure AD](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Surveiller la protection par mot de passe d’Azure AD](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### Administrateurs informatiques : réinitialiser les mots de passe
-#### [Portail Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Licence SSPR](authentication/concept-sspr-licensing.md)
-### [Réécriture du mot de passe](authentication/howto-sspr-writeback.md)
-### [Résolution des problèmes](authentication/active-directory-passwords-troubleshoot.md)
-### [FORUM AUX QUESTIONS](authentication/active-directory-passwords-faq.md)
-
+#### [portail Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
 
 ## Gérer des appareils
 ### [Introduction](device-management-introduction.md)
@@ -179,7 +159,7 @@
 #### [Configurer les appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
 #### [Enregistrement dans Azure AD lors de la première exécution de Windows 10](device-management-azuread-joined-devices-frx.md)
-### Résolution des problèmes
+### Résoudre les problèmes
 #### [Appareils Windows 10 et Windows Server 2016 joints Azure AD hybrides](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Appareils Windows hérités joints Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
@@ -255,7 +235,7 @@
 #### [Utilisez SCIM approvisionner les utilisateurs](manage-apps/use-scim-to-provision-users-and-groups.md)
 
 
-### Résolution des problèmes
+### Résoudre les problèmes
 
 
 
@@ -465,7 +445,7 @@
 ### [Manuel POC : Blocs de construction](active-directory-playbook-building-blocks.md)
 
 
-# Informations de référence
+# Référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Applets de commande Azure PowerShell](/powershell/azure/overview)
 ## [Informations de référence sur l’API Java](/java/api)

@@ -1,5 +1,5 @@
 - name: Documentation Apprenant de conversation
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que l’Apprenant de conversation\_?"
@@ -48,6 +48,8 @@
       href: tutorials/15-branching-and-undo.md
     - name: Contrôle de version et marquage
       href: tutorials/16-versioning-and-tagging.md
+    - name: Bots hybrides
+      href: tutorials/17-hybrid-bots.md
     - name: "Démonstration\_: réinitialisation de mot de passe"
       href: tutorials/demo-password-reset.md
     - name: "Démonstration\_: commande de pizza"
