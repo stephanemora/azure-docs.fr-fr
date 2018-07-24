@@ -1,6 +1,6 @@
 - name: Documentation Stream Analytics
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Qu’est-ce que Stream Analytics ?
       href: stream-analytics-introduction.md
@@ -119,7 +119,7 @@
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Configurer un pipeline d'intégration continue (CI)/de livraison continue (CD)
           href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Résolution des problèmes
+    - name: Résoudre les problèmes
       items:
         - name: Étapes de dépannage
           href: stream-analytics-troubleshooting-guide.md
@@ -141,7 +141,7 @@
           href: stream-analytics-machine-learning-anomaly-detection.md
         - name: Utiliser les API REST
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.streamanalytics
@@ -157,8 +157,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blog
       href: 'http://blogs.msdn.com/b/streamanalytics/'
-    - name: vidéos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
     - name: Forum de commentaires
       href: 'http://feedback.azure.com/forums/270577-azure-stream-analytics'
     - name: Forum
@@ -172,7 +170,7 @@
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-stream-analytics'
     - name: vidéos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics'
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
     - name: Études de cas clients
       href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
     - name: Livre blanc - Traitement d’événements en temps réel

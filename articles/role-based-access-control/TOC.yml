@@ -1,7 +1,7 @@
 - name: Documentation relative au contrôle d’accès en fonction du rôle
   href: index.yml
   items: null
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que RBAC\_?"
       href: overview.md
@@ -39,8 +39,10 @@
           href: role-assignments-powershell.md
         - name: Azure CLI
           href: role-assignments-cli.md
-        - name: de l’API REST
+        - name: API REST
           href: role-assignments-rest.md
+        - name: Modèle
+          href: role-assignments-template.md
     - name: Rôles personnalisés
       href: custom-roles.md
       items:
@@ -48,7 +50,7 @@
           href: custom-roles-powershell.md
         - name: Azure CLI
           href: custom-roles-cli.md
-        - name: de l’API REST
+        - name: API REST
           href: custom-roles-rest.md
     - name: Afficher les journaux d’activité
       href: change-history-report.md
@@ -56,9 +58,9 @@
       href: elevate-access-global-admin.md
     - name: Gérer l’accès pour les utilisateurs externes
       href: role-assignments-external-users.md
-    - name: Résolution des problèmes
+    - name: Résoudre les problèmes
       href: troubleshooting.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Rôles intégrés
       href: built-in-roles.md
@@ -70,5 +72,5 @@
       href: /powershell/module/azurerm.resources
     - name: Azure CLI
       href: /cli/azure/role?view=azure-cli-latest
-    - name: de l’API REST
+    - name: API REST
       href: /rest/api/authorization/
