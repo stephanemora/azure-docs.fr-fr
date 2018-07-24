@@ -1,6 +1,6 @@
 - name: Documentation SQL Data Warehouse
   href: index.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de SQL Data Warehouse
       href: sql-data-warehouse-overview-what-is.md
@@ -8,6 +8,8 @@
       href: cheat-sheet.md
 - name: Notes de publication
   items:
+    - name: Juillet 2018
+      href: release-notes-july-2018.md
     - name: Juin 2018
       href: release-notes-june-2018.md
     - name: Mai 2018
@@ -59,7 +61,7 @@
           href: sql-data-warehouse-overview-faq.md
     - name: Sécurité
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: sql-data-warehouse-overview-manage-security.md
         - name: Contrôle d’accès
           href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
@@ -81,7 +83,7 @@
           href: column-level-security.md
     - name: Migrer vers SQL Data Warehouse
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: sql-data-warehouse-overview-migrate.md
         - name: Migration du schéma
           href: sql-data-warehouse-migrate-schema.md
@@ -91,13 +93,13 @@
           href: sql-data-warehouse-migrate-data.md
     - name: Chargement et transfert de données
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: design-elt-data-loading.md
         - name: Meilleures pratiques
           href: guidance-for-loading-data.md
     - name: Integrate
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: sql-data-warehouse-overview-integrate.md
         - name: Requête élastique SQL Database
           href: how-to-use-elastic-query-with-sql-data-warehouse.md
@@ -113,7 +115,7 @@
       href: sql-data-warehouse-manage-monitor.md
     - name: Développer des entrepôts de données
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: sql-data-warehouse-overview-develop.md
         - name: Composants de Data Warehouse
           href: sql-data-warehouse-overview-workload.md
@@ -121,7 +123,7 @@
           href: sql-data-warehouse-best-practices.md
         - name: Tables
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sql-data-warehouse-tables-overview.md
             - name: CTAS
               href: sql-data-warehouse-develop-ctas.md
@@ -165,13 +167,13 @@
               href: sql-data-warehouse-develop-variable-assignment.md
             - name: Views
               href: sql-data-warehouse-develop-views.md
-    - name: Résolution des problèmes
+    - name: Résoudre les problèmes
       href: sql-data-warehouse-troubleshoot.md
 - name: Procédures
   items:
     - name: Connexion et requête
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: sql-data-warehouse-connect-overview.md
         - name: Chaînes de connexion
           href: sql-data-warehouse-connection-strings.md
@@ -239,7 +241,7 @@
       items:
         - name: Automatiser les niveaux de calcul
           href: manage-compute-with-azure-functions.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: T-SQL
       items:

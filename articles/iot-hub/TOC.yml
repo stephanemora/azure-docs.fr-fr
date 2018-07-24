@@ -291,6 +291,8 @@
           items:
             - name: Gérer la messagerie de périphérique cloud avec iothub-explorer
               href: iot-hub-explorer-cloud-device-messaging.md
+            - name: Gérer la messagerie de périphérique cloud avec Azure IoT Toolkit pour VS Code
+              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
             - name: Enregistrer les messages IoT Hub dans le stockage d’objets blob Azure
               href: iot-hub-store-data-in-azure-table-storage.md
             - name: Visualisation des données dans Power BI
