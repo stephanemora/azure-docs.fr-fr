@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f66aaa23a631bd71494587683aab87a74a5aef20
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30dbe6590cc1d70dfc026330a09645c86be24288
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261268"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036885"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
 Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
@@ -54,7 +54,7 @@ Un domaine personnalisé et son sous-domaine peuvent être associés à un seul 
 
 Lorsque vous mappez un domaine existant qui est en production, plusieurs points demandent une attention particulière. Lorsque vous inscrivez votre domaine personnalisé dans le Portail Azure, il se peut que le domaine connaisse un court temps d’arrêt. Pour éviter l’interruption du trafic web, vous devez tout d’abord mapper votre domaine personnalisé à votre nom d’hôte du point de terminaison CDN avec le sous-domaine cdnverify Azure afin de créer un mappage CNAME temporaire. Avec cette méthode, les utilisateurs peuvent accéder à votre domaine sans interruption pendant que le mappage DNS est en cours. 
 
-Autrement, si vous utilisez votre domaine personnalisé pour la première fois et qu’aucun trafic de production n’est en cours d’exécution sur ce dernier, vous pouvez mapper directement votre domaine personnalisé à votre point de terminaison CDN. Passez à [Mapper le domaine personnalisé permanent](#map-permanent-custom-domain).
+Autrement, si vous utilisez votre domaine personnalisé pour la première fois et qu’aucun trafic de production n’est en cours d’exécution sur ce dernier, vous pouvez mapper directement votre domaine personnalisé à votre point de terminaison CDN. Passez à [Mapper le domaine personnalisé permanent](#map-the-permanent-custom-domain).
 
 Pour créer un enregistrement CNAME avec le sous-domaine cdnverify :
 
@@ -134,7 +134,7 @@ Une fois que vous avez enregistré votre domaine personnalisé, vous pouvez l’
    La propagation des nouveaux paramètres de domaine personnalisé sur tous les nœuds de périphérie CDN peut prendre un certain temps : 
     - Pour les profils du **CDN Azure Standard fourni par Microsoft**, la propagation s’effectue généralement dans un délai de 10 minutes. 
     - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
-    - Dans le cas des profils du **CDN Azure Standard fourni par Verizon** et du **CDN Azure Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 10 minutes.   
+    - Dans le cas des profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 10 minutes.   
 
 
 ## <a name="verify-the-custom-domain"></a>Vérifier le domaine personnalisé
@@ -207,7 +207,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 8. Sélectionnez **Supprimer** pour supprimer l’enregistrement CNAME.
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Dans les étapes précédentes, vous avez ajouté un domaine personnalisé à un point de terminaison CDN. Si vous ne voulez plus associer votre point de terminaison avec un domaine personnalisé, vous pouvez supprimer le domaine personnalisé en procédant comme suit :
  
@@ -220,7 +220,7 @@ Dans les étapes précédentes, vous avez ajouté un domaine personnalisé à un
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > - Créez un enregistrement CNAME DNS.

@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 06/26/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: c0b9f9e9808de90df84edf2d3c409a921629baee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 657006360105ac26091c54fe2e0deb523d1e6dea
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38728303"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008499"
 ---
-Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations déjà créées afin de les réutiliser.
+Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations que vous avez créées afin de les réutiliser.
 
-Sinon, vous pouvez supprimer les ressources Azure et les configurations locales créées dans cet article pour éviter des frais. 
+Sinon, vous pouvez supprimer les ressources Azure et les configurations locales que vous avez créées dans cet article pour éviter les frais. 
 
 > [!IMPORTANT]
-> La suppression de ressources et de groupe de ressources Azure est irréversible. Une fois supprimés, le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé l’IoT Hub à l’intérieur d’un groupe de ressources existant qui concerne des ressources que vous souhaitez conserver, supprimer uniquement la ressource de l’ IoT Hub au lieu de supprimer le groupe de ressources.
+> La suppression des ressources et des groupes de ressources Azure est irréversible. Une fois supprimés, le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement les mauvaises ressources ou le mauvais groupe de ressources. Si vous avez créé l’IoT Hub à l’intérieur d’un groupe de ressources existant qui contient des ressources que vous souhaitez conserver, supprimez uniquement la ressource de l’IoT Hub au lieu de supprimer le groupe de ressources.
 >
 
-Pour supprimer l’IoT Hub uniquement, exécutez la commande suivante après avoir remplacé `<YourIoTHub>` par le nom de votre hub et `<TestResources>` par le nom du groupe de ressources :
+Exécutez la commande suivante pour supprimer uniquement l’IoT Hub. Remplacez \<YourIoTHub > par le nom de votre IoT Hub et \<TestResources > par le nom de votre groupe de ressources :
 
 ```azurecli-interactive
 az iot hub delete --name <YourIoTHub> --resource-group <TestResources>
@@ -32,15 +32,15 @@ az iot hub delete --name <YourIoTHub> --resource-group <TestResources>
 
 Pour supprimer un groupe de ressources entier par nom :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
 2. Dans la zone de texte **Filtrer par nom...**, saisissez le nom du groupe de ressources contenant votre IoT Hub. 
 
-3. À droite de votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+3. À droite de votre groupe de ressources, dans la liste des résultats, sélectionnez les points de suspension (**...**), puis **Supprimer le groupe de ressources**.
 
-    ![Supprimer](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
+    ![Supprimer un groupe de ressources](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 
-4. Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez de nouveau le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**. Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
+4. Vous êtes invité à confirmer la suppression du groupe de ressources. Saisissez à nouveau le nom de votre groupe de ressources pour confirmer, puis sélectionnez **Supprimer**. Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
 
 
 

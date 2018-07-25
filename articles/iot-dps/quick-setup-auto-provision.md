@@ -3,41 +3,29 @@ title: Configurer l’approvisionnement de votre appareil dans le portail Azure 
 description: 'Démarrage rapide d’Azure : Configurer le service d’approvisionnement d’appareil Azure IoT Hub dans le portail Azure'
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 276bd33f5724db4d67da0cc31b16297915c9a417
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5509027b9c41a021ce8ab5dd468627bd8307d354
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629437"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036419"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure
 
-Ces étapes indiquent comment configurer les ressources cloud Azure dans le portail pour l’approvisionnement de vos appareils. Cela inclut la création de votre IoT hub et d’un service d’approvisionnement d’appareil IoT Hub, ainsi que la liaison des deux services. 
+Ces étapes indiquent comment configurer les ressources cloud Azure dans le portail pour l’approvisionnement de vos appareils. Cet article inclut les étapes à suivre pour la création de votre IoT hub et d’un service IoT Hub Device Provisioning, ainsi que pour la liaison des deux services. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
-
-Connectez-vous au [portail Azure](https://portal.azure.com/).
-
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-1. Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
-
-2. Sélectionnez **Internet des objets** et **IoT Hub**, puis cliquez sur le bouton **Créer**. 
-
-3. **Nommez** votre IoT Hub. Sélectionnez les options disponibles pour la tarification, entrez les [unités IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/), puis sélectionnez le nombre de partitions pour les messages appareil-à-cloud ainsi que l’abonnement à utiliser pour cette ressource. Entrez le nom d’un groupe de ressources nouveau ou existant, puis sélectionnez l’emplacement. Lorsque vous avez terminé, cliquez sur **Créer**.
-
-    ![Entrer les informations de base concernant votre IoT Hub dans le panneau du portail](./media/quick-setup-auto-provision/create-iot-hub-portal.png)  
-
-4. Une fois que le déploiement du IoT hub est achevé, le panneau de résumé du concentrateur s’ouvre automatiquement.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Créer une instance du service d’approvisionnement d’appareil IoT Hub
@@ -46,7 +34,13 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. *Faites des recherches sur la Place de marché* concernant le **service d’approvisionnement d’appareil**. Sélectionnez le **Service IoT Hub Device Provisioning** et cliquez sur le bouton **Créer**. 
 
-3. **Nommez** votre instance de service d’approvisionnement d’appareil. Sélectionnez l’abonnement à utiliser pour cette instance et nommez un groupe de ressources existant ou nouveau. Sélectionnez l’emplacement. Lorsque vous avez terminé, cliquez sur **Créer**.
+3. Fournissez les informations suivantes pour votre nouvelle instance de service Device Provisioning et cliquez sur **Créer**.
+
+    * **Nom :** choisissez un nom unique pour votre nouvelle instance de service Device Provisioning. Si le nom saisi est disponible, une coche verte s’affiche.
+    * **Abonnement** : choisissez l’abonnement que vous souhaitez utiliser pour créer cette instance de service Device Provisioning.
+    * **Groupe de ressources :** ce champ vous permet de créer un nouveau groupe de ressources ou de sélectionner un groupe déjà existant pour contenir la nouvelle instance. Choisissez le même groupe de ressources qui contient l’IoT Hub que vous avez créé ci-dessus, par exemple, **TestResources**. En plaçant toutes les ressources associées dans un même groupe, vous pouvez les gérer toutes ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources contenues dans ce groupe. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-portal.md).
+    * **Emplacement :** sélectionnez l’emplacement le plus proche de vos périphériques.
+    * **Épingler au tableau de bord :** sélectionnez cette option pour épingler l’instance au tableau de bord pour la rendre plus facile à trouver.
 
     ![Entrer les informations de base concernant votre instance DPS dans le panneau du portail](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
@@ -55,11 +49,17 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>Lier le IoT Hub à votre service d’approvisionnement d’appareil
 
+Dans cette section, vous allez ajouter une configuration à l’instance de service Device Provisionings. Cette configuration définit l’IoT Hub pour lequel les périphériques seront configurés.
+
 1. Cliquez sur le bouton **Toutes les ressources** dans le menu de gauche du portail Azure. Sélectionnez l’instance de service d’approvisionnement des appareils que vous avez créée dans la section précédente.  
 
 2. Dans le panneau de résumé du service d’approvisionnement d’appareil, sélectionnez **Hubs IoT liés**. Cliquez sur le bouton **+ Ajouter** qui s’affiche dans la partie supérieure. 
 
-3. Dans le panneau du portail **Ajouter un lien à un IoT Hub**, sélectionnez l’abonnement actuel, ou entrez la chaîne de nom et la chaîne de connexion pour un autre abonnement. Dans la liste déroulante, sélectionnez le nom du hub. Lorsque vous avez terminé, cliquez sur **Enregistrer**. 
+3. Sur la page **Add link to IoT hub** (Ajouter un lien à IoT Hub), fournissez les informations suivantes pour lier votre nouvelle instance de service Device Provisioning à un IoT Hub. Cliquez ensuite sur **Enregistrer**. 
+
+    * **Abonnement :** sélectionnez l’abonnement contenant l’IoT Hub que vous souhaitez lier avec votre nouvelle instance de service Device Provisioning.
+    * **IoT Hub :** sélectionnez l’IoT Hub à lier avec votre nouvelle instance de service Device Provisioning.
+    * **Stratégie d’accès :** sélectionnez **iothubowner** dans les informations d’identification pour établir le lien avec l’IoT Hub.  
 
     ![Lier le nom du concentrateur à lier à l’instance DPS dans le panneau du portail](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
@@ -67,7 +67,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées lors de ce démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées lors de ce démarrage rapide dans le portail Azure.
 

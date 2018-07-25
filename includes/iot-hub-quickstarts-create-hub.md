@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 63acf0297a694ff442d56e67d52fd9b4e49f812d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36288053"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008584"
 ---
 La première étape consiste à utiliser le portail Azure pour créer un hub IoT dans votre abonnement. Le hub IoT vous permet de traiter de gros volumes de données de télémétrie dans le cloud en provenance de nombreux appareils. Ensuite, le hub active un ou plusieurs services principaux en cours d’exécution dans le cloud pour lire et traiter ces données de télémétrie.
 
@@ -26,12 +26,9 @@ La première étape consiste à utiliser le portail Azure pour créer un hub IoT
 1. Dans le volet **IoT Hub**, entrez les informations suivantes pour votre IoT Hub :
 
    * **Abonnement** : choisissez l’abonnement que vous souhaitez utiliser pour créer cet IoT Hub.
-
-   * **Groupe de ressources** : créez un groupe de ressources pour héberger l’IoT Hub ou utilisez-en un existant. En plaçant toutes les ressources associées dans un groupe, vous pouvez les gérer ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources contenues dans ce groupe. Pour plus d’informations, consultez l’article [Use resource groups to manage your Azure resources][lnk-resource-groups] (Utiliser des groupes de ressources pour gérer vos ressources Azure).
-
-   * **Région** : sélectionnez la région correspondant à votre emplacement.
-
-   * **Nom** : créer un nom de votre IoT Hub. Si le nom saisi est disponible, une coche verte s’affiche.
+   * **Groupe de ressources** : créez un groupe de ressources pour contenir l’IoT Hub ou utilisez-en un qui existe déjà. En plaçant toutes les ressources associées dans un même groupe, comme **TestResources**, vous pouvez les gérer toutes ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources contenues dans ce groupe. Pour plus d’informations, consultez l’article [Use resource groups to manage your Azure resources][lnk-resource-groups] (Utiliser des groupes de ressources pour gérer vos ressources Azure).
+   * **Région** : sélectionnez l’emplacement le plus proche de vos périphériques.
+   * **Nom** : créez un nom unique pour votre IoT Hub. Si le nom saisi est disponible, une coche verte s’affiche.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
