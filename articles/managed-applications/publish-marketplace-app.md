@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 03/15/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304529"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989783"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
 
@@ -43,8 +43,8 @@ Pour devenir éditeur sur la Place de marché Azure, vous devez :
 
 1. Créer un identifiant Microsoft - Créez votre compte Microsoft avec une adresse e-mail qui appartient au domaine de votre entreprise, mais pas à une seule personne. Cette adresse e-mail est utilisée pour le Portail Cloud Partner et pour le Centre de développement Microsoft. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 1. Envoyer le [formulaire de candidature pour la Place de marché Azure](https://aka.ms/ampnomination) - Pour **Solution that you intend to publish? (Quelle solution avez-vous l’intention de publier ?)**, sélectionnez **Managed Application (Application managée)**. Une fois le formulaire envoyé, l’équipe d’intégration de la Place de marché examine la candidature et valide la demande. Le processus d’approbation peut prendre un à trois jours. Une fois votre candidature approuvée, vous recevez un code promotionnel vous dispensant des frais d’inscription au Centre de développement. Si vous ne remplissez **pas** le formulaire de candidature pour la Place de marché, vous devez payer des frais d’inscription de 99 $.
-1. Vous inscrire auprès du [Centre de développement](http://dev.windows.com/registration?accountprogram=azure) - Microsoft vérifie que votre organisation est une entité juridique valide avec un numéro fiscal valide dans le pays où elle est enregistrée. Le processus d’approbation peut prendre de cinq à dix jours. Pour éviter les frais d’inscription, utilisez le code promotionnel que vous avez reçu par e-mail suite à la procédure de candidature. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
-1. Vous connecter au [Portail Cloud Partner](https://cloudpartner.azure.com) - Dans le profil d’éditeur, associez votre compte du Centre de développement au profil d’éditeur de la Place de marché. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
+1. Vous inscrire auprès du [Centre de développement](http://dev.windows.com/registration?accountprogram=azure) : Microsoft vérifie que votre organisation est une entité juridique valide avec un numéro fiscal valide dans le pays où elle est enregistrée. Le processus d’approbation peut prendre de cinq à dix jours. Pour éviter les frais d’inscription, utilisez le code promotionnel que vous avez reçu par e-mail suite à la procédure de candidature. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
+1. Vous connecter au [Portail Cloud Partner](https://cloudpartner.azure.com) : dans le profil d’éditeur, associez votre compte du Centre de développement au profil d’éditeur de la Place de marché. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Création d’une offre d’application Azure
 
@@ -101,10 +101,11 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
 
    Renseignez les champs suivants :
 
-   * **Current Version** (Version actuelle) : saisissez la version du package chargé. Il doit respecter le format `{number}.{number}.{number}{number}`.
-   * **Sélectionner un fichier de package** : ce package contient les deux fichiers nécessaires compressés dans un package .zip. L’un des fichiers est un modèle Resource Manager, qui définit les ressources à déployer pour l’application gérée. L’autre fichier définit [l’interface utilisateur](create-uidefinition-overview.md) pour les consommateurs qui déploient l’application gérée via le portail. Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
+   * **Version** : entrez la version du package chargé. Il doit respecter le format `{number}.{number}.{number}{number}`.
+   * **Fichier de package (.zip)** : ce package contient deux fichiers nécessaires compressés dans un package .zip. L’un des fichiers est un modèle Resource Manager, qui définit les ressources à déployer pour l’application gérée. L’autre fichier définit [l’interface utilisateur](create-uidefinition-overview.md) pour les consommateurs qui déploient l’application gérée via le portail. Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
    * **PrincipalId** : cette propriété représente l’identificateur Azure Active Directory (Azure AD) d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auquel ou à laquelle l’accès aux ressources de l’abonnement du client a été accordé. La définition de rôle décrit les autorisations.
    * **Role Definition** - Cette propriété dresse une liste de tous les rôles RBAC intégrés fournis par Azure AD. Vous pouvez sélectionner le rôle le mieux adapté pour gérer les ressources pour le compte du client.
+   * **Paramètres de stratégie** : appliquez une stratégie [Azure Policy](../azure-policy/azure-policy-introduction.md) à votre application managée pour spécifier des exigences de conformité pour les solutions déployées. Parmi les options disponibles, sélectionnez les stratégies à appliquer. Pour **Paramètres de stratégie**, indiquez une chaîne JSON avec les valeurs de paramètre. Pour les définitions de stratégie et le format des valeurs de paramètre, consultez [Exemples Azure Policy](../azure-policy/json-samples.md).
 
 Vous pouvez ajouter plusieurs autorisations. Nous vous recommandons de créer un groupe d’utilisateurs AD et de spécifier son ID dans **PrincipalId**. De cette manière, vous pouvez ajouter plus d’utilisateurs au groupe d’utilisateurs sans avoir à mettre à jour la référence (SKU).
 

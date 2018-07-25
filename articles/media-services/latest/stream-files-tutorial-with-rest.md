@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5cc109467f9affa9cf5f43342203e8d4298269e0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308611"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115204"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Tutoriel : charger, encoder et diffuser en continu des vidéos à l’aide de REST
 
@@ -77,16 +77,17 @@ Cette section configure le Postman.
     > [!Note]
     > Mettre à jour les variables d’accès avec les valeurs que vous avez obtenues dans la section **Accéder à l’API Media Services** ci-dessus.
 
-7. Fermez la boîte de dialogue.
-8. Sélectionnez l’environnement **Azure Media Services v3 Environnement** dans la liste déroulante.
+7. Double-cliquez sur le fichier sélectionné et entrez les valeurs que vous avez obtenues en suivant les étapes pour [accéder aux API](#access-the-media-services-api).
+8. Fermez la boîte de dialogue.
+9. Sélectionnez l’environnement **Azure Media Services v3 Environnement** dans la liste déroulante.
 
     ![Choisir l’environnement](./media/develop-with-postman/choose-env.png)
    
 ### <a name="configure-the-collection"></a>Configurer la collection
 
 1. Cliquez sur **Importer** pour importer le fichier de la collection.
-1. Accédez au `Media Services v3 (2018-03-30-preview).postman_collection.json` fichier qui a été téléchargé lorsque vous avez effectué le clonage `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
-3. Choisissez le fichier **Media Services v3 (2018-03-30-préversion).postman_collection.json**.
+1. Accédez au `Media Services v3.postman_collection.json` fichier qui a été téléchargé lorsque vous avez effectué le clonage `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
+3. Choisissez le fichier **Media Services v3.postman_collection.json**.
 
     ![Importer un fichier](./media/develop-with-postman/postman-import-collection.png)
 
@@ -128,15 +129,25 @@ La [ressource](https://docs.microsoft.com/rest/api/media/assets) de sortie stock
 2. Ensuite, sélectionnez « Créer ou mettre à jour une ressource ».
 3. Appuyez sur **Envoyer**.
 
-    L’opération **PUT** suivante est envoyée.
+    * L’opération **PUT** suivante est envoyée :
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * L’opération a le corps suivant :
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### <a name="create-a-transform"></a>Créer une transformation
 
-Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres d’encodage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transforms and jobs](transform-concept.md) (Transformations et travaux). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en continu sur divers appareils iOS et Android. 
+Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres de codage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transforms and jobs](transform-concept.md) (Transformations et travaux). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en continu sur divers appareils iOS et Android. 
 
 Lorsque vous créez une instance de [transformation](https://docs.microsoft.com/rest/api/media/transforms), vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un objet **TransformOutput**. Chaque objet **TransformOutput** contient un **préréglage**. Le **préréglage** décrit les instructions détaillées concernant les opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer l’objet **TransformOutput** souhaité. L’exemple décrit dans cet article utilise un préréglage appelé **AdaptiveStreaming**. Le préréglage encode la vidéo d’entrée dans une échelle des vitesses de transmission générée automatiquement (paires vitesse de transmission-résolution) basée sur la vitesse de transmission et la résolution de la sortie, et crée des fichiers MP4 ISO avec des fichiers audio AAC et des fichiers vidéo H.264 qui correspondent à chaque paire vitesse de transmission-résolution. Pour plus d’informations sur ce préréglage, consultez [Encode with an auto-generated bitrate ladder](autogen-bitrate-ladder.md) (Encoder avec une échelle des vitesses de transmission générée automatiquement).
 
@@ -149,11 +160,30 @@ Vous pouvez utiliser un préréglage EncoderNamedPreset intégré ou des préré
 2. Sélectionnez ensuite « Créer transformation ».
 3. Appuyez sur **Envoyer**.
 
-    L’opération **PUT** suivante est envoyée.
+    * L’opération **PUT** suivante est envoyée.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * L’opération a le corps suivant :
+
+        ```json
+        {
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "AdaptiveStreaming"
+                    }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### <a name="create-a-job"></a>Création d’un travail
 
@@ -165,15 +195,36 @@ Dans cet exemple, l’entrée du travail est basée sur une URL HTTPS (« https:
 2. Ensuite, sélectionnez « Créer ou mettre à jour un travail ».
 3. Appuyez sur **Envoyer**.
 
-    L’opération **PUT** suivante est envoyée.
+    * L’opération **PUT** suivante est envoyée.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * L’opération a le corps suivant :
+
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
+            ]
+        }
+        }
+        ```
 
 Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. Pour afficher la progression du travail, nous vous recommandons d’utiliser Event Grid. Ce dernier est conçu pour une haute disponibilité, des performances cohérentes et une mise à l’échelle dynamique. Avec Event Grid, vos applications peuvent écouter les événements de presque tous les services Azure ou de toute source personnalisée, et y réagir. La gestion simple et réactive des événements basée sur HTTP vous aide à générer des solutions efficaces grâce au filtrage et au routage intelligents des événements.  Consultez [Acheminer des événements Azure Media Services vers un point de terminaison personnalisé à l’aide de CLI](job-state-events-cli-how-to.md).
 
-Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez l’état **Annulation en cours** et l’état **Annulé** une fois l’opération terminée.
+Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
 
 ### <a name="create-a-streaming-locator"></a>Créer un localisateur de diffusion en continu
 
@@ -189,14 +240,24 @@ Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.
 Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer une stratégie StreamingPolicy pour chaque élément StreamingLocator.
 
 1. Dans la fenêtre de gauche de Postman, sélectionnez « Stratégies de diffusion en continu ».
-2. Ensuite, sélectionnez « Créer une stratégie de diffusion en continu ».
+2. Ensuite, sélectionnez « Créer un localisateur de diffusion en continu ».
 3. Appuyez sur **Envoyer**.
 
-    L’opération **PUT** suivante est envoyée.
+    * L’opération **PUT** suivante est envoyée.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * L’opération a le corps suivant :
+
+        ```json
+        {
+            "properties":{
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
+            }
+        }
+        ```
 
 ### <a name="list-paths-and-build-streaming-urls"></a>Répertorier les chemins d’accès et générer l’URL de diffusion en continu
 
@@ -208,40 +269,40 @@ Maintenant qu’un élément [StreamingLocator](https://docs.microsoft.com/rest/
 2. Ensuite, sélectionnez « Répertorier les chemin d’accès ».
 3. Appuyez sur **Envoyer**.
 
-    L’opération **POST** suivante est envoyée.
+    * L’opération **POST** suivante est envoyée.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+    * L'opération n'a pas de corps :
+        
 4. Prenez note de l’un des chemins d’accès que vous souhaitez utiliser pour la diffusion en continu, vous allez l’utiliser dans la section suivante. Dans ce cas, les chemins d’accès suivants ont été retournés :
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### <a name="build-the-streaming-urls"></a>Création des URL de diffusion
@@ -253,16 +314,27 @@ Dans cette section, nous allons créer une URL de diffusion HLS. Les URL se comp
     > [!NOTE]
     > Si un lecteur est hébergé sur un site https, veillez à mettre à jour l’URL vers « https ».
 
-2. Le nom d’hôte de StreamingEndpoint. Dans ce cas, le nom est « amsaccount-usw22.streaming.media.azure.net »
-3. Un chemin d’accès que vous avez obtenu dans la section précédente.  
+2. Le nom d’hôte de StreamingEndpoint. Dans ce cas, le nom est « amsaccount-usw22.streaming.media.azure.net ».
+
+    Pour obtenir le nom d’hôte, vous pouvez utiliser l’opération GET suivante :
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. Un chemin d’accès que vous avez obtenu dans la section précédente (Répertorier les chemins d’accès).  
 
 Par conséquent, l’URL HLS suivante a été générée
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## <a name="test-the-streaming-url"></a>Tester l’URL de diffusion en continu
+
+
+> [!NOTE]
+> Assurez-vous que le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu est en cours d’exécution.
 
 Pour tester la diffusion en continu, cet article utilise le lecteur multimédia Azure. 
 

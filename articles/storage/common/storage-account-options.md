@@ -7,37 +7,37 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 07/14/2018
 ms.author: hux
-ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ea4a6f0d1ff6e78d97fbc64b8a23406172ebf36
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445419"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072412"
 ---
 # <a name="azure-storage-account-options"></a>Options de compte de stockage Azure
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Stockage Azure fournit trois options de compte distinctes, avec différentes tarifications et fonctionnalités prises en charge. Tenez compte de ces différences avant de créer un compte de stockage afin de déterminer l’option qui convient le mieux à vos applications. Les trois options de compte de stockage sont les suivantes :
 
-* Comptes **Usage général v2 (GPv2)** 
-* Comptes **Usage général v1 (GPv1)**
-* Comptes **Stockage d’objets blob**
+* [Comptes **Usage général v2 (GPv2)**](#general-purpose-v2-accounts)
+* [Comptes **Usage général v1 (GPv1)**](#general-purpose-v1-accounts)
+* [Comptes **Stockage d’objets blob**](#blob-storage-accounts)
 
 Chaque type de compte est décrit de façon plus détaillée dans la section suivante :
 
 ## <a name="storage-account-options"></a>Options de compte de stockage
 
-### <a name="general-purpose-v2"></a>Usage général v2
+### <a name="general-purpose-v2-accounts"></a>Les comptes de stockage à usage général v2
 
-Les comptes Usage général v2 (GPv2) sont des comptes de stockage qui prennent en charge les dernières fonctionnalités disponibles pour les objets blob, les fichiers, les files d’attente et les tables. Les comptes GPv2 prennent en charge toutes les API et fonctionnalités prises en charge dans les comptes GPv1 et de stockage d’objets blob. Ils prennent également en charge les mêmes fonctionnalités de durabilité, de disponibilité, d’évolutivité et de performances que ces types de compte. La tarification des comptes GPv2 a été conçue pour fournir les prix au gigaoctet les plus bas et des prix de transaction compétitifs sur le marché.
+Les comptes Usage général v2 (GPv2) sont des comptes de stockage qui prennent en charge les dernières fonctionnalités disponibles pour les objets blob, les fichiers, les files d’attente et les tables. Les comptes GPv2 prennent en charge l’ensemble des API, services et fonctionnalités pris en charge dans les comptes GPv1 et de stockage d’objets blob. Ils conservent également les mêmes niveaux de durabilité, de disponibilité, d’extensibilité et de performance que tous les autres types de compte de stockage. La tarification des comptes GPv2 a été conçue pour fournir les prix au gigaoctet les plus bas et des prix de transaction compétitifs sur le marché.
 
 Vous pouvez mettre à niveau votre compte GPv1 ou de stockage d’objets blob vers un compte GPv2 à l’aide du portail Azure, de PowerShell ou de l’interface de ligne de commande Azure. 
 
-Pour les objets blob de blocs dans un compte de stockage GPv2, vous pouvez choisir un niveau de stockage chaud ou froid au niveau du compte, ou bien un niveau de stockage chaud, froid ou archive au niveau du fichier blob, en fonction des modèles d’accès. Stockez les données utilisées fréquemment, peu fréquemment et rarement dans des niveaux de stockage respectivement archive, froid et chaud pour optimiser les coûts. 
+Pour les objets blob de blocs d’un compte de stockage GPv2, vous pouvez choisir un niveau d’accès au stockage chaud ou froid au niveau du compte ou bien un niveau d’accès chaud, froid ou archive au niveau de l’objet blob, en fonction des modèles d’utilisation. Stockez les données utilisées fréquemment, peu fréquemment et rarement dans les niveaux de stockage chaud, froid et archive pour optimiser les coûts de stockage et de transaction. 
 
-Les comptes de stockage GPv2 exposent l’attribut **Niveau d’accès** au niveau du compte, spécifiant le niveau de compte de stockage par défaut comme **Chaud** ou **Froid**. Le niveau de compte de stockage par défaut est appliqué à tout objet blob n’ayant aucun niveau explicitement défini au niveau de l’objet blob. Si le modèle d’utilisation de vos données est modifié, vous pouvez également basculer entre ces niveaux de stockage à tout moment. Le **niveau de stockage archive** peut être appliqué uniquement au niveau de l’objet blob.
+Les comptes de stockage GPv2 exposent l’attribut **Niveau d’accès** au niveau du compte, spécifiant le niveau de compte de stockage par défaut comme **Chaud** ou **Froid**. Le niveau de compte de stockage par défaut est appliqué à tout objet blob n’ayant aucun niveau explicitement défini au niveau de l’objet blob. Si le modèle d’utilisation de vos données est modifié, vous pouvez également basculer entre ces niveaux de stockage à tout moment. Le niveau de stockage **Archive** peut être appliqué uniquement au niveau de l’objet blob.
 
 > [!NOTE]
 > La modification du niveau de stockage peut entraîner des frais supplémentaires. Pour plus d’informations, consultez la section [Tarification et facturation](#pricing-and-billing).
@@ -46,7 +46,10 @@ Les comptes de stockage GPv2 exposent l’attribut **Niveau d’accès** au nive
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Mettre à niveau un compte de stockage vers un compte GPv2
 
-Les utilisateurs peuvent à tout moment mettre à niveau un compte GPv1 ou de stockage Blob vers un compte GPv2 en utilisant le portail Azure, PowerShell ou l’interface de ligne de commande Azure. Cette modification ne peut pas être annulée, et aucune autre modification n’est autorisée.
+Les utilisateurs peuvent à tout moment mettre à niveau un compte GPv1 ou de stockage Blob vers un compte GPv2 en utilisant le portail Azure, PowerShell ou l’interface de ligne de commande Azure. Cette modification ne peut pas être annulée, et aucune autre modification de type de compte n’est autorisée. Pour plus d’informations sur l’évaluation de votre compte de stockage existant, consultez la section [Évaluation et migration vers des comptes de stockage GPv2](#evaluating-and-migrating-to-gpv2-storage-accounts).
+* [Mettre à niveau avec le portail Azure vers GPv2](#upgrade-with-azure-portal)
+* [Mettre à niveau avec PowerShell vers GPv2](#upgrade-with-powershell)
+* [Mettre à niveau avec Azure CLI vers GPv2](#upgrade-with-azure-cli)
 
 #### <a name="upgrade-with-azure-portal"></a>Mettre à niveau avec le portail Azure
 Pour mettre à niveau un compte GPv1 ou de stockage Blob vers un compte GPv2 avec le portail Azure, connectez-vous d’abord au [portail Azure](https://portal.azure.com) et sélectionnez votre compte de stockage. Sélectionnez **Paramètres** > **Configuration**. Vous voyez le bouton **Mettre à niveau**, ainsi qu’une remarque concernant le processus de mise à niveau.
@@ -67,7 +70,7 @@ Pour mettre à niveau un compte GPv1 ou de stockage d’objets blob vers un comp
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```` 
 
-### <a name="general-purpose-v1"></a>Usage général v1
+### <a name="general-purpose-v1-accounts"></a>Comptes GPv1
 
 Les comptes Usage général v1 (GPv1) offrent un accès à tous les services de Stockage Azure, mais ils ne possèdent pas les fonctionnalités les plus récentes ni la tarification au gigaoctet la plus basse. Par exemple, les options de stockage froid et de stockage archive ne sont pas prises en charge dans les comptes GPv1. Les prix sont moins élevés pour les transactions GPv1, ce qui rend ce type de compte attractif pour les charges de travail avec une évolution élevée ou un taux de lecture élevé.
 
@@ -196,14 +199,19 @@ Cette section vise à aider les utilisateurs à effectuer une transition en douc
 * Vous disposez d’un compte de stockage GPv1 et envisagez de passer à un compte de stockage GPv2 avec le niveau de stockage approprié.
 * Vous souhaitez utiliser un compte de stockage GPv2 ou vous disposez déjà d’un tel compte et souhaitez savoir si vous devez utiliser le niveau de stockage chaud ou froid.
 
-Dans les deux cas, la première priorité est d’abord estimer les frais de stockage et d’accès aux données stockées dans un compte de stockage GPv2 pour les comparer avec vos frais actuels.
+Dans les deux cas, la priorité est d’estimer les coûts de stockage, d’exploitation des données stockées dans un compte de stockage GPv2 et d’accès à celles-ci pour les comparer avec vos frais actuels.
 
 ## <a name="evaluating-gpv2-storage-account-tiers"></a>Évaluation des niveaux de compte de stockage GPv2
 
 Pour estimer le coût de stockage et d’accès aux données stockées dans un compte de stockage GPv2, vous devez évaluer votre modèle d’utilisation existant ou faire une estimation du modèle d’utilisation souhaité. En général, vous souhaitez connaître :
 
-* Votre consommation de stockage : quel est le volume de données stockées et quelle est son évolution mensuelle ?
-* Votre modèle d’accès au stockage : quel est le volume de données du compte faisant l’objet d’accès en lecture et en écriture (y compris les nouvelles données) ? Le nombre et le type de transactions utilisées pour accéder aux données.
+* Votre consommation de stockage de données (Go)
+    - Quelle est la quantité des données stockées dans le compte de stockage ?
+    - Comment le volume de données est-il changé tous les mois ? Les nouvelles données remplacent-elles constamment les anciennes données ?
+* Votre modèle d’accès au stockage (opérations et transfert de données)
+    - Quelle est la quantité de données lues (sorties) et écrites (entrées) dans le compte de stockage ? 
+    - Combien d’opérations ont lieu sur les données dans le compte de stockage ?
+    - Quels sont les types d’opération (lecture ou écriture) effectués sur les données ?
 
 ## <a name="monitoring-existing-storage-accounts"></a>Analyse des comptes de stockage existants
 
@@ -244,7 +252,7 @@ La somme des entrées *'TotalBillableRequests'* d’une API dans la table de mé
 Pour estimer les frais de transaction pour les comptes de stockage d’objets blob, vous devez classer les transactions en trois groupes correspondant aux trois modèles de tarification.
 
 * Les transactions d’écriture telles que *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* et *'CopyBlob'*.
-* Les transactions de suppression telles que *'DeleteBlob'* et *'DeleteContainer'*.
+* Les transactions de lecture comme *« GetBlob »*.
 * Toutes les autres transactions.
 
 Pour estimer les frais de transaction pour les comptes de stockage GPv1, vous devez regrouper toutes les transactions, quelle que soit l’opération/l’API associée.

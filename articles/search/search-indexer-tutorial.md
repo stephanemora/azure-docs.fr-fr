@@ -1,22 +1,22 @@
 ---
 title: Didacticiel pour l’indexation de bases de données SQL Azure dans Recherche Azure | Microsoft Docs
-description: Analysez une base de données Azure SQL pour extraire les données pouvant faire l’objet d’une recherche et remplir un index Recherche Azure.
+description: Dans ce didacticiel, vous allez analyser une base de données Azure SQL pour extraire les données pouvant faire l’objet d’une recherche et renseigner un index Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799513"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988793"
 ---
-# <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Comment analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Didacticiel : Analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
 
 Ce didacticiel vous montre comment configurer un indexeur pour extraire des données pouvant faire l’objet d’une recherche à partir d’un exemple de base de données SQL Azure. [Les indexeurs](search-indexer-overview.md) sont un composant de Recherche Azure qui analyse les sources de données externes tout en alimentant un [index de recherche](search-what-is-an-index.md) avec le contenu. De tous les indexeurs, l’indexeur correspondant à la base de données SQL Azure est le plus couramment utilisé. 
 
@@ -33,10 +33,9 @@ Dans ce didacticiel, vous effectuez les tâches suivantes à l’aide des [ bibl
 > * Rechercher l’index
 > * Afficher la configuration de l’indexeur dans le portail
 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
 ## <a name="prerequisites"></a>Prérequis
-
-
-* Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free/). 
 
 * Un service Azure Search. Pour obtenir une aide à la configuration, consultez [Créer un service de recherche](search-create-service-portal.md).
 
@@ -109,7 +108,7 @@ Vous trouverez la clé et le point de terminaison du service de recherche dans l
 
 Au cours de cette étape, créez une source de données externe qu’un indexeur peut analyser. Le fichier de données de ce didacticiel est *hotels.sql*, fourni dans le dossier de solutions \DotNetHowToIndexers. 
 
-### <a name="azure-sql-database"></a>Base de données SQL Azure
+### <a name="azure-sql-database"></a>Azure SQL Database
 
 Vous pouvez utiliser le portail Azure et le fichier *hotels.sql* à partir de l’exemple pour créer le jeu de données dans la base de données SQL Azure. Recherche Azure utilise des ensembles de lignes aplatis, tel que celui généré à partir d’une vue ou d’une requête. Le fichier SQL de l’exemple de solution crée et remplit une table unique.
 
@@ -270,21 +269,14 @@ Tous les indexeurs, y compris celui que vous venez de créer par programme, sont
 
   ![Vignettes d’indexeur et de source de données](./media/search-indexer-tutorial/tiles-portal.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous ne prévoyez pas de continuer à utiliser ces services, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure. 
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer le groupe de ressources**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+Le moyen le plus rapide de procéder à un nettoyage après un didacticiel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez supprimer le groupe de ressources maintenant pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations et pour connaître les tâches spécifiques aux autres sources de données pris en charge, consultez les articles suivants :
+Vous pouvez attacher des algorithmes intégrant l’intelligence artificielle à un pipeline d’indexeur. Comme prochaine étape, passez au didacticiel suivant.
 
-* [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Stockage Table Azure](search-howto-indexing-azure-tables.md)
-* [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
-* [Indexation d’objets blob CSV avec l’indexeur d’objets blob Recherche Azure](search-howto-index-csv-blobs.md)
-* [Indexation d’objets blob JSON avec l’indexeur d’objets blob Recherche Azure](search-howto-index-json-blobs.md)
-
+> [!div class="nextstepaction"]
+> [Indexation de documents dans Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)

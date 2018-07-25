@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27cfb391c5c47ef44c443e2603da62fe5d6a3122
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453414"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113043"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB : Créer une application .NET Framework ou Core à l’aide de l’API Graph
 
@@ -153,21 +153,25 @@ Tous les extraits de code suivants proviennent du fichier Program.cs.
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Clés**. 
+1. À partir du [Portail Azure](http://portal.azure.com/), accédez à votre compte de base de données de graphiques. Dans l’onglet **Vue d’ensemble**, vous pouvez voir deux points de terminaison : 
+ 
+   **URI du SDK .NET** : cette valeur est utilisée lorsque vous vous connectez au compte de graphiques à l’aide de la bibliothèque Microsoft.Azure.Graphs. 
 
-    Copiez la première partie de la valeur de l’URI.
+   **Point de terminaison Gremlin** : cette valeur est utilisée lorsque vous vous connectez au compte de graphiques à l’aide de la bibliothèque Gremlin.Net.
 
-    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-dotnet/keys.png)
+    ![Copier le point de terminaison](./media/create-graph-dotnet/endpoint.png)
+
+   Pour exécuter cet exemple, copiez la valeur **Point de terminaison Gremlin**, supprimez le numéro de port à la fin, et l’URI devient `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`
 
 2. Dans Program.cs, collez les valeurs sur `your-endpoint` dans la variable `hostname` de la ligne 19. 
 
-    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.com";`
 
     La valeur de point de terminaison doit maintenant ressembler à ceci :
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Copiez votre valeur de **clé primaire** du portail, puis collez-la dans la variable `authkey`, en remplaçant l’espace réservé `"your-authentication-key"` dans la ligne 21. 
+3. Ensuite, accédez à l’onglet **Clés** et copiez votre valeur de **CLÉ PRIMAIRE** à partir du portail, puis collez-la dans la variable `authkey`, en remplaçant l’espace réservé `"your-authentication-key"` dans la ligne 21. 
 
     `private static string authKey = "your-authentication-key";`
 

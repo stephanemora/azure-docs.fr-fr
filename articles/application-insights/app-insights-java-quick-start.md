@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c0a1caca1c7b026965d2a83211c87d49db53c4ca
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798438"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991594"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Démarrer l’analyse de votre application web Java
 
@@ -25,7 +25,7 @@ Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit d
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer ce démarrage rapide :
+Pour suivre ce guide de démarrage rapide :
 
 - Installez JRE 1.7 ou 1.8
 - Installez l’[Environnement de développement intégré Eclipse gratuit pour développeurs Java EE](http://www.eclipse.org/downloads/). Ce guide de démarrage rapide utilise Eclipse Oxygen (4.7).
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 Si vous préférez l’infrastructure Spring, consultez le guide [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) (guide de configuration de l’application d’initialiseur Spring Boot afin d’utiliser Application Insights)
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -56,7 +56,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
    | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application web Java | Type de l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
-   | **Lieu** | Est des États-Unis | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
+   | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
 2. Cliquez sur **Créer**.
 
@@ -89,25 +89,25 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 1. Vous pouvez à présent rouvrir la page de **présentation** d’Application Insights dans le portail Azure où vous avez récupéré votre clé d’instrumentation afin d’afficher les détails sur votre application en cours d’exécution.
 
-   ![Menu Vue d'ensemble Application Insights](./media/app-insights-java-quick-start/0008-j.png)
+   ![Menu Vue d'ensemble Application Insights](./media/app-insights-java-quick-start/overview-001.png)
 
-2. Cliquez sur **Mise en correspondance d’applications** pour obtenir une présentation visuelle des relations de dépendance entre les composants de votre application. Chaque composant affiche des indicateurs de performance clés comme la charge, les performances, les échecs et les alertes.
+2. Cliquez sur **Cartographie d’application** pour obtenir une présentation visuelle des relations de dépendance entre les composants de votre application. Chaque composant affiche des indicateurs de performance clés comme la charge, les performances, les échecs et les alertes.
 
-   ![Mise en correspondance d'applications](./media/app-insights-java-quick-start/005-j.png)
+   ![Mise en correspondance d'applications](./media/app-insights-java-quick-start/application-map-001.png)
 
 3. Cliquez sur l’icône **Analyse d’application** ![icône Mise en correspondance d’applications](./media/app-insights-java-quick-start/006.png). Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
 
    ![Graphique analytique des demandes d’utilisateur au cours d’une période donnée](./media/app-insights-java-quick-start/0010-j.png)
 
-4. Revenez à la page **Vue d’ensemble** et examinez la **chronologie de la vue d’ensemble de l’intégrité**.  Ce tableau de bord fournit des statistiques sur l’intégrité de votre application, y compris le nombre de demandes entrantes, la durée de ces demandes et les éventuelles erreurs qui se produisent.
+4. Revenez à la page **Vue d’ensemble** et examinez les graphiques de l’indicateur de performance clé (KPI).  Ce tableau de bord fournit des statistiques sur l’intégrité de votre application, y compris le nombre de demandes entrantes, la durée de ces demandes et les éventuelles erreurs qui se produisent.
 
-   ![Graphiques chronologiques de la vue d’ensemble de l’intégrité](./media/app-insights-java-quick-start/0009-j.png)
+   ![Graphiques chronologiques de la vue d’ensemble de l’intégrité](./media/app-insights-java-quick-start/overview-perf.png)
 
    Pour activer le graphique **Temps de chargement de la page consultée** à remplir avec les données de **télémétrie côté client**, ajoutez ce script à toutes les pages dont vous souhaitez effectuer le suivi :
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 
@@ -131,7 +131,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 Pour en savoir plus sur l’analyse de Java, consultez la [documentation supplémentaire sur Application Insights pour Java](.\app-insights-java-get-started.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les didacticiels, ne supprimez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées par ce démarrage rapide dans le portail Azure.
 

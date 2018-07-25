@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b82eeb43c29fd52f4df2d453bb24bb2b3bd581ad
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 747a0fc7f66edbae8d4a99eeaf0ea45f844d6465
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030513"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125933"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Didacticiel : Configurer une application web Azure pour lire un secret dans le coffre de clés
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 Pour vous connecter à Azure à l’aide de l’interface CLI, vous pouvez taper :
 
@@ -128,8 +128,8 @@ Deux packages NuGet doivent être installés pour votre application web. Pour le
 3. Cochez la case en regard de la zone de recherche. **Inclure la version préliminaire**
 4. Recherchez les deux packages NuGet répertoriés ci-dessous et acceptez qu’ils soient ajoutés à votre solution :
 
-    * [Microsoft.Azure.Services.AppAuthentication (préversion)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) : facilite la récupération de jetons d’accès dans les scénarios d’authentification de Service-à-Service-Azure. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) : contient les méthodes permettant d’interagir avec Azure Key Vault.
+    * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) : facilite la récupération de jetons d’accès dans les scénarios d’authentification de Service-à-Service-Azure. 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) : contient les méthodes permettant d’interagir avec Azure Key Vault.
 
 5. Utilisez l’Explorateur de solutions pour ouvrir `Program.cs` et remplacez le contenu du fichier Program.cs par le code suivant. Remplacez ```<YourKeyVaultName>``` par le nom de votre coffre de clés :
 
@@ -142,37 +142,36 @@ Deux packages NuGet doivent être installés pour votre application web. Pour le
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureKeyVault;
     
-        namespace WebKeyVault
-        {
-        public class Program
-        {
-        public static void Main(string[] args)
-        {
-        BuildWebHost(args).Run();
-        }
-    
-            public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((ctx, builder) =>
-                {
-                    var keyVaultEndpoint = GetKeyVaultEndpoint();
-                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                    {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                    }
-                }
-             )
-                .UseStartup<Startup>()
-                .Build();
-    
-            private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
-        }
-        }
+    namespace WebKeyVault
+    {
+       public class Program
+       {
+           public static void Main(string[] args)
+           {
+               BuildWebHost(args).Run();
+           }
+
+           public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
+
+           private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+         }
+    }
     ```
 
 6. Utilisez l’Explorateur de solutions pour accéder à la section **Pages** et ouvrez `About.cshtml`. Remplacez le contenu du fichier **About.cshtml.cs** par le code suivant :
@@ -206,7 +205,8 @@ Deux packages NuGet doivent être installés pour votre application web. Pour le
 7. Dans le menu principal, choisissez **Déboguer** > **Exécuter sans débogage**. Lorsque le navigateur s’affiche, accédez à la page **À propos**. La valeur d’AppSecret s’affiche.
 
 >[!IMPORTANT]
-> Si vous obtenez un message Erreur HTTP 502.5 - Échec du processus, vérifiez le nom du coffre de clés spécifié dans `Program.cs`.
+> Si vous obtenez un message d’erreur HTTP 502.5 - Échec du processus,
+> > vérifiez le nom du coffre de clés spécifié dans `Program.cs`
 
 ## <a name="publish-the-web-application-to-azure"></a>Publier l’application web dans Azure
 
@@ -244,7 +244,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 
 Maintenant votre compte dans Azure et l’identité de l’application ont le droit de lire des informations dans Azure Key Vault. Quand vous actualisez la page, la page d’accueil du site doit s’afficher. Si vous sélectionnez **À propos de**, vous voyez la valeur que vous avez stockée dans Key Vault.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Pour supprimer un groupe de ressources et toutes ses ressources, utilisez la commande **az group delete**.
 

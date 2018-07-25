@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068596"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115318"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -39,9 +39,9 @@ La centralisation du stockage des secrets d’application dans Azure Key Vault v
 
 Vos applications peuvent accéder de façon sécurisée aux informations qui leur sont nécessaires en utilisant des URI qui leur permettent de récupérer des versions spécifiques d’un secret après le stockage de la clé ou du secret des applications dans Azure Key Vault. Cette opération s’effectue sans nécessiter l’écriture de code personnalisé pour protéger les informations secrètes.
 
-### <a name="securely-store-secrets"></a>Stocker les secrets en toute sécurité
+### <a name="securely-store-secrets-and-keys"></a>Stocker en toute sécurité les secrets et clés
 
-Les clés sont protégées par Azure à l’aide d’algorithmes standard, de longueurs de clé et de modules de sécurité matériels (HSM). Les HSM utilisés sont garantis conformes aux normes FIPS (Federal Information Processing Standard) 140-2 de niveau 2.
+Les secrets et les clés sont protégés par Azure, à l’aide d’algorithmes standards, de longueurs de clé et de modules de sécurité matériel (HSM). Les HSM utilisés sont garantis conformes aux normes FIPS (Federal Information Processing Standard) 140-2 de niveau 2.
 
 L’accès à un coffre de clés par un appelant (utilisateur ou application) requiert une authentification et une autorisation adéquates. L’authentification établit l’identité de l’appelant, tandis que l’autorisation détermine les opérations que ce dernier est autorisé à effectuer.
 
@@ -49,7 +49,7 @@ L’authentification s’effectue par le biais d’Azure Active Directory. L’a
 
 Azure Key Vault peut être protégé par un logiciel ou par un HSM matériel. Dans les situations qui nécessitent un surcroît de vigilance, vous pouvez importer ou générer des clés dans des HSM dont les clés ne franchissent jamais les limites. Microsoft utilise les HSM Thales. Pour déplacer une clé de votre HSM vers Azure Key Vault, vous pouvez utiliser les outils Thales.
 
-Enfin, Key Vault a été conçu de façon que Microsoft ne puisse pas visualiser ni extraire vos clés.
+Enfin, Azure Key Vault a été conçu de façon que Microsoft ne puisse pas visualiser ni extraire vos données.
 
 ### <a name="monitor-access-and-use"></a>Surveiller les accès et l’utilisation
 

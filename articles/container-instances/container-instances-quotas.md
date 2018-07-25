@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 22be921c7ab437e08d8ea5032befb8671dc90ed0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163365"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115273"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Disponibilité des régions et quotas pour Azure Container Instances
 
@@ -27,10 +27,11 @@ Tous les services Azure incluent certains quotas et limites par défaut pour les
 
 Azure Container Instances est disponible dans les régions suivantes avec les limites de processeur et de mémoire spécifiées.
 
-| Lieu | SE | UC | Mémoire (Go) |
+| Emplacement | SE | UC | Mémoire (Go) |
 | -------- | -- | :---: | :-----------: |
 | Ouest des États-Unis, Est des États-Unis, Europe du Nord | Linux | 4 | 14 |
 | Ouest des États-Unis 2, Asie du Sud-Est | Linux | 2 | 7 |
+| Est de l’Australie, Est des États-Unis 2, Centre des États-Unis | Linux | 1 | 1.5 |
 | Ouest des États-Unis, Est des États-Unis, Europe du Nord | Windows | 4 | 14 |
 | Ouest des États-Unis 2, Asie du Sud-Est | Windows | 2 | 3,5 |
 

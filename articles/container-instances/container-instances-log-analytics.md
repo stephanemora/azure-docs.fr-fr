@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 06/06/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: a0772d1009021ca64b448710c5353407a5492fae
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e4c1efbf4c2c844bae971fa1136e0fe3bed18bcc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809863"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112961"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Journalisation d’instance de conteneur avec Azure Log Analytics
 
@@ -43,9 +43,26 @@ Pour obtenir l’ID et la clé primaire de l’espace de travail Log Analytics :
 
 ## <a name="create-container-group"></a>Créer un groupe de conteneurs
 
-Maintenant que vous disposez de l’ID d’espace de travail Log Analytics et de la clé primaire, vous êtes prêt à créer un groupe de conteneurs dans lequel la journalisation est activée. L’exemple suivant crée un groupe de conteneurs à un seul conteneur [fluentd][fluentd]. Le conteneur Fluentd produit plusieurs lignes de sortie dans sa configuration par défaut. Cette sortie étant envoyée à votre espace de travail Log Analytics, elle convient parfaitement à l’affichage et à l’interrogation des journaux.
+Maintenant que vous disposez de l’ID d’espace de travail Log Analytics et de la clé primaire, vous êtes prêt à créer un groupe de conteneurs dans lequel la journalisation est activée.
 
-Copiez tout d’abord le fichier YAML suivant, qui définit un groupe de conteneurs avec un seul conteneur, dans un nouveau fichier. Remplacez `LOG_ANALYTICS_WORKSPACE_ID` et `LOG_ANALYTICS_WORKSPACE_KEY` par les valeurs obtenues à l’étape précédente, puis enregistrez le fichier sous **deploy-aci.yaml**.
+Les exemples suivants illustrent deux façons de créer un groupe de conteneurs avec un seul conteneur [fluentd][fluentd] : Azure CLI et Azure CLI avec un modèle YAML. Le conteneur Fluentd produit plusieurs lignes de sortie dans sa configuration par défaut. Cette sortie étant envoyée à votre espace de travail Log Analytics, elle convient parfaitement à l’affichage et à l’interrogation des journaux.
+
+### <a name="deploy-with-azure-cli"></a>Déploiement avec l’interface de ligne de commande Azure
+
+Pour procéder au déploiement avec Azure CLI, spécifiez les paramètres `--log-analytics-workspace` et `--log-analytics-workspace-key` dans la commande [az container create][az-container-create]. Avant d’exécuter la commande suivante, remplacez les deux valeurs de l’espace de travail par celles que vous avez obtenues à l’étape précédente (et mettez à jour le nom du groupe de ressources).
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
+```
+
+### <a name="deploy-with-yaml"></a>Déployer avec YAML
+
+Utilisez cette méthode si vous préférez déployer des groupes de conteneurs avec YAML. Le code YAML suivant définit un groupe de conteneurs à un seul conteneur. Copiez le code YAML dans un nouveau fichier, puis remplacez `LOG_ANALYTICS_WORKSPACE_ID` et `LOG_ANALYTICS_WORKSPACE_KEY` par les valeurs obtenues à l’étape précédente. Enregistrez le fichier sous le nom **deploy-aci.yaml**.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -75,7 +92,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Exécutez ensuite la commande suivante pour déployer le groupe de conteneurs. Remplacez `myResourceGroup` par un groupe de ressources dans votre abonnement (ou créez tout d’abord un groupe de ressources nommé « myResourceGroup ») :
 
 ```azurecli-interactive
-az container create -g myResourceGroup -n mycontainergroup001 -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
 ```
 
 Vous devriez recevoir une réponse à partir des détails du déploiement de conteneur Azure peu de temps après l’émission de la commande.
@@ -135,3 +152,4 @@ Pour plus d’informations sur la surveillance des ressources processeur et mém
 [query_lang]: https://docs.loganalytics.io/
 
 <!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create

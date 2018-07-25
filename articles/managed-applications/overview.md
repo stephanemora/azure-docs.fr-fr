@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 04/13/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639205"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990512"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
@@ -41,7 +41,7 @@ Vous pouvez publier votre application managée en interne ou en externe.
 
 ### <a name="service-catalog"></a>Catalogue de services
 
-Le catalogue de services est un catalogue interne des solutions approuvées pour les utilisateurs d’une organisation. Vous l’utilisez pour garantir la conformité avec certaines normes organisationnelles tout en fournissant des solutions à l’organisation. Les employés utilisent le catalogue pour découvrir facilement le riche éventail d’applications recommandées et approuvées par leur service informatique. Ils voient les applications managées que d’autres personnes dans leur organisation partagent avec eux.
+Le catalogue de services est un catalogue interne des solutions approuvées pour les utilisateurs d’une organisation. Vous l’utilisez pour garantir la conformité avec certaines normes organisationnelles tout en fournissant des solutions à l’organisation. Les employés utilisent le catalogue pour découvrir facilement les applications recommandées et approuvées par leur service informatique. Ils voient les applications managées que d’autres personnes dans leur organisation partagent avec eux.
 
 Pour plus d’informations sur la publication d’une application managée de catalogue de services, consultez [Créer une application de catalogue de services](publish-service-catalog-app.md).
 
@@ -70,6 +70,10 @@ Le consommateur dispose d’un accès complet au groupe de ressources et l’uti
 Ce groupe de ressources contient toutes les ressources exigées par l’application managée. Il contient par exemple les machines virtuelles, les comptes de stockage et les réseaux virtuels pour la solution. Le consommateur dispose d’un accès limité à ce groupe de ressources, car il ne gère pas les ressources individuelles pour l’application managée. L’accès de l’éditeur à ce groupe de ressources correspond au rôle spécifié dans la définition de l’application managée. Par exemple, l’éditeur peut demander le rôle Propriétaire ou Contributeur pour ce groupe de ressources.
 
 Quand le consommateur supprime l’application managée, le groupe de ressources managé est également supprimé.
+
+## <a name="azure-policy"></a>Azure Policy
+
+Vous pouvez appliquer une stratégie [Azure Policy](../azure-policy/azure-policy-introduction.md) à votre application managée. Vous appliquez des stratégies pour vous assurer que les instances déployées de votre application managée sont conformes aux exigences en matière de sécurité et de données. Si votre application interagit avec des données sensibles, assurez-vous que vous avez évalué comment il convient de la protéger. Par exemple, si votre application interagit avec des données d’Office 365, appliquez une stratégie pour vous assurer que le chiffrement des données est activé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

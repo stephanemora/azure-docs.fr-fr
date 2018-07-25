@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f8de53f03cc1378e8aaafa9a2f486eadc23fe14
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb957346cb0e003e9aff19026ed81495abf432c5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637851"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049375"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Présentation d’Azure Lab Services
 Azure Lab Services vous permet de configurer rapidement un environnement pour votre équipe (par exemple : un environnement de développement, un environnement de test, un environnement de laboratoire de salle de classe) dans le cloud. Le propriétaire d’un laboratoire crée un laboratoire, configure Windows ou des machines virtuelles Linux, installe les logiciels et outils nécessaires, puis les rend disponibles aux utilisateurs du laboratoire. Les utilisateurs du laboratoire se connectent à des machines virtuelles (VM) dans le laboratoire puis s’en servent pour leurs tâches quotidiennes, leurs projets à court terme ou les exercices en classe. Lorsque les utilisateurs commencent à exploiter les ressources du laboratoire, un administrateur de laboratoire peut analyser les coûts et l’utilisation entre plusieurs laboratoires et définir des stratégies globales afin d’optimiser les coûts de l’équipe ou de l’organisation.
@@ -36,6 +36,9 @@ Azure Lab Services prend en charge les fonctionnalités clés suivantes :
 - **Optimisation et analyse des coûts**. Un propriétaire du laboratoire peut définir des planifications de laboratoire pour arrêter et démarrer automatiquement des machines virtuelles. Le propriétaire du laboratoire peut définir une planification pour spécifier les plages horaires où les machines virtuelles du laboratoire sont accessibles aux utilisateurs, définir des stratégies d’utilisation par utilisateur ou par un laboratoire afin d’optimiser les coûts, et pour analyser les tendances d’utilisation et d’activité d’un laboratoire. Pour les laboratoires gérés tels que des laboratoires de salle de classe, un sous-ensemble plus petit d’options d’optimisation et d’analyse des coûts est actuellement disponible. 
 - **Sécurité intégrée**. Le propriétaire du laboratoire peut configurer des réseaux virtuels privés et un sous-réseau pour un laboratoire, et activer une adresse IP publique partagée. Les utilisateurs du laboratoire peuvent accéder en toute sécurité aux ressources à l’aide du réseau virtuel configuré avec ExpressRoute ou d’un VPN de site à site. (uniquement disponible dans DevTest Labs actuellement)
 - **Intégration dans vos flux de travail et outils**. Azure Lab Services vous permet d’intégrer les laboratoires dans le site Web et les systèmes de gestion de votre organisation. Vous pouvez automatiquement mettre en service les environnements à l’aide de vos outils de déploiement/intégration (CI/CD) en continu. (uniquement disponible dans DevTest Labs actuellement)
+
+> [!NOTE]
+> Actuellement, Azure Lab Services ne prend en charge que les machines virtuelles créées à partir d’images de la Place de marché Azure. Si vous souhaitez utiliser des images personnalisées ou créer d’autres ressources PaaS dans un environnement lab, utilisez DevTest Labs. Pour plus d’informations, consultez [Créer une image personnalisée dans DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) et [Créer des environnements lab à l’aide de modèles Resource Manager](devtest-lab-create-environment-from-arm.md). 
 
 ## <a name="scenarios"></a>Scénarios
 Voici quelques scénarios pris en charge par Azure Lab Services : 

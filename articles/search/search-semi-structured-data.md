@@ -1,21 +1,21 @@
 ---
-title: Rechercher des données semi-structurées dans le stockage cloud Azure
-description: Recherche de données blob semi-structurées à l’aide de Recherche Azure.
-author: roygara
+title: Tutoriel pour la recherche de données semi-structurées dans le stockage cloud Azure dans Recherche Azure | Microsoft Docs
+description: Dans ce tutoriel, découvrez comment rechercher des données d’objets blob Azure semi-structurées à l’aide de Recherche Azure.
+author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 10/12/2017
-ms.author: v-rogara
-ms.openlocfilehash: 7579862e132724d101e4267023afd9e3336bc3b1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 07/12/2018
+ms.author: heidist
+ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795039"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005075"
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Partie 2 : Rechercher des données semi-structurées dans le stockage cloud
+# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Tutoriel : Rechercher des données semi-structurées dans le stockage cloud Azure
 
 Dans cette série de didacticiels en deux parties, vous allez apprendre à rechercher des données semi-structurées et non structurées à l’aide de la fonction Recherche Azure. La [Partie 1](../storage/blobs/storage-unstructured-search.md) vous a expliqué comment rechercher des données non structurées, mais contenait également des explications indispensables pour pouvoir suivre ce didacticiel, notamment sur la création du compte de stockage. 
 
@@ -28,15 +28,16 @@ Dans la partie 2, vous allez apprendre à :
 > * Créer et remplir un index de Recherche Azure et un indexeur pour analyser le conteneur et extraire le contenu de recherche
 > * Effectuer une recherche dans l’index que vous venez de créer
 
-> [!NOTE]
-> Ce didacticiel implique la prise en charge des tableaux JSON, qui est une fonctionnalité en version préliminaire du service Recherche Azure. Elle n’est pas disponible dans le portail. Pour cette raison, nous utilisons l’API REST d’évaluation, qui fournit cette fonctionnalité, ainsi qu’un outil client REST pour appeler l’API.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Vous devez avoir effectué le [précédent didacticiel](../storage/blobs/storage-unstructured-search.md) pour obtenir le compte de stockage et le service de recherche créés dans le didacticiel précédent.
 
 * Vous devez avoir installé un client REST et savoir comment créer une requête HTTP. Dans le cadre de ce didacticiel, nous utilisons le client [Postman](https://www.getpostman.com/). N’hésitez pas à utiliser un autre client REST avec lequel vous êtes déjà familiarisé.
+
+> [!NOTE]
+> Ce didacticiel implique la prise en charge des tableaux JSON, qui est une fonctionnalité en version préliminaire du service Recherche Azure. Elle n’est pas disponible dans le portail. Pour cette raison, nous utilisons l’API REST d’évaluation, qui fournit cette fonctionnalité, ainsi qu’un outil client REST pour appeler l’API.
 
 ## <a name="set-up-postman"></a>Configurer Postman
 
@@ -56,9 +57,9 @@ Un exemple de jeu de données a été préparé pour vous. **Téléchargez le fi
 
 L’exemple de jeu de données contient des exemples de fichiers JSON, qui étaient à l’origine des fichiers texte obtenus à partir de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Pour vous simplifier la tâche, nous avons converti ces fichiers au format JSON.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [portail Azure](http://portal.azure.com).
+Connectez-vous au [Portail Azure](http://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>Charger les exemples de données
 
@@ -278,15 +279,13 @@ N’hésitez pas à mettre en pratique ce que vous avez appris et à essayer vou
 
 Le paramètre `$filter` fonctionne uniquement avec des métadonnées qui ont été marquées comme « filtrables » lors de la création de l’index.
 
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à rechercher des données semi-structurées en utilisant Recherche Azure, à savoir comment effectuer les tâches suivantes :
-
-> [!div class="checklist"]
-> * Créer un service Azure Search Service à l’aide de l’API REST
-> * Utiliser le service Azure Search Service pour rechercher votre conteneur
-
-Suivez ce lien pour en savoir plus sur la fonctionnalité de recherche.
+Vous pouvez attacher des algorithmes intégrant l’intelligence artificielle à un pipeline d’indexeur. Comme prochaine étape, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Indexation de documents dans Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)

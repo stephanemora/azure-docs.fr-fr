@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 07/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 92b0f0aad812e82fd0410b96b96de9384019c1cb
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d422c463d07459e73e07bddfe441e42e642b8bce
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437958"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136874"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -33,11 +33,12 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.AAD/domainServices/delete | Supprime les services de domaine |
-> | Action | Microsoft.AAD/domainServices/read | Lit les services de domaine |
-> | Action | Microsoft.AAD/domainServices/write | Écrit les services de domaine |
+> | Action | Microsoft.AAD/domainServices/delete | Supprimer le service de domaine |
+> | Action | Microsoft.AAD/domainServices/read | Lire le service de domaine |
+> | Action | Microsoft.AAD/domainServices/write | Écrire le service de domaine |
 > | Action | Microsoft.AAD/locations/operationresults/read |  |
 > | Action | Microsoft.AAD/Operations/read |  |
+> | Action | Microsoft.AAD/register/action | Inscrire le service de domaine |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
@@ -649,6 +650,23 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.BingMaps/mapApis/Write | Opération d’écriture |
 > | Action | Microsoft.BingMaps/Operations/read | Description de l’opération. |
 
+## <a name="microsoftbotservice"></a>Microsoft.BotService
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Type d’action | Opération | Description |
+> | --- | --- | --- |
+> | Action | Microsoft.BotService/botServices/channels/delete | Supprimer un service Bot |
+> | Action | Microsoft.BotService/botServices/channels/read | Lire un service Bot |
+> | Action | Microsoft.BotService/botServices/channels/write | Écrire un service Bot |
+> | Action | Microsoft.BotService/botServices/connections/delete | Supprimer un service Bot |
+> | Action | Microsoft.BotService/botServices/connections/read | Lire un service Bot |
+> | Action | Microsoft.BotService/botServices/connections/write | Écrire un service Bot |
+> | Action | Microsoft.BotService/botServices/delete | Supprimer un service Bot |
+> | Action | Microsoft.BotService/botServices/read | Lire un service Bot |
+> | Action | Microsoft.BotService/botServices/write | Écrire un service Bot |
+> | Action | Microsoft.BotService/locations/operationresults/read | Lire l’état d’une opération asynchrone |
+> | Action | Microsoft.BotService/Operations/read | Lire les opérations pour tous les types de ressources |
+
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -903,15 +921,26 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/operationstatuses/read | Obtenir l'état d'une opération d’interconnexion ExpressRoute |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/delete | Supprimer l'homologation d’interconnexion ExpressRoute |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/operationstatuses/read | Obtenir l'état d'une opération d’homologation d’interconnexion ExpressRoute |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/read | Obtenir une homologation d’interconnexion ExpressRoute |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/write | Ajouter une homologation d’interconnexion ExpressRoute |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/read | Obtenir les interconnexions ExpressRoute |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/write | Ajouter des interconnexions ExpressRoute |
 > | Action | Microsoft.ClassicNetwork/gatewaySupportedDevices/read | Récupère la liste des appareils pris en charge. |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/delete | Supprime le groupe de sécurité réseau. |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | Lit l’état de l’opération pour le groupe de sécurité réseau. |
+> | Action | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Obtient les paramètres de diagnostic des groupes de sécurité réseau |
+> | Action | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour les paramètres de diagnostic des groupes de sécurité réseau, cette opération étant complétée par le fournisseur de ressources Insights. |
+> | Action | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Obtient les événements pour le groupe de sécurité réseau |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/read | Obtient le groupe de sécurité réseau. |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | Supprime la règle de sécurité. |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/operationStatuses/read | Lit l’état de l’opération pour les règles de sécurité du groupe de sécurité réseau. |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/read | Obtient la règle de sécurité. |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/write | Ajoute ou met à jour une règle de sécurité. |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/write | Ajoute un nouveau groupe de sécurité réseau. |
+> | Action | Microsoft.ClassicNetwork/operations/read | Obtenir les opérations réseau classiques |
 > | Action | Microsoft.ClassicNetwork/quotas/read | Obtient le quota de l’abonnement. |
 > | Action | Microsoft.ClassicNetwork/register/action | S’inscrire à un réseau classique |
 > | Action | Microsoft.ClassicNetwork/reservedIps/delete | Supprimez une adresse IP réservée. |
@@ -920,8 +949,10 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ClassicNetwork/reservedIps/operationStatuses/read | Lit l’état de l’opération pour les adresses IP réservées. |
 > | Action | Microsoft.ClassicNetwork/reservedIps/read | Obtient les adresses IP réservées |
 > | Action | Microsoft.ClassicNetwork/reservedIps/write | Ajouter une nouvelle adresse IP réservée |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/abortMigration/action | Abandonner la migration d'un réseau virtuel |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/capabilities/read | Affiche les fonctionnalités |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/checkIPAddressAvailability/action | Vérifie la disponibilité d’une adresse IP donnée dans un réseau virtuel. |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/commitMigration/action | Confirmer la migration d'un réseau virtuel |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/delete | Supprime le réseau virtuel. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRevokedCertificates/delete | Annule la révocation d’un certificat client. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRevokedCertificates/read | Lisez les certificats clients révoqués. |
@@ -949,11 +980,17 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/join/action | Joint le réseau virtuel. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/operationStatuses/read | Lit l’état de l’opération pour les réseaux virtuels. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/peer/action | Appaire un réseau virtuel avec un autre réseau virtuel. |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/prepareMigration/action | Préparer la migration d'un réseau virtuel |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/read | Obtenez le réseau virtuel. |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/delete | Supprimer le proxy d'homologation de réseau virtuel distant |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/read | Obtenir le proxy d'homologation de réseau virtuel distant |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/write | Ajouter ou mettre à jour le proxy d'homologation de réseau virtuel distant |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete | Supprime le groupe de sécurité réseau associé au sous-réseau. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | Lit l’état de l’opération pour le sous-réseau de réseau virtuel associé au groupe de sécurité réseau. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read | Obtient le groupe de sécurité réseau associé au sous-réseau. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/write | Ajoute un groupe de sécurité réseau associé au sous-réseau. |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/validateMigration/action | Valider la migration d'un réseau virtuel |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/virtualNetworkPeerings/read | Obtenir l'homologation de réseau virtuel |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/write | Ajoutez un nouveau réseau virtuel. |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
@@ -963,23 +1000,32 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | --- | --- | --- |
 > | Action | Microsoft.ClassicStorage/capabilities/read | Affiche les fonctionnalités |
 > | Action | Microsoft.ClassicStorage/checkStorageAccountAvailability/action | Vérifie la disponibilité d’un compte de stockage. |
+> | Action | Microsoft.ClassicStorage/checkStorageAccountAvailability/read | Obtenir la disponibilité d'un compte de stockage |
 > | Action | Microsoft.ClassicStorage/disks/read | Retourne le disque du compte de stockage. |
+> | Action | Microsoft.ClassicStorage/images/operationstatuses/read | Obtenir l'état d'une opération d'image |
 > | Action | Microsoft.ClassicStorage/images/read | Retourne l’image. |
+> | Action | Microsoft.ClassicStorage/operations/read | Obtenir les opérations de stockage classique |
 > | Action | Microsoft.ClassicStorage/osImages/read | Retourne l’image du système d’exploitation. |
+> | Action | Microsoft.ClassicStorage/osPlatformImages/read | Obtenir l'image de plateforme du système d'exploitation |
 > | Action | Microsoft.ClassicStorage/publicImages/read | Obtient l’image de machine virtuelle publique. |
 > | Action | Microsoft.ClassicStorage/quotas/read | Obtient le quota de l’abonnement. |
 > | Action | Microsoft.ClassicStorage/register/action | S’inscrire à un stockage classique |
+> | Action | Microsoft.ClassicStorage/storageAccounts/abortMigration/action | Abandonner la migration d'un compte de stockage |
+> | Action | Microsoft.ClassicStorage/storageAccounts/commitMigration/action | Valider la migration d'un compte de stockage |
 > | Action | Microsoft.ClassicStorage/storageAccounts/delete | Supprime le compte de stockage. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/disks/delete | Supprime un disque de compte de stockage spécifique. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/disks/operationStatuses/read | Lit l’état de l’opération pour la ressource. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/disks/read | Retourne le disque du compte de stockage. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/disks/write | Ajoute un disque de compte de stockage. |
-> | Action | Microsoft.ClassicStorage/storageAccounts/images/delete | Supprime une image du compte de stockage spécifique. |
-> | Action | Microsoft.ClassicStorage/storageAccounts/images/read | Retourne l’image du compte de stockage. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/images/delete | Supprime une image du compte de stockage spécifique. (Déconseillé. Utilisez « Microsoft.ClassicStorage/storageAccounts/vmImages ») |
+> | Action | Microsoft.ClassicStorage/storageAccounts/images/operationstatuses/read | Retourner l'état d'opération d'image du compte de stockage |
+> | Action | Microsoft.ClassicStorage/storageAccounts/images/read | Retourne l’image du compte de stockage. (Déconseillé. Utilisez « Microsoft.ClassicStorage/storageAccounts/vmImages ») |
 > | Action | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Répertorie les clés d’accès des comptes de stockage. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/operationStatuses/read | Lit l’état de l’opération pour la ressource. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/osImages/delete | Supprime une image du système d’exploitation de compte de stockage spécifique. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/osImages/read | Retourne l’image du système d’exploitation de compte de stockage. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/osImages/write | Ajouter une image du système d'exploitation du compte de stockage donné |
+> | Action | Microsoft.ClassicStorage/storageAccounts/prepareMigration/action | Préparer la migration d'un compte de stockage |
 > | Action | Microsoft.ClassicStorage/storageAccounts/read | Retourne le compte de stockage avec le compte spécifique. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/regenerateKey/action | Régénère les clés d’accès existantes du compte de stockage. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/diagnosticSettings/read | Obtient les paramètres des diagnostics. |
@@ -987,7 +1033,13 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/metricDefinitions/read | Obtient les définitions de mesures. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/metrics/read | Obtient les mesures. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/read | Obtient les services disponibles. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/validateMigration/action | Confirmer la migration d'un compte de stockage |
+> | Action | Microsoft.ClassicStorage/storageAccounts/vmImages/delete | Supprimer une image de machine virtuelle spécifique |
+> | Action | Microsoft.ClassicStorage/storageAccounts/vmImages/operationstatuses/read | Obtenir l'état d'une opération d'image de machine virtuelle donnée |
+> | Action | Microsoft.ClassicStorage/storageAccounts/vmImages/read | Retourner l'image de machine virtuelle |
+> | Action | Microsoft.ClassicStorage/storageAccounts/vmImages/write | Ajouter une image de machine virtuelle donnée |
 > | Action | Microsoft.ClassicStorage/storageAccounts/write | Ajoute un nouveau compte de stockage. |
+> | Action | Microsoft.ClassicStorage/vmImages/read | Répertorier les images de machine virtuelle |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -1032,6 +1084,15 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Compute/disks/endGetAccess/action | Révoquer l’URI SAP du disque |
 > | Action | Microsoft.Compute/disks/read | Obtenir les propriétés d’un disque |
 > | Action | Microsoft.Compute/disks/write | Créer ou mettre à jour un disque |
+> | Action | Microsoft.Compute/galleries/delete | Supprimer la galerie |
+> | Action | Microsoft.Compute/galleries/images/delete | Supprimer l'image de galerie |
+> | Action | Microsoft.Compute/galleries/images/read | Obtenir les propriétés de l'image de galerie |
+> | Action | Microsoft.Compute/galleries/images/versions/delete | Supprimer la version de l'image de galerie |
+> | Action | Microsoft.Compute/galleries/images/versions/read | Obtenir les propriétés de la version de l'image de galerie |
+> | Action | Microsoft.Compute/galleries/images/versions/write | Créer ou mettre à jour une version d'image de galerie |
+> | Action | Microsoft.Compute/galleries/images/write | Créer ou mettre à jour une image de galerie |
+> | Action | Microsoft.Compute/galleries/read | Obtenir les propriétés de la galerie |
+> | Action | Microsoft.Compute/galleries/write | Créer ou mettre à jour une galerie |
 > | Action | Microsoft.Compute/images/delete | Supprimer l’image |
 > | Action | Microsoft.Compute/images/read | Obtenir les propriétés de l’image |
 > | Action | Microsoft.Compute/images/write | Créer ou mettre à jour une image |
@@ -1109,6 +1170,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Compute/virtualMachineScaleSets/read | Obtient les propriétés d’un groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/redeploy/action | Redéploie les instances du groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/reimage/action | Réimage les instances du groupe de machines virtuelles identiques |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/reimageAll/action | Réimager tous les disques (disque de système d'exploitation et disques de données) des instances d'un groupe de machines virtuelles identiques  |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/restart/action | Redémarre les instances du groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades/cancel/action | Annule la mise à niveau propagée d’un groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades/read | Obtient l’état de la dernière mise à niveau propagée d’un groupe de machines virtuelles identiques |
@@ -1127,7 +1189,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read | Récupérer les propriétés d’une machine virtuelle dans un groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/redeploy/action | Redéploie une instance de machine virtuelle dans un groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimage/action | Réimage une instance de machine virtuelle dans un groupe de machines virtuelles identiques. |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimageAll/action | Réimager tous les disques (disque de système d'exploitation et disques de données) d’une instance de machine virtuelle dans un groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/restart/action | Redémarrer une instance de machine virtuelle dans un groupe de machines virtuelles identiques. |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommand/action | Exécuter un script prédéfini sur une instance de machine virtuelle dans un groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/start/action | Démarrer une instance de machine virtuelle dans un groupe de machines virtuelles identiques. |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/write | Met à jour les propriétés d’une machine virtuelle dans un groupe de machines virtuelles identiques |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/write | Crée ou met à jour un groupe de machines virtuelles identiques |
@@ -1163,6 +1227,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Obtient les métriques disponibles pour le groupe de conteneurs. |
 > | Action | Microsoft.ContainerInstance/containerGroups/read | Obtient tous les groupes de conteneurs. |
 > | Action | Microsoft.ContainerInstance/containerGroups/write | Crée ou met à jour un groupe de conteneurs spécifique. |
+> | Action | Microsoft.ContainerInstance/register/action | Inscrire l'abonnement pour le fournisseur de ressources de l'instance de conteneur, et activer la création de groupes de conteneurs |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -1170,6 +1235,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.ContainerRegistry/checkNameAvailability/read | Vérifie si le nom de registre de conteneurs est disponible pour utilisation. |
+> | Action | Microsoft.ContainerRegistry/locations/deleteVirtualNetworkOrSubnets/action | Informer Microsoft.ContainerRegistry que le réseau ou sous-réseau virtuel est en cours de suppression. |
 > | Action | Microsoft.ContainerRegistry/locations/operationResults/read | Obtient un résultat d’opération asynchrone |
 > | Action | Microsoft.ContainerRegistry/operations/read | Répertorie toutes les opérations disponibles de l’API REST Azure Container Registry |
 > | Action | Microsoft.ContainerRegistry/register/action | Inscrit l’abonnement pour le fournisseur de ressources du registre de conteneurs et active la création de registres de conteneurs. |
@@ -1179,6 +1245,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ContainerRegistry/registries/eventGridFilters/write | Crée ou met à jour un filtre Event Grid pour un registre de conteneurs avec les paramètres spécifiés. |
 > | Action | Microsoft.ContainerRegistry/registries/importImage/action | Importe une image vers un registre de conteneurs avec les paramètres spécifiés. |
 > | Action | Microsoft.ContainerRegistry/registries/listCredentials/action | Répertorie les informations d’identification pour le registre de conteneurs spécifié. |
+> | Action | Microsoft.ContainerRegistry/registries/listPolicies/read | Afficher les stratégies pour le registre de conteneurs spécifié |
 > | Action | Microsoft.ContainerRegistry/registries/listUsages/read | Affiche les utilisations du quota pour le registre de conteneurs spécifié. |
 > | Action | Microsoft.ContainerRegistry/registries/operationStatuses/read | Obtient un état d’opération asynchrone du registre |
 > | Action | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
@@ -1190,6 +1257,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ContainerRegistry/registries/replications/operationStatuses/read | Obtient un état d’opération asynchrone de réplication |
 > | Action | Microsoft.ContainerRegistry/registries/replications/read | Obtient les propriétés de la réplication spécifiée ou affiche toutes les réplications pour le registre de conteneurs spécifié. |
 > | Action | Microsoft.ContainerRegistry/registries/replications/write | Crée ou met à jour une réplication pour un registre de conteneurs avec les paramètres spécifiés. |
+> | Action | Microsoft.ContainerRegistry/registries/updatePolicies/write | Mettre à jour les stratégies pour le registre de conteneur spécifié |
 > | Action | Microsoft.ContainerRegistry/registries/webhooks/delete | Supprime un webhook d’un registre de conteneurs. |
 > | Action | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | Obtient la configuration de l’URI de service et les en-têtes personnalisés pour le webhook. |
 > | Action | Microsoft.ContainerRegistry/registries/webhooks/listEvents/action | Affiche les événements récents pour le webhook spécifié. |
@@ -1207,6 +1275,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ContainerService/containerServices/delete | Supprime un service de conteneur |
 > | Action | Microsoft.ContainerService/containerServices/read | Obtient un service de conteneur |
 > | Action | Microsoft.ContainerService/containerServices/write | Crée ou met à jour un service de conteneur |
+> | Action | Microsoft.ContainerService/locations/operationresults/read | Obtenir l’état du résultat d’une opération asynchrone |
+> | Action | Microsoft.ContainerService/locations/operations/read | Afficher l’état d’une opération asynchrone |
+> | Action | Microsoft.ContainerService/locations/orchestrators/read | Répertorier les orchestrateurs pris en charge |
 > | Action | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Obtient un profil d’accès au cluster géré en fonction du nom de rôle à l’aide des informations d’identification de la liste |
 > | Action | Microsoft.ContainerService/managedClusters/accessProfiles/read | Obtient un profil d’accès au cluster géré en fonction du nom de rôle |
 > | Action | Microsoft.ContainerService/managedClusters/delete | Supprime un cluster géré |
@@ -1215,7 +1286,10 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/logDefinitions/read | Obtenir les journaux disponibles pour un cluster géré |
 > | Action | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/metricDefinitions/read | Obtient les métriques disponibles pour le cluster géré |
 > | Action | Microsoft.ContainerService/managedClusters/read | Obtient un cluster géré |
+> | Action | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Obtenir le profil de mise à niveau du cluster |
 > | Action | Microsoft.ContainerService/managedClusters/write | Crée ou met à jour un cluster géré |
+> | Action | Microsoft.ContainerService/operations/read | Répertorier les opérations disponibles sur le fournisseur de ressources Microsoft.ContainerService |
+> | Action | Microsoft.ContainerService/register/action | Inscrire l’abonnement auprès du fournisseur de ressources Microsoft.ContainerService |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -1336,6 +1410,23 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.CustomerInsights/operations/read | Lit des métadonnées d’API Azure Customer Insights |
 > | Action | Microsoft.CustomerInsights/register/action | Enregistre l’abonnement pour le fournisseur de ressources Customer Insights et permet la création de ressources Customer Insights |
 > | Action | Microsoft.CustomerInsights/unregister/action | Désinscrit l’abonnement pour le fournisseur de ressources Customer Insights |
+
+## <a name="microsoftdatabox"></a>Microsoft.DataBox
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Type d’action | Opération | Description |
+> | --- | --- | --- |
+> | Action | Microsoft.DataBox/jobs/bookShipmentPickUp/action | Autoriser la planification de l'enlèvement pour les retours |
+> | Action | Microsoft.DataBox/jobs/cancel/action | Annuler une commande en cours |
+> | Action | Microsoft.DataBox/jobs/copyLogsUri/action | Obtenir l'URL des journaux de copie de chaque compte de destination |
+> | Action | Microsoft.DataBox/jobs/delete | Supprimer les commandes |
+> | Action | Microsoft.DataBox/jobs/downloadShippingLabel/action | Obtenir l'étiquette d'expédition pour le retour |
+> | Action | Microsoft.DataBox/jobs/listSecrets/action | Répertorier les secrets non chiffrés liés à la commande |
+> | Action | Microsoft.DataBox/jobs/read | Répertorier ou obtenir les commandes |
+> | Action | Microsoft.DataBox/jobs/reportIssue/action | Signaler un problème dans la commande |
+> | Action | Microsoft.DataBox/jobs/write | Créer ou mettre à jour les commandes |
+> | Action | Microsoft.DataBox/locations/availableSkus/action | Retourner la liste des références (SKU) disponibles |
+> | Action | Microsoft.DataBox/locations/validateAddress/action | Valider l'adresse de livraison et fournir d'autres adresses s’il en est |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
@@ -1988,28 +2079,28 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.Insights/ActionGroups/Delete | Supprime un groupe d’actions |
-> | Action | Microsoft.Insights/ActionGroups/Read | Lit un groupe d’actions |
-> | Action | Microsoft.Insights/ActionGroups/Write | Écrit un groupe d’actions |
-> | Action | Microsoft.Insights/ActivityLogAlerts/Activated/Action | Déclencher une alerte de journal d’activité |
-> | Action | Microsoft.Insights/ActivityLogAlerts/Delete | Supprime une alerte du journal d’activité |
-> | Action | Microsoft.Insights/ActivityLogAlerts/Read | Écrit une alerte du journal d’activité |
-> | Action | Microsoft.Insights/ActivityLogAlerts/Write | Écrit une alerte du journal d’activité |
-> | Action | Microsoft.Insights/AlertRules/Activated/Action | Règle d’alerte activée |
-> | Action | Microsoft.Insights/AlertRules/Delete | Supprimer une configuration de règle d’alerte |
-> | Action | Microsoft.Insights/AlertRules/Incidents/Read | Lire une configuration d’incident de règle d’alerte |
-> | Action | Microsoft.Insights/AlertRules/Read | Lire une configuration de règle d’alerte |
-> | Action | Microsoft.Insights/AlertRules/Resolved/Action | Règle d’alerte résolue |
-> | Action | Microsoft.Insights/AlertRules/Throttled/Action | Règle d’alerte limitée |
-> | Action | Microsoft.Insights/AlertRules/Write | Écrire dans une configuration de règle d’alerte |
-> | Action | Microsoft.Insights/AutoscaleSettings/Delete | Supprimer une configuration de mise à l’échelle |
+> | Action | Microsoft.Insights/ActionGroups/Delete | Supprimer un groupe d'actions |
+> | Action | Microsoft.Insights/ActionGroups/Read | Lire un groupe d'actions |
+> | Action | Microsoft.Insights/ActionGroups/Write | Créer ou mettre à jour un groupe d'actions |
+> | Action | Microsoft.Insights/ActivityLogAlerts/Activated/Action | Activer les alertes du journal d'activité |
+> | Action | Microsoft.Insights/ActivityLogAlerts/Delete | Supprimer une alerte du journal d’activité |
+> | Action | Microsoft.Insights/ActivityLogAlerts/Read | Lire une alerte du journal d'activité |
+> | Action | Microsoft.Insights/ActivityLogAlerts/Write | Créer ou mettre à jour une alerte du journal d'activité |
+> | Action | Microsoft.Insights/AlertRules/Activated/Action | Activer les alertes de métrique classique |
+> | Action | Microsoft.Insights/AlertRules/Delete | Supprimer une alerte de métrique classique |
+> | Action | Microsoft.Insights/AlertRules/Incidents/Read | Lire un incident d'alerte de métrique classique |
+> | Action | Microsoft.Insights/AlertRules/Read | Lire une alerte de métrique classique |
+> | Action | Microsoft.Insights/AlertRules/Resolved/Action | Résoudre une alerte de métrique classique |
+> | Action | Microsoft.Insights/AlertRules/Throttled/Action | Limiter une règle d'alerte de métrique classique |
+> | Action | Microsoft.Insights/AlertRules/Write | Créer ou mettre à jour une alerte de métrique classique |
+> | Action | Microsoft.Insights/AutoscaleSettings/Delete | Supprimer un paramètre de mise à l'échelle automatique |
 > | Action | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | Lire les définitions des mesures |
-> | Action | Microsoft.Insights/AutoscaleSettings/Read | Lire une configuration de mise à l’échelle |
-> | Action | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Effectuer une opération de descente en puissance |
-> | Action | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Mettre à l’échelle automatiquement une opération de résultat de diminution d’échelle. |
-> | Action | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Effectuer une opération de montée en puissance |
-> | Action | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Mettre à l’échelle automatiquement une opération de résultat d’augmentation d’échelle |
-> | Action | Microsoft.Insights/AutoscaleSettings/Write | Écrire dans une configuration de mise à l’échelle |
+> | Action | Microsoft.Insights/AutoscaleSettings/Read | Lire un paramètre de mise à l'échelle automatique |
+> | Action | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Descente en puissance entamée |
+> | Action | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Descente en puissance accomplie |
+> | Action | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Montée en puissance entamée |
+> | Action | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Montée en puissance accomplie |
+> | Action | Microsoft.Insights/AutoscaleSettings/Write | Créer ou mettre à jour un paramètre de mise à l'échelle automatique |
 > | Action | Microsoft.Insights/Components/AnalyticsItems/Delete | Supprime un élément analytique Application Insights |
 > | Action | Microsoft.Insights/Components/AnalyticsItems/Read | Lit un élément analytique Application Insights |
 > | Action | Microsoft.Insights/Components/AnalyticsItems/Write | Écrit un élément analytique Application Insights |
@@ -2064,25 +2155,25 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Insights/Components/WorkItemConfigs/Read | Lit une configuration d’intégration ALM Application Insights |
 > | Action | Microsoft.Insights/Components/WorkItemConfigs/Write | Écrit une configuration d’intégration ALM Application Insights |
 > | Action | Microsoft.Insights/Components/Write | Écrit dans une configuration du composant Application Insights |
-> | Action | Microsoft.Insights/DiagnosticSettings/Delete | Supprimer la configuration de diagnostic |
-> | Action | Microsoft.Insights/DiagnosticSettings/Read | Lire la configuration de diagnostic |
-> | Action | Microsoft.Insights/DiagnosticSettings/Write | Écrire dans la configuration de diagnostic |
-> | Action | Microsoft.Insights/EventCategories/Read | Lit une catégorie d’événement |
+> | Action | Microsoft.Insights/DiagnosticSettings/Delete | Supprimer un paramètre de diagnostic de ressource |
+> | Action | Microsoft.Insights/DiagnosticSettings/Read | Lire un paramètre de diagnostic de ressource |
+> | Action | Microsoft.Insights/DiagnosticSettings/Write | Créer ou mettre à jour un paramètre de diagnostic de ressource |
+> | Action | Microsoft.Insights/EventCategories/Read | Lire les catégories d'événement de journal d'activité disponibles |
 > | Action | Microsoft.Insights/eventtypes/digestevents/Read | Lire le résumé des types d’événement de gestion |
-> | Action | Microsoft.Insights/eventtypes/values/Read | Lire les valeurs de types d’événement de gestion |
-> | Action | Microsoft.Insights/ExtendedDiagnosticSettings/Delete | Supprimer la configuration de diagnostic étendue |
-> | Action | Microsoft.Insights/ExtendedDiagnosticSettings/Read | Lire une configuration de diagnostic étendue |
-> | Action | Microsoft.Insights/ExtendedDiagnosticSettings/Write | Écrire dans la configuration de diagnostic étendue |
+> | Action | Microsoft.Insights/eventtypes/values/Read | Lire les événements du journal d'activité |
+> | Action | Microsoft.Insights/ExtendedDiagnosticSettings/Delete | Supprimer un paramètre de diagnostic du journal de flux réseau |
+> | Action | Microsoft.Insights/ExtendedDiagnosticSettings/Read | Lire un paramètre de diagnostic du journal de flux réseau |
+> | Action | Microsoft.Insights/ExtendedDiagnosticSettings/Write | Créer ou mettre à jour un paramètre de diagnostic du journal de flux réseau |
 > | Action | Microsoft.Insights/ListMigrationDate/Action | Récupère la date de migration de l’abonnement |
 > | Action | Microsoft.Insights/ListMigrationDate/Read | Récupère la date de migration de l’abonnement |
 > | Action | Microsoft.Insights/LogDefinitions/Read | Lire les définitions de journal |
-> | Action | Microsoft.Insights/LogProfiles/Delete | Supprimer la configuration de profil de journal |
-> | Action | Microsoft.Insights/LogProfiles/Read | Lire les profils de journal |
-> | Action | Microsoft.Insights/LogProfiles/Write | Écrire dans une configuration de profil de journal |
-> | Action | Microsoft.Insights/MetricAlerts/Delete | Supprime une alerte Métrique |
-> | Action | Microsoft.Insights/MetricAlerts/Read | Lit une alerte Métrique |
-> | Action | Microsoft.Insights/MetricAlerts/Status/Read | Affiche l’état d’une alerte de métrique |
-> | Action | Microsoft.Insights/MetricAlerts/Write | Écrit une alerte Métrique |
+> | Action | Microsoft.Insights/LogProfiles/Delete | Supprimer un profil de journal d'activité |
+> | Action | Microsoft.Insights/LogProfiles/Read | Lire un profil de journal d'activité |
+> | Action | Microsoft.Insights/LogProfiles/Write | Créer ou mettre à jour un profil de journal d'activité |
+> | Action | Microsoft.Insights/MetricAlerts/Delete | Supprimer une alerte de métrique |
+> | Action | Microsoft.Insights/MetricAlerts/Read | Lire une alerte de métrique |
+> | Action | Microsoft.Insights/MetricAlerts/Status/Read | Lire l'état d'une alerte de métrique |
+> | Action | Microsoft.Insights/MetricAlerts/Write | Créer ou mettre à jour une alerte de métrique |
 > | Action | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | Lire les définitions des mesures |
 > | Action | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Lire les définitions des mesures |
 > | Action | Microsoft.Insights/MetricDefinitions/Read | Lire les définitions des mesures |
@@ -2090,14 +2181,14 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Insights/Metrics/Read | Lire des mesures |
 > | Action | Microsoft.Insights/Metrics/Write | Écrit des métriques |
 > | Action | Microsoft.Insights/MigrateToNewpricingModel/Action | Migre un abonnement vers un nouveau modèle de tarification |
-> | Action | Microsoft.Insights/Operations/Read | Lit des opérations |
-> | Action | Microsoft.Insights/Register/Action | Inscrire le fournisseur Microsoft.Insights |
+> | Action | Microsoft.Insights/Operations/Read | Lire les opérations |
+> | Action | Microsoft.Insights/Register/Action | Inscrire le fournisseur Microsoft Insights |
 > | Action | Microsoft.Insights/RollbackToLegacyPricingModel/Action | Restaure un abonnement au modèle de tarification hérité |
 > | Action | Microsoft.Insights/ScheduledQueryRules/Delete | Supprime une règle de requête planifiée |
 > | Action | Microsoft.Insights/ScheduledQueryRules/Read | Affiche une règle de requête planifiée |
 > | Action | Microsoft.Insights/ScheduledQueryRules/Write | Écrit une règle de requête planifiée |
-> | Action | Microsoft.Insights/Tenants/Register/Action | Initialise le fournisseur Microsoft Insights |
-> | Action | Microsoft.Insights/Unregister/Action | Inscrire le fournisseur Microsoft.Insights |
+> | Action | Microsoft.Insights/Tenants/Register/Action | Initialiser le fournisseur Microsoft Insights |
+> | Action | Microsoft.Insights/Unregister/Action | Inscrire le fournisseur Microsoft Insights |
 > | Action | Microsoft.Insights/Webtests/Delete | Supprime une configuration de test web |
 > | Action | Microsoft.Insights/Webtests/GetToken/Read | Lit un jeton de test web |
 > | Action | Microsoft.Insights/Webtests/MetricDefinitions/Read | Lit des définitions de métrique de test web |
@@ -2141,6 +2232,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.Kusto/Clusters/Databases/delete | Supprime une ressource de base de données. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Supprimer une ressource de connexions Event Hub |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Lire une ressource de connexions Event Hub |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Écrire une ressource de connexions Event Hub |
 > | Action | Microsoft.Kusto/Clusters/Databases/read | Lit une ressource de base de données. |
 > | Action | Microsoft.Kusto/Clusters/Databases/write | Écrit une ressource de base de données. |
 > | Action | Microsoft.Kusto/Clusters/delete | Supprime une ressource de cluster. |
@@ -2160,6 +2254,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | --- | --- | --- |
 > | Action | Microsoft.LabServices/labAccounts/CreateLab/action | Crée un lab dans un compte lab. |
 > | Action | Microsoft.LabServices/labAccounts/delete | Supprime des comptes de laboratoire. |
+> | Action | Microsoft.LabServices/labAccounts/galleryImages/delete | Supprimer des images de galerie |
 > | Action | Microsoft.LabServices/labAccounts/galleryImages/read | Lire des images de la galerie. |
 > | Action | Microsoft.LabServices/labAccounts/galleryImages/write | Ajouter ou modifier des images de la galerie. |
 > | Action | Microsoft.LabServices/labAccounts/labs/delete | Supprimer des laboratoires. |
@@ -2183,12 +2278,14 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.LabServices/labAccounts/labs/users/write | Ajoute ou modifie des utilisateurs. |
 > | Action | Microsoft.LabServices/labAccounts/labs/write | Ajouter ou modifier des laboratoires. |
 > | Action | Microsoft.LabServices/labAccounts/read | Lit les comptes de laboratoire. |
-> | Action | Microsoft.LabServices/labAccounts/sizes/ListAvailableSkus/action | Répertorier les références (SKU) disponibles pour chaque type de taille dans un compte lab. |
+> | Action | Microsoft.LabServices/labAccounts/sizes/GetRegionalAvailability/action | Obtenir des informations de disponibilité régionale pour chaque catégorie de taille sous un compte Lab |
 > | Action | Microsoft.LabServices/labAccounts/sizes/read | Affiche les tailles. |
+> | Action | Microsoft.LabServices/labAccounts/sizes/ResetOverrides/action | Rétablir les valeurs par défaut de la configuration de la taille de ce compte Lab |
 > | Action | Microsoft.LabServices/labAccounts/write | Ajoute ou modifie les comptes de laboratoire. |
 > | Action | Microsoft.LabServices/locations/operations/read | Opérations de lecture. |
 > | Action | Microsoft.LabServices/register/action | Enregistrer l’abonnement. |
 > | Action | Microsoft.LabServices/users/GetEnvironment/action | Obtient les détails relatifs aux machines virtuelles |
+> | Action | Microsoft.LabServices/users/GetOperationBatchStatus/action | Obtenir l’état d’une opération Batch |
 > | Action | Microsoft.LabServices/users/GetOperationStatus/action | Obtenir l’état d’une opération longue |
 > | Action | Microsoft.LabServices/users/ListEnvironments/action | Répertorie les environnements de l’utilisateur |
 > | Action | Microsoft.LabServices/users/ListLabs/action | Répertorie les laboratoires de l’utilisateur. |
@@ -2210,6 +2307,21 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Génère une clé primaire ou secondaire pour un compte Location Based Services |
 > | Action | Microsoft.LocationBasedServices/accounts/write | (Déconseillé : utilisez /providers/Microsoft.Maps) Crée ou met à jour un compte Location Based Services. |
 > | Action | Microsoft.LocationBasedServices/register/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Enregistre le fournisseur |
+
+## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Type d’action | Opération | Description |
+> | --- | --- | --- |
+> | Action | Microsoft.LocationServices/accounts/delete | (Déconseillé : utiliser /providers/Microsoft.Maps) Supprimer un compte de services de localisation |
+> | Action | Microsoft.LocationServices/accounts/listKeys/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Répertorie les clés de compte Location Based Services |
+> | Action | Microsoft.LocationServices/accounts/providers/Microsoft.Insights/diagnosticSettings/read | (Déconseillé : utilisez /providers/Microsoft.Maps) Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.LocationServices/accounts/providers/Microsoft.Insights/diagnosticSettings/write | (Déconseillé : utilisez /providers/Microsoft.Maps) Crée ou met à jour le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.LocationServices/accounts/providers/Microsoft.Insights/metricDefinitions/read | (Déconseillé : utilisez /providers/Microsoft.Maps) Obtient les métriques disponibles pour les comptes Location Based Services |
+> | Action | Microsoft.LocationServices/accounts/read | (Déconseillé : utiliser /providers/Microsoft.Maps) Obtenir un compte de services de localisation |
+> | Action | Microsoft.LocationServices/accounts/regenerateKey/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Génère une clé primaire ou secondaire pour un compte Location Based Services |
+> | Action | Microsoft.LocationServices/accounts/write | (Déconseillé : utiliser /providers/Microsoft.Maps) Créer ou mettre à jour un compte de services de localisation |
+> | Action | Microsoft.LocationServices/register/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Enregistre le fournisseur |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 
@@ -2259,6 +2371,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Lire les données de la table ETWEvent |
 > | DataAction | Microsoft.LogAnalytics/logs/Event/read | Lire les données de la table Event |
 > | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | Lire les données de la table ExchangeAssessmentRecommendation |
+> | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | Lire les données de la table ExchangeOnlineAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Lire les données de la table Heartbeat |
 > | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | Lire les données de la table IISAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | Lire les données de la table InboundConnection |
@@ -2300,6 +2413,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | Lire les données de la table OutboundConnection |
 > | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Lire les données de la table Perf |
 > | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Lire les données de la table ProtectionStatus |
+> | Action | Microsoft.LogAnalytics/logs/read | Lire les données de tous vos journaux |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Lire les données de la table ReservedAzureCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Lire les données de la table ReservedCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | Lire les données de la table SCCMAssessmentRecommendation |
@@ -2313,6 +2427,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | Lire les données de la table ServiceFabricReliableActorEvent |
 > | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | Lire les données de la table ServiceFabricReliableServiceEvent |
 > | DataAction | Microsoft.LogAnalytics/logs/SfBAssessmentRecommendation/read | Lire les données de la table SfBAssessmentRecommendation |
+> | DataAction | Microsoft.LogAnalytics/logs/SfBOnlineAssessmentRecommendation/read | Lire les données de la table SfBOnlineAssessmentRecommendation |
+> | DataAction | Microsoft.LogAnalytics/logs/SharePointOnlineAssessmentRecommendation/read | Lire les données de la table SharePointOnlineAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/SPAssessmentRecommendation/read | Lire les données de la table SPAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/SQLAssessmentRecommendation/read | Lire les données de la table SQLAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | Lire les données de la table SQLQueryPerformance |
@@ -2390,10 +2506,10 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Logic/integrationAccounts/sessions/read | Lit la configuration du lot dans le compte d’intégration. |
 > | Action | Microsoft.Logic/integrationAccounts/sessions/write | Crée ou met à jour la session dans le compte d’intégration. |
 > | Action | Microsoft.Logic/integrationAccounts/write | Crée ou met à jour le compte d’intégration. |
-> | Action | Microsoft.Logic/isolatedEnvironments/delete | Supprimer l’environnement isolé |
-> | Action | Microsoft.Logic/isolatedEnvironments/join/action | Rejoindre l’environnement isolé |
-> | Action | Microsoft.Logic/isolatedEnvironments/read | Lire l’environnement isolé |
-> | Action | Microsoft.Logic/isolatedEnvironments/write | Créer ou mettre à jour l’environnement isolé |
+> | Action | Microsoft.Logic/integrationServiceEnvironments/delete | Supprimer l'environnement de service d'intégration |
+> | Action | Microsoft.Logic/integrationServiceEnvironments/join/action | Joindre l'environnement de service d'intégration |
+> | Action | Microsoft.Logic/integrationServiceEnvironments/read | Lire l'environnement de service d'intégration |
+> | Action | Microsoft.Logic/integrationServiceEnvironments/write | Créer ou mettre à jour l’environnement de service d’intégration |
 > | Action | Microsoft.Logic/locations/workflows/validate/action | Valide le workflow. |
 > | Action | Microsoft.Logic/operations/read | Obtient l’opération. |
 > | Action | Microsoft.Logic/register/action | Inscrit le fournisseur de ressources Microsoft.Logic pour un abonnement donné. |
@@ -2672,10 +2788,12 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Migrate/locations/assessmentOptions/read | Obtient les options d’évaluation qui sont disponibles à l’emplacement donné. |
 > | Action | Microsoft.Migrate/locations/checknameavailability/action | Vérifie la disponibilité du nom de ressource de l’abonnement donné dans l’emplacement spécifié. |
 > | Action | Microsoft.Migrate/Operations/read | Répertorie les opérations disponibles sur le fournisseur de ressources Microsoft.Migrate. |
+> | Action | Microsoft.Migrate/projects/assessments/read | Répertorier les évaluations au sein d’un projet |
 > | Action | Microsoft.Migrate/projects/delete | Supprime le projet. |
 > | Action | Microsoft.Migrate/projects/groups/assessments/assessedmachines/read | Obtenir les propriétés d’une machine évaluée. |
 > | Action | Microsoft.Migrate/projects/groups/assessments/delete | Supprime une évaluation. |
-> | Action | Microsoft.Migrate/projects/groups/assessments/read | Obtient les propriétés d’une évaluation. |
+> | Action | Microsoft.Migrate/projects/groups/assessments/downloadurl/action | Télécharger l'URL d’un rapport d’évaluation |
+> | Action | Microsoft.Migrate/projects/groups/assessments/read | Obtenir les propriétés d'une évaluation |
 > | Action | Microsoft.Migrate/projects/groups/assessments/write | Crée une évaluation ou met à jour une évaluation existante. |
 > | Action | Microsoft.Migrate/projects/groups/delete | Supprime un groupe. |
 > | Action | Microsoft.Migrate/projects/groups/read | Obtenir les propriétés d’un groupe. |
@@ -2741,6 +2859,11 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Joint une règle de sécurité aux groupes de sécurité d’application. |
 > | Action | Microsoft.Network/applicationSecurityGroups/read | Obtient un ID de groupe de sécurité d’application. |
 > | Action | Microsoft.Network/applicationSecurityGroups/write | Crée un groupe de sécurité d’application ou met à jour un groupe de sécurité d’application existant. |
+> | Action | Microsoft.Network/azurefirewalls/delete | Supprimer le Pare-feu Azure |
+> | Action | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/logDefinitions/read | Obtenir les événements pour le Pare-feu Azure |
+> | Action | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/metricDefinitions/read | Obtenir les métriques disponibles pour le Pare-feu Azure |
+> | Action | Microsoft.Network/azurefirewalls/read | Obtenir le Pare-feu Azure |
+> | Action | Microsoft.Network/azurefirewalls/write | Créer ou mettre à jour un Pare-feu Azure |
 > | Action | Microsoft.Network/bgpServiceCommunities/read | Obtenir les communautés de services BGP. |
 > | Action | Microsoft.Network/checkTrafficManagerNameAvailability/action | Vérifier la disponibilité d’un nom DNS relatif dans Traffic Manager. |
 > | Action | Microsoft.Network/connections/delete | Supprime une VirtualNetworkGatewayConnection. |
@@ -2836,11 +2959,14 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Network/expressRouteCrossConnections/write | Crée ou met à jour une connexion croisée ExpressRoute |
 > | Action | Microsoft.Network/expressRoutePorts/delete | Supprime les ports ExpressRoute. |
 > | Action | Microsoft.Network/expressRoutePorts/join/action | Joint les ports ExpressRoute. |
-> | Action | Microsoft.Network/expressRoutePorts/ports/read | Obtient le port pour les ports ExpressRoute |
-> | Action | Microsoft.Network/expressRoutePorts/ports/write | Crée ou met à jour le port pour les ports ExpressRoute. |
+> | Action | Microsoft.Network/expressRoutePorts/links/read | Obtenir ExpressRouteLink |
 > | Action | Microsoft.Network/expressRoutePorts/read | Obtient les ports ExpressRoute. |
 > | Action | Microsoft.Network/expressRoutePorts/write | Crée ou met à jour les ports ExpressRoute. |
+> | Action | Microsoft.Network/expressRoutePortsLocations/read | Obtenir les emplacements de ports ExpressRoute |
 > | Action | Microsoft.Network/expressRouteServiceProviders/read | Obtient les fournisseurs de services ExpressRoute. |
+> | Action | Microsoft.Network/frontdoors/read | Obtenir la porte d’entrée |
+> | Action | Microsoft.Network/getDnsResourceReference/action | Demander la dépendance de ressource d’alias DNS |
+> | Action | Microsoft.Network/internalNotify/action | Notifier une ressource d’alias DNS |
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joint un pool d’adresses principales d’équilibrage de charge. |
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/read | Obtient une définition de pool d’adresses principales d’équilibrage de charge. |
 > | Action | Microsoft.Network/loadBalancers/delete | Supprime un équilibrage de charge. |
@@ -2959,6 +3085,10 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Obtient les définitions de métrique de l’adresse IP publique |
 > | Action | Microsoft.Network/publicIPAddresses/read | Obtient une définition de l’adresse IP publique. |
 > | Action | Microsoft.Network/publicIPAddresses/write | Crée une adresse IP publique ou met à jour une adresse IP publique existante.  |
+> | Action | Microsoft.Network/publicIPPrefixes/delete | Supprimer un préfixe d’adresse IP publique |
+> | Action | Microsoft.Network/publicIPPrefixes/join/action | Joindre un préfixe d’adresse IP publique |
+> | Action | Microsoft.Network/publicIPPrefixes/read | Obtenir une définition de préfixe d’adresse IP publique |
+> | Action | Microsoft.Network/publicIPPrefixes/write | Créer ou mettre à jour un préfixe d’adresse IP publique |
 > | Action | Microsoft.Network/register/action | Enregistrer l’abonnement. |
 > | Action | Microsoft.Network/routeFilters/delete | Supprime une définition de filtre de routage. |
 > | Action | Microsoft.Network/routeFilters/join/action | Joint un filtre de routage. |
@@ -3027,6 +3157,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | microsoft.network/virtualnetworkgateways/getadvertisedroutes/action | Obtient les itinéraires annoncés de la passerelle de réseau virtuel |
 > | Action | microsoft.network/virtualnetworkgateways/getbgppeerstatus/action | Obtient l’état d’homologue BGP de la passerelle de réseau virtuel |
 > | Action | microsoft.network/virtualnetworkgateways/getlearnedroutes/action | Obtient les itinéraires appris de la passerelle de réseau virtuel |
+> | Action | microsoft.network/virtualnetworkgateways/getvpnclientconnectionhealth/action | Obtenir le contrôle d’intégrité par connexion client VPN pour VirtualNetworkGateway |
 > | Action | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | Obtient les paramètres IPsec de client VPN pour le client P2S de la passerelle de réseau virtuel. |
 > | Action | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | Obtient l’URL d’un package de profil de client VPN prégénéré |
 > | Action | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read | Obtient les paramètres de diagnostic de la passerelle de réseau virtuel |
@@ -3200,9 +3331,11 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
+> | Action | Microsoft.PolicyInsights/asyncOperationResults/read | Obtenir le résultat de l'opération asynchrone |
 > | Action | Microsoft.PolicyInsights/policyEvents/queryResults/action | Demande des informations sur les événements de stratégie. |
 > | Action | Microsoft.PolicyInsights/policyStates/queryResults/action | Demande des informations sur les états de stratégie. |
 > | Action | Microsoft.PolicyInsights/policyStates/summarize/action | Demande des informations récapitulatives sur les états de stratégie. |
+> | Action | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | Déclencher une nouvelle évaluation de conformité pour l'étendue sélectionnée |
 > | Action | Microsoft.PolicyInsights/register/action | Inscrit le fournisseur de ressources Policy Insights et autorise des actions sur celui-ci. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
@@ -3252,6 +3385,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/Vaults/backupconfig/read | Renvoie la configuration pour le coffre Recovery Services. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupconfig/write | Met à jour la configuration pour le coffre Recovery Services. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupEngines/read | Retourne tous les serveurs d’administration de sauvegarde inscrits auprès du coffre. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Créer une intention de protection de sauvegarde |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Créer une intention de protection de sauvegarde |
 > | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Crée une intention de protection de sauvegarde. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Renvoie l’état de l’opération. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obtient tous les conteneurs protégeables |
@@ -3288,6 +3423,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Renvoie la liste de tous les éléments pouvant être protégés. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Renvoie la liste de tous les éléments protégés. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Renvoie tous les conteneurs appartenant à l’abonnement. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Répertorier tous les intentions de protection de sauvegarde |
 > | Action | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Renvoie les informations relatives au code PIN de sécurité pour le coffre Recovery Services. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Renvoie la configuration de stockage pour le coffre Recovery Services. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Met à jour la configuration de stockage pour le coffre Recovery Services. |
@@ -3562,7 +3698,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Security/locations/alerts/activate/action | Active une alerte de sécurité |
 > | Action | Microsoft.Security/locations/alerts/dismiss/action | Ignore une alerte de sécurité. |
 > | Action | Microsoft.Security/locations/alerts/read | Obtient toutes les alertes de sécurité disponibles |
-> | Action | Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action | Initie une stratégie d’accès réseau immédiat. |
+> | Action | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Supprimer la stratégie d’accès réseau juste-à-temps |
+> | Action | Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action | Initier une demande de stratégie d’accès réseau juste-à-temps |
 > | Action | Microsoft.Security/locations/jitNetworkAccessPolicies/read | Obtient les stratégies d’accès réseau immédiat. |
 > | Action | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Crée une stratégie d’accès réseau immédiat ou met à jour une stratégie d’accès réseau immédiat existante. |
 > | Action | Microsoft.Security/locations/read | Obtient l’emplacement des données de sécurité |
@@ -4089,6 +4226,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
+> | Action | microsoft.storagesync/locations/checkNameAvailability/action | Vérifier la disponibilité des noms pour les services de synchronisation de stockage |
 > | Action | microsoft.storagesync/storageSyncServices/delete | Supprime des services de synchronisation de stockage |
 > | Action | microsoft.storagesync/storageSyncServices/providers/Microsoft.Insights/metricDefinitions/read | Obtient les métriques disponibles pour les services de synchronisation de stockage |
 > | Action | microsoft.storagesync/storageSyncServices/read | Lit des services de synchronisation de stockage |
@@ -4119,132 +4257,176 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.StorSimple/managers/accessControlRecords/delete | Supprime les enregistrements de contrôle d’accès. |
+> | Action | Microsoft.StorSimple/managers/accessControlRecords/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/accessControlRecords/read | Répertorie ou récupère les enregistrements de contrôle d’accès. |
 > | Action | Microsoft.StorSimple/managers/accessControlRecords/write | Crée ou met à jour les enregistrements de contrôle d’accès. |
 > | Action | Microsoft.StorSimple/managers/alerts/read | Répertorie ou récupère les alertes. |
+> | Action | Microsoft.StorSimple/managers/backups/read | Répertorie ou récupère le jeu de sauvegarde. |
 > | Action | Microsoft.StorSimple/managers/bandwidthSettings/delete | Supprime des paramètres de bande passante existants (série 8000 uniquement). |
+> | Action | Microsoft.StorSimple/managers/bandwidthSettings/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/bandwidthSettings/read | Répertorie les paramètres de bande passante (série 8000 uniquement). |
 > | Action | Microsoft.StorSimple/managers/bandwidthSettings/write | Crée ou met à jour les paramètres de bande passante (série 8000 uniquement). |
+> | Action | Microsoft.StorSimple/managers/certificates/write | Créer ou mettre à jour les certificats |
 > | Action | Microsoft.StorSimple/Managers/certificates/write | L’opération de mise à jour de certificat de ressource met à jour le certificat d’informations d’identification du coffre/de la ressource. |
 > | Action | Microsoft.StorSimple/managers/clearAlerts/action | Efface toutes les alertes associées au gestionnaire d’appareils. |
 > | Action | Microsoft.StorSimple/managers/cloudApplianceConfigurations/read | Répertorie les configurations prises en charge d’appliance cloud. |
 > | Action | Microsoft.StorSimple/managers/configureDevice/action | Configure un appareil. |
 > | Action | Microsoft.StorSimple/managers/delete | Supprime les gestionnaires d’appareils. |
 > | Action | Microsoft.StorSimple/Managers/delete | L’opération de suppression de coffre supprime la ressource Azure de type « coffre » spécifiée. |
+> | Action | Microsoft.StorSimple/managers/devices/alertSettings/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/alertSettings/read | Répertorie ou récupère les paramètres d’alerte. |
 > | Action | Microsoft.StorSimple/managers/devices/alertSettings/write | Crée ou met à jour les paramètres d’alerte. |
+> | Action | Microsoft.StorSimple/managers/devices/authorizeForServiceEncryptionKeyRollover/action | Autoriser la substitution de clé de chiffrement de service d’appareils |
 > | Action | Microsoft.StorSimple/managers/devices/backupPolicies/backup/action | Exécute une sauvegarde manuelle pour créer une sauvegarde à la demande de tous les volumes protégés par la stratégie. |
 > | Action | Microsoft.StorSimple/managers/devices/backupPolicies/delete | Supprime des stratégies de sauvegarde existantes (série 8000 uniquement). |
+> | Action | Microsoft.StorSimple/managers/devices/backupPolicies/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/backupPolicies/read | Répertorie les stratégies de sauvegarde (série 8000 uniquement). |
 > | Action | Microsoft.StorSimple/managers/devices/backupPolicies/schedules/delete | Supprime une planification existante. |
+> | Action | Microsoft.StorSimple/managers/devices/backupPolicies/schedules/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/backupPolicies/schedules/read | Répertorie les planifications. |
 > | Action | Microsoft.StorSimple/managers/devices/backupPolicies/schedules/write | Crée une planification ou met à jour des planifications existantes. |
 > | Action | Microsoft.StorSimple/managers/devices/backupPolicies/write | Crée ou met à jour des stratégies de sauvegarde (série 8000 uniquement). |
 > | Action | Microsoft.StorSimple/managers/devices/backups/delete | Supprime le jeu de sauvegarde. |
 > | Action | Microsoft.StorSimple/managers/devices/backups/elements/clone/action | Clone un partage ou un volume à l’aide d’un élément de sauvegarde. |
+> | Action | Microsoft.StorSimple/managers/devices/backups/elements/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
+> | Action | Microsoft.StorSimple/managers/devices/backups/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/backups/read | Répertorie ou récupère le jeu de sauvegarde. |
 > | Action | Microsoft.StorSimple/managers/devices/backups/restore/action | Restaure tous les volumes d’un jeu de sauvegarde. |
 > | Action | Microsoft.StorSimple/managers/devices/backupScheduleGroups/delete | Supprime les groupes de planification de sauvegarde. |
+> | Action | Microsoft.StorSimple/managers/devices/backupScheduleGroups/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/backupScheduleGroups/read | Répertorie ou récupère les groupes de planification de sauvegarde. |
 > | Action | Microsoft.StorSimple/managers/devices/backupScheduleGroups/write | Crée ou met à jour les groupes de planification de sauvegarde. |
 > | Action | Microsoft.StorSimple/managers/devices/chapSettings/delete | Supprime les paramètres CHAP. |
+> | Action | Microsoft.StorSimple/managers/devices/chapSettings/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/chapSettings/read | Répertorie ou récupère les paramètres CHAP. |
 > | Action | Microsoft.StorSimple/managers/devices/chapSettings/write | Crée ou met à jour les paramètres CHAP. |
 > | Action | Microsoft.StorSimple/managers/devices/deactivate/action | Désactive un appareil. |
 > | Action | Microsoft.StorSimple/managers/devices/delete | Supprime les appareils. |
+> | Action | Microsoft.StorSimple/managers/devices/disks/read | Répertorie ou récupère les disques. |
 > | Action | Microsoft.StorSimple/managers/devices/download/action | Télécharge les mises à jour d’un appareil. |
 > | Action | Microsoft.StorSimple/managers/devices/failover/action | Basculement de l’appareil. |
+> | Action | Microsoft.StorSimple/managers/devices/failover/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
+> | Action | Microsoft.StorSimple/managers/devices/failoverTargets/read | Répertorier ou obtenir les cibles de basculement des appareils |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/backup/action | Exécute la sauvegarde d’un serveur de fichiers. |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/delete | Supprime les serveurs de fichiers. |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/metrics/read | Répertorie ou récupère les mesures. |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/metricsDefinitions/read | Répertorie ou récupère les définitions de mesures. |
+> | Action | Microsoft.StorSimple/managers/devices/fileservers/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/read | Répertorie ou récupère les serveurs de fichiers. |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/shares/delete | Supprime les partages. |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/shares/metrics/read | Répertorie ou récupère les mesures. |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/shares/metricsDefinitions/read | Répertorie ou récupère les définitions de mesures. |
+> | Action | Microsoft.StorSimple/managers/devices/fileservers/shares/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/shares/read | Répertorie ou récupère les partages. |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/shares/write | Crée ou met à jour les partages. |
 > | Action | Microsoft.StorSimple/managers/devices/fileservers/write | Crée ou met à jour les serveurs de fichiers. |
 > | Action | Microsoft.StorSimple/managers/devices/hardwareComponentGroups/changeControllerPowerState/action | Modifie l’état d’alimentation du contrôleur des groupes de composants matériels. |
+> | Action | Microsoft.StorSimple/managers/devices/hardwareComponentGroups/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/hardwareComponentGroups/read | Répertorie les groupes de composants matériels. |
 > | Action | Microsoft.StorSimple/managers/devices/install/action | Installe des mises à jour sur un appareil. |
-> | Action | Microsoft.StorSimple/managers/devices/installUpdates/action | Installe des mises à jour sur les appareils. |
+> | Action | Microsoft.StorSimple/managers/devices/installUpdates/action | Installer les mises à jour sur les appareils (série 8000 uniquement) |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/backup/action | Exécute la sauvegarde d’un serveur iSCSI. |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/delete | Supprime les serveurs iSCSI. |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/disks/delete | Supprime les disques. |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/disks/metrics/read | Répertorie ou récupère les mesures. |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/disks/metricsDefinitions/read | Répertorie ou récupère les définitions de mesures. |
+> | Action | Microsoft.StorSimple/managers/devices/iscsiservers/disks/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/disks/read | Répertorie ou récupère les disques. |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/disks/write | Crée ou met à jour les disques. |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/metrics/read | Répertorie ou récupère les mesures. |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/metricsDefinitions/read | Répertorie ou récupère les définitions de mesures. |
+> | Action | Microsoft.StorSimple/managers/devices/iscsiservers/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/read | Répertorie ou récupère les serveurs iSCSI. |
 > | Action | Microsoft.StorSimple/managers/devices/iscsiservers/write | Crée ou met à jour les serveurs iSCSI. |
 > | Action | Microsoft.StorSimple/managers/devices/jobs/cancel/action | Annule un travail en cours d’exécution. |
+> | Action | Microsoft.StorSimple/managers/devices/jobs/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/jobs/read | Répertorie ou récupère les travaux. |
-> | Action | Microsoft.StorSimple/managers/devices/listFailoverSets/action | Répertorie les ensembles de basculement d’un appareil existant. |
-> | Action | Microsoft.StorSimple/managers/devices/listFailoverTargets/action | Répertorie les cibles de basculement des appareils. |
+> | Action | Microsoft.StorSimple/managers/devices/listFailoverSets/action | Répertorier les ensembles de basculement d’un appareil (série 8000 uniquement) |
+> | Action | Microsoft.StorSimple/managers/devices/listFailoverTargets/action | Répertorier les cibles de basculement des appareils (série 8000 uniquement) |
 > | Action | Microsoft.StorSimple/managers/devices/metrics/read | Répertorie ou récupère les mesures. |
 > | Action | Microsoft.StorSimple/managers/devices/metricsDefinitions/read | Répertorie ou récupère les définitions de mesures. |
 > | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/confirmMigration/action | Vérifie et valide une migration réussie. |
+> | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/confirmMigrationStatus/read | Répertorier le statut de confirmation de la migration |
 > | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/fetchConfirmMigrationStatus/action | Extrait l’état de confirmation de la migration. |
 > | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/fetchMigrationEstimate/action | Extrait l’état du travail d’estimation de la migration. |
 > | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/fetchMigrationStatus/action | Extrait l’état de la migration. |
 > | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/import/action | Importe les configurations de source pour la migration. |
+> | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/migrationEstimate/read | Répertorier l’estimation de la migration |
+> | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/migrationStatus/read | Répertorier le statut de la migration |
+> | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/startMigration/action | Démarre la migration à l’aide des configurations de source. |
 > | Action | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/startMigrationEstimate/action | Démarre un travail pour estimer la durée du processus de migration. |
+> | Action | Microsoft.StorSimple/managers/devices/networkSettings/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/networkSettings/read | Répertorie ou récupère les paramètres réseau. |
 > | Action | Microsoft.StorSimple/managers/devices/networkSettings/write | Crée ou met à jour les paramètres réseau. |
+> | Action | Microsoft.StorSimple/managers/devices/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/publicEncryptionKey/action | Répertorie les clés de chiffrement publiques d’un gestionnaire d’appareils. |
 > | Action | Microsoft.StorSimple/managers/devices/publishSupportPackage/action | Publie le package de support d’un appareil pour la résolution des problèmes du Support Microsoft. |
 > | Action | Microsoft.StorSimple/managers/devices/read | Répertorie ou récupère les appareils. |
 > | Action | Microsoft.StorSimple/managers/devices/scanForUpdates/action | Recherche des mises à jour sur un appareil. |
+> | Action | Microsoft.StorSimple/managers/devices/securitySettings/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/securitySettings/read | Répertorie les paramètres de sécurité. |
 > | Action | Microsoft.StorSimple/managers/devices/securitySettings/syncRemoteManagementCertificate/action | Synchronise le certificat de gestion à distance d’un appareil. |
 > | Action | Microsoft.StorSimple/managers/devices/securitySettings/update/action | Met à jour les paramètres de sécurité. |
 > | Action | Microsoft.StorSimple/managers/devices/securitySettings/write | Crée ou met à jour les paramètres de sécurité. |
 > | Action | Microsoft.StorSimple/managers/devices/sendTestAlertEmail/action | Envoie un test d’alerte par e-mail aux destinataires de courrier électronique configurés. |
+> | Action | Microsoft.StorSimple/managers/devices/shares/read | Répertorie ou récupère les partages. |
+> | Action | Microsoft.StorSimple/managers/devices/timeSettings/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/timeSettings/read | Répertorie ou récupère les paramètres horaires. |
 > | Action | Microsoft.StorSimple/managers/devices/timeSettings/write | Crée ou met à jour les paramètres horaires. |
+> | Action | Microsoft.StorSimple/managers/devices/updates/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/updateSummary/read | Répertorie ou récupère le résumé de la mise à jour. |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/delete | Supprime des conteneurs de volumes existants (série 8000 uniquement). |
-> | Action | Microsoft.StorSimple/managers/devices/volumeContainers/listEncryptionKeys/action | Répertorie les clés de chiffrement des conteneurs de volumes. |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/metrics/read | Répertorie les mesures. |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/metricsDefinitions/read | Répertorie les définitions de mesures. |
+> | Action | Microsoft.StorSimple/managers/devices/volumeContainers/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/read | Répertorie les conteneurs de volumes (série 8000 uniquement). |
-> | Action | Microsoft.StorSimple/managers/devices/volumeContainers/rolloverEncryptionKey/action | Clés de chiffrement de substitution des conteneurs de volumes |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/delete | Supprime un volume existant. |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/metrics/read | Répertorie les mesures. |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/metricsDefinitions/read | Répertorie les définitions de mesures. |
+> | Action | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/operationResults/read | Répertorier les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/read | Répertorie les volumes. |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/write | Crée un volume ou met à jour des volumes existants. |
 > | Action | Microsoft.StorSimple/managers/devices/volumeContainers/write | Crée ou met à jour des conteneurs de volumes (série 8000 uniquement). |
+> | Action | Microsoft.StorSimple/managers/devices/volumes/read | Répertorie les volumes. |
 > | Action | Microsoft.StorSimple/managers/devices/write | Crée ou met à jour les appareils. |
 > | Action | Microsoft.StorSimple/managers/encryptionSettings/read | Répertorie ou récupère les paramètres de chiffrement. |
+> | Action | Microsoft.StorSimple/Managers/extendedInformation/delete | Supprimer les informations étendues du coffre |
 > | Action | Microsoft.StorSimple/Managers/extendedInformation/delete | L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ». |
+> | Action | Microsoft.StorSimple/Managers/extendedInformation/read | Répertorier ou récupérer les informations étendues du coffre |
 > | Action | Microsoft.StorSimple/Managers/extendedInformation/read | L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ». |
+> | Action | Microsoft.StorSimple/Managers/extendedInformation/write | Créer ou mettre à jour les informations étendues du coffre |
 > | Action | Microsoft.StorSimple/Managers/extendedInformation/write | L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ». |
+> | Action | Microsoft.StorSimple/managers/features/read | Répertorier les fonctionnalités |
+> | Action | Microsoft.StorSimple/managers/fileservers/read | Répertorie ou récupère les serveurs de fichiers. |
 > | Action | Microsoft.StorSimple/managers/getActivationKey/action | Récupère la clé d’activation du gestionnaire d’appareils. |
 > | Action | Microsoft.StorSimple/managers/getEncryptionKey/action | Récupère la clé de chiffrement du gestionnaire d’appareils. |
+> | Action | Microsoft.StorSimple/managers/iscsiservers/read | Répertorie ou récupère les serveurs iSCSI. |
+> | Action | Microsoft.StorSimple/managers/jobs/read | Répertorie ou récupère les travaux. |
 > | Action | Microsoft.StorSimple/managers/listActivationKey/action | Récupère la clé d’activation du gestionnaire StorSimple Device Manager. |
-> | Action | Microsoft.StorSimple/managers/listPrivateEncryptionKey/action | Récupère la clé de chiffrement publique d’un gestionnaire StorSimple Device Manager. |
 > | Action | Microsoft.StorSimple/managers/listPublicEncryptionKey/action | Répertorie les clés de chiffrement publiques d’un gestionnaire StorSimple Device Manager. |
 > | Action | Microsoft.StorSimple/managers/metrics/read | Répertorie ou récupère les mesures. |
 > | Action | Microsoft.StorSimple/managers/metricsDefinitions/read | Répertorie ou récupère les définitions de mesures. |
+> | Action | Microsoft.StorSimple/managers/migrateClassicToResourceManager/action | Migrer de Classic vers Gestionnaire des ressources |
+> | Action | Microsoft.StorSimple/managers/migrationSourceConfigurations/read | Répertorier les configurations de source de migration (série 8000 uniquement) |
+> | Action | Microsoft.StorSimple/managers/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/provisionCloudAppliance/action | Crée une appliance cloud. |
 > | Action | Microsoft.StorSimple/managers/read | Répertorie ou récupère les gestionnaires d’appareils. |
 > | Action | Microsoft.StorSimple/Managers/read | L’opération d’obtention de coffre obtient un objet représentant la ressource Azure de type « coffre ». |
 > | Action | Microsoft.StorSimple/managers/regenarateRegistationCertificate/action | Régénère le certificat d’inscription du gestionnaire d’appareils. |
 > | Action | Microsoft.StorSimple/managers/regenerateActivationKey/action | Régénère la clé d’activation du gestionnaire d’appareils. |
 > | Action | Microsoft.StorSimple/managers/storageAccountCredentials/delete | Supprime les informations d’identification du compte de stockage. |
-> | Action | Microsoft.StorSimple/managers/storageAccountCredentials/listAccessKey/action | Répertorie les clés d’accès des informations d’identification de compte de stockage. |
+> | Action | Microsoft.StorSimple/managers/storageAccountCredentials/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/storageAccountCredentials/read | Répertorie ou récupère les informations d’identification du compte de stockage. |
 > | Action | Microsoft.StorSimple/managers/storageAccountCredentials/write | Crée ou met à jour les informations d’identification du compte de stockage. |
 > | Action | Microsoft.StorSimple/managers/storageDomains/delete | Supprime les domaines de stockage. |
+> | Action | Microsoft.StorSimple/managers/storageDomains/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/storageDomains/read | Répertorie ou récupère les domaines de stockage. |
 > | Action | Microsoft.StorSimple/managers/storageDomains/write | Crée ou met à jour les domaines de stockage. |
 > | Action | Microsoft.StorSimple/managers/write | Crée ou met à jour les gestionnaires d’appareils. |
 > | Action | Microsoft.StorSimple/Managers/write | L’opération de création de coffre entraîne la création d’une ressource Azure de type « coffre ». |
+> | Action | Microsoft.StorSimple/operations/read | Répertorier ou obtenir les opérations |
+> | Action | Microsoft.StorSimple/register/action | Inscrire le fournisseur Microsoft.StorSimple |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
@@ -4744,8 +4926,17 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.WorkloadMonitor/components/read | Lit les ressources d’opérations |
 > | Action | Microsoft.WorkloadMonitor/healthInstances/read | Lit les ressources d’opérations |
 > | Action | Microsoft.WorkloadMonitor/Operations/read | Lit les ressources d’opérations |
-> | Action | Microsoft.WorkloadMonitor/workloads/delete | Supprime une ressource de charge de travail |
+> | Action | Microsoft.WorkloadMonitor/workloadInsights/delete | Supprimer une ressource workloadInsights |
+> | Action | Microsoft.WorkloadMonitor/workloadInsights/delete | Supprimer une ressource workloadInsights |
+> | Action | Microsoft.WorkloadMonitor/workloadInsights/read | Lire une ressource workloadInsights |
+> | Action | Microsoft.WorkloadMonitor/workloadInsights/read | Lire une ressource workloadInsights |
+> | Action | Microsoft.WorkloadMonitor/workloadInsights/write | Écrire une ressource workloadInsights |
+> | Action | Microsoft.WorkloadMonitor/workloadInsights/write | Écrire une ressource workloadInsights |
+> | Action | Microsoft.WorkloadMonitor/workloads/delete |  |
+> | Action | Microsoft.WorkloadMonitor/workloads/delete |  |
 > | Action | Microsoft.WorkloadMonitor/workloads/read | Lit une ressource de charge de travail |
+> | Action | Microsoft.WorkloadMonitor/workloads/read | Lit une ressource de charge de travail |
+> | Action | Microsoft.WorkloadMonitor/workloads/write | Écrit une ressource de charge de travail |
 > | Action | Microsoft.WorkloadMonitor/workloads/write | Écrit une ressource de charge de travail |
 
 ## <a name="next-steps"></a>Étapes suivantes

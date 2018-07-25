@@ -3,16 +3,17 @@ title: 'Démarrage rapide : Créer un pipeline de recherche cognitive dans Rech
 description: Exemple de compétences en matière d’extraction de données, de langage naturel et de traitement d’image dans le portail Azure à l’aide d’exemples de données.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640259"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003694"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données
 
@@ -28,7 +29,7 @@ Dans ce guide de démarrage rapide, essayez le pipeline d’enrichissement dans 
 Vous pouvez essayer la recherche cognitive dans un service Recherche Azure créé dans les régions suivantes :
 
 * États-Unis - partie centrale méridionale
-* Europe de l'Ouest
+* Europe Ouest
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -60,7 +61,7 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
   Un service gratuit est limité à 3 index, à une taille maximale d’objet blob de 16 Mo et à 2 minutes d’indexation, ce qui est insuffisant pour exercer toutes les fonctionnalités de recherche cognitive. Pour passer en revue les limites des différents niveaux, consultez [Limites du service](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > La recherche cognitive est disponible en version préliminaire publique. L’exécution des compétences est actuellement disponible dans tous les niveaux, y compris le niveau gratuit. Le prix de cette fonctionnalité sera annoncé à une date ultérieure.
+  > La recherche cognitive est disponible en préversion publique. L’exécution des compétences est actuellement disponible dans tous les niveaux, y compris le niveau gratuit. Le prix de cette fonctionnalité sera annoncé à une date ultérieure.
 
 1. Épinglez le service au tableau de bord pour accéder rapidement aux informations du service.
 
@@ -72,7 +73,7 @@ Le pipeline d’enrichissement procède à l’extraction à partir des sources 
 
 1. [Téléchargez les exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consistant en un petit ensemble de fichiers de types différents. 
 
-1. Inscrivez-vous pour le stockage d’objets Blob Azure, créez un compte de stockage, connectez-vous à l’Explorateur Stockage et créez un conteneur. Consultez [Démarrage rapide d’Explorateur Stockage Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) pour obtenir des instructions sur toutes les étapes.
+1. Inscrivez-vous pour le stockage d’objets blob Azure, créez un compte de stockage, connectez-vous à l’Explorateur Stockage et créez un conteneur. Consultez [Démarrage rapide d’Explorateur Stockage Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) pour obtenir des instructions sur toutes les étapes.
 
 1. À l’aide de l’Explorateur Stockage Azure, dans le conteneur que vous avez créé, cliquez sur **Charger pour charger les fichiers d’exemples.
 
@@ -123,7 +124,7 @@ Pour ce guide de démarrage rapide, l’Assistant effectue un travail de qualit�
 
 Dans **Personnaliser l’index**, passez en revue les attributs sur les champs pour voir comment ils sont utilisés dans un index. Possibilité de recherche indique qu’un champ peut faire l’objet d’une recherche. Récupérable signifie qu’il peut être renvoyé dans les résultats. 
 
-Envisagez d’effacer Récupérable du champ `content`. Dans les objets BLOB, ce champ peut être exécuté dans des milliers de lignes, ce qui peut être difficile à lire dans un outil tel que **Explorateur de recherche**.
+Envisagez d’effacer Récupérable du champ `content`. Dans les objets blob, ce champ peut être exécuté sur des milliers de lignes, ce qui peut être difficile à lire dans un outil comme **l’Explorateur de recherche**.
 
 Cliquez sur **OK** pour accepter la définition d’index.
 
@@ -148,7 +149,7 @@ L’indexation et l’enrichissement peuvent prendre de temps, c’est pourquoi 
 
 ## <a name="query-in-search-explorer"></a>Requête dans l’Explorateur de recherche
 
-Une fois l’index créé, vous pouvez soumettre des requêtes pour renvoyer des documents à partir de l’index. Dans le portail, utilisez l’**Explorateur de recherche** pour exécuter des requêtes et afficher les résultats. 
+Une fois l’index créé, vous pouvez soumettre des requêtes pour renvoyer des documents à partir de l’index. Dans le portail, utilisez **l’Explorateur de recherche** pour exécuter des requêtes et afficher les résultats. 
 
 1. Sur la page de tableau de bord du service de recherche, cliquez sur **Explorateur de recherche** sur la barre de commandes.
 
@@ -176,7 +177,7 @@ Un autre concept important réside dans le fait que les compétences fonctionnen
 
 Enfin, vous avez appris que l’affichage des résultats est effectué en interrogeant l’index. Au final, Recherche Azure fournit un index dans lequel il est possible d’effectuer une recherche et que vous pouvez interroger à l’aide de la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ou [entièrement étendue](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Un index contenant des champs enrichis ressemble à n’importe quel autre index. Si vous souhaitez intégrer des [analyseurs personnalisés](search-analyzers.md) ou standard, des [profils de notation](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), des [synonymes](search-synonyms.md), des [filtres à facettes](search-filters-facets.md), une recherche géographique ou tout autre fonctionnalité Recherche Azure, vous pouvez certainement le faire.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Le moyen le plus rapide pour nettoyer après une exploration consiste à supprimer le groupe de ressources contenant le service Recherche Azure et le service Blob Azure.  
 

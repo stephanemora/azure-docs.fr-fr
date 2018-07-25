@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 01a9120af2fb240eed1463613f7a6f946a9c16ed
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934685"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057325"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Déboguer vos API à l’aide du suivi des demandes
 
@@ -34,7 +34,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
 
@@ -45,6 +44,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 3. Sélectionnez l’opération **GetSpeakers**.
 4. Basculez vers l’onglet **Test**.
 5. Veillez à inclure un en-tête HTTP nommé **Ocp-Apim-Trace** dont la valeur est définie sur **true**.
+
+    ![En-tête de suivi d’API](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
+    > [!NOTE]
+    > Si Ocp-Apim-Subscription-Key n’est pas rempli automatiquement, vous pouvez le récupérer en accédant au portail des développeurs et en exposant les clés sur la page de profil.
+
 6. Cliquez sur **Envoyer** pour effectuer un appel d’API. 
 7. Attendez la fin de l’appel. 
 8. Accédez à l’onglet **Trace** dans la **console d’API**. Vous pouvez cliquer sur les liens suivants pour accéder aux informations de suivi détaillées : **Entrant**, **Principal**, **Sortant**.
@@ -60,12 +65,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Suivre un appel
 
-Passez au didacticiel suivant :
+Passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Utiliser des révisions](api-management-get-started-revise-api.md)

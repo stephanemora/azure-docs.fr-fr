@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919119"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070675"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
@@ -40,7 +40,10 @@ Avant de commencer, il est utile d’examiner les architectures [VMware](vmware-
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
+- Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
+ 
+> [!WARNING]
+> Il est possible de migrer des machines virtuelles sur d’autres plateformes de virtualisation (autres que VMware, Hyper-V), par exemple XenServer, en traitant les machines virtuelles comme des serveurs physiques. Néanmoins, cette approche qui n’a pas été testée ni validée par Microsoft, peut ne pas fonctionner. Par exemple, des machines virtuelles exécutées sur la plateforme XenServer peuvent ne pas fonctionner dans Azure, sauf si les outils XenServer et les pilotes réseau et de stockage paravirtualisés sont désinstallés des machines virtuelles avant de commencer la migration.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
@@ -109,7 +112,7 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine > **Basculement**.
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le point de récupération le plus récent.
 3. Le paramètre de clé de chiffrement ne s’applique pas à ce scénario.
-4. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tenter d’arrêter les machines virtuelles sources avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
+4. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter les machines virtuelles avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 5. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
 6. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération termine le processus de migration, interrompt la réplication pour la machine virtuelle et arrête la facturation Site Recovery pour la machine virtuelle.
 
@@ -124,7 +127,7 @@ Dans certains scénarios, le basculement nécessite un traitement supplémentair
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez migré des machines virtuelles locales vers des machines virtuelles Azure. Vous pouvez maintenant configurer la récupération d’urgence pour les machines virtuelles Azure.
-
-> [!div class="nextstepaction"]
-> [Configurez la récupération d’urgence](azure-to-azure-replicate-after-migration.md) pour des machines virtuelles Azure après la migration à partir d’un site local.
+Dans ce didacticiel, vous avez migré des machines virtuelles locales vers des machines virtuelles Azure. Maintenant que vous avez migré correctement des machines virtuelles :
+- [Configurez la récupération d’urgence](azure-to-azure-replicate-after-migration.md) pour les machines virtuelles migrées.
+- Tirez parti des fonctionnalités [cloud sécurisées et bien gérées](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) d’Azure pour gérer vos machines virtuelles dans Azure.
+  

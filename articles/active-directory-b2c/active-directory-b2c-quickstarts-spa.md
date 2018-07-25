@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 2/13/2018
+ms.date: 7/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7e600f55b9eeb2682b005b8c84c74ec25e054c36
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 155cdaf51ac5725a315259a0d809ba644f64110c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447249"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048914"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -29,9 +29,9 @@ Dans ce démarrage rapide, vous utilisez un exemple d’application monopage act
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
 * Installez [Node.js](https://nodejs.org/en/download/)
-* Un compte de réseau social Facebook, Google, Microsoft ou Twitter.
+* Un compte Facebook.
 
-## <a name="download-the-sample"></a>Téléchargez l’exemple
+## <a name="download-the-sample"></a>Télécharger l’exemple
 
 [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
 
@@ -63,21 +63,17 @@ Accédez à l’URL de l’application `http://localhost:6420` dans un navigateu
 
 Cliquez sur le bouton **Connexion** pour démarrer le flux de travail **Inscription ou Connexion** d’Azure AD B2C basé sur une stratégie Azure AD B2C. 
 
-L’exemple prend en charge plusieurs options d’inscription, notamment l’utilisation d’un fournisseur d’identité sociale ou la création d’un compte local à l’aide d’une adresse e-mail. Pour ce démarrage rapide, utilisez un compte de fournisseur d’identité sociale provenant de Facebook, Google, Microsoft ou Twitter. 
+L’exemple assure la prise en charge plusieurs options d’inscription, notamment la création d’un compte local à l’aide d’une adresse e-mail. Pour ce démarrage rapide, utilisez un compte Facebook. 
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>S’inscrire au moyen d’un fournisseur d’identité sociale
 
 Azure AD B2C présente une page de connexion personnalisée d’une marque fictive appelée Wingtip Toys pour l’exemple d’application web. 
 
-1. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité que vous souhaitez utiliser.
-
-    ![Fournisseur pour se connecter ou s’inscrire](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+1. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité Facebook.
 
     Vous vous authentifiez (vous connectez) avec les informations d’identification de votre compte de réseau social et autoriser l’application à lire les informations de votre compte de réseau social. En accordant l’accès, l’application peut extraire des informations de profil du compte de réseau social, telles que votre nom et votre ville. 
 
-2. Terminez le processus de connexion pour le fournisseur d’identité. Par exemple, si vous choisissez Twitter, entrez vos informations d’identification Twitter et cliquez sur **Connexion**.
-
-    ![Authentification et autorisation au moyen d’un compte de réseau social](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+2. Terminez le processus de connexion pour le fournisseur d’identité en entrant vos informations d’identification.
 
     Les détails du profil de votre nouveau compte sont préremplis avec les informations de votre compte de réseau social. 
 
@@ -93,7 +89,7 @@ Cliquez sur le bouton **Call Web API** (Appeler une API web) pour que votre nom 
 
 L’exemple d’application monopage inclut un jeton d’accès Azure AD dans la requête envoyée à la ressource de l’API web protégée pour effectuer l’opération permettant de retourner l’objet JSON.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Vous pouvez utiliser votre locataire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels ou démarrages rapides Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 

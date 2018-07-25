@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: 0322b3510cfd4f94031d8c1db8f1cc032b997fa8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 63a78332742dcefab20401575b1df0e23c06aa78
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22719923"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035144"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Redirection d’un domaine Internet d’entreprise vers un domaine Azure Traffic Manager
 
 Lorsque vous créez un profil Traffic Manager, Azure attribue automatiquement un nom DNS pour ce profil. Pour utiliser un nom de votre zone DNS, créez un enregistrement DNS CNAME qui mappe sur le nom de domaine de votre profil Traffic Manager. Vous pouvez trouver le nom de domaine Traffic Manager dans la section **Général** de la page Configuration du profil Traffic Manager.
 
-Par exemple, pour rediriger le nom www.contoso.com vers le nom DNS Traffic Manager contoso.trafficmanager.net, vous devez créer l’enregistrement de ressource DNS suivant :
+Par exemple, pour pointer le nom `www.contoso.com` vers le nom DNS de Traffic Manager `contoso.trafficmanager.net`, vous créez l’enregistrement de ressource DNS suivant :
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 

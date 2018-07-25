@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: cea83fbe9c60bab687eb3d43fc269fa9f6bea325
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9400c476179d801eb66f574373bf75cfb672d9d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630457"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091082"
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inscrire un appareil X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide du Java Service SDK
 
@@ -54,7 +54,12 @@ Veillez à [configurer le service IoT Hub Device Provisioning avec le portail Az
 
 ## <a name="download-and-modify-the-java-sample-code"></a>Télécharger et modifier l’exemple de code Java
 
-Cette section montre comment ajouter les détails de l’approvisionnement de votre appareil X.509 à l’exemple de code. 
+Cette section utilise un certificat X.509 auto-signé pour lequel il est important de garder à l’esprit les éléments suivants :
+
+* Les certificats auto-signés sont destinés aux tests uniquement et ne doivent pas être utilisés en production.
+* La date d’expiration par défaut d’un certificat auto-signé est de 1 an.
+
+Les étapes indiquées ci-dessous montrent comment ajouter les détails de l’approvisionnement de votre appareil X.509 à l’exemple de code. 
 
 1. Ouvrez une invite de commandes. Clonez le référentiel GitHub pour l’exemple de code d’inscription de l’appareil à l’aide du Java Service SDK :
     

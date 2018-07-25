@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930526"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072144"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -159,22 +159,22 @@ Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. L
 | **Région Microsoft Azure** | **Valeur de communauté BGP** |
 | --- | --- |
 | **Amérique du Nord** | |
-| Est des États-Unis | 12076:51004 |
+| USA Est | 12076:51004 |
 | Est des États-Unis 2 | 12076:51005 |
-| États-Unis de l’Ouest | 12076:51006 |
-| Ouest des États-Unis 2 | 12076:51026 |
+| USA Ouest | 12076:51006 |
+| USA Ouest 2 | 12076:51026 |
 | Centre-Ouest des États-Unis | 12076:51027 |
 | Centre-Nord des États-Unis | 12076:51007 |
 | États-Unis - partie centrale méridionale | 12076:51008 |
-| Centre des États-Unis | 12076:51009 |
-| Centre du Canada | 12076:51020 |
-| Est du Canada | 12076:51021 |
+| USA Centre | 12076:51009 |
+| Canada Centre | 12076:51020 |
+| Canada Est | 12076:51021 |
 | **Amérique du Sud** | |
 | Sud du Brésil | 12076:51014 |
 | **Europe** | |
-| Europe du Nord | 12076:51003 |
+| Europe Nord | 12076:51003 |
 | Europe de l’Ouest | 12076:51002 |
-| Sud du Royaume-Uni | 12076:51024 |
+| Royaume-Uni Sud | 12076:51024 |
 | Ouest du Royaume-Uni | 12076:51025 |
 | France-Centre | 12076:51030 |
 | France-Sud | 12076:51031 |
@@ -185,7 +185,7 @@ Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. L
 | Est du Japon | 12076:51012 |
 | Ouest du Japon | 12076:51013 |
 | **Australie** | |
-| Est de l’Australie | 12076:51015 |
+| Australie Est | 12076:51015 |
 | Sud-est de l’Australie | 12076:51016 |
 | **Secteur public australien** | |
 | Centre de l’Australie | 12076:51032 |
@@ -221,7 +221,7 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 > 
 > 
 
-### <a name="bgp-community-support-in-national-clouds-preview"></a>Support de la communauté BGP dans les clouds nationaux (version préliminaire)
+### <a name="bgp-community-support-in-national-clouds"></a>Support de la communauté BGP dans les clouds nationaux
 
 | **Région Azure pour les clouds nationaux**| **Valeur de communauté BGP** |
 | --- | --- |

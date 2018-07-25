@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970242"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070006"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Fonctionnalité de stockage immuable de stockage Blob Azure (préversion)
 
 La fonctionnalité de stockage immuable pour les objets Blob Azure permet aux utilisateurs de stocker des données commerciales sensibles dans un stockage d’objets Blob Azure dans un état WORM (non réinscriptible). Cet état rend ces données non supprimables et non modifiables pendant un intervalle de temps spécifié par l’utilisateur. Les objets Blob peuvent être créés et lus, mais ne peuvent être modifiés ni supprimés pendant la durée de l’intervalle de rétention.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette fonctionnalité permet à des organisations de nombreux secteurs, particulièrement les courtiers/revendeurs, de stocker des données conformément à SEC 17a-4(f) et d’autres législations.
 
@@ -178,11 +178,11 @@ Vous pouvez utiliser la fonctionnalité de stockage immuable avec tout compte GP
 
 **Que se passe-t-il si j’essaie de supprimer un conteneur avec une stratégie de rétention basée sur le temps *verrouillée* ou une conservation juridique ?**
 
-L’opération Delete Container échoue s’il s’agit d’un objet blob disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation juridique. L’opération Delete Container réussit si aucun objet blob ne dispose d’un intervalle de rétention actif ou d’une conservation juridique. Vous devez d’abord supprimer les objets blob avant de pouvoir supprimer le conteneur.
+L’opération Supprimer le conteneur échoue s’il s’agit d’un objet blob disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation légale. Cela est le cas si les données font l’objet d’une [suppression réversible](storage-blob-soft-delete.md). L’opération Supprimer le conteneur aboutit si aucun objet blob ne dispose d’un intervalle de rétention actif ou d’une conservation légale. Vous devez d’abord supprimer les objets blob avant de pouvoir supprimer le conteneur. 
 
 **Que se passe-t-il si j’essaie de supprimer un compte de stockage avec un conteneur WORM disposant d’une stratégie de rétention basée sur le temps *verrouillée* ou d’une conservation juridique ?**
 
-La suppression du compte de stockage échoue s’il s’agit d’un conteneur WORM disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation juridique.  Tous les conteneurs WORM doivent être supprimés avant de pouvoir supprimer le compte de stockage.  Voir question #2 pour en savoir plus sur la suppression de conteneur.
+La suppression du compte de stockage échoue s’il s’agit d’un conteneur WORM disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation juridique.  Tous les conteneurs WORM doivent être supprimés avant de pouvoir supprimer le compte de stockage.  Pour en savoir plus sur la suppression des conteneurs, reportez-vous à la question précédente.
 
 **Puis-je déplacer les données sur différents niveaux d’objets blob (chaud, froid, archive) lorsque l’objet blob est dans l’état immuable ?**
 

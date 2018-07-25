@@ -7,22 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: e3eff46299ecfbfe39b57bc2cf5ed4a655a6d7f1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8dd630650498f3698fea3ed03882fe8c5c3d338e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37087948"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004316"
 ---
-# <a name="quickstart-deploy-a-cloud-based-remote-monitoring-solution"></a>Démarrage rapide : Déployer une solution de monitoring à distance cloud
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Démarrage rapide : Essayer une solution de surveillance informatique à distance
 
-Ce guide de démarrage rapide vous montre comment déployer l’accélérateur de solution Monitoring à distance Azure IoT à utiliser comme solution de monitoring à distance cloud pour vos appareils IoT. Une fois que vous avez déployé l’accélérateur de solution, vous utilisez la page **Tableau de bord** de la solution pour visualiser les appareils simulés sur une carte, et la page **Maintenance** pour répondre à une alerte concernant la pression d’un appareil de refroidissement simulé.
+Ce guide de démarrage rapide vous montre comment déployer l’accélérateur de solution de surveillance à distance Azure IoT pour exécuter une simulation de surveillance informatique à distance. Une fois que vous avez déployé l’accélérateur de solution, vous utilisez la page **Tableau de bord** de la solution pour visualiser les appareils simulés sur une carte, et la page **Maintenance** pour répondre à une alerte concernant la pression d’un appareil de refroidissement simulé. Vous pouvez utiliser cet accélérateur de solution comme point de départ de votre propre implémentation ou comme outil d’apprentissage.
 
-Le déploiement par défaut configure l’accélérateur de solution Monitoring à distance pour une société appelée Contoso. Contoso gère une sélection de types d’appareil variés, tels que des appareils de refroidissement, déployés dans différents environnements physiques. Un appareil de refroidissement envoie la télémétrie de la température, de l’humidité et de la pression à l’accélérateur de la solution Monitoring à distance.
-
-## <a name="prerequisites"></a>Prérequis
+Le déploiement initial configure l’accélérateur de solution de surveillance à distance pour une société appelée Contoso. Contoso gère une sélection de types d’appareil variés, tels que des appareils de refroidissement, déployés dans différents environnements physiques. Un appareil de refroidissement envoie la télémétrie de la température, de l’humidité et de la pression à l’accélérateur de la solution Monitoring à distance.
 
 Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure actif.
 
@@ -42,9 +40,9 @@ Dans la page **Créer la solution Monitoring à distance**, sélectionnez un dé
 
 Choisissez **.NET** comme langage. Les implémentations Java et .NET ont des fonctionnalités identiques.
 
-Entrez un **Nom de la solution** unique pour votre accélérateur de solution Monitoring à distance.
+Entrez un **Nom de la solution** unique pour votre accélérateur de solution Monitoring à distance. Pour ce démarrage rapide, nous appelons le nôtre **contoso-rm2**.
 
-Sélectionnez l’**Abonnement** et la **Région** à utiliser pour déployer l’accélérateur de solution. En général, vous choisissez la région la plus proche. Vous devez être [administrateur général ou utilisateur](iot-accelerators-permissions.md) dans l’abonnement.
+Sélectionnez l’**Abonnement** et la **Région** à utiliser pour déployer l’accélérateur de solution. En général, vous choisissez la région la plus proche. Pour ce démarrage rapide, nous allons utiliser **Visual Studio Enterprise** et **Europe Ouest**. Vous devez être [administrateur général ou utilisateur](iot-accelerators-permissions.md) dans l’abonnement.
 
 Cliquez sur **Créer une solution** pour commencer le déploiement. L’exécution de ce processus prend au moins cinq minutes :
 
@@ -52,7 +50,7 @@ Cliquez sur **Créer une solution** pour commencer le déploiement. L’exécuti
 
 ## <a name="sign-in-to-the-solution"></a>Se connecter à la solution
 
-Une fois le déploiement sur votre abonnement Azure terminé, vous pouvez vous connecter au tableau de bord de votre accélérateur de solution Monitoring à distance.
+Lorsque le déploiement vers votre abonnement Azure est terminé, vous pouvez observer une coche verte ainsi que la mention **Ready** sur la vignette de la solution. À présent, vous pouvez vous connecter au tableau de bord de l’accélérateur de solution Surveillance à distance.
 
 Dans la page **Solutions approvisionnées**, cliquez sur votre nouvel accélérateur de solution Monitoring à distance :
 
@@ -68,7 +66,7 @@ Cliquez sur **Accepter** pour accepter la demande d’autorisation. Le tableau d
 
 ## <a name="view-your-devices"></a>Voir vos appareils
 
-Le tableau de bord de la solution affiche les informations suivantes sur les appareils de Contoso :
+Le tableau de bord de la solution affiche les informations suivantes sur les appareils simulés de Contoso :
 
 * **Statistiques de l’appareil** affiche un récapitulatif des alertes et le nombre total d’appareils. Dans le déploiement par défaut, Contoso compte 10 appareils simulés de types différents.
 
@@ -110,7 +108,7 @@ Pour intervenir sur l’appareil de refroidissement, faites défiler vers le bas
 
 [![Sélectionner l’appareil et planifier une action](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-Dans le panneau **Travaux**, choisissez **Exécuter la méthode**, puis la méthode **EmergencyValveRelease**, ajoutez le nom du travail **ChillerPressureRelease** et cliquez sur **Appliquer**. Ces paramètres créent un travail qui s’exécute immédiatement.
+Dans le panneau **Travaux**, sélectionnez la **méthode Run**, puis la méthode **EmergencyValveRelease**. Ajouter le nom du travail **ChillerPressureRelease**, puis cliquez sur **Appliquer**. Ces paramètres créent un travail qui s’exécute immédiatement.
 
 Pour voir l’état du travail, revenez à la page **Maintenance** et consultez la liste des travaux dans la vue **Travaux**. Vous devrez peut-être attendre quelques secondes avant de pouvoir voir que le travail a été exécuté pour libérer la pression de la soupape de l’appareil de refroidissement :
 
@@ -132,7 +130,7 @@ La valeur dans la colonne d’état devient **Fermé**.
 
 Si vous envisagez de passer aux tutoriels, laissez l’accélérateur de solution Monitoring à distance déployé.
 
-Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le dans la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) :
+Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) en le sélectionnant et en cliquant sur **Supprimer la solution** :
 
 ![Supprimer la solution](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
@@ -140,7 +138,7 @@ Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le dan
 
 Dans ce guide de démarrage rapide, vous avez déployé l’accélérateur de solution Monitoring à distance et effectué une tâche de monitoring en utilisant des appareils simulés dans le déploiement de Contoso par défaut.
 
-Pour savoir comment mettre à jour le microprogramme de vos appareils connectés et organiser vos ressources dans l’accélérateur de solution, passez au tutoriel suivant.
+Pour en savoir plus sur l’accélérateur de solution à l’aide d’appareils simulés, passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Surveiller vos appareils IoT](iot-accelerators-remote-monitoring-monitor.md)

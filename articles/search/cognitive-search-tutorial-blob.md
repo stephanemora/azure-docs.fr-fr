@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Appeler des API de recherche cognitive dans Recherche Azure | Microsoft Docs'
-description: Exemple d’extraction de données, de langage naturel et de traitement AI d’image dans l’indexation Recherche Azure pour l’extraction et la transformation de données.
+title: Didacticiel d’appel des API de recherche cognitive dans Recherche Azure | Microsoft Docs
+description: Dans ce didacticiel, parcourez un exemple d’extraction de données, de langage naturel et de traitement AI d’image dans l’indexation Recherche Azure pour l’extraction et la transformation de données.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757568"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991871"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutoriel : Appeler des API de recherche cognitive (version préliminaire)
 
@@ -23,8 +23,8 @@ Dans ce tutoriel, vous apprendrez les mécanismes d’enrichissement des donnée
 Dans ce tutoriel, vous effectuez des appels d’API REST pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Créer un pipeline d’indexation qui enrichit les données sources destinées à un index
-> * Utiliser les compétences intégrées sur un exemple de données : reconnaissance d’entité, détection de la langue, manipulation de texte et extraction d’expression clé
+> * Créer un pipeline d’indexation qui enrichit les exemples de données destinés à un index
+> * Appliquer des compétences intégrées : reconnaissance d’entité, détection de la langue, manipulation de texte et extraction d’expression clé
 > * Découvrir comment chaîner des compétences en mappant les entrées aux sorties dans un ensemble de compétences
 > * Exécuter des demandes et passer en revue les résultats
 > * Réinitialiser l’index et les indexeurs pour un développement ultérieur
@@ -60,7 +60,7 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
   Un service gratuit est limité à 3 index, à une taille maximale d’objet blob de 16 Mo et à 2 minutes d’indexation, ce qui est insuffisant pour exercer toutes les fonctionnalités de recherche cognitive. Pour passer en revue les limites des différents niveaux, consultez [Limites du service](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > La recherche cognitive est disponible en version préliminaire publique. L’exécution des compétences est actuellement disponible dans tous les niveaux, y compris le niveau gratuit. Le prix de cette fonctionnalité sera annoncé à une date ultérieure.
+  > La recherche cognitive est disponible en préversion publique. L’exécution des compétences est actuellement disponible dans tous les niveaux, y compris le niveau gratuit. Le prix de cette fonctionnalité sera annoncé à une date ultérieure.
 
 1. Épinglez le service au tableau de bord pour accéder rapidement aux informations du service.
 
@@ -76,11 +76,11 @@ Le pipeline d’enrichissement extrait des données des sources de données Azur
 
 1. [Téléchargez les exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Les données d’exemple se composent d’un petit ensemble de fichiers de types différents. 
 
-1. Inscrivez-vous pour le stockage d’objets Blob Azure, créez un compte de stockage, connectez-vous à l’Explorateur Stockage et créez un conteneur nommé `basicdemo`. Consultez [Démarrage rapide d’Explorateur Stockage Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) pour obtenir des instructions sur toutes les étapes.
+1. Inscrivez-vous pour le stockage d’objets blob Azure, créez un compte de stockage, connectez-vous à l’Explorateur Stockage et créez un conteneur nommé `basicdemo`. Consultez [Démarrage rapide d’Explorateur Stockage Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) pour obtenir des instructions sur toutes les étapes.
 
 1. À l’aide de l’Explorateur Stockage Azure, dans le conteneur `basicdemo` que vous avez créé, cliquez sur **Télécharger** pour télécharger les fichiers d’exemple.
 
-1. Une fois que les fichiers d’exemple sont chargés, obtenez le nom du conteneur et une chaîne de connexion pour votre stockage d’objets Blob. Vous pouvez le faire en accédant à votre compte de stockage dans le portail Azure. Dans **Clés d’accès**, copiez le champ **Chaîne de connexion**.
+1. Une fois que les fichiers d’exemple sont chargés, obtenez le nom du conteneur et une chaîne de connexion pour votre stockage d’objets Blob. Pour ce faire, accédez à votre compte de stockage dans le portail Azure. Dans **Clés d’accès**, copiez le champ **Chaîne de connexion**.
 
   La chaîne de connexion doit être une URL similaire à l’exemple suivant :
 
@@ -540,7 +540,7 @@ Les [compétences prédéfinies](cognitive-search-predefined-skills.md) ont ét�
 
 Enfin, vous avez appris à tester les résultats et réinitialiser le système pour des itérations ultérieures. Vous avez appris qu’émettre des requêtes par rapport à l’index retourne la sortie créée par le pipeline d’indexation enrichie. Dans cette version, il existe un mécanisme permettant d’afficher les constructions internes (documents enrichis créés par le système). Vous avez également appris à vérifier l’état de l’indexeur et quels objets supprimer avant de réexécuter un pipeline.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Le moyen le plus rapide de nettoyer après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure et le service Blob Azure. En supposant que vous avez placé ces deux services dans le même groupe, supprimez maintenant le groupe de ressources pour supprimer définitivement tout ce qu’il contient, y compris les services et tout le contenu stocké que vous avez créé pour ce tutoriel. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble de chaque service.
 

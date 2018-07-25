@@ -4,25 +4,25 @@ description: Fournit des instructions permettant de configurer rapidement une ap
 services: application-insights
 keywords: ''
 author: mrbullwinkle
-ms.author: daviste; mbullwin
-ms.date: 10/05/2017
+ms.author: mbullwin
+ms.date: 07/11/2018
 ms.service: application-insights
+ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 252d16a5c4ef2d1f8230746dff681f7fbf5f44b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867948"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988923"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Commencer à analyser votre application mobile avec App Center et Application Insights
 
 Ce démarrage rapide vous guide tout au long de la connexion de l’instance App Center de votre application à Application Insights. Avec Application Insights, vous pouvez interroger, segmenter, filtrer et analyser vos données de télémétrie avec davantage d’outils puissants que ceux disponibles à partir du service [Analytics](https://docs.microsoft.com/mobile-center/analytics/) d’App Center.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
@@ -145,14 +145,14 @@ Application Insights peut interroger, segmenter, filtrer et analyser les donnée
 
    L’outil Flux d’utilisateurs visualise les événements qu’envoie les utilisateurs après un événement de début. Il est utile pour obtenir une vue d’ensemble de la façon dont les utilisateurs parcourent votre application. Il peut aussi révéler des endroits de votre application où les utilisateurs ne vont plus ou répètent la même action encore et encore.
 
-   En plus de Flux d’utilisateurs, Application Insights dispose de plusieurs outils d’analyse de l’utilisation pour répondre à des questions spécifiques :
+   Outre Flux d’utilisateurs, Application Insights dispose de plusieurs outils d’analyse du comportement des utilisateurs pour répondre à des questions spécifiques :
 
    * **Entonnoirs**, pour analyser et surveiller le taux de conversion.
    * **Rétention**, pour analyser dans quelle mesure votre application conserve les utilisateurs au fil du temps.
    * **Classeurs**, pour combiner des visualisations et du texte dans un rapport partageable.
    * **Cohortes**, pour nommer et enregistrer des groupes d’utilisateurs ou d’événements spécifiques afin qu’ils puissent être facilement référencés à partir d’autres outils d’analytique.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous ne souhaitez pas continuer à utiliser Application Insights avec App Center, désactivez l’exportation dans App Center, puis supprimez la ressource Application Insights. Ainsi, vous ne serez plus facturé par Application Insights pour cette ressource.
 

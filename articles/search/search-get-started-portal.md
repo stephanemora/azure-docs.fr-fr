@@ -1,51 +1,45 @@
 ---
-title: Didacticiel Recherche Azure sur l’indexation, l’interrogation et le filtrage à l’aide du portail | Microsoft Docs
-description: Dans le portail Azure, utilisez les exemples de données prédéfinis pour générer un index dans Recherche Azure. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage.
+title: Tutoriel sur l’indexation, l’interrogation et le filtrage dans Recherche Azure à l’aide du portail | Microsoft Docs
+description: Dans ce tutoriel, utilisez le portail Azure et des exemples de données prédéfinis pour générer un index dans Recherche Azure. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 124963359d0b2d4050156958de195e47b9331c92
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190027"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007982"
 ---
-# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Créer, interroger et filtrer un index Recherche Azure dans le portail
+# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>Tutoriel : Utiliser des outils intégrés pour l’indexation et les requêtes dans Recherche Azure
 
-Dans le portail Azure, partez d’un exemple de jeu de données prédéfini pour générer rapidement un index Recherche Azure à l’aide de l’Assistant **Importer des données**. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**.  
+Dans une page de service Recherche Azure du portail Azure, vous pouvez utiliser des outils intégrés pour le test du concept et une expérience pratique en un minimum de temps. Les outils du portail n’offrent pas de parité complète avec les API .NET et REST, mais les assistants et les éditeurs proposent un soutien facile pour les tests de validation techniques rapides. Cette présentation dénuée de code est destinée à vous familiariser avec un petit jeu de données publiées pour vous permettre d’écrire immédiatement des requêtes intéressantes. 
 
-Cette présentation dénuée de code est destinée à vous familiariser avec les données prédéfinies pour vous permettre d’écrire immédiatement des requêtes intéressantes. Bien que les outils du portail ne puissent pas se substituer au code, ils se révèlent utiles pour les tâches suivantes :
+> [!div class="checklist"]
+> * Démarrez avec un échantillon de données publiques et générez automatiquement un index Recherche Azure à l’aide de l’Assistant **Importer des données**. 
+> * Affichez le schéma d’index et les attributs de n’importe quel index publié dans Recherche Azure.
+> * Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**.  
 
-+ Acquisition d’une expérience pratique en un minimum de temps
-+ Création d’un prototype d’index avant l’écriture du code dans l’Assistant **Importer des données**
-+ Test des requêtes et de la syntaxe de l’analyseur dans **l’Explorateur de recherche**
-+ Visualisation d’un index existant publié dans votre service et examen de ses attributs
+Les outils du portail ne prennent pas en charge la totalité des fonctionnalités de Recherche Azure. Si les outils sont trop limités, envisagez d’utiliser une [introduction à la programmation Azure Search basée sur le code dans .NET](search-howto-dotnet-sdk.md) ou des [outils de test web pour effectuer des appels d’API REST](search-fiddler.md).
 
-**Durée estimée :** 15 minutes environ, mais davantage de temps si une inscription à un compte ou à un service est également requise. 
-
-Vous pouvez également commencer en vous aidant d’une [introduction à la programmation basée sur le code du service Recherche Azure dans .NET](search-howto-dotnet-sdk.md).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. Vous pouvez également visionner une démonstration de 6 minutes de la procédure décrite dans ce tutoriel à partir de la troisième minute environ de cette [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="prerequisites"></a>Prérequis
 
+[Créez un service Recherche Azure](search-create-service-portal.md) ou recherchez un service existant dans votre abonnement actuel. 
 
-Ce didacticiel repose sur le principe que vous disposez [d’un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) et du [service Recherche Azure](search-create-service-portal.md). 
-
-Si vous ne voulez pas effectuer une mise en service immédiatement, vous pouvez visionner une démonstration de 6 minutes de la procédure décrite dans ce didacticiel. Pour cela, accédez à la [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138), à partir de la 3e minute environ.
-
-## <a name="find-your-service"></a>Recherche de votre service
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur le tableau de bord des services de votre service Azure Search. Si vous n’avez pas épinglé la vignette du service à votre tableau de bord, vous pouvez trouver votre service en procédant comme suit : 
    
    * Dans la barre de lancement, cliquez sur **Tous les services** dans le volet de navigation de gauche.
-   * Dans la zone de recherche, tapez *recherche* pour obtenir la liste des services de recherche associés à votre abonnement. Votre service doit apparaître dans la liste. 
+   * Dans la zone de recherche, tapez *recherche* pour obtenir la liste des services de recherche associés à votre abonnement. Cliquez sur **Rechercher des services**. Votre service doit apparaître dans la liste. 
 
-## <a name="check-for-space"></a>Vérifier l’espace disponible
+### <a name="check-for-space"></a>Vérifier l’espace disponible
 De nombreux clients commencent avec le service gratuit. Cette version est limitée à trois index, trois sources de données et trois indexeurs. Avant de commencer, assurez-vous de disposer d’assez d’espace pour stocker des éléments supplémentaires. Ce didacticiel crée une occurrence de chaque objet. 
 
 > [!TIP] 
@@ -55,20 +49,26 @@ De nombreux clients commencent avec le service gratuit. Cette version est limit�
 >
 
 ## <a name="create-index"></a> Créer un index et charger des données
-Les requêtes de recherche se répètent sur un *index* contenant les données de recherche, les métadonnées et les constructions utilisées pour l’optimisation de certains comportements de recherche.
+Les requêtes de recherche se répètent sur un [*index*](search-what-is-an-index.md) contenant les données de recherche, les métadonnées et les constructions utilisées pour l’optimisation de certains comportements de recherche.
 
-Pour conserver cette tâche sur le portail, nous utilisons un exemple de jeu de données intégré qui est analysable à l’aide d’un indexeur par le biais de l’Assistant **Importer des données**. 
+Pour conserver cette tâche sur le portail, nous utilisons un exemple de jeu de données intégré qui est analysable à l’aide d’un [*indexeur*](search-indexer-overview.md) par le biais de l’Assistant **Importer des données**. Un indexeur est un robot d’indexation spécifique à la source qui peut lire les métadonnées et le contenu des sources de données prises en charge Azure. Dans le code, vous pouvez créer et gérer des indexeurs en tant que ressources indépendantes. Dans le portail, les indexeurs sont exposés via l’Assistant **Importer des données**. 
 
 #### <a name="step-1-start-the-import-data-wizard"></a>Étape 1 : Démarrer l’Assistant Importer des données
 1. Dans votre tableau de bord de service Azure Search, cliquez sur **Importer des données** dans la barre de commandes pour lancer un assistant qui crée et remplit un index.
    
     ![Commande Importer des données][2]
 
-2. Dans l’Assistant, cliquez sur **Source de données** > **Exemples** > **realestate-us-sample**. Cette source de données est préconfigurée avec un nom, un type et des informations de connexion. Une fois créée, elle devient une « source de données existante » qui peut être réutilisée dans d’autres opérations d’importation.
+2. Dans l’Assistant, cliquez sur **Se connecter aux données** > **Exemples** > **realestate-us-sample**. Cette source de données est préconfigurée avec un nom, un type et des informations de connexion. Une fois créée, elle devient une « source de données existante » qui peut être réutilisée dans d’autres opérations d’importation.
 
     ![Sélection d’un exemple de jeu de données][9]
 
 3. Cliquez sur **OK** pour utiliser cette source.
+
+#### <a name="skip-cognitive-skills"></a>Ignorer les compétences cognitives
+
+**Importer des données** inclut une étape facultative de compétences cognitives qui ajoute des algorithmes d’intelligence artificielle à l’indexation. Cette fonctionnalité n’est pas abordée dans ce tutoriel. Vous pouvez passer directement à la section **Personnaliser l’index cible**. Si vous êtes intéressé par la nouvelle fonctionnalité de recherche cognitive en préversion dans Recherche Azure, essayez le [démarrage rapide](cognitive-search-quickstart-blob.md) ou le [tutoriel](cognitive-search-tutorial-blob.md) de Recherche cognitive.
+
+   ![Ignorer l’étape des compétences cognitives][11]
 
 #### <a name="step-2-define-the-index"></a>Étape 2 : définir l’index
 La création d’un index est généralement manuelle et basée sur du code, mais l’Assistant peut générer un index pour toutes les sources de données qu’il peut analyser. Un index requiert au minimum un nom et une collection de champs, l’un de ces champs étant désigné comme clé du document pour identifier chaque document de manière unique.
@@ -97,8 +97,20 @@ Pour surveiller le processus d’importation des données, revenez au tableau de
 
    ![Message de progression de l’indexeur][4]
 
+## <a name="view-the-index"></a>Afficher l’index
+
+Les vignettes du tableau de bord du service fournissent des informations résumées ainsi que qu’un accès aux informations détaillées. Par exemple, dans la vignette **Index**, une liste des index existants doit s’afficher, comprenant l’index *realestate-us-sample* que vous avez créé à l’étape précédente.
+
+Cliquez sur l’index *realestate-us-sample* maintenant pour afficher les options du portail pour sa définition. L’option **Ajouter/Modifier des champs** vous permet de créer et d’attribuer de nouveaux champs. Les champs existants ont une représentation physique dans Recherche Azure et ne sont donc pas modifiables, pas même dans le code. Pour modifier considérablement un champ existant, créez-en un nouveau et supprimez l’original. 
+
+   ![définition de l’index d’exemples][10]
+
+D’autres constructions, telles que des profils de score et des options CORS, peuvent être ajoutées à tout moment. 
+
+Pour comprendre clairement ce que vous pouvez et ne pouvez pas modifier lors de la conception d’index, prenez une minute pour consulter les options de définition d’index. Les options grisées indiquent qu’une valeur ne peut pas être modifiée ou supprimée.
+
 ## <a name="query-index"></a> Interroger l’index
-Vous disposez maintenant d’un index de recherche prêt à être interrogé. **Explorateur de recherche** est un outil de requête intégré au portail. Il comporte une zone de recherche qui vous permet de vérifier si les résultats de la recherche répondent à vos attentes. 
+Vous devriez maintenant avoir un index de recherche prêt à lancer des requêtes à l’aide de la page de requête [**Explorateur de recherche**](search-explorer.md) intégrée. Il fournit une zone de recherche afin que vous puissiez tester les chaînes de requête arbitraires. 
 
 > [!TIP]
 > La procédure qui suit fait l’objet d’une démonstration à 06 min 08 s dans la [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -108,42 +120,38 @@ Vous disposez maintenant d’un index de recherche prêt à être interrogé. **
 
    ![Commande Explorateur de recherche][5]
 
-2. Dans la barre de commandes, cliquez sur **Modifier l’index** pour basculer vers la source de données *realestate-us-sample*.
+2. Dans la barre de commandes, cliquez sur **Modifier l’index** pour basculer vers la source de données *realestate-us-sample*. Dans la barre de commandes, cliquez sur **Définir l’API de version** pour découvrir les API REST disponibles. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2017-11-11). 
 
    ![Commandes d’index et d’API][6]
 
-3. Dans la barre de commandes, cliquez sur **Définir l’API de version** pour découvrir les API REST disponibles. Les versions d’évaluation des API vous permettent d’accéder à de nouvelles fonctionnalités non encore mises à la disposition du grand public. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2017-11-11), sauf spécification contraire. 
+3. Dans la barre de recherche, entrez les chaînes de recherche ci-dessous, puis cliquez sur **Rechercher**.
 
     > [!NOTE]
-    > [L’API REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/search-documents) et la [bibliothèque .NET](search-howto-dotnet-sdk.md#core-scenarios) sont totalement équivalents, mais **l’Explorateur de recherche** ne gère que les appels REST. Il accepte à la fois la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et la [syntaxe de l’analyseur de requêtes complètes Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans les opérations [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+    > L’**Explorateur de recherche** n’est équipé que pour gérer la [demande d’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Il accepte à la fois la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et la [syntaxe de l’analyseur de requêtes complètes Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans les opérations [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
     > 
 
-4. Dans la barre de recherche, entrez les chaînes de recherche ci-dessous, puis cliquez sur **Rechercher**.
 
-  ![Exemple de requête de recherche][7]
-
-**`search=seattle`**
+#### <a name="example-string-searchseattle"></a>Exemple (chaîne) : `search=seattle`
 
 + Le paramètre **recherche** permet d’entrer une recherche par mot clé pour une recherche en texte intégral et, dans ce cas précis, renvoie les entrées du Comté de King, dans l’État de Washington, dont le document contient le terme *Seattle* dans l’un des champs utilisables dans une recherche. 
 
-+ **L’Explorateur de recherche** renvoie les résultats au format JSON, qui est particulièrement détaillé et difficile à lire si les documents présentent une structure dense. Selon les documents dont vous disposez, vous devrez peut-être écrire du code destiné à manipuler les résultats de la recherche pour en extraire les éléments importants. 
++ **L’Explorateur de recherche** renvoie les résultats au format JSON, qui est particulièrement détaillé et difficile à lire si les documents présentent une structure dense. Cela est intentionnel ; la visibilité du document entier est un cas d’utilisation important, en particulier lors du test. Pour une meilleure expérience utilisateur, vous devrez écrire le code qui [gère les résultats de recherche](search-pagination-page-layout.md) pour mettre en évidence les éléments importants.
 
-+ Les documents sont composés de tous les champs désignés comme récupérables dans l’index. Pour visualiser les attributs d’index dans le portail, cliquez sur *realestate-us-sample* dans la vignette **Index**.
++ Les documents sont composés de tous les champs marqués comme « récupérables » dans l’index. Pour visualiser les attributs d’index dans le portail, cliquez sur *realestate-us-sample* dans la vignette **Index**.
 
-**`search=seattle&$count=true&$top=100`**
+#### <a name="example-parameterized-searchseattlecounttruetop100"></a>Exemple (paramétrable) : `search=seattle&$count=true&$top=100`
 
 + Le symbole **&** permet d’ajouter des paramètres de recherche, qui peuvent être spécifiés dans n’importe quel ordre. 
 
-+  Le paramètre **$count=true** récupère une valeur indiquant le nombre total de documents renvoyés. Vous pouvez vérifier les requêtes de filtre en surveillant les modifications signalées par **$count=true**. 
++  Le paramètre **$count=true** récupère une valeur indiquant le nombre total de documents renvoyés. Cette valeur s’affiche en haut des résultats de recherche. Vous pouvez vérifier les requêtes de filtre en surveillant les modifications signalées par **$count=true**. Des petits nombres indiquent que votre filtre fonctionne.
 
 + La chaîne **$top=100** renvoie les 100 documents les mieux classés du nombre total de documents. Par défaut, le service Recherche Azure renvoie les 50 meilleures correspondances. Vous pouvez augmenter ou diminuer ce nombre par le biais du paramètre **$top**.
-
 
 ## <a name="filter-query"></a>Filtrer la requête
 
 Les filtres sont inclus dans les demandes de recherche lorsque vous ajoutez le paramètre **$filter**. 
 
-**`search=seattle&$filter=beds gt 3`**
+#### <a name="example-filtered-searchseattlefilterbeds-gt-3"></a>Exemple (filtré) : `search=seattle&$filter=beds gt 3`
 
 + Le paramètre **$filter** renvoie les résultats correspondant aux critères que vous avez spécifiés. Dans ce cas précis, la recherche renvoie les entrées présentant un nombre de chambres supérieur à 3. 
 
@@ -153,7 +161,7 @@ Les filtres sont inclus dans les demandes de recherche lorsque vous ajoutez le p
 
 Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez utiliser le paramètre de facette pour retourner un nombre agrégé des documents qui correspondent à la valeur de facette que vous fournissez. 
 
-**`search=*&facet=city&$top=2`**
+#### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>Exemple (par facettes avec une étendue réduite) : `search=*&facet=city&$top=2`
 
 + **search=*** est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de toutes les villes dans l’index.
 
@@ -161,7 +169,7 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 
 + **$top=2** renvoie deux documents, illustrant ainsi la possibilité d’utiliser `top` pour réduire ou augmenter les résultats.
 
-**`search=seattle&facet=beds`**
+#### <a name="example-facet-on-numeric-values-searchseattlefacetbeds"></a>Exemple (par facettes sur des valeurs numériques) : `search=seattle&facet=beds`**
 
 + Cette requête définit une facette correspondant au nombre de chambres dans une recherche de texte portant sur *Seattle*. Le terme *beds* peut être spécifié en tant que facette, car ce champ est désigné comme récupérable, filtrable et à choix multiples dans l’index, et les valeurs qu’il contient (valeurs numériques de 1 à 5) sont adaptées à un classement des entrées en différents groupes (entrées comportant 3 chambres, entrées comportant 4 chambres, etc.). 
 
@@ -171,58 +179,64 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 
 La mise en surbrillance des correspondances fait référence au formatage du texte qui correspond au mot clé, lorsque des correspondances sont trouvées dans un champ spécifique. Si votre terme de recherche est profondément enfoui dans une description, vous pouvez définir une mise en surbrillance des correspondances pour le localiser plus facilement. 
 
-**`search=granite countertops&highlight=description`**
+#### <a name="example-highlighter-searchgranite-countertopshighlightdescription"></a>Exemple (surligneur) : `search=granite countertops&highlight=description`
 
 + Dans cet exemple, l’expression mise en forme *granite countertops* est plus facile à repérer dans le champ de description.
 
-**`search=mice&highlight=description`**
+#### <a name="example-linguistic-analysis-searchmicehighlightdescription"></a>Exemple (analyse linguistique) : `search=mice&highlight=description`
 
 + La recherche en texte intégral recherche les formes d’un mot qui présentent une sémantique similaire. Dans ce cas précis, les résultats de la recherche présentent le texte « mouse » en surbrillance en réponse à une recherche portant sur le mot clé « mice ». Les résultats peuvent afficher différentes formes du même mot grâce à l’exécution d’une analyse linguistique. 
 
 + Le service Recherche Azure prend en charge 56 analyseurs Lucene et Microsoft. Par défaut, le service Recherche Azure utilise l’analyseur Lucene standard. 
 
-## <a name="fuzzy-search"></a> Utiliser la recherche partielle
+## <a name="fuzzy-search"></a> Essayer la recherche partielle
 
-Dans une recherche classique, aucune correspondance n’est renvoyée pour les mots mal orthographiés, comme *samamish* pour le plateau Samammish dans la région de Seattle. Pour gérer les fautes d’orthographe, vous pouvez utiliser une recherche partielle, décrite dans l’exemple suivant.
+Dans une recherche classique, aucune correspondance n’est renvoyée pour les termes de requête mal orthographiés, comme *samamish* pour le plateau Samammish dans la région de Seattle. L’exemple suivant ne retourne aucun résultat.
 
-**`search=samamish`**
+#### <a name="example-misspelled-term-unhandled-searchsamamish"></a>Exemple (terme mal orthographié, non pris en charge) : `search=samamish`
 
-+ Cet exemple orthographie mal une localité de la région de Seattle.
+Pour gérer les fautes d’orthographe, vous pouvez utiliser une recherche partielle. La recherche partielle est activée lorsque vous utilisez la syntaxe de requête complète Lucene, ce qui arrive lorsque vous effectuer deux actions : définir la requête sur **queryType=full** et ajouter le **~** à la chaîne de recherche. 
 
-**`search=samamish~&queryType=full`**
+#### <a name="example-misspelled-term-handled-searchsamamishquerytypefull"></a>Exemple (terme mal orthographié, pris en charge) : `search=samamish~&queryType=full`
 
-+ La recherche partielle est activée lorsque vous spécifiez le symbole **~** et que vous utilisez l’analyseur de requêtes complètes, qui interprète et traite correctement la syntaxe **~**. 
+Cet exemple retourne désormais les documents qui contiennent des correspondances pour « Sammamish ».
 
-+ La recherche partielle est disponible lorsque vous optez pour l’analyseur de requêtes complètes en définissant **queryType=full**. Pour plus d’informations sur les scénarios de requête autorisés par l’analyseur de requêtes complètes, consultez l’article [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Syntaxe de requête Lucene dans le service Recherche Azure).
+Lorsque l’élément **queryType** n’est pas spécifié, l’analyseur de requêtes simples par défaut est utilisé. L’analyseur de requêtes simples fonctionne plus rapidement, mais si vous avez besoin d’utiliser des recherches partielles, des expressions régulières, des recherches de proximité ou d’autres types de requêtes avancées, vous devrez recourir à la syntaxe complète. 
 
-+ Lorsque l’élément **queryType** n’est pas spécifié, l’analyseur de requêtes simples par défaut est utilisé. L’analyseur de requêtes simples fonctionne plus rapidement, mais si vous avez besoin d’utiliser des recherches partielles, des expressions régulières, des recherches de proximité ou d’autres types de requêtes avancées, vous devrez recourir à la syntaxe complète. 
+La recherche partielle et la recherche par caractères génériques ont des conséquences sur les résultats de la recherche. L’analyse linguistique n’est pas effectuée sur ces formats de requête. Avant d’effectuer la recherche partielle et la recherche par caractères génériques, consultez [Fonctionnement de la recherche en texte intégral dans la Recherche Azure](search-lucene-query-architecture.md#stage-2-lexical-analysis) et recherchez la section sur les exceptions dans l’analyse lexicale.
+
+Pour plus d’informations sur les scénarios de requête autorisés par l’analyseur de requêtes complètes, consultez l’article [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Syntaxe de requête Lucene dans le service Recherche Azure).
 
 ## <a name="geo-search"></a> Essayez la recherche géospatiale
 
 La recherche géographique est prise en charge par le biais du [type de données edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) sur un champ contenant des coordonnées. La recherche géographique est un type de filtre, spécifié dans l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData). 
 
-**`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
+#### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-122121513-47673988-le-5"></a>Exemple (filtres géo-coordonnés) : `search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`
 
-+ L’exemple de requête ci-dessus filtre tous les résultats sur la base de données positionnelles et renvoie les résultats situés à moins de 5 kilomètres d’un point donné (spécifié sous la forme de coordonnées de latitude et de longitude). L’ajout du paramètre **$count** vous permet de connaître le nombre de résultats renvoyés lorsque vous modifiez la distance ou les coordonnées. 
+L’exemple de requête ci-dessus filtre tous les résultats sur la base de données positionnelles et renvoie les résultats situés à moins de 5 kilomètres d’un point donné (spécifié sous la forme de coordonnées de latitude et de longitude). L’ajout du paramètre **$count** vous permet de connaître le nombre de résultats renvoyés lorsque vous modifiez la distance ou les coordonnées. 
 
-+ La recherche géographique est utile si votre application de recherche dispose d’une fonctionnalité « rechercher à proximité » ou qu’elle utilise la navigation dans les cartes. Toutefois, cette fonction de recherche n’est pas disponible en texte intégral. Si vos utilisateurs ont besoin de rechercher des villes ou des pays par leur nom, ajoutez des champs contenant les noms de ville ou de pays, en plus des coordonnées.
+La recherche géographique est utile si votre application de recherche dispose d’une fonctionnalité « rechercher à proximité » ou qu’elle utilise la navigation dans les cartes. Toutefois, cette fonction de recherche n’est pas disponible en texte intégral. Si vos utilisateurs ont besoin de rechercher des villes ou des pays par leur nom, ajoutez des champs contenant les noms de ville ou de pays, en plus des coordonnées.
+
+## <a name="takeaways"></a>Éléments importants à retenir
+
+Ce tutoriel présente les étapes de base d’utilisation de l’Assistant **Importer des données** et de l’**Explorateur de recherche** dans le portail Azure.
+
+En tant que force motrice de l’Assistant Importer des données, vous avez découvert les [indexeurs](search-indexer-overview.md), ainsi que le flux de travail de base pour la conception d’index, y compris [les modifications prises en charge pour un index publié](ttps://docs.microsoft.com/rest/api/searchservice/update-index). 
+
+Vous avez découvert la syntaxe de requête par le biais d’exemples pratiques illustrant des fonctionnalités clés telles que les filtres, la mise en surbrillance des correspondances, la recherche partielle et la recherche basée sur la géolocalisation.
+
+Enfin, vous avez appris à obtenir des informations relatives aux index, indexeurs et sources de données que vous avez créés dans votre abonnement, en cliquant sur les vignettes du tableau de bord. Plus tard, lorsque vous travaillerez avec vos propres index ou ceux créés par vos collègues, vous pourrez utiliser le portail pour vérifier rapidement une définition de source de données, ou la construction d’une collection de champs, sans avoir à effectuer de recherches dans un code inconnu.
+
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ Modifiez certains des objets que vous venez de créer. Après avoir exécuté une fois l’assistant, vous pouvez revenir en arrière et afficher ou modifier des composants individuels : l’index, l’indexeur ou la source de données. Certaines modifications, telles que le type de données du champ, ne sont pas autorisées dans l’index, mais la plupart des paramètres et des propriétés sont modifiables.
+Pour une exploration supplémentaire de Recherche Azure basée sur les outils, utilisez un outil de test REST tel que Postman ou Fiddler :
 
-  Pour afficher des composants individuellement, cliquez sur la mosaïque **Index**, **Indexeur** ou **Sources de données** sur votre tableau de bord pour afficher une liste des objets existants. Pour plus d’informations sur les modifications d’index qui ne nécessitent aucune régénération, consultez l’article [Update Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) (Mettre à jour un index (API REST du service Recherche Azure)).
-
-+ Essayez les différents outils et étapes avec d’autres sources de données. L’exemple de jeu de données `realestate-us-sample` provient d’un service Azure SQL Database que le service Recherche Azure peut analyser. Outre Azure SQL Database, le service Recherche Azure peut analyser et déduire un index à partir de structures de données plates de Stockage Table Azure, de Stockage Blob, de SQL Server sur une machine virtuelle Azure et d’Azure Cosmos DB. Toutes ces sources de données sont prises en charge dans l’Assistant. Dans le code, vous pouvez facilement remplir un index à l’aide d’un *indexeur*.
-
-+ Toutes les autres sources de données non analysées par un indexeur sont prises en charge par le biais d’un modèle de transmission de type Push, où votre code transmet à votre index des ensembles de lignes nouveaux et modifiés au format JSON. Pour plus d’informations, consultez l’article [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Ajouter, mettre à jour ou supprimer des documents dans le service Recherche Azure).
-
-Pour plus d’informations sur les autres fonctionnalités mentionnées dans cet article, sélectionnez les liens suivants :
-
-* [Présentation des indexeurs](search-indexer-overview.md)
-* [Création d’Index (comprend une explication détaillée sur les attributs d’index)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* [Explorateur de recherche](search-explorer.md)
-* [Rechercher des Documents (comprend des exemples de syntaxe de requête)](https://docs.microsoft.com/rest/api/searchservice/search-documents)
+> [!div class="nextstepaction"]
+> [Outils de test web pour appeler les API REST de la Recherche Azure](search-fiddler.md)
 
 
 <!--Image references-->
@@ -235,3 +249,5 @@ Pour plus d’informations sur les autres fonctionnalités mentionnées dans cet
 [7]: ./media/search-get-started-portal/search-explorer-query2.png
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
 [9]: ./media/search-get-started-portal/import-datasource-sample2.png
+[10]: ./media/search-get-started-portal/sample-index-def.png
+[11]: ./media/search-get-started-portal/skip-cog-skill-step.png

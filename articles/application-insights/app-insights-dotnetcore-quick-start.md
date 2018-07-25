@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386381"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991588"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Démarrer l’analyse de votre application web ASP.NET Core
 
@@ -25,7 +25,7 @@ Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit d
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer ce démarrage rapide :
+Pour suivre ce guide de démarrage rapide :
 
 - [Installez Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
   - Développement web et ASP.NET
@@ -33,11 +33,11 @@ Pour effectuer ce démarrage rapide :
 - [Installez le kit de développement (SDK) .NET Core 2.0](https://www.microsoft.com/net/core)
 - Vous avez besoin d’un abonnement Azure et d’une application web .NET Core existante.
 
-Si vous n’avez pas d’application web ASP.NET Core, vous pouvez en créer une en suivant le [guide de création d’une application web ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+Si vous ne disposez pas d’une application web ASP.NET Core, vous pouvez utiliser notre guide pas à pas pour [créer une application ASP.NET Core et ajouter Application Insights](app-insights-asp-net-core.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -56,7 +56,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
    | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application web ASP.NET | Type de l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
-   | **Lieu** | Est des États-Unis | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
+   | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
 2. Cliquez sur **Créer**.
 
@@ -77,25 +77,25 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 1. Vous pouvez à présent rouvrir la page de **présentation** d’Application Insights dans le portail Azure en sélectionnant **Projet** > **Application Insights** > **Ouvrir le portail Application Insights** pour afficher les détails sur votre application en cours d’exécution.
 
-   ![Menu Vue d'ensemble Application Insights](./media/app-insights-dotnetcore-quick-start/004-Black.png)
+   ![Menu Vue d'ensemble Application Insights](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
-2. Cliquez sur **Mise en correspondance d’applications** pour obtenir une présentation visuelle des relations de dépendance entre les composants de votre application. Chaque composant affiche des indicateurs de performance clés comme la charge, les performances, les échecs et les alertes.
+2. Cliquez sur **Cartographie d’application** pour obtenir une présentation visuelle des relations de dépendance entre les composants de votre application. Chaque composant affiche des indicateurs de performance clés comme la charge, les performances, les échecs et les alertes.
 
-   ![Mise en correspondance d'applications](./media/app-insights-dotnetcore-quick-start/0002-dc.png)
+   ![Mise en correspondance d'applications](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
 3. Cliquez sur l’icône **Analyse d’application** ![icône Mise en correspondance d’applications](./media/app-insights-dotnetcore-quick-start/006.png).  Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
 
    ![Graphique analytique des demandes d’utilisateur au cours d’une période donnée](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 
-4. Revenez à la page **Vue d’ensemble** et examinez la **chronologie de la vue d’ensemble de l’intégrité**.  Ce tableau de bord fournit des statistiques sur l’intégrité de votre application, y compris le nombre de demandes entrantes, la durée de ces demandes et les éventuelles erreurs qui se produisent. 
+4. Revenez à la page **Vue d’ensemble** et examinez les tableaux de bord des indicateurs de performance clés (KPI).  Ce tableau de bord fournit des statistiques sur l’intégrité de votre application, y compris le nombre de demandes entrantes, la durée de ces demandes et les éventuelles erreurs qui se produisent. 
 
-   ![Graphiques chronologiques de la vue d’ensemble de l’intégrité](./media/app-insights-dotnetcore-quick-start/0008-dc.png)
+   ![Graphiques chronologiques de la vue d’ensemble de l’intégrité](./media/app-insights-dotnetcore-quick-start/overview-graphs.png)
 
    Pour activer le graphique **Temps de chargement de la page consultée** à remplir avec les données de **télémétrie côté client**, ajoutez ce script à toutes les pages dont vous souhaitez effectuer le suivi :
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 
@@ -117,14 +117,14 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    ![Graphique des métriques de serveur](./media/app-insights-dotnetcore-quick-start/009-Black.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les didacticiels, ne supprimez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées par ce démarrage rapide dans le portail Azure.
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **myResourceGroup**.
 2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez **myResourceGroup** dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Rechercher et diagnostiquer des exceptions runtime](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

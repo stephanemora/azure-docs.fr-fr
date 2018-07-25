@@ -6,14 +6,14 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653652"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001539"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -140,6 +140,7 @@ Il existe deux types de chiffrement de base pour les services de stockage. Pour 
 
 Le Chiffrement du service de stockage Azure au repos permet de protéger vos données pour garantir le respect des engagements de votre organisation en matière de sécurité et de conformité. Avec cette fonctionnalité, Azure Storage chiffre automatiquement vos données avant de les rendre persistantes dans le stockage et les déchiffre avant la récupération. La gestion du chiffrement, du déchiffrement et des clés est totalement transparente pour les utilisateurs.
 
+
 Le chiffrement du service de stockage chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de Stockage Azure (blob, file d’attente, table et fichier). Le chiffrement du service de stockage n’affecte pas les performances de Stockage Azure.
 
 Pour plus d’informations sur le chiffrement du service de stockage, consultez [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md).
@@ -168,6 +169,8 @@ Vous pouvez utiliser l’utilitaire de ligne de commande AzCopy pour copier des 
 AzCopy repose sur la [bibliothèque de déplacement de données Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), actuellement disponible en version préliminaire.
 
 Le service d’importation/exportation d’Azure peut être utilisé pour importer ou exporter de grandes quantités de données d’objets blob vers ou depuis votre compte de stockage. Vous préparez et envoyez par courrier électronique plusieurs disques durs vers un centre de données Azure, puis ils transféreront les données vers ou depuis les disques durs avant de vous renvoyer les disques durs. Pour plus d’informations sur le service Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage-import-export-service.md).
+
+Pour importer de grandes quantités de données d’objets blob dans votre compte de stockage de façon rapide, économique et fiable, vous pouvez également utiliser Azure Data Box Disk. Microsoft envoie jusqu’à 5 disques SSD chiffrés dotés d’une capacité de 40 To à votre centre de données via un transporteur régional. Vous configurez rapidement les disques, y copiez des données via une connexion USB, puis réexpédiez les disques à Azure. Dans le centre de données Azure, vos données sont automatiquement chargées à partir de lecteurs vers le cloud. Pour plus d’informations sur cette solution, accédez à la [vue d’ensemble d’Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="pricing"></a>Tarifs
 

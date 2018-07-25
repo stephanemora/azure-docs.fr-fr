@@ -1,47 +1,37 @@
 ---
-title: Prise en main d’Azure DNS à l’aide de PowerShell | Microsoft Docs
-description: Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide de PowerShell.
+title: 'Démarrage rapide : Créer un enregistrement et une zone Azure DNS à l’aide d’Azure PowerShell'
+description: Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un démarrage rapide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide d’Azure PowerShell.
 services: dns
-documentationcenter: na
-author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
+author: vhorne
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: kumud
-ms.openlocfilehash: 050111f4a5e8459e89d049ccb879b5079ff68527
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: quickstart
+ms.date: 07/16/2018
+ms.author: victorh
+ms.openlocfilehash: e5801e9ed512a32d793f7b4b71be86174f656ab0
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30175322"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089976"
 ---
-# <a name="get-started-with-azure-dns-using-powershell"></a>Prise en main d’Azure DNS à l’aide de PowerShell
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Démarrage rapide : Créer un enregistrement et une zone Azure DNS à l’aide d’Azure PowerShell
 
-> [!div class="op_single_selector"]
-> * [Portail Azure](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-getstarted-cli.md)
-
-Cet article vous indique la procédure à suivre pour créer votre première zone et votre premier enregistrement DNS à l’aide d’Azure PowerShell. Vous pouvez également effectuer ces étapes à l’aide du portail Azure ou de l’interface de ligne de commande Azure multiplateforme. Azure DNS prend également en charge la création de domaines privés. Pour obtenir des instructions détaillées sur la création de votre première zone DNS privée et enregistrement, consultez [Bien démarrer avec les zones privées Azure DNS à l’aide de PowerShell](private-dns-getstarted-powershell.md).
+Dans ce démarrage rapide, vous allez créer vos premiers enregistrement et zone DNS à l’aide d’Azure PowerShell. Vous pouvez également effectuer ces étapes à l’aide du [portail Azure](dns-getstarted-portal.md) ou [d’Azure CLI](dns-getstarted-cli.md). 
 
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Enfin, pour publier votre zone DNS sur Internet, vous devez configurer les serveurs de noms du domaine. Chacune de ces étapes est décrite ci-dessous.
 
-Ces instructions supposent que vous avez déjà installé Azure PowerShell et que vous y êtes connecté. Pour obtenir de l’aide, consultez [Gestion des zones DNS à l’aide de PowerShell](dns-operations-dnszones.md).
+Azure DNS prend également en charge la création de domaines privés. Pour obtenir des instructions détaillées sur la création de votre première zone DNS privée et enregistrement, consultez [Bien démarrer avec les zones privées Azure DNS à l’aide de PowerShell](private-dns-getstarted-powershell.md).
+
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="create-the-resource-group"></a>Créer le groupe de ressources
 
-Avant de créer la zone DNS, un groupe de ressources est créé pour contenir la zone DNS. Voici la commande.
+Avant de créer la zone DNS, créez un groupe de ressources pour contenir la zone DNS :
 
 ```powershell
-New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+New-AzureRMResourceGroup -name MyResourceGroup -location "eastus"
 ```
 
 ## <a name="create-a-dns-zone"></a>Création d’une zone DNS
@@ -51,7 +41,6 @@ Une zone DNS est créée à l’aide de l’applet de commande `New-AzureRmDnsZo
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
-À présent, Azure DNS prend également en charge les zones DNS privées (actuellement en préversion publique).  Pour en savoir plus sur les zones DNS privées, consultez la session relative à [l’utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md). Vous trouverez un exemple de création d’une zone DNS privée sur la page [Bien démarrer avec les zones privées Azure DNS à l’aide de PowerShell](./private-dns-getstarted-powershell.md).
 
 ## <a name="create-a-dns-record"></a>Créer un enregistrement DNS
 
@@ -60,9 +49,6 @@ Vous pouvez utiliser l’applet de commande `New-AzureRmDnsRecordSet` pour crée
 ```powershell
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
-
-Pour découvrir d’autres types d’enregistrements et des jeux d’enregistrements comportant plus d’un enregistrement et pour modifier les enregistrements existants, consultez [Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell](dns-operations-recordsets.md). 
-
 
 ## <a name="view-records"></a>Affichage des enregistrements
 
@@ -95,7 +81,7 @@ Ces serveurs de noms doivent être configurés avec le bureau d’enregistrement
 
 ## <a name="delete-all-resources"></a>Supprimer toutes les ressources
 
-Pour supprimer toutes les ressources créées dans cet article, procédez comme suit :
+Lorsque vous n’en avez plus besoin, vous pouvez supprimer toutes les ressources créées dans ce démarrage rapide en supprimant le groupe de ressources :
 
 ```powershell
 Remove-AzureRMResourceGroup -Name MyResourceGroup
@@ -103,9 +89,8 @@ Remove-AzureRMResourceGroup -Name MyResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Azure DNS, consultez [Vue d’ensemble d’Azure DNS](dns-overview.md).
+Maintenant que vous avez créé vos premiers enregistrement et zone DNS à l’aide d’Azure PowerShell, vous pouvez créer des enregistrements pour une application web dans un domaine personnalisé.
 
-Pour en savoir plus sur la gestion des zones DNS dans Azure DNS, consultez [Gestion des zones DNS à l’aide de PowerShell](dns-operations-dnszones.md).
-
-Pour en savoir plus sur la gestion des enregistrements DNS dans Azure DNS, consultez [Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell](dns-operations-recordsets.md).
+> [!div class="nextstepaction"]
+> [Créer des enregistrements DNS pour une application web dans un domaine personnalisé](./dns-web-sites-custom-domain.md)
 

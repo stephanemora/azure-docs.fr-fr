@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547971"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006928"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Présentation de Managed Service Identity pour les ressources Azure
 
@@ -40,7 +40,7 @@ Par conséquent, votre code peut utiliser une identité affectée par le systèm
 
 Voici un exemple du fonctionnement des identités affectées par le système avec des machines virtuelles Azure :
 
-![Exemple d’identité gérée d’une machine virtuelle](overview/msi-vm-vmextension-imds-example.png)
+![Exemple d’identité gérée d’une machine virtuelle](media/overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager reçoit une requête pour activer l’identité affectée par le système sur une machine virtuelle.
 2. Azure Resource Manager crée un principal de service dans Azure AD pour représenter l’identité de la machine virtuelle. Le principal de service est créé dans l’abonné Azure AD approuvé par cet abonnement.
@@ -101,6 +101,7 @@ Essayez un didacticiel d’identité du service administré afin d’en savoir p
 | Azure Functions    | [Utiliser l’identité du service administré avec Azure App Service ou Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Utiliser Azure Service Bus avec une identité de service administré](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Hubs d'événements Azure   | [Utiliser une identité du service managé avec Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Gestion des API Azure | [Utiliser Managed Service Identity avec Gestion des API Azure](../../api-management/api-management-howto-use-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Quels services Azure prennent en charge l’identité du service administré ?
 

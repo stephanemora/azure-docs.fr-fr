@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26349067"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049862"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Intégrer Azure Automation à Event Grid et Microsoft Teams
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Importer un exemple de runbook Event Grid.
@@ -34,18 +34,21 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Un [compte Azure Automation](../automation/automation-offering-get-started.md) est requis pour terminer ce didacticiel et mettre le runbook déclenché par l’abonnement Azure Event Grid en attente.
 
+* Le module `AzureRM.Tags` doit être chargé dans votre compte Automation, consultez [How to import modules in Azure Automation](../automation/automation-update-azure-modules.md) (Importation de modules dans Azure Automation) pour apprendre à importer des modules dans Azure Automation.
+
 ## <a name="import-an-event-grid-sample-runbook"></a>Importer un exemple de runbook Event Grid
+
 1. Sélectionnez votre compte Automation puis cliquez sur la page **Runbooks**.
 
    ![Sélectionner des runbooks](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
 2. Cliquez sur le bouton **Parcourir la galerie**.
 
-3. Recherchez **Event Grid** et sélectionnez **Intégration d’Azure Automation à Event grid**. 
+3. Recherchez **Event Grid** et sélectionnez **Intégration d’Azure Automation à Event grid**.
 
     ![Importer le runbook de la galerie](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
@@ -53,7 +56,11 @@ Un [compte Azure Automation](../automation/automation-offering-get-started.md) e
 
 5. Une fois importé, sélectionnez **Modifier** pour afficher la source du runbook. Cliquez sur le bouton **Publier**.
 
+> [!NOTE]
+> La ligne 74 du script doit être remplacée par `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. Le paramètre `-Tags` devient `-Tag`.
+
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Créer un Webhook Microsoft Teams en option
+
 1. Dans Microsoft Teams, sélectionnez **Plus d’options** à côté du nom du canal, puis sélectionnez **Connecteurs**.
 
     ![Connexions Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
@@ -67,6 +74,7 @@ Un [compte Azure Automation](../automation/automation-offering-get-started.md) e
 5. Sélectionnez **Terminé** pour enregistrer le Webhook.
 
 ## <a name="create-a-webhook-for-the-runbook"></a>Créer un Webhook pour le runbook
+
 1. Ouvrez le runbook Watch-VMWrite.
 
 2. Sélectionnez **Webhooks**puis cliquez sur le bouton **Ajouter Webhook**.
@@ -112,7 +120,7 @@ Un [compte Azure Automation](../automation/automation-offering-get-started.md) e
     ![Notification Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous permet de configurer l’intégration entre Event Grid et Automation. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous permet de configurer l’intégration entre Event Grid et Automation. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Importer un exemple de runbook Event Grid.

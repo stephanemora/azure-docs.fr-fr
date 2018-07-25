@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce qu’Azure Log Analytics ? | Microsoft Docs
+title: Qu’est-ce qu’Azure Log Analytics ? | Microsoft Docs
 description: Log Analytics est un service d’Azure qui vous permet de collecter et d’analyser les données opérationnelles générées par les ressources de votre cloud et de vos environnements locaux.  Cet article fournit une vue d'ensemble des différents composants de Log Analytics ainsi que des liens vers un contenu détaillé.
 services: log-analytics
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 07/11/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 463ac7ee3e640f8bc275adb9e6ac27cc3e6a037a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 8e78528783d57d31e1eb9bcda82fa9acccf69dde
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127957"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005247"
 ---
 # <a name="what-is-azure-log-analytics"></a>Qu’est-ce qu’Azure Log Analytics ?
 Log Analytics joue un rôle central dans la gestion Azure : il collecte les données de télémétrie et d’autres données à partir de diverses sources et fournit un langage de requêtes et un moteur d’analyse qui vous donnent des informations sur le fonctionnement de vos applications et de vos ressources.  Vous pouvez interagir directement avec les données Log Analytics par le biais des recherches dans les journaux et des affichages, ou utiliser les outils d’analyse dans d’autres services Azure qui stockent leurs données dans Log Analytics, comme Application Insights ou Azure Security Center.  
@@ -41,12 +41,12 @@ Log Analytics peut recueillir des données de diverses sources.  Une fois collec
 
 Les méthodes de collecte des données dans Log Analytics incluent :
 
-- la configuration d’Azure Monitor pour copier les métriques et les journaux collectés à partir des ressources Azure ;
-- les agents sur les machines virtuelles [Windows](log-analytics-windows-agent.md) et [Linux](log-analytics-linux-agents.md) envoient les données de télémétrie du système d’exploitation invité et des applications à Log Analytics en fonction des [sources de données](log-analytics-data-sources.md) que vous configurez ;  
-- la connexion d’un [groupe d’administration System Center Operations Manager](log-analytics-om-agents.md) pour Log Analytics, afin de collecter des données à partir de ses agents ;
+- la configuration d’Azure Monitor pour copier [les métriques et les journaux](../monitoring/monitoring-data-collection.md#types-of-monitoring-data) collectés à partir des ressources Azure ;
+- la récolte des données de télémétrie écrites dans le [stockage Azure](log-analytics-azure-storage-iis-table.md).
+- les agents sur les machines virtuelles [Windows](log-analytics-windows-agent.md) et [Linux](log-analytics-linux-agents.md) envoient les données de télémétrie du système d’exploitation invité et des applications à Log Analytics en fonction des [sources de données](log-analytics-data-sources.md) que vous configurez ; Les agents peuvent être connectés directement, se connecter via une [passerelle OMS](log-analytics-oms-gateway.md) quand ils n’ont accès au pare-feu, ou se connecter via un [groupe d’administration Microsoft System Center Operations Manager](log-analytics-om-agents.md).
 - les services Azure tels que [Application Insights](https://docs.microsoft.com/azure/application-insights/) et [Azure Security Center](https://docs.microsoft.com/azure/security-center/) stockent leurs données directement dans Log Analytics, sans aucune configuration ;
 - l’écriture des données à partir d’une ligne de commande PowerShell ou d’un [runbook Azure Automation](../automation/automation-runbook-types.md) à l’aide des cmdlets Log Analytics.
-- Si vous avez des besoins spécifiques, vous pouvez utiliser l’[API de collecte de données HTTP](log-analytics-data-collector-api.md) pour écrire des données dans Log Analytics à partir de n’importe quel client de l’API REST.
+- Si vous avez des besoins spécifiques, vous pouvez utiliser l’[API de collecte de données HTTP](log-analytics-data-collector-api.md) pour écrire des données dans Log Analytics à partir de n’importe quel client de l’API REST, ou une [Application logique Azure](https://docs.microsoft.com/azure/logic-apps/) pour écrire des données à partir d’un flux de travail personnalisé.
 
 
 ![Composants de Log Analytics](media/log-analytics-overview/collecting-data.png)

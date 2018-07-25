@@ -15,12 +15,12 @@ ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c6800e5a00d2fb837538141571c105a1d21e4374
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860377"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005229"
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Principes de base des licences basées sur les groupes dans Azure Active Directory
 
@@ -30,8 +30,8 @@ Jusqu’à présent, les licences ne pouvaient être affectées qu’au niveau d
 
 Pour relever ces défis, Azure AD inclut maintenant une gestion des licences par groupe. Vous pouvez affecter une ou plusieurs licences de produits à un groupe. Azure AD permet de garantir que les licences sont affectées à tous les membres du groupe. Tous les nouveaux membres qui rejoignent le groupe se voient affecter les licences appropriées. Lorsqu’ils quittent le groupe, ces licences sont supprimées. Ceci élimine toute nécessité d’automatiser la gestion des licences avec PowerShell pour refléter les évolutions de la structure de l’organisation et des services utilisateur par utilisateur.
 
->[!NOTE]
->Cette fonctionnalité est actuellement disponible en préversion publique. Soyez prêt à rétablir ou à supprimer les modifications. La fonctionnalité est disponible dans tout plan de licence Azure Active Directory (Azure AD) payant durant la période de préversion publique. Toutefois, une fois la fonctionnalité généralement disponible, il se peut que certains de ses aspects nécessitent une ou plusieurs licences Azure Active Directory Premium.
+>[!Note]
+>La gestion des licences par groupe est une fonctionnalité en préversion publique de Azure Active Directory (Azure AD), disponible avec un plan de licence Azure AD payante. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="features"></a>Caractéristiques
 

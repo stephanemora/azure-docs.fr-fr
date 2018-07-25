@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 07/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5d403f7c1d0fff466f6c0fb9942ec777ab820eab
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 73f8616449141ca91f96e9fcebede74597bc4fe3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604530"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044915"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -136,7 +136,7 @@ Ce scénario comporte deux parties :
 
    ![Fenêtre contextuelle des éléments de la Place de marché Azure](media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Sélectionnez l’élément que vous souhaitez télécharger, puis notez la *version*. (Vous pouvez sélectionner plusieurs images en maintenant la touche *Ctrl* enfoncée.) Vous allez référencer la *version* lorsque vous importez l’élément dans la procédure suivante. 
+7. Sélectionnez l’élément que vous souhaitez télécharger, puis notez la *version*. (Vous pouvez maintenir la touche *Ctrl* enfoncée pour sélectionner plusieurs images.) Vous allez référencer la *version* lorsque vous importerez l’élément dans la procédure suivante. 
    
    Vous pouvez également filtrer la liste des images à l’aide de l’option **Ajouter des critères**.
 
@@ -148,20 +148,10 @@ Ce scénario comporte deux parties :
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importer le téléchargement et le publier sur la Place de marché Azure Stack
 1. Les fichiers pour les images de machine virtuelle ou les modèles de solution que vous avez [précédemment téléchargés](#use-the-marketplace-syndication-tool-to-download-marketplace-items) doivent être accessibles localement dans votre environnement Azure Stack.  
 
-2. Importer des fichiers .VHD dans Azure Stack. Pour importer une image de machine virtuelle, vous devez disposer des informations suivantes sur la machine virtuelle :
-   - La *version*, comme indiquée à l’étape 7 de la procédure précédente.
-   - Les valeurs de *publisher*, *offer* et *sku* de la machine virtuelle. Pour obtenir ces valeurs, renommer une copie du fichier **.azpkg** pour modifier son extension de fichier en **.zip**. Vous pouvez ensuite utiliser un éditeur de texte pour ouvrir **DeploymentTemplates\CreateUiDefinition.json**. Dans le fichier .json, recherchez la section *imageReference* qui contient ces valeurs pour l’élément de la Place de marché. L’exemple suivant illustre l’affichage de ces informations :
+2. Importez l’image VHD dans Azure Stack à l’aide de la cmdlet **Add-AzsPlatformimage**. Lorsque vous utilisez cette cmdlet, remplacez les valeurs *publisher*, *offer* et les autres valeurs de paramètre par les valeurs de l’image que vous importez. 
 
-     ```json  
-     "imageReference": {  
-        "publisher": "MicrosoftWindowsServer",  
-        "offer": "WindowsServer",  
-        "sku": "2016-Datacenter-Server-Core"  
-      }
-     ```  
-
-   Importez l’image dans Azure Stack à l’aide de l’applet de commande **Add-AzsPlatformimage**. Lorsque vous utilisez cette cmdlet, veillez à remplacer les valeurs *publisher*, *offer* et les autres valeurs de paramètre par les valeurs de l’image que vous importez. Vous pouvez obtenir les valeurs *publisher*, *offer*, et *sku* de l’image à partir du fichier texte téléchargé avec le fichier AZPKG et stocké dans l’emplacement de destination. 
-
+   Vous pouvez obtenir les valeurs *publisher*, *offer* et *sku* de l’image à partir du fichier texte téléchargé avec le fichier AZPKG. Le fichier texte est stocké dans l’emplacement de destination.
+ 
    Dans l’exemple de script suivant, les valeurs pour la machine virtuelle Server Core (Windows Server 2016 Datacenter) sont utilisées. 
 
    ```PowerShell  

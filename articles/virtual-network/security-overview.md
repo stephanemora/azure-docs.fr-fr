@@ -1,6 +1,6 @@
 ---
-title: Présentation de la sécurité réseau Azure | Microsoft Docs
-description: En savoir plus sur les options de sécurité qui contrôlent le flux de trafic réseau entre les ressources Azure.
+title: Vue d’ensemble des groupes de sécurité Azure | Microsoft Docs
+description: En savoir plus sur les groupes de sécurité réseau et d’application. Les groupes de sécurité vous permettent de filtrer le trafic réseau entre les ressources Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e43f476c6f816a912e5739d5e2c13676cd1ca3e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657585"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092665"
 ---
-# <a name="network-security"></a>Sécurité du réseau
+# <a name="network-and-application-security-groups"></a>Groupes de sécurité réseau et d’application
 
-Vous pouvez limiter le trafic réseau vers les ressources d’un réseau virtuel à l’aide d’un groupe de sécurité réseau. Un groupe de sécurité réseau contient une liste de règles de sécurité qui autorisent ou refusent le trafic réseau entrant ou sortant en fonction de l’adresse IP source ou de destination, du port et du protocole. 
+Vous pouvez limiter le trafic réseau vers les ressources d’un réseau virtuel à l’aide de groupes de sécurité réseau et d’application. Un groupe de sécurité réseau contient une liste de règles de sécurité qui autorisent ou refusent le trafic réseau entrant ou sortant en fonction de l’adresse IP source ou de destination, du port et du protocole. Un groupe de sécurité d’application vous permet de regrouper des machines virtuelles dont les fonctions sont similaires, par exemple des serveurs web. Vous pouvez spécifier un groupe de sécurité d’application en tant que source ou destination dans une règle de groupe de sécurité réseau.
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 
-Chaque interface réseau est associée à zéro ou un groupe de sécurité réseau. Chaque interface réseau existe dans un sous-réseau de [réseau virtuel](virtual-networks-overview.md). Un sous-réseau peut aussi être associé à zéro ou un groupe de sécurité réseau. 
+Chaque interface réseau est associée à zéro ou un groupe de sécurité réseau. Chaque interface réseau existe dans un sous-réseau de [réseau virtuel](virtual-networks-overview.md). Un sous-réseau peut aussi être associé à zéro ou un groupe de sécurité réseau.
 
 Quand elles sont appliquées à un sous-réseau, les règles de sécurité sont appliquées à toutes les ressources dans le sous-réseau. En plus des interfaces réseau, vous pouvez avoir des instances d’autres services Azure, tels que HDInsight, des groupes de machines virtuelles identiques et des environnements de service d’application déployés dans le sous-réseau.
 
@@ -167,10 +167,10 @@ Les groupes de sécurité d’application ont les contraintes suivantes :
 
      - **Contrat Entreprise** : Les communications sortantes via le port 25 sont autorisées. Vous êtes en mesure d’envoyer du courrier sortant directement depuis les machines virtuelles vers des fournisseurs de messagerie électronique externes, sans limitations de la plateforme Azure. 
      - **Paiement à l’utilisation** : Les communications sortantes via le port 25 sont bloquées vers toutes les ressources. Si vous devez envoyer des courriers électroniques directement depuis une machine virtuelle vers des fournisseurs de messagerie électronique externes (sans utiliser des relais SMTP authentifiés), vous pouvez effectuer une requête pour retirer la restriction. Les demandes sont étudiées et acceptées par Microsoft. Elles ne sont accordées qu’après des vérifications antifraude. Pour effectuer une requête, ouvrez un cas d’assistance avec pour type de problème *Technique*, *Connectivité du réseau virtuel*, *Envoi de messages électroniques impossible (SMTP/Port 25)*. Dans votre cas d’assistance, indiquez les raisons pour lesquelles votre abonnement doit être en mesure d’envoyer des courriers électroniques directement aux fournisseurs, sans passer par un relais authentifié SMTP. Si votre abonnement est exempté, seules les machines virtuelles créées après la date d’exemption sont en mesure d’utiliser des communications sortantes via le port 25.
-     - **Fournisseur de services cloud (CSP), MSDN, Pass Azure, Azure dans Open, Éducation, BizSpark et essai gratuit** : les communications sortantes via le port 25 sont bloquées pour toutes les ressources. Aucune demande pour retirer la restriction ne peut être faite. Elles ne sont pas autorisées. Si vous devez envoyer des courriers électroniques depuis votre machine virtuelle, vous devez utiliser un service de relais SMTP.
+     - **MSDN, Pass Azure, Azure dans Open, Éducation, BizSpark et essai gratuit** : Les communications sortantes via le port 25 sont bloquées pour toutes les ressources. Aucune demande pour retirer la restriction ne peut être faite. Elles ne sont pas autorisées. Si vous devez envoyer des courriers électroniques depuis votre machine virtuelle, vous devez utiliser un service de relais SMTP.
+     - **Fournisseur de services cloud** : les clients qui consomment des ressources Azure via un fournisseur de services cloud peuvent créer une demande de support auprès de celui-ci et demander à ce qu’il crée une demande de déblocage en son nom, si un relais SMTP sécurisé ne peut pas être utilisé.
 
-  Si Azure vous permet d’envoyer des courriers électroniques via le port 25, Microsoft ne peut vous garantir que les fournisseurs de messagerie électronique accepteront le message entrant en provenance de votre machine virtuelle. Si un fournisseur spécifique rejette les messages en provenance de votre machine virtuelle, vous devez vous arranger directement avec le fournisseur pour résoudre tout problème de livraison de messages ou de filtrage de spam, ou bien utiliser un service de relais SMTP authentifié. 
-
+  Si Azure vous permet d’envoyer des courriers électroniques via le port 25, Microsoft ne peut vous garantir que les fournisseurs de messagerie électronique accepteront le message entrant en provenance de votre machine virtuelle. Si un fournisseur spécifique rejette les messages en provenance de votre machine virtuelle, vous devez vous arranger directement avec le fournisseur pour résoudre tout problème de livraison de messages ou de filtrage de spam, ou bien utiliser un service de relais SMTP authentifié.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
