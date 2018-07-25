@@ -1,13 +1,13 @@
 # [Documentation Key Vault](index.yml)
 
-# Vue d'ensemble
+# Vue d’ensemble
 ## [À propos de Key Vault](key-vault-overview.md)
 
 # Démarrages rapides
 ## [Création d’un coffre de clés - Interface CLI](quick-create-cli.md)
 ## [Création d’un coffre de clés - PowerShell](quick-create-powershell.md)
 ## [Création d’un coffre de clés - Portail](quick-create-portal.md)
-
+## [Lecture à partir d’un coffre de clés - .NET](quick-create-net.md)
 # Didacticiels
 ## [Lire un secret à partir de Key Vault ](tutorial-web-application-keyvault.md)
 ## [Prise en main de Key Vault](key-vault-get-started.md)
@@ -38,7 +38,7 @@
 ## Automatisation
 ### [Azure Automation](automation-manage-key-vault.md)
 
-# Informations de référence
+# Référence
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [interface de ligne de commande Azure](/cli/azure/keyvault)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)

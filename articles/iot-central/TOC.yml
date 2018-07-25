@@ -2,7 +2,7 @@
   href: /azure/iot-fundamentals
 - name: Documentation sur Azure IoT Central
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Qu’est-ce que Azure IoT Central ?
       href: overview-iot-central.md
@@ -53,6 +53,8 @@
           href: howto-create-telemetry-rules.md
         - name: Créer une règle d’événements
           href: howto-create-event-rules.md
+        - name: Créer des actions de webook sur des règles
+          href: howto-create-webhooks.md
         - name: Créer des workflows dans Microsoft Flow
           href: howto-add-microsoft-flow.md
         - name: Configurer la page d’accueil

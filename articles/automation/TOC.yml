@@ -99,6 +99,8 @@
           href: automation-runbook-output-and-messages.md
         - name: Intégration du contrôle de code source
           href: automation-source-control-integration.md
+        - name: Créer des runbooks avec le Kit de développement logiciel (SDK) de runbooks graphiques
+          href: graphical-runbook-sdk.md
     - name: Automatisation
       items:
         - name: Démarrer un runbook
@@ -197,7 +199,7 @@
           href: automation-orchestrator-migration.md
         - name: Déplacer le compte Automation
           href: automation-migrate-account-subscription.md
-    - name: Résolution des problèmes
+    - name: Résoudre les problèmes
       items:
         - name: Mise en route
           href: troubleshoot/onboarding.md

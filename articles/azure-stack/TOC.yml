@@ -1,19 +1,19 @@
 - name: Documentation pour opérateur Azure Stack
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack\_?"
       href: azure-stack-poc.md
     - name: Notes de publication
       items:
+        - name: mise à jour 1807
+          href: azure-stack-update-1807.md
         - name: "mise à jour\_1805"
           href: azure-stack-update-1805.md
         - name: "mise à jour\_1804"
           href: azure-stack-update-1804.md
         - name: "mise à jour\_1803"
           href: azure-stack-update-1803.md
-        - name: "mise à jour\_1802"
-          href: azure-stack-update-1802.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -140,6 +140,8 @@
               href: azure-stack-manage-storage-shares.md
             - name: Gérer la capacité de mémoire physique
               href: azure-stack-manage-storage-physical-memory-capacity.md
+            - name: Ajouter des nœuds d’unités d’échelle
+              href: azure-stack-add-scale-node.md
         - name: Remplacer le matériel
           items:
             - name: Actions de nœud
@@ -327,7 +329,7 @@
               href: azure-stack-vpn-gateway-settings.md
             - name: Connexion à l’aide d’ExpressRoute
               href: azure-stack-connect-expressroute.md
-    - name: Résolution des problèmes
+    - name: Résoudre les problèmes
       items:
         - name: Problèmes connus
           href: azure-stack-troubleshooting.md
@@ -335,7 +337,7 @@
           href: azure-stack-diagnostics.md
         - name: "Validation pour Azure\_Stack"
           href: azure-stack-diagnostic-test.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
