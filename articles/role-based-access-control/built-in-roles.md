@@ -34,15 +34,15 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | Rôle intégré | Description |
 | --- | --- |
 | [Propriétaire](#owner) | Permet de tout gérer, notamment l’accès aux ressources. |
-| [Collaborateur](#contributor) | Permet de tout gérer, à l’exception de l’accès aux ressources. |
+| [Contributeur](#contributor) | Permet de tout gérer, à l’exception de l’accès aux ressources. |
 | [Lecteur](#reader) | Vous permet de tout afficher, mais sans apporter de modifications. |
 | [AcrImageSigner](#acrimagesigner) | signataire d’image ACR |
 | [AcrQuarantineReader](#acrquarantinereader) | lecteur de données de quarantaine ACR |
 | [AcrQuarantineWriter](#acrquarantinewriter) | écriture de données de quarantaine ACR |
-| [Collaborateur du service Gestion des API](#api-management-service-contributor) | Vous permet de gérer des services Gestion des API, mais pas d'y accéder. |
+| [Contributeur du service Gestion des API](#api-management-service-contributor) | Vous permet de gérer des services Gestion des API, mais pas d'y accéder. |
 | [Rôle d’opérateur du service Gestion des API](#api-management-service-operator-role) | Peut gérer le service, mais pas les API |
 | [Rôle de lecteur du service Gestion des API](#api-management-service-reader-role) | Accès en lecture seule au service et aux API |
-| [Collaborateur de composants Application Insights](#application-insights-component-contributor) | Gérer les composants Application Insights |
+| [Contributeur de composants Application Insights](#application-insights-component-contributor) | Gérer les composants Application Insights |
 | [Débogueur de capture instantanée d’Application Insights](#application-insights-snapshot-debugger) | Autorise l’utilisateur à utiliser les fonctionnalités du débogueur de capture instantanée d’Application Insights. |
 | [Opérateur de travaux Automation](#automation-job-operator) | Permet de créer et de gérer des travaux avec des runbooks Automation. |
 | [Opérateur Automation](#automation-operator) | Les opérateurs d’Automation sont en mesure de démarrer, d’arrêter, de suspendre et de reprendre des travaux |
@@ -52,24 +52,24 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Opérateur de sauvegarde](#backup-operator) | Permet de gérer des services de sauvegarde, à l’exception de la suppression de la sauvegarde, de la création de coffres et de l’octroi d’autorisations d’accès à d’autres personnes |
 | [Lecteur de sauvegarde](#backup-reader) | Peut afficher des services de sauvegarde, mais pas apporter des modifications |
 | [Lecteur de facturation](#billing-reader) | Vous permet de lire les données de facturation |
-| [Collaborateur BizTalk](#biztalk-contributor) | Permet de gérer des services BizTalk, mais pas d’y accéder. |
+| [Contributeur BizTalk](#biztalk-contributor) | Permet de gérer des services BizTalk, mais pas d’y accéder. |
 | [Contributeur de point de terminaison CDN](#cdn-endpoint-contributor) | Peut gérer les points de terminaison CDN, mais ne peut pas accorder l’accès à d’autres utilisateurs. |
 | [Lecteur de point de terminaison CDN](#cdn-endpoint-reader) | Peut afficher des points de terminaison CDN, mais ne peut pas effectuer de modifications. |
 | [Contributeur de profil CDN](#cdn-profile-contributor) | Peut gérer des profils CDN et leurs points de terminaison, mais ne peut pas accorder l’accès à d’autres utilisateurs. |
 | [Lecteur de profil CDN](#cdn-profile-reader) | Peut afficher des profils CDN et leurs points de terminaison, mais ne peut pas y apporter des modifications. |
-| [Collaborateur de réseau classique](#classic-network-contributor) | Permet de gérer des réseaux classiques, mais pas d’y accéder. |
-| [Collaborateur de compte de stockage classique](#classic-storage-account-contributor) | Permet de gérer des comptes de stockage classiques, mais pas d’y accéder. |
+| [Contributeur de réseau classique](#classic-network-contributor) | Permet de gérer des réseaux classiques, mais pas d’y accéder. |
+| [Contributeur de compte de stockage classique](#classic-storage-account-contributor) | Permet de gérer des comptes de stockage classiques, mais pas d’y accéder. |
 | [Rôle de service d’opérateur de clé de compte de stockage classique](#classic-storage-account-key-operator-service-role) | Les opérateurs de clés de comptes de stockage classiques sont autorisés à lister et à régénérer des clés sur des comptes de stockage classiques |
-| [Collaborateur de machine virtuelle classique](#classic-virtual-machine-contributor) | Permet de gérer des machines virtuelles classiques, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
-| [Collaborateur de base de données ClearDB MySQL](#cleardb-mysql-db-contributor) | Permet de gérer des bases de données ClearDB MySQL, mais pas d’y accéder. |
-| [Rôle de lecteur de compte Cosmos DB](#cosmos-db-account-reader-role) | Lire les données de comptes Azure Cosmos DB. Consultez [Collaborateur de compte DocumentDB](#documentdb-account-contributor) pour en savoir plus sur la gestion des comptes Azure Cosmos DB. |
-| [Collaborateurs de fabrique de données](#data-factory-contributor) | Vous permet de gérer des fabriques de données, mais pas d'y accéder. |
+| [Contributeur de machine virtuelle classique](#classic-virtual-machine-contributor) | Permet de gérer des machines virtuelles classiques, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
+| [Contributeur de base de données ClearDB MySQL](#cleardb-mysql-db-contributor) | Permet de gérer des bases de données ClearDB MySQL, mais pas d’y accéder. |
+| [Rôle de lecteur de compte Cosmos DB](#cosmos-db-account-reader-role) | Lire les données de comptes Azure Cosmos DB. Consultez [Contributeur de compte DocumentDB](#documentdb-account-contributor) pour en savoir plus sur la gestion des comptes Azure Cosmos DB. |
+| [Contributeurs de fabrique de données](#data-factory-contributor) | Vous permet de gérer des fabriques de données, mais pas d'y accéder. |
 | [Développeur Data Lake Analytics](#data-lake-analytics-developer) | Permet d’envoyer, de surveiller et de gérer vos propres travaux, mais pas de créer ni de supprimer des comptes Data Lake Analytics. |
 | [Videur de données](#data-purger) | Peut vider les données d’analytique |
 | [Utilisateur de DevTest Labs](#devtest-labs-user) | Vous permet de connecter, de démarrer, de redémarrer et d'arrêter les machines virtuelles dans votre Azure DevTest Labs. |
 | [Contributeur de Zone DNS](#dns-zone-contributor) | Permet de gérer des zones DNS et des jeux d’enregistrements dans Azure DNS, mais pas de contrôler qui y a accès. |
-| [Collaborateur de compte DocumentDB](#documentdb-account-contributor) | Gérer des comptes Azure Cosmos DB. Azure Cosmos DB était auparavant appelé DocumentDB. |
-| [Collaborateur de compte Intelligent Systems](#intelligent-systems-account-contributor) | Permet de gérer des comptes Intelligent Systems, mais pas d’y accéder. |
+| [Contributeur de compte DocumentDB](#documentdb-account-contributor) | Gérer des comptes Azure Cosmos DB. Azure Cosmos DB était auparavant appelé DocumentDB. |
+| [Contributeur de compte Intelligent Systems](#intelligent-systems-account-contributor) | Permet de gérer des comptes Intelligent Systems, mais pas d’y accéder. |
 | [Contributeur Key Vault](#key-vault-contributor) | Permet de gérer des coffres de clés, mais pas d’y accéder. |
 | [Créateur Lab](#lab-creator) | Permet de créer, de gérer et de supprimer des labs gérés dans vos comptes Azure Lab. |
 | [Contributeur Log Analytics](#log-analytics-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. La modification des paramètres de surveillance inclut l’ajout de l’extension de machine virtuelle aux machines virtuelles, la lecture des clés de comptes de stockage permettant de configurer la collection de journaux du stockage Azure, la création et la configuration de comptes Automation, l’ajout de solutions et la configuration de diagnostics Azure sur toutes les ressources Azure. |
@@ -78,27 +78,27 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Opérateur d’application logique](#logic-app-operator) | Permet de lire, d’activer et de désactiver l’application logique. |
 | [Contributeur d’identités gérées](#managed-identity-contributor) | Peut créer, lire, mettre à jour et supprimer une identité attribuée à l’utilisateur. |
 | [Opérateur d’identités gérées](#managed-identity-operator) | Peut lire et assigner une identité attribuée à l’utilisateur. |
-| [Collaborateur du groupe d’administration](#management-group-contributor) | Rôle de collaborateur du groupe d’administration |
+| [Contributeur du groupe d’administration](#management-group-contributor) | Rôle de Contributeur du groupe d’administration |
 | [Lecteur du groupe d’administration](#management-group-reader) | Rôle de lecteur du groupe d’administration |
 | [Contributeur de surveillance](#monitoring-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. Consultez aussi [Bien démarrer avec les rôles, les autorisations et la sécurité dans Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Lecteur de surveillance](#monitoring-reader) | Peut lire toutes les données de surveillance (métriques, journaux, etc.) Consultez aussi [Bien démarrer avec les rôles, les autorisations et la sécurité dans Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
-| [Collaborateur de réseau](#network-contributor) | Permet de gérer des réseaux, mais pas d’y accéder. |
-| [Collaborateur de compte NewRelic APM](#new-relic-apm-account-contributor) | Vous permet de gérer des comptes et applications New Relic Application Performance Management, mais pas d’y accéder. |
+| [Contributeur de réseau](#network-contributor) | Permet de gérer des réseaux, mais pas d’y accéder. |
+| [Contributeur de compte NewRelic APM](#new-relic-apm-account-contributor) | Vous permet de gérer des comptes et applications New Relic Application Performance Management, mais pas d’y accéder. |
 | [Lecteur et accès aux données](#reader-and-data-access) | Permet d’afficher tous les éléments, mais pas de supprimer ou de créer un compte de stockage ou une ressource contenue. En outre, autorise l’accès en lecture/écriture à toutes les données contenues dans un compte de stockage via l’accès aux clés de compte de stockage. |
-| [Collaborateur Cache Redis](#redis-cache-contributor) | Permet de gérer des caches Redis, mais pas d’y accéder. |
-| [Collaborateur de stratégie de ressource (préversion)](#resource-policy-contributor-preview) | (Préversion) Utilisateurs renvoyés de EA, avec des droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire des ressources ou la hiérarchie. |
-| [Collaborateur des collections de travaux du planificateur](#scheduler-job-collections-contributor) | Permet de gérer des collections de tâches du planificateur, mais pas d’y accéder. |
-| [Collaborateur du service de recherche](#search-service-contributor) | Permet de gérer des services de recherche, mais pas d’y accéder. |
+| [Contributeur Cache Redis](#redis-cache-contributor) | Permet de gérer des caches Redis, mais pas d’y accéder. |
+| [Contributeur de stratégie de ressource (préversion)](#resource-policy-contributor-preview) | (Préversion) Utilisateurs renvoyés de EA, avec des droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire des ressources ou la hiérarchie. |
+| [Contributeur des collections de travaux du planificateur](#scheduler-job-collections-contributor) | Permet de gérer des collections de tâches du planificateur, mais pas d’y accéder. |
+| [Contributeur du service de recherche](#search-service-contributor) | Permet de gérer des services de recherche, mais pas d’y accéder. |
 | [Administrateur de la sécurité](#security-admin) | Dans Security Center uniquement : peut afficher des stratégies de sécurité, afficher des états de sécurité, modifier des stratégies de sécurité, afficher des alertes et des recommandations, ignorer les alertes et les recommandations |
 | [Gestionnaire de sécurité](#security-manager) | Permet de gérer des composants de sécurité, des stratégies de sécurité et des machines virtuelles |
 | [Lecteur de sécurité](#security-reader) | Dans Security Center uniquement : peut afficher des recommandations et des alertes, afficher des stratégies de sécurité, afficher des états de la sécurité, mais ne peut pas apporter des modifications |
 | [Contributeur Site Recovery](#site-recovery-contributor) | Permet de gérer le service Site Recovery sauf la création de coffre et l’attribution de rôle |
 | [Opérateur Site Recovery](#site-recovery-operator) | Permet de basculer et de restaurer mais pas d’effectuer d’autres opérations de gestion de Site Recovery |
 | [Lecteur Site Recovery](#site-recovery-reader) | Permet d’afficher l’état de Site Recovery mais pas d’effectuer d’autres opérations de gestion |
-| [Collaborateur de base de données SQL](#sql-db-contributor) | Permet de gérer des bases de données SQL, mais pas d’y accéder. Vous ne pouvez pas non plus gérer leurs stratégies de sécurité ni leurs serveurs SQL parents. |
+| [Contributeur de base de données SQL](#sql-db-contributor) | Permet de gérer des bases de données SQL, mais pas d’y accéder. Vous ne pouvez pas non plus gérer leurs stratégies de sécurité ni leurs serveurs SQL parents. |
 | [Gestionnaire de sécurité SQL](#sql-security-manager) | Permet de gérer les stratégies de sécurité des serveurs et bases de données SQL, mais pas d’y accéder. |
-| [Collaborateur SQL Server](#sql-server-contributor) | Permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder, ni de gérer leurs stratégies de sécurité. |
-| [Collaborateur de compte de stockage](#storage-account-contributor) | Permet de gérer des comptes de stockage, mais pas d’y accéder. |
+| [Contributeur SQL Server](#sql-server-contributor) | Permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder, ni de gérer leurs stratégies de sécurité. |
+| [Contributeur de compte de stockage](#storage-account-contributor) | Permet de gérer des comptes de stockage, mais pas d’y accéder. |
 | [Rôle de service d’opérateur de clé de compte de stockage](#storage-account-key-operator-service-role) | Les opérateurs de clés de comptes de stockage sont autorisés à lister et à régénérer des clés sur des comptes de stockage |
 | [Contributeur aux données blob du stockage (préversion)](#storage-blob-data-contributor-preview) | Permet l'accès en lecture, en écriture et pour suppression aux conteneurs blob et aux données du stockage Azure |
 | [Lecteur des données Blob du stockage (préversion)](#storage-blob-data-reader-preview) | Permet l'accès en lecture aux conteneurs blob et aux données du stockage Azure |
@@ -108,10 +108,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Contributeur Traffic Manager](#traffic-manager-contributor) | Permet de gérer des profils Traffic Manager, mais pas de contrôler qui y a accès. |
 | [Administrateur de l'accès utilisateur](#user-access-administrator) | Vous permet de gérer l'accès utilisateur aux ressources Azure. |
 | [Connexion de l’administrateur aux machines virtuelles](#virtual-machine-administrator-login) | Afficher les machines virtuelles dans le portail et se connecter en tant qu’administrateur |
-| [Collaborateur de machine virtuelle](#virtual-machine-contributor) | Permet de gérer des machines virtuelles, mais pas d’y accéder, ni d’accéder au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
+| [Contributeur de machine virtuelle](#virtual-machine-contributor) | Permet de gérer des machines virtuelles, mais pas d’y accéder, ni d’accéder au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
 | [Connexion de l’utilisateur aux machines virtuelles](#virtual-machine-user-login) | Affichez les machines virtuelles dans le portail et connectez-vous en tant qu’utilisateur normal. |
-| [Collaborateur de plan web](#web-plan-contributor) | Permet de gérer des plans web pour des sites web, mais pas d’y accéder. |
-| [Collaborateur de site web](#website-contributor) | Permet de gérer des sites web (pas des plans web), mais pas d’y accéder. |
+| [Contributeur de plan web](#web-plan-contributor) | Permet de gérer des plans web pour des sites web, mais pas d’y accéder. |
+| [Contributeur de site web](#website-contributor) | Permet de gérer des sites web (pas des plans web), mais pas d’y accéder. |
 
 
 ## <a name="owner"></a>Propriétaire
@@ -176,7 +176,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.ContainerRegistry/registries/*/write |  |
 > | Microsoft.ContainerRegistry/registries/*/read |  |
 
-## <a name="api-management-service-contributor"></a>Collaborateur du service de gestion des API
+## <a name="api-management-service-contributor"></a>Contributeur du service de gestion des API
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -234,7 +234,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtenir la liste des clés utilisateur |
 
-## <a name="application-insights-component-contributor"></a>Collaborateur de composants Application Insights
+## <a name="application-insights-component-contributor"></a>Contributeur de composants Application Insights
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -484,7 +484,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="biztalk-contributor"></a>Collaborateur BizTalk
+## <a name="biztalk-contributor"></a>Contributeur BizTalk
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -563,7 +563,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="classic-network-contributor"></a>Collaborateur de réseau classique
+## <a name="classic-network-contributor"></a>Contributeur de réseau classique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -578,7 +578,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="classic-storage-account-contributor"></a>Collaborateur de compte de stockage classique
+## <a name="classic-storage-account-contributor"></a>Contributeur de compte de stockage classique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -603,7 +603,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Répertorie les clés d’accès des comptes de stockage. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Régénère les clés d’accès existantes du compte de stockage. |
 
-## <a name="classic-virtual-machine-contributor"></a>Collaborateur de machine virtuelle classique
+## <a name="classic-virtual-machine-contributor"></a>Contributeur de machine virtuelle classique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -628,7 +628,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="cleardb-mysql-db-contributor"></a>Collaborateur de base de données ClearDB MySQL
+## <a name="cleardb-mysql-db-contributor"></a>Contributeur de base de données ClearDB MySQL
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -647,7 +647,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lire les données de comptes Azure Cosmos DB. Consultez [Collaborateur de compte DocumentDB](#documentdb-account-contributor) pour en savoir plus sur la gestion des comptes Azure Cosmos DB. |
+> | **Description** | Lire les données de comptes Azure Cosmos DB. Consultez [Contributeur de compte DocumentDB](#documentdb-account-contributor) pour en savoir plus sur la gestion des comptes Azure Cosmos DB. |
 > | **Id** | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les attributions de rôle, lire les autorisations accordées à chaque utilisateur |
@@ -658,7 +658,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="data-factory-contributor"></a>Collaborateurs de fabrique de données
+## <a name="data-factory-contributor"></a>Contributeurs de fabrique de données
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -771,7 +771,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="documentdb-account-contributor"></a>Collaborateur de compte DocumentDB
+## <a name="documentdb-account-contributor"></a>Contributeur de compte DocumentDB
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -786,7 +786,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="intelligent-systems-account-contributor"></a>Collaborateur de compte Intelligent Systems
+## <a name="intelligent-systems-account-contributor"></a>Contributeur de compte Intelligent Systems
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -950,11 +950,11 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="management-group-contributor"></a>Collaborateur du groupe d’administration
+## <a name="management-group-contributor"></a>Contributeur du groupe d’administration
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Rôle de collaborateur du groupe d’administration |
+> | **Description** | Rôle de Contributeur du groupe d’administration |
 > | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
 > | **Actions** |  |
 > | Microsoft.Management/managementGroups/delete | Supprime un groupe d’administration. |
@@ -1014,7 +1014,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.OperationalInsights/workspaces/search/action | Exécute une requête de recherche. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="network-contributor"></a>Collaborateur de réseau
+## <a name="network-contributor"></a>Contributeur de réseau
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1029,7 +1029,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="new-relic-apm-account-contributor"></a>Collaborateur de compte NewRelic APM
+## <a name="new-relic-apm-account-contributor"></a>Contributeur de compte NewRelic APM
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1054,7 +1054,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
 
-## <a name="redis-cache-contributor"></a>Collaborateur Cache Redis
+## <a name="redis-cache-contributor"></a>Contributeur Cache Redis
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1069,7 +1069,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="resource-policy-contributor-preview"></a>Collaborateur de stratégie de ressource (préversion)
+## <a name="resource-policy-contributor-preview"></a>Contributeur de stratégie de ressource (préversion)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1083,7 +1083,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="scheduler-job-collections-contributor"></a>Collaborateur des collections de travaux du planificateur
+## <a name="scheduler-job-collections-contributor"></a>Contributeur des collections de travaux du planificateur
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1098,7 +1098,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Scheduler/jobcollections/* | Créer et gérer des collections de travaux |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="search-service-contributor"></a>Collaborateur du service de recherche
+## <a name="search-service-contributor"></a>Contributeur du service de recherche
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1310,7 +1310,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L’opération de jeton de coffre peut être utilisée pour obtenir un jeton de coffre pour les opérations de serveur principal au niveau du coffre. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="sql-db-contributor"></a>Collaborateur de base de données SQL
+## <a name="sql-db-contributor"></a>Contributeur de base de données SQL
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1377,7 +1377,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Créer et gérer les stratégies d’alerte de sécurité de serveur SQL |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="sql-server-contributor"></a>Collaborateur SQL Server
+## <a name="sql-server-contributor"></a>Contributeur SQL Server
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1411,7 +1411,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Impossible de modifier les stratégies d’alerte de sécurité de serveur SQL |
 
-## <a name="storage-account-contributor"></a>Collaborateur de compte de stockage
+## <a name="storage-account-contributor"></a>Contributeur de compte de stockage
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1543,7 +1543,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Compute/virtualMachines/login/action | Se connecter à la machine virtuelle comme utilisateur normal |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Se connecter à une machine virtuelle avec des privilèges d’administrateur Windows ou d’utilisateur racine Linux |
 
-## <a name="virtual-machine-contributor"></a>Collaborateur de machine virtuelle
+## <a name="virtual-machine-contributor"></a>Contributeur de machine virtuelle
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1603,7 +1603,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Se connecter à la machine virtuelle comme utilisateur normal |
 
-## <a name="web-plan-contributor"></a>Collaborateur de plan web
+## <a name="web-plan-contributor"></a>Contributeur de plan web
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1618,7 +1618,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | Microsoft.Web/serverFarms/* | Créer et gérer des batteries de serveurs |
 
-## <a name="website-contributor"></a>Collaborateur de site web
+## <a name="website-contributor"></a>Contributeur de site web
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

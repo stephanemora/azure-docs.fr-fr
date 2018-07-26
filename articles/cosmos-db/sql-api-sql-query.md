@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056815"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205967"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Requêtes SQL pour Azure Cosmos DB
 
@@ -522,7 +522,7 @@ Pour les autres opérateurs de comparaison tels que >, >=,! =, < et <=, les règ
 
 Si le résultat de l'expression scalaire dans le filtre est Undefined, le document correspondant ne doit pas être inclus dans le résultat, car Undefined n'équivaut pas logiquement à « true ».
 
-### <a name="between-keyword"></a>Mot clé BETWEEN
+## <a name="between-keyword"></a>Mot clé BETWEEN
 Vous pouvez également utiliser le mot clé BETWEEN pour exprimer des requêtes sur des plages de valeurs, comme dans SQL ANSI. Vous pouvez utiliser BETWEEN sur des chaînes ou des nombres.
 
 Par exemple, cette requête retourne tous les documents de la famille dans lesquels la note du premier enfant est comprise entre 1 et 5 (tous deux inclus). 
@@ -561,7 +561,7 @@ Les opérateurs logiques interviennent sur des valeurs booléennes. Les tables d
 | False |True |
 | Undefined |Undefined |
 
-### <a name="in-keyword"></a>Mot clé IN
+## <a name="in-keyword"></a>Mot clé IN
 Le mot clé IN permet de vérifier si une valeur spécifiée correspond à une valeur dans une liste. Par exemple, cette requête renvoie tous les documents de famille dont l’ID est « WakefieldFamily » ou « AndersenFamily ». 
 
     SELECT *
@@ -574,7 +574,7 @@ Cet exemple renvoie tous les documents dans lesquels l’état est l’une des v
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>Opérateurs Ternary (?) et Coalesce (??)
+## <a name="ternary--and-coalesce--operators"></a>Opérateurs Ternary (?) et Coalesce (??)
 Vous pouvez utiliser les opérateurs Ternary et Coalesce pour créer des expressions conditionnelles, un peu comme dans des langages de programmation courants tels que C# et JavaScript. 
 
 L'opérateur Ternary (?) peut être très pratique lors de la construction de nouvelles propriétés JSON à la volée. Par exemple, vous pouvez maintenant écrire des requêtes pour classer les niveaux de classe dans un format lisible tel que Débutant/Intermédiaire/Avancé, comme illustré ci-dessous.
@@ -594,7 +594,7 @@ Vous pouvez utiliser l’opérateur Coalesce (?) pour vérifier la présence d�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>Accesseur de propriété entre guillemets
+## <a id="EscapingReservedKeywords"></a>Accesseur de propriété entre guillemets
 Vous pouvez également accéder aux propriétés à l’aide de l’opérateur de propriété entre guillemets `[]`. Par exemple, `SELECT c.grade` and `SELECT c["grade"]` sont équivalentes. Cette syntaxe est utile si vous devez placer dans une séquence d’échappement une propriété qui contient des espaces, des caractères spéciaux, ou qui partage le même nom qu’un mot clé SQL ou un mot réservé.
 
     SELECT f["lastName"]
@@ -682,7 +682,7 @@ Observons le rôle de `$1` ici. La clause `SELECT` doit créer un objet JSON et
     }]
 
 
-### <a name="aliasing"></a>Alias
+## <a name="aliasing"></a>Alias
 À présent, nous allons développer l'exemple précédent en appliquant des alias de valeurs explicites. AS est le mot clé utilisé pour l'application d'alias. Cela est facultatif, comme indiqué lors de la projection de la seconde valeur en tant que `NameInfo`. 
 
 Si une requête a deux propriétés portant le même nom, l'alias doit être utilisé pour renommer l'une ou l'autre des propriétés, pour éviter toute ambiguïté dans le résultat projeté.
@@ -708,7 +708,7 @@ Si une requête a deux propriétés portant le même nom, l'alias doit être uti
     }]
 
 
-### <a name="scalar-expressions"></a>Expressions scalaires
+## <a name="scalar-expressions"></a>Expressions scalaires
 Outre les références de propriété, la clause SELECT prend également en charge les expressions scalaires telles que les constantes, les expressions arithmétiques, les expressions logiques, etc. Par exemple, voici une requête « Hello World » simple.
 
 **Requête**
@@ -754,7 +754,7 @@ Dans l'exemple suivant, le résultat de l'expression scalaire est un booléen.
     ]
 
 
-### <a name="object-and-array-creation"></a>Création d'objet et de tableau
+## <a name="object-and-array-creation"></a>Création d'objet et de tableau
 Une autre fonctionnalité clé de l’API SQL est la possibilité de créer un tableau ou un objet. Dans l'exemple précédent, notez que nous avons créé un objet JSON. De même, on peut également construire des tableaux comme indiqué dans les exemples suivants :
 
 **Requête**
@@ -779,7 +779,7 @@ Une autre fonctionnalité clé de l’API SQL est la possibilité de créer un t
       }
     ]
 
-### <a id="ValueKeyword"></a>Mot clé VALUE
+## <a id="ValueKeyword"></a>Mot clé VALUE
 Le mot clé **VALUE** fournit une méthode pour renvoyer une valeur JSON. Par exemple, la requête indiquée ci-dessous renvoie le scalaire `"Hello World"` au lieu de `{$1: "Hello World"}`.
 
 **Requête**
@@ -830,7 +830,7 @@ L'exemple suivant développe ceci pour expliquer comment renvoyer des valeurs JS
     ]
 
 
-### <a name="-operator"></a>Opérateur *
+## <a name="-operator"></a>Opérateur *
 L'opérateur spécial (*) est pris en charge pour projeter le document tel quel. Une fois utilisé, il doit être le seul champ projeté. Si une requête comme `SELECT * FROM Families f` est valide, `SELECT VALUE * FROM Families f ` et `SELECT *, f.id FROM Families f ` ne le sont pas.
 
 **Requête**
@@ -859,7 +859,7 @@ L'opérateur spécial (*) est pris en charge pour projeter le document tel quel.
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>Opérateur TOP
+## <a id="TopKeyword"></a>Opérateur TOP
 Le mot clé TOP peut être utilisé pour limiter le nombre de valeurs provenant d'une requête. Lorsque TOP est utilisé conjointement avec la clause ORDER BY, le jeu de résultats est limité aux N premières valeurs ordonnées ; sinon, il retourne les N premiers résultats dans un ordre non défini. En tant que meilleure pratique, dans une instruction SELECT, utilisez toujours une clause ORDER BY avec la clause TOP. Il s'agit de la seule façon d'indiquer de manière prévisible les lignes qui sont affectées par TOP. 
 
 **Requête**
@@ -889,7 +889,7 @@ Le mot clé TOP peut être utilisé pour limiter le nombre de valeurs provenant 
 
 L’opérateur TOP peut être utilisé avec une valeur constante (comme indiqué ci-dessus) ou avec une valeur variable à l'aide de requêtes paramétrables. Pour plus d'informations, consultez les requêtes paramétrables ci-dessous.
 
-### <a id="Aggregates"></a>Fonctions d’agrégation
+## <a id="Aggregates"></a>Fonctions d’agrégation
 Vous pouvez également effectuer des agrégations dans la clause `SELECT`. Les fonctions d’agrégation effectuent un calcul sur un ensemble de valeurs et renvoient une valeur unique. Par exemple, la requête suivante renvoie le nombre de documents de famille que contient la collection.
 
 **Requête**

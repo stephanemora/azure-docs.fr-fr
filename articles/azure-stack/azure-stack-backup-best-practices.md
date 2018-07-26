@@ -3,7 +3,7 @@ title: Meilleures pratiques concernant le service de sauvegarde de l’infrastru
 description: Vous pouvez suivre l’ensemble des meilleures pratiques lorsque vous déployez et gérez Azure Stack dans votre centre de données afin de limiter la perte de données en cas de défaillance catastrophique.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/18/2018
-ms.author: jeffgilb
+ms.date: 4/20/2017
+ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 0b6153a863b0637f314b4f333b255ec8d24b5b0c
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4a0166856cf4d3f91c6cadf3e71f93000fbf158d
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136432"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242969"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Meilleures pratiques concernant le service de sauvegarde de l’infrastructure
 
@@ -34,7 +34,7 @@ Examinez les meilleures pratiques à intervalles réguliers pour vérifier que v
 
 ### <a name="deployment"></a>Déploiement
 
-Activer la sauvegarde de l’infrastructure après le déploiement de chaque cloud Azure Stack. À l’aide de Azure Stack PowerShell, vous pouvez planifier des sauvegardes à partir de n’importe quel client/serveur avec accès au point de terminaison de l’API de gestion d’opérateur.
+Activer la sauvegarde de l’infrastructure après le déploiement de chaque cloud Azure Stack. À l’aide des outils AzureStack, vous pouvez planifier des sauvegardes à partir de n’importe quel client/serveur avec accès au point de terminaison de l’API de gestion d’opérateur.
 
 ### <a name="networking"></a>Mise en réseau
 
