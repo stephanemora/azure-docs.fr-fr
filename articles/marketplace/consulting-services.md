@@ -1,5 +1,5 @@
 ---
-title: Services de conseil de la Place de marché Azure
+title: Services de conseil de Place de marché Azure
 description: Cet article décrit les critères d’éligibilité et les exigences de publication des nouvelles offres de services de conseil dans la Place de marché Azure.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312081"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950404"
 ---
-# <a name="azure-marketplace-consulting-services"></a>Services de conseil de la Place de marché Azure
+# <a name="azure-marketplace-consulting-services"></a>Services de conseil de Place de marché Azure
 Les services de conseil de la Place de marché Azure permettent aux partenaires Microsoft de connecter les clients aux services pour gérer et étendre leur utilisation d’Azure. La Place de marché Azure prend en charge le référencement des offres de services de conseil des partenaires intégrateurs de systèmes de Microsoft. 
 
-Ces offres de services de conseil sont des engagements propres au client. Elles sont déterminées en termes de portée et de durée, peuvent être à prix fixe ou libre et inclure un résultat défini. Les clients potentiels peuvent facilement demander à être contactés par les partenaires. Les partenaires reçoivent une notification dans leur système CRM et font tout leur possible pour répondre requêtes dans les 48 heures.
+Ces offres de services de conseil sont des engagements propres au client. Les éditeurs ont la possibilité de déterminer le type de référencement, ainsi que l’étendue fixe et la durée, à prix fixe ou gratuit, et avoir des livrables définis pour le client. Les partenaires reçoivent une notification dans leur système CRM et font tout leur possible pour répondre requêtes dans les 48 heures.
 
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Services de conseil de la Place de marché Azure et vitrine AppSource
 Les vitrines de la Place de marché s’adaptent au public visé et aux produits cloud de Microsoft, pour que les clients puissent trouver ce dont ils ont besoin. Chaque vitrine propose des options de publication spécifiques, destinées à optimiser vos efforts de publication. Ces options sont décrites dans le tableau suivant :
@@ -37,7 +37,8 @@ Les vitrines de la Place de marché s’adaptent au public visé et aux produits
 |Expérience du produit      |Portail de gestion Azure|Dynamics 365, Office 365, applications clientes Office| 
 |Autres      |Publication locale via Azure Stack|Services de conseil pour Dynamics et Power BI|
 
-Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un public technique axé sur des solutions et services techniques Azure.
+>[!Note]
+>Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un public technique axé sur des *solutions et services techniques Azure*.
 
 
 Les offres de services qui sont basées sur Microsoft Dynamics 365, Office 365 et Power BI peuvent être répertoriées sur AppSource. Pour plus d’informations, consultez [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Instructions de référencement des services de conseil Microsoft AppSource). 
@@ -71,8 +72,16 @@ Les partenaires intégrateurs de systèmes peuvent envoyer des offres de service
 
 Le lancement des services de conseil de Place de marché Azure sera tout d’abord effectué pour l’Australie, le Canada, le Royaume-Uni et les États-Unis. Les catalogues pour les autres pays seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
 
+## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Comment s’inscrire aux services de conseil de la Place de marché Azure
+Commencez par l’inscription de vos services de conseil avec la [Place de marché Azure](https://azuremarketplace.microsoft.com/en-us/sell/signup). Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
+
+**À quoi s’attendre après l’inscription** L’équipe d’intégration vous enverra un e-mail de bienvenue dans un délai de 1 à 3 jours ouvrables qui inclut vos informations de connexion au Portail Cloud Partner (CPP). [Portail Cloud Partner](https://cloudpartner.azure.com) est le portail de référencement des offres où les éditeurs soumettent les informations de référencement et les envois. 
+
+>[!Note]
+>Il suffit aux partenaires de s’inscrire une seule fois pour devenir des éditeurs. Une fois que vous avez reçu votre e-mail de bienvenue et vos informations de connexion au Portail Cloud Partner, les éditeurs n’ont pas besoin de se réinscrire afin de publier différents types de référencement. 
+
 ## <a name="prepare-your-publishing-artifacts"></a>Préparer vos artefacts de publication
-Avant même de nommer votre service, vous pouvez commencer à collecter et à préparer le contenu pour que votre annonce décrive la valeur de vos service et solution à votre client cible. 
+Avant l’inscription, vous pouvez commencer à collecter et à préparer le contenu pour que votre annonce décrive la valeur de vos service et solution à votre client cible. 
 
 |Configuration pour les nouveaux éditeurs  |
 |---------|
@@ -142,3 +151,12 @@ Lors de la révision des descriptions et des résumés des offres, l’équipe a
 |Atelier    |   Incluez un agenda détaillé quotidien, hebdomadaire ou mensuel, selon la durée que vous avez choisie pour votre offre. Formulez les objectifs d’apprentissage ou les autres livrables de votre atelier.     |   Optimisez le récapitulatif de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.      |
 
 Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre référencement en utilisant [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Ce langage de conception léger vous aidera à peaufiner l’aspect de votre référencement. 
+
+**Exemples de notes Markdown**
+*   Ajouter * au début et à la fin du bloc de copie - sans espace pour créer des caractères en italique (par ex. : *contenu*)
+* Inclure un saut de ligne après les deux-points « : »
+*   Espace après « * » pour les puces (par ex. : *(space)Content)
+*    ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>espace pour le titre (par ex. : ###(space)Agenda/Deliverables)
+*   Saut de ligne après le titre
+*   ** = gras (sans espace) (par ex. : **Sans espace**) •   Résumé de l’offre en italique •   Agenda and Deliverables est un titre
+

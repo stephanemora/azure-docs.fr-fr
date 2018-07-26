@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 15e3dd11c371e0b23d5b506da9d824e1409fd359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590519"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855982"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
 
@@ -31,7 +31,7 @@ Azure Cloud Shell a les limitations connues suivantes :
 
 La machine qui fournit votre session Cloud Shell est temporaire. En effet, elle est recyclée lorsque votre session reste inactive pendant 20 minutes. Cloud Shell requiert qu’un partage de fichiers Azure soit monté. Par conséquent, votre abonnement doit être en mesure de configurer des ressources de stockage pour accéder à Cloud Shell. Autres éléments à prendre en compte :
 
-* Avec le stockage monté, seules les modifications apportées à votre répertoire `clouddrive` sont conservées. Dans Bash, votre répertoire `$Home` est également conservé.
+* Avec le stockage monté, seules les modifications apportées à votre répertoire `$Home` sont conservées.
 * Les partages de fichiers Azure peuvent être montés uniquement depuis votre [région affectée](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Dans Bash, exécutez `env` pour rechercher votre région définie en tant que `ACC_LOCATION`.
 
@@ -63,21 +63,33 @@ Faites attention lorsque vous modifiez .bashrc : cela peut entraîner des erreur
 
 ## <a name="powershell-limitations"></a>Limites de PowerShell
 
-### <a name="slow-startup-time"></a>Temps de démarrage lent
+### <a name="azuread-module-name"></a>Nom du module `AzureAD`
 
-L’initialisation de PowerShell dans Azure Cloud Shell (préversion) peut prendre jusqu’à 60 secondes.
+Le nom du module `AzureAD` est actuellement `AzureAD.Standard.Preview`, le module fournit les mêmes fonctionnalités.
 
-### <a name="no-home-directory-persistence"></a>Aucune persistance du répertoire $Home
+### <a name="sqlserver-module-functionality"></a>Fonctionnalités du module `SqlServer`
 
-Les données écrites sur `$Home` par n’importe quelle application (telle que git, vim, etc.) ne sont pas conservées entre les sessions PowerShell. Consultez [ici](troubleshooting.md#powershell-troubleshooting) la solution de contournement.
+Le module `SqlServer` inclus dans Cloud Shell n’offre qu’une prise en charge préliminaire pour PowerShell Core. En particulier, `Invoke-SqlCmd` n’est pas encore disponible.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Emplacement du fichier par défaut lors de sa création à partir du lecteur Azure :
 
-Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des cmdlets PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier C:\Users par défaut. 
+Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des cmdlets PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier `$HOME` par défaut. 
 
 ### <a name="gui-applications-are-not-supported"></a>Les applications de l’interface graphique utilisateur ne sont pas prises en charge.
 
 Si l’utilisateur exécute une commande susceptible de créer une boîte de dialogue Windows, comme `Connect-AzureAD` ou `Connect-AzureRmAccount`, un message d’erreur apparaît tel que : `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+### <a name="tab-completion-crashes-psreadline"></a>La saisie semi-automatique via la touche Tab bloque PSReadline
+
+Si le mode EditMode de l’utilisateur dans PSReadline est défini sur Emacs, l’utilisateur tente d’afficher toutes les possibilités par le biais de la saisie semi-automatique via la touche Tab et la taille de la fenêtre est trop petite pour afficher toutes les possibilités, donc PSReadline se bloque.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>Écart important après avoir affiché la barre de progression
+
+Si l’utilisateur exécute une action qui affiche une barre de progression, comme le renseignement d’un onglet sur le lecteur `Azure:`, il est possible que le curseur ne soit pas défini correctement et un écart s’affiche dans là où la barre de progression se situait précédemment.
+
+### <a name="random-characters-appear-inline"></a>Des caractères aléatoires apparaissent en ligne
+
+Les codes de la séquence de position du curseur, par exemple `5;13R`, peuvent apparaître dans l’entrée utilisateur.  Les caractères peuvent être supprimés manuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

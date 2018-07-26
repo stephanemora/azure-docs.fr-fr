@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 07f63eb9ed316f7798bd890bb6125617c6a1e886
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300993"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929635"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Comment sélectionner un réseau virtuel Azure
@@ -55,7 +55,6 @@ Les instructions suivantes vous aident à sélectionner un réseau virtuel en vu
 * N’appliquez pas de groupes de sécurité réseau au sous-réseau dédié pour votre domaine géré. Si vous devez appliquer des groupes de sécurité réseau au sous-réseau dédié, veillez à **ne pas bloquer les ports requis pour l’entretien et la gestion de votre domaine**.
 * Ne limitez pas de manière excessive le nombre d’adresses IP disponibles au sein du sous-réseau dédié de votre domaine géré. Cette limitation empêche le service de mettre à disposition deux contrôleurs de domaine pour votre domaine géré.
 * **N’activez pas les services de domaine Azure AD dans le sous-réseau de passerelle** de votre réseau virtuel.
-* Ne bloquez pas l’accès sortant du sous-réseau dans lequel votre domaine managé est activé.
 
 > [!WARNING]
 > Lorsque vous associez un groupe de sécurité réseau et un sous-réseau dans lequel les services de domaine Azure AD sont activés, vous pouvez affecter la capacité de Microsoft à gérer le domaine. En outre, la synchronisation entre votre client Azure AD et votre domaine géré est interrompue. **Le contrat de niveau de service (SLA) ne concerne pas les déploiements dans lesquels un groupe de sécurité réseau a été appliqué et qui empêche les services de domaine Azure AD de mettre à jour et de gérer votre domaine.**
@@ -80,8 +79,8 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 **Port 5986 (communication à distance PowerShell)**
 * Il est utilisé pour effectuer des tâches de gestion à l’aide de la communication à distance PowerShell sur votre domaine managé.
 * Il est obligatoire pour autoriser l’accès via ce port dans votre groupe de sécurité réseau. Sans accès à ce port, votre domaine managé ne peut pas être mis à jour, configuré, sauvegardé ou surveillé.
-* Pour les nouveaux domaines ou les domaines avec un réseau virtuel ARM, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
-* Pour les domaines avec un réseau virtuel classique, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
+* Pour les nouveaux domaines ou les domaines avec un réseau virtuel Azure Resource Manager, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
+* Pour les domaines avec un réseau virtuel classique, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209
 * Généralement, les contrôleurs de domaine pour votre domaine géré n’écoutent pas sur ce port. Le service ouvre ce port sur les contrôleurs de domaine gérés uniquement lorsqu’une opération de gestion ou de maintenance doit être effectuée pour le domaine géré. Une fois l’opération terminée, le service ferme ce port sur les contrôleurs de domaine gérés.
 
 **Port 3389 (Bureau à distance)**
@@ -94,11 +93,9 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 * L’ouverture de ce port via votre groupe de sécurité réseau est facultative. Ouvrez le port uniquement si vous disposez d’un accès LDAP sécurisé sur Internet activé.
 * Vous pouvez limiter l’accès entrant à ce port aux adresses IP sources à partir desquelles vous pensez vous connecter via un accès LDAP sécurisé.
 
-**Accès sortant** : Azure AD Domain Services a besoin d’un accès sortant à différents services Azure afin de gérer, de sauvegarder et de surveiller votre domaine managé. Ne bloquez pas l’accès sortant du sous-réseau dédié dans lequel votre domaine managé est activé.
-
 
 ## <a name="network-security-groups"></a>Network Security Group
-Un [groupe de sécurité réseau (NSG)](../virtual-network/security-overview.md) contient une liste des règles de liste de contrôle d’accès (ACL) qui autorise ou rejette les instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle.
+Un [groupe de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) contient une liste des règles de liste de contrôle d’accès (ACL) qui autorise ou rejette les instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Exemple de groupe de sécurité réseau pour les réseaux virtuels avec Azure AD Domain Services
 Le tableau suivant illustre un exemple de groupe de sécurité réseau que vous pouvez configurer pour un réseau virtuel avec un domaine managé Azure AD Domain Services. Cette règle autorise le trafic entrant au travers des ports nécessaires pour garantir que votre domaine managé reste corrigé, mis à jour et peut être surveillé par Microsoft. La règle « DenyAll » par défaut s’applique à tout autre trafic entrant en provenance d’internet.

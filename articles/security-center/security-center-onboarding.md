@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416487"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479459"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Intégration d’Azure Security Center Standard pour une sécurité renforcée
 Effectuez la mise à niveau vers Security Center Standard pour tirer profit d’une gestion de la sécurité et d’une protection contre les menaces renforcées pour vos charges de travail cloud hybrides.  Vous pouvez essayer gratuitement le niveau Standard pendant 60 jours. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -42,7 +42,7 @@ Vous pouvez mettre à niveau un abonnement Azure entier vers le niveau Standard,
 
 ## <a name="upgrade-an-azure-subscription"></a>Mettre à niveau un abonnement Azure
 Pour mettre à niveau tous les abonnements vers le niveau Standard :
-1. Dans le menu principal de Security Center, sélectionnez **Intégration**.
+1. Dans le menu principal de Security Center, sélectionnez **Intégration à la sécurité avancée**.
 2. Dans **Intégration de la sécurité avancée**, Security Center répertorie les abonnements éligibles pour l’intégration. Vous pouvez mettre à niveau tous les abonnements répertoriés en sélectionnant **Appliquer le plan Standard**.
 
   ![Mettre à niveau tous les abonnements][1]
@@ -113,8 +113,8 @@ Vous pouvez ajouter un ordinateur en suivant le flux de travail du panneau **Int
 
    ![Vue d'ensemble][5]
 
-2. Sélectionnez la mosaïque **Calcul**.
-3. Dans **Calcul**, sélectionnez **Ajouter des ordinateurs**.
+2. Sélectionnez **Compute et applications**.
+3. Sous **Compute et applications**, sélectionnez **Ajouter des ordinateurs**.
 
    ![Panneau Calcul][6]
 

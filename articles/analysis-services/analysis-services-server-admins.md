@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ec1630f4de70f77c13e335c68aff16180e524c12
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 9d8f74bd66fc7c980c4fc5f83492aad7d8a4aa5c
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307806"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866965"
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
 Un administrateur de serveur doit être un utilisateur ou un groupe valide présent dans Azure Active Directory (Azure AD) pour le tenant disposant du serveur. Pour gérer les administrateurs de serveur, vous pouvez utiliser les **Administrateurs Analysis Services** pour votre serveur dans le portail Azure, ou Propriétés du serveur dans SQL Server Management Studio (SSMS). 
 
 > [!NOTE]
-> La propriété `MailEnabled` des groupes de sécurité doit être paramétrée à `True`.
+> La propriété `MailEnabled` des groupes de sécurité doit être définie sur `True`.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Pour ajouter des administrateurs de serveur à l’aide du portail Azure
 1. Dans le portail, cliquez sur **Administrateurs Analysis Services** pour votre serveur.

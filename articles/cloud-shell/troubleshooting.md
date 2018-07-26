@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 07/03/2018
 ms.author: damaerte
-ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc0633a9cc607325b48998791cb12631ecd0d7
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608948"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856485"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Résolution des problèmes et limitations d’Azure Cloud Shell
 
@@ -52,16 +52,6 @@ Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell s
 
 ## <a name="powershell-troubleshooting"></a>Résolution des problèmes de PowerShell
 
-### <a name="no-home-directory-persistence"></a>Aucune persistance du répertoire $Home
-
-- **Détails** : les données que les applications (telles que git, vim, etc.) écrivent dans `$Home` ne sont pas conservées entre les sessions PowerShell.
-- **Résolution** : dans votre profil PowerShell, créez un lien symbolique vers le dossier spécifique de l’application spécifique dans `clouddrive` sur $Home.
-
-### <a name="ctrlc-doesnt-exit-out-of-a-cmdlet-prompt"></a>La combinaison de touches CTRL + C ne permet pas de sortir d’une invite d’applet de commande
-
-- **Détails** : lorsque vous tentez de quitter une invite de cmdlet, `Ctrl+C` ne quitte pas l’invite.
-- **Résolution** : pour quitter l’invite, appuyez sur `Ctrl+C` puis sur `Enter`.
-
 ### <a name="gui-applications-are-not-supported"></a>Les applications de l’interface graphique utilisateur ne sont pas prises en charge.
 
 - **Détails** : si un utilisateur lance une application d’interface graphique utilisateur, l’invite ne renvoie rien. Par exemple, lorsqu’un utilisateur clone un dépôt GitHub privé pour lequel l’authentification à deux facteurs est activée, une boîte de dialogue s’affiche, permettant de procéder à l’authentification à deux facteurs.  
@@ -75,18 +65,8 @@ Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell s
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Résolution des problèmes de gestion à distance des machines virtuelles Azure
 
 - **Détails** : en raison des paramètres de pare-feu Windows par défaut pour WinRM, l’erreur suivante peut s’afficher :`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Résolution** : assurez-vous que votre machine virtuelle est en cours d’exécution. Vous pouvez exécuter `Get-AzureRmVM -Status` pour déterminer l’état de la machine virtuelle.  Ensuite, ajoutez une nouvelle règle de pare-feu sur la machine virtuelle à distance pour autoriser les connexions WinRM à partir de n’importe quel sous-réseau, par exemple,
-
- ``` Powershell
- New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
- ```
- Vous pouvez utiliser [l’extension de script personnalisé Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript) pour éviter la connexion à votre machine virtuelle à distance pour l’ajout de la nouvelle règle de pare-feu.
- Vous pouvez enregistrer le script ci-dessus dans un fichier, par exemple `addfirerule.ps1`, et le charger sur votre conteneur de stockage Azure.
- Essayez ensuite la commande suivante :
-
- ``` Powershell
- Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
- ```
+- **Résolution** : exécutez `Enable-AzureRmVMPSRemoting` pour activer tous les aspects de la communication à distance PowerShell sur l’ordinateur cible.
+ 
 
 ### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` met en cache le résultat dans le lecteur Azure
 
@@ -133,21 +113,39 @@ Faites attention lorsque vous modifiez .bashrc : cela peut entraîner des erreur
 
 ## <a name="powershell-limitations"></a>Limites de PowerShell
 
-### <a name="slow-startup-time"></a>Temps de démarrage lent
+### <a name="azuread-module-name"></a>Nom du module `AzureAD`
 
-L’initialisation de PowerShell dans Azure Cloud Shell (préversion) peut prendre jusqu’à 60 secondes.
+Le nom du module `AzureAD` est actuellement `AzureAD.Standard.Preview`, le module fournit les mêmes fonctionnalités.
+
+### <a name="sqlserver-module-functionality"></a>Fonctionnalités du module `SqlServer`
+
+Le module `SqlServer` inclus dans Cloud Shell n’offre qu’une prise en charge préliminaire pour PowerShell Core. En particulier, `Invoke-SqlCmd` n’est pas encore disponible.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Emplacement du fichier par défaut lors de sa création à partir du lecteur Azure :
 
-Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des cmdlets PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier C:\Users par défaut. 
+Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des cmdlets PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier `$HOME` par défaut. 
 
 ### <a name="gui-applications-are-not-supported"></a>Les applications de l’interface graphique utilisateur ne sont pas prises en charge.
 
 Si l’utilisateur exécute une commande susceptible de créer une boîte de dialogue Windows, comme `Connect-AzureAD` ou `Connect-AzureRmAccount`, un message d’erreur apparaît tel que : `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="gdpr-compliance-for-cloud-shell"></a>Conformité à RGPD de Cloud Shell
+### <a name="tab-completion-crashes-psreadline"></a>La saisie semi-automatique via la touche Tab bloque PSReadline
 
-Azure Cloud Shell prend très au sérieux vos données personnelles ; les données capturées et stockées par le service Azure Cloud Shell sont utilisées pour vous fournir un environnement par défaut, tel que l’interpréteur de commandes le plus récemment utilisé, les taille et type de police par défaut, ainsi que les détails des partages de fichiers pour le clouddrive. Si vous souhaitez exporter ou supprimer ces données, nous avons inclus les instructions suivantes.
+Si le mode EditMode de l’utilisateur dans PSReadline est défini sur Emacs, l’utilisateur tente d’afficher toutes les possibilités par le biais de la saisie semi-automatique via la touche Tab et la taille de la fenêtre est trop petite pour afficher toutes les possibilités, donc PSReadline se bloque.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>Écart important après avoir affiché la barre de progression
+
+Si l’utilisateur exécute une action qui affiche une barre de progression, comme le renseignement d’un onglet sur le lecteur `Azure:`, il est possible que le curseur ne soit pas défini correctement et un écart s’affiche dans là où la barre de progression se situait précédemment.
+
+### <a name="random-characters-appear-inline"></a>Des caractères aléatoires apparaissent en ligne
+
+Les codes de la séquence de position du curseur, par exemple `5;13R`, peuvent apparaître dans l’entrée utilisateur.  Les caractères peuvent être supprimés manuellement.
+
+## <a name="personal-data-in-cloud-shell"></a>Données personnelles dans Cloud Shell
+
+Azure Cloud Shell prend très au sérieux vos données personnelles ; les données capturées et stockées par le service Azure Cloud Shell sont utilisées pour vous fournir un environnement par défaut, tel que l’interpréteur de commandes le plus récemment utilisé, les taille et type de police par défaut, ainsi que les détails des partages de fichiers pour le lecteur cloud. Si vous souhaitez exporter ou supprimer ces données, nous avons inclus les instructions suivantes.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="export"></a>Exportation
 Pour **exporter** les paramètres utilisateur que Cloud Shell enregistre pour vous, tels que l’interpréteur de commandes, la taille de police et le type de police par défaut, exécutez les commandes suivantes.

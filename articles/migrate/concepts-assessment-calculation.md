@@ -4,14 +4,14 @@ description: Offre une vue d’ensemble des calculs d’évaluation dans le serv
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287886"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920921"
 ---
 # <a name="assessment-calculations"></a>Calculs d’évaluation
 
@@ -58,7 +58,7 @@ Windows Server 2016 avec tous les Service Packs | Azure assure un support comple
 Windows Server 2012 R2 avec tous les Service Packs | Azure assure un support complet. | Disponible pour Azure
 Windows Server 2012 avec tous les Service Packs | Azure assure un support complet. | Disponible pour Azure
 Windows Server 2008 R2 avec tous les Service Packs | Azure assure un support complet.| Disponible pour Azure
-Windows Server 2003-2008 R2 | La date limite de prise en charge de ces systèmes d’exploitation est passée, et leur prise en charge dans Azure nécessite un [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement). | Préparé pour Azure sous condition. Envisagez une mise à niveau du système d’exploitation avant de migrer vers Azure.
+Windows Server 2003-2008 | La date limite de prise en charge de ces systèmes d’exploitation est passée, et leur prise en charge dans Azure nécessite un [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement). | Préparé pour Azure sous condition. Envisagez une mise à niveau du système d’exploitation avant de migrer vers Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | La date limite de prise en charge de ces systèmes d’exploitation est passée. La machine peut démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’effectuer une mise à niveau du système d’exploitation avant de migrer vers Azure.
 Clients Windows 7, 8 et 10 | Azure assure un support avec abonnement Visual Studio uniquement. | Préparé pour Azure sous condition
 Windows Vista, XP Professionnel | La date limite de prise en charge de ces systèmes d’exploitation est passée. La machine peut démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’effectuer une mise à niveau du système d’exploitation avant de migrer vers Azure.

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643496"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858950"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Audit dans Azure SQL Data Warehouse
 
@@ -52,8 +52,9 @@ Une stratégie d’audit peut être définie pour une base de données spécifiq
 > * Vous voulez utiliser un autre *compte de stockage* ou une autre *période de rétention* pour une base de données spécifique.
 > * Vous souhaitez auditer des types ou des catégories d’événements pour une base de données qui sont différents de ceux qui sont audités pour les autres bases de données du serveur. Par exemple, il est possible que des insertions de table doivent être auditées uniquement pour une base de données spécifique.
 > * Vous souhaitez utiliser la détection des menaces, qui est actuellement prise en charge uniquement avec l’audit au niveau de la base de données.
->
 
+> [!IMPORTANT]
+>L’activation de l’audit sur un entrepôt Azure SQL Data Warehouse ou sur un serveur avec un entrepôt Azure SQL Data Warehouse, **entraîne la reprise de l’entrepôt Data Warehouse**, même s’il avait précédemment été interrompu. **Veillez à suspendre l’entrepôt Data Warehouse à nouveau après l’activation de l’audit**.
 
 ## <a id="subheading-5"></a>Configurer l’audit au niveau du serveur pour toutes les bases de données
 

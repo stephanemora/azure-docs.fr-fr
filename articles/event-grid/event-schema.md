@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/06/2018
+ms.date: 07/20/2018
 ms.author: babanisa
-ms.openlocfilehash: 266ddced5f1949fa72508d914f76953101a7aac6
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: f7be7e5f5e51a47b95d39047af9bcf08e463ca34
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902224"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186109"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
@@ -94,6 +94,7 @@ Tous les événements contiennent les mêmes données de supérieur suivantes :
 Pour connaître les propriétés de l’objet de données, consultez la source de l’événement :
 
 * [Abonnements Azure (opérations de gestion)](event-schema-subscriptions.md)
+* [Container Registry](event-schema-container-registry.md)
 * [Stockage Blob](event-schema-blob-storage.md)
 * [Concentrateurs d'événements](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)

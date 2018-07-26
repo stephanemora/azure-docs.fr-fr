@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 4af6545058ab0031d7cd1b38618b6d80204f83b9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b61c5860cb18f5a5b4ffa96212d66b7becad9928
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723271"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Comment configurer le clustering Redis pour un Cache Redis Azure Premium
 Le Cache Redis Azure offre différents types de caches permettant de choisir en toute flexibilité parmi plusieurs tailles et fonctionnalités de caches, notamment les fonctionnalités de couche Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Cet article décrit comment configurer le clustering dans une instance Premium de Cache Redis Azure.
@@ -123,7 +124,9 @@ Pour accéder à un exemple de code relatif à l’utilisation du clustering et 
 La plus grande taille de cache Premium est 53 Go. Vous pouvez créer jusqu’à 10 partitions, ce qui donne une taille maximale de 530 Go. Si vous avez besoin d’une plus grande taille, vous pouvez en [faire la demande](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Pour plus d'informations, consultez [Tarification - Cache Redis Azure](https://azure.microsoft.com/pricing/details/cache/).
 
 ### <a name="do-all-redis-clients-support-clustering"></a>Tous les clients Redis prennent-ils en charge le clustering ?
-À l’heure actuelle, les clients ne prennent pas tous en charge le clustering Redis. StackExchange.Redis est l’un de ceux qui le prennent en charge. Pour plus d’informations sur d’autres clients, consultez la section [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Manipulation du cluster) du [didacticiel sur le cluster Redis](http://redis.io/topics/cluster-tutorial).
+À l’heure actuelle, les clients ne prennent pas tous en charge le clustering Redis. StackExchange.Redis est l’un de ceux qui le prennent en charge. Pour plus d’informations sur d’autres clients, consultez la section [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Manipulation du cluster) du [didacticiel sur le cluster Redis](http://redis.io/topics/cluster-tutorial). 
+
+Le protocole de clustering Redis requiert que chaque client se connecte à chaque partition directement en mode de clustering. Si vous essayez d’utiliser un client qui ne prend pas en charge le clustering, vous obtiendrez probablement un grand nombre [d’exceptions de redirection MOVED](https://redis.io/topics/cluster-spec#moved-redirection).
 
 > [!NOTE]
 > Si vous utilisez StackExchange.Redis comme client, assurez-vous d'utiliser la dernière version de [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 ou une version ultérieure pour que le clustering fonctionne correctement. Si vous rencontrez des problèmes avec les exceptions MOVE, consultez la [section consacrée aux exceptions MOVE](#move-exceptions) pour plus d’informations.
@@ -134,7 +137,7 @@ La plus grande taille de cache Premium est 53 Go. Vous pouvez créer jusqu’à
 Vous pouvez vous connecter à votre cache à l’aide des [points de terminaison](cache-configure.md#properties), [ports](cache-configure.md#properties) et [clés](cache-configure.md#access-keys) que vous utilisez pour vous connecter à un cache pour lequel le clustering n’est pas activé. Redis gère le clustering sur le serveur principal pour que vous n’ayez pas à le gérer à partir de votre client.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Puis-je me connecter directement aux différentes partitions de mon cache ?
-Cela n’est pas officiellement pris en charge. Ceci étant dit, chaque partition composée d’une paire de caches principal/réplica désignés collectivement sous le nom d’« instance de cache ». Vous pouvez vous connecter à ces instances de cache à l'aide de l'utilitaire redis-cli dans la branche [unstable](http://redis.io/download) du référentiel Redis sur GitHub. Cette version implémente la prise en charge de base lorsqu’elle est démarrée avec le commutateur `-c` . Pour plus d’informations, voir [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Manipulation du cluster) sur [http://redis.io](http://redis.io) dans le [didacticiel sur le cluster Redis](http://redis.io/topics/cluster-tutorial).
+Le protocole de clustering requiert que le client établisse les connexions de partition appropriée. Par conséquent, le client doit faire cela correctement pour vous. Ceci étant dit, chaque partition composée d’une paire de caches principal/réplica désignés collectivement sous le nom d’« instance de cache ». Vous pouvez vous connecter à ces instances de cache à l'aide de l'utilitaire redis-cli dans la branche [unstable](http://redis.io/download) du référentiel Redis sur GitHub. Cette version implémente la prise en charge de base lorsqu’elle est démarrée avec le commutateur `-c` . Pour plus d’informations, voir [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Manipulation du cluster) sur [http://redis.io](http://redis.io) dans le [didacticiel sur le cluster Redis](http://redis.io/topics/cluster-tutorial).
 
 Sans SSL, utilisez les commandes suivantes.
 

@@ -5,25 +5,23 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: 2c6273de-0106-47e5-b45d-59040e51f2c5
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 22fcedfdb1921c941250b63f09bfa7fcff9c2f1b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783126"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856703"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceptions de la messagerie Event Hubs
 
-Cet article répertorie certaines exceptions générées par la bibliothèque d’API de la messagerie Azure Service Bus, notamment les API Event Hubs. Cette référence est susceptible de changer, donc consultez-la régulièrement.
+Cet article répertorie certaines exceptions générées par la bibliothèque d’API de la messagerie Azure Service Bus, notamment les API Event Hubs .NET Framework. Cette référence est susceptible de changer, donc consultez-la régulièrement.
 
 ## <a name="exception-categories"></a>Catégories d'exceptions
 
@@ -87,16 +85,17 @@ Cette erreur peut se produire pour deux raisons :
 
 2. L’espace de noms Event Hubs n’a pas suffisamment d’unités de débit (vous pouvez consulter l’écran **Mesures** dans la fenêtre de l’espace de noms Event Hubs du [portail Azure](https://portal.azure.com) pour vous en assurer). Notez que le portail affiche des informations agrégées (1 minute), mais que nous mesurons le débit en temps réel ; cette valeur n’est donc qu’une estimation.
 
-    Résolution : augmenter les unités de débit sur l’espace de noms. Vous pouvez réaliser cette opération sur le portail, dans la fenêtre **Mise à l’échelle** de l’écran de l’espace de noms Event Hubs.
+    Résolution : augmenter les unités de débit sur l’espace de noms. Vous pouvez réaliser cette opération sur le portail, dans la fenêtre **Mise à l’échelle** de l’écran de l’espace de noms Event Hubs. Vous pouvez également utiliser la [majoration automatique](event-hubs-auto-inflate.md).
 
 ### <a name="error-code-50001"></a>Code d’erreur 50001
 
 Cette erreur survient rarement. Elle se présente lorsque le conteneur exécutant le code pour votre espace de noms n’a pas suffisamment de ressources d’UC ; pas plus de quelques secondes avant que l’équilibrage de charge des Event Hubs commence.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
+
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)

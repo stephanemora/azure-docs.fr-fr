@@ -3,23 +3,23 @@ title: Informations sur les menaces dans Azure Security Center | Microsoft Docs
 description: Découvrez comment utiliser la fonctionnalité d’informations sur les menaces dans Azure Security Center pour identifier les menaces potentielles sur vos machines virtuelles et ordinateurs.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774571"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561362"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Informations sur les menaces dans Azure Security Center
 Cet article vous aide à utiliser les informations sur les menaces d’Azure Security Center pour traiter les problèmes relatifs à la sécurité.
@@ -43,20 +43,24 @@ Le [processus de réponse aux incidents de sécurité](https://docs.microsoft.co
 - Identifier les systèmes qui ont été compromis.
 - Identifier les fichiers consultés et déterminer leur sensibilité.
 
-Vous pouvez utiliser des informations sur les menaces dans Security Center pour ces tâches. 
+Vous pouvez utiliser des informations sur les menaces dans Security Center pour ces tâches.
 
 ## <a name="access-the-threat-intelligence"></a>Accéder aux informations sur les menaces
 Pour visualiser les informations sur les menaces actuelles pour votre environnement, vous devez d’abord sélectionner l’espace de travail où résident vos informations. Si vous ne disposez pas de plusieurs espaces de travail, vous ne verrez pas le sélecteur d’espace de travail, et vous accéderez directement au tableau de bord **Informations sur les menaces**. Pour accéder au tableau de bord :
 
-1. Ouvrez le tableau de bord **Security Center**.
+1. Ouvrez le tableau de bord **Security Center**.
 
-2. Dans le volet gauche, dans **Détection**, cliquez sur **Informations sur les menaces**. Le tableau de bord **Informations sur les menaces** s’affiche.
+2. Dans le volet gauche, sous **Protection contre les menaces**, cliquez sur **Threat intelligence**. Une carte s’ouvre.
+
+    ![Threat intelligence map (Carte d’informations sur les menaces)](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+3. En haut de la carte, sélectionnez **Afficher Threat intelligence classique**. Le tableau de bord **Threat intelligence** s’affiche.
 
     ![Tableau de bord Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **MISE À JOUR REQUISE**, mettez à jour [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center. 
-    > 
+    > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **MISE À JOUR REQUISE**, mettez à jour [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center.
+    >
 3. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **Adresse IP malveillante**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
 
     ![Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
@@ -97,7 +101,6 @@ Dans cet article, vous avez découvert comment utiliser les informations sur les
 * [Gérer et répondre aux alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Comprendre les alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
-* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
+* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center.
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). Obtenez des réponses aux questions fréquentes concernant l’utilisation du service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
-

@@ -1,54 +1,56 @@
 ---
-title: Attributs personnalisés Azure Active Directory B2C | Microsoft Docs
-description: Utilisation d’attributs personnalisés dans Azure Active Directory B2C pour collecter des informations sur vos consommateurs.
+title: Définir des attributs personnalisés dans Azure Active Directory B2C | Microsoft Docs
+description: Définissez des attributs personnalisés pour votre application dans Azure Active Directory B2C afin de recueillir des informations sur vos clients.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 07/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 893dfbae96d2cfea01b1f281f888e9281bf582f9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d5ef77ab0bbf00d4ddbb05b7a38516e3c3e7d800
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441914"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968772"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C : utilisation d’attributs personnalisés pour recueillir des informations sur vos consommateurs
-Votre annuaire Azure Active Directory (Azure AD) B2C est fourni avec un ensemble intégré d’informations (attributs) : le prénom, le nom, la ville, le code postal, et d’autres attributs. Cependant, toute application accessible aux consommateurs a des exigences uniques sur les attributs à recueillir auprès des consommateurs. Avec Azure AD B2C, vous pouvez étendre l’ensemble d’attributs stockés sur chaque compte client. Vous pouvez créer des attributs personnalisés sur le [portail Azure](https://portal.azure.com/) et les utiliser dans vos stratégies d’abonnement, comme illustré ci-dessous. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md).
+# <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Définir des attributs personnalisés dans Azure Active Directory B2C
 
-> [!NOTE]
-> Les attributs personnalisés utilisent les [Extensions de schéma de répertoire de l’API Azure AD Graph](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
-> 
-> 
+ Toutes les applications orientées client ont des exigences uniques concernant les informations qui doivent être recueillies. Votre locataire Azure Active Directory (Azure AD) B2C est fourni avec un ensemble intégré d’informations stockées dans des attributs : le prénom, le nom, la ville et le code postal. Avec Azure AD B2C, vous pouvez étendre l’ensemble d’attributs stockés sur chaque compte client. 
+ 
+ Vous pouvez créer des attributs personnalisés dans le [portail Azure](https://portal.azure.com/) et les utiliser dans vos stratégies d’inscription, de connexion ou de modification de profil. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md). Les attributs personnalisés dans Azure AD B2C utilisent les [Extensions de schéma de répertoire de l’API Azure AD Graph](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 ## <a name="create-a-custom-attribute"></a>Création d’un attribut personnalisé
-1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Cliquez sur **Attributs utilisateur**.
-3. Cliquez sur **+Ajouter** en haut du volet.
-4. Fournissez un **nom** pour l’attribut personnalisé (par exemple, « ShoeSize ») et, éventuellement, une **description**. Cliquez sur **Créer**.
-   
-   > [!NOTE]
-   > Seuls les **Types de données** « Chaîne », « Booléen » et « Int » sont actuellement disponibles.
-   > 
-   > 
 
-L’attribut personnalisé est actuellement disponible dans la liste des **attributs utilisateur**, et pour une utilisation dans vos stratégies d’inscription.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
+2. Assurez-vous que vous utilisez le répertoire qui contient votre locataire Azure AD B2C en l’activant dans l’angle supérieur droit du portail Azure. Sélectionnez les informations sur votre abonnement, puis cliquez sur **Changer de répertoire**. 
 
-## <a name="use-a-custom-attribute-in-your-sign-up-policy"></a>Utilisation d’un attribut personnalisé dans votre stratégie d’inscription
-1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Cliquez sur **Stratégies d'inscription**.
-3. Ouvrez votre stratégie d’inscription (par exemple, « B2C_1_SiUp ») en cliquant dessus. Cliquez sur **Modifier** dans la partie supérieure du panneau.
-4. Cliquez sur **Attributs d’inscription** , puis sélectionnez l’attribut personnalisé (par exemple, « ShoeSize »). Cliquez sur **OK**.
-5. Cliquez sur **revendications d’applications** , puis sélectionnez l’attribut personnalisé. Cliquez sur **OK**.
-6. Cliquez sur **Enregistrer** dans la partie supérieure du panneau.
+    ![Basculez vers votre client Azure AD B2C.](./media/active-directory-b2c-reference-custom-attr/switch-directories.png)
 
-La fonctionnalité « Exécuter maintenant » de la stratégie permet de vérifier l’expérience utilisateur. Vous devez maintenant voir « ShoeSize » dans la liste d’attributs collectés lors de l’inscription du consommateur, et le voir dans le jeton retourné à votre application.
+    Choisissez le répertoire qui contient votre locataire.
 
-## <a name="notes"></a>Notes
-* Au-delà des stratégies d’inscription, il est également possible d’utiliser des attributs personnalisés dans les stratégies de connexion ou d’authentification ainsi que dans les stratégies de modification de profil.
-* Les attributs personnalisés présentent toutefois un inconvénient connu. L’attribut est créé lors de sa première utilisation dans une stratégie, et non pas lorsque vous l’ajoutez à la liste des **Attributs utilisateur**.
+    ![Sélectionner le répertoire](./media/active-directory-b2c-reference-custom-attr/select-directory.png)
+
+3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
+4. Sélectionnez **Attributs utilisateur**, puis **Ajouter**.
+5. Fournissez un **nom** pour l’attribut personnalisé (par exemple, « ShoeSize »).
+6. Choisissez un **Type de données**. Seules les valeurs **String**, **Boolean** et **Int** sont disponibles.
+7. Si vous le souhaitez, entrez une **Description** à titre d’information. 
+8. Cliquez sur **Créer**.
+
+L’attribut personnalisé est actuellement disponible dans la liste des **attributs utilisateur**, et pour une utilisation dans vos stratégies. Un attribut personnalisé est créé lors de sa première utilisation dans une stratégie, et non pas lorsque vous l’ajoutez à la liste des **Attributs utilisateur**.
+
+## <a name="use-a-custom-attribute-in-your-policy"></a>Utilisation d’un attribut personnalisé dans votre stratégie
+
+1. Dans votre locataire Azure AD B2C, sélectionnez **Stratégies d’inscription ou de connexion**.
+2. Sélectionnez votre stratégie (par exemple, « B2C_1_SignupSignin ») pour l’ouvrir. 
+3. Cliquez sur **Modifier**.
+4. Sélectionnez **Attributs d’inscription**, puis sélectionnez l’attribut personnalisé (par exemple, « ShoeSize »). Cliquez sur **OK**.
+5. Sélectionnez **Revendications d’applications**, puis sélectionnez l’attribut personnalisé. Cliquez sur **OK**.
+6. Cliquez sur **Enregistrer**.
+
+La fonctionnalité **Exécuter maintenant** de la stratégie permet de vérifier l’expérience client. Vous devez maintenant voir **ShoeSize** dans la liste d’attributs collectés lors de l’inscription, et le voir dans le jeton retourné à votre application.
 
