@@ -12,17 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/1/2018
+ms.date: 7/6/2018
 ms.author: raiye
-ms.openlocfilehash: aaf91f8394ac4fd4fa6372c6c0f17ff92178589e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737535"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902161"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="june-guest-os"></a>SE invité juin
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| Éd. 18/06 | [4284880] |Sécurité de Windows 10 |5.20 |12 juin 2018 |
+| Éd. 18/06 | [4284867] |Sécurité Windows uniquement |2.75 |12 juin 2018 |
+| Éd. 18/06 | [4284846] |Sécurité Windows uniquement |3.62 |12 juin 2018 |
+| Éd. 18/06 | [4284878] |Sécurité Windows uniquement |4.55 |12 juin 2018 |
+| Éd. 18/06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |12 juin 2018 |
+| Éd. 18/06 | [4287903] |Clignote |3.62, 4.75, 5.20 |12 juin 2018 |
+| N/A | [4103718] |Correctif cumulatif non relatif à la sécurité de mai |2.75 |8 mai 2018 |
+| N/A | [4103730] |Correctif cumulatif non relatif à la sécurité de mai |3.62 |8 mai 2018 |
+| N/A | [4103725] |Correctif cumulatif non relatif à la sécurité de mai |4.55 |8 mai 2018 |
+| N/A | [4040980], [4040977] |Correctif cumulatif non relatif à la sécurité de septembre 2017 pour .NET |2.75 |14 novembre 2017 |
+| N/A | [4095874] |Version .NET 3.5 non relative à la sécurité de mai |2.75 |8 mai 2018 |
+| N/A | [4096495] |Version .NET 4.x non relative à la sécurité de mai |2.75 |8 mai 2018 |
+| N/A | [4040975] |Correctif cumulatif non relatif à la sécurité de septembre 2017 pour .NET |3.62 |14 novembre 2017 |
+| N/A | [4095872] |Version .NET 3.5 non relative à la sécurité de mai |3.62 |8 mai 2018 |
+| N/A | [4096494] |Version .NET 4.x non relative à la sécurité de mai |3.62 |8 mai 2018 |
+| N/A | [4096416] |Version .NET 4.5x non relative à la sécurité de mai |3.62 |8 mai 2018 |
+| N/A | [4040974], [4040972] |Correctif cumulatif non relatif à la sécurité de septembre 2017 pour .NET |4.55 |14 novembre 2017 |
+| N/A | [4043763] |Correctif cumulatif non relatif à la sécurité d’octobre 2017 pour .NET |4.55 |12 septembre 2017 |
+| N/A | [4095876] |Version .NET 4.x non relative à la sécurité de mai |4.55 |8 mai 2018 |
+| N/A | [4096417] |Version .NET 4.5x non relative à la sécurité de mai |4.55 |8 mai 2018 |
+| N/A | [4132216] |SSU mai |5.20 |8 mai 2018 |
 
 ## <a name="may-guest-os"></a>SE invité mai
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -648,6 +673,32 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3007054] |Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2999802] |Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2896881] |Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
+
+
+[4284880]: http://support.microsoft.com/kb/4284880
+[4284867]: http://support.microsoft.com/kb/4284867
+[4284846]: http://support.microsoft.com/kb/4284846
+[4284878]: http://support.microsoft.com/kb/4284878
+[4230450]: http://support.microsoft.com/kb/4230450
+[4287903]: http://support.microsoft.com/kb/4287903
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103730]: http://support.microsoft.com/kb/4103730
+[4103725]: http://support.microsoft.com/kb/4103725
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040977]: http://support.microsoft.com/kb/4040977
+[4095874]: http://support.microsoft.com/kb/4095874
+[4096495]: http://support.microsoft.com/kb/4096495
+[4040975]: http://support.microsoft.com/kb/4040975
+[4095872]: http://support.microsoft.com/kb/4095872
+[4096494]: http://support.microsoft.com/kb/4096494
+[4096416]: http://support.microsoft.com/kb/4096416
+[4040974]: http://support.microsoft.com/kb/4040974
+[4040972]: http://support.microsoft.com/kb/4040972
+[4043763]: http://support.microsoft.com/kb/4043763
+[4095876]: http://support.microsoft.com/kb/4095876
+[4096417]: http://support.microsoft.com/kb/4096417
+[4132216]: http://support.microsoft.com/kb/4132216
 
 [4103721]: http://support.microsoft.com/kb/4103721
 [4103727]: http://support.microsoft.com/kb/4103727 

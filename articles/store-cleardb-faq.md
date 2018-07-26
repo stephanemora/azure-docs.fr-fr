@@ -2,28 +2,30 @@
 title: FAQ sur les bases de données MySQL ClearDB avec Azure App Service | Microsoft Docs
 description: Réponses aux questions courantes sur l’utilisation de bases de données MySQL ClearDB avec Azure App Service.
 documentationcenter: php
-services: ''
+services: mysql
 author: sunbuild
 manager: yochayk
-editor: ''
 tags: mysql
-ms.assetid: c2ed5e78-6d7d-4d0c-b7ee-a52ae41ceab8
 ms.service: multiple
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: 8186e86bd7a441fcefb0759d75ded6f063a4722f
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: ff36a67cd09dd1e5cb5635be17d1dd76fc824d1a
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28948034"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917072"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ sur les bases de données MySQL ClearDB avec Azure App Service
 Ce FAQ répond aux questions courantes sur l’utilisation et l’achat de bases de données MySQL ClearDB pour Azure Web Apps.
+
+> [!IMPORTANT]
+> À partir du 13 juin 2018, ClearDB a transféré les clients basés sur Azure actuellement facturés par Microsoft vers un modèle de facturation directe avec ClearDB. Les informations contenues dans cet article sont désormais obsolètes. Vous ne pourrez plus ni créer ni mettre à niveau une base de données ClearDB qui a été créée dans Azure.
+>
+> Pour plus d’informations, également concernant les étapes suivantes, consultez [Modifications apportées aux plans de service ClearDB](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
+
 
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Quelles sont les options MySQL sur Azure ?
 Vous disposez de plusieurs options :
@@ -42,7 +44,6 @@ Cela dépend du type d’abonnement que vous utilisez. Voici quelques types d’
 * [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/) : inclut des crédits à utiliser avec des services Microsoft Azure mais ne permet pas d’acheter des ressources tierces. Pour acheter des services tiers ou une base de données MySQL payante, vous devez utiliser un abonnement avec une carte de crédit activée. Pour Web Apps, vous pouvez créer une base de données MySQL ClearDB GRATUITE.
 * [Abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) et **Dev MSDN/Tester le paiement à l’utilisation**: à l’instar d’un essai gratuit, un abonnement MSDN exige une carte de crédit pour acheter une solution MySQL payante à partir de ClearDB.
 * [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/): les clients Contrat Entreprise sont facturés conformément à leur contrat, tous les trimestres, à hauteur de tous leurs achats Azure Marketplace (tiers) sur une facture distincte et cumulée. Vous êtes facturé hors engagement monétaire pour tous les achats Marketplace. Notez que, à ce jour, Azure Store n’est pas disponible pour les clients inscrits en Azerbaïdjan, Croatie, Norvège et à Porto Rico. 
-* [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): vous pouvez créer uniquement des bases de données ClearDB GRATUITES pour Web Apps. Aucune limite n’est définie sur le nombre de bases de données MySQL ClearDB gratuites que vous pouvez créer. Notez que les bases de données gratuites ne doivent ne pas être utilisées pour les applications web de production, puisque ce service a été conçu uniquement à des fins d’essai.
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Pourquoi ai-je été facturé 3,50 USD pour une application Web + MySQL dans Azure Marketplace ?
 L’option de base de données par défaut est Titan, qui coûte 3,50 USD. Nous n’indiquons pas le coût lors de la création de la base de données et vous pouvez acheter par erreur une base de données que vous ne souhaitiez pas. Nous essayons de trouver un moyen d’améliorer l’expérience, mais en attendant, vous devez vérifier tous vos niveaux tarifaires sélectionnés pour l’application web et la base de données avant de cliquer sur **Créer** et commencer le déploiement des ressources.

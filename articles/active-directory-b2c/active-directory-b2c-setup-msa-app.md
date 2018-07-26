@@ -1,59 +1,51 @@
 ---
-title: Configuration de compte Microsoft dans Azure Active Directory B2C | Microsoft Docs
-description: Fourniture d’inscription et de connexion à des consommateurs disposant de comptes Microsoft dans vos applications sécurisées par Azure Active Directory B2C.
+title: Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C | Microsoft Docs
+description: Proposez l’inscription et la connexion aux clients disposant de comptes Microsoft dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c788b14a99125a208390cd4f8ead338efed06933
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444165"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900827"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C : fourniture d’inscription et de connexion à des consommateurs disposant de comptes Microsoft
+# <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C
+
 ## <a name="create-a-microsoft-account-application"></a>Créer une application de compte Microsoft
-Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application de compte Microsoft et lui fournir les paramètres appropriés. Pour ce faire, vous avez besoin d’un compte Microsoft. Si vous n’en avez pas, vous pouvez en obtenir un à l’adresse [https://www.live.com/](https://www.live.com/).
 
-1. Accédez au [Portail d’inscription des applications Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) et connectez-vous avec votre compte Microsoft.
-2. Cliquez sur **Ajouter une application**.
-   
-    ![Compte Microsoft - Ajouter une nouvelle application](./media/active-directory-b2c-setup-msa-app/msa-add-new-app.png)
-3. Indiquez un **nom** pour votre application et cliquez sur **Créer une application**.
-   
-    ![Compte Microsoft - Nom d’application](./media/active-directory-b2c-setup-msa-app/msa-app-name.png)
-4. Copiez la valeur **ID de l’application**. Vous aurez besoin de cette valeur pour configurer le compte Microsoft en tant que fournisseur d’identité dans votre client.
-   
-    ![Compte Microsoft - ID de l’application](./media/active-directory-b2c-setup-msa-app/msa-app-id.png)
-5. Cliquez sur **Ajouter une plateforme** et choisissez **Web**.
-   
-    ![Compte Microsoft - Ajouter une plateforme](./media/active-directory-b2c-setup-msa-app/msa-add-platform.png)
-   
-    ![Compte Microsoft - Web](./media/active-directory-b2c-setup-msa-app/msa-web.png)
-6. Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **Rediriger les URI** . Remplacez **{tenant}** par votre nom de client (par exemple, contosob2c.onmicrosoft.com).
-   
-    ![Compte Microsoft - URL de redirection](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
-7. Cliquez sur **Générer un nouveau mot de passe** dans la section **Secrets de l’application**. Copiez le nouveau mot de passe affiché à l’écran. Vous aurez besoin de cette valeur pour configurer le compte Microsoft en tant que fournisseur d’identité dans votre client. Ce mot de passe est une information d’identification de sécurité importante.
-   
-    ![Compte Microsoft - générer un nouveau mot de passe](./media/active-directory-b2c-setup-msa-app/msa-generate-new-password.png)
-   
-    ![Compte Microsoft - Nouveau mot de passe](./media/active-directory-b2c-setup-msa-app/msa-new-password.png)
-8. Cochez la case **Support du Kit de développement logiciel (SDK) Live** dans la section **Options avancées**. Cliquez sur **Enregistrer**.
-   
-    ![Compte Microsoft - Support du Kit SDK Live](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
+Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application dans votre locataire qui la représente. Si vous n’avez pas encore de compte Microsoft, vous pouvez en obtenir un à l’adresse [https://www.live.com/](https://www.live.com/).
 
-## <a name="configure-microsoft-account-as-an-identity-provider-in-your-tenant"></a>Configuration du compte Microsoft en tant que fournisseur d’identité dans votre client
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le portail Azure.
-2. Dans le panneau de fonctionnalités B2C, cliquez sur **Fournisseurs d’identité**.
-3. Cliquez sur **+Ajouter** en haut du volet.
-4. Fournissez un **Nom** convivial pour la configuration de fournisseur d’identité. Par exemple, saisissez « MSA ».
-5. Cliquez sur **Type de fournisseur d’identité**, sélectionnez **Compte Microsoft**, puis cliquez sur **OK**.
-6. Cliquez sur **Configurer ce fournisseur d’identité** , puis saisissez l’ID de l’application et le mot de passe de l’application de compte Microsoft que vous avez créée précédemment.
-7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration de compte Microsoft.
+1. Connectez-vous au [Portail d’inscription des applications Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) avec vos informations d'identification Microsoft.
+2. En haut à droite, sélectionnez **Ajouter une application**.
+3. Indiquez un **Nom** pour votre application et cliquez sur **Créer**.
+4. Sur la page d’inscription, copiez la valeur de l’**ID de l’application**. Il sert à configurer votre compte Microsoft comme fournisseur d’identité dans votre client.
+5. Sélectionnez **Ajouter une plateforme**, puis choisissez **Web**.
+6. Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans **URL de redirection**. Remplacez **{tenant}** par votre nom de client (par exemple, contosob2c.onmicrosoft.com).
+7. Sous **Secrets de l’application**, sélectionnez **Générer un nouveau mot de passe**. Copiez le nouveau mot de passe affiché à l’écran. Vous en aurez besoin pour configurer un compte Microsoft comme fournisseur d’identité dans votre client. Ce mot de passe est une information d’identification de sécurité importante.
+
+## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Configuration d’un compte Microsoft en tant que fournisseur d’identité
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
+2. Assurez-vous que vous utilisez le répertoire qui contient votre locataire Azure AD B2C en l’activant dans l’angle supérieur droit du portail Azure. Sélectionnez les informations sur votre abonnement, puis cliquez sur **Changer de répertoire**. 
+
+    ![Basculez vers votre client Azure AD B2C.](./media/active-directory-b2c-setup-msa-app/switch-directories.png)
+
+    Choisissez le répertoire qui contient votre locataire.
+
+    ![Sélectionner le répertoire](./media/active-directory-b2c-setup-msa-app/select-directory.png)
+
+3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
+4. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
+5. Entrez un **nom**. Par exemple, saisissez *MSA*.
+6. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **Compte Microsoft**, puis cliquez sur **OK**.
+7. Sélectionnez **Configurer ce fournisseur d’identité**, entrez l’Id d’application enregistré précédemment en tant qu’**ID Client** et entrez le mot de passe enregistré en tant que **clé secrète client** de l’application de compte Microsoft créée précédemment.
+8. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration de compte Microsoft.
 

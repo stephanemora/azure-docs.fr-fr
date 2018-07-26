@@ -19,7 +19,7 @@ Lorsque vous utilisez des paramètres de base et sélectionnez uniquement un abo
 Le partage de fichiers est monté comme un `clouddrive` dans votre répertoire `$Home`. Cette opération n’a lieu qu’une seule fois, car le partage de fichiers est automatiquement monté dans les sessions suivantes. 
 
 > [!NOTE]
-> Pour la sécurité, chaque utilisateur doit approvisionner son propre stockage.  Pour le contrôle d’accès en fonction du rôle (RBAC), les utilisateurs doivent disposer d’un accès contributeur ou supérieur.
+> Pour la sécurité, chaque utilisateur doit approvisionner son propre compte de stockage.  Pour le contrôle d’accès en fonction du rôle (RBAC), les utilisateurs doivent disposer d’un accès contributeur ou supérieur au niveau du compte de stockage.
 
 Dans Bash, le partage de fichiers contient également une image de 5 Go. Automatiquement créée pour vous, celle-ci conserve les données dans votre répertoire `$Home`. 
 
@@ -27,7 +27,7 @@ Dans Bash, le partage de fichiers contient également une image de 5 Go. Automa
 
 L’option Avancé vous permet d’associer des ressources existantes. Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les listes déroulantes sont filtrées sur la région Cloud Shell qui vous a été attribuée, ainsi que sur les comptes de stockage localement redondant et géoredondant.
 
-Dans Bash, les partages de fichiers existants reçoivent une image de 5 Go pour conserver votre répertoire `$Home`.
+Les partages de fichiers reçoivent une image de 5 Go créée pour conserver votre répertoire `$Home`.
 
 ![Paramètre Groupe de ressources](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
@@ -42,7 +42,7 @@ Pour rechercher la région qui vous est affectée, vous pouvez :
 * Faire référence au nom du compte de stockage créé pour vous (ex. : `cloud-shell-storage-westus`)
 * Exécuter `env` et rechercher la variable `ACC_LOCATION`
 
-La machine Cloud Shell existe dans les régions suivantes :
+Les machines Cloud Shell existent dans les régions suivantes :
 |Domaine|Région|
 |---|---|
 |Amérique|Est des États-Unis, Sud du centre des États-Unis, Ouest des États-Unis|

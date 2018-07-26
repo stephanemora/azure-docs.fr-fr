@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: aljo
-ms.openlocfilehash: fbe3dde48fa1be79356ff1cb9e47c46832d8cdaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5d8f1d2634fd2efd624d1000f2fbc0400af4af11
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212753"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136806"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portail Azure](service-fabric-cluster-creation-via-portal.md)
+> * [portail Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -71,9 +71,7 @@ Un nombre quelconque de certificats supplémentaires peut être installé sur un
 * Le chiffrement et déchiffrement de valeurs de configuration d’applications.
 * Le chiffrement des données sur les nœuds lors de la réplication. 
 
-Les certificats d’application ne peuvent pas être configurés lors de la création d’un cluster par le biais du portail Azure. Pour configurer les certificats d’application au moment de la configuration du cluster, vous devez [créer un cluster à l’aide d’Azure Resource Manager][create-cluster-arm]. Vous pouvez également ajouter des certificats d’application au cluster après sa création.
-
-</a "create-cluster-portal" ></a>
+Les certificats d’application ne peuvent pas être configurés lors de la [création d’un cluster via le portail Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md). Pour configurer les certificats d’application au moment de la configuration du cluster, vous devez [créer un cluster à l’aide d’Azure Resource Manager][create-cluster-arm]. Vous pouvez également ajouter des certificats d’application au cluster après sa création.
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Création d’un cluster dans le portail Azure
 
@@ -121,7 +119,7 @@ Configurez vos nœuds de cluster. Les types de nœuds définissent les tailles d
 5. **Cluster à un seul nœud et clusters à trois nœuds** - Destinés uniquement à des fins de test. Ils ne sont pas pris en charge pour l’exécution des charges de travail de production.
 6. Configurez des points de terminaison personnalisés. Ce champ vous permet d’entrer une liste séparée par des virgules des ports que vous souhaitez exposer par le biais de l’Azure Load Balancer à l’Internet public pour vos applications. Par exemple, si vous envisagez de déployer une application web dans votre cluster, saisissez « 80 » pour autoriser le trafic sur le port 80 dans votre cluster. Pour en savoir plus sur les points de terminaison, consultez la page [Communiquer avec des applications][service-fabric-connect-and-communicate-with-services].
 7. Configurez les **diagnostics**du cluster. Par défaut, les diagnostics sont activés sur votre cluster afin de faciliter la résolution des problèmes. Si vous souhaitez désactiver les diagnostics, définissez **l’État** sur **Désactivé**. Nous vous recommandons de **ne pas** désactiver les diagnostics. Si vous avez déjà créé le projet Application Insights, donnez sa clé, afin que les traces d’application soient acheminées vers lui.
-8. Sélectionnez le mode de mise à niveau Service Fabric que vous souhaitez associer à votre cluster. Sélectionnez **Automatique**si vous souhaitez que le système récupère automatiquement la dernière version disponible et essaye de mettre à niveau votre cluster vers cette version. Définissez le mode sur **Manuel**si vous souhaitez choisir une version prise en charge. Pour en savoir plus sur le mode de mise à niveau de Service Fabric, consultez le document [Mettre à niveau un cluster Service Fabric][service-fabric-cluster-upgrade].
+8. Sélectionnez le mode de mise à niveau Service Fabric que vous souhaitez associer à votre cluster. Sélectionnez **Automatique**si vous souhaitez que le système récupère automatiquement la dernière version disponible et essaye de mettre à niveau votre cluster vers cette version. Définissez le mode sur **Manuel**si vous souhaitez choisir une version prise en charge. Pour en savoir plus sur le mode de mise à niveau de Service Fabric, voir le document [service-fabric-cluster-upgrade document.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
 > Nous prenons uniquement en charge les clusters qui exécutent des versions prises en charge de Service Fabric. Si vous sélectionnez le mode **Manuel** , vous êtes responsable de la mise à niveau de votre cluster vers une version prise en charge. > 
@@ -227,9 +225,7 @@ Chacune des valeurs NodeTypes que vous spécifiez dans votre cluster entraîne l
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node -->
-[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
-[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
+<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node --> [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md [service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.mdd
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

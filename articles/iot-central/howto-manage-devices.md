@@ -92,7 +92,7 @@ Si vous enregistrez des appareils en démarrant l’importation sous **Appareils
 1. Sélectionnez les appareils que vous souhaitez associer à un modèle.
 1. Cliquez sur l’option **Associer**.
     [![Associer des appareils](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
-1. Choisissez le modèle à partir de la liste des modèles disponibles, puis cliquez sur le bouton **	Associer**.
+1. Choisissez le modèle à partir de la liste des modèles disponibles, puis cliquez sur le bouton **Associer**.
 1. Les appareils sélectionnés seront déplacés dans le modèle d’appareil correspondant.
 
  >   [!NOTE] 

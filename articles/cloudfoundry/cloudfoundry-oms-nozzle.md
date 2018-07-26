@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c58c2b255d269aef7e8b3fea62d003ad0c16ef0a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608999"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971246"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Deploy Azure Log Analytics for Cloud Foundry Monitoring (Déployer l’infrastructure Nozzle d’Azure Log Analytics pour surveiller le système Cloud Foundry)
 
@@ -90,7 +90,7 @@ Pour plus d’informations, consultez l’article [Prise en main de Log Analytic
 
 ## <a name="deploy-the-nozzle"></a>Déployer l’infrastructure Nozzle
 
-Il existe deux façons de déployer Nozzle : sous forme de vignette PCF ou en tant qu’application Cloud Foundry.
+Il existe deux façons de déployer Nozzle : sous forme de mosaïque PCF ou en tant qu’application Cloud Foundry.
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Déployer l’infrastructure Nozzle en tant que vignette Ops Manager sur Pivotal Cloud Foundry
 
@@ -166,7 +166,7 @@ cf push
 
 ### <a name="from-apps-manager-for-pcf"></a>À partir du gestionnaire d’applications (pour Pivotal Cloud Foundry)
 
-1. Connectez-vous à Ops Manager et assurez-vous que la vignette est affichée sur le tableau de bord de l’installation.
+1. Connectez-vous à Ops Manager et assurez-vous que la mosaïque est affichée sur le tableau de bord de l’installation.
 2. Connectez-vous au gestionnaire d’applications et assurez-vous que l’espace que vous avez créé pour l’infrastructure Nozzle est répertorié dans le rapport d’utilisation. Assurez-vous que l’état est normal.
 
 ### <a name="from-your-development-computer"></a>À partir de l’ordinateur de développement
@@ -185,7 +185,7 @@ Si vous avez créé l’espace de travail OMS manuellement, suivez les étapes c
 
 ### <a name="1-import-the-oms-view"></a>1. Importer la vue OMS
 
-À partir du portail OMS, accédez à la zone **Concepteur de vues** > **Importer** > **Parcourir**, puis sélectionnez l’un des fichiers omsview. Par exemple, sélectionnez *Cloud Foundry.omsview*et enregistrez la vue. Une vignette s’affiche alors sur la page **Vue d’ensemble**. Sélectionnez-la pour afficher les mesures visualisées.
+À partir du portail OMS, accédez à la zone **Concepteur de vues** > **Importer** > **Parcourir**, puis sélectionnez l’un des fichiers omsview. Par exemple, sélectionnez *Cloud Foundry.omsview*et enregistrez la vue. Une mosaïque s’affiche alors sur la page **Vue d’ensemble**. Sélectionnez-la pour afficher les mesures visualisées.
 
 Les opérateurs peuvent personnaliser ces vues ou en créer, grâce au **Concepteur de vues**.
 
@@ -228,7 +228,7 @@ Pour mettre à jour l’infrastructure Nozzle vers une version plus récente, t�
 ### <a name="remove-the-nozzle-from-ops-manager"></a>Retrait de l’infrastructure Nozzle à partir d’Operations Manager
 
 1. Connectez-vous à Ops Manager.
-2. Recherchez la vignette **Infrastructure Nozzle de Microsoft Azure Log Analytics pour Pivotal Cloud Foundry**.
+2. Recherchez la mosaïque **Infrastructure Nozzle de Microsoft Azure Log Analytics pour Pivotal Cloud Foundry**.
 3. Cliquez sur l’icône de poubelle, puis confirmez la suppression.
 
 ### <a name="remove-the-nozzle-from-your-development-computer"></a>Retrait de l’infrastructure Nozzle à partir de l’ordinateur de développement
@@ -244,7 +244,7 @@ Les données du portail OMS ne sont pas supprimées automatiquement lorsque vous
 
 L’infrastructure Nozzle d’Azure Log Analytics est open source. Envoyez vos questions et commentaires à la [section GitHub](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). Pour ouvrir une demande d’assistance Azure, sélectionnez la « machine virtuelle qui exécute Cloud Foundry » en tant que catégorie de service. 
 
-## <a name="next-step"></a>Étapes suivantes
+## <a name="next-step"></a>Étape suivante
 
 À partir de PCF2.0, les métriques de performances de machine virtuelle sont transférées vers l’infrastructure Nozzle d’Azure Log Analytics par System Metrics Forwarder, et intégrées dans l’espace de travail OMS. Vous n’avez plus besoin de l’agent OMS pour les métriques de performances de machine virtuelle. Toutefois, vous pouvez toujours utiliser l’agent OMS pour collecter des informations de Syslog. L’agent OMS est installé en tant que composant additionnel Bosh sur vos machines virtuelles Cloud Foundry. 
 

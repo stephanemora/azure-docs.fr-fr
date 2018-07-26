@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/14/2018
+ms.date: 7/13/2018
 ms.author: pkc
-ms.openlocfilehash: 7a00b72f0b8d52ae0ced5f44784c2a61d40c8ac2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 596e71be75453874492aac15d91cb6153c2076f5
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208955"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112888"
 ---
 # <a name="azure-service-fabric-support-options"></a>Options de support d’Azure Service Fabric
 
@@ -79,7 +79,8 @@ Voici la liste des versions de Service Fabric prises en charge et la date associ
 | 5.7.* | 5.4.164.* |Inférieure ou égale à la version 2.7 |15 décembre 2017  |
 | 6.0.* | 5.6.205.* |Inférieure ou égale à la version 2.8 |30 mars 2018     | 
 | 6.1.* | 5.7.221.* |Inférieure ou égale à la version 3.0 |15 juillet 2018      |
-| 6.2.* | 6.0.232.* |Inférieure ou égale à la version 3.1 |Version actuelle ; par conséquent, pas de date de fin |
+| 6.2.* | 6.0.232.* |Inférieure ou égale à la version 3.1 |15 septembre 2018 |
+| 6.3.* | 6.1.480.* |Inférieure ou égale à la version 3.2 |Version actuelle ; par conséquent, pas de date de fin |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versions préliminaires de Service Fabric – non pris en charge pour la production.
 De temps à autre, nous publions des versions dotées de fonctionnalités significatives, sur lesquelles nous souhaitons avoir un retour et qui sont publiées sous forme de version préliminaire. Ces versions préliminaires doivent uniquement être utilisées à des fins de test. Votre cluster de production doit toujours exécuter une version de Service Fabric prise en charge et stable. Les versions préliminaires commencent toujours par un numéro de version majeure et mineure : 255. Par exemple, la version 255.255.5703.949 de Service Fabric ne doit être utilisée que dans les clusters de test. Il s’agit d’une version préliminaire. Ces versions préliminaires sont également annoncées sur le [blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) et s’accompagnent d’informations sur les fonctionnalités incluses.

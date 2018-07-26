@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: cc6837ab14aa8fb36317da52cf011ddbd7e464be
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972229"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126049"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -165,6 +165,7 @@ Pour les charges de travail de production :
 - Il est recommandé de dédier le type de nœud principal de vos clusters aux services système et d’utiliser des contraintes de placement pour déployer votre application sur des types de nœuds secondaires.
 - La référence de machine virtuelle recommandée est Standard D3 ou Standard D3_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local.
 - La référence de machine virtuelle minimale prise en charge est Standard D1 ou Standard D1_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local. 
+- Le disque SSD local de 14 Go est une configuration minimale requise. Notre recommandation minimale est de 50 Go. Pour vos charges de travail, en particulier lors de l’exécution de conteneurs Windows, des disques plus volumineux sont requis. 
 - Les références de machine virtuelle à cœur partiel telles que Standard A0 ne sont pas prises en charge pour les charges de travail de production.
 - La référence Standard A1 n’est pas prise en charge pour les charges de production pour des raisons de performances.
 

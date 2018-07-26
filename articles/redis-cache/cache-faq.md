@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c308205c5adb05f4c7e1668c67adea414020ea2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640470"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232959"
 ---
 # <a name="azure-redis-cache-faq"></a>Forum aux questions sur le Cache Redis Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour Cache Redis Azure.
@@ -392,7 +392,10 @@ Configuration de ce paramètre :
   > La valeur spécifiée dans cet élément de configuration est un paramètre applicable *par cœur*. Par exemple, si vous utilisez un ordinateur 4 cœurs et que vous souhaitez définir votre paramètre minIOThreads sur 200 au moment de l’exécution, vous utilisez `<processModel minIoThreads="50"/>`.
   >
 
-* En dehors d’ASP.NET, utilisez l’API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) .
+* En dehors d’Outside ASP.NET et des sites web Azure global.asax, utilisez ’API [ThreadPool.SetMinThreads (...)] (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
+
+  > [!NOTE]
+  > La valeur spécifiée par cette API est un paramètre global qui affecte tout le domaine d'application. Si vous avez une machine à 4 cœurs et que vous souhaitez définir minWorkerThreads et minIOThreads à 50 par UC pendant l’exécution, vous utiliserez ThreadPool.SetMinThreads (200, 200).
 
 <a name="server-gc"></a>
 

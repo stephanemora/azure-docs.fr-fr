@@ -2,18 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: virtual-machines
-author: rogara
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414567"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37935800"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -91,7 +91,7 @@ Managed Disks prend en charge trois rôles principaux par défaut :
 
 **Existe-t-il un moyen de copier ou d’exporter un disque géré vers un compte de stockage privé ?**
 
-Vous pouvez générer un URI de signature d’accès partagé (SAP) en lecture seule pour le disque managé et l’utiliser pour copier le contenu vers un compte de stockage privé ou un espace de stockage local. Vous pouvez utiliser l’URI SAP avec le Portail Azure, Azure PowerShell, Azure CLI ou [AzCopy](../articles/storage/common/storage-use-azcopy.md).
+Vous pouvez générer un URI de signature d’accès partagé (SAP) en lecture seule pour le disque managé et l’utiliser pour copier le contenu vers un compte de stockage privé ou un espace de stockage local. Vous pouvez utiliser l’URI SAS avec le Portail Azure, Azure PowerShell, l’interface de ligne de commande Azure ou [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Puis-je créer une copie de mon disque géré ?**
 
@@ -102,7 +102,7 @@ Les clients peuvent prendre une capture instantanée de leurs disques gérés, q
 Oui, les disques managés et non managés sont pris en charge. Nous vous recommandons d’utiliser des disques gérés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques gérés.
 
 
-**Si je crée un disque de 128 Go, et que j’augmente la taille à 130 Go, serai-je facturé en fonction de la taille supérieure de disque (512 Go) ?**
+**Si je crée un disque de 128 Go et que j’augmente la taille à 130 Go, serai-je facturé en fonction de la taille de disque supérieure (256 Go) ?**
 
 Oui.
 
@@ -126,6 +126,10 @@ Non. Vous ne pouvez pas mettre à jour la propriété de nom d’ordinateur. La 
 * [Liste de modèles utilisant des disques gérés](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+**Puis-je localiser conjointement des disques managés et non sur la même machine virtuelle ?**
+
+Non.
+
 ## <a name="standard-ssd-disks-preview"></a>Disques SSD Standard (préversion)
 
 **Qu’est-ce qu’un disque SSD Standard Azure (préversion)**
@@ -133,6 +137,13 @@ Les disques SSD Standard sont des disques standard à semi-conducteur, optimisé
 
 <a id="standard-ssds-azure-regions"></a>**Quelles sont les régions actuellement prises en charge pour les disques SSD Standard (préversion) ?**
 * Europe du Nord
+* France-Centre
+* Est des États-Unis 2
+* Centre des États-Unis
+* Centre du Canada
+* Est de l'Asie
+* Corée du Sud
+* Est de l’Australie
 
 **Comment faire pour créer des disques SSD Standard ?**
 Actuellement, vous pouvez créer des disques SSD Standard à l’aide de modèles Azure Resource Manager. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
@@ -156,8 +167,15 @@ L’exemple suivant illustre la section *properties.storageProfile.osDisk* d’u
 
 Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
+**Puis-je convertir mes disques existants en disques SSD standard ?**
+Oui, vous pouvez. Reportez-vous à [Convertir le stockage Managed Disks Azure de standard en premium, et vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) pour des recommandations générales relatives à la conversion des disques gérés. Et utilisez la valeur suivante pour mettre à jour le type de disque vers un disque SSD standard.
+-AccountType StandardSSD_LRS
+
 **Puis-je utiliser des disques SSD Standard en tant que disques non managés ?**
 Non, les disques SSD Standard sont disponibles seulement comme disques managés.
+
+**Les disques SSD standard prennent-ils en charge les « SLA de machine virtuelle à instance unique » ?**
+Non, les disques SSD standard n’ont pas de SLA de machine virtuelle à instance unique. Utiliser des disques SSD Premium pour une instance unique de contrat SLA de machine virtuelle.
 
 ## <a name="migrate-to-managed-disks"></a>Migrer vers Managed Disks 
 
@@ -209,11 +227,11 @@ Non.
 
 **Storage Service Encryption est-il disponible dans toutes les régions ?**
 
-Non. Il est disponible dans toutes les régions où Managed Disks est disponible. Managed Disks est disponible dans toutes les zones publiques et en Allemagne.
+Non. Il est disponible dans toutes les régions où Managed Disks est disponible. Managed Disks est disponible dans toutes les zones publiques et en Allemagne. Il est également disponible en Chine, mais uniquement pour les clés gérées par Microsoft, pas pour les clés gérées par le client.
 
 **Comment puis-je savoir si mon disque géré est chiffré ?**
 
-Vous pouvez déterminer l’heure de création d’un disque géré depuis le portail Azure, Azure CLI et PowerShell. S’il a été créé après le 9 juin 2017, votre disque est chiffré. 
+Vous pouvez déterminer l’heure de création d’un disque géré depuis le portail Azure, Azure CLI et PowerShell. S’il a été créé après le 9 juin 2017, votre disque est chiffré.
 
 **Comment puis-je chiffrer mes disques existants qui ont été créés avant le 10 juin 2017 ?**
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636604"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972398"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Présentation des clés, des secrets et des certificats
 Azure Key Vault permet aux utilisateurs de stocker et d’utiliser des clés de chiffrement dans l’environnement Microsoft Azure. Key Vault prend en charge plusieurs types de clés et algorithmes, et permet d’utiliser des modules de sécurité matériels (HSM) pour les clés de valeur supérieure. Key Vault permet également aux utilisateurs de stocker des secrets en toute sécurité. Les secrets sont des objets octets de taille limitée sans sémantique spécifique. Key Vault prend également en charge les certificats, qui sont basés sur des clés et secrets, et qui offrent une fonctionnalité de renouvellement automatique.
@@ -122,7 +122,7 @@ La version initiale d’Azure Key Vault prend en charge les clés RSA uniquement
 -   **RSA** : clé RSA de 2 048 bits. Il s’agit d’une clé « logicielle », qui est traitée dans le logiciel par Key Vault, mais qui est stockée chiffrée au repos à l’aide d’une clé système qui se trouve dans un HSM. Les clients peuvent importer une clé RSA existante ou demander à Azure Key Vault d’en générer une.  
 -   **RSA-HSM** : clé RSA qui est traitée dans un HSM. Les clés RSA-HSM sont protégées dans un des mondes de sécurité HSM Azure Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA, sous forme logicielle ou en exportant depuis un appareil HSM compatible, ou demander à Azure Key Vault d’en générer une. Ce type de clé ajoute l’attribut T à la JWK pour le transport du matériel de clé HSM.  
 
-     Pour plus d’informations sur les frontières géographiques, consultez [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/en-us/support/trust-center/privacy/)  
+     Pour plus d’informations sur les frontières géographiques, consultez [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 ###  <a name="BKMK_RSAAlgorithms"></a> Algorithmes RSA  
  Les identificateurs d’algorithme suivants sont pris en charge avec les clés RSA dans Azure Key Vault.  
@@ -172,7 +172,7 @@ Azure Key Vault prend en charge les opérations sur les objets clés suivantes :
 -   **Backup** : permet d’exporter une clé sous une forme protégée.  
 -   **Restore** : permet d’importer une clé précédemment sauvegardée.  
 
-Pour plus d’informations, consultez [Opérations sur les clés](/rest/api/keyvault/key-operations.md)  
+Pour plus d’informations, consultez [Opérations de clés](/rest/api/keyvault/key-operations).  
 
 Lorsqu’une clé a été créée dans Azure Key Vault, les opérations de chiffrement suivantes peuvent être exécutées à l’aide de la clé :  
 
@@ -281,7 +281,7 @@ Les autorisations suivantes peuvent être utilisées, par principal, dans l’en
 -   *delete* : supprimer le secret  
 -   *all* : toutes les autorisations  
 
-Pour plus d’informations sur l’utilisation des secrets, consultez [Opérations sur les secrets](/rest/api/keyvault/secret-operations.md).  
+Pour plus d’informations sur l’utilisation des secrets, consultez [Opérations sur les secrets](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Balises de secret  
 Vous pouvez spécifier des métadonnées spécifiques à l’application supplémentaires sous la forme de balises. Azure Key Vault prend en charge jusqu’à 15 balises, chacune d’entre elles pouvant avoir un nom de 256 caractères et une valeur de 256 caractères.  
@@ -443,9 +443,9 @@ Si la stratégie d’un certificat est définie sur le renouvellement automatiqu
 
 ## <a name="additional-information-for-certificates"></a>Informations supplémentaires pour les certificats
 
-- [Certificats et stratégies](/rest/api/keyvault/certificates-and-policies.md)
-- [Émetteurs de certificat](/rest/api/keyvault/certificate-issuers.md)
-- [Contacts du certificat](/rest/api/keyvault/certificate-contacts.md)
+- [Certificats et stratégies](/rest/api/keyvault/certificates-and-policies)
+- [Émetteurs de certificat](/rest/api/keyvault/certificate-issuers)
+- [Contacts du certificat](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>Voir aussi
 

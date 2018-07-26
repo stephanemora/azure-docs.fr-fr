@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 807dd2bdcc1e2ad18b1a93c3337c8244e3f1366b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 67f4f0850d0600fc7ca0f1323e7c7801187089f5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218977"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950732"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Résoudre les problèmes de configuration de mise en réseau non valide pour votre domaine géré
 Cet article vous aide à dépanner et résoudre les erreurs liées à la configuration réseau qui produisent le message d’alerte suivant :
@@ -35,7 +35,7 @@ Les configurations de groupe de sécurité réseau non valides sont la cause la 
 1. Dans le Portail Azure, accédez à la page [Groupes de sécurité réseau](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups)
 2. À partir de la table, choisissez le groupe de sécurité réseau associé au sous-réseau dans lequel votre domaine géré est activé.
 3. Sous **Paramètres** dans le panneau gauche, cliquez sur **Règles de sécurité entrantes**
-4. Passez en revue les règles en place et identifiez celles qui bloquent l’accès à [ces ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
+4. Passez en revue les règles en place et identifiez celles qui bloquent l’accès à [ces ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
 5. Modifiez le groupe de sécurité réseau pour assurer la conformité en supprimant la règle, en ajoutant une règle ou en créant entièrement un nouveau groupe de sécurité réseau. Les étapes pour [ajouter une règle](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou [créer un groupe de sécurité réseau conforme](#create-a-nsg-for-azure-ad-domain-services-using-powershell) sont présentées ci-dessous.
 
 ## <a name="sample-nsg"></a>Exemple de groupe de sécurité réseau
@@ -49,7 +49,7 @@ Le tableau suivant illustre un exemple de groupe de sécurité réseau qui sécu
 ## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>Ajout d’une règle à un groupe de sécurité réseau à l’aide du portail Azure
 Si vous ne souhaitez pas utiliser PowerShell, vous pouvez ajouter manuellement des règles uniques pour les groupes de sécurité réseau à l’aide du portail Azure. Pour créer des règles dans votre groupe de sécurité réseau, procédez comme suit :
 
-1. Dans le Portail Azure, accédez à la page [Groupes de sécurité réseau](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups)
+1. Dans le Portail Azure, accédez à la page [Groupes de sécurité réseau](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups).
 2. À partir de la table, choisissez le groupe de sécurité réseau associé au sous-réseau dans lequel votre domaine géré est activé.
 3. Sous **Paramètres** dans le panneau de gauche, cliquez sur **Règles de sécurité de trafic entrant** ou **Règles de sécurité sortantes**.
 4. Créez la règle en cliquant sur **Ajouter** et en remplissant les informations. Cliquez sur **OK**.

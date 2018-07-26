@@ -1,6 +1,6 @@
 ---
-title: Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion) | Microsoft Docs
-description: Utilisez la fonctionnalité de sauvegarde et restauration périodiques de Service Fabric pour protéger vos applications contre la perte de données.
+title: 'Démarrage rapide : Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion) | Microsoft Docs'
+description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques de Service Fabric pour activer la sauvegarde périodique des données de votre application.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: e9bc85cec6cb1d0e35aa71f4e1934c057dbf946d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5666ed4226104104b91b6f964abeb0490ef80866
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114525"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990742"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion)
+# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Démarrage rapide : Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion)
 > [!div class="op_single_selector"]
 > * [Clusters sur Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clusters autonomes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -220,13 +220,14 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>Afficher un aperçu des limitations/mises en garde
+## <a name="preview-limitation-caveats"></a>Limitations/mises en garde de la préversion
 - Pas d’intégration de Service Fabric aux applets de commande PowerShell.
 - Pas de prise en charge de l’interface CLI Service Fabric.
-- Pas de prise en charge du vidage de sauvegarde automatisé. Nettoyage manuel des sauvegardes obligatoire.
+-  Pas de prise en charge du vidage de sauvegarde automatisé. Le [script de rétention de sauvegarde](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) peut être transféré au script d’installation sur la base d’une automation externe pour la purge des sauvegardes.
 - Pas de prise en charge des clusters Service Fabric sur Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes
+- [Présentation de la configuration de la sauvegarde périodique](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Informations de référence sur l’API REST de sauvegarde et restauration](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent.png

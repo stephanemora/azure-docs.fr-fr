@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: dbe2715d76f18daf87b65871c26d73205ec2f7fd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8304ffa7c0cd225f258064d3c1a36a754c684241
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218841"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950714"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services : Résolution des problèmes de la configuration du protocole LDAP sécurisé
 
@@ -58,7 +58,7 @@ Lorsque le protocole LDAP sécurisé est activé, nous recommandons de créer de
 
 **Message d'alerte :**
 
-*Le certificat LDAP sécurisé pour le domaine managé va expirer le XX.*
+*Le certificat LDAP sécurisé pour le domaine managé expirera le [date]].*
 
 **Résolution :**
 

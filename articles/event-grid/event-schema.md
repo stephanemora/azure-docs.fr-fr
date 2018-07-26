@@ -6,20 +6,20 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 04/17/2018
+ms.date: 07/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 3e0b7fd825b8e985cea2c32301986b3a7f8bb619
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 266ddced5f1949fa72508d914f76953101a7aac6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304060"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902224"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
-Cet article décrit les propriétés et les schémas qui sont présents dans tous les événements. Les événements se composent de cinq propriétés de chaîne et d’un objet de données obligatoires. Les propriétés sont communes à tous les événements, quel que soit le serveur de publication. L’objet de données contient des propriétés spécifiques à chaque serveur de publication. Dans les rubriques du système, ces propriétés sont spécifiques au fournisseur de ressources tel que Stockage Azure ou Azure Event Hubs.
+Cet article décrit les propriétés et les schémas qui sont présents dans tous les événements. Les événements se composent de cinq propriétés de chaîne et d’un objet de données obligatoires. Les propriétés sont communes à tous les événements, quel que soit le serveur de publication. L’objet de données a des propriétés spécifiques à chaque serveur de publication. Dans les rubriques du système, ces propriétés sont spécifiques au fournisseur de ressources tel que Stockage Azure ou Azure Event Hubs.
 
-Les sources d’événements envoient des événements à Azure Event Grid dans un tableau qui peut contenir plusieurs objets d’événement. Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement du tableau est limité à 64 Ko. Si un événement ou si le tableau dépasse la taille maximale autorisée, vous recevez le message suivant : **413 Payload Too Large** (413 : charge utile maximale dépassée).
+Les sources d’événements envoient des événements à Azure Event Grid dans un tableau qui peut avoir plusieurs objets d’événement. Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement du tableau est limité à 64 Ko. Si un événement ou si le tableau dépasse la taille maximale autorisée, vous recevez le message suivant : **413 Payload Too Large** (413 : charge utile maximale dépassée).
 
 Event Grid envoie les événements aux abonnés sous forme de tableau ne contenant qu’un seul événement. Ce comportement est susceptible de changer.
 
@@ -78,7 +78,7 @@ Par exemple, voici le schéma publié pour un événement de stockage Blob Azure
 
 ## <a name="event-properties"></a>Propriétés d’événement
 
-Tous les événements contiennent les mêmes données de niveau supérieur suivantes :
+Tous les événements contiennent les mêmes données de supérieur suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
@@ -96,11 +96,12 @@ Pour connaître les propriétés de l’objet de données, consultez la source d
 * [Abonnements Azure (opérations de gestion)](event-schema-subscriptions.md)
 * [Stockage Blob](event-schema-blob-storage.md)
 * [Concentrateurs d'événements](event-schema-event-hubs.md)
-* [Service Bus](event-schema-service-bus.md)
 * [IoT Hub](event-schema-iot-hub.md)
+* [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Groupes de ressources (opérations de gestion)](event-schema-resource-groups.md)
+* [Service Bus](event-schema-service-bus.md)
 
-Pour les rubriques personnalisées, l’éditeur d’événements détermine l’objet de données. Les données de premier niveau doivent contenir les mêmes champs que les événements standard définis par les ressources.
+Pour les rubriques personnalisées, l’éditeur d’événements détermine l’objet de données. Les données de niveau supérieur doivent avoir les mêmes champs que des événements standard définis par les ressources.
 
 Lorsque vous publiez des événements dans des rubriques personnalisées, créez des objets pour vos événements permettant aux abonnés de savoir facilement si l’événement les intéresse. Les abonnés utilisent l’objet pour filtrer et router des événements. Envisagez de fournir le chemin d’accès à l’origine de l’événement, de sorte que les abonnés puissent filtrer par segments de ce chemin d’accès. Le chemin d’accès permet aux abonnés de filtrer les événements avec précision ou à grande échelle. Par exemple, si vous fournissez un chemin d’accès de trois segments comme `/A/B/C` dans l’objet, les abonnés peuvent filtrer par le premier segment `/A` pour obtenir un vaste ensemble d’événements. Ces abonnés obtiennent des événements avec des objets tels que `/A/B/C` ou `/A/D/E`. Les autres abonnés peuvent filtrer par `/A/B` pour obtenir un ensemble plus restreint d’événements.
 

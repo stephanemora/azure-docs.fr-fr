@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble de l’appliance Collecteur et indique
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0f36370f5093f8c1d06c83a62532b3854597fa4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211667"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951037"
 ---
 # <a name="collector-appliance"></a>Appliance Collecteur
 
@@ -176,7 +176,7 @@ Le Collecteur détecte uniquement les données de la machine et les envoie au pr
 En fonction du nombre de machines virtuelles comprises dans l’étendue sélectionnée, l’envoi de métadonnées statiques au projet peut prendre jusqu’à 15 minutes. Une fois que les métadonnées statiques sont disponibles sur le portail, vous pouvez afficher la liste des machines dans le portail et commencer à créer des groupes. Aucune évaluation ne peut être créée tant que le travail de collecte n’est pas terminé et que le projet n’a pas traité les données. Une fois le travail de collecte terminé sur le Collecteur, une heure peut être nécessaire pour que les données de performance soient disponibles sur le portail, en fonction du nombre de machines virtuelles comprises dans l’étendue sélectionnée.
 
 ## <a name="locking-down-the-collector-appliance"></a>Verrouillage de l’appliance collecteur
-Nous recommandons d’exécuter des mises à jour Windows continues sur l’appliance collecteur. Si un collecteur n’est pas mis à jour pendant 45 jours, le collecteur démarre l’arrêt en cours automatique de la machine. Si une détection est en cours d’exécution, la machine ne sera pas désactivée, même si elle est au-delà de sa période de 45 jours. Une fois la publication du travail de détection terminée, la machine est désactivée. Si vous utilisez le collecteur pendant plus de 45 jours, nous vous recommandons de conserver la machine à jour à tout moment en exécutant la mise à jour de Windows.
+Nous recommandons d’exécuter des mises à jour Windows continues sur l’appliance collecteur. Si un collecteur n’est pas mis à jour pendant 60 jours, il amorcera l’arrêt automatique de la machine. Si une détection est en cours d’exécution, la machine ne sera pas désactivée, même au-delà de la période de 60 jours. Une fois la publication du travail de détection terminée, la machine est désactivée. Si vous utilisez le collecteur pendant plus de 45 jours, nous vous recommandons de conserver la machine à jour à tout moment en exécutant la mise à jour de Windows.
 
 Nous vous recommandons également de suivre les étapes ci-dessous pour sécuriser votre appliance
 1. Ne partagez pas les mots de passe administrateur avec des tiers non autorisés et ne les égarez pas non plus.

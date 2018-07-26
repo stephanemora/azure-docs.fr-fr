@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 657e4b212b79fec40299e639c3818fd97a339579
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213122"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126726"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -169,7 +169,7 @@ En guise de nom d’image, fournissez l’URL de l’image de conteneurs dans un
 
 Cette image possède un point d’entrée de charge de travail défini, vous n’avez donc pas à spécifier des commandes d’entrée explicitement (les commandes s’exécutent dans le conteneur et garderont le conteneur en exécution après le démarrage). 
 
-Spécifiez un nombre d’instances de « 1 ».
+Spécifiez un nombre d’instances de « 1 ».
 
 Spécifiez le mappage de port au format approprié. Pour cet article, vous devez fournir ```80:4000``` en tant que mappage de port. En le faisant, vous avez configuré que toutes les requêtes arrivant sur le port 4000 de la machine hôte sont redirigées vers le port 80 du conteneur.
 
@@ -189,6 +189,39 @@ Spécifiez le mappage de port au format approprié. Pour cet article, vous devez
     </Policies>
    </ServiceManifestImport>
 ``` 
+
+
+## <a name="configure-isolation-mode"></a>Configurer le mode d’isolation
+Avec la version du runtime 6.3, l’isolation de machine virtuelle est prise en charge pour les conteneurs Linux. Deux modes d’isolation sont ainsi pris en charge pour les conteneurs : process et hyperv. Avec le mode d’isolation hyperv, les noyaux sont isolés entre chaque conteneur et l’hôte du conteneur. L’isolation hyperv est implémentée à l’aide de l’option [Nettoyer les conteneurs](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Le mode d’isolation est spécifié pour les clusters Linux dans l’élément `ServicePackageContainerPolicy` dans le fichier manifeste de l’application. Les modes d’isolation qui peuvent être définis sont `process`, `hyperv` et `default`. La valeur par défaut est le mode d’isolation de processus. L’extrait de code suivant montre comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0"/>
+      <Policies>
+        <ServicePackageContainerPolicy Hostname="votefront" Isolation="hyperv">
+          <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ServicePackageContainerPolicy>
+    </Policies>
+  </ServiceManifestImport>
+```
+
+
+## <a name="configure-resource-governance"></a>Configurer la gouvernance des ressources
+La [gouvernance des ressources](service-fabric-resource-governance.md) limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, est utilisé pour déclarer des limites relatives aux ressources pour un package de code de service. Des limites de ressources peuvent être définies pour les ressources suivantes : mémoire, MemorySwap, CpuShares (poids relatif du processeur), MemoryReservationInMB, BlkioWeight (poids relatif de l’élément BlockIO). Dans cet exemple, le package de service Guest1Pkg obtient un cœur sur les nœuds de cluster où il est placé. Les limites de mémoire sont absolues, ce qui signifie que le package de code est limité à 1024 Mo de mémoire (avec une garantie de réservation identique). Les packages de code (conteneurs ou processus) ne sont pas en mesure d’allouer plus de mémoire que cette limite. Toute tentative en ce sens conduit à une exception de mémoire insuffisante. Pour pouvoir appliquer la limite de ressources, des limites de mémoire doivent être spécifiées pour tous les packages de code au sein d’un package de service.
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="MyServicePKg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
+  </Policies>
+</ServiceManifestImport>
+```
+
+
+
+
 ## <a name="configure-docker-healthcheck"></a>Configurer le docker HEALTHCHECK 
 En démarrant la version 6.1, Service Fabric intègre automatiquement les événements [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) à son rapport d’intégrité du système. Cela signifie que si **HEALTHCHECK** est activé dans votre conteneur, Service Fabric générera un rapport d’intégrité chaque fois que l’état d’intégrité du conteneur changera comme indiqué par Docker. Un rapport d’intégrité **OK** apparaît dans [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lorsque *health_status* est *intègre* et  **AVERTISSEMENT** s’affiche lorsque *health_status* est *défectueux*. L’instruction **HEALTHCHECK** qui pointe vers la vérification réalisée pour surveiller l’intégrité du conteneur doit être présente dans le fichier Dockerfile utilisé lors de la génération de l’image conteneur. 
 
@@ -343,7 +376,7 @@ Voici les manifestes d’application et de service complets utilisés dans cet a
 Pour ajouter un autre service de conteneur à une application déjà créée à l’aide de Yeoman, procédez comme suit :
 
 1. Accédez au répertoire à la racine de l’application existante. Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
-2. Exécutez `yo azuresfcontainer:AddService`.
+2. Exécutez `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 

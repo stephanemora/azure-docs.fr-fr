@@ -1,11 +1,28 @@
-``*.accesscontrol.windows.net``. Élément utilisé pour la gestion des identités et le contrôle d’accès. (L’authentification ACS sera dépréciée d’ici le mois de décembre 2017.) <br/>
-``https://login.microsoftonline.com`` Élément utilisé pour la gestion des identités et le contrôle d’accès avec AAD
+---
+title: Fichier Include
+description: Fichier Include
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 06/28/2018
+ms.author: raynew
+ms.openlocfilehash: f7d6c3f68618fec839ccff06b73ba44d106999d2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38765536"
+---
+| NOM | URL commerciale | URL du gouvernement | Description |
+|---|---|---|---|
+| Azure AD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Élément utilisé pour la gestion des identités et le contrôle d’accès avec AAD |
+| Sauvegarde | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Élément utilisé pour la coordination et le transfert des données de réplication |
+| Réplication | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication |
+| Stockage | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Élément utilisé pour l’accès au compte de stockage qui stocke les données répliquées |
+| Données de télémétrie (facultatif) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Élément utilisé pour la télémétrie |
 
-``*.backup.windowsazure.com``. Élément utilisé pour la coordination et le transfert des données de réplication. <br/> ``*.blob.core.windows.net``. Élément utilisé pour l’accès au compte de stockage qui stocke les données répliquées.<br/> ``*.hypervrecoverymanager.windowsazure.com``. Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication.<br/>
-``dc.services.visualstudio.com`` - Élément utilisé pour la télémétrie. <br>
-``time.nist.gov`` et ``time.windows.com``. Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
-<br/><br/>
-URL du cloud Azure Government :<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>-
-https://login.microsoftonline.us<br/>-
-https://login.microsoftonline.com<br/>
+Les éléments ``time.nist.gov`` et ``time.windows.com`` sont utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale lors de tous les déploiements.
+
 

@@ -1,10 +1,10 @@
 ---
 title: Créer un équilibreur de charge public avec IPv6 - Azure CLI | Microsoft Docs
-description: Découvrez comment créer un équilibreur de charge public avec IPv6 dans Azure Resource Manager à l’aide d’Azure CLI.
+description: Découvrez comment créer un équilibreur de charge public avec IPv6 à l’aide d’Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
@@ -13,21 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3172736edf4e38f53858620ebac95b711857010b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264028"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901263"
 ---
-# <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Créer un équilibreur de charge public avec IPv6 dans Azure Resource Manager à l’aide d’Azure CLI
-
-> [!div class="op_single_selector"]
-> * [PowerShell](load-balancer-ipv6-internet-ps.md)
-> * [Interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
-> * [Modèle](load-balancer-ipv6-internet-template.md)
+# <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Créer un équilibreur de charge public avec IPv6 à l’aide d’Azure CLI
 
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). Les équilibreurs de charge offrent une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibreur de charge. Les équilibreurs de charge peuvent également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
@@ -48,7 +43,7 @@ Dans ce scénario, vous créez les ressources Azure suivantes :
 
 ## <a name="deploy-the-solution-by-using-azure-cli"></a>Déployer la solution à l’aide d’Azure CLI
 
-Les étapes suivantes expliquent comment créer un équilibreur de charge public à l’aide d’Azure Resource Manager avec Azure CLI. Avec Azure Resource Manager, vous créez et configurez chaque objet individuellement, puis vous les rassemblez pour créer une ressource.
+Les étapes suivantes expliquent comment créer un équilibreur de charge public à l’aide d’Azure CLI. Avec CLI, vous créez et configurez chaque objet individuellement, puis vous les rassemblez pour créer une ressource.
 
 Créez et configurez les objets suivants pour déployer un équilibreur de charge :
 
@@ -58,39 +53,13 @@ Créez et configurez les objets suivants pour déployer un équilibreur de charg
 * **Règles NAT entrantes**: contient des règles de traduction d’adresses réseau (NAT) qui mappent un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
 * **Sondes** : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
 
-Pour plus d’informations, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](load-balancer-arm.md).
-
-## <a name="set-up-your-azure-cli-environment-to-use-azure-resource-manager"></a>Configurer votre environnement Azure CLI pour utiliser Azure Resource Manager
+## <a name="set-up-azure-cli"></a>Configuration de l’interface de ligne de commande Azure CLI
 
 Dans cet exemple, vous exécutez les outils Azure CLI dans une fenêtre de commande PowerShell. Pour améliorer la lisibilité et la réutilisation, vous utilisez les fonctionnalités de script de PowerShell et non les cmdlets Azure PowerShell.
 
-1. Si vous n’avez jamais utilisé Azure CLI, consultez [Installer l’interface de ligne de commande Azure CLI 1.0](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape vous invitant à sélectionner votre compte et votre abonnement Azure.
+1. [Installez et configurez l’interface Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en suivant les étapes de l’article lié, puis connectez-vous à votre compte Azure.
 
-2. Pour basculer en mode Resource Manager, exécutez la commande **azure config mode** :
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-    Sortie attendue :
-
-        info:    New mode is arm
-
-3. Connectez-vous à Azure et obtenez une liste de vos abonnements :
-
-    ```azurecli
-    azure login
-    ```
-
-4. À l’invite, entrez vos informations d’identification Azure :
-
-    ```azurecli
-    azure account list
-    ```
-
-5. Sélectionnez l’abonnement que vous souhaitez utiliser et notez l’ID d’abonnement à utiliser à l’étape suivante.
-
-6. Configurez des variables PowerShell à utiliser avec les commandes Azure CLI :
+2. Configurez des variables PowerShell à utiliser avec les commandes Azure CLI :
 
     ```powershell
     $subscriptionid = "########-####-####-####-############"  # enter subscription id
@@ -111,26 +80,26 @@ Dans cet exemple, vous exécutez les outils Azure CLI dans une fenêtre de comma
 1. Créez un groupe de ressources :
 
     ```azurecli
-    azure group create $rgName $location
+    az group create --name $rgName --location $location
     ```
 
 2. Créez un équilibreur de charge :
 
     ```azurecli
-    $lb = azure network lb create --resource-group $rgname --location $location --name $lbName
+    $lb = az network lb create --resource-group $rgname --location $location --name $lbName
     ```
 
 3. Créez un réseau virtuel :
 
     ```azurecli
-    $vnet = azure network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
+    $vnet = az network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
     ```
 
 4. Dans ce réseau virtuel, créez deux sous-réseaux :
 
     ```azurecli
-    $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
-    $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
+    $subnet1 = az network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
+    $subnet2 = az network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
     ```
 
 ## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Créer des adresses IP publiques pour le pool frontal
@@ -145,8 +114,8 @@ Dans cet exemple, vous exécutez les outils Azure CLI dans une fenêtre de comma
 2. Créez une adresse IP publique pour le pool frontal :
 
     ```azurecli
-    $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
-    $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
+    $publicipV4 = az network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --version IPv4 --allocation-method Dynamic --dns-name $dnsLabel
+    $publicipV6 = az network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --version IPv6 --allocation-method Dynamic --dns-name $dnsLabel
     ```
 
     > [!IMPORTANT]
@@ -172,10 +141,10 @@ Dans cette section, vous créez les pools IP suivants :
 2. Créez un pool d’IP frontal et associez-le à l’IP publique créée lors de l’étape précédente et à l’équilibreur de charge.
 
     ```azurecli
-    $frontendV4 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
-    $frontendV6 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV6Name --public-ip-name $publicIpv6Name --lb-name $lbName
-    $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
-    $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
+    $frontendV4 = az network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-address $publicIpv4Name --lb-name $lbName
+    $frontendV6 = az network lb frontend-ip create --resource-group $rgname --name $frontendV6Name --public-ip-address $publicIpv6Name --lb-name $lbName
+    $backendAddressPoolV4 = az network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
+    $backendAddressPoolV6 = az network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
     ```
 
 ## <a name="create-the-probe-nat-rules-and-load-balancer-rules"></a>Créer la sonde, les règles NAT et les règles d’équilibreur de charge
@@ -204,27 +173,27 @@ Cet exemple crée les éléments suivants :
     L’exemple suivant illustre la création d’une sonde TCP qui détecte la connectivité au port TCP principal 80 toutes les 15 secondes. Après deux échecs consécutifs, elle marque la ressource principale comme indisponible.
 
     ```azurecli
-    $probeV4V6 = azure network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
+    $probeV4V6 = az network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --threshold 2 --lb-name $lbName
     ```
 
 3. Créez des règles NAT entrantes qui prennent en charge les connexions RDP aux ressources principales :
 
     ```azurecli
-    $inboundNatRuleRdp1 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
-    $inboundNatRuleRdp2 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
+    $inboundNatRuleRdp1 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
+    $inboundNatRuleRdp2 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
 4. Créez des règles d’équilibreur de charge qui transmettent le trafic sur différents ports principaux en fonction du port frontal de réception de la requête.
 
     ```azurecli
-    $lbruleIPv4 = azure network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
-    $lbruleIPv6 = azure network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-address-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
+    $lbruleIPv4 = az network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
+    $lbruleIPv6 = az network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
     ```
 
 5. Vérifiez vos paramètres :
 
     ```azurecli
-    azure network lb show --resource-group $rgName --name $lbName
+    az network lb show --resource-group $rgName --name $lbName
     ```
 
     Sortie attendue :
@@ -287,11 +256,11 @@ Créez des cartes réseau et associez-les à des règles NAT, des règles d’é
 2. Créez une carte réseau pour chaque instance principale et ajoutez une configuration IPv6 :
 
     ```azurecli
-    $nic1 = azure network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-version "IPv4" --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
-    $nic1IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic1Name
+    $nic1 = az network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet1Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule1V4Id
+    $nic1IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-address-version "IPv6" --lb-address-pools $backendAddressPoolV6Id --nic-name $nic1Name
 
-    $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule2V4Id
-    $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
+    $nic2 = az network nic create --name $nic2Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet1Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule2V4Id
+    $nic2IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-address-version "IPv6" --lb-address-pools $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
 ## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Créer les ressources de machines virtuelles principales et associer chaque carte réseau
@@ -301,17 +270,12 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
 1. Configurez les variables PowerShell :
 
     ```powershell
-    $storageAccountName = "ps08092016v6sa0"
     $availabilitySetName = "myIPv4IPv6AvailabilitySet"
     $vm1Name = "myIPv4IPv6VM1"
     $vm2Name = "myIPv4IPv6VM2"
     $nic1Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/networkInterfaces/$nic1Name"
     $nic2Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/networkInterfaces/$nic2Name"
-    $disk1Name = "WindowsVMosDisk1"
-    $disk2Name = "WindowsVMosDisk2"
-    $osDisk1Uri = "https://$storageAccountName.blob.core.windows.net/vhds/$disk1Name.vhd"
-    $osDisk2Uri = "https://$storageAccountName.blob.core.windows.net/vhds/$disk2Name.vhd"
-    $imageurn "MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest"
+    $imageurn = "MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest"
     $vmUserName = "vmUser"
     $mySecurePassword = "PlainTextPassword*1"
     ```
@@ -319,26 +283,18 @@ Pour créer des machines virtuelles, vous devez disposer d’un compte de stocka
     > [!WARNING]
     > Cet exemple utilise le nom d’utilisateur et le mot de passe pour les machines virtuelles, en texte en clair. Prenez les mesures nécessaires lorsque vous utilisez ces informations d’identification en texte en clair. Pour découvrir une méthode plus sécurisée de traitement des informations d’identification dans PowerShell, consultez la cmdlet [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx).
 
-2. Créez le compte de stockage et le groupe à haute disponibilité.
-
-    Vous pouvez utiliser un compte de stockage existant lors de la création des machines virtuelles. Vous créez un compte de stockage avec la commande suivante :
+2. Créez le groupe à haute disponibilité :
 
     ```azurecli
-    $storageAcc = azure storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
+    $availabilitySet = az vm availability-set create --name $availabilitySetName --resource-group $rgName --location $location
     ```
 
-3. Créez le groupe à haute disponibilité :
+3. Créez les machines virtuelles avec les cartes réseau associées :
 
     ```azurecli
-    $availabilitySet = azure availset create --name $availabilitySetName --resource-group $rgName --location $location
-    ```
+    az vm create --resource-group $rgname --name $vm1Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic1Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
 
-4. Créez les machines virtuelles avec les cartes réseau associées :
-
-    ```azurecli
-    $vm1 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
-
-    $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
+    az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes

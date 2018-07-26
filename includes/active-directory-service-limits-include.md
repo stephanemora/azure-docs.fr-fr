@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 10b5fbe0a03d3ea712edc9df603bbcea5e188a02
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 5529a4510b6d9f005dc46165e1be799585e5a153
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296530"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755887"
 ---
 Présentation des contraintes d'utilisation et autres limites de service pour le service Azure Active Directory.
 
 | Catégorie | Limites |
 | --- | --- |
-| Répertoires |Un utilisateur peut être associé à un maximum de 20 répertoires Azure Active Directory.<br />Exemples de combinaisons possibles : <ul> <li>Un seul utilisateur crée 20 répertoires.</li><li>Un seul utilisateur est ajouté à 20 répertoires en tant que membre.</li><li>Un seul utilisateur crée 10 répertoires et est ajouté ultérieurement par d'autres à 10 autres répertoires.</li></ul> |
+| Répertoires |Un utilisateur peut être associé à un maximum de 500 répertoires Azure Active Directory.<br />Exemples de combinaisons possibles : <ul> <li>Un utilisateur unique crée 500 répertoires.</li><li>Un utilisateur unique est ajouté à 500 répertoires en tant que membre.</li><li>Un utilisateur unique crée 250 répertoires et est ajouté ultérieurement par d'autres à 250 autres répertoires.</li></ul> |
 | Domaines | Vous ne pouvez pas ajouter plus de 900 noms de domaine managé. Si vous configurez tous vos domaines pour la fédération avec le répertoire Active Directory local, vous ne pouvez pas ajouter plus de 450 noms de domaine dans chaque répertoire. |
 | Objets |<ul><li>L’édition gratuite d’Azure Active Directory permet de créer 500 000 objets au maximum dans un répertoire.</li><li>Un utilisateur non administrateur peut créer jusqu’à 250 objets.</li></ul> |
 | Extensions de schéma |<ul><li>Les extensions de type chaîne peuvent avoir jusqu’à 256 caractères. </li><li>Les extensions de type binaire sont limitées à 256 octets.</li><li>100 valeurs d'extension (pour TOUT type et TOUTE application) peuvent être écrites pour un objet unique.</li><li>Actuellement, seules les entités « Utilisateur », « Groupe », « TenantDetail », « Périphérique », « Application » et « ServicePrincipal » peuvent être étendues avec des attributs à valeur unique de type « binaire » ou « chaîne ».</li><li>Les extensions de schéma sont disponibles uniquement dans l’aperçu de la version 1.21 de l’API Graph. L’accès en écriture pour enregistrer une extension doit être accordé à l’application.</li></ul> |
