@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 227fae2f38189a5b8ed5b6eff359e09bedc8e628
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e3543c2056934372a2795bd50f340432ceec3b6d
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071128"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257944"
 ---
 # <a name="about-the-text-to-speech-api"></a>À propos de l’API Synthèse vocale
 
@@ -35,7 +35,7 @@ Les scénarios dans lesquels la synthèse vocale est adoptée sont les suivants�
 
 ## <a name="voice-support"></a>Prise en charge de la voix
 
-Le service de **synthèse vocale** Microsoft propose plus de 75 voix dans plus de 45 langues et paramètres régionaux. Pour utiliser ces « polices de la voix » standard, vous devez uniquement spécifier le nom de la voix ainsi que quelques autres paramètres lorsque vous appelez l’API REST du service. Pour plus d’informations sur les voix prises en charge, voir [Langues prises en charge](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
+Le service de **synthèse vocale** Microsoft propose plus de 75 voix dans plus de 45 langues et paramètres régionaux. Pour utiliser ces « polices de la voix » standard, vous devez uniquement spécifier le nom de la voix ainsi que quelques autres paramètres lorsque vous appelez l’API REST du service. Pour plus d’informations sur les voix prises en charge, voir [Langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
 
 Si vous voulez une voix unique pour votre application, vous pouvez créer des [polices de voix personnalisées](how-to-customize-voice-font.md) à partir de vos propres échantillons vocaux.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 82ec2b71ee83d2ec697fa44521c103b11976f1ed
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a30c6a8d02b46656a0d76cf8438bdf0b3361ae91
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264600"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248459"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs devops) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
@@ -28,7 +28,7 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 * Afficher les règles d’alerte définies dans [Alertes Azure](monitoring-overview-unified-alerts.md)
 * Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](insights-powershell-samples.md) ou le [CLI multiplateforme](insights-cli-samples.md).
 * Interroger le journal d’activité via le portail, l’API REST Azure Monitor, les applets de commande PowerShell ou le CLI multiplateforme.
-* Affichez les [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) pour une ressource.
+* Affichez les [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) pour une ressource.
 * Afficher le [profil de journalisation](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) pour un abonnement.
 * Affichez les paramètres de mise à l’échelle automatique.
 * Afficher les activités et paramètres d’alerte.
@@ -49,7 +49,7 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 Les personnes affectées au rôle de contributeur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, et créer ou modifier des paramètres d’analyse, mais ne peuvent pas modifier d’autres ressources. Ce rôle est un surensemble du rôle lecteur d’analyse et est approprié pour les membres de l’équipe d’analyse d’une organisation ou les fournisseurs de services gérés qui, outre les autorisations ci-dessus, doivent également être en mesure de faire ce qui suit :
 
 * Publier des tableaux de bord d’analyse en tant que tableau de bord partagé.
-* Définissez les [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) pour une ressource.*
+* Définissez les [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) pour une ressource.*
 * Définir le [profil de journal](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) pour un abonnement.*
 * Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](monitoring-overview-unified-alerts.md).
 * Créer des tests web et composants Application Insights.

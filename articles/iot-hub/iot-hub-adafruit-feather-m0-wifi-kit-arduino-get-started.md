@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2a6899bbd294a16dee3a767e976a92deaa00f0e2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 46763cbc53f70e25810a9849b71429a315a6fb7d
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676690"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185361"
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Connecter Adafruit Feather M0 WiFi à Azure IoT Hub dans le cloud
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![Connexion entre un capteur BME280, une carte Feather M0 WiFi et IoT Hub](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
 
-Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux de l’utilisation de votre carte Arduino. Vous apprenez ensuite à connecter en toute transparence vos appareils au cloud avec [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
+Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux de l’utilisation de votre carte Arduino. Vous apprenez ensuite à connecter en toute transparence vos appareils au cloud avec [Azure IoT Hub](about-iot-hub.md).
 
 ## <a name="what-you-do"></a>Procédure
 

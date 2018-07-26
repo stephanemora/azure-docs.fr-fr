@@ -125,7 +125,7 @@
       href: use-hsm-with-sdk.md
     - name: Utilisez les outils du Kit de développement logiciel pour le développement
       href: how-to-use-sdk-tools.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: REST
       href: /rest/api/iot-dps
@@ -181,8 +181,6 @@
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: Outil iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: Outil iothub-explorer
-      href: 'https://github.com/Azure/iothub-explorer'
     - name: Parcours d’apprentissage
       href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
     - name: Forum MSDN

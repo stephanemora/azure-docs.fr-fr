@@ -8,16 +8,16 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: a8b5d9e3917c854cb255a35d3bbc901bcce52c24
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: dfe584532efeab1dbc0d2928b7afb0a6695a21ee
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084524"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39184943"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Vue d’ensemble des accélérateurs de solution de surveillance à distance
 
-[L’accélérateur de solution](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) de surveillance à distance implémente une solution de surveillance de bout en bout, destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) pour répondre à vos propres exigences professionnelles.
+[L’accélérateur de solution](../iot-accelerators/about-iot-accelerators.md) de surveillance à distance implémente une solution de surveillance de bout en bout, destinée à plusieurs ordinateurs distants. Combinant les principaux services Azure pour fournir une implémentation générique du scénario d’entreprise. Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) pour répondre à vos propres exigences professionnelles.
 
 Cet article vous présente certains des éléments clés de la solution Surveillance à distance pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
 
@@ -27,7 +27,7 @@ Cet article vous présente certains des éléments clés de la solution Surveill
 
 ## <a name="logical-architecture"></a>Architecture logique
 
-Le diagramme suivant montre l’articulation des composants logiques de l’accélérateur de solution Surveillance à distance dans [l’architecture IoT](../iot-accelerators/iot-accelerators-what-is-azure-iot.md) :
+Le diagramme suivant montre l’articulation des composants logiques de l’accélérateur de solution Surveillance à distance dans [l’architecture IoT](../iot-fundamentals/iot-introduction.md) :
 
 ![Architecture logique](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 

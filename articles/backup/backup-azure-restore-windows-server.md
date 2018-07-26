@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2018
+ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: 16f0460dea75b0dc52c3852d9947db0ad15f8fbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606322"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247276"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows à l’aide du modèle de déploiement Resource Manager
 
@@ -143,33 +143,6 @@ Les termes ci-après sont utilisés pour cette procédure :
     > [!Important]
     > Si vous ne cliquez pas sur Démonter, le volume de récupération reste monté pendant 6 heures à compter du montage. Toutefois, la durée du montage est étendue jusqu’à un maximum de 24 heures en cas de copie de fichier en cours. Aucune opération de sauvegarde ne s’exécute tant que le volume est monté. Toute opération de sauvegarde planifiée pour s’exécuter au moment où le volume de récupération est monté s’exécutera une fois qu’il sera démonté.
     >
-
-## <a name="troubleshooting"></a>Résolution de problèmes
-Si Azure Backup ne monte pas efficacement le volume de montage, même lorsque vous cliquez plusieurs fois sur **Monter**, ou ne parvient pas à le monter et génère une ou plusieurs erreurs, suivez la procédure ci-dessous pour entamer une récupération normale.
-
-1.  Si le processus de montage s’exécute depuis plusieurs minutes, annulez-le.
-
-2.  Vérifiez que vous disposez de la dernière version de l’agent de sauvegarde Azure. Pour en savoir plus sur la version de l’agent de sauvegarde Azure, cliquez sur la zone **À propos de l’agent Microsoft Azure Recovery Services** du volet **Actions** de la console de sauvegarde Microsoft Azure, et assurez-vous que le numéro de **version** est égal ou supérieur à celui qu’indique [cet article](https://go.microsoft.com/fwlink/?linkid=229525). Vous pouvez télécharger la dernière version [ici](https://go.microsoft.com/fwLink/?LinkID=288905).
-
-3.  Cliquez sur **Gestionnaire de périphériques** -> **Contrôleurs de stockage** et vérifiez que vous pouvez localiser **l’initiateur Microsoft iSCSI**. Si la réponse est oui, accédez directement à l’étape 7 ci-dessous. 
-
-4.  Si vous ne pouvez pas localiser le service Initiateur iSCSI de Microsoft indiqué à l’étape 3, vérifiez si, sous **Gestionnaire de périphériques** -> **Contrôleurs de stockage**, l’entrée **Appareil inconnu** s’affiche, associée à l’ID matériel **ROOT\ISCSIPRT**.
-
-5.  Cliquez avec le bouton droit sur l’entrée **Appareil inconnu** et sélectionnez **Mettre à jour le pilote**.
-
-6.  Mettez à jour le pilote, en sélectionnant l’option **Rechercher automatiquement un pilote logiciel mis à jour**. Suite à la mise à jour, l’entrée **Appareil inconnu** est remplacée par **Initiateur Microsoft iSCSI**, comme indiqué ci-dessous. 
-
-    ![Chiffrement](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
-
-7.  Cliquez sur **Gestionnaire des tâches** -> **Services (local)** -> **Service Initiateur iSCSI de Microsoft**. 
-
-    ![Chiffrement](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
-    
-8.  Redémarrez le service Initiateur iSCSI de Microsoft en cliquant avec le bouton droit sur ce dernier, en cliquant sur **Arrêter**, puis en cliquant à nouveau sur le bouton droit et en sélectionnant **Démarrer**.
-
-9.  Recommencez la récupération à l’aide de la restauration instantanée. 
-
-Si elle échoue encore, redémarrez votre serveur/client. Si un redémarrage n’est pas souhaitable, ou si la récupération échoue même après le redémarrage du serveur, essayez de l’exécuter au moyen d’un autre ordinateur et contactez le Support Azure en accédant au [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), puis en soumettant une demande de support.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).

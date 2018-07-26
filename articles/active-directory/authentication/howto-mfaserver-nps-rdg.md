@@ -4,18 +4,18 @@ description: Il s'agit de la page d'authentification multifacteur Azure qui faci
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 06/27/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: ef090b51141e8d77f23472058f9c3a8d096ca171
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: f5511486650d538bc136449c32babfd88efab86a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867457"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159632"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
 
@@ -26,7 +26,6 @@ Souvent, la passerelle du Bureau à distance (RD) utilise les services de strat�
 Installez le serveur Multi-Factor Authentication sur un serveur distinct, qui envoie par proxy la demande RADIUS au serveur NPS sur le serveur de la passerelle Bureau à distance. Une fois que le serveur NPS (Network Policy Server) a validé le nom d’utilisateur et le mot de passe, il renvoie une réponse au serveur Multi-Factor Authentication. Ensuite, le serveur MFA applique le second facteur d’authentification et retourne un résultat à la passerelle.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Un serveur Azure MFA joint à un domaine. Si vous n’en avez pas déjà installé un, suivez les étapes décrites dans [Prise en main du serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy.md).
 - Une passerelle Bureau à distance qui s’authentifie avec les services de stratégie réseau.

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2e7f3b0f01dbd6656413c233fcf64c46963d00ef
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917368"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214173"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -97,7 +97,7 @@ Veillez à utiliser un compte d’administrateur général cloud pour toutes les
 
 Si l’authentification directe est activée sur votre locataire et que vous tentez de désinstaller Azure AD Connect, le message d’avertissement suivant apparaît : « Users will not be able to sign-in to Azure AD unless you have other pass-through authentication agents installed on other servers » (Les utilisateurs ne seront pas en métrique de se connecter, sauf si d’autres agents d’authentification directe sont installés sur d’autres serveurs).
 
-Vous devez avoir configuré la [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) avant de désinstaller Azure AD Connect pour éviter d’interrompre la connexion utilisateur.
+Vous devez avoir configuré la [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) avant de désinstaller Azure AD Connect pour éviter d’interrompre la connexion utilisateur.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problèmes liés à l’activation de la fonctionnalité
 
@@ -112,18 +112,6 @@ Assurez-vous que le serveur sur lequel Azure AD Connect est installé peut commu
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>L’activation de la fonctionnalité a échoué en raison d’erreurs d’autorisations liées au jeton ou au compte
 
 Veillez à utiliser un compte d’administrateur général pour le cloud uniquement lors de l’activation de la fonctionnalité. Il existe un problème connu avec les comptes d’administrateur général compatibles MFA (Multi-Factor Authentication) ; désactivez MFA temporairement (uniquement pour effectuer l’opération) comme solution de contournement.
-
-## <a name="exchange-activesync-configuration-issues"></a>Problèmes de configuration Exchange ActiveSync
-
-Voici les problèmes courants liés à la configuration de la prise en charge Exchange ActiveSync de l’authentification directe.
-
-### <a name="exchange-powershell-issue"></a>Problème lié à Exchange PowerShell
-
-Si le message d’erreur « **Impossible de trouver un paramètre correspondant au nom « PerTenantSwitchToESTSEnabled »\.**  » quand vous exécutez la commande Exchange PowerShell `Set-OrganizationConfig`, contactez le support Microsoft.
-
-### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync ne fonctionne ne pas
-
-La configuration prend un certain temps pour entrer en vigueur : ce délai dépend de votre environnement. Si la situation dure longtemps, contactez le support Microsoft.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>Collecte des journaux des agents d’authentification directe
 

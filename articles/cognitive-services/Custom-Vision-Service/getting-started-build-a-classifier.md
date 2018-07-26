@@ -9,12 +9,12 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: 6dc271c13f53a445c7d1101f5264d890208bd03c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368860"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223367"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Comment créer un classifieur avec Custom Vision
 
@@ -83,8 +83,6 @@ Pour créer un projet, suivez ces étapes :
     Le service Vision personnalisée accepte des images d’entraînement au format .jpg, .png et .bmp, jusqu’à 6 Mo par image. (La taille des images de prédiction peut atteindre 4 Mo par image.) Nous recommandons une dimension d’image de 256 pixels sur le plus petit bord. Les images inférieures à cette recommandation sont mises à l’échelle par le Service Vision personnalisée.
 
     ![Le contrôle d’ajout d’images est affiché dans le coin supérieur gauche, et sous la forme d’un bouton dans le bas de la page, au centre.](./media/getting-started-build-a-classifier/add-images01.png)
-
-    ![Le bouton Browse local files (Parcourir les fichiers locaux) est affiché dans le tiers inférieur de la page, au centre.](./media/getting-started-build-a-classifier/add-images02.png)
 
     >[!NOTE] 
     > L’API REST peut être utilisée pour charger des images d’entraînement à partir d’URL.

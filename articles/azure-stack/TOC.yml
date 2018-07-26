@@ -6,8 +6,6 @@
       href: azure-stack-poc.md
     - name: Notes de publication
       items:
-        - name: mise à jour 1807
-          href: azure-stack-update-1807.md
         - name: "mise à jour\_1805"
           href: azure-stack-update-1805.md
         - name: "mise à jour\_1804"
@@ -140,8 +138,6 @@
               href: azure-stack-manage-storage-shares.md
             - name: Gérer la capacité de mémoire physique
               href: azure-stack-manage-storage-physical-memory-capacity.md
-            - name: Ajouter des nœuds d’unités d’échelle
-              href: azure-stack-add-scale-node.md
         - name: Remplacer le matériel
           items:
             - name: Actions de nœud
@@ -329,7 +325,7 @@
               href: azure-stack-vpn-gateway-settings.md
             - name: Connexion à l’aide d’ExpressRoute
               href: azure-stack-connect-expressroute.md
-    - name: Résoudre les problèmes
+    - name: Résolution des problèmes
       items:
         - name: Problèmes connus
           href: azure-stack-troubleshooting.md
@@ -337,7 +333,7 @@
           href: azure-stack-diagnostics.md
         - name: "Validation pour Azure\_Stack"
           href: azure-stack-diagnostic-test.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9

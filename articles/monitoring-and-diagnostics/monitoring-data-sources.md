@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 78b3288cf4973efa2684252581000d0e4fc56cae
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 3820a42e44896f75a2191b0426f2afa5a40461d7
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082996"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248031"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consommer des données d’analyse à partir d’Azure
 
@@ -23,13 +23,13 @@ Sur la plateforme Azure, nous rassemblons les données d’analyse dans un empla
 
 | Type de données | Catégorie | Services pris en charge | Méthodes d’accès |
 | --- | --- | --- | --- |
-| Mesures au niveau de la plateforme Azure Monitor | Mesures | [Consulter la liste ici](monitoring-supported-metrics.md) | <ul><li>**API REST :**[API métrique Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Stockage d’objets blob ou concentrateur d’événements :**[Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
+| Mesures au niveau de la plateforme Azure Monitor | Mesures | [Consulter la liste ici](monitoring-supported-metrics.md) | <ul><li>**API REST :**[API métrique Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Stockage d’objets blob ou concentrateur d’événements :**[Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | Mesures de SE invité Compute (ex. compteurs de performances) | Mesures | Machines virtuelles [Windows](../virtual-machines-dotnet-diagnostics.md) et Linux (v2), [Services cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Table ou blob de stockage :**[diagnostics Azure Windows ou Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Concentrateur d’événements :**[Diagnostics Windows Azure](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Mesures personnalisées ou d’application | Mesures | Toute application instrumentée avec Application Insights | <ul><li>**API REST :**[API REST d’Application Insights](https://dev.applicationinsights.io/reference)</li></ul> |
 | Métriques de stockage | Mesures | Stockage Azure | <ul><li>**Table de stockage :**[Analyse du stockage](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Données de facturation | Mesures | Tous les services Azure | <ul><li>**API REST** [API Azure Resource Usage et RateCard](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Journal d’activité | Événements | Tous les services Azure | <ul><li>**API REST :**[API Événements Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/eventcategories)</li><li>**Stockage d’objets blob ou concentrateur d’événements :**[profil du journal](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Journaux de diagnostics Azure Monitor | Événements | [Consulter la liste ici](monitoring-diagnostic-logs-schema.md) | <ul><li>**Stockage d’objets blob ou concentrateur d’événements :**[Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
+| Journaux de diagnostics Azure Monitor | Événements | [Consulter la liste ici](monitoring-diagnostic-logs-schema.md) | <ul><li>**Stockage d’objets blob ou concentrateur d’événements :**[Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | Journaux de SE invité Compute (ex. IIS, ETW, syslogs) | Événements | Machines virtuelles [Windows](../virtual-machines-dotnet-diagnostics.md) et Linux (v2), [Services cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Table ou blob de stockage :**[diagnostics Azure Windows ou Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Concentrateur d’événements :**[Diagnostics Windows Azure](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Journaux App Service | Événements | App Services | <ul><li>**Stockage d’objets blob, table ou fichier :**[Diagnostics Web App](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Journaux de stockage | Événements | Stockage Azure | <ul><li>**Table de stockage :**[Analyse du stockage](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |

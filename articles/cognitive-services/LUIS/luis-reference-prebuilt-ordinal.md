@@ -3,19 +3,19 @@ title: Documentation de référence pour l’entité prédéfinie ordinal LUIS -
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie ordinal dans Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 2ff9b083e6cabe455baea3ed777dd6cc00b6fbfe
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 216114ec521e2065cb13cd39b4086f50ec81ba56
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321681"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236752"
 ---
 # <a name="ordinal-entity"></a>Entité ordinal
 Un nombre ordinal est une représentation numérique d’un objet à l’intérieur d’un ensemble : `first`, `second`, `third`. Étant donné que cette entité est déjà entraînée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un ordinal aux intentions de l’application. L’entité ordinale est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 

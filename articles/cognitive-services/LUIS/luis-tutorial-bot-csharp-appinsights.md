@@ -3,19 +3,19 @@ title: Ajouter des données LUIS à Application Insights à l’aide de C# | Mic
 titleSuffix: Azure
 description: Générez un bot intégré à une application LUIS et Application Insights à l’aide de C#.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 52b6ae224b0e8da12eb4903f5100a6e5cc39704d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: f1efe305f5659bfab50cee13ac30d56531cc6093
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370972"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237789"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Ajouter les résultats LUIS à Application Insights à partir d’un bot d’application web
 Ce didacticiel permet d’ajouter des informations de réponse LUIS au stockage des données de télémétrie [Application Insights](https://azure.microsoft.com/services/application-insights/). Une fois que vous avez les données, vous pouvez les interroger avec le langage Kusto ou PowerBI pour les analyser, les agréger et générer des rapports sur les intentions et les entités de l’énoncé en temps réel. Cette analyse vous aide à déterminer si vous devez ajouter ou modifier les intentions et les entités de votre application LUIS.
@@ -25,11 +25,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 * Ajouter Application Insights à un bot d’application web
 * Capturer et envoyer des résultats de requête LUIS à Application Insights
-* Interroger Application Insights pour connaître l’intention principale, le score et l’énoncé
+* Interroger Application Insights pour obtenir les principaux score, intention et énoncé
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Bot d’application web LUIS du **[didacticiel précédent](luis-csharp-tutorial-build-bot-framework-sample.md)** avec Application Insights activé. 
+* Votre bot d’application web LUIS du **[didacticiel précédent](luis-csharp-tutorial-build-bot-framework-sample.md)** avec Application Insights activé. 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) installé localement sur votre ordinateur.
 
 > [!Tip]
@@ -187,17 +187,17 @@ Turn on the hall light
 ```
 
 ## <a name="view-luis-entries-in-application-insights"></a>Afficher les entrées LUIS dans Application Insights
-Ouvrez Application Insights pour voir les entrées LUIS. 
+Ouvrez Application Insights pour voir les entrées de LUIS. 
 
-1. Dans le portail, sélectionnez **Toutes les ressources**, puis filtrez sur le nom du bot d’application web. Cliquez sur la ressource avec le type **Application Insights**. L’icône d’Application Insights est une ampoule. 
+1. Dans le portail, sélectionnez **Toutes les ressources**, puis filtrez sur le nom du bot d’application web. Cliquez sur la ressource du type **Application Insights**. L’icône d’Application Insights est une ampoule. 
 
     ![Rechercher des informations d’application](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
-2. Lorsque la ressource s’ouvre, cliquez sur l’icône de **recherche** (loupe) dans le panneau le plus à droite. Un nouveau panneau s’affiche à droite. Selon la quantité des données de télémétrie trouvées, le panneau peut prendre une seconde à afficher. Recherchez `LUIS`. La liste est réduite aux seuls résultats de requête LUIS ajoutés avec ce didacticiel.
+2. Lorsque la ressource s’ouvre, cliquez sur l’icône **Rechercher** de la loupe dans le panneau le plus à droite. Un nouveau panneau s’affiche à droite. Selon la quantité des données de télémétrie trouvées, le panneau peut prendre une seconde à afficher. Recherchez `LUIS`. La liste est réduite aux seuls résultats de requête LUIS ajoutés avec ce didacticiel.
 
     ![Rechercher des traces](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace.png)
 
-3. Sélectionnez la première entrée. Une nouvelle fenêtre affiche des données plus détaillées, y compris les données personnalisées pour la requête LUIS la plus à droite. Les données incluent l’intention principale et son score.
+3. Sélectionnez la première entrée. Une nouvelle fenêtre affiche des données plus détaillées, dont les données personnalisées pour la requête de LUIS tout à fait à droite. Les données incluent l’intention principale et son score.
 
     ![Passer en revue l’élément de trace](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace-item.png)
 
@@ -205,20 +205,20 @@ Ouvrez Application Insights pour voir les entrées LUIS.
 
 
 > [!Tip]
-> Si vous souhaitez enregistrer la liste des dépendances et y revenir plus tard, cliquez sur **... Plus** et sur **Enregistrer comme favori**.
+> Si vous souhaitez enregistrer la liste des dépendances et y revenir plus tard, cliquez sur **...Plus**, puis cliquez sur **Enregistrer favori**.
 
-## <a name="query-application-insights-for-intent-score-and-utterance"></a>Interroger Application Insights pour connaître l’intention principale, le score et l’énoncé
+## <a name="query-application-insights-for-intent-score-and-utterance"></a>Interroger Application Insights pour les intentions, les scores et les énoncés
 Application Insights vous permet d’interroger les données avec le langage [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics), ainsi que de les exporter vers [PowerBI](https://powerbi.microsoft.com). 
 
 1. Cliquez sur **Analytics** en haut de la liste des dépendances, au-dessus de la zone de filtre. 
 
     ![Bouton Analytics](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-analytics-button.png)
 
-2. Une nouvelle fenêtre s’ouvre avec une fenêtre de requête dans la partie supérieure et une fenêtre de table de données au-dessous. Si vous avez déjà utilisé des bases de données, ce procédé vous est familier. La requête inclut tous les éléments des dernières 24 heures commençant par le nom `LUIS`. La colonne **CustomDimensions** contient les résultats de requête LUIS en tant que paires nom/valeur.
+2. Une nouvelle fenêtre s’ouvre avec une fenêtre de requête dans la partie supérieure, et une fenêtre de table de données en dessous. Si vous avez déjà utilisé des bases de données, cette disposition est courante. La requête inclut tous les éléments des dernières 24 heures commençant par le nom `LUIS`. La colonne **CustomDimensions** contient les résultats de requête LUIS en tant que paires nom/valeur.
 
     ![Rapport d’analyse par défaut](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-1.png)
 
-3. Pour extraire l’intention principale, le score et l’énoncé, ajoutez ce qui suit juste au-dessus de la dernière ligne dans la fenêtre de requête :
+3. Pour extraire les principaux score, intention et énoncé, ajoutez ce qui suit juste au-dessus de la dernière ligne dans la fenêtre de requête :
 
     ```SQL
     | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent)
@@ -226,7 +226,7 @@ Application Insights vous permet d’interroger les données avec le langage [Ku
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-4. Exécutez la requête. Accédez à la partie la plus à droite de la table de données. Les nouvelles colonnes d’intention principale, de score et d’énoncé sont disponibles. Cliquez sur la colonne d’intention principale à trier.
+4. Exécutez la requête. Faites défiler jusqu’à l’extrême droite dans la table de données. Les nouvelles colonnes des principaux score, intention et énoncé sont disponibles. Cliquez sur la colonne d’intention principale à trier.
 
     ![Rapport analytique personnalisé](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
@@ -239,7 +239,7 @@ En savoir plus sur [Bot Framework](https://dev.botframework.com/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous souhaiterez peut-être ajouter des données d’Application Insights, comme l’ID d’application, l’ID de version, la date de dernière modification du modèle, la date du dernier apprentissage ou la date de dernière publication. Ces valeurs peuvent être récupérées à partir de l’URL de point de terminaison (ID d’application et ID de version), ou d’un appel d’[API de création](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) défini dans les paramètres de bot d’application web et extraites à partir de là.  
+D’autres informations que vous pourriez vouloir ajouter aux données d’Application Insights sont l’ID d’application, l’ID de version, la dernière date de modification du modèle, la dernière date d’apprentissage et la dernière date de publication. Ces valeurs peuvent être récupérées soit à partir de l’URL de point de terminaison (ID d’application et ID de version), soit à partir d’un appel de l’[API Création](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d), puis définies dans les paramètres de bot d’application web et extraites à partir de là.  
 
 Si vous utilisez le même abonnement de point de terminaison pour plusieurs applications LUIS, vous devez également inclure l’ID d’abonnement et une propriété indiquant qu’il s’agit d’une clé partagée. 
 

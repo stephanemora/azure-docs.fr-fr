@@ -3,19 +3,19 @@ title: Documentation de référence pour l’entité prédéfinie email de LUIS 
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie email dans Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 517e92202bdd5bc8d970306b9e24999fa62a8e43
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 5f2ff9ef8e06c747558d795b52423d494824a746
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321541"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236728"
 ---
 # <a name="email-entity"></a>Entité email
 L’extraction d’e-mail inclut l’adresse e-mail complète d’un énoncé. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un email aux intentions de l’application. L’entité email n’est prise en charge que dans la culture `en-us`. 

@@ -4,18 +4,18 @@ description: Interdire les mots de passe faibles dans votre environnement via de
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 89cbe386d87c6ccb81df7fabd86b197bb69e41e1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291954"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162012"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -54,9 +54,9 @@ Chaque fois qu’un utilisateur réinitialise ou modifie son mot de passe Azure 
 
 ## <a name="license-requirements"></a>Conditions de licence :
 
-Les avantages de la liste de mots de passe interdits globale s’appliquent à tous les utilisateurs d’Azure Active Directory (Azure AD).
+Les avantages de la liste globale de mots de passe interdits s’appliquent à tous les utilisateurs d’Azure Active Directory (Azure AD).
 
-La liste de mots de passe interdits personnalisée requiert des licences Azure AD Basic.
+La liste personnalisée de mots de passe interdits requiert des licences Azure AD Basic.
 
 La protection de mot de passe Azure AD pour Windows Server Active Directory requiert des licences Azure AD Premium. 
 

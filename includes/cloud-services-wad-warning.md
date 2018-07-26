@@ -1,5 +1,5 @@
 > [!WARNING]
-> Quand vous activez les diagnostics pour un rôle existant, toutes les extensions que vous avez déjà définies sont désactivées lors du déploiement du package. Vous avez notamment vu les points suivants :
+> Quand vous activez les diagnostics pour un rôle existant, toutes les extensions que vous avez déjà définies sont désactivées lors du déploiement du package. Il s’agit des actions suivantes :
 >
 > * Extension Microsoft Monitoring Agent Diagnostics
 > * Surveillance de la sécurité de Microsoft Azure

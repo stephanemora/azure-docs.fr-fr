@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 12628b5a552b864784d780e5f2adc00aac579911
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228612"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215031"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics
 Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Les journaux de travail et les flux de travail sont visibles dans le portail Azure, ou avec PowerShell, pour des travaux individuels. Cela vous permet d’effectuer des enquêtes simples. Désormais avec Log Analytics, vous pouvez :
@@ -37,14 +37,14 @@ Pour trouver l’ID de ressource de votre compte Azure Automation :
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 Pour trouver l’ID de ressource de votre espace de travail Log Analytics, exécutez la commande PowerShell suivante :
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 Si vous possédez plusieurs comptes Automation ou plusieurs espaces de travail, recherchez le *Nom* à configurer dans la sortie des commandes précédentes et copiez la valeur de *ResourceId*.
@@ -92,7 +92,7 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 | JobId_g |GUID représentant l’ID du travail du runbook. |
 | ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Nouveau<br>Démarré<br>Arrêté<br>Interrompu<br>Échec<br>- Terminé |
 | Catégorie | Classification du type de données. Pour Automation, la valeur est JobLogs. |
-| Nom d'opération | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
+| OperationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
 | Ressource | Nom du compte Automation |
 | SourceSystem | Manière dont Log Analytics a collecté les données. Toujours *Azure* pour les diagnostics Azure. |
 | resultDescription |Décrit l’état résultant du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Job is started<br>- Job Failed<br>- Job Completed |
@@ -115,7 +115,7 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 | JobId_g |GUID représentant l’ID du travail du runbook. |
 | ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- In Progress |
 | Catégorie | Classification du type de données. Pour Automation, la valeur est JobStreams. |
-| Nom d'opération | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
+| OperationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
 | Ressource | Nom du compte Automation |
 | SourceSystem | Manière dont Log Analytics a collecté les données. Toujours *Azure* pour les diagnostics Azure. |
 | resultDescription |Inclut le flux de sortie du runbook. |
@@ -140,7 +140,7 @@ Pour créer une règle d’alerte, vous devez commencer par créer une recherche
 2. Créez une requête Recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`. Vous pouvez également les regrouper par RunbookName ainsi : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`.
 
    Si vous avez configuré des journaux dans votre espace de travail sur plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Le nom du compte Automation se trouve dans le champ Ressource de la recherche de JobLogs.
-1. Pour ouvrir l’écran **Créer une règle d’alerte**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
+1. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Rechercher tous les travaux qui ont rencontré des erreurs
 En plus des alertes concernant les échecs, vous pouvez déterminer lorsqu’une tâche de runbook comporte une erreur sans fin d’exécution. Dans ce cas, PowerShell génère un flux d’erreur. Toutefois, les erreurs sans fin d’exécution ne provoquent la suspension ou l’échec du travail.    

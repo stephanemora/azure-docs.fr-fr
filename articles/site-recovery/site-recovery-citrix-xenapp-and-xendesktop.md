@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: c4bc8a1b2ab8f6569d6893f5c4fc16339ebddbe6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917208"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213631"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Répliquer un déploiement Citrix XenApp et XenDesktop multiniveau à l’aide d’Azure Site Recovery
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Citrix XenDesktop est une solution de virtualisation de bureau qui fournit des postes de travail et des applications sous la forme d’un service à la demande à n’importe quel utilisateur, n’importe où. Avec la technologie de remise FlexCast, XenDesktop peut fournir rapidement et en toute sécurité des applications et des postes de travail aux utilisateurs.
 Aujourd’hui, Citrix XenApp ne fournit aucune fonctionnalité de récupération d’urgence.
@@ -63,9 +63,9 @@ Pour les besoins de cet article, des déploiements de Citrix sur des machines vi
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Non compris | OUI
-**VMware** | Non compris | OUI
-**Serveur physique** | Non compris | OUI
+**Hyper-V** | Non compris | Oui
+**VMware** | Non compris | Oui
+**Serveur physique** | Non compris | Oui
 
 ### <a name="versions"></a>Versions
 Les clients peuvent déployer des composants XenApp en tant que machines virtuelles s’exécutant sur Hyper-V ou VMware ou en tant que serveurs physiques. Azure Site Recovery peut protéger des déploiements physiques et virtuels sur Azure.
@@ -182,7 +182,7 @@ Le plan de récupération personnalisé ressemble à ceci :
 
 
    >[!NOTE]
-   >Vous pouvez utiliser des scripts à l’[emplacement](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) pour mettre à jour le système DNS avec les nouvelles adresses IP des machines virtuelles basculées ou pour attacher un équilibreur de charge sur la machine virtuelle basculée, si nécessaire.
+   >Vous pouvez utiliser des scripts à l’[emplacement](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts) pour mettre à jour le système DNS avec les nouvelles adresses IP des machines virtuelles basculées ou pour attacher un équilibreur de charge sur la machine virtuelle basculée, si nécessaire.
 
 
 ## <a name="doing-a-test-failover"></a>Exécution d’un test de basculement

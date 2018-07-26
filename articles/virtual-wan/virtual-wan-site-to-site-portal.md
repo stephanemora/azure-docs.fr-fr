@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 1b61c335dec2c641862c08fd6f752d78b2ee5866
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea36a3d4a2471cee6a18d70275aaf2e83ffc6f39
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056662"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159649"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan-preview"></a>Didacticiel : Créer une connexion de site à site à l’aide du WAN virtuel Azure (préversion)
 
 Ce didacticiel vous montre comment utiliser le WAN virtuel pour vous connecter à vos ressources dans Azure via une connexion VPN IPsec/IKE (IKEv2). Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur le WAN virtuel, consultez [Vue d'ensemble de WAN virtuel](virtual-wan-about.md)
 
 > [!NOTE]
-> Si vous avez de nombreux sites, vous utiliseriez généralement un [partenaire WAN virtuel](https://aka.ms.virtualwan) pour créer cette configuration. Toutefois, vous pouvez créer cette configuration vous-même si vous êtes familiarisé avec la mise en réseau et expert dans la configuration de votre propre périphérique VPN.
+> Si vous avez de nombreux sites, vous utiliseriez généralement un [partenaire WAN virtuel](https://aka.ms/virtualwan) pour créer cette configuration. Toutefois, vous pouvez créer cette configuration vous-même si vous êtes familiarisé avec la mise en réseau et expert dans la configuration de votre propre périphérique VPN.
 >
 
 ![Diagramme WAN virtuel](./media/virtual-wan-about/virtualwan.png)
@@ -55,7 +55,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 ## <a name="enroll"></a>1. S’inscrire à la préversion
 
-Avant de pouvoir configurer WAN virtuel, vous devez tout d’abord inscrire automatiquement votre abonnement à la préversion. Sinon, vous ne serez pas en mesure d’utiliser WAN virtuel dans le portail. Pour vous abonner, envoyez un e-mail à **azurevirtualwan@microsoft.com** avec votre ID d’abonnement. Vous recevrez un e-mail une fois votre abonnement inscrit.
+Avant de pouvoir configurer le WAN virtuel, vous devez tout d’abord inscrire automatiquement votre abonnement à la préversion. Sinon, vous ne serez pas en mesure d’utiliser WAN virtuel dans le portail. Pour vous abonner, envoyez un e-mail à **azurevirtualwan@microsoft.com** avec votre ID d’abonnement. Vous recevrez un e-mail une fois votre abonnement inscrit.
 
 ## <a name="vnet"></a>2. Créez un réseau virtuel
 
@@ -164,17 +164,17 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
 * **vpnSiteConfiguration -** Cette section indique les détails de l’appareil configuré comme un site se connectant au réseau virtuel étendu. Cela inclut le nom et l’adresse IP publique de l’appareil de branche.
 * **vpnSiteConnections -** Cette section fournit des informations sur les éléments suivants :
 
-    * **Espace d’adressage** du réseau virtuel du/des hub(s)<br>Exemple :
+    * **Espace d’adressage** du réseau virtuel du/des hub(s)<br>Exemple :
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Espace d’adressage** des réseaux virtuels qui sont connectés au hub<br>Exemple :
+    * **Espace d’adressage** des réseaux virtuels qui sont connectés au hub<br>Exemple :
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **Adresses IP** de la passerelle VPN virtuelle. Étant donné que la passerelle VPN a chaque connexion comprenant des 2 tunnels en configuration actif-actif, vous verrez les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, vous voyez « Instance0 » et « Instance1 » pour chaque site.<br>Exemple :
+    * **Adresses IP** de la passerelle VPN virtuelle. Étant donné que la passerelle VPN a chaque connexion comprenant des 2 tunnels en configuration actif-actif, vous verrez les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, vous voyez « Instance0 » et « Instance1 » pour chaque site.<br>Exemple :
 
         ``` 
         "Instance0":"104.45.18.186"
@@ -325,7 +325,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="feedback"></a>Commentaires de la préversion
 
-Nous aimerions recevoir vos commentaires. Envoyez un e-mail à <azurevirtualwan@microsoft.com> pour signaler des problèmes ou pour fournir des commentaires (positifs ou négatifs) sur le réseau étendu virtuel. Ajoutez le nom de votre société entre crochets « [] » dans la ligne Objet. Ajoutez également votre ID d’abonnement, si vous signalez un problème.
+Nous aimerions recevoir vos commentaires. Envoyez un e-mail à <azurevirtualwan@microsoft.com> pour signaler des problèmes ou pour fournir des commentaires (positifs ou négatifs) sur le WAN virtuel. Ajoutez le nom de votre société entre crochets « [] » dans la ligne Objet. Ajoutez également votre ID d’abonnement, si vous signalez un problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

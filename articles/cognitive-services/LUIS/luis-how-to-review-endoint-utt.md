@@ -2,19 +2,19 @@
 title: Étiqueter des énoncés suggérés avec LUIS | Microsoft Docs
 description: Utilisez Language Understanding (LUIS) pour étiqueter des énoncés suggérés et optimiser le Machine Learning actif.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: v-geberr
-ms.openlocfilehash: c695aed4bc6d2553c719f8dfe664634e2f3b2613
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37966830"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224549"
 ---
 # <a name="review-endpoint-utterances"></a>Réviser les énoncés de point de terminaison
 
@@ -79,4 +79,4 @@ Pour supprimer plusieurs énoncés, sélectionnez chaque élément et sélection
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour tester l’amélioration de la performance après avoir étiqueté les énoncés suggérés, vous pouvez accéder à la console de test en sélectionnant **Test** dans le panneau supérieur. Pour obtenir des instructions sur la façon de tester votre application à l’aide de la console de test, consultez [Former et tester votre application](interactive-test.md).
+Pour tester l’amélioration de la performance après avoir étiqueté les énoncés suggérés, vous pouvez accéder à la console de test en sélectionnant **Test** dans le panneau supérieur. Pour obtenir des instructions sur la façon de tester votre application à l’aide de la console de test, consultez [Former et tester votre application](luis-interactive-test.md).

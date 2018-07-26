@@ -61,7 +61,7 @@
     - name: Utiliser les outils HDInsight
       items:
         - name: Outils pour Visual Studio
-          href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
           maintainContext: true
         - name: Outils pour VSCode
           href: ../hdinsight-for-vscode.md
@@ -402,7 +402,7 @@
         - name: Surveiller les performances du cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
@@ -414,7 +414,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
     - name: .NET (Avro)
       href: 'https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library'
-    - name: de l’API REST
+    - name: API REST
       href: /rest/api/hdinsight/
     - name: API REST (Spark)
       href: /rest/api/hdinsightspark/

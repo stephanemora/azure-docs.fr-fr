@@ -3,24 +3,25 @@ title: Scénarios d’utilisation et considérations relatives au déploiement p
 description: Explique comment les administrateurs peuvent configurer « Azure AD Join » pour leurs utilisateurs finaux (employés, étudiants, autres utilisateurs). Elle présente également les différents scénarios réels pour l'utilisation de Azure AD Join.
 services: active-directory
 documentationcenter: ''
-author: femila
+author: MarkusVi
 manager: mtillman
 editor: ''
 tags: azure-classic-portal
+ms.component: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 173ad6f07699ca6bfa534dedc053663bba571382
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 29480390e6854dcedeaf8f06c078ed2e4ed2b94d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26602430"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223005"
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Scénarios d’utilisation et considérations relatives au déploiement pour Azure AD Join
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Scénarios d’utilisation pour Azure AD Join
@@ -40,7 +41,7 @@ En plus des avantages décrits antérieurement, le fait que les utilisateurs joi
 ### <a name="enable-your-users-to-join-a-company-owned-device-directly-to-azure-ad"></a>Permettre aux utilisateurs de joindre un appareil appartenant à l’entreprise directement à Azure AD
 Les entreprises peuvent fournir des comptes gérés sur le cloud uniquement aux organisations et sociétés partenaires. Ces partenaires peuvent ensuite accéder facilement aux applications et aux ressources d’entreprise avec l’authentification unique. Ce scénario s’applique aux utilisateurs qui accèdent aux ressources principalement dans le cloud, comme Office 365 ou les applications SaaS qui s’appuient sur Azure AD pour l’authentification.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 **Au niveau de l’entreprise (administrateur)**
 
 * Abonnement Azure avec Azure Active Directory  
@@ -60,7 +61,7 @@ Les entreprises peuvent fournir des comptes gérés sur le cloud uniquement aux 
 ## <a name="enable-byod-in-your-organization-for-windows-10"></a>Activation de BYOD (Apportez votre propre appareil) dans votre organisation pour Windows 10
 Vous pouvez configurer vos employés et utilisateurs afin qu’ils utilisent leurs appareils personnels Windows (BYOD) pour accéder aux applications et ressources de l’entreprise. Vos utilisateurs peuvent ajouter leurs comptes Azure AD (professionnels ou scolaires) à un appareil Windows personnel pour accéder aux ressources de manière sécurisée et conforme.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 **Au niveau de l’entreprise (administrateur)**
 
 * Abonnement Azure AD

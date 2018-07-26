@@ -2,20 +2,20 @@
 title: Étiqueter des entités automatiquement avec une entité de liste à l’aide de Nodejs | Microsoft Docs
 description: Apprenez à ajouter une entité de liste pour aider LUIS à étiqueter les variations d’un mot ou d’une phrase.
 services: cognitive-services
-author: v-geberr
+author: diberry
 titleSuffix: Azure
-manager: kamran.iqbal
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: e8558ecf4a64dbccef6e6367c1447bdcdb005126
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 12a6cfbe7267d3575fbb33978d7ea6e743802d12
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35368105"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237160"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utiliser une entité de liste pour améliorer la détection d’entité 
 Ce didacticiel détaille l’utilisation d’une [entité de liste](luis-concept-entity-types.md) afin d’améliorer la détection d’entité. Les entités de liste n’ont pas besoin d’être étiquetées car elles correspondent parfaitement aux termes.  

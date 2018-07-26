@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921210"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226558"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planificateur de déploiement Site Recovery de Hyper-V vers Azure
 
@@ -74,7 +74,7 @@ L’outil fournit les informations suivantes :
 
 | | **VMware vers Azure** |**Hyper-V vers Azure**|**Azure vers Azure**|**Hyper-V vers un site secondaire**|**VMware vers un site secondaire**
 --|--|--|--|--|--
-Scénarios pris en charge |OUI|OUI|Non |Oui*|Non 
+Scénarios pris en charge |Oui|Oui|Non |Oui*|Non 
 Version prise en charge | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuration prise en charge|vCenter, ESXi| Cluster Hyper-V, hôte Hyper-V|N/D|Cluster Hyper-V, hôte Hyper-V|N/D|
 Nombre de serveurs pouvant être profilés par instance en cours d’exécution du planificateur de déploiement Azure Site Recovery |Unique (des machines virtuelles appartenant à un vCenter Server ou un serveur ESXi peuvent être profilées à la fois)|Plusieurs (des machines virtuelles sur plusieurs hôtes ou clusters hôtes peuvent être profilées à la fois)| N/D |Plusieurs (des machines virtuelles sur plusieurs hôtes ou clusters hôtes peuvent être profilées à la fois)| N/D
@@ -94,13 +94,13 @@ L’outil comprend trois phases principales pour Hyper-V : obtention de la list
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Étapes d’ajout de serveurs à la liste des hôtes approuvés
 1.  Toutes les hôtes à profiler doivent être répertoriés dans la liste des hôtes approuvés de la machine virtuelle sur laquelle l’outil doit être déployé. Pour ajouter le client à la liste des hôtes approuvés, exécutez la commande suivante à partir d’une session PowerShell avec élévation de privilèges sur la machine virtuelle. La machine virtuelle peut être un Windows Server 2012 R2 ou Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  Chaque hôte Hyper-V à profiler doit comporter :
 
     a. La machine virtuelle sur laquelle l’outil sera exécuté dans sa liste des hôtes approuvés. Exécutez la commande suivante à partir d’une session PowerShell avec élévation de privilèges sur l’hôte Hyper-V.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. Accès distant PowerShell activé.
 

@@ -1,25 +1,18 @@
 ---
-title: Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ? | Microsoft Docs
+title: Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ? | Microsoft Docs
 description: Décrit les charges de travail qui peuvent être protégées à l’aide de la récupération d’urgence avec le service Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: e0094b48bc602a1b59339458b430319f4a705d44
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920103"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205950"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
 
@@ -27,7 +20,7 @@ Cet article décrit les charges de travail et les applications que vous pouvez r
 
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les organisations ont besoin d’une stratégie de continuité des activités et de récupération d’urgence pour que les charges de travail et les données demeurent en sécurité et disponibles pendant les temps d’arrêt prévus et imprévus, et pour rétablir au plus vite des conditions de travail normales.
 
@@ -61,7 +54,6 @@ Site Recovery permet de répliquer n’importe quelle application exécutée sur
 | Bureau à distance/VDI |O |O |O |O |O|
 | Linux (système d’exploitation et applications) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft)|
 | Dynamics AX |O |O |O |O |O|
-| Oracle |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft)|
 | Serveur de fichiers Windows |O |O |O |O |O|
 | Citrix XenApp et XenDesktop |O|N/A |O |N/A |O |
 
@@ -111,9 +103,9 @@ RDS active l’infrastructure de bureau virtuel (VDI), les bureaux basés sur se
 
 | **RDS** |**Réplication de machines virtuelles Azure dans Azure** | **Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** | **Réplication de serveurs physiques vers un site secondaire** | **Répliquer des serveurs physiques dans Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Bureau virtuel en pool (non géré)** |Non |OUI |Non  |OUI |Non  |OUI |Non  |
-| **Bureau virtuel en pool (géré et sans UPD)** |Non |OUI |Non  |OUI |Non  |OUI |Non  |
-| **Applications à distance et sessions de bureau (sans UPD)** |OUI|OUI |OUI |OUI |OUI |OUI |OUI |
+| **Bureau virtuel en pool (non géré)** |Non |Oui |Non  |Oui |Non  |Oui |Non  |
+| **Bureau virtuel en pool (géré et sans UPD)** |Non |Oui |Non  |Oui |Non  |Oui |Non  |
+| **Applications à distance et sessions de bureau (sans UPD)** |Oui|OUI |OUI |OUI |OUI |OUI |Oui |
 
 [Configurez la récupération d’urgence de RDS à l’aide d’Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

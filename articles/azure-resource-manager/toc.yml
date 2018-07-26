@@ -96,7 +96,7 @@
         - name: Azure PowerShell
           href: powershell-azure-resource-manager.md
         - name: Azure CLI
-          href: xplat-cli-azure-resource-manager.md
+          href: cli-azure-resource-manager.md
         - name: Portail Azure
           href: resource-group-portal.md
         - name: Utiliser des balises pour organiser les ressources
@@ -132,7 +132,7 @@
           href: resource-group-audit.md
         - name: Voir les opérations de déploiement
           href: resource-manager-deployment-operations.md
-    - name: Résoudre les problèmes
+    - name: Résolution des problèmes
       items:
         - name: Résoudre les erreurs de déploiement
           href: resource-manager-common-deployment-errors.md
@@ -162,7 +162,7 @@
           href: resource-manager-sku-not-available-errors.md
         - name: Problèmes de déploiement Windows
           href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Référence de modèle
       href: subtoc/toc.yml

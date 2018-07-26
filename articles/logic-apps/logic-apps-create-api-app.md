@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3ca55bb0a9f4719bd2229aca626d20c53af9fd1e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299526"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172015"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Créer des API personnalisées qui peuvent être appelées à partir de workflows d’applications logiques
 
@@ -43,7 +43,8 @@ Vous pouvez héberger vos API sur [Azure App Service](../app-service/app-service
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.JS](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/app-service-web-get-started-python.md)
+> * [Python](../app-service/containers/quickstart-python.md)
+> * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > Pour obtenir des exemples d’application API générées pour les applications logiques, consultez le [référentiel GitHub Azure Logic Apps](http://github.com/logicappsio) ou le [blog](http://aka.ms/logicappsblog).
 
@@ -180,7 +181,7 @@ Par exemple, pour vérifier périodiquement la présence de nouveaux fichiers da
 | La requête inclut `triggerState` ? | Réponse de l’API | 
 | -------------------------------- | -------------| 
 | Non  | Renvoyez un état HTTP `202 ACCEPTED` plus un en-tête `location` avec `triggerState` défini sur l’heure actuelle et l’intervalle `retry-after` sur 15 secondes. | 
-| OUI | Vérifiez la présence de fichiers ajoutés après le `DateTime` pour `triggerState` dans votre service. | 
+| Oui | Vérifiez la présence de fichiers ajoutés après le `DateTime` pour `triggerState` dans votre service. | 
 ||| 
 
 | Nombre de fichiers trouvés | Réponse de l’API | 

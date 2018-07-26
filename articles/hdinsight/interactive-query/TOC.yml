@@ -35,7 +35,7 @@
               href: ../hdinsight-connect-hive-zeppelin.md
               maintainContext: true
             - name: Outils pour Visual Studio
-              href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+              href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
               maintainContext: true
             - name: Outils pour VSCode
               href: ../hdinsight-for-vscode.md
@@ -308,7 +308,7 @@
   items:
     - name: Sécurité d’entreprise
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planifier la sécurité d’entreprise

@@ -3,19 +3,19 @@ title: Ajouter des données de LUIS à Application Insights à l’aide de Node.
 titleSuffix: Azure
 description: Créer un bot intégré avec une application LUIS et Application Insights à l’aide de Node.js.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: v-geberr
-ms.openlocfilehash: 929b6e1cc980d7215f91a616820e257aed26bab7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370565"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236837"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Ajouter des résultats de LUIS à Application Insights à partir d’un bot d’application web
 Ce didacticiel montre comment ajouter des informations de demande et de réponse de LUIS à un stockage de données de télémétrie [Application Insights](https://azure.microsoft.com/services/application-insights/). Une fois que vous disposez de ces données, vous pouvez les interroger avec le langage de requête Kusto ou Power BI pour analyser, agréger et générer des rapports sur les intentions et les entités de l’énoncé en temps réel. Cette analyse vous aide à déterminer si vous devez ajouter ou modifier les intentions et les entités de votre application LUIS.

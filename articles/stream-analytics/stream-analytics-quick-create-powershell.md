@@ -2,24 +2,24 @@
 title: Créer un travail Stream Analytics à l’aide d’Azure PowerShell
 description: Ce démarrage rapide décrit en détail comment utiliser le module Azure PowerShell pour déployer et exécuter un travail Azure Stream Analytics.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 ms.date: 05/14/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 2b5d8bfd6dbe36637a0c6873e941118e7ee71b80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 18903dfbe187de73a6edb14196fa29e02d35dbca
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212430"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185378"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell
 
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à l’aide des lignes de commande ou des scripts PowerShell. Ce démarrage rapide décrit en détail comment utiliser le module Azure PowerShell pour déployer et exécuter un travail Azure Stream Analytics. 
-
+ 
 Cet exemple de travail lit les données de diffusion en continu à partir d’un blob dans le service Stockage Blob Azure. Le fichier de données d’entrée utilisé dans ce démarrage rapide contient des données statiques à des fins d’illustration uniquement. Dans un scénario réel, vous utilisez la diffusion en continu des données d’entrée pour un travail Stream Analytics. Ensuite, le travail transforme les données à l’aide du langage de requête Stream Analytics pour calculer la température moyenne lorsqu’elle dépasse 100°. Enfin, ce travail écrit les événements de sortie résultants dans un autre fichier. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -274,7 +274,7 @@ Start-AzureRmStreamAnalyticsJob `
   -OutputStartTime 2018-01-01T00:00:00Z 
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez vous abstenir de le supprimer et vous contenter de l’arrêter à ce stade. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées pendant ce guide de démarrage rapide en exécutant l’applet de commande suivante :
 

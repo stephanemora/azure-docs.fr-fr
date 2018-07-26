@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/24/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b1e162b9ae151ee947559d40f02909aea4010e5b
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796417"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242918"
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 Cet article décrit la stratégie de maintenance pour les systèmes intégrés Azure Stack et la marche à suivre pour conserver votre système dans un état de prise en charge. 
@@ -40,8 +40,6 @@ Microsoft prévoie de publier des packages de mise à jour logicielle chaque moi
 Pour lire la documentation relative à la planification et à la gestion des mises à jour, et pour savoir comment déterminer la version que vous utilisez, consultez [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](azure-stack-updates.md). Pour en savoir plus sur une mise à jour, notamment comment la télécharger, consultez les notes de publication qui s’y rapportent : 
 - [Mise à jour 1805 d’Azure Stack](azure-stack-update-1805.md)
 - [Mise à jour 1804 d’Azure Stack](azure-stack-update-1804.md)
-- [Mise à jour 1803 d’Azure Stack](azure-stack-update-1803.md)
-
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 Parfois, Microsoft fournit des correctifs logiciels pour Azure Stack qui corrigent un problème précis souvent préventif ou urgent.  Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, où sont détaillés le problème, la cause et la résolution. 

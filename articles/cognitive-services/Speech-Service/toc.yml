@@ -1,6 +1,6 @@
 - name: Documentation de l’API du service de reconnaissance vocale
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que le service de reconnaissance vocale\_?"
       href: overview.md
@@ -98,7 +98,7 @@
         - name: FAQ de la synthèse vocale
           href: faq-text-to-speech.md
         - name: FAQ de Translator
-          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+          href: 'https://www.microsoft.com/translator/faq.aspx'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

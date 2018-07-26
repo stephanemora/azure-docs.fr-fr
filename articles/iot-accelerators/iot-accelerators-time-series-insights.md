@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 10617c129212d8196897af750c02647f0086c8e5
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968953"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185888"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualiser les données de surveillance à distance avec Time Series Insights
 
@@ -23,7 +23,7 @@ Un opérateur peut étendre davantage la visualisation des données prête à l�
 
 Pour réaliser cette procédure, vous avez besoin des éléments suivants :
 
-* Tutoriel [Déployer la solution préconfigurée de surveillance à distance](iot-accelerators-remote-monitoring-deploy.md)
+* Tutoriel [Déployer la solution préconfigurée de surveillance à distance](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Créer un groupe de consommateurs
 
@@ -57,7 +57,7 @@ Azure Time Series Insights est un service entièrement managé d’analytique, d
     | Nom de l’environnement | La capture d’écran suivante utilise le nom **contorosrmtsi**. Choisissez votre propre nom unique quand vous effectuez cette étape. |
     | Abonnement | Sélectionnez votre abonnement Azure dans la liste déroulante. |
     | Groupe de ressources | **Créer un nouveau**. Nous utilisons le nom **ContosoRM**. |
-    | Emplacement | Nous utilisons **Est des États-Unis**. Créez votre environnement dans la même région que votre solution de surveillance à distance. |
+    | Lieu | Nous utilisons **Est des États-Unis**. Créez votre environnement dans la même région que votre solution de surveillance à distance. |
     | Sku |**S1** |
     | Capacité | **1** |
     | Épingler au tableau de bord | **Oui** |

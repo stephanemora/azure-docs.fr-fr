@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 28290718d15a893c5d676c887b9f810449075746
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 780a215b66fec845bc1df639fedda870881b4027
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665997"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189358"
 ---
 > [!div class="op_single_selector"]
 > * [C sur Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -22,7 +22,7 @@ ms.locfileid: "34665997"
 > * [Node.js sur Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
 > * [C sur Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
-Dans ce tutoriel, vous allez implémenter un appareil **Condenseur** qui envoie les données de télémétrie ci-après à [l’accélérateur de solution](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) Monitoring à distance :
+Dans ce tutoriel, vous allez implémenter un appareil **Condenseur** qui envoie les données de télémétrie ci-après à [l’accélérateur de solution](../articles/iot-accelerators/about-iot-accelerators.md) Monitoring à distance :
 
 * Température
 * Pression
@@ -44,7 +44,7 @@ Avant d’écrire du code pour votre appareil, déployez votre accélérateur de
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Déployer votre accélérateur de solution Monitoring à distance
 
-L’appareil **Condenseur** que vous créez dans le cadre de ce tutoriel envoie des données à une instance de l’accélérateur de solution [Monitoring à distance](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md). Si vous n’avez pas déjà provisionné l’accélérateur de solution Monitoring à distance dans votre compte Azure, consultez [Déployer l’accélérateur de solution Monitoring à distance](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
+L’appareil **Condenseur** que vous créez dans le cadre de ce tutoriel envoie des données à une instance de l’accélérateur de solution [Monitoring à distance](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md). Si vous n’avez pas déjà provisionné l’accélérateur de solution Monitoring à distance dans votre compte Azure, consultez [Déployer l’accélérateur de solution Monitoring à distance](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md).
 
 Au terme du processus de déploiement de la solution Monitoring à distance, cliquez sur **Lancer** pour ouvrir le tableau de bord de la solution dans votre navigateur.
 

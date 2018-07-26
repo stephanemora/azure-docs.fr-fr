@@ -3,19 +3,19 @@ title: Codes de réponse HTTP des API LUIS (Language Understanding) - Azure | Mi
 titleSuffix: Azure
 description: Comprendre les codes de réponse HTTP retournés par les API de point de terminaison et de création LUIS
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: v-geberr
-ms.openlocfilehash: 9c7381d9dc2ecf302c85c6b4f1f24b24a28d9ebe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 5fd64b5fa3e3c084aee1e63c5233ccffc93917ae
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368724"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237934"
 ---
 # <a name="luis-api-http-response-codes"></a>Codes de réponse HTTP des API LUIS
 Les API de [création](https://aka.ms/luis-authoring-apis) et de [point de terminaison](https://aka.ms/luis-endpoint-apis) retournent des codes de réponse HTTP. Bien que les messages de réponse contiennent des informations propres à une requête, le code d’état de réponse HTTP est général. 

@@ -4,23 +4,24 @@ description: Liste complète de tous les paramètres destinés à l’itinéranc
 services: active-directory
 keywords: Enterprise State Roaming, Cloud windows
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159075"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223665"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
 Voici une liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10. 
@@ -30,10 +31,10 @@ Consultez le tableau suivant pour obtenir un récapitulatif des périphériques 
 
 | Type de compte et fonctionnement | Bureau | Mobile |
 | --- | --- | --- |
-| Azure Active Directory : synchronisation |OUI |Non  |
+| Azure Active Directory : synchronisation |Oui |Non  |
 | Azure Active Directory : sauvegarde/restauration |Non  |Non  |
-| Compte Microsoft : synchronisation |OUI |OUI |
-| Compte Microsoft : sauvegarde/restauration |Non  |OUI |
+| Compte Microsoft : synchronisation |Oui |Oui |
+| Compte Microsoft : sauvegarde/restauration |Non  |Oui |
 
 ## <a name="what-is-backup"></a>Qu’est-ce qu’une sauvegarde ?
 En règle générale, les paramètres Windows se synchronisent par défaut, cependant, certains paramètres sont simplement sauvegardés, notamment la liste des applications installées sur un périphérique. La sauvegarde est destinée uniquement aux appareils mobiles et n’est pas disponible pour les utilisateurs d’Enterprise State Roaming. La sauvegarde utilise un compte Microsoft et stocke les paramètres et données d’application dans OneDrive. Si, sur le périphérique , un utilisateur désactive la synchronisation avec l’application Settings, les données de l’application normalement synchronisées se transforment en simple sauvegarde. Les données de sauvegarde sont uniquement accessibles via l’opération de restauration lors de la première utilisation d’un nouvel appareil. Les sauvegardes peuvent être désactivées via les paramètres du périphérique et peuvent être gérées et supprimées via le compte OneDrive de l’utilisateur.

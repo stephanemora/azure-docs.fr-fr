@@ -2,19 +2,19 @@
 title: Azure App Service - synchroniser la configuration de réseau | Microsoft Docs
 description: Cet article explique comment synchroniser la configuration de votre réseau pour le plan d’hébergement Azure App Service.
 ms.service: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: ea8f4aae0324e201def6b9b6cd33b0e79042ebbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 57c4dd523a5dffc48a2d2d403d2a440a8d6cde95
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647967"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257888"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Synchroniser la configuration de mise en réseau pour le plan d’hébergement Azure App Service
 
