@@ -247,7 +247,7 @@ La forme ITN convient particulièrement pour les applications qui agissent sur l
 
 Comme les grossièretés et la vulgarité ont une place naturelle dans la langue parlée, le service Microsoft Speech reconnaît ces mots et expressions lorsqu’ils sont prononcés. La vulgarité n’est toutefois pas appropriée pour certaines applications, notamment celles qui s’adressent à un public non adulte restreint.
 
-La forme ITN masquée applique un masquage des grossièretés à la forme de normalisation de texte inverse. Pour masquer les grossièretés, définissez la valeur du paramètre de grossièretés sur `masked`. Lorsque les grossièretés sont masquées, les mots qui sont reconnus comme appartenant au lexique des grossièretés de la langue sont remplacés par des astérisques. Par exemple : *remind me to buy 5 **** pencils* (rappelle-moi d’acheter 5 **** de crayons). La forme ITN masquée d’un résultat de reconnaissance n’inclut pas de mise en majuscules ni de ponctuation.
+La forme ITN masquée applique un masquage des grossièretés à la forme de normalisation de texte inverse. Pour masquer les grossièretés, définissez la valeur du paramètre de grossièretés sur `masked`. Lorsque les grossièretés sont masquées, les mots qui sont reconnus comme appartenant au lexique des grossièretés de la langue sont remplacés par des astérisques. Par exemple : *rappelle-moi d’acheter 5 **** de crayons*. La forme ITN masquée d’un résultat de reconnaissance n’inclut pas de mise en majuscules ni de ponctuation.
 
 > [!NOTE]
 > Si la valeur du paramètre de requête de vulgarité est définie sur `raw`, la forme ITN masquée est la même que la forme ITN. Les grossièretés *ne sont pas* masquées.

@@ -58,7 +58,7 @@ Le portail Azure comprend un Assistant qui vous guide à travers la création du
 
 ### <a name="specify-routes"></a>Spécifier des routes
 
-Par défaut, l’Assistant vous donne un itinéraire nommé **route** et défini sous la forme **FROM /* INTO $upstream**, ce qui signifie que tous les messages issus des modules sont envoyés à votre hub IoT.  
+Par défaut, l’Assistant vous donne un itinéraire nommé **route** et défini sous la forme **FROM /\* INTO $upstream**, ce qui signifie que tous les messages issus des modules sont envoyés à votre hub IoT.  
 
 Ajoutez ou mettez à jour les itinéraires avec des informations issues de [Déclarer des itinéraires](module-composition.md#declare-routes), puis sélectionnez **Suivant** pour passer à la section de vérification.
 
