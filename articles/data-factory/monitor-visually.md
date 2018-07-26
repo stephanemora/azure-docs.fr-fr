@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2018
+ms.date: 07/12/2018
 ms.author: shlo
-ms.openlocfilehash: e654cc23d6a558469ea238fc5ade82b44562f9a2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4b3828e1857d17a128de346449d5cf2041709e50
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050367"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041073"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Surveiller visuellement des fabriques de données Azure
 Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser.
@@ -76,6 +76,11 @@ Liste montrant les exécutions d’activités correspondant à chaque exécution
 
 ## <a name="features"></a>Caractéristiques
 
+#### <a name="select-a-data-factory-to-monitor"></a>Sélectionner une fabrique de données à surveiller
+Placez le curseur sur l’icône **Data Factory** en haut à gauche. Cliquez sur l’icône « Flèche » pour afficher la liste des fabriques de données et des abonnements Azure que vous pouvez surveiller.
+
+![Sélectionner une fabrique de données](media/monitor-visually/select-datafactory.png)
+
 #### <a name="rich-ordering-and-filtering"></a>Classement et filtrage enrichis
 
 Vous pouvez classer les exécutions de pipelines par ordre croissant ou décroissant de Démarrage de l’exécution, et filtrer les exécutions de pipelines par les colonnes suivantes :
@@ -88,7 +93,7 @@ Vous pouvez classer les exécutions de pipelines par ordre croissant ou décrois
 
 ![Filtrer](media/monitor-visually/filter.png)
 
-#### <a name="addremove-columns-to-list-view"></a>Ajouter/supprimer des colonnes dans la liste
+#### <a name="addremove-columns-in-list-view"></a>Ajouter/supprimer des colonnes dans la liste
 Cliquez avec le bouton droit sur l’en-tête de liste et sélectionnez les colonnes que vous souhaitez afficher.
 
 ![Colonnes](media/monitor-visually/columns.png)
@@ -96,10 +101,22 @@ Cliquez avec le bouton droit sur l’en-tête de liste et sélectionnez les colo
 #### <a name="reorder-column-widths-in-list-view"></a>Réorganiser les largeurs de colonne dans la liste
 Augmentez et diminuez les largeurs de colonne dans la liste en plaçant simplement le curseur sur l’en-tête de colonne.
 
-#### <a name="select-data-factory"></a>Sélectionner une fabrique de données
-Placez le curseur sur l’icône « Data Factory » en haut à gauche. Cliquez sur l’icône « Flèche » pour afficher la liste des fabriques de données et des abonnements Azure que vous pouvez surveiller.
+#### <a name="user-properties"></a>Propriétés de l’utilisateur
 
-![Sélectionner une fabrique de données](media/monitor-visually/select-datafactory.png)
+Vous pouvez promouvoir n’importe quelle propriété de l’activité de pipeline en tant que propriété d’utilisateur pour pouvoir la surveiller. Ainsi, vous pouvez promouvoir les propriétés **Source** et **Destination** de l’activité Copy dans votre pipeline en tant que propriétés d’utilisateur. Vous pouvez également sélectionner **Générer automatiquement** afin de générer les propriétés d’utilisateur **Source** et **Destination** pour une activité Copy.
+
+![Créer des propriétés d’utilisateur](media/monitor-visually/monitor-user-properties-image1.png)
+
+> [!NOTE]
+> Vous pouvez promouvoir jusqu’à 5 propriétés de l’activité de pipeline en tant que propriétés d’utilisateur.
+
+Une fois les propriétés d’utilisateur créées, vous pouvez les suivre dans les listes de surveillance. Si la source de l’activité Copy est un nom de table, vous pouvez suivre ce nom de table source en tant que colonne dans la liste des exécutions d’activités.
+
+![Liste des exécutions d’activités sans propriétés d’utilisateur](media/monitor-visually/monitor-user-properties-image2.png)
+
+![Ajouter des colonnes à la liste des exécutions d’activités pour les propriétés d’utilisateur](media/monitor-visually/monitor-user-properties-image3.png)
+
+![Liste des exécutions d’activités avec colonnes pour les propriétés d’utilisateur](media/monitor-visually/monitor-user-properties-image4.png)
 
 #### <a name="guided-tours"></a>Visites guidées
 Cliquez sur l’icône « Informations » dans l’angle inférieur gauche, puis cliquez sur « Visites guidées » pour obtenir des instructions détaillées sur la façon de surveiller vos exécutions d’activités et de pipelines.

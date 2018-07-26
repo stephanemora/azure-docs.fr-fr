@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: c96282b8163cc48001ee3c6fe89497e2793309f6
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309178"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091794"
 ---
 # <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Bases de données uniques et serveurs logiques Azure SQL Database, ainsi que leurs ressources.
 
@@ -82,7 +82,7 @@ Pour créer une base de données SQL Azure à l’aide du [portail Azure](https
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Pour plus d’informations sur la sélection du niveau tarifaire de votre base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md).
+> Pour plus d’informations sur la sélection du niveau tarifaire de votre base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
 
 Pour créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -95,7 +95,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
    ![règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> Pour configurer les propriétés de performance d’une base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md).
+> Pour configurer les propriétés de performance d’une base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27785524"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056461"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les composants matériels de l’appareil Microsoft Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement (PCM), les lecteurs de disque, la capacité de stockage et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
 
@@ -41,9 +41,9 @@ Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764
 | Courant d’appel maximal |20 A |20 A |
 | Correction du facteur de puissance |> 95 % de la tension d’entrée nominale |> 95 % de la tension d’entrée nominale |
 | Harmonique |Conforme à la norme EN61000-3-2 |Conforme à la norme EN61000-3-2 |
-| Sortie |Tension en mode veille 5 V @ 2,0 A |Tension en mode veille 5 V @ 2,7 A |
-| +5 V @ 42 A |+5 V @ 40 A | |
-| +12 V @ 38 A |+12 V @ 38 A | |
+| Sortie |Tension en mode veille 5 V \@ 2,0 A |Tension en mode veille 5 V \@ 2,7 A |
+| +5V \@ 42 A |+5V \@ 40 A | |
+| +12V \@ 38 A |+12V \@ 38 A | |
 | Enfichable à chaud |Oui |Oui |
 | Commutateurs et voyants LED |Interrupteur marche/arrêt et quatre voyants LED d’état |Interrupteur marche/arrêt et six voyants LED d’état |
 | Refroidissement du boîtier |Ventilateurs axiaux avec vitesse variable réglable |Ventilateurs axiaux avec vitesse variable réglable |
@@ -127,8 +127,8 @@ Cette section répertorie les caractéristiques liées à l’environnement du b
 | Ventilation |La ventilation du système s’effectue de l’avant vers l’arrière. Le système doit être utilisé avec une installation basse pression à échappement vers l’arrière. La contre-pression créée par les portes de rack et les obstacles ne doit pas dépasser 5 pascals (0,5 mm de colonne d’eau). |
 | Altitude, en fonctionnement |-30 mètres à 3 045 mètres (-100 pieds à 10 000 pieds) avec la température de service maximale réduite de 5 °C à plus de 7 000 mètres. |
 | Altitude, hors fonctionnement |-305 mètres à 12 192 mètres (-1 000 pieds à 40 000 pieds) |
-| Chocs, en fonctionnement |5 g 10 ms ½ sinus |
-| Chocs, hors fonctionnement |30 g 10 ms ½ sinus |
+| Chocs, en fonctionnement |Sinus 5g 10 ms ½ |
+| Chocs, hors fonctionnement |Sinus 30g 10 ms ½ |
 | Vibrations, en fonctionnement |Moyenne quadratique 0,21 g, 5-500 Hz aléatoire |
 | Vibrations, hors fonctionnement |Moyenne quadratique 1,04 g, 2-200 Hz aléatoire |
 | Vibrations, déplacement |3 g 2-200 Hz sinus |
@@ -194,7 +194,7 @@ L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applic
 
 Pour les interfaces réseau 10 GbE, DATA 2 et DATA 3, consultez la [liste des modules et des câbles réseau pris en charge](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous êtes désormais prêt à déployer un appareil StorSimple dans votre centre de données. Pour plus d’informations, consultez [Déploiement de votre appareil local](storsimple-8000-deployment-walkthrough-u2.md).
 

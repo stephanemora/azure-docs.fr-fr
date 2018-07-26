@@ -1,47 +1,51 @@
 ---
-title: Configuration d’Amazon dans Azure Active Directory B2C | Microsoft Docs
-description: Fourniture d’inscription et de connexion à des consommateurs disposant de comptes Amazon dans vos applications sécurisées par Azure Active Directory B2C.
+title: Configurer l’inscription et la connexion avec un compte Amazon à l’aide d’Azure Active Directory B2C | Microsoft Docs
+description: Proposez l’inscription et la connexion aux clients disposant d’un compte Amazon dans vos applications avec Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e3b3d66b913b595e68c03b68990d1a4806952579
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5fb6289f75f0c98cc218233d8adb900484ee4a17
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443696"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916494"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C : fourniture d’inscription et de connexion à des consommateurs disposant de comptes Amazon
+# <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Amazon à l’aide d’Azure Active Directory B2C
+
 ## <a name="create-an-amazon-application"></a>Création d’une application Amazon
-Pour utiliser Amazon en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application Amazon et lui fournir les paramètres appropriés. Pour ce faire, vous avez besoin d’un compte Amazon. Si vous n’en avez pas, vous pouvez en obtenir un à l’adresse [http://www.amazon.com/](http://www.amazon.com/).
 
-1. Accédez au [centre des développeurs Amazon](https://login.amazon.com/) et connectez-vous avec les informations d’identification de votre compte Amazon.
+Pour utiliser un compte Amazon comme fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application qui la représente dans votre locataire (tenant). Si vous ne disposez pas déjà d’un compte Amazon, vous pouvez en créer un à l’adresse [http://www.amazon.com/](http://www.amazon.com/).
+
+1. Connectez-vous au [Centre de développement Amazon](https://login.amazon.com/) avec les informations d’identification de votre compte Amazon.
 2. Si ce n’est déjà fait, cliquez sur **Sign Up**, suivez la procédure d’inscription pour développeur et acceptez la politique d’utilisation.
-3. Cliquez sur **Register new application**.
-   
-    ![Inscription d’une nouvelle application sur le site Web d’Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-new-app.png)
-4. Fournissez les informations relatives à l’application (**Nom**, **Description** et **Privacy Notice URL** (URL de déclaration de confidentialité), puis cliquez sur **Enregistrer**.
-   
-    ![Fourniture d’informations d’application pour l’inscription d’une nouvelle application sur Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
-5. Dans la section **Paramètres web**, copiez les valeurs **ID client** et **Clé secrète client**. (Vous devez au préalable cliquer sur le bouton **Show Secret** (Afficher la clé secrète client).) Vous avez besoin de ces deux valeurs pour configurer Amazon en tant que fournisseur d’identité dans votre client. Cliquez sur **Modifier** au bas de la section. **Client Secret** est une information d’identification de sécurité importante.
-   
-    ![Fourniture de l’ID client et de la clé secrète client pour votre nouvelle application sur Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
-6. Entrez `https://login.microsoftonline.com` dans le champ **Origines JavaScript autorisées** et `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **Allowed Return URLs** (URL de retour autorisées). Remplacez **{tenant}** par votre nom de client (par exemple, contoso.onmicrosoft.com). Cliquez sur **Enregistrer**. La valeur **{tenant}** respecte la casse.
-   
-    ![Fourniture de JavaScript Origins et Return URLs pour votre nouvelle application sur Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
+3. Cliquez sur **Enregistrer une nouvelle application**.
+4. Entrez un **Nom**, une **Description** et une **URL d’avis de confidentialité**, puis cliquez sur **Enregistrer**.
+5. Dans la section **Paramètres web**, copiez les valeurs **ID client**. Sélectionnez **Montrer le secret** pour obtenir la clé secrète client et copiez-la. Vous aurez besoin de ces deux valeurs pour configurer un compte Amazon en tant que fournisseur d’identité dans votre locataire. **Client Secret** est une information d’identification de sécurité importante.
+6. Dans la section **Paramètres web**, sélectionnez **Modifier**, puis entrez `https://login.microsoftonline.com` dans **Origines JavaScript autorisées** et `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans **URL de retour autorisées**. Remplacez **{tenant}** par votre nom de client (par exemple, contoso.onmicrosoft.com). 
+7. Cliquez sur **Enregistrer**.
 
-## <a name="configure-amazon-as-an-identity-provider-in-your-tenant"></a>Configuration d’Amazon en tant que fournisseur d’identité dans votre client
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le portail Azure.
-2. Dans le panneau de fonctionnalités B2C, cliquez sur **Fournisseurs d’identité**.
-3. Cliquez sur **+Ajouter** en haut du volet.
-4. Fournissez un **Nom** convivial pour la configuration de fournisseur d’identité. Par exemple, entrez « Amzn ».
-5. Cliquez sur **Type de fournisseur d’identité**, sélectionnez **Amazon**, puis cliquez sur **OK**.
-6. Cliquez sur **Configurer ce fournisseur d’identité** , puis entrez l’ID client et la clé secrète client de l’application Amazon que vous avez créée précédemment.
-7. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Amazon.
+## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Configurer un compte Amazon comme fournisseur d’identité
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
+2. Assurez-vous que vous utilisez le répertoire qui contient votre locataire Azure AD B2C en l’activant dans l’angle supérieur droit du portail Azure. Sélectionnez les informations sur votre abonnement, puis cliquez sur **Changer de répertoire**. 
+
+    ![Basculez vers votre client Azure AD B2C.](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
+
+    Choisissez le répertoire qui contient votre locataire.
+
+    ![Sélectionner le répertoire](./media/active-directory-b2c-setup-fb-app/select-directory.png)
+
+3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
+4. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
+5. Saisissez un **Nom**. Par exemple, entrez *Amazon*.
+6. Sélectionnez **Type de fournisseur d’identité** et **Amazon**, puis cliquez sur **OK**.
+7. Sélectionnez **Configurer ce fournisseur d’identité** et entrez l’ID client enregistré précédemment en tant **qu’ID Client** ainsi que la clé secrète client enregistrée en tant que **Clé secrète client** de l’application Amazon créée précédemment.
+8. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Amazon.
 

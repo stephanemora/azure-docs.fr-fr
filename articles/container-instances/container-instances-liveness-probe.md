@@ -8,22 +8,22 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: juluk
-ms.openlocfilehash: 76ca4db28d99702532ae656a19f0d54b479a13fe
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e47d203ab21afc6d07f425ae6367fbc536b13f1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248939"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011827"
 ---
 # <a name="configure-liveness-probes"></a>Configurer les probe liveness
 
-Les applications en conteneur peuvent s’exécuter sur de longues périodes, ce qui provoque des états rompus qui nécessitent parfois une réparation (redémarrage du conteneur). Azure Container Instances prend en charge les sondes probe liveness pour inclure des configurations permettant le redémarrage du conteneur si des fonctionnalités critiques ne fonctionnent pas. 
+Les applications en conteneur peuvent s’exécuter sur de longues périodes, ce qui provoque des états rompus qui nécessitent parfois une réparation (redémarrage du conteneur). Azure Container Instances prend en charge les sondes probe liveness pour inclure des configurations permettant le redémarrage du conteneur si des fonctionnalités critiques ne fonctionnent pas.
 
 Cet article explique comment déployer un groupe de conteneurs avec probe liveness, illustrant le redémarrage automatique d’un conteneur non intègre simulé.
 
 ## <a name="yaml-deployment"></a>Déploiement YAML
 
-Créez un fichier `liveness-probe.yaml` avec l’extrait de code suivant. Ce fichier définit un groupe composé d’un conteneur NGNIX qui finit par devenir non intègre. 
+Créez un fichier `liveness-probe.yaml` avec l’extrait de code suivant. Ce fichier définit un groupe composé d’un conteneur NGNIX qui finit par devenir non intègre.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -45,7 +45,7 @@ properties:
           memoryInGB: 1.5
       livenessProbe:
         exec:
-            command: 
+            command:
                 - "cat"
                 - "/tmp/healthy"
         periodSeconds: 5
@@ -81,9 +81,9 @@ La propriété `periodSeconds` signifie que la commande d’activité doit s’e
 
 Pendant les 30 premières secondes, le fichier `healthy` créé par la commande de démarrage existe. Lorsque la commande d’activité vérifie l’existence du fichier `healthy`, le code d’état retourne un zéro, ce qui signale une réussite ; par conséquent, aucun redémarrage ne se produit.
 
-Après 30 secondes, `cat /tmp/healthy` commence à échouer, ce qui provoque l’apparition d’événements non intègres et l’arrêt d’événements. 
+Après 30 secondes, `cat /tmp/healthy` commence à échouer, ce qui provoque l’apparition d’événements non intègres et l’arrêt d’événements.
 
-Ces événements sont consultables sur le Portail Azure et Azure CLI 2.0.
+Vous pouvez voir ces événements dans le portail Azure et dans Azure CLI.
 
 ![Événement non intègre sur le Portail][portal-unhealthy]
 
@@ -101,7 +101,7 @@ Les stratégies de redémarrage annulent et remplacent le comportement de redém
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les scénarios à la tâche peuvent exiger qu’une sonde probe liveness autorise les redémarrages automatiques dans le cas où une fonction requise ne fonctionne pas correctement. Pour plus d’informations sur l’exécution des conteneurs basés sur des tâches, consultez [Exécuter des tâches en conteneur dans Azure Container Instances](container-instances-restart-policy.md).
+Les scénarios basés sur des tâches peuvent nécessiter qu’une sonde probe liveness autorise les redémarrages automatiques si une fonction prérequise ne fonctionne pas correctement. Pour plus d’informations sur l’exécution des conteneurs basés sur des tâches, consultez [Exécuter des tâches en conteneur dans Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

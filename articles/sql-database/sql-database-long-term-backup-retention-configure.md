@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 24d453dc705eb2d0ee7cb77f2ec247845247d0a8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969185"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113629"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la rétention des sauvegardes à long terme Azure SQL Database
 
 Vous pouvez configurer la base de données SQL Azure avec une stratégie de [rétention des sauvegardes à long terme](sql-database-long-term-retention.md) pour conserver automatiquement des sauvegardes dans le stockage Blob Azure pendant 10 ans maximum. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes via le portail Azure ou PowerShell.
-
-> [!NOTE]
-> Dans le cadre de la version initiale de la préversion de cette fonctionnalité en octobre 2016, les sauvegardes ont été stockées dans un coffre Azure Recovery Services. Cette mise à jour supprime cette dépendance, mais à des fins de compatibilité descendante, l’API d’origine est prise en charge jusqu’au 31 mai 2018. Si vous avez besoin d’interagir avec des sauvegardes présentes dans le coffre Azure Recovery Services, consultez [Configure and restore from Azure SQL Database long-term backup retention using Azure Recovery Services Vault](sql-database-long-term-backup-retention-configure-vault.md) (Configurer et récupérer à partir d’une rétention des sauvegardes à long terme à l’aide du coffre Azure Recovery Services). 
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Utiliser le portail Azure pour configurer des stratégies de rétention à long terme et restaurer des sauvegardes
 
@@ -32,29 +29,21 @@ Les sections suivantes vous montrent comment utiliser le portail Azure pour conf
 
 Vous pouvez configurer SQL Database pour [conserver des sauvegardes automatisées](sql-database-long-term-retention.md) sur une période plus longue que la période de rétention associée à votre niveau de service. 
 
-1. Dans le portail Azure, sélectionnez votre serveur SQL, puis cliquez sur **Rétention des sauvegardes à long terme**.
+1. Dans le portail Azure, sélectionnez votre serveur SQL, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Configure policies** (Configurer des stratégies), sélectionnez la base de données sur laquelle vous souhaitez définir ou modifier des stratégies de rétention des sauvegardes à long terme.
 
-   ![lien de rétention des sauvegardes à long terme](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![lien gérer les sauvegardes](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. Dans l’onglet **Configure policies** (Configurer des stratégies), sélectionnez la base de données sur laquelle vous souhaitez définir ou modifier des stratégies de rétention des sauvegardes à long terme.
-
-   ![sélectionner la base de données](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. Dans le volet **Configure policies** (Configurer des stratégies), indiquez si vous souhaitez conserver des sauvegardes à une fréquence hebdomadaire, mensuelle ou annuelle, et spécifiez la période de rétention pour chacune. 
+2. Dans le volet **Configure policies** (Configurer des stratégies), indiquez si vous souhaitez conserver des sauvegardes à une fréquence hebdomadaire, mensuelle ou annuelle, et spécifiez la période de rétention pour chacune. 
 
    ![configurer des stratégies](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. Lorsque vous avez terminé, cliquez sur **Appliquer**.
+3. Lorsque vous avez terminé, cliquez sur **Appliquer**.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Afficher des sauvegardes et restaurer à partir d’une sauvegarde à l’aide du portail Azure
 
 Affichez les sauvegardes qui sont conservées pour une base de données spécifique avec une stratégie de rétention à long terme, et restaurez à partir de ces sauvegardes. 
 
-1. Dans le portail Azure, sélectionnez votre serveur SQL, puis cliquez sur **Rétention des sauvegardes à long terme**.
-
-   ![lien de rétention des sauvegardes à long terme](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. Dans l’onglet **Sauvegardes disponibles**, sélectionnez la base de données pour laquelle vous souhaitez afficher les sauvegardes disponibles.
+1. Dans le portail Azure, sélectionnez votre serveur SQL, puis cliquez sur **Gérer les sauvegardes**. Dans l’onglet **Sauvegardes disponibles**, sélectionnez la base de données pour laquelle vous souhaitez afficher les sauvegardes disponibles.
 
    ![sélectionner la base de données](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 

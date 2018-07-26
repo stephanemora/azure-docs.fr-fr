@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4349b471f960e7844511c473bffcd2177a34e055
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659706"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113475"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
 
@@ -27,9 +27,17 @@ Avant de créer une tâche d’importation pour transférer des données dans Az
 
 - Avoir un abonnement Azure actif à utiliser avec le service Import/Export.
 - Avoir au moins un compte de Stockage Azure. Consultez la liste des [Comptes de stockage et types de stockage pris en charge pour le service Import/Export](storage-import-export-requirements.md). Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
-- Avoir un nombre suffisant de disques de [Types pris en charge](storage-import-export-requirements.md#supported-disks). 
+- Avoir un nombre suffisant de disques correspondant aux [types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems).
-- [Téléchargez la version 2 de WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) sur le système Windows. Décompressez le fichier dans le dossier par défaut `waimportexport`. Par exemple : `C:\WaImportExport`.
+- [Téléchargez la version 2 de WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexport`. Par exemple : `C:\WaImportExport`.
+- Dotez-vous d’un compte FedEx/DHL. 
+    - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
+    - Générez un numéro de suivi pour le travail d’exportation.
+    - Chaque travail doit avoir un numéro de suivi distinct. Plusieurs travaux portant le même numéro de suivi ne sont pas pris en charge.
+    - Si vous n’avez pas de compte de transporteur, accédez à :
+        - [Créer un compte FedEX](https://www.fedex.com/en-us/create-account.html), ou 
+        - [Créer un compte DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+ 
 
 
 ## <a name="step-1-prepare-the-drives"></a>Étape 1 : Préparer les lecteurs
@@ -115,14 +123,14 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
 3. Cliquez sur **Créer une tâche d’importation/exportation**.
 
-    ![Cliquez sur Tâche d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Cliquer sur Tâche d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
 4. Dans **De base** :
 
     - Sélectionnez **Importer dans Azure**.
     - Indiquez un nom décrivant le travail d’importation. Utilisez ce nom pour suivre les tâches en cours et effectuées.
         -  Le nom peut contenir uniquement des lettres minuscules, des chiffres, des tirets et des traits de soulignement.
-        -  Le nom doit commencer par une lettre et ne peut pas contenir d’espace. 
+        -  Le nom doit commencer par une lettre et ne doit pas contenir d’espaces. 
     - Sélectionnez un abonnement.
     - Sélectionnez un groupe de ressources. 
 
@@ -139,8 +147,11 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 4. Dans **Informations de réexpédition** :
 
     - Sélectionnez le transporteur dans la liste déroulante.
-    - Entrez un numéro de compte de transporteur valide que vous avez créé avec ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. 
-    - Indiquez le nom d’une personne, un numéro de téléphone, un e-mail, le nom de la rue, la ville, le code postal, l’état/la province et le pays/la région et vérifiez que ces informations sont complètes et valides.
+    - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. 
+    - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides.
+
+        > [!TIP] 
+        > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
 
        ![Créer une tâche d'importation - Étape 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
@@ -159,6 +170,10 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 ## <a name="step-4-update-the-job-with-tracking-information"></a>Étape 4 : Mettre à jour la tâche avec les informations de suivi
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+
+## <a name="step-5-verify-data-upload-to-azure"></a>Étape 5 : vérifier le chargement des données sur Azure
+
+Surveillez le travail jusqu’à son achèvement. Une fois le travail terminé, vérifiez que vos données ont été chargées sur Azure. Ne supprimez les données locales qu’après avoir vérifié que le chargement a réussi.
 
 ## <a name="samples-for-journal-files"></a>Exemples de fichiers journaux
 
@@ -193,7 +208,7 @@ Voici un exemple d’importation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Voir l’état de la tâche et des lecteurs](storage-import-export-view-drive-status.md)
+* [Voir l’état de la tâche et des disques](storage-import-export-view-drive-status.md)
 * [Passer en revue les exigences d’importation/exportation](storage-import-export-requirements.md)
 
 

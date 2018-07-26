@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 88bd895cb3a384f1ada0394fe2da206aca86b981
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a5a6a43c41760e22a7aeb0e97aacc145c69957ff
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670928"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006394"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installation de MySQL sur une machine virtuelle exécutant OpenSUSE Linux dans Azure
 
@@ -29,17 +29,17 @@ ms.locfileid: "38670928"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez utiliser Azure CLI 2.0 ou version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez utiliser Azure CLI 2.0 ou version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Création d'une machine virtuelle exécutant OpenSUSE Linux
 
-Créez d’abord un groupe de ressources. Dans cet exemple, nous nommons le groupe de ressources *mySQSUSEResourceGroup* et le créons dans la région *Est des États-Unis*.
+Créez d’abord un groupe de ressources. Dans cet exemple, le groupe de ressources est nommé *mySQSUSEResourceGroup* et créé dans la région *USA Est*.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Créez la machine virtuelle. Dans cet exemple, nous nommons la machine virtuelle *myVM*. Nous allons également utiliser une taille de machine virtuelle *Standard_D2s_v3*, mais vous devez sélectionner la [taille de machine virtuelle](sizes.md) la plus adaptée à votre charge de travail.
+Créez la machine virtuelle. Dans cet exemple, la machine virtuelle est nommée *myVM* et sa taille est *Standard_D2s_v3*, mais vous devez sélectionner la [taille de machine virtuelle](sizes.md) la plus adaptée à votre charge de travail.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -96,17 +96,30 @@ systemctl is-enabled mysql
 
 Le résultat retourné devrait être : enabled.
 
+Redémarrez le serveur.
+
+```bash
+sudo reboot
+```
+
 
 ## <a name="mysql-password"></a>Mot de passe MySQL
 
-Après l’installation, le mot de passe racine MySQL est vide par défaut. Exécutez le script **mysql\_secure\_installation** pour sécuriser MySQL. Le script vous invite à modifier le mot de passe racine MySQL, à supprimer les comptes d'utilisateurs anonymes, à désactiver les connexions racine à distance, à supprimer les bases de données de test et à recharger la table des privilèges. 
+Après l’installation, le mot de passe racine MySQL est vide par défaut. Exécutez le script **mysql\_secure\_installation** pour sécuriser MySQL. Le script vous invite à modifier le mot de passe racine MySQL, à supprimer les comptes d’utilisateurs anonymes, à désactiver les connexions racine à distance, à supprimer les bases de données de test et à recharger la table des privilèges. 
+
+Lorsque le serveur redémarre, utilisez à nouveau une clé SSH sur la machine virtuelle.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## <a name="log-in-to-mysql"></a>Se connecter à MySQL
+## <a name="sign-in-to-mysql"></a>Se connecter à MySQL
 
 Vous pouvez maintenant vous connecter et entrer l’invite MySQL.
 
@@ -136,7 +149,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 Les noms et les mots de passe des utilisateurs de base de données sont uniquement utilisés par les scripts pour se connecter à la base de données.  Les noms des comptes d’utilisateurs de base de données ne représentent pas nécessairement les comptes d’utilisateurs du système.
 
-Autorisez la connexion à partir d'un autre ordinateur. Dans cet exemple, l’adresse IP de l’ordinateur à partir duquel nous souhaitons nous connecter est *10.112.113.114*.
+Autorisez la connexion à partir d’un autre ordinateur. Dans cet exemple, l’adresse IP de l’ordinateur à partir duquel autoriser la connexion est *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

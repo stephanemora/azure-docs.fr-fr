@@ -3,7 +3,7 @@ title: Gestion des recommandations de sécurité dans Azure Security Center | Mi
 description: Ce document vous montre comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure et à rester en conformité avec les stratégies de sécurité.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: TerryLan
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 07/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364248"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006612"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gestion des recommandations de sécurité dans le Centre de sécurité Azure
 Ce document explique comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure.
@@ -76,7 +76,7 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 | [Activer la collecte des données pour des abonnements](security-center-enable-data-collection.md) |Recommande l’activation de la collecte des données dans la stratégie de sécurité pour chacun de vos abonnements et pour l’ensemble des machines virtuelles Azure et des ordinateurs non Azure. |
 | [Corriger les configurations de sécurité](security-center-remediate-os-vulnerabilities.md) |Recommande d’aligner les configurations de votre système d’exploitation sur les règles de configuration de sécurité recommandées, comme le fait de ne pas permettre l’enregistrement des mots de passe. |
 | [Appliquer des mises à jour système](security-center-apply-system-updates.md) |Recommande le déploiement des mises à jour de sécurité du système et des mises à jour critiques manquantes sur vos machines virtuelles et ordinateurs Windows et Linux. |
-| [Appliquer un contrôle d’accès réseau Juste à temps](security-center-just-in-time.md) | Recommande d’appliquer un accès Juste à temps à la machine virtuelle. La fonctionnalité Juste à temps est disponible en préversion pour le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center. |
+| [Appliquer un contrôle d’accès réseau Juste à temps](security-center-just-in-time.md) | Recommande d’appliquer un accès Juste à temps à la machine virtuelle. La fonctionnalité Juste à temps est disponible pour le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center. |
 | [Redémarrage après des mises à jour système](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommande de redémarrer une machine virtuelle pour terminer le processus de mise à jour du système. |
 | [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommande le déploiement d’un pare-feu d’applications web (WAF) pour les points de terminaison web. Une recommandation WAF est indiquée pour n’importe quelle IP publique (adresse IP de niveau d’instance ou adresse IP à équilibrage de charge) ayant un groupe de sécurité réseau associé avec des ports web entrants ouverts (80, 443). </br>Security Center recommande d’approvisionner un WAF pour vous défendre contre les attaques ciblant vos applications web sur les machines virtuelles et sur l’environnement App Service (ASE). Un environnement App Service (ASE) est une option de plan de service [Premium](https://azure.microsoft.com/pricing/details/app-service/) d'Azure App Service qui fournit un environnement totalement isolé et dédié pour l'exécution sécurisée de vos applications Azure App Service. Pour en savoir plus sur ASE, voir [Documentation sur l’environnement App Service](../app-service/environment/intro.md).</br>Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. |
 | [Finaliser la protection des applications](security-center-add-web-application-firewall.md#finalize-application-protection) |Pour terminer la configuration d’un pare-feu d’applications web, le trafic doit être redirigé vers l’appliance de pare-feu d’applications web. L’application de cette recommandation permet d’apporter les modifications nécessaires à la configuration. |
@@ -95,7 +95,35 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 | [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md) |Recommande d’installer une solution d’évaluation des vulnérabilités sur votre machine virtuelle. |
 | [Corriger des vulnérabilités](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Vous permet de voir les vulnérabilités du système et des applications détectées par la solution d’évaluation des vulnérabilités installée sur votre machine virtuelle. |
 | [Activer le chiffrement pour le compte de stockage Azure](security-center-enable-encryption-for-storage-account.md) | Recommande d’activer Azure Storage Service Encryption pour les données au repos. SSE (Storage Service Encryption) chiffre les données lorsqu’elles sont écrites dans le stockage Azure et les déchiffre avant récupération. SSE est actuellement disponible uniquement pour le service BLOB Azure et peut être utilisé pour les objets blob de blocs, les objets blob de pages les objets blob Append. Pour en savoir plus, consultez [Azure Storage Service Encryption pour les données au repos](../storage/common/storage-service-encryption.md).</br>SSE est uniquement pris en charge sur les comptes de stockage Resource Manager. |
-
+| [Activer les contrôles d’applications adaptatifs](security-center-adaptive-application.md) | Recommande d’appliquer des contrôles d’application adaptatifs à vos machines virtuelles Windows. Cette fonctionnalité est disponible en préversion au niveau Standard du Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center. |
+| App Service ne doit être accessible que via HTTPS | Recommande de limiter l’accès d’App Service via HTTPS uniquement. |
+| Web Sockets doit être désactivé pour l’application web| Recommande d’examiner soigneusement l’utilisation de Web Sockets à l’intérieur d’applications web.  Le protocole Web Sockets est vulnérable à différents types de menaces de sécurité. |
+| Utiliser des domaines personnalisés pour votre application web | Recommande l’utilisation de domaines personnalisés pour protéger une application web contre des attaques courantes telles que le hameçonnage et d’autres attaques liées au DNS. |
+| Configurer des restrictions d’adresse IP pour l’application web | Recommande de définir une liste d’adresses IP autorisées à accéder à votre application.  L’utilisation de restrictions d’adresse IP protège une application web contre des attaques courantes. |
+| Ne pas autoriser toutes (’*’) les ressources à accéder à votre application | Recommande de ne pas définir le paramètre WEBSITE_LOAD_CERTIFICATES sur «  *». La définition du paramètre sur «*  » signifie que tous les certificats seront chargés dans votre magasin de certificats personnels d’applications web.  Cela peut conduire à un abus du principe des privilèges minimum, car il est peu probable que le site ait besoin d’accéder à tous les certificats lors de l’exécution. |
+| CORS ne devrait pas autoriser toutes les ressources à accéder à votre application | Recommande d’autoriser uniquement les domaines requis à interagir avec votre application web. Le partage des ressources cross-origin (CORS) ne devrait pas autoriser tous les domaines à accéder à votre application web. |
+| Utiliser la dernière version de .NET Framework prise en charge pour l’application web | Recommande d’utiliser la dernière version de .NET Framework pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable. |
+| Utiliser la dernière version de Java prise en charge pour l’application web | Recommande d’utiliser la dernière version de Java pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable. |
+| Utiliser la dernière version de PHP prise en charge pour l’application web | Recommande d’utiliser la dernière version de PHP pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable. |
+| [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommande le déploiement d’un pare-feu d’applications web (WAF) pour les points de terminaison web. Une recommandation WAF est indiquée pour n’importe quelle IP publique (adresse IP de niveau d’instance ou adresse IP à équilibrage de charge) ayant un groupe de sécurité réseau associé avec des ports web entrants ouverts (80, 443).</br></br>Security Center recommande d’approvisionner un WAF pour vous défendre contre les attaques ciblant vos applications web sur les machines virtuelles et sur l’environnement App Service (ASE). Un environnement App Service (ASE) est une option de plan de service [Premium](https://azure.microsoft.com/pricing/details/app-service/) d'Azure App Service qui fournit un environnement totalement isolé et dédié pour l'exécution sécurisée de vos applications Azure App Service. Pour en savoir plus sur ASE, voir [Documentation sur l’environnement App Service](../app-service/environment/intro.md).</br></br>Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. |
+| [Finaliser la protection des applications](security-center-add-web-application-firewall.md#finalize-application-protection) |Pour terminer la configuration d’un pare-feu d’applications web, le trafic doit être redirigé vers l’appliance de pare-feu d’applications web. L’application de cette recommandation permet d’apporter les modifications nécessaires à la configuration. |
+| Utiliser la dernière version de Node.js prise en charge pour l’application web | Recommande d’utiliser la dernière version de Node.js pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable. |
+| CORS ne devrait pas autoriser toutes les ressources à accéder à votre Function App | Recommande d’autoriser uniquement les domaines requis à interagir avec votre application web. Le partage des ressources cross-origin (CORS) ne devrait pas autoriser tous les domaines à accéder à votre application de fonction. |
+| Utiliser des domaines personnalisés pour Function App | Recommande l’utilisation de domaines personnalisés pour protéger une application de fonction contre des attaques courantes telles que le hameçonnage et d’autres attaques liées au DNS. |
+| Configurer les restrictions IP pour Function App | Recommande de définir une liste d’adresses IP autorisées à accéder à votre application. L’utilisation de restrictions d’adresse IP protège une application de fonction contre des attaques courantes. |
+| Function App ne doit pas être accessible via HTTPS | Recommande de limiter l’accès d’applications de fonction via HTTPS uniquement. |
+| Le débogage à distance devrait être désactivé pour Function App | Recommande de désactiver le débogage pour Function App si vous n’avez plus besoin de l’utiliser. Le débogage distant requiert que des ports d’entrée soient ouverts sur une Function App. |
+| Web Sockets devrait être désactivé pour Function App | Recommande d’examiner soigneusement l’utilisation de Web Sockets à l’intérieur d’applications de fonction. Le protocole Web Sockets est vulnérable à différents types de menaces de sécurité. |
+| Désigner plusieurs propriétaires de votre abonnement | Recommande de désigner plusieurs propriétaires d’abonnement pour disposer d’une redondance de l’accès administrateur. |
+| Désigner jusqu’à 3 propriétaires de votre abonnement | Recommande de désigner moins de 3 propriétaires d’abonnement afin de réduire le risque potentiel de violation par un propriétaire compromis. |
+| Activer MFA pour les comptes disposant d’autorisations de type propriétaire sur votre abonnement | Recommande d’activer Multi-Factor Authentication (MFA) pour tous les comptes d’abonnement avec des privilèges d’administrateur pour éviter toute violation de comptes ou de ressources. |
+| Activer MFA pour les comptes disposant d’autorisations d’écriture sur votre abonnement | Recommande d’activer Multi-Factor Authentication (MFA) pour tous les comptes d’abonnement avec des privilèges d’écriture pour éviter toute violation de comptes ou de ressources. |
+| Activer MFA pour les comptes disposant d’autorisations de lecture sur votre abonnement | Recommande d’activer Multi-Factor Authentication (MFA) pour tous les comptes d’abonnement avec des privilèges de lecture pour éviter toute violation de comptes ou de ressources. |
+| Supprimer les comptes externes avec des autorisations de lecture de votre abonnement | Recommande de supprimer les comptes externes avec des privilèges de lecture de votre abonnement afin d’empêcher tout accès non contrôlé. |
+| Supprimer les comptes externes disposant d’autorisations d’écriture de votre abonnement | Recommande de supprimer les comptes externes avec des privilèges d’écriture de votre abonnement afin d’empêcher tout accès non contrôlé. |
+| Supprimer les comptes externes disposant d’autorisations de type propriétaire de votre abonnement | Recommande de supprimer les comptes externes avec des autorisations de propriétaire de votre abonnement afin d’empêcher tout accès non contrôlé. |
+| Supprimer les comptes déconseillés de votre abonnement | Recommande de supprimer les comptes déconseillés de vos abonnements. |
+| Supprimer les comptes déconseillés disposant d’autorisations de type propriétaire de votre abonnement | Recommande de supprimer les comptes déconseillés avec des autorisations de type propriétaire de vos abonnements. |
 Vous pouvez filtrer et ignorer les recommandations.
 
 1. Sélectionnez **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.

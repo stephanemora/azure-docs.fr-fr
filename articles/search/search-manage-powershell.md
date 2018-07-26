@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181985"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000988"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gérer votre service Azure Search avec PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,6 @@ Cette rubrique décrit les commandes PowerShell permettant d’exécuter la plup
 Ces commandes reflètent les options de gestion disponibles dans l’ [API REST de gestion Azure Search](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Vous devez disposer d’Azure PowerShell 1.0 ou versions ultérieures. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azure/overview).
 * Vous devez être connecté à votre abonnement Azure dans PowerShell, comme décrit ci-dessous.
 
@@ -130,7 +129,7 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 Maintenant que votre service est créé, vous pouvez passer aux étapes suivantes : créer un [index](search-what-is-an-index.md), [interroger un index](search-query-overview.md), puis créer et gérer vos propres applications de recherche utilisant Recherche Azure.
 
 * [Création d’un index Azure Search dans le portail Azure](search-create-index-portal.md)
-* [Interrogation d’un index Azure Search à l’aide de Search Explorer dans le Portail Azure](search-explorer.md)
+* [Interrogation d’un index de Recherche Azure à l’aide de l’Explorateur de recherche dans le Portail Azure](search-explorer.md)
 * [Configuration d’un indexeur pour charger des données provenant d’autres services](search-indexer-overview.md)
 * [Utilisation d'Azure Search dans .NET](search-howto-dotnet-sdk.md)
 * [Analyse du trafic Azure Search](search-traffic-analytics.md)

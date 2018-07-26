@@ -14,7 +14,7 @@ Le tableau suivant répertorie les limites qui s'appliquent aux ressources IoT H
 
 | Ressource | Limite |
 | --- | --- |
-| Nombre maximal d’IoT Hubs payants par abonnement Azure |10 |
+| Nombre maximal d’IoT Hubs payants par abonnement Azure |50 |
 | Nombre maximal d’IoT Hubs gratuits par abonnement Azure |1 |
 | Nombre maximal de caractères d’un ID d’appareil | 128 |
 | Nombre maximal d’identités de périphériques<br/> renvoyées dans un seul appel |1 000 |
@@ -38,7 +38,7 @@ Le tableau suivant répertorie les limites qui s'appliquent aux ressources IoT H
 
 
 > [!NOTE]
-> Si vous avez besoin de plus de 10 IoT Hubs payants dans un abonnement Azure, contactez le support technique Microsoft.
+> Si vous avez besoin de plus de 50 IoT Hubs payants dans un abonnement Azure, contactez le support technique Microsoft.
 
 
 > [!NOTE]

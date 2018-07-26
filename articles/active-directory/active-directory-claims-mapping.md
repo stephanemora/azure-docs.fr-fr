@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e6d2d8dfd6f7a40158b098983bd34bbd5d8271f0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261201"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049311"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Mappage de revendications dans Azure Active Directory (préversion publique)
 
@@ -357,7 +357,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Cell
 |Méthode de transformation|Entrée attendue|Sortie attendue|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, séparateur|outputClaim|Joint les chaînes d’entrée à l’aide d’un séparateur. Par exemple : string1:"foo@bar.com", string2:"sandbox", separator:"." produit outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun signe @ n’est présent, la chaîne d’entrée originale est retournée telle quelle.|
+|ExtractMailPrefix|mail|outputClaim|Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun symbole \@ n’est présent, la chaîne d’entrée d’origine est retournée telle quelle.|
 
 **InputClaims :** un élément InputClaims permet de transmettre les données d’une entrée de schéma de revendication à une transformation. Il possède deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
 

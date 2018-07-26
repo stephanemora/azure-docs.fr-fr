@@ -1,21 +1,21 @@
 ---
-title: Procédure pas à pas de l’accélérateur de solution Maintenance prédictive - Azure | Microsoft Docs
-description: Procédure pas à pas de l’accélérateur de solution Maintenance prédictive Azure IoT.
+title: Présentation de l’accélérateur de solution de maintenance prédictive - Azure | Microsoft Docs
+description: Vue d’ensemble de l’accélérateur de solution Maintenance prédictive d’Azure IoT.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/14/2017
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: e29975558801b4ffccd38d4485306d25ecaec0aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e7c6c8d017e4371919088ec414d3108939ca4a19
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659427"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036252"
 ---
-# <a name="predictive-maintenance-solution-accelerator-walkthrough"></a>Procédure pas à pas de l’accélérateur de solution Maintenance prédictive
+# <a name="predictive-maintenance-solution-accelerator-overview"></a>Présentation de l’accélérateur de solution de maintenance prédictive
 
 L’accélérateur de solution Maintenance prédictive est une solution de bout en bout pour un scénario d’entreprise qui prévoit le moment auquel une défaillance est susceptible de se produire. Vous pouvez utiliser cet accélérateur de solution de manière proactive pour des activités telles que l’optimisation de la maintenance. La solution combine des services d’accélérateur de solution Azure IoT clés, comme Hub IoT, Stream Analytics et un espace de travail [Azure Machine Learning][lnk-machine-learning]. Cet espace de travail contient un modèle basé sur un échantillon de données publiques, permettant de prédire la durée de vie utile restante (VUR) d’un moteur d’avion. La solution implémente complètement le scénario professionnel IoT comme point de départ, pour vous permettre de planifier et de mettre en œuvre une solution qui réponde à vos besoins professionnels.
 
@@ -30,6 +30,16 @@ Les éléments en bleu sont des services Azure configurés dans la région dans 
 L’élément en vert est un appareil simulé qui représente un moteur d’avion. Des informations supplémentaires sur ces appareils simulés sont disponibles dans la section [Simulations d’appareils](#simulated-devices).
 
 Les éléments en gris représentent des composants qui implémentent les fonctionnalités de *gestion des appareils* . La version actuelle de l’accélérateur de solution Maintenance prédictive ne configure pas ces ressources. Pour en savoir plus sur la gestion des appareils, reportez-vous à l’[accélérateur de solution de surveillance à distance][lnk-remote-monitoring].
+
+## <a name="azure-resources"></a>Ressources Azure
+
+Dans le portail Azure, accédez au groupe de ressources portant le nom de solution que vous avez choisi, pour afficher vos ressources configurées.
+
+![Ressources de l’accélérateur][img-resource-group]
+
+Lorsque vous approvisionnez l’accélérateur de solution, vous recevez un e-mail contenant un lien vers l’espace de travail Machine Learning. Vous pouvez également accéder à l’espace de travail Machine Learning à partir de la page [Accélérateurs de solution Microsoft Azure IoT][lnk-azureiotsuite] pour votre solution provisionnée. Une vignette est disponible sur cette page lorsque le statut de la solution est **Prêt**.
+
+![Modèle Machine Learning][img-machine-learning]
 
 ## <a name="simulated-devices"></a>Simulations d’appareils
 
@@ -61,6 +71,11 @@ IoT Hub fournit un accusé de réception de la commande de l’appareil.
 ## <a name="machine-learning"></a>Machine Learning
 Le composant Machine Learning utilise un modèle dérivé des données collectées à partir des moteurs d’avion réels. Vous pouvez accéder à l’espace de travail Machine Learning depuis la vignette sur la page [azureiotsuite.com][lnk-azureiotsuite]. La vignette est disponible lorsque le statut de la solution est **Prêt**.
 
+Le modèle Machine Learning est disponible comme modèle pour montrer ces fonctionnalités en s’appuyant sur les données télémétriques de l’appareil recueillies via les services des accélérateurs de solution IoT. Microsoft a créé un [modèle de régression][lnk_regression_model] d’un moteur d’avion basé sur des données disponibles publiquement<sup>\[1\]</sup> et des instructions d’utilisation détaillées.
+
+L’accélérateur de solution de maintenance prédictive Azure IoT utilise le modèle de régression créé à partir de ce modèle. Le modèle est déployé dans votre abonnement Azure et exposé via une API générée automatiquement. La solution inclut un sous-ensemble des données de tests représentant 4 (sur un total 100) moteurs et 4 (sur un total 21) flux de données de capteurs. Ces données sont suffisantes pour fournir un résultat exact du modèle formé.
+
+*\[1\] A. Saxena and K. Goebel (2008). « Turbofan Engine Degradation Simulation Data Set », NASA Ames Prognostics Data Repository (https://c3.nasa.gov/dashlink/resources/139/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les composants clés de l’accélérateur de solution Maintenance prédictive, vous pouvez passer à la personnalisation.
@@ -71,10 +86,13 @@ Vous pouvez également explorer certaines des autres fonctionnalités des accél
 * [Sécurisation de l’Internet des objets de bout en bout][lnk-security-groundup]
 
 [img-architecture]: media/iot-accelerators-predictive-walkthrough/architecture.png
+[img-resource-group]: media/iot-accelerators-predictive-walkthrough/resource-group.png
+[img-machine-learning]: media/iot-accelerators-predictive-walkthrough/machine-learning.png
 
-[lnk-remote-monitoring]: iot-accelerators-remote-monitoring-explore.md
+[lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
-[lnk-security-groundup]:securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
+[lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3

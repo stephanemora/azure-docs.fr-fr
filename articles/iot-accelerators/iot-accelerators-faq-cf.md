@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d1002fd5131ca97f7bc1b9d081ae1471191a6cf
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627499"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075410"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
 
@@ -207,5 +207,5 @@ Pour envoyer des données de télémétrie à la solution d’usine connectée �
 Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
 * [Présentation de l’accélérateur de solution de maintenance prédictive](iot-accelerators-predictive-overview.md)
-* [Présentation de l’accélérateur de solution Usine connectée](iot-accelerators-connected-factory-overview.md)
-* [Sécurisation de l’Internet des objets de bout en bout](securing-iot-ground-up.md)
+* [Déployer l’accélérateur de solution Usine connectée](quickstart-connected-factory-deploy.md)
+* [Sécurisation de l’Internet des objets de bout en bout](/azure/iot-fundamentals/iot-security-ground-up)

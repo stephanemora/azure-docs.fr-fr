@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969943"
+ms.locfileid: "38990827"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Conseils relatifs à Trusted Internet Connection
 
-## <a name="background"></a>Contexte
+## <a name="background"></a>Arrière-plan
 
 L’objectif de l’initiative TIC (Trusted Internet Connections) consiste à optimiser et à normaliser la sécurité des connexions réseau externes utilisées actuellement par les agences fédérales. La stratégie est décrite dans le [Mémorandum M-08-05](https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2008/m08-05.pdf) de l’OMB (Office of Management and Budget).
 
@@ -78,7 +78,7 @@ Le scénario le plus simple pour prendre en charge la conformité TIC consiste �
 
 #### <a name="force-internet-traffic-through-on-premises-network"></a>Forcer le trafic Internet à transiter par un réseau local
 
-Azure crée des itinéraires système automatiquement et assigne les itinéraires pour chaque sous-réseau sur un réseau virtuel. Vous ne pouvez pas créer ou supprimer des itinéraires système, mais vous pouvez remplacer certains itinéraires système par des itinéraires personnalisés. Azure crée des itinéraires système par défaut pour chaque sous-réseau et ajoute des itinéraires par défaut facultatifs supplémentaires à des sous-réseaux spécifiques, ou à chaque sous-réseau, quand vous utilisez des fonctionnalités Azure spécifiques. Ce routage garantit que le trafic destiné à l’intérieur du réseau virtuel reste sur le réseau virtuel, que les espaces d’adressage privés désignés par l’IANA, tels que 10.0.0.0/8, sont supprimés (à moins d’être inclus dans l’espace d’adressage du réseau virtuel), ainsi que le routage de « dernier ressort » de 0.0.0.0/0 vers le point de terminaison Internet du réseau virtuel.
+Azure crée des itinéraires système automatiquement et assigne les itinéraires pour chaque sous-réseau dans un réseau virtuel. Vous ne pouvez pas créer ou supprimer des itinéraires système, mais vous pouvez remplacer certains itinéraires système par des itinéraires personnalisés. Azure crée des itinéraires système par défaut pour chaque sous-réseau et ajoute des itinéraires par défaut facultatifs supplémentaires à des sous-réseaux spécifiques, ou à chaque sous-réseau, quand vous utilisez des fonctionnalités Azure spécifiques. Ce routage garantit que le trafic destiné à l’intérieur du réseau virtuel reste sur le réseau virtuel, que les espaces d’adressage privés désignés par l’IANA, tels que 10.0.0.0/8, sont supprimés (à moins d’être inclus dans l’espace d’adressage du réseau virtuel), ainsi que le routage de « dernier ressort » de 0.0.0.0/0 vers le point de terminaison Internet du réseau virtuel.
 
 ![Tunneling forcé TIC](media/tic-diagram-c.png)
 
@@ -125,7 +125,7 @@ Les services qui prennent en charge le déploiement d’instances dédiées sur 
 
 ### <a name="service-endpoints"></a>Points de terminaison de service
 
-|Service                   |Statut            |
+|de diffusion en continu                   |Statut            |
 |--------------------------|------------------|
 |Azure KeyVault            | Version préliminaire privée  |
 |Cosmos DB                 | Version préliminaire privée  |
@@ -138,7 +138,7 @@ Les services qui prennent en charge le déploiement d’instances dédiées sur 
 
 ### <a name="vnet-injection"></a>Injection de réseau virtuel
 
-|Service                            |Statut            |
+|de diffusion en continu                            |Statut            |
 |-----------------------------------|------------------|
 |Instance managée SQL               | Version préliminaire publique   |
 |Azure Container Service (AKS)       | Version préliminaire publique   |
@@ -194,7 +194,7 @@ Les exemples de stratégies suivants peuvent être utiles pour les scénarios de
 |Appliquer une table de routage définie par l’utilisateur |     Vérifier que l’itinéraire par défaut sur tous les réseaux virtuels pointe vers une passerelle de réseau virtuel approuvée pour le routage local. | https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table |
 |Vérifier si Network Watcher n’est pas activé pour une région.  | Vérifier que Network Watcher est activé pour toutes les régions utilisées.  | https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled |
 |NSG X sur chaque sous-réseau  | Vérifier qu’un groupe de sécurité réseau (ou un ensemble de groupes de sécurité réseau approuvés) avec trafic Internet bloqué est appliqué à tous les sous-réseaux sur chaque réseau virtuel. | https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet |
-|NSG X sur chaque contrôleur d’interface réseau | Vérifier qu’un groupe de sécurité réseau avec trafic Internet bloqué est appliqué à tous les contrôleurs d’interface réseau sur toutes les machines virtuelles. | https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic |
+|NSG X sur chaque carte réseau | Vérifier qu’un groupe de sécurité réseau avec trafic Internet bloqué est appliqué à tous les contrôleurs d’interface réseau sur toutes les machines virtuelles. | https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic |
 |Utiliser un réseau virtuel approuvé pour les interfaces réseau de machine virtuelle  | Vérifier que tous les contrôleurs d’interface réseau se trouvent sur un réseau virtuel approuvé. | https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics |
 |Emplacements autorisés | Vérifier que toutes les ressources sont déployées dans des régions avec une configuration de réseaux virtuels et Network Watcher conforme.  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
 |Types de ressources non autorisés, tels que les adresses IP publiques  | Interdire le déploiement des types de ressources qui n’ont pas de plan de conformité. Cette stratégie pourrait par exemple être utilisée pour interdire le déploiement de ressources d’adresses IP publiques. Bien que les règles de groupe de sécurité réseau puissent servir à bloquer efficacement le trafic Internet entrant, empêcher l’utilisation d’adresses IP publiques réduit davantage la surface d’attaque.    | https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
@@ -225,29 +225,28 @@ L’accès à Microsoft Azure, Office 365 et Dynamics 365 peut être facilemen
 
 ## <a name="appendix-tic-patterns-for-common-workloads"></a>Annexe : Modèles TIC pour les charges de travail courantes
 
-| Catégorie | Charge de travail | IaaS | PaaS dédié / Injection de réseau virtuel  | Points de terminaison de service  |
+| Category | Charge de travail | IaaS | PaaS dédié / Injection de réseau virtuel  | Points de terminaison de service  |
 |---------|---------|---------|---------|--------|
-| Calcul | Machines virtuelles Linux | OUI | | |
-| Calcul | Machines virtuelles Windows | OUI | | |
-| Calcul | Virtual Machine Scale Sets | OUI | | |
+| Calcul | Machines virtuelles Linux | Oui | | |
+| Calcul | Machines virtuelles Windows | Oui | | |
+| Calcul | Virtual Machine Scale Sets | Oui | | |
 | Calcul | Azure Functions | | via App Service Environment (ASE) | |
 | Web et mobilité | Application web interne | | via App Service Environment (ASE) | |
 | Web et mobilité | Applications mobiles internes | | via App Service Environment (ASE) | |
 | Web et mobilité | Applications API | | via App Service Environment (ASE) | |
-| Containers | Azure Container Service (ACS) | | | OUI |
-| Containers | Azure Container Service (AKS)* | | | OUI |
-| Base de données | Base de données SQL | | Azure SQL Database Managed Instance* | Azure SQL |
-| Base de données | Azure Database pour MySQL | | | OUI |
-| Base de données | Azure Database pour PostgreSQL | | | OUI |
-| Base de données | SQL Data Warehouse | | | OUI |
-| Base de données | Azure Cosmos DB | | | OUI |
-| Base de données | Cache Redis | | OUI | |
-| Stockage | Objets blob | OUI | | |
-| Stockage | Fichiers | OUI | | |
-| Stockage | Files d’attente | OUI | | |
-| Stockage | Tables | OUI | | |
-| Stockage | Disques | OUI | | |
+| Containers | Azure Container Service (ACS) | | | Oui |
+| Containers | Azure Container Service (AKS)* | | | Oui |
+| Base de données | SQL Database | | Azure SQL Database Managed Instance* | Azure SQL |
+| Base de données | Azure Database pour MySQL | | | Oui |
+| Base de données | Azure Database pour PostgreSQL | | | Oui |
+| Base de données | SQL Data Warehouse | | | Oui |
+| Base de données | Azure Cosmos DB | | | Oui |
+| Base de données | Cache Redis | | Oui | |
+| Stockage | Objets blob | Oui | | |
+| Stockage | Fichiers | Oui | | |
+| Stockage | Files d’attente | Oui | | |
+| Stockage | Tables | Oui | | |
+| Stockage | Disques | Oui | | |
 
 * : Préversion publique dans Azure Government à compter de mai 2018  
 ** : Préversion publique privée dans Azure Government à compter de mai 2018
-

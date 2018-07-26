@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6b217690b88f303268f5abe66abb7868711d3125
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8032fd2a0150597c55178648511c80233e63a911
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045090"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054724"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Développer et déboguer des modules Node.js avec Azure IoT Edge pour Visual Studio Code
 
@@ -68,7 +68,17 @@ La solution comprend trois éléments :
 * Un dossier **.vscode**, qui contient les configurations de débogage.
 * Un dossier **modules**, qui contient des sous-dossiers pour chaque module. Pour l’instant, vous n’en avez qu’un, mais vous pouvez en ajouter dans la palette de commandes avec la commande **Azure IoT Edge : ajouter un module IoT Edge**. 
 * Un fichier **.env**, qui répertorie vos variables d’environnement. Si votre registre est un registre ACR, il contient d’ores et déjà un nom d’utilisateur et un mot de passe ACR. 
+
+   >[!NOTE]
+   >Le fichier d’environnement est créé uniquement si vous fournissez un référentiel d’images pour le module. Si vous avez accepté les valeurs localhost par défaut pour tester et déboguer localement, vous n’avez pas besoin de déclarer des variables d’environnement. 
+
 * Un fichier **deployment.template.json**, qui répertorie votre nouveau module, ainsi qu’un exemple de module **tempSensor** qui simule les données que vous pouvez utiliser à des fins de test. Pour plus d’informations sur le fonctionnement des manifestes de déploiement, consultez [Comprendre comment les modules IoT Edge peuvent être utilisés, configurés et réutilisés](module-composition.md).
+
+## <a name="devlop-your-module"></a>Développer un module
+
+Le code Azure Function par défaut qui est fourni avec la solution se trouve sous **modules** > **\<nom de votre module\>** > **app.js**. Le module et le fichier deployment.template.json sont définis de manière à vous permettre de générer la solution, de l’envoyer vers votre registre de conteneurs et de la déployer sur un appareil pour commencer les tests, sans avoir à utiliser de code. Le module est conçu pour récupérer les entrées d’une source (dans ce cas, le module tempSensor qui simule des données) et les acheminer vers IoT Hub. 
+
+Lorsque vous êtes prêt à personnaliser le modèle Node.js avec votre propre code, utilisez les kits [SDK Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) pour créer des modules répondant aux besoins des solutions IoT, tels que la sécurité, la gestion des appareils et la fiabilité. 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>Générer et déployer votre module à des fins de débogage
 
@@ -106,3 +116,4 @@ L’exemple précédent montre comment déboguer des modules Node.js IoT Edge su
 
 Une fois votre module généré, découvrez comment [déployer des modules Azure IoT Edge à partir de Visual Studio Code](how-to-deploy-modules-vscode.md).
 
+Pour développer des modules pour vos appareils IoT Edge, consultez [Comprendre et utiliser les kits Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md).

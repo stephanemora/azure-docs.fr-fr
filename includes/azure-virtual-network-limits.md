@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 326da32f91b263bbd09a4c6f521c9ec72094820c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9ba9bc993832350f6b6ce1c642e2dc852731b6f0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066065"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029983"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -28,9 +28,9 @@ ms.locfileid: "37066065"
 | Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |1 000 |
 | Tables d'itinéraires définis par l'utilisateur |100 |200 |
 | Itinéraires définis par l'utilisateur par table d'itinéraire |100 |400 |
-| Adresses IP publiques (dynamiques) |5 |contacter le support |
+| Adresses IP publiques (dynamiques) |5. |contacter le support |
 | Adresses IP publiques réservées |20 |contacter le support |
-| Adresse IP virtuelle publique par déploiement |5 |contacter le support |
+| Adresse IP virtuelle publique par déploiement |5. |contacter le support |
 | Adresse IP virtuelle privée (ILB) par déploiement |1 |1 |
 | Listes de contrôle d'accès (ACL) par point de terminaison |50 |50 |
 
@@ -41,7 +41,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | --- | --- | --- |
 | Réseaux virtuels |50 |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |1 000 |10000 |
-| Homologations VNet par réseau virtuel |10 |50 |
+| Homologations VNet par réseau virtuel |50** |100 |
 | Serveurs DNS par réseau virtuel |9 |25 |
 | Adresses IP privées par réseau virtuel |16 384** |16 384 |
 | Adresses IP privées par interface réseau |256 |256 |
@@ -55,13 +55,13 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Configurations IP par groupe de sécurité d’application |1 000 |4000 |
 | Groupes de sécurité d’application qui peuvent être spécifiés dans toutes les règles de sécurité d’un groupe de sécurité réseau |50 |100 |
 | Tables d'itinéraires définis par l'utilisateur |100 |200 |
-| Itinéraires définis par l'utilisateur par table d'itinéraire |100 |400 |
+| Itinéraires définis par l'utilisateur par table d'itinéraire |400** |400 |
 | Adresses IP publiques (dynamiques) |(De base) 60 |contacter le support |
 | Adresses IP publiques (statiques) |(Basic) 20 |contacter le support |
 | Adresses IP publiques (statiques) |(Standard) 20 |contacter le support |
 | Certificats racines point à site pour chaque passerelle VPN |20 |20 |
 
-**Ces limites par défaut s’appliquent aux abonnements dont ces limites n’ont pas été précédemment augmentées par le biais du support
+**Ces limites par défaut mises à jour s’appliquent aux abonnements dont ces limites n’ont pas été précédemment augmentées par le biais du support. Si ces limites ont été augmentées par le support dans le passé et si vous souhaitez les mettre à jour avec de nouvelles valeurs par défaut, veuillez [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md)

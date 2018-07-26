@@ -15,16 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 10d6b81915432d9f41c0d4751f98cbf380ff2d13
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901134"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136568"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
+**Q : Puis-je inscrire des appareils BYOD Android ou iOS ?**
 
+**R :** Oui, mais seulement avec le service d’inscription d’appareils d’Azure et seulement pour les clients hybrides. Cette inscription n’est pas prise en charge par le service local d’inscription d’appareils d’AD FS.
 
 **Q : Comment puis-je inscrire un appareil macOS ?**
 
@@ -98,6 +100,11 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 **Q : Mes utilisateurs ne peuvent pas rechercher d’imprimantes à partir d’appareils joints à Azure AD. Comment activer l’impression à partir d’appareils joints à Azure AD ?**
 
 **R :** Pour le déploiement d’imprimantes pour les appareils joints à Azure AD, consultez [Impression cloud hybride](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
+
+---
+
+**Q : Comment puis-je me connecter à un appareil distant joint à Azure AD ? ** 
+ **R :** Pour le savoir, consultez l’article https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc.
 
 ---
 

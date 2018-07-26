@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: mabrigg
+ms.date: 07/12/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048837"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089908"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -27,11 +27,11 @@ ms.locfileid: "37048837"
 
 Cet article décrit les étapes requises pour ajouter un utilisateur final à Azure Stack géré par un fournisseur de services cloud. Lorsque le nouveau locataire utilise des ressources, Azure Stack signale l’utilisation à son abonnement de fournisseur de services cloud.
 
-Les fournisseurs de services cloud proposent des services à plusieurs clients (locataires) sur leur déploiement Azure Stack. L’ajout de locataires à l’inscription Azure Stack garantit que l’utilisation de chaque locataire est signalée et facturée sur l’abonnement de fournisseur de services cloud correspondant. Si vous n’effectuez pas les étapes décrites dans cet article, l’utilisation du locataire est facturée pour l’abonnement utilisé dans l’inscription initiale d’Azure Stack. Avant de pouvoir ajouter un client final à Azure Stack pour suivre l’utilisation et gérer son locataire, vous devrez configurer Azure Stack en tant que fournisseur de services cloud. Pour les étapes et les ressources, consultez [Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud](azure-stack-add-manage-billing-as-a-csp.md).
+Les fournisseurs de services cloud proposent souvent des services à plusieurs clients finaux (locataires) sur leur déploiement Azure Stack. L’ajout de locataires à l’inscription Azure Stack garantit que l’utilisation de chaque locataire est signalée et facturée sur l’abonnement de fournisseur de services cloud correspondant. Si vous n’effectuez pas les étapes décrites dans cet article, l’utilisation du locataire est facturée pour l’abonnement utilisé dans l’inscription initiale d’Azure Stack. Avant de pouvoir ajouter un client final à Azure Stack pour suivre l’utilisation et gérer son locataire, vous devrez configurer Azure Stack en tant que fournisseur de services cloud. Pour les étapes et les ressources, consultez [Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud](azure-stack-add-manage-billing-as-a-csp.md).
 
 Le schéma suivant illustre les étapes qu’un fournisseur de services cloud doit suivre pour permettre à un nouveau client d’utiliser Azure Stack et pour configurer le suivi de l’utilisation pour le client. En ajoutant le client final, vous pourrez également gérer les ressources dans Azure Stack. Deux options s’offrent à vous pour gérer ses ressources :
 
-1. Vous pouvez conserver le locataire du client final et fournir les informations d’identification de l’abonnement Azure Stack local au client final.  
+1. Vous pouvez conserver le client final et fournir les informations d’identification de l’abonnement Azure Stack local au client final.  
 2. Ou l’utilisateur final peut travailler avec son abonnement en local et ajouter le fournisseur de services cloud en tant qu’invité avec des autorisations de propriétaire.  
 
 **Étapes à suivre pour l’ajout d’un client final**

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 094bb4b781bb554d340580377ec343f33579299e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21e02a9ae4679c1f9521cc188a6f72878276fb93
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627652"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075393"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance
 
@@ -44,5 +44,5 @@ Vous pouvez également explorer certaines des autres fonctionnalités des accél
 
 * [Explorer les fonctionnalités de l’accélérateur de solution de surveillance à distance](iot-accelerators-remote-monitoring-explore.md)
 * [Présentation de l’accélérateur de solution de maintenance prédictive](iot-accelerators-predictive-overview.md)
-* [Présentation de l’accélérateur de solution Usine connectée](iot-accelerators-connected-factory-overview.md)
-* [Sécurisation de l’Internet des objets de bout en bout](securing-iot-ground-up.md)
+* [Déployer l’accélérateur de solution Usine connectée](quickstart-connected-factory-deploy.md)
+* [Sécurisation de l’Internet des objets de bout en bout](/azure/iot-fundamentals/iot-security-ground-up)

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753091"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049185"
 ---
 # <a name="create-a-logic-app-action"></a>Créer une action d’application logique
 
 Cet article explique comment configurer une application logique pour qu’elle crée une conversation dans Microsoft Teams quand une alerte se déclenche.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Quand une alerte Azure Monitor se déclenche, elle appelle un [groupe d’actions](monitoring-action-groups.md). Les groupes d’actions permettent de déclencher une ou plusieurs actions pour avertir les autres en cas d’alerte et y remédier.
 
 Le processus général est le suivant :
@@ -109,7 +109,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
     ![Actions Microsoft Teams](media/monitoring-action-groups/microsoft-teams-actions.png "Actions Microsoft Teams")
 
-12. Configurez l’action Microsoft Teams. Le **Concepteur d’applications logiques** vous invite à vous authentifier pour vous connecter à votre compte Office 365. Choisissez l’**ID de l’équipe** et l’**ID du canal** pour envoyer le message.
+12. Configurez l’action Microsoft Teams. Le **Concepteur d’applications logiques** vous invite à vous authentifier pour vous connecter à votre compte Office 365. Choisissez l’**ID de l’équipe** et l’**ID du canal** auxquels envoyer le message.
 
 13. Configurez le message en utilisant une combinaison de texte statique et de références aux \<champs\> du contenu dynamique. Coupez et collez le texte suivant dans le champ **Message** :
 
@@ -187,10 +187,10 @@ Les entrées Azure Service Health font partie du journal d’activité. Le proce
 -  Les étapes 9 et 10 sont identiques.
 -  De l’étape 11 à l’étape 14, suivez le processus ci-dessous :
 
-   1. Sélectionnez **+** **Nouvelle étape**, puis **Ajouter une condition**. Définissez les conditions suivantes pour que l’application logique s’exécute seulement lorsque les données d’entrée correspondent à ces valeurs :
+   1. Sélectionnez **+** **Nouvelle étape**, puis **Ajouter une condition**. Définissez les conditions suivantes pour que l’application logique s’exécute uniquement lorsque les données d’entrée correspondent aux valeurs ci-dessous.  Lorsque vous entrez la valeur de version dans la zone de texte, placez-la entre guillemets (« 0.1.1 ») pour vous assurer qu’elle soit évaluée comme étant de type chaîne et non numérique.  Le système n’affiche pas les guillemets si vous revenez à la page, mais le code sous-jacent conserve le type chaîne.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
-       - `version == 0.1.1`
+       - `version == "0.1.1"`
 
       ![« Condition de charge utile d’intégrité du service »](media/monitoring-action-groups/service-health-payload-condition.png "Condition de charge utile d’intégrité du service")
 
@@ -275,10 +275,10 @@ Le processus de création d’une alerte de métrique est semblable à celui de 
 - Les étapes 9 et 10 sont identiques.
 - De l’étape 11 à l’étape 14, suivez le processus ci-dessous :
 
-   1. Sélectionnez **+** **Nouvelle étape**, puis **Ajouter une condition**. Définissez les conditions suivantes pour que l’application logique s’exécute seulement lorsque les données d’entrée correspondent à ces valeurs :
+   1. Sélectionnez **+** **Nouvelle étape**, puis **Ajouter une condition**. Définissez les conditions suivantes pour que l’application logique s’exécute uniquement lorsque les données d’entrée correspondent aux valeurs ci-dessous. Lorsque vous entrez la valeur de version dans la zone de texte, placez-la entre guillemets (« 2.0 ») pour vous assurer qu’elle soit évaluée comme étant de type chaîne et non numérique.  Le système n’affiche pas les guillemets si vous revenez à la page, mais le code sous-jacent conserve le type chaîne. 
        - `schemaId == AzureMonitorMetricAlert`
-       - `version == 2.0`
-
+       - `version == "2.0"`
+       
        ![« Condition de charge utile d’alerte de métrique »](media/monitoring-action-groups/metric-alert-payload-condition.png "Condition de charge utile d’alerte de métrique")
 
    1. Dans la condition **If true**, ajoutez une boucle **For each** et l’action Microsoft Teams. Définissez le message en utilisant une combinaison de HTML et de contenu dynamique.

@@ -9,14 +9,14 @@ keywords: réglage des performances de sql, réglage des performances de base de
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: v-shysun
-ms.openlocfilehash: a20d198c64bfc6aeaa42f310ee533626c2b1409c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79f41ab133cba539e5f855b3ab8fa21723694acb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649616"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092560"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Surveillance et optimisation des performances
 
@@ -50,7 +50,7 @@ Vous pouvez également laisser Azure SQL Database [optimiser automatiquement les
 
 ## <a name="improving-database-performance-with-more-resources"></a>Amélioration des performances de base de données avec davantage de ressources
 
-Enfin, si aucun élément ne peut être modifié pour améliorer les performances de votre base de données, vous pouvez modifier la quantité de ressources disponibles dans Azure SQL Database. Vous pouvez assigner davantage de ressources en modifiant le [niveau de service DTU](sql-database-service-tiers-dtu.md) d’une base de données autonome ou augmenter les unités de débit de base de données élastiques d’un pool élastique à tout moment. Ou, si vous utilisez le [modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md), vous pouvez changer le niveau de service ou augmenter les ressources allouées à votre base de données. 
+Enfin, si aucun élément ne peut être modifié pour améliorer les performances de votre base de données, vous pouvez modifier la quantité de ressources disponibles dans Azure SQL Database. Vous pouvez assigner davantage de ressources en modifiant le [niveau de service DTU](sql-database-service-tiers-dtu.md) d’une base de données autonome ou augmenter les unités de débit de base de données élastiques d’un pool élastique à tout moment. Ou, si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), vous pouvez changer le niveau de service ou augmenter les ressources allouées à votre base de données. 
 1. Pour les bases de données autonomes, vous pouvez [modifier les niveaux de service](sql-database-service-tiers-dtu.md) ou [calculer les ressources](sql-database-service-tiers-vcore.md) à la demande pour améliorer les performances de la base de données.
 2. S’il existe plusieurs bases de données, envisagez d’utiliser des [pools élastiques](sql-database-elastic-pool-guidance.md) pour une mise à l’échelle automatique des ressources.
 

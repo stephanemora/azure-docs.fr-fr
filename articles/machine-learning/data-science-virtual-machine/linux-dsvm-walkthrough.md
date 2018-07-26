@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798068"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116161"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données avec la machine virtuelle de science des données Linux. La machine virtuelle de science des données Linux est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans la rubrique [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md) . L’image de la machine virtuelle facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Le cas échéant, vous pouvez facilement faire monter en puissance la machine virtuelle, et l’arrêter lorsqu’elle est inutilisée. Cette ressource est donc flexible et économique.
@@ -30,7 +30,6 @@ Les tâches de science des données décrites dans cette procédure pas à pas s
 Au cours de cette procédure pas à pas, nous analysons le jeu de données [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Il s’agit d’un ensemble d’e-mails marqués comme courrier indésirable ou courrier légitime (non indésirable), qui contient également des statistiques sur le contenu des e-mails. Les statistiques incluses sont évoquées dans la section suivante.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de pouvoir utiliser une machine virtuelle de science des données Linux, vous devez disposer des éléments suivants :
 
 * Un **abonnement Azure**. Si vous n’en avez pas déjà un, voir [Créez votre compte Azure gratuit](https://azure.microsoft.com/free/).
@@ -43,7 +42,7 @@ Avant de pouvoir utiliser une machine virtuelle de science des données Linux, v
 Le jeu de données [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) est un ensemble de données relativement réduit qui ne contient que 4 601 exemples. Il s’agit d’une taille pratique à utiliser lors de la démonstration de certaines des fonctionnalités clés de la machine virtuelle de science des données, car elle limite les besoins en ressources.
 
 > [!NOTE]
-> Cette procédure pas à pas a été créée sur une machine virtuelle de science des données Linux de taille D2 v2. Cette taille de machine virtuelle de science des données est capable de gérer les procédures décrites dans cette procédure pas à pas.
+> Cette procédure pas à pas a été créée sur une machine virtuelle DSVM Linux (CentOS Edition) de taille D2 v2. Cette taille de machine virtuelle de science des données est capable de gérer les procédures décrites dans cette procédure pas à pas.
 >
 >
 
@@ -78,12 +77,8 @@ Pour obtenir des copies des exemples de code utilisés dans cette procédure pas
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Ouvrez une fenêtre de terminal et démarrez une nouvelle session R avec la console interactive R.
+Ouvrez une fenêtre de terminal et démarrez une nouvelle session R avec la console interactive R, ou utilisez RStudio préinstallé sur la machine.
 
-> [!NOTE]
-> Vous pouvez également utiliser RStudio pour les procédures suivantes. Pour installer RStudio, exécutez cette commande à partir d’un terminal : `./Desktop/DSVM\ tools/installRStudio.sh`
->
->
 
 Pour importer les données et configurer l’environnement, exécutez :
 
@@ -194,6 +189,7 @@ Sélectionnez **Jetons d’authentification** dans le menu général et notez vo
 
 Chargez le package **AzureML** , puis définissez les valeurs des variables avec votre jeton et votre ID d’espace de travail dans votre session R sur la machine virtuelle de science des données :
 
+    if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -208,29 +204,28 @@ Nous allons simplifier le modèle afin de rendre cette démonstration plus facil
 
 Nous avons besoin d’une fonction de prédiction qui prend les fonctionnalités comme une entrée et renvoie les valeurs prédites :
 
-    predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
-        predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
-        "word_freq_remove" = word_freq_remove, "word_freq_hp" = word_freq_hp))
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
+    predictSpam <- function(newdata) {
+      predictDF <- predict(model.rpart, newdata = newdata)
+      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
+
 
 Publiez la fonction predictSpam sur AzureML à l’aide de la fonction **publishWebService** :
 
-    spamWebService <- publishWebService("predictSpam",
-        "spamWebService",
-        list("char_freq_dollar"="float", "word_freq_remove"="float","word_freq_hp"="float"),
-        list("spam"="int"),
-        wsID, wsAuth)
+    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
+
 
 Cette fonction prend la fonction **predictSpam**, crée un service web nommé **spamWebService** avec des entrées et des sorties définies, et renvoie des informations sur le nouveau point de terminaison.
 
-Affichez les détails du service web publié, notamment son point de terminaison d’API et les touches d’accès rapide avec la commande :
+Affichez les détails du dernier service web publié, notamment son point de terminaison d’API et ses clés d’accès avec la commande :
 
-    spamWebService[[2]]
+    s<-tail(services(ws, name = "spamWebService"), 1)
+    ep <- endpoints(ws,s)
+    ep
 
 Pour l’essayer sur les 10 premières lignes du test défini :
 
-    consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
+    consume(ep, smallTestSet[1:10, ])
 
 
 ## <a name="use-other-tools-available"></a>Utiliser les autres outils disponibles
@@ -286,7 +281,7 @@ Pour effectuer des prédictions :
 
 Pour montrer comment publier un point de terminaison AzureML, créons un modèle plus simple des trois variables comme nous l’avons fait précédemment lorsque nous avons publié le modèle R.
 
-    X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)

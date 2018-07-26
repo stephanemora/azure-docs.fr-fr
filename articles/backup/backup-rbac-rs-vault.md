@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2017
+ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 37240b211e055682c4ce93c9057c4b266bba49e3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607444"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012057"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
@@ -37,9 +37,9 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 | Opération de gestion | Rôle RBAC minimum nécessaire |
 | --- | --- |
 | Créer un coffre Recovery Services | Contributeur sur le groupe de ressources de coffre |
-| Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde sur le coffre, contributeur de machine virtuelle sur des machines virtuelles |
+| Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde défini au niveau de l’étendue du groupe de ressources contenant le coffre, contributeur de machines virtuelles sur des machines virtuelles |
 | Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde |
-| Restaurer une machine virtuelle | Opérateur de sauvegarde, collaborateur de groupe de ressources dans lequel des réseaux virtuels et la machine virtuelle vont être déployés |
+| Restaurer une machine virtuelle | Opérateur de sauvegarde, contributeur de groupe de ressources dans lequel la machine virtuelle doit être déployée, lecture sur le réseau virtuel et jonction sur le sous-réseau sélectionnés |
 | Restaurer des disques et des fichiers individuels à partir d’une sauvegarde de machine virtuelle | Opérateur de sauvegarde, contributeur de machine virtuelle sur des machines virtuelles |
 | Créer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde |
 | Modifier une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde |

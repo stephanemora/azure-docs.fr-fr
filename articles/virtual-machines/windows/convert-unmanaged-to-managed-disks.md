@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 92168ba5605e119d42ba40ee694cebb3ad116041
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6e7d4a0ab6d79e1615f921965fb3d77998eaf90c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29804213"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000945"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non gérés d’une machine virtuelle Windows en disques gérés
 
@@ -99,6 +99,18 @@ Si les machines virtuelles que vous souhaitez convertir pour utiliser des disque
 Si une erreur survient lors de la conversion, ou si une machine virtuelle est dans un état d’échec en raison de problèmes dans une conversion précédente, exécutez l’applet de commande `ConvertTo-AzureRmVMManagedDisk` à nouveau. Généralement, une simple nouvelle tentative suffit à débloquer la situation.
 Avant de lancer la conversion, assurez-vous que toutes les extensions de machine virtuelle sont dans l’état « Provisionnement réussi ». Sinon, la conversion échoue avec le code d’erreur 409.
 
+
+## <a name="convert-using-the-azure-portal"></a>Convertir à l’aide du portail Azure
+
+Vous pouvez également convertir des disques non gérés en disques managés à l’aide du portail Azure.
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Sélectionnez la machine virtuelle dans la liste des machines virtuelles sur le portail.
+3. Dans le panneau de la machine virtuelle, sélectionnez **Disques** dans le menu.
+4. En haut du panneau **Disques**, sélectionnez **Migrer vers des disques gérés**.
+5. Si votre machine virtuelle se trouve dans un groupe à haute disponibilité, un avertissement apparaît sur le panneau **Migrer vers des disques gérés**, indiquant que vous devez commencer par convertir le groupe à haute disponibilité. L’avertissement doit avoir un lien sur lequel vous pouvez cliquer pour convertir le groupe à haute disponibilité. Une fois le groupe à haute disponibilité converti, ou si votre machine virtuelle ne se trouve pas dans un groupe à haute disponibilité, cliquez sur **Migrate** pour démarrer le processus de migration de vos disques vers des disques managés. 
+
+Lorsque la migration est terminée, la machine virtuelle est arrêtée, puis redémarrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

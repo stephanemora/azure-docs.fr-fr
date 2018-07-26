@@ -11,18 +11,17 @@ ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29936575"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635456"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Créer un serveur Jenkins sur une machine virtuelle Linux Azure à partir du portail Azure
 
 Ce démarrage rapide montre comment installer [Jenkins](https://jenkins.io) sur une machine virtuelle Linux Ubuntu avec les outils et les plug-ins configurés pour fonctionner avec Azure. Lorsque vous avez terminé, vous disposez d’un serveur de Jenkins s’exécutant dans Azure qui génère un exemple d’application Java à partir de [Github](https://github.com).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Abonnement Azure
 * Accéder à SSH sur la ligne de commande de votre ordinateur (par exemple l’interpréteur de commandes Bash ou [PuTTY](http://www.putty.org/))
@@ -46,7 +45,7 @@ Configurez le tunnel à l’aide de la commande `ssh` sur la page à partir de l
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-Une fois que vous avez démarré le tunnel, accédez à http://localhost:8080/ sur votre machine locale. 
+Une fois que vous avez démarré le tunnel, accédez à http://localhost:8080/ sur votre ordinateur local. 
 
 Obtenez le mot de passe initial en exécutant la commande suivante dans la ligne de commande tout en étant connecté à la machine virtuelle Jenkins via SSH.
 

@@ -1,6 +1,6 @@
 ---
-title: "Configurer des analyses d’application web pour ASP.NET avec Azure Application Insights | Microsoft Docs"
-description: "Configurez les performances, la disponibilité et l’analyse de l’utilisation de votre site web ASP.NET, hébergé en local ou dans Azure."
+title: Configurer des analyses d’application web pour ASP.NET avec Azure Application Insights | Microsoft Docs
+description: Configurez les outils d’analytique des performances, de la disponibilité et du comportement des utilisateurs de votre site web ASP.NET, hébergé en local ou dans Azure.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 73bb1e3d06066c422614bc9d6d3431b49be9c6de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992190"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -115,7 +116,7 @@ Vous pouvez également continuer à analyser vos données de télémétrie dans 
 
 ## <a name="land"></a> Vous êtes prêt.
 
-Félicitations ! Vous avez installé le package Application Insights dans votre application et l’avez configuré pour envoyer des données de télémétrie au service Application Insights dans Azure.
+Félicitations ! Vous avez installé le package Application Insights dans votre application et l’avez configuré pour envoyer des données de télémétrie au service Application Insights dans Azure.
 
 ![Diagramme du mouvement des données de télémétrie](./media/app-insights-asp-net/01-scheme.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 397ab30b252fbfa121b763b005907764d2b15f20
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781928"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004844"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager
 
@@ -103,7 +103,7 @@ Une fois qu’un dépôt de modèles Azure Resource Manager a été configuré d
 
     ![Choisir une base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. Dans le volet **Ajouter**, entrez la valeur **Nom de l’environnement**. Le nom de l’environnement est ce qui est affiché aux utilisateurs dans le laboratoire. Les autres champs d’entrée sont définis dans le modèle Azure Resource Manager. Si les valeurs par défaut sont définies dans le modèle ou si le fichier `azuredeploy.parameter.json` est présent, les valeurs par défaut sont affichées dans ces champs d’entrée. Pour les paramètres de type *chaîne sécurisée*, vous pouvez utiliser les secrets stockés dans le [magasin personnel des secrets](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store) du laboratoire.
+1. Dans le volet **Ajouter**, entrez la valeur **Nom de l’environnement**. Le nom de l’environnement est ce qui est affiché aux utilisateurs dans le laboratoire. Les autres champs d’entrée sont définis dans le modèle Azure Resource Manager. Si les valeurs par défaut sont définies dans le modèle ou si le fichier `azuredeploy.parameter.json` est présent, les valeurs par défaut sont affichées dans ces champs d’entrée. Pour les paramètres de type *chaîne sécurisée*, vous pouvez utiliser les secrets stockés dans votre coffre de clés Azure. Pour en savoir plus sur l’enregistrement des secrets dans un coffre de clés et leur utilisation lors de la création des ressources de laboratoire, consultez [Stocker les secrets dans Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).  
 
     ![Volet Ajouter](./media/devtest-lab-create-environment-from-arm/add.png)
 

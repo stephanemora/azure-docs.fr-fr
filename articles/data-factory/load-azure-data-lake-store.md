@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e401508fc5ffc1de666f727ffbb7790005384fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857199"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003795"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 
@@ -35,6 +35,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
 > [!NOTE]
 > Pour en savoir plus, voir [Copier des données depuis/vers Azure Data Lake Store à l’aide d’Azure Data Factory](connector-azure-data-lake-store.md).
+
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -109,7 +110,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
    3. Sélectionnez **Suivant**.
    
    > [!IMPORTANT]
-   > Dans cette procédure pas à pas, vous utilisez une _identité de service géré_ pour authentifier votre Data Lake Store. Veillez à accorder au principal de service les autorisations appropriées dans Azure Data Lake Store, en suivant [ces instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > Dans cette procédure pas à pas, vous utilisez une _identité de service géré_ pour authentifier votre Data Lake Store. Veillez à accorder au MSI les autorisations appropriées dans Azure Data Lake Storage, en suivant [ces instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Spécification du compte Azure Data Lake Store](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. Dans la page de **sélection du fichier ou dossier de sortie**, saisissez **copyfroms3** dans le champ du nom du dossier de sortie, puis sélectionnez **Suivant** : 

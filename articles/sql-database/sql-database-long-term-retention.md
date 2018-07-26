@@ -7,23 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: b2f3c454ba84c7b892096cc42dcbe2706ab6159f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edf66d8ee61b2d0896ed8249ea286b0f3de7de5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648290"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092815"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database pendant 10 ans
 
 De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. À l’aide de la fonctionnalité de rétention à long terme (LTR), vous pouvez stocker pendant 10 ans des sauvegardes complètes de bases de données SQL dans un stockage Blob [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). Vous pouvez ensuite restaurer la sauvegarde de votre choix en tant que nouvelle base de données.
-
-> [!IMPORTANT]
-> La fonctionnalité de rétention à long terme est actuellement proposée en version préliminaire. Les sauvegardes existantes stockées dans le coffre Azure Services Recovery Service dans le cadre de la préversion précédente de cette fonctionnalité sont migrées vers le stockage SQL Azure.<!-- and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.-->
->
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Mode de fonctionnement de la rétention à long terme SQL Database
 
@@ -34,7 +30,6 @@ Exemples :
 -  W=0, M=0, Y=5, WeekOfYear=3
 
    La 3e sauvegarde complète de l’année est conservée pendant 5 ans.
-
 - W=0, M=3, Y=0
 
    La 1re sauvegarde complète du mois est conservée pendant 3 mois.
@@ -61,6 +56,14 @@ Si vous deviez modifier la stratégie ci-dessus et définir W=0 (aucune sauvegar
 1. Les copies LTR sont créées par le service de stockage Azure. Ainsi, le processus de copie n’a aucun impact sur les performances de la base de données existante.
 2. La stratégie s’applique aux sauvegardes futures. Par exemple, si la valeur WeekOfYear spécifiée est dans le passé lorsque la stratégie est configurée, la première sauvegarde LTR sera créée l’année suivante. 
 3. Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage.   Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. 
+> 
+
+## <a name="geo-replication-and-long-term-backup-retention"></a>Géo-réplication et conservation de sauvegarde à long terme
+
+Si vous utilisez une géoréplication active ou des groupes de basculement en tant que solution de continuité des activités métier, vous devez vous préparer à des basculements éventuels et configurer la même stratégie de conservation à long terme sur la base de données géosecondaire. Cela n’augmente pas le coût de stockage de conservation à long terme, car les sauvegardes ne sont pas générés à partir des bases de données secondaires. Les sauvegardes sont créées uniquement lorsque la base de données secondaire devient primaire. Cela garantit une génération ininterrompue des sauvegardes de conservation à long terme lorsque le basculement est déclenché et lorsque la base de données primaire est déplacée vers la région secondaire. 
+
+> [!NOTE]
+Lors de la base de données primaire d’origine récupère après la panne qui a entraîné son basculement, elle devient une nouvelle base de données secondaire. Par conséquent, la création de sauvegarde ne reprend pas, et la stratégie de conservation à long terme existante ne prend effet qu’après que la base de données est redevenue primaire. 
 > 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurer la rétention des sauvegardes à long terme

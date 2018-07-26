@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696563"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070553"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du stockage d’objets blob Azure et des services connectés de Visual Studio (ASP.NET)
 
@@ -135,11 +135,11 @@ Les étapes suivantes montrent comment créer un conteneur d’objets blob :
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le dossier **Affichages**.
 
-2. Dans le menu contextuel, sélectionnez **Ajouter** > **Nouveau dossier**. Nommez ce nouveau dossier *Objets blob*. 
+1. Si aucun dossier **Objets blob** n’existe, créez-en un. Dans le menu contextuel, sélectionnez **Ajouter** > **Nouveau dossier**. Nommez ce nouveau dossier *Objets blob*. 
  
 1. Dans **l’Explorateur de solutions**, développez le dossier **Affichages** et cliquez avec le bouton droit sur **Objets blob**.
 
-4. Dans le menu contextuel, sélectionnez **Ajouter** > **Affichage**.
+1. Dans le menu contextuel, sélectionnez **Ajouter** > **Affichage**.
 
 1. Dans la boîte de dialogue **Ajouter un affichage**, entrez **CreateBlobContainer** comme nom de l’affichage, puis sélectionnez **Ajouter**.
 

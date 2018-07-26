@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2b4e2a19b5d5f6491ff3db24489b361040a52280
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346057"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035572"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Créer un appareil IoT Edge Linux servant de passerelle transparente
 
@@ -22,8 +22,8 @@ Cet article fournit des instructions détaillées pour utiliser un appareil IoT 
 >[!NOTE]
 >Actuellement :
 > * Si la passerelle est déconnectée d’IoT Hub, les appareils en aval ne peuvent pas s’authentifier auprès de la passerelle.
-> * les appareils IoT Edge ne peuvent pas se connecter aux passerelles IoT Edge.
-> * Les appareils en aval ne peuvent pas utiliser de chargement de fichier.
+> * Les appareils Edge ne peuvent pas se connecter aux passerelles IoT Edge. 
+> * Les appareils en aval ne peuvent pas utiliser le chargement de fichier.
 
 La partie la plus complexe de la création d’une passerelle transparente consiste à connecter de manière sécurisée la passerelle aux appareils en aval. Azure IoT Edge vous permet d’utiliser l’infrastructure à clé publique pour configurer des connexions TLS sécurisées entre ces appareils. Dans ce cas, nous autorisons un appareil en aval à se connecter à un appareil IoT Edge faisant office de passerelle transparente.  Pour préserver une sécurité raisonnable, l’appareil en aval doit confirmer l’identité de l’appareil Edge, car vous souhaitez que vos appareils ne se connectent qu’à vos passerelles, et non pas à une passerelle potentiellement malveillante.
 
@@ -181,7 +181,7 @@ Le runtime IoT Edge peut acheminer les messages envoyés à partir des appareils
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Reportez-vous à [l’article de composition de module] [lnk-module-composition] pour plus d’informations sur le routage des messages.
+Reportez-vous à [l’article de composition de module][lnk-module-composition] pour plus d’informations sur le routage des messages.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Comprendre les exigences et outils de développement de modules IoT Edge][lnk-module-dev].
@@ -192,6 +192,7 @@ Reportez-vous à [l’article de composition de module] [lnk-module-composition]
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

@@ -1,6 +1,6 @@
 ---
 title: Infrastructure des rapports d’utilisation pour les fournisseurs de services cloud | Microsoft Docs
-description: Azure Stack inclut l’infrastructure nécessaire pour suivre l’utilisation au moment où elle se produit et la transfère à Azure.
+description: Azure Stack inclut l’infrastructure nécessaire pour suivre l’utilisation prise en charge par un fournisseur de services cloud (CSP) au moment où elle se produit et la transfère à Azure.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: mabrigg
+ms.date: 07/12/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 7fe2a6444e605f388df68803b89643420b19fb54
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e38f0a5e8aa911a168ee7f648692c31ecb44d4dd
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823484"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090606"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de services Cloud
 
-Azure Stack inclut l’infrastructure nécessaire pour suivre l’utilisation au moment où elle se produit et la transfère à Azure. Dans Azure, Azure Commerce traite les données d’utilisation et facture l’utilisation aux abonnements Azure appropriés, de la même façon que l’utilisation qui a lieu dans le cloud Azure global.
+Azure Stack inclut l’infrastructure nécessaire pour suivre l’utilisation au moment où elle se produit et la transfère à Azure. Dans Azure, Azure Commerce traite les données d’utilisation et facture l’utilisation aux abonnements Azure appropriés. Cela se produit de la même façon que la surveillance du suivi de l’utilisation dans le cloud Azure global.
 
-Vous devez avoir conscience que certains concepts sont cohérents entre Azure global et Azure Stack. Azure Stack a des abonnements locaux qui remplissent un rôle similaire à un abonnement Azure. Les abonnements locaux sont valides uniquement localement. Les abonnements locaux sont mappés à des abonnements Azure quand l’utilisation est transférée à Azure.
+Vous devez noter que certains concepts sont cohérents entre Azure global et Azure Stack. Azure Stack a des abonnements locaux qui remplissent un rôle similaire à un abonnement Azure. Les abonnements locaux sont valides uniquement localement. Les abonnements locaux sont mappés à des abonnements Azure quand l’utilisation est transférée à Azure.
 
 Azure Stack dispose de compteurs d’utilisation locale. L’utilisation locale est mappée aux compteurs utilisés dans Azure Commerce. Toutefois, les ID de compteurs sont différents. Les compteurs disponibles localement sont plus nombreux que ceux que Microsoft utilise pour la facturation.
 

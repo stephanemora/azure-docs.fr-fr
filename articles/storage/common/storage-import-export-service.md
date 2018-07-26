@@ -6,18 +6,20 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232675"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008414"
 ---
 # <a name="what-is-azure-importexport-service"></a>Qu’est-ce que le service Azure Import/Export ?
 
 Le service Azure Import/Export est utilisé pour importer en toute sécurité des volumes importants de données dans Stockage Blob Azure et Azure Files en expédiant des lecteurs de disque vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disque et les expédier vers vos sites locaux. Les données d’un ou plusieurs disques peuvent être importées dans Stockage Blob Azure ou Azure Files. 
+
+Le service Azure Import/Export vous oblige à fournir vos propres disques. Si vous souhaitez transférer des données à l’aide de disques fournis par Microsoft, vous pouvez utiliser un disque Azure Data Box pour importer des données dans Azure. Microsoft envoie jusqu’à 5 disques SSD chiffrés dotés d’une capacité de 40 To par commande à votre centre de données via un transporteur régional. Vous pouvez rapidement configurer les disques, y copiez des données via une connexion USB 3.0, puis les réexpédier à Azure. Pour plus d’informations, accédez à la [vue d’ensemble d’Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="azure-importexport-usecases"></a>Scénarios d’utilisation du service Azure Import/Export
 
@@ -113,12 +115,12 @@ Le service Azure Import/Export prend en charge la copie des données vers et dep
 
 |Pays  |Pays  |Pays  |Pays  |
 |---------|---------|---------|---------|
-|Est des États-Unis    | Europe du Nord        | Inde centrale        |US Gov Iowa         |
-|États-Unis de l’Ouest     |Europe de l'Ouest         | Inde du Sud        | Est des États-Unis – US DoD        |
+|USA Est    | Europe Nord        | Inde centrale        |US Gov Iowa         |
+|USA Ouest     |Europe Ouest         | Inde du Sud        | Est des États-Unis – US DoD        |
 |Est des États-Unis 2    | Est de l'Asie        |  Inde occidentale        | Centre des États-Unis – US DoD        |
-|Ouest des États-Unis 2     | Asie du Sud-Est        | Centre du Canada        | Chine orientale         |
-|Centre des États-Unis     | Est de l’Australie        | Est du Canada        | Chine du Nord        |
-|Centre-Nord des États-Unis     |  Sud-est de l’Australie       | Sud du Brésil        | Sud du Royaume-Uni        |
+|USA Ouest 2     | Asie du Sud-Est        | Canada Centre        | Chine orientale         |
+|USA Centre     | Australie Est        | Canada Est        | Chine du Nord        |
+|Centre-Nord des États-Unis     |  Sud-est de l’Australie       | Sud du Brésil        | Royaume-Uni Sud        |
 |États-Unis - partie centrale méridionale     | Ouest du Japon        |Centre de la Corée         | Centre de l’Allemagne        |
 |Centre-Ouest des États-Unis     |  Est du Japon       | Gouvernement américain - Virginie        | Nord-Est de l’Allemagne        |
 

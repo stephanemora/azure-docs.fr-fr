@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ba59d39fb07dfe9c9772fa4bea6922df052f0385
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dba78d3fb63ed6b2f867539fc471199ab72afe6a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645209"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092594"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
 Le service Base de données SQL Azure offre les fonctionnalités suivantes pour la récupération après une panne :
@@ -27,7 +27,7 @@ Le service Base de données SQL Azure offre les fonctionnalités suivantes pour 
 Pour en savoir plus sur les scénarios de continuité d’activité et les fonctionnalités prenant en charge ces scénarios, consultez [Continuité des activités](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Si vous utilisez des bases de données ou des pools Premium ou Critiques pour l’entreprise redondants dans une zone (préversion), sachez que le processus de récupération est automatisé et que le reste de ce document ne vous sera d’aucune utilité. 
+> Si vous utilisez des bases de données ou des pools Premium ou Critiques pour l’entreprise redondants dans une zone, sachez que le processus de récupération est automatisé et que le reste de ce document ne vous sera d’aucune utilité. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Préparation à une panne
 Pour parvenir à une récupération vers une autre région de données à l’aide des groupes de basculement ou des sauvegardes géoredondantes, vous devez préparer un serveur dans un autre centre de données. Celui-ci deviendra le nouveau serveur principal en cas de besoin. Vous devez également suivre des étapes précises, documentées et approuvées pour garantir une récupération optimale. Les étapes de préparation sont les suivantes :

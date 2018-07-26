@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: bbd9bb0d56dd61fd0a32531ac425a1dbc1aa8923
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 86ac1f1b5433104faa89e1f107fa36fc1da5f70e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295414"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989892"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notes de publication du Kit de développement Azure Stack  
 Ces notes de publication fournissent des informations sur les améliorations, les correctifs et les problèmes connus relatifs au Kit de développement Azure Stack. Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -97,15 +97,21 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
    - COMPOSANT : Contrôleur d’intégrité
    - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
 
-  Les deux alertes peuvent être ignorées en toute sécurité. Elles se fermeront automatiquement au bout d’un moment.  
+  Les deux alertes #1 et #2 peuvent être ignorées en toute sécurité. Elles se ferment automatiquement au bout d’un moment. 
 
-- <!-- 2392907 – ASDK -->   Vous pouvez voir une alerte *critique* de **faible capacité de mémoire**. La description de cette alerte est la suivante : *La région a consommé plus de 95 % de la mémoire disponible. La création de machines virtuelles avec de grandes quantités de mémoire peut échouer.*
+  Vous pouvez également voir l’alerte suivante pour *Capacité*. Pour cette alerte, le pourcentage de mémoire disponible identifiée dans la description peut varier :  
 
-  Cette alerte peut être générée lorsqu’Azure Stack comptabilise de manière incorrecte l’utilisation de la mémoire sur le Kit de développement Azure Stack.  
+  Alerte #3 :
+   - NOM : Capacité de mémoire faible
+   - NIVEAU DE GRAVITÉ : Critique
+   - COMPOSANT : Capacité
+   - DESCRIPTION : La région a consommé plus de 80 % de la mémoire disponible. La création de machines virtuelles avec de grandes quantités de mémoire peut échouer.  
 
-  Cette alerte peut être ignorée, et le problème n’a aucun effet sur le placement des machines virtuelles. 
+  Dans cette version d’Azure Stack, cette alerte peut s’envoyer de façon incorrecte. Si les machines virtuelles d’abonné continuent de déployer avec succès, vous pouvez ignorer cette alerte en toute sécurité. 
+  
+  L’alerte #3 n’est pas automatiquement mise à jour. Si vous fermez cette alerte, Azure Stack crée la même alerte dans les 15 minutes qui suivent.  
 
-- <!-- 2368581 - IS. ASDK --> En tant qu’opérateur d’Azure Stack, si vous recevez une alerte d’insuffisance de mémoire et que les machines virtuelles client ne parviennent pas à se déployer à cause d’une *erreur de création de la structure de la machine virtuelle*, il est possible que l’horodatage d’Azure Stack soit en dehors de la mémoire disponible. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail. 
+- <!-- 2368581 - IS ASDK --> En tant qu’opérateur d’Azure Stack, si vous recevez une alerte d’insuffisance de mémoire et que les machines virtuelles client ne parviennent pas à se déployer à cause d’une *erreur de création de la structure de la machine virtuelle*, il est possible que l’horodatage d’Azure Stack soit en dehors de la mémoire disponible. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail. 
 
 
 #### <a name="compute"></a>Calcul

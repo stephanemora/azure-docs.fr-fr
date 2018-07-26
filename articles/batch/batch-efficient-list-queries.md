@@ -12,28 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/02/2017
+ms.date: 06/26/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 950e422b3076e5abd5db6dd0ac452fa1c2d500d0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6bc31e8541797930583e41fb6efbb6473cd4b894
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129266"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004453"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Créer des requêtes pour répertorier les ressources Batch efficacement
 
-Vous allez découvrir ici comment augmenter les performances de votre application Azure Batch en réduisant la quantité de données retournées par le service lorsque vous interrogez des travaux, des tâches et des nœuds de calcul à l’aide de la bibliothèque [Batch .NET][api_net].
+Vous allez découvrir ici comment augmenter les performances de votre application Azure Batch en réduisant la quantité de données retournées par le service quand vous interrogez des travaux, des tâches, des nœuds de calcul et d’autres ressources avec la bibliothèque [Batch .NET][api_net].
 
 Presque toutes les applications Batch doivent effectuer un certain type de surveillance ou une autre opération qui interroge le service Batch, souvent à intervalles réguliers. Par exemple, pour déterminer s’il existe des tâches restant en file d’attente dans un travail, vous devez obtenir des données sur chaque tâche du travail. Pour déterminer l’état des nœuds dans le pool, vous devez obtenir des données sur chacun d’eux. Cet article explique comment exécuter ces requêtes de la manière la plus efficace.
 
 > [!NOTE]
-> Le service Batch fournit une prise en charge spéciale des API pour le scénario courant de comptage des tâches d’un travail. Au lieu d’utiliser une requête de liste, vous pouvez appeler l’opération [Obtenir le nombre de tâches][rest_get_task_counts]. L’opération Obtenir le nombre de tâches indique le nombre de tâches en attente, en cours d’exécution ou terminées, ainsi que le nombre de tâches ayant réussi ou échoué. L’opération Obtenir le nombre de tâches est plus efficace qu’une requête de liste. Pour plus d’informations, consultez [Compter les tâches d’un travail par état (préversion)](batch-get-task-counts.md). 
->
-> L’opération Obtenir le nombre de tâches n’est pas disponible dans les versions du service Batch antérieures à 2017-06-01.5.1. Si vous utilisez une version antérieure du service, vous devez utiliser une requête de liste pour compter les tâches d’un travail.
->
-> 
+> Le service Batch fournit une prise en charge spéciale des API pour des scénarios courants, comme le comptage des tâches d’un travail et le comptage des nœuds dans un pool Batch. Au lieu d’utiliser pour cela une requête de liste, vous pouvez appeler les opérations [Obtenir le nombre de tâches][rest_get_task_counts] et [Répertorier le nombre de nœuds des pools][rest_get_node_counts]. Ces opérations sont plus efficaces qu’une requête de liste, mais retournent des informations plus limitées. Consultez [Compter les tâches et les nœuds de calcul par état](batch-get-resource-counts.md). 
+
 
 ## <a name="meet-the-detaillevel"></a>Respecter le niveau de détail
 Dans une application Batch de production, les entités telles que les travaux, les tâches et les nœuds de calcul peuvent se compter par milliers. Lorsque vous demandez des informations sur ces ressources, une grande quantité potentielle de données doivent être transférées du service Batch vers votre application à chaque requête. En limitant le nombre d’éléments et le type d’informations retournés par une requête, vous pouvez augmenter la vitesse des requêtes et donc, les performances de votre application.
@@ -297,4 +294,5 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
-[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_task_counts]: /rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts

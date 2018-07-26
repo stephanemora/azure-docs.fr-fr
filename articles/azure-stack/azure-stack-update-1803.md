@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: a74e77f84aa70519015a589cbc6e7478c0c41592
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 11430a0d194a722c0c0520c936db3c08b1a6b863
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318807"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989569"
 ---
 # <a name="azure-stack-1803-update"></a>Mise à jour 1803 d’Azure Stack
 
@@ -106,7 +106,7 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
 - Après l’installation de la version 1803, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
-  - [KB 4341390 – Correctif logiciel Azure Stack 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390).
+  - [KB 4344115 – Correctif logiciel Azure Stack 1.0.180427.15](https://support.microsoft.com/help/4344115).
 
 - Après avoir installé cette mise à jour, vérifiez la configuration du pare-feu pour être sûr que les [ports nécessaires](azure-stack-integrate-endpoints.md) sont ouverts. Par exemple, cette mise à jour comprend *Azure Monitor*, qui remplace les journaux d’audit par des journaux d’activité. Dans le cadre de cette modification, le port 13012 est désormais utilisé et doit également être ouvert.  
 

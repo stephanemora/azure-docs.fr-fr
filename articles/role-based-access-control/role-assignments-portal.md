@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435615"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008159"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure
 
@@ -88,7 +88,9 @@ Lorsque vous gérez des accès, vous souhaitez savoir quelles sont les personnes
 
    ![Ressources Azure d’un utilisateur Azure Active Directory](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   Dans le panneau Ressources Azure, vous pouvez voir les attributions de rôle pour l’utilisateur sélectionné. Cette liste inclut uniquement les attributions de rôles pour les ressources que vous êtes autorisé à lire. Par exemple, si l’utilisateur dispose également d’attributions de rôles dans un autre abonnement que vous ne pouvez pas lire, ces attributions de rôles n’apparaissent pas dans la liste.
+   Dans le panneau Ressources Azure, vous pouvez voir les attributions de rôle pour l’utilisateur et l’abonnement sélectionnés. Cette liste inclut uniquement les attributions de rôles pour les ressources que vous êtes autorisé à lire. Par exemple, si l’utilisateur dispose également d’attributions de rôles que vous ne pouvez pas lire, celles-ci n’apparaissent pas dans la liste.
+
+1. Si vous avez plusieurs abonnements, vous pouvez choisir la liste déroulante **Abonnement** pour afficher les attributions de rôles dans un autre abonnement.
 
 ## <a name="grant-access"></a>Accorder l'accès
 
@@ -162,16 +164,8 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès.
 
 Les attributions de rôle héritées ne peuvent pas être supprimées. Si vous avez besoin de supprimer une attribution de rôle héritée, vous devez le faire au niveau de l’étendue où l’affectation de rôle a été créée. Dans la colonne **Étendue**, en regard de **Hérité**, un lien vous dirige vers les ressources auxquelles ce rôle a été affecté. Accédez à l’étendue répertoriée ici pour supprimer l’attribution de rôle.
 
-## <a name="other-tools-to-manage-access"></a>Autres outils pour gérer l’accès
-
-Vous pouvez attribuer des rôles et gérer l’accès avec les commandes RBAC Azure dans des outils autres que le portail Azure. Pour plus d’informations, consultez les liens suivants :
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [interface de ligne de commande Azure](role-assignments-cli.md)
-* [API REST](role-assignments-rest.md)
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : accorder l’accès à un utilisateur avec RBAC et le portal Azure](quickstart-assign-role-user-portal.md)
+* [Démarrage rapide : accorder l’accès à un utilisateur avec RBAC et le Portail Azure](quickstart-assign-role-user-portal.md)
 * [Tutoriel : accorder l’accès à un utilisateur avec RBAC et Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [Rôles intégrés](built-in-roles.md)

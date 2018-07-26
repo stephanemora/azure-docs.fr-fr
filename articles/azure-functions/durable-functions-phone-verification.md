@@ -2,7 +2,7 @@
 title: Interactions humaines et délais d’expiration dans l’extension Fonctions durables - Azure
 description: Découvrez comment gérer des interactions humaines et les délais d’expiration dans l’extension Fonctions durables d’Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: cfowler
 editor: ''
 tags: ''
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a62baf64e35dfad55f76138e2f1aaef65dd434be
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30168399"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036303"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
@@ -28,7 +28,6 @@ Cette exemple indique comment créer une orchestration [Fonctions durables](dura
 Cet exemple implémente un système de vérification de téléphone SMS. Ces types de flux sont souvent utilisés lors de la vérification du numéro de téléphone d’un client, ou pour l’authentification multifacteur (MFA). Cet exemple est efficace, car l’implémentation s’effectue à l’aide de quelques fonctions de petite taille. Aucune banque de données externe (base de données, par exemple) n’est requise.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Installer Fonctions durables](durable-functions-install.md).
 * Suivre la procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
@@ -52,7 +51,7 @@ Cet article détaille les fonctions suivantes de l’exemple d’application :
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C#. Le code de développement de Visual Studio est affiché à la fin de l’article.
+Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestration de vérification SMS (Visual Studio Code et exemple de code du portail Azure) 
 
@@ -62,7 +61,13 @@ La fonction **E4_SmsPhoneVerification** utilise le fichier *function.json* stand
 
 Voici le code qui implémente la fonction :
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 Une fois démarrée, cette fonction d’orchestrateur effectue les opérations suivantes :
 
@@ -77,7 +82,7 @@ L’utilisateur reçoit un SMS incluant le code à quatre chiffres. Il doit renv
 > Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. En effet, la propriété `CurrentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur, et cette propriété renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Il est important de vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny`.
 
 > [!WARNING]
-> Vous devez [annuler les minuteurs en utilisant un paramètre CancellationTokenSource](durable-functions-timers.md) si vous n’avez plus besoin qu’ils arrivent à expiration, comme dans le cas de l’exemple ci-dessus, lorsqu’une réponse à la demande est acceptée.
+> Il est important [d’annuler les minuteurs](durable-functions-timers.md) si vous n’avez plus besoin qu’ils arrivent à expiration, comme dans l’exemple ci-dessus, quand une réponse à une stimulation est acceptée.
 
 ## <a name="send-the-sms-message"></a>Envoyer le message SMS
 
@@ -87,7 +92,13 @@ La fonction **E4_SendSmsChallenge** utilise la liaison Twilio pour envoyer le SM
 
 Voici le code qui génère le code de demande d’accès à 4 chiffres, et envoie le SMS :
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
 Cette fonction **E4_SendSmsChallenge** n’est appelée qu’une fois, même si le processus échoue ou est réexécuté. C’est une bonne chose, car cela évite que l’utilisateur reçoive plusieurs SMS. La valeur `challengeCode` renvoyée est automatiquement conservée, de sorte que la fonction d’orchestrateur sache toujours quel est le code correct.
 
@@ -110,6 +121,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > Actuellement, les fonctions de démarrage d’orchestration JavaScript ne peuvent pas retourner les URI de gestion d’instance. Cette fonctionnalité sera ajoutée dans une version ultérieure.
 
 La fonction d’orchestrateur reçoit le numéro de téléphone fourni, et lui envoie immédiatement un SMS incluant un code de vérification à 4 chiffres généré de manière aléatoire &mdash; par exemple, *2168*. Ensuite, la fonction attend une réponse pendant 90 secondes.
 

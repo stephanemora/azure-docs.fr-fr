@@ -113,7 +113,7 @@
       href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: Exemples
   items:
-    - name: de l’API REST
+    - name: API REST
       items:
         - name: Passer en revue les coûts de l’entreprise
           href: billing-review-enterprise-billing.md
@@ -131,6 +131,9 @@
   items:
     - name: Scénarios relatifs à l’automatisation de la facturation
       href: billing-cost-management-automation-scenarios.md
+      items:
+        - name: Gérer les coûts avec Azure Budgets
+          href: billing-cost-management-budget-scenario.md
     - name: Présentation de l’API Facturation Azure
       href: billing-usage-rate-card-overview.md
       items:

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5de8aebb6ffc5763dd7f0b8852c31923914e4c55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645529"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092543"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Stratégies de récupération d’urgence pour les applications utilisant les pools élastiques de bases de données SQL
 Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes avaient lieu. SQL Database offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. Les [pools élastiques](sql-database-elastic-pool.md) et les bases de données uniques prennent en charge le même type de fonctionnalités de récupération d’urgence. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.
@@ -27,12 +27,12 @@ Cet article utilise le modèle d’application d’éditeur de logiciels indépe
 Cet article aborde les stratégies de récupération d’urgence applicables à des scénarios allant des applications de start-ups soucieuses des coûts aux applications présentant des exigences de disponibilité strictes.
 
 > [!NOTE]
-> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise (préversion), vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone (actuellement en préversion). Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).
+> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone. Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scénario 1 Start-up soucieuse des coûts
 <i>Ma jeune entreprise a un budget très serré.  Je souhaite simplifier le déploiement et la gestion de l’application et peux avoir un contrat SLA limité pour chacun de mes clients. Mais je veux être sûr que l’application ne sera jamais hors connexion.</i>
 
-Pour répondre au besoin de simplicité, déployez toutes les bases de données client dans un pool élastique de la région Azure de votre choix et déployez les bases de données de gestion en tant que bases de données uniques géorépliquées. Pour la récupération d’urgence des locataires, utilisez la fonctionnalité de géo-restauration qui ne vous coûtera pas un centime. Pour garantir la disponibilité des bases de données de gestion, géorépliquez-les dans une autre région avec un groupe de basculement automatique (en version préliminaire) (étape 1). Dans ce scénario, le coût de la configuration de récupération d’urgence est égal au coût total des bases de données secondaires. Cette configuration est illustrée dans le schéma suivant.
+Pour répondre au besoin de simplicité, déployez toutes les bases de données client dans un pool élastique de la région Azure de votre choix et déployez les bases de données de gestion en tant que bases de données uniques géorépliquées. Pour la récupération d’urgence des locataires, utilisez la fonctionnalité de géo-restauration qui ne vous coûtera pas un centime. Pour garantir la disponibilité des bases de données de gestion, géorépliquez-les dans une autre région avec un groupe de basculement automatique (étape 1). Dans ce scénario, le coût de la configuration de récupération d’urgence est égal au coût total des bases de données secondaires. Cette configuration est illustrée dans le schéma suivant.
 
 ![La figure 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 

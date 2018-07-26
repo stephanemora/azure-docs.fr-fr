@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 3fcd2fc4162cfbf549be979e15745934c2e4c6ff
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019277"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090875"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -51,7 +51,7 @@ Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure R
 ### <a name="create-an-azure-active-directory-application"></a>Créer une application Azure Active Directory
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
-2. À l’aide de l’abonnement qui contient votre instance de service Gestion des API, accédez à **l’onglet Inscriptions des applications**.
+2. En utilisant l’abonnement qui contient votre instance du service Gestion des API, accédez à l’onglet **Inscriptions des applications** dans **Azure Active Directory** (Azure Active Directory > Gérer/Inscriptions des applications).
 
     > [!NOTE]
     > Si le répertoire par défaut de Azure Active Directory n'est pas visible sur votre compte, contactez l'administrateur de l'abonnement Azure pour accorder les autorisations requises de votre compte.
@@ -112,11 +112,14 @@ Remplacez `{tentand id}`, `{application id}` et `{redirect uri}` en suivant les 
 
     ![Points de terminaison][api-management-endpoint]
 2. Remplacez `{application id}` par la valeur que vous avez obtenue en accédant à la page **Paramètres**.
-3. Indiquez comme URL le contenu de l’onglet **URI de redirection** dans votre application Azure Active Directory.
+3. Remplacez `{redirect uri}` par la valeur provenant de l’onglet **URI de redirection** de votre application Azure Active Directory.
 
     Une fois que les valeurs sont spécifiées, l’exemple de code doit renvoyer un jeton similaire à l’exemple suivant :
 
     ![par jeton][api-management-arm-token]
+
+    > [!NOTE]
+    > Le jeton peut expirer après un certain temps. Réexécutez l’exemple de code pour générer un nouveau jeton.
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Appel d’opérations de sauvegarde et de restauration
 
@@ -134,7 +137,7 @@ Pour sauvegarder un service Gestion des API, envoyez la demande HTTP suivante :
 où :
 
 * `subscriptionId` : ID de l’abonnement qui inclut le service Gestion des API que vous tentez de sauvegarder
-* `resourceGroupName` : chaîne au format « Api-Default-{service-region} », où `service-region` identifie la région Azure où est hébergé le service Gestion des API que vous tentez de sauvegarder ; par exemple `North-Central-US`
+* `resourceGroupName` : nom du groupe de ressources de votre service Gestion des API Azure
 * `serviceName` : nom du service Gestion des API que vous tentez de sauvegarder, spécifié au moment de sa création
 * `api-version` - remplacer par `2014-02-14`
 
@@ -193,10 +196,11 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 > Le **SKU** du service à restaurer **doit correspondre** à celui du service sauvegardé utilisé pour la restauration.
 >
 > Les **modifications** de configuration du service (par exemple, API, stratégies, apparence du portail des développeurs) pendant qu’une opération de restauration est en cours **peuvent être écrasées**.
->
->
 
-## <a name="next-steps"></a>étapes suivantes
+> [!NOTE]
+> Vous pouvez aussi effectuer les opérations de sauvegarde et de restauration avec les commandes Powershell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement*, respectivement.
+
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les blogs Microsoft suivants pour les deux procédures pas à pas différent du processus de sauvegarde et de restauration.
 
 * [Répliquer des comptes de gestion des API Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)

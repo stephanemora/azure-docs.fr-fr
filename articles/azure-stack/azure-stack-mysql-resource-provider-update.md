@@ -1,6 +1,6 @@
 ---
-title: Utilisation des bases de données fournies par le fournisseur de ressources de l’adaptateur MySQL sur Azure Stack | Microsoft Docs
-description: Guide pratique pour créer et gérer des bases de données MySQL provisionnées avec le fournisseur de ressources de l’adaptateur MySQL
+title: Mise à jour du fournisseur de ressources mySQL Azure Stack | Microsoft Docs
+description: Découvrez comment vous pouvez mettre à jour le fournisseur de ressources mySQL Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,59 +11,100 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 0a900d75315fd0015633c036877faef84c48d65b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034156"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049593"
 ---
-# <a name="create-mysql-databases"></a>Créer des bases de données MySQL
+# <a name="update-the-mysql-resource-provider"></a>Mettre à jour le fournisseur de ressources MySQL 
 
-Vous pouvez créer et gérer des bases de données libre-service dans le portail utilisateur. Un utilisateur Azure Stack a besoin d’un abonnement avec une offre qui inclut le service de base de données MySQL.
+*S’applique à : systèmes intégrés Azure Stack.*
 
-## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Créer une base de données MySQL pour tester votre déploiement
+Un nouvel adaptateur de fournisseur de ressources SQL peut être publié quand des builds Azure Stack sont mises à jour. Même si l’adaptateur existant continue de fonctionner, nous vous recommandons d’effectuer une mise à jour dès que possible vers la build la plus récente. 
 
-1. Connectez-vous au portail utilisateur Azure Stack.
-2. Sélectionnez **+ Nouveau** > **Données + stockage** > **Base de données MySQL** > **Ajouter**.
-3. Sous **Créer une base de données MySQL**, entrez le nom de la base de données, puis configurez les autres paramètres en fonction des besoins de votre environnement.
+>[!IMPORTANT]
+>Vous devez installer les mises à jour dans l’ordre de leur publication. Vous ne pouvez pas ignorer les versions. Reportez-vous à la liste des versions dans [Déployer les conditions préalables du fournisseur de ressources](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-    ![Créer une base de données MySQL test](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Mettre à jour l’adaptateur de fournisseur de ressources MySQL (uniquement pour les systèmes intégrés)
+Un nouvel adaptateur de fournisseur de ressources SQL peut être publié quand des builds Azure Stack sont mises à jour. Même si l’adaptateur existant continue de fonctionner, nous vous recommandons d’effectuer une mise à jour dès que possible vers la build la plus récente.  
+ 
+Pour mettre à jour le fournisseur de ressources, vous utilisez le script **UpdateMySQLProvider.ps1**. Le processus est semblable au processus utilisé pour installer un fournisseur de ressources, comme décrit dans la section [Déployer le fournisseur de ressources](#deploy-the-resource-provider) de cet article. Le script est inclus avec le téléchargement du fournisseur de ressources. 
 
-4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)**. Sous **Sélectionner une référence (SKU) MySQL**, choisissez la référence de votre base de données.
+Le script **UpdateMySQLProvider.ps1** crée une machine virtuelle avec le dernier code de fournisseur de ressources et migre les paramètres de l’ancienne machine virtuelle vers la nouvelle. Les paramètres qui migrent incluent des informations sur la base de données et le serveur d’hébergement, ainsi que l’enregistrement DNS nécessaire. 
 
-    ![Sélectionner une référence (SKU) MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+>[!NOTE]
+>Nous vous conseillons de télécharger la dernière image Windows Server 2016 Core à partir de la Gestion de la Place de marché. Si vous devez installer une mise à jour, vous pouvez placer un **seul** package MSU dans le chemin de dépendance local. Le script échoue s’il existe plusieurs fichiers MSU à cet emplacement.
 
-    >[!Note]
-    >Quand ils sont ajoutés à Azure Stack, les serveurs d’hébergement se voient affectés une référence (SKU). Les bases de données sont créées dans ce pool de serveurs d’hébergement d’une référence (SKU).
+Le script exige d’utiliser les mêmes arguments que ceux décrits pour le script DeployMySqlProvider.ps1. Fournissez également le certificat ici.  
 
-5. Sous **Connexion**, sélectionnez ***Configurer les paramètres requis***.
-6. Sous **Sélectionner une connexion**, vous pouvez choisir une connexion existante ou sélectionner **+ Créer une connexion** pour configurer une nouvelle connexion.  Entrez un nom et un **Mot de passe** de **Connexion à la base de données**, puis sélectionnez **OK**.
+Voici un exemple du script *UpdateMySQLProvider.ps1* que vous pouvez exécuter à partir de l’invite PowerShell. Veillez à modifier les informations de compte et les mots de passe si nécessaire :  
 
-    ![Créer une connexion de base de données](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
+> [!NOTE] 
+> Le processus de mise à jour s’applique uniquement aux systèmes intégrés. 
 
-    >[!NOTE]
-    >La longueur du nom de connexion à la base de données ne peut pas dépasser 32 caractères dans MySQL 5.7. Dans les éditions antérieures, il ne devait pas dépasser 16 caractères.
+```powershell 
+# Install the AzureRM.Bootstrapper module and set the profile. 
+Install-Module -Name AzureRm.BootStrapper -Force 
+Use-AzureRmProfile -Profile 2017-03-09-profile 
 
-7. Sélectionnez **Créer** pour terminer la configuration de la base de données.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
+$domain = "AzureStack" 
 
-Une fois la base de données déployée, notez la **Chaîne de connexion** sous **Bases**. Vous pouvez utiliser cette chaîne dans n’importe quelle application qui doit accéder à la base de données MySQL.
+# For integrated systems, use the IP address of one of the ERCS virtual machines 
+$privilegedEndpoint = "AzS-ERCS01" 
 
-![Obtenir la chaîne de connexion pour la base de données MySQL](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+# Point to the directory where the resource provider installation files were extracted. 
+$tempDir = 'C:\TEMP\MYSQLRP' 
 
-## <a name="update-the-administrative-password"></a>Mettre à jour le mot de passe d’administration
+# The service admin account (can be Azure Active Directory or Active Directory Federation Services). 
+$serviceAdmin = "admin@mydomain.onmicrosoft.com" 
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass) 
+ 
+# Set credentials for the new resource provider VM. 
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass) 
+ 
+# And the cloudadmin credential required for privileged endpoint access. 
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass) 
 
-Vous pouvez modifier le mot de passe en le changeant sur l’instance du serveur MySQL.
+# Change the following as appropriate. 
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+ 
+# Change directory to the folder where you extracted the installation files. 
+# Then adjust the endpoints. 
+$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
+-VMLocalCredential $vmLocalAdminCreds ` 
+-CloudAdminCredential $cloudAdminCreds ` 
+-PrivilegedEndpoint $privilegedEndpoint ` 
+-DefaultSSLCertificatePassword $PfxPass ` 
+-DependencyFilesLocalPath $tempDir\cert ` 
+-AcceptLicense 
+``` 
+ 
+### <a name="updatemysqlproviderps1-parameters"></a>Paramètres de UpdateMySQLProvider.ps1 
+Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le faites pas, ou si la validation d’un paramètre échoue, vous êtes invité à fournir les paramètres obligatoires. 
 
-1. Sélectionnez **RESSOURCES ADMINISTRATIVES** > **Serveurs d’hébergement MySQL**. Sélectionnez le serveur d’hébergement.
-2. Sous **Paramètres**, sélectionnez **Mot de passe**.
-3. Sous **Mot de passe**, entrez le nouveau mot de passe, puis sélectionnez **Enregistrer**.
-
-![Mettre à jour le mot de passe de l’administrateur](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
+| Nom du paramètre | Description | Commentaire ou valeur par défaut | 
+| --- | --- | --- | 
+| **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _Obligatoire_ | 
+| **AzCredential** | Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _Obligatoire_ | 
+| **VMLocalCredential** |Informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _Obligatoire_ | 
+| **PrivilegedEndpoint** | Adresse IP ou nom DNS du point de terminaison privilégié. |  _Obligatoire_ | 
+| **DependencyFilesLocalPath** | Votre fichier de certificat .pfx doit également être placé dans ce répertoire. | _Facultatif_ (_obligatoire_ pour les nœuds multiples) | 
+| **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _Obligatoire_ | 
+| **MaxRetryCount** | Nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 | 
+| **RetryDuration** | Délai d’attente entre les tentatives, en secondes. | 120 | 
+| **Désinstaller** | Supprimez le fournisseur de ressources et toutes les ressources associées (voir les remarques ci-dessous). | Non  | 
+| **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non  | 
+| **AcceptLicense** | Ignore l’invite à accepter la licence GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+ 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 [Tenir à jour le fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-maintain.md)

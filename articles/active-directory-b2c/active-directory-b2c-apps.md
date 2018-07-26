@@ -1,31 +1,30 @@
 ---
-title: Types d’applications dans Azure Active Directory B2C | Microsoft Docs
-description: Types d’applications que vous pouvez générer dans Azure Active Directory B2C.
+title: Types d’applications pouvant être utilisés dans Azure Active Directory B2C | Microsoft Docs
+description: Découvrez les types d’applications que vous pouvez utiliser dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 07/13/2018
 ms.author: davidmu1
 ms.component: B2C
-ms.openlocfilehash: d306d27f448ab9dd95e891b81f27b69e11f05495
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0055da12689fcbe14de9dd537db2b20358a7273b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442064"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113451"
 ---
-# <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C : types d’applications
-Azure Active Directory (Azure AD) B2C prend en charge l’authentification pour une variété d’architectures d’applications modernes. Toutes sont basées sur les protocoles standard [OAuth 2.0](active-directory-b2c-reference-protocols.md) ou [OpenID Connect](active-directory-b2c-reference-protocols.md). Ce document décrit brièvement les types d’applications pouvant être créées, indépendamment de la langue ou de la plate-forme souhaitées. Il vous permet également de comprendre les principaux scénarios avant de [commencer à créer des applications](active-directory-b2c-overview.md).
+# <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Azure Active Directory B2C
 
-## <a name="the-basics"></a>Concepts de base
-Chaque application qui utilise Azure AD B2C doit être inscrite dans votre [répertoire B2C](active-directory-b2c-get-started.md) par le biais du [Portail Azure](https://portal.azure.com/). Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
+Azure Active Directory (Azure AD) B2C prend en charge l’authentification pour une large gamme d’architectures d’applications modernes. Toutes sont basées sur les protocoles standard [OAuth 2.0](active-directory-b2c-reference-protocols.md) ou [OpenID Connect](active-directory-b2c-reference-protocols.md). Ce document décrit les types d’applications que vous pouvez créer, indépendamment de votre langage et de votre plateforme préférés. Il vous permet également de comprendre les principaux scénarios avant de commencer à créer des applications.
 
-* un **ID d’application** qui identifie de manière unique votre application ;
-* un **URI de redirection** pouvant être utilisé pour diriger les réponses vers votre application ;
-* n’importe quelle valeur spécifique au scénario. Pour plus d’informations, découvrez comment [inscrire une application](active-directory-b2c-app-registration.md).
+Chaque application qui utilise Azure AD B2C doit être inscrite auprès de votre [locataire Azure AD B2C](active-directory-b2c-get-started.md) dans le [Portail Azure](https://portal.azure.com/). Le processus d’inscription des applications collecte et attribue des valeurs, par exemple :
+
+* Un **ID d’application** qui identifie de manière unique votre application
+* Un **URI de redirection** pouvant être utilisé pour rediriger les réponses vers votre application
 
 Chaque requête qui est envoyée à Azure AD B2C spécifie une **stratégie**. Une stratégie contrôle le comportement d’Azure AD. Vous pouvez également utiliser ces points de terminaison pour créer un ensemble d’expériences utilisateur hautement personnalisable. Les stratégies courantes comprennent les stratégies d’inscription, les stratégies de connexion et les stratégies de modification de profil. Si vous n’êtes pas familiarisé avec les stratégies, consultez l’article décrivant [l’infrastructure de stratégie extensible](active-directory-b2c-reference-policies.md) d’Azure AD B2C avant de continuer.
 
@@ -33,15 +32,16 @@ Le mode d’interaction de chaque application suit un modèle général similair
 
 1. L’application dirige l’utilisateur vers le point de terminaison v2.0 pour exécuter une [stratégie](active-directory-b2c-reference-policies.md).
 2. L'utilisateur exécute la stratégie en fonction de la définition de celle-ci.
-3. L’application reçoit un type de jeton de sécurité du point de terminaison v2.0.
+3. L’application reçoit un jeton de sécurité de la part du point de terminaison v2.0.
 4. L’application utilise le jeton de sécurité pour accéder aux informations ou à la ressource protégées.
 5. Le serveur de ressources valide le jeton de sécurité afin de garantir l’octroi de l’accès.
 6. L’application actualise régulièrement le jeton de sécurité.
 
-<!-- TODO: Need a page for libraries to link to --> Ces étapes peuvent différer légèrement selon le type d’application que vous créez.
+Ces étapes peuvent varier légèrement selon le type d’application que vous créez.
 
-## <a name="web-apps"></a>les applications web
-Pour les applications web (notamment .NET, PHP, Java, Ruby, Python et Node.js.) qui sont hébergées sur un serveur et accessibles par le biais d’un navigateur, Azure AD B2C prend en charge [OpenID Connect](active-directory-b2c-reference-protocols.md) pour toutes les expériences utilisateur. Cela inclut la connexion, l’inscription et la gestion des profils. Dans la mise en œuvre Azure AD B2C de OpenID Connect, votre application web déclenche ces expériences utilisateur en émettant des demandes d’authentification à Azure AD. Le résultat de la demande est un élément `id_token`. Ce jeton de sécurité représente l’identité de l’utilisateur. Il fournit également des informations sur l’utilisateur sous forme de revendications :
+## <a name="web-applications"></a>Applications web
+
+Pour les applications web (notamment .NET, PHP, Java, Ruby, Python et Node.js) qui sont hébergées sur un serveur et accessibles par le biais d’un navigateur, Azure AD B2C prend en charge [OpenID Connect](active-directory-b2c-reference-protocols.md) pour toutes les expériences utilisateur. Cela inclut la connexion, l’inscription et la gestion des profils. Dans l’implémentation Azure AD B2C d’OpenID Connect, votre application web déclenche ces expériences utilisateur en envoyant des demandes d’authentification à Azure AD. Le résultat de la demande est un élément `id_token`. Ce jeton de sécurité représente l’identité de l’utilisateur. Il fournit également des informations sur l’utilisateur sous forme de revendications :
 
 ```
 // Partial raw id_token
@@ -56,22 +56,21 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Pour plus d’informations sur les différents types de jetons et de revendications disponibles pour une application, voir la [référence sur les jetons B2C](active-directory-b2c-reference-tokens.md).
+Pour plus d’informations sur les différents types de jetons et de revendications disponibles pour une application, consultez la [documentation de référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-Dans les applications web, chaque exécution d’une [stratégie](active-directory-b2c-reference-policies.md) suit la procédure générale ci-après :
+Dans les applications web, chaque exécution d’une [stratégie](active-directory-b2c-reference-policies.md) suit cette procédure générale :
 
 ![Images de couloirs d’application Web](./media/active-directory-b2c-apps/webapp.png)
 
 La validation de l’élément `id_token` à l’aide d’une clé de signature publique provenant d’Azure AD est suffisante pour vérifier l’identité de l’utilisateur. Cela définit également un cookie de session qui peut être utilisé pour identifier l’utilisateur sur les demandes de page suivantes.
 
-Pour voir ce scénario en action, exécutez l’un des exemples de code de connexion d’application web de la section [Prise en main](active-directory-b2c-overview.md).
+Pour voir ce scénario à l’œuvre, exécutez l’un des exemples de code de connexion d’application web de la section [Prise en main](active-directory-b2c-overview.md).
 
-En plus de faciliter la connexion simple, une application de serveur web peut également nécessiter l’accès à un service web principal. Dans ce cas, l’application web peut exécuter un [flux OpenID Connect](active-directory-b2c-reference-oidc.md) légèrement différent et acquérir des jetons à l’aide de codes d’autorisation et de jetons d’actualisation. Ce scénario est représenté dans la section [API Web](#web-apis)ci-après.
-
-<!--, and in our [WebApp-WebAPI Getting started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
+Outre la simplification des connexions, une application de serveur web peut également nécessiter l’accès à un service web backend. Dans ce cas, l’application web peut exécuter un [flux OpenID Connect](active-directory-b2c-reference-oidc.md) légèrement différent et acquérir des jetons à l’aide de codes d’autorisation et de jetons d’actualisation. Ce scénario est représenté dans la section [API Web](#web-apis)ci-après.
 
 ## <a name="web-apis"></a>API Web
-Vous pouvez utiliser Azure AD B2C pour sécuriser les services web, comme l’API web RESTful de votre application. Les API web peuvent utiliser OAuth 2.0 pour sécuriser leurs données, en authentifiant les requêtes HTTP entrantes à l’aide de jetons. L’appelant d’une API web ajoute un jeton dans l’en-tête d’autorisation d’une requête HTTP :
+
+Vous pouvez utiliser Azure AD B2C pour sécuriser les services web, comme l’API web RESTful de votre application. Les API web peuvent utiliser OAuth 2.0 pour sécuriser leurs données, en authentifiant les requêtes HTTP entrantes à l’aide de jetons. L’appelant d’une API web ajoute un jeton dans l’en-tête d’autorisation d’une requête HTTP :
 
 ```
 GET /api/items HTTP/1.1
@@ -84,11 +83,11 @@ Accept: application/json
 L’API web peut ensuite utiliser le jeton pour vérifier l’identité de l’appelant de l’API et extraire les informations à son sujet, à partir des revendications encodées dans le jeton. Pour plus d’informations sur les différents types de jetons et de revendications disponibles pour une application, voir la [référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
 > [!NOTE]
-> Actuellement, Azure AD B2C prend uniquement en charge les API web qui sont accessibles par leurs clients connus. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API web principale. Cette architecture est entièrement prise en charge. Autoriser un client tiers, comme une autre application iOS, à accéder également à la même API web n’est pas pris en charge pour le moment. Tous les composants de votre application complète doivent partager un ID d’application unique.
+> Actuellement, Azure AD B2C prend uniquement en charge les API web qui sont accessibles par leurs clients connus. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API web backend. Cette architecture est entièrement prise en charge. Vous ne pouvez pas autoriser un client partenaire, tel qu’une autre application iOS, à accéder à la même API web. Tous les composants de votre application doivent partager un même ID d’application.
 >
 >
 
-Une API web peut recevoir des jetons de tous types de clients, notamment des applications web, des applications de bureau et mobiles, des applications de page unique, des démons côté serveur, et même d’autres API web. Voici un exemple de flux complet d’une application web appelant une API web :
+Une API web peut recevoir des jetons de tous types de clients, notamment des applications web, des applications de bureau et mobiles, des applications monopages, des démons côté serveur, et même d’autres API web. Voici un exemple de flux complet d’une application web appelant une API web :
 
 ![Images de couloirs d’API Web d’application Web](./media/active-directory-b2c-apps/webapi.png)
 
@@ -96,27 +95,34 @@ Pour plus d’informations sur les codes d’autorisation, les jetons d’actual
 
 Pour savoir comment sécuriser une API web avec Azure AD B2C, consultez les didacticiels d’API web dans notre section [Prise en main](active-directory-b2c-overview.md).
 
-## <a name="mobile-and-native-apps"></a>Applications mobiles et natives
-Les applications installées sur des appareils, comme les applications de bureau et les applications mobiles nécessitent bien souvent l’accès à des services principaux ou des API web pour le compte d’un utilisateur. Vous pouvez ajouter des expériences de gestion des identités personnalisées à vos applications natives et appeler en toute sécurité les services principaux à l’aide d’Azure AD B2C et du [flux de code d’autorisation OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
+## <a name="mobile-and-native-applications"></a>Applications mobiles et natives
 
-Dans ce flux, l’application exécute des [stratégies](active-directory-b2c-reference-policies.md) et reçoit un élément `authorization_code` d’Azure AD une fois que l’utilisateur a exécuté la stratégie. L’élément `authorization_code` représente l’autorisation de l’application d’appeler les services principaux pour le compte de l’utilisateur actuellement connecté. L’application peut ensuite échanger l’élément `authorization_code` en arrière-plan contre des éléments `id_token` et `refresh_token`.  L’application peut utiliser l’élément `id_token` pour s’authentifier auprès d’une API web principale dans les requêtes HTTP. Elle peut également utiliser l’élément `refresh_token` pour obtenir un nouvel élément `id_token` lorsque le précédent arrive à expiration.
+Les applications installées sur des appareils, comme les applications de bureau et les applications mobiles, nécessitent souvent que vous accédiez aux services backend ou aux API web pour le compte de l’utilisateur. Vous pouvez ajouter des expériences personnalisées de gestion des identités à vos applications natives et appeler de manière sécurisée les services backend à l’aide d’Azure AD B2C et du [flux de code d’autorisation OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
+
+Dans ce flux, l’application exécute des [stratégies](active-directory-b2c-reference-policies.md) et reçoit un `authorization_code` d’Azure AD une fois que l’utilisateur a exécuté la stratégie. `authorization_code` représente l’autorisation de l’application à appeler les services backend pour le compte de l’utilisateur actuellement connecté. L’application peut ensuite échanger `authorization_code` en arrière-plan contre `id_token` et `refresh_token`.  L’application peut utiliser `id_token` pour s’authentifier auprès d’une API web backend dans les requêtes HTTP. Elle peut également utiliser l’élément `refresh_token` pour obtenir un nouvel élément `id_token` lorsque le précédent arrive à expiration.
 
 > [!NOTE]
-> Actuellement, Azure AD B2C prend uniquement en charge les jetons qui sont utilisés pour accéder au service web principal de l’application. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API web principale. Cette architecture est entièrement prise en charge. Autoriser votre application iOS à accéder à une API web tierce à l’aide de jetons d’accès OAuth 2.0 n’est pas pris en charge pour le moment. Tous les composants de votre application complète doivent partager un ID d’application unique.
+> Azure AD B2C prend uniquement en charge les jetons qui sont utilisés pour accéder au service web backend de l’application. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API web backend. Cette architecture est entièrement prise en charge. Vous ne pouvez pas autoriser votre application iOS à accéder à une API web partenaire à l’aide de jetons d’accès OAuth 2.0. Tous les composants de votre application doivent partager un même ID d’application.
 >
 >
 
 ![Images de couloirs d’application native](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Limitations actuelles
+
 Pour l’instant, Azure AD B2C ne prend pas en charge les types d’applications ci-après, mais ces dernières figurent sur la feuille de route. 
 
-### <a name="daemonsserver-side-apps"></a>Démons/applications côté serveur
-Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s’authentifier et récupérer des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un utilisateur) et à l’aide du flux des informations d’identification du client OAuth 2.0.
+### <a name="daemonsserver-side-applications"></a>Démons et applications côté serveur
 
-Ce flux n’est pas actuellement pris en charge par Azure AD B2C. Ces applications peuvent uniquement obtenir des jetons après l’exécution d’un flux interactif utilisateur.
+Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un utilisateur), et à l’aide du flux des informations d’identification du client OAuth 2.0. Le flux d’informations d’identification du client n’est pas le même que celui avec emprunt d’identité, et celui-ci ne doit pas être utilisé pour l’authentification de serveur à serveur.
+
+Même si le flux d’informations d’identification du client n’est pas pris en charge par Azure AD B2C, vous pouvez le configurer à l’aide d’Azure AD. Un locataire Azure AD B2C partage certaines fonctionnalités avec les locataires d’entreprise Azure AD.  Le flux d’informations d’identification du client est pris en charge par la fonctionnalité Azure AD du locataire Azure AD B2C. 
+
+Pour configurer le flux d’informations d’identification du client, consultez [Azure Active Directory v2.0 et le flux d’informations d’identification du client OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Une authentification réussie entraîne la réception d’un jeton mis en forme de telle sorte qu’il peut être utilisé par Azure AD, comme décrit dans la [documentation de référence sur les jetons Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+
 
 ### <a name="web-api-chains-on-behalf-of-flow"></a>Chaînes d’API web (flux On-Behalf-Of)
+
 De nombreuses architectures incluent une API web qui doit appeler une autre API web en aval, toutes deux sécurisées par Azure AD B2C. Ce scénario est courant chez les clients natifs disposant d’une API web principale. Il appelle ensuite un service en ligne Microsoft, tel que l’API Azure AD Graph.
 
 Ce scénario d’API web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of.  Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.

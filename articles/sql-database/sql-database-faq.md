@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309127"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092067"
 ---
 # <a name="sql-database-faq"></a>Forum Aux Questions de base de données SQL
 
@@ -24,9 +24,9 @@ La version actuelle de la base de données SQL est la version 12. La version 11 
 ## <a name="what-is-the-sla-for-sql-database"></a>Quel est le contrat de niveau de service (SLA) de la base de données SQL ?
 Nous garantissons qu’au moins 99,99 % du temps, vous disposerez d’une connectivité entre Microsoft Azure SQL Database et notre passerelle Internet, quel que soit votre niveau de service. Pour plus d’informations, consultez [Contrat de niveau de service](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Quel est le nouveau modèle d’achat basé sur des vCores (préversion) d’Azure SQL Database ?
+## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Quel est le nouveau modèle d’achat basé sur des vCores d’Azure SQL Database ?
 
-Le nouveau modèle d’achat vient compléter le modèle basé sur des unités DTU existant. Le modèle d’achat basé sur des vCores est conçu pour offrir aux clients de la flexibilité, du contrôle et de la transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Il permet également aux clients de mettre à l’échelle les ressources de calcul et de stockage en fonction des besoins de leur charge de travail. Des options de pool élastique et de base de données unique utilisant le modèle basé sur des vCores permettent également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Pour plus d’informations, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md). 
+Le nouveau modèle d’achat vient compléter le modèle basé sur des unités DTU existant. Le modèle d’achat basé sur des vCores est conçu pour offrir aux clients de la flexibilité, du contrôle et de la transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Il permet également aux clients de mettre à l’échelle les ressources de calcul et de stockage en fonction des besoins de leur charge de travail. Des options de pool élastique et de base de données unique utilisant le modèle basé sur des vCores permettent également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Pour plus d’informations, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md). 
 
 ## <a name="what-is-a-vcore"></a>Qu’est-ce qu’un vCore ? 
 Un vCore est l’UC logique qui permet de choisir parmi plusieurs générations de matériel. Les UC logiques de 4e génération sont basées sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, et celles de 5e génération sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz.
@@ -38,11 +38,11 @@ Dans de nombreux cas, les applications peuvent bénéficier de la simplicité d�
 
 Les modèles basés sur des unités DTU et des vCores continuent d’exister côte à côte. Nous lançons le modèle basé sur des vCores en réponse aux demandes des clients qui souhaitaient plus de transparence autour de leurs ressources de base de données et la possibilité de mettre à l’échelle les ressources de calcul et de stockage séparément. Le modèle basé sur des vCores permet également aux clients disposant d’une couverture Software Assurance active de réaliser des économies supplémentaires via Azure Hybrid Benefit pour SQL Server.
 
-## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>Comment choisir entre le modèle d’achat basé sur des unités DTU et le modèle d’achat basé sur des vCores (préversion) ? 
+## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Comment choisir entre le modèle d’achat basé sur des unités DTU et le modèle d’achat basé sur des vCores ? 
 L’unité DTU (Database Transaction Unit) repose sur une mesure mixte d’UC, de mémoire, de lectures et d’écritures. Les niveaux de performance basés sur les unités DTU représentent des ensembles de ressources préconfigurés permettant de piloter différents niveaux de performances d’applications. Les clients qui ne souhaitent pas avoir à se soucier des ressources sous-jacentes et qui préfèrent la simplicité d’un ensemble préconfiguré, tout en payant un montant fixe chaque mois, peuvent trouver le modèle basé sur les unités DTU plus adapté à leurs besoins. Néanmoins, pour les clients qui ont besoin de plus d’informations détaillées sur les ressources sous-jacentes ou qui doivent les mettre à l’échelle de manière indépendante pour obtenir des performances optimales, le modèle basé sur des vCores constitue le meilleur choix.  De plus, si un client dispose d’une couverture Software Assurance active pour SQL Server, il peut optimiser son investissement actuel et économiser jusqu’à 30 % avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Les options proposées dans chaque modèle d’achat offrent les avantages d’un service entièrement managé, tels que des sauvegardes automatisées, des mises à jour logicielles et des correctifs. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>Présentation d’Azure Hybrid Benefit pour SQL Server 
-[Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) vous aide à valoriser vos investissements actuels en licences et à accélérer la migration vers le cloud. Azure Hybrid Benefit pour SQL Server est un avantage Azure qui vous permet d’utiliser vos licences SQL Server avec une couverture Software Assurance et de payer SQL Database à un tarif réduit (taux de base). Azure Hybrid Benefit pour SQL Server est disponible en préversion publique du modèle d’achat basé sur des vCores (préversion) pour les pools élastiques et les bases de données uniques SQL Database. Vous pouvez appliquer cet avantage même si la référence SKU est active. Notez toutefois que le taux de base s’applique à partir du moment où vous le sélectionnez dans le portail Azure. Aucun crédit n’est émis rétroactivement.
+[Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) vous aide à valoriser vos investissements actuels en licences et à accélérer la migration vers le cloud. Azure Hybrid Benefit pour SQL Server est un avantage Azure qui vous permet d’utiliser vos licences SQL Server avec une couverture Software Assurance et de payer SQL Database à un tarif réduit (taux de base). Azure Hybrid Benefit pour SQL Server est disponible en préversion publique du modèle d’achat basé sur des vCores pour les pools élastiques et les bases de données uniques SQL Database. Vous pouvez appliquer cet avantage même si la référence SKU est active. Notez toutefois que le taux de base s’applique à partir du moment où vous le sélectionnez dans le portail Azure. Aucun crédit n’est émis rétroactivement.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Y a-t-il des droits d’utilisation double avec Azure Hybrid Benefit pour SQL Server ?
 Vous disposez de 180 jours de droits d’utilisation double de la licence pour vous assurer que les migrations s’exécutent en toute transparence. À l’issue de cette période de 180 jours, la licence SQL Server peut uniquement être utilisée dans le cloud dans SQL Database et n’a pas de droits d’utilisation double en local et dans le cloud.
@@ -144,7 +144,7 @@ Les pools élastiques sont facturés en fonction des caractéristiques suivantes
 * Si un pool élastique est redimensionné, il n’est pas facturé selon la nouvelle quantité de ressources tant que l’opération de redimensionnement n’est pas terminée. Le processus est le même que lors de la modification du niveau de performances des bases de données uniques.
 * Le prix d’un pool élastique est basé sur le nombre de ressources de ce pool. Le prix d’un pool élastique est indépendant du nombre et de l’utilisation des bases de données élastiques qu’il contient.
 
-Pour plus d’informations, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/), [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md).
+Pour plus d’informations, consultez [Tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/), [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
 
 ## <a name="how-does-the-vcore-based-usage-show-up-in-my-bill"></a>Comment l’utilisation basée sur des vCores s’affichera-t-elle sur ma facture ? 
 Dans le modèle basé sur des vCores, le service est facturé à un tarif horaire prévisible en fonction du niveau de service, du calcul provisionné en vCores, du stockage provisionné en Go/mois et du stockage de sauvegarde consommé. Si le stockage pour les sauvegardes dépasse la taille totale de la base de données (autrement dit, 100 % de la taille de la base de données), des frais supplémentaires s’appliquent. Les heures de vCore, le stockage de base de données configuré, les E/S utilisées et le stockage de sauvegarde sont clairement indiqués sur la facture, pour que vous puissiez facilement déterminer les ressources que vous avez consommées. Le stockage de sauvegarde jusqu’à 100 % de la taille maximum de la base de données est inclus. Au-delà, vous êtes facturé en Go/mois consommés dans un mois donné.

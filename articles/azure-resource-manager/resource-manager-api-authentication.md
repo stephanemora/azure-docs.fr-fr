@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2017
+ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018644"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036844"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 ## <a name="introduction"></a>Introduction
@@ -69,19 +69,25 @@ Gérez vos abonnements connectés :
 ## <a name="register-application"></a>Inscription de l’application
 Avant de commencer l’écriture du code, inscrivez votre application web à Azure Active Directory (AD). L’inscription de l’application entraîne la création d’une identité centrale pour votre application dans Azure AD. Elle contient des informations de base sur votre application, par exemple l’ID du client OAuth, les URL de réponse et les informations d’identification que votre application utilise pour s’authentifier et accéder aux API d’Azure Resource Manager. L’inscription de l’application enregistre également les différentes autorisations dont votre application a besoin pour accéder aux API Microsoft pour le compte de l’utilisateur.
 
-Votre application ayant accès à plusieurs abonnements, vous devez la configurer comme une application mutualisée. Pour passer la validation, indiquez le domaine associé à votre annuaire Azure Active Directory. Pour afficher les domaines associés à votre annuaire Azure Active Directory, connectez-vous au portail.
+Votre application ayant accès à plusieurs abonnements, vous devez la configurer comme une application mutualisée. Pour passer la validation, indiquez le domaine associé à votre annuaire Azure Active Directory. Pour voir les domaines associés à votre annuaire Azure Active Directory, connectez-vous au portail.
 
 L’exemple suivant montre comment inscrire l’application à l’aide d’Azure PowerShell. Pour que cette commande fonctionne, vous devez disposer de la version la plus récente (août 2016) d’Azure PowerShell.
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell-interactive
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
 Pour vous connecter en tant qu’application Active Directory, il vous faut l’ID et le mot de passe de l’application. Pour afficher l’ID d’application renvoyé par la commande précédente, utilisez :
 
-    $app.ApplicationId
+```azurepowershell-interactive
+$app.ApplicationId
+```
 
 L’exemple suivant montre comment inscrire l’application à l’aide de l’interface de ligne de commande Azure.
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```azurecli-interactive
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
 Les résultats incluent l’ID de l’application, dont vous avez besoin pour vous authentifier en tant qu’application.
 

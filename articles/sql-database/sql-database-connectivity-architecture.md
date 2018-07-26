@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644434"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036766"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architecture de connectivité Azure SQL Database 
 
@@ -50,6 +50,9 @@ Si vous vous connectez en dehors d’Azure, vos connexions disposent d’une str
 
 ![Présentation de l’architecture](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
+> [!IMPORTANT]
+> Lorsque vous utilisez des points de terminaison de service avec Azure SQL Database, votre stratégie par défaut est **Rediriger**. Par conséquent, pour activer la connectivité à partir de l’intérieur de votre réseau virtuel, vous devez autoriser le trafic sortant vers toutes les adresses IP d’Azure SQL Database, et pas seulement les adresses IP de passerelle. Cela peut être fait à l’aide de balises de service NSG (Groupe de sécurité réseau). Si vous souhaitez autoriser le trafic sortant uniquement vers les adresses IP, modifiez votre paramètre en définissant **Proxy**.
+
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Adresses IP de la passerelle Azure SQL Database
 
 Pour vous connecter à une base de données SQL Azure à partir de ressources locales, vous devez autoriser le trafic réseau sortant vers la passerelle Azure SQL Database pour votre région Azure. Les connexions transitent uniquement via la passerelle lors de la connexion en mode Proxy, qui est le mode par défaut lors de la connexion à partir de ressources locales.
@@ -61,9 +64,9 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Est de l’Australie | 191.238.66.109 | 13.75.149.87 |
 | Sud-Est de l’Australie | 191.239.192.109 | 13.73.109.251 |
 | Sud du Brésil | 104.41.11.5 | |
-| Centre du Canada | 40.85.224.249 | |
-| Est du Canada | 40.86.226.166 | |
-| Centre des États-Unis | 23.99.160.139 | 13.67.215.62 |
+| Canada Centre | 40.85.224.249 | |
+| Canada Est | 40.86.226.166 | |
+| USA Centre | 23.99.160.139 | 13.67.215.62 |
 | Est de l'Asie | 191.234.2.139 | 52.175.33.150 |
 | Est des États-Unis 1 | 191.238.6.43 | 40.121.158.30 |
 | Est des États-Unis 2 | 191.239.224.107 | 40.79.84.180 * |
@@ -75,7 +78,7 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Centre de la Corée | 52.231.32.42 | |
 | Corée du Sud | 52.231.200.86 |  |
 | Centre-Nord des États-Unis | 23.98.55.75 | 23.96.178.199 |
-| Europe du Nord | 191.235.193.75 | 40.113.93.91 |
+| Europe Nord | 191.235.193.75 | 40.113.93.91 |
 | Centre-Sud des États-Unis | 23.98.162.75 | 13.66.62.124 |
 | Asie du Sud-Est | 23.100.117.95 | 104.43.15.0 |
 | Nord du Royaume-Uni | 13.87.97.210 | |
@@ -83,9 +86,9 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Sud du Royaume-Uni 2 | 13.87.34.7 | |
 | Ouest du Royaume-Uni | 51.141.8.11  | |
 | Centre-Ouest des États-Unis | 13.78.145.25 | |
-| Europe de l'Ouest | 191.237.232.75 | 40.68.37.158 |
+| Europe Ouest | 191.237.232.75 | 40.68.37.158 |
 | Ouest des États-Unis 1 | 23.99.34.75 | 104.42.238.205 |
-| Ouest des États-Unis 2 | 13.66.226.202  | |
+| USA Ouest 2 | 13.66.226.202  | |
 ||||
 
 \***REMARQUE :** *Est des États-Unis 2* a également l’adresse IP tertiaire `52.167.104.0`.

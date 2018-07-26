@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 12a3c4556de21bb0c0dd6b09458943fb03092532
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866125"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068625"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Gestion de notifications de maintenance planifiées pour les machines virtuelles Linux
 
@@ -101,7 +101,7 @@ Les valeurs suivantes sont retournées sous MaintenanceRedeployStatus :
 L’appel suivant lance la maintenance sur une machine virtuelle si `IsCustomerInitiatedMaintenanceAllowed` est défini sur true.
 
 ```azure-cli
-az vm perform-maintenance rgName vmName 
+az vm perform-maintenance -g rgName -n vmName 
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
@@ -160,7 +160,7 @@ Pour plus d’informations sur la haute disponibilité, consultez [Régions et d
 
 **Q : Quelle est l’expérience dans le cas de Virtual Machine Scale Sets ?**
 
-**R :** La maintenance planifiée est désormais disponible pour Virtual Machine Scale Sets. Pour obtenir des instructions sur la façon de lancer la maintenance de libre-service, consultez la section « Procédure -> Gérer -> Maintenance planifiée » de la documentation consacrée aux groupes de machines virtuelles identiques.
+**R :** La maintenance planifiée est désormais disponible pour Virtual Machine Scale Sets. Pour obtenir des instructions sur la façon de lancer une maintenance en libre-service, consultez le document [Maintenance planifiée des machines virtuelles](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md).
 
 **Q : Quelle est l’expérience dans le cas des Services cloud (rôle de travail/web) et de Service Fabric ?**
 

@@ -5,15 +5,15 @@ services: virtual-machines-windows, virtual-machines-linux
 author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4b4dcb16adf207b775bd8411848d9e5d69c397a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 36902edd7b2df472960d19b8ef9a4ebd4cdfe695
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34669796"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906678"
 ---
 Cet article fournit des informations sur les tailles de machines virtuelles des générations précédentes. Ces tailles peuvent toujours être utilisées, mais des générations plus récentes sont disponibles.
 
@@ -21,6 +21,10 @@ Cet article fournit des informations sur les tailles de machines virtuelles des 
 ## <a name="ds-series"></a>Série DS
 
 ACU : 160
+
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -34,6 +38,10 @@ ACU : 160
 ## <a name="ds-series---memory-optimized"></a>Série DS - à mémoire optimisée
 
 ACU : 160 <sup>1</sup>
+
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -50,6 +58,10 @@ ACU : 160 <sup>1</sup>
 
 ACU : 160
 
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
+
 | Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | D1 standard  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 500                 |
@@ -63,6 +75,10 @@ ACU : 160
 
 ACU : 160
 
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
+
 | Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | D11 standard | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1 000                     |
@@ -75,6 +91,10 @@ ACU : 160
 ## <a name="a-series---compute-intensive-instances"></a>Série A - Instances de calcul intensif
 
 ACU : 225
+
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
 
 Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz.  Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
 
@@ -93,6 +113,10 @@ Les tailles A8 à A11 et celles de la série H sont également appelées *inst
 
 ACU : 50-100
 
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
+
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (HDD) : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
@@ -108,6 +132,7 @@ ACU : 50-100
 <sup>1</sup> La taille A0 est trop sollicitée sur le matériel physique. Pour cette taille spécifique uniquement, les autres déploiements de clients peuvent affecter les performances de la charge de travail en cours d’exécution. Les performances relatives sont décrites ci-dessous comme référence attendue, soumises à une variation approximative de 15 pour cent.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0-A4 à l’aide de l’interface de ligne de commande et de Powershell
+
 Dans le modèle de déploiement classique, certains noms de tailles de machines virtuelles sont légèrement différents dans Powershell et dans l’interface de ligne de commande :
 
 * Standard_A0 est ExtraSmall (Très petit) 
@@ -117,6 +142,10 @@ Dans le modèle de déploiement classique, certains noms de tailles de machines 
 * Standard_A4 est ExtraLarge (Très grand)
 
 ## <a name="basic-a"></a>De base A
+
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
 
 Les tailles du niveau De base sont principalement destinées aux charges de travail de développement et aux autres applications qui ne requièrent pas d’équilibrage de charge ou de mise à l’échelle automatique, ou aux machines virtuelles utilisant beaucoup de mémoire.
 

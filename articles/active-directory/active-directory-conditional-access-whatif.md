@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 34f6efaac00f4aa17ea6a53ab51da69b84591e35
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750080"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113026"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Qu’est-ce que l’outil de simulation d’accès conditionnel Azure Active Directory ?
 
@@ -50,6 +50,10 @@ Pour la prochaine étape, vous pouvez lancer une simulation qui évalue vos para
 
 
 Une fois l’évaluation terminée, l’outil génère un rapport sur les stratégies affectées.
+
+
+> [!NOTE]
+> Actuellement, l’outil What If ne prend pas en charge les groupes imbriqués. Si un utilisateur appartient à un groupe et que ce groupe est membre d’un autre groupe utilisé dans une stratégie d’accès conditionnel, l’outil What If n’affiche pas correctement l’application de cette stratégie. 
 
 
 ## <a name="running-the-tool"></a>Exécution de l’outil

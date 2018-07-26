@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 344ed971dd4a869cfbdc363222d772dcc3191199
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916038"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113852"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure
 
@@ -177,6 +177,13 @@ Si le problème persiste, contactez le support technique.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Impossible de sélectionner la machine virtuelle Azure dans « Activer la réplication »
 
+ **Cause 1 : le groupe de ressources et la machine virtuelle source se trouvent dans un emplacement différent** <br>
+Azure Site Recovery exige actuellement que le groupe de ressources et les machines virtuelles de la région source se trouvent dans le même emplacement. Si tel n’est pas le cas, vous ne pouvez pas trouver la machine virtuelle pendant la durée de la protection.
+
+**Cause 2 : le groupe de ressources ne fait pas partie de l’abonnement sélectionné** <br>
+Il se peut que vous ne puissiez pas trouver le groupe de ressources au moment de la protection s’il ne fait pas partie de l’abonnement donné. Assurez-vous que le groupe de ressources appartient à l’abonnement en cours d’utilisation.
+
+ **Cause 3 : configuration obsolète** <br>
 Si vous ne voyez pas la machine virtuelle que vous souhaitez activer pour la réplication, cela peut-être dû à une configuration de récupération de site obsolète conservée sur la machine virtuelle Azure. Une configuration obsolète peut être conservée sur une machine virtuelle Azure dans les cas suivants :
 
 - Vous avez activé la réplication pour la machine virtuelle Azure à l’aide de Site Recovery, puis vous avez supprimé le coffre Site Recovery sans désactiver explicitement la réplication sur la machine virtuelle.
@@ -185,6 +192,11 @@ Si vous ne voyez pas la machine virtuelle que vous souhaitez activer pour la ré
 ### <a name="fix-the-problem"></a>Résoudre le problème
 
 Vous pouvez utiliser ce [script de suppression de configuration ASR obsolète](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) pour supprimer la configuration Site Recovery obsolète sur la machine virtuelle Azure. Vous devriez être en mesure de voir la machine virtuelle après la suppression de la configuration obsolète.
+
+## <a name="unable-to-select-virtual-machine-for-protection"></a>Impossible de sélectionner la machine virtuelle pour la protection 
+ **Cause 1 : la machine virtuelle a une extension installée dans un état d’échec ou sans réponse** <br>
+ Accédez à Machines virtuelles > Paramètre > Extensions, et vérifiez s’il existe des extensions en état d’échec. Désinstallez l’extension en état d’échec, puis réessayez de protéger la machine virtuelle.<br>
+ **Cause 2 : [L’état d’approvisionnement de la machine virtuelle n’est pas valide](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>L’état de provisionnement de la machine virtuelle n’est pas valide (code d’erreur 150019)
 
@@ -200,6 +212,7 @@ Pour activer la réplication sur la machine virtuelle, l’état de provisionnem
 
 - Si **provisioningState** a la valeur **Échec**, contactez le support avec les détails pour résoudre les problèmes.
 - Si **provisioningState** a la valeur **Mise à jour**, une autre extension est peut-être en cours de déploiement. Vérifiez si des opérations sont en cours sur la machine virtuelle, attendez qu’elles se terminent et réessayez la tâche Site Recovery **Activer la réplication** qui a échoué.
+
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Erreur du service COM+ / Cliché instantané de volume (code d’erreur 151025)

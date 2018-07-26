@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930305"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126505"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Exécution de Runbooks sur un Runbook Worker hybride
 
@@ -160,9 +160,69 @@ Enregistrez le Runbook *Export-RunAsCertificateToHybridWorker* sur votre ordinat
 
 Les travaux sont gérés de façon légèrement différente sur des Runbooks Workers hybrides que lorsqu’ils s’exécutent sur des bacs à sable Azure. Une différence essentielle est qu’il n’existe aucune limite sur la durée du travail sur des Runbooks Workers hybrides. Les Runbooks exécutés dans les bacs à sable Azure sont limités à 3 heures, pour une [répartition de charge équilibrée](automation-runbook-execution.md#fair-share). Si vous disposez d’un runbook à long terme que vous souhaitez être résilient aux possibles redémarrages, par exemple si la machine qui héberge le Runbook Worker hybride redémarre. Si la machine hôte du Worker hybride redémarre, tous les travaux du runbook en cours d’exécution redémarrent du début ou à partir du dernier point de contrôle pour les runbooks PowerShell Workflow. Si un travail de runbook est redémarré plus de 3 fois, il est suspendu.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="run-only-signed-runbooks"></a>Exécuter seulement des runbooks signés
 
-Si l’exécution de vos Runbooks ne se termine pas correctement et que le récapitulatif des travaux affiche l’état **Suspendu**, consultez le guide de dépannage sur les [échecs d’exécution des Runbooks](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+Les workers hybrides de runbook peuvent être configurés pour exécuter seulement des runbooks signés avec une certaine configuration. La section suivante décrit comment configurer vos workers hybrides de runbook pour exécuter des runbooks signés et comment signer vos runbooks.
+
+> [!NOTE]
+> Une fois que vous avez configuré un worker hybride de runbook pour exécuter seulement des runbooks signés, les runbooks qui n’ont **pas** été signés n’arrivent pas à s’exécuter sur le worker.
+
+### <a name="create-signing-certificate"></a>Créer un certificat de signature
+
+L’exemple suivant crée un certificat auto-signé qui peut être utilisé pour signer des runbooks. L’exemple crée le certificat et l’exporte. Le certificat est importé ultérieurement dans les workers hybrides de runbook. L’empreinte numérique est également retournée : elle est utilisée plus tard pour référencer le certificat.
+
+```powershell
+# Create a self signed runbook that can be used for code signing
+$SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
+                                        -Subject "CN=contoso.com" `
+                                        -KeyAlgorithm RSA `
+                                        -KeyLength 2048 `
+                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+                                        -KeyExportPolicy Exportable `
+                                        -KeyUsage DigitalSignature `
+                                        -Type CodeSigningCert
+
+
+# Export the certificate so that it can be imported to the hybrid workers
+Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Retrieve the thumbprint for later use
+$SigningCert.Thumbprint
+```
+
+### <a name="configure-the-hybrid-runbook-workers"></a>Configurer les workers hybrides de runbook
+
+Copiez le certificat créé sur chaque worker hybride de runbook d’un groupe. Exécutez le script suivant pour importer le certificat et configurer le worker hybride de façon à utiliser la validation de signature sur les runbooks.
+
+```powershell
+# Install the certificate into a location that will be used for validation.
+New-Item -Path Cert:\LocalMachine\AutomationHybridStore
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\AutomationHybridStore
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Configure the hybrid worker to use signature validation on runbooks.
+Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
+```
+
+### <a name="sign-your-runbooks-using-the-certificate"></a>Signer vos runbooks avec le certificat
+
+Avec les workers hybrides de runbook configurés pour utiliser seulement des runbooks signés. Vous devez signer les runbooks qui doivent être utilisés sur le worker hybride de runbook. Utilisez l’exemple PowerShell suivant pour signer vos runbooks.
+
+```powershell
+$SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
+Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
+```
+
+Une fois que le runbook a été signé, il doit être importé dans votre compte Automation et publié avec le bloc de signature. Pour découvrir comment importer des runbooks, consultez [Importation d’un runbook à partir d’un fichier dans Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+## <a name="troubleshoot"></a>Résoudre les problèmes
+
+Si l’exécution de vos runbooks ne se termine pas correctement, consultez le guide de dépannage sur les [échecs d’exécution des runbooks](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

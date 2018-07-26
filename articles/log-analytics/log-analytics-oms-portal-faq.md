@@ -11,20 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/17/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6479db44681071932ff92ee17ea0aec6518dc74e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 503d5913efe67bd0de738f68921b9631c63acfa8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128637"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116042"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Questions courantes pour la transition depuis le portail OMS vers le portail Azure pour les utilisateurs de Log Analytics
 Log Analytics utilisait initialement son propre portail appelé portail OMS pour gérer sa configuration et analyser les données collectées.  Toutes les fonctionnalités accessibles depuis ce portail ont été déplacées vers le portail Azure où elles continueront d’être développées.
 
 Cet article répond aux questions courantes pour les utilisateurs effectuant cette transition.  Si vous avez utilisé Log Analytics dans le portail OMS, vous pouvez trouver ici des réponses sur la façon dont vous pouvez effectuer les mêmes tâches dans le portail Azure.
+
+## <a name="do-i-need-to-migrate-anything"></a>Dois-je migrer quoi que ce soit ?
+Non. Aucune modification n’est apportée à Log Analytics lui-même, donc rien ne doit être migré. La seule chose qui change est l’interface que vous utilisez pour y accéder. En fait, vous pouvez à présent utiliser le portail Azure pour accéder aux mêmes espaces de travail, solutions, affichages et recherches dans les journaux que vous utilisez aujourd'hui dans le portail OMS.
 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Où puis-je trouver Log Analytics dans Azure ?
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).  Cliquez sur **Plus de services** et, dans la liste des ressources, tapez **Log Analytics**. Sélectionnez **Log Analytics** puis sélectionnez votre espace de travail. La page de résumé pour l’espace de travail s’affiche.

@@ -6,19 +6,19 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: f40fe3da6874d8656c9c0a0ddce9fed602cb25f9
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083989"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091913"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Ressources et modèles d’achat Azure SQL Database 
 
-Les serveurs logiques dans [Azure SQL Database](sql-database-technical-overview.md) proposent deux modèles d’achat pour les ressources de calcul, de stockage et d’E/S : un modèle d’achat DTU et un modèle d’achat vCore (en préversion). 
+Les serveurs logiques dans [Azure SQL Database](sql-database-technical-overview.md) proposent deux modèles d’achat pour les ressources de calcul, de stockage et d’E/S : un modèle d’achat DTU et un modèle d’achat vCore. 
 
 > [!NOTE]
 > Les [instances managées](sql-database-managed-instance.md) dans Azure SQL Database offrent uniquement le modèle d’achat vCore.
@@ -26,7 +26,7 @@ Les serveurs logiques dans [Azure SQL Database](sql-database-technical-overview.
 Le tableau et le graphique suivants comparent ces deux modèles d’achat.
 
 > [!IMPORTANT]
-> Pour le modèle d’achat vCore (préversion), consultez [Modèle d’achat vCore](sql-database-service-tiers-vcore.md)
+> Pour le modèle d’achat vCore, voir [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 |**Modèle d’achat**|**Description**|**Idéal pour**|
 |---|---|---|
@@ -36,13 +36,13 @@ Le tableau et le graphique suivants comparent ces deux modèles d’achat.
 
 ![Modèle de prix](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model--preview"></a>Modèle d’achat vCore (préversion)
+## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore 
 
-Un vCore est l’UC logique qui permet de choisir parmi plusieurs générations de matériel. Le modèle d’achat vCore (en préversion) apporte flexibilité, contrôle et transparence pour la consommation des ressources. En outre, il permet de traduire facilement les exigences des charges de travail locales pour le cloud. Ce modèle permet de mettre à l’échelle le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Dans le modèle d’achat vCore (préversion), les clients peuvent choisir entre les niveaux de service Usage général et Critique pour l’entreprise (en préversion) pour les [bases de données uniques](sql-database-single-database-scale.md) et pour les [pools élastiques](sql-database-elastic-pool.md). 
+Un vCore est l’UC logique qui permet de choisir parmi plusieurs générations de matériel. Le modèle d’achat vCore apporte flexibilité, contrôle et transparence pour la consommation des ressources. En outre, il permet de traduire facilement les exigences des charges de travail locales pour le cloud. Ce modèle permet de mettre à l’échelle le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Dans le modèle d’achat vCore, les clients peuvent choisir entre les niveaux de service Usage général et Critique pour l’entreprise pour les [bases de données uniques](sql-database-single-database-scale.md) et pour les [pools élastiques](sql-database-elastic-pool.md). 
 
-Le modèle d’achat vCore (préversion) vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Si votre base de données ou pool élastique consomme plus de 300 DTU, le passage au modèle vCore peut vous permettre de réaliser des économies. Vous pouvez passer au modèle vCore à l’aide de l’API de votre choix ou du portail Azure, sans aucun temps d’arrêt. Le passage au modèle vCore n’est toutefois pas obligatoire. Si le modèle d’achat DTU répond à vos besoins métier et à vos besoins en performance, vous devez continuer de l’utiliser. Si vous décidez de passer du modèle DTU au modèle vCore, vous devez sélectionner le niveau de performance en suivant la règle de base suivante : chaque groupe de 100 DTU du niveau Standard nécessite au moins 1 vCore dans le niveau Usage général, et chaque groupe de 125 DTU du niveau Premium nécessite au moins 1 vCore Critique pour l'entreprise.
+Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Si votre base de données ou pool élastique consomme plus de 300 DTU, le passage au modèle vCore peut vous permettre de réaliser des économies. Vous pouvez passer au modèle vCore à l’aide de l’API de votre choix ou du portail Azure, sans aucun temps d’arrêt. Le passage au modèle vCore n’est toutefois pas obligatoire. Si le modèle d’achat DTU répond à vos besoins métier et à vos besoins en performance, vous devez continuer de l’utiliser. Si vous décidez de passer du modèle DTU au modèle vCore, vous devez sélectionner le niveau de performance en suivant la règle de base suivante : chaque groupe de 100 DTU du niveau Standard nécessite au moins 1 vCore dans le niveau Usage général, et chaque groupe de 125 DTU du niveau Premium nécessite au moins 1 vCore Critique pour l'entreprise.
 
-Dans le modèle d’achat vCore (préversion), les clients paient pour :
+Dans le modèle d’achat vCore, les clients paient pour :
 - Le calcul (niveau de service + nombre de vCore + génération du matériel)*
 - Le type et la quantité de stockage des journaux et des données 
 - Le nombre d’E/S**
@@ -54,7 +54,7 @@ Dans le modèle d’achat vCore (préversion), les clients paient pour :
 
 > [!IMPORTANT]
 > Le calcul, les E/S, ainsi que le stockage des données et des journaux, sont facturés au niveau de chaque base de données ou au niveau du pool élastique. Le stockage des sauvegardes est facturé au niveau de chaque base de données. Pour plus d’informations sur les frais liés à Managed Instance, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-> **Limitations liées aux régions :** le modèle d’achat vCore (préversion) n’est pas encore disponible dans les régions suivantes : Europe de l’Ouest, France Centre, Royaume-Uni Sud, Royaume-Uni Ouest et Sud-Est de l'Australie.
+> **Limitations liées aux régions :** le modèle d’achat vCore n’est pas encore disponible dans les régions suivantes : Europe de l’Ouest, France Centre, Royaume-Uni Sud, Royaume-Uni Ouest et Sud-Est de l’Australie.
 
 ## <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
@@ -184,10 +184,10 @@ Le débit et le temps de réponse constituent les principaux indicateurs du test
 | Classe de service | Mesure du débit | Temps de réponse requis |
 | --- | --- | --- |
 | Premium |Transactions par seconde |95e centile à 0,5 seconde |
-| standard |Transactions par minute |90e centile à 1 seconde |
+| Standard |Transactions par minute |90e centile à 1 seconde |
 | De base |Transactions par heure |80e centile à 2 secondes |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour le modèle d’achat vCore (préversion), consultez [Modèle d’achat vCore](sql-database-service-tiers-vcore.md)
+- Pour le modèle d’achat vCore, voir [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 - Pour le modèle d’achat basé sur les DTU, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md).

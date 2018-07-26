@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 4382c3001f6b0a9227407beccb483347bccb387c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195008"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036868"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
 
@@ -185,7 +185,7 @@ L’analyseur standard fractionne le texte d’entrée en deux jetons, les annot
 
 ### <a name="exceptions-to-lexical-analysis"></a>Exceptions à l’analyse lexicale 
 
-L’analyse lexicale s’applique uniquement aux types de requêtes qui nécessitent des termes complets (requête de terme ou requête d’expression). Elle ne s’applique pas aux types de requête avec des termes incomplets : requête de préfixe, requête de caractère générique, requête d’expression régulière ou requête partielle. Ces types de requête, y compris la requête de préfixe avec le terme *air condition\**  dans notre exemple, sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête de ce type est l’utilisation de minuscules.
+L’analyse lexicale s’applique uniquement aux types de requêtes qui nécessitent des termes complets (requête de terme ou requête d’expression). Elle ne s’applique pas aux types de requête avec des termes incomplets : requête de préfixe, requête de caractère générique, requête d’expression régulière ou requête partielle. Ces types de requête, y compris la requête de préfixe avec le terme `air-condition*` dans notre exemple, sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête de ce type est l’utilisation de minuscules.
 
 <a name="stage3"></a>
 
@@ -275,7 +275,7 @@ Pour le champ **Description**, l’index est le suivant :
 | confortable | 3
 | distance | 1
 | île | 2
-| kauaʻi | 2
+| kauai | 2
 | situé | 2
 | Nord | 2
 | mer | 1, 2, 3

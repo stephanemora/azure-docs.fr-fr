@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806381"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37909935"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques gérés pour machines virtuelles
 Le stockage Premium Azure offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles avec des charges de travail qui utilisent beaucoup d’entrée/sortie (E/S). Les disques de machine virtuelle qui utilisent le stockage Premium stockent les données sur des disques SSD. Pour tirer parti de la vitesse et des performances des disques de stockage Premium, vous pouvez migrer les disques de machines virtuelles existantes vers le stockage Premium.
@@ -52,7 +52,7 @@ Voici certaines des fonctionnalités du stockage Premium :
 
 * **Disques de stockage Premium**
 
-    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS, Ls, Fs et Esv3. Vous avez le choix entre sept tailles de disques : P4 (32 Go), P6 (64 Go), P10 (128 Go), P20 (512 Go), P30 (1 024 Go), P40 (2 048 Go), P50 (4 095 Go). Les tailles de disque P4 et P6 ne sont actuellement prises en charge que par Managed Disks. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#scalability-and-performance-targets).
+    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le Stockage Premium prend en charge un large éventail de machines virtuelles Azure. Vous avez le choix entre sept tailles de disques : P4 (32 Go), P6 (64 Go), P10 (128 Go), P20 (512 Go), P30 (1 024 Go), P40 (2 048 Go), P50 (4 095 Go). Les tailles de disque P4 et P6 ne sont actuellement prises en charge que par Managed Disks. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#scalability-and-performance-targets).
 
 * **Objets blob de pages Premium**
 
@@ -78,16 +78,16 @@ Voici certaines des fonctionnalités du stockage Premium :
 
 ## <a name="supported-vms"></a>Machines virtuelles prises en charge
 
-Le Stockage Premium prend en charge les machines virtuelles des séries B, DS, DSv2, DSv3, Esv3, GS, Ls, M et Fs. Vous pouvez utiliser des disques de stockage Standard et Premium avec ces types de machines virtuelles. Vous ne pouvez pas utiliser des disques de stockage Premium avec des séries de machines virtuelles qui ne sont pas compatibles avec le stockage Premium.
+Le Stockage Premium est pris en charge sur un large éventail de machines virtuelles Azure. Vous pouvez utiliser des disques de stockage Standard et Premium avec ces types de machines virtuelles. Vous ne pouvez pas utiliser des disques de stockage Premium avec des séries de machines virtuelles qui ne sont pas compatibles avec le stockage Premium.
 
 
 Pour plus d’informations sur les types et les tailles de machines virtuelles dans Azure pour Windows, consultez [Tailles des machines virtuelles Windows](../articles/virtual-machines/windows/sizes.md). Pour plus d’informations sur les types et les tailles de machines virtuelles dans Azure pour Linux, consultez [Tailles des machines virtuelles Linux](../articles/virtual-machines/linux/sizes.md).
 
-Voici quelques-unes des fonctionnalités des machines virtuelles des séries DS, DSv2, GS, Ls et Fs :
+Voici quelques exemples de fonctionnalités prises en charge sur les machines virtuelles compatibles avec le Stockage Premium :
 
-* **Service cloud**
+* **Groupe à haute disponibilité**
 
-    Vous pouvez ajouter des machines virtuelles de la série DS à un service cloud incluant uniquement des machines virtuelles de la série DS. Évitez d’ajouter des machines virtuelles de la série DS à un service cloud incluant des machines virtuelles d’un autre type. Vous pouvez migrer vos disques durs virtuels vers un nouveau service cloud exécutant uniquement des machines virtuelles de la série DS. Si vous souhaitez utiliser la même adresse IP virtuelle pour le nouveau service cloud hébergeant vos machines virtuelles de la série DS, utilisez les [adresses IP réservées](../articles/virtual-network/virtual-networks-instance-level-public-ip.md). Des machines virtuelles de la série GS peuvent être ajoutées à un service cloud existant incluant uniquement des machines virtuelles de la série GS.
+    En vous appuyant sur un exemple de machine virtuelle de série DS, vous pouvez en ajouter une à un service cloud comportant uniquement des machines virtuelles de ce type. Évitez d’ajouter des machines virtuelles de la série DS à un service cloud incluant des machines virtuelles d’un autre type. Vous pouvez migrer vos disques durs virtuels vers un nouveau service cloud exécutant uniquement des machines virtuelles de la série DS. Si vous souhaitez utiliser la même adresse IP virtuelle pour le nouveau service cloud hébergeant vos machines virtuelles de la série DS, utilisez les [adresses IP réservées](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 
 * **Disque de système d’exploitation**
 
@@ -104,7 +104,13 @@ Voici quelques-unes des fonctionnalités des machines virtuelles des séries DS,
 
 * **Cache**
 
-    Les machines virtuelles de la gamme de taille prenant en charge le stockage Premium ont une capacité de mise en cache unique des niveaux élevés de débit et de latence. La fonctionnalité de mise en cache dépasse les performances de disque de stockage Premium sous-jacent. Vous pouvez définir la stratégie de mise en cache du disque sur les disques de stockage Premium sur **ReadOnly (lecture seule)**, **ReadWrite (lecture/écriture)** ou **None (aucune)**. La stratégie de mise en cache de disque par défaut est **ReadOnly** pour tous les disques de données Premium, et **ReadWrite** pour les disques de système d’exploitation. Pour obtenir des performances optimales pour votre application, utilisez le paramètre de cache approprié. Ainsi, pour préparer des disques de données lourds ou en lecture seule, contenant par exemple des fichiers de données SQL Server, définissez la stratégie de mise en cache sur **ReadOnly**. Pour écrire des disques de données lourds ou en écriture seule, contenant, par exemple, des fichiers journaux SQL Server, définissez la stratégie de mise en cache sur **None**. Pour en savoir plus sur l’optimisation de votre conception avec le stockage Premium, consultez [Conception optimisée pour les performances avec le stockage Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
+    Les machines virtuelles prenant en charge le Stockage Premium ont une capacité de mise en cache unique offrant des niveaux élevés de débit et une latence réduite, qui dépasse les performances des disques de Stockage Premium sous-jacents. Cependant, toutes les machines virtuelles ne prennent pas en charge la mise en cache ; consultez les spécifications des machines virtuelles de la taille qui vous intéresse pour plus d’informations.  La prise en charge la mise en cache est indiquée dans les spécifications des machines virtuelles concernées par une mesure « Débit maximal de stockage temporaire et mis en cache ».  Elle est également spécifiée directement sous le titre des machines virtuelles.
+    
+    La stratégie de mise en cache sur disques de Stockage Premium peut être définie sur **ReadOnly (lecture seule)**, **ReadWrite (lecture/écriture)** ou **None (aucune)**. La stratégie de mise en cache de disque par défaut est **ReadOnly** pour tous les disques de données Premium, et **ReadWrite** pour les disques de système d’exploitation. Pour obtenir des performances optimales dans votre application, veillez à utiliser le paramètre de cache adapté. 
+    
+    Par exemple, pour des disques de données à haut volume de lecture ou en lecture seule, comme des fichiers de données SQL Server, définissez la stratégie de mise en cache sur **ReadOnly**. Pour écrire des disques de données lourds ou en écriture seule, contenant, par exemple, des fichiers journaux SQL Server, définissez la stratégie de mise en cache sur **None**. 
+    
+    Pour en savoir plus sur l’optimisation de votre conception avec le stockage Premium, consultez [Conception optimisée pour les performances avec le stockage Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 * **Analyse**
 

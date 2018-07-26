@@ -15,24 +15,24 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887468"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004895"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
 Cet article est une vue d’ensemble conceptuelle des déclencheurs et des liaisons dans Azure Functions. Les fonctionnalités communes à toutes les liaisons et toutes les langues prises en charge sont décrites ici.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Un *déclencheur* définit la façon dont une fonction est appelée. Une fonction ne doit avoir qu’un seul déclencheur. Les déclencheurs sont associés à des données, généralement la charge utile qui a déclenché la fonction.
 
 Les *liaisons* d’entrée et de sortie fournissent un moyen déclaratif de se connecter à des données à partir de votre code. Les liaisons sont facultatives et une fonction peut avoir plusieurs liaisons d’entrée et de sortie. 
 
-Les déclencheurs et les liaisons vous permettent d’éviter de coder en dur les détails des services que vous utilisez. Votre fonction reçoit des données (par exemple, le contenu d’un message de la file d’attente) dans les paramètres de fonction. Vous envoyez des données (par exemple, pour créer un message de la file d’attente) à l’aide de la valeur de retour de la fonction, un paramètre `out` ou un [objet collecteur](functions-reference-csharp.md#writing-multiple-output-values).
+Les déclencheurs et les liaisons vous permettent d’éviter de coder en dur les détails des services que vous utilisez. Votre fonction reçoit des données (par exemple, le contenu d’un message de la file d’attente) dans les paramètres de fonction. Vous envoyez des données (par exemple pour créer un message de la file d’attente) en utilisant la valeur de retour de la fonction. En C# et dans les scripts C#, les autres méthodes pour envoyer des données sont les paramètres `out` et les [objets collecteurs](functions-reference-csharp.md#writing-multiple-output-values).
 
 Lorsque vous développez des fonctions en utilisant le portail Azure, les déclencheurs et les liaisons sont configurés dans un fichier *function.json*. Le portail fournit une interface utilisateur pour cette configuration, mais vous pouvez modifier le fichier directement en passant dans **l’Éditeur avancé**.
 
@@ -224,9 +224,11 @@ Dans les langages qui proposent une valeur de retour, vous pouvez lier une liais
 * Dans une bibliothèque de classes C#, appliquez l’attribut de liaison de sortie à la valeur de retour de la méthode.
 * Dans d’autres langages, définissez la propriété `name` dans *function.json* sur `$return`.
 
-Si vous avez besoin d’écrire plusieurs éléments, utilisez un [objet collecteur](functions-reference-csharp.md#writing-multiple-output-values) au lieu de la valeur de retour. S’il existe plusieurs liaisons de sortie, utilisez la valeur de retour pour un seul d’entre eux.
+S’il existe plusieurs liaisons de sortie, utilisez la valeur de retour pour un seul d’entre eux.
 
-Consultez l’exemple propre à un langage particulier :
+En C# et dans les scripts C#, les autres méthodes pour envoyer des données à une liaison de sortie sont les paramètres `out` et les [objets collecteurs](functions-reference-csharp.md#writing-multiple-output-values).
+
+Consultez l’exemple spécifique à un langage montrant l’utilisation de la valeur de retour :
 
 * [C#](#c-example)
 * [Script C# (.csx)](#c-script-example)

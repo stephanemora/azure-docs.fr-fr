@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 37e1bd0b479e27f0d871495c0725fc865cbb8572
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bf23046b8a80b02bc1667f647cb1d475503a8feb
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632575"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125774"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -21,7 +21,7 @@ ms.locfileid: "34632575"
 
 ## <a name="iot-hub-names"></a>Noms IoT Hub
 
-Vous pouvez rechercher le nom de l’IoT Hub qui héberge vos points de terminaison dans le portail sur le panneau **Vue d’ensemble**. Par défaut, le nom DNS d’un IoT Hub ressemble à : `{your iot hub name}.azure-devices.net`.
+Vous pouvez rechercher le nom d’hôte de l’IoT Hub qui héberge vos points de terminaison dans le portail sur la page **Vue d’ensemble** de votre hub. Par défaut, le nom DNS d’un IoT Hub ressemble à : `{your iot hub name}.azure-devices.net`.
 
 Vous pouvez utiliser le DNS Azure afin de créer un nom DNS personnalisé pour votre IoT Hub. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
 

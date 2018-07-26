@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3c56abcec37bb6abcb77ec8cc443b0656bd69932
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285914"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990793"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corriger les configurations de sécurité dans Azure Security Center
 Azure Security Center analyse quotidiennement le système d’exploitation de vos machines virtuelles et ordinateurs et recherche les configurations qui pourraient les rendre plus vulnérables aux attaques. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration de sécurité recommandées et d’apporter des modifications à la configuration pour supprimer ces vulnérabilités.
@@ -27,11 +27,11 @@ Azure Security Center analyse quotidiennement le système d’exploitation de vo
 Consultez la [liste des règles de configuration recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour plus d’informations sur les configurations spécifiques surveillées. Pour savoir comment personnaliser les évaluations de configuration de sécurité, consultez la section [Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)](security-center-customize-os-security-config.md).
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
-La correction de l’incohérence des configurations de sécurité est présentée sous forme de recommandations dans Security Center. La recommandation est affichée sous **Recommendations** > **Calcul**.
+La correction de l’incohérence des configurations de sécurité est présentée sous forme de recommandations dans Security Center. La recommandation est affichée sous **Recommendations** > **Compute et applications**.
 
-Dans cet exemple, nous allons examiner la recommandation de correction de l’incohérence des configurations de sécurité dans **Calcul**.
-1. Dans Security Center, dans le panneau de gauche, sélectionnez **Calcul**.  
-  La fenêtre **Calcul** s’ouvre.
+Dans cet exemple, nous allons examiner la recommandation de correction de l’incohérence des configurations de sécurité dans **Compute et applications**.
+1. Dans Security Center, dans le panneau de gauche, sélectionnez **Compute et applications**.  
+  La fenêtre **Compute et applications** s’ouvre.
 
    ![Corriger les configurations de sécurité][1]
 

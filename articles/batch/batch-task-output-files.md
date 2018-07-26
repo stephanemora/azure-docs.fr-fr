@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
-ms.openlocfilehash: ee8622525adcc698bf920b0c3379cc3065798a19
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 69990ab7852999dca2b586fd28ef74c44cc283fd
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30315590"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116979"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Conserver les données de tâche dans le stockage Azure avec l’API de service Batch
 
@@ -180,7 +180,7 @@ Si vous développez dans un langage autre que C#, vous devez implémenter la nor
 
 L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [exemples de code Azure Batch][github_samples] disponibles sur GitHub. Cette solution Visual Studio montre comment utiliser la bibliothèque cliente Batch pour .NET pour conserver le résultat de la tâche dans l’espace de stockage durable. Pour exécuter l’exemple, procédez comme suit :
 
-1. Ouvrez le projet dans **Visual Studio 2015 ou version ultérieure**.
+1. Ouvrez le projet dans **Visual Studio 2017**.
 2. Ajoutez vos **informations d’identification de compte** Batch et Stockage à **AccountSettings.settings** dans le projet Microsoft.Azure.Batch.Samples.Common.
 3. **Générez** la solution sans l’exécuter. Restaurez les packages NuGet si vous y êtes invité.
 4. Utilisez le portail Azure pour charger un [package d’application](batch-application-packages.md) pour **PersistOutputsTask**. Insérez le fichier `PersistOutputsTask.exe` et ses assemblys dépendants dans le package .zip, puis définissez l’ID de l’application sur PersistOutputsTask et la version du package d’application sur 1.0.
@@ -190,7 +190,7 @@ L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [ex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la persistance du résultat de la tâche avec la bibliothèque Conventions applicables aux fichiers pour .NET, consultez [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist (Conserver les données de travail et de tâche dans le stockage Azure avec la bibliothèque Conventions applicables aux fichiers Batch pour .NET pour la persistance)](batch-task-output-file-conventions.md).
+- Pour plus d’informations sur la conservation de la sortie des tâches avec la bibliothèque File Conventions pour .NET, consultez [Conserver les données des travaux et des tâches dans Stockage Azure avec la bibliothèque File Conventions Batch pour .NET](batch-task-output-file-conventions.md).
 - Pour plus d’informations sur d’autres approches de persistance des données de sortie dans Azure Batch, consultez [Conserver les résultats de travaux et tâches terminés dans le stockage Azure](batch-task-output.md).
 
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs

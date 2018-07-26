@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802649"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035331"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Effectuer des mises à jour dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-En tant qu’opérateur Azure Stack, vous pouvez appliquer des packages de mise à jour Microsoft pour Azure Stack en utilisant la vignette Mise à jour dans le portail d’administration. Vous devez télécharger la mise à jour Microsoft, importer les fichiers du package dans Azure Stack, puis installer la mise à jour. 
+En tant qu’opérateur Azure Stack, vous pouvez appliquer des packages de mise à jour Microsoft ou OEM pour Azure Stack en utilisant la vignette Mise à jour dans le portail d’administration. Vous devez télécharger la mise à jour, importer les fichiers du package dans Azure Stack, puis installer la mise à jour. 
 
 ## <a name="download-the-update-package"></a>Télécharger la mise à jour
 
-Lorsqu’une mise à jour Microsoft pour Azure Stack est disponible, téléchargez le package vers un emplacement accessible à partir d’Azure Stack et vérifiez son contenu. Une mise à jour comprend généralement les fichiers suivants :
+Lorsqu’une mise à jour Microsoft ou OEM pour Azure Stack est disponible, téléchargez le package vers un emplacement accessible à partir d’Azure Stack et vérifiez son contenu. Une mise à jour comprend généralement les fichiers suivants :
 
 - Un fichier *PackageName*.exe auto-extractible. Ce fichier contient la charge utile pour la mise à jour, par exemple la dernière mise à jour cumulative pour Windows Server.   
 - Les fichiers *PackageName*.bin correspondants. Ces fichiers fournissent la compression de la charge utile qui est associée au fichier *PackageName*.exe. 

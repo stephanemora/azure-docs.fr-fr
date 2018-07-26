@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9ce95bcf15d0186c1baea3df407d0fc0c4200f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923427"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115474"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -38,6 +38,11 @@ L’appareil SBD requiert une machine virtuelle supplémentaire qui joue le rôl
 Si vous ne voulez pas investir dans une machine virtuelle supplémentaire, vous pouvez également utiliser l’agent d’isolation Azure. L’inconvénient, c’est qu’un basculement peut prendre entre 10 et 15 minutes si une ressource échoue ou si les nœuds de cluster ne peuvent plus communiquer entre eux.
 
 ![Vue d’ensemble de Pacemaker sur SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+
+>[!IMPORTANT]
+> Lors de la planification et du déploiement des nœuds de cluster Linux Pacemaker et des périphériques SBD, il est essentiel pour la fiabilité globale de la configuration complète du cluster que le routage entre les machines virtuelles impliquées et les machines virtuelles hébergeant le ou les périphériques SBD ne passent pas par d’autres appareils comme les [NVA](https://azure.microsoft.com/solutions/network-appliances/). Sinon, les problèmes et les événements de maintenance avec l’appliance virtuelle réseau peuvent avoir un impact négatif sur la stabilité et la fiabilité de la configuration générale du cluster. Afin d’éviter de tels obstacles, ne définissez pas de règles d’acheminement d’appliances virtuelles réseau ou de [règles d’acheminement définies par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) qui acheminent le trafic entre les nœuds de cluster et des appareils SBD via les appliances virtuelles réseau et des périphériques similaires lors de la planification et du déploiement des nœuds de cluster Linux Pacemaker et des périphériques SBD. 
+>
+
 
 ## <a name="sbd-fencing"></a>Isolation SBD
 

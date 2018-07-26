@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2283b7559bb0dc7e8333949a8e6382d562162123
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060381"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092485"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Haute disponibilité et Azure SQL Database
 
@@ -46,21 +46,18 @@ Dans le modèle Azure, Azure SQL Database intègre les opérations de calcul et 
 
 La haute disponibilité est implémentée à l’aide de [groupes de disponibilité Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) standard. Chaque base de données est un cluster de nœuds de base de données, avec une base de données primaire accessible à la charge de travail cliente et quelques processus secondaires contenant les copies des données. Le nœud principal envoie (push) constamment les changements apportés aux nœuds secondaires afin de garantir la disponibilité des données sur les réplicas secondaires en cas de plantage du nœud principal, pour quelque raison que ce soit. Le basculement est géré par le moteur de base de données SQL Server : un réplica secondaire devient le nœud principal, et un réplica secondaire est créé pour garantir un nombre suffisant de nœuds dans le cluster. La charge de travail est automatiquement redirigée vers le nouveau nœud principal. La durée de basculement est mesurée en millisecondes, et la nouvelle instance principale est aussitôt prête à poursuivre le traitement des demandes.
 
-## <a name="zone-redundant-configuration-preview"></a>Configuration de zone redondante (préversion)
+## <a name="zone-redundant-configuration"></a>Configuration de zone redondante
 
-Par défaut, les réplicas du jeu de quorum pour les configurations de stockage local sont créés dans le même centre de données. Avec l’introduction des [Zones de disponibilité Azure](../availability-zones/az-overview.md), vous avez la possibilité de placer les différents réplicas dans les jeux de quorum sur des zones de haute disponibilité distinctes dans la même région. Pour éliminer un point de défaillance unique, l’anneau de contrôle est également dupliqué sur plusieurs fuseaux horaires sous forme de trois anneaux de passerelle (GW). Le routage vers un anneau de passerelle spécifique est contrôlé par [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Étant donné que la configuration de la redondance dans une zone ne crée pas de redondance de base de données supplémentaire, l’utilisation des zones de disponibilité dans les niveaux de service Premium ou Critique pour l’entreprise (préversion) est disponible sans coût supplémentaire. En sélectionnant une base de données redondante dans une zone, vous pouvez rendre vos bases de données Premium ou Critique pour l’entreprise (préversion) résistantes à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification de la logique d’application. Vous pouvez également convertir vos bases de données ou pools Premium ou Critique pour l’entreprise (préversion) en configuration avec redondance dans une zone.
+Par défaut, les réplicas du jeu de quorum pour les configurations de stockage local sont créés dans le même centre de données. Avec l’introduction des [Zones de disponibilité Azure](../availability-zones/az-overview.md), vous avez la possibilité de placer les différents réplicas dans les jeux de quorum sur des zones de haute disponibilité distinctes dans la même région. Pour éliminer un point de défaillance unique, l’anneau de contrôle est également dupliqué sur plusieurs fuseaux horaires sous forme de trois anneaux de passerelle (GW). Le routage vers un anneau de passerelle spécifique est contrôlé par [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Étant donné que la configuration de la redondance dans une zone ne crée pas de redondance de base de données supplémentaire, l’utilisation des zones de disponibilité dans les niveaux de service Premium ou Critique pour l’entreprise est disponible sans coût supplémentaire. En sélectionnant une base de données redondante dans une zone, vous pouvez rendre vos bases de données Premium ou Critique pour l’entreprise résistantes à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification de la logique d’application. Vous pouvez également convertir vos bases de données ou pools Premium ou Critique pour l’entreprise en configuration avec redondance dans une zone.
 
 L’ensemble du jeu de quorums de redondance de zone ayant des réplicas dans différents centres de données avec une certaine distance entre eux, la latence accrue du réseau peut augmenter le temps de validation et ainsi avoir un impact sur les performances de certaines charges de travail OLTP. Vous pouvez toujours revenir à la configuration de zone unique en désactivant le paramètre de redondance de zone. Ce processus dépend de la taille des données et est semblable à la mise à jour des objectifs de niveau de service (SLO) ordinaires. À la fin du processus, la base de données ou le pool est migré à partir d’un anneau de redondance de zone vers un anneau de zone unique, ou vice versa.
-
-> [!IMPORTANT]
-> Pour le moment, les bases de données avec redondance de zone et les pools élastiques sont uniquement pris en charge dans le niveau de service Premium. Pour la version préliminaire publique, les sauvegardes et enregistrements d’audit sont stockés dans le stockage de RA-GRS, et ne sont donc pas automatiquement disponibles en cas d’une panne à l’échelle de la zone. 
 
 La version avec redondance de zone de l’architecture de haute disponibilité est illustrée dans le diagramme suivant :
  
 ![architecture haute disponibilité avec redondance de zone](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Lecture du Scale-out
-Comme décrit, les niveaux de service Premium et Critique pour l’entreprise (préversion) tirent parti du quorum et de la technologie Always On pour une haute disponibilité à la fois dans des configurations pour zone unique et redondantes dans une zone. Un des avantages de la technologie Always On est que les réplicas sont toujours dans un état cohérent au niveau transactionnel. Étant donné que les réplicas ont le même niveau de performances que le principal, l’application peut tirer parti de cette capacité supplémentaire pour la maintenance des charges de travail en lecture seule sans coût supplémentaire (lecture du Scale-out). De cette façon, les requêtes en lecture seule seront isolées à partir de la charge de travail principale en lecture-écriture et n’affecteront pas ses performances. La fonctionnalité de lecture du Scale-out est conçue pour les applications incluant des charges de travail en lecture seule séparées logiquement, comme des analyses, et peut par conséquent tirer parti de cette capacité supplémentaire sans connexion au principal. 
+Comme décrit, les niveaux de service Premium et Critique pour l’entreprise tirent parti du quorum et de la technologie Always On pour une haute disponibilité dans des configurations tant pour zone unique que redondantes dans une zone. Un des avantages de la technologie Always On est que les réplicas sont toujours dans un état cohérent au niveau transactionnel. Étant donné que les réplicas ont le même niveau de performances que le principal, l’application peut tirer parti de cette capacité supplémentaire pour la maintenance des charges de travail en lecture seule sans coût supplémentaire (lecture du Scale-out). De cette façon, les requêtes en lecture seule seront isolées à partir de la charge de travail principale en lecture-écriture et n’affecteront pas ses performances. La fonctionnalité de lecture du Scale-out est conçue pour les applications incluant des charges de travail en lecture seule séparées logiquement, comme des analyses, et peut par conséquent tirer parti de cette capacité supplémentaire sans connexion au principal. 
 
 Pour utiliser la fonctionnalité d’échelle horizontale en lecture avec une base de données en particulier, vous devez l’activer explicitement lors de la création de la base de données, ou ultérieurement en modifiant sa configuration avec PowerShell par un appel aux cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [ New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou avec l’API REST Azure Resource Manager suivant la méthode [Bases de données – Créer ou mettre à jour](/rest/api/sql/databases/createorupdate).
 

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/18/2018
 ms.author: mbullwin
-ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294382"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136894"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 Recherche (Search) est la fonctionnalité [d’Application Insights](app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
@@ -26,16 +26,14 @@ Recherche (Search) est la fonctionnalité [d’Application Insights](app-insight
 (Pour les requêtes plus complexes sur vos données, utilisez [Analytics](app-insights-analytics-tour.md).)
 
 ## <a name="where-do-you-see-search"></a>Où voyez-vous Recherche ?
+
 ### <a name="in-the-azure-portal"></a>Dans le portail Azure
+
 Vous pouvez ouvrir explicitement la recherche de diagnostics à partir du panneau Vue d’ensemble d’Application Insights de votre application :
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/001.png)
 
-Il s’affiche également lorsque vous parcourez certains graphiques et éléments de la grille. Dans ce cas, les filtres sont prédéfinis pour vous permettre de vous concentrer sur le type d’élément que vous avez sélectionné. 
-
-Par exemple, dans le volet Vue d’ensemble, vous trouverez un graphique à barres de requêtes classées par temps de réponse. Cliquez sur une plage de performances pour afficher la liste des demandes individuelles dans cette plage de temps de réponse :
-
-![Cliquer sur les performances des demandes](./media/app-insights-diagnostic-search/07-open-from-filters.png)
+![Capture d’écran de graphiques de recherche de diagnostic](./media/app-insights-diagnostic-search/002.png)
 
 La partie principale de Recherche de diagnostic est une liste d’éléments de télémétrie : demandes serveur, pages vues, événements personnalisés que vous avez codés, et ainsi de suite. En haut de la liste se trouve un graphique de synthèse indiquant le nombre d’événements au fil du temps.
 
@@ -56,9 +54,14 @@ La fenêtre de recherche comporte les mêmes fonctionnalités que le portail web
 L’onglet Suivi des opérations est disponible lorsque vous ouvrez une requête ou un affichage de page. Une 'Opération' est une séquence d’événements qui est associée à une demande ou un affichage de page unique. Par exemple, les appels de dépendance, les exceptions, les journaux de suivi et les événements personnalisés peuvent faire partie d’une opération unique. L’onglet Suivi des opérations représente graphiquement la chronologie et la durée de ces événements par rapport à la demande ou à l’affichage de page. 
 
 ## <a name="inspect-individual-items"></a>Inspecter les éléments un par un
-Sélectionnez un élément de télémétrie pour afficher les champs clés et les éléments associés. Si vous voulez voir l’ensemble des champs, cliquez sur « ... ». 
 
-![Cliquez sur Nouvel élément de travail, modifiez les champs, puis cliquez sur OK.](./media/app-insights-diagnostic-search/10-detail.png)
+Sélectionnez un élément de télémétrie pour afficher les champs clés et les éléments associés.
+
+![Capture d’écran d’une demande de dépendance individuelle](./media/app-insights-diagnostic-search/003.png)
+
+Cette action lance la vue Détails de la transaction de bout en bout :
+
+![Capture d’écran de la vue Détails de la transaction de bout en bout.](./media/app-insights-diagnostic-search/004.png)
 
 ## <a name="filter-event-types"></a>Filtrer les types d’événement
 Ouvrez le panneau Filtre et choisissez les types d’événement que vous souhaitez afficher. (Si vous souhaitez restaurer plus tard les filtres avec lesquels vous avez ouvert le panneau, cliquez sur Réinitialiser).
@@ -91,14 +94,10 @@ Dans cet exemple, il est clair que la demande 'Rpt/Employees' provoque la majori
 
 ![Développez une propriété et choisissez une valeur](./media/app-insights-diagnostic-search/04-failingReq.png)
 
-
-
-
 ## <a name="find-events-with-the-same-property"></a>Rechercher des événements avec la même propriété
 Recherchez tous les éléments dont la valeur de la propriété est la même :
 
 ![Cliquez avec le bouton droit sur une propriété](./media/app-insights-diagnostic-search/12-samevalue.png)
-
 
 ## <a name="search-the-data"></a>Recherche dans les données
 
@@ -128,14 +127,10 @@ Expressions de recherche utilisables :
 | `apple OR banana`<br/>`apple banana` |Trouve les événements qui contiennent un des deux mots. Utilisez « OR » en lettres capitales (et non « or » en lettres minuscules).<br/>Forme abrégée. |
 | `apple NOT banana` |Trouve les événements qui contiennent un mot, mais pas l’autre. |
 
-
-
 ## <a name="sampling"></a>échantillonnage
 Si votre application génère un volume important de télémétrie (et si vous utilisez le Kit SDK ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande sont activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. 
 
 [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
-
-
 
 ## <a name="create-work-item"></a>Création d’un élément de travail
 Vous pouvez créer un bogue dans GitHub ou Visual Studio Team Services avec les détails d’un élément de télémétrie. 
@@ -147,17 +142,6 @@ La première fois que vous procédez ainsi, vous êtes invité à configurer un 
 ![Indiquez l’URL de votre serveur Team Services et le nom du projet, puis cliquez sur Autoriser](./media/app-insights-diagnostic-search/41.png)
 
 (Vous pouvez également configurer le lien dans le panneau des éléments de travail).
-
-## <a name="save-your-search"></a>Enregistrer votre recherche
-Une fois que vous avez défini tous les filtres que vous voulez, vous pouvez enregistrer la recherche dans vos recherches favorites. Si vous travaillez avec un compte professionnel, vous pouvez choisir de la partager avec d’autres membres de l’équipe.
-
-![Cliquez sur Favori, définissez le nom et cliquez sur Enregistrer](./media/app-insights-diagnostic-search/08-favorite-save.png)
-
-Pour réafficher la recherche, **allez dans le panneau Vue d’ensemble** et ouvrez Favoris :
-
-![Vignette des favoris](./media/app-insights-diagnostic-search/09-favorite-get.png)
-
-Si vous avez enregistré une période relative, le panneau rouvert comporte les données les plus récentes. Si vous avez enregistré une période absolue, vous voyez les mêmes données à chaque fois. (si 'Relatif' n’est pas disponible lorsque vous souhaitez enregistrer un favori, cliquez sur Intervalle de temps dans l’en-tête et définissez un intervalle de temps qui n’est pas un intervalle personnalisé).
 
 ## <a name="send-more-telemetry-to-application-insights"></a>Envoyer plus de télémétrie à Application Insights
 En plus de la télémétrie fournie par le Kit de développement logiciel (SDK) Application Insights, vous pouvez :

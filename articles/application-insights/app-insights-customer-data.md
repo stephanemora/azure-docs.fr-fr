@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.reviewer: Evgeny.Ternovsky
 ms.author: mbullwin
-ms.openlocfilehash: 95e421278b46015e761764792e11dec0351b9785
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a59b57c546f18a7d91160f2ae7282af82fc42160
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294419"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044711"
 ---
 # <a name="guidance-for-personal-data-stored-in-application-insights"></a>Guide pour les données personnelles stockées dans Application Insights
 
@@ -77,12 +77,13 @@ Le vidage est une opération nécessitant des privilèges élevés, qu’aucune 
 Une fois que le rôle Azure Resource Manager a été affecté, deux nouveaux chemins d’API sont disponibles, la documentation complète du développeur et la forme d’appel liée :
 
 * [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - prend un objet spécifiant les paramètres des données à supprimer et retourne un GUID de référence
-* GET purge status - l’appel de POST purge retourne un en-tête « x-ms-état-location » qui inclut une URL que vous pouvez appeler pour déterminer l’état de votre API de vidage. Par exemple : 
+* GET purge status - l’appel de POST purge retourne un en-tête « x-ms-état-location » qui inclut une URL que vous pouvez appeler pour déterminer l’état de votre API de vidage. Par exemple : 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
-Alors que la grande majorité des opérations de vidage peut être effectuée beaucoup plus rapidement que ce que prévoit le contrat SLA, en raison de leur impact important sur la plateforme de données utilisée par Application Insights, le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours.
+> [!IMPORTANT]
+>  Alors que la grande majorité des opérations de vidage peuvent être effectuées beaucoup plus rapidement que ce que prévoit le contrat SLA, en raison de leur impact important sur la plateforme de données utilisée par Application Insights, **le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la façon dont les données sont collectées, traitées et sécurisées, consultez [Sécurité des données Application Insights](app-insights-data-retention-privacy.md).

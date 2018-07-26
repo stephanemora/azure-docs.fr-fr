@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710404"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308029"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Créer une application web ASP.NET avec inscription, connexion, modification du profil et réinitialisation du mot de passe Azure Active Directory B2C
 
@@ -31,19 +31,21 @@ Ce didacticiel vous explique les procédures suivantes :
 - Vous devez connecter votre locataire B2C à un compte Azure. Vous pouvez créer un compte Azure gratuit [ici](https://azure.microsoft.com/).
 - Vous avez besoin de [Microsoft Visual Studio](https://www.visualstudio.com/) ou d’un programme similaire pour afficher et modifier l’exemple de code.
 
-## <a name="create-an-azure-ad-b2c-directory"></a>Créer un répertoire Azure AD B2C
+## <a name="create-an-azure-ad-b2c-tenant"></a>Créer un client Azure AD B2C
 
-Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes et autres. Si vous n’en possédez pas déjà un, créez un répertoire B2C avant d’aller plus loin dans ce guide.
+Pour pouvoir utiliser Azure AD B2C, vous devez créer un locataire (tenant). Un locataire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes et autres. Si vous n’en possédez pas déjà un, créez un locataire B2C avant d’aller plus loin dans ce guide.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> Vous devez connecter le locataire B2C à votre abonnement Azure. Après avoir sélectionné **Créer**, sélectionnez l’option **Lier un locataire Azure AD B2C existant à mon abonnement Azure**, puis, dans le menu déroulant **Locataire Azure AD B2C**, sélectionnez le locataire que vous souhaitez associer.
+> Le locataire Azure AD B2C doit être connecté à votre abonnement Azure. Après avoir sélectionné **Créer**, sélectionnez l’option **Lier un locataire Azure AD B2C existant à mon abonnement Azure**, puis, dans le menu déroulant **Locataire Azure AD B2C**, sélectionnez le locataire que vous souhaitez associer.
 
 ## <a name="create-and-register-an-application"></a>Créer et inscrire une application
 
-Vous devez maintenant créer et inscrire l’application dans votre répertoire B2C. Cela fournit certaines informations nécessaires à Azure AD B2C pour communiquer de manière sécurisée avec votre application. 
+À présent, créez et inscrivez l’application dans votre locataire Azure AD B2C. Cela fournit certaines informations nécessaires à Azure AD B2C pour communiquer de manière sécurisée avec votre application. 
+
+Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**. Vous devriez à présent utiliser le locataire créé précédemment.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 

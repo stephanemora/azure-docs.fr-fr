@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 268b9af7835c51d78812b35aff5aaac585961b01
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0414fa16f277c7495cc7fe4bdd7a51fc3a23ad93
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619186"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988620"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs
 
@@ -29,7 +29,7 @@ Regardez la vidéo suivante pour avoir une vue d’ensemble de la procédure dé
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez utiliser des *artefacts* pour déployer et configurer votre application après avoir approvisionné une machine virtuelle. Un artefact se compose d’un fichier de définition d’artefact et autres fichiers de script qui sont stockés dans un dossier de dépôt Git. Les fichiers de définition d'artefact se composent de JSON et d'expressions que vous pouvez utiliser pour spécifier ce que vous voulez installer sur une machine virtuelle. Par exemple, vous pouvez définir le nom d’un artefact, une commande à exécuter et des paramètres disponibles quand la commande est exécutée. Vous pouvez faire référence à d'autres fichiers de script dans le fichier de définition d'artefact par nom.
 
 ## <a name="artifact-definition-file-format"></a>Format de fichier de définition d'artefact
@@ -56,12 +56,12 @@ L'exemple suivant indique les sections qui composent la structure de base d'un f
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
 | $schema |Non  |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
-| title |OUI |Nom de l'artefact affiché dans le laboratoire. |
-| description |OUI |Description de l'artefact affiché dans le laboratoire. |
+| title |Oui |Nom de l'artefact affiché dans le laboratoire. |
+| description |Oui |Description de l'artefact affiché dans le laboratoire. |
 | iconUri |Non  |URI de l’icône affichée dans le laboratoire. |
-| targetOsType |OUI |Système d’exploitation de la machine virtuelle où l’artefact est installé. Les options prises en charge sont Windows et Linux. |
+| targetOsType |Oui |Système d’exploitation de la machine virtuelle où l’artefact est installé. Les options prises en charge sont Windows et Linux. |
 | parameters |Non  |Valeurs fournies quand la commande d’installation d’artefact est exécutée sur une machine. Cela vous permet de personnaliser votre artefact. |
-| runCommand |OUI |Commande d'installation d'artefact qui est exécutée sur une machine virtuelle. |
+| runCommand |Oui |Commande d'installation d'artefact qui est exécutée sur une machine virtuelle. |
 
 ### <a name="artifact-parameters"></a>Paramètres d'artefact
 Dans la section des paramètres du fichier de définition, spécifiez les valeurs qu’un utilisateur peut entrer quand il installe un artefact. Vous pouvez faire référence à ces valeurs dans la commande d'installation d'artefact.
@@ -78,9 +78,9 @@ Pour définir des paramètres, utilisez la structure suivante :
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
-| Type |OUI |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
-| displayName |OUI |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |
-| description |OUI |Description du paramètre qui est affiché dans le laboratoire. |
+| Type |Oui |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
+| displayName |Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |
+| description |Oui |Description du paramètre qui est affiché dans le laboratoire. |
 
 Les types autorisés sont :
 
@@ -113,7 +113,7 @@ L’exemple suivant indique comment utiliser les fonctions et les expressions po
 1. Installer un éditeur JSON. Vous avez besoin d’un éditeur JSON pour utiliser les fichiers de définition d’artefact. Nous vous recommandons d’utiliser [Visual Studio Code](https://code.visualstudio.com/), qui est disponible pour Windows, Linux et OS X.
 2. Obtenir un exemple de fichier de définition artifactfile.json. Découvrez les artefacts créés par l’équipe DevTest Labs dans notre [dépôt GitHub](https://github.com/Azure/azure-devtestlab). Nous avons créé une bibliothèque d’artefacts riche qui vous permet de créer vos propres artefacts. Téléchargez un fichier de définition d'artefact et modifiez-le pour créer vos propres artefacts.
 3. Utiliser IntelliSense. Utilisez IntelliSense pour voir des éléments valides que vous pouvez utiliser pour construire un fichier de définition d’artefact. Vous pouvez également voir les différentes options pour les valeurs d’un élément. Par exemple, quand vous modifiez l’élément **targetOsType**, IntelliSense vous montre deux options, pour Windows ou Linux.
-4. Stocker l’artefact dans un [dépôt Git](devtest-lab-add-artifact-repo.md).
+4. Stockez l’artefact dans le [dépôt Git public pour DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou [votre propre dépôt Git](devtest-lab-add-artifact-repo.md).
    
    1. Créez un répertoire distinct pour chaque artefact. Le nom du répertoire doit être le même que le nom de l’artefact.
    2. Stockez le fichier de définition d’artefact (artifactfile.json) dans le répertoire que vous avez créé.
@@ -122,9 +122,8 @@ L’exemple suivant indique comment utiliser les fonctions et les expressions po
       Voici un exemple de dossier d'artefact :
       
       ![Exemple de dossier d’artefact](./media/devtest-lab-artifact-author/git-repo.png)
-5. Ajouter le dépôt d’artefacts au laboratoire. Consultez [Ajouter un dépôt Git des artefacts et des modèles](devtest-lab-add-artifact-repo.md).
+5. Si vous utilisez votre propre dépôt pour stocker les artefacts, ajoutez le dépôt au lab en suivant les instructions fournies dans l’article : [Ajouter un dépôt Git des artefacts et des modèles](devtest-lab-add-artifact-repo.md).
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-articles"></a>Articles connexes
 * [Guide pratique pour diagnostiquer les échecs d’artefact dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)

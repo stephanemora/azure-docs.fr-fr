@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 7740da505f7635944536252d60ec2c2039295975
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323384"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001801"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights
 
@@ -50,6 +50,9 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
 6. Vous venez de créer un enregistreur d’événements Azure Application Insights avec une clé d’instrumentation. Il devrait maintenant apparaître dans la liste.  
     ![Enregistreur d'événements App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
+> [!NOTE]
+> En arrière-plan, une entité [Enregistreur d’événements](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) est créée dans votre instance de gestion des API, qui contient la clé d’instrumentation de l’instance Application Insights.
+
 ## <a name="enable-application-insights-logging-for-your-api"></a>Activer la journalisation Application Insights pour l’API
 
 1. Accédez à votre **instance de service Gestion des API Azure** sur le **Portail Azure**.
@@ -63,6 +66,9 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
 8. Entrez **100** pour **Échantillonnage (%)** et cochez la case **Toujours consigner les erreurs**.
 9. Entrez **1024** dans le champ **Premiers octets du corps**.
 10. Cliquez sur **Enregistrer**.
+
+> [!NOTE]
+> En arrière-plan, une entité [Diagnostic](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) nommée « applicationinsights » est créée au niveau de l’API.
 
 | Nom du paramètre                        | Type de valeur                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb8b1ca3514e27221e95cb2def823c8f89d151e5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b578abfa6fc0a10edc5daab40f8a0eea5e6653d9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30312441"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115060"
 ---
 # <a name="persist-job-and-task-output"></a>Conserver les résultats des tâches et des travaux
 
@@ -100,7 +100,7 @@ Conservez la sortie des tâches à l’aide de la bibliothèque Conventions de n
 - Vous voulez procéder à la création de points de contrôle ou effectuer un chargement anticipé des résultats initiaux.
 - Vous voulez consulter la sortie des tâches dans le portail Azure.
 
-Pour plus d’informations sur la conservation de la sortie des tâches avec la bibliothèque Conventions de nommage des fichiers pour .NET, consultez [Conserver les données des travaux et des tâches dans le Stockage Azure avec la bibliothèque Conventions de nommage des fichiers Batch pour .NET](batch-task-output-file-conventions.md). Consultez aussi l’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub, qui montre comment utiliser la bibliothèque Conventions de nommage des fichiers pour .NET pour conserver la sortie des tâches dans un stockage durable.
+Pour plus d’informations sur la conservation de la sortie des tâches avec la bibliothèque Conventions de nommage des fichiers pour .NET, consultez [Conserver les données des travaux et des tâches dans le Stockage Azure avec la bibliothèque Conventions de nommage des fichiers Batch pour .NET](batch-task-output-file-conventions.md). Consultez aussi l’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub, qui montre comment utiliser la bibliothèque File Conventions pour .NET pour conserver la sortie des tâches dans un stockage durable.
 
 L’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub montre comment utiliser la bibliothèque cliente Batch pour .NET pour conserver la sortie des tâches dans un stockage durable.
 
@@ -121,9 +121,10 @@ Vous pouvez aussi implémenter votre propre solution de déplacement de fichiers
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Explorez l’utilisation des nouvelles fonctionnalités de l’API du service Batch pour conserver les données des tâches dans [Conserver les données des tâches dans le Stockage Azure à l’aide de l’API du service Batch](batch-task-output-files.md).
-- Découvrez comment utiliser la bibliothèque Conventions de nommage des fichiers pour .NET dans [Conserver les données des travaux et des tâches dans le Stockage Azure avec la bibliothèque Conventions de nommage des fichiers Batch pour .NET](batch-task-output-file-conventions.md).
-- Consultez l’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub, qui montre comment utiliser la bibliothèque du client Batch pour .NET et la bibliothèque Conventions de nommage des fichiers pour .NET pour conserver la sortie des tâches dans un stockage durable.
+- Découvrez comment utiliser la bibliothèque File Conventions Batch pour .NET dans [Conserver les données des travaux et des tâches dans Stockage Azure avec la bibliothèque File Conventions Batch pour .NET](batch-task-output-file-conventions.md).
+- Consultez l’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub, qui montre comment utiliser la bibliothèque Client Batch pour .NET et la bibliothèque File Conventions pour .NET pour conserver la sortie des tâches dans un stockage durable.
 
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
+[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 

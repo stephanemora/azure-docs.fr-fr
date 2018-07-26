@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 9418525e60f255787f39a42657ee0dbdbd46957d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096931"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126344"
 ---
 > [!div class="op_single_selector"]
 > * [Java asynchrone](performance-tips-async-java.md)
@@ -39,7 +39,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
    * Mode passerelle (par défaut)
       
-     Le mode passerelle est pris en charge sur toutes les plateformes de kit de développement logiciel (SDK) et est l’option configurée par défaut. Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, le mode passerelle est la meilleure option, car il utilise le port HTTPS standard et un seul point de terminaison. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Étant donné que le mode direct implique moins de tronçons réseaux, les performances sont meilleures.
+     Le mode passerelle est pris en charge sur toutes les plateformes de kit de développement logiciel (SDK) et est l’option configurée par défaut. Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, le mode passerelle est la meilleure option, car il utilise le port HTTPS standard et un seul point de terminaison. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Étant donné que le mode direct implique moins de tronçons réseaux, les performances sont meilleures. Le mode de connexion de passerelle est également recommandé lorsque vous exécutez des applications dans les environnements ayant un nombre limité de connexions de socket, par exemple lorsque vous utilisez Azure Functions ou si vous êtes sur un plan de consommation. 
 
    * Mode direct
 
@@ -95,7 +95,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 1. **Installation du kit de développement logiciel (SDK) le plus récent**
 
     Les SDK Azure Cosmos DB sont constamment améliorés pour fournir des performances optimales. Consultez les pages du [SDK Azure Cosmos DB](documentdb-sdk-dotnet.md) pour déterminer quel est le SDK le plus récent et passer en revue les améliorations.
-2. **Utiliser un client Azure Cosmos DB singleton pour la durée de vie de votre application**
+2. **Utilisation d’un client Azure Cosmos DB singleton pour la durée de vie de votre application**
 
     Chaque instance de DocumentClient est thread-safe et effectue une gestion des connexions efficace et une mise en cache d’adresses quand le mode direct est sélectionné. Pour permettre une gestion des connexions efficace et améliorer les performances par DocumentClient, nous vous recommandons d’utiliser une seule instance de DocumentClient par AppDomain pour la durée de vie de l’application.
 

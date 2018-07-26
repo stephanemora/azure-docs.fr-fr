@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les problèmes avec les runbooks Azure
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929347"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044864"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -94,6 +94,31 @@ Si l’authentification multifacteur est configurée sur votre compte Azure, vou
 Pour utiliser un certificat avec les applets de commande de modèle de déploiement Azure Classic, reportez-vous à [Création et ajout d’un certificat pour gérer des services Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Pour utiliser un principal du service avec des applets de commande Azure Resource Manager, voir la rubrique sur la [création du principal du service à l’aide du portail Azure](../../azure-resource-manager/resource-group-create-service-principal-portal.md) et l’[authentification d’un principal du service à l’aide d’Azure Resource Manager](../../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erreurs courantes avec des runbooks
+
+### <a name="not-recognized-as-cmdlet"></a>Scénario : Le runbook échoue en raison d’une applet de commande manquante
+
+#### <a name="issue"></a>Problème
+
+Votre runbook échoue avec une erreur similaire à l’exemple suivant :
+
+```
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur peut être due aux raisons suivantes :
+
+1. Le module contenant l’applet de commande n’est pas importé dans le compte Automation
+2. Le module contenant l’applet de commande est importé, mais il est obsolète
+
+#### <a name="resolution"></a>Résolution :
+
+Cette erreur peut être résolue en effectuant une des tâches suivantes :
+
+Si le module est un module Azure, consultez [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md) pour découvrir comment mettre à jour vos modules dans votre compte Automation.
+
+S’il s’agit d’un module distinct, vérifiez que le module est importé dans votre compte Automation.
 
 ### <a name="job-attempted-3-times"></a>Scénario : Le travail du runbook a tenté de démarrer à trois reprises, mais n’a pas pu démarrer
 

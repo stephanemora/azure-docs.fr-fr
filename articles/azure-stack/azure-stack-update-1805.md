@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 80ed0d2353fc6ea3a515c0d05475c713920abe46
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293106"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091770"
 ---
 # <a name="azure-stack-1805-update"></a>Mise à jour 1805 d’Azure Stack
 
@@ -35,7 +35,7 @@ Cet article décrit les améliorations et correctifs contenus dans le package de
 Le numéro de build de la mise à jour 1805 d’Azure Stack est **1.1805.1.47**.  
 
 > [!TIP]  
-> En fonction des commentaires des clients, il existe une mise à jour du schéma de la version en cours d’utilisation pour Microsoft Azure Stack.  En commençant par cette mise à jour, 1805, le nouveau schéma représente mieux la version cloud actuelle.  
+> En fonction des commentaires des clients, il existe une mise à jour du schéma de la version en cours d’utilisation pour Microsoft Azure Stack.  À compter de cette mise à jour, 1805, le nouveau schéma représente mieux la version cloud actuelle.  
 > 
 > Le schéma de version est à présent *Version.YearYearMonthMonth.MinorVersion.BuildNumber* où le deuxième et le troisième ensemble indiquent la version et la publication. Par exemple, 1805.1 représente la *version finalisée* de 1805.  
 
@@ -43,12 +43,12 @@ Le numéro de build de la mise à jour 1805 d’Azure Stack est **1.1805.1.47**.
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
 <!-- 2297790 - IS, ASDK --> 
-- **Azure Stack inclut désormais un client *Syslog* en** tant que *fonctionnalité préliminaire*. Ce client permet le transfert des journaux d’audit et de sécurité liés à l’infrastructure d’Azure Stack vers un serveur Syslog ou un logiciel SIEM externes à Azure Stack. Actuellement, le client Syslog prend en charge uniquement les connexions UDP non authentifiées via le port par défaut 514. La charge utile de chaque message Syslog est formatée en CEF (Common Event Format). 
+- **Azure Stack inclut désormais un client *Syslog* en** tant que *fonctionnalité préliminaire*. Ce client permet le transfert des journaux d’audit et de sécurité liés à l’infrastructure d’Azure Stack vers un serveur Syslog ou un logiciel SIEM externes à Azure Stack. Actuellement, le client Syslog ne prend en charge que les connexions UDP non authentifiées via le port par défaut 514. La charge utile de chaque message Syslog est formatée en CEF (Common Event Format). 
 
-  Pour configurer le client Syslog, utilisez le cmdlet **Set-SyslogServer** exposé dans le point de terminaison privilégié. 
+  Pour configurer le client Syslog, utilisez la cmdlet **Set-SyslogServer** exposée dans le point de terminaison privilégié. 
 
   Avec cette préversion, vous pouvez voir les trois alertes suivantes. Présentées par Azure Stack, ces alertes incluent des *descriptions* et des conseils de *correction*. 
-  - TITRE : Désactivation de l’intégrité du code  
+  - TITRE : Intégrité du code désactivée  
   - TITRE : Intégrité du code en mode audit 
   - TITRE : Compte d’utilisateur créé
 
@@ -78,21 +78,21 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
 ### <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour   
 - Pendant l’installation de la mise à jour 1805, des alertes avec le titre *Erreur - Le modèle de FaultType UserAccounts.New est manquant.* peuvent s’afficher.  Vous pouvez ignorer ces alertes de manière sécurisée. Elles se fermeront automatiquement une fois la mise à jour 1805 terminée.   
 
-- <!-- 2489559 - IS -->Ne tentez pas de créer des machines virtuelles pendant l’installation de cette mise à jour. Pour plus d’informations sur la gestion des mises à jour, consultez [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](azure-stack-updates.md#plan-for-updates).
+- <!-- 2489559 - IS -->Ne tentez pas de créer des machines virtuelles pendant l’installation de cette mise à jour. Pour plus d’informations sur la gestion des mises à jour, consultez [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates) (Vue d’ensemble de la gestion des mises à jour dans Azure Stack).
 
 
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
 Après l’installation de la version 1805, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md).  
- - [KB 4340474 - Correctif logiciel Azure Stack 1.1805.4.53](https://support.microsoft.com/en-us/help/4340474).
+ - [KB 4344102 – Correctif logiciel Azure Stack 1.1805.7.57](https://support.microsoft.com/help/4344102).
 
 
 ## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 Les éléments suivants sont des problèmes connus qui apparaissent après l’installation de cette build.
 
 ### <a name="portal"></a>Portail  
-- <!-- 2551834 - IS, ASDK --> Lorsque vous sélectionnez **Vue d’ensemble** pour un compte de stockage sur le portail d’administration ou utilisateur, les informations du volet *Éléments principaux* ne s’affichent pas.  Le volet Éléments principaux affiche des informations sur le compte comme son *groupe de ressources*, son *emplacement* et son *ID d’abonnement*.  D’autres options de la vue d’ensemble sont accessibles, par exemple *Services* et *Surveillance*, ainsi que des options permettant d’*Ouvrir dans Explorer* ou de *Supprimer le compte de stockage* . 
+- <!-- 2551834 - IS, ASDK --> Lorsque vous sélectionnez **Vue d’ensemble** pour un compte de stockage sur le portail d’administration ou utilisateur, les informations du volet *Éléments principaux* ne s’affichent pas.  Le volet Éléments principaux affiche des informations sur le compte comme son *groupe de ressources*, son *emplacement* et son *ID d’abonnement*.  D’autres options de la vue d’ensemble sont accessibles, par exemple *Services* et *Surveillance*, ainsi que des options permettant d’*Ouvrir dans Explorer* ou de *Supprimer le compte de stockage*. 
 
-  Pour afficher les informations non disponibles, utilisez le cmdlet PowerShell [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0). 
+  Pour afficher les informations non disponibles, utilisez la cmdlet PowerShell [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0). 
 
 - <!-- 2551834 - IS, ASDK --> Lorsque vous sélectionnez **Balises** pour un compte de stockage sur le portail d’administration ou utilisateur, les informations ne se chargent pas.  
 
@@ -118,29 +118,41 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 ### <a name="health-and-monitoring"></a>Intégrité et surveillance
 - <!-- 1264761 - IS ASDK -->  Vous risquez de recevoir des alertes pour le composant du *contrôleur d’intégrité* contenant les informations suivantes :  
-
+- 
    Alerte 1 :
-   - NOM : rôle d’infrastructure défectueux
-   - GRAVITÉ : avertissement
-   - COMPOSANT : contrôleur d’intégrité
-   - DESCRIPTION : le scanneur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+   - NOM : Rôle d’infrastructure défectueux
+   - GRAVITÉ : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
 
   Alerte 2 :
-   - NOM : rôle d’infrastructure défectueux
-   - GRAVITÉ : avertissement
-   - COMPOSANT : contrôleur d’intégrité
-   - DESCRIPTION : le scanneur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+   - NOM : Rôle d’infrastructure défectueux
+   - GRAVITÉ : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
 
-  Les deux alertes peuvent être ignorées en toute sécurité. Elles se ferment automatiquement au bout d’un moment.  
+  Les deux alertes 1 et 2 peuvent être ignorées en toute sécurité. Elles se ferment automatiquement au bout d’un moment. 
 
-- <!-- 2368581 - IS. ASDK --> En tant qu’opérateur d’Azure Stack, si vous recevez une alerte d’insuffisance de mémoire et que les machines virtuelles client ne parviennent pas à se déployer à cause d’une *erreur de création de la structure de la machine virtuelle*, il est possible que l’horodatage d’Azure Stack soit en dehors de la mémoire disponible. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail. 
+  Vous pouvez également voir l’alerte suivante pour *Capacité*. Pour cette alerte, le pourcentage de mémoire disponible identifiée dans la description peut varier :  
+
+  Alerte 3 :
+   - NOM : Capacité de mémoire faible
+   - GRAVITÉ : Critique
+   - COMPOSANT : Capacité
+   - DESCRIPTION : La région a consommé plus de 80 % de la mémoire disponible. La création de machines virtuelles avec de grandes quantités de mémoire peut échouer.  
+
+  Dans cette version d’Azure Stack, cette alerte peut se déclencher de façon incorrecte. Si les machines virtuelles de locataire continuent le déploiement avec succès, vous pouvez ignorer cette alerte en toute sécurité. 
+  
+  L’alerte 3 n’est pas automatiquement fermée. Si vous fermez cette alerte, Azure Stack crée la même alerte dans les 15 minutes qui suivent.  
+
+- <!-- 2368581 - IS. ASDK --> En tant qu’opérateur d’Azure Stack, si vous recevez une alerte d’insuffisance de mémoire et que les machines virtuelles de locataire ne parviennent pas à se déployer à cause d’une *erreur de création de la structure de la machine virtuelle*, il est possible que l’horodatage d’Azure Stack soit à court de mémoire disponible. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail. 
 
 
 ### <a name="compute"></a>Calcul
-- <!-- TBD - IS, ASDK --> Lorsque vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
+- <!-- TBD - IS, ASDK --> Lorsque vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
   Pour résoudre ce problème, utilisez l’une des méthodes suivantes pour déployer une machine virtuelle. Dans chaque méthode, vous devez spécifier la taille de machine virtuelle que vous voulez utiliser.
 
-  - **Modèle Azure Resource Manager :** quand vous utilisez un modèle, définissez la valeur *vmSize* dans le modèle pour qu’elle soit égale à la taille de machine virtuelle que vous voulez utiliser. Par exemple, le code suivant permet de déployer une machine virtuelle qui utilise la taille *F32s_v2* :  
+  - **Modèle Azure Resource Manager :** lorsque vous utilisez un modèle, définissez la valeur *vmSize* dans le modèle pour qu’elle soit égale à la taille de machine virtuelle que vous voulez utiliser. Par exemple, l’entrée suivante permet de déployer une machine virtuelle qui utilise la taille *F32s_v2* :  
 
     ```
         "properties": {
@@ -157,15 +169,15 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 - <!-- TBD - IS --> Lorsque vous créez un groupe à haute disponibilité dans le portail en accédant à **Nouveau** > **Compute** > **Groupe à haute disponibilité**, vous pouvez uniquement créer un groupe à haute disponibilité avec un domaine d’erreur et un domaine de mise à jour de 1. Pour contourner ce problème, lors de la création d’une nouvelle machine virtuelle, créez le groupe à haute disponibilité à l’aide de PowerShell, CLI, ou depuis le portail.
 
-- <!-- TBD - IS ASDK --> Quand vous créez des machines virtuelles sur le portail utilisateur Azure Stack, ce dernier affiche un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de série DS. Les machines virtuelles de série DS peuvent prendre en charge autant de disques de données que la configuration Azure.
+- <!-- TBD - IS ASDK --> Lorsque vous créez des machines virtuelles sur le portail utilisateur Azure Stack, ce dernier affiche un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de série DS. Les machines virtuelles de série DS peuvent prendre en charge autant de disques de données que la configuration Azure.
 
-- <!-- TBD - IS ASDK --> Lorsqu’une image de machine virtuelle ne peut pas être créée, il se peut qu’un élément ayant échoué et que vous ne pouvez pas supprimer soit ajouté au panneau Compute des images de machine virtuelle.
+- <!-- TBD - IS ASDK --> Lorsqu’une image de machine virtuelle ne peut pas être créée, un élément ayant échoué que vous ne pouvez pas supprimer peut être ajouté au panneau Compute des images de machine virtuelle.
 
   Pour contourner ce problème, créez une image de machine virtuelle avec un disque dur virtuel factice qui peut être créé via Hyper-V (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB). Ce processus doit résoudre le problème qui empêche la suppression de l’élément ayant échoué. Ensuite, 15 minutes après avoir créé l’image factice, vous pouvez correctement la supprimer.
 
   Vous pouvez alors essayer de retélécharger l’image de machine virtuelle ayant précédemment échoué.
 
-- <!-- TBD - IS ASDK --> Si l’approvisionnement d’une extension sur un déploiement de machine virtuelle prend trop de temps, les utilisateurs doivent laisser expirer le délai d’attente plutôt que d’essayer d’arrêter le processus pour libérer ou supprimer la machine virtuelle.  
+- <!-- TBD - IS ASDK --> Si l’approvisionnement d’une extension sur un déploiement de machine virtuelle prend trop de temps, les utilisateurs doivent laisser expirer le délai d’attente plutôt que d’essayer d’arrêter le processus pour désallouer ou supprimer la machine virtuelle.  
 
 - <!-- 1662991 IS ASDK --> Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic.  
 
@@ -175,7 +187,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 - <!-- 1766332 - IS ASDK --> Sous **Mise en réseau**, si vous cliquez sur **Créer une passerelle VPN** pour configurer une connexion VPN, l’option **Basé sur des stratégies** s’affiche dans la liste des types de VPN. Ne sélectionnez pas cette option. Seule l’option **Basé sur itinéraires** est prise en charge dans Azure Stack.
 
-- <!-- 2388980 - IS ASDK --> Une fois une machine virtuelle créée et associée à une adresse IP publique, vous ne pouvez pas dissocier cette machine virtuelle de cette adresse IP. La dissociation semble fonctionner, mais l’adresse IP publique qui a été assignée précédemment reste associée à la machine virtuelle d’origine.
+- <!-- 2388980 - IS ASDK --> Lorsqu’une machine virtuelle est créée et associée à une adresse IP publique, vous ne pouvez pas dissocier cette machine virtuelle de cette adresse IP. La dissociation semble fonctionner, mais l’adresse IP publique qui a été assignée précédemment reste associée à la machine virtuelle d’origine.
 
   Actuellement, vous devez utiliser uniquement les nouvelles adresses IP publiques pour les nouvelles machines virtuelles que vous créez.
 
@@ -188,9 +200,9 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - <!-- 2304134 IS ASDK --> Vous ne pouvez pas supprimer un abonnement auquel sont associées des ressources de la zone DNS ou de la table de routage. Pour supprimer l’abonnement, vous devez d’abord supprimer les ressources de la zone DNS ou de la table de routage de l’abonnement de locataire.
 
 
-- <!-- 1902460 - IS ASDK -->Azure Stack prend en charge une seule *passerelle de réseau local* par adresse IP. Cela est vrai pour tous les abonnements de locataire. Après la création de la première connexion de passerelle de réseau local, les tentatives suivantes de création d’une ressource de passerelle de réseau local avec la même adresse IP sont bloquées.
+- <!-- 1902460 - IS ASDK --> Azure Stack prend en charge une seule *passerelle de réseau local* par adresse IP. Cela est vrai pour tous les abonnements de locataire. Après la création de la première connexion de passerelle de réseau local, les tentatives suivantes de création d’une ressource de passerelle de réseau local avec la même adresse IP sont bloquées.
 
-- <!-- 16309153 - IS ASDK --> Sur un réseau virtuel créé avec un paramètre de serveur DNS défini sur *Automatique*, vous ne pouvez pas choisir un serveur DNS personnalisé. Les paramètres mis à jour ne sont pas envoyés (par push) aux machines virtuelles dans ce réseau virtuel.
+- <!-- 16309153 - IS ASDK --> Sur un réseau virtuel qui a été créé avec un paramètre de serveur DNS défini sur *Automatique*, vous ne pouvez pas choisir un serveur DNS personnalisé. Les paramètres mis à jour ne sont pas envoyés (par push) aux machines virtuelles dans ce réseau virtuel.
 
 - <!-- TBD - IS ASDK --> Azure Stack ne prend pas en charge l’ajout d’interfaces réseau supplémentaires sur une instance de machine virtuelle une fois que la machine virtuelle est déployée. Si la machine virtuelle nécessite plusieurs interfaces réseau, elles doivent être définies au moment du déploiement.
 

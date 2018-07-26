@@ -6,14 +6,14 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: da9672c7a924411136928d8d04e54c2c62a014b9
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 881262816fc8bd634b7f577fd05aa0c8c062e4ca
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736675"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126522"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendre et appeler des méthodes directes à partir d’IoT Hub
 IoT Hub vous donne la possibilité d’appeler des méthodes directes sur des appareils à partir du cloud. Les méthodes directes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur). Cette approche est utile pour les scénarios où le plan d’action immédiate est différent selon que l’appareil a été en mesure ou non de répondre.
@@ -46,7 +46,12 @@ La charge utile des requêtes et des réponses de méthodes correspond à un doc
 ### <a name="method-invocation"></a>Appel de méthode
 Les appels de méthode directe sur un appareil sont des appels HTTPS qui comprennent les éléments suivants :
 
-* l’*URI* spécifique de l’appareil (`{iot hub}/twins/{device id}/methods/`) ;
+* l’*URI de demande* spécifique à l’appareil et la [version d’API](/rest/api/iothub/service/invokedevicemethod) :
+
+    ```http
+    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
+    ```
+
 * la *méthode* POST ;
 * Des *en-têtes* contenant l’autorisation, l’ID de demande, le type de contenu et l’encodage du contenu
 * un *corps* JSON transparent au format suivant :
@@ -63,6 +68,25 @@ Les appels de méthode directe sur un appareil sont des appels HTTPS qui compren
     ```
 
 Le délai d’attente est exprimé en secondes. Si le délai d’attente n’est pas défini, sa valeur par défaut est de 30 secondes.
+
+#### <a name="example"></a>Exemples
+
+Voir ci-dessous un exemple de base utilisant `curl`. 
+
+```bash
+curl -X POST \
+  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "methodName": "reboot",
+    "responseTimeoutInSeconds": 200,
+    "payload": {
+        "input1": "someInput",
+        "input2": "anotherInput"
+    }
+}'
+```
 
 ### <a name="response"></a>response
 L’application principale reçoit une réponse qui comprend les éléments suivants :

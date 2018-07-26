@@ -30,6 +30,8 @@
   items:
     - name: Routage des messages
       href: tutorial-routing.md
+    - name: Effectuer un basculement manuel
+      href: tutorial-manual-failover.md
     - name: Configurer vos appareils
       href: tutorial-device-twins.md
     - name: Gérer les mises à jour de microprogramme
@@ -124,19 +126,22 @@
   items:
     - name: Développement
       items:
-        - name: Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C
-          href: iot-hub-device-sdk-c-intro.md
+        - name: Utiliser les Kits de développement logiciel (SDK) de services et d’appareils
+          href: iot-hub-devguide-sdks.md
           items:
-            - name: Utiliser IoTHubClient
-              href: iot-hub-device-sdk-c-iothubclient.md
-            - name: Utiliser le sérialiseur
-              href: iot-hub-device-sdk-c-serializer.md
-        - name: Développer pour des appareils avec contraintes
-          href: iot-hub-devguide-develop-for-constrained-devices.md
-        - name: Développer pour appareils mobiles
-          href: iot-hub-how-to-develop-for-mobile-devices.md
-        - name: Gérer la connectivité et la messagerie fiable
-          href: iot-hub-reliability-features-in-sdks.md
+            - name: Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C
+              href: iot-hub-device-sdk-c-intro.md
+              items:
+                - name: Utiliser IoTHubClient
+                  href: iot-hub-device-sdk-c-iothubclient.md
+                - name: Utiliser le sérialiseur
+                  href: iot-hub-device-sdk-c-serializer.md
+            - name: Développer pour des appareils avec contraintes
+              href: iot-hub-devguide-develop-for-constrained-devices.md
+            - name: Développer pour appareils mobiles
+              href: iot-hub-how-to-develop-for-mobile-devices.md
+            - name: Gérer la connectivité et la messagerie fiable
+              href: iot-hub-reliability-features-in-sdks.md
         - name: Interroger des données Avro à partir d’un itinéraire de concentrateur
           href: iot-hub-query-avro-data.md
         - name: Envoi de messages cloud vers appareil
@@ -307,7 +312,7 @@
               href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
             - name: Surveillance à distance et notifications avec Logic Apps
               href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/iot

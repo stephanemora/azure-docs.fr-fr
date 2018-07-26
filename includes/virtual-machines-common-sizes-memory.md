@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 15f21fd03b0373c189f3b6c4972280d128024217
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d7cae11314876bf07b9fcf3d3632a9f42b378626
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "36943519"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38942200"
 ---
 Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
 
@@ -31,6 +31,10 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoi
 ## <a name="esv3-series"></a>Série Esv3 
 
 ACU : 160-190 <sup>1</sup>
+
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
 
 Les tailles des machines virtuelles de la série ESv3 sont basées sur le processeur Intel XEON® v4-2.0 5GHz (Broadwell) de 2673 GHz, peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0 et utilisent un stockage premium. Les tailles des machines virtuelles de la série ESv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
@@ -57,6 +61,10 @@ Les tailles des machines virtuelles de la série ESv3 sont basées sur le proce
 
 ACU : 160 - 190 <sup>1</sup>
 
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
+
 Les tailles des machines virtuelles de la série Ev3 sont basées sur le processeur Intel Xeon® v4-2.0 5GHz (Broadwell) de 2673 GHz et peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0. Les tailles des machines virtuelles de la série ESv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
 Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format ESv3. Les tarifs et compteurs de facturation pour les tailles ESv3 sont identiques à ceux de la série Ev3. 
@@ -81,22 +89,28 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 
 ACU : 160-180 <sup>1</sup>
 
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
+
+Accélérateur d’écriture : [pris en charge](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
 | Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10 000 / 100 (793)  | 5 000  / 125 | 4 / 2 000 |
-| M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20 000 / 200 (1,587) | 10 000 / 250 | 8 / 4 000 |
+| Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10 000 / 100 (793)  | 5 000  / 125 | 4 / 2 000 |
+| Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20 000 / 200 (1,587) | 10 000 / 250 | 8 / 4 000 |
 | Standard_M32ts | 32 | 192    | 1 024 | 32 | 40 000 / 400 (3,174) | 20 000 / 500 | 8 / 8 000 |
 | Standard_M32ls | 32 | 256    | 1 024 | 32 | 40 000 / 400 (3,174) | 20 000 / 500 | 8 / 8 000 |
-| M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1 024 | 32 | 40 000 / 400 (3,174) | 20 000 / 500 | 8 / 8 000 |
+| Standard_M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1 024 | 32 | 40 000 / 400 (3,174) | 20 000 / 500 | 8 / 8 000 |
 | Standard_M64s  | 64 | 1 024   | 2 048 | 64 | 80 000 / 800 (6 348)| 40 000 / 1 000 | 8 / 16 000          |
-|Standard_M64ls  | 64 | 512    | 2 048 | 64 | 80 000 / 800 (6 348) | 40 000 / 1 000 | 8 / 16 000 |
-| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1 792 | 2 048 | 64 | 80 000 / 800 (6 348)| 40 000 / 1 000 | 8 / 160,00          |
+| Standard_M64ls  | 64 | 512    | 2 048 | 64 | 80 000 / 800 (6 348) | 40 000 / 1 000 | 8 / 16 000 |
+| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1 792 | 2 048 | 64 | 80 000 / 800 (6 348)| 40 000 / 1 000 | 8 / 16 000          |
 | Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2 048        | 4 096  | 64 | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30 000          |
 | Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3 892  | 4 096 | 64 | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30 000          |
-| Standard_M64   | 64  | 1 024 | 7 168  | 64 | 80 000  / 800  (1,228) | 40 000 / 1000 | 8 / 16 000 |
-| Standard_M64m  | 64  | 1 792 | 7 168  | 64 | 80 000  / 800  (1,228) | 40 000 / 1000 | 8 / 16 000 |
-| Standard_M128&nbsp;<sup>2  | 128 | 2 048 | 14 336 | 64 | 250 000 / 1 600 (2,456) | 80 000 / 2000 | 8 / 32000 |
-| Standard_M128m&nbsp;<sup>2 | 128 | 3 892 | 14 336 | 64 | 250 000 / 1 600 (2,456) | 80 000 / 2000 | 8 / 32000 |
+| Standard_M64   | 64  | 1 024 | 7 168  | 64 | 80 000  / 800  (1,228) | 40 000 / 1 000 | 8 / 16 000 |
+| Standard_M64m  | 64  | 1 792 | 7 168  | 64 | 80 000  / 800  (1,228) | 40 000 / 1 000 | 8 / 16 000 |
+| Standard_M128&nbsp;<sup>2  | 128 | 2 048 | 14 336 | 64 | 250 000 / 1 600 (2,456) | 80 000 / 2 000 | 8 / 32 000 |
+| Standard_M128m&nbsp;<sup>2 | 128 | 3 892 | 14 336 | 64 | 250 000 / 1 600 (2,456) | 80 000 / 2 000 | 8 / 32 000 |
 
 
 
@@ -112,6 +126,10 @@ ACU : 160-180 <sup>1</sup>
 ## <a name="gs-series"></a>Série GS 
 
 ACU : 180 - 240 <sup>1</sup>
+
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|---|
@@ -133,6 +151,10 @@ ACU : 180 - 240 <sup>1</sup>
 
 ACU : 180 - 240
 
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
+
 | Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2 000                     |
@@ -148,6 +170,10 @@ ACU : 180 - 240
 ## <a name="dsv2-series-11-15"></a>Série DSv2 11-15
 
 ACU : 210 - 250 <sup>1</sup>
+
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -171,6 +197,10 @@ ACU : 210 - 250 <sup>1</sup>
 ## <a name="dv2-series-11-15"></a>Série Dv2 11-15
 
 ACU : 210-250
+
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
 
 | Taille              | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

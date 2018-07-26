@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261574"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049450"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -34,9 +34,9 @@ Une application créée à partir du modèle d’application **Exemples de Devki
 
 | Nom du champ     | Units  | Minimale | Maximale | Nombre de décimales |
 | -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
+| humidité       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1 260    | 0              |
+| pression       | hPa    | 260     | 1 260    | 0              |
 | magnetometerX  | mgauss | -1 000   | 1 000    | 0              |
 | magnetometerY  | mgauss | -1 000   | 1 000    | 0              |
 | magnetometerZ  | mgauss | -1 000   | 1 000    | 0              |
@@ -79,10 +79,11 @@ Paramètres de bascule
 
 ### <a name="properties"></a>properties
 
-| type            | Nom complet | Nom du champ | Type de données |
+| Type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
 | Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
-| Texte            | Lieu     | location   | N/A       |
+| Propriété d’appareil | Emplacement de l’appareil   | location  | location    |
+| Texte            | Fabriqué dans     | manufacturedIn   | N/A       |
 
 
 ### <a name="add-a-real-device"></a>Ajouter un appareil réel
@@ -91,8 +92,8 @@ Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du
 
 ## <a name="prepare-the-devkit-device"></a>Préparer l’appareil DevKit
 
-> [!TIP]
-> Pour obtenir des conseils de dépannage sur les appareils DevKit, consultez [IoT DevKit get started](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/).
+> [!NOTE]
+> Si vous avez précédemment utilisé l’appareil et que vous avez des informations d’identification Wi-Fi stockées, et si vous voulez reconfigurer l’appareil de façon à utiliser un autre réseau Wi-Fi, une autre chaîne de connexion ou une autre mesure de télémétrie, appuyez simultanément sur les boutons **A** et **B** de la carte. Si cela ne fonctionne pas, appuyez sur le bouton de **réinitialisation**, puis réessayez.
 
 Pour préparer l’appareil DevKit :
 
@@ -127,7 +128,7 @@ Pour préparer l’appareil DevKit :
     - le mot de passe de votre réseau Wi-Fi 
     - le code PIN (PIN CODE) indiqué sur l’écran de l’appareil 
     - la chaîne de connexion de votre appareil. 
-      Vous pouvez trouver la chaîne de connexion à l’emplacement suivant : `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (en haut à droite) 
+      Vous pouvez trouver la chaîne de connexion \@ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (en haut à droite) 
     - Sélectionnez toutes les mesures de télémétrie disponibles. 
 
 1. Après avoir choisi **Configurer l’appareil**, cette page apparaît :
@@ -136,8 +137,7 @@ Pour préparer l’appareil DevKit :
 
 1. Appuyez sur le bouton de **réinitialisation** de votre appareil.
 
-> [!NOTE]
-> Pour reconfigurer l’appareil de façon à utiliser un autre réseau Wi-Fi, une autre chaîne de connexion ou une autre mesure de télémétrie, appuyez simultanément sur les boutons **A** et **B** de la carte. Si cela ne fonctionne pas, appuyez sur le bouton de **réinitialisation**, puis réessayez. 
+
 
 ## <a name="view-the-telemetry"></a>Afficher les données de télémétrie
 
@@ -153,19 +153,24 @@ Vous pouvez consulter les mesures de télémétrie et les valeurs des propriét�
 
 1. Utilisez l’**Explorateur d’appareils** pour accéder à la page **Mesures** pour l’appareil MXChip réel que vous avez ajouté :
 
-    ![Accéder à l’appareil réel](media/howto-connect-devkit/realdevice.png)
+    ![Accéder à l’appareil réel](media/howto-connect-devkit/realdevicenew.png)
 
 1. Dans la page **Mesures**, vous pouvez examiner les données de télémétrie en provenance de l’appareil MXChip :
 
-    ![Afficher les données de télémétrie de l’appareil réel](media/howto-connect-devkit/realtelemetry.png)
+    ![Afficher les données de télémétrie de l’appareil réel](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. Dans la page **Propriétés**, vous pouvez voir le dernier numéro gravé signalé par l’appareil :
+1. Dans la page **Propriétés**, vous pouvez voir le dernier numéro gravé et l’emplacement d’appareil signalés par l’appareil :
 
-    ![Afficher les propriétés de l’appareil](media/howto-connect-devkit/deviceproperties.png)
+    ![Voir les propriétés de l’appareil](media/howto-connect-devkit/devicepropertynew.png)
 
 1. Dans la page **Propriétés**, vous pouvez mettre à jour les paramètres de l’appareil MXChip :
 
-    ![Afficher les paramètres de l’appareil](media/howto-connect-devkit/settings.png)
+    ![Afficher les paramètres de l’appareil](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. Dans la page **Tableau de bord**, vous pouvez voir la carte de l’emplacement
+
+    ![Afficher le tableau de bord d’un appareil](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## <a name="download-the-source-code"></a>Télécharger le code source
 

@@ -1,30 +1,23 @@
 ---
-title: Interroger un index (portail - Recherche Azure) | Microsoft Docs
-description: Émettez une requête de recherche dans l’Explorateur de recherche du portail Azure.
+title: Explorateur de recherche pour l’interrogation des index dans Recherche Azure | Microsoft Docs
+description: Découvrez comment utiliser l’Explorateur de recherche pour interroger des index dans Recherche Azure.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 07/10/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: a3592bd0c304dfb78374eeba432c0d28203980c9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790506"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004131"
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Interrogation d’un index Recherche Azure à l’aide de l’Explorateur de recherche dans le Portail Azure
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](search-query-overview.md)
-> * [Portail](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
-> 
-> 
+# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Comment utiliser l’Explorateur de recherche pour interroger des index dans Recherche Azure 
 
-Cet article vous explique comment interroger un index Recherche Azure à l’aide de l’**Explorateur de recherche** dans le Portail Azure. Vous pouvez utiliser l’Explorateur de recherche pour envoyer des chaînes de requête Lucene simples ou complètes à un index existant dans votre service.
+Cet article vous explique comment interroger un index de Recherche Azure à l’aide de l’**Explorateur de recherche** dans le Portail Azure. Vous pouvez utiliser l’Explorateur de recherche pour envoyer des chaînes de requête Lucene simples ou complètes à un index existant dans votre service.
 
 ## <a name="open-the-service-dashboard"></a>Ouverture du tableau de bord des services
 1. Cliquez sur **Toutes les ressources** dans la barre de raccourcis de gauche du [portail Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
@@ -36,7 +29,7 @@ Sélectionnez l’index dans lequel vous souhaitez effectuer la recherche à par
 
    ![](./media/search-explorer/pick-index.png)
 
-## <a name="open-search-explorer"></a>Ouverture de l’Explorateur de recherche
+## <a name="open-search-explorer"></a>Ouvrir l’Explorateur de recherche
 
 Cliquez sur la vignette de l’Explorateur de recherche pour ouvrir par glissement la barre de recherche et le volet des résultats.
 
@@ -44,7 +37,7 @@ Cliquez sur la vignette de l’Explorateur de recherche pour ouvrir par glisseme
 
 ## <a name="start-searching"></a>Commencez la recherche
 
-Lorsque vous utilisez l’Explorateur de recherche, vous pouvez spécifier les [paramètres de requête](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour formuler la requête.
+Lorsque vous utilisez l’Explorateur de recherche, vous pouvez spécifier des [paramètres de requête](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour formuler la requête.
 
 1. Saisissez une requête dans **Chaîne de requête** puis appuyez sur **Rechercher**. 
 

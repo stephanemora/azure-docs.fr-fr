@@ -5,14 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: azcspmt;jonbeck;cynthn
+ms.date: 05/29/2018
+ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: ee32886ddb74bdbbe0f240310629c8ef26230a68
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34669340"
 ---
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 * **Abonnement Azure** : pour déployer un plus grand nombre d’instances de calcul intensif, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
@@ -36,4 +37,4 @@ Cette interface permet aux instances prenant en charge l’accès RDMA de commun
 > Dans Azure, IP over IB n’est pas pris en charge. Seul RDMA over IB est pris en charge.
 >
 
-Déployez les machines virtuelles HPC prenant en charge l’accès RDMA dans le même groupe à haute disponibilité ou le même groupe de machines virtuelles identiques (si vous utilisez le modèle de déploiement Azure Resource Manager) ou le même service cloud (si vous utilisez le modèle de déploiement Classic). La configuration supplémentaire permettant aux machines virtuelles HPC prenant en charge l’accès RDMA d’accéder au réseau RDMA Azure est indiquée ci-après.
+Déployez les machines virtuelles HPC prenant en charge l’accès RDMA dans le même groupe à haute disponibilité ou le même groupe de machines virtuelles identiques (si vous utilisez le modèle de déploiement Azure Resource Manager) ou le même service cloud (si vous utilisez le modèle de déploiement Classic). Si vous utilisez un groupe de machines virtuelles identiques, veillez à limiter le déploiement à un seul groupe de placement ; par exemple, dans un modèle Resource Manager, définissez la propriété *singlePlacementGroup* sur *true*. La configuration supplémentaire permettant aux machines virtuelles HPC prenant en charge l’accès RDMA d’accéder au réseau RDMA Azure est indiquée ci-après.

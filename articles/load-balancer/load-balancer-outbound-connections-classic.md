@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bd446923f84d22537b7a49a8ef6124f343141d73
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939819"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069908"
 ---
 # <a name="outbound-connections-classic"></a>Connexions sortantes (Classic)
 
@@ -40,9 +40,9 @@ Azure propose trois méthodes différentes pour réaliser des déploiements Clas
 
 | Scénario | Méthode | Protocoles IP | Description | Rôle de travail web | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. Machine virtuelle avec adresse IP publique de niveau d’instance](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la machine virtuelle. L’instance a tous les ports éphémères disponibles. | Non  | OUI |
-| [2. Point de terminaison à charge équilibrée](#publiclbendpoint) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) sur le point de terminaison public | TCP, UDP | Azure partage le point de terminaison de l’adresse IP publique avec plusieurs points de terminaison privés. Azure utilise des ports éphémères du point de terminaison public pour la traduction d’adresse de port. | OUI | OUI |
-| [3. Machine virtuelle autonome ](#defaultsnat) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) | TCP, UDP | Azure désigne automatiquement une adresse IP publique pour la traduction d’adresses réseau sources, partage cette adresse IP publique avec tout le déploiement et utilise des ports éphémères de l’adresse IP du point de terminaison public pour la traduction d’adresse de port. Il s’agit d’un scénario de secours pour les scénarios précédents. Nous vous le déconseillons si vous avez besoin de visibilité et de contrôle. | OUI | OUI |
+| [1. Machine virtuelle avec adresse IP publique de niveau d’instance](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la machine virtuelle. L’instance a tous les ports éphémères disponibles. | Non  | Oui |
+| [2. Point de terminaison à charge équilibrée](#publiclbendpoint) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) sur le point de terminaison public | TCP, UDP | Azure partage le point de terminaison de l’adresse IP publique avec plusieurs points de terminaison privés. Azure utilise des ports éphémères du point de terminaison public pour la traduction d’adresse de port. | Oui | Oui |
+| [3. Machine virtuelle autonome ](#defaultsnat) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) | TCP, UDP | Azure désigne automatiquement une adresse IP publique pour la traduction d’adresses réseau sources, partage cette adresse IP publique avec tout le déploiement et utilise des ports éphémères de l’adresse IP du point de terminaison public pour la traduction d’adresse de port. Il s’agit d’un scénario de secours pour les scénarios précédents. Nous vous le déconseillons si vous avez besoin de visibilité et de contrôle. | Oui | Oui |
 
 Il s’agit d’un sous-ensemble des fonctionnalités de connexion sortante disponibles pour les déploiements Resource Manager dans Azure.  
 
@@ -121,6 +121,8 @@ Ne perdez pas de vue que le nombre de ports SNAT disponibles ne se traduit pas d
 La modification de la taille de votre déploiement peut affecter certains de vos flux établis. Si la taille du pool backend augmente et passe au niveau suivant, la moitié des ports SNAT préaffectés sont récupérés pendant la transition vers le niveau de pool backend supérieur suivant. Les flux associés à un port SNAT récupéré expirent et doivent être rétablis. En cas de tentative de lancement d’un nouveau flux, celui-ci réussit immédiatement du moment que des ports préaffectés sont disponibles.
 
 Si la taille du déploiement diminue et passe à un niveau inférieur, le nombre de ports SNAT disponibles augmente. Dans ce cas, les ports de traduction d’adresses réseau sources affectés existants et leurs flux respectifs ne sont pas concernés.
+
+Si un service cloud est redéployé ou modifié, l’infrastructure peut signaler temporairement le pool principal comme étant jusqu'à deux fois plus volumineux que le pool réel et Azure préallouera à son tour moins de ports SNAT par instance que prévu.  Cela peut augmenter temporairement la probabilité d’épuisement des ports SNAT. Au final, la taille du pool passera par sa taille réelle et Azure augmentera automatiquement le nombre de ports SNAT préalloués au nombre attendu selon le tableau ci-dessus.  Ce comportement est normal et n’est pas configurable.
 
 Les allocations de ports SNAT sont spécifiques au protocole de transport IP (TCP et UDP sont gérés séparément) et sont mis à disposition selon les conditions suivantes :
 

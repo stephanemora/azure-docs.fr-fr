@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652006"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011937"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Vue d’ensemble de la solution StorSimple Data Manager
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Microsoft Azure StorSimple utilise le stockage cloud pour étendre la solution locale, et hiérarchise automatiquement les données sur le stockage local et le cloud. Les données sont stockées dans le cloud dans un format dédupliqué et compressé, de façon à maximiser l’efficacité et à réduire les coûts. Étant au format StorSimple, elles ne sont pas directement utilisables par d’autres applications cloud.
 
@@ -48,12 +48,12 @@ Vous pouvez utiliser Data Manager avec Azure Functions, Azure Automation et Azur
 StorSimple Data Manager est disponible dans les sept régions suivantes :
 
  - Asie du Sud-Est
- - Est des États-Unis
- - États-Unis de l’Ouest
- - Ouest des États-Unis 2
+ - USA Est
+ - USA Ouest
+ - USA Ouest 2
  - Centre-Ouest des États-Unis
- - Europe du Nord
- - Europe de l'Ouest
+ - Europe Nord
+ - Europe Ouest
 
 Toutefois, StorSimple Data Manager peut permettre de transformer les données dans les régions suivantes : 
 
@@ -85,6 +85,14 @@ Si la région de votre service Data Manager est différente de celle de votre d�
 ## <a name="managing-personal-information"></a>Gestion des informations personnelles
 
 StorSimple Data Manager ne collecte ni ne montre aucune information personnelle. Pour plus d’informations, consultez la [Politique de confidentialité Microsoft sur le Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
+
+## <a name="known-limitations"></a>Limites connues
+
+Le service présente actuellement les limites suivantes :
+- Actuellement, StorSimple Data Manager ne fonctionne pas avec des volumes chiffrés BitLocker. Si vous tentez d’exécuter le service avec un lecteur chiffré, vous constaterez des échecs des travaux.
+- Certaines métadonnées de fichiers (dont les ACL) ne sont pas conservées dans les données transformées.
+- Ce service fonctionne uniquement avec des volumes NTFS.
+- Les chemins d’accès des fichiers doivent compter moins de 256 caractères, sans quoi le travail échoue.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

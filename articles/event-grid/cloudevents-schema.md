@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625591"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044547"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utiliser le schéma CloudEvents avec Event Grid
 
@@ -58,7 +58,7 @@ Voici un exemple d’événement Stockage Blob Azure dans le format CloudEvents 
 
 CloudEvents v0.1 dispose des propriétés suivantes :
 
-| CloudEvents        | type     | Exemple de valeur JSON             | Description                                                        | Mappage Event Grid
+| CloudEvents        | Type     | Exemple de valeur JSON             | Description                                                        | Mappage Event Grid
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | Chaîne   | "com.example.someevent"          | Type d’occurrence qui s’est produit                                   | eventType
 | eventTypeVersion   | Chaîne   | "1.0"                            | Version d’eventType (facultatif)                            | dataVersion
@@ -73,9 +73,9 @@ CloudEvents v0.1 dispose des propriétés suivantes :
 
 Pour plus d’informations, consultez la [spécification CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-## <a name="configure-event-grid-for-cloudevents"></a>Configurer Event Grid pour CloudEvents
+Les valeurs des en-têtes pour les événements remis dans le schéma CloudEvents et le schéma Event Grid sont identiques, à l’exception de `content-type`. Pour le schéma CloudEvents, cette valeur d’en-tête est `"content-type":"application/cloudevents+json; charset=utf-8"`. Pour le schéma Event Grid, cette valeur d’en-tête est `"content-type":"application/json; charset=utf-8"`.
 
-Azure Event Grid prend en charge en préversion l’entrée et la sortie du format JSON CloudEvents dans les régions **États-Unis Centre-Ouest**, **Centre des États-Unis** et **Europe du Nord**.
+## <a name="configure-event-grid-for-cloudevents"></a>Configurer Event Grid pour CloudEvents
 
 Vous pouvez utiliser Event Grid pour l’entrée et la sortie des événements dans le schéma CloudEvents. Vous pouvez utiliser CloudEvents pour des événements système, tels que les événements Stockage Blob et les événements IoT Hub, et des événements personnalisés. Il peut aussi transformer ces événements dans un sens ou dans l’autre.
 
@@ -91,7 +91,7 @@ Pour tous les schémas d’événement, Event Grid requiert une validation au mo
 
 ### <a name="input-schema"></a>Schéma d’entrée
 
-Pour définir le schéma d’entrée d’une rubrique personnalisée sur CloudEvents, utilisez le paramètre suivant dans l’interface de ligne de commande Azure CLI quand vous créez votre rubrique `--input-schema cloudeventv01schema`. La rubrique personnalisée attend maintenant les événements entrants dans le format CloudEvents v0.1.
+Pour définir le schéma d’entrée d’une rubrique personnalisée sur CloudEvents, utilisez le paramètre suivant dans Azure CLI quand vous créez votre rubrique personnalisée `--input-schema cloudeventv01schema`. La rubrique personnalisée attend maintenant les événements entrants dans le format CloudEvents v0.1.
 
 Pour créer une rubrique de grille d’événement, utilisez :
 
@@ -124,7 +124,7 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-La version actuelle de CloudEvents ne prend pas en charge le traitement par lots des événements. Un abonnement aux événements qui est configuré pour le schéma CloudEvents reçoit chaque événement individuellement. Actuellement, vous ne pouvez pas utiliser un déclencheur Event Grid pour une application Azure Functions quand l’événement est remis dans le schéma CloudEvents. Vous devez utiliser un déclencheur HTTP.
+La version actuelle de CloudEvents ne prend pas en charge le traitement par lots des événements. Un abonnement aux événements qui est configuré pour le schéma CloudEvents reçoit chaque événement individuellement. Actuellement, vous ne pouvez pas utiliser un déclencheur Event Grid pour une application Azure Functions quand l’événement est remis dans le schéma CloudEvents. Vous devez utiliser un déclencheur HTTP. Pour obtenir des exemples d’implémentation d’un déclencheur HTTP qui reçoit des événements dans le schéma CloudEvents, consultez [Utiliser un déclencheur HTTP comme déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

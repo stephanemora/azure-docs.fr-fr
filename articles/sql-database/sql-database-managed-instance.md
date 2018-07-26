@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082503"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091991"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
@@ -64,13 +64,13 @@ Le tableau suivant montre plusieurs propriétés, accessibles par le biais de Tr
 | --- | --- |
 |Aucun achat ni gestion de matériel <br>Aucun temps de gestion à dédier à l’infrastructure sous-jacente <br>Provisionnement et mise à l’échelle du service rapides <br>Application automatisée de correctifs et de mises à niveau de version <br>Intégration à d’autres services de données PaaS |Contrat SLA à 99,99 % de durée de fonctionnement  <br>Haute disponibilité intégrée <br>Données protégées par des sauvegardes automatisées <br>Période de rétention de sauvegarde configurable par le client (7 jours en préversion publique) <br>Sauvegardes lancées par l’utilisateur <br>Fonctionnalité de limite de restauration dans le temps d’une base de données |
 |**Sécurité et conformité** | **Gestion**|
-|Environnement isolé (intégration de réseau virtuel, service de locataire unique, calcul et stockage dédiés) <br>Chiffrement des données en transit <br>Prise en charge de l’authentification unique Azure AD <br>Conformité aux mêmes normes qu’une base de données Azure SQL <br>Audit SQL <br>Détection de menaces |API Azure Resource Manager pour automatiser le provisionnement et la mise à l’échelle des services <br>Fonctionnalités du portail Azure pour le provisionnement et la mise à l’échelle manuels des services <br>Service de migration des données 
+|Environnement isolé (intégration de réseau virtuel, service de client unique, calcul et stockage dédiés) <br>Chiffrement transparent des données<br>Prise en charge de l’authentification unique Azure AD <br>Conformité aux mêmes normes qu’une base de données Azure SQL <br>Audit SQL <br>Détection de menaces |API Azure Resource Manager pour automatiser le provisionnement et la mise à l’échelle des services <br>Fonctionnalités du portail Azure pour le provisionnement et la mise à l’échelle manuels des services <br>Service de migration des données 
 
 ![Authentification unique](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>Modèle d’achat vCore (en préversion)
+## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
-Le modèle d’achat basé vCore (préversion) vous assure flexibilité, contrôle et transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Ce modèle permet de mettre à l’échelle le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Le modèle vCore permet également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Le modèle d’achat basé sur des vCores vous assure flexibilité, contrôle et transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Ce modèle permet de mettre à l’échelle le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Le modèle vCore permet également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Un vCore est l’UC logique qui permet de choisir parmi plusieurs générations de matériel.
 - Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz.
@@ -81,13 +81,20 @@ Le tableau suivant vous aidera à sélectionner la configuration optimale pour v
 ||Gen 4|Gen 5|
 |----|------|-----|
 |Matériel|Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz, disque SSD attaché vCore = 1 PP (cœur physique)|Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, disque SSD fast eNVM, vCore = 1 LP (hyperthread)|
-|Niveaux de performances|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
+|Niveaux de performances|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
 |Mémoire|7 Go par vCore|5,5 Go par vCore|
 ||||
 
-## <a name="managed-instance-service-tier"></a>Niveau de service de Managed Instance
+## <a name="managed-instance-service-tiers"></a>Niveaux de service de Managed Instance
 
-Managed Instance est initialement disponible dans un seul niveau de service (usage général), conçu pour les applications dont les besoins de disponibilité et de latence d’E/S sont standard.
+Managed Instance est disponible en deux niveaux de service :
+- **Usage général** : conçu pour des applications avec des exigences de disponibilité standard et de latence d’E/S courantes.
+- **Critique pour l’entreprise** : conçu pour des applications avec des exigences haute disponibilité et de faible latence d’E/S.
+ 
+> [!IMPORTANT]
+> Le changement de niveau de service de Usage général à Critique pour l’entreprise, ou inversement n’est pas pris en charge dans la Préversion publique. Si vous souhaitez migrer vos bases de données vers une instance d’un autre niveau de service, vous pouvez créer une instance, restaurer les bases de données avec limite de restauration dans le temps à partir de l’instance d’origine, puis abandonner celle-ci si elle n’est plus nécessaire. 
+
+### <a name="general-purpose-service-tier"></a>Niveau de service Usage général
 
 La liste suivante décrit les principales caractéristiques du niveau de service Usage général : 
 
@@ -101,28 +108,57 @@ Le diagramme suivant illustre le calcul actif et les nœuds redondants de ce niv
  
 ![Niveau de service Usage général](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-Voici les principales fonctionnalités du niveau de service Usage général :
+La liste suivante décrit les principales caractéristiques du niveau de service Usage général :
 
 |Fonctionnalité | Description|
 |---|---|
-| Nombre de vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40 (Gen 5)|
+| Nombre de vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
 | Version/Build de SQL Server | SQL Server (version la plus récente disponible) |
 | Taille de stockage minimale | 32 Go |
 | Taille de stockage maximale | 8 To |
-| Espace de stockage maximal par base de données | 8 To |
+| Espace de stockage maximal par base de données | Déterminé par la taille de stockage maximale par instance |
 | IOPS de stockage attendues | De 500 à 7 500 IOPS par fichier de données (dépend du fichier de données) Consultez [Stockage Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes). |
 | Nombre de fichiers de données (ROWS) par base de données | Multiple | 
 | Nombre de fichiers journaux (LOG) par base de données | 1 | 
-| Sauvegardes automatisées gérées | OUI |
+| Sauvegardes automatisées gérées | Oui |
 | Haute disponibilité | Selon le stockage étendu et [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Analyse et métriques des instances et bases de données intégrées | OUI |
-| Mise à jour corrective automatique des logiciels | OUI |
-| Réseau virtuel - Déploiement Azure Resource Manager | OUI |
+| Analyse et métriques des instances et bases de données intégrées | Oui |
+| Mise à jour corrective automatique des logiciels | Oui |
+| Réseau virtuel - Déploiement Azure Resource Manager | Oui |
 | Réseau virtuel - Modèle de déploiement classique | Non  |
-| Prise en charge du portail | OUI|
+| Prise en charge du portail | Oui|
 |||
 
 \* Un vCore représente l’UC logique offerte avec un choix à opérer entre plusieurs générations de matériel. Les UC logiques de 4e génération sont basées sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, et celles de 5e génération sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz. 
+
+### <a name="business-critical-service-tier"></a>Niveau de service critique pour l’entreprise
+
+Le niveau de service Critique pour l’entreprise est conçu pour les applications dont les exigences en termes d’E/S sont élevées. Il offre la meilleure résilience aux échecs en utilisant plusieurs réplicas isolés Always On. Le diagramme suivant illustre l’architecture sous-jacente de ce niveau de service :
+
+![Niveau de service critique pour l’entreprise](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+
+La liste suivante décrit les principales caractéristiques du niveau de service Critique pour l’entreprise : 
+-   Conçu pour les applications d’entreprise avec les exigences les plus hautes en matière de performances et de disponibilité 
+-   Fourni avec un stockage SSD extrêmement rapide (jusqu’à 1 To sur Gen 4, jusqu’à 4 To sur Gen 5) : prend en charge jusqu’à 100 bases de données par instance 
+
+|Fonctionnalité | Description|
+|---|---|
+| Nombre de vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
+| Version/Build de SQL Server | SQL Server (version la plus récente disponible) |
+| Fonctionnalités supplémentaires | [OLTP en mémoire](sql-database-in-memory.md)<br> 1 réplica en lecture seule supplémentaire ([échelle horizontale en lecture](sql-database-read-scale-out.md))
+| Taille de stockage minimale | 32 Go |
+| Taille de stockage maximale | Gen 4 : 1 To (toutes tailles de vCore)<br> Gen 5 :<ul><li>1 To pour 8, 16 vCores</li><li>2 To pour 24 vCores</li><li>4 To pour 40, 60, 80 vCores</ul>|
+| Espace de stockage maximal par base de données | Déterminé par la taille de stockage maximale par instance |
+| Nombre de fichiers de données (ROWS) par base de données | Multiple | 
+| Nombre de fichiers journaux (LOG) par base de données | 1 | 
+| Sauvegardes automatisées gérées | Oui |
+| Haute disponibilité | Basé sur des [groupes de disponibilité Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) et [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Analyse et métriques des instances et bases de données intégrées | Oui |
+| Mise à jour corrective automatique des logiciels | Oui |
+| Réseau virtuel - Déploiement Azure Resource Manager | Oui |
+| Réseau virtuel - Modèle de déploiement classique | Non  |
+| Prise en charge du portail | Oui|
+|||
 
 ## <a name="advanced-security-and-compliance"></a>Sécurité et conformité avancées 
 
@@ -134,9 +170,15 @@ Managed Instance offre une isolation de la sécurité supplémentaire par rappor
 - Exposition du point de terminaison SQL uniquement par le biais d’une adresse IP privée, ce qui permet de sécuriser la connexion à partir de réseaux Azure privés ou hybrides
 - Locataire unique avec infrastructure sous-jacente dédiée (calcul, stockage)
 
-Le diagramme suivant présente la conception de l’isolation : 
+Le diagramme suivant présente différentes options de connectivité pour vos applications : 
 
 ![haute disponibilité](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+
+Pour plus d’informations sur l’intégration de réseau virtuel et les applications de stratégie de mise en réseau au niveau du sous-réseau, voir [Configurer un réseau virtuel pour Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) et [Connecter votre application à Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md). 
+
+> [!IMPORTANT]
+> Placez plusieurs instances gérées dans le même sous-réseau, partout où vos exigences de sécurité l’autorisent, car cela vous apportera des avantages supplémentaires. La colocalisation d’instances dans le même sous-réseau simplifie considérablement la maintenance de l’infrastructure réseau et réduit le temps d’approvisionnement instance, car une durée d’approvisionnement longue est associée au coût de déploiement de la première instance gérée dans un sous-réseau.
+
 
 ### <a name="auditing-for-compliance-and-security"></a>Audit de sécurité et de conformité 
 
@@ -147,6 +189,11 @@ Le diagramme suivant présente la conception de l’isolation :
 Managed Instance sécurise vos données par le biais d’un chiffrement des données en mouvement à l’aide du protocole TLS.
 
 En plus du protocole TLS, SQL Database Managed Instance offre une protection des données sensibles en vol, au repos et pendant le traitement des requêtes avec [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted est une nouveauté qui offre une protection inégalée des données contre les failles de sécurité impliquant le vol de données critiques. Par exemple, avec Always Encrypted, les numéros de carte de crédit sont toujours chiffrés dans la base de données, même pendant le traitement des requêtes, ce qui permet le déchiffrement au point d’utilisation par les applications ou le personnel autorisés qui doivent traiter ces données. 
+
+### <a name="data-encryption-at-rest"></a>Chiffrement des données au repos 
+[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) : également appelé chiffrement des données au repos, chiffre les fichiers de données d’Azure SQL Managed Instance. TDE effectue le chiffrement et le déchiffrement d’E/S en temps réel des données et des fichiers journaux. Le chiffrement utilise une clé de chiffrement de base de données stockée dans l’enregistrement de démarrage de base de données à des fins de disponibilité lors de la récupération. Vous pouvez protéger toutes vos bases de données dans Managed Instance avec un chiffrement transparent des données. Il s’agit de la technologie de chiffrement au repos éprouvée de SQL, qui est requise par de nombreuses normes de conformité comme protection contre le vol d’un support de stockage. Durant la préversion publique, le modèle de gestion automatique des clés (effectuée par la plateforme PaaS) est pris en charge. 
+
+La migration d’une base de données chiffrée vers SQL Managed Instance est prise en charge via Azure Database Migration Service (DMS) ou une restauration native. Si vous envisagez de migrer une base de données chiffrée en utilisant une restauration native, la migration du certificat TDE existant du serveur SQL Server local ou de la machine virtuelle SQL Server vers Managed instance est une étape obligatoire. Pour plus d’informations sur les options de migration, voir [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ### <a name="dynamic-data-masking"></a>Masquage des données dynamiques 
 
@@ -225,3 +272,4 @@ Managed Instance permet aux administrateurs système de se concentrer sur ce qui
 - Pour plus d’informations sur la configuration du réseau virtuel, consultez [Configure a VNet for Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) (Configurer un réseau virtuel pour une option Azure SQL Database Managed Instance).
 - Pour un tutoriel qui crée une option Managed Instance et restaure une base de données à partir d’un fichier de sauvegarde, consultez [Créer une option Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 - Pour un tutoriel utilisant le service Azure Database Migration Service (DMS) pour la migration, consultez [Migrer SQL vers Azure SQL Database Managed Instance](../dms/tutorial-sql-server-to-managed-instance.md).
+- Pour plus d’informations sur la tarification, voir [Tarification de SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

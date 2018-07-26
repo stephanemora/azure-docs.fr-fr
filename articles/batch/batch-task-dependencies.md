@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316815"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865231"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Créer des dépendances de tâches pour exécuter des tâches qui dépendent d’autres tâches
 
@@ -68,7 +68,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Cet extrait de code crée une tâche dépendante avec l’ID de tâche « Flowers ». La tâche « Flowers » dépend des tâches « Rain » et « Sun ». La tâche « Flowers » est programmée pour s’exécuter sur un nœud de calcul uniquement après la réussite de l’exécution des tâches « Rain » et « Sun ».
 
 > [!NOTE]
-> Une tâche est considérée comme réussie lorsqu’elle se trouve à l’état **terminé** et que son **code de sortie** est `0`. Dans Batch.NET, la valeur de propriété [CloudTask][net_cloudtask].[State][net_taskstate] doit être `Completed` et la valeur de propriété [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask doit être de `0`.
+> Par défaut, une tâche est considérée comme réussie lorsqu’elle se trouve à l’état **terminé** et que son **code de sortie** est `0`. Dans Batch.NET, la valeur de propriété [CloudTask][net_cloudtask].[State][net_taskstate] doit être `Completed` et la valeur de propriété [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask doit être de `0`. Pour savoir comment modifier cela, consultez la section [Actions de dépendance](#dependency-actions).
 > 
 > 
 
@@ -117,11 +117,13 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### <a name="task-id-range"></a>Plage d’ID de tâche
-Vous pouvez même créer une dépendance de plage de tâches parentes, une tâche dépend de la bonne exécution des tâches dont les ID figurent dans une plage spécifique.
+En cas de dépendance à une plage de tâches parentes, la tâche dépend de la bonne exécution des tâches dont le numéro figure dans la plage.
 Pour créer la dépendance, fournissez le premier et le dernier ID de tâche dans la plage à la méthode statique [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> Lorsque vous utilisez des plages d’ID de tâche pour vos dépendances, les ID de tâche de la plage *doivent* être des représentations sous forme de chaîne de valeurs entières.
+> Lorsque des plages de numéros de tâche sont utilisées pour les dépendances, seules les tâches dont le numéro représente des valeurs entières sont sélectionnées par la plage. Ainsi, la plage `1..10` sélectionne les tâches `3` et `7`, mais pas `5flamingoes`. 
+> 
+> Les zéros à gauche n’étant pas significatifs pour l’évaluation des dépendances aux plages, les tâches ayant pour identificateurs de chaîne `4`, `04` et `004` se trouvent toutes *dans* la plage et sont traitées comme correspondant à la tâche `4`, de sorte que la première à se terminer satisfait la dépendance.
 > 
 > Chaque tâche de la plage doit satisfaire la dépendance soit en se terminant avec succès, soit en échouant avec une erreur associée à une action de dépendance définie sur **Satisfy**. Pour plus d’informations, consultez la section [Actions de dépendance](#dependency-actions).
 >

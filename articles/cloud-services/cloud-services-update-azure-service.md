@@ -3,7 +3,7 @@ title: Mise à jour d’un service cloud | Microsoft Docs
 description: Découvrez comment mettre à jour des services cloud dans Azure. Découvrez comment mettre à jour un service cloud se poursuit pour garantir la disponibilité.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 36d4ee9dabd39f4103d17455e47521b378af6ebb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: jeconnoc
+ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24860669"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008091"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
 
@@ -60,7 +60,7 @@ Le tableau suivant présente les modifications de service autorisées au cours d
 | Paramètres de stockage locaux |Augmentation uniquement<sup>2</sup> |Oui |Oui |
 | Ajouter et supprimer les rôles dans un service |Oui |Oui |Oui |
 | Nombre d’instances d’un rôle particulier |Oui |Oui |Oui |
-| Nombre ou type de points de terminaison pour un service |Oui<sup>2</sup> |Non |Oui |
+| Nombre ou type de points de terminaison pour un service |Oui<sup>2</sup> |Non  |Oui |
 | Noms et valeurs de paramètres de configuration |Oui |Oui |Oui |
 | Valeurs (et non noms) des paramètres de configuration |Oui |Oui |Oui |
 | Ajouter de nouveau certificats |Oui |Oui |Oui |
@@ -97,7 +97,7 @@ Le diagramme suivant montre comment la mise à jour se déroule en cas de mise �
 
 ![Mettre à niveau le rôle](media/cloud-services-update-azure-service/IC345880.png "Mettre à niveau le rôle")  
 
-Pendant une mise à jour automatique, le 	contrôleur de structure Azure évalue de façon périodique l’état du service cloud pour déterminer quand il est temps de passer à un autre domaine de mise à niveau. Cette évaluation de l’état est effectuée sur une base par rôle et considère uniquement les instances de la dernière version (c’est-à-dire les instances de domaines de mise à niveau qui ont déjà été examinées). Il vérifie qu’un nombre minimum d’instances de rôle, pour chaque rôle, a atteint un état terminal satisfaisant.
+Pendant une mise à jour automatique, le contrôleur de structure Azure évalue périodiquement l’intégrité du service cloud pour déterminer le moment opportun pour passer au domaine de mise à niveau suivant. Cette évaluation de l’état est effectuée sur une base par rôle et considère uniquement les instances de la dernière version (c’est-à-dire les instances de domaines de mise à niveau qui ont déjà été examinées). Il vérifie qu’un nombre minimum d’instances de rôle, pour chaque rôle, a atteint un état terminal satisfaisant.
 
 ### <a name="role-instance-start-timeout"></a>Délai de démarrage de l’instance de rôle
 Le contrôleur de structure attend 30 minutes pour que chaque instance de rôle atteigne un état démarré. Si la durée d'expiration est écoulée, le contrôleur de structure continuera à remonter jusqu’à l'instance de rôle suivante.
@@ -189,4 +189,4 @@ Le diagramme suivant montre comment un service contenant deux rôles qui sont di
 ## <a name="next-steps"></a>Étapes suivantes
 [Gestion des services cloud](cloud-services-how-to-manage-portal.md)  
 [Surveillance des services cloud](cloud-services-how-to-monitor.md)  
-[Configurer Cloud Services](cloud-services-how-to-configure-portal.md)  
+[Configuration des services cloud](cloud-services-how-to-configure-portal.md)  

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7edabc99da5e1466e848336c647a33213c9edd8b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133315"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008142"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -65,7 +65,7 @@ Pour simplifier les choses, nous recommandons que les utilisateurs qui installen
 Tous les logiciels réseau, périphériques physiques ou autres méthodes limitant la durée maximale pendant laquelle les connexions peuvent rester ouvertes doivent utiliser un seuil d’au moins cinq minutes (300 secondes) pour la connectivité entre le serveur où est installé le client Azure AD Connect et Azure Active Directory. Cette recommandation s’applique également à tous les outils de synchronisation des identités Microsoft précédemment publiés.
 
 **Q : Les domaines avec un nom en une seule partie sont-ils pris en charge ?**  
-Non, Azure AD Connect ne prend pas en charge les forêts/domaines locaux qui utilisent des noms de domaine en une seule partie.
+Même si cette configuration réseau est fortement déconseillée ([consultez cet article](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), l’utilisation de la synchronisation Azure AD Connect avec un nom de domaine en une seule partie est prise en charge, tant que la configuration réseau du domaine à un seul niveau fonctionne correctement.
 
 **Q : Les forêts comportant des domaines AD disjoints sont-elles prises en charge ?**  
 Non, Azure AD Connect ne prend pas en charge les forêts locales qui contiennent des espaces de noms disjoints.

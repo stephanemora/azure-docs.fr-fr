@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: kumud
-ms.openlocfilehash: 00a56a2683e95e70bb13acd6b936e766f044e1cd
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7ee3dbdcd4d8b2627273a871aec94583b6c5dd6a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39058121"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Créer des enregistrements DNS pour une application web dans un domaine personnalisé
 
@@ -41,7 +42,7 @@ Après avoir créé une zone et l’avoir déléguée à Azure DNS, vous pouvez 
 
 ## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Création d’un enregistrement A pour votre domaine personnalisé
 
-Un enregistrement A est utilisé pour mapper un nom vers son adresse IP. Dans l’exemple suivant, nous allons assigner @ en tant qu’enregistrement A pour une adresse IPv4 :
+Un enregistrement A est utilisé pour mapper un nom vers son adresse IP. Dans l’exemple suivant, nous allons attribuer \@ en tant qu’enregistrement A pour une adresse IPv4 :
 
 ### <a name="step-1"></a>Étape 1
 
@@ -53,7 +54,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>Étape 2
 
-Ajoutez la valeur IPv4 au jeu d’enregistrements précédemment créé « @ » en utilisant la variable $rs affectée. La valeur IPv4 attribuée sera l'adresse IP de votre application web.
+Ajoutez la valeur IPv4 au jeu d’enregistrements précédemment créé « \@ » en utilisant la variable $rs affectée. La valeur IPv4 attribuée sera l'adresse IP de votre application web.
 
 Pour trouver l’adresse IP d’une application web, suivez la procédure décrite dans [Configurer un nom de domaine personnalisé dans Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 

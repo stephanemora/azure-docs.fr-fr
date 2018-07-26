@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345380"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115671"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -162,9 +162,9 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
-| Agents Windows |OUI |La solution collecte des informations sur les mises à jour système auprès des agents Windows et lance l’installation des mises à jour obligatoires. |
-| Agents Linux |OUI |La solution collecte des informations sur les mises à jour système auprès des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
-| Groupe d’administration d’Operations Manager |OUI |La solution collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté.<br/>Une connexion directe entre l’agent Operations Manager et Log Analytics n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
+| Agents Windows |Oui |La solution collecte des informations sur les mises à jour système auprès des agents Windows et lance l’installation des mises à jour obligatoires. |
+| Agents Linux |Oui |La solution collecte des informations sur les mises à jour système auprès des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
+| Groupe d’administration d’Operations Manager |Oui |La solution collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté.<br/>Une connexion directe entre l’agent Operations Manager et Log Analytics n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
 
@@ -209,7 +209,7 @@ Sélectionnez l’onglet **Déploiements de mises à jour** pour afficher la lis
 
 ## <a name="create-or-edit-an-update-deployment"></a>Créer ou modifier un déploiement de mises à jour
 
-Pour créer un déploiement de mises à jour, sélectionnez **Planifier le déploiement de la mise à jour**. Le volet **Nouveau déploiement de mises à jour** s’ouvre. Saisissez les valeurs des propriétés décrites dans le tableau suivant :
+Pour créer un déploiement de mises à jour, sélectionnez **Planifier le déploiement de la mise à jour**. Le volet **Nouveau déploiement de mises à jour** s’ouvre. Entrez les valeurs des propriétés décrites dans le tableau suivant, puis cliquez sur **Créer** :
 
 | Propriété | Description |
 | --- | --- |
@@ -510,7 +510,7 @@ Toutefois, Update Management peut quand même signaler que cet ordinateur n’es
 
 Le déploiement de mises à jour par classification ne fonctionne pas directement sur CentOS. Pour SUSE, sélectionner *uniquement* « Autres mises à jour » en tant que classification peut entraîner l’installation de certaines mises à jour de sécurité si les mises à jour de sécurité associées à zypper (gestionnaire de package) ou ses dépendances sont requises en premier. IL s’agit d’une limitation de zypper. Dans certains cas, vous devrez peut-être exécuter à nouveau le déploiement des mises à jour. Pour savoir si cela est nécessaire, consultez le journal de mise à jour.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Résoudre les problèmes
 
 Pour savoir comment résoudre les problèmes de Update Management, consultez [Résolution des problèmes de Update Management](troubleshoot/update-management.md).
 

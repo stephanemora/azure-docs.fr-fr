@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ? | Microsoft Docs
+title: Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ? | Microsoft Docs
 description: Utilisez Azure Active Directory pour activer l’authentification unique pour toutes les applications web et SaaS dont vous avez besoin.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 199aaf60a21e0362f27707de04f14854aa528297
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: b7ea8a755f1f23c76bb0f7d8120970bb7795e95b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081504"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091831"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?
 Avec l’authentification unique, vous pouvez accéder à toutes les applications et toutes les ressources dont vous avez besoin pour travailler, en vous connectant une seule fois avec un seul compte utilisateur. Une fois connecté, vous pouvez accéder à toutes les applications dont vous avez besoin sans devoir vous authentifier à nouveau (par exemple, taper un mot de passe).
@@ -45,8 +45,7 @@ Quand des utilisateurs se connectent à une application, ils passent par un proc
 Azure AD prend en charge trois types de connexion aux applications :
 
 * **L’authentification unique fédérée** permet aux applications de se tourner vers Azure AD pour l’authentification des utilisateurs au lieu de leur demander un mot de passe spécifique. Elle est prise en charge pour les applications compatibles avec des protocoles comme SAML 2.0, WS-Federation ou OpenID Connect. C’est le mode le plus riche d’authentification unique.
-* **L’authentification unique par mot de passe** permet de sécuriser le stockage et la lecture des mots de passe des applications à l’aide d’une extension de navigateur web ou d’une application mobile. L’authentification unique par mot de passe utilise le 
-*  processus existant fourni par l’application, mais permet à l’administrateur de gérer les mots de passe et ne nécessite pas que l’utilisateur connaisse le mot de passe.
+* **L’authentification unique par mot de passe** permet de sécuriser le stockage et la lecture des mots de passe des applications à l’aide d’une extension de navigateur web ou d’une application mobile. Elle s’appuie sur le processus de connexion déjà fourni par l’application, mais permet aux administrateurs de gérer les mots de passe. Ainsi, les utilisateurs n’ont pas à connaître leur mot de passe.
 * **L’authentification unique existante** permet à Azure AD de tirer parti de toute authentification unique déjà configurée pour l’application, mais permet à ces applications d’être liées aux portails Office 365 ou Azure AD. Elle permet également de générer des rapports supplémentaires dans Azure AD lorsque les applications sont lancées.
 
 Une fois que l’utilisateur s’est authentifié auprès d’une application, il doit également disposer d’un enregistrement de compte provisionné au niveau de l’application et qui indique cette dernière où se trouvent son niveau d’accès et ses autorisations. L’approvisionnement de cet enregistrement de compte peut se produire automatiquement ou il peut être effectué manuellement par un administrateur avant que l’utilisateur n’ait accès à l’authentification unique.
@@ -158,7 +157,7 @@ Le volet d’accès à l’adresse https://myapps.microsoft.com est un portail w
 
 Le panneau d’accès est séparé du portail Azure. Pour y accéder, les utilisateurs n’ont pas besoin d’un abonnement Azure ou Office 365.
 
-Pour plus d'informations sur le panneau d'accès Azure AD, consultez la [Présentation du panneau d'accès](../active-directory-saas-access-panel-introduction.md).
+Pour plus d'informations sur le panneau d'accès Azure AD, consultez la [Présentation du panneau d'accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Lanceur d’applications Office 365
 Pour les organisations ayant déployé Office 365, les applications affectées aux utilisateurs par le biais d’Azure AD apparaissent également sur le portail Office 365, à l’adresse https://portal.office.com/myapps. Pour les utilisateurs d’une organisation, il est donc simple de lancer les applications, sans avoir à utiliser un deuxième portail. Il s’agit de la solution de lancement d’application recommandée pour les organisations qui utilisent Office 365.
@@ -194,7 +193,7 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 ## <a name="related-articles"></a>Articles connexes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](../active-directory-apps-index.md)
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configurer Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
+* [Configurer Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introduction à la gestion de l'accès aux applications](what-is-access-management.md)
 * [Comparaison des capacités de gestion des identités externes dans Azure AD](../active-directory-b2b-compare-b2c.md)
 

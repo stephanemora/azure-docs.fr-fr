@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: fe9292459134972b44037a58235cdd817030a956
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eea7e2779a169fa9a64cc7a5695e91999f219277
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968930"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112829"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -24,12 +24,20 @@ Cet article fournit des instructions détaillées sur l’utilisation du service
 Avant de créer une tâche d’importation pour transférer des données dans le Stockage Blob Azure, passez soigneusement en revue et complétez la liste suivante des prérequis pour ce service. Vous devez respecter les consignes suivantes :
 
 - Avoir un abonnement Azure actif utilisable avec le service Import/Export
-- Avoir au moins un compte de stockage Azure avec un conteneur de stockage. Consultez la liste des [Comptes de stockage et types de stockage pris en charge pour le service Import/Export](storage-import-export-requirements.md). Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account). Pour plus d’informations sur le conteneur de stockage, accédez à [Créer un conteneur de stockage](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
+- Avoir au moins un compte de stockage Azure avec un conteneur de stockage. Consultez la liste des [Comptes de stockage et types de stockage pris en charge pour le service Import/Export](storage-import-export-requirements.md). 
+    - Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account). 
+    - Pour plus d’informations sur le conteneur de stockage, accédez à [Créer un conteneur de stockage](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Avoir un nombre suffisant de disques de [Types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems). 
 - Activez BitLocker sur le système Windows. Consultez [Comment activer BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Téléchargez la version 1 de WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
-
+- Dotez-vous d’un compte FedEx/DHL.  
+    - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
+    - Générez un numéro de suivi pour le travail d’exportation.
+    - Chaque travail doit avoir un numéro de suivi distinct. Plusieurs travaux portant le même numéro de suivi ne sont pas pris en charge.
+    - Si vous n’avez pas de compte de transporteur, accédez à :
+        - [Créer un compte FedEX](https://www.fedex.com/en-us/create-account.html), ou 
+        - [Créer un compte DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-prepare-the-drives"></a>Étape 1 : Préparer les lecteurs
 
@@ -107,7 +115,10 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
     - Sélectionnez le transporteur dans la liste déroulante.
     - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](http://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/).
-    - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides.
+    - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides. 
+        
+        > [!TIP] 
+        > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
 
     ![Créer une tâche d'importation - Étape 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
@@ -116,7 +127,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
     - Passez en revue les informations de tâche dans le récapitulatif. Notez le nom de la tâche et l’adresse du centre de données Azure pour réexpédier les disques à Azure. Ces informations sont utilisées par la suite sur l’étiquette d’expédition.
     - Cliquez sur **OK** pour créer la tâche d’importation.
 
-    ![Créer une tâche d’importation - Étape 4](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+    ![Créer une tâche d’importation - Étape 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>Étape 3 : Expédier les lecteurs 
 
@@ -127,6 +138,9 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
+## <a name="step-5-verify-data-upload-to-azure"></a>Étape 5 : vérifier le chargement des données sur Azure
+
+Surveillez le travail jusqu’à son achèvement. Une fois le travail terminé, vérifiez que vos données ont été chargées sur Azure. Ne supprimez les données locales qu’après avoir vérifié que le chargement a réussi.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

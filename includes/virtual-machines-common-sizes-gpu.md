@@ -5,23 +5,27 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/30/2018
+ms.date: 07/06/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 268da0e5d078f7b6b4b36929dbf6755068adb444
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2018
-ms.locfileid: "30327523"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37907172"
 ---
-Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article fournit des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
+Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement. 
 
-* Les tailles des cœurs **NC, NCv2, NCv3 et ND** sont optimisées pour les applications nécessitant des ressources réseau et de calcul importantes, les algorithmes, notamment les applications et simulations CUDA et OpenCL, l’intelligence artificielle et le Deep Learning. 
-* Les tailles des cœurs **NV** sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, le codage et les scénarios VDI utilisant des infrastructures comme OpenGL et DirectX.  
+* Les tailles **NC, NCv2, NCv3 et ND** sont optimisées pour les algorithmes et les applications nécessitant beaucoup de ressources réseau et de calculs. En voici quelques exemples : les applications et les simulations CUDA et OpenCL, l’intelligence artificielle et l’apprentissage profond. 
+* Les tailles **NV** sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, l’encodage et les scénarios de VDI utilisant des infrastructures comme OpenGL ou DirectX.  
 
 
 ## <a name="nc-series"></a>Série NC
+
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
 
 Les machines virtuelles de série NC sont optimisées par la carte [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf). Les utilisateurs peuvent exploiter plus rapidement leurs données en tirant parti de CUDA pour les applications d’exploration d’énergie, de simulations de crash, de rendu avec lancer de rayon, de formation approfondie et bien plus encore. La configuration NC24r fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées.
 
@@ -38,6 +42,10 @@ Les machines virtuelles de série NC sont optimisées par la carte [NVIDIA Tesla
 *Prenant en charge RDMA
 
 ## <a name="ncv2-series"></a>Série NCv2
+
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
 
 Les machines virtuelles de série NCv2 sont optimisées par les GPU [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf). Ces GPU peuvent fournir des performances de calcul deux fois supérieures à celles de la série NC. Les clients peuvent tirer parti de ces GPU mis à jour pour les charges de travail HPC traditionnelles telles que la modélisation de gisements, le séquençage de l’ADN, l’analyse des protéines, les simulations de Monte-Carlo, etc. La configuration NC24rs v2 fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées.
 
@@ -58,6 +66,10 @@ Les machines virtuelles de série NCv2 sont optimisées par les GPU [NVIDIA Tesl
 
 ## <a name="ncv3-series"></a>Série NCv3
 
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
+
 Les machines virtuelles de série NCv3 sont optimisées par les GPU [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf). Ces GPU peuvent fournir des performances de calcul une fois et demie supérieures à celles de la série NCv2. Les clients peuvent tirer parti de ces GPU mis à jour pour les charges de travail HPC traditionnelles telles que la modélisation de gisements, le séquençage de l’ADN, l’analyse des protéines, les simulations de Monte-Carlo, etc. La configuration NC24rs v3 fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées.
 
 > [!IMPORTANT]
@@ -77,6 +89,10 @@ Les machines virtuelles de série NCv3 sont optimisées par les GPU [NVIDIA Tesl
 
 ## <a name="nd-series"></a>Série ND
 
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
+
 Les machines virtuelles de la série ND sont une nouveauté de la famille de GPU. Elles sont spécialement conçues pour les charges de travail d’intelligence artificielle et de Deep Learning. Elles offrent d’excellentes performances pour l’apprentissage et l’inférence. Les instances ND sont optimisées par des GPU [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf). Ces instances offrent d’excellentes performances pour les opérations à virgule flottante simple précision, et pour les charges de travail d’intelligence artificielle utilisant Microsoft Cognitive Toolkit, TensorFlow, Caffe et d’autres infrastructures. La série ND offre également une taille de mémoire GPU beaucoup plus importante (24 Go), ce qui permet d’adapter des modèles de réseaux neuronaux beaucoup plus volumineux. À l’instar de la série NC, la série ND offre une configuration avec un réseau à faible latence secondaire et à haut débit grâce à l’accès direct à la mémoire à distance (RDMA), ainsi que la connectivité InfiniBand, de sorte que vous pouvez exécuter des travaux de formation à grande échelle s’étendant sur de nombreux GPU.
 
 > [!IMPORTANT]
@@ -95,6 +111,10 @@ Les machines virtuelles de la série ND sont une nouveauté de la famille de GPU
 *Prenant en charge RDMA
 
 ## <a name="nv-series"></a>Série NV
+
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
 
 Les machines virtuelles de la série NV sont optimisées par des GPU [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) et la technologie NVIDIA GRID pour les applications de bureautique accélérées et les bureaux virtuels où les clients peuvent visualiser leurs données ou simulations. Les utilisateurs peuvent visualiser leurs flux de travail nécessitant beaucoup de graphismes sur les instances NV afin d’obtenir des fonctionnalités graphiques de qualité supérieure et exécuter par ailleurs des charges de travail simple précision comme le codage et le rendu. 
 

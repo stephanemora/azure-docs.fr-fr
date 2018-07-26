@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a8d5465a2a9aaf9cf686a8e135a1f537cc60c6b5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129249"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049845"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Effectuer des recherches dans des journaux inter-ressources dans Log Analytics  
 
@@ -32,7 +32,7 @@ Maintenant, vous pouvez interroger non seulement plusieurs espaces de travail Lo
 Pour référencer un autre espace de travail dans votre requête, utilisez l’identificateur [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()). Pour une application Application Insights, utilisez l’identificateur [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
 
 ### <a name="identifying-workspace-resources"></a>Identification des ressources d’espace de travail
-Dans les exemples suivants, des requêtes sont exécutées sur des espaces de travail Log Analytics dans le but de retourner les décomptes synthétiques des mises à jour à partir de la table Update d’un espace de travail nommé *contosoretail-it*. 
+Les exemples suivants illustrent des requêtes exécutées sur des espaces de travail Log Analytics dans le but de retourner les décomptes synthétiques des journaux à partir de la table Update d’un espace de travail nommé *contosoretail-it*. 
 
 Il est possible d’identifier un espace de travail de plusieurs manières :
 
@@ -45,7 +45,7 @@ Il est possible d’identifier un espace de travail de plusieurs manières :
 
 * Nom qualifié : il s’agit du « nom complet » de l’espace de travail, composé du nom de l’abonnement, du groupe de ressources et du nom du composant au format suivant : *nomAbonnement/groupeRessources/nomComposant*. 
 
-    `workspace('contoso/contosoretail/development').requests | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
 
     >[!NOTE]
     >Étant donné que les noms des abonnements Azure ne sont pas uniques, cet identificateur peut être ambigu. 
@@ -59,7 +59,7 @@ Il est possible d’identifier un espace de travail de plusieurs manières :
 
     Par exemple : 
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>Identification d’une application
@@ -88,6 +88,17 @@ Vous pouvez identifier une application dans Application Insights avec l’expres
     Par exemple : 
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+    ```
+
+### <a name="performing-a-query-across-multiple-resources"></a>Exécution d’une requête sur plusieurs ressources
+Vous pouvez interroger plusieurs ressources à partir d’une quelconque de vos instances de ressources. Il peut s’agir d’espaces de travail et d’applications combinés.
+    
+Exemple de requête sur deux espaces de travail :    
+    ```
+    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+    | where TimeGenerated >= ago(1h)
+    | where UpdateState == "Needed"
+    | summarize dcount(Computer) by Classification
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes

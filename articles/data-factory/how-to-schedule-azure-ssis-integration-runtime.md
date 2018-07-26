@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050605"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113975"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Guide pratique pour démarrer et arrêter le runtime d'intégration Azure SSIS sur une planification
 Cet article explique comment planifier le démarrage et l’arrêt d’un runtime d’intégration (IR) Azure SSIS à l’aide d’Azure Automation et de Azure Data Factory. L’exécution d’un runtime d’intégration (IR) Azure SSIS (SQL Server Integration Services) a un coût. Il est donc généralement souhaitable de n’exécuter le runtime d’intégration que quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur de Data Factory ou Azure PowerShell pour [démarrer ou arrêter un runtime d’intégration Azure SSIS manuellement](manage-azure-ssis-integration-runtime.md).
@@ -249,7 +249,7 @@ Après avoir créé et testé le pipeline, vous créez un déclencheur de planif
       - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante. 
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
          
-      Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+      Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Sélectionnez **V2** pour la **version**.
 5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge pour la création de fabriques de données sont affichés dans la liste.
 6. Sélectionnez **Épingler au tableau de bord**.     
@@ -259,7 +259,7 @@ Après avoir créé et testé le pipeline, vous créez un déclencheur de planif
     ![mosaïque déploiement de fabrique de données](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
-   ![Page d'accueil Data Factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+   ![Page d’accueil Data Factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
 10. Cliquez sur **Créer et surveiller** pour lancer l’interface utilisateur (IU) de Data Factory dans un onglet séparé.
 
 ### <a name="create-a-pipeline"></a>Créer un pipeline
@@ -373,21 +373,46 @@ Le pipeline fonctionnant comme prévu, vous pouvez créer un déclencheur pour l
 5. Publiez la solution sur la fabrique de données en sélectionnant **Publier tout** dans le volet gauche. 
 
     ![Publier tout](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
-6. Pour surveiller les exécutions du déclencheur et du pipeline, utilisez l’onglet **Surveiller** sur la gauche. Pour obtenir des instructions détaillées, consultez [Surveiller le pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
+
+### <a name="monitor-the-pipeline-and-trigger-in-the-azure-portal"></a>Surveiller le pipeline et le déclencheur dans le portail Azure
+
+1. Pour surveiller les exécutions du déclencheur et du pipeline, utilisez l’onglet **Surveiller** sur la gauche. Pour obtenir des instructions détaillées, consultez [Surveiller le pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Exécutions de pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Pour voir les exécutions d’activité associées à l’exécution d’un pipeline, sélectionnez le premier lien (**Voir les exécutions d’activités**) dans la colonne **Actions**. Affichez les trois exécutions d’activités associées à chaque activité dans le pipeline (première activité Web, activité Procédure stockée et deuxième activité Web). Pour revenir à l’affichage des exécutions du pipeline, sélectionnez le lien **Pipelines** en haut.
+2. Pour voir les exécutions d’activité associées à l’exécution d’un pipeline, sélectionnez le premier lien (**Voir les exécutions d’activités**) dans la colonne **Actions**. Affichez les trois exécutions d’activités associées à chaque activité dans le pipeline (première activité Web, activité Procédure stockée et deuxième activité Web). Pour revenir à l’affichage des exécutions du pipeline, sélectionnez le lien **Pipelines** en haut.
 
     ![Exécutions d’activités](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
-8. Vous pouvez également afficher les exécutions de déclencheur en sélectionnant **Exécutions du déclencheur** dans la liste déroulante en regard **d’Exécutions du pipeline** en haut. 
+3. Vous pouvez également afficher les exécutions de déclencheur en sélectionnant **Exécutions du déclencheur** dans la liste déroulante en regard **d’Exécutions du pipeline** en haut. 
 
     ![Exécutions de déclencheur](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
+
+### <a name="monitor-the-pipeline-and-trigger-with-powershell"></a>Surveiller le pipeline et le déclencheur avec PowerShell
+
+Utilisez des scripts tels que les exemples suivants pour surveiller le pipeline et le déclencheur.
+
+1. Récupérez l’état d’une exécution de pipeline.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  ```
+
+2. Obtenez des informations sur le déclencheur.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  ```
+
+3. Récupérez l’état d’une exécution de déclencheur.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez le billet de blog suivant :
 -   [Moderniser et étendre vos flux de travail ETL/ELT avec des activités SSIS dans des pipelines ADF](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
 
-Consultez les articles suivants de la documentation relative à SSIS : 
+Consultez les articles suivants de la documentation relative à SSIS : 
 
 - [Déployer, exécuter et surveiller un package SSIS sur Azure](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   
 - [Se connecter au catalogue SSIS sur Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)

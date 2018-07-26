@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050124"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069261"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Database Managed Instance
 
@@ -91,11 +91,11 @@ Pour plus d’informations sur ce scénario et les étapes de configuration de D
 
 La restauration de sauvegardes natives (fichiers .bak) issues de SQL Server local ou de [SQL Server sur les machines virtuelles](https://azure.microsoft.com/services/virtual-machines/sql-server/), disponible sur [Stockage Azure](https://azure.microsoft.com/services/storage/), est une des principales fonctionnalités sur SQL Database Managed Instance qui permet d’effectuer rapidement et facilement une migration de base de données hors connexion. 
 
-Le diagramme suivant explique le processus :
+Le diagramme suivant fournit une vue d’ensemble du processus :
 
 ![flux de migration](./media/sql-database-managed-instance-migration/migration-flow.png)
 
-Le tableau suivant fournit plus d’informations sur la méthode que vous pouvez utiliser en fonction de la version de SQL Server source que vous exécutez :
+Le tableau suivant fournit des informations supplémentaires sur les méthodes que vous pouvez utiliser en fonction de la version de SQL Server source que vous exécutez :
 
 |Étape|Moteur SQL et version|Méthode de sauvegarde/restauration|
 |---|---|---|
@@ -105,7 +105,8 @@ Le tableau suivant fournit plus d’informations sur la méthode que vous pouvez
 |Restaurer de Stockage Azure vers Managed Instance|[RESTORE FROM URL avec SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> La restauration de bases de données système n’est pas prise en charge. Pour effectuer la migration d’objets au niveau de l’instance (stockés dans des bases de données master et msdb), nous vous recommandons de les scripter et d’exécuter des scripts T-SQL sur l’instance de destination.
+> - Lorsque vous migrez une base de données protégée par [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) vers Azure SQL Managed Instance à l’aide d’une option de restauration native, le certificat correspondant du serveur SQL Server local ou IaaS doit être migré avant la restauration de la base de données. Pour des instructions détaillées, voir [Migrer un certificat TDE vers Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md).
+> - La restauration de bases de données système n’est pas prise en charge. Pour effectuer la migration d’objets au niveau de l’instance (stockés dans des bases de données master et msdb), nous vous recommandons de les scripter et d’exécuter des scripts T-SQL sur l’instance de destination.
 
 Pour découvrir un didacticiel complet incluant la restauration d’une sauvegarde de base de données vers une option Managed Instance à l’aide d’informations d’identification SAP, consultez [Restaurer une sauvegarde de base de données dans Azure SQL Database Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md).
 

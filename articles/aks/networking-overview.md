@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: marsma
-ms.openlocfilehash: 207accc30e10c4e2bed5b713fc59e2f9ad86a876
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311093"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115793"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuration réseau dans Azure Kubernetes Service (AKS)
 
@@ -27,8 +27,7 @@ Les nœuds d’un cluster AKS configurés pour la mise en réseau de base utilis
 
 ## <a name="advanced-networking"></a>Mise en réseau avancée
 
-La mise en réseau **avancée** place vos pods dans un réseau virtuel Azure que vous configurez, en leur octroyant une connectivité automatique aux ressources de réseau virtuel et une intégration avec le riche ensemble de fonctionnalités offert par les réseaux virtuels.
-La mise en réseau avancée est disponible en cas de déploiement de clusters AKS avec le [Portail Azure][portal], Azure CLI ou un modèle Resource Manager.
+La mise en réseau **avancée** place vos pods dans un réseau virtuel Azure que vous configurez, en leur octroyant une connectivité automatique aux ressources de réseau virtuel et une intégration avec le riche ensemble de fonctionnalités offert par les réseaux virtuels. La mise en réseau avancée est disponible en cas de déploiement de clusters AKS avec le [Portail Azure][portal], Azure CLI ou un modèle Resource Manager.
 
 Les nœuds d’un cluster AKS configurés pour la mise en réseau avancée utilisent le plug-in Kubernetes[Azure Container Networking Interface (CNI)][cni-networking].
 
@@ -45,9 +44,6 @@ La mise en réseau avancée procure les avantages suivants :
 * Les pods dans un sous-réseau disposant de points de terminaison de service activés peuvent se connecter en toute sécurité aux services Azure (Stockage et SQL Database, par exemple).
 * Utilisez les itinéraires définis par l’utilisateur pour acheminer le trafic des pods vers une appliance virtuelle réseau.
 * Les pods peuvent accéder aux ressources sur les réseaux Internet publics. Également une fonction de la mise en réseau de base.
-
-> [!IMPORTANT]
-> Chacun des nœuds d’un cluster AKS configuré avec le Portail Azure pour la mise en réseau avancée peut héberger un maximum de **30 pods**.  Le seul moyen possible de changer la valeur maximale consiste à modifier la propriété maxPods lors du déploiement d’un cluster avec un modèle Resource Manager. Chaque réseau virtuel configuré pour une utilisation avec le plug-in Azure CNI est limité à **4 096 adresses IP**.
 
 ## <a name="advanced-networking-prerequisites"></a>Conditions préalables de mise en réseau avancée
 
@@ -67,19 +63,36 @@ Le plan d’adressage IP pour un cluster AKS se compose d’un réseau virtuel
 
 | Plage Azure/ressource Azure | Limites et tailles |
 | --------- | ------------- |
-| Réseau virtuel | Un réseau virtuel Azure peut avoir un volume maximal de /8, mais peut uniquement avoir 4 096 adresses IP configurées. |
-| Sous-réseau | Doit être suffisamment grand pour contenir les nœuds et les pods. Pour calculer la taille minimale de votre sous-réseau : (nombre de nœuds) + (nombre de nœuds * pods par nœud). Pour un cluster à 50 nœuds : (50) + (50 * 30) = 1 550 ; votre sous-réseau doit être /21 ou plus grand. |
+| Réseau virtuel | La taille d’un réseau virtuel Azure peut aller jusqu’à /8, toutefois, le nombre d’adresses IP configurées est limité à 16 000. |
+| Sous-réseau | Doit pouvoir contenir les nœuds, les pods, ainsi que toutes les ressources Kubernetes et Azure qui peuvent être provisionnées dans votre cluster. Par exemple, si vous déployez un équilibreur de charge interne Azure, ses adresses IP frontend sont allouées à partir du sous-réseau du cluster, et non à partir des adresses IP non publiques. <p/>Pour calculer la taille *minimale* du sous-réseau : `(number of nodes) + (number of nodes * pods per node)` <p/>Exemple pour un cluster à 50 nœuds : `(50) + (50 * 30) = 1,550` (/21 ou plus) |
 | Plage d’adresses de service Kubernetes | Cette plage ne doit être utilisée par aucun élément réseau sur ce réseau virtuel ou connectée à celui-ci. Le CIDR d’adresse du service doit être inférieur à /12. |
 | Adresse IP du service DNS Kubernetes | Adresse IP dans la plage d’adresses de service Kubernetes, qui sera utilisée par la détection de service de cluster (kube-dns). |
 | Adresse de pont Docker | Adresse IP (en notation CIDR) utilisée en tant qu’adresse IP de pont Docker sur les nœuds. Valeur par défaut : 172.17.0.1/16. |
 
-Comme indiqué précédemment, chaque réseau virtuel configuré pour une utilisation avec le plug-in Azure CNI est limité à **4 096 adresses IP**. Chaque nœud de cluster configuré pour la mise en réseau avancée peut héberger un maximum de **30 pods**.
+Chaque réseau virtuel provisionné en vue d’une utilisation avec le plug-in Azure CNI est limité à **16 000 adresses IP**.
+
+## <a name="maximum-pods-per-node"></a>Nombre maximal de pods par nœud
+
+Le nombre maximal de pods par défaut dans chaque nœud d’un cluster AKS varie selon qu’il s’agit d’un réseau de base ou d’un réseau avancé, et selon la méthode de déploiement du cluster.
+
+### <a name="default-maximum"></a>Valeurs maximales par défaut
+
+* Réseau de base : **110 pods par nœud**
+* Réseau avancé : **30 pods par nœud**
+
+### <a name="configure-maximum"></a>Configurer les valeurs maximales
+
+Selon votre méthode de déploiement, il se peut que vous puissiez modifier le nombre maximal de pods par nœud dans un cluster AKS.
+
+* **Azure CLI** : Spécifiez l’argument `--max-pods` lorsque vous déployez un cluster avec la commande [az aks create][az-aks-create].
+* **Modèle Resource Manager** : Spécifiez la propriété `maxPods` dans l’objet [ManagedClusterAgentPoolProfile] lorsque vous déployez un cluster avec un modèle Resource Manager.
+* **Portail Azure** : Vous ne pouvez pas modifier le nombre maximal de pods par nœud lorsque vous déployez un cluster avec le portail Azure. Les clusters de réseau avancé sont limités à 30 pods par nœud lorsqu’ils sont déployés dans le portail Azure.
 
 ## <a name="deployment-parameters"></a>Paramètres de déploiement
 
-Lors de la création d’un cluster AKS, les paramètres suivants sont configurables pour la mise en réseau avancée :
+Lorsque vous créez un cluster AKS, les paramètres suivants sont configurables pour les réseaux avancés :
 
-**Réseau virtuel** : le réseau virtuel dans lequel vous souhaitez déployer le cluster Kubernetes. Si vous souhaitez créer un réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis suivez la procédure décrite dans la section *Créer un réseau virtuel*.
+**Réseau virtuel** : le réseau virtuel dans lequel vous souhaitez déployer le cluster Kubernetes. Si vous souhaitez créer un réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis suivez la procédure décrite dans la section *Créer un réseau virtuel*. Un réseau virtuel ne peut contenir que 16 000 adresses IP configurées.
 
 **Sous-réseau** : le sous-réseau du réseau virtuel dans lequel vous souhaitez déployer le cluster. Si vous souhaitez créer un nouveau sous-réseau dans le réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis exécutez la procédure décrite dans la section *Créer un sous-réseau*.
 
@@ -125,10 +138,6 @@ La capture d’écran suivante de votre portail Azure représente un exemple de 
 
 La série suivante de questions-réponses s’applique à la configuration réseau **avancée**.
 
-* *Puis-je configurer la mise en réseau avancée avec l’interface Azure CLI ?*
-
-  Non. La mise en réseau avancée est actuellement disponible uniquement lors du déploiement de clusters AKS dans le portail Azure ou avec un modèle Resource Manager.
-
 * *Puis-je déployer des machines virtuelles dans le sous-réseau de mon cluster ?*
 
   Non. Le déploiement des machines virtuelles dans le sous-réseau utilisé par votre cluster Kubernetes n’est pas pris en charge. Les machines virtuelles peuvent être déployées dans le même réseau virtuel, mais dans un sous-réseau différent.
@@ -139,7 +148,7 @@ La série suivante de questions-réponses s’applique à la configuration rése
 
 * *Le nombre maximal de pods pouvant être déployés sur un nœud peut-il être configuré ?*
 
-  Par défaut, chaque nœud peut héberger 30 pods au maximum. Pour modifier la valeur maximale, vous pouvez uniquement modifier la propriété `maxPods` lors du déploiement d’un cluster avec un modèle Resource Manager.
+  Oui, lorsque vous déployez un cluster avec l’interface CLI Azure ou un modèle Resource Manager. Consultez [Nombre maximal de pods par nœud](#maximum-pods-per-node).
 
 * *Comment configurer des propriétés supplémentaires pour le sous-réseau développé lors de la création du cluster AKS ? Par exemple, des points de terminaison du service.*
 
@@ -177,3 +186,4 @@ Les clusters Kubernetes créés avec le moteur ACS prennent en charge les plug-i
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

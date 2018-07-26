@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13057769bad7fcad5f95e49102adac234ebcdb4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bbb17d1b47c5409d15a15a7461da981fa5e09f7e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868937"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056832"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Connecter des ordinateurs sans accès Internet à l’aide de la passerelle OMS
 Ce document décrit comment configurer la communication avec Azure Automation et Log Analytics à l’aide de la passerelle OMS lorsqu’elle est directement connectée ou lorsque les ordinateurs analysés Operations Manager n’ont pas accès à Internet.  La passerelle OMS, qui est un proxy de transfert HTP prenant en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT, peut collecter des données et les envoyer au service OMS en son nom.  
@@ -89,8 +89,8 @@ Le tableau suivant met en lumière le nombre d’agents pris en charge qui commu
 
 |Passerelle |Nombre approximatif d’agents pris en charge|  
 |--------|----------------------------------|  
-|- Processeur : Intel XEON CPU E5-2660 v3 @ 2.6GHz 2 Cores<br> - Mémoire : 4 Go<br> Bande passante réseau : 1 Go/s| 600|  
-|- Processeur : Intel XEON CPU E5-2660 v3 @ 2.6GHz 4 Cores<br> - Mémoire : 8 Go<br> Bande passante réseau : 1 Go/s| 1 000|  
+|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 2 cœurs<br> - Mémoire : 4 Go<br> Bande passante réseau : 1 Go/s| 600|  
+|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 4 cœurs<br> - Mémoire : 8 Go<br> Bande passante réseau : 1 Go/s| 1 000|  
 
 ## <a name="download-the-oms-gateway"></a>Télécharger la passerelle OMS
 
@@ -210,11 +210,11 @@ Utilisez les tableaux suivants pour identifier l’URL pour chaque emplacement 
 | **location** | **URL** |
 | --- | --- |
 | Centre-Nord des États-Unis |ncus-jobruntimedata-prod-su1.azure-automation.net |
-| Europe de l'Ouest |we-jobruntimedata-prod-su1.azure-automation.net |
+| Europe Ouest |we-jobruntimedata-prod-su1.azure-automation.net |
 | États-Unis - partie centrale méridionale |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Est des États-Unis 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
 | Canada central |cc-jobruntimedata-prod-su1.azure-automation.net |
-| Europe du Nord |ne-jobruntimedata-prod-su1.azure-automation.net |
+| Europe Nord |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Asie du Sud-Est |sea-jobruntimedata-prod-su1.azure-automation.net |
 | Inde centrale |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Japon |jpe-jobruntimedata-prod-su1.azure-automation.net |
@@ -225,11 +225,11 @@ Utilisez les tableaux suivants pour identifier l’URL pour chaque emplacement 
 | **location** | **URL** |
 | --- | --- |
 | Centre-Nord des États-Unis |ncus-agentservice-prod-1.azure-automation.net |
-| Europe de l'Ouest |we-agentservice-prod-1.azure-automation.net |
+| Europe Ouest |we-agentservice-prod-1.azure-automation.net |
 | États-Unis - partie centrale méridionale |scus-agentservice-prod-1.azure-automation.net |
 | Est des États-Unis 2 |eus2-agentservice-prod-1.azure-automation.net |
 | Canada central |cc-agentservice-prod-1.azure-automation.net |
-| Europe du Nord |ne-agentservice-prod-1.azure-automation.net |
+| Europe Nord |ne-agentservice-prod-1.azure-automation.net |
 | Asie du Sud-Est |sea-agentservice-prod-1.azure-automation.net |
 | Inde centrale |cid-agentservice-prod-1.azure-automation.net |
 | Japon |jpe-agentservice-prod-1.azure-automation.net |

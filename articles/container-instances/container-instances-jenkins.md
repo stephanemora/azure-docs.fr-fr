@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 07/13/2018
 ms.author: marsma
-ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887689"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072073"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Utiliser Azure Container Instances en tant qu’agent de build Jenkins
 
@@ -92,31 +92,21 @@ Jenkins est à présent configuré et prêt à générer et déployer le code. C
 
 ## <a name="create-a-build-job"></a>Créer un travail de build
 
-Lorsque vous utilisez une image conteneur comme cible de build Jenkins, vous devez spécifier une image incluant tous les outils nécessaires pour un build réussi. Pour spécifier l’image :
+À présent, un travail de build Jenkins est créé pour montrer les builds Jenkins sur une instance de conteneur Azure.
 
-1. Sélectionnez **Manage Jenkins (Gérer Jenkins)** > **Configure System** (Configurer le système), puis accédez à la section **Cloud**. Pour cet exemple, remplacez la valeur de la zone d’image Docker par **microsoft/java-on-azure-jenkins-slave**.
-
-   Lorsque vous avez terminé, sélectionnez **Enregistrer** pour revenir au tableau de bord Jenkins.
-
-   ![Configuration du cloud Jenkins](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. À présent, créez un travail de build Jenkins. Sélectionnez **Nouvel élément**, attribuez au projet de build un nom tel que **aci-java-demo**, sélectionnez **Freestyle project** (Projet libre), puis sélectionnez **OK**.
+1. Sélectionnez **Nouvel élément**, attribuez au projet de build un nom comme **aci-demo**, sélectionnez **Freestyle project** (Projet libre), puis sélectionnez **OK**.
 
    ![Zone du nom de travail de build et liste des types de projets](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. Sous **Général**, vérifiez que l’option **Restrict where this project can be run** (Limiter où ce projet peut être exécuté). Dans la zone d’expression d’étiquette, entrez **linux**. Cette configuration garantit l’exécution de ce travail de build sur le cloud ACI.
+2. Sous **Général**, vérifiez que l’option **Restrict where this project can be run** (Limiter où ce projet peut être exécuté). Dans la zone d’expression d’étiquette, entrez **linux**. Cette configuration garantit l’exécution de ce travail de build sur le cloud ACI.
 
    ![Onglet « Général » contenant les détails de configuration](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. Sous **Source Code Management** (Gestion du code source), sélectionnez **Git**, puis entrez **https://github.com/spring-projects/spring-petclinic.git** dans la zone d’URL du référentiel. Ce référentiel GitHub contient l’exemple de code d’application.
+3. Sous **Build**, sélectionnez **Ajouter une étape de build**, puis sélectionnez **Exécuter le shell**. Entrez la commande `echo "aci-demo"`.
 
-   ![Onglet de gestion du code source contenant les informations de code source](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![Onglet « Build » contenant les sélections de l’étape de build](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Sous **Build**, sélectionnez **Ajouter une étape de build**, puis **Invoke top-level Maven targets** (Appeler des cibles Maven de niveau supérieur). Entrez **package** comme objectif d’étape de build.
-
-   ![Onglet « Build » contenant les sélections de l’étape de build](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. Sélectionnez **Enregistrer**.
+5. Sélectionnez **Enregistrer**.
 
 ## <a name="run-the-build-job"></a>Exécuter le travail de build
 

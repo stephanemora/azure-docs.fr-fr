@@ -1,43 +1,44 @@
-
-<!--
-includes/sql-database-include-ip-address-22-v12portal.md
-
-Latest Freshness check:  2016-03-21 , daleche.
-
-As of circa 2015-09-04, the following topics might include this include:
-articles/sql-database/sql-database-configure-firewall-settings.md
-articles/sql-database/sql-database-connect-query.md
-
-
-## Server-level firewall rules
-
-### Add a server-level firewall rule through the new Azure portal
--->
-
-
+---
+title: Règles de pare-feu au niveau du serveur
+description: Règles de pare-feu au niveau du serveur
+keywords: connexion sql,chaîne de connexion
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: include
+ms.date: 07/13/2018
+ms.author: ninarn
+ms.openlocfilehash: 07bbba28b7e1b048ef3a4e1afa4db255967dc093
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117271"
+---
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Dans la liste de gauche, sélectionnez **Tous les services**. 
+2. Dans la liste de gauche, sélectionnez **Tous les services**.
 
-3. Faites défiler l’écran, puis sélectionnez **Serveurs SQL**. 
-   
+3. Faites défiler l’écran, puis sélectionnez **Serveurs SQL**.
+
     ![Rechercher votre serveur Azure SQL Database sur le portail][b21-FindServerInPortal]
 5. Dans la zone de texte de filtre, tapez les premières lettres du nom de votre serveur. La ligne correspondante s’affiche.
 
 6. Sélectionnez la ligne de votre serveur. Un panneau dédié à votre serveur s’affiche.
 
-7. Dans ce panneau, sélectionnez **Paramètres**. 
+7. Dans ce panneau, sélectionnez **Paramètres**.
 
-8. Sélectionnez **Pare-feu**. 
-   
+8. Sélectionnez **Pare-feu**.
+
     ![Sélectionnez Paramètres, puis Pare-feu][b31-SettingsFirewallNavig]
 9. Sélectionnez **Ajouter une adresse IP cliente**. Dans la première zone de texte, tapez un nom pour votre nouvelle règle.
 
 10. Tapez les valeurs d’adresse IP basse et haute de la plage que vous souhaitez autoriser.
-    
+
     * Pour des raisons pratiques, vous pouvez terminer les valeurs basses par **.0** et les valeurs hautes par **.255**.
-    
-    ![Ajouter une plage d’adresses IP à autoriser][b41-AddRange]
+
 11. Sélectionnez **Enregistrer**.
 
 <!-- Image references. -->

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dbd747fd3ec53b1221536609d6355ff5b4691977
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309331"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091602"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurer un réseau virtuel pour Azure SQL Database Managed Instance
 
@@ -59,8 +59,9 @@ Si vous envisagez de déployer plusieurs options Managed Instance à l’intéri
 
 - Azure utilise cinq adresses IP dans le sous-réseau pour ses besoins propres. 
 - Chaque instance à usage général nécessite deux adresses. 
+- Chaque instance Critique pour l’entreprise a besoin de quatre adresses
 
-**Exemple** : vous prévoyez d’utiliser huit options Managed Instance. Cela signifie que vous avez besoin de 5 + 8 * 2 = 21 adresses IP. Comme les plages d’adresses IP sont définies par puissance de 2, vous avez besoin d’une plage de 32 (2 ^ 5) adresses IP. Ainsi, vous devez réserver le sous-réseau avec un masque de sous-réseau de /27. 
+**Exemple** : vous prévoyez d’avoir trois Managed Instances de type Usage général et deux de type Critique pour l’entreprise. Cela signifie que vous avez besoin de 5 + 3 * 2 + 2 * 4 = 19 adresses IP. Comme les plages d’adresses IP sont définies par puissance de 2, vous avez besoin d’une plage de 32 (2 ^ 5) adresses IP. Ainsi, vous devez réserver le sous-réseau avec un masque de sous-réseau de /27. 
 
 ## <a name="create-a-new-virtual-network-for-managed-instances"></a>Créer un réseau virtuel pour les options Managed Instance 
 

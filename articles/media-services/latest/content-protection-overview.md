@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 2f0996482c599a664d02e172dcb20cda4e039af5
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341662"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115228"
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu
 
@@ -45,8 +45,11 @@ Pour mener à bien votre conception de système/d’application de « protectio
   > [!NOTE]
   > Vous pouvez chiffrer chaque élément multimédia avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison.
   
-  L’article suivant explique les étapes pour chiffrer du contenu avec AES : [Protect with AES encryption](protect-with-aes128.md) (protéger avec le chiffrement AES)
- 
+  Les articles suivants décrivent les étapes pour chiffrer du contenu avec AES et/ou DRM : 
+  
+  * [Protection avec le chiffrement AES](protect-with-aes128.md)
+  * [Protéger avec DRM](protect-with-drm.md)
+
 2. Lecteur avec client AES ou DRM. Une application de lecteur vidéo basée sur un kit de développement logiciel du lecteur (natif ou dans le navigateur) doit remplir les conditions suivantes :
   * Le Kit de développement logiciel du lecteur prend en charge les clients DRM nécessaires
   * Le Kit de développement logiciel du lecteur prend en charge les protocoles de diffusion en continu requis : Smooth, DASH et/ou HLS
@@ -54,9 +57,9 @@ Pour mener à bien votre conception de système/d’application de « protectio
   
     Vous pouvez créer un lecteur à l’aide de [l’API Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Utilisez [l’API ProtectionInfo d’Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) pour spécifier la technologie DRM à utiliser sur d’autres plateformes DRM.
 
-    Pour tester du contenu chiffré par AES ou CENC (Widevine + PlayReady), vous pouvez utiliser [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Assurez-vous que vous cliquez sur « Options avancées » et cochez AES et fournissez le jeton.
+    Pour tester du contenu chiffré par AES ou CENC (Widevine et/ou PlayReady), vous pouvez utiliser le [lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Veillez à cliquer sur Options avancées et vérifiez vos options de chiffrement.
 
-    Si vous souhaitez tester le contenu chiffré de FairPlay, utilisez [ce lecteur test](http://aka.ms/amtest). Le lecteur prend en charge les DRM Widevine, PlayReady et FairPlay, ainsi que le chiffrement de clé en clair AES-128. Vous devez choisir le bon navigateur pour tester les différents DRM : Opera/Chrome/Firefox pour Widevine, MS Edge/IE11 pour PlayReady, Safari sur macOS pour FairPlay.
+    Si vous souhaitez tester le contenu chiffré de FairPlay, utilisez [ce lecteur test](http://aka.ms/amtest). Le lecteur prend en charge les DRM Widevine, PlayReady et FairPlay, ainsi que le chiffrement de clé en clair AES-128. Vous devez choisir le bon navigateur pour tester les différents DRM : Chrome/Opera/Firefox pour Widevine, MS Edge/IE11 pour PlayReady, Safari sur macOS pour FairPlay.
 
 3. Secure Token Service (STS), qui émet le jeton JSON Web Token (JWT) en tant que jeton d’accès pour accéder aux ressources principales. Vous pouvez utiliser les services de distribution de licence AMS en tant que ressource principale. Un service STS doit définir les éléments suivants :
 
@@ -90,7 +93,7 @@ Vous pouvez utiliser Media Services pour transmettre du contenu chiffré de mani
 
 Dans Media Services v3, une clé de contenu est associée à StreamingLocator (consultez [cet exemple](protect-with-aes128.md)). Si vous utilisez le service de remise de clé Media Services, vous devez générer automatiquement la clé de contenu. Vous devez générer la clé de contenu vous-même si vous utilisez votre propre service de remise de clé, ou si vous avez besoin de gérer un scénario de haute disponibilité au cours duquel vous avez besoin d’avoir la même clé de contenu dans deux centres de données.
 
-Lorsqu’un flux est demandé par un lecteur, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement de clé en clair AES ou DRM. Pour déchiffrer le flux, le lecteur demande la clé au service de remise des clés Media Services, ou au service de remise des clés que vous avez spécifié. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
+Lorsqu’un flux est demandé par un lecteur, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement de clé en clair AES ou DRM. Pour déchiffrer le flux, le lecteur demande la clé au service de remise des clés Media Services, ou au service de remise des clés que vous avez spécifié. Pour déterminer si l’utilisateur est autorisé ou non à obtenir la clé, le service évalue la stratégie de clé de contenu que vous avez spécifiée pour la clé.
 
 ## <a name="aes-128-clear-key-vs-drm"></a>Clé en clair AES-128 et DRM
 
@@ -122,22 +125,13 @@ Avec une stratégie de clé de contenu de jeton, la clé de contenu n’est envo
 
 Quand vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres de clé de vérification, émetteur et audience principaux. La clé de vérification principale contient le jeton avec lequel la clé a été signée. L’émetteur est le service STS qui émet le jeton. L’audience, parfois appelé étendue, décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
 
-## <a name="streaming-urls"></a>URL de diffusion
-
-Si votre ressource a été chiffrée avec plusieurs DRM, utilisez une balise de chiffrement dans l’URL de streaming : (format=’m3u8-aapl’, encryption=’xxx’).
-
-Les considérations suivantes s'appliquent :
-
-* Le type de chiffrement ne doit pas être spécifié dans l’URL si un seul chiffrement a été appliqué à la ressource.
-* Le type de chiffrement ne tient pas compte de la casse.
-* Les types de chiffrement suivants peuvent être spécifiés :
-  * **cenc** : pour PlayReady ou Widevine (chiffrement commun)
-  * **cbcs-aapl** : pour FairPlay (chiffrement CBC AES)
-  * **cbc** : pour le chiffrement de l’enveloppe AES
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Comment protéger avec le chiffrement AES dans Media Services v3](protect-with-aes128.md)
+Consultez les articles suivants :
+
+  * [Protection avec le chiffrement AES](protect-with-aes128.md)
+  * [Protéger avec DRM](protect-with-drm.md)
 
 Vous trouverez des informations supplémentaires dans [conception et implémentation de DRM de référence](../previous/media-services-cenc-with-multidrm-access-control.md)
 

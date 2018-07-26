@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 24fa427ad67a953020370a16b4d156c82a0a1cf6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951020"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036664"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemples de syntaxe de requête Lucene pour créer des requêtes dans Azure Search
 Lors de la construction de requêtes pour la Recherche Azure, vous pouvez utiliser la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) par défaut ou bien [l’analyseur de requêtes Lucene de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). L’analyseur de requêtes Lucene prend en charge des constructions de requêtes plus complexes, telles que des requêtes portant sur des champs, la recherche partielle, la recherche de proximité, la promotion de termes et la recherche d’expression régulière.
@@ -69,7 +69,7 @@ Le champ spécifié dans **fieldname:searchterm** doit être un champ pouvant fa
 ## <a name="fuzzy-search-example"></a>Exemple de recherche partielle
 Une recherche partielle recherche des correspondances dans les termes qui ont une construction similaire. D’après la [documentation Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), les recherches partielles sont basées sur la [Distance Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-Pour effectuer une recherche partielle, ajoutez le signe tilde « ~ » à la fin d’un mot avec un paramètre facultatif, une valeur comprise entre 0 et 2, qui spécifie la distance de modification. Par exemple, "blue~" ou "blue~1" retournent blue, blues et glue.
+Pour effectuer une recherche partielle, ajoutez le signe tilde `~` à la fin d’un mot avec un paramètre facultatif, une valeur comprise entre 0 et 2, qui spécifie la distance de modification. Par exemple, `blue~` ou `blue~1` retournent blue, blues et glue.
 
 **Exemple 3** -- Cliquez avec le bouton droit sur l’extrait de requête suivant. Cette requête recherche les postes à pourvoir contenant le terme « associate » (où il est mal orthographié) :
 

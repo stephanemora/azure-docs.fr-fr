@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344298"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036082"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Créer un appareil IoT Edge Windows servant de passerelle transparente
 
@@ -22,8 +22,8 @@ Cet article fournit des instructions détaillées pour utiliser un appareil IoT 
 >[!NOTE]
 >Actuellement :
 > * Si la passerelle est déconnectée d’IoT Hub, les appareils en aval ne peuvent pas s’authentifier auprès de la passerelle.
-> * les appareils IoT Edge ne peuvent pas se connecter aux passerelles IoT Edge.
-> * Les appareils en aval ne peuvent pas utiliser de chargement de fichier.
+> * Les appareils Edge ne peuvent pas se connecter aux passerelles IoT Edge. 
+> * Les appareils en aval ne peuvent pas utiliser le chargement de fichier.
 
 La partie la plus complexe de la création d’une passerelle transparente consiste à connecter de manière sécurisée la passerelle aux appareils en aval. Azure IoT Edge vous permet d’utiliser l’infrastructure à clé publique pour configurer des connexions TLS sécurisées entre ces appareils. Dans ce cas, nous autorisons un appareil en aval à se connecter à un appareil IoT Edge faisant office de passerelle transparente.  Pour préserver une sécurité raisonnable, l’appareil en aval doit confirmer l’identité de l’appareil Edge, car vous souhaitez que vos appareils ne se connectent qu’à vos passerelles, et non pas à une passerelle potentiellement malveillante.
 

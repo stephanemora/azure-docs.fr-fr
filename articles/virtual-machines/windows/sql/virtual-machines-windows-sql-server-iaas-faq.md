@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/20/2018
+ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: e0254cd16c27597c3d52aed19b4c4ece49bac765
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 48df858095cb867954460ec858567e41ed330063
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366390"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012067"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Forum Aux Questions (FAQ) relatives à SQL Server sur les machines virtuelles exécutées sur Windows Azure
 
@@ -71,7 +71,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Comment installer ma copie sous licence de SQL Server sur une machine virtuelle Azure ?**
 
-   Il existe deux façons d'effectuer cette opération. Vous pouvez configurer l’une des [images de machine virtuelle qui prend en charge des licences](virtual-machines-windows-sql-server-iaas-overview.md#BYOL). Une autre option consiste à copier le support d’installation de SQL Server sur une machine virtuelle Windows Server, puis d’installer SQL Server sur la machine virtuelle. Pour des raisons de licence, vous devez posséder [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Pour en savoir plus, consultez l’article [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Tarification des machines virtuelles SQL Server Azure).
+   Il existe deux façons d'effectuer cette opération. Vous pouvez configurer l’une des [images de machine virtuelle prenant en charge les licences](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), également appelée BYOL. Une autre option consiste à copier le support d’installation de SQL Server sur une machine virtuelle Windows Server, puis d’installer SQL Server sur la machine virtuelle. Toutefois, si vous installez SQL Server manuellement, il n’y a pas d’intégration du portail et l’extension Agent IaaS SQL Server n’est pas prise en charge. Par conséquent, des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées ne fonctionnent pas dans ce scénario. Pour cette raison, nous vous recommandons d’utiliser l’une des images de galerie BYOL. Pour utiliser BYOL ou votre propre support SQL Server sur une machine virtuelle Azure, vous devez avoir la [mobilité de licence à travers la Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Pour en savoir plus, consultez l’article [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Tarification des machines virtuelles SQL Server Azure).
 
 1. **Puis-je modifier une machine virtuelle pour utiliser ma propre licence SQL Server si elle a été créée à partir de l’une des images de la galerie avec paiement à l’utilisation ?**
 
@@ -115,6 +115,9 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 1. **Les instances de cluster de basculement (FCI) SQL Server sont-elles prises en charge sur les machines virtuelles Azure ?**
 
    Oui. Vous pouvez [créer un cluster de basculement Windows sur Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) et utiliser les espaces de stockage direct (S2D) pour le stockage du cluster. Vous pouvez également utiliser les solutions de clustering ou de stockage tierces comme décrit dans [Haute disponibilité et récupération d’urgence pour SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+
+   > [!IMPORTANT]
+   > À ce stade, l’[extension Agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md) n’est pas prise en charge pour la FCI SQL Server sur Azure. Nous vous recommandons de désinstaller l’extension des machines virtuelles qui participent à la FCI. Cette extension prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées, ainsi que certaines fonctionnalités du portail pour SQL. Ces fonctionnalités n’opèrent pas pour les machines virtuelles SQL une fois l’agent désinstallé.
 
 1. **Quelle est la différence entre les machines virtuelles SQL et le service SQL Database ?**
 

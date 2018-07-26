@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114399"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091862"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)
 
@@ -76,7 +76,7 @@ Que vous soyez une start-up à court de liquidités ou une équipe dans une soci
 
 #### <a name="billing-and-licensing-basics"></a>Notions de base sur la facturation et les licences
 
-Actuellement, **SQL Database** est vendu comme service comportant plusieurs niveaux de ressources aux prix différents, tous facturés à un tarif horaire fixe en fonction du niveau de service et du niveau de performances choisis. Avec Azure SQL Database Managed Instance, vous pouvez utiliser votre propre licence. Pour plus d’informations sur l’utilisation de votre propre licence, consultez [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Par ailleurs, vous êtes facturé pour le trafic internet sortant aux [tarifs de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)standard. Vous pouvez ajuster les niveaux de service et les niveaux de performances de manière dynamique pour répondre aux besoins de débit variés de votre application. Pour obtenir les dernières informations sur les niveaux de service actuels pris en charge, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores(préversion)](sql-database-service-tiers-vcore.md). Vous pouvez également créer des [pools élastiques](sql-database-elastic-pool.md) pour partager des ressources entre des instances de base de données pour réduire les coûts et vous adapter aux pics d’utilisation.
+Actuellement, **SQL Database** est vendu comme service comportant plusieurs niveaux de ressources aux prix différents, tous facturés à un tarif horaire fixe en fonction du niveau de service et du niveau de performances choisis. Avec Azure SQL Database Managed Instance, vous pouvez utiliser votre propre licence. Pour plus d’informations sur l’utilisation de votre propre licence, consultez [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Par ailleurs, vous êtes facturé pour le trafic internet sortant aux [tarifs de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)standard. Vous pouvez ajuster les niveaux de service et les niveaux de performances de manière dynamique pour répondre aux besoins de débit variés de votre application. Pour obtenir les dernières informations sur les niveaux de service actuels pris en charge, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md). Vous pouvez également créer des [pools élastiques](sql-database-elastic-pool.md) pour partager des ressources entre des instances de base de données pour réduire les coûts et vous adapter aux pics d’utilisation.
 
 Avec **SQL Database**, Microsoft configure, corrige et met à niveau automatiquement le logiciel de base de données, ce qui réduit vos coûts d’administration. En outre, ses fonctionnalités de [sauvegarde intégrée](sql-database-automated-backups.md) vous permettent de réaliser d’importantes économies, notamment si vous avez un grand nombre de bases de données. 
 

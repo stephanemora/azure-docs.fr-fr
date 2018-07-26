@@ -6,19 +6,22 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939802"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928730"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum aux questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
+
+### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Pourquoi ne puis-je pas accéder à l’extension Azure AD B2C sur le Portail Azure ?
+Si l’extension Azure AD ne fonctionne pas pour vous, il peut y avoir à cela deux raisons courantes.  Votre rôle utilisateur dans le répertoire doit être administrateur général pour Azure AD B2C.  Veuillez contacter votre administrateur si vous pensez que vous devriez y avoir accès.  Si vous disposez de privilèges Administrateur général, vérifiez que vous vous trouvez dans un annuaire Azure AD B2C et non un répertoire Azure Active Directory.  Vous trouverez [ici](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) des instructions pour créer un annuaire Azure AD B2C.
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Puis-je utiliser les fonctionnalités d’Azure AD B2C dans mon client Azure AD existant, basé sur les employés ?
 Azure AD et Azure AD B2C sont deux offres de produits distinctes qui ne peuvent pas coexister dans le même locataire.  Un locataire Azure AD représente une organisation.  Un locataire Azure AD B2C représente une collection d’identités à utiliser avec des applications par partie de confiance.  Avec les stratégies personnalisées (en préversion publique), Azure AD B2C peut fédérer avec Azure AD, ce qui permet l’authentification des employés dans une organisation.
@@ -97,9 +100,9 @@ Lisez cet article sur les [identités externes](../active-directory/active-direc
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Quelles sont les fonctionnalités de création de rapports et d’audit proposées par Azure AD B2C ? Sont-elles identiques à celles d’Azure AD Premium ?
 Non, Azure AD B2C ne prend pas en charge le même ensemble de rapports qu'Azure AD Premium. Toutefois, de nombreux points communs existent :
 
-* Les **rapports de connexion** sont disponibles dans le portail Azure uniquement (Azure Active Directory > Activité > Connexions), pas par le biais de l’API Graph. Ils fournissent un enregistrement de chaque connexion avec des détails réduits.
-* Les **rapports d’audit** sont disponibles dans le portail Azure uniquement (Azure Active Directory > Activité > Journaux d’audit), pas par le biais de l’API Graph. Ils incluent les activités d’administration et d’application. 
-* Les **rapports d’utilisation** sont disponibles par le biais de [l’API de création de rapports d’utilisation](active-directory-b2c-reference-usage-reporting-api.md) uniquement, pas par le biais du portail Azure. Ils comprennent le nombre d’utilisateurs, le nombre de connexions et le volume de MFA. 
+* Les **rapports de connexion** donnent un enregistrement de chaque connexion avec peu de détails.
+* Les **rapports d’audit** comportent les activités d’administration et d’application. 
+* Les **rapports d’utilisation** comprennent le nombre d’utilisateurs, le nombre de connexions et le volume de MFA. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Puis-je localiser l'interface utilisateur des pages présentées par Azure AD B2C ? Quelles sont les langues prises en charge ?
 Oui.  Découvrez la [personnalisation linguistique](active-directory-b2c-reference-language-customization.md), qui est en préversion publique.  Nous fournissons des traductions en 36 langues, et vous pouvez remplacer n’importe quelle chaîne pour l’adapter à vos besoins.

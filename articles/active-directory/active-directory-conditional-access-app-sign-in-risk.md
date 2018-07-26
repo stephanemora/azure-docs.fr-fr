@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 98e2f88c85d21cde2ecc7196f93d531a80b14d13
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f1a6a11f827248d098c018390e9ae5557d9c22d1
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449148"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113373"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Démarrage rapide : Bloquer l’accès lorsqu’un risque de session est détecté avec l’accès conditionnel Azure Active Directory  
 
@@ -62,7 +62,7 @@ L’objectif de cette étape consiste à vérifier que votre compte test peut ac
 
 ## <a name="create-your-conditional-access-policy"></a>Créer votre stratégie d’accès conditionnel 
 
-Le scénario de ce démarrage rapide utilise une connexion à partir du navigateur Tor pour générer la détection d’un événement à risque (**connexion depuis une adresse IP anonyme**). Le niveau de risque de cet événement est moyen.   
+Le scénario de ce démarrage rapide utilise une connexion à partir du navigateur Tor pour générer la détection d’un événement à risque (**connexion depuis une adresse IP anonyme**). Le niveau de risque de cet événement est moyen. Pour répondre à cet événement à risque, définissez le niveau de risque de connexion sur Moyen. Dans un environnement de production, vous devez définir la condition de risque de connexion sur Élevé ou sur Moyen à élevé.     
 
 Cette section montre comment créer la stratégie d’accès conditionnel requise. Dans votre stratégie, définissez :
 
@@ -70,10 +70,11 @@ Cette section montre comment créer la stratégie d’accès conditionnel requis
 |---     | --- |
 | Utilisateurs et groupes | Alain Charon  |
 | Applications cloud | Toutes les applications cloud |
+| Risque à la connexion | Moyenne |
 | Grant (Autoriser) | Bloquer l’accès |
  
 
-![Créer une stratégie](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![Créer une stratégie](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -125,6 +126,26 @@ Cette section montre comment créer la stratégie d’accès conditionnel requis
     a. Cliquez sur **Toutes les applications cloud**.
 
     b. Cliquez sur **Done**.
+
+10. Cliquez sur **Conditions**. 
+
+    ![Contrôles d’accès](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. Dans la page **Conditions** :
+
+    ![Niveau de risque d’une connexion](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. Cliquez sur **Risque de connexion**.
+ 
+    b. Sous **Configurer**, cliquez sur **Oui**.
+
+    c. Pour le niveau de risque de connexion, sélectionnez **Moyen**.
+
+    d. Cliquez sur **Sélectionner**.
+
+    e. Dans la page **Conditions**, cliquez sur **Terminé**.
+
+
 
 10. Dans la section **Contrôles d’accès**, cliquez sur **Accorder**.
 
@@ -181,7 +202,7 @@ Pour tester votre stratégie, essayez de vous connecter à votre [portail Azure]
 ![Authentification multifacteur](./media/active-directory-conditional-access-app-sign-in-risk/118.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez l’utilisateur test, le navigateur Tor et la stratégie d’accès conditionnel :
 

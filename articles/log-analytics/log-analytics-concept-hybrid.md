@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2a21c7867bf0dd2d6ca6ee0bd9025739315c8d0a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133369"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003316"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Collecter des données d’ordinateurs dans un environnement avec Log Analytics
 
@@ -32,7 +32,7 @@ Azure Log Analytics peut collecter et exploiter des données provenant d’ordin
 
 Les ordinateurs hébergés dans l’environnement peuvent être connectés directement à Log Analytics. Si vous effectuez déjà la surveillance de ces ordinateurs avec System Center Operations Manager version 2012 R2, 2016 ou 1801, vous pouvez également intégrer votre groupe d’administration Operations Manager à Log Analytics et continuer à gérer vos processus d’opérations de service informatique.  
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 ![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
@@ -50,9 +50,6 @@ Les versions suivantes du système d’exploitation Windows sont officiellement 
 * Windows Server 2008 Service Pack 1 (SP1) (ou version ultérieure) ;
 * Windows 7 SP1 (ou version ultérieure).
 
-> [!NOTE]
-> L’agent pour Windows prend uniquement en charge le protocole TLS versions 1.0 et 1.1.  
-
 ## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
 Les distributions Linux suivantes sont officiellement prises en charge.  Toutefois, l’agent Linux peut également s’exécuter sur d’autres distributions, qui ne se trouvent pas dans la liste.  Sauf indication contraire, toutes les versions mineures sont prises en charge pour chaque version majeure répertoriée.  
 
@@ -64,15 +61,18 @@ Les distributions Linux suivantes sont officiellement prises en charge.  Toutefo
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 et 12 (x86/x64)
 
+## <a name="tls-12-protocol"></a>Protocole TLS 1.2
+Pour garantir la sécurité des données en transit vers Log Analytics, nous vous encourageons vivement à configurer l’agent de façon à utiliser au moins Transport Layer Security (TLS) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.  Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+
 ## <a name="network-firewall-requirements"></a>Configuration requise du pare-feu réseau
 Voici la liste des informations de configuration du proxy et du pare-feu requises pour permettre à l’agent Linux et Windows de communiquer avec Log Analytics.  
 
 |Ressource de l'agent|Ports |Direction |Ignorer l’inspection HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Trafic entrant et sortant|OUI |  
-|*.oms.opinsights.azure.com |Port 443 |Trafic entrant et sortant|OUI |  
-|*.blob.core.windows.net |Port 443 |Trafic entrant et sortant|OUI |  
-|* .azure-automation.net |Port 443 |Trafic entrant et sortant|OUI |  
+|*.ods.opinsights.azure.com |Port 443 |Trafic entrant et sortant|Oui |  
+|*.oms.opinsights.azure.com |Port 443 |Trafic entrant et sortant|Oui |  
+|*.blob.core.windows.net |Port 443 |Trafic entrant et sortant|Oui |  
+|* .azure-automation.net |Port 443 |Trafic entrant et sortant|Oui |  
 
 
 Si vous envisagez d’utiliser le Runbook Worker hybride Azure Automation pour vous connecter et vous inscrire auprès du service Automation afin d’utiliser les runbooks dans votre environnement, il doit avoir accès au numéro de port et aux URL décrites dans la section [Configurer votre réseau pour le Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md#network-planning). 

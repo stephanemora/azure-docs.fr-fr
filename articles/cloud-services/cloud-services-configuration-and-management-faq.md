@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 6cdfb40ce02cc5f80e3347b921e2b2c75ae3d8ea
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34070496"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37437135"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : questions fréquentes (FAQ)
 
@@ -204,10 +204,10 @@ Pour plus d’informations, consultez [HTTP/2 sur IIS](https://blogs.iis.net/dav
 
 ## <a name="permissions"></a>Autorisations
 
-### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Comment implémenter un accès en fonction du rôle pour les services cloud ?
-Les services cloud ne prennent pas en charge le modèle de contrôle d’accès en fonction du rôle (RBAC), car il ne s’agit pas d’un service Azure Resource Manager.
+### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Comment implémenter l’accès en fonction du rôle pour les Services cloud ?
+Les Services cloud ne prennent pas en charge le modèle de contrôle d’accès en fonction du rôle (RBAC), car il ne s’agit pas d’un service Azure Resource Manager.
 
-Consultez [Comparaison entre RBAC Azure et les administrateur d’abonnements classiques](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
+Voir [Comprendre les différents rôles dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## <a name="remote-desktop"></a>Bureau à distance
 

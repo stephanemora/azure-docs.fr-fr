@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: cd3f947bfc44055bfec4198a1e7c6a9bb2fab5d4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04342be06430747ef64cb69c27ee93e6896775e5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642622"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070851"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Pourquoi une approche de microservices pour la conception d’applications ?
 Pour les développeurs de logiciels que nous sommes, il n’y a rien de nouveau dans notre conception de l’affacturage d’une application en composants. Il s’agit du paradigme central de l’orientation des objets, des abstractions de logiciel et de la modularité. Aujourd’hui, cette factorisation tend à prendre la forme de classes et d’interfaces entre les couches de technologies et les bibliothèques partagées. En règle générale, une approche hiérarchisée est adoptée avec un magasin principal, une logique métier de couche intermédiaire et une interface utilisateur frontale. Ce qui *a changé* au cours des dernières années, c’est que nous, en tant que développeurs, créons des applications distribuées pour le cloud, qui sont pilotées par l’entreprise.
@@ -146,9 +146,9 @@ Service Fabric fournit trois grands domaines pour vous aider à créer des appli
 ***Service Fabric est indifférent à la façon dont vous créez votre service. Vous pouvez utiliser la technologie de votre choix. Toutefois, il intègre des API de programmation qui facilitent la création de microservices.***
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrer des applications existantes vers Service Fabric
-Une approche clé de Service Fabric consiste à réutiliser le code existant, ce qui peut ensuite être modernisé à l’aide de nouveaux microservices. La modernisation d’une application comporte cinq étapes. Il est possible de commencer et d’arrêter à n’importe quelle étape. Ces composants sont les suivants :
+Une approche clé de Service Fabric consiste à réutiliser le code existant, ce qui peut ensuite être modernisé à l’aide de nouveaux microservices. La modernisation d’une application comporte cinq étapes. Il est possible de commencer et d’arrêter à n’importe quelle étape. Ces règles sont les suivantes :
 
-1) Prenez une application monolithique classique  
+1) Commencez par une application monolithique classique.  
 2) Lift and Shift - Utilisation de conteneurs ou d’exécutables invités pour héberger le code existant dans Service Fabric.  
 3) Modernisation - Ajout de nouveaux microservices en plus du code en conteneur existant.  
 4) Innovation - Transformation d’applications monolithiques en microservices exclusivement basés sur les besoins.  
@@ -158,7 +158,7 @@ Une approche clé de Service Fabric consiste à réutiliser le code existant, ce
 
 Il est important d’insister à nouveau sur le fait que vous pouvez **commencer et arrêter à chacune de ces étapes**. Vous n’êtes pas tenu de passer à l’étape suivante. Passons maintenant aux exemples de chacune de ces étapes.
 
-**Lift and Shift** : un grand nombre d’entreprises déplacent des applications monolithiques existantes vers des conteneurs pour deux raisons.
+**Lift and Shift** : un grand nombre d’entreprises déplacent des applications monolithiques existantes vers des conteneurs pour deux raisons :
 
 - Une réduction des coûts liée à la consolidation et à la suppression de matériel existant ou d’applications en cours d’exécution à une densité plus élevée. 
 - Un contrat de déploiement cohérent entre le développement et les opérations.
@@ -169,7 +169,7 @@ De nombreuses organisations ne vont pas plus loin. Elles bénéficient déjà de
 
 **Modernisation** :est l’ajout de nouveaux services en plus du code en conteneur existant. Si vous souhaitez du code, il est conseillé de suivre quelques étapes liées aux microservices. Cela peut consister dans l’ajout d’un nouveau point de terminaison d’API REST ou d’une nouvelle logique métier. De cette manière, vous commencez à créer de nouveau microservices et vous vous exercez à leur développement et déploiement.
 
-**Innovation** : vous souvenez-vous de ces besoins d’entreprise d’origine en constante évolution que nous avons évoqués au début de cet article et qui conditionnent l’approche relative aux microservices ? À ce stade, la décision est de savoir s’ils s’appliquent à mon application en cours et, si tel est le cas, si je dois plutôt opter pour la modernisation ou l’innovation. Le présent exemple consiste en une base de données devenant un goulot d’étranglement de traitement depuis son utilisation comme file d’attente de workflow. L’augmentation des demandes de workflow requiert une mise à l’échelle via une distribution du travail. Ainsi, pour cette partie de l’application qui n’est pas mise à l’échelle, ou que vous devez mettre à jour plus fréquemment, il est conseillé de la fractionner en microservices et d’opter pour l’innovation. 
+**Innovation** : vous souvenez-vous de ces besoins d’entreprise d’origine en constante évolution que nous avons évoqués au début de cet article et qui conditionnent l’approche relative aux microservices ? À ce stade, la décision repose sur la question de savoir si cela s’applique à mon application en cours et, si tel est le cas, si je dois commencer à fractionner l’application monolithique ou opter pour l’innovation. Un exemple à cet égard est quand une base de données utilisée comme file d’attente de workflow devient un goulot d’étranglement ralentissant le traitement. L’augmentation des demandes de workflow requiert une distribution du travail pour la mise à l’échelle. Ainsi, pour cette partie de l’application qui n’est pas mise à l’échelle, ou que vous devez mettre à jour plus fréquemment, il est conseillé de la fractionner en microservices et d’opter pour l’innovation. 
 
 **Transformation en microservices** : il s’agit de l’étape lors de laquelle l’application est entièrement composée (ou décomposée) en microservices. Pour atteindre ce stade, vous avez suivi la procédure liée aux microservices. Vous pouvez commencer ici. Toutefois, effectuer cette opération sans l’aide d’une plate-forme de microservices demande un investissement important. 
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76f2bed22d62895e1c537a807ff729c0ba56fbf6
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920812"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136755"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -34,6 +34,44 @@ Azure AD bénéficie d’améliorations en continu. Pour vous informer des déve
 - Modifications planifiées
 
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement.
+
+---
+
+## <a name="july-2018"></a>Juillet 2018
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Améliorations apportées aux notifications par e-mail Azure Active Directory
+
+**Type :** modification planifiée  
+**Catégorie de service :** autres  
+**Fonctionnalité de produit :** gestion du cycle de vie des identités
+ 
+**Fin juillet 2018**, les e-mails Azure Active Directory (Azure AD) auront une nouvelle conception visuelle, ainsi qu’un nouvel expéditeur, avec une nouvelle adresse e-mail et un nouveau nom d’affichage, lorsqu’ils proviendront des services suivants :
+ 
+- Révisions d’accès Azure AD
+- Azure AD Connect Health 
+- Azure AD Identity Protection 
+- Azure AD Privileged Identity Management
+- Notifications de l’expiration prochaine des certificats des applications d’entreprise
+- Notifications du service de provisionnement des applications d’entreprise
+ 
+Les notifications par e-mail proviendront de l’adresse e-mail et du nom d’affichage suivants :
+
+- Adresse e-mail : azure-noreply@microsoft.com
+- Nom d’affichage : Microsoft Azure
+ 
+Pour voir un exemple de nouvelle notification et obtenir plus d’informations, consultez [Notifications par e-mail dans Azure AD Privileged Identity Management](https://go.microsoft.com/fwlink/?linkid=2005832).
+
+---
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Afficher les authentifications héritées via les journaux d’activité de connexions
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** création de rapports  
+**Fonctionnalité de produit :** surveillance et création de rapports
+ 
+Avec le nouveau champ **Application cliente** des journaux d’activité de connexions, les clients peuvent désormais voir les utilisateurs qui utilisent des authentifications héritées. Les clients peuvent accéder à ces informations à l’aide de l’API Microsoft Graph Connexions ou via les journaux d’activité de connexions dans le portail Azure AD et ainsi utiliser la commande **Application cliente** pour filtrer les authentifications héritées. Pour plus de détails, consultez la documentation.
+
+---
 
 ## <a name="june-2018"></a>Juin 2018
 
@@ -242,16 +280,6 @@ En vous aidant de stratégies personnalisées, vous pouvez maintenant ajouter le
 **Fonctionnalité de produit :** SSO
  
 Les utilisateurs peuvent maintenant accéder aux applications via des URL internes, y compris lorsqu’ils se trouvent en dehors du réseau de l’entreprise. Il leur suffit pour cela d’utiliser l’extension de connexion sécurisée Mes applications pour Azure AD. Cela fonctionne avec toutes les d’application que vous avez publiées à l’aide du proxy d’application Azure AD, dans tous les navigateurs sur lesquels est installée une extension Panneau d’accès. Dès qu’un utilisateur se connecte à l’extension, la fonctionnalité de redirection d’URL est automatiquement activée. Vous pouvez télécharger cette extension pour [Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367) et [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
-
----
-
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Afficher les authentifications héritées via les journaux d’activité de connexions
-
-**Type :** nouvelle fonctionnalité  
-**Catégorie de service :** création de rapports  
-**Fonctionnalité de produit :** surveillance et création de rapports
- 
-Avec le nouveau champ **Application cliente** des journaux d’activité de connexions, les clients peuvent désormais voir les utilisateurs qui utilisent des authentifications héritées. Les clients peuvent accéder à ces informations à l’aide de l’API Microsoft Graph Connexions ou via les journaux d’activité de connexions dans le portail Azure AD et ainsi utiliser la commande **Application cliente** pour filtrer les authentifications héritées. Pour plus de détails, consultez la documentation.
 
 ---
  

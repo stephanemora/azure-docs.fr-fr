@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 3d34628a5a47788bca8cdafcb6e199a0c2cb3bcc
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 18a1481b72904b0ac9c27e100271dc0fd0666baf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437839"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001760"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Installer le runtime Azure IoT Edge sur Windows pour utiliser des conteneurs Windows
 
@@ -52,8 +52,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 Installez le vcruntime (vous pouvez ignorer cette étape sur un appareil IoT Core Edge) :
@@ -142,7 +143,7 @@ Pour récupérer l’adresse IP, entrez `ipconfig` dans la fenêtre PowerShell e
 
 ![nat][img-nat]
 
-Mettez à jour les valeurs de **workload_uri** et de **management_uri** dans la section **connect:** du fichier de configuration. Remplacez **\<GATEWAY_ADDRESS\>** par l’adresse IP que vous avez copiée. 
+Mettez à jour les valeurs de **workload_uri** et de **management_uri** dans la section **connect:** du fichier de configuration. Remplacez **\<GATEWAY_ADDRESS\>** par l’adresse IP vEthernet que vous avez copiée.
 
 ```yaml
 connect:
@@ -150,7 +151,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Entrez les mêmes adresses dans la section **listen:** de la configuration, à l’aide de votre adresse IP comme adresse de passerelle.
+Entrez les mêmes adresses dans la section **listen:**.
 
 ```yaml
 listen:

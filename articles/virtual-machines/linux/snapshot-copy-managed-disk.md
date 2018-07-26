@@ -11,14 +11,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: e5882b2ddc708544a7715da13c1f0d18384ce4e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30318891"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007003"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané 
 
@@ -26,16 +26,21 @@ Prenez une capture instantanée d’un système d’exploitation ou d’un disqu
 
 ## <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure 
 
-L’exemple suivant nécessite l’installation d’Azure CLI 2.0 et la connexion à votre compte Azure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+L’exemple suivant requiert que vous utilisiez [Cloud Shell](https://shell.azure.com/bash) ou qu’Azure CLI 2.0 soit installé. Pour déterminer la version, exécutez la commande **az --version**. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-Les étapes suivantes montrent comment effectuer une capture instantanée à l’aide de la commande `az snapshot create` avec le paramètre `--source-disk`. L’exemple suivant suppose qu’il existe une machine virtuelle nommée `myVM` dans le groupe de ressources `myResourceGroup`.
+Les étapes suivantes montrent comment effectuer une capture instantanée à l’aide de la commande **az snapshot create** avec le paramètre **--source-disk**. L’exemple suivant suppose qu’il existe une machine virtuelle nommée *myVM* dans le groupe de ressources *myResourceGroup*.
 
-Obtenez l’ID du disque.
-```azure-cli
-osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+Obtenez l’ID de disque à l’aide de la commande [az vm show](/cli/azure/vm#az-vm-show).
+
+```azurecli-interactive
+osDiskId=$(az vm show \
+   -g myResourceGroup \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
-Prenez une capture instantanée nommée *osDisk-sauvegarde*.
+Prenez une capture instantanée nommée *osDisk-backup* à l’aide de la commande [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -45,18 +50,25 @@ az snapshot create \
 ```
 
 > [!NOTE]
-> Si vous souhaitez stocker votre capture instantanée dans le stockage résilient aux zones, vous devez la créer dans une région qui prend en charge des [zones de disponibilité](../../availability-zones/az-overview.md) et inclut le paramètre `--sku Standard_ZRS`.
+> Si vous souhaitez stocker votre capture instantanée dans le stockage résilient aux zones, vous devez la créer dans une région qui prend en charge les [zones de disponibilité](../../availability-zones/az-overview.md) et inclure le paramètre **--sku Standard_ZRS**.
+
+Pour voir la liste des captures instantanées, utilisez la commande [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
+
+```azurecli-interactive
+az snapshot list \
+   -g myResourceGroup \
+   - table
+```
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans l’angle supérieur gauche, cliquez sur **Créer une ressource** et recherchez **Capture instantanée**.
-3. Dans le panneau Capture instantanée, cliquez sur **Créer**.
+2. Dans l’angle supérieur gauche, cliquez sur **Créer une ressource** et recherchez **Capture instantanée**. Sélectionnez **Capture instantanée** dans les résultats de recherche.
+3. Dans le panneau **Capture instantanée**, cliquez sur **Créer**.
 4. Entrez un **nom** pour la capture instantanée.
-5. Sélectionnez un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md#resource-groups) existant ou tapez le nom d’un nouveau groupe. 
-6. Sélectionnez un emplacement de centre de données Azure.  
-7. Dans **Disque source**, sélectionnez le disque géré dont vous souhaitez obtenir une capture instantanée.
-8. Sélectionnez le **type de compte** à utiliser pour stocker la capture instantanée. Nous vous recommandons d’utiliser le type **Standard_LRS**, sauf si vous avez besoin de la stocker sur un disque hautes performances.
+5. Sélectionnez un groupe de ressources existant ou tapez le nom d’un nouveau groupe. 
+7. Dans **Disque source**, sélectionnez le disque managé dont vous souhaitez obtenir une capture instantanée.
+8. Sélectionnez le **type de compte** à utiliser pour stocker la capture instantanée. Utilisez **Standard HDD**, sauf si vous en avez besoin de la stocker sur un disque SSD hautes performances.
 9. Cliquez sur **Créer**.
 
 

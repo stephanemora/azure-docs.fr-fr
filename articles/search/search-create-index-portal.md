@@ -1,49 +1,46 @@
 ---
-title: Créer un index (portail - Recherche Azure) | Microsoft Docs
-description: Créez un index à l’aide du portail Azure.
+title: Créer un index de Recherche Azure dans le portail | Microsoft Docs
+description: Découvrez comment créer un index pour Recherche Azure à l’aide des concepteurs d’index intégrés du portail.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: quickstart
-ms.date: 06/20/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 722f1eb989fb8c160def4024b1aa967a47b87697
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203867"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990844"
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Créer un index Azure Search à l’aide du portail Azure
+# <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Comment créer un index de Recherche Azure à l’aide du portail Azure
 
-Utilisez le concepteur d’index intégré dans le portail Azure pour concevoir un prototype ou créer un [index de recherche](search-what-is-an-index.md) à exécuter sur votre service Recherche Azure. 
+Recherche Azure inclut un concepteur d’index intégré dans le portail, très utile pour des prototypes ou pour créer un [index de recherche](search-what-is-an-index.md) hébergé sur votre service Recherche Azure. L’outil est utilisé pour la construction de schéma. Lorsque vous enregistrez la définition, un index vide devient entièrement exprimé dans Recherche Azure. Le choix de la manière de le charger à l’aide de données interrogeables vous appartient.
 
-Vous pouvez également créer un index à l’aide des API [.NET](search-create-index-dotnet.md) ou [REST](search-create-index-rest-api.md).
+Le concepteur d’index est une approche parmi d’autres pour la création d’un index. Vous pouvez également créer un index par programmation à l’aide des API [.NET](search-create-index-dotnet.md) ou [REST](search-create-index-rest-api.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
+Cet article repose sur le principe que vous disposez [d’un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) et du [service Recherche Azure](search-create-service-portal.md).
 
-Cet article repose sur le principe que vous disposez [d’un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) et du [service Recherche Azure](search-create-service-portal.md).  
+## <a name="open-index-designer-and-name-an-index"></a>Ouvrir le concepteur d’index et nommer un index
 
-## <a name="find-your-search-service"></a>Rechercher votre service de recherche
-1. Connectez-vous à la page du portail Azure et passez en revue les [services de recherche de votre abonnement](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-2. Sélectionnez votre service Recherche Azure.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez le tableau de bord du service. Vous pouvez cliquer sur **Tous les services** dans la barre d’index pour afficher les « services de recherche » existants dans l’abonnement actuel. 
 
-## <a name="name-the-index"></a>Nommer l’index
+2.  Cliquez sur le bouton **Ajouter un index** de la barre de commandes en haut de la page.
 
-1. Cliquez sur le bouton **Ajouter un index** de la barre de commandes en haut de la page.
-2. Nommez votre index Azure Search. 
+3. Nommez votre index Azure Search. Les noms d’index sont référencés dans les opérations d’indexation et de requête. Le nom de l’index est ensuite intégré dans l’URL de point de terminaison utilisé pour les connexions à l’index, et il est utilisé pour l’envoi de requêtes HTTP dans l’API REST Azure Search.
+
    * Le nom doit commencer par une lettre.
    * N’utilisez que des lettres minuscules, chiffres ou tirets (« - »).
    * Le nom ne doit pas dépasser 60 caractères.
 
-  Le nom de l’index est ensuite intégré dans l’URL de point de terminaison utilisé pour les connexions à l’index, et il est utilisé pour l’envoi de requêtes HTTP dans l’API REST Azure Search.
-
 ## <a name="define-the-fields-of-your-index"></a>Définir les champs de l’index
 
-La composition de l’index inclut une *collection de champs* qui définit les données qu’il est possible de rechercher dans votre index. Plus spécifiquement, il spécifie la structure des documents que vous chargez séparément. La collection de champs inclut les champs obligatoires et facultatifs, nommés et typés, avec des attributs d’index déterminant la façon dont le champ peut être utilisé.
+La composition de l’index inclut une *collection de champs* qui définit les données qu’il est possible de rechercher dans votre index. Globalement, la collection de champs spécifie la structure des documents que vous chargez séparément. Une collection de champs inclut des champs obligatoires et facultatifs, nommés et typés, avec des attributs d’index déterminant la façon dont le champ peut être utilisé.
 
 1. Dans le panneau **Ajouter un index**, cliquez sur **Champs >** pour ouvrir le panneau de définition de champ. 
 
@@ -64,6 +61,7 @@ La création d’un index dans le portail demande énormément de manipulations 
 2. Utilisez ensuite les cases à cocher au-dessus de chaque attribut pour activer un paramètre sur tous les champs simultanément, puis décochez les quelques cases superflues le cas échéant. Par exemple, il est généralement possible d’effectuer des recherches sur les champs de type chaîne. Par conséquent, vous pouvez cliquer sur **Récupérable**  et **Possibilité de recherche** pour permettre à la fois le renvoi des valeurs du champ dans les résultats de recherche, ainsi qu’une recherche en texte intégral sur ce champ. 
 
 <a name="design"></a>
+
 ## <a name="design-guidance-for-setting-attributes"></a>Conseils de conception pour la définition des attributs
 
 Même si vous pouvez ajouter de nouveaux champs à tout moment, les définitions de champ existantes sont verrouillées pour toute la durée de vie de l’index. C’est pourquoi les développeurs utilisent généralement le portail pour créer des index simples, tester des idées ou rechercher une définition de paramètre. Il est plus efficace d’effectuer des itérations fréquentes sur la conception d’un index si vous suivez une approche basée sur du code pour reconstruire l’index facilement.

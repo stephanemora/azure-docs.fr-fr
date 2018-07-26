@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/8/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176786"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112720"
 ---
 # <a name="understand-load-balancer-probes"></a>Comprendre les sondes de l’équilibrage de charge
 
-Azure Load Balancer utilise des sondes d’intégrité pour déterminer quelle instance de pool principale devrait recevoir de nouveaux flux. En cas d’échec d’une sonde d’intégrité, Load Balancer cesse d’envoyer de nouveaux flux à l’instance non intègre respective, et les flux existants sur cette instance ne sont pas affectés.  Lorsque toutes les instances de pool principales ont été explorées, tous les flux existants expirent dans toutes les instances du pool principal.
+Azure Load Balancer utilise des sondes d’intégrité pour déterminer quelle instance de pool principale devrait recevoir de nouveaux flux.   Vous pouvez utiliser des sondes d’intégrité pour détecter la défaillance d’une application sur une instance principale.  Vous pouvez également utiliser la réponse des sondes d’intégrité à partir de votre application pour signaler à l’équilibreur de charge s’il faut continuer à envoyer de nouveaux flux ou arrêter l’envoi de nouveaux flux à une instance principale pour gérer la charge ou le temps d’arrêt planifié.
 
-Les rôles de service cloud (rôles de travail et rôles Web) utilisent un agent invité pour la surveillance par sonde. Des sondes d’intégrité personnalisées TCP ou HTTP doivent être configurées quand vous utilisez des machines virtuelles derrière Load Balancer.
+Les sondes d’intégrité déterminent si de nouveaux flux sont établis vers des instances principales intègres. Lors d’un échec d’une sonde d’intégrité, l’équilibreur de charge cesse d’envoyer de nouveaux flux à l’instance non intègre concernée.  Les connexions TCP établies perdurent après l’échec de la sonde d’intégrité.  Les flux UDP existants sont déplacés de l’instance non intègre vers une autre instance intègre dans le pool principal.
+
+Si toutes les sondes d’un pool principal échouent, l’équilibreur de charge de base met fin à tous les flux TCP existants vers le pool principal, alors que l’équilibreur de charge standard autorise les flux TCP établis à perdurer et aucun nouveau flux n’est envoyé au pool principal.  Tous les flux UDP existants prennent fin pour les équilibreurs de charge de base et standard lorsque toutes les sondes d’un pool principal échouent.
+
+Les rôles de service cloud (rôles de travail et rôles Web) utilisent un agent invité pour la surveillance par sonde. Les sondes d’intégrité personnalisées TCP ou HTTP doivent être configurées quand vous utilisez les services cloud avec des machines virtuelles IaaS derrière un équilibreur de charge.
 
 ## <a name="understand-probe-count-and-timeout"></a>Présentation du nombre et du délai d’expiration des sondes
 

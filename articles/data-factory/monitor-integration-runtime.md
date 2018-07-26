@@ -4,21 +4,21 @@ description: Découvrez comment surveiller plusieurs types de runtime d’intég
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: ''
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2017
+ms.date: 07/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045243"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113255"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :
@@ -45,7 +45,7 @@ Le tableau suivant fournit des descriptions des propriétés renvoyées par la c
 -------- | ------------- | 
 | NOM | Nom du runtime d’intégration Azure. |  
 | État | État du runtime d’intégration Azure. | 
-| Lieu | Emplacement du runtime d’intégration Azure. Pour plus d’informations sur l’emplacement d’un runtime d’intégration d’Azure, voir [Introduction au runtime d’intégration](concepts-integration-runtime.md). |
+| Emplacement | Emplacement du runtime d’intégration Azure. Pour plus d’informations sur l’emplacement d’un runtime d’intégration d’Azure, voir [Introduction au runtime d’intégration](concepts-integration-runtime.md). |
 | DataFactoryName | Nom de la fabrique de données à laquelle le runtime d’intégration Azure appartient. | 
 | ResourceGroupName | Nom du groupe de ressources auquel la fabrique de données appartient.  |
 | Description | Description du runtime d’intégration Azure.  |
@@ -156,7 +156,7 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | OtherErrors | Erreurs exploitables non spécifiques aux nœuds de votre runtime d’intégration Azure-SSIS. |
 | LastOperation | Résultat de la dernière opération de démarrage ou d’arrêt de votre runtime d’intégration Azure-SSIS avec erreurs exploitables en cas d’échec. |
 | État | État d’ensemble (initial/démarrage/arrêt/arrêté) de votre runtime d’intégration Azure-SSIS. |
-| Lieu | Emplacement de votre runtime d’intégration Azure-SSIS. |
+| Emplacement | Emplacement de votre runtime d’intégration Azure-SSIS. |
 | NodeSize | Taille de chacun des nœuds de votre runtime d’intégration Azure-SSIS. |
 | NodeCount | Nombre de nœuds de votre runtime d’intégration Azure-SSIS. |
 | MaxParallelExecutionsPerNode | Nombre d’exécutions en parallèle par nœud dans votre runtime d’intégration Azure-SSIS. |
@@ -193,11 +193,29 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | En cours d’arrêt  | Les nœuds de votre runtime d’intégration Azure-SSIS sont libérés. |
 | Arrêté | Les nœuds de votre runtime d’intégration Azure-SSIS ont été libérés et la facturation a pris fin. |
 
+### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Surveiller le runtime d’intégration Azure-SSIS dans de portail Azure
+
+Les captures d’écran suivantes montrent comment sélectionner le runtime d’intégration (IR) Azure-SSIS pour la surveillance, et fournissent un exemple des informations qui s’affichent.
+
+![Sélectionner le runtime d’intégration Azure-SSIS pour la surveillance](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![Voir des informations sur le runtime d’intégration Azure-SSIS](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>Surveiller le runtime d’intégration Azure-SSIS avec PowerShell
+
+Utilisez un script tel que l’exemple suivant pour vérifier l’état du runtime d’intégration Azure-SSIS.
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Plus d’informations sur le runtime d’intégration Azure-SSIS
+
 Pour plus d’informations sur le runtime d’intégration Azure-SSIS, voir les articles suivants :
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) (Runtime d’intégration Azure-SSIS). Cet article fournit des informations conceptuelles sur les runtimes d’intégration en général, y compris sur le runtime d’intégration Azure-SSIS. 
-- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
-- [Procédures : Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Créer un runtime d’intégration Azure-SSIS). Cet article s’appuie sur le didacticiel et fournit des instructions sur la façon d’utiliser Azure SQL Managed Instance (préversion) et de joindre le runtime d’intégration à un réseau virtuel. 
+- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
+- [Procédures : Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Créer un runtime d’intégration Azure-SSIS). Cet article s’appuie sur le didacticiel et fournit des instructions sur la façon d’utiliser Azure SQL Managed Instance (préversion) et de joindre le runtime d’intégration à un réseau virtuel. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment le faire évoluer en lui ajoutant des nœuds supplémentaires. 
 - [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md). Cet article fournit des informations conceptuelles sur la façon d’attacher un runtime d’intégration Azure-SSIS à un réseau virtuel Azure. Il décrit également les étapes nécessaires pour utiliser le portail Azure afin de configurer le réseau virtuel de sorte que le runtime d’intégration Azure-SSIS puisse le rejoindre. 
 

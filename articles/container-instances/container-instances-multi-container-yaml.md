@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: 5dfee15e978d2dba0f50d1dc4b78953698389950
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1d1885112b8e7f7b1e187073c86d561eb57fd23f
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851131"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114461"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>Déployer un groupe multiconteneur avec YAML
 
@@ -35,7 +35,7 @@ Pour déployer un groupe multiconteneur avec la commande [az container create][a
 
 Commencez par copier le YAML suivant dans un nouveau fichier nommé **deploy-aci.yaml**.
 
-Ce fichier YAML définit un groupe de conteneurs qui comprend deux conteneurs, une adresse IP publique et deux ports exposés. Le premier conteneur du groupe exécute une application web accessible sur Internet. Le second conteneur, le side-car, envoie régulièrement des requêtes HTTP à l’application web en cours d’exécution dans le premier conteneur par le biais du réseau local du groupe de conteneurs.
+Ce fichier YAML définit un groupe de conteneurs nommé « myContainerGroup », qui comprend deux conteneurs, une adresse IP publique et deux ports exposés. Le premier conteneur du groupe exécute une application web accessible sur Internet. Le second conteneur, le side-car, envoie régulièrement des requêtes HTTP à l’application web en cours d’exécution dans le premier conteneur par le biais du réseau local du groupe de conteneurs.
 
 ```YAML
 apiVersion: 2018-06-01
@@ -83,7 +83,7 @@ az group create --name myResourceGroup --location eastus
 Déployez le groupe de conteneurs avec la commande [az container create][az-container-create], en transmettant le fichier YAML en argument :
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name myContainerGroup -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 
 Après quelques secondes, vous devriez recevoir une réponse initiale d’Azure.
@@ -112,7 +112,7 @@ Consultez la sortie du journal d’un conteneur à l’aide de la commande [az c
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Output:
+Sortie :
 
 ```console
 listening on port 80
@@ -127,7 +127,7 @@ Pour afficher les journaux du conteneur annexe, exécutez la même commande, en 
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Output:
+Sortie :
 
 ```console
 Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
@@ -200,14 +200,15 @@ Utile pour conserver la configuration d’un groupe de conteneurs, l’exportati
 Exportez la configuration du groupe de conteneurs que vous avez créé précédemment en émettant la commande [az container export][az-container-export] suivante :
 
 ```azurecli-interactive
-az container export --resource-group rg604 --name myContainerGroup --file deployed-aci.yaml
+az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
 ```
 
 Aucune sortie ne s’affiche si la commande a réussi, mais vous pouvez afficher le contenu du fichier pour voir le résultat. Voici par exemple les premières lignes avec `head` :
 
 ```console
 $ head deployed-aci.yaml
-apiVersion: 2018-02-01-preview
+additional_properties: {}
+apiVersion: '2018-06-01'
 location: eastus
 name: myContainerGroup
 properties:
@@ -216,11 +217,7 @@ properties:
     properties:
       environmentVariables: []
       image: microsoft/aci-helloworld:latest
-      ports:
 ```
-
-> [!NOTE]
-> À compter de la version 2.0.34 d’Azure CLI, il existe un [problème connu][cli-issue-6525] : les groupes de conteneurs exportés spécifient une ancienne version de l’API, **2018-02-01-preview** (vu dans le précédent exemple de sortie JSON). Si vous souhaitez relancer le déploiement avec le fichier YAML exporté, vous pouvez sans risque remplacer la valeur `apiVersion` par **2018-06-01** dans le fichier YAML exporté.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

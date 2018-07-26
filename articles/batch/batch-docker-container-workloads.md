@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060515"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090960"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -40,9 +40,11 @@ L’utilisation de conteneurs permet de lancer simplement des tâches par lot sa
 
 * **Une image de machine virtuelle prise en charge** : les conteneurs sont uniquement pris en charge dans les pools créés lors de la configuration des machines virtuelles à partir d’images détaillées dans la section « Images de machines virtuelles prises en charge ». Si vous fournissez une image personnalisée, consultez les considérations présentées dans la section suivante et la configuration requise dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md). 
 
-### <a name="limitations"></a>Limites
+### <a name="limitations"></a>Limitations
 
 * Batch prend en charge RDMA uniquement pour les conteneurs exécutés sur les pools Linux.
+
+* Pour les charges de travail de conteneur Windows, il est recommandé de choisir une taille de machine virtuelle multicœur pour votre pool
 
 ## <a name="supported-virtual-machine-images"></a>Images de machines virtuelles prises en charge
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293619"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989751"
 ---
 # <a name="import-data-into-analytics"></a>Importer des données dans Analytics
 
@@ -116,15 +116,16 @@ Format JSON
 ]
 ```
  
-Chaque colonne est identifiée par l’emplacement, le nom et le type. 
+Chaque colonne est identifiée par l’emplacement, le nom et le type.
 
 * Emplacement : pour le format de fichier délimité, il s’agit de la position de la valeur mappée. Pour le format JSON, il s’agit du jpath de la clé mappée.
 * Nom : nom affiché de la colonne.
 * Type : type de données de cette colonne.
  
-Si un exemple de données a été utilisé et que le format de fichier est délimité, la définition de schéma doit mapper toutes les colonnes et ajouter de nouvelles colonnes à la fin. 
-
-JSON permet un mappage partiel des données, par conséquent la définition de schéma du format JSON n’a pas besoin de mapper toutes les clés trouvées dans un exemple de données. Il peut également mapper les colonnes qui ne font pas partie de l’exemple de données. 
+> [!NOTE]
+> Si un exemple de données a été utilisé et que le format de fichier est délimité, la définition du schéma doit mapper toutes les colonnes et ajouter de nouvelles colonnes à la fin.
+> 
+> JSON permet un mappage partiel des données : par conséquent la définition du schéma avec un format JSON n’a pas besoin de mapper toutes les clés trouvées dans l’exemple de données. Il peut également mapper les colonnes qui ne font pas partie de l’exemple de données. 
 
 ## <a name="import-data"></a>Importer des données
 

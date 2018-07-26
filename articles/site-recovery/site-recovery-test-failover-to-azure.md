@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c173f4f224c7021c0a0db057cb65aa9c6f900528
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55fc1bf9d59c82abc76e40e834f67aa49942db44
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915569"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056696"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Tester le basculement vers Azure dans Site Recovery
 
@@ -30,7 +30,7 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 
 
 1. Dans Site Recovery dans le portail Azure, cliquez sur **Plans de récupération** > *nom_plan_récupération* > **Test de basculement**.
-2. Sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
+2. Sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
     - **Dernier point traité** : cette option bascule toutes les machines virtuelles du plan vers le dernier point de récupération traité par Site Recovery. Pour voir le dernier point de récupération d’une machine virtuelle spécifique, cochez **Derniers points de récupération** dans les paramètres de la machine virtuelle. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
     - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles du plan vers le dernier point de récupération de cohérence des applications traité par Site Recovery. Pour voir le dernier point de récupération d’une machine virtuelle spécifique, cochez **Derniers points de récupération** dans les paramètres de la machine virtuelle. 
     - **Dernier point dans le temps** : cette option permet de traiter d’abord toutes les données qui ont été envoyées au service Site Recovery afin de créer un point de récupération pour chaque machine virtuelle avant de basculer les machines virtuelles vers celui-ci. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement comporte toutes les données répliquées vers Site Recovery au moment où le basculement a été déclenché.
@@ -72,7 +72,7 @@ Dans les scénarios suivants, le basculement nécessite une étape intermédiair
     * storflt
     * intelide
     * atapi
-* Machines virtuelles VMware pour lesquelles DHCP n’est pas activé, selon qu’elles utilisent DHCP ou des adresses IP statiques.
+* Machines virtuelles VMware pour lesquelles DHCP n’est pas activé, qu’elles utilisent ou non des adresses DHCP ou IP statiques.
 
 Dans tous les autres cas, aucune étape intermédiaire n’est exigée et le basculement prend beaucoup moins de temps.
 

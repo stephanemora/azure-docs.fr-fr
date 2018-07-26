@@ -2,18 +2,18 @@
 title: Utilisation d’Azure Import/Export pour exporter des données à partir d’objets blob Azure | Microsoft Docs
 description: Découvrez comment créer des tâches d’exportation dans le Portail Azure pour transférer des données à partir d’objets blob Azure.
 author: alkohli
-manager: jeconnoc
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eb714086a0142d9780bd018d77dc880a430f240e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969263"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113756"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour exporter en toute sécurité de grandes quantités de données à partir du Stockage Blob Azure. Pour pouvoir utiliser ce service, vous devez expédier des lecteurs vides au centre de données Azure. Le service exporte les données de votre compte de stockage vers les lecteurs, puis vous réexpédie ces derniers.
@@ -25,6 +25,13 @@ Avant de créer une tâche d’exportation pour transférer des données à part
 - Avoir un abonnement Azure actif utilisable avec le service Import/Export
 - Avoir au moins un compte de stockage Azure. Consultez la liste des [Comptes de stockage et types de stockage pris en charge pour le service Import/Export](storage-import-export-requirements.md). Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 - Avoir un nombre suffisant de disques correspondant aux [types pris en charge](storage-import-export-requirements.md#supported-disks).
+- Dotez-vous d’un compte FedEx/DHL.  
+    - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
+    - Générez un numéro de suivi pour le travail d’exportation.
+    - Chaque travail doit avoir un numéro de suivi distinct. Plusieurs travaux portant le même numéro de suivi ne sont pas pris en charge. 
+    - Si vous n’avez pas de compte de transporteur, accédez à :
+        - [Créer un compte FedEX](https://www.fedex.com/en-us/create-account.html), ou 
+        - [Créer un compte DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Étape 1 : Créer une tâche d’exportation
 
@@ -52,7 +59,7 @@ Effectuez les étapes suivantes pour créer une tâche d’exportation dans le P
     
 3. Dans **Détails de la tâche** :
 
-    - Sélectionnez le compte de stockage où se trouvent les données à exporter. 
+    - Sélectionnez le compte de stockage où se trouvent les données à exporter. Utilisez un compte de stockage proche de l’endroit où vous vous trouvez.
     - L’emplacement de remise est automatiquement rempli en fonction de la région du compte de stockage sélectionné. 
     - Spécifiez les données blob à exporter depuis votre compte de stockage vers le ou les lecteurs vides. 
     - Choisissez l’option **Exporter tout** pour exporter l’ensemble des données blob du compte de stockage.
@@ -78,11 +85,18 @@ Effectuez les étapes suivantes pour créer une tâche d’exportation dans le P
     - Sélectionnez le transporteur dans la liste déroulante.
     - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. 
     - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides.
+
+        > [!TIP] 
+        > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
    
 5. Dans **Récapitulatif** :
 
     - Passez en revue les détails de la tâche.
     - Notez le nom de la tâche et l’adresse de livraison du centre de données Azure pour l’expédition des disques. 
+
+        > [!NOTE] 
+        > Envoyer toujours les disques au centre de données indiqué dans le portail Azure. Si les disques ne sont pas expédiés au centre de données approprié, le travail ne sera pas exécuté.
+
     - Cliquez sur **OK** pour créer la tâche d’exportation.
 
 ## <a name="step-2-ship-the-drives"></a>Étape 2 : Expédier les disques

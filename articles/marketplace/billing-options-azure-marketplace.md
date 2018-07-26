@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b5a50b01da220f8da2f518895a61221f80d098f6
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 51a614a2411cf60bf88d384119c26bc9d406e66f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825882"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635139"
 ---
 # <a name="billing-options"></a>Options de facturation  
 
@@ -67,7 +67,7 @@ L’option de liste Transact présente un avantage important : vos coûts de lic
 Dans ce scénario, Microsoft effectue la facturation et gère les règlements à votre place. La facturation Microsoft vous évite d’avoir à créer votre propre relation d’approvisionnement avec votre client. Elle peut vous faire gagner du temps et économiser des ressources, et ainsi vous aider à vous concentrer sur la conclusion de la vente, plutôt que sur l’acquittement de la facture. 
 
 ## <a name="enterprise-agreement"></a>Contrat Entreprise  
-Si vous êtes un client Contrat entreprise (EA) de Microsoft, vous pouvez utiliser votre EA pour payer les produits Microsoft. Vous pouvez facturer des produits, y compris votre utilisation d’Azure. L’option de paiement EA est destinée aux entreprises désireuses d’acheter des licences de logiciels et de services cloud pour au moins trois ans. Vous fractionnez les paiements, au lieu de tout payer en une seule fois. Si vous utilisez le type de liste Paiement à l’utilisation, la facturation de vos frais de licence de logiciels suit le cycle trimestriel de facturation du dépassement du Contrat Entreprise.  
+Si vous êtes un client Contrat entreprise (EA) de Microsoft, vous pouvez utiliser votre EA pour payer les produits Microsoft. Certains produits, y compris votre utilisation d’Azure, sont susceptibles de vous être facturés. L’option de paiement EA est destinée aux entreprises désireuses d’acheter des licences de logiciels et de services cloud pour au moins trois ans. Vous fractionnez les paiements, au lieu de tout payer en une seule fois. Si vous utilisez le type de liste Paiement à l’utilisation, la facturation de vos frais de licence de logiciels suit le cycle trimestriel de facturation du dépassement du Contrat Entreprise.  
 
 ### <a name="monetary-commitment"></a>Engagement monétaire  
 Si vous êtes client EA, vous pouvez ajouter Azure à votre contrat. Pour cela, vous pouvez régler d’avance un engagement financier portant sur Azure. Il courra tout au long de l’année. Vous pouvez choisir la combinaison d’utilisation que vous souhaitez parmi le large éventail de services disponibles dans Azure.  

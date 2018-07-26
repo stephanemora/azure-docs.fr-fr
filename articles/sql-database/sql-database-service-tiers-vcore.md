@@ -1,20 +1,20 @@
 ---
 title: Service Azure SQL Database - vCore | Microsoft Docs
-description: Le modèle d’achat vCore (préversion) vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts.
+description: Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859933"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091490"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Choix du niveau de service et des ressources de calcul, de mémoire, de stockage et d’E/S pour vCore
 
@@ -30,11 +30,9 @@ Le tableau suivant montre les différences entre ces deux niveaux :
 |Stockage|Stockage distant Premium, de 5 Go à 4 To|Stockage sur SSD local, de 5 Go à 4 To|
 |Débit d’E/S (approximatif)|500 IOPS par vCore avec 7000 IOPS au maximum|5000 IOPS par cœur avec 200 000 IOPS au maximum|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [échelle lecture](sql-database-read-scale-out.md), haute disponibilité redondante dans une zone|
-|Sauvegardes|RA-GRS, 7 à 35 jours (7 jours par défaut)|RA-GRS, 7 à 35 jours (7 jours par défaut)*|
+|Sauvegardes|RA-GRS, 7 à 35 jours (7 jours par défaut)|RA-GRS, 7 à 35 jours (7 jours par défaut)|
 |En mémoire|N/A|Prise en charge|
 |||
-
-\* Dans la préversion, la période de rétention des sauvegardes n’est pas configurable et est fixée à 7 jours.
 
 > [!IMPORTANT]
 > Si vous avez besoin d’une capacité de calcul inférieure à 1 vCore, utilisez le modèle d’achat DTU.
@@ -67,7 +65,7 @@ Du stockage de sauvegardes de base de données est alloué pour prendre en charg
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
-Dans le modèle d’achat vCore (préversion), vous pouvez échanger vos licences existantes avec des tarifs réduits sur SQL Database, en utilisant [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
+Dans le modèle d’achat vCore, vous pouvez échanger vos licences existantes avec des tarifs réduits sur SQL Database, en utilisant [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
 
 ![Prix](./media/sql-database-service-tiers/pricing.png)
 

@@ -7,21 +7,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 630ef13fbd64fac8c2a2a31e4174552e64aaa789
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309212"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092645"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Optimisation des performances dans Azure SQL Database
 
 Azure SQL Database fournit des [recommandations](sql-database-advisor.md) que vous pouvez utiliser pour améliorer les performances de votre base de données, ou vous pouvez laisser Azure SQL Database [s’adapter automatiquement à votre application](sql-database-automatic-tuning.md) et appliquer les modifications qui amélioreront les performances de votre charge de travail.
 
 Si aucune recommandation n’est applicable et si vous avez toujours des problèmes de performances, vous pouvez utiliser les méthodes suivantes pour améliorer les performances :
-- Augmentez les niveaux de service dans votre [modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) ou votre [modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md) pour fournir plus de ressources à votre base de données.
+- Augmentez les niveaux de service dans votre [modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) ou votre [modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md) pour fournir plus de ressources à votre base de données.
 - Paramétrez votre application et appliquez quelques meilleures pratiques susceptibles d’améliorer les performances. 
 - Paramétrez la base de données en modifiant les index et les requêtes afin d’utiliser plus efficacement les données.
 
@@ -29,7 +29,7 @@ Il s’agit de méthodes manuelles, car vous devez décider de la qualité de re
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Augmentation du niveau de performance de votre base de données
 
-Azure SQL Database propose deux modèles d’achat: un [modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et un [modèle d’achat basé sur des vCores (préversion)](sql-database-service-tiers-vcore.md). Chaque niveau de service isole strictement les ressources pouvant être utilisées par votre base de données SQL et garantit des performances prévisibles. Dans cet article, nous vous offrons des recommandations qui vous aideront à choisir le niveau de service adapté à votre application. Nous abordons également des modes de paramétrage de votre application destinés à tirer le meilleur de Microsoft Azure SQL Database.
+Azure SQL Database propose deux modèles d’achat: un [modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et un [modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md). Chaque niveau de service isole strictement les ressources pouvant être utilisées par votre base de données SQL et garantit des performances prévisibles. Dans cet article, nous vous offrons des recommandations qui vous aideront à choisir le niveau de service adapté à votre application. Nous abordons également des modes de paramétrage de votre application destinés à tirer le meilleur de Microsoft Azure SQL Database.
 
 > [!NOTE]
 > Cet article se concentre sur les recommandations de performances pour les bases de données uniques dans Microsoft Azure SQL Database. Pour un guide des performances relatives aux pools élastiques, consultez [Considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool-guidance.md). Notez, cependant, que vous pouvez appliquer un grand nombre des recommandations de cet article sur les bases de données d’un pool élastique, afin d’obtenir des avantages similaires en matière de performances.
@@ -40,7 +40,7 @@ Azure SQL Database propose deux modèles d’achat: un [modèle d’achat basé 
   * **Vous disposez d’une base de données avec un utilisateur unique**. Généralement, les applications qui associent un seul utilisateur à une base de données n’ont pas des exigences élevées en matière d’accès concurrentiel et de performances. Les applications de ce type font des candidates idéales pour le niveau de service De base.
 * **Standard** : le niveau de service Standard offre une meilleure prévisibilité des performances et fournit de bonnes performances pour les bases de données avec plusieurs requêtes simultanées, par exemple les applications web ou de groupe de travail. Lorsque vous choisissez une base de données de niveau de service Standard, vous pouvez dimensionner votre application de base de données en fonction de performances prévisibles, minute après minute.
   * **Votre base de données présente de multiples requêtes simultanées**. Les applications utilisées simultanément par plusieurs utilisateurs requièrent généralement des niveaux de performances plus élevés. Par exemple, un groupe de travail ou des applications web avec des exigences de trafic d’E/S faibles à moyennes et prenant en charge plusieurs requêtes simultanées sont parfaitement adaptés au niveau de service Standard.
-* **Premium** : le niveau de service Premium offre des performances prévisibles seconde après seconde, pour chaque base de données Premium ou Critique pour l’entreprise (en préversion). Lorsque vous choisissez le niveau de service Premium, vous pouvez dimensionner votre application de base de données en fonction de la charge maximale de votre instance. Le plan supprime les scénarios dans lesquels l’écart de performances peut allonger le traitement des petites requêtes dans les opérations sensibles à la latence. Ce modèle simplifie considérablement les cycles de validation de développement et de produit nécessaires pour les applications qui doivent appliquer des instructions fortes concernant les besoins maximum en ressources, l’écart de performances ou la latence des requêtes. La plupart des cas d’utilisation du niveau de service Premium présentent une ou plusieurs de ces caractéristiques :
+* **Premium** : le niveau de service Premium offre des performances prévisibles seconde après seconde, pour chaque base de données Premium ou Critique pour l’entreprise. Lorsque vous choisissez le niveau de service Premium, vous pouvez dimensionner votre application de base de données en fonction de la charge maximale de votre instance. Le plan supprime les scénarios dans lesquels l’écart de performances peut allonger le traitement des petites requêtes dans les opérations sensibles à la latence. Ce modèle simplifie considérablement les cycles de validation de développement et de produit nécessaires pour les applications qui doivent appliquer des instructions fortes concernant les besoins maximum en ressources, l’écart de performances ou la latence des requêtes. La plupart des cas d’utilisation du niveau de service Premium présentent une ou plusieurs de ces caractéristiques :
   * **Pic de charge élevés**. Une application qui nécessite un volume élevé d’UC, de mémoire ou d’entrée/sortie (E/S) pour exécuter ses opérations a besoin d’un niveau de performance élevé et dédié. Par exemple, si une opération de base de données est connue pour utiliser plusieurs cœurs d’UC pendant une période prolongée, l’utilisation du niveau de service Premium est appropriée.
   * **Plusieurs requêtes simultanées**. Certaines applications de base de données gèrent de nombreuses demandes simultanées, par exemple un site web avec un volume de trafic élevé. Les niveaux de service De base et Standard présentent des limites au nombre de demandes simultanées par base de données. Les applications qui requièrent plus de connexions doivent choisir une taille de réservation appropriée pour traiter le nombre maximum de demandes nécessaires.
   * **Latence faible**. Certaines applications doivent garantir une réponse de la base de données dans un délai minimum. Si une procédure stockée donnée est appelée dans le cadre d’une opération client plus large, il existe peut-être une exigence de renvoi depuis l’appel en moins de 20 millisecondes 99 % du temps. Ce type d’application bénéficie du niveau de service Premium afin de garantir la disponibilité de la puissance de calcul.
@@ -272,7 +272,7 @@ Certaines applications de base de données contiennent des charges de travail à
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur les niveaux de service DTU, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md).
-* Pour plus d’informations sur les niveaux de service vCore, consultez [Modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md).
+* Pour plus d’informations sur les niveaux de service vCore, consultez [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 * Pour de plus amples informations sur les pools élastiques, consultez la page [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
 * Pour plus d’informations sur les performances et les pools élastiques, consultez la page [Quand envisager d’utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
 

@@ -1,6 +1,6 @@
 - name: Documentation DNS
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Présentation d’Azure\_DNS"
       href: dns-overview.md
@@ -45,7 +45,7 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procédures
   items:
-    - name: Créer une zones DNS personnalisée et un enregistrement - Azure CLI
+    - name: Créer une zone DNS privée et un enregistrement - Azure CLI
       href: private-dns-getstarted-cli.md
     - name: Gestion des zones DNS
       items:

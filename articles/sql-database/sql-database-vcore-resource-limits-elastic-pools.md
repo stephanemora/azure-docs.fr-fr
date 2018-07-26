@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 01f213c7cf5f6be3ef84601a50bb4455422faf22
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 5503ffaf8a429221a0a0730fc999cb7a90f43785
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311183"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092118"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools-preview"></a>Limites du modèle d’achat par vCore d’Azure SQL Database pour les pools élastiques (préversion)
+# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limites du modèle d’achat par vCore d’Azure SQL Database pour les pools élastiques
 
 Cet article détaille les limites de ressources des pools élastiques Azure SQL Database et des bases de données mises en pool suivant le modèle d’achat par vCore.
 
@@ -38,7 +38,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |Génération H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Mémoire (Go)|7|14|28|56|112|168|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Taille maximale des données (Go)|512|756|1536|2 048|3584|4096|
@@ -59,10 +59,10 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 #### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
 |Niveau de performance|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
-|Génération H/W|5|5|5|5|5|5|5|5|
+|Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|
 |vCores|2|4|8|16|24|32|40|80|
 |Mémoire (Go)|11|22|44|88|132|176|220|440|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Taille maximale des données (Go)|512|756|1536|2 048|3 072|4096|4096|4096|
@@ -88,7 +88,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |Génération H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Mémoire (Go)|7|14|28|56|112|168|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|1|2|4|8|20|36|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
@@ -102,17 +102,17 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |Valeurs min/max de pool élastique|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Nombre de réplicas|3|3|3|3|3|3|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
+|Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
 |Niveau de performance|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
-|Génération H/W|5|5|5|5|5|5|5|5|
+|Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|
 |vCores|2|4|8|16|24|32|40|80|
 |Mémoire (Go)|11|22|44|88|132|176|220|440|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|1 571|3 142|6 284|15 768|25 252|37 936|52.22|131,64|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
@@ -126,7 +126,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |Valeurs min/max de pool élastique|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Nombre de réplicas|3|3|3|3|3|3|3|3|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 

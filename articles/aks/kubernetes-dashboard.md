@@ -1,40 +1,55 @@
 ---
 title: Gérer le cluster Kubernetes Azure par l’intermédiaire de l’interface utilisateur web
-description: Utilisation du tableau de bord Kubernetes dans ACS
+description: Découvrez comment utiliser le tableau de bord intégré de l’interface utilisateur web de Kubernetes avec Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b56751750d5c0731a79b3229106a6bc2a5eccac9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100423"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091136"
 ---
-# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Tableau de bord Kubernetes avec Azure Kubernetes Service (AKS)
+# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Accéder au tableau de bord Kubernetes avec Azure Kubernetes Service (AKS)
 
-Vous pouvez utiliser Azure CLI pour démarrer le tableau de bord Kubernetes. Ce document décrit le démarrage du tableau de bord Kubernetes à l’aide d’Azure CLI, ainsi que certaines opérations de base exécutables à partir du tableau de bord. Pour plus d’informations sur le tableau de bord Kubernetes, consultez [Tableau de bord de l’interface utilisateur web de Kubernetes][kubernetes-dashboard].
+Kubernetes comprend un tableau de bord web qui peut être utilisé pour les opérations de gestion de base. Cet article vous montre comment accéder au tableau de bord Kubernetes à l’aide de l’interface CLI Azure, et fournit des instructions pour certaines opérations de base. Pour plus d’informations sur le tableau de bord Kubernetes, consultez [Tableau de bord de l’interface utilisateur web de Kubernetes][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [guide de démarrage rapide d’ACS][aks-quickstart].
+Les étapes détaillées dans ce document supposent que vous avez créé un cluster AKS et que vous avez établi une connexion `kubectl` avec le cluster. Si vous avez besoin de créer un cluster AKS, suivez le [guide de démarrage rapide AKS][aks-quickstart].
 
-Vous devez également avoir installé et configuré Azure CLI version 2.0.27 ou version ultérieure. Pour déterminer la version, exécutez la commande az--version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
+Vous devez également avoir installé et configuré Azure CLI version 2.0.27 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Démarrer le tableau de bord Kubernetes
 
-Pour démarrer le tableau de bord Kubernetes, utilisez la commande `az aks browse`. Lorsque vous exécutez cette commande, remplacez les noms du groupe de ressources et du cluster.
+Pour ouvrir le tableau de bord Kubernetes, utilisez la commande [az aks browse][az-aks-browse]. L’exemple suivant ouvre le tableau de bord du cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Cette commande crée un proxy entre votre système de développement et l’API Kubernetes, et ouvre un navigateur web sur le tableau de bord Kubernetes.
+
+### <a name="for-rbac-enabled-clusters"></a>Pour les clusters où RBAC est activé
+
+Si votre cluster AKS utilise RBAC, un *ClusterRoleBinding* doit être créé avant de pouvoir accéder correctement au tableau de bord. Pour créer une liaison, utilisez la commande [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding], comme indiqué dans l’exemple suivant. 
+
+> [!WARNING]
+> Cet exemple de liaison n’applique pas de composants d’authentification supplémentaires et peut conduire à une utilisation non sécurisée. Le tableau de bord Kubernetes est accessible à tous ceux qui ont accès à l’URL. N’exposez pas le tableau de bord Kubernetes publiquement.
+>
+> Vous pouvez utiliser des mécanismes tels que des jetons de porteur, ou un nom d’utilisateur et un mot de passe, pour contrôler qui peut accéder au tableau de bord et décider des autorisations à attribuer. Cela permet une utilisation plus sécurisée du tableau de bord. Pour plus d’informations sur l’utilisation des différentes méthodes d’authentification, consultez le wiki du tableau de bord Kubernetes sur le [contrôle des accès][dashboard-authentication].
+
+```console
+kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+```
+
+Vous pouvez maintenant accéder au tableau de bord Kubernetes dans votre cluster RBAC. Pour ouvrir le tableau de bord Kubernetes, utilisez la commande [az aks browse][az-aks-browse], comme expliqué à l’étape précédente.
 
 ## <a name="run-an-application"></a>Exécuter une application
 
@@ -81,7 +96,11 @@ Pour plus d’informations sur le tableau de bord Kubernetes, voir la documentat
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+[dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[az-aks-browse]: /cli/azure/aks#az-aks-browse

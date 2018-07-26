@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e4af3dc8aa7a656fd0020285c3f73ce414ba039c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 645fa89bede1311215f1d67c64a2388e4de5c1b1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38305894"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044881"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Déployer un fournisseur de ressources MySQL sur Azure Stack
 
@@ -33,20 +33,27 @@ Plusieurs prérequis doivent être remplis avant de déployer le fournisseur de 
 * Vous devez installer les modules PowerShell Azure Stack et Azure sur le système où vous allez exécuter cette installation. Le système doit être une image Windows 10 ou Windows Server 2016 dotée de la dernière version du runtime .NET. Consultez [Installer PowerShell pour Azure Stack](.\azure-stack-powershell-install.md).
 * Ajoutez la machine virtuelle Windows Server standard sur la Place de marché Azure Stack en téléchargeant l’image de **Windows Server 2016 Datacenter Server Core**.
 
-  >[!NOTE]
-  >Si vous devez installer une mise à jour Windows, vous pouvez placer un seul package MSU dans le chemin de dépendance local. Si plusieurs fichiers .MSU sont trouvés, l’installation du fournisseur de ressources MySQL échoue.
-
 * Téléchargez le binaire du fournisseur de ressources MySQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire.
 
   >[!NOTE]
   >Pour déployer le fournisseur MySQL sur un système qui n’a pas accès à Internet, copiez le fichier [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) sur un chemin local. Fournissez le nom du chemin à l’aide du paramètre **DependencyFilesLocalPath**.
 
-* Le fournisseur de ressources possède une build Azure Stack minimale correspondante. Assurez-vous de télécharger le binaire correct pour la version d’Azure Stack que vous utilisez.
+* Le fournisseur de ressources possède une build Azure Stack minimale correspondante. Assurez-vous de télécharger le binaire correct pour la version d’Azure Stack que vous utilisez :
 
     | Version d’Azure Stack | Version du fournisseur de ressources MySQL|
     | --- | --- |
     | Version 1804 (1.0.180513.1)|[Version 1.1.24.0 du fournisseur de ressources MySQL](https://aka.ms/azurestackmysqlrp1804) |
-    | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
+    | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
+    |     |     |
+
+- Vérifiez que les conditions préalables d’intégration du centre de données sont remplies :
+
+    |Configuration requise|Référence|
+    |-----|-----|
+    |La redirection DNS conditionnelle est correctement définie.|[Intégration au centre de données Azure Stack - DNS](azure-stack-integrate-dns.md)|
+    |Les ports d’entrée pour les fournisseurs de ressources sont ouverts.|[Intégration au centre de données Azure Stack : publier des points de terminaison](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |Les objets du certificat PKI et SAN sont correctement définis.|[Prérequis PKI obligatoires pour le déploiement Azure Stack](azure-stack-pki-certs.md#mandatory-certificates)<br>[Prérequis de certificat PaaS pour le déploiement Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Certificats
 
@@ -56,7 +63,7 @@ _Pour les installations de systèmes intégrés uniquement_. Vous devez fournir 
 
 Une fois tous les composants requis installés, exécutez le script **DeployMySqlProvider.ps1** pour déployer le fournisseur de ressources MYSQL. Le script DeployMySqlProvider.ps1 est extrait du binaire du fournisseur de ressources MySQL que vous avez téléchargé pour votre version d’Azure Stack.
 
-Pour déployer le fournisseur de ressources MySQL, ouvrez une nouvelle fenêtre de console PowerShell avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources MySQL. Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés.
+Pour déployer le fournisseur de ressources mySQL, ouvrez une nouvelle fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources mySQL. Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés.
 
 Exécutez le script **DeployMySqlProvider.ps1**, qui complète les tâches suivantes :
 
@@ -65,8 +72,7 @@ Exécutez le script **DeployMySqlProvider.ps1**, qui complète les tâches suiva
 * Publication d’un package de galerie pour déployer des serveurs d’hébergement.
 * Déploiement d’une machine virtuelle à l’aide de l’image Windows Server 2016 Core que vous avez téléchargée, puis installation du fournisseur de ressources MySQL.
 * Inscription d’un enregistrement DNS local mappé à la machine virtuelle de votre fournisseur de ressources.
-* Inscription de votre fournisseur de ressources auprès de l’Azure Resource Manager local pour les comptes d’utilisateurs et d’opérateurs.
-* Si nécessaire, installez une seule mise à jour Windows Server durant l’installation du fournisseur de ressources.
+* Inscription de votre fournisseur de ressources auprès de l’Azure Resource Manager local pour le compte d’opérateur.
 
 > [!NOTE]
 > Lorsque le déploiement du fournisseur de ressources MySQL démarre, le groupe de ressources **system.local.sqladapter** est créé. Il peut falloir jusqu’à 75 minutes pour terminer les déploiements dans ce groupe de ressources.

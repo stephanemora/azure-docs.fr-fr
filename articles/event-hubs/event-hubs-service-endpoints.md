@@ -1,6 +1,6 @@
 ---
 title: Points de terminaison de service et règles de réseau virtuel dans Azure Event Hubs | Microsoft Docs
-description: Ajoutez un point de terminaison de service Microsoft.ServiceBus à un réseau virtuel.
+description: Ajoutez un point de terminaison de service Microsoft.EventHub à un réseau virtuel.
 services: event-hubs
 documentationcenter: ''
 author: clemensv
@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: clemensv
-ms.openlocfilehash: a23e5414cd3c60192badfee65b14c49cd5e96f4e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 3746c4b7d1b53d7522f317fd2e349d31ba77f406
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034505"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136336"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Event Hubs
 
@@ -37,7 +37,7 @@ Vos solutions cloud sensibles en matière de sécurité accèdent donc aux fonct
 
 Les *règles de réseau virtuel* sont une fonctionnalité de sécurité de pare-feu. Elles permettent de contrôler si votre serveur Azure Event Hubs doit accepter ou non les connexions d’un sous-réseau de réseau virtuel particulier.
 
-La liaison d’un espace de noms Event Hubs à un réseau virtuel est un processus en deux étapes. Vous devez d’abord créer un **point de terminaison de service de réseau virtuel** sur un sous-réseau de réseau virtuel et l’activer pour « Microsoft.ServiceBus », comme expliqué dans la [vue d’ensemble des points de terminaison de service][vnet-sep]. Après avoir ajouté le point de terminaison de service, liez-le à l’espace de noms Event Hubs au moyen d’une *règle de réseau virtuel*.
+La liaison d’un espace de noms Event Hubs à un réseau virtuel est un processus en deux étapes. Vous devez d’abord créer un **point de terminaison de service de réseau virtuel** sur un sous-réseau de réseau virtuel, puis l’activer pour « Microsoft.EventHub », comme expliqué dans la [vue d’ensemble des points de terminaison de service][vnet-sep]. Après avoir ajouté le point de terminaison de service, liez-le à l’espace de noms Event Hubs au moyen d’une *règle de réseau virtuel*.
 
 La règle de réseau virtuel est une association nommée de l’espace de noms Event Hubs et d’un sous-réseau de réseau virtuel. Une fois la règle en place, toutes les charges de travail liées au sous-réseau sont autorisées à accéder à l’espace de noms Event Hubs. Event Hubs n’établit jamais de connexions sortantes, ne nécessite aucun accès et ne se voit donc jamais accorder l’accès à votre sous-réseau quand cette règle est activée.
 

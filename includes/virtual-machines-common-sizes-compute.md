@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 638b52edb554b6bddb206943fca42b03bdc69060
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 033ae1de25fbaada0c2bce715e6bdd71818b341a
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "30845129"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906800"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -32,6 +32,10 @@ La série Fs propose tous les avantages de la série F, en plus du stockage Prem
 ## <a name="fsv2-series-sup1sup"></a>Série Fsv2 <sup>1</sup>
 
 ACU : 195 - 210
+
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
 
 | Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
@@ -53,6 +57,10 @@ ACU : 195 - 210
 
 ACU : 210-250
 
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
+
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4 000 / 32 (12) |3 200 / 48 |2 / 750 |
@@ -71,6 +79,10 @@ Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 ## <a name="f-series"></a>Série F
 
 ACU : 210-250
+
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
 
 | Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

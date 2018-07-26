@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/01/2018
+ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342655"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069378"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -24,6 +24,16 @@ SQL Data Sync est un service conçu sur la base de données SQL Azure qui vous p
 ## <a name="architecture-of-sql-data-sync"></a>Architecture de SQL Data Sync
 
 Data Sync est basé sur le concept d’un groupe de synchronisation. Un groupe de synchronisation est un groupe de bases de données que vous souhaitez synchroniser.
+
+Data Sync utilise une topologie hub and spoke pour synchroniser les données. Vous définissez l’une des bases de données du groupe de synchronisation en tant que base de données Hub. Le reste des bases de données sont des bases de données membres. La synchronisation se produit uniquement entre le hub et des membres individuels.
+-   Le **base de données Hub** doit être une base de données Azure SQL Database.
+-   Les **bases de données membres** peuvent être des bases de données SQL, des bases de données locales SQL Server, ou des instances SQL Server sur des machines virtuelles Azure.
+-   La **base de données de synchronisation** contient les métadonnées et le journal de Data Sync. La base de données de synchronisation doit être une base de données Azure SQL Database située dans la même région que la base de données Hub. La base de données de synchronisation est créée par le client et lui appartient.
+
+> [!NOTE]
+> Si vous utilisez une base de données locale comme base de données membre, vous devez [installer et configurer un agent de synchronisation local](sql-database-get-started-sql-data-sync.md#add-on-prem).
+
+![Synchroniser des données entre des bases de données](media/sql-database-sync-data/sync-data-overview.png)
 
 Un groupe de synchronisation dispose des propriétés suivantes :
 
@@ -35,16 +45,6 @@ Un groupe de synchronisation dispose des propriétés suivantes :
 
 -   La **stratégie de résolution de conflit** est une stratégie au niveau groupe, qui peut être *Priorité au hub* ou *Priorité au membre*.
 
-Data Sync utilise une topologie hub and spoke pour synchroniser les données. Vous définissez l’une des bases de données du groupe en tant que base de données Hub. Le reste des bases de données sont des bases de données membres. La synchronisation se produit uniquement entre le hub et des membres individuels.
--   Le **base de données Hub** doit être une base de données Azure SQL Database.
--   Les **bases de données membres** peuvent être des bases de données SQL, des bases de données locales SQL Server, ou des instances SQL Server sur des machines virtuelles Azure.
--   La **base de données de synchronisation** contient les métadonnées et le journal de Data Sync. La base de données de synchronisation doit être une base de données Azure SQL Database située dans la même région que la base de données Hub. La base de données de synchronisation est créée par le client et lui appartient.
-
-> [!NOTE]
-> Si vous utilisez une base de données locale comme base de données membre, vous devez [installer et configurer un agent de synchronisation local](sql-database-get-started-sql-data-sync.md#add-on-prem).
-
-![Synchroniser des données entre des bases de données](media/sql-database-sync-data/sync-data-overview.png)
-
 ## <a name="when-to-use-data-sync"></a>Quand utiliser Data Sync
 
 Data Sync est utile dans les cas où les données doivent être mises à jour entre plusieurs bases de données Azure SQL Database ou bases de données SQL Server. Voici les principaux cas d’usage pour Data Sync :
@@ -55,7 +55,7 @@ Data Sync est utile dans les cas où les données doivent être mises à jour en
 
 -   **Applications distribuées globalement :** De nombreuses entreprises sont présentes dans plusieurs régions et même dans plusieurs pays. Afin de réduire la latence du réseau, il est préférable de conserver vos données dans une région proche. Avec Data Sync, vous pouvez facilement synchroniser des bases de données dans différentes régions partout dans le monde.
 
-Data Sync n’est pas la meilleure solution pour les scénarios suivants :
+Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 
 | Scénario | Certaines solutions recommandées |
 |----------|----------------------------|

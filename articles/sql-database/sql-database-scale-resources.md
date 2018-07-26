@@ -6,21 +6,21 @@ author: jovanpop-msft
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 07/07/2018
+ms.date: 07/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: f55ce511f6ba90c27e149ac90bbd2c8aa0b3c742
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a6b987d9815cfabed6dd986a0d9842a97f5b5868
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923437"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092050"
 ---
 # <a name="scale-database-resources"></a>Mettre à l'échelle des ressources de base de données
 
 Azure SQL Database vous permet d’ajouter de façon dynamique plus de ressources à votre base de données, en un temps d’arrêt minimal.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Lorsque la demande ciblant votre application s’accroît de quelques appareils et clients à plusieurs millions, Azure SQL Database se met à l’échelle immédiatement avec un temps d’arrêt minimal. L’extensibilité est une des caractéristiques les plus importantes de PaaS qui vous permet d’ajouter plus de ressources de façon dynamique à votre service, si besoin. Azure SQL Database vous permet de modifier en toute simplicité vos ressources (alimentation processeur, mémoire, débit E/S et stockage) allouées à vos bases de données.  
 Vous pouvez limiter les problèmes de performances dus à une utilisation croissante de votre application qui ne peuvent être résolus en utilisant des méthodes de réécriture de requête ou d’indexation. L’ajout de ressources vous permet de réagir rapidement lorsqu’une base de données atteint la limite de ressources actuelles et a besoin de plus de puissance pour gérer les charges entrantes. Azure SQL Database vous permet aussi de diminuer la taille des ressources lorsqu’elles ne sont pas nécessaires afin de réduire les coûts.
@@ -30,7 +30,7 @@ Vous n’avez pas à vous inquiéter de l’achat de matériel et du changement 
 
 Azure SQL Database propose un [modèle d’achat DTU](sql-database-service-tiers-dtu.md) ou le [modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md). 
 -   Le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) offre un mélange de ressources de calcul, de mémoire et d’E/S dans trois niveaux de service pour prendre en charge les charges de travail de base de données, aussi bien légères qu’importantes : De base, Standard et Premium. Les niveaux de performance de chaque niveau fournissent une combinaison différente de ces ressources, à laquelle vous pouvez ajouter d’autres ressources de stockage.
--   Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) (préversion) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage.
+-   Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage.
 Vous pouvez créer votre première application sur une seule petite base de données pour un coût mensuel modique et modifier le niveau de service manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
 
 

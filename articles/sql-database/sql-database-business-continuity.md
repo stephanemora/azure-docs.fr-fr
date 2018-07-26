@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084958"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092288"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -29,7 +29,7 @@ La base de données SQL fournit plusieurs fonctionnalités de continuité d’ac
 
 Le tableau suivant compare le temps de récupération estimé et l’objectif de point de récupération de chaque niveau de service, pour les trois scénarios les plus courants.
 
-| Fonctionnalité | De base | standard | Premium  | Usage général | Critique pour l’entreprise
+| Fonctionnalité | De base | Standard | Premium  | Usage général | Critique pour l’entreprise
 | --- | --- | --- | --- |--- |--- |
 | Limite de restauration dans le temps à partir de la sauvegarde |Tout point de restauration dans un délai de 7 jours |Tout point de restauration dans un délai de 35 jours |Tout point de restauration dans un délai de 35 jours |N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|
 | Géo-restauration à partir de sauvegardes répliquées géographiquement |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
@@ -38,7 +38,7 @@ Le tableau suivant compare le temps de récupération estimé et l’objectif de
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Utiliser une limite de restauration dans le temps pour récupérer une base de données
 
-SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures), et de sauvegardes de journaux de transactions (toutes les cinq à dix minutes) pour protéger votre entreprise contre la perte de données. Si vous utilisez le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), alors ces sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour les bases de données associées aux niveaux de service Standard et Premium, et pendant 7 jours pour les bases de données dont le niveau de service est De base. Si la période de rétention de votre niveau de service ne répond pas aux besoins de votre entreprise, vous pouvez augmenter la période de rétention en [modifiant le niveau de service](sql-database-single-database-scale.md). Si vous utilisez le [modèle d’achat vCore (préversion)](sql-database-service-tiers-vcore.md), la rétention des sauvegardes est configurable pendant un maximum de 35 jours dans les niveaux de service Général et Critique pour l’entreprise. Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md).
+SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures), et de sauvegardes de journaux de transactions (toutes les cinq à dix minutes) pour protéger votre entreprise contre la perte de données. Si vous utilisez le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), alors ces sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour les bases de données associées aux niveaux de service Standard et Premium, et pendant 7 jours pour les bases de données dont le niveau de service est De base. Si la période de rétention de votre niveau de service ne répond pas aux besoins de votre entreprise, vous pouvez augmenter la période de rétention en [modifiant le niveau de service](sql-database-single-database-scale.md). Si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), la rétention des sauvegardes est configurable pendant un maximum de 35 jours dans les niveaux de service Usage général et Critique pour l’entreprise. Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md).
 
 Si la période maximale de rétention qui est associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de rétention à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Sauvegardes automatisées](sql-database-automated-backups.md) et [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md).
 
@@ -57,19 +57,19 @@ Utilisez des sauvegardes automatisées comme mécanisme de continuité d’activ
 
 Si vous avez besoin d’une récupération plus rapide, utilisez une [géo-réplication active](sql-database-geo-replication-overview.md) (abordée plus loin). Si vous devez être en mesure de récupérer des données remontant à plus de 35 jours, utilisez la [rétention de sauvegardes à long terme](sql-database-long-term-retention.md). 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Utilisez la géo-réplication active et les groupes de basculement automatique (en version préliminaire) pour réduire le délai de récupération et les pertes de données associées à la récupération
+### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Utiliser la géo-réplication active et les groupes de basculement automatique pour réduire le délai de récupération et les pertes de données associées à la récupération
 
 Outre l’utilisation de sauvegardes de base de données pour récupérer une base de données lorsqu’une interruption de service se produit, vous pouvez utiliser la [géo-réplication active](sql-database-geo-replication-overview.md) pour configurer une base de données contenant jusqu’à quatre bases de données secondaires accessibles en lecture dans les régions de votre choix. Ces bases de données secondaires sont synchronisées avec la base de données primaire à l’aide d’un mécanisme de réplication asynchrone. Cette fonctionnalité sert à vous protéger contre l’interruption de service en cas de panne du centre de données ou de mise à niveau de l’application. La géo-réplication active peut également fournir de meilleures performances pour les requêtes en lecture seule adressées à des utilisateurs géographiquement dispersés.
 
-Pour activer le basculement automatique et transparent, vous devez organiser vos bases de données géo-répliquées dans des groupes à l’aide de la fonction de [groupe de basculement automatique](sql-database-geo-replication-overview.md) SQL Database (en version préliminaire).
+Pour activer le basculement automatique et transparent, vous devez organiser vos bases de données géo-répliquées dans des groupes à l’aide de la fonctionnalité de [groupe de basculement automatique](sql-database-geo-replication-overview.md) de SQL Database.
 
-Si la base de données primaire se déconnecte de manière inattendue ou si vous devez la mettre hors ligne pour des activités de maintenance, vous pouvez rapidement promouvoir un serveur secondaire en serveur principal (opération également appelée basculement) et configurer les applications pour une connexion au serveur principal promu. Si votre application se connecte aux bases de données à l’aide de l’écouteur du groupe de basculement, vous n’avez pas besoin de modifier la configuration de chaîne de connexion SQL après le basculement. Le basculement planifié évite toute perte de données. Avec un basculement non planifié, quelques pertes de données peuvent survenir pour les transactions très récentes en raison de la nature de la réplication asynchrone. Avec les groupes de basculement automatique (en version préliminaire), vous pouvez personnaliser la stratégie de basculement de manière à minimiser la perte potentielle de données. Après un basculement, vous pouvez effectuer une restauration automatique ultérieurement, en fonction d’un plan ou lorsque le centre de données redevient disponible. Dans tous les cas, les utilisateurs sont confrontés à quelques interruptions de service minimes et doivent se reconnecter.
+Si la base de données primaire se déconnecte de manière inattendue ou si vous devez la mettre hors ligne pour des activités de maintenance, vous pouvez rapidement promouvoir un serveur secondaire en serveur principal (opération également appelée basculement) et configurer les applications pour une connexion au serveur principal promu. Si votre application se connecte aux bases de données à l’aide de l’écouteur du groupe de basculement, vous n’avez pas besoin de modifier la configuration de chaîne de connexion SQL après le basculement. Le basculement planifié évite toute perte de données. Avec un basculement non planifié, quelques pertes de données peuvent survenir pour les transactions très récentes en raison de la nature de la réplication asynchrone. Avec les groupes de basculement automatique, vous pouvez personnaliser la stratégie de basculement de manière à minimiser la perte potentielle de données. Après un basculement, vous pouvez effectuer une restauration automatique ultérieurement, en fonction d’un plan ou lorsque le centre de données redevient disponible. Dans tous les cas, les utilisateurs sont confrontés à quelques interruptions de service minimes et doivent se reconnecter.
 
 > [!IMPORTANT]
-> Pour utiliser la géo-réplication active et les groupes de basculement automatique (en version préliminaire), vous devez être le propriétaire ou disposer d’autorisations administratives dans SQL Server. Vous pouvez configurer et effectuer un basculement à l’aide du portail Azure, de PowerShell ou de l’API REST, en utilisant les autorisations d’abonnement Azure ou à l’aide de Transact-SQL en utilisant des autorisations dans SQL Server.
+> Pour utiliser la géo-réplication active et les groupes de basculement automatique, vous devez être le propriétaire de l’abonnement ou disposer d’autorisations administratives dans SQL Server. Vous pouvez configurer et effectuer un basculement à l’aide du portail Azure, de PowerShell ou de l’API REST, en utilisant les autorisations d’abonnement Azure ou à l’aide de Transact-SQL en utilisant des autorisations dans SQL Server.
 > 
 
-Utilisez la géo-réplication active et les groupes de basculement automatique (en version préliminaire) si votre application répond à l’un des critères suivants :
+Utilisez la géo-réplication active et les groupes de basculement automatique si votre application répond à l’un des critères suivants :
 
 * Est essentielle.
 * A un contrat de niveau de service (SLA) qui n’autorise pas plus de 24 heures d’interruption de service.
@@ -126,7 +126,7 @@ Quelle que soit la fonctionnalité de continuité d’activité que vous utilise
 Si la préparation n’est pas effectuée correctement, la mise en ligne de vos applications après un basculement ou une récupération de base de données prend plus de temps et nécessite probablement de résoudre certains problèmes dans une situation de stress, ce qui constitue une combinaison très risquée.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Basculement vers une base de données secondaire géo-répliquée
-Si vous utilisez la géo-réplication active et les groupes de basculement automatique (en version préliminaire) comme mécanisme de récupération, vous pouvez configurer une stratégie de basculement automatique ou utiliser le [basculement manuel](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Une fois le basculement lancé, la base de données secondaire est promue comme nouvelle base principale et peut alors enregistrer de nouvelles transactions et répondre aux requêtes, avec des pertes de données minimes pour les données qui n’ont pas encore été répliquées. Pour plus d’informations sur la création du processus de basculement, reportez-vous à la section [Conception d’une application pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Si vous utilisez la géo-réplication active et les groupes de basculement automatique comme mécanisme de récupération, vous pouvez configurer une stratégie de basculement automatique ou utiliser le [basculement manuel](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Une fois le basculement lancé, la base de données secondaire est promue comme nouvelle base principale et peut alors enregistrer de nouvelles transactions et répondre aux requêtes, avec des pertes de données minimes pour les données qui n’ont pas encore été répliquées. Pour plus d’informations sur la création du processus de basculement, reportez-vous à la section [Conception d’une application pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Lorsque le centre de données revient en ligne, les anciennes bases primaires se reconnectent automatiquement à la nouvelle base primaire et deviennent les bases de données secondaires. Si vous devez replacer la base de données primaire dans sa région d’origine, vous pouvez initier un basculement programmé de manière manuelle (restauration automatique). 

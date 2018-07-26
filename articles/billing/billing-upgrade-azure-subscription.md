@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 089bb6f3fd187a56495dfd353ee89086e6bea120
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769169"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124981"
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Mise à niveau de votre abonnement d’essai gratuit ou Microsoft Imagine pour le paiement à l’utilisation
 
@@ -37,3 +37,8 @@ Mettez à niveau votre abonnement [Essai gratuit](https://azure.microsoft.com/fr
     ![Capture d’écran présentant les éléments à sélectionner pour confirmer que vous souhaitez mettre à niveau votre abonnement](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
  Quand vous effectuez une mise à niveau à partir d’un abonnement d’essai gratuit, vous conservez votre crédit restant pendant les 30 jours complets suivant la création de l’abonnement. Vous avez également accès aux services gratuits pendant 12 mois.
+ 
+ Si vous voulez [transférer l’abonnement](billing-subscription-transfer.md) après la mise à niveau, vous devez attendre que l’ID d’offre d’abonnement soit changé en **MS-AZR-003P**. L’ID d’offre change quand
+
+* Vous consommez tout le crédit restant ou
+* 30 jours après le début de l’essai gratuit

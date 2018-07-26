@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 5db1e7b9c97a0c19ef5ec0a41ea675c33c4d46fc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f73a08d14d02b4e4b441b6ac85c6ceb97b9f173
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950914"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004980"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Déplacer des données vers ou depuis Stockage Blob Azure à l’aide de connecteurs SSIS
 Le [Feature Pack SQL Server Integration Services pour Azure](https://msdn.microsoft.com/library/mt146770.aspx) fournit des composants permettant de se connecter à Azure, de transférer des données entre des sources de données Azure et des sources de données sur site et de traiter les données stockées dans Azure.
@@ -83,7 +83,7 @@ Les paramètres que la tâche utilise sont décrits ici :
 > 
 
 ## <a name="download-data-from-azure-blob-storage"></a>Télécharger les données depuis le stockage d’objets blobs Azure
-Pour télécharger des données depuis le stockage d’objets blobs Azure vers le stockage sur site avec SSIS, utilisez une instance de la [tâche de téléchargement d’objets blobs Azure](https://msdn.microsoft.com/library/mt146779.aspx).
+Pour télécharger des données depuis le stockage d’objets blob Azure vers le stockage sur site avec SSIS, utilisez une instance de la [tâche de téléchargement d’objets blob Azure](https://msdn.microsoft.com/library/mt146779.aspx).
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>Scénarios SSIS-Azure plus élaborés
 Le pack de fonctionnalités SSIS permet de gérer des flux de données plus complexes en regroupant plusieurs tâches. Par exemple, les données d’objets blobs peuvent alimenter directement un cluster HDInsight dont le résultat peut être de nouveau téléchargé vers un objet blob, puis dans un espace de stockage local. SSIS peut exécuter des tâches Hive et Pig sur un cluster HDInsight à l’aide de connecteurs SSIS supplémentaires :

@@ -3,35 +3,27 @@ title: Guide de publication technique de l’application SaaS Place de marché M
 description: Guide étape par étape et listes de contrôle de publication pour la publication des applications SaaS sur la Place de marché Azure
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter: ''
-author: BrentL-Collabera
-manager: ''
-editor: BrentL-Collabera
+author: keithcharlie
+manager: nunoc
+editor: keithcharlie
 ms.assetid: ''
 ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: pabutler
-ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 07/09/2018
+ms.author: keithcharlie
+ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809469"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056400"
 ---
-# <a name="saas-applications-technical-publishing-guide"></a>Guide de publication technique de l’application SaaS
+# <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
 
-Bienvenue dans le guide de publication technique de l’application SaaS Place de marché Microsoft Azure. Ce guide est conçu pour aider les éditeurs candidats et existants à répertorier leurs applications et services dans la Place de marché Azure en utilisant l’offre des applications SaaS. 
-
-Pour mieux comprendre comment publier une offre SaaS, ce guide est divisé en sections, à savoir :
-* Vue d’ensemble de l’offre
-* Exigences commerciales
-* Exigences techniques
-* Processus de publication
-* Utilisation d’Azure Active Directory pour activer les versions d’évaluation
-* Certification de votre intégration Azure Active Directory pour la Place de marché
+Des applications SaaS peuvent être publiées sur la place de marché avec trois différents appels à l’action : « Me contacter », « Essayer maintenant » et « Obtenir maintenant ». Ce guide détaille ces trois options, y compris les exigences propres à chacune. 
 
 ## <a name="offer-overview"></a>Vue d’ensemble de l’offre  
 
@@ -42,29 +34,38 @@ Des applications SaaS sont disponibles dans les deux vitrines Azure. Le tableau 
 | AppSource | Oui (Me contacter) | Oui (Power BI/Dynamics) |
 | Place de marché Azure | Non  | Oui (Applications SaaS) |   
 
-**Liste :** l’option de publication Liste consiste en une offre de type Me contacter, et est utilisée quand une participation de niveau Essai ou Transaction n’est pas possible. L’avantage de cette méthode est qu’elle permet aux éditeurs commercialisant une solution de commencer immédiatement à recevoir des prospects convertibles en transactions pour développer leur activité.  
-**Essai/Transaction :** le client a la possibilité d’acheter directement votre solution ou de demander une version d’évaluation de celle-ci. Proposer une version d’évaluation augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’évaluation, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’évaluation.  
+**Liste :** L’option de publication Liste consiste en une offre de type Me contacter et est utilisée quand une participation de niveau Essai ou Transaction n’est pas possible. L’avantage de cette méthode est qu’elle permet aux éditeurs commercialisant une solution de commencer immédiatement à recevoir des prospects convertibles en transactions pour développer leur activité.  
+**Essai/Transaction :** Le client a la possibilité d’acheter directement votre solution ou de demander une version d’essai de celle-ci. Proposer une version d’essai augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’essai, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’essai.  
 
 | Offre d’applications SaaS | Exigences commerciales | Exigences techniques |  
 | --- | --- | --- |  
-| **Nous contacter** | OUI | Non  |  
-| **Power BI / Dynamics** | OUI | Oui (Intégration Azure AD) |  
-| **Applications SaaS**| OUI | Oui (Intégration Azure AD) |     
+| **Nous contacter** | Oui | Non  |  
+| **Power BI / Dynamics** | Oui | Oui (Intégration Azure AD) |  
+| **Applications SaaS**| Oui | Oui (Intégration Azure AD) |     
 
-Pour plus d’informations sur les vitrines de la Place de marché et une description de chaque option de publication, voir le [Guide de publication sur la Place de marché](https://aka.ms/sellerguide) et les [Options de publication](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+## <a name="saas-list"></a>Liste de SaaS
 
-## <a name="business-requirements"></a>Exigences commerciales
-Les exigences de l’entreprise en lien avec l’offre SaaS peuvent être remplies parallèlement aux exigences techniques. La plupart des exigences et informations de l’entreprise sont collectées lors de la création de l’offre SaaS dans le portail Cloud Partner. Les exigences commerciales sont les suivantes : 
-* Acceptation des stratégies de participation
-* Intégration avec Microsoft 
-* Identification du public cible de l’offre
-* Définition et détermination de la gestion des prospects à mettre en œuvre
-* Définition de politique de confidentialité et de conditions d’utilisation
-* Définition des contacts de support  
+L’appel à l’action pour obtenir la liste de SaaS sans version d’essai ni fonctionnalité de facturation est « Me contacter ». 
 
-Pour plus d’informations, voir la rubrique [Prérequis pour la publication sur la Place de marché](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
+Vous n’avez pas besoin de configurer Azure Active Directory pour répertorier une application SaaS. 
 
-## <a name="technical-requirements"></a>Exigences techniques
+|Configuration requise  |Détails  |
+|---------|---------|
+|Votre application est une offre SaaS  |   Votre solution est une offre SaaS et vous proposez un produit SaaS mutualisé.      |
+
+
+## <a name="saas-trial"></a>Version d’essai SaaS
+
+Vous fournissez une solution ou une application par le biais d’une version d’essai SaaS gratuite. Les offres d’essai gratuit peuvent être proposées sous la forme d’un compte d’essai à durée ou utilisation limitée. 
+
+
+|Configuration requise  |Détails  |
+|---------|---------|
+|Votre application est une offre SaaS  |   Votre solution est une offre SaaS et vous proposez un produit SaaS mutualisé.      |
+|Votre application est compatible avec AAD     |   Le client sera redirigé vers votre domaine et vous effectuerez des transactions directement avec le client.       |
+
+
+## <a name="saas-trial-technical-requirements"></a>Exigences techniques des versions d’essai SaaS
 
 Les exigences techniques pour les applications SaaS sont simples. Pour être publiés, les éditeurs sont uniquement tenus d’être intégrés avec Azure Active Directory (Azure AD). L’intégration d’Azure AD aux applications est bien documentée et Microsoft fournit plusieurs kits SDK et ressources pour effectuer cette opération.  
 
@@ -96,34 +97,9 @@ Une formation gratuite à Azure Active Directory est accessible via le lien suiv
 * [Série de formations sur Microsoft Azure destinées aux professionnels de l’informatique : Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 En outre, Azure Active Directory fournit un site pour vérifier la disponibilité de mises à jour du service :   
-* [Mises à jour du service Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
+* [Mises à jour du service Azure AD](https://azure.microsoft.com/updates/?product=active-directory)|
 
-Pour le support, vous pouvez utiliser les ressources suivantes :
-* [Forums MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
-
-## <a name="publishing-process"></a>Processus de publication
-
-Le processus de publication SaaS comporte des étapes techniques et commerciales.  L’essentiel du travail de développement et d’intégration d’Azure Active Directory peut être effectué parallèlement au travail nécessaire pour répondre aux exigences commerciales de l’offre. La plupart des exigences commerciales font partie de la configuration de l’offre d’application SaaS sur le portail Cloud Partner.  
-Le diagramme suivant montre les principales étapes de publication de l’offre Essai/Transaction :  
-
-![Étapes de publication SaaS](./media/marketplace-saas-applications-technical-publishing-guide/saaspublishingsteps.png)  
-
-Le tableau suivant décrit chacune des principales étapes de publication :  
-
-| Étape de publication | Description |   
-| --- | --- |  
-| **Créer l’application SaaS** | Connectez-vous au portail Cloud Partner, sélectionnez **Nouveau**, puis choisissez l’offre **Applications SaaS**. |  
-| **Créer l’intégration avec Azure AD** | Suivez les exigences techniques décrites dans la section précédente pour intégrer votre offre SaaS avec Azure AD. |  
-| **Définir les paramètres de l’offre**| Entrez toutes les informations initiales de l’offre SaaS, à savoir l’ID et le nom d’offre que vous souhaitez utiliser. |     
-| **Définir les informations techniques** | Entrez les informations techniques relatives à l’offre. Pour les applications SaaS, l’URI de la solution et le bouton de type d’acquisition de l’offre (Gratuit, Essai ou Me contacter) sont requis. |  
-| **Version d’évaluation (facultatif)** | Il s’agit d’un type d’essai facultatif, nécessaire principalement pour d’autres types d’offres de la Place de marché. Il vous permet d’avoir la version d’évaluation déployée dans les abonnements de l’éditeur par opposition au client final. |  
-| **Définir les éléments matériels de la vitrine de l’offre**| Dans cette section, l’éditeur lie et charge les logos, les supports marketing et les documents juridiques de l’offre, et configure le système de gestion des prospects. |
-| **Définir les contacts de l’offre** | Entrez les coordonnées des contacts d’ingénierie et de support pour l’offre SaaS. |  
-| **Vérifier l’intégration de l’application SaaS avec Azure AD** | Avant de soumettre votre application SaaS pour publication, vous devez vérifier qu’elle est intégrée avec Azure AD |  
-| **Publier l’offre**| Une fois l’offre et les ressources techniques prêtes, vous pouvez envoyer l’offre. Cela a pour effet de démarrer le processus de publication dans le cadre duquel le modèle de solution est testé, validé, certifié et approuvé pour la publication. |
-
-## <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’évaluation  
+## <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’essai  
 
 Microsoft authentifie tous les utilisateurs de la Place de marché auprès d’Azure AD. Par conséquent, quand un utilisateur authentifié clique sur votre annonce de version d’essai sur la Place de marché et est redirigé vers votre environnement d’essai, vous pouvez approvisionner l’utilisateur directement dans un Essai, sans qu’aucune autre étape de connexion soit nécessaire. Le jeton que votre application reçoit d’Azure AD pendant l’authentification inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte utilisateur dans votre application, ce qui vous permet d’automatiser l’expérience d’approvisionnement et d’augmenter la probabilité de conversion. Pour plus d’informations sur le jeton, voir [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -151,6 +127,28 @@ Si vous découvrez l’authentification unique fédérée Azure AD, procédez co
 **Pour une application à client unique, vous disposez des options suivantes :**  
 * ajouter des utilisateurs à votre annuaire en tant qu’utilisateurs invités en utilisant [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) ;
 * approvisionner manuellement les essais des clients via l’option « Me contacter » ;
-* développer une « version d’évaluation » par client.
+* développer une « version Test Drive » par client.
 * Créer une application de démonstration multilocataire avec authentification unique
 
+## <a name="saas-subscriptions"></a>Abonnements SaaS
+
+Utilisez le type d’offre Application SaaS pour permettre à votre client d’acheter votre solution technique SaaS sous la forme d’un abonnement. Les conditions suivantes doivent être remplies pour votre application SaaS :
+- Le prix et la facturation du service doivent respecter un tarif mensuel fixe.
+- Offrez une méthode de mise à niveau ou d’annulation du service à tout moment.
+Microsoft héberge la transaction commerciale. Microsoft facture votre client pour votre compte. Pour facturer une application SaaS comme un abonnement, vous devez activer votre propre API de service de gestion d’abonnement. Votre API de service de gestion d’abonnement doit communiquer directement avec les API Azure Resource Manager. Votre API de service de gestion d’abonnement doit prendre en charge l’approvisionnement du service, la mise à niveau et l’annulation.
+
+| Prérequis | Détails |  
+|:--- |:--- |  
+|Facturation et mesure | Votre offre est facturée selon un tarif mensuel forfaitaire. La tarification basée sur l’utilisation et les capacités d’égalisation basées sur l’utilisation ne sont pas prises en charge pour l’instant. |  
+|Annulation | Votre offre peut être annulée par le client à tout moment. |  
+|Page d’accueil de transaction | Vous hébergez une page d’accueil de transaction conjointe avec Azure, sur laquelle les utilisateurs peuvent créer et gérer leur compte de service SaaS. |   
+| API d’abonnement | Vous exposez un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement. |  
+
+## <a name="next-steps"></a>Étapes suivantes
+Si vous ne l’avez pas déjà fait, 
+
+- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché
+
+Si vous êtes inscrit et créez une nouvelle offre ou travaillez sur une offre existante,
+
+- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre

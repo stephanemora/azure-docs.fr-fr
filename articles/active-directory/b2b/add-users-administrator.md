@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.date: 07/10/2018
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7dddc41d35ae466f7c1392450fbda3c86a72a538
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267113"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037223"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure
 
@@ -32,16 +32,16 @@ Pour ajouter des utilisateurs B2B Collaboration au répertoire, procédez comme 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
-3. Sous **Gérer**, sélectionnez **Utilisateurs et groupes** > **Tous les utilisateurs**.
+3. Sous **Gérer**, sélectionnez **Utilisateurs**.
 4. Sélectionnez **Nouvel utilisateur invité**.
 
    ![Indique où le nouvel utilisateur invité se trouve dans l’interface utilisateur](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
-7. Sous **Convier un invité**, entrez l’adresse e-mail de l’utilisateur externe. Vous pouvez éventuellement inclure un message d’accueil. Par exemple : 
+5. Sous **Nom d’utilisateur**, entrez l’adresse e-mail de l’utilisateur externe. Vous pouvez éventuellement inclure un message d’accueil. Par exemple : 
 
    ![Indique où le nouvel utilisateur invité se trouve dans l’interface utilisateur](./media/add-users-administrator/InviteGuest.png) 
 
-8. Sélectionnez **Inviter** pour envoyer automatiquement l’invitation à l’utilisateur invité. Dans la zone **Notification**, recherchez un message indiquant **Utilisateur invité avec succès**. 
+6. Sélectionnez **Inviter** pour envoyer automatiquement l’invitation à l’utilisateur invité. 
  
 Après avoir envoyé l’invitation, le compte d’utilisateur est automatiquement ajouté au répertoire en tant qu’invité.
 
@@ -53,18 +53,15 @@ En tant qu’administrateur Azure AD, vous pouvez ajouter manuellement des utili
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
-3. Sous **Gérer**, sélectionnez **Utilisateurs et groupes** > **Tous les groupes**.
+3. Sous **Gérer**, sélectionnez **Groupes**.
 4. Sélectionnez un groupe (ou cliquez sur **Nouveau groupe** pour en créer un nouveau). Il est judicieux d’inclure dans la description que le groupe contient des utilisateurs invités B2B.
-5. Sélectionnez **Membres** > **Ajouter des membres**. 
+5. Sélectionnez **Membres**. 
 6. Effectuez l’une des actions suivantes :
    - Si l’utilisateur invité existe déjà dans le répertoire, recherchez l’utilisateur B2B. Sélectionnez l’utilisateur, puis cliquez sur **Sélectionner** pour l’ajouter au groupe.
-   - Si l’utilisateur invité n’existe pas encore dans le répertoire, sélectionnez **Inviter**.
-   ![Bouton Ajouter un invité servant à ajouter des membres invités](./media/add-users-administrator/GroupInvite.png)
+   - Si l’utilisateur invité ne se trouve pas déjà dans l’annuaire, invitez-le à rejoindre le groupe en tapant son adresse e-mail dans la zone de recherche et un message personnel facultatif, puis en cliquant sur **Sélectionner**. L’invitation est automatiquement envoyée à l’utilisateur invité.
+     
+     ![Bouton Ajouter un invité pour ajouter des membres invités](./media/add-users-administrator/GroupInvite.png)
    
-      Sous **Convier un invité**, entrez l’adresse e-mail et un message personnel facultatif, puis sélectionnez **Inviter**. Cliquez sur **Sélectionner** pour ajouter l’utilisateur au groupe.
-
-      L’invitation est automatiquement envoyée à l’utilisateur invité. Dans la zone **Notification**, recherchez un message indiquant **Utilisateur invité**. 
-
 Vous pouvez également utiliser des groupes dynamiques avec Azure AD B2B Collaboration. Pour plus d’informations sur les groupes dynamiques, consultez [Groupes dynamiques et Azure Active Directory B2B Collaboration](use-dynamic-groups.md).
 
 ## <a name="add-guest-users-to-an-application"></a>Ajouter des utilisateurs invités à une application
@@ -75,20 +72,25 @@ En tant qu’administrateur Azure AD, vous pouvez ajouter des utilisateurs B2B C
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
 3. Sous **Gérer**, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
 4. Sélectionnez l’application à laquelle vous souhaitez ajouter des utilisateurs invités.
-5. Sous **Gérer**, sélectionnez **Utilisateurs et groupes**.
+5. Dans le tableau de bord de l’application, sélectionnez **Nombre total d’utilisateurs** pour ouvrir le volet **Utilisateurs et groupes**.
+
+    ![Bouton Nombre total d’utilisateurs pour ouvrir Utilisateurs et groupes](./media/add-users-administrator/AppUsersAndGroups.png)
+
 6. Sélectionnez **Ajouter un utilisateur**.
 7. Sous **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
 8. Effectuez l’une des actions suivantes :
-   - Si l’utilisateur invité existe déjà dans le répertoire, recherchez l’utilisateur B2B. Sélectionnez l’utilisateur, puis cliquez sur **Sélectionner** pour l’ajouter à l’application.
+   - Si l’utilisateur invité existe déjà dans le répertoire, recherchez l’utilisateur B2B. Sélectionnez l’utilisateur, cliquez sur **Sélectionner**, puis cliquez sur **Attribuer** pour l’ajouter à l’application.
    - Si l’utilisateur invité n’existe pas encore dans le répertoire, sélectionnez **Inviter**.
-   ![Bouton Ajouter un invité servant à ajouter des membres invités](./media/add-users-administrator/AppInviteUsers.png)
+           
+       ![Bouton Ajouter un invité pour ajouter des membres invités](./media/add-users-administrator/AppInviteUsers.png)
    
-      Sous **Convier un invité**, entrez l’adresse e-mail et un message personnel facultatif, puis sélectionnez **Inviter**. Cliquez sur **Sélectionner** pour ajouter l’utilisateur à l’application.
+      Sous **Convier un invité**, entrez l’adresse e-mail et un message personnel facultatif, puis sélectionnez **Inviter**. Cliquez sur **Sélectionner**, puis cliquez sur **Attribuer** pour l’ajouter à l’application. Une invitation est automatiquement envoyée à l’utilisateur invité.
 
-      L’invitation est automatiquement envoyée à l’utilisateur invité. Dans la zone **Notification**, recherchez un message indiquant **Utilisateur invité**.
-
-9. Sous **Ajouter une attribution**, cliquez sur **Sélectionner un rôle**, sélectionnez un rôle à appliquer à l’utilisateur sélectionné (le cas échéant), puis cliquez sur **OK**.
-10. Cliquez sur **Affecter**.
+9. L’utilisateur invité s’affiche dans la liste **Utilisateurs et groupes** de l’application, avec le rôle **Accès par défaut**. Si vous souhaitez modifier le rôle, effectuez les étapes suivantes :
+   - Sélectionnez l’utilisateur invité, puis cliquez sur **Modifier**. 
+   - Sous **Modifier l’affectation**, cliquez sur **Sélectionner un rôle**, puis sélectionnez le rôle que vous souhaitez affecter à l’utilisateur sélectionné.
+   - Cliquez sur **Sélectionner**.
+   - Cliquez sur **Affecter**.
  
 ## <a name="resend-invitations-to-guest-users"></a>Renvoyer des invitations aux utilisateurs invités
 
@@ -96,8 +98,7 @@ Si un utilisateur invité n’a pas encore répondu à son invitation, vous pouv
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
-3. Sous **Gérer**, sélectionnez **Utilisateurs et groupes**.
-4. Sélectionnez **Tous les utilisateurs**.
+3. Sous **Gérer**, sélectionnez **Utilisateurs**.
 5. Sélectionnez le compte d’utilisateur.
 6. Sous **Gérer**, sélectionnez **Profil**.
 7. Si l’utilisateur n’a pas encore accepté l’invitation, une option **Renvoyer l’invitation** est disponible. Cliquez sur ce bouton pour la lui renvoyer.

@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 07/13/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b00d774ec59755288b8660d238c7b8dfc9a89eab
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267677"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089891"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Azure Diagnostics
 L’extension Azure Diagnostics est un agent au sein d’Azure qui permet la collecte de données de diagnostic d’une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](monitoring-overview.md). 
@@ -32,10 +32,12 @@ L’extension Azure Diagnostics peut collecter les types de données suivants :
 | Journaux d’événements Windows |Informations envoyées au système de journalisation des événements Windows |
 | .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) |
 | Journaux IIS |Informations au sujet des sites Web IIS |
-| ETW basé sur les manifestes |Événements de suivi d’événements pour Windows générés par n’importe quel processus |
+| ETW basé sur les manifestes |Événements de suivi d’événements pour Windows générés par n’importe quel processus.(1) |
 | Vidages sur incident |Informations sur l’état du processus en cas d’incident d’application |
 | Journaux d'erreurs personnalisés |Journaux créés par votre application ou service |
 | Journaux d’infrastructure Azure Diagnostic |Informations au sujet des diagnostics eux-mêmes |
+
+(1) pour obtenir la liste des fournisseurs d’ETW, exécutez `c:\Windows\System32\logman.exe query providers` dans une fenêtre de console sur la machine à partir de laquelle vous souhaitez recueillir des informations. 
 
 ## <a name="data-storage"></a>Stockage des données
 L’extension stocke ses données dans un [compte de stockage Azure](azure-diagnostics-storage.md) que vous spécifiez. 

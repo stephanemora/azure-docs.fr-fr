@@ -3,26 +3,29 @@ title: Points de terminaison de service de réseau virtuel et règles dans Azure
 description: Marquez un sous-réseau en tant que point de terminaison de service de réseau virtuel, puis le point de terminaison en tant que règle de réseau virtuel dans l’ACL de votre serveur Azure SQL Database. Le serveur SQL Database accepte alors les communications provenant de toutes les machines virtuelles et d’autres nœuds sur le sous-réseau.
 services: sql-database
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 06/05/2018
-ms.reviewer: genemi
+ms.date: 07/18/2018
+ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: d708d55c64306636910a85b5b490e25ecc794bd6
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802593"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39127476"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database et SQL Data Warehouse
 
-Les *règles de réseau virtuel* sont une fonctionnalité de sécurité de pare-feu. Elles permettent de contrôler si votre serveur Azure SQL Database doit accepter ou non les communications provenant de sous-réseaux spécifiques dans des réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règles de réseau virtuel est parfois la meilleure solution pour autoriser en toute sécurité des communications sur votre serveur Azure SQL Database.
+Les *règles de réseau virtuel* sont une fonctionnalité de sécurité de pare-feu. Elles permettent de contrôler si votre serveur Azure [SQL Database](sql-database-technical-overview.md) ou [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) doit accepter ou non les communications provenant de sous-réseaux spécifiques dans des réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règles de réseau virtuel est parfois la meilleure solution pour autoriser en toute sécurité des communications sur votre serveur Azure SQL Database.
+
+> [!NOTE]
+> Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
 
 Pour créer une règle de réseau virtuel, il doit d’abord exister un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] pour la règle à référencer.
-
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Création d’une règle de réseau virtuel
 
@@ -118,7 +121,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 > - Les deux abonnements doivent se trouver dans le même locataire Azure Active Directory.
 > - L’utilisateur dispose des autorisations requises pour lancer des opérations, telles que l’activation des points de terminaison de service et l’ajout d’un sous-réseau de réseau virtuel sur le serveur donné.
 
-## <a name="limitations"></a>Limites
+## <a name="limitations"></a>Limitations
 
 Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
 
@@ -141,7 +144,6 @@ Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel prése
 Lorsque vous utilisez des points de terminaison de service pour Azure SQL Database, passez en revue les considérations suivantes :
 
 - **Une sortie vers les adresses IP publiques Azure SQL Database est requise** : des groupes de sécurité réseau (NSG) doivent être ouverts aux adresses IP Azure SQL Database pour autoriser la connectivité. Vous pouvez pour ce faire utiliser des [balises de service](../virtual-network/security-overview.md#service-tags) NSG pour Azure SQL Database.
-- **Azure SQL Database pour PostgreSQL et MySQL ne sont pas pris en charge** : les points de terminaison de service ne sont pas pris en charge pour Azure Database pour PostgreSQL ou MySQL. L’activation des points de terminaison de service pour la base de données SQL interrompra la connectivité à ces services. Nous proposons une atténuation pour cela, et vous pouvez envoyer un e-mail à l’adresse *dmalik@microsoft.com* pour plus d’informations.
 
 #### <a name="expressroute"></a>ExpressRoute
 

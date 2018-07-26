@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8490dcba35cfeabb3da589f3d079571d5e98d3b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969202"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114877"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurer une identité du service administré de machine virtuelle à l’aide d’un modèle
 
@@ -59,7 +59,7 @@ Dans cette section, vous allez activer et désactiver une identité attribuée a
    > Cet exemple suppose que des variables telles que `vmName`, `storageAccountName` et `nicName` ont été définies dans le modèle.
    >
 
-   ![Capture d’écran de modèle - localiser une machine virtuelle](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Capture d’écran de modèle - localiser une machine virtuelle](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. Pour activer l’identité attribuée au système, ajoutez la propriété `"identity"` au même niveau que la propriété `"type": "Microsoft.Compute/virtualMachines"`. Utilisez la syntaxe suivante :
 
@@ -99,7 +99,7 @@ Dans cette section, vous allez activer et désactiver une identité attribuée a
 
 5. Lorsque vous avez terminé, votre modèle doit ressembler au suivant :
 
-   ![Capture d’écran de modèle après mise à jour](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![Capture d’écran de modèle après mise à jour](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
 ### <a name="assign-a-role-the-vms-system-assigned-identity"></a>Attribuer un rôle à l’identité affectée par le système de la machine virtuelle
 
@@ -174,6 +174,10 @@ Dans cette section, vous allez attribuer une identité attribuée à l’utilisa
  ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Attribuer une identité attribuée à l’utilisateur à une machine virtuelle Azure
 
 1. Sous l’élément `resources`, ajoutez l’entrée suivante pour attribuer une identité attribuée à l’utilisateur à votre machine virtuelle.  Veillez à remplacer `<USERASSIGNEDIDENTITY>` par le nom de l’identité attribuée à l’utilisateur que vous avez créée.
+   
+   > [!Important]
+   > La valeur `<USERASSIGNEDIDENTITYNAME>` indiquée dans l’exemple suivant doit être stockée dans une variable.  En outre, pour l’implémentation actuellement prise en charge de l’affectation d’identités attribuées par l’utilisateur à une machine virtuelle dans un modèle Resource Manager, la version d’API doit correspondre à celle de l’exemple suivant.
+    
     ```json
     {
         "apiVersion": "2017-12-01",

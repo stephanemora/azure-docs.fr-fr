@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: c92a986d06deb9f7de10f0682fe46804e6ebb6e7
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802559"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069874"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Intégration d’un réseau virtuel pour les services Azure
 
@@ -59,8 +59,9 @@ Chaque service directement déployé sur le réseau virtuel a ses propres exigen
 - [Application Gateway (interne)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Moteur Azure Container Service](https://github.com/Azure/acs-engine) avec le [module](https://github.com/Azure/acs-engine/tree/master/examples/vnet) CNI Réseau virtuel Azure.
-- [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) : réseau virtuel (Classic) uniquement
+- [Services de domaine Azure Active Directory](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
+- [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-vnet-configuration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Cloud Services](https://msdn.microsoft.com/library/azure/jj156091) : réseau virtuel (Classic) uniquement
 
 Vous pouvez déployer un [équilibreur de charge Azure interne](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour équilibrer la charge des ressources de la liste précédente. Dans certains cas, le service crée et déploie automatiquement un équilibreur de charge lorsque vous créez une ressource.

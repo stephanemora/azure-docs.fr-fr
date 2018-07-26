@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 07/13/2018
 ms.author: raynew
-ms.openlocfilehash: cb01e71ae45ae8a7e37e8ab5cdf60e3b3fcb9983
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919758"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070907"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice de support pour la réplication des machines virtuelles VMware et des serveurs physiques vers Azure
 
@@ -24,13 +24,13 @@ Cet article répertorie les composants et les paramètres pris en charge pour la
 **Scénario** | **Détails**
 --- | ---
 Machines virtuelles VMware | Réplication de machines virtuelles VMware locales dans Azure. Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Serveurs physiques | Réplication de serveurs physiques Windows/Linux locaux dans Azure. Vous pouvez déployer ce scénario dans le portail Azure.
+Serveurs physiques | Réplication de serveurs physiques Windows/Linux locaux sur Azure. Vous pouvez déployer ce scénario dans le portail Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Serveurs de virtualisation locaux
 
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 ou 5.5, ou vSphere 6.5, 6.0 ou 5.5 | Nous vous recommandons d’utiliser une instance de serveur vCenter.<br/><br/> Nous vous recommandons d’héberger les hôtes vSphere et les serveurs vCenter dans le même réseau que le serveur de traitement. Par défaut, les composants du serveur de traitement s’exécutent sur le serveur de configuration. Vous devrez donc opter pour le réseau dans lequel vous installez le serveur de configuration, à moins que vous n’installiez un serveur de traitement dédié.
+VMware | Serveur vCenter 6.7, 6.5, 6.0 ou 5.5, ou vSphere 6.7, 6.5, 6.0 ou 5.5 | Nous vous recommandons d’utiliser une instance de serveur vCenter.<br/><br/> Nous vous recommandons d’héberger les hôtes vSphere et les serveurs vCenter dans le même réseau que le serveur de traitement. Par défaut, les composants du serveur de traitement s’exécutent sur le serveur de configuration. Vous devrez donc opter pour le réseau dans lequel vous installez le serveur de configuration, à moins que vous n’installiez un serveur de traitement dédié.
 Physique | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Serveur de configuration Site Recovery
@@ -61,8 +61,9 @@ Site Recovery assure la réplication de toutes les charges de travail exécutée
 **Composant** | **Détails**
 --- | ---
 Paramètres de la machine | Les ordinateurs qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#azure-vm-requirements).
-Système d’exploitation Windows | Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1. Windows 2016 Nano Server n’est pas pris en charge.
-Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.4 <br/><br/>CentOS : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.4 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versions du noyau prises en charge)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>La mise à niveau de machines répliquées de SP3 vers SP4 n’est pas prise en charge. Pour effectuer la mise à niveau, désactivez la réplication et réactiver-la après la mise à niveau.
+Système d’exploitation Windows | Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1. </br></br>  [Windows Server 2008 avec au moins SP2 - 32 bits et 64 bits](migrate-tutorial-windows-server-2008.md) (migration uniquement). </br></br> * *Windows 2016 Nano Server n’est pas pris en charge.*
+Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.5 <br/><br/>CentOS : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.5 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versions du noyau prises en charge)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versions du noyau prises en charge)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>* *La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas pris en charge. Pour effectuer la mise à niveau, désactivez la réplication, puis réactiver-la après la mise à niveau.*
+
 
 >[!NOTE]
 >
@@ -70,21 +71,22 @@ Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 
 >
 > - La mise à niveau des machines protégées sur des versions de distribution majeures Linux n’est pas prise en charge. Pour effectuer la mettre à niveau, désactivez la réplication, mettez à niveau le système d’exploitation, puis réactivez la réplication.
 >
+> - Les serveurs exécutant Red Hat Enterprise Linux 5.2 à 5.11 ou CentOS 5.2 à 5.11 doivent avoir les composants Linux Integration Services(LIS) installés pour que les machines démarrent dans Azure.
 
 ### <a name="ubuntu-kernel-versions"></a>Version du noyau Ubuntu
 
 
 **Version prise en charge** | **Version du service Mobilité Azure Site Recovery** | **Version du noyau** |
 --- | --- | --- |
+14.04 LTS | 9.18 | 3.13.0-24-generic à 3.13.0-153-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-130-generic |
 14.04 LTS | 9.17 | 3.13.0-24-generic à 3.13.0-149-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-127-generic |
 14.04 LTS | 9.16 | 3.13.0-24-generic à 3.13.0-144-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-119-generic |
 14.04 LTS | 9.15 | 3.13.0-24-generic à 3.13.0-144-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-119-generic |
-14.04 LTS | 9.14 | 3.13.0-24-generic à 3.13.0-142-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-116-generic |
 |||
+LTS 16.04 | 9.18 | 4.4.0-21-generic à 4.4.0-130-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic |
 LTS 16.04 | 9.17 | 4.4.0-21-generic à 4.4.0-127-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-43-generic |
 LTS 16.04 | 9.16 | 4.4.0-21-generic à 4.4.0-119-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-38-generic |
 LTS 16.04 | 9.15 | 4.4.0-21-generic à 4.4.0-119-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-38-generic |
-LTS 16.04 | 9.14 | 4.4.0-21-generic à 4.4.0-116-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-36-generic |
 
 
 ### <a name="debian-kernel-versions"></a>Versions du noyau Debian
@@ -92,13 +94,18 @@ LTS 16.04 | 9.14 | 4.4.0-21-generic à 4.4.0-116-generic,<br/>4.8.0-34-generic �
 
 **Version prise en charge** | **Version du service Mobilité Azure Site Recovery** | **Version du noyau** |
 --- | --- | --- |
-Debian 7 | 9.17 | 3.2.0-4-amd64 à 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.14, 9.15, 9.16 | 3.2.0-4-amd64 à 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17, 9.18 | 3.2.0-4-amd64 à 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.15, 9.16 | 3.2.0-4-amd64 à 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.17 | 3.16.0-4-amd64 à 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 à 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.16 | 3.16.0-4-amd64 à 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64 à 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.5-amd64 |
+Debian 8 | 9.15 | 3.16.0-4-amd64 à 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0-0.bpo.5-amd64 |
 
+### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>Versions du noyau prises en charge de SUSE Linux Enterprise Server 12
+
+**Version release** | **Version du service Mobilité** | **Version du noyau** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default à 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Stockage invité/système de fichiers Linux
 
@@ -143,14 +150,14 @@ Plusieurs cartes réseau | OUI
 Adresses IP réservées | OUI
 IPv4 | OUI
 Conserver l’adresse IP source | OUI
-Points de terminaison du service Réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | OUI
+Points de terminaison du service Réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | Oui
 Mise en réseau accélérée | Non 
 
 ## <a name="storage"></a>Stockage
 **Composant** | **Pris en charge**
 --- | ---
 Hôte NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques
-Hôte SAN (iSCSI/FC) | OUI
+Hôte SAN (iSCSI/FC) | Oui
 vSAN hôte | Oui pour VMware<br/><br/> N/A pour les serveurs physiques
 Multipath hôte (MPIO) | Oui, testé avec : Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON
 Volumes virtuels hôtes (VVols) | Oui pour VMware<br/><br/> N/A pour les serveurs physiques
@@ -163,11 +170,11 @@ SMB 3.0 invité/serveur | Non
 RDM invité/serveur | OUI<br/><br/> N/A pour les serveurs physiques
 Disque invité/serveur > 1 To | OUI<br/><br/>Jusqu’à 4 095 Go
 Disque invité/serveur avec une taille de secteur logique de 4 Ko et une taille de secteur physique de 4 K | OUI
-Disque invité/serveur avec une taille de secteur logique de 4 K et une taille de secteur physique de 512 octets | OUI
-Volume invité/serveur avec disque à bandes > 4 To <br><br/>Gestion des volumes logiques (LVM)| OUI
+Disque invité/serveur avec une taille de secteur logique de 4 K et une taille de secteur physique de 512 octets | Oui
+Volume invité/serveur avec disque à bandes > 4 To <br><br/>Gestion des volumes logiques (LVM)| Oui
 Invité/serveur - Espaces de stockage | Non 
 Ajout/retrait à chaud de disque d’Invité/de serveur | Non 
-Invité/serveur - Exclure le disque | OUI
+Invité/serveur - Exclure le disque | Oui
 Multipath invité/serveur (MPIO) | Non 
 
 > [!NOTE]
@@ -182,13 +189,13 @@ Multipath invité/serveur (MPIO) | Non
 
 **Composant** | **Pris en charge**
 --- | ---
-Stockage localement redondant | OUI
-Stockage géo-redondant | OUI
-Stockage géo-redondant avec accès en lecture | OUI
+Stockage localement redondant | Oui
+Stockage géo-redondant | Oui
+Stockage géo-redondant avec accès en lecture | Oui
 Stockage froid | Non 
 Stockage chaud| Non 
 Objets blob de blocs | Non 
-Chiffrement au repos (Storage Service Encryption)| OUI
+Chiffrement au repos (Storage Service Encryption)| Oui
 Stockage Premium | OUI
 Service Import/Export | Non 
 Pare-feu et réseaux virtuels de stockage Azure configurés dans le compte de stockage de cache/de stockage cible (utilisé pour stocker les données de réplication) | Non 

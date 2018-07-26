@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/26/2018
 ms.author: rnagpal
-ms.openlocfilehash: 391948af7fe00e0a5e6171d5322c09c05fcd1cc3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2fba67b247ad0b53e11ca012969163a68013e82f
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798472"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126709"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET Table Azure Cosmos DB : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -37,6 +37,10 @@ ms.locfileid: "34798472"
 >
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
+* Dépendances de package Nuget corrigées sur Microsoft.Azure.Storage.Common et Microsoft.Azure.DocumentDB.
+* Résolution des bogues dans la sérialisation de table lorsque JsonConvert.DefaultSettings est configuré.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * Validation supplémentaire pour les ETAGs incorrectement formés en mode direct.
@@ -65,6 +69,7 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.1.3](#1.1.3) |17 juillet 2018|--- |
 | [1.1.1](#1.1.1) |26 mars 2018|--- |
 | [1.1.0](#1.1.0) |21 février 2018|--- |
 | [1.0.0](#1.0.0) |15 novembre 2017|--- |

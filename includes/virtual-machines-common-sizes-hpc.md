@@ -5,17 +5,16 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ee145e5784ae6da6cce22f1b21f9a5d45335ea8b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ac8686d0ea5704492bfc2e08972a2f70c9b34c43
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37906817"
 ---
-Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz.  Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
-
 Les machines virtuelles de la série H sont les machines virtuelles de calcul haute performance les plus récentes, destinées à répondre à des besoins de calcul de haut niveau, par exemple en relation avec la modélisation moléculaire et la dynamique des fluides. Les machines virtuelles à 8 et 16 processeurs virtuels reposent sur la technologie de processeur Intel Haswell E5-2667 V3 avec mémoire DDR4 et stockage temporaire SSD. 
 
 En plus de la puissance substantielle du processeur, la série H offre différentes options pour des réseaux RDMA à faible latence, en utilisant FDR InfiniBand et plusieurs configurations de mémoire pouvant satisfaire des exigences de calcul nécessitant une mémoire conséquente.
@@ -25,6 +24,10 @@ En plus de la puissance substantielle du processeur, la série H offre différe
 ## <a name="h-series"></a>Série H
 
 ACU : 290-300
+
+Stockage Premium : non pris en charge
+
+Mise en cache du Stockage Premium : non pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de disque max : E/S par seconde | Nombre max de cartes réseau |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -41,20 +44,6 @@ ACU : 290-300
 
 
 
-## <a name="a-series---compute-intensive-instances"></a>Série A - Instances de calcul intensif
-
-ACU : 225
-
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (HDD) : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Nombre max de cartes réseau|
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8 <sup>1</sup> |8 |56 |382 |32 |32 x 500 |2 |
-| Standard_A9 <sup>1</sup> |16 |112 |382 |64 |64 x 500 |4 |
-| Standard_A10 |8 |56 |382 |32 |32 x 500 |2  |
-| Standard_A11 |16 |112 |382 |64 |64 x 500 |4 |
-
-<sup>1</sup>Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.
-
-<br>
 
 
 

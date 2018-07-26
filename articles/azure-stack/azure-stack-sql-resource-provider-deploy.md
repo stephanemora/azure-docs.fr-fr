@@ -11,37 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b06f53b0169e3afd140be81d9d633844a5876c09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f53b1e08da1cb2d0dc02381bf47c27e8f84cb1d0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487645"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044830"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Déployer le fournisseur de ressources SQL Server sur Azure Stack
-
 Utilisez le fournisseur de ressources SQL Server d’Azure Stack pour exposer des bases de données SQL en tant que service d’Azure Stack. Le fournisseur de ressources SQL s’exécute en tant que service sur une machine virtuelle (VM) Windows Server 2016 Server Core.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Plusieurs prérequis doivent être remplis avant de déployer le fournisseur de ressources SQL d’Azure Stack. Afin de répondre à ces exigences, complétez les étapes suivantes sur un ordinateur ayant accès à la machine virtuelle du point de terminaison privilégié :
 
-- Si vous ne l’avez pas encore fait, vous devez [inscrire Azure Stack](.\azure-stack-registration.md) auprès d’Azure pour pouvoir ensuite télécharger des éléments de la Place de marché Azure.
+- Si vous ne l’avez pas encore fait, vous devez [inscrire Azure Stack](azure-stack-registration.md) auprès d’Azure pour pouvoir ensuite télécharger des éléments de la Place de marché Azure.
 - Vous devez installer les modules PowerShell Azure Stack et Azure sur le système où vous allez exécuter cette installation. Le système doit être une image Windows 10 ou Windows Server 2016 dotée de la dernière version du runtime .NET. Consultez [Installer PowerShell pour Azure Stack](.\azure-stack-powershell-install.md).
 - Ajoutez la machine virtuelle Windows Server standard sur la Place de marché Azure Stack en téléchargeant l’image de **Windows Server 2016 Datacenter Server Core**. 
-
-  >[!NOTE]
-  >Si vous devez installer une mise à jour, vous pouvez placer un seul package MSU dans le chemin de dépendance local. Si plusieurs fichiers MSU sont trouvés, l’installation du fournisseur de ressources SQL échoue.
-
-- Téléchargez le binaire du fournisseur de ressources SQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources possède une build Azure Stack minimale correspondante. Assurez-vous de télécharger le binaire correct pour la version d’Azure Stack que vous utilisez.
+- Téléchargez le binaire du fournisseur de ressources SQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources possède une build Azure Stack minimale correspondante. Assurez-vous de télécharger le binaire correct pour la version d’Azure Stack que vous utilisez :
 
     |Version d’Azure Stack|Version SQL RP|
     |-----|-----|
     |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
     |Version 1802 (1.0.180302.1)|[SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |     |     |
+
+- Vérifiez que les conditions préalables d’intégration du centre de données sont remplies :
+
+    |Configuration requise|Référence|
+    |-----|-----|
+    |La redirection DNS conditionnelle est correctement définie.|[Intégration au centre de données Azure Stack - DNS](azure-stack-integrate-dns.md)|
+    |Les ports d’entrée pour les fournisseurs de ressources sont ouverts.|[Intégration au centre de données Azure Stack : publier des points de terminaison](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |Les objets du certificat PKI et SAN sont correctement définis.|[Prérequis PKI obligatoires pour le déploiement Azure Stack](azure-stack-pki-certs.md#mandatory-certificates)<br>[Prérequis de certificat PaaS pour le déploiement Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Certificats
 
@@ -51,7 +56,7 @@ _Pour les installations de systèmes intégrés uniquement_. Vous devez fournir 
 
 Une fois tous les composants requis installés, exécutez le script **DeploySqlProvider.ps1** pour déployer le fournisseur de ressources SQL. Le script DeploySqlProvider.ps1 est extrait du binaire du fournisseur de ressources SQL que vous avez téléchargé pour votre version d’Azure Stack.
 
-Pour déployer le fournisseur de ressources SQL, ouvrez une **nouvelle** fenêtre de console PowerShell avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources SQL. Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés.
+Pour déployer le fournisseur de ressources SQL, ouvrez une **nouvelle** fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources SQL. Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés.
 
 Exécutez le script DeploySqlProvider.ps1, qui complète les tâches suivantes :
 
@@ -60,8 +65,7 @@ Exécutez le script DeploySqlProvider.ps1, qui complète les tâches suivantes :
 - Publication d’un package de galerie pour déployer des serveurs d’hébergement.
 - Déployez une machine virtuelle à l’aide de l’image Windows Server 2016 Core que vous avez téléchargée, puis installez le fournisseur de ressources SQL.
 - Inscription d’un enregistrement DNS local mappé à la machine virtuelle de votre fournisseur de ressources.
-- Inscription de votre fournisseur de ressources auprès de l’Azure Resource Manager local pour les comptes d’utilisateurs et d’opérateurs.
-- Si nécessaire, installez une seule mise à jour Windows Server durant l’installation du fournisseur de ressources.
+- Inscription de votre fournisseur de ressources auprès de l’Azure Resource Manager local pour le compte d’opérateur.
 
 > [!NOTE]
 > Lorsque le déploiement du fournisseur de ressources SQL démarre, le groupe de ressources **system.local.sqladapter** est créé. Il peut falloir jusqu’à 75 minutes pour terminer les déploiements requis dans ce groupe de ressources.

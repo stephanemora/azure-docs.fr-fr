@@ -3,15 +3,16 @@ title: Demandes d’augmentation des quotas de processeurs virtuels pour Azure R
 description: Demandes d’augmentation des quotas de processeurs virtuels pour Azure Resource Manager
 author: ganganarayanan
 ms.author: gangan
-ms.date: 1/18/2017
+ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037233"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Demandes d’augmentation des quotas de processeurs virtuels pour Resource Manager
 
@@ -19,16 +20,31 @@ Les quotas de processeurs virtuels pour Resource Manager sont appliqués au nive
 Pour en savoir plus sur la façon dont les quotas sont appliqués, consultez la page [Abonnement Azure et limites, quotas et contraintes de service](http://aka.ms/quotalimits).
 Pour en savoir plus sur les familles de références, vous pouvez comparer le coût et les performances sur la page [Tarification des machines virtuelles](http://aka.ms/pricingcompute).
 
-Pour demander une augmentation, créez un cas de support de quota pour les processeurs virtuels dans le portail Azure, [https://portal.azure.com](https://portal.azure.com).
+Pour demander une augmentation, suivez les instructions ci-dessous pour créer une demande de support via le panneau « Utilisation + quotas » d’Azure disponible dans le portail Azure. 
 
-> [!NOTE]
-> Découvrez comment [créer une demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) dans le portail Azure.
+## <a name="request-quota-increase-at-subscription-level"></a>Demander une augmentation de quota au niveau de l’abonnement
 
-1. Dans la nouvelle page de demande de support, sélectionnez le type de problème « Quota » et le type de quota « Cœurs ».
+1. Dans https://portal.azure.com, sélectionnez **Abonnements**.
 
-    ![Panneau Informations de base du quota](./media/resource-manager-core-quotas-request/Basics-blade.png)
+   ![Abonnements](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. Sélectionnez le modèle de déploiement « Resource Manager » et sélectionnez un emplacement.
+2. Sélectionnez l’abonnement nécessitant une augmentation du quota.
+
+   ![Sélectionnez un abonnement](./media/resource-manager-core-quotas-request/select-subscription.png)
+
+3. Sélectionnez **Utilisation + quotas**.
+
+   ![Sélectionnez Utilisation + quotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+
+4. Dans l’angle supérieur droit, cliquez sur **Demander une augmentation**.
+
+   ![Demander une augmentation](./media/resource-manager-core-quotas-request/request-increase.png)
+
+5. Étape 1 : Sélectionnez **Cœurs** comme type de quota. 
+
+   ![Renseignez le formulaire](./media/resource-manager-core-quotas-request/forms.png)
+   
+6. Étape 2 : Sélectionnez le modèle de déploiement « Resource Manager », puis sélectionnez un emplacement.
 
     ![Panneau Problème de quota](./media/resource-manager-core-quotas-request/Problem-step.png)
 
@@ -42,3 +58,4 @@ Pour demander une augmentation, créez un cas de support de quota pour les proce
 
 - Pour supprimer une ligne, désactivez la case de la référence dans la liste déroulante de la famille de références ou cliquez sur l’icône de fermeture « x ».
 Après avoir entré le quota de votre choix pour chaque famille de références, cliquez sur « Suivant » sur la page de l’étape Problème pour poursuivre la création de demande de support.
+

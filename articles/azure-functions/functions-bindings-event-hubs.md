@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 51f64f6f74875c6afac350dc9cc235573b89c524
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970670"
+ms.locfileid: "38989586"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 
@@ -368,6 +368,8 @@ Le fichier [host.json](functions-host-json.md#eventhub) contient les paramètres
 
 Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un flux d’événements du hub d’événements. Vous devez disposer de l’autorisation d’envoi à un hub d’événements pour y écrire les événements.
 
+Vérifiez que les références de package nécessaires sont en place : [Functions 1.x](#packages---functions-1.x) ou [Functions 2.x](#packages---functions-2.x) 
+
 ## <a name="output---example"></a>Sortie - exemple
 
 Consultez l’exemple propre à un langage particulier :
@@ -566,7 +568,7 @@ Dans JavaScript, accédez à l’événement de sortie à l’aide de `context.b
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison | Informations de référence |
+| Liaison | Référence |
 |---|---|
 | Event Hub | [Guide des opérations](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 

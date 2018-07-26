@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 55920b6c147626f68f51b9e0479949330c71a748
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "38756409"
+---
 > [!div class="op_single_selector"]
 > * [C sur Windows](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [C sur Linux](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
@@ -16,7 +33,7 @@ Par souci de simplicité, le code sur l’appareil génère des valeurs d’exem
 
 L’appareil est également en mesure de répondre aux méthodes appelées à partir du tableau de bord de la solution et aux valeurs de propriétés souhaitées définies dans le tableau de bord de la solution.
 
-Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la rubrique [Version d’évaluation gratuite d’Azure][lnk-free-trial].
+Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la rubrique [Version d’évaluation gratuite d’Azure][lnk-free-trial].
 
 ## <a name="before-you-start"></a>Avant de commencer
 Avant d’écrire du code pour votre appareil, vous devez approvisionner votre solution préconfigurée de surveillance à distance et approvisionner un nouvel appareil personnalisé dans cette solution.
@@ -24,13 +41,13 @@ Avant d’écrire du code pour votre appareil, vous devez approvisionner votre s
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Approvisionner la solution préconfigurée de surveillance à distance
 L’appareil que vous créez dans ce didacticiel envoie des données à une instance de la solution préconfigurée de [surveillance à distance][lnk-remote-monitoring]. Si vous n’avez pas déjà approvisionné la solution préconfigurée de surveillance à distance dans votre compte Azure, procédez comme suit :
 
-1. Sur la page <https://www.azureiotsuite.com/>, cliquez sur **+** pour créer une solution.
+1. Sur la page <https://www.azureiotsolutions.com/>, cliquez sur **+** pour créer une solution.
 2. Cliquez sur **Sélectionner** dans le panneau **Surveillance à distance** pour créer votre solution.
 3. Sur la page **Create Remote monitoring solution** (Créer une solution de surveillance à distance), entrez le nom de votre choix dans la zone **Nom de solution**, sélectionnez la **Région** dans laquelle vous souhaitez procéder au déploiement, puis sélectionnez l’abonnement Azure à utiliser. Cliquez ensuite sur **Créer la solution**.
 4. Attendez la fin du processus de configuration.
 
 > [!WARNING]
-> Les solutions préconfigurées utilisent des services Azure facturables. Veillez à supprimer la solution préconfigurée de votre abonnement lorsque vous avez terminé pour éviter toute facturation inutile. Vous pouvez supprimer complètement une solution préconfigurée de votre abonnement à partir de la page <https://www.azureiotsuite.com/>.
+> Les solutions préconfigurées utilisent des services Azure facturables. Veillez à supprimer la solution préconfigurée de votre abonnement lorsque vous avez terminé pour éviter toute facturation inutile. Vous pouvez supprimer complètement une solution préconfigurée de votre abonnement sur la page <https://www.azureiotsolutions.com/>.
 > 
 > 
 

@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 7f01464c4b9063f20a83c3626d7f92a5e0524f7a
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937330"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989123"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -210,9 +210,13 @@ Les champs suivants sont pris en charge :
 - `type`
 - `location`
 - `tags`
-- `tags.tagName`
-- `tags[tagName]`
-  - Cette syntaxe en crochet prend en charge les noms de balise qui contiennent des points
+- `tags.<tagName>`
+  - Où **\<tagName\>** est le nom de l’étiquette pour laquelle vérifier la condition.
+  - Exemple : `tags.CostCenter` où **CostCenter** est le nom de l’étiquette.
+- `tags[<tagName>]`
+  - Cette syntaxe avec des crochets prend en charge les noms d’étiquette qui contiennent des points.
+  - Où **\<tagName\>** est le nom de l’étiquette pour laquelle vérifier la condition.
+  - Exemple : `tags.[Acct.CostCenter]` où **Acct.CostCenter** est le nom de l’étiquette.
 - alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
 
 ### <a name="alternative-accessors"></a>Autres accesseurs

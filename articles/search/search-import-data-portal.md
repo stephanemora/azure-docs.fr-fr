@@ -1,22 +1,22 @@
 ---
 title: Importer des données dans Azure Search dans le portail | Documents Microsoft
-description: Utilisez l’Assistant Importer des données de Recherche Azure dans le portail Azure pour analyser des données Azure à partir de NoSQL Azure Cosmos DB, de Stockage Blob, de Stockage Table, de SQL Database et de SQL Server sur des machines virtuelles Azure.
+description: Découvrez comment utiliser l’Assistant Importer des données dans le portail Azure pour explorer des données Azure à partir de Cosmos DB, de Stockage Blob, de Stockage Table, de SQL Database et de SQL Server sur des machines virtuelles Azure.
 author: HeidiSteen
 manager: cgronlun
-tags: Azure Portal
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 05/01/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: ee27b63a5df658ff5d575f0599dadd1cbafd3c18
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795882"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004939"
 ---
-# <a name="import-data-to-azure-search-using-the-portal"></a>Importer des données dans Azure Search à l’aide du portail
+# <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Comment importer des données dans l’index de Recherche Azure à l’aide du portail Azure
+
 Le portail Azure propose, sur le tableau de bord Azure Search, un Assistant **Importer des données** qui vous permet de charger des données dans un index. 
 
   ![Importer des données dans la barre de commandes][1]
@@ -27,15 +27,13 @@ En interne, l’Assistant configure et appelle un *indexeur*, ce qui permet d’
 * Génération d’un schéma d’index modifiable basé sur la structure des données source
 * Chargement de documents JSON dans un index à l’aide d’un ensemble de lignes extrait de la source de données
 
-Vous pouvez tester ce workflow à l’aide d’exemples de données dans Azure Cosmos DB. Pour obtenir des instructions, consultez la page [Prise en main d’Azure Search dans le portail Azure](search-get-started-portal.md) .
-
 > [!NOTE]
 > Vous pouvez lancer l’Assistant **Importation de données** sur le tableau de bord Azure Cosmos DB afin de simplifier l’indexation de cette source de données. Dans la navigation de gauche, accédez à **Collections** > **Ajouter la Recherche Azure** pour commencer.
 
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Sources de données prises en charge par l’Assistant Importer des données
 L’Assistant Importation de données prend en charge les sources de données suivantes : 
 
-* Base de données SQL Azure
+* Azure SQL Database
 * Données relationnelles SQL Server sur une machine virtuelle Azure
 * Azure Cosmos DB
 * Stockage d'objets blob Azure
@@ -45,8 +43,10 @@ Un jeu de données aplati est requis. Vous pouvez uniquement effectuer vos impor
 
 ## <a name="connect-to-your-data"></a>Se connecter aux données
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez le tableau de bord du service. Vous pouvez cliquer sur **Tous les services** dans la barre d’index pour afficher les « services de recherche » existants dans l’abonnement actuel. 
-2. Cliquez sur **Importer des données** dans la barre de commandes pour ouvrir le panneau d’importation des données.  
-3. Cliquez sur **Se connecter à vos données** pour spécifier une définition de source de données utilisée par un indexeur. Pour les sources de données au sein de l’abonnement, l’Assistant est généralement en mesure de détecter et lire les informations de connexion, ce qui limite les exigences de configuration globale.
+
+1. Cliquez sur **Importer des données** dans la barre de commandes pour ouvrir le panneau d’importation des données.
+
+1. Cliquez sur **Se connecter à vos données** pour spécifier une définition de source de données utilisée par un indexeur. Pour les sources de données au sein de l’abonnement, l’Assistant est généralement en mesure de détecter et lire les informations de connexion, ce qui limite les exigences de configuration globale.
 
 |  |  |
 | --- | --- |
@@ -61,35 +61,42 @@ Un jeu de données aplati est requis. Vous pouvez uniquement effectuer vos impor
 Un index préliminaire est habituellement déduit du jeu de données. Ajoutez, modifiez ou supprimer des champs pour finaliser le schéma. En outre, définissez des attributs au niveau des champs pour déterminer le comportement des recherches ultérieures.
 
 1. Dans **Personnaliser l’index cible**, spécifiez le nom et une **clé** utilisée pour identifier de façon unique chaque document. La clé doit être une chaîne. Si les valeurs de champ comportent des espaces ou tirets, définissez les options avancées dans **Importer vos données** de manière à supprimer la vérification de validation pour ces caractères.
-2. Passez en revue et modifiez les champs restants. Le nom et le type de champ sont généralement renseignés automatiquement. Vous pouvez modifier le type de données jusqu'à ce que l’index soit créé. Si vous souhaitez le modifier par la suite, vous devrez alors le régénérer.
-3. Définissez les attributs d’index de chaque champ :
+
+1. Passez en revue et modifiez les champs restants. Le nom et le type de champ sont généralement renseignés automatiquement. Vous pouvez modifier le type de données jusqu'à ce que l’index soit créé. Si vous souhaitez le modifier par la suite, vous devrez alors le régénérer.
+
+1. Définissez les attributs d’index de chaque champ :
    
    * « Récupérable » renvoie le champ dans les résultats de la recherche.
    * « Filtrable » permet de référencer le champ dans les expressions de filtre.
    * « Triable » permet d’utiliser le champ dans un tri.
    * « À choix multiples » active le champ pour la navigation à choix multiples.
    * « Possibilité de recherche » permet une recherche en texte intégral.
-4. Cliquez sur l’onglet **Analyseur** si vous souhaitez spécifier un analyseur de langue au niveau du champ. Seuls les analyseurs de langage peuvent être spécifiés pour l’instant. L’utilisation d’un analyseur personnalisé ou d’un analyseur non dédié au langage, comme Keyword, Pattern, etc., nécessite du code.
+
+1. Cliquez sur l’onglet **Analyseur** si vous souhaitez spécifier un analyseur de langue au niveau du champ. Seuls les analyseurs de langage peuvent être spécifiés pour l’instant. L’utilisation d’un analyseur personnalisé ou d’un analyseur non dédié au langage, comme Keyword, Pattern, etc., nécessite du code.
    
    * Cliquez sur **Possibilité de recherche** pour désigner la recherche en texte intégral sur le champ et pour activer la liste déroulante de l’analyseur.
    * Cliquez sur l’analyseur de votre choix. Pour plus d’informations, voir [Création d’une définition d’index de document dans plusieurs langues dans Azure Search](search-language-support.md).
-5. Cliquez sur le **générateur de suggestions** pour activer les suggestions de requête type-ahead sur les champs sélectionnés.
+
+1. Cliquez sur le **générateur de suggestions** pour activer les suggestions de requête type-ahead sur les champs sélectionnés.
 
 ## <a name="import-your-data"></a>Importer vos données
 1. Dans **Importer vos données**, donnez un nom à l’indexeur. Rappelez-vous que le produit de l’Assistant Importer des données est un indexeur. Par la suite, si vous souhaitez l’afficher ou le modifier, vous devrez le sélectionner à partir du portail au lieu de réexécuter l’Assistant. 
-2. Spécifiez le calendrier, qui est basé sur le fuseau horaire régional dans lequel le service est configuré.
-3. Définissez des options avancées pour spécifier les seuils sur lesquels l’indexation peut continuer en cas de suppression d’un document. En outre, vous pouvez spécifier si les champs **Clé** peuvent contenir des espaces et des barres obliques.  
-4. Cliquez sur **OK** pour créer l’index et importer les données.
+
+1. Spécifiez le calendrier, qui est basé sur le fuseau horaire régional dans lequel le service est configuré.
+
+1. Définissez des options avancées pour spécifier les seuils sur lesquels l’indexation peut continuer en cas de suppression d’un document. En outre, vous pouvez spécifier si les champs **Clé** peuvent contenir des espaces et des barres obliques.  
+
+1. Cliquez sur **OK** pour créer l’index et importer les données.
 
 Vous pouvez surveiller l’indexation dans le portail. À mesure que les documents sont chargés, le nombre de documents augmente pour l’index que vous avez défini. Il suffit parfois de quelques minutes pour que la page du portail sélectionne les mises à jour les plus récentes.
 
 Dès que tous les documents sont chargés, l’index est prêt à être utilisé pour effectuer des requêtes.
 
-## <a name="query-an-index-using-search-explorer"></a>Interrogation d’un index à l’aide de l’Explorateur de recherche
+## <a name="query-an-index-using-search-explorer"></a>Interroger un index à l’aide de l’Explorateur de recherche
 
-Le portail comprend **l’Explorateur de recherche** afin que vous puissiez interroger un index sans avoir à écrire du code. Vous pouvez utiliser l’[Explorateur de recherche](search-explorer.md) sur n’importe quel index.
+Le portail comprend **l’Explorateur de recherche** qui vous permet d’interroger un index sans avoir à écrire du code. Vous pouvez utiliser l’[Explorateur de recherche](search-explorer.md) sur n’importe quel index.
 
-L’expérience de recherche est basée sur les paramètres par défaut, tels que la [syntaxe simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et le paramètre de requête searchMode https://docs.microsoft.com/rest/api/searchservice/search-documents) . 
+L’expérience de recherche est basée sur les paramètres par défaut, tels que la [syntaxe simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et le [paramètre de requête searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Les résultats sont retournés dans JSON, au format détaillé, afin que vous puissiez inspecter le document dans son intégralité.
 

@@ -13,41 +13,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 747ba9c51181c62b45bb060810391ca54f4c044e
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 2db40be8cab03339b9c0d3ce043d926593ee89a6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869089"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007074"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 et le protocole OpenID Connect
-OpenID Connect est un protocole d’authentification basé sur OAuth 2.0 que vous pouvez utiliser pour connecter de façon sécurisée un utilisateur à une application Web. En utilisant l’implémentation du point de terminaison v2.0 d’OpenID Connect, vous pouvez ajouter l’accès à la connexion et aux API à vos applications web. Dans cet article, nous vous montrerons comment effectuant cette opération, quel que soit le langage. Nous vous expliquerons comment envoyer et recevoir des messages HTTP sans utiliser de bibliothèque open source Microsoft.
+
+OpenID Connect est un protocole d’authentification basé sur OAuth 2.0 que vous pouvez utiliser pour connecter de façon sécurisée un utilisateur à une application Web. En utilisant l’implémentation du point de terminaison v2.0 d’OpenID Connect, vous pouvez ajouter l’accès à la connexion et aux API à vos applications web. Cet article est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une des bibliothèques open source de Microsoft.
 
 > [!NOTE]
-> Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
-> 
-> 
+> Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory (Azure AD). Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) étend le protocole d’*autorisation* OAuth 2.0 pour l’utiliser en tant que protocole d’*authentification*, ce qui vous permet de procéder à une authentification unique à l’aide d’OAuth. OpenID Connect introduit le concept de *jeton d'ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur. Il permet également les informations de base de profil de l'utilisateur. Comme OpenID Connect étend OAuth 2.0, les applications peuvent acquérir de manière sûre les *jetons d’accès* pouvant être utilisés pour accéder à des ressources sécurisées à l’aide d’un [serveur d’autorisation](active-directory-v2-protocols.md#the-basics). Le point de terminaison v2.0 permet également aux applications tierces qui sont inscrites auprès d’Azure AD d’émettre des jetons d’accès pour des ressources sécurisées telles que des API web. Pour plus d’informations sur la configuration d’une application pour l’émission de jetons d’accès, consultez [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md). Nous recommandons d'utiliser OpenID Connect si vous concevez une [application web](active-directory-v2-flows.md#web-apps) hébergée sur un serveur et accessible par le biais d’un navigateur.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) étend le protocole *d’autorisation* OAuth 2.0 pour l’utiliser en tant que protocole *d’authentification*, ce qui vous permet de procéder à une authentification unique à l’aide d’OAuth. OpenID Connect introduit le concept de *jeton d'ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur. Il permet également les informations de base de profil de l'utilisateur. Comme OpenID Connect étend OAuth 2.0, les applications peuvent acquérir de manière sûre les *jetons d’accès* pouvant être utilisés pour accéder à des ressources sécurisées à l’aide d’un [serveur d’autorisation](active-directory-v2-protocols.md#the-basics). Le point de terminaison v2.0 permet également aux applications tierces qui sont inscrites auprès d’Azure AD d’émettre des jetons d’accès pour des ressources sécurisées, telles que des API web. Pour plus d’informations sur la configuration d’une application pour l’émission de jetons d’accès, consultez [Inscription d’une application avec le point de terminaison v2.0](active-directory-v2-app-registration.md). Nous recommandons d'utiliser OpenID Connect si vous concevez une [application web](active-directory-v2-flows.md#web-apps) hébergée sur un serveur et accessible par le biais d’un navigateur.
 
 ## <a name="protocol-diagram-sign-in"></a>Schéma de protocole : Connexion
-Le flux de connexion le plus simple se compose des étapes présentées dans le diagramme suivant. Nous décrirons en détail chaque étape dans cet article.
+
+Le flux de connexion le plus simple se compose des étapes présentées dans le diagramme suivant. Chaque étape est décrite en détail dans cet article.
 
 ![Protocole OpenID Connect : Connexion](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>Récupérez le document de métadonnées OpenID Connect
+
 OpenID Connect décrit un document de métadonnées qui contient la plupart des informations nécessaires pour qu’une application effectue la connexion. Cela inclut des informations telles que les URL à utiliser et l’emplacement des clés de signature publiques du service. Pour le point de terminaison v2.0, voici le document de métadonnées OpenID Connect que vous utilisez :
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
-> [!TIP] 
-> Essayez ! Cliquez sur [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) pour voir la configuration des clients `common`. 
->
+> [!TIP]
+> Essayez ! Cliquez sur [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) pour voir la configuration des clients `common`.
 
 `{tenant}` peut prendre une des quatre valeurs :
 
@@ -78,6 +78,7 @@ Les métadonnées représentent un simple document JavaScript Objet Notation (JS
 En règle générale, vous utilisez ce document de métadonnées pour configurer une bibliothèque OpenID Connect ou un Kit de développement logiciel (SDK). La bibliothèque utilise les métadonnées pour faire son travail. Toutefois, si vous n’utilisez pas une bibliothèque OpenID Connect pré-build, vous pouvez suivre les étapes décrites dans le reste de cet article pour vous connecter à une application web à l’aide du point de terminaison v2.0.
 
 ## <a name="send-the-sign-in-request"></a>Envoyer la requête de connexion
+
 Lorsque votre application web a besoin d’authentifier l’utilisateur, elle peut le diriger vers le point de terminaison `/authorize`. Cette requête est similaire au premier tronçon du [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols-oauth-code.md), avec toutefois ces distinctions importantes :
 
 * La requête doit inclure l’étendue `openid` dans le paramètre `scope`.
@@ -105,8 +106,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur sera redirigé vers https://localhost/myapp/, avec un jeton d’ID dans la barre d’adresse. Notez que cette requête utilise `response_mode=fragment` (pour les besoins du didacticiel uniquement). Nous vous recommandons d'utiliser `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
-> 
-> 
 
 | Paramètre | Condition | Description |
 | --- | --- | --- |
@@ -120,13 +119,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | state |Recommandé |Une valeur incluse dans la requête qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les attaques par falsification de requête intersites](http://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | prompt |Facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont `login`, `none` et `consent`. La revendication `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. La revendication `prompt=none` a l'effet inverse. Cette valeur garantit qu'aucune invite interactive d'aucune sorte n'est présentée à l'utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, le point de terminaison v2.0 renvoie une erreur. La revendication `prompt=consent` déclenche l'affichage de la boîte de dialogue de consentement OAuth une fois que l’utilisateur se connecte. La boîte de dialogue invite l’utilisateur à accorder des autorisations à l’application. |
 | login_hint |Facultatif |Vous pouvez utiliser ce paramètre pour remplir au préalable le champ réservé au nom d’utilisateur et à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`. |
-| domain_hint |Facultatif |Cette valeur peut être `consumers` ou `organizations`. S’il est inclus, ce paramètre ignore le processus de découverte par courrier électronique auquel l’utilisateur doit se soumettre sur la page de connexion v2.0, ce qui améliore légèrement l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` du jeton d'ID. Si la valeur de revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad` (le client consommateur de compte Microsoft), utilisez `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`. |
+| domain_hint |Facultatif |Cette valeur peut être `consumers` ou `organizations`. S’il est inclus, ce paramètre ignore le processus de découverte par courrier électronique auquel l’utilisateur doit se soumettre sur la page de connexion v2.0, ce qui améliore légèrement l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` du jeton d’ID. Si la valeur de revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad` (le client consommateur de compte Microsoft), utilisez `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`. |
 
 À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. Le point de terminaison v2.0 vérifie que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope` . Si l’utilisateur n’a pas accepté l’une ou plusieurs de ces autorisations, le point de terminaison v2.0 lui demande de corriger ce manquement. Vous pouvez en savoir plus sur les [autorisations consentements et applications mutualisées](active-directory-v2-scopes.md).
 
 Une fois que l’utilisateur a procédé à l’authentification et accordé son consentement, le point de terminaison v2.0 renvoie une réponse à votre application à l'URI de redirection indiqué, à l’aide de la méthode spécifiée dans le paramètre `response_mode`.
 
 ### <a name="successful-response"></a>Réponse correcte
+
 Une réponse correcte lorsque vous utilisez `response_mode=form_post` ressemble à ceci :
 
 ```
@@ -139,10 +139,11 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Paramètre | Description |
 | --- | --- |
-| id_token |Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le paramètre `id_token` pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour obtenir plus de détails sur les jetons d'ID et leur contenu, consultez la page de [référence des jetons de point de terminaison v2.0](active-directory-v2-tokens.md). |
+| id_token |Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le paramètre `id_token` pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour plus d’informations sur les jetons d’ID et leur contenu, consultez la [documentation de référence sur les jetons de point de terminaison v2.0](active-directory-v2-tokens.md). |
 | state |Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
 
 ### <a name="error-response"></a>Réponse d’erreur
+
 Les réponses d’erreur peuvent également être envoyées à l'URI de redirection, de manière que l’application puisse les traiter. Une réponse d’erreur ressemble à ceci :
 
 ```
@@ -159,6 +160,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error_description |Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur d’authentification. |
 
 ### <a name="error-codes-for-authorization-endpoint-errors"></a>Codes d’erreur pour les erreurs de point de terminaison d’autorisation
+
 Le tableau suivant décrit les codes d’erreur qui peuvent être retournés dans le paramètre `error` de la réponse d’erreur :
 
 | Code d'erreur | Description | Action du client |
@@ -172,6 +174,7 @@ Le tableau suivant décrit les codes d’erreur qui peuvent être retournés dan
 | invalid_resource |La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. |Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
 
 ## <a name="validate-the-id-token"></a>Validation du jeton d’ID
+
 La réception d’un jeton d’ID n’est pas suffisante pour authentifier l’utilisateur. Vous devez également valider la signature du jeton d’ID et vérifier les revendications du jeton selon les besoins de votre application. Le point de terminaison v2.0 utilise les [jetons web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
 
 Vous pouvez décider de valider le jeton d'ID dans le code du client, mais une pratique courante consiste à envoyer le jeton d'ID vers un serveur principal, afin d’y appliquer la validation. Après avoir validé la signature du jeton d'ID, vous devrez vérifier quelques revendications. Pour plus d’informations, consultez la [page de référence sur les jetons v2.0](active-directory-v2-tokens.md), notamment les sections [Validation des jetons](active-directory-v2-tokens.md#validating-tokens) et [Informations importantes sur la substitution des clés de signature](active-directory-v2-tokens.md#validating-tokens). Nous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il existe au moins une de ces bibliothèques pour la plupart des langages et plateformes.
@@ -185,10 +188,11 @@ En fonction de votre scénario, vous pouvez également valider des revendication
 
 Pour plus d’informations sur les revendications dans un jeton d'ID, consultez la page de [référence sur les jetons du point de terminaison v2.0](active-directory-v2-tokens.md).
 
-Une fois que vous avez entièrement validé le jeton d’ID, vous pouvez commencer une session avec l’utilisateur. Utilisez les revendications dans le jeton d’ID pour obtenir des informations sur l’utilisateur dans votre application. Vous pouvez utiliser ces informations pour l’affichage, les enregistrements, les autorisations, etc.
+Une fois que vous avez validé le jeton d’ID, vous pouvez démarrer une session avec l’utilisateur. Utilisez les revendications dans le jeton d’ID pour obtenir des informations sur l’utilisateur dans votre application. Vous pouvez utiliser ces informations pour l’affichage, les enregistrements, les autorisations, etc.
 
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
-Si vous souhaitez déconnecter l’utilisateur de votre application, vous ne pouvez pas vous contenter de supprimer les cookies de votre application ou d’arrêter la session de l’utilisateur. Vous devez également rediriger l’utilisateur vers le point de terminaison v2.0 pour suivre la procédure de déconnexion. Si vous ne le faites pas, l’utilisateur pourra se ré-authentifier auprès de votre application sans avoir à saisir de nouveau ses informations d’identification, puisqu’il disposera d’une session d’authentification unique valide avec le point de terminaison v2.0.
+
+Si vous souhaitez déconnecter l’utilisateur de votre application, vous ne pouvez pas vous contenter de supprimer les cookies de votre application ou d’arrêter la session de l’utilisateur. Vous devez également rediriger l’utilisateur vers le point de terminaison v2.0 pour suivre la procédure de déconnexion. Si vous ne le faites pas, l’utilisateur pourra se réauthentifier auprès de votre application sans avoir à saisir de nouveau ses informations d’identification, puisqu’il disposera d’une session d’authentification unique valide avec le point de terminaison v2.0.
 
 Vous pouvez rediriger l’utilisateur vers le `end_session_endpoint` répertorié dans le document de métadonnées OpenID Connect :
 
@@ -202,9 +206,11 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | post_logout_redirect_uri | Recommandé | URL vers laquelle l’utilisateur est redirigé après sa déconnexion. Si le paramètre n’est pas inclus, un message générique généré par le point de terminaison v2.0 s’affiche. Cette URL doit correspondre exactement à l’un des URI de redirection inscrits pour votre application dans le portail d’inscription des applications. |
 
 ## <a name="single-sign-out"></a>Authentification unique
+
 Lorsque vous redirigez l’utilisateur vers `end_session_endpoint`, le point de terminaison v2.0 efface la session de l’utilisateur dans le navigateur. Toutefois, l’utilisateur peut rester connecté à d’autres applications qui utilisent des comptes Microsoft pour s’authentifier. Pour permettre à ces applications de déconnecter simultanément l’utilisateur, le point de terminaison v2.0 envoie une requête HTTP GET au paramètre `LogoutUrl` inscrit de toutes les applications auxquelles l’utilisateur est actuellement connecté. Les applications doivent répondre à cette requête en effaçant toute session qui identifie l’utilisateur et en renvoyant une réponse `200`. Si vous souhaitez prendre en charge la déconnexion unique dans votre application, vous devez implémenter ce paramètre `LogoutUrl` dans le code de votre application. Vous pouvez définir le paramètre `LogoutUrl` à partir du portail d’inscription des applications.
 
 ## <a name="protocol-diagram-access-token-acquisition"></a>Schéma de protocole : Acquisition de jeton d’accès
+
 Beaucoup d’applications web nécessitent une connexion de l’utilisateur, puis un accès au service web pour le compte de cet utilisateur à l’aide d’OAuth. Ce scénario utilise OpenID Connect pour l’authentification de l’utilisateur tout en récupérant un code d’autorisation vous permettant d'obtenir des jetons d’accès si vous utilisez le flux de code d’autorisation OAuth.
 
 Le flux complet de connexion OpenID Connect et d’acquisition des jetons ressemble à l'exemple du diagramme suivant. Nous décrirons en détail chaque étape dans les sections suivantes de cet article.
@@ -238,6 +244,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 En incluant des étendues d’autorisation dans la requête et en utilisant `response_type=id_token code`, le point de terminaison v2.0 garantit que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope`. Il renvoie un code d’autorisation à votre application afin de l’échanger contre un jeton d’accès.
 
 ### <a name="successful-response"></a>Réponse correcte
+
 Une réponse correcte utilisant `response_mode=form_post` se présente ainsi :
 
 ```
@@ -255,6 +262,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | state |Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
 
 ### <a name="error-response"></a>Réponse d’erreur
+
 Les réponses d’erreur peuvent également être envoyées à l'URI de redirection, de manière que l’application puisse les traiter de manière appropriée. Une réponse d’erreur ressemble à ceci :
 
 ```

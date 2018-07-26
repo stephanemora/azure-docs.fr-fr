@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360017"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091320"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -104,7 +104,21 @@ Sélectionnez le message pour obtenir plus d’informations. Dans l’image suiv
 
 ### <a name="deployment-errors"></a>Erreurs de déploiement
 
-Lorsque l’opération passe la validation, mais qu’elle échoue pendant le déploiement, l’erreur s’affiche dans les notifications. Sélectionnez la notification.
+Quand l’opération réussit la validation, mais qu’elle échoue pendant le déploiement, vous recevez une erreur de déploiement.
+
+Pour voir les codes et les messages d’erreur de déploiement avec PowerShell, utilisez :
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Pour voir les codes et les messages d’erreur de déploiement avec Azure CLI, utilisez :
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+Dans le portail, sélectionnez la notification.
 
 ![erreur de notification](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -118,59 +132,91 @@ Vous voyez le message et les codes d’erreur. Notez qu’il y a deux codes d’
 
 ## <a name="enable-debug-logging"></a>Activer l’enregistrement du débogage
 
-Vous avez parfois besoin de plus d’informations sur la demande et la réponse pour connaître la cause du problème. Avec PowerShell ou l’interface de ligne de commande Azure, vous pouvez demander la journalisation d’informations supplémentaires lors d’un déploiement.
+Vous avez parfois besoin de plus d’informations sur la demande et la réponse pour connaître la cause du problème. Vous pouvez demander la journalisation d’informations supplémentaires lors d’un déploiement. 
 
-- PowerShell
+### <a name="powershell"></a>PowerShell
 
-   Dans PowerShell, définissez le paramètre **DeploymentDebugLogLevel** pour All, ResponseContent ou RequestContent.
+Dans PowerShell, définissez le paramètre **DeploymentDebugLogLevel** pour All, ResponseContent ou RequestContent.
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   Examinez le contenu de la requête avec l’applet de commande suivant :
+Examinez le contenu de la requête avec l’applet de commande suivant :
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   Ou examinez la réponse avec :
+Ou examinez la réponse avec :
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   Ces informations peuvent vous aider à déterminer si une valeur dans le modèle n’est pas définie correctement.
+Ces informations peuvent vous aider à déterminer si une valeur dans le modèle n’est pas définie correctement.
 
-- Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
-   Examinez les opérations de déploiement avec la commande suivante :
+Actuellement, Azure CLI ne prend pas en charge l’activation de la journalisation du débogage, mais vous pouvez récupérer la journalisation du débogage.
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+Examinez les opérations de déploiement avec la commande suivante :
 
-- Modèle imbriqué
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   Pour enregistrer les informations de débogage pour un modèle imbriqué, utilisez l’élément **debugSetting**.
+Examinez le contenu de la demande avec la commande suivante :
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+Examinez le contenu de la réponse avec la commande suivante :
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### <a name="nested-template"></a>Modèle imbriqué
+
+Pour enregistrer les informations de débogage pour un modèle imbriqué, utilisez l’élément **debugSetting**.
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## <a name="create-a-troubleshooting-template"></a>Création d’un modèle de résolution des problèmes
 

@@ -1,6 +1,6 @@
 ---
 title: Forum Aux Questions Azure Cosmos DB | Microsoft Docs
-description: Obtenez des réponses aux questions fréquemment posées sur Azure Cosmos DB, service de base de données multimodèle distribué à l’échelle mondiale. Découvrez la capacité, les niveaux de performances et la mise à l’échelle.
+description: Obtenez des réponses aux questions fréquemment posées sur Azure Cosmos DB, un service de base de données multimodèle distribué globalement. Découvrez la capacité, les niveaux de performances et la mise à l’échelle.
 keywords: Questions sur la base de données, Forum aux questions, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fb8ae3b6225b2029ced3687083777ae47cb54acf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37859698"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002328"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Notions fondamentales concernant Cosmos DB Azure
 ### <a name="what-is-azure-cosmos-db"></a>Qu’est-ce qu’Azure Cosmos DB ?
-Azure Cosmos DB est un service de base de données multimodèle répliqué à l’échelle mondiale, qui offre des requêtes enrichies sur des données sans schéma, aide à produire des performances configurables et fiables, et permet un développement rapide. Tout cela s’effectue via une plateforme gérée s’appuyant sur la puissance et l’étendue de Microsoft Azure. 
+Azure Cosmos DB est un service de base de données multimodèle répliqué globalement, qui offre des requêtes enrichies sur des données sans schéma, aide à produire des performances configurables et fiables, et permet un développement rapide. Tout cela s’effectue via une plateforme gérée s’appuyant sur la puissance et l’étendue de Microsoft Azure. 
 
 Azure Cosmos DB est la solution idéale pour les applications web, mobiles, de jeu et IoT lorsqu’un débit prévisible, une haute disponibilité, une faible latence et un modèle de données sans schéma sont primordiaux. Cette solution offre une flexibilité des schémas et une indexation riche. Elle inclut également une prise en charge transactionnelle multidocument avec JavaScript intégré. 
 
@@ -120,6 +120,9 @@ Lorsque vous définissez une région, n’oubliez pas qu’Azure Cosmos DB respe
 
 Le provisionnement de débit au niveau du conteneur et de la base de données constituent des offres distinctes, et tout changement de l’un vers l’autre nécessite la migration de données de la source vers la destination. Cela signifie donc que vous devez créer une base de données ou une collection, puis migrer les données avec la [bibliothèque de l’exécuteur en bloc](bulk-executor-overview.md) ou [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
+### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Comment créer une collection fixe avec une clé de partition
+
+Actuellement, vous pouvez créer une collection avec un débit de clé de partition à l’aide de la méthode [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) du kit SDK .Net ou avec [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). La création d’une collection fixe en utilisant le portail Azure n’est pas prise en charge pour l’instant.  
 
 ## <a name="develop-against-the-sql-api"></a>Développer par rapport à l’API SQL
 

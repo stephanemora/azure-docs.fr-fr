@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721426"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003357"
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
@@ -58,7 +58,7 @@ L’authentification de domaine AD permet aux utilisateurs de se connecter à Az
 
 Un serveur RADIUS permet également l’intégration avec d’autres systèmes d’identité externe. Cette opération ouvre de nombreuses options d’authentification pour les VPN P2S, notamment les options de multifacteur.
 
-![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
+![point à site](./media/point-to-site-about/p2s.png "Point à site")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Quelle est la configuration requise pour les clients ?
 

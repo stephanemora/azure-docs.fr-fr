@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a3267d8f2f088c93a8f69f949dc928437a80f455
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751776"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856944"
 ---
 # <a name="understanding-policy-effects"></a>Compréhension des effets de Policy
 
@@ -125,11 +125,11 @@ Exemple : utilisation de l’effet Deny.
 
 ## <a name="audit"></a>Audit
 
-L’effet Audit permet de créer un événement d’avertissement dans le journal d’audit lorsqu’une ressource non conforme est évaluée, mais n’arrête pas la requête.
+L’effet Audit permet de créer un événement d’avertissement dans le journal d’activité lorsqu’une ressource non conforme est évaluée, mais il n’arrête pas la requête.
 
 ### <a name="audit-evaluation"></a>Évaluation Audit
 
-L’effet Audit est le dernier à être exécuté lors de la création ou de la mise à jour d’une ressource avant l’envoi de celle-ci au fournisseur de ressources. Audit fonctionne de la même façon pour une requête de ressource et un cycle d’évaluation, et exécute une opération `Microsoft.Authorization/policies/audit/action` dans le journal d’activité. Dans les deux cas, la ressource est marquée comme non conforme.
+L’effet Audit est le dernier à être exécuté lors de la création ou de la mise à jour d’une ressource avant l’envoi de celle-ci au fournisseur de ressources. Audit fonctionne de la même façon pour une demande de ressource que pour un cycle d’évaluation, et exécute une opération `Microsoft.Authorization/policies/audit/action` dans le journal d’activité. Dans les deux cas, la ressource est marquée comme non conforme.
 
 ### <a name="audit-properties"></a>Propriétés d’Audit
 
@@ -151,7 +151,7 @@ AuditIfNotExists active l’audit sur une ressource qui satisfait à la conditio
 
 ### <a name="auditifnotexists-evaluation"></a>Évaluation AuditIfNotExists
 
-AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour vers une ressource et a renvoyé un code d’état de réussite. L’effet est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. Lorsque l’effet est déclenché, une opération `Microsoft.Authorization/policies/audit/action` vers le journal d’activité est exécutée de la même manière que l’effet Audit. Dans ce cas, la ressource qui a rempli la condition **if** est en fait la ressource qui est marquée comme non conforme.
+AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour vers une ressource et a renvoyé un code d’état de réussite. L’effet est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. Lorsque l’effet est déclenché, une opération `Microsoft.Authorization/policies/audit/action` sur le journal d’activité est exécutée de la même manière que l’effet Audit. Dans ce cas, la ressource qui a rempli la condition **if** est en fait la ressource qui est marquée comme non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Propriétés d’AuditIfNotExists
 

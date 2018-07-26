@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1619f3bfdf49820ec529947ea02d1602a7b2aa8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723451"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007159"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Section Ressources des modèles Azure Resource Manager
 
@@ -30,7 +30,7 @@ Vous définissez des ressources avec la structure suivante :
 ```json
 "resources": [
   {
-      "condition": "<boolean-value-whether-to-deploy>",
+      "condition": "<true-to-deploy-this-resource>",
       "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
       "name": "<name-of-the-resource>",
@@ -83,10 +83,10 @@ Vous définissez des ressources avec la structure suivante :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| condition | Non  | Valeur booléenne indiquant si la ressource est déployée. |
-| apiVersion |OUI |La version de l'API REST à utiliser pour la création de la ressource. |
-| Type |OUI |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme **Microsoft.Storage/storageAccounts**). |
-| Nom |OUI |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Par ailleurs, les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. |
+| condition | Non  | Valeur booléenne qui indique si la ressource sera provisionnée pendant ce déploiement. Quand la valeur est `true`, la ressource est créée pendant le déploiement. Quand la valeur est `false`, la ressource est ignorée pour ce déploiement. |
+| apiVersion |Oui |La version de l'API REST à utiliser pour la création de la ressource. |
+| Type |Oui |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme **Microsoft.Storage/storageAccounts**). |
+| Nom |Oui |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Par ailleurs, les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. |
 | location |Varie |Emplacements géographiques de la ressource fournie pris en charge. Vous pouvez sélectionner l’un des emplacements disponibles, mais en général, il est judicieux de choisir celui qui est proche de vos utilisateurs. En règle générale, il est également judicieux de placer dans la même région les ressources qui interagissent entre elles. La plupart des types de ressources nécessitent un emplacement, mais certains types (comme une attribution de rôle) n’ont pas besoin d’emplacement. |
 | tags |Non  |Balises associées à la ressource. Appliquer des balises pour organiser logiquement des ressources dans votre abonnement. |
 | commentaires |Non  |Vos commentaires pour documenter les ressources dans votre modèle |
@@ -100,7 +100,7 @@ Vous définissez des ressources avec la structure suivante :
 
 ## <a name="condition"></a>Condition
 
-Quand vous devez décider pendant le déploiement s’il faut créer ou non une ressource, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est déployée. Lorsque la valeur est false, la ressource n’est pas déployée. Par exemple, pour spécifier si un nouveau compte de stockage est déployé ou si un compte de stockage existant est utilisé, utilisez :
+Quand vous devez décider pendant le déploiement s’il faut créer ou non une ressource, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Quand la valeur est true, la ressource sera créée. Quand la valeur est false, la ressource ne sera pas créée. En règle générale, vous utilisez cette valeur quand vous voulez créer une ressource ou utiliser une ressource existante. Par exemple, pour spécifier si un nouveau compte de stockage est déployé ou si un compte de stockage existant est utilisé, utilisez :
 
 ```json
 {
