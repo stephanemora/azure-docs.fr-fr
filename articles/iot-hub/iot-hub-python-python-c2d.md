@@ -9,23 +9,23 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: kgremban
-ms.openlocfilehash: ac57af167948ad0ca2a658953ba39fc188e2e800
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 316a8cd9ebf58e06ba39ba18fa19ede4b6a62229
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635387"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187296"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envoi de messages cloud-à-appareil avec IoT Hub (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
 ## <a name="introduction"></a>Introduction
-Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Le didacticiel [Prise en main d’IoT Hub] explique comment créer un concentrateur IoT, l’utiliser pour configurer une identité d’appareil et coder une simulation d’application d’appareil qui envoie des messages d’appareils à cloud.
+Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Le didacticiel [Prise en main d’IoT Hub] explique comment créer un concentrateur IoT, l’utiliser pour configurer une identité d’appareil et coder une simulation d’application d’appareil qui envoie des messages d’appareils à cloud.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Ce didacticiel s’appuie sur l’article [Prise en main d’IoT Hub]. Cette rubrique vous explique les procédures suivantes :
+Ce didacticiel s’appuie sur l’article [Prise en main d’IoT Hub]. Cette rubrique vous explique les procédures suivantes :
 
 * À partir du serveur principal de votre application, envoyez des messages cloud-à-appareil vers un appareil unique via IoT Hub.
 * Recevez des messages cloud-à-appareil sur un appareil.
@@ -35,7 +35,7 @@ Vous trouverez des informations supplémentaires sur les messages du cloud vers 
 
 À la fin de ce didacticiel, vous exécuterez deux applications console Python :
 
-* **SimulatedDevice.py**, une version modifiée de l’application créée dans [Prise en main d’IoT Hub]qui se connecte à votre IoT Hub et reçoit les messages entre cloud et appareils.
+* **SimulatedDevice.py**, une version modifiée de l’application créée dans [Prise en main d’IoT Hub]qui se connecte à votre IoT Hub et reçoit les messages entre cloud et appareils.
 * **SendCloudToDeviceMessage.py**, qui envoie un message cloud-à-appareil à l’application pour appareil simulée par le biais d’IoT Hub, puis reçoit son accusé de réception.
 
 > [!NOTE]
@@ -73,7 +73,7 @@ Dans cette section, vous créez une application de console Python pour simuler l
     RECEIVE_CALLBACKS = 0
     ```
 
-1. Ajoutez le code suivant au fichier **SimulatedDevice.py**. Remplacez la valeur d’espace réservé « {deviceConnectionString} » par la chaîne de connexion pour l’appareil créé dans le didacticiel [Prise en main d’IoT Hub] :
+1. Ajoutez le code suivant au fichier **SimulatedDevice.py**. Remplacez la valeur d’espace réservé « {deviceConnectionString} » par la chaîne de connexion pour l’appareil créé dans le didacticiel [Prise en main d’IoT Hub] :
    
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -165,7 +165,7 @@ Dans cette section, vous créez une application de console Python pour simuler l
 
 
 ## <a name="send-a-cloud-to-device-message"></a>Envoi d’un message cloud vers appareil
-Dans cette section, vous créez une application de console Python qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le didacticiel [Prise en main d’IoT Hub] . Vous avez également besoin de la chaîne de connexion pour votre hub que vous trouverez dans le [Portail Azure].
+Dans cette section, vous créez une application de console Python qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le didacticiel [Prise en main d’IoT Hub] . Vous avez également besoin de la chaîne de connexion pour votre hub que vous trouverez dans le [Portail Azure].
 
 1. À l’aide d’un éditeur de texte, créez un fichier **SendCloudToDeviceMessage.py**.
 
@@ -184,7 +184,7 @@ Dans cette section, vous créez une application de console Python qui envoie des
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. Ajoutez le code suivant au fichier **SendCloudToDeviceMessage.py**. Remplacez la valeur d’espace réservé « {IoTHubConnectionString} » par la chaîne de connexion pour l’IoT Hub créé dans le didacticiel [Prise en main d’IoT Hub]. Remplacez l’espace réservé « {deviceId} » par l’ID de l’appareil ajouté dans le didacticiel [Prise en main d’IoT Hub] :
+1. Ajoutez le code suivant au fichier **SendCloudToDeviceMessage.py**. Remplacez la valeur d’espace réservé « {IoTHubConnectionString} » par la chaîne de connexion pour l’IoT Hub créé dans le didacticiel [Prise en main d’IoT Hub]. Remplacez l’espace réservé « {deviceId} » par l’ID de l’appareil ajouté dans le didacticiel [Prise en main d’IoT Hub] :
    
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -311,12 +311,12 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-node-download]: https://nodejs.org/en/download/
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[Prise en main d’IoT Hub]: iot-hub-node-node-getstarted.md
+[Prise en main d’IoT Hub]: quickstart-send-telemetry-node.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Guide du développeur d’IoT Hub]: iot-hub-devguide.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Portail Azure]: https://portal.azure.com
+[portail Azure]: https://portal.azure.com
 [Accélérateur de solution de surveillance à distance Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/

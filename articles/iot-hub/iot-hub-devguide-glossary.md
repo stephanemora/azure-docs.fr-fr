@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125915"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187364"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -151,7 +151,7 @@ Un hub IoT expose plusieurs [points de terminaison](iot-hub-devguide-endpoints.m
 Pour lire des messages [appareil-à-cloud](#device-to-cloud) envoyés à votre hub IoT, vous pouvez vous connecter à un point de terminaison sur votre hub et utiliser n’importe quelle méthode compatible Event Hub pour lire ces messages. Les méthodes compatibles Event Hub comprennent l’utilisation des kits [Event Hubs SDK](../event-hubs/event-hubs-programming-guide.md) et d’[Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Passerelle de champ
-Une passerelle de champ assure la connectivité d’appareils qui ne peuvent pas se connecter directement à [IoT Hub](#iot-hub), et est généralement déployée localement avec vos appareils. Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md).
+Une passerelle de champ assure la connectivité d’appareils qui ne peuvent pas se connecter directement à [IoT Hub](#iot-hub), et est généralement déployée localement avec vos appareils. Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Hub ?](about-iot-hub.md).
 
 ## <a name="free-account"></a>Compte gratuit
 Vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/) pour suivre les didacticiels concernant IoT Hub et tester le service IoT Hub (ainsi que d’autres services Azure).
@@ -168,7 +168,7 @@ Un message interactif est un message [cloud-à-appareil](#cloud-to-device) qui d
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT Hub
-IoT Hub est un service Azure entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un back-end de solution. Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md). Votre [abonnement Azure](#subscription) vous permet de créer des hubs IoT pour gérer vos charges de travail de messagerie IoT.
+IoT Hub est un service Azure entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un back-end de solution. Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Hub ?](about-iot-hub.md). Votre [abonnement Azure](#subscription) vous permet de créer des hubs IoT pour gérer vos charges de travail de messagerie IoT.
 
 ## <a name="iot-hub-metrics"></a>Métriques IoT Hub
 Les [métriques IoT Hub](iot-hub-metrics.md) fournissent des données sur l’état des hubs IoT dans votre [abonnement Azure](#subscription). Grâce aux métriques IoT Hub, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les métriques IoT Hub peuvent vous aider à voir l’état de votre hub IoT et à examiner des problèmes constituant des causes premières sans devoir contacter le support Azure.
@@ -180,7 +180,7 @@ Le [langage de requête IoT Hub](iot-hub-devguide-query-language.md) est un lang
 [L’API REST de ressource IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) vous permet de gérer les hubs IoT dans votre [abonnement Azure](#subscription) en effectuant des opérations telles que la création, la mise à jour et la suppression de hubs.
 
 ## <a name="iot-solution-accelerators"></a>Accélérateurs de solution IoT
-Les accélérateurs de solution Azure IoT regroupent plusieurs services Azure dans des solutions. Ces solutions vous permettent de démarrer rapidement avec des implémentations de bout en bout de scénarios IoT courants. Pour plus d’informations, consultez [Présentation des accélérateurs de solution Azure IoT](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md).
+Les accélérateurs de solution Azure IoT regroupent plusieurs services Azure dans des solutions. Ces solutions vous permettent de démarrer rapidement avec des implémentations de bout en bout de scénarios IoT courants. Pour plus d’informations, consultez [Présentation des accélérateurs de solution Azure IoT](../iot-accelerators/about-iot-accelerators.md).
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>Extension IoT pour Azure CLI 2.0
 [L’extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) est un outil de ligne de commande multiplateforme. Cet outil vous permet de gérer vos appareils dans le [registre des identités](#identity-registry), d’envoyer et de recevoir des messages et des fichiers sur vos appareils, et de surveiller les opérations de votre IoT Hub.
@@ -201,7 +201,7 @@ Un appareil physique est un appareil réel, par exemple un Raspberry Pi, qui se 
 Lorsque vous vous connectez à un point de terminaison visible par l’appareil ou par le service sur un hub IoT, votre [chaîne de connexion](#connection-string) inclut la clé vous permettant d’accéder. Lorsque vous ajoutez un appareil au [registre des identités](#identity-registry) ou une [stratégie d’accès partagé](#shared-access-policy) à votre hub, le service génère une clé primaire et une clé secondaire. Le fait de disposer de deux clés vous permet de passer d’une clé à un autre lorsque vous mettez à jour une clé sans perdre l’accès au hub IoT.
 
 ## <a name="protocol-gateway"></a>Passerelle de protocole
-Une passerelle de protocole est généralement déployée dans le cloud. Elle fournit des services de traduction de protocole pour les appareils qui se connectent à [IoT Hub](#iot-hub). Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md).
+Une passerelle de protocole est généralement déployée dans le cloud. Elle fournit des services de traduction de protocole pour les appareils qui se connectent à [IoT Hub](#iot-hub). Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Hub ?](about-iot-hub.md).
 
 ## <a name="quotas-and-throttling"></a>Quotas et limitation
 Divers [quotas](iot-hub-devguide-quotas-throttling.md) s’appliquent à votre utilisation d’[IoT Hub](#iot-hub). Bon nombre d’entre eux varient en fonction du niveau de l’IoT Hub. [IoT Hub](#iot-hub) applique également des [limitations](iot-hub-devguide-quotas-throttling.md) à votre utilisation du service au moment de l’exécution.

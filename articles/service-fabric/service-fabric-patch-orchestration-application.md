@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970715"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036936"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -148,7 +148,7 @@ Vous pouvez configurer le comportement de l’application d’orchestration des 
 |**Paramètre**        |**Type**                          | **Détails**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | Nombre maximal de résultats d’exécution de Windows Update à mettre en cache. <br>La valeur par défaut est 3 000, en supposant ce qui suit : <br> - Le nombre de nœuds est 20. <br> - Le nombre de mises à jour par mois effectuées sur un nœud est 5. <br> - Le nombre maximal de résultats par opération est 10. <br> - Les résultats des trois derniers mois doivent être stockés. |
-|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indique la stratégie que le service Coordinateur doit utiliser pour installer les mises à jour Windows Update sur les nœuds du cluster Service Fabric.<br>                         Les valeurs autorisées sont les suivantes : <br>                                                           <b>NodeWise</b>. Les mises à jour Windows Update sont installées de façon séquentielle, nœud après nœud. <br>                                                           <b>UpgradeDomainWise</b>. Les mises à jour Windows Update sont installées sur un domaine de mise à niveau à la fois (au maximum, tous les nœuds appartenant à un domaine de mise à niveau peuvent bénéficier de Windows Update).
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indique la stratégie que le service Coordinateur doit utiliser pour installer les mises à jour Windows Update sur les nœuds du cluster Service Fabric.<br>                         Les valeurs autorisées sont les suivantes : <br>                                                           <b>NodeWise</b>. Les mises à jour Windows Update sont installées de façon séquentielle, nœud après nœud. <br>                                                           <b>UpgradeDomainWise</b>. Les mises à jour Windows Update sont installées sur un domaine de mise à niveau à la fois (au maximum, tous les nœuds appartenant à un domaine de mise à niveau peuvent bénéficier de Windows Update).<br> Reportez-vous à la section [FAQ](#frequently-asked-questions) sur la façon de déterminer la stratégie la plus adaptée pour votre cluster.
 |LogsDiskQuotaInMB   |long  <br> (Par défaut : 1024)               |Taille maximale en Mo des journaux de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
 | WUQuery               | chaîne<br>(Par défaut : « IsInstalled=0 »)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | Booléen <br> (Par défaut : True)                 | Cet indicateur permet l’installation des mises à jour du système d’exploitation Windows.            |
@@ -304,21 +304,38 @@ Q. **Que faire si mon cluster est défectueux et que je dois effectuer une mise 
 
 R. L’application d’orchestration des correctifs n’installe pas de mises à jour lorsque le cluster est défectueux. Essayez de ramener votre cluster à un état sain pour débloquer le flux de travail de l’application d’orchestration des correctifs.
 
-Q. **Pourquoi la mise à jour corrective des clusters prend-elle autant de temps ?**
+Q. **Dois-je définir TaskApprovalPolicy en tant que « NodeWise » ou « UpgradeDomainWise » pour mon cluster ?**
 
-R. Le temps dont l’application d’orchestration des correctifs a besoin dépend principalement des facteurs suivants :
+R. « UpgradeDomainWise » accélère la mise à jour corrective du cluster global en corrigeant tous les nœuds appartenant à un domaine de mise à niveau en parallèle. Cela signifie que les nœuds appartenant à un domaine de mise à niveau entier sont indisponibles (en état [Désactivé](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)) pendant le processus de mise à jour corrective.
 
-- La stratégie du service Coordinateur. 
-  - La stratégie par défaut, `NodeWise` a pour effet d’appliquer la mise à jour corrective à un seul nœud à la fois. En cas de cluster plus grand, nous vous recommandons d’utiliser la stratégie `UpgradeDomainWise` pour accélérer la mise à jour corrective de tous les clusters.
-- Le nombre de mises à jour disponibles pour téléchargement et installation. 
-- La durée moyenne nécessaire pour télécharger et installer une mise à jour, qui ne devrait pas dépasser quelques heures.
-- Les performances de la machine virtuelle et la bande passante réseau.
+En revanche la stratégie « NodeWise » ne corrige qu’un seul nœud à la fois, ce qui implique que la mise à jour corrective du cluster global prend plus de temps. En revanche, au maximum un nœud est indisponible (en état [Désactivé](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)) pendant le processus de mise à jour corrective.
+
+Si votre cluster peut tolérer l’exécution sur le nombre N-1 de domaines de mise à niveau durant le cycle de mise à jour corrective (où N est le nombre total de domaines de mise à niveau sur votre cluster), vous pouvez définir la stratégie en tant que « UpgradeDomainWise ». Autrement, affectez-lui la valeur « NodeWise ».
+
+Q. **Combien de temps prend la correction d’un nœud ?**
+
+R. La mise à jour corrective d’un nœud peut prendre de quelques minutes (par exemple, pour les [mises à jour de définitions de Windows Defender](https://www.microsoft.com/wdsi/definitions)) à plusieurs heures (par exemple, pour les [mises à jour cumulatives de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Le temps nécessaire pour appliquer un correctif à un nœud dépend principalement des éléments suivants : 
+ - Taille des mises à jour
+ - Nombre de mises à jour qui doivent être appliquées dans une fenêtre de mise à jour corrective.
+ - Temps nécessaire pour installer les mises à jour, redémarrer le nœud (si nécessaire), puis achever les étapes d’installation après redémarrage.
+ - Performances de machine virtuelle/conditions de l’ordinateur et du réseau.
+
+Q. **Combien de temps faut-il pour appliquer un correctif à un cluster entier ?**
+
+R. Le temps nécessaire pour appliquer un correctif à un cluster entier dépend des facteurs suivants :
+
+- Temps nécessaire pour appliquer un correctif à un nœud.
+- La stratégie du service Coordinateur. - La stratégie par défaut, `NodeWise`, entraîne la mise à jour corrective d’un nœud à la fois, ce qui est plus lent que `UpgradeDomainWise`. Par exemple : si l’application d’un correctif à un nœud prend environ 1 heure, pour appliquer un correctif à un cluster de 20 nœuds (du même type) avec 5 domaines de mise à niveau, contenant 4 nœuds chacun.
+    - Il faut environ 20 heures pour appliquer le correctif au cluster entier si la stratégie est `NodeWise`.
+    - Il faut environ 5 heures si la stratégie est `UpgradeDomainWise`.
+- Charge du cluster : chaque opération de mise à jour corrective requiert un déplacement de la charge de travail client vers d’autres nœuds disponibles dans le cluster. Pendant ce temps, le nœud auquel est appliqué le correctif est en état de [désactivation](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling). Si le cluster exécute une charge proche du pic, le processus de désactivation prend plus de temps. Par conséquent, le processus de mise à jour corrective global peut sembler lent dans de telles conditions de sollicitation.
+- Échecs d’intégrité du cluster durant la mise à jour corrective : toute [dégradation](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) de l’[intégrité du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) interrompt le processus de mise à jour corrective. Cela s’ajoute au temps global nécessaire pour appliquer le correctif au cluster entier.
 
 Q. **Pourquoi certaines mises à jour sont-elles affichées dans les résultats Windows Update obtenus via les API REST, et non dans l’historique Windows Update de l’ordinateur ?**
 
-R. Certaines mises à jour de produits apparaissent uniquement dans leur historique de correctifs/mises à jour correspondant. Par exemple, les mises à jour de Windows Defender ne s’affichent pas dans l’historique Windows Update de Windows Server 2016.
+R. Certaines mises à jour de produits apparaissent uniquement dans leur historique de correctifs/mises à jour correspondant. Par exemple, les mises à jour de Windows Defender peuvent apparaître ou non dans l’historique de Windows Update sur Windows Server 2016.
 
-Q. **L’application d’orchestration des correctifs peut-elle être utilisée pour corriger mon cluster de développement (cluster à un nœud) ?**
+Q. **Puis-je utiliser l’application d’orchestration des correctifs pour appliquer un correctif à mon cluster de développement (cluster à un nœud) ?**
 
 R. Non, l’application d’orchestration des correctifs ne peut pas être utilisée pour corriger un cluster à un nœud. Cette limitation est liée à la conception, car [services système de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou toute application cliente connaît des interruptions de service et, par conséquent, toute opération de réparation pour la correction ne sera jamais approuvée par le service de gestion des réparations.
 

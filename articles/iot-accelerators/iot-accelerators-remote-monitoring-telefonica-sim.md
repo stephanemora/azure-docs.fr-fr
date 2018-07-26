@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097078"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185429"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Intégrer des données SIM à la solution de surveillance à distance
 
@@ -24,7 +24,7 @@ La surveillance à distance fournit une intégration avec la connectivité IoT T
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 * Intégrer des données SIM IoT Telefónica à la solution de surveillance à distance
-* Affichage des données de télémétrie en temps réel
+* Afficher les données de télémétrie en temps réel
 * Voir les données SIM
 
 ## <a name="telefnica-iot-integration-setup"></a>Configuration de l’intégration d’IoT Telefónica
@@ -67,7 +67,7 @@ Les paramètres de connectivité suivants sont publiés :
 
 Maintenant que vous avez une vue d’ensemble de l’intégration des données SIM à la surveillance à distance Azure IoT, voici les étapes suivantes suggérées pour les accélérateurs de solution :
 
-* [Exploiter la solution de surveillance à distance Azure IoT](iot-accelerators-remote-monitoring-explore.md)
+* [Exploiter la solution de surveillance à distance Azure IoT](quickstart-remote-monitoring-deploy.md)
 * [Effectuer la surveillance avancée](iot-accelerators-remote-monitoring-monitor.md)
 * [Gestion de vos appareils](iot-accelerators-remote-monitoring-manage.md)
 * [Résoudre les problèmes de l’appareil](iot-accelerators-remote-monitoring-maintain.md)

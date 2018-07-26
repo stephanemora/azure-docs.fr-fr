@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088423"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187721"
 ---
 # <a name="create-a-new-simulated-device"></a>Créer un appareil simulé
 
@@ -87,7 +87,7 @@ La vidéo suivante explique pas à pas comment connecter des appareils simulés 
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* Une instance déployée de la solution de surveillance à distance dans votre abonnement Azure. Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
+* Une instance déployée de la solution de surveillance à distance dans votre abonnement Azure. Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](../iot-accelerators/quickstart-remote-monitoring-deploy.md).
 
 * Visual Studio 2017. Si vous n’avez pas Visual Studio 2017, vous pouvez télécharger la version gratuite [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/).
 
