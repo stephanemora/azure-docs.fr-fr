@@ -2,7 +2,7 @@
   href: index.yml
 - name: Basculer vers la documentation de la version 1
   href: v1/data-factory-introduction.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation de Data Factory
       href: introduction.md
@@ -387,24 +387,26 @@
           href: create-azure-ssis-integration-runtime.md
     - name: "Exécuter des packages\_SSIS dans Azure"
       items:
-        - name: Joindre le runtime d’intégration Azure-SSIS à un réseau virtuel
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Activer l’authentification Azure AD pour le runtime d’intégration (IR) Azure-SSIS
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Configurer une haute performance pour le runtime d’intégration (IR) Azure-SSIS
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Configurer Enterprise Edition pour le runtime d’intégration (IR) Azure-SSIS
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Personnalisation des configurations du runtime d’intégration (IR) Azure-SSIS
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Installer les composants sous licence pour le runtime d’intégration (IR) Azure-SSIS
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Exécuter des packages SSIS avec l’activité Exécuter le Package SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Exécuter des packages SSIS avec l’activité de procédure stockée
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Planifier le runtime d’intégration Azure-SSIS Integration Runtime
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Joindre le runtime d’intégration Azure-SSIS à un réseau virtuel
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Activer l’authentification Azure AD pour le runtime d’intégration (IR) Azure-SSIS
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Configurer Enterprise Edition pour le runtime d’intégration (IR) Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Personnalisation des configurations du runtime d’intégration (IR) Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Installer les composants sous licence pour le runtime d’intégration (IR) Azure-SSIS
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Configurer une haute performance pour le runtime d’intégration (IR) Azure-SSIS
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Configurer la récupération d’urgence pour les runtimes d’intégration Azure-SSIS
+          href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Créer des déclencheurs
       items:
         - name: Créer un déclencheur de planification
@@ -419,7 +421,7 @@
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell
       href: /powershell/module/azurerm.datafactoryv2/
-    - name: de l’API REST
+    - name: API REST
       href: /rest/api/datafactory
     - name: Python
       href: /python/api/overview/azure/datafactory?view=azure-python

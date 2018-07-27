@@ -1,6 +1,6 @@
 - name: Documentation Sauvegarde Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Backup\_?"
       href: backup-introduction-to-azure-backup.md
@@ -145,6 +145,8 @@
           href: backup-azure-reports-data-model.md
         - name: Modèle de données Log Analytics pour la sauvegarde Azure
           href: backup-azure-log-analytics-data-model.md
+        - name: Mise à jour du pack de contenu de rapports centraux de sauvegarde Azure
+          href: backup-azure-central-reporting-updates.md
     - name: Gestionnaire de protection des données
       items:
         - name: Préparer les charges de travail DPM dans le portail Azure

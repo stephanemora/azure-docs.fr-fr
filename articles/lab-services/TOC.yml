@@ -1,6 +1,6 @@
 - name: Documentation Lab Services
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Lab Services
       href: lab-services-overview.md
@@ -133,6 +133,8 @@
               href: devtest-lab-manage-formulas.md
         - name: Gérer les artefacts
           items:
+            - name: Spécifier des artefacts obligatoires
+              href: devtest-lab-mandatory-artifacts.md
             - name: Créer des artefacts personnalisés
               href: devtest-lab-artifact-author.md
             - name: Diagnostiquer les échecs d’artefact
@@ -161,7 +163,7 @@
       href: /cli/azure/lab
     - name: PowerShell
       href: '/powershell/module/azurerm.devtestlabs/#devtest_labs'
-    - name: de l’API REST
+    - name: API REST
       href: 'https://docs.microsoft.com/rest/api/dtl/'
 - name: Ressources
   items:

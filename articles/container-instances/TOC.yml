@@ -1,6 +1,6 @@
 - name: Container Instances
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Container Instances
       href: container-instances-overview.md
@@ -59,7 +59,7 @@
           href: container-instances-log-analytics.md
     - name: Exécuter des charges de travail
       items:
-        - name: Exécuter des tâches en conteneur
+        - name: Exécuter des tâches avec une stratégie de redémarrage
           href: container-instances-restart-policy.md
         - name: Agents de build Jenkins sur ACI
           href: container-instances-jenkins.md

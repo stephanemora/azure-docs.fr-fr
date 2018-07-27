@@ -126,7 +126,7 @@
 #### [Archiver les journaux d’activité dans un compte de stockage Azure](reporting-azure-monitor-diagnostics-azure-storage-account.md)
 #### [Intégrer les journaux d’activité à Splunk à l’aide d’Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
 
-### Référence
+### Informations de référence
 #### [Rétention](active-directory-reporting-retention.md)
 #### [Latences](active-directory-reporting-latencies-azure-portal.md)
 #### [Référence d’activité d’audit](active-directory-reporting-activity-audit-reference.md)
@@ -135,10 +135,10 @@
 #### [Interpréter le schéma de journal d'audit dans Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Interpréter le schéma de journal de connexion dans Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
-### Résoudre les problèmes
+### Résolution des problèmes
 #### [Données d’audit manquantes](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Données manquantes dans les téléchargements](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Erreurs liées au pack de contenu des journaux d’activité Azure Active Directory] (active-directory-reporting-troubleshoot-
+#### [Erreurs de pack de contenu des journaux d’activité Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Erreurs dans l’API Génération de rapports Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Accès par programme](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -164,7 +164,7 @@
 #### [Configurer les appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
 #### [Enregistrement dans Azure AD lors de la première exécution de Windows 10](device-management-azuread-joined-devices-frx.md)
-### Résoudre les problèmes
+### Résolution des problèmes
 #### [Appareils Windows 10 et Windows Server 2016 joints Azure AD hybrides](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Appareils Windows hérités joints Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
@@ -222,11 +222,13 @@
 #### [Résolution des problèmes](manage-apps/application-proxy-troubleshoot.md)
 
 ### Gérer les applications d’entreprise
+#### [Ajouter une application](manage-apps/add-application-portal.md)
+#### [Afficher les applications du client](manage-apps/view-applications-portal.md)
 #### [Affecter des utilisateurs](manage-apps/assign-user-or-group-access-portal.md)
 #### [Personnaliser la marque](manage-apps/change-name-or-logo-portal.md)
 #### [Comment désactiver les connexions des utilisateurs ?](manage-apps/disable-user-sign-in-portal.md)
 #### [Supprimer des utilisateurs](manage-apps/remove-user-or-group-access-portal.md)
-#### [Afficher toutes mes applications](manage-apps/view-applications-portal.md)
+
 #### [Gérer l’approvisionnement de comptes d’utilisateurs](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Gérer l’authentification unique pour les applications d’entreprise](manage-apps/configure-single-sign-on-portal.md)
 #### [Signature de certificat avancée pour les applications SAML](manage-apps/certificate-signing-options.md)
@@ -240,7 +242,7 @@
 #### [Utilisez SCIM approvisionner les utilisateurs](manage-apps/use-scim-to-provision-users-and-groups.md)
 
 
-### Résoudre les problèmes
+### Résolution des problèmes
 
 
 
@@ -450,7 +452,7 @@
 ### [Manuel POC : Blocs de construction](active-directory-playbook-building-blocks.md)
 
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Applets de commande Azure PowerShell](/powershell/azure/overview)
 ## [Informations de référence sur l’API Java](/java/api)

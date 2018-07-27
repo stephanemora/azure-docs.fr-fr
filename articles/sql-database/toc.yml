@@ -138,9 +138,9 @@
           items:
             - name: Rétention des sauvegardes à long terme
               href: sql-database-long-term-retention.md
-            - name: Configurer la rétention des sauvegardes à long terme - Stockage SQL
+            - name: Configurer à l’aide du stockage d’objets blob Azure
               href: sql-database-long-term-backup-retention-configure.md
-            - name: Configurer la rétention des sauvegardes à long terme - Coffre Azure (déconseillé)
+            - name: Configurer à l’aide d’un coffre Azure (déconseillé)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: Groupes de basculement et géoréplication
           items:
@@ -508,7 +508,7 @@
               href: saas-multitenantdb-schema-management.md
             - name: 'Extraction, transformation et chargement (ETL) pour analyse'
               href: saas-multitenantdb-tenant-analytics.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'

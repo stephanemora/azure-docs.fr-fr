@@ -1,12 +1,12 @@
 - name: Identité du service administré
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Managed Service Identity (MSI)
       href: overview.md
 - name: Démarrages rapides
   items:
-    - name: Utiliser une MSI de machine virtuelle pour accéder à Azure Resource Manager
+    - name: Utiliser une identité gérée de machine virtuelle pour accéder à Azure Resource Manager
       items:
         - name: Machine virtuelle Windows
           href: tutorial-windows-vm-access-arm.md
@@ -49,11 +49,11 @@
         - name: Accéder à Azure Resource Manager avec une identité affectée par l’utilisateur
           href: msi-tutorial-linux-vm-access-arm.md
     - name: Azure Service Bus
-      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
     - name: Azure App Service et Functions
-      href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
     - name: Hubs d'événements Azure
-      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
 - name: Procédures
   items:
     - name: Configurer une identité pour une machine virtuelle Azure
@@ -82,7 +82,7 @@
           href: qs-configure-template-windows-vmss.md
         - name: REST
           href: qs-configure-rest-vmss.md
-    - name: Utiliser une MSI de machine virtuelle
+    - name: Utiliser une identité gérée de machine virtuelle
       items:
         - name: Obtenir un jeton d’accès
           href: how-to-use-vm-token.md
