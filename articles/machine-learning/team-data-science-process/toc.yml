@@ -15,8 +15,6 @@
       href: lifecycle-deployment.md
     - name: 5. Acceptation du client
       href: lifecycle-acceptance.md
-    - name: Avec Azure ML
-      href: 'http://aka.ms/datascienceprocess'
 - name: Rôles et tâches
   href: roles-tasks.md
   items:
@@ -127,20 +125,6 @@
         - name: Espace de travail Azure Machine Learning
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: Configurer une machine virtuelle DLVM
-          items:
-            - name: Créer une machine virtuelle de science des données Windows
-              href: ../data-science-virtual-machine/provision-vm.md
-              maintainContext: true
-            - name: Créer une machine virtuelle de science des données Ubuntu
-              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
-              maintainContext: true
-            - name: Créer une machine virtuelle de science des données CentOS
-              href: ../data-science-virtual-machine/linux-dsvm-intro.md
-              maintainContext: true
-            - name: Créer une machine virtuelle d’apprentissage approfondi
-              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
-              maintainContext: true
     - name: Analyser les besoins métier
       items:
         - name: Identifier votre scénario

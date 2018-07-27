@@ -44,6 +44,12 @@
       items:
         - name: Architecture
           href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: Simulation d’appareil
+      items:
+        - name: Schéma du modèle d’appareil
+          href: iot-accelerators-device-simulation-device-schema.md
+        - name: Comportement du modèle d’appareil
+          href: iot-accelerators-device-simulation-device-behavior.md
     - name: Autorisations sur le site azureiotsolutions.com
       href: iot-accelerators-permissions.md
 - name: Procédures
@@ -155,7 +161,7 @@
           href: iot-accelerators-device-simulation-choose-hub.md
         - name: Utiliser un modèle d’appareil personnalisé
           href: iot-accelerators-device-simulation-custom-model.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Surveillance à distance
       items:
