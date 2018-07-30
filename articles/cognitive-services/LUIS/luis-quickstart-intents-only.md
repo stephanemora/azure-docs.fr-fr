@@ -2,19 +2,19 @@
 title: Créer une application simple avec deux intentions - Azure | Microsoft Docs
 description: Dans ce guide de démarrage rapide, apprenez à créer une application LUIS simple utilisant deux intentions et aucune entité pour identifier les énoncés de l’utilisateur.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865809"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237772"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Didacticiel : 1. Créer une application avec un domaine personnalisé
 Dans ce didacticiel, créez une application qui montre comment utiliser des **intentions** pour déterminer l’_intention_ de l’utilisateur selon l’énoncé (texte) saisi dans l’application. Une fois fini, vous disposerez d’un point de terminaison LUIS exécuté dans le cloud.
@@ -92,7 +92,7 @@ Cette application a quelques intentions. La première intention, **`GetJobInform
 
     L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
 
-    ![Barre d’état Formé](./media/luis-quickstart-intents-only/trained.png)
+    ![Barre d’état Apprentissage effectué](./media/luis-quickstart-intents-only/trained.png)
 
 2. En haut à droite du site web LUIS, sélectionnez le bouton **Publier** pour ouvrir la page de publication. L’emplacement de production est sélectionné par défaut. Sélectionnez le bouton **Publier** à côté de l’emplacement de production souhaité. La publication est terminée lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
 

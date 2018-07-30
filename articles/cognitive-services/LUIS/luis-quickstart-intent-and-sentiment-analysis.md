@@ -2,19 +2,19 @@
 title: Didacticiel permettant de créer une application LUIS retournant une analyse des sentiments - Azure | Microsoft Docs
 description: Dans ce tutoriel, découvrez comment ajouter une analyse des sentiments à votre application LUIS afin d’analyser les énoncés de sentiments positifs, négatifs et neutres.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8dc6b8d4dd4cbe64841c4b36c498cf9021b4196f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1fa27cf04e136033c51b951271a3d329a910a720
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930604"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223617"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>Didacticiel : 9.  Ajouter l’analyse des sentiments
 Dans ce tutoriel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés.
@@ -53,7 +53,7 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
 
     [![Capture d’écran de l’application LUIS avec Générer en surbrillance dans la barre de navigation en haut à droite](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-2. Sélectionnez **Create new intent** (Créer une intention).
+2. Sélectionnez **Créer une intention**.
 
     [![Capture d’écran de l’application LUIS avec Générer en surbrillance dans la barre de navigation en haut à droite](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
@@ -81,7 +81,7 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 LUIS ne connaît pas la nouvelle intention et ses énoncés exemples avant d’être entraîné. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Former**.
+1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
 
     ![Capture d’écran du bouton Effectuer l’apprentissage mis en surbrillance](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 

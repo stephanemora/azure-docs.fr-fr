@@ -2,19 +2,19 @@
 title: Didacticiel de création d’une application LUIS pour extraire des données - Azure | Microsoft Docs
 description: Dans ce tutoriel, vous allez découvrir comment créer une application LUIS simple utilisant une entité simple et des intentions pour extraire les données issues de l’apprentissage automatique.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952383"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238003"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutoriel : 7. Ajouter une entité simple et une liste d’expressions
 Dans ce tutoriel, vous allez créer une application qui montre comment extraire les données issues de l’apprentissage automatique à partir d’un énoncé utilisant l’entité **Simple**.
