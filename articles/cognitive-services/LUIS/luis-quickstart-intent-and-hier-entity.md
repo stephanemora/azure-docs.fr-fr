@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/22/2018
+ms.date: 07/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 6ba45de8ef41c8a57ca9c042a304e323a4fac263
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: babfc2f82e17f3745af1d940df89763170a002bd
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081691"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929584"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Tutoriel : 5. Ajouter une entité hiérarchique
 Dans ce tutoriel, vous allez créer une application qui montre comment rechercher les ensembles de données en fonction du contexte. 
@@ -24,13 +24,13 @@ Dans ce tutoriel, vous allez créer une application qui montre comment recherche
 > * Comprendre les entités hiérarchiques et les enfants issus du contexte 
 > * Utiliser l’application LUIS pour le domaine des ressources humaines (RH) 
 > * Ajouter une entité hiérarchique avec des enfants d’origine et de destination
-> * Entraîner et publier l’application
+> * Effectuer l’apprentissage et publier l’application
 > * Interroger un point de terminaison d’application pour voir la réponse JSON LUIS, y compris les enfants hiérarchiques 
 
-Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin de créer votre application LUIS.
+Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du tutoriel [liste d’entités](luis-quickstart-intent-and-list-entity.md), [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
+Si vous ne disposez pas de l’application Ressources humaines du tutoriel [liste d’entités](luis-quickstart-intent-and-list-entity.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `hier`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
@@ -64,12 +64,12 @@ Afin d’afficher l’énoncé complet et de marquer les enfants hiérarchiques,
     [ ![Capture d’écran de l’application LUIS avec les boutons Entité mis en surbrillance dans le menu de gauche](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
 
-3. Sélectionnez les points de suspension (...) à droite de l’entité nombre de la liste. Sélectionnez **Supprimer**. 
+3. Sélectionnez le bouton des points de suspension (***...***) à droite de l’entité de nombre dans la liste. Sélectionnez **Supprimer**. 
 
     [ ![Capture d’écran de l’application LUIS sur la page de la liste d’entité, avec le bouton supprimer mis en surbrillance pour l’entité Nombre prédéfinie](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
 
-## <a name="add-utterances-to-findform-intent"></a>Ajouter des énoncés à l’intention FindForm
+## <a name="add-utterances-to-moveemployee-intent"></a>Ajoutez des énoncés à l’intention de MoveEmployee
 
 1. Dans le menu gauche, sélectionnez **Intents** (Intentions).
 
@@ -129,7 +129,7 @@ Ajoutez l’entité de nombre prédéfinie dans l’application.
     ![Capture d’écran de la sélection du nombre dans la boîte de dialogue des entités prédéfinies](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
-LUIS ne connaît pas les modifications apportées aux intentions et aux entités (modèle) tant qu’elle n’a pas été entraînée. 
+LUIS ne connaît pas les modifications apportées aux intentions et aux entités (modèle) tant que son apprentissage n’a pas été effectué. 
 
 1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
 
@@ -268,12 +268,8 @@ Votre chatbot a maintenant suffisamment d’informations pour déterminer l’ac
 LUIS en a fini avec cette demande. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les données de l’entité pour passer à l’étape suivante. LUIS n’effectue pas ce travail de programmation pour le robot ou l’application d’appel. LUIS détermine uniquement l’intention de l’utilisateur. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour ce faire, sélectionnez le menu représentant trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
-> [Découvrez comment ajouter une entité de liste](luis-quickstart-intent-and-list-entity.md) 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [Découvrez comment ajouter une entité composite](luis-tutorial-composite-entity.md) 

@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1a48810287c1639910db8e39af2da61d836b2988
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 8dc6b8d4dd4cbe64841c4b36c498cf9021b4196f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340931"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930604"
 ---
-# <a name="tutorial-8--add-sentiment-analysis"></a>Tutoriel : 8.  Ajouter l’analyse des sentiments
+# <a name="tutorial-9--add-sentiment-analysis"></a>Didacticiel : 9.  Ajouter l’analyse des sentiments
 Dans ce tutoriel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés.
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez créer une application montrant comment extraire le
 Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du tutoriel [entité keyPhrase intégrée](luis-quickstart-intent-and-key-phrase.md), [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle dans le site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+Si vous ne disposez pas de l’application Ressources humaines du tutoriel [entité keyPhrase intégrée](luis-quickstart-intent-and-key-phrase.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle dans le site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `sentiment`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
@@ -83,7 +83,7 @@ LUIS ne connaît pas la nouvelle intention et ses énoncés exemples avant d’�
 
 1. En haut à droite du site web LUIS, sélectionnez le bouton **Former**.
 
-    ![Capture d’écran du bouton Former mis en surbrillance](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
+    ![Capture d’écran du bouton Effectuer l’apprentissage mis en surbrillance](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
 2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
 
@@ -212,10 +212,10 @@ Cette application, avec l’analyse des sentiments activée, a identifié une in
 LUIS en a fini avec cette requête. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les données de sentiment de l’énoncé pour passer à l’étape suivante. LUIS n’effectue pas ce travail de programmation pour le robot ou l’application d’appel. LUIS détermine uniquement l’intention de l’utilisateur. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez le menu avec les trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"] 
-> [Appeler une API de point de terminaison LUIS avec C#](luis-get-started-cs-get-intent.md) 
+> [Réviser les énoncés de point de terminaison dans l’application pour les RH](luis-tutorial-review-endpoint-utterances.md) 
 

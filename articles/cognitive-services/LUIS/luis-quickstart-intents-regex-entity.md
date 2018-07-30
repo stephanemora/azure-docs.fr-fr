@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f51c296b39fda08d0bcc704fb974e71465385d67
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128443"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929369"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Tutoriel : 3. Ajouter une entité d’expression régulière
 Dans ce tutoriel, vous créez une application qui montre comment extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
@@ -25,13 +25,13 @@ Dans ce tutoriel, vous créez une application qui montre comment extraire des do
 > * Comprendre les entités d’expression régulière 
 > * Utiliser une application LUIS pour un domaine de ressources humaines (RH) avec l’intention FindForm
 > * Ajouter une entité d’expression régulière pour extraire un numéro de formulaire d’un énoncé
-> * Entraîner et publier l’application
+> * Effectuer l’apprentissage et publier l’application
 > * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
 
 Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du tutoriel sur les [entités intégrées](luis-tutorial-prebuilt-intents-entities.md), [importez](create-new-app.md#import-new-app) le JSON dans une nouvelle application dans le site web [LUIS](luis-reference-regions.md#luis-website), à partir du dépôt Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+Si vous ne disposez pas de l’application Ressources humaines du tutoriel sur les [entités intégrées](luis-tutorial-prebuilt-intents-entities.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application dans le site web [LUIS](luis-reference-regions.md#luis-website), à partir du dépôt Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `regex`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
@@ -252,8 +252,8 @@ Votre chatbot a maintenant suffisamment d’informations pour déterminer l’ac
 ## <a name="where-is-this-luis-data-used"></a>Où ces données LUIS sont-elles utilisées ? 
 LUIS en a fini avec cette requête. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les numéros de formulaire et rechercher une API tierce. LUIS n’effectue pas ce travail. LUIS détermine uniquement ce qu’est l’intention de l’utilisateur et extrait des données sur cette intention. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez le menu avec les trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+## <a name="clean-up-resources"></a>Supprimer les ressources
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

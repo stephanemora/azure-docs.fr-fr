@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ccefb4c2890d74978f340778cfab7cad979c9802
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340948"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929547"
 ---
-# <a name="tutorial-7-add-keyphrase-entity"></a>Tutoriel : 7. Ajouter une entité keyPhrase 
+# <a name="tutorial-8-add-keyphrase-entity"></a>Tutoriel : 8. Ajouter une entité keyPhrase 
 Dans ce tutoriel, vous allez utiliser une application montrant comment extraire les données principales des énoncés.
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez utiliser une application montrant comment extraire 
 Pour cet article, vous pouvez utiliser le compte [LUIS](luis-reference-regions.md#publishing-regions) gratuit afin de créer votre application LUIS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du tutoriel [entité simple](luis-quickstart-primary-and-secondary-data.md), [importez](create-new-app.md#import-new-app) le JSON dans une application du site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
+Si vous ne disposez pas de l’application Ressources humaines du tutoriel [entité simple](luis-quickstart-primary-and-secondary-data.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une application du site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `keyphrase`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
@@ -77,9 +77,9 @@ La nouvelle version `keyphrase` de l’application doit être entraînée.
 
 1. En haut à droite du site web LUIS, sélectionnez le bouton **Former**.
 
-    ![Entraîner l’application](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
+    ![Effectuer l’apprentissage de l’application](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
 
-2. L’entraînement est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
 
     ![Entraînement réussi](./media/luis-quickstart-intent-and-key-phrase/trained.png)
 
@@ -201,10 +201,9 @@ Cette application, avec la détection d’entité keyPhrase, a identifié une in
 LUIS en a fini avec cette demande. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les données de l’entité keyPhrase de l’énoncé pour passer à l’étape suivante. LUIS n’effectue pas ce travail de programmation pour le robot ou l’application d’appel. LUIS détermine uniquement l’intention de l’utilisateur. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez le menu avec les trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Ajouter l’analyse des sentiments à une application](luis-quickstart-intent-and-sentiment-analysis.md)
-

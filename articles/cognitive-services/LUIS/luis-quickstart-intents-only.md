@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: fea311eb36c0654b45b2354cb283f1699be7257c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109339"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865809"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Didacticiel : 1. Créer une application avec un domaine personnalisé
 Dans ce didacticiel, créez une application qui montre comment utiliser des **intentions** pour déterminer l’_intention_ de l’utilisateur selon l’énoncé (texte) saisi dans l’application. Une fois fini, vous disposerez d’un point de terminaison LUIS exécuté dans le cloud.
@@ -188,7 +188,7 @@ Le résultat JSON identifie l’intention. Tous les scores sont compris entre 1 
 LUIS en a fini avec cette demande. L’application qui appelle, comme un chatbot, peut prendre le résultat topScoringIntent et trouver des informations (qui ne sont pas dans LUIS) pour répondre à la question ou clore la conversation. Il s’agit d’options de programmation du bot ou de l’application. LUIS n’effectue pas ce travail. LUIS détermine uniquement l’intention de l’utilisateur. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour ce faire, sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez le menu avec les trois points (...) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour ce faire, sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
