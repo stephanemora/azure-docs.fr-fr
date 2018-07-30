@@ -89,6 +89,10 @@
         - name: Solution de contrôle d’intégrité du conteneur Azure
           href: ../monitoring/monitoring-container-health.md
           maintainContext: true
+        - name: Afficher les journaux du composant principal
+          href: view-master-logs.md
+        - name: Afficher les journaux Kubelet
+          href: kubelet-logs.md
     - name: Développer et exécuter des applications
       items:
         - name: Exécuter des applications avec Helm
@@ -117,13 +121,11 @@
       items:
         - name: Utiliser le tableau de bord Kubernetes
           href: kubernetes-dashboard.md
-    - name: Résoudre les problèmes
+    - name: Résolution des problèmes
       items:
         - name: Accès au nœud SSH
           href: aks-ssh.md
-        - name: Obtenir des journaux kubelet
-          href: kubelet-logs.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/aks

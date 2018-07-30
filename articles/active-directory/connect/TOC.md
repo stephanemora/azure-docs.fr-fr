@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce qu’Azure AD Connect ?](active-directory-aadconnect.md)
 ## [Qu’est-ce que la synchronisation d’Azure AD Connect ?](active-directory-aadconnectsync-whatis.md)
 ### [Les utilisateurs et les contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md)
@@ -83,6 +83,7 @@
 
 ## Gérer les services de fédération
 ### [Gérer et personnaliser](active-directory-aadconnect-federation-management.md)
+### [Gérer l’approbation AD FS avec Azure AD à l’aide d’Azure AD Connect](active-directory-azure-ad-connect-azure-ad-trust.md)
 ### [Fédérer plusieurs instances d’Azure AD avec une seule instance AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
