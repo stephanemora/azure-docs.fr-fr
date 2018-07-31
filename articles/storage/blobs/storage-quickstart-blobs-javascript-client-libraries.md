@@ -10,12 +10,12 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bde281eab22fc720e2e2420f22ff4eb0a610b93
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419094"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216583"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -49,7 +49,7 @@ Vous utilisez ensuite Azure Cloud Shell pour créer un jeton de sécurité.
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>Créer une signature d’accès partagé
-La signature d’accès partagé (SAP) est utilisée par le code en cours d’exécution dans le navigateur pour authentifier les requêtes de stockage d’objets BLOB. À l’aide de la SAP, le client peut s’authentifier sans disposer de la clé d'accès ou de la chaîne de connexion du compte. Pour plus d’informations sur la SAP, consultez [Utiliser des signatures d’accès partagé (SAP)](../common/storage-dotnet-shared-access-signature-part-1.md).
+La signature d’accès partagé (SAP) est utilisée par le code en cours d’exécution dans le navigateur pour autoriser les requêtes de stockage d’objets BLOB. À l’aide de la SAP, le client peut autoriser l’accès aux ressources de stockage sans disposer de la clé d'accès ou de la chaîne de connexion du compte. Pour plus d’informations sur la SAP, consultez [Utiliser des signatures d’accès partagé (SAP)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
 Vous pouvez créer une SAP à l’aide de l’interface de ligne de commande Azure via Azure Cloud Shell ou de l’Explorateur Stockage Azure. Le tableau suivant décrit les paramètres que vous devez configurer pour les valeurs afin de générer une SAP à l’aide de l’interface de ligne de commande.
 
@@ -247,11 +247,11 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > [!WARNING]
 > Pour que cet exemple de code fonctionne, vous devez fournir une valeur de chaîne pour *blobName*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Pour supprimer les ressources créées au cours de ce démarrage rapide, revenez au [portail Azure](https://portal.azure.com) et sélectionnez votre compte de stockage. Une fois sélectionné, vous pouvez supprimer le compte de stockage en accédant à : **Vue d’ensemble > Supprimer le compte de stockage**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Explorez les exemples pour savoir comment télécharger des objets BLOB et suivre la progression lors du téléchargement des fichiers.
 
 > [!div class="nextstepaction"]
-> [Bibliothèques client de stockage d'objets blob](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [Bibliothèques clientes de stockage d’objets BLOB](https://github.com/Azure/azure-storage-node/tree/master/browser)

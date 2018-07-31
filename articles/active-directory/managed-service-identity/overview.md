@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006928"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237867"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Présentation de Managed Service Identity pour les ressources Azure
 
@@ -59,7 +59,7 @@ Voici un exemple du fonctionnement des identités affectées par le système ave
 6. Un appel est passé à Azure AD pour demander un jeton d’accès comme indiqué à l’étape 5, à l’aide de l’ID client et du certificat configurés à l’étape 3. Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
 7. Votre code envoie le jeton d’accès sur un appel à un service qui prend en charge l’authentification Azure AD.
 
-Dans le même diagramme, voici un exemple du fonctionnement d’une identité affectée à l’utilisateur avec des machines virtuelles Azure.
+Dans le même diagramme, voici un exemple du fonctionnement d’une identité de service administré affectée par l’utilisateur avec des machines virtuelles Azure.
 
 1. Azure Resource Manager reçoit une requête pour créer une identité affectée par l’utilisateur.
 2. Azure Resource Manager crée un principal de service dans Azure AD pour représenter l’identité affectée par l’utilisateur. Le principal de service est créé dans l’abonné Azure AD approuvé par cet abonnement.

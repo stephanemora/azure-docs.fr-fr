@@ -2,19 +2,19 @@
 title: Didacticiel pour réviser les énoncés de point de terminaison dans Language Understanding (LUIS) - Azure | Microsoft Docs
 description: Dans ce didacticiel, découvrez comment passer en revue les énoncés de point de terminaison dans le domaine de ressources humaines (RH) dans LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/03/2018
-ms.author: v-geberr
-ms.openlocfilehash: cd8374b3804594f96212dbe741f99ba22d33a4e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: diberry
+ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970504"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237211"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Didacticiel : réviser les énoncés de point de terminaison
 Dans ce didacticiel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTP de LUIS. 
@@ -105,7 +105,7 @@ Conservez la liste d’expressions actuelle avec tout nom de tâche récemment d
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 LUIS ne connaît pas les modifications apportées tant que son apprentissage n’a pas été effectué. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Former**.
+1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
 
 2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
 

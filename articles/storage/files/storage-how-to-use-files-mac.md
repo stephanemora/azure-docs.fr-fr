@@ -1,12 +1,12 @@
 ---
 title: Montage du partage de fichiers Azure via SMB avec MacOS | Microsoft Docs
-description: "Découvrez comment monter un partage de fichiers Azure via SMB avec Mac OS."
+description: Découvrez comment monter un partage de fichiers Azure via SMB avec Mac OS.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
-ms.assetid: 
+editor: tamram
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaa59e0568a6fc6ac9c867c6f05b7bfb22b71055
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206505"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montage du partage de fichiers Azure via SMB avec MacOS
-[Azure Files](storage-files-introduction.md) est un service de Microsoft qui vous permet de créer et d’utiliser des partages de fichiers réseau dans Azure en utilisant la norme du secteur. Les partages de fichiers Azure peuvent être montés dans MacOS Sierra (10.12) et El Capitan (10.11). Cet article expose deux méthodes de montage d’un partage de fichiers Azure sur MacOS avec l’interface utilisateur Finder et à l’aide de Terminal.
+[Azure Files](storage-files-introduction.md) est un service de Microsoft qui vous permet de créer et d’utiliser des partages de fichiers réseau dans Azure en utilisant la norme du secteur. Les partages de fichiers Azure peuvent être montés dans MacOS Sierra El Capitan (10.11) et les versions ultérieures. Cet article expose deux méthodes de montage d’un partage de fichiers Azure sur MacOS avec l’interface utilisateur Finder et à l’aide de Terminal.
 
 > [!Note]  
 > Avant de monter un partage de fichiers Azure via SMB, il est recommandé de désactiver la signature de paquet SMB. Dans le cas contraire, cela risque d’entraîner des dysfonctionnements lors de l’accès au partage de fichiers Azure depuis MacOS. Votre connexion SMB est chiffrée. Cela n’affecte donc pas la sécurité de votre connexion. À partir du terminal, utilisez les commandes suivantes pour désactiver la signature de paquet SMB, conformément à la[rubrique d’aide Apple sur la désactivation de la signature des paquets SMB](https://support.apple.com/HT205926) :  
@@ -43,9 +44,9 @@ ms.lasthandoff: 10/11/2017
 1. **Ouvrez Finder** : Finder est ouvert par défaut sous MacOS, mais vous pouvez vérifier qu’il s’agit bien de l’application par défaut en cliquant sur l’icône MacOS (illustrée par un visage), dans la barre :  
     ![L’icône MacOS (visage)](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Sélectionnez « Se connecter au serveur » dans le Menu « Aller »** : à l’aide du chemin d’accès UNC requis dans les [conditions préalables](#preq), remplacez la double barre oblique inverse (`\\`) par `smb://` et toutes les autres barres obliques inverses (`\`) par des barres obliques normales (`/`). Votre lien doit se présenter comme suit : ![la boîte de dialogue « Se connecter au serveur »](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Sélectionnez « Se connecter au serveur » dans le Menu « Aller »**  : à l’aide du chemin d’accès UNC requis dans les [conditions préalables](#preq), remplacez la double barre oblique inverse (`\\`) par `smb://` et toutes les autres barres obliques inverses (`\`) par des barres obliques normales (`/`). Votre lien doit se présenter comme suit : ![la boîte de dialogue « Se connecter au serveur »](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
-3. **Lorsque vous y êtes invité, utilisez le nom du partage et la clé du compte de stockage comme nom d’utilisateur et comme mot de passe** : lorsque vous cliquez sur « Connexion », dans la boîte de dialogue « Se connecter au serveur », vous êtes invité à entrer le nom d’utilisateur et le mot de passe (votre nom d’utilisateur MacOS est automatiquement prérempli). Vous avez la possibilité de placer le nom de partage / la clé du compte de stockage dans votre trousseau MacOS.
+3. **Lorsque vous y êtes invité, utilisez le nom et la clé du compte de stockage comme nom d’utilisateur et comme mot de passe** : lorsque vous cliquez sur « Connexion » dans la boîte de dialogue « Se connecter au serveur », vous êtes invité à entrer le nom d’utilisateur et le mot de passe (votre nom d’utilisateur MacOS est automatiquement prérempli). Vous avez la possibilité de placer le nom/la clé du compte de stockage dans votre trousseau MacOS.
 
 4. **Utilisez le partage de fichiers Azure à votre guise** : après avoir remplacé le nom de partage et la clé du compte de stockage par le nom d’utilisateur et le mot de passe, vous pouvez monter le partage. Vous pouvez l’utiliser comme un partage de fichiers / un dossier local normal. Vous pouvez notamment faire glisser et déposer des fichiers dans le partage :
 
@@ -66,6 +67,6 @@ ms.lasthandoff: 10/11/2017
 Consultez ces liens pour en savoir plus sur Azure Files.
 
 * [Rubrique d’aide Apple : connexion au partage de fichiers sur Mac](https://support.apple.com/HT204445)
-* [FAQ](../storage-files-faq.md)
+* [FORUM AUX QUESTIONS](../storage-files-faq.md)
 * [Résolution des problèmes sur Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Résolution des problèmes sur Linux](storage-troubleshoot-linux-file-connection-problems.md)    

@@ -1,20 +1,20 @@
 ---
-title: Détecter des problèmes d’appareils dans la solution de surveillance à distance Azure | Microsoft Docs
+title: 'Tutoriel : Détecter des problèmes d’appareils dans la solution de surveillance à distance Azure | Microsoft Docs'
 description: Ce tutoriel montre comment utiliser des règles et des actions pour détecter automatiquement les problèmes d’appareils liés au seuil dans la solution de surveillance à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29d4289f5b83e37cddec652b976aeb5aa255ed4c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098479"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158875"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutoriel : Détecter des problèmes liés aux appareils connectés à votre solution de surveillance
 
@@ -33,29 +33,19 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Modifier une règle existante
 > * Activer et désactiver les règles de commutateur
 
-## <a name="prerequisites"></a>Prérequis
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de l’accélérateur de solution de surveillance à distance dans votre abonnement Azure.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-Si vous n’avez pas encore déployé l’accélérateur de solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md).
-
-## <a name="view-the-existing-rules"></a>Afficher les règles existantes
+## <a name="review-the-existing-rules"></a>Réviser les règles existantes
 
 La page **Règles** de l’accélérateur de solution affiche une liste de toutes les règles actuellement proposées :
 
 [![Page de règles](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-Pour afficher uniquement les règles qui s’appliquent aux appareils de refroidissement, appliquez un filtre :
-
-[![Filtrer la liste des règles](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
-
-Vous pouvez afficher plus d’informations sur une règle et modifier celle-ci lorsque vous la sélectionnez dans la liste :
+Pour afficher uniquement les règles qui s’appliquent aux appareils de refroidissement, appliquez un filtre. Vous pouvez afficher plus d’informations sur une règle et modifier celle-ci lorsque vous la sélectionnez dans la liste :
 
 [![Afficher les détails de la règle](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
-
-Pour désactiver, activer ou supprimer une ou plusieurs règles, sélectionnez des règles dans la liste :
-
-[![Sélectionner plusieurs règles](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
 ## <a name="create-a-rule"></a>Créer une règle
 
@@ -80,7 +70,7 @@ Vous pouvez voir le moment où la règle est déclenchée dans la page **Règles
 
 [![Règle d’avertissement déclenchée](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-## <a name="create-a-rule-with-multiple-conditions"></a>Créer une règle avec plusieurs conditions
+## <a name="create-an-advanced-rule"></a>Créer une règle avancée
 
 Pour créer une règle avec plusieurs conditions qui génère une alerte critique quand l’humidité moyenne de l’appareil de refroidissement des cinq dernières minutes est supérieure à 80 % et que la température moyenne de l’appareil de refroidissement est supérieure à 75 degrés Fahrenheit (24 degrés Celsius), choisissez Nouvelle règle. Utilisez les valeurs suivantes pour créer la règle :
 
@@ -128,23 +118,7 @@ Pour désactiver temporairement une règle, vous pouvez la désactiver dans la l
 
 Vous pouvez activer et désactiver plusieurs règles en même temps en sélectionnant plusieurs règles dans la liste.
 
-<!-- ## Delete a rule
-
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
-
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
-
-## <a name="clean-up-resources"></a>Supprimer des ressources
-
-Si vous envisagez de passer à l’étape suivante du tutoriel, laissez l’accélérateur de solution de surveillance à distance déployé. Pour réduire les coûts d’exécution de l’accélérateur de solution pendant que vous ne l’utilisez pas, vous pouvez arrêter les appareils simulés dans le panneau des paramètres :
-
-[![Suspendre les données de télémétrie](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
-
-Vous pouvez redémarrer les appareils simulés lorsque vous êtes prêt à commencer le tutoriel suivant.
-
-Si vous n’avez plus besoin l’accélérateur de solution, supprimez-le à partir de la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) :
-
-![Supprimer la solution](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

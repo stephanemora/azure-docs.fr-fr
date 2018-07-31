@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967345"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205559"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Project
 
@@ -45,7 +45,7 @@ Vous allez effectuer les étapes suivantes :
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Azure DevOps Projects crée un pipeline CI/CD dans VSTS.  Vous pouvez créer un **compte VSTS** ou utiliser un **compte existant**.  Azure DevOps Project crée également des **ressources Azure** dans l’**abonnement Azure** de votre choix.
+Azure DevOps Project crée un pipeline CI/CD dans VSTS.  Vous pouvez créer un **compte VSTS** ou utiliser un **compte existant**.  Azure DevOps Projects crée également des **ressources Azure** dans **l’abonnement Azure** de votre choix.
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
 
@@ -71,11 +71,11 @@ Azure DevOps Projects crée un pipeline CI/CD dans VSTS.  Vous pouvez créer un 
 
     ![Entrer les informations VSTS](_img/azure-devops-project-github/vstsazureinfo.png)
 
-1. En quelques minutes, le **tableau de bord du projet** est chargé dans le portail Azure.  Un exemple d’application est configuré dans un référentiel dans votre compte VSTS, une build est exécutée, et votre application est déployée dans Azure.  Ce tableau de bord fournit une visibilité dans votre **référentiel de code GitHub**, votre **pipeline VSTS CI/CD** et votre **application dans Azure**.  Sur le côté droit du tableau de bord, sélectionnez **Parcourir** pour afficher votre application en cours d’exécution.
+1. En quelques minutes, le **tableau de bord du projet** est chargé dans le portail Azure.  Un exemple d’application est configuré dans un référentiel dans votre compte VSTS, une build est exécutée, et votre application est déployée dans Azure.  Ce tableau de bord fournit une visibilité dans votre **référentiel de code GitHub**, votre **pipeline VSTS CI/CD** et votre **application dans Azure**.  Sur la droite du tableau de bord, sélectionnez **Parcourir** pour afficher votre application en cours d’exécution.
 
     ![Vue du tableau de bord](_img/azure-devops-project-github/dashboardnopreview.png) 
     
-Le projet Azure DevOps configure automatiquement une build ainsi qu’un déclencheur de mise en production.  Votre code demeure dans votre référentiel GitHub ou Git externe.  
+Azure DevOps Project configure automatiquement une build CI ainsi qu’un déclencheur de mise en production.  Votre code demeure dans votre référentiel GitHub ou Git externe.  
 
 ## <a name="commit-changes-to-github-and-automatically-deploy-to-azure"></a>Valider les modifications apportées à GitHub et les déployer automatiquement dans Azure 
 
@@ -91,7 +91,7 @@ Azure DevOps Project a configuré automatiquement un pipeline VSTS CI/CD complet
 
 1. Sélectionnez **Pipelines de build** en **haut** du tableau de bord Azure DevOps Project.  Ce lien ouvre un onglet de navigateur ainsi que la définition de build VSTS pour votre nouveau projet.
 
-1. Déplacez le curseur de souris vers la droite de la définition de build en regard du champ **État**. Sélectionnez les **points de suspension** affichés.  Cette action ouvre un menu où vous pouvez démarrer plusieurs activités, telles que mettre une nouvelle build en file d'attente, suspendre une build, et modifier une définition de build.
+1. Déplacez le curseur de souris vers la droite de la définition de build en regard du champ **État**. Sélectionnez les **points de suspension** affichés.  Cette action ouvre un menu où vous pouvez démarrer plusieurs activités, telles que mettre une nouvelle build en file d’attente, suspendre une build, et modifier une définition de build.
 
 1. Sélectionnez **Modifier**.
 
@@ -101,23 +101,23 @@ Azure DevOps Project a configuré automatiquement un pipeline VSTS CI/CD complet
 
 1. Modifiez le **nom** de votre définition de build pour le remplacer par un nom plus descriptif.  Sélectionnez **Enregistrer et mettre en file d’attente**, puis **Enregistrer**.
 
-1. Sous le nom de votre définition de build, sélectionnez **Historique**.  Vous pouvez observer une piste d’audit des modifications que vous avez apportées récemment à la build.  VSTS suit toutes modifications apportées à la définition de build et vous permet de comparer les versions.
+1. Sous le nom de votre définition de build, sélectionnez **Historique**.  Vous pouvez observer une piste d’audit des modifications que vous avez apportées récemment à la build.  VSTS suit les modifications apportées à la définition de build et vous permet de comparer les versions.
 
-1. Sélectionnez **Déclencheurs**.  Le projet Azure DevOps a créé automatiquement un déclencheur d’intégration continue, et chaque validation dans le référentiel démarre une nouvelle build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
+1. Sélectionnez **Déclencheurs**.  Azure DevOps Project a créé automatiquement un déclencheur d’intégration continue, et chaque validation dans le référentiel démarre une nouvelle build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
 
 1. Sélectionnez **Rétention**.  Selon votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
 
-1. Sélectionnez **Build et mise en production**, puis **Versions**.  Le projet Azure DevOps a créé une définition de mise en production VSTS pour gérer les déploiements dans Azure.
+1. Sélectionnez **Build et mise en production**, puis **Versions**.  Azure DevOps Project a créé une définition de mise en production VSTS pour gérer les déploiements dans Azure.
 
-1. Sur le côté gauche du navigateur, sélectionnez les **points de suspension** en regard de votre définition de mise en production, puis **Modifier**.
+1. Sur la gauche du navigateur, sélectionnez les **points de suspension** en regard de votre définition de mise en production, puis **Modifier**.
 
 1. La définition de mise en production contient un **pipeline**, qui définit le processus de mise en production.  Sous **Artefacts**, sélectionnez **Déposer**.  La définition de build que vous avez examinée dans les étapes précédentes génère la sortie utilisée pour l’artefact. 
 
-1. À droite de l’icône **Déposer**, sélectionnez le **déclencheur de déploiement continu**.  Cette définition de mise en production possède un déclencheur CD actif, qui exécute un déploiement à chaque fois qu’un nouvel artefact de build est disponible.  Si vous le souhaitez, vous pouvez désactiver le déclencheur, afin que vos déploiements nécessitent une exécution manuelle. 
+1. À droite de l’icône **Déposer**, sélectionnez le **déclencheur de déploiement continu**.  Cette définition de mise en production possède un déclencheur CD actif, qui exécute un déploiement à chaque fois qu’un nouvel artefact de build est disponible.  Si vous le souhaitez, vous pouvez désactiver le déclencheur afin que vos déploiements nécessitent une exécution manuelle. 
 
 1. À gauche du navigateur, sélectionnez **Tâches**.  Il s’agit des activités effectuées par votre processus de déploiement.  Dans cet exemple, une tâche a été créée pour déployer un **service Azure App**.
 
-1. Sur le côté droit du navigateur, sélectionnez **Afficher les mises en production**.  Cette vue affiche un historique des mises en production.
+1. À droite du navigateur, sélectionnez **Afficher les mises en production**.  Cette vue affiche un historique des mises en production.
 
 1. Sélectionnez les **points de suspension** situés en regard de vos mises en production, puis **Ouvrir**.  Il y a plusieurs menus à explorer dans cette vue, comme un résumé des mises en production, les éléments de travail associés et les tests.
 
@@ -127,7 +127,7 @@ Azure DevOps Project a configuré automatiquement un pipeline VSTS CI/CD complet
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Configurer la surveillance d’Azure Application Insights
 
-Azure Application Insights vous permet d’analyser facilement les performances et l’utilisation de votre application.  Le projet Azure DevOps a configuré automatiquement une ressource Application Insights pour votre application.  Vous pouvez configurer différentes capacités d’alertes et de surveillance, si besoin.
+Azure Application Insights vous permet d’analyser facilement les performances et l’utilisation de votre application.  Azure DevOps Project a configuré automatiquement une ressource Application Insights pour votre application.  Vous pouvez configurer différentes capacités d’alertes et de surveillance, si besoin.
 
 1. Accédez au tableau de bord **Azure DevOps Projects** dans le portail Azure.  En bas à droite du tableau de bord, choisissez le lien **Application Insights** pour votre application.
 
@@ -141,15 +141,15 @@ Azure Application Insights vous permet d’analyser facilement les performances 
 
 1. Entrer un **nom** pour l’alerte.
 
-1. Sélectionnez la liste déroulante pour **Source Alter on**.  Choisissez votre **ressource App Service**.
-
+1. Sélectionnez la liste déroulante pour **Source Alter on**.  Choisissez votre **ressource App Service.
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->**
 1. L’alerte par défaut est pour un **temps de réponse serveur supérieur à 1 seconde**.  Sélectionnez la liste déroulante **Métrique** pour examiner les différentes métriques d’alerte.  Vous pouvez aisément configurer une variété d’alertes pour améliorer les capacités de surveillance de votre application.
 
 1. Sélectionnez la case à cocher **Notifier via e-mail les propriétaires, contributeurs et lecteurs**.  Si vous le souhaitez, vous pouvez effectuer des actions supplémentaires lorsqu’une alerte est émise en exécutant une application logique Azure.
 
-1. Sélectionnez **OK** pour créer l’alerte.  En quelques instants, l’alerte apparaît active sur le tableau de bord.  **Quittez** la zone Alertes, et retournez au **panneau Application Insights**.
+1. Sélectionnez **OK** pour créer l’alerte.  En quelques instants, l’alerte apparaît comme étant active sur le tableau de bord.  **Quittez** la zone Alertes, et retournez au **panneau Application Insights**.
 
-1. Sélectionnez **Disponibilité** puis **+Ajouter un test**. 
+1. Sélectionnez **Disponibilité** puis **+ Ajouter un test**. 
 
 1. Saisissez un **nom de test**, puis choisissez **Créer**.  Un test Ping basique est créé pour vérifier la disponibilité de votre application.  Au bout de quelques instants, les résultats de test sont disponibles, et le tableau de bord Application Insights affiche le statut de disponibilité.
 
@@ -169,7 +169,7 @@ Lorsque vous avez configuré votre processus CI/CD dans ce didacticiel, une déf
 > * Examiner le pipeline VSTS CI/CD
 > * Configurer la surveillance d’Azure Application Insights
 
-Pour en savoir plus sur le pipeline VSTS, consultez ce didacticiel :
+Pour en savoir plus sur le pipeline VSTS, consultez ce tutoriel :
 
 > [!div class="nextstepaction"]
 > [Personnaliser le processus CD](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)

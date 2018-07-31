@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823561"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259253"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurer la coexistence de connexions de site à site et ExpressRoute
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Vous avez le choix entre deux ensembles de procédures. La procédure de configu
     Cette procédure vous guide dans la création d’un réseau virtuel si vous n’en possédez pas encore un. Elle vous demande d’utiliser le modèle de déploiement Resource Manager et de créer de nouvelles connexions ExpressRoute et VPN de site à site. Pour configurer un réseau virtuel, suivez les étapes décrites dans la section [Créer un réseau virtuel et des connexions qui coexistent](#new).
 * J’ai déjà un réseau virtuel répondant au modèle de déploiement Resource Manager.
   
-    Vous disposez peut-être déjà d’un réseau virtuel avec une connexion VPN de site à site existante ou une connexion ExpressRoute. Dans ce scénario, si le masque de sous-réseau de la passerelle est /28 ou supérieur, vous devez supprimer la passerelle existante. La section [Configurer des connexions qui coexistent pour un réseau virtuel existant](#add) vous guide tout au long des étapes de suppression de la passerelle puis de création de connexions ExpressRoute et VPN de site à site.
+    Vous disposez peut-être déjà d’un réseau virtuel avec une connexion VPN de site à site existante ou une connexion ExpressRoute. Dans ce scénario, si le masque de sous-réseau de la passerelle est /28 ou inférieur (/28, /29, etc.), vous devez supprimer la passerelle existante. La section [Configurer des connexions qui coexistent pour un réseau virtuel existant](#add) vous guide tout au long des étapes de suppression de la passerelle puis de création de connexions ExpressRoute et VPN de site à site.
   
     Si vous supprimez et recréez votre passerelle, vous rencontrez des temps d’arrêt pour vos connexions intersites. Toutefois, vos machines virtuelles et services sont toujours en mesure de communiquer via l’équilibreur de charge lorsque vous configurez votre passerelle s’ils sont configurés pour le faire.
 
@@ -91,7 +91,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. Créez un réseau virtuel et un sous-réseau de passerelle. Pour en savoir plus sur la création d’un réseau virtuel, consultez [Créer un réseau virtuel](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Pour en savoir plus sur la création de sous-réseaux virtuels, consultez [Créer un sous-réseau virtuel](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet).
    

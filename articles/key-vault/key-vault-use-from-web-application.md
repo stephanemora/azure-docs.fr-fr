@@ -2,24 +2,25 @@
 title: 'Tutoriel : Utilisation d’Azure Key Vault à partir d’une application web | Microsoft Docs'
 description: Utilisez ce tutoriel pour découvrir comment utiliser Azure Key Vault à partir d'une application web.
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: adhurwit
-ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/20/2018
+ms.author: barclayn
+ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115076"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171321"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutoriel : Utilisation d'Azure Key Vault à partir d'une application web
-Utilisez ce tutoriel pour découvrir comment utiliser Azure Key Vault à partir d'une application web. Il illustre le processus d’accès à une clé secrète à partir d’Azure Key Vault pour une utilisation dans une application web. Le tutoriel s’appuie sur le processus et utilise un certificat au lieu d’une clé secrète client. Ce tutoriel est conçu pour les développeurs web qui comprennent les principes fondamentaux de création d'applications web sur Azure. 
+
+Utilisez ce tutoriel pour découvrir comment utiliser Azure Key Vault à partir d'une application web. Il illustre le processus d’accès à une clé secrète à partir d’Azure Key Vault pour une utilisation dans une application web. Le tutoriel s’appuie sur le processus et utilise un certificat au lieu d’une clé secrète client. Ce tutoriel est conçu pour les développeurs web qui comprennent les principes fondamentaux de création d'applications web sur Azure.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes : 
 
@@ -27,7 +28,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Ajouter des paramètres d’application pour le fichier web.config
 > * Ajouter une méthode pour obtenir un jeton d'accès
 > * Récupérer le jeton dans Application Start
-> * S’authentifier avec un certificat 
+> * S’authentifier avec un certificat
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -41,7 +42,7 @@ Pour suivre ce tutoriel, vous avez besoin des éléments suivants :
 
 Suivez les étapes de [Prise en main d'Azure Key Vault](key-vault-get-started.md) pour obtenir l’URI pour une clé secrète, un ID client, une clé secrète client et enregistrer l’application. L’application web accédera au coffre et doit être enregistrée dans Azure Active Directory. Elle doit également disposer de droits d’accès à Key Vault. Si cela n'est pas le cas, revenez à Enregistrer une application dans le tutoriel de prise en main et répétez les étapes répertoriées. Pour plus d'informations sur la création d’Azure Web Apps, consultez [Vue d'ensemble de Web Apps](../app-service/app-service-web-overview.md).
 
-Cet exemple est basé sur l’approvisionnement manuel des identités Azure Active Directory. Il existe à ce jour une nouvelle fonctionnalité en préversion, nommée [Identité du service administré (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), qui peut configurer automatiquement les identités Azure AD. Pour plus d’informations, consultez l’exemple sur [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) et le [tutoriel MSI avec App Service et Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
+Cet exemple est basé sur l’approvisionnement manuel des identités Azure Active Directory. Mais vous devez utiliser l’authentification [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview). Les fichiers MSI permettent d’approvisionner automatiquement les identités Azure AD. Pour plus d’informations, consultez l’exemple sur [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) et le [tutoriel MSI avec App Service et Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). Vous pouvez également consulter le [didacticiel MSI](tutorial-web-application-keyvault.md) propre à Key Vault.
 
 
 ## <a id="packages"></a>Ajouter des packages NuGet

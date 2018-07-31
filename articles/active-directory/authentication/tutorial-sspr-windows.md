@@ -1,37 +1,41 @@
 ---
-title: Réinitialisation du mot de passe libre-service d’Azure AD à partir de l’écran de connexion Windows 10 | Microsoft Docs
-description: Configurer la réinitialisation de mot de passe Azure AD depuis l’écran de connexion Windows 10 et la fonction J’ai oublié mon code PIN
+title: Réinitialisation du mot de passe libre-service (SSPR) d’Azure AD à partir de l’écran de connexion Windows 10
+description: Dans ce tutoriel, vous allez activer la réinitialisation de mot de passe au niveau de l’écran de connexion Windows 10 afin de réduire les appels au support technique.
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.topic: tutorial
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2a6fbd9e52e07141ae1d8c630bde6ab23801fb18
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e4e94567cf978631be52a3304b47b68f61ac3fff
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054499"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161161"
 ---
-# <a name="azure-ad-password-reset-from-the-login-screen"></a>Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
+# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutoriel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
-Vous avez déjà déployé la fonction de réinitialisation de mot de passe libre-service d’Azure AD (SSPR), mais les utilisateurs continuent d’appeler le support technique lorsqu’ils oublient leur mot de passe. En effet, ils ne parviennent pas à accéder à un navigateur web pour accéder à la fonction SSPR.
+Dans ce tutoriel, vous allez autoriser les utilisateurs à réinitialiser leurs mots de passe depuis l’écran de connexion Windows 10. Avec la nouvelle mise à jour d’avril 2018 de Windows 10, les utilisateurs qui ont des appareils **joints à Azure AD** ou **joints à Azure AD hybrides** peuvent utiliser un lien de réinitialisation de mot de passe sur leur écran de connexion. Lorsque les utilisateurs cliquent sur ce lien, ils bénéficient de l’expérience SSPR qu’ils connaissent déjà.
 
-Avec la nouvelle mise à jour d’avril 2018 de Windows 10, les utilisateurs qui ont des appareils **joints à Azure AD** ou **joints à Azure AD hybrides** peuvent voir et utiliser un lien de réinitialisation de mot de passe sur leur écran de connexion. Lorsqu’ils cliquent sur ce lien, ils bénéficient de l’expérience SSPR qu’ils connaissent déjà.
+> [!div class="checklist"]
+> * Configurer le lien de réinitialisation du mot de passe à l’aide d’Intune
+> * Configurer éventuellement à l’aide du Registre Windows
+> * Comprendre ce que vos utilisateurs verront
 
-Pour permettre aux utilisateurs de réinitialiser leur mot de passe Azure AD à partir de l’écran de connexion Windows 10, vous devez :
+## <a name="prerequisites"></a>Prérequis
 
-* Mise à jour d’avril 2018 de Windows 10 ou client plus récent [joint à Azure AD](../device-management-azure-portal.md) ou [joint à Azure AD hybride](../device-management-hybrid-azuread-joined-devices-setup.md).
+* Mise à jour d’avril 2018 de Windows 10, ou client plus récent :
+   * [joints à Azure AD](../device-management-azure-portal.md) ou 
+   * [joints à Azure AD hybrides](../device-management-hybrid-azuread-joined-devices-setup.md)
 * activer la réinitialisation du mot de passe libre-service Azure AD.
-* Configurez et déployez le paramètre permettant d’activer le lien de réinitialisation du mot de passe via l’une des méthodes suivantes :
-   * [Profil de configuration d’appareil Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Cette méthode nécessite un appareil inscrit à Intune.
-   * [Clé de Registre](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurer le lien de réinitialisation du mot de passe à l’aide d’Intune
+
+Déployer la modification de la configuration est la méthode la plus souple pour activer la réinitialisation du mot de passe à partir de l’écran de connexion à l’aide d’Intune. Intune vous permet de déployer les modifications de configuration vers un groupe spécifique de machines que vous définissez. Cette méthode nécessite un appareil inscrit à Intune.
 
 ### <a name="create-a-device-configuration-policy-in-intune"></a>Créer une stratégie de configuration d’appareil dans Intune
 
@@ -79,13 +83,13 @@ Vous trouverez plus d’informations sur la création de groupes dans l’articl
 
    ![Affectation][Assignment]
 
-Vous avez désormais créé et attribué une stratégie de configuration d’appareil pour activer le lien de réinitialisation de mot de passe sur l’écran d’ouverture de session, via Intune.
+Vous avez désormais créé et attribué une stratégie de configuration d’appareil pour activer le lien de réinitialisation de mot de passe sur l’écran de connexion, via Intune.
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>Configurer le lien de réinitialisation du mot de passe à l’aide du registre
 
 Nous vous recommandons d’utiliser cette méthode uniquement pour tester la procédure de modification du mot de passe.
 
-1. Se connecter à un appareil joint à Azure Active Directory à l’aide d’informations d’identification d’administration
+1. Se connecter à un PC Windows à l’aide d’informations d’identification d’administration
 2. Exécutez **regedit** en tant qu’administrateur
 3. Définissez la clé de Registre suivante
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -93,11 +97,12 @@ Nous vous recommandons d’utiliser cette méthode uniquement pour tester la pro
 
 ## <a name="what-do-users-see"></a>Ce que voient les utilisateurs
 
-Maintenant que la stratégie est configurée et attribuée, quelles sont les modifications affectant l’utilisateur ? Comment peut-il savoir qu’il est possible de réinitialiser un mot de passe sur l’écran d’ouverture de session ?
+Maintenant que la stratégie est configurée et attribuée, quelles sont les modifications affectant l’utilisateur ? Comment peut-il savoir qu’il est possible de réinitialiser un mot de passe sur l’écran de connexion ?
 
-![LoginScreen][LoginScreen]
+![Écran de connexion][LoginScreen]
 
-Lorsque les utilisateurs tentent de se connecter, ils voient maintenant un lien de réinitialisation du mot de passe qui ouvre l’expérience de réinitialisation de mot de passe libre-service au niveau de l’écran d’ouverture de session. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
+Lorsque les utilisateurs tentent de se connecter, ils voient maintenant un lien de réinitialisation du mot de passe qui ouvre l’expérience de réinitialisation de mot de passe libre-service au niveau de l’écran de connexion. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
+Lorsque les utilisateurs tentent de se connecter, ils voient maintenant un lien de réinitialisation du mot de passe qui ouvre l’expérience de réinitialisation de mot de passe libre-service au niveau de l’écran de connexion. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
 
 Pour en savoir plus sur l’utilisation de cette fonction, les utilisateurs peuvent consulter la section [Réinitialiser ou déverrouiller mon mot de passe d’un compte professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
@@ -111,14 +116,17 @@ Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance, le 
 
 * Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un Bureau à distance.
 
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+Si vous ne souhaitez plus utiliser la fonctionnalité que vous avez configurée dans le cadre de ce tutoriel, supprimez le profil de configuration d’appareil Intune que vous avez créé ou la clé de Registre.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
+Dans ce tutoriel, vous avez autorisé les utilisateurs à réinitialiser leurs mots de passe depuis l’écran de connexion Windows 10. Continuez avec le tutoriel suivant pour savoir comment Azure Identity Protection peut être intégré à la réinitialisation de mot de passe libre-service et aux expériences Multi-Factor Authentication.
 
-* [Comment faire pour déployer la fonction SSPR ?](howto-sspr-deployment.md)
-* [Comment faire pour activer la réinitialisation du code PIN à partir de l’écran de connexion ?](https://docs.microsoft.com/intune/device-windows-pin-reset)
-* [Plus d’informations sur les stratégies d’authentification GPM](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
+> [!div class="nextstepaction"]
+> [Évaluer les risques lors de la connexion](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Créer le profil de configuration d’appareil Intune pour activer le lien de réinitialisation du mot de passe sur l’écran d’ouverture de session de Windows 10"
+[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Créer un profil de configuration d’appareil Intune pour activer le lien de réinitialisation du mot de passe sur l’écran de connexion de Windows 10"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Attribuer la stratégie de configuration d’appareil Intune à un groupe d’appareils Windows 10"
-[LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Lien de réinitialisation du mot de passe sur l’écran d’ouverture de session Windows 10"
+[LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Lien de réinitialisation du mot de passe sur l’écran de connexion Windows 10"

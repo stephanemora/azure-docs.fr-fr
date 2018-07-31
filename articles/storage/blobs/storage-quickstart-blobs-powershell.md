@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: f028d37a98cecf14706773a2eb7cb601481435d1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2ae0fee410c93911546e5cbeef1378e6f7ebbc39
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307913"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205195"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Azure PowerShell
 
@@ -113,13 +113,15 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et le stockage Blob Azure. Pour en savoir plus sur l’utilisation de Stockage Blob, consultez le Guide pratique de Stockage Blob.
+Dans ce démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et le stockage Blob Azure. Pour en savoir plus sur le fonctionnement de stockage d’objets Blob à l’aide de PowerShell, continuer avec le guide d’utilisation d’Azure PowerShell avec le stockage Azure.
 
 > [!div class="nextstepaction"]
-> [Guide pratique des opérations de stockage Blob](storage-how-to-use-blobs-powershell.md)
+> [Utilisation d'Azure PowerShell avec Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Référence des applets de commande de stockage Microsoft Azure PowerShell
+
 * [Applets de commande PowerShell - Stockage](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorateur Stockage Microsoft Azure
+
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

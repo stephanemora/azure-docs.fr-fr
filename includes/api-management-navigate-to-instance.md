@@ -1,18 +1,18 @@
-## <a name="navigate-to-your-apim-instance"></a>Accéder à votre instance APIM
-
-Pour accéder à votre instance APIM, procédez comme suit :
+## <a name="go-to-your-api-management-instance"></a>Accéder à votre instance Gestion des API
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
-2. En haut à gauche de l’écran, sélectionnez **Tous les services**.  
-3. Dans la zone de recherche, tapez « API ».
-4. Cliquez sur **Services Gestion des API**.
+2. Sélectionnez **Tous les services**.  
+3. Dans la zone de recherche, entrez **api**.
+4. Dans les résultats de la recherche, sélectionnez **API Management services (Services Gestion des API)**.
 
-    ![Naviguer](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
+    ![Sélectionner les services Gestion des API dans les résultats de recherche](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
 
-5. Sélectionnez votre instance de service APIM.
+5. Sélectionnez votre instance de service Gestion des API.
 
->[!TIP]
->Ajoutez le service API Management (APIM) à vos favoris dans le portail Azure, en cliquant sur l’étoile. <br/>Ce faisant, vous ajoutez l’icône APIM au menu situé sur la gauche du portail. Pour afficher l’ensemble des services APIM, cliquez sur l’icône (![icône APIM](./media/api-management-navigate-to-instance/apim-icon.png)).
+> [!TIP]
+> Pour ajouter Gestion des API à vos favoris dans le portail Azure, cliquez sur l’étoile.
+>
+> L’icône Gestion des API (![icône Gestion des API](./media/api-management-navigate-to-instance/apim-icon.png)) s’affiche désormais dans le menu de gauche du portail.
  
 
 

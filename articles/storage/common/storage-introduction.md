@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e6a3ff22d6224ff0accdf39ad098505626659688
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001539"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238248"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -23,7 +23,7 @@ Le Stockage Azure est une solution de stockage cloud de Microsoft pour les scén
 - **Sécurisé.** Toutes les données écrites dans le Stockage Azure sont chiffrées par le service. Le Stockage Azure vous permet de contrôler de manière plus précise qui a accès à vos données.
 - **Évolutif.** Le Stockage Azure est conçu pour être hautement évolutif afin de répondre aux besoins de stockage de données et de performances des applications actuelles. 
 - **Géré.** Microsoft Azure gère la maintenance et les problèmes critiques pour vous.
-- **Accessible.** Les données dans le Stockage Azure sont accessibles n’importe où dans le monde via HTTP ou HTTPS. Microsoft propose des Kits de développement logiciel (DSK) pour le Stockage Azure dans une variété de langages : .NET, Java, Node.js, Python, PHP, Ruby, Go et autres encore, ainsi qu’API REST éprouvée. Le Stockage Azure prend en charge le scriptage Azure PowerShell ou Azure CLI. De plus, le portail Azure et l’Explorateur Stockage Azure offrent des solutions visuelles simples pour utiliser vos données.  
+- **Accessible.** Les données dans le Stockage Azure sont accessibles n’importe où dans le monde via HTTP ou HTTPS. Microsoft propose des Kits de développement logiciel (DSK) pour le Stockage Azure dans une variété de langages : .NET, Java, Node.js, Python, PHP, Ruby, Go et autres encore, ainsi qu’API REST éprouvée. Le stockage Azure prend en charge l’écriture de scripts Azure PowerShell ou l’interface de ligne de commande Azure. De plus, le portail Azure et l’Explorateur Stockage Azure offrent des solutions visuelles simples pour utiliser vos données.  
 
 ## <a name="azure-storage-services"></a>Services de stockage Azure
 

@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f894549951a0ef23a95acaab48ab20ce6646443
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967777"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189391"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Créer un cluster Kubernetes activé pour Azure Dev Spaces
 
@@ -32,7 +32,11 @@ ms.locfileid: "37967777"
 
    ![Paramètres de configuration Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   Sélectionnez **Suivant : Mise en réseau** lorsque vous avez terminé.
+   Sélectionnez **Suivant : authentification** lorsque vous avez terminé.
+
+1. Choisissez votre paramètre souhaité pour le contrôle d’accès en fonction du rôle (RBAC). Azure Dev Spaces prend en charge les clusters avec le paramètre RBAC activé ou désactivé.
+
+    ![Paramètre RBAC](../media/common/k8s-RBAC.PNG)
 
 1. Vérifiez que le routage d’applications HTTP est activé.
 
@@ -40,9 +44,5 @@ ms.locfileid: "37967777"
 
     > [!IMPORTANT]
     > Vous devez vous assurer que le routage des applications HTTP quand vous créez votre cluster AKS. Il n’est pas possible de changer ce paramètre ultérieurement.
-
-1. Choisissez votre paramètre souhaité pour le contrôle d’accès en fonction du rôle (RBAC). Azure Dev Spaces prend en charge les clusters avec le paramètre RBAC activé ou désactivé.
-
-    ![Paramètre RBAC](../media/common/k8s-RBAC.PNG)
 
 1. Sélectionnez **Vérifier + créer**, puis **Créer** lorsque vous avez terminé.

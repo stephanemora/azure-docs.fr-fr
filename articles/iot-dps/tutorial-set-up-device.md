@@ -9,70 +9,82 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1e4e93c276fe62caae17c85bf9ac92282dfdfb88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d589c0ece2b36970a31884aa72ee7ab87941a656
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631266"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146433"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
 
-Dans le didacticiel précédent, vous avez appris à configurer le service IoT Hub Device Provisioning afin de provisionner automatiquement vos appareils pour votre hub IoT. Ce didacticiel vous montre comment configurer votre appareil pendant le processus de fabrication, pour lui permettre d’être approvisionné automatiquement avec IoT Hub. Votre appareil est approvisionné en fonction de son [mécanisme d’attestation](concepts-device.md#attestation-mechanism), au premier démarrage et à la première connexion au service d’approvisionnement. Ce didacticiel présente les processus correspondant aux opérations suivantes :
+Dans le didacticiel précédent, vous avez appris à configurer le service IoT Hub Device Provisioning afin de provisionner automatiquement vos appareils pour votre hub IoT. Ce didacticiel vous montre comment configurer votre appareil pendant le processus de fabrication, pour lui permettre d’être approvisionné automatiquement avec IoT Hub. Votre appareil est approvisionné en fonction de son [mécanisme d’attestation](concepts-device.md#attestation-mechanism), au premier démarrage et à la première connexion au service d’approvisionnement. Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Générer un Kit de développement logiciel (SDK) Device Provisioning Service Client spécifique à une plateforme
 > * Extraire les artefacts de sécurité
 > * Créer le logiciel d’inscription d’appareils
 
-## <a name="prerequisites"></a>Prérequis
-
-Avant de continuer, créez votre instance du service Device Provisioning Service et un IoT Hub en suivant les instructions indiquées dans le didacticiel précédent [1 - Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning](./tutorial-set-up-cloud.md).
+Avant de continuer ce tutoriel, vous devez créer votre instance du service Device Provisioning Service et un hub IoT en suivant les instructions indiquées dans le tutoriel précédent [Configurer des ressources cloud](tutorial-set-up-cloud.md).
 
 Ce didacticiel utilise le [référentiel Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), qui contient le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C. Le Kit de développement logiciel (SDK) offre actuellement une prise en charge TPM et X.509 pour les appareils s’exécutant sur des implémentations Windows ou Ubuntu. Ce didacticiel repose sur l’utilisation d’un client de développement Windows, ce qui suppose également que vous ayez des compétences basiques sur Visual Studio 2017. 
 
 Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter l’article [Concepts de provisionnement automatique](concepts-auto-provisioning.md) avant de continuer. 
 
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Prérequis
+
+* Visual Studio 2015 ou [Visual Studio 2017](https://www.visualstudio.com/vs/) avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
+* Dernière version de [Git](https://git-scm.com/download/) installée.
+
+
+
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Générer une version spécifique à la plateforme du Kit de développement (SDK)
 
 Le Kit de développement logiciel (SDK) Device Provisioning Service Client vous permet d’implémenter votre logiciel d’inscription d’appareil. Mais avant de pouvoir l’utiliser, vous devez générer une version du Kit de développement logiciel (SDK) spécifique à votre mécanisme d’attestation et plateforme cliente de développement. Dans ce didacticiel, vous générez un Kit de développement logiciel (SDK) qui utilise Visual Studio 2017 sur une plateforme de développement Windows, pour un type d’attestation pris en charge :
 
-1. Installez les outils nécessaires et clonez le référentiel GitHub qui contient le Kit de développement logiciel (SDK) Provisioning Service Client pour C :
+1. Téléchargez la dernière version du [système de génération de CMake](https://cmake.org/download/). Depuis ce même site, recherchez le hachage de chiffrement pour la version de la distribution binaire que vous avez choisie. Vérifiez le binaire téléchargé à l’aide de la valeur de hachage de chiffrement correspondante. L’exemple suivant utilise Windows PowerShell pour vérifier le hachage de chiffrement pour la version 3.11.4 de la distribution MSI x64 :
 
-   a. Assurez-vous que Visual Studio 2015 ou [Visual Studio 2017](https://www.visualstudio.com/vs/) est installé sur votre ordinateur. La charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) doit être activée pour l’installation de Visual Studio.
+    ```PowerShell
+    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    True
+    ```
 
-   b. Téléchargez et installez le [système de génération de CMake](https://cmake.org/download/). Il est important que Visual Studio avec la charge de travail « Développement Desktop en C++ » soit installé sur votre machine, **avant** l’installation de CMake.
+    Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
 
-   c. Assurez-vous que l’élément `git` est installé sur votre machine et est ajouté aux variables d’environnement accessibles à la fenêtre de commande. Consultez la page présentant [les outils du client Git de Software Freedom Conservancy](https://git-scm.com/download/) pour accéder aux derniers `git` outils, y compris **Git Bash**, un interpréteur de commandes Bash pour interagir avec votre référentiel Git local. 
-
-   d. Ouvrez Git Bash et clonez le référentiel « Azure IoT SDKs and libraries for C ». Plusieurs minutes peuvent être nécessaires pour l’exécution de la commande clone, car elle télécharge également divers sous-modules dépendants :
+2. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
     
-   ```cmd/sh
-   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-   ```
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    ```
+    Pour le moment, ce référentiel a une taille d’environ 220 Mo. Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
-   e. Créez un sous-répertoire `cmake` dans le sous-répertoire du référentiel nouvellement créé.
 
-   ```cmd/sh
-   mkdir azure-iot-sdk-c/cmake
-   ``` 
+3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
 
-2. À partir de l’invite de commandes Git Bash, modifiez le sous-répertoire `cmake` dans le référentiel azure-iot-sdk-c :
+    ```cmd/sh
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    ```
 
-   ```cmd/sh
-   cd azure-iot-sdk-c/cmake
-   ```
+4. Générez le kit de développement logiciel (SDK) pour votre plateforme de développement basée sur les mécanismes d’attestation que vous allez utiliser. Utilisez l’une des commandes suivantes (notez également les deux points à la fin de chaque commande). Une fois l’opération terminée, CMake génère le sous-répertoire `/cmake` avec du contenu spécifique à votre appareil :
+ 
+    - Pour les appareils qui utilisent le simulateur TPM pour l’attestation :
 
-3. Générez le Kit de développement logiciel (SDK) pour votre plateforme de développement et l’un des mécanismes d’attestation pris en charge, à l’aide d’une des commandes suivantes (notez également les deux points à la fin). Une fois l’opération terminée, CMake génère le sous-répertoire `/cmake` avec du contenu spécifique à votre appareil :
-    - Pour les appareils qui utilisent un TPM/HSM physique ou un certificat X.509 simulé pour l’attestation :
+        ```cmd/sh
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+        ```
+
+    - Pour tout autre appareil (TPM/HSM/X.509 physique ou certificat X.509 simulé) :
+
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-    - Pour les appareils qui utilisent le simulateur TPM pour l’attestation :
-        ```cmd/sh
-        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
-        ```
 
 Vous êtes maintenant prêt à utiliser le Kit de développement logiciel (SDK) pour générer votre code d’inscription d’appareil. 
  
@@ -82,26 +94,33 @@ Vous êtes maintenant prêt à utiliser le Kit de développement logiciel (SDK) 
 
 L’étape suivante consiste à extraire les artefacts de sécurité pour le mécanisme d’attestation utilisé par votre appareil. 
 
-### <a name="physical-device"></a>Appareil physique 
+### <a name="physical-devices"></a>Appareils physiques 
 
-Si vous avez généré le Kit de développement logiciel (SDK) pour utiliser l’attestation d’un TPM/HSM physique :
+Selon que vous générez le kit de développement logiciel (SDK) pour utiliser l’attestation pour un TPM/HSM physique ou en utilisant les certificats X.509, la collecte des artefacts de sécurité se déroule comme suit :
 
 - Pour un appareil TPM, vous devez récupérer la **paire de clés de type EK** qui lui est associée auprès du fabricant du processeur TPM. Vous pouvez dériver un **ID d’inscription** unique pour votre appareil TPM en hachant la paire de clés de type EK.  
 
-- Pour un appareil X.509, vous devez obtenir les certificats délivrés à vos appareils : certificats d’entité finale pour les inscriptions d’appareils individuels ou certificats racines pour les inscriptions de groupe d’appareils. 
+- Pour un appareil X.509, vous devez obtenir les certificats délivrés à votre appareil. Le service de provisionnement expose deux types d’entrées d’inscription qui contrôlent l’accès aux appareils qui recourent au mécanisme d’attestation X.509. Les certificats requis varient selon les types d’inscription que vous allez utiliser.
 
-### <a name="simulated-device"></a>Appareil simulé
+    1. Inscriptions individuelles : inscription pour un appareil spécifique unique. Ce type d’entrée d’inscription requiert des [certificats « feuille » et « d’entité finale »](concepts-security.md#end-entity-leaf-certificate).
+    2. Groupes d’inscription : ce type d’entrée d’inscription requiert des certificats racines ou intermédiaires. Pour plus d’informations, consultez [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-Si vous avez généré le Kit de développement logiciel (SDK) pour utiliser l’attestation d’un certificat X.509 ou d’un TPM simulé :
+### <a name="simulated-devices"></a>Simulations d’appareils
+
+Selon que vous générez le kit de développement logiciel (SDK) pour utiliser l’attestation pour un appareil simulé en utilisant un TPM ou des certificats X.509, la collecte des artefacts de sécurité se déroule comme suit :
 
 - Pour un appareil TPM simulé :
-   1. Dans une invite de commandes distincte/nouvelle, accédez au sous-répertoire `azure-iot-sdk-c` et exécutez le simulateur TPM. Il écoute un socket sur les ports 2321 et 2322. Ne fermez pas cette fenêtre de commande ; vous devez laisser ce simulateur s’exécuter jusqu’à la fin de ce Démarrage rapide. 
+
+   1. Ouvrez une invite de commandes Windows, accédez au sous-répertoire `azure-iot-sdk-c` et exécutez le simulateur TPM. Il écoute un socket sur les ports 2321 et 2322. Ne fermez pas cette fenêtre de commande ; vous devez laisser ce simulateur s’exécuter jusqu’à la fin de ce Démarrage rapide. 
 
       Dans le sous-répertoire `azure-iot-sdk-c`, exécutez la commande suivante pour démarrer le simulateur :
 
       ```cmd/sh
       .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
       ```
+
+      > [!NOTE]
+      > Si vous utilisez l’invite de commandes Git Bash pour cette étape, vous devrez modifier les barres obliques inverses en barres obliques, par exemple : `./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe`.
 
    2. À l’aide de Visual Studio, ouvrez la solution générée dans le dossier *cmake* nommée `azure_iot_sdks.sln` et générez-la à l’aide de la commande « Build solution » dans le menu « Générer ».
 
@@ -110,11 +129,12 @@ Si vous avez généré le Kit de développement logiciel (SDK) pour utiliser l�
    4. Exécutez la solution à l’aide des commandes « Start » dans le menu « Déboguer ». La fenêtre de sortie affiche **_l’ID d’inscription_** et la **_paire de clés de type EK_** du simulateur TPM nécessaires à l’inscription et à l’enregistrement de l’appareil. Copiez ces valeurs pour une utilisation ultérieure. Vous pouvez fermer cette fenêtre (avec l’ID d’inscription et la paire de clés de type EK), mais laissez s’exécuter la fenêtre du simulateur TPM que vous avez démarré à l’étape 1.
 
 - Pour un appareil X.509 simulé :
+
   1. À l’aide de Visual Studio, ouvrez la solution générée dans le dossier *cmake* nommée `azure_iot_sdks.sln` et générez-la à l’aide de la commande « Build solution » dans le menu « Générer ».
 
   2. Dans le volet *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Outils**. Cliquez avec le bouton droit sur le projet**dice\_device\_enrollment** et sélectionnez **Définir comme projet de démarrage**. 
   
-  3. Exécutez la solution à l’aide des commandes « Start » dans le menu « Déboguer ». Dans la fenêtre Sortie, entrez **i** pour l’inscription individuelle lorsque vous y êtes invité. La fenêtre Sortie affiche un certificat X.509 généré localement pour votre appareil simulé. Copiez dans le Presse-papiers la sortie débutant par *-----BEGIN CERTIFICATE-----* et se terminant par *-----END CERTIFICATE-----*, en faisant bien attention à inclure également ces deux lignes. Notez que n’avez besoin que du premier certificat dans la fenêtre Sortie.
+  3. Exécutez la solution à l’aide des commandes « Start » dans le menu « Déboguer ». Dans la fenêtre Sortie, entrez **i** pour l’inscription individuelle lorsque vous y êtes invité. La fenêtre Sortie affiche un certificat X.509 généré localement pour votre appareil simulé. Copiez dans le Presse-papiers la sortie débutant par *-----BEGIN CERTIFICATE-----* et se terminant par *-----END CERTIFICATE-----*, en faisant bien attention à inclure également ces deux lignes. Vous n’avez besoin que du premier certificat dans la fenêtre Sortie.
  
   4. Créez un fichier nommé **_X509testcert.pem_**, ouvrez-le dans l’éditeur de texte de votre choix et copiez le contenu du Presse-papiers dans ce fichier. Enregistrez le fichier car vous allez l’utiliser pour l’inscription d’appareil. Lorsque votre logiciel d’inscription s’exécute, il utilise le même certificat au cours de l’approvisionnement automatique.    
 
@@ -179,7 +199,7 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 
 Vous pouvez également estimer qu’un affinement de votre application d’enregistrement Device Provisioning Service Client est nécessaire à l’aide d’un appareil simulé dans un premier temps et d’une configuration de service de test. Une fois que votre application fonctionne dans l’environnement de test, vous pouvez la générer pour votre appareil et copier le fichier exécutable sur l’image de votre appareil. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 À ce stade, vous pouvez avoir les services IoT Hub et Device Provisioning Service qui s’exécutent dans le portail. Si vous souhaitez abandonner la configuration de l’approvisionnement d’appareils et/ou retarder la fin de cette série de didacticiels, nous vous recommandons d’arrêter ces services pour éviter des coûts inutiles.
 
@@ -187,7 +207,7 @@ Vous pouvez également estimer qu’un affinement de votre application d’enreg
 2. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Générer un Kit de développement logiciel (SDK) Device Provisioning Service Client spécifique à une plateforme

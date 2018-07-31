@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e39e5861c0606c43a869fe02a7de2dc9b6f489ea
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125651"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186736"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Didacticiel : Déboguer une application web de maillage Service Fabric
 
@@ -75,8 +75,8 @@ Une fois que le déploiement local est terminé et que Visual Studio exécute vo
 **Conseils de débogage**
 
 * Si vous obtenez l’erreur **No Service Fabric local cluster is running** (Aucun cluster Service Fabric local n’est en cours d’exécution), assurez-vous que Service Local Cluster Manager (SLCM) est en cours d’exécution, cliquez sur l’icône SLCM dans la barre des tâches, puis cliquez sur **Démarrer le cluster local**. Une fois le cluster démarré, revenez à Visual Studio et appuyez sur la touche **F5**.
-* Si vous obtenez une erreur **404** lorsque l’application démarre, cela signifie probablement que vos variables d’environnement dans le fichier **service.yaml** ne sont pas correctes. Assurez-vous que les valeurs `AppName`, `ApiHostPort` et `ServiceName` sont correctement définies conformément aux instructions de l’article [Définition des variables d’environnement](#set-environment-variables).
-* Si vous obtenez des erreurs de build dans le fichier **service.yaml**, assurez-vous que des espaces, et non des tabulations, sont utilisés pour mettre en retrait les lignes.
+* Si vous obtenez une erreur **404** lorsque l’application démarre, cela signifie probablement que vos variables d’environnement dans le fichier **service.yaml** ne sont pas correctes. Assurez-vous que les valeurs `ApiHostPort` et `ServiceName` sont correctement définies conformément aux instructions de l’article [Créer des variables d’environnement](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+* Si vous obtenez des erreurs de build dans le fichier **service.yaml**, assurez-vous que des espaces, et non des tabulations, sont utilisés pour mettre en retrait les lignes. En outre, pour l’instant, vous devez générer l’application en utilisant les paramètres régionaux anglais.
 
 ### <a name="debug-in-visual-studio"></a>Déboguer dans Visual Studio
 

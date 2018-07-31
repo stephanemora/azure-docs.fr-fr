@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7a127f53985f39913c83958be1f1730c64b33a76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001948"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145316"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -161,7 +161,7 @@ Utilisez les informations du tableau suivant pour configurer les **Paramètres**
    |NOM     |Test-FW01|
    |Abonnement     |\<votre abonnement\>|
    |Groupe de ressources     |**Existant** : Test-FW-RG |
-   |Emplacement     |Sélectionnez le même emplacement que celui utilisé précédemment|
+   |Lieu     |Sélectionnez le même emplacement que celui utilisé précédemment|
    |Choisir un réseau virtuel     |**Existant** : Test-FW-VN|
    |Adresse IP publique     |Création|
 
@@ -235,7 +235,7 @@ Pour le sous-réseau **Workload-SN**, vous devez configurer l’itinéraire sort
 6. Sous **Règles**, pour **Nom**, entrez **AllowDNS**.
 8. Pour **Protocole**, sélectionnez **TCP**.
 9. Pour **Adresses sources**, entrez **10.0.2.0/24**.
-10. Pour Adresse de destination, entrez **209.244.0.3, 209.244.0.4**
+10. Pour Adresse de destination, entrez **209.244.0.3,209.244.0.4**
 11. Pour **Ports de destination**, entrez **53**.
 12. Cliquez sur **Add**.
 

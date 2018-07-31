@@ -1,6 +1,6 @@
 ---
-title: Utiliser l’identité du service administré d’une machine virtuelle Linux pour accéder à Azure Key Vault
-description: Ce didacticiel vous guide tout au long du processus consistant à utiliser l’identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Resource Manager.
+title: Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Azure Key Vault
+description: Ce didacticiel vous guide tout au long du processus consistant à utiliser une identité MSI d’une machine virtuelle Linux pour accéder à Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: e775ed9d918e53b8381a010691c679d80e7dd216
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 54a763a768a57692cf0298c07f23fb4ed84f758f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044048"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258148"
 ---
-# <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Didacticiel : Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Azure Key Vault 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-key-vault"></a>Didacticiel : Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Linux pour accéder à Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment activer l’identité MSI (Managed Service Id
 Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Activer l’identité du service administré sur une machine virtuelle Linux 
+> * Activer Managed Service Identity sur une machine virtuelle Linux 
 > * Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault 
 > * Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault 
  
@@ -45,7 +45,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Créer une machine virtuelle Linux dans un nouveau groupe de ressources
 
-Pour ce didacticiel, nous créons une machine virtuelle Linux. Vous pouvez également activer l’identité du service administré sur une machine virtuelle existante.
+Pour ce didacticiel, nous créons une machine virtuelle Linux. Vous pouvez également activer une identité MSI sur une machine virtuelle existante.
 
 1. Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 2. Sélectionnez **Compute**, puis sélectionnez **Ubuntu Server 16.04 LTS**.
@@ -57,20 +57,20 @@ Pour ce didacticiel, nous créons une machine virtuelle Linux. Vous pouvez égal
 5. Pour sélectionner un nouveau **Groupe de ressources** dans lequel vous souhaitez créer la machine virtuelle, choisissez **Créer nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
 6. Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre de type de disque pris en charge. Conservez les valeurs par défaut dans la page des paramètres et cliquez sur **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle
+## <a name="enable-managed-service-identity-on-your-vm"></a>Activer une identité MSI (Managed Service Identity) sur votre machine virtuelle
 
-L’identité du service administré d’une machine virtuelle permet d’obtenir des jetons d’accès d’Azure AD sans avoir à placer des informations d’identification dans votre code. L’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité managée, et elle configure l’identité sur la machine virtuelle.
+L’identité MSI d’une machine virtuelle vous permet d’obtenir des jetons d’accès d’Azure AD sans avoir à entrer d’informations d’identification dans votre code. L’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité managée, et elle configure l’identité sur la machine virtuelle.
 
-1. Sélectionnez la **Machine virtuelle** sur laquelle vous souhaitez activer l’identité du service administré.
+1. Sélectionnez la **machine virtuelle** sur laquelle vous souhaitez activer une Managed Service Identity.
 2. Dans la barre de navigation gauche, cliquez sur **Configuration**.
-3. **Identité du service administré** s’affiche. Pour enregistrer et activer l’identité du service administré, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non.
+3. **Identité du service administré** s’affiche. Pour enregistrer et activer une Managed Service Identity, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non.
 4. Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.
 
     ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault  
 
-À l’aide de l’identité de service administré, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD. Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser l’identité MSI avec ces services, stockez les informations d’identification des services dans Azure Key Vault, puis utilisez l’identité MSI pour accéder au coffre de clés pour récupérer les informations d’identification. 
+À l’aide d’une MSI, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure Active Directory. Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser l’identité MSI avec ces services, stockez les informations d’identification des services dans Azure Key Vault, puis utilisez l’identité MSI pour accéder à Key Vault pour récupérer les informations d’identification. 
 
 Tout d’abord, nous devons créer un Key Vault et accorder l’accès au Key Vault à l’identité de la machine virtuelle.   
 
@@ -100,7 +100,7 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous ut
  
 1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**. 
 2. **Connectez-vous** à la machine virtuelle à l’aide du client SSH de votre choix. 
-3. Dans la fenêtre de terminal, envoyez une requête à l’aide de CURL au point de terminaison MSI local pour obtenir un jeton accès pour Azure Key Vault.  
+3. Dans la fenêtre de terminal, envoyez une requête contenant CURL au point de terminaison local de la MSI en vue d’obtenir un jeton d’accès pour Azure Key Vault.  
  
     Vous trouverez la requête CURL pour le jeton d’accès ci-dessous.  
     

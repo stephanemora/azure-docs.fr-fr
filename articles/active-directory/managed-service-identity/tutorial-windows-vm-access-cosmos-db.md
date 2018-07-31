@@ -1,6 +1,6 @@
 ---
-title: Utiliser une MSI de machine virtuelle Windows pour accéder à Azure Cosmos DB
-description: Un tutoriel qui vous guide tout au long du processus d’utilisation d’une MSI (Managed Service Identity) assignée par le système sur une machine virtuelle Windows en vue d’accéder à Azure Cosmos DB.
+title: Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Azure Cosmos DB
+description: Un didacticiel qui vous guide tout au long du processus d’utilisation d’une MSI (Managed Service Identity) assignée par le système sur une machine virtuelle Windows en vue d’accéder à Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005643"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248966"
 ---
-# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Didacticiel : Utiliser une MSI de machine virtuelle Windows pour accéder à Azure Cosmos DB
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Didacticiel : Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce tutoriel vous montre comment créer et utiliser une MSI de machine virtuelle Windows pour accéder à Cosmos DB. Vous allez apprendre à effectuer les actions suivantes :
+Ce didacticiel vous montre comment créer et utiliser une MSI de machine virtuelle Windows pour accéder à Cosmos DB. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer une machine virtuelle Windows MSI 
+> * Créer une MSI activée pour une machine virtuelle Windows 
 > * Création d’un compte Cosmos DB
-> * Accorder aux clés d’accès du compte Cosmos DB l’accès à la MSI de machine virtuelle Windows
-> * Obtenir un jeton d’accès par l’intermédiaire de la MSI de machine virtuelle Windows afin d’appeler Azure Resource Manager
+> * Autoriser la MSI de machine virtuelle Windows à obtenir les clés d’accès du compte Cosmos DB
+> * Obtenir un jeton d’accès à l’aide de la Managed Service Identity de la machine virtuelle Windows pour appeler Azure Resource Manager
 > * Obtenir les clés d’accès à partir d’Azure Resource Manager pour effectuer des appels Cosmos DB
 
 ## <a name="prerequisites"></a>Prérequis
@@ -47,7 +47,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 
-Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pouvez également activer l’identité du service administré sur une machine virtuelle existante.
+Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pouvez également activer une identité MSI sur une machine virtuelle existante.
 
 1. Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
@@ -58,13 +58,13 @@ Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pou
 
    ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Activer une MSI (Managed Service Identity) sur votre machine virtuelle 
 
-L’identité du service administré d’une machine virtuelle permet d’obtenir des jetons d’accès d’Azure AD sans avoir à placer des informations d’identification dans votre code. En arrière-plan, l’activation de MSI sur une machine virtuelle via le portail Azure effectue deux opérations : elle enregistre votre machine virtuelle avec Azure AD pour créer une identité managée et configure l’identité sur la machine virtuelle.
+L’identité MSI d’une machine virtuelle vous permet d’obtenir des jetons d’accès d’Azure AD sans avoir à entrer d’informations d’identification dans votre code. En arrière-plan, l’activation de l’identité MSI sur une machine virtuelle via le portail Azure effectue deux opérations : elle enregistre votre machine virtuelle avec Azure AD pour créer une identité administrée et configure l’identité sur la machine virtuelle.
 
-1. Sélectionnez la **Machine virtuelle** sur laquelle vous souhaitez activer l’identité du service administré.  
+1. Sélectionnez la **machine virtuelle** sur laquelle vous souhaitez activer une Managed Service Identity.  
 2. Dans la barre de navigation gauche, cliquez sur **Configuration**. 
-3. **Identité du service administré** s’affiche. Pour enregistrer et activer l’identité du service administré, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non. 
+3. **Identité du service administré** s’affiche. Pour enregistrer et activer une Managed Service Identity, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non. 
 4. Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.  
    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -87,18 +87,18 @@ Ensuite, ajoutez une collection de données dans le compte Cosmos DB que vous po
 2. Sous l’onglet **Vue d’ensemble**, cliquez sur le bouton **+ Ajouter une collection** pour afficher le panneau Ajouter une collection.
 3. Attribuez à la collection un ID de base de données et un ID de collection. Sélectionnez une capacité de stockage, entrez une clé de partition et une valeur de débit, puis cliquez sur **OK**.  Pour ce didacticiel, il suffit d’utiliser « Test » comme ID de base de données et ID de collection, et de sélectionner une capacité de stockage fixe et le débit le plus bas (400 RU/s).  
 
-## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Accorder aux clés d’accès du compte Cosmos DB l’accès à la MSI de machine virtuelle Windows
+## <a name="grant-windows-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>Autoriser la MSI de machine virtuelle Windows à obtenir les clés d’accès du compte Cosmos DB
 
-Cosmos DB ne prend pas en charge l’authentification Azure AD en mode natif. Toutefois, vous pouvez utiliser une identité MSI pour récupérer une clé d’accès Cosmos DB à partir du Gestionnaire des ressources, puis utiliser cette clé pour accéder à Cosmos DB. Dans cette étape, vous allez accorder l’accès MSI aux clés pour le compte Cosmos DB.
+Cosmos DB ne prend pas en charge l’authentification Azure AD en mode natif. Toutefois, vous pouvez utiliser une Managed Service Identity pour récupérer une clé d’accès Cosmos DB à partir du gestionnaire des ressources, puis utiliser cette clé pour accéder à Cosmos DB. Dans cette étape, vous autoriserez votre identité MSI à accéder aux clés pour le compte Cosmos DB.
 
-Pour accorder à votre identité MSI l’accès au compte Cosmos DB dans Azure Resource Manager à l’aide de PowerShell, mettez à jour les valeurs pour `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` et `<COSMOS DB ACCOUNT NAME>` pour votre environnement. Remplacez `<MSI PRINCIPALID>` par la propriété `principalId` retournée par la commande `az resource show` dans [Récupérer le principalID de MSI de la machine virtuelle Linux](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB prend en charge deux niveaux de granularité lors de l’utilisation des clés d’accès : accès en lecture/écriture au compte et accès en lecture seule au compte.  Pour obtenir les clés en lecture/écriture du compte, affectez le rôle `DocumentDB Account Contributor`, et pour obtenir les clés en lecture seule du compte, affectez le rôle `Cosmos DB Account Reader Role` :
+Pour autoriser votre Managed Service Identity à accéder au compte Cosmos DB dans Azure Resource Manager à l’aide de PowerShell, mettez à jour les valeurs pour `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` et `<COSMOS DB ACCOUNT NAME>` pour votre environnement. Remplacez `<MSI PRINCIPALID>` par la propriété `principalId` retournée par la commande `az resource show` dans [Récupérer le principalID de MSI de la machine virtuelle Linux](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB prend en charge deux niveaux de granularité lors de l’utilisation des clés d’accès : accès en lecture/écriture au compte et accès en lecture seule au compte.  Pour obtenir les clés en lecture/écriture du compte, affectez le rôle `DocumentDB Account Contributor`, et pour obtenir les clés en lecture seule du compte, affectez le rôle `Cosmos DB Account Reader Role` :
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>Obtenir un jeton d’accès par l’intermédiaire de la MSI de machine virtuelle Windows afin d’appeler Azure Resource Manager
+## <a name="get-an-access-token-using-the-windows-vms-managed-service-identity-to-call-azure-resource-manager"></a>Obtenir un jeton d’accès à l’aide de la Managed Service Identity de la machine virtuelle Windows pour appeler Azure Resource Manager
 
 Pour la suite de ce didacticiel, nous allons utiliser la machine virtuelle que nous avons créée précédemment. 
 

@@ -3,20 +3,19 @@ title: Surveiller et résoudre les problèmes d’une application de stockage cl
 description: Utilisez des outils de diagnostic, des métriques et la génération d’alertes pour surveiller et résoudre les problèmes d’une application cloud.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ad64384ff17b1666f88ba99e04ec345015e07276
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418184"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206052"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Surveiller et résoudre les problèmes d’une application de stockage cloud
 
@@ -30,11 +29,11 @@ Dans ce quatrième volet, vous apprenez à :
 > * Exécuter un trafic de test avec des jetons SAS incorrects
 > * Télécharger et analyser des journaux
 
-[Azure Storage Analytics](../common/storage-analytics.md) fournit la journalisation et les données de métriques d’un compte de stockage. Ces données fournissent des insights sur l’intégrité de votre compte de stockage. Avant d’obtenir une visibilité de votre compte de stockage, vous devez configurer la collecte de données. Ce processus implique l’activation de la journalisation, la configuration des métriques et l’activation des alertes.
+[Azure Storage Analytics](../common/storage-analytics.md) fournit la journalisation et les données de métriques d’un compte de stockage. Ces données fournissent des insights sur l’intégrité de votre compte de stockage. Pour collecter des données Azure Storage Analytics, vous pouvez configurer la journalisation, les mesures et les alertes. Ce processus implique l’activation de la journalisation, la configuration des métriques et l’activation des alertes.
 
-La journalisation et les métriques des comptes de stockage sont activées sous l’onglet **Diagnostics** du portail Azure. Il existe deux types de métriques. Les métriques d’**agrégation** collectent les pourcentages d’entrée/de sortie, de disponibilité, de latence et de réussite. Ces métriques sont agrégées pour les services Blob, File d’attente, Table et Fichier. **Par API** collecte le même ensemble de métriques pour chaque opération de stockage de l’API du service de stockage Azure. La journalisation du stockage permet d’enregistrer les détails des demandes ayant réussi ou échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, files d'attente et objets blob Azure. Ils permettent également de connaître la raison des échecs de demande comme les délais d’attente, la limitation et les erreurs d’autorisation.
+La journalisation et les métriques des comptes de stockage sont activées sous l’onglet **Diagnostics** du portail Azure. La journalisation du stockage permet d’enregistrer les détails des demandes ayant réussi ou échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, files d'attente et objets blob Azure. Ils permettent également de connaître la raison des échecs de demande comme les délais d’attente, la limitation et les erreurs d’autorisation.
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure
 
 Connectez-vous au [portail Azure](https://portal.azure.com)
 
@@ -42,11 +41,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com)
 
 Dans le menu de gauche, sélectionnez **Groupes de ressources**, **myResourceGroup**, puis votre compte de stockage dans la liste des ressources.
 
-Sous **Diagnostics**, définissez **État** sur **Activé**. Vérifiez que toutes les options sous **Propriétés de l’objet blob** sont activées.
+Sous les **paramètres de Diagnostics (classique)**, définissez l’**État** sur **Activé**. Vérifiez que toutes les options sous **Propriétés de l’objet blob** sont activées.
 
 Quand vous avez terminé, cliquez sur **Enregistrer**
 
-![Volet Diagnostics](media/storage-monitor-troubleshoot-storage-application/contoso.png)
+![Volet Diagnostics](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Activer les alertes
 
@@ -54,34 +53,33 @@ Les alertes sont un moyen d’envoyer par e-mail aux administrateurs ou de décl
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Accédez à votre compte de stockage dans le Portail Azure
 
-Dans le menu de gauche, sélectionnez **Groupes de ressources**, **myResourceGroup**, puis votre compte de stockage dans la liste des ressources.
+Sous la section **Surveillance**, sélectionnez **Alertes (classique)**.
 
-Dans la section **Surveillance**, sélectionnez **Règles d’alerte**.
+Sélectionnez **Ajouter une alerte métrique (classique)** et terminez le formulaire **Ajouter une règle** en renseignant les informations requises. À partir de la liste déroulante **Métrique**, sélectionnez `SASClientOtherError`. Pour autoriser le déclenchement de votre alerte lors de la première erreur, à partir de la liste déroulante **Condition** sélectionnez **Supérieur ou égal à**.
 
-Sélectionnez **+ Ajouter une alerte**, sous **Ajouter une règle d’alerte**, renseignez les informations demandées. Choisissez `SASClientOtherError` dans la liste déroulante **Métrique**.
-
-![Volet Diagnostics](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Volet Diagnostics](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
 ## <a name="simulate-an-error"></a>Simuler une erreur
 
-Pour simuler une alerte valide, vous pouvez tenter de demander un objet blob qui n’existe pas à partir de votre compte de stockage. Pour ce faire, remplacez la valeur `<incorrect-blob-name>` par une valeur qui n’existe pas. Exécutez l’exemple de code suivant plusieurs fois pour simuler des demandes d’objet blob ayant échoué.
+Pour simuler une alerte valide, vous pouvez tenter de demander un objet blob qui n’existe pas à partir de votre compte de stockage. La commande suivante requiert un nom de conteneur de stockage. Vous pouvez utiliser le nom d’un conteneur existant ou en créer un pour les besoins de cet exemple.
+
+Remplacez les espaces réservés par des valeurs réelles (assurez-vous que `<INCORRECT_BLOB_NAME>` est défini sur une valeur qui n’existe pas) et exécutez la commande.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <incorrect-blob-name> \
+    --account-name <STORAGE_ACCOUNT_NAME> \
+    --account-key <STORAGE_ACCOUNT_KEY> \
+    --container-name <CONTAINER_NAME> \
+    --name <INCORRECT_BLOB_NAME> \
     --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
+    --expiry `date --date="next day" +%Y-%m-%d`)
 
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
+curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCORRECT_BLOB_NAME>?$sasToken
 ```
 
 L’illustration suivante représente un exemple d’alerte basée sur l’échec simulé exécuté dans l’exemple précédent.
 
- ![Exemple d’alerte](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![Exemple d’alerte](media/storage-monitor-troubleshoot-storage-application/email-alert.png)
 
 ## <a name="download-and-view-logs"></a>Télécharger et afficher des journaux
 

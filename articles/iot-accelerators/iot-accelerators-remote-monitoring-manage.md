@@ -1,20 +1,20 @@
 ---
-title: Gérer des appareils dans une solution de surveillance à distance Azure | Microsoft Docs
+title: 'Tutoriel : Gérer des appareils dans une solution de surveillance à distance Azure | Microsoft Docs'
 description: Ce didacticiel vous montre comment gérer les appareils connectés à l’accélérateur de solution de surveillance à distance.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/12/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63baf6397b2542311525bac740c50b5eacbd35cf
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd8e8c1fe1b77113968b7af635f45f9e0e077b7c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097425"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159195"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Didacticiel : Configurer et gérer les appareils connectés à votre solution de surveillance
 
@@ -33,11 +33,9 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Reconfigurer un appareil.
 > * Organiser vos appareils.
 
-## <a name="prerequisites"></a>Prérequis
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de l’accélérateur de solution de surveillance à distance dans votre abonnement Azure.
-
-Si vous n’avez pas encore déployé l’accélérateur de solution de surveillance à distance, vous devez suivre le tutoriel [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="add-a-simulated-device"></a>Utiliser un appareil simulé
 
@@ -51,23 +49,21 @@ Dans le panneau **Nouvel appareil**, choisissez **Simulé**, laisse le nombre d�
 
 ## <a name="test-the-simulated-device"></a>Tester l’appareil simulé
 
-Pour vérifier si votre appareil simulé envoie des données de télémétrie et rapporte des valeurs de propriété, sélectionnez-le dans la liste des appareils sur la page **Appareils**. Les informations en temps réel sur votre appareil s’affichent dans le panneau **Détail de l’appareil** :
+Pour vérifier si votre appareil de moteur simulé envoie des données de télémétrie et rapporte des valeurs de propriété, sélectionnez-le dans la liste des appareils sur la page **Appareils**. Les informations en temps réel sur votre moteur s’affichent dans le panneau **Détail de l’appareil** :
 
 [![Afficher le nouvel appareil de moteur simulé](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
-Dans **Détail de l’appareil**, vérifiez que votre nouvel appareil envoie des données de télémétrie. Pour afficher les différents flux de données de télémétrie de vibration de votre appareil, cliquez sur **Vibration** :
+Dans **Détail de l’appareil**, vérifiez que votre nouvel appareil envoie des données de télémétrie. Pour afficher les flux de données de télémétrie de vibration de votre appareil, cliquez sur **Vibration** :
 
 [![Sélectionner un flux de données de télémétrie à afficher](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
 
 Le panneau **Détail de l’appareil** affiche d’autres informations sur l’appareil, telles que les valeurs d’étiquette, les méthodes qu’il prend en charge et les propriétés qu’il indique.
 
-Pour afficher les diagnostics détaillés, faites défiler jusqu’à **Diagnostics** :
-
-[![Afficher les diagnostics du périphérique](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-expanded.png#lightbox)
+Pour afficher les diagnostics détaillés, faites défiler le panneau **Détails de l’appareil** vers le bas pour afficher la section **Diagnostics**.
 
 ## <a name="act-on-a-device"></a>Agir sur un appareil
 
-Pour vérifier si le moteur simulé répond correctement aux actions initiées depuis l’accélérateur de solution, exécutez la méthode **FirmwareUpdate**. Pour agir sur un appareil en exécutant une méthode, sélectionnez l’appareil dans la liste des appareils, puis cliquez sur **Tâches**. Vous pouvez sélectionner autant d’appareils que vous le souhaitez. Dans le panneau **Tâches**, sélectionnez **Exécuter une méthode**. Le modèle d’appareil **Moteur** spécifie trois méthodes : **FirmwareUpdate**, **FillTank** et **EmptyTank** :
+Pour vérifier si le moteur simulé répond correctement aux actions initiées depuis le tableau de bord, exécutez la méthode **FirmwareUpdate**. Pour agir sur un appareil en exécutant une méthode, sélectionnez l’appareil dans la liste des appareils, puis cliquez sur **Tâches**. Vous pouvez sélectionner autant d’appareils que vous le souhaitez. Dans le panneau **Tâches**, sélectionnez **Exécuter une méthode**. Le modèle d’appareil **Moteur** spécifie trois méthodes : **FirmwareUpdate**, **FillTank** et **EmptyTank** :
 
 [![Méthodes de moteur](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -103,7 +99,7 @@ Une fois la tâche terminée, accédez à la page **Tableau de bord**. Le moteur
 
 ## <a name="organize-your-devices"></a>Organiser vos appareils
 
-En tant qu’opérateur, pour que vous puissiez plus facilement organiser et gérer vos appareils, vous souhaitez étiqueter ces derniers avec le nom d’équipe approprié. Contoso possède deux équipes différentes pour les activités de service sur le terrain :
+En tant qu’opérateur, pour que vous puissiez plus facilement organiser et gérer vos appareils, vous souhaitez étiqueter ces derniers avec un nom d’équipe. Contoso possède deux équipes différentes pour les activités de service sur le terrain :
 
 * L’équipe Smart Vehicle gère camions et les appareils de prototypage.
 * L’équipe Smart Building gère les refroidisseurs, les élévateurs et les moteurs.
@@ -114,19 +110,15 @@ Pour afficher tous vos appareils, accédez à la page **Appareils** et choisisse
 
 ### <a name="add-tags"></a>Ajouter des étiquettes
 
-Sélectionnez tous les appareils **Trucks** (Camions) et **Prototyping** (Prototypage). Cliquez ensuite sur **Tâches** :
+Sélectionnez tous les appareils **Trucks** (Camions) et **Prototyping** (Prototypage). Cliquez ensuite sur **Tâches**.
 
-[![Sélectionner les appareils prototypage et camion](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-expanded.png#lightbox)
-
-Sélectionnez **Balise**, définissez le nom de la tâche par **AddConnectedVehicleTag**, puis ajoutez une balise de texte nommée **FieldService** avec une valeur **ConnectedVehicle**. Cliquez alors sur **Appliquer** :
+Dans le panneau **Tâches**, sélectionnez **Balise**, définissez le nom de la tâche par **AddConnectedVehicleTag**, puis ajoutez une balise de texte nommée **FieldService** avec une valeur **ConnectedVehicle**. Cliquez alors sur **Appliquer** :
 
 [![Ajouter une étiquette aux appareils prototypage et camion](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
 
-Sur la page de l’appareil, sélectionnez tous les appareils **Chiller** (Refroidisseur), **Elevator** (Élévateur) et **Engine** (Moteur). Cliquez ensuite sur **Tâches** :
+Sur la page de l’appareil, sélectionnez tous les appareils **Chiller** (Refroidisseur), **Elevator** (Élévateur) et **Engine** (Moteur). Cliquez ensuite sur **Tâches**.
 
-[![Sélectionner les appareils Chiller (Refroidisseur), Elevator (Élévateur), et Engine (Moteur)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-expanded.png#lightbox)
-
-Sélectionnez **Balise**, définissez le nom de la tâche par **AddSmartBuildingTag**, puis ajoutez une balise de texte nommée **FieldService** avec une valeur **SmartBuilding**. Cliquez alors sur **Appliquer** :
+Dans le panneau **Tâches**, sélectionnez **Balise**, définissez le nom de la tâche par **AddSmartBuildingTag**, puis ajoutez une balise de texte nommée **FieldService** avec une valeur **SmartBuilding**. Cliquez alors sur **Appliquer** :
 
 [![Ajouter une balise aux appareils Chiller (Refroidisseur), Elevator (Élévateur), et Engine (Moteur)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
 
@@ -148,17 +140,7 @@ L’opérateur Contoso peut désormais interroger les appareils selon l’équip
 
 [![Créer le filtre Connected Vehicle](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-
-Si vous envisagez de passer à l’étape suivante du tutoriel, laissez l’accélérateur de solution de surveillance à distance déployé. Pour réduire les coûts d’exécution de l’accélérateur de solution pendant que vous ne l’utilisez pas, vous pouvez arrêter les appareils simulés dans le panneau des paramètres :
-
-[![Suspendre les données de télémétrie](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-expanded.png#lightbox)
-
-Vous pouvez redémarrer les appareils simulés lorsque vous êtes prêt à commencer le tutoriel suivant.
-
-Si vous n’avez plus besoin l’accélérateur de solution, supprimez-le à partir de la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) :
-
-![Supprimer la solution](media/iot-accelerators-remote-monitoring-manage/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

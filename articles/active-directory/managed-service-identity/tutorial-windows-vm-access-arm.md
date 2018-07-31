@@ -1,6 +1,6 @@
 ---
 title: Utiliser une MSI de machine virtuelle Windows pour accéder à Azure Resource Manager
-description: Ce didacticiel vous guide tout au long du processus consistant à utiliser l’identité du service administré (MSI) de machine virtuelle Windows pour accéder à Azure Resource Manager.
+description: Ce didacticiel vous guide tout au long du processus consistant à utiliser une identité MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bd314dd1543280cf2533e45f156ca634d15d1d2a
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006962"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247242"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Utiliser une identité du service administré (MSI) de machine virtuelle Windows pour accéder au Gestionnaire des ressources
+# <a name="use-a-windows-vm-managed-service-identity-to-access-resource-manager"></a>Utiliser une identité MSI (Managed Service Identity) de machine virtuelle Windows pour accéder au gestionnaire des ressources Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous montre comment activer une identité du service administré (MSI) pour une machine virtuelle Windows. Vous pouvez ensuite utiliser cette identité pour accéder à l’API d’Azure Resource Manager. Les identités du service administré sont gérées automatiquement par Azure et vous permettent de vous authentifier sur les services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
+Ce didacticiel vous montre comment activer une identité MSI (Managed Service Identity) pour une machine virtuelle Windows. Vous pouvez ensuite utiliser cette identité pour accéder à l’API d’Azure Resource Manager. Les identités du service administré sont gérées automatiquement par Azure et vous permettent de vous authentifier sur les services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Activer MSI sur une machine virtuelle Windows 
+> * Activer une MSI (Managed Service Identity) sur une machine virtuelle Windows 
 > * Accorder à votre machine virtuelle l’accès à un groupe de ressources dans Azure Resource Manager 
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle et l’utiliser pour appeler Azure Resource Manager
 
@@ -43,7 +43,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 
-Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pouvez également activer l’identité du service administré sur une machine virtuelle existante.
+Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pouvez également activer une identité MSI sur une machine virtuelle existante.
 
 1.  Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 2.  Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
@@ -54,18 +54,18 @@ Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pou
 
     ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Activer l’identité du service administré sur votre machine virtuelle 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Activer une MSI (Managed Service Identity) sur votre machine virtuelle 
 
-Une MSI de machine virtuelle permet d’obtenir des jetons d’accès émanant d’Azure AD sans avoir à insérer d’informations d’identification dans votre code. L’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité managée, et elle configure l’identité sur la machine virtuelle.
+La Managed Service Identity d’une machine virtuelle vous permet d’obtenir des jetons d’accès d’Azure AD sans avoir besoin d’entrer des informations d'identification dans votre code. L’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité managée, et elle configure l’identité sur la machine virtuelle.
 
-1.  Sélectionnez la **Machine virtuelle** sur laquelle vous souhaitez activer l’identité du service administré.  
+1.  Sélectionnez la **machine virtuelle** sur laquelle vous souhaitez activer une Managed Service Identity.  
 2.  Dans la barre de navigation gauche, cliquez sur **Configuration**. 
-3.  **Identité du service administré** s’affiche. Pour enregistrer et activer l’identité du service administré, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non. 
+3.  **Identité du service administré** s’affiche. Pour enregistrer et activer une Managed Service Identity, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non. 
 4.  Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.  
     ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Accorder l’accès à un groupe de ressources dans Azure Resource Manager à votre machine virtuelle
-À l’aide de l’identité de service administré, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD.  Azure Resource Manager prend en charge l’authentification Azure AD.  Tout d’abord, nous devons accorder à cette identité de machine virtuelle l’accès à une ressource dans le Gestionnaire des ressources, dans ce cas le groupe de ressources dans lequel est contenue la machine virtuelle.  
+À l’aide d’une MSI, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD.  Azure Resource Manager prend en charge l’authentification Azure AD.  Tout d’abord, nous devons accorder à cette identité de machine virtuelle l’accès à une ressource dans le Gestionnaire des ressources, dans ce cas le groupe de ressources dans lequel est contenue la machine virtuelle.  
 
 1.  Accédez à l’onglet de **Groupes de ressources**. 
 2.  Sélectionnez le **Groupe de ressources** spécifique que vous avez créé pour la **machine virtuelle Windows**. 

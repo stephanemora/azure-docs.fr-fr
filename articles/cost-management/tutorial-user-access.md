@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301605"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188180"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Didacticiel : Autoriser l’accès aux données de gestion des coûts
 
@@ -28,13 +28,14 @@ Quand vous avez inscrit votre contrat ou compte Azure, un compte avec l’autori
 > [!div class="checklist"]
 > * Créer un utilisateur avec un accès administrateur
 > * Créer un utilisateur avec un accès utilisateur
+> * Supprimer un utilisateur
+> * Supprimer ou exporter des données personnelles
 > * Créer et gérer des entités
 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
@@ -43,7 +44,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Même si vous disposez déjà d’un accès administrateur, vos collègues de travail au sein de votre organisation devaient peut-être également disposer d’un accès administrateur. Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **User Management (Gestion des utilisateurs)**. Cliquez sur **Add New User (Ajouter un nouvel utilisateur)** pour ajouter un utilisateur.
 
-Entrez les informations requises sur l’utilisateur. L’ID de connexion doit être une adresse de messagerie valide. Sélectionnez des autorisations de gestion des utilisateurs pour permettre à l’utilisateur de créer et modifier d’autres utilisateurs. L’option de gestion des listes de destinataires permet à l’utilisateur de modifier les listes de destinataires. Cloudyn envoie un lien avec les informations de connexion par e-mail à l’utilisateur quand vous sélectionnez **Notify user by email (Notifier l'utilisateur par e-mail)**. Lors de la première connexion, l’utilisateur définit un mot de passe.
+Entrez les informations requises sur l’utilisateur. L’**ID de connexion** doit être une adresse de messagerie valide. Sélectionnez des autorisations de gestion des utilisateurs pour permettre à l’utilisateur de créer et modifier d’autres utilisateurs. L’option de gestion des listes de destinataires permet à l’utilisateur de modifier les listes de destinataires. Cloudyn envoie un lien avec les informations de connexion par e-mail à l’utilisateur quand vous sélectionnez **Notify user by email (Notifier l'utilisateur par e-mail)**. Lors de la première connexion, l’utilisateur définit un mot de passe.
 
 Sous **User has admin access (L’utilisateur a un accès administrateur)**, l’entité racine de votre organisation est sélectionnée. Laissez-la sélectionnée et enregistrez les informations utilisateur. La sélection de l’entité racine permet à l’utilisateur de disposer de l’autorisation d’administrateur non seulement pour l’entité racine dans l’arborescence, mais également pour toutes les entités qui se trouvent sous cette entité.  
   ![ajouter un nouvel utilisateur avec un accès administrateur](.\media\tutorial-user-access\new-admin-access.png)
@@ -58,6 +59,24 @@ En principe, les utilisateurs ayant besoin d’accéder à des données de gesti
 ![ajouter un nouvel utilisateur avec un accès utilisateur](.\media\tutorial-user-access\new-user-access.png)
 
 Pour visionner un didacticiel vidéo sur l’ajout d’utilisateurs, consultez [Ajout d’utilisateurs à Azure Cost Management](https://youtu.be/Nzn7GLahx30).
+
+## <a name="delete-a-user"></a>Supprimer un utilisateur
+
+Lorsque vous supprimez un utilisateur, toutes les entités auxquelles l’utilisateur a accès restent intactes. Les rapports *personnels* enregistrés sont supprimés lorsque l’utilisateur est supprimé. Les rapports *publics* enregistrés créés par l’utilisateur ne sont pas supprimés.
+
+Vous ne pouvez pas vous supprimer en tant qu’utilisateur.
+
+> [!WARNING]
+> Lorsque vous supprimez un utilisateur, il ne peut pas être restauré.
+
+1.  Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Gestion des utilisateurs**.
+2.  Dans la liste des utilisateurs, sélectionnez l’utilisateur à supprimer, puis cliquez sur **Supprimer l’utilisateur** (symbole de poubelle).
+3.  Dans la zone Supprimer l’utilisateur, cliquez sur **Oui**, puis sur **OK**.
+
+
+## <a name="delete-or-export-personal-data"></a>Supprimer ou exporter des données personnelles
+
+Si vous souhaitez supprimer ou exporter des données personnelles à partir de Cloudyn, vous devez créer un ticket de support. Lorsque le ticket de support est créé, il agit comme requête officielle (une requête d’objet de données). Microsoft agit ensuite rapidement pour supprimer le compte, ainsi que les données personnelles ou client. Pour en savoir plus sur la demande de suppression ou d’exportation de vos données, consultez [Data Subject Requests of Cloudyn Data](https://www.cloudyn.com/cloudyn-gdpr-requests) (Requêtes d’objet de données pour des données Cloudyn).
 
 ## <a name="create-and-manage-entities"></a>Créer et gérer des entités
 
@@ -101,11 +120,13 @@ Si vous êtes un utilisateur Azure Enterprise Agreement, regardez un didacticiel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un utilisateur avec un accès administrateur
 > * Créer un utilisateur avec un accès utilisateur
+> * Supprimer un utilisateur
+> * Supprimer ou exporter des données personnelles
 > * Créer et gérer des entités
 
 

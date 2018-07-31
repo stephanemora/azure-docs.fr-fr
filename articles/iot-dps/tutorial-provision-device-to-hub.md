@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 453159e51473b76d8a95b98237796ac490f8ed6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4355d6bebe00650a6fb4e2f2a6e400be30722b2
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630134"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145126"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 
@@ -49,7 +49,7 @@ Cette étape implique l’ajout des artefacts de sécurité uniques de l’appar
 
 Il existe deux façons d’inscrire l’appareil auprès du service Device Provisioning :
 
-- **Groupe d’inscriptions** : représente un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Nous recommandons d’utiliser un groupe d’inscriptions pour un grand nombre d’appareils qui partagent une configuration initiale souhaitée ou pour des appareils destinés au même locataire.
+- **Groupe d’inscriptions** : représente un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Nous recommandons d’utiliser un groupe d’inscriptions pour un grand nombre d’appareils qui partagent une configuration initiale souhaitée ou pour des appareils destinés au même locataire. Pour plus d’informations sur l’attestation d’identité dans les groupes d’inscription, consultez [Sécurité](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
     [![Ajouter une inscription de groupe pour l’attestation X.509 dans le portail](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
@@ -67,29 +67,32 @@ Vous inscrivez l’appareil auprès de votre instance Device Provisioning Servic
 
 Après l’inscription, le service d’approvisionnement attend que l’appareil démarre et s’y connecte plus tard. Au premier démarrage de votre appareil, la bibliothèque du Kit de développement logiciel (SDK) client interagit avec votre processeur pour extraire les artefacts de sécurité de l’appareil et vérifie l’inscription auprès de votre instance Device Provisioning Service. 
 
-## <a name="start-the-device"></a>Démarrer l’appareil
+## <a name="start-the-iot-device"></a>Démarrer l’appareil IoT
 
-À ce stade, la configuration suivante est prête pour l’enregistrement de l’appareil :
+Votre appareil IoT peut être un appareil réel ou un appareil simulé. Étant donné que l’appareil IoT est maintenant inscrit avec une instance de service Device Provisioning, l’appareil peut désormais démarrer et appeler le service d’approvisionnement pour être reconnu à l’aide du mécanisme d’attestation. Une fois l’appareil reconnu par le service d’approvisionnement, il est affecté à un hub IoT. 
 
-1. Votre appareil ou groupe d’appareils est inscrit auprès de votre service Device Provisioning. 
-2. votre appareil est prêt avec le mécanisme d’attestation configuré et accessible via l’application à l’aide du Kit de développement logiciel (SDK) Device Provisioning Service Client.
+Des exemples d’appareil simulé, avec des attestations TPM et X.509, sont inclus pour C, Java, C#, Node.js et Python. Par exemple, un appareil simulé utilisant un TPM et le [kit de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdk-c) suit le processus traité dans la section [Simuler la première séquence de démarrage d’un appareil](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device). Le même appareil utilisant l’attestation de certificats X.509 fait référence à la section [Séquence de démarrage](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device).
 
-Démarrez l’appareil pour autoriser votre application cliente à démarrer l’enregistrement auprès de votre service Device Provisioning.  
+Reportez-vous au [Guide de procédure pour le DevKit IoT MXChip](how-to-connect-mxchip-iot-devkit.md) comme exemple pour un appareil réel.
+
+Démarrez l’appareil pour autoriser votre application cliente d’appareil à lancer l’inscription auprès de votre service Device Provisioning.  
 
 ## <a name="verify-the-device-is-registered"></a>Vérifier que l’appareil est enregistré
 
-Une fois que votre appareil démarre, les actions suivantes doivent se produire. Pour plus d’informations, consultez l’exemple d’application de simulateur TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
+Une fois que votre appareil démarre, voici les actions qui doivent se produire :
 
 1. L’appareil envoie une demande d’enregistrement à votre service Device Provisioning.
 2. Pour les appareils TPM, le service Device Provisioning envoie une demande d’enregistrement à laquelle répond votre appareil. 
 3. Une fois l’inscription réussie, le service Device Provisioning envoie l’URI du hub IoT, l’ID de l’appareil et la clé chiffrée à l’appareil. 
 4. L’application cliente IoT Hub sur l’appareil peut alors se connecter à votre hub. 
-5. Une fois la connexion au hub établie, l’appareil doit apparaître dans **Device Explorer** dans le hub IoT. 
+5. Une fois la connexion au hub établie, l’appareil doit apparaître dans l’Explorateur **Appareils IoT** du hub IoT. 
 
     ![Connexion réussie au hub dans le portail](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
+Pour plus d’informations, consultez l’exemple d’application de simulateur TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
+
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Inscrire l’appareil

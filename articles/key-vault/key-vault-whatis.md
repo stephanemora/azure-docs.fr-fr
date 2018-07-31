@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce qu’Azure Key Vault ? | Microsoft Docs
+title: Qu’est-ce qu’Azure Key Vault ? | Microsoft Docs
 description: Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les clients peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM).
 services: key-vault
 documentationcenter: ''
@@ -12,19 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/26/2017
+ms.date: 07/23/2018
 ms.author: barclayn
-ms.openlocfilehash: 1fd39cf6363cb028b2f933934c95ea2b635b754a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089303"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226711"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
+
 Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM. Dans ce cas, Microsoft traite vos clés dans des modules de sécurité matériels validés selon la norme « FIPS 140-2 Level 2 » (matériel et microprogramme).  
 
 Key Vault rationalise le processus de gestion de clés et vous permet de garder le contrôle des clés qui accèdent à vos données et les chiffrent. Les développeurs peuvent créer des clés pour le développement et le test en quelques minutes, puis les migrer en toute transparence en clés de production. Les administrateurs de sécurité peuvent accorder (et annuler) les autorisations sur les clés, si nécessaire.
+
+## <a name="basic-concepts"></a>Concepts de base
+
+Azure Key Vault est un outil permettant de stocker les secrets et d’y accéder en toute sécurité. Un secret est un élément pour lequel vous voulez contrôler étroitement l’accès. Il peut s’agir de clés d’API, de mots de passe ou de certificats.
+Ci-dessous, vous trouverez quelques mots-clés :
+- **Locataire** : un locataire est l’organisation qui possède et gère une instance spécifique de services de cloud Microsoft. Il fait souvent référence à l’ensemble des services Azure et Office 365 pour une organisation.
+- **Propriétaire du coffre** : il peut créer un accès et un contrôle complets au coffre de clés. Le propriétaire du coffre peut également configurer l’audit pour consigner qui accèdent aux secrets et aux clés. Les administrateurs peuvent contrôler le cycle de vie de la clé. Ils peuvent déployer une nouvelle version de la clé, la sauvegarder, etc.
+- **Consommateur du coffre** : il peut effectuer des actions sur les ressources à l’intérieur du coffre de clés lorsque le propriétaire du coffre lui accorde l’accès. L’accès dépend des autorisations octroyées.
+- **[Azure Active Directory](../active-directory/active-directory-whatis.md)**  est le service Azure AD pour un locataire donné. Chaque répertoire contient au moins un domaine personnalisé. Un répertoire peut avoir plusieurs abonnements associés, mais qu’un seul locataire. 
+- **ID de locataire Azure** : il s’agit d’un moyen unique d’identification d’Azure Active Directory au sein d’un abonnement Azure. 
+- **Managed Service Identity** : Azure Key Vault permet de stocker en toute sécurité des informations d’identification et autres clés et secrets, mais votre code doit s’authentifier sur Key Vault pour les récupérer. Managed Service Identity (MSI) simplifie la résolution de ce problème en donnant aux services Azure une identité automatiquement managée dans Azure Active Directory (Azure AD). Vous pouvez utiliser cette identité pour vous authentifier sur Key Vault ou n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. Pour en savoir plus sur MSI, cliquez [ici](../active-directory/managed-service-identity/overview.md).
+
+## <a name="key-vault-roles"></a>Rôles de Key Vault
 
 Utilisez le tableau suivant afin de mieux comprendre comment Key Vault peut permettre de répondre aux besoins des développeurs et des administrateurs de sécurité.
 
@@ -49,6 +63,7 @@ Cet administrateur peut ensuite fournir aux développeurs des URI à appeler à 
 Les développeurs peuvent également gérer les clés directement à l’aide d’API. Pour plus d’informations, consultez le [guide du développeur de Key Vault](key-vault-developers-guide.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour un didacticiel de prise en main d’un administrateur, consultez la page [Prise en main d’Azure Key Vault](key-vault-get-started.md).
 
 Pour plus d’informations sur l’utilisation de la journalisation du coffre de clés, consultez [journalisation d’Azure Key Vault](key-vault-logging.md).

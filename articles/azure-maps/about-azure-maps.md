@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 93fe8dc3f8ff991cd6c48923d9e2073e4e93f1ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040845"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144191"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 Azure Maps est une collection de services géospatiaux qui s’appuient sur des données de mappage actualisées pour vous permettre de donner un contexte géographique précis à vos applications web et mobiles. Elle contient des API REST pour le rendu des cartes, la recherche de points d’intérêt, la génération d’itinéraires vers les points d’intérêt, les conditions de trafic, les fuseaux horaires et les IP pour les services de localisation. Vous pouvez utiliser ces API à l’aide de vos outils habituels pour développer et mettre à l’échelle rapidement des solutions Azure intégrant des informations de localisation. En plus des API REST, elle s’accompagne d’un contrôle JavaScript web, qui garantit un développement simplifié, flexible et portable sur plusieurs supports. 
@@ -92,6 +92,7 @@ Consultez la page [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/
 
 Localisation d’IP est un service en préversion qui vous permet de récupérer le code de deux lettres correspondant au pays dans une adresse IP donnée. Ce service peut vous aider à adapter votre application aux contraintes géopolitiques spéciales, ainsi qu’à améliorer l’expérience utilisateur en modifiant le contenu de l’application selon leur emplacement géographique. 
 
+Pour plus d’informations sur les API REST pour l’adresse IP du service d’emplacement, visitez la page [Azure Maps Geolocation APIs](https://docs.microsoft.com/rest/api/maps/geolocation) (API de géolocalisation Azure Maps).
 
 ## <a name="programming-model"></a>Modèle de programmation
 
