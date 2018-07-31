@@ -91,6 +91,8 @@
       href: functions-best-practices.md
     - name: Proxys de fonctions
       href: functions-proxies.md
+    - name: "Adresses\_IP"
+      href: ip-addresses.md
     - name: Fonctions locales
       href: functions-runtime-overview.md
     - name: Fonctions durables
@@ -201,7 +203,7 @@
           href: durable-functions-event-publishing.md
         - name: Utiliser le kit de développement logiciel (SDK) WebJobs
           href: durable-functions-webjobs-sdk.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Liaisons
       items:

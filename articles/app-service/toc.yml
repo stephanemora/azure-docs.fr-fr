@@ -194,7 +194,7 @@
           href: webjobs-sdk-get-started.md
         - name: Utiliser le kit de développement logiciel (SDK) WebJobs
           href: webjobs-sdk-how-to.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/appservice
@@ -247,7 +247,7 @@
     - name: Livres de recettes
       items:
         - name: Architectures de référence
-          href: /azure/architecture/reference-architectures/app-service-web-app/
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications'
         - name: Scripts de déploiement
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Résolution de problèmes

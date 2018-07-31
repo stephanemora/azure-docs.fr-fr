@@ -1,30 +1,29 @@
 ---
-title: Comment écrire une application Microsoft Translator WPF avec C#, Azure Cognitive Services | Microsoft Docs
-description: Découvrez comment utiliser le service de texte Translator pour traduire du texte, obtenir la liste localisée des langues prises en charge et bien plus encore.
+title: 'Didacticiel : écrire une application WPF pour l’API de traduction de texte Translator Text avec C# | Microsoft Docs'
+titleSuffix: Microsoft Cognitive Services
+description: Dans ce didacticiel, vous apprendrez à utiliser l’API de traduction de texte Translator Text pour traduire un texte, obtenir la liste des langues prises en charge, et plus encore, grâce à la création d’une application WPF avec C#.
 services: cognitive-services
-author: Jann-Skotdal
-manager: chriswendt1
+author: noellelacharite
+manager: nolachar
 ms.service: cognitive-services
 ms.component: translator-text
-ms.devlang: csharp
-ms.topic: article
-ms.date: 10/25/2017
-ms.author: v-jansko
-ms.openlocfilehash: fb58fd087de09561a0ea930748562e595d3dde1c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: tutorial
+ms.date: 07/20/2018
+ms.author: nolachar
+ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368656"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214915"
 ---
-# <a name="how-to-write-a-microsoft-translator-wpf-application-in-c"></a>Comment écrire une application Microsoft Translator WPF dans C#
+# <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Didacticiel : écrire une application WPF pour l’API de traduction de texte Translator Text avec C&#35;
 
-Dans ce didacticiel, nous allons construire un outil de traduction de texte interactif à l’aide d’API de traduction de texte Microsoft Translator Text (V3), qui fait partie de Microsoft Cognitive Services dans Azure. Vous découvrirez comment effectuer les actions suivantes :
+Dans ce didacticiel, nous allons construire un outil de traduction de texte interactif à l’aide d’API de traduction de texte Translator Text (V3), qui fait partie de Microsoft Cognitive Services dans Azure. Vous découvrirez comment effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Demander une liste des codes courts pour les langues prises en charge par le service
-> * Récupérer une liste des noms de langue localisés correspondant à ces codes de langue
-> * Obtenir la version traduite du texte entré par l’utilisateur d’une langue vers une autre
+> * Demander une liste des langues prises en charge par le service
+> * Effectuer la traduction du texte entré par l’utilisateur d’une langue vers une autre
 
 Cette application comprend également l’intégration avec deux autres services Microsoft Cognitive Services.
 
@@ -37,7 +36,7 @@ Cette application comprend également l’intégration avec deux autres services
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel, vous avez besoin de n’importe quelle édition de Visual Studio 2017, y compris la Community Edition.
+Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.)
 
 Vous avez également besoin des clés d’abonnement pour les trois services Azure utilisés dans le programme. Vous pouvez obtenir une clé pour le service Translator Text à partir du tableau de bord Azure. Un niveau tarifaire gratuit est disponible : il vous permet de traduire jusqu’à deux millions de caractères par mois sans aucun frais.
 
@@ -46,7 +45,7 @@ Les deux services Analyse de texte et Vérification orthographique Bing offrent 
 Le code source pour ce didacticiel est disponible ci-dessous. Vos clés d’abonnement doivent être copiées dans le code source en tant que variables `TEXT_TRANSLATION_API_SUBSCRIPTION_KEY`, et ainsi de suite, dans `MainWindow.xaml.cs`.
 
 > [!IMPORTANT]
-> Le service Analyse de texte est disponible dans plusieurs régions. L’URI dans notre code source du didacticiel se trouve dans la région `westus`, qui représente la région utilisée pour les essais gratuits. Si vous avez un abonnement dans une autre région, mettez à jour cet URI en conséquence.
+> Le service Analyse de texte est disponible dans plusieurs régions. L’URI dans ce code source du didacticiel se trouve dans la région `westus`, qui représente la région utilisée pour les essais gratuits. Si vous avez un abonnement dans une autre région, mettez à jour cet URI en conséquence.
 
 ## <a name="source-code"></a>Code source
 
@@ -56,7 +55,7 @@ Voici le code source pour l’API Microsoft Translator Text. Pour exécuter l’
 
 Il s’agit du fichier code-behind qui fournit des fonctionnalités de l’application.
 
-```cs
+```csharp
 using System;
 using System.Windows;
 using System.Net;
@@ -74,9 +73,9 @@ using Newtonsoft.Json;
 namespace MSTranslatorTextDemo
 {
     /// <summary>
-    /// This WPF application demonstrates the use of the Microsoft Translator Text API to translate a brief text string
-    /// one language to another. The langauges are selected from a drop-down menu. The text of the translation is displayed.
-    /// The source language may optionally be automatically detected.  English text is spell-checked.
+    /// This WPF application demonstrates the use of the Microsoft Translator Text API to translate a brief text string from
+    /// one language to another. The languages are selected from a drop-down menu. The text of the translation is displayed.
+    /// The source language may optionally be automatically detected. English text is spell-checked.
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -97,7 +96,7 @@ namespace MSTranslatorTextDemo
 
         public MainWindow()
         {
-            // at least show an error dialog when we get an unexpected error
+            // at least show an error dialog if there's an unexpected error
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
 
             if (TEXT_TRANSLATION_API_SUBSCRIPTION_KEY.Length != 32
@@ -166,7 +165,7 @@ namespace MSTranslatorTextDemo
 
             HttpWebResponse response = (HttpWebResponse)detectLanguageWebRequest.GetResponse();
 
-            // read and and parse JSON response
+            // read and parse JSON response
             var responseStream = response.GetResponseStream();
             var jsonString = new StreamReader(responseStream, Encoding.GetEncoding("utf-8")).ReadToEnd();
             dynamic jsonResponse = serializer.DeserializeObject(jsonString);
@@ -352,18 +351,18 @@ Ce fichier définit l’interface utilisateur de l’application, un formulaire 
         <Label x:Name="toLabel" Content="Translate to:" HorizontalAlignment="Left" Margin="304,58,0,0" VerticalAlignment="Top" FontSize="14"/>
 
         <Button x:Name="TranslateButton" Content="Translate" HorizontalAlignment="Left" Margin="39,206,0,0" VerticalAlignment="Top" Width="114" Height="31" Click="TranslateButton_Click" FontSize="14" TabIndex="4" IsDefault="True"/>
-        <ComboBox x:Name="ToLanguageComboBox" 
-                HorizontalAlignment="Left" 
-                Margin="306,88,0,0" 
-                VerticalAlignment="Top" 
+        <ComboBox x:Name="ToLanguageComboBox"
+                HorizontalAlignment="Left"
+                Margin="306,88,0,0"
+                VerticalAlignment="Top"
                 Width="175" FontSize="14" TabIndex="2">
 
         </ComboBox>
         <Label x:Name="fromLabel" Content="Translate from:" HorizontalAlignment="Left" Margin="40,58,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox x:Name="FromLanguageComboBox" 
-            HorizontalAlignment="Left" 
-            Margin="42,88,0,0" 
-            VerticalAlignment="Top" 
+        <ComboBox x:Name="FromLanguageComboBox"
+            HorizontalAlignment="Left"
+            Margin="42,88,0,0"
+            VerticalAlignment="Top"
             Width="175" FontSize="14" TabIndex="1"/>
         <Label x:Name="TranslatedTextLabel" Content="Translation appears here" HorizontalAlignment="Left" Margin="39,255,0,0" VerticalAlignment="Top" Width="620" FontSize="14" Height="85" BorderThickness="0"/>
     </Grid>
@@ -419,13 +418,13 @@ Si vous créez votre propre version de ce formulaire, il n’est pas nécessaire
 
 Le fichier code-behind `MainWindow.xaml.cs` contient le code qui va ordonner au programme d’exécuter son opération. Le travail s’effectue à deux moments :
 
-* Lorsque le programme démarre. Lorsque `MainWindow` est instancié, nous récupérons la liste des langues à l’aide des API `GetLanguagesForTranslate` et `GetLanguageNames` de Translator et remplissons ses menus déroulants avec ces dernières. Cette tâche est effectuée une seule fois, au début de chaque session.
+* Lorsque le programme démarre et que `MainWindow` est instancié, nous récupérons la liste des langues à l’aide des API de traduction de texte et remplissons les menus déroulants avec ces dernières. Cette tâche est effectuée une seule fois, au début de chaque session.
 
-* Lorsque l’utilisateur clique sur le bouton **Traduire**, nous récupérons les sélections de langue de l’utilisateur et le texte qu’il a entré. Puis, nous appelons l’API `Translate` pour effectuer la traduction. Nous pouvons également appeler d’autres fonctions pour déterminer la langue du texte et pour corriger son orthographe avant la traduction.
+* Lorsque l’utilisateur clique sur le bouton **Traduire**, les choix de langue de l’utilisateur et le texte saisi sont récupérés, puis l’API `Translate` est appelée pour effectuer la traduction. Il est également possible d’appeler d’autres fonctions pour déterminer la langue du texte et pour corriger son orthographe avant la traduction.
 
-Voyons de quelle façon commencer notre classe :
+Jetez un coup d’œil au début de la classe :
 
-```cs
+```csharp
 public partial class MainWindow : Window
 {
     // Translator text subscription key from Microsoft Azure dashboard
@@ -445,7 +444,7 @@ public partial class MainWindow : Window
 
     public MainWindow()
     {
-        // at least show an error dialog when we get an unexpected error
+        // at least show an error dialog if there's an unexpected error
         AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
 
         if (TEXT_TRANSLATION_API_SUBSCRIPTION_KEY.Length != 32
@@ -475,13 +474,13 @@ Deux variables membres déclarées ici contiennent des informations sur nos lang
 |`languageCodes`<br>tableau de chaînes|Met en cache les codes de langue. Le service Translator utilise des codes courts, tel que `en` pour l’anglais, pour identifier les langues.|
 |`languageCodesAndTitles`<br>SortedDictionary|Mappe les noms « conviviaux » dans l’interface utilisateur aux codes courts utilisés dans l’API. Reste trié par ordre alphabétique sans respecter la casse.|
 
-Le premier code exécuté par notre application est le constructeur `MainWindow`. Tout d’abord, nous configurons la méthode `HandleExceptions` en tant que gestionnaire d’erreurs global. Ainsi, au moins, nous obtenons un message d’erreur si une exception n’est pas gérée.
+Le premier code exécuté par l’application est le constructeur `MainWindow`. Tout d’abord, nous configurons la méthode `HandleExceptions` en tant que gestionnaire d’erreurs global. Ainsi, nous obtenons au moins un message d’erreur si une exception n’est pas gérée.
 
-Ensuite, nous vérifions que les clés d’abonnement à l’API comprennent toutes exactement 32 caractères. Si ce n’est pas le cas, la raison la plus probable serait que *quelqu’un* n’a pas collé ses clés de l’API (tsk). Dans ce cas, nous affichons un message d’erreur et abandonnons. (La réussite de ce test ne signifie pas que les clés sont valides, bien évidemment.)
+Ensuite, nous vérifions que les clés d’abonnement à l’API comprennent toutes exactement 32 caractères. Si ce n’est pas le cas, la raison la plus probable serait que *quelqu’un* n’a pas collé ses clés de l’API. Dans ce cas, nous affichons un message d’erreur et abandonnons. (La réussite de ce test ne signifie pas que les clés sont valides, bien évidemment.)
 
 Si nous avons des clés qui, au moins, possèdent la bonne longueur, l’appel `InitializeComponent()` propage l’interface utilisateur en recherchant, chargeant et instanciant la description XAML de la fenêtre principale de l’application.
 
-Enfin, nous configurons les menus déroulants des langues. Cette tâche nécessite trois appels de méthode distincts. Chacune de ces méthodes est détaillée dans les sections suivantes.
+Enfin, nous configurons les menus déroulants des langues. Cette tâche nécessite trois appels de méthode distincts, qui sont traités en détail dans les sections suivantes.
 
 ## <a name="get-supported-languages"></a>Obtenir les langues prises en charge
 
@@ -489,9 +488,9 @@ Le service Microsoft Translator prend en charge un total de 61 langues à ce jou
 
 Appelez l’API `Languages` pour obtenir la liste des langues prises en charge.
 
-L’API `Languages` prend un paramètre de requête GET facultatif, *scope*. *scope* peut avoir l’une des trois valeurs suivantes : `translation`, `transliteration` ou `dictionary`. Nous allons utiliser la valeur `translation`.
+L’API `Languages` prend un paramètre de requête GET facultatif, *scope*. *scope* peut avoir l’une des trois valeurs suivantes : `translation`, `transliteration` ou `dictionary`. Ce code utilise la valeur `translation`.
 
-L’API `Languages` prend également un en-tête HTTP facultatif, `Accept-Language`. La valeur de cet en-tête détermine la langue dans laquelle les noms des langues prises en charge sont retournés. La valeur doit être une balise de langue BCP 47 bien formée. Nous allons utiliser la valeur `en` pour obtenir les noms de langue en anglais.
+L’API `Languages` prend également un en-tête HTTP facultatif, `Accept-Language`. La valeur de cet en-tête détermine la langue dans laquelle les noms des langues prises en charge sont retournés. La valeur doit être une balise de langue BCP 47 bien formée. Ce code utilise la valeur `en` pour obtenir les noms de langue en anglais.
 
 L’API `Languages` renvoie une réponse JSON qui ressemble à ce qui suit.
 
@@ -512,11 +511,11 @@ L’API `Languages` renvoie une réponse JSON qui ressemble à ce qui suit.
 }
 ```
 
-Nous souhaitons extraire les codes de langue (par exemple, `af`) et les noms de langue (par exemple, `Afrikaans`). Nous utilisons la méthode NewtonSoft.Json [JsonConvert.DeserializeObject](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm) pour effectuer ces opérations.
+Afin de pouvoir extraire les codes de langue (par exemple, `af`) et les noms de langue (par exemple, `Afrikaans`), ce code utilise la méthode NewtonSoft.Json [JsonConvert.DeserializeObject](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm).
 
 Avec ces connaissances du contexte, nous créons la méthode suivante pour récupérer les codes de langue et leurs noms.
 
-```cs
+```csharp
 private void GetLanguagesForTranslate()
 {
     // send request to get supported language codes
@@ -541,15 +540,15 @@ private void GetLanguagesForTranslate()
 }
 ```
 
-`GetLanguagesForTranslate()` crée d’abord la requête HTTP. Le paramètre de chaîne de requête `scope=translation` spécifie que nous souhaitons la prise en charge des langues pour la traduction du texte. Nous ajoutons la clé d’abonnement à l’API Traduction de texte pour les en-têtes de requête. Nous ajoutons également l’en-tête `Accept-Language` avec la valeur `en` pour indiquer que nous souhaitons renvoyer les langues prises en charge en anglais.
+`GetLanguagesForTranslate()` crée d’abord la requête HTTP. Le paramètre de chaîne de requête `scope=translation` demande uniquement les langues prises en charge pour la traduction du texte. La clé d’abonnement à l’API de traduction de texte est ajoutée aux en-têtes de requête. L’en-tête `Accept-Language` avec la valeur `en` est ajouté pour renvoyer les langues prises en charge en anglais.
 
-Une fois la requête terminée, nous analysons la réponse JSON et la convertissons en un dictionnaire. Nous ajoutons les codes de langue à la variable membre `languageCodes`. Nous exécutons ensuite une boucle sur les paires clé/valeur contenant les codes de langue et les noms de langue conviviaux et nous les ajoutons à la variable membre `languageCodesAndTitles`. (Les menus déroulants dans notre formulaire affichent les noms conviviaux, mais nous avons besoin des codes pour demander la traduction.)
+Une fois que la requête est terminée, la réponse JSON est analysée et convertie en un dictionnaire, puis les codes de langue sont ajoutés à la variable membre `languageCodes`. Nous exécutons ensuite une boucle sur les paires clé/valeur contenant les codes de langue et les noms de langue conviviaux et nous les ajoutons à la variable membre `languageCodesAndTitles`. (Les menus déroulants dans notre formulaire affichent les noms conviviaux, mais nous avons besoin des codes pour demander la traduction.)
 
 ## <a name="populate-the-language-menus"></a>Remplir les menus de langues
 
-La majeure partie de notre interface utilisateur est définie en XAML, par conséquent, peu d’actions sont nécessaires pour la configurer, en dehors de l’appel à `InitializeComponent()`. La seule chose nous devons faire est ajouter les noms de langue conviviaux aux listes déroulantes des langues source et cible, ce qui est effectué dans `PopulateLanguageMenus()`.
+La majeure partie de l’interface utilisateur est définie en XAML, par conséquent, peu d’actions sont nécessaires pour la configurer, en dehors de l’appel à `InitializeComponent()`. La seule chose supplémentaire à faire est d’ajouter les noms de langue conviviaux aux listes déroulantes des **langues source** et **cible**, ce qui est effectué dans `PopulateLanguageMenus()`.
 
-```cs
+```csharp
 private void PopulateLanguageMenus()
 {
     // Add option to automatically detect the source language
@@ -568,18 +567,18 @@ private void PopulateLanguageMenus()
 }
 ```
 
-Remplir les menus consiste simplement à itérer sur le dictionnaire `languageCodesAndTitles` et à ajouter chaque clé, qui représente le nom « convivial », aux deux menus. Après avoir rempli les menus, nous définissons les langues source et cible par défaut à détecter (pour détecter automatiquement la langue) et l’anglais.
+Remplir les menus consiste simplement à itérer sur le dictionnaire `languageCodesAndTitles` et à ajouter chaque clé, qui représente le nom « convivial », aux deux menus. Après avoir rempli les menus, nous définissons les langues source et cible par défaut à **détecter** (pour détecter automatiquement la langue) et l’**anglais**.
 
 > [!TIP]
 > Si nous ne définissons pas de sélection par défaut pour nos menus, l’utilisateur peut cliquer sur **Traduire** sans choisir de langue source ou cible. Les valeurs par défaut évitent d’avoir à résoudre ce problème.
 
-Maintenant, `MainWindow` a été initialisé, créant ainsi l’interface utilisateur. Nous n’avons plus le contrôle tant que l’utilisateur ne clique pas sur le bouton **Traduire**.
+Maintenant que `MainWindow` a été initialisé et l’interface utilisateur créée, le code attend jusqu'à ce que l’utilisateur clique sur le bouton **Traduire**.
 
 ## <a name="perform-translation"></a>Effectuer la traduction
 
 Lorsque l’utilisateur clique sur **Traduire**, WPF appelle le gestionnaire d’événements `TranslateButton_Click()`, illustré ici.
 
-```cs
+```csharp
 private async void TranslateButton_Click(object sender, EventArgs e)
 {
     string textToTranslate = TextToTranslate.Text.Trim();
@@ -652,22 +651,22 @@ private async void TranslateButton_Click(object sender, EventArgs e)
 }
 ```
 
-Ici, nous récupérons tout d’abord les langues source et cible, ainsi que le texte que l’utilisateur a entré, à partir du formulaire.
+Nous récupérons tout d’abord les langues source et cible, ainsi que le texte que l’utilisateur a entré, à partir du formulaire.
 
-Si la langue source est définie sur Détecter, nous appelons `DetectLanguage()` pour déterminer la langue du texte. Le texte peut être dans une langue que les API de Translator ne prennent pas en charge (de nombreuses autres langues pouvant être traduites peuvent être détectées) ou l’API Analyse de texte peut ne pas être capable de le détecter. Dans ce cas, nous affichons un message pour informer l’utilisateur et effectuons un retour sans traduction.
+Si la langue source est définie sur **Détecter**, nous appelons `DetectLanguage()` pour déterminer la langue du texte. Le texte peut être dans une langue que les API de Translator ne prennent pas en charge (de nombreuses autres langues pouvant être traduites peuvent être détectées) ou l’API Analyse de texte peut ne pas être capable de le détecter. Dans ce cas, nous affichons un message pour informer l’utilisateur et effectuons un retour sans traduction.
 
 Si la langue source est l’anglais (qu’elle soit spécifiée ou détectée), nous vérifions l’orthographe du texte avec `CorrectSpelling()` et appliquons les corrections. Le texte corrigé est replacé dans le champ d’entrée afin que l’utilisateur sache que la correction a été effectuée. (L’utilisateur peut faire précéder le texte en cours de traduction d’un trait d’union pour supprimer la correction orthographique.)
 
-Si l’utilisateur n’a entré aucun texte, ou si les langues source et cible sont identiques, aucune traduction n’est nécessaire. Dans ce cas, nous évitons d’effectuer la requête.
+Si l’utilisateur n’a entré aucun texte, ou si les langues source et cible sont identiques, aucune traduction n’est nécessaire et la requête peut être évitée.
 
-Le code permettant d’effectuer la requête de traduction doit paraître familier. Nous construisons l’URI, nous créons une requête, nous l’envoyons et nous analysons la réponse. Pour afficher le texte, nous le stockons dans le contrôle `TranslatedTextLabel`.
+Le code pour effectuer la demande de traduction peut vous sembler familier : compiler l’URI, créer une requête, l’envoyer et analyser la réponse. Pour afficher le texte, envoyez-la au contrôle `TranslatedTextLabel`.
 
-Nous transmettons le texte à l’API `Translate` dans un tableau JSON sérialisé dans le corps d’une requête POST. Le tableau JSON peut contenir plusieurs textes à convertir, mais ici nous n’en incluons qu’un seul.
+Ensuite, transmettez le texte à l’API `Translate` dans un tableau JSON sérialisé dans le corps d’une requête POST. Le tableau JSON peut contenir plusieurs textes à convertir, mais ici nous n’en incluons qu’un seul.
 
 L’en-tête HTTP nommé `X-ClientTraceId` est facultatif. La valeur doit être un GUID. L’ID de suivi fourni par le client est utile pour suivre les requêtes lorsque les opérations ne se déroulent pas comme prévu. Toutefois, pour être utile, la valeur de X-ClientTraceID doit être enregistrée par le client. Un ID de suivi du client et la date des requêtes peuvent aider Microsoft à diagnostiquer les problèmes qui peuvent se produire.
 
 > [!NOTE]
-> Ce didacticiel étant axé sur le service Microsoft Translator, nous ne couvrons donc pas les méthodes `DetectLanguage()` et `CorrectSpelling()` en détail. Les services Analyse de texte et Vérification orthographique Bing fournissent des réponses en JSON plutôt qu’en XML, et Analyse de texte requiert que la requête soit au format JSON également. Ces caractéristiques représentent la plupart des différences de code existant avec les méthodes que nous avons déjà vues.
+> Ce didacticiel étant axé sur le service Microsoft Translator, les méthodes `DetectLanguage()` et `CorrectSpelling()` ne sont pas abordées en détail. Les services Analyse de texte et Vérification orthographique Bing fournissent des réponses en JSON plutôt qu’en XML, et Analyse de texte requiert que la requête soit au format JSON également. Ces caractéristiques représentent la plupart des différences de code existant avec les méthodes abordées ici.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
