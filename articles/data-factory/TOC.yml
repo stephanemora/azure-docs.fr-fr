@@ -116,6 +116,8 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime d’intégration
       href: concepts-integration-runtime.md
+    - name: Règles d’affectation des noms
+      href: naming-rules.md
 - name: Procédures
   items:
     - name: Auteur
@@ -307,7 +309,7 @@
           href: transform-data-using-hadoop-map-reduce.md
         - name: Activité de diffusion en continu HDInsight
           href: transform-data-using-hadoop-streaming.md
-        - name: Activité HDInsight Spark
+        - name: Activité Spark HDInsight
           href: transform-data-using-spark.md
         - name: Activité d'exécution du lot ML
           href: transform-data-using-machine-learning.md
