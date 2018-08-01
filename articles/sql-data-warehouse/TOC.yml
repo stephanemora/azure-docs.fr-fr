@@ -111,8 +111,12 @@
           href: memory-and-concurrency-limits.md
         - name: Compression columnstore
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-    - name: Surveiller
-      href: sql-data-warehouse-manage-monitor.md
+    - name: Facilité de gestion et supervision
+      items:
+        - name: Surveiller
+          href: sql-data-warehouse-manage-monitor.md
+        - name: Recommandations
+          href: sql-data-warehouse-concept-recommendations.md
     - name: Développer des entrepôts de données
       items:
         - name: Vue d’ensemble
@@ -167,7 +171,7 @@
               href: sql-data-warehouse-develop-variable-assignment.md
             - name: Views
               href: sql-data-warehouse-develop-views.md
-    - name: Résoudre les problèmes
+    - name: Résolution des problèmes
       href: sql-data-warehouse-troubleshoot.md
 - name: Procédures
   items:
@@ -241,7 +245,7 @@
       items:
         - name: Automatiser les niveaux de calcul
           href: manage-compute-with-azure-functions.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: T-SQL
       items:

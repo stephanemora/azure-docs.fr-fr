@@ -24,6 +24,9 @@
         - name: Identité du service administré
           tocHref: /azure/active-directory/managed-service-identity/
           topicHref: /azure/active-directory/managed-service-identity/
+        - name: Aide utilisateur
+          tocHref: /azure/active-directory/user-help/
+          topicHref: /azure/active-directory/user-help/
         - name: B2C
           tocHref: /azure/active-directory-b2c/
           topicHref: /azure/active-directory-b2c/
@@ -33,7 +36,7 @@
     - name: Analysis Services
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
-    - name: Gestion des API
+    - name: API Management
       tocHref: /azure/api-management/
       topicHref: /azure/api-management/
       items:
@@ -363,13 +366,13 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Load Balancer
+    - name: Équilibreur de charge
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Log Analytics
       tocHref: /azure/log-analytics/
       topicHref: /azure/log-analytics/
-    - name: Logic Apps
+    - name: "Logic\_Apps"
       tocHref: /azure/logic-apps/
       topicHref: /azure/logic-apps/
     - name: Machine Learning
@@ -423,7 +426,7 @@
     - name: MySQL
       tocHref: /azure/mysql/
       topicHref: /azure/mysql/
-    - name: Network Watcher
+    - name: "Network\_Watcher"
       tocHref: /azure/network-watcher/
       topicHref: /azure/network-watcher/
     - name: Mise en réseau
@@ -511,10 +514,10 @@
     - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
-    - name: SQL Data Warehouse
+    - name: "SQL\_Data\_Warehouse"
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
-    - name: SQL Database
+    - name: Base de données SQL
       tocHref: /azure/sql-database/
       topicHref: /azure/sql-database/
     - name: SQL Server Stretch Database

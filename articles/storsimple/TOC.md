@@ -2,7 +2,7 @@
 
 # Baie virtuelle StorSimple
 
-## Vue d'ensemble
+## Vue d’ensemble
 ### [Quelle est la solution ?](storsimple-ova-overview.md)
 
 ## Prise en main
@@ -22,7 +22,8 @@
 
 ## Procédures
 ### [Gérer via le portail Azure](storsimple-virtual-array-manager-service-administration.md)
-#### [Installer la dernière mise à jour](storsimple-virtual-array-install-update-1.md)
+#### [Installer la dernière mise à jour](storsimple-virtual-array-install-update-11.md)
+##### [Installer Update 1](storsimple-virtual-array-install-update-1.md)
 ##### [Installer Update 0.6](storsimple-virtual-array-install-update-06.md)
 ##### Archivage
 ###### [Installer Update 0.5](storsimple-virtual-array-install-update-05.md)
@@ -47,7 +48,8 @@
 ### [Configurer via l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md)
 
 ## Notes de publication
-### [Update 1 (en cours)](storsimple-virtual-array-update-1-release-notes.md)
+### [Update 1.1 (en cours)](storsimple-virtual-array-update-11-release-notes.md)
+### [Update 1](storsimple-virtual-array-update-1-release-notes.md)
 ### [Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archivage
 #### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
@@ -57,7 +59,7 @@
 
 # Gamme StorSimple 8000 (portail Azure)
 
-## Vue d'ensemble
+## Vue d’ensemble
 ### [Quelle est la solution ?](storsimple-overview.md)
 ### [Carte d’apprentissage StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Sécurité](storsimple-8000-security.md)
@@ -208,7 +210,7 @@
 
 # StorSimple Data Manager
 
-## Vue d'ensemble
+## Vue d’ensemble
 ### [Quelle est la solution ?](storsimple-data-manager-overview.md)
 
 ## Prise en main
@@ -221,7 +223,7 @@
 
 # StorSimple pour les partenaires
 
-## Vue d'ensemble
+## Vue d’ensemble
 ### [Quelle est la solution ?](storsimple-partner-csp-overview.md)
 
 ## Prise en main

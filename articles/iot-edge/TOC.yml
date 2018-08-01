@@ -31,6 +31,8 @@
               href: tutorial-python-module.md
             - name: Node.js
               href: tutorial-node-module.md
+            - name: C
+              href: tutorial-c-module.md
     - name: Stocker des données localement avec SQL
       href: tutorial-store-data-sql-server.md
 - name: Concepts
@@ -52,6 +54,9 @@
       href: iot-edge-as-gateway.md
     - name: Sécurité
       href: security.md
+      items:
+        - name: Gestionnaire de sécurité IoT Edge
+          href: iot-edge-security-manager.md
     - name: Prise en charge de plateformes
       href: support.md
     - name: Glossaire IoT Edge
@@ -90,6 +95,8 @@
           href: how-to-develop-csharp-module.md
         - name: Node.js
           href: how-to-develop-node-module.md
+        - name: C
+          href: how-to-develop-c-module.md
         - name: Azure Functions
           href: how-to-develop-csharp-function.md
         - name: Développer plusieurs modules
