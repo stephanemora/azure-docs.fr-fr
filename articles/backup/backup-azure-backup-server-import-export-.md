@@ -98,7 +98,7 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Préparer des disques SATA et envoyer à Azure
 L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA qui sont envoyés au centre de données Azure le plus proche. Cet utilitaire est disponible dans le répertoire d’installation de l’agent Recovery Services dont le chemin d’accès est le suivant :
 
-   *\Microsoft**Azure**Recovery**Services* *Agent\Utils\*
+   *\Microsoft**Azure**Recovery**Services* \*Agent\Utils\*
 
 1. Accédez au répertoire, puis copiez le répertoire **AzureOfflineBackupDiskPrep** vers un ordinateur de copie auquel les disques SATA à préparer sont connectés. Vérifiez les points suivants concernant l’ordinateur de copie :
 

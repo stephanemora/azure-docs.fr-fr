@@ -738,7 +738,7 @@ Informations essentielles :
     
 - Spécifiez plusieurs chemins d’URL en les séparant par une espace.
 
-   Par exemple : /marketing/asset.* /sales/*.htm
+   Par exemple : /marketing/asset.* /sales/\*.htm
 
 - Les chaînes de requête dans l’URL sont ignorées.
     
