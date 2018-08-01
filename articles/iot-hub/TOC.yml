@@ -214,6 +214,8 @@
           items:
             - name: Utiliser le portail Azure
               href: iot-hub-create-through-portal.md
+            - name: Utiliser le kit de ressources Azure IoT pour VS Code
+              href: iot-hub-create-use-iot-toolkit.md
             - name: Utilisation d'Azure PowerShell
               href: iot-hub-create-using-powershell.md
             - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"

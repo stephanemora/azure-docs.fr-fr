@@ -131,7 +131,6 @@
 #### [Latences](active-directory-reporting-latencies-azure-portal.md)
 #### [Référence d’activité d’audit](active-directory-reporting-activity-audit-reference.md)
 #### [Codes d’erreur de l’activité de connexion](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Authentification multifacteur](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Interpréter le schéma de journal d'audit dans Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Interpréter le schéma de journal de connexion dans Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
@@ -159,9 +158,16 @@
 ### [Planifier l’exécution d’Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQ](device-management-faq.md)
 ### Tâches
+#### [Comment planifier l’implémentation de la jointure hybride Azure Active Directory](devices/hybrid-azuread-join-plan.md)
+#### [Configurer la jointure hybride Azure Active Directory pour des domaines managés](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configurer la jointure hybride Azure Active Directory pour des domaines fédérés](devices/hybrid-azuread-join-federated-domains.md)
+#### [Comment contrôler la jointure hybride Azure Active Directory pour vos appareils](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Configurer les appareils Windows 10 inscrits dans Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Configurer les appareils joints Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Configurer les appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Configurer les appareils joints Azure AD hybrides](devices/hybrid-azuread-join-manual-steps.md)
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
 #### [Enregistrement dans Azure AD lors de la première exécution de Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Résolution des problèmes

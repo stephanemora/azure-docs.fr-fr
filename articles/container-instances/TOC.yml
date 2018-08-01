@@ -51,6 +51,8 @@
           href: container-instances-liveness-probe.md
     - name: gérer
       items:
+        - name: Mettre à jour des conteneurs en cours d’exécution
+          href: container-instances-update.md
         - name: Exécuter une commande (exec)
           href: container-instances-exec.md
         - name: Surveiller l’utilisation du processeur et de la mémoire
@@ -59,7 +61,7 @@
           href: container-instances-log-analytics.md
     - name: Exécuter des charges de travail
       items:
-        - name: Exécuter des tâches avec une stratégie de redémarrage
+        - name: Exécuter des tâches avec des stratégies de redémarrage
           href: container-instances-restart-policy.md
         - name: Agents de build Jenkins sur ACI
           href: container-instances-jenkins.md

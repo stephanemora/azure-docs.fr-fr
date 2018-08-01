@@ -39,8 +39,16 @@
         - name: Chiffrement des données au repos
           href: azure-security-encryption-atrest.md
         - name: Chiffrement de disque pour les VM IaaS
-          href: azure-security-disk-encryption.md
+          href: azure-security-disk-encryption-overview.md
           items:
+            - name: Configuration requise pour le chiffrement de disque
+              href: azure-security-disk-encryption-prerequisites.md
+            - name: Chiffrement de disque pour les machines virtuelles Windows
+              href: azure-security-disk-encryption-windows.md
+            - name: Chiffrement de disque pour les machines virtuelles Linux
+              href: azure-security-disk-encryption-linux.md
+            - name: Annexe relative au chiffrement de disque
+              href: azure-security-disk-encryption-appendix.md
             - name: FAQ relative au chiffrement de disque
               href: azure-security-disk-encryption-faq.md
             - name: Résolution de problèmes
@@ -66,7 +74,7 @@
           href: azure-infrastructure-network.md
         - name: Réseau de production
           href: azure-production-network.md
-        - name: SQL Database
+        - name: Base de données SQL
           href: azure-infrastructure-sql.md
         - name: Opérations
           href: azure-infrastructure-operations.md
@@ -198,6 +206,16 @@
       items:
         - name: Données et intelligence artificielle d’intégrité
           href: ./blueprints/azure-health.md
+    - name: "Service NIS (Network Information Service) SP\_800-171"
+      items:
+        - name: Analyse de données
+          href: ./blueprints/nist171-analytics-overview.md
+        - name: Entrepôt de données
+          href: ./blueprints/nist171-datawarehouse-overview.md
+        - name: Application web IaaS
+          href: ./blueprints/nist171-iaaswa-overview.md
+        - name: Application web PaaS
+          href: ./blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       items:
         - name: Analyse de données

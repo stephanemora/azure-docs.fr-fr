@@ -46,10 +46,14 @@
       href: stream-analytics-compatibility-level.md
     - name: Modèles de requête courants
       href: stream-analytics-stream-analytics-query-patterns.md
+    - name: Utiliser des types de données complexes dans JavaScript Object Notation et AVRO
+      href: 'https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics'
     - name: Considérations relatives à l’organisation des événements
       href: stream-analytics-out-of-order-and-late-events.md
     - name: Point de contrôle et relecture
       href: stream-analytics-concepts-checkpoint-replay.md
+    - name: Stratégie de gestion des erreurs
+      href: output-error-policy.md
 - name: Guides de procédures
   items:
     - name: gérer
@@ -119,7 +123,7 @@
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Configurer un pipeline d'intégration continue (CI)/de livraison continue (CD)
           href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Résoudre les problèmes
+    - name: Résolution des problèmes
       items:
         - name: Étapes de dépannage
           href: stream-analytics-troubleshooting-guide.md
@@ -141,7 +145,7 @@
           href: stream-analytics-machine-learning-anomaly-detection.md
         - name: Utiliser les API REST
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.streamanalytics

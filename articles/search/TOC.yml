@@ -1,6 +1,6 @@
 - name: Documentation Recherche Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation de Recherche Azure
       href: search-what-is-azure-search.md
@@ -175,16 +175,20 @@
               href: search-indexer-field-mappings.md
     - name: Recherche de données
       items:
-        - name: Construction des requêtes de base
+        - name: Principes de base des requêtes
           href: search-query-overview.md
         - name: Navigateur de recherche (portail)
           href: search-explorer.md
-        - name: Syntaxe de requête simple
-          href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
-        - name: Syntaxe de requête Lucene
-          href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Exemples de requête Lucene
+        - name: Exemples de syntaxe simple
+          href: search-query-simple-examples.md
+        - name: Exemples de syntaxe complète
           href: search-query-lucene-examples.md
+        - name: Informations de référence sur les requêtes
+          items:
+            - name: Syntaxe de requête simple
+              href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
+            - name: Syntaxe de requête Lucene
+              href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
         - name: Résultats de pagination
           href: search-pagination-page-layout.md
         - name: Réglage de la pertinence
