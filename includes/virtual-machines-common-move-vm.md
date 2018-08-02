@@ -9,11 +9,11 @@ ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 7b5bc37be660ea3958bf224d2911c5c2d4577524
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958705"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38941437"
 ---
 ## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Utiliser le portail pour déplacer une machine virtuelle vers un autre abonnement
 Vous pouvez déplacer une machine virtuelle et les ressources associées vers un autre abonnement avec le portail.

@@ -2,24 +2,18 @@
 title: Utilisation du CDN Azure pour accéder aux objets blob avec des domaines personnalisés via HTTPs
 description: Découvrez comment intégrer le CDN Azure avec le stockage d’objets blob pour accéder aux objets blob avec des domaines personnalisés via HTTPS
 services: storage
-documentationcenter: ''
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: mihauss
-ms.openlocfilehash: b3b1b5064e51b68bb64cb8c4dbec6075705795d6
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: blobs
+ms.openlocfilehash: 7c4acc7d0832442b94735619ea3a01cb319da993
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025223"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398253"
 ---
 # <a name="using-the-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Utilisation du CDN Azure pour accéder aux objets blob avec des domaines personnalisés via HTTPs
 Le réseau de distribution de contenu (CDN) Azure prend désormais en charge le protocole HTTPS pour les noms de domaine personnalisés. Vous pouvez utiliser cette fonctionnalité pour accéder aux objets blob de stockage à l’aide de votre domaine personnalisé via HTTPS. Pour ce faire, vous devez tout d’abord activer Azure CDN sur le point de terminaison de votre objet blob ou web et mapper le CDN à un nom de domaine personnalisé. Une fois cette procédure effectuée, l’activation du protocole HTTPS pour votre domaine personnalisé est simplifiée grâce à l’activation en un clic et la gestion complète des certificats, le tout sans coût supplémentaire par rapport au tarif CDN normal.
@@ -60,7 +54,7 @@ Pour approfondir vos connaissances des règles, consultez les [fonctionnalités 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 Lorsque vous accédez à des objets blob via un CDN Azure, vous payez [le prix du stockage d’objets Blob](https://azure.microsoft.com/pricing/details/storage/blobs/) pour le trafic entre les nœuds de périphérie et l’origine (stockage d’objets Blob), et [les prix CDN](https://azure.microsoft.com/pricing/details/cdn/) pour l’accès aux données à partir des nœuds de périphérie.
 
-Par exemple, supposons que vous avez un compte de stockage dans l’ouest des États-Unis qui est accessible via un CDN Azure. Si une personne au Royaume-Uni tente d’accéder à un des objets blob de ce compte de stockage via le CDN, Azure vérifie d’abord le nœud de périphérie le plus proche du Royaume-Uni pour cet objet blob. S’il est trouvé, il accède à cette copie de l’objet blob et utilise la tarification CDN, car l’accès se fait via le CDN. Si ce n’est pas le cas, Azure copie l’objet blob vers le nœud de périphérie, ce qui entraîne des frais de sortie et de transaction tels que spécifiés dans la tarification du stockage d’objets Blob, et accède ensuite au fichier sur le nœud de périphérie, ce qui entraîne la facturation du CDN.
+Par exemple, supposons que vous avez un compte de stockage dans la région USA Ouest qui est accessible via un CDN Azure. Si une personne au Royaume-Uni tente d’accéder à un des objets blob de ce compte de stockage via le CDN, Azure vérifie d’abord le nœud de périphérie le plus proche du Royaume-Uni pour cet objet blob. S’il est trouvé, il accède à cette copie de l’objet blob et utilise la tarification CDN, car l’accès se fait via le CDN. Si ce n’est pas le cas, Azure copie l’objet blob vers le nœud de périphérie, ce qui entraîne des frais de sortie et de transaction tels que spécifiés dans la tarification du stockage d’objets Blob, et accède ensuite au fichier sur le nœud de périphérie, ce qui entraîne la facturation du CDN.
 
 Lorsque vous examinez la [page de tarification de CDN](https://azure.microsoft.com/pricing/details/cdn/), notez que la prise en charge HTTPS pour les noms de domaine personnalisés est uniquement disponible pour le CDN Azure des produits Verizon (Standard ou Premium).
 

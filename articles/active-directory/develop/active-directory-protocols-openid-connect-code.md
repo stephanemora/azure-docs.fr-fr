@@ -17,12 +17,12 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a5383776aa787a087fffe1ab06bb62c2b1df073d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: f304a57360f5c847d2a65eb9bd651496c86b1b4d
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157317"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39357716"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autoriser l’accès aux applications web à l’aide d’OpenID Connect et d’Azure Active Directory
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) est une couche d’identité simple basée sur le protocole OAuth 2.0. OAuth 2.0 définit des mécanismes permettant d’obtenir et d’utiliser des **jetons d’accès** pour accéder à des ressources protégées ; en revanche, ces mécanismes ne définissent aucune méthode standard pour fournir des informations d’identité. OpenID Connect implémente l’authentification en tant qu’extension pour le processus d’autorisation OAuth 2.0. Il fournit des informations sur l’utilisateur final sous la forme d’un `id_token` qui vérifie l’identité de l’utilisateur et fournit des informations de profil de base sur l’utilisateur.
@@ -194,7 +194,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 &redirect_uri=http%3A%2F%2Flocalhost%3a12345          // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // `form_post' or 'fragment'
 &scope=openid
-&resource=https%3A%2F%2Fservice.contoso.com%2F                                     
+&resource=https%3A%2F%2Fservice.contoso.com%2F        // The identifier of the protected resource (web API) that your application needs access to
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app
 ```

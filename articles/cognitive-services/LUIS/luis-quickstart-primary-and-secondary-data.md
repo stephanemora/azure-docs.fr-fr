@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238003"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308967"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutoriel : 7. Ajouter une entité simple et une liste d’expressions
 Dans ce tutoriel, vous allez créer une application qui montre comment extraire les données issues de l’apprentissage automatique à partir d’un énoncé utilisant l’entité **Simple**.
@@ -29,7 +29,7 @@ Dans ce tutoriel, vous allez créer une application qui montre comment extraire 
 > * Ajouter la liste d’expressions pour améliorer le signal de mots de travail
 > * Effectuer l'apprentissage, publier l’application et procéder à une nouvelle interrogation du point de terminaison
 
-Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous ne disposez pas de l’application Ressources humaines du tutoriel [entité composite](luis-tutorial-composite-entity.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une application du site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
@@ -70,8 +70,6 @@ Cette application LUIS comporte des noms de poste dans plusieurs intentions. En 
 ## <a name="create-job-simple-entity"></a>Créer une entité simple de poste
 
 1. Assurez-vous que votre application Ressources humaines figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
-
-    [ ![Capture d’écran de l’application LUIS avec Générer en surbrillance dans la barre de navigation en haut à droite](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
 2. Dans la page **Intents** (Intentions), sélectionnez l’intention **ApplyForJob**. 
 
@@ -139,22 +137,14 @@ LUIS ne connaît pas les modifications apportées aux intentions et aux entités
     ![Notification de réussite de l’apprentissage](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
-Pour obtenir une prédiction LUIS dans un chatbot ou une autre application, vous devez publier l’application. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Publier**. 
-
-2. Sélectionnez l’emplacement Production et le bouton **Publier**.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Capture d’écran de la page Publier avec le bouton Publier vers l’emplacement Production mis en surbrillance")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
-3. La publication est terminée lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Interroger le point de terminaison avec un autre énoncé
-Dans la page **Publier**, sélectionnez le lien **Point de terminaison** en bas de la page. 
 
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Capture d’écran de la page Publier avec le point de terminaison mis en surbrillance")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-Cette action ouvre une autre fenêtre de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresses. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Here is my c.v. for the programmer job`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner les énoncés `ApplyForJob`.
+2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Here is my c.v. for the programmer job`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner les énoncés `ApplyForJob`.
 
 ```JSON
 {

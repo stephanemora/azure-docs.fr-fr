@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad8920ac01ce62eb676b495dcde2aae6b076cbe2
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d14420a363cfea23c86f63533a4ea89c5f2fd06f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125501"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412914"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Démarrage rapide : créer et déployer une application web sur Azure Service Fabric mesh
 
@@ -81,19 +81,6 @@ Sous **Groupe de ressources**, sélectionnez **\<Créer un groupe de ressources.
 ![Boîte de dialogue Nouveau groupe de ressources Service Fabric mesh dans Visual studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
 Revenez à la boîte de dialogue **Publier une application Service Fabric** sous **Azure Container Registry**, sélectionnez **\<Créer un registre de conteneurs...>**. Dans la boîte de dialogue **Créer un registre de conteneurs**, utilisez un nom unique pour le **Nom du registre de conteneurs**. Spécifiez un **emplacement** (ce démarrage rapide utilise la région **USA Est**). Sélectionnez dans la liste déroulante le **groupe de ressources** que vous avez créé à l’étape précédente, par exemple, **sfmeshTutorial1RG**. Définissez la **référence (SKU)** sur **De base**, puis cliquez sur **Créer** pour revenir à la boîte de dialogue de publication.
-
-Si vous recevez une erreur indiquant que le fournisseur de ressources n’a pas été inscrit pour votre abonnement, vous pouvez l’inscrire. Tout d’abord, vérifiez si le fournisseur de ressources est disponible pour votre abonnement :
-
-```Powershell
-Connect-AzureRmAccount
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Si le fournisseur de registres de conteneurs (`Microsoft.ContainerRegistry`) est disponible, enregistrez-le à partir de Powershell :
-
-```Powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
-```
 
 ![Boîte de dialogue Nouveau groupe de ressources Service Fabric mesh dans Visual studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 

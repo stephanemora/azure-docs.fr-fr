@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.author: charwen,cherylmc
-ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.author: charwen,cherylmc,rambala
+ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259253"
+ms.locfileid: "39262870"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurer la coexistence de connexions de site à site et ExpressRoute
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ La configuration de connexions VPN de site à site et ExpressRoute coexistantes 
 * Vous pouvez configurer un réseau VPN de site à site comme un chemin d’accès de basculement sécurisé pour ExpressRoute. 
 * Vous pouvez également utiliser des réseaux VPN de site à site pour vous connecter à des sites qui ne sont pas connectés via ExpressRoute. 
 
-Les étapes de configuration de ces deux scénarios sont décrites dans cet article. Cet article concerne le modèle de déploiement Resource Manager et utilise PowerShell. Cette configuration n'est pas disponible dans le portail Azure.
+Les étapes de configuration de ces deux scénarios sont décrites dans cet article. Cet article concerne le modèle de déploiement Resource Manager et utilise PowerShell. 
 
 >[!NOTE]
 >Si vous souhaitez créer un VPN de site à site sur un circuit ExpressRoute, veuillez consulter [cet article](site-to-site-vpn-over-microsoft-peering.md).

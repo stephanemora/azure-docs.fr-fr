@@ -3,7 +3,7 @@ title: Extension de machine virtuelle Azure Log Analytics pour Windows | Microso
 description: Déployez l’agent Log Analytics sur une machine virtuelle Windows avec une extension de machine virtuelle.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
-ms.author: danis
-ms.openlocfilehash: 49e5033f6c77b19dd8545e9b6fd30ce03ce21f34
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: roiyz
+ms.openlocfilehash: 2c228784e7a0a78f6dfdb93ce632bf340dea0ee9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301778"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414740"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Log Analytics pour Windows
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa689e9556e57560138d9629c616bd3a284f9b6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0050613f4a92380f48a93cdf1f82ed91dc34f6a4
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222305"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343516"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Didacticiel : Intégration d’Azure Active Directory à LinkedIn Learning
 
@@ -98,25 +98,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **LinkedIn Learning**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial-linkedin_01.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial-linkedin_01.png)
 
 3. Dans une autre fenêtre de navigateur web, connectez-vous à votre client LinkedIn Learning en tant qu’administrateur.
 
 4. Dans le **Centre des comptes**, cliquez sur **Paramètres globaux** sous **Paramètres**. Sélectionnez aussi **Apprentissage - Par défaut** dans la liste déroulante.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
 5. Cliquez sur  **OU cliquez ici pour charger et copier les champs individuels du formulaire**, puis copiez l’**ID d’entité** et l’**URL ACS (Assertion Consumer Access)**.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
 6. Dans la section **Domaines et URL LinkedIn Learning**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en **Mode initié par IDP**.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
 
     a. Dans la zone de texte **Identificateur**, entrez **l’ID d’entité** copié à partir de LinkedIn Portal 
 
@@ -126,11 +126,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_02.png)   
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial_linkedin_signon_02.png)   
     
 8. Votre application LinkedIn Learning attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML . La capture d’écran suivante montre un exemple : La valeur par défaut pour **Identificateur d’utilisateur** est **user.userprincipalname**, mais LinkedIn Learning s’attend à ce qu’elle soit mappée sur l’adresse de messagerie de l’utilisateur. Pour cela, vous pouvez utiliser l’attribut **user.mail** dans la liste ou utiliser la valeur d’attribut appropriée en fonction de la configuration de votre organisation. 
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/updateusermail.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/updateusermail.png)
     
 9. Dans **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** et définissez les attributs. L’utilisateur doit ajouter quatre revendications nommées **email**, **department**, **firstname** et **lastname** et la valeur doit être mappée respectivement à **user.mail**, **user.department**, **user.givenname** et **user.surname**.
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Cliquez sur l’attribut pour ouvrir la fenêtre **Modifier l’attribut**.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/url_update.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/url_update.png)
 
     b. Supprimez la valeur d’URL dans **namespace**.
     
@@ -167,19 +167,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 11. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png)
 
 12. Cliquez sur **Enregistrer**.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial_general_400.png)
 
 13. Accédez à la section **Paramètres de l’administrateur LinkedIn**. Chargez le fichier XML que vous avez téléchargé à partir du portail Azure en cliquant sur l’option Charger le fichier XML.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
 14. Cliquez sur **Activer** pour activer l’authentification unique. L’état de l’authentification unique passe de **Non connecté** à **Connecté**
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -214,7 +214,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>Création d’un utilisateur de test LinkedIn Learning
 
-L’application LinkedIn Learning prend en charge l’attribution d’utilisateurs juste à temps, et après authentification, les utilisateurs sont créés automatiquement dans l’application. Dans la page de paramètres administrateur du portail LinkedIn Learning, activez le commutateur **Affecter automatiquement les licences** pour l’attribution juste à temps. Cela affectera également une licence à l’utilisateur. LinkedIn Learning prend également en charge l’attribution automatique d’utilisateurs.Vous trouverez plus d’informations [ici](linkedinlearning-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
+L’application LinkedIn Learning prend en charge l’attribution d’utilisateurs juste à temps, et après authentification, les utilisateurs sont créés automatiquement dans l’application. Dans la page de paramètres administrateur du portail LinkedIn Learning, activez le commutateur **Affecter automatiquement les licences** pour l’attribution juste à temps. Cela affectera également une licence à l’utilisateur.
 
    ![Création d’un utilisateur de test Azure AD](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
 
@@ -232,7 +232,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **LinkedIn Learning**.
 
-    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png)
+    ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png)
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -258,7 +258,6 @@ Lorsque vous cliquez sur la vignette LinkedIn Learning dans le volet d’accès,
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-* [Configurer l’approvisionnement de l’utilisateur](linkedinlearning-provisioning-tutorial.md)
 
 <!--Image references-->
 

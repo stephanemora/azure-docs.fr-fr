@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: diberry
-ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 0ec6f002b35b1224118b62accda1f69e7be22fb8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239033"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358520"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Didacticiel : 2. Ajouter des intentions et des entités prédéfinies
 Ajouter des intentions et des entités prédéfinies au didacticiel de l’application de Ressources humaines pour obtenir rapidement une prédiction des intentions et l’extraction de données. 
@@ -27,6 +27,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * Former et publier
 * Interroger LUIS et recevoir une réponse de prédiction
 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous ne disposez pas de l’application [Ressources humaines](luis-quickstart-intents-only.md) du didacticiel précédent, [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application sur le site web [LUIS](luis-reference-regions.md#luis-website), à partir du dépôt Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
 
@@ -36,8 +38,6 @@ Si vous souhaitez conserver l’application Ressources humaines d’origine, clo
 LUIS fournit plusieurs intentions prédéfinies pour aider avec des intentions utilisateurs courantes.  
 
 1. Assurez-vous que votre application figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
-
-    [ ![Capture d’écran de l’application LUIS avec Générer en surbrillance dans la barre de navigation en haut à droite](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Sélectionnez **Ajouter une intention de domaine prédéfinie**. 
 
@@ -72,24 +72,20 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
     ![Capture d’écran de la sélection du nombre dans la boîte de dialogue des entités prédéfinies](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>Former et publier l’application
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**. 
 
-    ![Bouton Effectuer l'apprentissage](./media/luis-quickstart-intents-only/train-button.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-    L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+## <a name="publish-app-to-endpoint"></a>Publier l’application vers un point de terminaison
 
-    ![Barre d’état Apprentissage effectué](./media/luis-quickstart-intents-only/trained.png)
-
-2. En haut à droite du site web LUIS, sélectionnez le bouton **Publier** pour ouvrir la page de publication. 
-
-3. L’emplacement de production est sélectionné par défaut. Sélectionnez le bouton **Publier** à côté de l’emplacement de production souhaité. La publication est terminée lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
-
-    Vous n’êtes pas obligé de créer une clé de point de terminaison LUIS dans le portail Azure avant de publier ou de tester l’URL du point de terminaison. Chaque application LUIS possède une clé de démarrage gratuite pour la création. Vous bénéficiez d’une création illimitée et de [quelques accès de point de terminaison](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-endpoint-with-an-utterance"></a>Interroger un point de terminaison avec un énoncé
-Dans la page **Publier**, sélectionnez le lien **Point de terminaison** en bas de la page. Cette action ouvre une autre fenêtre de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresses. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `I want to cancel on March 3`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **requête**. 
 
-Le résultat a prédit l’intention Utilities.Cancel et extrait la date du 3 mars et le nombre 3. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `I want to cancel on March 3`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **requête**. 
+
+    Le résultat a prédit l’intention Utilities.Cancel et extrait la date du 3 mars et le nombre 3. 
 
     ```
     {
@@ -166,12 +162,13 @@ Le résultat a prédit l’intention Utilities.Cancel et extrait la date du 3 ma
     }
     ```
 
-Il existe deux valeurs pour le 3 mars car l’énoncé n’a pas établi si le 3 mars se trouve dans le passé ou dans le futur. C’est à l’application d’appel de LUIS d’émettre une hypothèse ou de demander une clarification, si cela est nécessaire. 
+    Il existe deux valeurs pour le 3 mars car l’énoncé n’a pas établi si le 3 mars se trouve dans le passé ou dans le futur. C’est à l’application d’appel de LUIS d’émettre une hypothèse ou de demander une clarification, si cela est nécessaire. 
 
-En ajoutant rapidement et facilement des intentions et des entités prédéfinies, l’application cliente peut ajouter une gestion de la conversation et extraire des types de données communs. 
+    En ajoutant rapidement et facilement des intentions et des entités prédéfinies, l’application cliente peut ajouter une gestion de la conversation et extraire des types de données communs. 
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour ce faire, sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

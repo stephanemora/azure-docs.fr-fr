@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 951e59333ab1a1e982386c5c71f79b86f5e62440
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 589df59e02a18629d5f405ff1ce8870333f2228e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194194"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397711"
 ---
 # <a name="runbook-settings"></a>Paramètres du Runbook
 Chaque Runbook dans Azure Automation a plusieurs paramètres qui lui permettent d'être identifié et de modifier son comportement de journalisation. Chacun de ces paramètres est décrit ci-dessous, suivi des procédures sur la façon de les modifier.
@@ -34,12 +34,12 @@ Par défaut, les informations de commentaires et de progression ne sont pas écr
 ### <a name="changing-runbook-settings-with-the-azure-portal"></a>Modification des paramètres du Runbook avec le portail Azure
 Vous pouvez modifier les paramètres d’un Runbook dans le portail Azure à partir du panneau **Paramètres** du Runbook.
 
-1. Dans le portail Azure, sélectionnez **Automation** , puis cliquez sur le nom d'un compte Automation.
+1. Dans le portail Azure, sélectionnez **Automation**, puis cliquez sur le nom d'un compte Automation.
 2. Sélectionnez l'onglet **Runbooks** .
 3. Cliquez sur le nom d’un Runbook pour accéder à son panneau Paramètres. De là, vous pouvez spécifier ou modifier des balises, la description du Runbook, configurer la journalisation et les paramètres de traçage, et accéder aux outils de prise en charge pour vous aider à résoudre les problèmes.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Modification des paramètres du Runbook avec Windows PowerShell
-Vous pouvez utiliser l’applet de commande [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) pour modifier les paramètres d’un Runbook. Si vous souhaitez spécifier plusieurs balises, vous pouvez fournir au paramètre Balises un tableau ou une chaîne unique avec les valeurs délimitées par des virgules. Vous pouvez obtenir les balises actives avec [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+Vous pouvez utiliser l’applet de commande [Set-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/set-azurermautomationrunbook) pour modifier les paramètres d’un Runbook. Si vous souhaitez spécifier plusieurs balises, vous pouvez fournir au paramètre Balises un tableau ou une chaîne unique avec les valeurs délimitées par des virgules. Vous pouvez obtenir les balises actives avec [Get-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/get-azurermautomationrunbook).
 
 Les exemples de commandes suivants montrent comment définir les propriétés d'un Runbook. Cet exemple ajoute trois balises aux balises existantes et spécifie que les informations de commentaires doivent être enregistrées.
 

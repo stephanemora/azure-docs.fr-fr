@@ -3,23 +3,23 @@ title: Attribution automatique des utilisateurs dans les applications SaaS dans 
 description: Cette introduction explique comment utiliser Azure AD pour approvisionner, annuler l’approvisionnement et mettre à jour de façon continue des comptes d’utilisateurs dans diverses applications SaaS tierces.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
-editor: ''
-ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/26/2018
-ms.author: asmalser
-ms.openlocfilehash: c7a18132a797bd7411487c233fc41647cc20dfb4
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.reviewer: asmalser
+ms.openlocfilehash: 9a0b89528adc173fa3aa26415942cbef81dcb291
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025236"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364204"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Qu’est-ce que l’attribution automatique des utilisateurs dans les applications SaaS ?

@@ -3,18 +3,17 @@ title: 'Démarrage rapide Azure : créer un objet blob dans un stockage d’obj
 description: Dans ce guide de démarrage rapide, vous créez un conteneur dans le stockage d’objets (Azure Blob), chargez un fichier, répertoriez des objets et téléchargez à l’aide du Kit de développement logiciel (SDK) de stockage Java.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: 749badbc0bf5286c06da02f092933abbefda7ceb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6e15f31ed0e9f6bfcbc41277fcf90e9444bac661
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185412"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397045"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du Kit de développement logiciel (SDK) de stockage Java V10 (préversion)
 

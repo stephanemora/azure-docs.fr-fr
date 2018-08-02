@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9d9a4a091e1dbeb1c15cd9ec0e90d7006000bea9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 9d6f898f519a5baabcc132fdefbb3fa8f8a120cb
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928248"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346206"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Didacticiel : créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Windows avec Azure PowerShell
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation des ressources (processeur, demande de mémoire ou trafic réseau). Ce didacticiel explique comment déployer un groupe de machines virtuelles identiques dans Azure. Vous allez apprendre à effectuer les actions suivantes :
@@ -208,7 +208,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
   -DefaultCapacity 2  `
   -MaximumCapacity 10 `
   -MinimumCapacity 2 `
-  -Rules $myRuleScaleUp,$myRuleScaleDown `
+  -Rule $myRuleScaleUp,$myRuleScaleDown `
   -Name "autoprofile"
 
 # Apply the autoscale rules
@@ -217,14 +217,14 @@ Add-AzureRmAutoscaleSetting `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
   -TargetResourceId $myScaleSetId `
-  -AutoscaleProfiles $myScaleProfile
+  -AutoscaleProfile $myScaleProfile
 ```
 
 Pour plus d’informations de conception sur l’utilisation de la mise à l’échelle automatique, consultez [Meilleures pratiques relatives à la mise à l’échelle automatique](/azure/architecture/best-practices/auto-scaling).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment créer un groupe de machines virtuelles identiques. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment créer un groupe de machines virtuelles identiques. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Utiliser l’extension de script personnalisé pour définir un site IIS à mettre à l’échelle

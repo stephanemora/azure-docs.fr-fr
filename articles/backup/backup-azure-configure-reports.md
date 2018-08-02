@@ -6,15 +6,15 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81653f9125b9cc4411e5cfe358bd602f92c5bf89
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448364"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264959"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article détaille la procédure permettant de configurer les rapports pour Sauvegarde Azure à l’aide d’un coffre Recovery Services, et d’accéder à ces rapports avec Power BI. Une fois que vous aurez suivi ces étapes, vous pourrez accéder directement à Power BI pour afficher tous les rapports, en personnaliser et en créer. 
@@ -24,7 +24,6 @@ Cet article détaille la procédure permettant de configurer les rapports pour S
 2. Pour l’instant, les rapports ne sont pas pris en charge pour SQL Azure, DPM et le serveur de sauvegarde Azure.
 3. Vous pouvez afficher des rapports sur différents coffres et différents abonnements, à condition que le même compte de stockage soit configuré pour chacun des coffres. Le compte de stockage sélectionné doit se trouver dans la même région que le coffre Recovery Services.
 4. La fréquence d’actualisation planifiée des rapports est de 24 heures dans Power BI. Vous pouvez également effectuer une actualisation ad hoc des rapports dans Power BI, auquel cas les données les plus récentes du compte de stockage client sont utilisées pour le rendu des rapports. 
-5. Les rapports de sauvegarde Azure ne sont pas pris en charge actuellement dans les clouds nationaux.
 
 ## <a name="prerequisites"></a>Prérequis
 1. Créez un [compte de stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) afin de le configurer pour les rapports. Il est utilisé pour stocker les données associées aux rapports.
@@ -75,7 +74,7 @@ Suivez les étapes ci-dessous afin de configurer le compte de stockage pour le c
 ## <a name="view-reports-in-power-bi"></a>Afficher les rapports dans Power BI 
 Une fois le compte de stockage configuré pour les rapports à l’aide du coffre Recovery Services, il faut environ 24 heures pour que les données de rapports commencent à arriver. Après 24 heures de configuration du compte de stockage, suivez les étapes ci-dessous pour afficher les rapports dans Power BI :
 1. [Connectez-vous](https://powerbi.microsoft.com/landing/signin/) à Power BI.
-2. Cliquez sur **Obtenir les données**, puis cliquez sur **Obtenir** sous **Services** dans la bibliothèque de packs de contenu. Suivez les étapes de la [documentation Power BI pour accéder au pack de contenu](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Cliquez sur **Obtenir les données**, puis cliquez sur **Obtenir** sous **Services** dans la bibliothèque de packs de contenu. Suivez les étapes de la [documentation Power BI pour accéder au pack de contenu](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
      ![Importer un pack de contenu](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Tapez **Sauvegarde Azure** dans la barre de recherche et cliquez sur **Obtenir maintenant**.

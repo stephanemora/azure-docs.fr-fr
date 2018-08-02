@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: diberry
-ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224260"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282736"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Tutoriel : 8. Ajouter une entité keyPhrase 
 Dans ce tutoriel, vous allez utiliser une application montrant comment extraire les données principales des énoncés.
@@ -27,7 +27,7 @@ Dans ce tutoriel, vous allez utiliser une application montrant comment extraire 
 > * Entraîner et publier l’application
 > * Interroger un point de terminaison d’application pour voir la réponse JSON LUIS, y compris les expressions clé
 
-Pour cet article, vous pouvez utiliser le compte [LUIS](luis-reference-regions.md#publishing-regions) gratuit afin de créer votre application LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous ne disposez pas de l’application Ressources humaines du tutoriel [entité simple](luis-quickstart-primary-and-secondary-data.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une application du site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
@@ -50,8 +50,6 @@ Votre application cliente peut utiliser ces valeurs, ainsi que d’autres entit�
 Ajoutez une entité prédéfinie keyPhrase pour extraire le thème des énoncés.
 
 1. Assurez-vous que votre application Ressources humaines figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
-
-    [![Capture d’écran de l’application LUIS avec Générer en surbrillance dans la barre de navigation en haut à droite](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
 2. Dans le menu gauche, sélectionnez **Entités**.
 
@@ -85,21 +83,12 @@ La nouvelle version `keyphrase` de l’application doit être entraînée.
 
 ## <a name="publish-app-to-endpoint"></a>Publier l’application vers un point de terminaison
 
-1. Dans le volet de navigation supérieur droit, sélectionnez **Publier**.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Capture d’écran de la page Publier avec le bouton Publier vers l’emplacement Production mis en surbrillance")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
-
-2. Sélectionnez l’emplacement Production et le bouton **Publier**.
-
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Capture d’écran de la page Publier avec le bouton Publier vers l’emplacement Production mis en surbrillance")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
-
-3. La publication est terminée lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Interroger le point de terminaison avec un énoncé
 
-1. Dans la page **Publier**, sélectionnez le lien **Point de terminaison** en bas de la page. Cette action ouvre une autre fenêtre de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresses. 
-
-    ![Capture d’écran de la page Publier avec l’URL du point de terminaison mise en surbrillance](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `does form hrf-123456 cover the new dental benefits and medical plan`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 

@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797173"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364272"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche Azure
 Une application mutualisée est une application qui fournit les mêmes services et fonctionnalités à plusieurs clients qui ne peuvent pas voir ni partager les données d’un autre client. Ce document aborde les stratégies d’isolation de client pour les applications mutualisées conçues avec Recherche Azure.
@@ -43,10 +43,8 @@ Il existe différents [niveaux tarifaires](https://azure.microsoft.com/pricing/d
 | Nombre maximal de réplicas par service |3 |12 |12 |12 |12 |
 | Nombre maximal de partitions par service |1 |12 |12 |12 |3 |
 | Nombre maximal d’unités de recherche (réplicas*partitions) par service |3 |36 |36 |36 |36 (3 partitions max.) |
-| Nombre maximal de documents par service |1 million |180 millions |720 millions |1,4 milliard |600 millions |
-| Stockage maximal par service |2 Go |300 Go |1,2 To |2,4 To |600 Go |
-| Nombre maximal de documents par partition |1 million |15 millions |60 millions |120 millions |200 millions |
-| Stockage maximal par partition |2 Go |25 Go |100 Go |200 Go |200 Go |
+| Stockage maximal par service |2 Go |300 Go |1,2 To |2,4 To |600 Go |
+| Stockage maximal par partition |2 Go |25 Go |100 Go |200 Go |200 Go |
 | Nombre maximal d’index par service |5. |50 |200 |200 |3000 (1 000 index max. par partition) |
 
 #### <a name="s3-high-density"></a>Haute densité S3

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 115511d15bc2366e49f6b3d1b89b513ea0ee5e90
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112687"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398026"
 ---
 # <a name="traffic-manager-endpoints"></a>Points de terminaison Traffic Manager
-Microsoft Azure Traffic Manager vous permet de contrôler la distribution du trafic réseau sur vos déploiements d’applications exécutés dans différents centres de données. Vous pouvez configurer chaque déploiement d’application en tant que « point de terminaison » dans Traffic Manager. Lorsque Traffic Manager reçoit une demande DNS, il choisit un point de terminaison disponible à renvoyer dans la réponse DNS. Traffic Manager base son choix sur l’état du point de terminaison actuel et la méthode de routage du trafic. Pour plus d’informations, consultez l’article [Fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md).
+Microsoft Azure Traffic Manager vous permet de contrôler la distribution du trafic réseau sur vos déploiements d’applications exécutés dans différents centres de données. Vous pouvez configurer chaque déploiement d’application en tant que « point de terminaison » dans Traffic Manager. Lorsque Traffic Manager reçoit une demande DNS, il choisit un point de terminaison disponible à renvoyer dans la réponse DNS. Traffic Manager base son choix sur l’état du point de terminaison actuel et la méthode de routage du trafic. Pour plus d’informations, consultez l’article [Fonctionnement de Traffic Manager](traffic-manager-how-it-works.md).
 
 Traffic Manager prend en charge trois types de points de terminaison :
 * **points de terminaison Azure** sont utilisés pour les services hébergés dans Azure.
@@ -38,7 +38,7 @@ Les sections suivantes décrivent de manière plus approfondie chaque type de po
 Les points de terminaison Azure sont utilisés pour les services Azure dans Traffic Manager. Les types de ressource Azure suivants sont pris en charge :
 
 * Machines virtuelles IaaS « classiques » et services cloud PaaS
-* Applications Web
+* Web Apps
 * Ressources PublicIPAddress (pouvant être connectées aux machines virtuelles directement ou par le biais de l’Azure Load Balancer). publicIpAddress doit se voir affecter un nom DNS pour être utilisé dans un profil Traffic Manager.
 
 Les ressources PublicIPAddress sont des ressources Azure Resource Manager. Elles n’existent pas dans le modèle de déploiement Classic. Elles sont donc uniquement prises en charge dans les expériences Azure Resource Manager de Traffic Manager. Les autres types de points de terminaison sont pris en charge via les modèles de déploiement Resource Manager et Classic.
@@ -74,7 +74,7 @@ La désactivation d’un point de terminaison dans Traffic Manager peut être pa
 Les points de terminaison peuvent être activés et désactivés via le portail Traffic Manager, PowerShell, l’interface de ligne de commande ou l’API REST, aussi bien dans modèles de déploiement Resource Manager que Classic.
 
 > [!NOTE]
-> La désactivation d’un point de terminaison Azure n’a aucun lien avec son état de déploiement dans Azure. Un service Azure (tel qu’une machine virtuelle ou une application web) reste en fonction et peut recevoir du trafic même lorsqu’il est désactivé dans Traffic Manager. Le trafic peut être adressé directement sur l’instance de service plutôt que via le nom DNS du profil Traffic Manager. Pour plus d’informations, consultez l’article [Fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md).
+> La désactivation d’un point de terminaison Azure n’a aucun lien avec son état de déploiement dans Azure. Un service Azure (tel qu’une machine virtuelle ou une application web) reste en fonction et peut recevoir du trafic même lorsqu’il est désactivé dans Traffic Manager. Le trafic peut être adressé directement sur l’instance de service plutôt que via le nom DNS du profil Traffic Manager. Pour plus d’informations, consultez l’article [Fonctionnement de Traffic Manager](traffic-manager-how-it-works.md).
 
 L’éligibilité actuelle de chaque point de terminaison pour recevoir le trafic dépend des facteurs suivants :
 
@@ -92,6 +92,6 @@ Si tous les points de terminaison d’un profil sont désactivés, ou si le prof
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md).
+* En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-how-it-works.md).
 * En savoir plus sur le [basculement automatique et la surveillance des points de terminaison](traffic-manager-monitoring.md)de Traffic Manager.
 * En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md)avec Traffic Manager.

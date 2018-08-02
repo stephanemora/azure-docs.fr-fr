@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: de5ccd62a9624ad463a51fa204c0b5dca19992ef
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226167"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390345"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuration d’un accès conditionnel en local à l’aide du service Azure Active Directory Device Registration
 Quand vous demandez aux utilisateurs de joindre leurs appareils à l’espace de travail du service Azure Active Directory Device Registration, leurs appareils peuvent être marqués comme étant connus de votre organisation. Vous trouverez ci-dessous un guide pas à pas visant à activer l’accès conditionnel pour des applications locales à l’aide des services de fédération Active Directory (AD FS) dans Windows Server 2012 R2.
@@ -165,7 +165,7 @@ Il existe de nombreux moyens de communiquer cette URL à vos utilisateurs. Par e
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Joindre un appareil Windows 7 à l’aide du service Azure Active Directory Device Registration
 Pour inscrire des appareils joints à un domaine Windows 7, vous devez déployer le [package logiciel d’inscription d’appareils](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Vous trouverez des instructions sur l’utilisation du package sur la page [Packages Windows Installer pour les ordinateurs autres que Windows 10](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
+Vous trouverez des instructions sur l’utilisation du package sur la page [Packages Windows Installer pour les ordinateurs autres que Windows 10](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Vérifier que les appareils inscrits sont réécrits dans Active Directory
 Vous pouvez utiliser LDP.exe et Modification ADSI pour afficher les objets d’appareil et ainsi vérifier qu’ils ont bien été réécrits dans votre service Active Directory. Ces deux outils sont disponibles dans les outils d’administrateur Active Directory.

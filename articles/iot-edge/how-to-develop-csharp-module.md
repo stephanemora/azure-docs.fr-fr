@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 92e476d38e6e56edca19afe78bed2705feadd0bb
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a895f21bc061763b1d5d45b2bedb44fc932190dc
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040906"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345212"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des modules C# pour Azure IoT Edge
 
@@ -24,7 +24,7 @@ Vous pouvez transformer votre logique métier en modules pour Azure IoT Edge. Ce
 Cet article part du principe que vous utilisez un ordinateur ou une machine virtuelle Windows ou Linux comme machine de développement. Vous pouvez utiliser un autre appareil physique comme appareil IoT Edge. Sinon, vous pouvez aussi simuler votre appareil IoT Edge sur votre machine de développement.
 
 > [!NOTE]
-> Ce tutoriel de débogage montre comment attacher un processus dans un conteneur de module et comment le déboguer avec VS Code. Dans les conteneurs Linux amd64, vous pouvez uniquement déboguer des fonctions C#. Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging). 
+> Ce tutoriel de débogage montre comment attacher un processus dans un conteneur de module et comment le déboguer avec VS Code. Vous pouvez uniquement déboguer des modules C# dans des conteneurs Linux amd64. Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Étant donné que cet article utilise Visual Studio Code comme outil de développement principal, installez VS Code. Ensuite, ajoutez les extensions nécessaires :
 * [Visual Studio Code](https://code.visualstudio.com/) 

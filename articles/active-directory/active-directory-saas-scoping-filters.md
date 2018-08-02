@@ -3,23 +3,23 @@ title: Approvisionner des applications avec filtres d’étendue | Microsoft Doc
 description: Découvrez comment utiliser des filtres d’étendue pour empêcher les objets dans les applications qui prennent en charge l’approvisionnement automatisé des utilisateurs d’être approvisionnés si un objet n’est pas conforme à vos besoins.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9f28c97fed2a5fa4990c1310e8389868c6b7dc20
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293073"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368547"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -35,7 +35,7 @@ Les filtres d’étendue peuvent être utilisés différemment en fonction du ty
     >[!TIP]
     > Vous pouvez désactiver l’approvisionnement basé sur des affectations pour une application d’entreprise en changeant le menu [Étendue](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) sous les paramètres d’approvisionnement sur **Synchroniser tous les utilisateurs et groupes**. L’utilisation de cette option alliée aux filtres d’étendue basés sur les attributs offre de meilleures performances qu’en utilisant des affectations de groupe.  
 
-* **Approvisionnement entrant des applications HCM vers Azure AD et Active Directory**. Quand une [application HCM telle que Workday](active-directory-saas-workday-tutorial.md) est le système source, l’utilisation de filtres d’étendue est la principale méthode pour déterminer les utilisateurs sujets à un approvisionnement de l’application HCM vers Active Directory ou Azure AD.
+* **Approvisionnement entrant des applications HCM vers Azure AD et Active Directory**. Quand une [application HCM telle que Workday](saas-apps/workday-tutorial.md) est le système source, l’utilisation de filtres d’étendue est la principale méthode pour déterminer les utilisateurs sujets à un approvisionnement de l’application HCM vers Active Directory ou Azure AD.
 
 Par défaut, les connecteurs d’approvisionnement Azure AD ne disposent pas de filtres d’étendue basés sur les attributs. 
 
@@ -61,7 +61,7 @@ D’après ce filtre d’étendue, les utilisateurs doivent satisfaire aux crit�
 * Leur poste ne doit être null ou vide.
 
 ## <a name="create-scoping-filters"></a>Créer des filtres d’étendue
-Les filtres d’étendue sont configurés comme parties des mappages d’attributs pour chaque connecteur d’approvisionnement d’utilisateur Azure AD. La procédure suivante suppose que l’approvisionnement automatique soit déjà configuré pour [l’une des applications prises en charge](active-directory-saas-tutorial-list.md)et que vous lui ajoutez un filtre d’étendue.
+Les filtres d’étendue sont configurés comme parties des mappages d’attributs pour chaque connecteur d’approvisionnement d’utilisateur Azure AD. La procédure suivante suppose que l’approvisionnement automatique soit déjà configuré pour [l’une des applications prises en charge](saas-apps/tutorial-list.md)et que vous lui ajoutez un filtre d’étendue.
 
 ### <a name="create-a-scoping-filter"></a>Créer un filtre d’étendue
 1. Dans le [Portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**.
@@ -117,5 +117,5 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
 * [Écrire des expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Notifications d’approvisionnement de comptes](active-directory-saas-account-provisioning-notifications.md)
 * [Utiliser SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [Liste des didacticiels sur l’intégration des applications SaaS](active-directory-saas-tutorial-list.md)
+* [Liste des didacticiels sur l’intégration des applications SaaS](saas-apps/tutorial-list.md)
 

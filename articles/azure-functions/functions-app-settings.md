@@ -2,7 +2,7 @@
 title: Informations de référence sur les paramètres d’application d’Azure Functions
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
-ms.author: tdykstra
-ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: glenga
+ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194265"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345053"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 

@@ -1,6 +1,6 @@
 - name: Documentation Équilibreur de charge
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que l’équilibrage de charge\_?"
       href: load-balancer-overview.md
@@ -40,7 +40,7 @@
   items:
     - name: "Qu’est-ce qu’un équilibreur de charge standard\_?"
       href: load-balancer-standard-overview.md
-    - name: Sondes d’équilibreur de charge
+    - name: Sondes d’intégrité
       href: load-balancer-custom-probe-overview.md
     - name: Ports à haute disponibilité
       href: load-balancer-ha-ports-overview.md

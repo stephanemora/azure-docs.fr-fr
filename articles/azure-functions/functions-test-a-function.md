@@ -3,7 +3,7 @@ title: Test des fonctions Azure Functions | Microsoft Docs
 description: Testez vos fonctions Azure à l’aide de Postman, cURL et Node.js.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083247"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344696"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -383,7 +383,7 @@ Nous avons mentionné plus tôt que vous pouvez tester un déclencheur de file d
 Pour tester ce code dans une application de console, vous devez :
 
 * [Configurer votre chaîne de connexion du stockage dans le fichier app.config](../storage/queues/storage-dotnet-how-to-use-queues.md).
-* Transmettez les paramètres `name` et `address` à l’application. Par exemple : `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Ce code accepte le nom et l’adresse d’un nouvel utilisateur en tant qu’arguments de ligne de commande pendant l’exécution.)
+* Transmettez les paramètres `name` et `address` à l’application. Par exemple : `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Ce code accepte le nom et l’adresse d’un nouvel utilisateur en tant qu’arguments de ligne de commande pendant l’exécution.)
 
 Exemple de code C# :
 
@@ -443,4 +443,4 @@ Dans la fenêtre du navigateur de la fonction de file d’attente, vous pouvez v
 
 <!-- URLs. -->
 
-[Portail Azure]: https://portal.azure.com
+[portail Azure]: https://portal.azure.com

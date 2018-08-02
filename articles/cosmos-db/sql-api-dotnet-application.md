@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 193f0f74d7a8ebaee72105698c646b55a8159a3b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aec23339a6c29ab9645bf1d801c1a3b159b56d68
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453448"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344185"
 ---
 # <a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’applications web avec Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -237,7 +237,7 @@ La première chose à faire ici est d’ajouter une classe qui contient toute la
         using System.Configuration;
         using System.Linq.Expressions;
         using System.Threading.Tasks;
-        using System.Net
+        using System.Net;
         
     Remplacez maintenant ce code 
    
@@ -540,7 +540,7 @@ Dans quelques secondes, Visual Studio achèvera la publication de votre applicat
 
 
 ## <a name="_Toc395637775"></a>Étapes suivantes
-Félicitations ! Vous venez de créer votre première application web ASP.NET MVC à l’aide d’Azure Cosmos DB et de la publier sur Azure. Le code source de l'application complète, y compris les fonctionnalités de détail et de suppression qui n'étaient pas incluses dans ce didacticiel, peuvent être téléchargés ou clonés à partir de [GitHub][GitHub]. Si vous êtes intéressé par l'ajout de ce code à votre application, copiez-le et ajoutez-le à cette dernière.
+Félicitations ! Vous venez de créer votre première application web ASP.NET MVC à l’aide d’Azure Cosmos DB et de la publier sur Azure. Le code source de l'application complète, y compris les fonctionnalités de détail et de suppression qui n'étaient pas incluses dans ce didacticiel, peuvent être téléchargés ou clonés à partir de [GitHub][GitHub]. Si vous êtes intéressé par l'ajout de ce code à votre application, copiez-le et ajoutez-le à cette dernière.
 
 Pour ajouter des fonctionnalités supplémentaires à votre application, passez en revue les API disponibles dans la [bibliothèque Azure Cosmos DB .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) et n’hésitez pas à contribuer à la bibliothèque Azure Cosmos DB .NET sur [GitHub][GitHub]. 
 

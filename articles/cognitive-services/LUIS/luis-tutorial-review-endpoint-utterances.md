@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: a04c8987bc2e16a41196286e3260b4b7ec11f3c4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237211"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39357839"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Didacticiel : réviser les énoncés de point de terminaison
 Dans ce didacticiel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTP de LUIS. 
@@ -27,7 +27,7 @@ Dans ce didacticiel, améliorez les prédictions de l’application en vérifian
 > * Entraîner et publier l’application
 > * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
 
-Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous n’avez pas l’application des ressources humaines à partir du didacticiel des [sentiments](luis-quickstart-intent-and-sentiment-analysis.md), importez l’application à partir du référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json). Si vous utilisez ce didacticiel comme une nouvelle application importée, vous devez également effectuer l’apprentissage, publier, puis ajouter les énoncés au point de terminaison avec un [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou à partir du point de terminaison dans un navigateur. Les énoncés à ajouter sont :
@@ -51,13 +51,11 @@ En passant en revue les énoncés de point de terminaison, vous vérifiez ou cor
 
 1. Assurez-vous que votre application Ressources humaines figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
 
-    [ ![Capture d’écran de l’application LUIS avec Générer en surbrillance dans la barre de navigation en haut à droite](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
-
-1. Sélectionnez **Réviser les énoncés de point de terminaison** dans le volet de navigation gauche. La liste est filtrée pour intention **ApplyForJob**. 
+2. Sélectionnez **Réviser les énoncés de point de terminaison** dans le volet de navigation gauche. La liste est filtrée pour intention **ApplyForJob**. 
 
     [ ![Capture d’écran du bouton Réviser les énoncés de point de terminaison dans le volet de navigation gauche](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
 
-2. Appuyez sur **Affichage des entités** pour afficher les entités étiquetées. 
+3. Appuyez sur **Affichage des entités** pour afficher les entités étiquetées. 
     
     [ ![Capture d’écran de Réviser les énoncés de point de terminaison avec le bouton Affichage des entités en surbrillance](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
 
@@ -69,27 +67,27 @@ En passant en revue les énoncés de point de terminaison, vous vérifiez ou cor
 
     Lorsque vous êtes dans **Tokens View** (Vue du jeton), vous pouvez pointer sur n’importe quel texte en bleu de l’énoncé pour afficher le nom prédit de l’entité. 
 
-3. Pour l’intention `I'm looking for a job with Natual Language Processing`, sélectionnez l’intention correcte, **GetJobInformation** dans la colonne **Intention alignée**. 
+4. Pour l’intention `I'm looking for a job with Natual Language Processing`, sélectionnez l’intention correcte, **GetJobInformation** dans la colonne **Intention alignée**. 
 
     [ ![Capture d’écran de Réviser les énoncés de point de terminaison alignant l’énoncé à l’intention](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-4. Dans le même énoncé, l’entité pour `Natural Language Processing` est keyPhrase. Ce devrait être une entité **Job** à la place. Sélectionnez `Natural Language Processing` puis sélectionnez l’entité **Job** dans la liste.
+5. Dans le même énoncé, l’entité pour `Natural Language Processing` est keyPhrase. Ce devrait être une entité **Job** à la place. Sélectionnez `Natural Language Processing` puis sélectionnez l’entité **Job** dans la liste.
 
     [ ![Capture d’écran de Réviser les énoncés de point de terminaison étiquetant l’entité en énoncé](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-5. Sur la même ligne, sélectionnez sur la coche encerclée dans la colonne **Ajouter à l’intention alignée**. 
+6. Sur la même ligne, sélectionnez sur la coche encerclée dans la colonne **Ajouter à l’intention alignée**. 
 
     [ ![Capture d’écran de la finalisation de l’alignement de l’énoncé dans l’intention](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     Cette action déplace l’énoncé de **Réviser les énoncés de point de terminaison** à l’intention **GetJobInformation**. L’énoncé de point de terminaison est désormais un énoncé d’exemple pour cette intention. 
 
-6. Révisez les énoncés restants dans cette intention, en étiquetant les énoncés et en corrigeant l’**Intention alignée**, si ceux-ci sont incorrects.
+7. Révisez les énoncés restants dans cette intention, en étiquetant les énoncés et en corrigeant l’**Intention alignée**, si ceux-ci sont incorrects.
 
-7. Lorsque tous les énoncés sont corrects, sélectionnez la case à cocher de chaque ligne, puis sélectionnez **Ajouter la sélection** pour aligner correctement les énoncés. 
+8. Lorsque tous les énoncés sont corrects, sélectionnez la case à cocher de chaque ligne, puis sélectionnez **Ajouter la sélection** pour aligner correctement les énoncés. 
 
     [ ![Capture d’écran de la finalisation des énoncés restants en intention alignée](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-8. La liste ne devrait plus avoir ces énoncés. Si d’autres énoncés apparaissent, continuez d’examiner la liste, en corrigeant les intentions et en étiquetant toutes les entités manquantes, jusqu'à ce qu’elle soit vide. Sélectionnez l’intention suivante dans la liste Filtre, puis continuez à corriger les énoncés et à étiqueter les entités. N’oubliez pas que la dernière étape de chaque intention consiste à sélectionner **Ajouter à l’intention alignée** sur la ligne de l’énoncé ou à cocher la case à côté de chaque intention et sélectionner **Ajouter la sélection** au-dessus de la table. 
+9. La liste ne devrait plus avoir ces énoncés. Si d’autres énoncés apparaissent, continuez d’examiner la liste, en corrigeant les intentions et en étiquetant toutes les entités manquantes, jusqu'à ce qu’elle soit vide. Sélectionnez l’intention suivante dans la liste Filtre, puis continuez à corriger les énoncés et à étiqueter les entités. N’oubliez pas que la dernière étape de chaque intention consiste à sélectionner **Ajouter à l’intention alignée** sur la ligne de l’énoncé ou à cocher la case à côté de chaque intention et sélectionner **Ajouter la sélection** au-dessus de la table. 
 
     C’est une application très petite. Le processus de révision ne prend que quelques minutes.
 
@@ -103,128 +101,123 @@ Conservez la liste d’expressions actuelle avec tout nom de tâche récemment d
 3. Ajoutez `Natural Language Processing` en tant que valeur, puis sélectionnez **Enregistrer**. 
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
+
 LUIS ne connaît pas les modifications apportées tant que son apprentissage n’a pas été effectué. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
-
-2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
-Pour obtenir un modèle à jour de l’application LUIS dans un chatbot ou une autre application, vous devez publier l’application. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Publier**. 
+Si vous avez importé cette application, vous devez sélectionner **Analyse des sentiments**.
 
-2. Si vous avez importé cette application, vous devez sélectionner **Analyse des sentiments**. 
-
-3. Sélectionnez l’emplacement Production et le bouton **Publier**.
-
-4. La publication est terminée lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Interroger le point de terminaison avec un énoncé
+
 Essayez un énoncé proche de l’énoncé corrigé. 
 
-1. Dans la page **Publier**, sélectionnez le lien **Point de terminaison** en bas de la page. Cette action ouvre une autre fenêtre de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresses. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Are there any natural language processing jobs in my department right now?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
-```JSON
-{
-  "query": "are there any natural language processing jobs in my department right now?",
-  "topScoringIntent": {
-    "intent": "GetJobInformation",
-    "score": 0.9247605
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "are there any natural language processing jobs in my department right now?",
+    "topScoringIntent": {
       "intent": "GetJobInformation",
       "score": 0.9247605
     },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.129989788
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.006438211
-    },
-    {
-      "intent": "EmployeeFeedback",
-      "score": 0.00408575451
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00194211153
-    },
-    {
-      "intent": "None",
-      "score": 0.00166400627
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00118593348
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.0007885918
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.0006373631
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0005980781
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 3.719905E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "right now",
-      "type": "builtin.datetimeV2.datetime",
-      "startIndex": 64,
-      "endIndex": 72,
-      "resolution": {
-        "values": [
-          {
-            "timex": "PRESENT_REF",
-            "type": "datetime",
-            "value": "2018-07-05 15:23:18"
-          }
-        ]
+    "intents": [
+      {
+        "intent": "GetJobInformation",
+        "score": 0.9247605
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.129989788
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.006438211
+      },
+      {
+        "intent": "EmployeeFeedback",
+        "score": 0.00408575451
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00194211153
+      },
+      {
+        "intent": "None",
+        "score": 0.00166400627
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.00118593348
+      },
+      {
+        "intent": "MoveEmployee",
+        "score": 0.0007885918
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.0006373631
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0005980781
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 3.719905E-05
       }
-    },
-    {
-      "entity": "natural language processing",
-      "type": "Job",
-      "startIndex": 14,
-      "endIndex": 40,
-      "score": 0.9869922
-    },
-    {
-      "entity": "natural language processing jobs",
-      "type": "builtin.keyPhrase",
-      "startIndex": 14,
-      "endIndex": 45
-    },
-    {
-      "entity": "department",
-      "type": "builtin.keyPhrase",
-      "startIndex": 53,
-      "endIndex": 62
+    ],
+    "entities": [
+      {
+        "entity": "right now",
+        "type": "builtin.datetimeV2.datetime",
+        "startIndex": 64,
+        "endIndex": 72,
+        "resolution": {
+          "values": [
+            {
+              "timex": "PRESENT_REF",
+              "type": "datetime",
+              "value": "2018-07-05 15:23:18"
+            }
+          ]
+        }
+      },
+      {
+        "entity": "natural language processing",
+        "type": "Job",
+        "startIndex": 14,
+        "endIndex": 40,
+        "score": 0.9869922
+      },
+      {
+        "entity": "natural language processing jobs",
+        "type": "builtin.keyPhrase",
+        "startIndex": 14,
+        "endIndex": 45
+      },
+      {
+        "entity": "department",
+        "type": "builtin.keyPhrase",
+        "startIndex": 53,
+        "endIndex": 62
+      }
+    ],
+    "sentimentAnalysis": {
+      "label": "positive",
+      "score": 0.8251864
     }
-  ],
-  "sentimentAnalysis": {
-    "label": "positive",
-    "score": 0.8251864
   }
-}
-}
-```
+  }
+  ```
 
-L’intention correcte a été prédite avec un score élevé et l’entité **Jobs** est détectée en tant que `natural language processing`. 
+  L’intention correcte a été prédite avec un score élevé et l’entité **Jobs** est détectée en tant que `natural language processing`. 
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>La révision peut-elle être remplacée en ajoutant plus d’énoncés ? 
 Vous vous demandez sûrement pourquoi ne pas ajouter plus d’énoncés d’exemple. Quel est le but de la révision des énoncés de point de terminaison ? Dans une application LUIS réaliste, les énoncés de point de terminaison émanent d’utilisateurs avec des choix de mots et une disposition que vous n’avez pas encore utilisés. Si vous aviez utilisé le même choix de mots et la disposition, la prédiction d’origine aurait un pourcentage plus élevé. 
@@ -236,7 +229,8 @@ Certains des énoncés de point de terminaison auront un pourcentage élevé dan
 La précision de cette prédiction d’application a augmenté en révisant des énoncés du point de terminaison. 
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension **...** à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

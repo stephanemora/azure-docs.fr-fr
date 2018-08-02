@@ -3,7 +3,7 @@ title: Extension de machine virtuelle Azure Log Analytics pour Linux | Microsoft
 description: Déployez l’agent Log Analytics sur une machine virtuelle Linux avec une extension de machine virtuelle.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/21/2018
-ms.author: danis
-ms.openlocfilehash: cc8b3f6a4ff6b683fc4ed2777adf6ab0b17f05be
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: roiyz
+ms.openlocfilehash: 58827e8abd6394b1c9359ecbabbee37193a34706
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301483"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414292"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Log Analytics pour Linux
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Log Analytics fournit des fonctionnalités de surveillance, d’alerte et de correction des alertes sur les ressources cloud et locales. L’extension de machine virtuelle de l’agent Log Analytics pour Linux est publiée et prise en charge par Microsoft. L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle Log Analytics pour Linux.
 

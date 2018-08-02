@@ -3,7 +3,7 @@ title: Liaisons Stockage Blob Azure pour Azure Functions
 description: Comprendre comment utiliser les déclencheurs et les liaisons Stockage Blob Azure dans Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
-ms.author: tdykstra
-ms.openlocfilehash: 85cdce312e141bee9da3b633c45dc770e503abfe
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: glenga
+ms.openlocfilehash: b9ddfb6582a4ce483e93b7ea753112d54fe65a9d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724796"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346366"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -35,13 +35,13 @@ Cet article explique comment utiliser des liaisons Stockage Blob Azure dans Azur
 > [!NOTE]
 > Utilisez le déclencheur Event Grid au lieu du déclencheur de stockage Blob pour les comptes de stockage blob uniquement, afin de bénéficier d’une scalabilité élevée ou pour éviter les délais de démarrage à froid. Pour plus d’informations, consultez la section [Déclencheur](#trigger). 
 
-## <a name="packages---functions-1x"></a>Packages - Functions 1.x
+## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
 Les liaisons du Stockage Blob sont fournies dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), version 2.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Packages - Functions 2.x
+## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
 Les liaisons du Stockage Blob sont fournies dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob).
 

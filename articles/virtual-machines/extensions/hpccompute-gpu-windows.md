@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/03/2018
-ms.author: danis
-ms.openlocfilehash: 16f4dc19f5f1dc065ea303c741deb7d9cffedbe8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: roiyz
+ms.openlocfilehash: 463a00823997f1acfb65fdd739a093e556982a61
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449048"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411948"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extension du pilote GPU NVIDIA pour Windows
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Windows de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du contrat de licence utilisateur final NVIDIA. Pendant le processus d’installation, votre machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 

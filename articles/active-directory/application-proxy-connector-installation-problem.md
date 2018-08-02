@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: d7d893c75fc0da31824491b834ca6ab21bec8b41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6d0eb2e816e39a92bf895842d570587ec5385f1a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330276"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366142"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problèmes lors de l’installation du connecteur d’agent de proxy d’application
 
@@ -40,7 +40,7 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 **Objectif :** vérifier que l’ordinateur connecteur peut se connecter au point de terminaison d’inscription du proxy d’application AAD ainsi qu’à la page de connexion Microsoft.
 
-1.  Ouvrez un navigateur et accédez à la page web suivante : <https://aadap-portcheck.connectorporttest.msappproxy.net>. Ensuite, vérifiez que la connectivité aux centres de données des États-Unis du Centre et des États-Unis de l’Est avec les ports 80 et 443 fonctionne.
+1.  Ouvrez un navigateur et accédez à la page web suivante : <https://aadap-portcheck.connectorporttest.msappproxy.net>. Ensuite, vérifiez que la connectivité aux centres de données des régions USA Centre et USA Est avec les ports 80 et 443 fonctionne.
 
 2.  En cas d’échec de l’un de ces ports (absence de coche verte), vérifiez que \*.msappproxy.net est correctement défini sur le proxy principal ou le pare-feu avec les ports 80 et 443.
 

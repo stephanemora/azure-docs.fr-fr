@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008142"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264993"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -54,7 +54,7 @@ La façon la plus simple de le faire consiste à utiliser SQL Server Management 
 3. Installez Azure AD Connect sur la [base de données SQL distante](active-directory-aadconnect-existing-database.md) existante.
    L’article montre comment effectuer la migration à l’aide d’une base de données SQL locale. Si vous passez à une base de données SQL à distance, vous devez également entrer un compte de service existant à l’étape 5 de ce processus ; le Service de synchronisation Windows s’exécutera sous ce compte de service du moteur de synchronisation, décrit ici :
    
-      **Utiliser un compte de service existant** : par défaut, Azure AD Connect utilise un compte de service virtuel pour les services de synchronisation. Si vous utilisez une instance SQL Server distante ou un proxy qui exige une authentification, utilisez un compte de service administré ou un compte de service dans le domaine dont vous connaissez le mot de passe. Dans ce cas, entrez le compte à utiliser. Assurez-vous que les utilisateurs qui exécutent l’installation sont des administrateurs système dans SQL afin que les informations d’identification du compte de service puissent être créées. Pour en savoir plus, consultez la page [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). 
+      **Utiliser un compte de service existant** : par défaut, Azure AD Connect utilise un compte de service virtuel pour les services de synchronisation. Si vous utilisez une instance SQL Server distante ou un proxy qui exige une authentification, utilisez un compte de service administré ou un compte de service dans le domaine dont vous connaissez le mot de passe. Dans ce cas, entrez le compte à utiliser. Assurez-vous que les utilisateurs qui exécutent l’installation sont des administrateurs système dans SQL afin que les informations d’identification du compte de service puissent être créées. Pour en savoir plus, consultez la page [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). 
    
       Avec la version la plus récente, l’approvisionnement de la base de données peut désormais être exécuté hors bande par l’administrateur SQL. L’installation s’effectue ensuite par l’administrateur Azure AD Connect disposant des droits du propriétaire de la base de données. Pour plus d’informations, consultez la page [Installer Azure AD Connect à l’aide d’autorisations administrateur déléguées SQL](active-directory-aadconnect-sql-delegation.md).
 

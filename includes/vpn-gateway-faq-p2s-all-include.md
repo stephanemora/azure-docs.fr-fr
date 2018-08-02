@@ -5,16 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 199998f193f375137d499913e9ce966f85ed863c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7cd19945e316ebc5462642006255103b4631ce29
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38727527"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361436"
 ---
+### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
+
+Nous prenons en charge jusqu'à 128 clients VPN pouvant se connecter à un réseau virtuel en même temps.
+
 ### <a name="supportedclientos"></a>Quels systèmes d’exploitation client puis-je utiliser avec une connexion point à site ?
 
 Les systèmes d’exploitation clients pris en charge sont les suivants :
@@ -31,13 +35,7 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
 * Linux (StrongSwan)
 * iOS
 
->[!NOTE]
->[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
->
-
-### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
-
-Nous prenons en charge jusqu'à 128 clients VPN pouvant se connecter à un réseau virtuel en même temps.
+[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Puis-je parcourir les serveurs proxy et les pare-feu à l’aide de la fonctionnalité point à site ?
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 11e98117a93f541f6f88b213f59dcf4aba3e7f36
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 57ae7c3cab6c0084bb43585f65d79ae6cc265356
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045209"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263724"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell
 
@@ -71,19 +71,19 @@ La création d’un cluster peut prendre jusqu’à 20 minutes.
 
 Vous pouvez également créer un objet de configuration HDInsight à l’aide de l’applet de commande `New-AzureRmHDInsightClusterConfig`. Il est ensuite possible de modifier cet objet de configuration pour activer des options de configuration supplémentaires pour votre cluster. Enfin, utilisez le paramètre `-Config` de l’applet de commande `New-AzureRmHDInsightCluster` pour utiliser la configuration.
 
-Le script suivant crée un objet de configuration pour configurer un type de cluster ML Services sur HDInsight. La configuration active un nœud de périmètre, RStudio et un compte de stockage supplémentaire.
+Le script suivant crée un objet de configuration pour configurer un R Server sur le type de cluster HDInsight. La configuration active un nœud de périmètre, RStudio et un compte de stockage supplémentaire.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
 > [!WARNING]
 > L’utilisation d’un compte de stockage dans un autre emplacement que le cluster HDInsight n’est pas prise en charge. Pour cet exemple, créez le compte de stockage supplémentaire dans le même emplacement que le serveur.
 
-## <a name="customize-clusters"></a>Personnalisation des clusters
+## <a name="customize-clusters"></a>Personnaliser des clusters
 
 * Consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
 * Consultez [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="delete-the-cluster"></a>Suppression du cluster
+## <a name="delete-the-cluster"></a>Supprimer le cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -117,5 +117,5 @@ Maintenant que vous avez créé un cluster HDInsight, parcourez les ressources c
 * [Créer une application autonome avec Scala](spark/apache-spark-create-standalone-application.md)
 * [Exécution de travaux à distance avec Livy sur un cluster Spark](spark/apache-spark-livy-rest-interface.md)
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](spark/apache-spark-use-bi-tools.md)
-* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
 

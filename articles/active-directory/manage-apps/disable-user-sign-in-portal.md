@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 86ff34bb0780811663d437a9183d0b688b69073d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 39e926a392cbd87eff23e25d9708792ec7c40a2c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302222"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368707"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Désactiver les connexions utilisateur pour une application d’entreprise dans Azure Active Directory
 Il est facile de désactiver une application d’entreprise afin qu’aucun utilisateur ne puisse s’y connecter dans Azure Active Directory (Azure AD). Vous devez disposer des autorisations nécessaires pour gérer l’application d’entreprise, et vous devez être l’administrateur général du répertoire.
@@ -41,7 +41,7 @@ Il est facile de désactiver une application d’entreprise afin qu’aucun util
 8. Sélectionnez la commande **Enregistrer** .
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Voir tous mes groupes](../active-directory-groups-view-azure-portal.md)
+* [Voir tous mes groupes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](assign-user-or-group-access-portal.md)
 * [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](remove-user-or-group-access-portal.md)
 * [Modifier le nom ou le logo d’une application d’entreprise dans la version préliminaire d’Azure Active Directory](change-name-or-logo-portal.md)

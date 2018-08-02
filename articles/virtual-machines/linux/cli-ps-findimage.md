@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53e5100023fb76b4daf468d3f2027f2b5c7f31d7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f1091b9d252f32086c237e7c62f11c166eb558a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292957"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345155"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Comment rechercher des images de machine virtuelle Linux sur la Place de marché Microsoft Azure avec Azure CLI
 Cette rubrique décrit comment utiliser Azure CLI 2.0 pour rechercher des images de machine virtuelle sur la Place de marché Microsoft Azure. Ces informations permettent de spécifier une image de la Place de marché lorsque vous créez une machine virtuelle par programmation avec l’interface CLI, des modèles de Resource Manager ou d’autres outils.
@@ -99,7 +99,7 @@ Appliquez des filtres similaires avec les options `--location`, `--publisher` et
 
 Si vous ne spécifiez pas d’emplacement particulier avec l’option `--location`, les valeurs pour l’emplacement par défaut sont retournées. (définissez un autre emplacement par défaut en exécutant la commande `az configure --defaults location=<location>`).
 
-Par exemple, la commande suivante répertorie toutes les références SKU Debian 8 dans l’emplacement Ouest de l’Europe :
+Par exemple, la commande suivante répertorie toutes les références SKU Debian 8 dans l’emplacement Europe Ouest :
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -135,7 +135,7 @@ Une autre façon de trouver une image dans un emplacement consiste à exécuter 
 
 Ensuite, pour une référence SKU sélectionnée, vous pouvez choisir une version à déployer.
 
-Par exemple, la commande suivante répertorie les éditeurs d’image dans l’emplacement Ouest des États-Unis :
+Par exemple, la commande suivante répertorie les éditeurs d’image dans l’emplacement USA Ouest :
 
 ```azurecli
 az vm image list-publishers --location westus --output table
@@ -160,13 +160,13 @@ westus      activeeon
 westus      adatao
 ...
 ```
-Ces informations vous permettent de trouver des offres d’un éditeur spécifique. Par exemple, si *Canonical* est un éditeur d’image dans l’emplacement Ouest des États-Unis, vous pouvez trouver ses offres en exécutant la commande `azure vm image list-offers`. Passez l’emplacement et l’éditeur comme dans l’exemple suivant :
+Ces informations vous permettent de trouver des offres d’un éditeur spécifique. Par exemple, si *Canonical* est un éditeur d’image dans l’emplacement USA Ouest, vous pouvez trouver ses offres en exécutant la commande `azure vm image list-offers`. Passez l’emplacement et l’éditeur comme dans l’exemple suivant :
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
-Output:
+Sortie :
 
 ```
 Location    Name
@@ -179,13 +179,13 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-Nous voyons maintenant que, dans la région « West US », « Canonical » publie l’offre *UbuntuServer* sur Azure. Mais quelles sont les références SKU ? Pour obtenir ces valeurs, exécutez la commande `azure vm image list-skus` et définissez l’emplacement, l’éditeur et l’offre que vous avez découverts :
+Nous voyons maintenant que, dans la région « USA Ouest », « Canonical » publie l’offre *UbuntuServer* sur Azure. Mais quelles sont les références SKU ? Pour obtenir ces valeurs, exécutez la commande `azure vm image list-skus` et définissez l’emplacement, l’éditeur et l’offre que vous avez découverts :
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
 ```
 
-Output:
+Sortie :
 
 ```
 Location    Name
@@ -219,7 +219,7 @@ Enfin, utilisez la commande `az vm image list` pour trouver une version spécifi
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
 ```
 
-Output:
+Sortie :
 
 ```
 Offer         Publisher    Sku        Urn                                               Version
@@ -266,7 +266,7 @@ Par exemple, l’image Canonical Ubuntu Server 16.04 LTS ne possède pas de cond
 az vm image show --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
 ```
 
-Output:
+Sortie :
 
 ```
 {
@@ -285,16 +285,16 @@ Output:
 L’exécution d’une commande similaire pour le RabbitMQ certifié par Bitnami image affiche les propriétés `plan` suivantes : `name`, `product`, et `publisher`. (Certaines images ont également une propriété `promotion code`.) Pour déployer cette image, consultez les sections suivantes pour accepter les conditions et activer le déploiement par programmation.
 
 ```azurecli
-az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1801130730
+az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1807171506
 ```
-Output:
+Sortie :
 
 ```
 {
   "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1801130730",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
   "location": "westus",
-  "name": "3.7.1801130730",
+  "name": "3.7.1807171506",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fdadc29aa1d25e90afe088053ae4fe2139fa7f16
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 77dca29b0c60726f0a072dd662aba0d12730502a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034155"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413686"
 ---
 # <a name="create-mysql-databases"></a>Créer des bases de données MySQL
 
@@ -35,10 +35,10 @@ Vous pouvez créer et gérer des bases de données libre-service dans le portail
 
 4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)**. Sous **Sélectionner une référence (SKU) MySQL**, choisissez la référence de votre base de données.
 
-    ![Sélectionner une référence (SKU) MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+    ![Sélectionner une référence (SKU) MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
-    >Lors de leur ajout à Azure Stack, les serveurs d’hébergement se voient affectés une référence (SKU). Les bases de données sont créées dans ce pool de serveurs d’hébergement d’une référence (SKU).
+    >Quand ils sont ajoutés à Azure Stack, les serveurs d’hébergement se voient affectés une référence (SKU). Les bases de données sont créées dans ce pool de serveurs d’hébergement d’une référence (SKU).
 
 5. Sous **Connexion**, sélectionnez ***Configurer les paramètres requis***.
 6. Sous **Sélectionner une connexion**, vous pouvez choisir une connexion existante ou sélectionner **+ Créer une connexion** pour configurer une nouvelle connexion.  Entrez un nom et un **Mot de passe** de **Connexion à la base de données**, puis sélectionnez **OK**.

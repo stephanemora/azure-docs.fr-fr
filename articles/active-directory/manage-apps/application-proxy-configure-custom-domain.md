@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cb4620babd3a1ba5087ae9ebd2870c1ef404bb58
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156481"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368477"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilisation des domaines personnalisés dans le proxy d'application Azure AD
 
@@ -39,7 +39,7 @@ Nous vous recommandons de définir des domaines personnalisés pour vos applicat
 
 
 Avant de configurer un domaine personnalisé, assurez-vous d’avoir rempli les exigences suivantes : 
-- La [vérification du domaine ajouté à Azure Active Directory](../add-custom-domain.md).
+- La [vérification du domaine ajouté à Azure Active Directory](../fundamentals/add-custom-domain.md).
 - Un certificat personnalisé pour le domaine, sous la forme de fichier PFX. 
 - Une application locale [publiée via le Proxy d’application](application-proxy-publish-azure-portal.md).
 
@@ -73,7 +73,7 @@ Il n’existe aucune restriction sur les méthodes de signature de certificat. C
 Vous pouvez utiliser un certificat avec caractère générique tant que ce dernier correspond à l’URL externe de votre choix. 
 
 ### <a name="changing-the-domain"></a>Modification de domaine
-Tous les domaines vérifiés s’affichent dans la liste déroulante de l’URL externe pour votre application. Pour modifier le domaine, mettez simplement ce champ à jour pour l’application. Si le domaine n’est pas dans la liste, [ajoutez-le en tant que domaine vérifié](../add-custom-domain.md). Si vous sélectionnez un domaine dont le certificat n’est pas encore associé, suivez les étapes 5 à 7 pour ajouter le certificat. Ensuite, assurez-vous que vous mettez à jour l’enregistrement DNS pour la redirection à partir de la nouvelle URL externe. 
+Tous les domaines vérifiés s’affichent dans la liste déroulante de l’URL externe pour votre application. Pour modifier le domaine, mettez simplement ce champ à jour pour l’application. Si le domaine n’est pas dans la liste, [ajoutez-le en tant que domaine vérifié](../fundamentals/add-custom-domain.md). Si vous sélectionnez un domaine dont le certificat n’est pas encore associé, suivez les étapes 5 à 7 pour ajouter le certificat. Ensuite, assurez-vous que vous mettez à jour l’enregistrement DNS pour la redirection à partir de la nouvelle URL externe. 
 
 ### <a name="certificate-management"></a>Gestion des certificats
 Vous pouvez utiliser le même certificat pour plusieurs applications, sauf si celles-ci partagent un hôte externe. 
@@ -85,6 +85,6 @@ La gestion des certificats s’effectue actuellement via les pages d’applicati
 ## <a name="next-steps"></a>Étapes suivantes
 * [Activer l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md) pour vos applications publiées avec l’authentification Azure AD.
 * [Activer l’accès conditionnel](application-proxy-integrate-with-sharepoint-server.md) à vos applications publiées.
-* [Ajout de votre propre nom de domaine à Azure AD](../add-custom-domain.md)
+* [Ajout de votre propre nom de domaine à Azure AD](../fundamentals/add-custom-domain.md)
 
 

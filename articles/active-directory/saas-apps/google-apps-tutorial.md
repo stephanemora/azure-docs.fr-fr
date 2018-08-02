@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a8478436bfae20ee729ce41bcb134bd3a77fb26e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8ec2b8e312b9bedbd19cb203c0a59177c7fd6a5
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053469"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Didacticiel : Intégration d’Azure Active Directory à G Suite
 
@@ -133,7 +133,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique dans G Suite Domain and URLs (Domaine et URL G Suite)](./media/google-apps-tutorial/tutorial_googleapps_urlgmail.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant : 
     | |
@@ -150,7 +150,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique dans G Suite Domain and URLs (Domaine et URL G Suite)](./media/google-apps-tutorial/tutorial_googleapps_url1.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant : 
     | |

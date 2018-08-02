@@ -3,7 +3,7 @@ title: Guide de développement Azure Functions | Microsoft Docs
 description: Découvrez les concepts et techniques Azure Functions dont vous avez besoin pour développer des fonctions dans Azure, et ce, pour tous les langages de programmation et toutes les liaisons.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: tdykstra
-ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: glenga
+ms.openlocfilehash: 5214a59b6a1aa27c80759c5af3d91ad4711de660
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121744"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343975"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -124,7 +124,7 @@ Vous rencontrez des problèmes avec des erreurs de liaisons ? Consultez la docu
 ## <a name="reporting-issues"></a>Problèmes liés aux rapports
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)

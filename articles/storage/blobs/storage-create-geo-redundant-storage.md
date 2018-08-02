@@ -3,36 +3,34 @@ title: Rendre les données d’application hautement disponibles dans Azure | Mi
 description: Utiliser le stockage géoredondant avec accès en lecture pour rendre vos données d’application hautement disponibles
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 8cf96059b1bbfbad24bf28fec9ddb0aa930adbad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: blobs
+ms.openlocfilehash: 7abd251751613224d062da5578e9c91a525599c9
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193772"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399030"
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Rendre vos données d’application hautement disponibles avec Stockage Azure
 
 Ce didacticiel fait partie d’une série, qui vous montre comment rendre vos données d’application hautement disponibles dans Azure. Quand vous avez terminé, vous disposez d’une application console qui charge et récupère un objet blob dans un compte de stockage [géographiquement redondant avec accès en lecture ](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS). Le stockage RA-GRS réplique des transactions de la région primaire vers la région secondaire. Ce processus de réplication garantit que les données de la région secondaire sont cohérentes. L’application utilise le modèle [Disjoncteur](/azure/architecture/patterns/circuit-breaker) pour déterminer à quel point de terminaison se connecter. L’application bascule vers le point de terminaison secondaire quand une défaillance est simulée.
 
-Dans ce premier volet, vous apprenez à :
+Dans ce premier volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Créez un compte de stockage.
-> * Téléchargez l’exemple
+> * Télécharger l’exemple
 > * Définir la chaîne de connexion
 > * Exécuter l’application console
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
  
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 * Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
@@ -82,11 +80,11 @@ Suivez ces étapes pour créer un compte de stockage géographiquement redondant
    |**Transfert sécurisé requis** | Désactivé| Le transfert sécurisé n’est pas nécessaire pour ce scénario. |
    |**Abonnement** | Votre abonnement |Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
-   |**Lieu** | Est des États-Unis | Choisissez un emplacement. |
+   |**Lieu** | USA Est | Choisissez un emplacement. |
 
 ![créer un compte de stockage](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
-## <a name="download-the-sample"></a>Téléchargez l’exemple
+## <a name="download-the-sample"></a>Télécharger l’exemple
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
@@ -156,7 +154,7 @@ La fonction Nouvelle tentative de l’objet de stockage est définie pour utilis
 
 ---
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
@@ -272,7 +270,7 @@ Dans la première partie de la série, vous avez appris à rendre une applicatio
 
 > [!div class="checklist"]
 > * Créez un compte de stockage.
-> * Téléchargez l’exemple
+> * Télécharger l’exemple
 > * Définir la chaîne de connexion
 > * Exécuter l’application console
 

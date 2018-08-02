@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 24d453dc705eb2d0ee7cb77f2ec247845247d0a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 6f0d8a3a09ce000ddff078614c4febfc44ac941f
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113629"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264941"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la rétention des sauvegardes à long terme Azure SQL Database
 
@@ -59,7 +59,7 @@ Affichez les sauvegardes qui sont conservées pour une base de données spécifi
 
 6. Dans la barre d’outils, cliquez sur l’icône de notification pour visualiser l’état du travail de restauration.
 
-   ![progression du travail de restauration à partir du coffre](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![progression du travail de restauration](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. Lorsque le travail de restauration est terminé, ouvrez la page **Bases de données SQL** pour visualiser la base de données nouvellement restaurée.
 

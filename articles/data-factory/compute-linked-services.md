@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 4a4ec63d41f013ebfef8a78eddc88a6131a960fc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070040"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390209"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 Cet article décrit les différents environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lors de la configuration des services liés qui relient ces environnements de calcul à Azure Data Factory.
@@ -429,9 +429,9 @@ Vous créez un service lié **Analytique Azure Data Lake** pour lier un service 
 | Type                 | La propriété de type doit être définie sur **AzureDataLakeAnalytics**. | Oui                                      |
 | accountName          | Nom du compte du service Analytique Azure Data Lake.  | Oui                                      |
 | dataLakeAnalyticsUri | URI du service Analytique Azure Data Lake.           | Non                                        |
-| subscriptionId       | ID d’abonnement Azure                    | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
-| nom_groupe_ressources    | Nom du groupe de ressources Azure                | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
-| servicePrincipalId   | Spécifiez l’ID client de l’application.     | Oui                                      |
+| subscriptionId       | ID d’abonnement Azure                    | Non                                        |
+| nom_groupe_ressources    | Nom du groupe de ressources Azure                | Non                                        |
+| servicePrincipalId   | Spécifiez l’ID client de l’application.     | OUI                                      |
 | servicePrincipalKey  | Spécifiez la clé de l’application.           | Oui                                      |
 | locataire               | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Oui                                      |
 | connectVia           | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non                                        |
@@ -505,15 +505,6 @@ Créez un service lié Azure SQL Data Warehouse et utilisez-le avec l’ [activ
 
 ## <a name="sql-server-linked-service"></a>Service lié SQL Server
 Créez un service lié à SQL Server et utilisez-le avec l’ [activité de procédure stockée](transform-data-using-stored-procedure.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Server](connector-sql-server.md#linked-service-properties) .
-
-## <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Règles d’affectation des noms
-Le tableau suivant fournit des règles d'affectation de noms pour les artefacts Data Factory.
-
-| NOM                             | Unicité du nom                          | Contrôles de validation                        |
-| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | Unique sur Microsoft Azure. Les noms ne respectent pas la casse, c’est-à-dire que `MyDF` et `mydf` font référence à la même fabrique de données. | <ul><li>Chaque fabrique de données est liée à un seul abonnement Azure.</li><li>Les noms d’objet doivent commencer par une lettre ou un chiffre, et peuvent comporter uniquement des lettres, des chiffres et des tirets (-).</li><li>Chaque tiret (-) doit être immédiatement précédé et suivi par une lettre ou un chiffre. Les tirets consécutifs ne sont pas autorisés dans les noms de conteneurs.</li><li>Le nom doit contenir entre 3 et 63 caractères.</li></ul> |
-| Services/tables/pipelines liés | Unique dans une fabrique de données. Les noms sont sensibles à la casse. | <ul><li>Un tableau peut contenir un maximum de 260 caractères.</li><li>Les noms d’objet doivent commencer par une lettre, un chiffre ou un trait de soulignement (_).</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |
-| Groupe de ressources                   | Unique sur Microsoft Azure. Les noms sont sensibles à la casse. | <ul><li>Nombre maximal de caractères : 1 000.</li><li>Un nom peut contenir des lettres, des chiffres et les caractères suivants : « - », « _ », « , » et « . ».</li></ul> |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des activités de transformation prises en charge par Azure Data Factory, voir [Transformer des données](transform-data.md).

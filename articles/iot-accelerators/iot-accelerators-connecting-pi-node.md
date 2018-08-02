@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 78647612fc747ec328279536d82fb31bb4858688
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 696bd6ec80f39e8a9f3418426a754ffc038171e2
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309774"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325080"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Connecter votre appareil Raspberry Pi à l’accélérateur de solution de surveillance à distance (Node.js)
 
@@ -63,7 +63,7 @@ Si ce n’est déjà fait, installez Node.js version 4.0.0 ou ultérieure sur vo
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
-    sudo apt-get install nodejs -y
+    sudo apt-get install nodejs npm
     ```
 
 1. Pour vérifier que Node.js v6.11.4 a bien été installé, utilisez la commande suivante :
@@ -87,8 +87,7 @@ Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre apparei
 1. Pour télécharger et installer les packages dont vous avez besoin pour accomplir l’exemple d’application, exécutez les commandes suivantes :
 
     ```sh
-    npm init
-    npm install async azure-iot-device azure-iot-device-mqtt --save
+    npm install async azure-iot-device azure-iot-device-mqtt
     ```
 
 1. Dans le dossier `remotemonitoring`, créez un fichier nommé **remote_monitoring.js**. Ouvrez ce fichier dans un éditeur de texte. Sur l’appareil Raspberry Pi, vous pouvez utiliser l’éditeur de texte `nano` ou `vi`.

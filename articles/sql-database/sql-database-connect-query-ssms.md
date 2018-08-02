@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0d930cc200d8f8df30927ba7d2f942b2eb8a85a7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9177ad9cc4cbb668599d35b295ab939cea148a5a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652198"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412812"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database : utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes
 
@@ -50,7 +50,7 @@ Utilisez SQL Server Management Studio pour établir une connexion à votre serve
    | Paramètre      | Valeur suggérée    | Description | 
    | ------------ | ------------------ | ----------- | 
    | **Type de serveur** | Moteur de base de données | Cette valeur est obligatoire. |
-   | **Nom du serveur** | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mynewserver20170313.database.windows.net**. |
+   | **Nom du serveur** | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mynewserver20170313.database.windows.net**. |
    | **Authentification** | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce didacticiel. |
    | **Connexion** | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
    | **Mot de passe** | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
@@ -149,7 +149,6 @@ Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur la création et la gestion des serveurs et des bases de données avec Transact-SQL, consultez [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md) (En savoir plus sur les serveurs et bases de données Azure SQL Database).
 - Pour plus d’informations sur SSMS, consultez [Utiliser SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Pour vous connecter et exécuter des requêtes via le portail Azure, consultez [Se connecter et effectuer des requêtes avec l’éditeur de requêtes SQL du portail Azure](sql-database-connect-query-portal.md).
 - Pour vous connecter et exécuter des requêtes à l’aide de Visual Studio Code, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).

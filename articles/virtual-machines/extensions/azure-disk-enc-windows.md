@@ -13,33 +13,33 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: danis
-ms.openlocfilehash: f9b8c64aadf813ab1157820fc4051d48989e48c4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: ejarvi
+ms.openlocfilehash: 11ec26729b2239279dddc8cd62f6b658a4f7ed20
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448829"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413788"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption pour Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Disk Encryption s’appuie sur Bitlocker pour fournir un chiffrement de disque complet des machines virtuelles Azure exécutant Windows.  La solution est intégrée à Azure Key Vault, ce qui vous permet de gérer les clés de chiffrement de disque et les secrets dans votre abonnement Key Vault. 
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour obtenir la liste complète des conditions requises, consultez la page de [Prérequis pour Azure Disk Encryption](
-../../security/azure-security-disk-encryption.md#prerequisites).
+../../security/azure-security-disk-encryption-prerequisites.md).
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-Pour obtenir la liste des versions de Windows actuellement prises en charge, consultez [Prérequis pour Azure Disk Encryption](../../security/azure-security-disk-encryption.md#prerequisites).
+Pour obtenir la liste des versions de Windows actuellement prises en charge, consultez [Prérequis pour Azure Disk Encryption](../../security/azure-security-disk-encryption-prerequisites.md).
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
 Azure Disk Encryption doit être connecté à Internet pour accéder à Active Directory, à Key Vault, au stockage et aux points de terminaison de gestion des packages.  Pour plus d’informations sur les paramètres de sécurité réseau, consultez [Prérequis pour Azure Disk Encryption](
-../../security/azure-security-disk-encryption.md#prerequisites).
+../../security/azure-security-disk-encryption-prerequisites.md).
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
@@ -105,4 +105,4 @@ Consultez le [Guide de dépannage Azure Disk Encryption](../../security/azure-se
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/community/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les extensions de machine virtuelle, consultez [Extensions et fonctionnalités de machine virtuelle pour Windows](features-windows.md).
+Pour plus d’informations sur les extensions de machine virtuelle, consultez la page [Extensions et fonctionnalités de machine virtuelle pour Windows](features-windows.md).

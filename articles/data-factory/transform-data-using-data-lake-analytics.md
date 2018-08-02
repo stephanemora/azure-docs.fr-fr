@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: b82353418931c872f8ec90f381b27bbb5d5781e9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d406c7f7714e011126be67ad3f65938db62e7bbe
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046953"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412846"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-usql-activity.md)
+> * [Version 1](v1/data-factory-usql-activity.md)
 > * [Version actuelle](transform-data-using-data-lake-analytics.md)
 
 Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l’**activité U-SQL de Data Lake Analytics** qui exécute un script **U-SQL** sur un service lié de calcul **Azure Data Lake Analytics**. 
@@ -37,11 +37,11 @@ Le tableau suivant décrit les propriétés génériques utilisées dans la déf
 
 | Propriété                 | Description                              | Obligatoire                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | La propriété de type doit être définie sur **AzureDataLakeAnalytics**. | OUI                                      |
-| **accountName**          | Nom du compte du service Analytique Azure Data Lake.  | OUI                                      |
+| **type**                 | La propriété de type doit être définie sur **AzureDataLakeAnalytics**. | Oui                                      |
+| **accountName**          | Nom du compte du service Analytique Azure Data Lake.  | Oui                                      |
 | **dataLakeAnalyticsUri** | URI du service Analytique Azure Data Lake.           | Non                                        |
-| **subscriptionId**       | ID d’abonnement Azure                    | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
-| **resourceGroupName**    | Nom du groupe de ressources Azure                | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
+| **subscriptionId**       | ID d’abonnement Azure                    | Non                                        |
+| **resourceGroupName**    | Nom du groupe de ressources Azure                | Non                                        |
 
 ### <a name="service-principal-authentication"></a>Authentification d’un principal du service
 Le service lié d’Azure Data Lake Analytics a besoin d’une authentification de principal de service pour se connecter au service Azure Data Lake Analytics. Pour utiliser l’authentification d’un principal de service, inscrivez une entité d’application auprès d’Azure Active Directory (Azure AD) et accordez-lui l’accès aux services Data Lake Analytics et Data Lake Store qu’elle utilise. Consultez la page [Authentification de service à service](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) pour des instructions détaillées. Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
@@ -56,9 +56,9 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 
 | Propriété                | Description                              | Obligatoire |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Spécifiez l’ID client de l’application.     | OUI      |
-| **servicePrincipalKey** | Spécifiez la clé de l’application.           | OUI      |
-| **client**              | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | OUI      |
+| **servicePrincipalId**  | Spécifiez l’ID client de l’application.     | Oui      |
+| **servicePrincipalKey** | Spécifiez la clé de l’application.           | Oui      |
+| **client**              | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Oui      |
 
 **Exemple : authentification du principal de service**
 ```json
@@ -120,12 +120,12 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 | Propriété            | Description                              | Obligatoire |
 | :------------------ | :--------------------------------------- | :------- |
-| Nom                | Nom de l’activité dans le pipeline     | OUI      |
+| Nom                | Nom de l’activité dans le pipeline     | Oui      |
 | description         | Texte décrivant l’activité.  | Non        |
-| Type                | Pour l’activité U-SQL Data Lake Analytics, le type d’activité est **DataLakeAnalyticsU-SQL**. | OUI      |
-| linkedServiceName   | Service lié à Azure Data Lake Analytics. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  |OUI       |
-| scriptPath          | Chemin d'accès au dossier qui contient le script SQL-U. Le nom de fichier respecte la casse. | OUI      |
-| scriptLinkedService | Service lié qui lie **Azure Data Lake Store** ou le **stockage Azure** qui contient le script à la fabrique de données | OUI      |
+| Type                | Pour l’activité U-SQL Data Lake Analytics, le type d’activité est **DataLakeAnalyticsU-SQL**. | Oui      |
+| linkedServiceName   | Service lié à Azure Data Lake Analytics. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  |Oui       |
+| scriptPath          | Chemin d'accès au dossier qui contient le script SQL-U. Le nom de fichier respecte la casse. | Oui      |
+| scriptLinkedService | Service lié qui lie **Azure Data Lake Store** ou le **stockage Azure** qui contient le script à la fabrique de données | Oui      |
 | degreeOfParallelism | Le nombre maximal de nœuds utilisés simultanément pour exécuter le travail. | Non        |
 | priority            | Détermine les travaux parmi tous ceux qui sont en file d'attente qui doivent être sélectionnés pour s'exécuter en premier. Plus le numéro est faible, plus la priorité est élevée. | Non        |
 | parameters          | Paramètres à transmettre au script U-SQL.    | Non        |

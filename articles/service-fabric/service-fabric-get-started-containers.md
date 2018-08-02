@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6577e15ff0773e336da61e7883e6ea7257b6b169
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294810"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358866"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "36294810"
 L’exécution d’une application existante dans un conteneur Windows sur un cluster Service Fabric ne nécessite aucune modification de votre application. Cet article vous accompagne dans la création d’une image Docker contenant une application web [Flask](http://flask.pocoo.org/) Python et le déploiement dans un cluster Service Fabric. Vous allez également partager votre application en conteneur via [Azure Container Registry](/azure/container-registry/). Cet article suppose une connaissance élémentaire de Docker. Pour en savoir plus sur Docker, consultez la [présentation de Docker](https://docs.docker.com/engine/understanding-docker/).
 
 ## <a name="prerequisites"></a>Prérequis
-* Un ordinateur de développement exécutant :
+* Un ordinateur de développement exécutant :
   * Visual Studio 2015 ou Visual Studio 2017.
   * [Outils et SDK Service Fabric](service-fabric-get-started.md).
   *  Docker pour Windows. [Obtenez Docker CE pour Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Après l’installation et le démarrage de Docker, cliquez avec le bouton droit de la souris sur l’icône de la barre d’état, puis sélectionnez **Switch to Windows containers** (Basculer vers les conteneurs Windows). Cette étape est nécessaire pour exécuter des images Docker basées sur Windows.
@@ -189,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 Le kit de développement logiciel Service Fabric fournit un modèle de service pour vous aider à créer une application en conteneur.
 
 1. Démarrez Visual Studio. Sélectionnez **Fichier** > **Nouveau** > **Projet**.
-2. Sélectionnez **Service Fabric application** (Application Service Fabric), nommez-la « MyFirstContainer », puis cliquez sur **OK**.
+2. Sélectionnez **Service Fabric application** (Application Service Fabric), nommez-la « MyFirstContainer », puis cliquez sur **OK**.
 3. Sélectionnez **Container** (Conteneur) dans la liste des **modèles de service**.
 4. Sous **Nom de l’image**, entrez « myregistry.azurecr.io/samples/helloworldapp », c’est-à-dire l’image que vous avez envoyée à votre référentiel de conteneurs.
 5. Donnez un nom à votre service et cliquez sur **OK**.
@@ -601,7 +601,7 @@ Le runtime Service Fabric alloue 20 minutes pour télécharger et extraire les i
 "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
 ]

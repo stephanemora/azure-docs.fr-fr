@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916477"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346677"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Reprotéger des machines depuis Azure vers un site local
 
@@ -63,7 +63,7 @@ Pour déployer un serveur de processus dans Azure :
 Le serveur cible maître reçoit les données de la restauration automatique. Par défaut, le serveur cible maître s’exécute sur le serveur de configuration local. Toutefois, en fonction du volume de trafic restauré automatiquement, vous devrez peut-être créer un serveur cible maître distinct pour procéder à la restauration automatique. Voici comment en créer un :
 
 * [Créez un serveur cible maître Linux](vmware-azure-install-linux-master-target.md) pour la restauration automatique des machines virtuelles Linux. Cela est nécessaire.
-* Vous pouvez éventuellement créer un serveur cible maître distinct pour la restauration automatique de la machine virtuelle Windows. Pour ce faire, réexécutez l’installation unifiée et sélectionnez pour créer un serveur cible maître. [Plus d’informations](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup)
+* Vous pouvez éventuellement créer un serveur cible maître distinct pour la restauration automatique de la machine virtuelle Windows. Pour ce faire, réexécutez l’installation unifiée et sélectionnez pour créer un serveur cible maître. [Plus d’informations](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers)
 
 Après avoir créé un serveur cible maître, effectuez les tâches suivantes :
 

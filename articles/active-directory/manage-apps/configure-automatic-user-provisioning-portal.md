@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 926db432e413c3fc1360f68598e952830d212cb9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b2b44deacf8278b8e8c2554cc873c5d0b75f6f9
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331463"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366186"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure
 Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer l’approvisionnement et l’annulation de l’approvisionnement automatiques de comptes d’utilisateur pour les applications qui les prennent en charge, en particulier celles qui ont été ajoutées depuis la catégorie « Sélection » de la [galerie d’applications Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Pour en savoir plus sur l’approvisionnement automatique de comptes d’utilisateur, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md).

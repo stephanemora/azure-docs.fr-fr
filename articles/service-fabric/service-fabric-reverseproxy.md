@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: bec2e443b920a1f163b7b328197d3688d207ed35
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301578"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309117"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
@@ -158,7 +158,7 @@ Dans le cadre de la configuration du proxy inverse sécurisé, le certificat SS
 
 Vous pouvez utiliser le [modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) pour activer le proxy inverse de Service Fabric pour le cluster.
 
-Consultez la page [Configurer le Proxy inverse HTTPS dans un cluster sécurisé](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) pour voir des exemples de modèles Azure Resource Manager permettant de configurer un proxy inverse sécurisé avec un certificat et gérant la substitution de certificat.
+Consultez la page [Configurer le Proxy inverse HTTPS dans un cluster sécurisé](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) pour voir des exemples de modèles Azure Resource Manager permettant de configurer un proxy inverse sécurisé avec un certificat et gérant la substitution de certificat.
 
 Tout d’abord, vous récupérez le modèle du cluster que vous souhaitez déployer. Vous pouvez soit utiliser les exemples de modèles, soit créer un modèle Resource Manager personnalisé. Ensuite, vous pouvez activer le proxy inverse en suivant les étapes suivantes :
 

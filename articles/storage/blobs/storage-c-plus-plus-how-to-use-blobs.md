@@ -3,17 +3,17 @@ title: Utilisation du stockage d’objets (blob) à partir de C++ - Azure | Micr
 description: Stockez des données non structurées dans le cloud avec le stockage d’objet blob Azure.
 services: storage
 author: MichaelHauss
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: blobs
+ms.openlocfilehash: 0564d8406a0ce885ec5d75377f6a165901a8aa25
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38298994"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397163"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Utilisation du stockage d’objets blob à partir de C++
 

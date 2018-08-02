@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: b6da8eed16b67db098ceb90079b7da7dfadcd5e3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fde6d5fa2488d86af542f409df7c5b76d2510f08
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302234"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368647"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans Azure Active Directory
 Il est facile de supprimer l’affectation de l’accès à un utilisateur ou un groupe à vos applications d’entreprise dans Azure Active Directory (Azure AD). Vous devez disposer des autorisations nécessaires pour gérer l’application d’entreprise, et vous devez être l’administrateur général du répertoire.
@@ -69,7 +69,7 @@ Il est facile de supprimer l’affectation de l’accès à un utilisateur ou un
     ``` 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Voir tous mes groupes](../active-directory-groups-view-azure-portal.md)
+- [Voir tous mes groupes](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Affecter un utilisateur ou un groupe à une application d’entreprise](assign-user-or-group-access-portal.md)
 - [Désactiver les connexions utilisateur pour une application d’entreprise](disable-user-sign-in-portal.md)
 - [Modifier le nom ou le logo d’une application d’entreprise dans la version préliminaire d’Azure Active Directory](change-name-or-logo-portal.md)

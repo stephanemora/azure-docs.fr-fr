@@ -3,29 +3,26 @@ title: Simuler un échec d’accès au stockage redondant avec accès en lecture
 description: Simuler une erreur d’accès au stockage géoredondant avec accès en lecture
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: a86f54d580db6e577b878cb1701c7b969d23c129
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e242395df1ffb16897b73c0330f24de4857ede13
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30835600"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398447"
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simuler un échec d’accès au stockage redondant avec accès en lecture
 
-Ce didacticiel est le deuxième d’une série.  Dans ce didacticiel, vous pouvez utiliser [Fiddler](#simulate-a-failure-with-fiddler) ou le [routage statique](#simulate-a-failure-with-an-invalid-static-route) pour simuler l’échec des demandes d’accès au point de terminaison principal de votre compte de stockage RA-GRS ([géoredondant avec accès en lecture](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) et obliger l’application à effectuer la lecture à partir du point de terminaison secondaire.
+Ce tutoriel est le deuxième d’une série.  Dans ce didacticiel, vous pouvez utiliser [Fiddler](#simulate-a-failure-with-fiddler) ou le [routage statique](#simulate-a-failure-with-an-invalid-static-route) pour simuler l’échec des demandes d’accès au point de terminaison principal de votre compte de stockage RA-GRS ([géoredondant avec accès en lecture](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) et obliger l’application à effectuer la lecture à partir du point de terminaison secondaire.
 
 ![Application de scénario](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
 Pour suivre ce didacticiel, vous devez avoir suivi le didacticiel précédent relatif au stockage : [Rendre vos données d’application hautement disponibles avec le stockage Azure][previous-tutorial].
 
-Dans ce deuxième volet, vous apprenez à :
+Dans ce deuxième volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Exécuter et interrompre l’application
@@ -34,7 +31,6 @@ Dans ce deuxième volet, vous apprenez à :
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour simuler une défaillance à l’aide de Fiddler : 
 

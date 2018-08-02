@@ -1,20 +1,19 @@
 ---
-title: Prise en main du Kit de développement logiciel (SDK) Speech Devices | Microsoft Docs
+title: Prise en main du Kit de développement logiciel (SDK) Speech Devices
 description: Composants requis et instructions pour bien démarrer avec le kit de développement logiciel (SDK) Speech Devices.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 32dd295132e26e46d64b01b194b557cae26575ad
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 266315a731eec8a2c0ab0a880ce9e1db58331184
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750792"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283134"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Prise en main du Kit de développement logiciel (SDK) Speech Devices
 

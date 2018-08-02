@@ -3,7 +3,7 @@ title: Extensions et fonctionnalités de machine virtuelle Azure pour Linux | Mi
 description: Découvrez les extensions disponibles pour les machines virtuelles, regroupées par ce qu’ils fournissent ou améliorent.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
-ms.openlocfilehash: 760f832bc12bccbf1cce77db25bf60413ad9a36b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: e172b9d6a59f14f741a09450d31602b0d2d9ee5a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945001"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412625"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -39,7 +39,6 @@ Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliq
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé pour Linux permet d’exécuter n’importe quel script Bash sur une machine virtuelle. Les scripts personnalisés s’avèrent utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle fournie par les outils Azure natifs. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Linux, consultez [cet article](custom-script-linux.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 La gestion de l’extension sur la machine virtuelle nécessite l’installation préalable de l’agent Linux Azure. Certaines extensions spécifiques présentent des prérequis, tels que l’accès à des ressources ou dépendances.
 

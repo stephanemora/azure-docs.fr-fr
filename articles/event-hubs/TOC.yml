@@ -28,6 +28,7 @@
       maintainContext: true
     - name: Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
+      maintainContext: true
     - name: Event Hubs pour Apache Kafka
       items:
         - name: Apache Kafka MirrorMaker avec Event Hubs

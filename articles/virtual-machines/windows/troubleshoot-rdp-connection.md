@@ -4,7 +4,7 @@ description: Résolution des problèmes lorsque vous ne pouvez pas vous connecte
 keywords: erreur bureau à distance,erreur de connexion bureau à distance,impossible se connecter à la machine virtuelle,résolution des problèmes de connexion bureau à distance
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: danis
-ms.openlocfilehash: c1444901fa46a62761d6b94ccb8e7ea3ff3d057f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: roiyz
+ms.openlocfilehash: d446643b301e6e0c91a560745be6fc37e6d05fe5
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701885"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413190"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure
 La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons, rendant votre machine virtuelle inaccessible. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous guide à travers certaines des méthodes plus courantes pour résoudre les problèmes de connexion RDP. 

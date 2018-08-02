@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9dea759f6556bc521dda4efbd27176f1e06452b
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126573"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284725"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>Tutoriel : Déployer une application web Service Fabric Mesh
 
 Ce tutoriel est la troisième partie d’une série et vous montre comment publier une application web Azure Service Fabric Mesh directement depuis Visual Studio.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Publiez l’application dans Azure.
 > * Vérifier l’état du déploiement de l’application
@@ -68,13 +68,13 @@ Ensuite, une boîte de dialogue **Publier une application Service Fabric** s’a
 
 ![Boîte de dialogue de publication d’une application Service Fabric MeshVisual studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Sélectionnez votre compte et votre abonnement Azure. Choisissez un **Emplacement**. Cet article utilise l’emplacement **USA Est**.
+Sélectionnez votre compte et votre abonnement Azure. Choisissez un **Emplacement**. Dans cet article, nous utilisons la région **USA Est**.
 
 Sous **Groupe de ressources**, sélectionnez **\<Créer un nouveau groupe de ressources...>**. Une boîte de dialogue s’affiche, dans laquelle vous allez créer un nouveau groupe de ressources. Cet article utilise l’emplacement **USA Est** et nomme le groupe **sfmeshTutorial1RG** (si plusieurs personnes utilisent le même abonnement dans votre organisation, choisissez un nom de groupe unique).  Appuyez sur **Créer** pour créer le groupe de ressources et revenir à la boîte de dialogue Publier.
 
 ![Boîte de dialogue du nouveau groupe de ressources Service Fabric Mesh Visual studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-Revenez dans la boîte de dialogue **Publier une application Service Fabric** sous **Azure Container Registry**, sélectionnez **\<Créer un registre de conteneurs Azure...>**. Dans la boîte de dialogue **Créer un registre de conteneurs**, utilisez un nom unique pour le **nom du registre de conteneurs**. Spécifiez un **emplacement** (ce tutoriel utilise l’emplacement **USA Est**). Sélectionnez le **groupe de ressources** que vous avez créé à l’étape précédente dans la liste déroulante, par exemple, **sfmeshTutorial1RG**. Définissez la **référence (SKU)** sur **De base**, puis appuyez sur **Créer** pour revenir à la boîte de dialogue de publication.
+Revenez à la boîte de dialogue **Publier une application Service Fabric** sous **Azure Container Registry**, sélectionnez **\<Créer un registre de conteneurs...>**. Dans la boîte de dialogue **Créer un registre de conteneurs**, utilisez un nom unique pour le **nom du registre de conteneurs**. Spécifiez un **emplacement** (ce tutoriel utilise l’emplacement **USA Est**). Sélectionnez le **groupe de ressources** que vous avez créé à l’étape précédente dans la liste déroulante, par exemple, **sfmeshTutorial1RG**. Définissez la **référence (SKU)** sur **De base**, puis appuyez sur **Créer** pour revenir à la boîte de dialogue de publication.
 
 ![Boîte de dialogue du nouveau groupe de ressources Service Fabric Mesh Visual studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -106,26 +106,9 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Ouvrez un navigateur web et accédez à l’URL pour voir le site web en cours d’exécution dans Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="set-up-service-fabric-mesh-cli"></a>Configurer l’interface de ligne de commande Service Fabric Mesh 
+Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour les étapes restantes. Installez le module d’extension CLI de Service Fabric mesh en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) ci-après.
 
-Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour les étapes restantes.
-
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce tutoriel nécessite que vous exécutiez Azure CLI version 2.0.35 ou ultérieure. Exécutez `az --version` pour trouver la version. Pour installer la dernière version de l’interface CLI ou procéder à sa mise à niveau vers la dernière version, consultez [Installer Azure CLI 2.0][azure-cli-install].
-
-## <a name="install-the-az-mesh-cli"></a>Installer le module az mesh cli
-À l’invite de la CLI
-
-1) Supprimez toute installation précédente du module Azure Service Fabric Mesh CLI.
-
-```cli
-az extension remove --name mesh
-```
-
-2)  Installez le module d’extension Azure Service Fabric Mesh CLI. Pour la préversion, Azure Service Fabric Mesh CLI est écrit en tant qu’extension d’Azure CLI, toutefois, en préversion publique, celle-ci fait partie d’Azure CLI.
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
 
 ## <a name="check-application-deployment-status"></a>Vérifier l’état du déploiement de l’application
 
@@ -169,7 +152,7 @@ Vous pouvez également supprimer le groupe de ressources [à partir du portail A
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cette partie du tutoriel, vous avez appris à :
+Cette partie du didacticiel vous a permis de répondre aux questions suivantes :
 > [!div class="checklist"]
 > * Publiez l’application dans Azure.
 > * Vérifier l’état du déploiement de l’application

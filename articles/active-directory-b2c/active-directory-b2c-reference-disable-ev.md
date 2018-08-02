@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 2/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c1bebe46832226e822d9eeb002cb555b72a1d7fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e008fb87b57b92f8f7e914e6b4344b52d42f9ef8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441605"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263927"
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C : désactiver la vérification par e-mail lors de l’inscription du consommateur
 Lorsqu'il est activé, Azure Active Directory (Azure AD) B2C permet à un consommateur de s’inscrire à des applications en fournissant une adresse e-mail et en créant un compte local. Azure Active Directory B2C assure la validité des adresses e-mail en demandant aux consommateurs de les vérifier pendant le processus d’inscription. Cela empêche un processus malveillant automatisé de générer des faux comptes pour les applications.
@@ -26,13 +26,14 @@ Par défaut, la vérification est activée pour les stratégies d’inscription.
 
 1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Cliquez sur les **stratégies d’inscription** ou les **stratégies d’inscription ou de connexion** selon la configuration de l'inscription.
-3. Ouvrez votre inscription (par exemple, « B2C_1_SiUp ») en cliquant dessus. Cliquez sur **Modifier** dans la partie supérieure du panneau.
-4. Cliquez sur la fonctionnalité de **personnalisation de l’interface utilisateur de page**.
-5. Cliquez sur **page d’inscription à un compte Local**.
-6. Cliquez sur **Adresse e-mail** dans la colonne **Nom** colonne sous la section des **attributs d’abonnement**.
-7. Définissez l’option **Exiger la vérification** sur **non**.
-8. Cliquez sur **OK** en bas jusqu'à atteindre le panneau **Modifier une stratégie**.
-9. Cliquez sur **Enregistrer** dans la partie supérieure du panneau. Vous avez terminé !
+3. Ouvrez votre inscription (par exemple, « B2C_1_SiUp ») en cliquant dessus. 
+4. Cliquez sur **Modifier** dans la partie supérieure du panneau.
+5. Cliquez sur la fonctionnalité de **personnalisation de l’interface utilisateur de page**.
+6. Cliquez sur **page d’inscription à un compte Local**.
+7. Cliquez sur **Adresse e-mail** dans la colonne **Nom** colonne sous la section des **attributs d’abonnement**.
+8. Définissez l’option **Exiger la vérification** sur **non**.
+9. Cliquez sur **OK** en bas jusqu'à atteindre le panneau **Modifier une stratégie**.
+10. Cliquez sur **Enregistrer** dans la partie supérieure du panneau. Vous avez terminé !
 
 > [!NOTE]
 > La désactivation de la vérification par e-mail dans le processus d’inscription peut entraîner la réception de courrier indésirable. Si vous désactivez la vérification par défaut, nous vous recommandons d’ajouter votre propre système de vérification.

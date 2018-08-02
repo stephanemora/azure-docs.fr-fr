@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d56fccbb378736dc8235bf8b8f17afffc085c49f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 49fa81d89fb195e1caedc2348a8b0990022b0d0d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002005"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414264"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutoriel : Développer et déployer un module IoT Edge Python sur votre appareil simulé
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser des modules Azure IoT Edge pour déployer un code qui impl�
 
 Le module IoT Edge que vous créez dans ce didacticiel filtre les données de température générées par votre appareil. Il envoie uniquement des messages en amont lorsque la température dépasse un seuil spécifié. Ce type d’analyse à la périphérie est utile pour réduire la quantité de données communiquées et stockées dans le cloud. 
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -77,7 +77,7 @@ Utilisez le package Python **cookiecutter** pour créer un modèle de solution P
 
 4. Dans la palette de commandes, entrez et exécutez la commande **Azure: Sign in** (Azure : connexion) et suivez les instructions pour vous connecter à votre compte Azure. Si vous êtes déjà connecté, vous pouvez ignorer cette étape.
 
-5. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge : nouvelle solution IoT Edge). Dans la palette de commandes, spécifiez les informations suivantes pour créer votre solution : 
+5. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge : nouvelle solution IoT Edge**. Dans la palette de commandes, spécifiez les informations suivantes pour créer votre solution : 
 
    1. Sélectionnez le dossier où vous souhaitez créer la solution. 
    2. Fournissez un nom pour votre solution ou acceptez le nom par défaut **EdgeSolution**.

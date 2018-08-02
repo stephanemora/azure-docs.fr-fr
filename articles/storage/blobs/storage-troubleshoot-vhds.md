@@ -3,17 +3,17 @@ title: Résoudre les problèmes de disques attachés à des machines virtuelles 
 description: Le Stockage Blob Azure est conçu pour stocker de grandes quantités de données d’objet non structurées, telles que des données texte ou binaires. Vos applications peuvent accéder aux objets du stockage Blob à partir de PowerShell ou d’Azure CLI, à partir du code via des bibliothèques clientes de stockage Azure ou par REST.
 services: storage
 author: genlin
-manager: cshepard
 ms.service: storage
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: genli
-ms.openlocfilehash: 766062b085c359499046151f337921a51d948715
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.component: disks
+ms.openlocfilehash: 0dbd89c28d18d64908d92cd38d8bd1cf3138fd5c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362704"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397965"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>Résoudre les problèmes de disques attachés à des machines virtuelles Azure 
 

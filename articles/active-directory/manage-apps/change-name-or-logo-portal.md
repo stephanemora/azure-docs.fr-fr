@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: ad424d6ca8ea8c35aa502a3d1bd98940591c38e8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 47a53adb583ede0618321d9146362e4f663b0066
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302206"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368757"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Modifier le nom ou le logo d’une application d’entreprise dans Azure Active Directory
 Il est facile de modifier le nom ou le logo d’une application d’entreprise personnalisée dans Azure Active Directory (Azure AD). Vous devez disposer des autorisations appropriées pour effectuer ces modifications, et vous devez être le créateur de l’application personnalisée.
@@ -43,7 +43,7 @@ Il est facile de modifier le nom ou le logo d’une application d’entreprise p
 8. Sélectionnez la commande **Enregistrer** .
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Voir tous mes groupes](../active-directory-groups-view-azure-portal.md)
+* [Voir tous mes groupes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](assign-user-or-group-access-portal.md)
 * [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](remove-user-or-group-access-portal.md)
 * [Désactiver les connexions utilisateur pour une application d’entreprise](disable-user-sign-in-portal.md)

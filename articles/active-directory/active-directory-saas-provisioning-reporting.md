@@ -3,23 +3,23 @@ title: Création de rapports sur l’approvisionnement automatique de comptes d�
 description: Découvrez comment vérifier l’état des tâches d’approvisionnement automatique de comptes d’utilisateur et comment résoudre les problèmes d’approvisionnement d’utilisateurs individuels.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
+author: barbkess
 manager: mtillman
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
-ms.topic: article
-ms.date: 05/12/2017
-ms.author: asmalser-msft
-ms.openlocfilehash: 5011dfbe496472e21a85dee9fa4901dad429a984
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.reviewer: asmalser
+ms.openlocfilehash: e3be74fbb571a806fc03a92d0b1b373e35d196be
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031727"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363612"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur
 
@@ -28,7 +28,7 @@ Azure Active Directory comprend un [service d’approvisionnement de comptes d�
 
 Cet article décrit comment vérifier l’état de l’approvisionnement des travaux après qu’ils ont été configurés, et résoudre les problèmes d’approvisionnement d’utilisateurs individuels et de groupes.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les connecteurs de provisionnement peuvent être configurés via le [portail Azure](https://portal.azure.com), en suivant la [documentation fournie](saas-apps/tutorial-list.md) pour l’application prise en charge. Une fois configurés et opérationnels, les travaux de provisionnement peuvent faire l’objet de rapports créés à l’aide de l’une des deux méthodes suivantes :
 

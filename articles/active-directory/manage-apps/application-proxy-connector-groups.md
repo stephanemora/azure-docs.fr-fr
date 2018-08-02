@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 50f17d7b833874cd15ddc9f2e4f93fa7af1700a2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161592"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364971"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
 
@@ -34,7 +34,6 @@ Toutes les applications sont affectées à un groupe de connecteurs. Si vous ne 
 >Si vous avez un grand déploiement de proxy d’application, n’affectez aucune application au groupe de connecteurs par défaut. Ainsi, les nouveaux connecteurs ne reçoivent pas de trafic live tant que vous ne les affectez pas à un groupe de connecteurs actif. Cette configuration vous permet également de passer des connecteurs en mode inactif en les réintégrant au groupe par défaut, pour que vous puissiez en effectuer la maintenance sans impacter vos utilisateurs.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour regrouper vos connecteurs, vous devez vous assurer que vous avez [installé plusieurs connecteurs](application-proxy-enable.md). Lorsque vous installez un nouveau connecteur, il est automatiquement ajouté au groupe de connecteurs **par défaut**.
 
 ## <a name="create-connector-groups"></a>Créer des groupes de connecteurs

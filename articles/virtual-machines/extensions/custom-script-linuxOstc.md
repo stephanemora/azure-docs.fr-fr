@@ -3,7 +3,7 @@ title: Exécuter des scripts personnalisés sur des machines virtuelles Linux da
 description: Automatiser les tâches de configuration de machine virtuelle Linux à l’aide de l’extension de script personnalisé v1
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: danis
-ms.openlocfilehash: 526021ca238be7bc934e639c34d3e49879279a6a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: roiyz
+ms.openlocfilehash: 918d09a870d5f8b523fb49141e4950ccdde825f2
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127650"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413471"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure Version 1 avec des machines virtuelles Linux
 L’extension de script personnalisé Version 1 télécharge et exécute des scripts sur des machines virtuelles Azure. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration/gestion. Il est possible de télécharger des scripts à partir du Stockage Azure ou de tout autre emplacement Internet accessible, ou de les fournir au runtime de l’extension. 

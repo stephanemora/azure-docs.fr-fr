@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: fd2539830ab20fe4c63ddf3bb97cccdb13e535ea
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 02f730aaf9f47da564d459577a31377ef63207a4
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857002"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390634"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Hadoop disponibles avec HDInsight ?
 
@@ -83,8 +83,7 @@ Le tableau suivant liste les versions HDInsight qui sont disponibles dans le por
 
 | Version de HDInsight | Version de la plateforme HDP | SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE | Date de lancement | Date d’expiration du support | Date de mise hors service | Haute disponibilité |  Disponibilité sur le portail Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 avril 2017 | | |OUI |OUI |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 décembre 2015 |27 juin 2016 |31 juillet 2018 |OUI |Non  |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 avril 2017 | | |Oui |Oui |
 
 > [!NOTE]
 > Quand une version cesse d’être prise en charge, elle n’est plus proposée dans le portail Microsoft Azure. Toutefois, les versions des clusters restent disponibles avec le paramètre `Version` de la commande Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) et le Kit de développement logiciel (SDK) .NET, jusqu’à leur date de mise hors service.
@@ -96,13 +95,14 @@ Le tableau suivant liste les versions HDInsight qui **ne sont pas** disponibles 
 
 | Version de HDInsight | Version de la plateforme HDP | SYSTÈME D’EXPLOITATION DE LA MACHINE VIRTUELLE | Date de lancement | Date d’expiration du support | Date de mise hors service | Haute disponibilité |  Disponibilité sur le portail Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 septembre 2016 |5 septembre 2017 |28 juin 2018 |OUI |Non  |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 mars 2016 |29 décembre 2016 |9 janvier 2018 |OUI |Non  |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 décembre 2015 |27 juin 2016 |31 juillet 2017 |OUI |Non  |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 février 2015 |1 mars 2016 |1 avril 2017 |OUI |Non  |
-| HDInsight 3.1 |HDP 2,1 |Windows Server 2012 R2 |24 juin 2014 |18 mai 2015 |30 juin 2016 |OUI |Non  |
-| HDInsight 3.0 |HDP 2,0 |Windows Server 2012 R2 |11 février 2014 |17 septembre 2014 |30 juin 2015 |OUI |Non  |
-| HDInsight 2.1 |HDP 1,3 |Windows Server 2012 R2 |28 octobre 2013 |12 mai 2014 |31 mai 2015 |OUI |Non  |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 septembre 2016 |5 septembre 2017 |28 juin 2018 |Oui |Non  |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 mars 2016 |29 décembre 2016 |9 janvier 2018 |Oui |Non  |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 décembre 2015 |27 juin 2016 |31 juillet 2018 |Oui |Non  |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 décembre 2015 |27 juin 2016 |31 juillet 2017 |Oui |Non  |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 février 2015 |1 mars 2016 |1 avril 2017 |Oui |Non  |
+| HDInsight 3.1 |HDP 2,1 |Windows Server 2012 R2 |24 juin 2014 |18 mai 2015 |30 juin 2016 |Oui |Non  |
+| HDInsight 3.0 |HDP 2,0 |Windows Server 2012 R2 |11 février 2014 |17 septembre 2014 |30 juin 2015 |Oui |Non  |
+| HDInsight 2.1 |HDP 1,3 |Windows Server 2012 R2 |28 octobre 2013 |12 mai 2014 |31 mai 2015 |Oui |Non  |
 | HDInsight 1.6 |HDP 1.1 | |28 octobre 2013 |26 avril 2014 |31 mai 2015 |Non  |Non  |
 
 > [!NOTE]
@@ -233,7 +233,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
 > 
 > 
 
-* Toutes les régions prises en charge à l’exception du sud du Brésil et de l’ouest du Japon :
+* Toutes les régions prises en charge à l’exception des régions Brésil Sud et Japon Ouest :
 
   | Type de cluster | Hadoop | hbase | Interactive Query | Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
@@ -245,7 +245,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
   | Zookeeper : tailles de machine virtuelle recommandées | |A3, A4, A5 | | A2, A3, A4 | | |
   | Edge : taille de machine virtuelle par défaut | | | | | |Windows : D12 v2 ; Linux : D4 v2 |
   | Edge : taille de machine virtuelle recommandée | | | | | |Windows : D12 v2, D13 v2, D14 v2; Linux : D4 v2, D12 v2, D13 v2, D14 v2 |
-* Sud du Brésil et ouest du Japon uniquement (aucune taille pour V2) :
+* Brésil Sud et Japon Ouest uniquement (aucune taille pour V2) :
 
   | Type de cluster | Hadoop | hbase | Interactive Query |Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |

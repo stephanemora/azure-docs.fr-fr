@@ -1,6 +1,6 @@
 - name: Documentation Traffic Manager
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Traffic Manager\_?"
       href: traffic-manager-overview.md
@@ -45,6 +45,8 @@
       href: traffic-manager-metrics-alerts.md
     - name: Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
       href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: Fonctionnement de Traffic Manager
+      href: traffic-manager-how-it-works.md
     - name: FAQ
       href: traffic-manager-FAQs.md
 - name: Procédure
@@ -95,9 +97,9 @@
   items:
     - name: Application Gateway
       href: /azure/application-gateway/
-    - name: Load Balancer
+    - name: Équilibreur de charge
       href: /azure/load-balancer/
-    - name: Azure DNS
+    - name: DNS Azure
       href: /azure/dns/
 - name: Ressources
   items:

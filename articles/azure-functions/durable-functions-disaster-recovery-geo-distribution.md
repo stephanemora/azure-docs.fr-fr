@@ -14,16 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8eb42a60045304416ec6aa1099a84b1e264c692d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: bbfbf351b8976f4140b6dd98a9a54ba982c3d865
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206353"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399395"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Récupération d’urgence et géo-distribution
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans Azure Durable Functions, tous les états sont rendu persistants dans le stockage Azure. Un [hub de tâches](durable-functions-task-hubs.md) est un conteneur logique réservé aux ressources du stockage Azure qui sont utilisées pour les orchestrations. Les fonctions d’orchestrateur et d’activité peuvent interagir entre elles uniquement si elles appartiennent au même hub de tâches.
 Les scénarios décrits proposent des options de déploiement pour augmenter la disponibilité et réduire les temps d’arrêt lors des opérations de récupération d’urgence.
 Il est important de noter que ces scénarios sont basés sur des configurations du type actif/passif, puisqu’ils sont guidés par l’utilisation du stockage Azure. Ce modèle consiste à déployer une application de fonction de secours (passive) vers une autre région. Traffic Manager surveille la disponibilité de l’application de fonction principale (active). Il bascule vers l’application de fonction de secours si l’application principale échoue. Pour plus d’informations, voir [Méthode de routage du trafic basé sur la priorité](https://azure.microsoft.com/services/traffic-manager/) de [Traffic Manager.](../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
@@ -50,7 +50,7 @@ Si vous utilisez ce scénario, tenez cependant compte des remarques suivantes :
 - Ce scénario décrit des pannes au niveau de l’infrastructure de calcul, mais le compte de stockage demeure le point de défaillance unique pour l’application de fonction. En cas de panne de stockage, l’application subit un temps d’arrêt.
 - Un basculement de l’application de fonction augmentera la latence car celle-ci accèdera à son compte de stockage d’une région à une autre.
 - L’accès au service de stockage à partir d’une autre région implique un coût plus élevé lié au trafic de sortie du réseau.
-- Ce scénario dépend de Traffic Manager. Compte tenu du [mode de fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), il peut être nécessaire d’attendre un certain temps avant qu’une application cliente qui utilise une fonction durable ait besoin de redemander à Traffic Manager l’adresse de l’application de fonction. 
+- Ce scénario dépend de Traffic Manager. Compte tenu du [mode de fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), il peut être nécessaire d’attendre un certain temps avant qu’une application cliente qui utilise une fonction durable ait besoin de redemander à Traffic Manager l’adresse de l’application de fonction. 
 
 
 ## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>Scénario 2 : calcul avec équilibrage de charge et stockage régional

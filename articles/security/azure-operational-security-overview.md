@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c0413678aad16105f732ef23fb60c61fddcdad45
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365710"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413407"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) comprend les services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure. C’est un cadre qui intègre les connaissances acquises via différents outils propres à Microsoft. Ces fonctionnalités incluent Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie du paysage des menaces de cybersécurité.
@@ -57,7 +57,6 @@ Pour plus d’informations, consultez le [tableau des composants de Sauvegarde A
 Azure AD inclut également une suite complète de [fonctionnalités de gestion des identités](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), dont :
 
 - [Authentification multifacteur](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)
-- [Enregistrement de l’appareil]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview)
 - [Gestion des mots de passe en libre-service](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gestion des groupes en libre service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gestion des comptes privilégiés](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)

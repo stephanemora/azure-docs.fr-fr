@@ -11,15 +11,15 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 37c2a50a3aca281596a06e0d666edff05347f660
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dc362c89f7bc83c4848c0e857173db1ea2639bc4
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331153"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362838"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application de la galerie Azure AD
 
@@ -27,9 +27,9 @@ Cet article vous aide à comprendre les problèmes courants auxquels les utilisa
 
 ## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Les informations d’identification sont fournies, mais l’extension ne les envoie pas
 
-Ce problème se produit généralement lorsque le fournisseur de l’application a modifié sa page de connexion pour ajouter un champ, modifié un identificateur utilisé en vue de détecter les champs de nom d’utilisateur et de mot de passe ou pour modifier le fonctionnement de la connexion pour l’application. Heureusement, dans de nombreux cas, Microsoft peut collaborer avec les fournisseurs d’applications afin de résoudre rapidement les problèmes.
+Ce problème se produit généralement lorsque le fournisseur de l’application modifie sa page de connexion pour ajouter un champ, modifie un identificateur utilisé en vue de détecter les champs de nom d’utilisateur et de mot de passe ou pour modifier le fonctionnement de la connexion pour l’application. Heureusement, dans de nombreux cas, Microsoft peut collaborer avec les fournisseurs d’applications afin de résoudre rapidement les problèmes.
 
-Bien que Microsoft dispose de technologies pour détecter automatiquement l’arrêt des intégrations, il ne peut ne pas être possible de trouver les problèmes immédiatement, ou la résolution des problèmes peut prendre un certain temps. Si l’une de ces intégrations ne fonctionne pas correctement, ouvrez un dossier de support afin que nous puissions résoudre le problème le plus rapidement possible.
+Bien que Microsoft dispose de technologies pour détecter automatiquement l’arrêt des intégrations, il se peut qu'il ne soit pas possible de trouver les problèmes immédiatement, ou la résolution des problèmes peut prendre un certain temps. Si l’une de ces intégrations ne fonctionne pas correctement, ouvrez un dossier de support afin que nous puissions résoudre le problème le plus rapidement possible.
 
 **Si vous êtes en contact avec le fournisseur de l’application,** mettez-le en relation avec nous afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](./develop/active-directory-app-gallery-listing.md).
 
@@ -57,7 +57,7 @@ Pour résoudre ce problème, essayez d’abord ces actions :
 
 Si les suggestions précédentes ne fonctionnent pas, il se pourrait qu’une modification ait eu lieu dans l’application et ait endommagé temporairement l’intégration de l’application avec Azure AD. Cela peut par exemple se produire lorsque le fournisseur de l’application introduit sur sa page un script qui se comporte différemment pour la saisie manuelle et pour la saisie automatique, ce qui engendre l’interruption des intégrations automatisées comme la nôtre. Heureusement, dans de nombreux cas, Microsoft peut collaborer avec les fournisseurs d’applications afin de résoudre rapidement les problèmes.
 
-Bien que Microsoft dispose de technologies pour détecter automatiquement l’arrêt des intégrations d’applications, il ne peut ne pas être possible de trouver les problèmes immédiatement, ou la résolution des problèmes peut prendre un certain temps. Lorsqu’une intégration ne fonctionne pas correctement, vous pouvez ouvrir une demande de support afin que le problème soit résolu aussi rapidement que possible. 
+Bien que Microsoft dispose de technologies pour détecter automatiquement l’arrêt des intégrations d’applications, il se peut qu'il ne soit pas possible de trouver les problèmes immédiatement, ou la résolution des problèmes peut prendre un certain temps. Lorsqu’une intégration ne fonctionne pas correctement, vous pouvez ouvrir une demande de support afin que le problème soit résolu aussi rapidement que possible. 
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](./develop/active-directory-app-gallery-listing.md).
 
@@ -79,7 +79,7 @@ En outre, **si vous êtes en contact avec le fournisseur de l’application,** *
 
 Si la page de connexion à l’application a considérablement changé, cela provoque parfois l’interruption de nos intégrations. Par exemple, cela peut être le cas lorsque le fournisseur d’une application ajoute un champ de connexion, un captcha ou une authentification multifacteur à son système. Heureusement, dans de nombreux cas, Microsoft peut collaborer avec les fournisseurs d’applications afin de résoudre rapidement les problèmes.
 
-Bien que Microsoft dispose de technologies pour détecter automatiquement l’arrêt des intégrations d’applications, il ne peut ne pas être possible de trouver les problèmes immédiatement, ou la résolution des problèmes peut prendre un certain temps. Lorsqu’une intégration ne fonctionne pas correctement, vous pouvez ouvrir une demande de support afin que le problème soit résolu aussi rapidement que possible. 
+Bien que Microsoft dispose de technologies pour détecter automatiquement l’arrêt des intégrations d’applications, il se peut qu'il ne soit pas possible de trouver les problèmes immédiatement, ou la résolution des problèmes peut prendre un certain temps. Lorsqu’une intégration ne fonctionne pas correctement, vous pouvez ouvrir une demande de support afin que le problème soit résolu aussi rapidement que possible. 
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](./develop/active-directory-app-gallery-listing.md).
 

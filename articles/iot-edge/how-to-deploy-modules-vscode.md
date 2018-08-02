@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7e75f2ff5e2df3189683d084a315ad6c8730be84
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5867012e0322e520b4ef234599fa25a2ec08138d
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034497"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325766"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Déployer des modules Azure IoT Edge à partir de Visual Studio Code
 
@@ -39,7 +39,7 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
 
    ```json
    {
-     "moduleContent": {
+     "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
            "schemaVersion": "1.0",
@@ -48,13 +48,8 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
              "settings": {
                "minDockerVersion": "v1.25",
                "loggingOptions": "",
-               "registryCredentials": {
-                 "registryName": {
-                   "username": "",
-                   "password": "",
-                   "address": ""
-                 }
-               }
+               "registryCredentials": {}
+             }
            },
            "systemModules": {
              "edgeAgent": {
@@ -70,7 +65,7 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
                "restartPolicy": "always",
                "settings": {
                  "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+                 "createOptions": "{}"
                }
              }
            },
@@ -105,20 +100,20 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
      }
    }
    ```
-
+   
 ## <a name="sign-in-to-access-your-iot-hub"></a>Se connecter pour accéder à votre hub ioT
 
 Vous pouvez utiliser les extensions Azure IoT pour Visual Studio Code afin d’effectuer des opérations avec votre hub IoT. Pour que ces opérations fonctionnent, vous devez vous connecter à votre compte Azure, puis sélectionner le hub IoT sur lequel vous travaillez.
 
 1. Dans Visual Studio Code, ouvrez la vue **Explorateur**.
 
-2. En bas de l’Explorateur, développez la section **Azure IoT Hub Devices** (Appareils Azure IoT Hub). 
+2. En bas de l’Explorateur, développez la section **Appareils Azure IoT Hub**. 
 
-   ![Développer Azure IoT Hub Devices (Appareils Azure IoT Hub)](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Développer Appareils Azure IoT Hub](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-3. Cliquez sur **...** dans l’en-tête de section **Azure IoT Hub Devices** (Appareils Azure IoT Hub). Si vous ne voyez pas les points de suspension, pointez sur l’en-tête. 
+3. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, pointez sur l’en-tête. 
 
-4. Choisissez **Select IoT Hub** (Sélectionner un hub IoT).
+4. Choisissez **Sélectionner un hub IoT**.
 
 5. Si vous n’êtes pas connecté à votre compte Azure, suivez les invites à cette fin. 
 

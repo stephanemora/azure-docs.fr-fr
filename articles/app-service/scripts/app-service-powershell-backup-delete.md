@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f4204cbb4aefe590b87d0a72675823321f280f33
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6fede6d7c8de473debea927366fca0ab52cf6e5b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
-ms.locfileid: "23644393"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325810"
 ---
 # <a name="delete-a-backup-for-a-web-app"></a>Supprimer une sauvegarde pour une application web
 
@@ -30,7 +30,7 @@ Pour exécuter ce script, vous avez besoin d’une sauvegarde existante pour une
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
@@ -44,7 +44,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Obtient une liste des sauvegardes d’une application web. |
 | [Remove-AzureRmWebAppBackup](/powershell/module/azurerm.websites/remove-azurermwebappbackup) | Supprime la sauvegarde spécifiée d’une application web. |

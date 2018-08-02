@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 9c961c06a01bba0b645088a19cd55e72a54396c1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6dc5d494135fde3740d41453f3f484b49fcb3f80
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586850"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308658"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Créez une fonction dans Azure, qui est déclenchée par un minuteur
 
@@ -62,7 +62,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
     | **Name** | Default | Définit le nom de votre fonction déclenchée par minuteur. |
-    | **[Planification](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui planifie l’exécution de votre fonction chaque minute. |
+    | **Planification** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](functions-bindings-timer.md#cron-expressions) qui planifie l’exécution de votre fonction chaque minute. |
 
 2. Cliquez sur **Créer**. Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.
 

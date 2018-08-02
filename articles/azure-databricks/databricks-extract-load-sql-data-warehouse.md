@@ -10,13 +10,13 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2018
-ms.openlocfilehash: 7f0354413932aef8a27b09ebac542ad1b8f375e1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.date: 07/26/2018
+ms.openlocfilehash: 11046089bd25e1ca9e117d5d8908471858450e6d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223828"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308794"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -49,7 +49,7 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 - Créez une clé principale de base de données pour Azure SQL Data Warehouse. Suivez les instructions indiquées dans [Créer une clé principale de base de données](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 - Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Suivez les instructions indiquées dans [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -72,7 +72,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     |**Nom de l’espace de travail**     | Renseignez un nom pour votre espace de travail Databricks.        |
     |**Abonnement**     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
     |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md). |
-    |**Lieu**     | Sélectionnez **Est des États-Unis 2**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
+    |**Lieu**     | Sélectionnez **USA Est**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
     |**Niveau tarifaire**     |  Choisissez entre **Standard** ou **Premium**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
@@ -117,7 +117,7 @@ Dans cette section, vous créez un compte Azure Data Lake Store et vous l’asso
     |**Name**     | Entrez un nom unique pour le compte Data Lake Store.        |
     |**Abonnement**     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
     |**Groupe de ressources**     | Pour ce didacticiel, sélectionnez le même groupe de ressources que celui que vous avez utilisé lors de la création de l’espace de travail Azure Databricks.  |
-    |**Lieu**     | Sélectionnez **Est des États-Unis 2**.  |
+    |**Lieu**     | Sélectionnez **USA Est**.  |
     |**Package des prix**     |  Sélectionnez **Paiement à l’utilisation**. |
     | **Paramètres de chiffrement** | Conservez les paramètres par défaut. |
 
@@ -344,7 +344,7 @@ Les exemples de données brutes **small_radio_json.json** capturent l’audience
 2.  Vous pouvez transformer ces données pour renommer la colonne **level** en **subscription_type**.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-        renamedColumnsDF.show()
+        renamedColumnsDf.show()
 
     Vous obtenez alors une sortie, comme montré dans l’extrait de code suivant.
 
@@ -387,7 +387,7 @@ Comme mentionné précédemment, le connecteur d’entrepôt de données SQL uti
 
 2. Spécifiez un dossier temporaire qui sera utilisé lors du déplacement des données entre Azure Databricks et Azure SQL Data Warehouse.
 
-        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
 
 3. Exécutez l’extrait de code suivant pour stocker les clés d’accès du Stockage Blob Azure dans la configuration. Cela garantit que vous n’avez pas à conserver la clé d’accès dans le bloc-notes en texte brut.
 

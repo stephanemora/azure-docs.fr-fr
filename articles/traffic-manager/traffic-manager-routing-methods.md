@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 03f1cc3a34fa8a472dcab9654b65cc97b8473993
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30245360"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398615"
 ---
 # <a name="traffic-manager-routing-methods"></a>Méthodes de routage de Traffic Manager
 
@@ -83,7 +83,7 @@ Le point de terminaison « le plus proche » n’est pas nécessairement le pl
 
 Traffic Manager recherche l’adresse IP source de la demande DNS entrante dans la Table de latence Internet. Traffic Manager choisit un point de terminaison disponible dans le centre de données Azure dont la latence est la plus faible pour la plage d’adresses IP, puis renvoie ce point de terminaison dans la réponse DNS.
 
-Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager ne reçoit pas de requêtes DNS provenant directement de clients. Au lieu de cela, les requêtes DNS proviennent du service DNS récursif que les clients sont configurés pour utiliser. Par conséquent, l’adresse IP utilisée pour déterminer le point de terminaison « le plus proche » n’est pas l’adresse IP du client, mais celle du service DNS récursif. Dans la pratique, cette adresse IP est un bon proxy pour le client.
+Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-how-it-works.md), Traffic Manager ne reçoit pas de requêtes DNS provenant directement de clients. Au lieu de cela, les requêtes DNS proviennent du service DNS récursif que les clients sont configurés pour utiliser. Par conséquent, l’adresse IP utilisée pour déterminer le point de terminaison « le plus proche » n’est pas l’adresse IP du client, mais celle du service DNS récursif. Dans la pratique, cette adresse IP est un bon proxy pour le client.
 
 
 Traffic Manager met régulièrement à jour la Table de latence Internet pour refléter les modifications de l’Internet global et des nouvelles régions Azure. Toutefois, les performances des applications varient en fonction des variations en temps réel de la charge sur Internet. Le routage du trafic Performance ne surveille pas la charge sur un point de terminaison de service donné. En revanche, si un point de terminaison devient indisponible, Traffic Manager ne l’inclut pas dans les réponses aux requêtes DNS.
@@ -122,7 +122,7 @@ Traffic Manager analyse l’adresse IP source de la requête DNS afin de déterm
 - Si un point de terminaison se trouve à l’état **Désactivé**, il n’est pas inclus dans le processus de mise en correspondance avec la région. Ce comportement s’applique également aux points de terminaison de type imbriqué lorsque le point de terminaison se trouve à l’état **Désactivé**.
 - Si une requête provient d’une région géographique qui n’a aucun mappage dans ce profil, Traffic Manager renvoie une réponse NODATA. Par conséquent, il est vivement recommandé aux clients d’utiliser le routage géographique avec un point de terminaison, idéalement de type imbriqué avec au moins deux points de terminaison dans le profil enfant, auquel la région **World** (Monde) est affectée. Cela garantit également que les adresses IP qui ne sont mappées à aucune région sont gérées.
 
-Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md), Traffic Manager ne reçoit pas de requêtes DNS provenant directement de clients. Au lieu de cela, les requêtes DNS proviennent du service DNS récursif que les clients sont configurés pour utiliser. Par conséquent, l’adresse IP utilisée pour déterminer la région n’est pas l’adresse IP du client, mais celle du service DNS récursif. Dans la pratique, cette adresse IP est un bon proxy pour le client.
+Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-how-it-works.md), Traffic Manager ne reçoit pas de requêtes DNS provenant directement de clients. Au lieu de cela, les requêtes DNS proviennent du service DNS récursif que les clients sont configurés pour utiliser. Par conséquent, l’adresse IP utilisée pour déterminer la région n’est pas l’adresse IP du client, mais celle du service DNS récursif. Dans la pratique, cette adresse IP est un bon proxy pour le client.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

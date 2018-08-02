@@ -3,7 +3,7 @@ title: Vue d’ensemble d’agent de machine virtuelle Azure | Microsoft Docs
 description: Vue d’ensemble d’agent de machine virtuelle Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
-ms.openlocfilehash: 51271a875d19d08d84dcc102c85c947c05599d85
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: roiyz
+ms.openlocfilehash: 9185b786a3eea402b8013eb71a5d7268787900c5
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868515"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414496"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 L’agent de machine virtuelle Microsoft Azure est un processus léger et sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Les extensions de machine virtuelle permettent la configuration post-déploiement de machines virtuelles, par exemple l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, vous ne pouvez pas exécuter d’extensions de machine virtuelle.

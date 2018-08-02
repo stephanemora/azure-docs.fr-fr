@@ -2,26 +2,22 @@
 title: Configurer des appareils joints à Azure Active Directory | Microsoft Docs
 description: Découvrez comment configurer des appareils joints à Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: f2d285735b92c3acd67dc741f344b836e791be04
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83eea565cc775a0569015c04d79d627d6ba120e6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058461"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411707"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configurer des appareils joints à Azure Active Directory
 
@@ -32,7 +28,7 @@ Si vous souhaitez mettre des appareils Windows 10 d’entreprise sous le contrô
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour joindre un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En plus d’avoir l’autorisation de joindre des appareils dans votre locataire Azure AD, vous devez avoir moins d’appareils inscrits que le nombre maximal configuré. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](../device-management-azure-portal.md#configure-device-settings).
+Pour joindre un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En plus d’avoir l’autorisation de joindre des appareils dans votre locataire Azure AD, vous devez avoir moins d’appareils inscrits que le nombre maximal configuré. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](../devices/device-management-azure-portal.md#configure-device-settings).
 
 
 
@@ -120,16 +116,14 @@ Vous pouvez également examiner les paramètres de l’appareil dans le portail 
 
 ![Connecté](./media/device-management-azuread-joined-devices-setup/15.png)
 
-Pour plus d’informations, consultez [Localiser des appareils](../device-management-azure-portal.md#locate-devices).
+Pour plus d’informations, consultez [Localiser des appareils](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations, consultez les pages suivantes : 
 
-- [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md)
-- [Gestion des appareils via le portail Azure](../device-management-azure-portal.md)
-- 
-
+- [Présentation de la gestion des appareils dans Azure Active Directory](../devices/overview.md)
+- [Gestion des appareils via le portail Azure](../devices/device-management-azure-portal.md)
 
 

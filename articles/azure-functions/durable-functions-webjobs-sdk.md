@@ -2,7 +2,7 @@
 title: Guide d’exécution de Fonctions durables en tant que WebJobs - Azure
 description: Découvrez comment coder et configurer Fonctions durables pour s’exécuter dans WebJobs à l’aide du SDK WebJobs.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3fc84d1492d2855ffa3bb5538226da049a928339
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 90100461d7db93ece23bf2420a1b7e8c43da915b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766691"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343047"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Guide d’exécution de Fonctions durables en tant que WebJobs
 
@@ -28,7 +28,6 @@ ms.locfileid: "33766691"
 L’exemple de chaînage Fonctions durables est disponible dans les versions de SDK WebJobs : téléchargez ou clonez le [référentiel Fonctions durables](https://github.com/azure/azure-functions-durable-extension/), puis accédez au dossier *samples\\webjobssdk\\chaining*.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Cet article suppose que vous connaissez les principes de base du SDK WebJobs, du développement de bibliothèque de classes C# pour Azure Functions et de l’extension Fonctions durables. Si vous souhaitez consulter une présentation de ces thématiques, accédez aux ressources suivantes :
 
@@ -124,7 +123,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Fonctions
 
 Le code écrit pour les fonctions du SDK WebJobs est légèrement différent de celui écrit pour le service Azure Functions.
 

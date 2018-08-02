@@ -4,24 +4,22 @@ description: Utiliser le Stockage Blob Azure avec une application web pour stock
 services: storage
 documentationcenter: ''
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 307ccc6f5fce703b786708196779f0cf3d71ae96
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1756ac4ddbbc6d93307839e8447da84deb0716f7
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461501"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398725"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Charger des données d’image dans le cloud avec le Stockage Azure
 
-Ce didacticiel est la première partie d’une série d’étapes. Ce didacticiel vous montre comment déployer une application web qui utilise la bibliothèque de client du Stockage Azure pour charger des images sur un compte de stockage. À la fin, vous disposerez d’une application web qui stocke et affiche des images à partir du Stockage Azure.
+Ce tutoriel est la première partie d’une série d’étapes. Ce didacticiel vous montre comment déployer une application web qui utilise la bibliothèque de client du Stockage Azure pour charger des images sur un compte de stockage. À la fin, vous disposerez d’une application web qui stocke et affiche des images à partir du Stockage Azure.
 
 # <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Affichage du conteneur d’images](media/storage-upload-process-images/figure2.png)
@@ -31,7 +29,7 @@ Ce didacticiel est la première partie d’une série d’étapes. Ce didacticie
 
 ---
 
-Dans ce premier volet, vous apprenez à :
+Dans ce premier volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Créez un compte de stockage.
@@ -43,7 +41,7 @@ Dans ce premier volet, vous apprenez à :
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources 
 
@@ -60,7 +58,7 @@ az group create --name myResourceGroup --location westcentralus
 L’exemple charge des images sur un conteneur Blob dans un compte de stockage Azure. Le compte de stockage Azure fournit un espace de noms unique pour stocker les objets de données de Stockage Azure et y accéder. Créez un compte de stockage dans le groupe de ressources que vous avez créé à l’aide de la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 > [!IMPORTANT] 
-> Dans la deuxième partie de ce didacticiel, vous utilisez des abonnements aux événements pour le Stockage Blob. Actuellement, les abonnements aux événements sont uniquement pris en charge pour les comptes de stockage d’objets blob dans les régions suivantes : Asie Sud-Est, Asie Est, Australie Est, Australie Sud-Est, USA Centre, USA Est, USA Est 2, Europe Ouest, Europe Nord, Japon Est, Japon de l’Ouest, USA Centre-Ouest, USA Ouest et USA Ouest 2. En raison de cette restriction, vous devez créer un compte de stockage Blob, qui sera utilisé par l’exemple d’application pour stocker les images et les miniatures.   
+> Dans la deuxième partie de ce didacticiel, vous utilisez des abonnements aux événements pour le Stockage Blob. Actuellement, les abonnements aux événements sont uniquement pris en charge pour les comptes de stockage d’objets blob dans les régions suivantes : Asie Sud-Est, Asie Est, Australie Est, Australie Sud-Est, USA Centre, USA Est, USA Est 2, Europe Ouest, Europe Nord, Japon Est, Japon Ouest, USA Centre-Ouest, USA Ouest et USA Ouest 2. En raison de cette restriction, vous devez créer un compte de stockage Blob, qui sera utilisé par l’exemple d’application pour stocker les images et les miniatures.   
 
 Dans la commande suivante, indiquez le nom global unique de votre compte de stockage Blob dans l’espace réservé `<blob_storage_account>`.  
 

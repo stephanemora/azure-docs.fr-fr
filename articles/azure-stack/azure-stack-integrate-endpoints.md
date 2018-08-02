@@ -10,12 +10,12 @@ ms.date: 07/16/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: bfb50a3e1b2276a63d79f5a6b8b1ab721f039d9d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f8d8c46128206c77ee055e125aabdae34995e5b9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090547"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413305"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
 Azure Stack configure des adresses IP virtuelles pour ses rôles d’infrastructure. Ces adresses IP virtuelles sont allouées à partir du pool d’adresses IP publiques. Chaque adresse IP virtuelle est sécurisée à l’aide d’une liste de contrôle d’accès (ACL) dans la couche réseau à définition logicielle. Les listes ACL sont également utilisées dans les commutateurs physiques (TOR et BMC) pour renforcer la solution. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement.
@@ -67,7 +67,7 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 |Objectif|URL|Protocole|Ports|
 |---------|---------|---------|---------|
 |Identité|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com|HTTP<br>HTTPS|80<br>443|
-|Syndication de Place de marché|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|Marketplace |https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |Correctif et mise à jour|https://&#42;.azureedge.net|HTTPS|443|
 |Inscription|https://management.azure.com|HTTPS|443|
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|

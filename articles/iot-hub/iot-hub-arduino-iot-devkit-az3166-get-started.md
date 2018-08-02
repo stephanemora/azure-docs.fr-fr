@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: cf9ee5339c53eb4f9c74f6b5f251a7963555d676
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 34088440bf723fc65f4ff5c49f62182f405fa35a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928747"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344543"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Connecter IoT DevKit AZ3166 à Azure IoT Hub dans le cloud
 
@@ -297,12 +297,4 @@ Si vous rencontrez des problèmes, vous pouvez consulter [Questions fréquentes 
 
 Vous avez correctement connecté un kit MXChip IoT DevKit à votre hub IoT et avez envoyé des données de capteur collectées à votre hub IoT.
 
-Pour continuer d’apprendre à utiliser Azure IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
-
-- [Gérer la messagerie de périphérique cloud avec iothub-explorer](https://docs.microsoft.com/azure/iot-hub/iot-hub-explorer-cloud-device-messaging)
-- [Enregistrer les messages IoT Hub dans le stockage de données Azure](https://docs.microsoft.com//azure/iot-hub/iot-hub-store-data-in-azure-table-storage)
-- [Utiliser Power BI pour visualiser des données de capteur en temps réel provenant d’Azure IoT Hub](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-power-bi)
-- [Utiliser Web Apps pour visualiser des données de capteur en temps réel depuis Azure IoT Hub](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-web-apps)
-- [Prévision météo utilisant les données de capteur de votre IoT Hub dans Azure Machine Learning](https://docs.microsoft.com/azure/iot-hub/iot-hub-weather-forecast-machine-learning)
-- [Gestion des appareils avec iothub-explorer](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-iothub-explorer)
-- [Surveillance à distance et notifications avec Logic Apps](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

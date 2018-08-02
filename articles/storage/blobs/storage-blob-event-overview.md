@@ -2,18 +2,18 @@
 title: Réaction aux événements Stockage Blob Azure (préversion) | Microsoft Docs
 description: Utilisez Azure Event Grid pour vous abonner à des événements de stockage Blob.
 services: storage,event-grid
-keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 68d722338562d21d59dd720250a62b8603c8af43
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: blobs
+ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075382"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262682"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -39,7 +39,7 @@ Event Grid utilise les [abonnements aux événements](../../event-grid/concepts.
 ## <a name="event-schema"></a>Schéma d’événement
 Les événements de stockage d’objets Blob contiennent toutes les informations dont vous avez besoin pour répondre aux modifications de vos données.  Vous pouvez identifier un événement de stockage d’objets Blob, car la propriété eventType commence par « Microsoft.Storage ». Plus d’informations sur l’utilisation des propriétés d’événement Event Grid sont documentées dans [schéma d’événement Event Grid](../../event-grid/event-schema.md).  
 
-> |Propriété|Type|Description|
+> |Propriété|type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |rubrique|chaîne|ID Azure Resource Manager complet du compte de stockage qui émet l’événement.|
 > |subject|chaîne|Le chemin d’accès de la ressource relative à l’objet qui est le sujet de l’événement, avec le même format Azure Resource Manager étendu que nous utilisons pour décrire les comptes de stockage, les services et mes conteneurs pour Azure RBAC.  Ce format comprend un nom d’objet blob en conservant la casse.|

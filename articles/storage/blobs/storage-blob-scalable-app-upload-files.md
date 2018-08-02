@@ -3,31 +3,30 @@ title: Charger en parallèle de grandes quantités de données aléatoires dans 
 description: Découvrir comment utiliser le SDK Azure pour charger en parallèle de grandes quantités de données aléatoires dans un compte de stockage Azure
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 668700cf3ff3d1a90f9639129ef2953ddca016f1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: 557dd1d89fc05d82f1839a7b02356857f41164c6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239896"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399734"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Charger en parallèle de grandes quantités de données aléatoires dans le stockage Azure
 
-Ce didacticiel est le deuxième d’une série. Ce didacticiel décrit le déploiement d’une application qui charge une grande quantité de données aléatoires dans un compte de stockage Azure.
+Ce tutoriel est le deuxième d’une série. Ce didacticiel décrit le déploiement d’une application qui charge une grande quantité de données aléatoires dans un compte de stockage Azure.
 
-Dans ce deuxième volet, vous apprenez à :
+Dans ce deuxième volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Configurer la chaîne de connexion
-> * Création de l'application
-> * Exécution de l'application
+> * Création de l’application
+> * Exécution de l’application
 > * Valider le nombre de connexions
 
 Le Stockage blob Azure fournit un service évolutif pour stocker vos données. Pour que votre application soit aussi performante que possible, vous devez comprendre le fonctionnement du stockage blob. Vous devez connaître les limites des objets blob Azure. Pour en savoir plus sur ces limites, consultez : [Objectifs d’évolutivité du stockage blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
@@ -35,7 +34,6 @@ Le Stockage blob Azure fournit un service évolutif pour stocker vos données. P
 La [convention de nommage des partitions](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) est un autre facteur important quand vous concevez une application hautement performante à l’aide d’objets blob. Le Stockage Azure utilise un schéma de partitionnement basé sur une plage pour mettre à l’échelle et équilibrer la charge. Cette configuration signifie que les fichiers qui ont des conventions de nommage ou des préfixes similaires sont dirigés dans la même partition. Cette logique inclut le nom du conteneur dans lequel les fichiers sont chargés. Dans ce didacticiel, vous utilisez des fichiers qui ont des GUID comme noms ainsi que du contenu généré aléatoirement. Ils sont ensuite chargés dans cinq conteneurs différents avec des noms aléatoires.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour effectuer ce didacticiel, vous devez avoir terminé le didacticiel précédent sur le stockage : [Créer une machine virtuelle et un compte de stockage pour une application évolutive][previous-tutorial].
 
@@ -191,8 +189,8 @@ Dans la deuxième partie de la série, vous avez appris à charger de grandes qu
 
 > [!div class="checklist"]
 > * Configurer la chaîne de connexion
-> * Création de l'application
-> * Exécution de l'application
+> * Création de l’application
+> * Exécution de l’application
 > * Valider le nombre de connexions
 
 Passez à la troisième partie de la série pour télécharger de grandes quantités de données à partir d’un compte de stockage.

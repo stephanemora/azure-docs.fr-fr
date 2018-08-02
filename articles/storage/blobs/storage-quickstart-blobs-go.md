@@ -3,18 +3,17 @@ title: Guide de démarrage rapide Azure - Créer un objet blob dans un stockage 
 description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Go, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: seguler
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 1ce3debd8b04cf6c799dd7d6a3c87f843f1e0338
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38707561"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398574"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Go
 

@@ -3,24 +3,23 @@ title: Sécuriser l’accès aux données d’une application dans le cloud avec
 description: Utilisez les jetons SAS, le chiffrement et HTTPS pour sécuriser les données de votre application dans le cloud.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: bfc5085374759290701f49cdf25698827c0779e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650092"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397770"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Sécuriser l’accès aux données d’une application dans le cloud
 
 Ce didacticiel est le troisième volet d’une série. Vous apprenez à sécuriser l’accès au compte de stockage. 
 
-Dans ce troisième volet, vous apprenez à :
+Dans ce troisième volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Utiliser des jetons SAS pour accéder à des images miniatures

@@ -3,26 +3,25 @@ title: Vérifier les métriques de débit et de latence d’un compte de stockag
 description: Découvrez comment vérifier les métriques de débit et de latence d’un compte de stockage dans le portail.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: e498e44fcda6877aa69ec763e46e7ae7879e5aa9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: 811d653ea090298a9f57b5b0aac4c7b2e7f9f648
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237499"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397687"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Vérifier les métriques de débit et de latence d’un compte de stockage
 
 Ce didacticiel est le quatrième et dernier volet d’une série. Dans les didacticiels précédents, vous avez appris à charger et à télécharger des quantités importantes de données aléatoires dans un compte de stockage Azure. Ce didacticiel vous montre comment utiliser des métriques pour afficher le débit et la latence dans le portail Azure.
 
-Dans ce quatrième volet, vous apprenez à :
+Dans ce quatrième volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Configurer des graphiques dans le portail Azure
@@ -62,7 +61,7 @@ Les [dimensions](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fst
 
 ![Métriques de compte de stockage - transactions](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et cliquez sur Supprimer.
 

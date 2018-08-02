@@ -1,6 +1,6 @@
 - name: Documentation Azure Log Analytics
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation de Log Analytics
       href: log-analytics-overview.md
@@ -29,7 +29,7 @@
   items:
     - name: Transition de portail OMS
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: log-analytics-oms-portal-transition.md
         - name: Questions courantes
           href: log-analytics-oms-portal-faq.md
@@ -55,8 +55,10 @@
           href: log-analytics-log-search-portals.md
 - name: Procédures
   items:
-    - name: Créer un espace de travail Log Analytics
-      href: log-analytics-quick-create-workspace.md
+    - name: Créer un espace de travail
+      items:
+        - name: Utiliser le portail Azure
+          href: log-analytics-quick-create-workspace.md
     - name: Collecter les données
       items:
         - name: Sources connectées
@@ -127,7 +129,7 @@
           href: log-analytics-dashboards.md
         - name: Concepteur de vues
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: log-analytics-view-designer.md
             - name: Référence de vignette
               href: log-analytics-view-designer-tiles.md

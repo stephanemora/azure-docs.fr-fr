@@ -3,17 +3,16 @@ title: Activer l’accès en lecture public pour les conteneurs et les objets bl
 description: Découvrez comment autoriser l’accès anonyme aux conteneurs et aux objets Blob et comment utiliser un programme pour y accéder.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 4ddafb095816b5be82a18faa9c60869094e5e4c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29557061"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398816"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob
 Vous pouvez activer l’accès en lecture anonyme public pour un conteneur et ses objets blob dans Stockage Blob Azure. En procédant ainsi, vous pouvez accorder un accès en lecture seule à ces ressources sans partager votre clé de compte et sans exiger de signature d’accès partagé (SAP).
@@ -31,7 +30,7 @@ Vous pouvez configurer un conteneur avec les autorisations suivantes :
 
 Vous pouvez définir les autorisations de conteneur par les moyens suivants :
 
-* [Portail Azure](https://portal.azure.com)
+* [portail Azure](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure CLI 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Par programmation, en utilisant l’une des bibliothèques clientes de stockage ou l’API REST
@@ -143,7 +142,7 @@ Le tableau suivant indique les opérations pouvant être appelées par les utili
 | Get Page Ranges |Tous |Tous |
 | Append Blob |Propriétaire uniquement |Propriétaire uniquement |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Utilisation des signatures d’accès partagé (SAP)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

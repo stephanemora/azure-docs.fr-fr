@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
-ms.author: danis
-ms.openlocfilehash: 376c5a087f74fbe087db9fa2df38b2ba4e6cf1ff
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: b286ebc2e50166e8491b45346a81b161227f8d21
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944841"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415962"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extension de l’agent Linux pour Stackify Retrace
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Stackify fournit des produits qui assurent le suivi d’informations se rapportant à votre application, afin de pouvoir rapidement identifier et résoudre les problèmes. Entièrement intégrée et présente dans de nombreux environnements, Retrace est une superpuissance en matière de performances d’application pour les équipes de développeurs. Elle associe différents outils indispensables à toutes les équipes de développement.
 
 Retrace est le SEUL outil capable de fournir l’ensemble des fonctionnalités suivantes, dans tous les environnements et sur une seule plateforme.
@@ -38,7 +38,6 @@ Retrace est le SEUL outil capable de fournir l’ensemble des fonctionnalités s
 Cette extension fournit un chemin d’installation à l’agent Linux pour Retrace. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 ### <a name="operating-system"></a>Système d’exploitation 
 Vous pouvez exécuter l’agent Retrace par rapport à ces distributions de Linux

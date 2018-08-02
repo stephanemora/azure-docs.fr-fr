@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 07/30/2018
 ms.author: terrylan
-ms.openlocfilehash: cda204f5b54aef239cc0795b62c6fa484a27ebb5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b882f9740a9b29cddb2cbe0359056cf66c293717
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29529412"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363752"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Didacticiel : Protéger vos ressources avec Azure Security Center
 Security Center limite votre exposition aux menaces en utilisant des contrôles d’accès et d’applications pour bloquer les activités malveillantes. L’accès juste-à-temps aux machines virtuelles réduit votre exposition aux attaques en vous permettant de refuser l’accès persistant aux machines virtuelles. À la place, vous fournissez un accès contrôlé et audité aux machines virtuelles uniquement en cas de besoin. Les contrôles d’applications adaptatifs permettent de renforcer la protection contre les logiciels malveillants en contrôlant les applications qui peuvent s’exécuter sur les machines virtuelles. Security Center utilise le machine learning pour analyser les processus en cours d’exécution sur la machine virtuelle et exploite ces informations pour vous aider à appliquer les règles de mise en liste verte.
@@ -38,8 +38,6 @@ Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez av
 
 ## <a name="manage-vm-access"></a>Gérer l’accès aux machines virtuelles
 L’accès juste-à-temps aux machines virtuelles peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin.
-
-L’accès juste-à-temps aux machines virtuelles est en préversion.
 
 Les ports de gestion n’ont pas besoin d’être toujours ouverts. Ils doivent uniquement être ouverts lorsque vous êtes connecté à la machine virtuelle, par exemple pour effectuer des tâches de maintenance ou de gestion. Quand la fonctionnalité juste-à-temps est activée, Security Center utilise des règles de groupe de sécurité réseau qui limitent l’accès aux ports de gestion pour qu’ils ne soient pas la cible d’attaquants.
 
@@ -75,7 +73,7 @@ Les ports de gestion n’ont pas besoin d’être toujours ouverts. Ils doivent 
 ## <a name="harden-vms-against-malware"></a>Renforcer la protection des machines virtuelles contre les logiciels malveillants
 Les contrôles d’applications adaptatifs vous aident à définir un ensemble d’applications autorisées à s’exécuter sur des groupes de ressources configurés, ce qui permet, entre autres, de renforcer la protection de vos machines virtuelles contre les logiciels malveillants. Security Center utilise le machine learning pour analyser les processus en cours d’exécution sur la machine virtuelle et exploite ces informations pour vous aider à appliquer les règles de mise en liste verte.
 
-Les contrôles d’applications adaptatifs sont en préversion. Cette fonctionnalité est uniquement disponible pour les ordinateurs Windows.
+Cette fonctionnalité est uniquement disponible pour les ordinateurs Windows.
 
 1. Revenez au menu principal de Security Center. Sous **DÉFENSE DE CLOUD AVANCÉ**, sélectionnez **Contrôles d’applications adaptatifs**.
 
@@ -100,7 +98,7 @@ Les contrôles d’applications adaptatifs sont en préversion. Cette fonctionna
 
 4. Une fois que vous avez terminé vos sélections, sélectionnez **Créer**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
@@ -120,7 +118,7 @@ Si vous voulez désactiver l’approvisionnement automatique :
 > La désactivation de l’approvisionnement automatique ne supprime pas Microsoft Monitoring Agent des machines virtuelles Azure sur lesquelles l’agent a été approvisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
 >
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à limiter votre exposition aux menaces en effectuant les tâches suivantes :
 
 > [!div class="checklist"]

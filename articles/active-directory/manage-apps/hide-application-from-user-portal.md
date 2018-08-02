@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: b60384663d79294531225612a767663e0d71723f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 55f80396df4cbfe7d0a16a6a5066b68aadc0bdd3
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302197"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368917"
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Masquer une application de l’expérience utilisateur dans Azure Active Directory
 
@@ -63,7 +63,7 @@ Procédez comme suit pour masquer toutes les applications Office 365 dans le pa
 ![Applications Entreprise](./media/hide-application-from-user-portal/apps4.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Voir tous mes groupes](../active-directory-groups-view-azure-portal.md)
+* [Voir tous mes groupes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](assign-user-or-group-access-portal.md)
 * [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](remove-user-or-group-access-portal.md)
 * [Modifier le nom ou le logo d’une application d’entreprise dans la version préliminaire d’Azure Active Directory](change-name-or-logo-portal.md)

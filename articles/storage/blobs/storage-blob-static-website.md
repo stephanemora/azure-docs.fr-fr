@@ -3,24 +3,24 @@ title: Hébergement de sites web statiques dans le stockage Azure (préversion) 
 description: Le stockage Azure propose désormais un hébergement de sites web statiques (préversion) en fournissant une solution économique et scalable pour l’hébergement d’applications web modernes.
 services: storage
 author: MichaelHauss
-manager: vamshik
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: blobs
+ms.openlocfilehash: e53b573a27f0b1462ccf1170bbde2f8af01d0d3a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131607"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397473"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Hébergement de sites web statiques dans le stockage Azure (préversion)
 Le stockage Azure propose désormais un hébergement de sites web statiques (préversion), ce qui vous permet de déployer des applications web modernes économiques et scalables sur Azure. Sur un site web statique, les pages web contiennent du contenu statique et JavaScript ou un autre code côté client. En revanche, les sites web dynamiques dépendent du code côté serveur et peuvent être hébergés avec [Azure Web Apps](/app-service/app-service-web-overview.md).
 
 Comment les déploiements évoluent vers des modèles économiques et élastiques, la possibilité de fournir du contenu web sans avoir à gérer de serveur est essentielle. L’introduction d’un hébergement de sites web statiques dans le stockage Azure rend tout cela possible, en activant de puissantes fonctionnalités de backend avec des architectures sans serveur qui tirent parti [d’Azure Functions](/azure-functions/functions-overview.md) et d’autres services PaaS.
 
-## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 Quand vous activez des sites web statiques sur votre compte de stockage, un point de terminaison de service web est créé sous la forme `<account-name>.<zone-name>.web.core.windows.net`.
 
 Le point de terminaison de service web autorise toujours un accès en lecture anonyme, retourne des pages HTML mises en forme en réponse aux erreurs de service et autorise uniquement les opérations de lecture d’objet. Le point de terminaison de service web retourne le document d’index dans le répertoire demandé pour la racine et tous les sous-répertoires. Quand le service de stockage retourne une erreur 404, le point de terminaison web retourne un document d’erreur personnalisé si vous l’avez configuré.

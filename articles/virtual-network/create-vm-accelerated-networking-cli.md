@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 0f7f389df96f38bea3634bf712af3f9bf4bdde09
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9ea843df4cf437b97f7fe1d62636a51f8201376e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893947"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414570"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée
 
@@ -53,7 +53,7 @@ Les distributions suivantes sont prises en charge sans configuration supplément
 ## <a name="limitations-and-constraints"></a>Limitations et restrictions
 
 ### <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge
-La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus).  Ces séries prises en charge sont : D/DSv2 et F/Fs
+La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus).  Ces séries prises en charge sont : D/DSv2 et F/Fs
 
 Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. Les séries acceptées sont : D/DSv3, D/ESv3, Fsv2 et Ms/Mms.
 
@@ -65,8 +65,8 @@ Disponible dans toutes les régions Azure publiques ainsi que dans les clouds Az
 ### <a name="network-interface-creation"></a>Création d’interfaces réseau 
 La mise en réseau accélérée ne peut être activée que pour une nouvelle carte réseau. Elle ne peut pas être activée pour une carte réseau existante.
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Activation de l’accélération réseau sur une machine virtuelle en cours d’exécution
-Une taille de machine virtuelle prise en charge sans accélération réseau peut avoir cette fonctionnalité activée unique lorsqu’elle est arrêtée et désallouée.  
-### <a name="deployment-through-azure-resource-manager"></a>Déploiement via Azure Resource Manager
+Cette fonctionnalité peut être activée sur une machine virtuelle sans mise en réseau accélérée uniquement si la machine virtuelle a une taille prise en charge et si elle est arrêtée/libérée.  
+### <a name="deployment-through-azure-resource-manager"></a>Déploiement par le biais d’Azure Resource Manager
 Aucun déploiement des machines virtuelles (classiques) n’est possible avec la mise en réseau accélérée.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée Azure
@@ -83,7 +83,7 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 az group create --name myResourceGroup --location centralus
 ```
 
-Sélectionnez une région de Linux prise en charge et répertoriée dans [Mise en réseau accélérée Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+Sélectionnez une région Linux prise en charge et répertoriée dans [Mise en réseau accélérée Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). L’exemple suivant crée un réseau virtuel nommé *myVnet* avec un sous-réseau :
 
@@ -217,14 +217,14 @@ vf_tx_dropped: 0
 La mise en réseau accélérée est maintenant activée pour votre machine virtuelle.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Activer l’accélération réseau sur des machines virtuelles existantes
-Si vous avez créé une machine virtuelle sans accélération réseau, il est possible d’activer cette fonctionnalité sur une machine virtuelle existante.  La machine virtuelle doit prendre en charge la mise en réseau accélérée en respectant les conditions préalables suivantes qui sont également présentées ci-dessus :
+Si vous avez créé une machine virtuelle sans mise en réseau accélérée, vous pouvez activer cette fonctionnalité sur une machine virtuelle existante.  La machine virtuelle doit prendre en charge la mise en réseau accélérée et remplir les prérequis suivants (ces prérequis ont déjà été décrits plus haut) :
 
-* La machine virtuelle doit être d’une taille prise en charge pour l’accélération réseau
+* La machine virtuelle doit avoir une taille prise en charge pour la mise en réseau accélérée
 * La machine virtuelle doit être une image de la galerie Azure prise en charge (et une version de noyau prise en charge pour Linux)
-* Toutes les machines virtuelles dans un groupe à haute disponibilité doivent être arrêtées ou désallouées avant d’activer l’accélération réseau sur une carte réseau
+* Toutes les machines virtuelles membres d’un groupe à haute disponibilité ou d’un groupe de machines virtuelles identiques doivent être arrêtées ou libérées avant l’activation de la mise en réseau accélérée sur une carte réseau
 
-### <a name="individual-vms--vms-in-an-availability-set"></a>Machines virtuelles individuelles & machines virtuelles dans un groupe à haute disponibilité
-Arrêtez/désallouez d’abord la machine virtuelle ou, dans le cas d’un groupe à haute disponibilité, toutes les machines virtuelles du groupe :
+### <a name="individual-vms--vms-in-an-availability-set"></a>Machines virtuelles individuelles et machines virtuelles d’un groupe à haute disponibilité
+Tout d’abord, arrêtez/libérez la machine virtuelle individuelle ou, dans le cas d’un groupe à haute disponibilité, toutes les machines virtuelles du groupe :
 
 ```azurecli
 az vm deallocate \
@@ -232,26 +232,26 @@ az vm deallocate \
     --name myVM
 ```
 
-Important : si votre machine virtuelle a été créée individuellement, sans groupe à haute disponibilité, vous devez seulement arrêter/désallouer la machine virtuelle individuelle pour activer l’accélération réseau.  Si votre machine virtuelle a été créée avec un groupe à haute disponibilité, toutes les machines virtuelles dans le groupe à haute disponibilité doivent être arrêtées et désallouées avant d’activer l’accélération réseau sur les cartes réseau. 
+Important : Si la machine virtuelle a été créée individuellement, en dehors d’un groupe à haute disponibilité, arrêtez/libérez simplement la machine virtuelle individuelle pour activer la mise en réseau accélérée.  Si la machine virtuelle a été créée dans un groupe à haute disponibilité, vous devez arrêter/libérer toutes les machines virtuelles membres de ce groupe avant d’activer la mise en réseau accélérée sur les cartes réseau. 
 
-Une fois arrêtée, activez l’accélération réseau sur la carte réseau de votre machine virtuelle :
+Après avoir arrêté la machine virtuelle, activez la mise en réseau accélérée sur la carte réseau de la machine virtuelle :
 
 ```azurecli
 az network nic update \
-    --name myVM -n myNic \
+    --name myNic \
     --resource-group myResourceGroup \
     --accelerated-networking true
 ```
 
-Redémarrez votre machine virtuelle ou, dans le cas d’un groupe à haute disponibilité, toutes les machines virtuelles du groupe et vérifiez que l’accélération réseau est activée : 
+Redémarrez la machine virtuelle ou, dans le cas d’un groupe à haute disponibilité, toutes les machines virtuelles du groupe, puis vérifiez que la mise en réseau accélérée est bien activée : 
 
 ```azurecli
 az vm start --resource-group myResourceGroup \
     --name myVM
 ```
 
-### <a name="vmss"></a>VMSS
-Un VMSS fonctionne un peu différemment, mais suit le même flux de travail.  Tout d’abord, arrêtez les machines virtuelles :
+### <a name="vmss"></a>Groupe de machines virtuelles identiques (VMSS)
+Un groupe de machines virtuelles identiques fonctionne un peu différemment, mais suit le même workflow.  Tout d’abord, arrêtez les machines virtuelles :
 
 ```azurecli
 az vmss deallocate \
@@ -259,7 +259,7 @@ az vmss deallocate \
     --resource-group myrg
 ```
 
-Une fois que les machines virtuelles sont arrêtées, mettez à jour la propriété Mise en réseau accélérée sous l’interface réseau :
+Une fois que les machines virtuelles sont arrêtées, mettez à jour la propriété Accelerated Networking sur l’interface réseau :
 
 ```azurecli
 az vmss update --name myvmss \
@@ -267,7 +267,7 @@ az vmss update --name myvmss \
     --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
 ```
 
-Veuillez noter qu’un VMSS a des mises à niveau de machines virtuelles qui s’appliquent à l’aide de trois paramètres différents : manuelle, automatique et propagée.  Dans ces instructions, la stratégie est définie sur automatique afin que le VMSS récupère les modifications immédiatement après le redémarrage.  Pour la définir sur automatique afin que les modifications soient immédiatement prises en compte : 
+Notez que, dans un groupe de machines virtuelles identiques, les machines virtuelles sont mises à niveau selon trois méthodes de mise à jour différentes : manuelle, automatique et propagée.  Dans ces instructions, la stratégie est définie sur automatique afin que le groupe de machines virtuelles identiques récupère les mises à jour aussitôt après le redémarrage.  Pour définir la stratégie sur automatique afin que les mises à jour soient immédiatement récupérées : 
 
 ```azurecli
 az vmss update \
@@ -276,7 +276,7 @@ az vmss update \
     --set upgradePolicy.mode="automatic"
 ```
 
-Enfin, redémarrez le VMSS :
+Enfin, redémarrez le groupe de machines virtuelles identiques :
 
 ```azurecli
 az vmss start \
@@ -288,11 +288,11 @@ Après redémarrage, attendez que les mises à niveau se terminent, mais une foi
 
 ### <a name="resizing-existing-vms-with-accelerated-networking"></a>Redimensionnement des machines virtuelles existantes avec mise en réseau accélérée
 
-Les machines virtuelles avec accélération réseau peuvent être redimensionnées uniquement en machines virtuelles qui prennent en charge l’accélération réseau.  
+Les machines virtuelles avec mise en réseau accélérée peuvent être redimensionnées uniquement en machines virtuelles qui prennent en charge la mise en réseau accélérée.  
 
-Une machine virtuelle avec l’accélération réseau activée ne peut pas être redimensionnée en une instance de machine virtuelle qui ne prend pas en charge l’accélération réseau par une opération de redimensionnement.  Au lieu de cela, pour redimensionner une de ces machines virtuelles : 
+Une machine virtuelle avec mise en réseau accélérée ne peut pas être redimensionnée en une instance de machine virtuelle qui ne prend pas en charge la mise en réseau accélérée.  Pour redimensionner l’une de ces machines virtuelles, vous devez effectuer ces opérations : 
 
-* Arrêtez/désallouez la machine virtuelle ou, dans le cas d’un groupe à haute disponibilité/VMSS, arrêtez/désallouez toutes les machines virtuelles du groupe/VMSS.
-* La mise en réseau accélérée doit être désactivée sur la carte réseau de la machine virtuelle, ou dans le cas d’un groupe à haute disponibilité/VMSS, toutes les machines virtuelles dans le groupe/VMSS.
-* Une fois que l’accélération réseau est désactivée, vous pouvez déplacer la machine virtuelle/le groupe à haute disponibilité/le VMSS vers une nouvelle taille qui ne prend pas en charge l’accélération réseau et redémarrer.  
+* Arrêtez/libérez la machine virtuelle ou, dans le cas d’un groupe à haute disponibilité ou d’un groupe de machines virtuelles identiques, arrêtez/libérez toutes les machines virtuelles du groupe.
+* Désactivez la mise en réseau accélérée sur la carte réseau de la machine virtuelle ou, dans le cas d’un groupe à haute disponibilité ou d’un groupe de machines virtuelles identiques, de toutes les machines virtuelles du groupe.
+* Une fois que la mise en réseau accélérée est désactivée, redimensionnez la machine virtuelle, ou toutes les machines virtuelles du groupe à haute disponibilité ou du groupe de machines virtuelles identiques, à une nouvelle taille qui ne prend pas en charge la mise en réseau accélérée, et redémarrez la ou les machines.  
 

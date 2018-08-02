@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 23d2c858fc51e35948bf83c6b5824b35020cb2e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593365"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326188"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect.
@@ -43,7 +43,6 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 * La version de schéma Active Directory et le niveau fonctionnel de forêt doivent être Windows Server 2003 ou version ultérieure. Les contrôleurs de domaine peuvent exécuter n’importe quelle version aussi longtemps que les exigences relatives au schéma et le niveau de forêt sont remplies.
 * Si vous prévoyez d'utiliser la fonctionnalité **Écriture différée du mot de passe** , les contrôleurs de domaine doivent être exécutés sous Windows Server 2008 (avec le dernier SP) ou une version ultérieure. Si vos contrôleurs de domaine sont sur 2008 (version antérieure à R2), vous devez également appliquer le [correctif logiciel KB2386717](http://support.microsoft.com/kb/2386717).
 * Le contrôleur de domaine utilisé par Azure AD doit être accessible en écriture. L’utilisation d’un contrôleur de domaine en lecture seule (RODC) **n’est pas prise en charge** et Azure AD Connect ne suivra pas les redirections d’écriture.
-* L’utilisation de forêts/domaines locaux utilisant des SLD (domaines avec un nom en une seule partie) n’est **pas prise en charge**.
 * L’utilisation de forêts/domaines locaux utilisant des noms NetBios avec point (le nom contient un point ’.’) n’est **pas prise en charge**.
 * Il est recommandé d’[activer la Corbeille Active Directory](active-directory-aadconnectsync-recycle-bin.md).
 
@@ -94,7 +93,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
     </system.net>
 ```
 
-* Si votre serveur proxy nécessite une authentification, le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) doit se trouver dans le domaine, et vous devez utiliser le chemin d’installation des paramètres personnalisés pour spécifier un [compte de service personnalisé](active-directory-aadconnect-get-started-custom.md#install-required-components). Vous devez également modifier le fichier machine.config. Cette modification dans le fichier machine.config permet à l’Assistant d’installation et au moteur de synchronisation de répondre aux demandes d’authentification du serveur proxy. Dans toutes les pages de l'Assistant d’installation, à l'exclusion de la page **Configurer**, les informations d'identification de l’utilisateur sont utilisées. Dans la page **Configurer** à la fin de l’Assistant d’installation, le contexte bascule vers le [compte de service](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) que vous avez créé. La section machine.config doit ressembler à ceci.
+* Si votre serveur proxy nécessite une authentification, le [compte de service](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) doit se trouver dans le domaine, et vous devez utiliser le chemin d’installation des paramètres personnalisés pour spécifier un [compte de service personnalisé](active-directory-aadconnect-get-started-custom.md#install-required-components). Vous devez également modifier le fichier machine.config. Cette modification dans le fichier machine.config permet à l’Assistant d’installation et au moteur de synchronisation de répondre aux demandes d’authentification du serveur proxy. Dans toutes les pages de l'Assistant d’installation, à l'exclusion de la page **Configurer**, les informations d'identification de l’utilisateur sont utilisées. Dans la page **Configurer** à la fin de l’Assistant d’installation, le contexte bascule vers le [compte de service](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) que vous avez créé. La section machine.config doit ressembler à ceci.
 
 ```
     <system.net>

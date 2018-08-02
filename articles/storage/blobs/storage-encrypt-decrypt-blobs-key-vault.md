@@ -3,17 +3,17 @@ title: 'Didacticiel : Chiffrement et déchiffrement d’objets blob dans le ser
 description: Comment chiffrer et déchiffrer un objet blob en utilisant le chiffrement côté client pour le service Stockage Microsoft Azure avec Azure Key Vault.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.component: blobs
+ms.openlocfilehash: f5382644af7e79234d6c3944cf354a3b2a70cc90
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "27815811"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397619"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault
 ## <a name="introduction"></a>Introduction
@@ -30,7 +30,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure Storage
 * Visual Studio 2013 ou une version ultérieure
-* Azure PowerShell
+* Azure PowerShell
 
 ## <a name="overview-of-client-side-encryption"></a>Vue d’ensemble du chiffrement côté client
 Pour une vue d’ensemble du chiffrement côté client du Stockage Azure, consultez [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
@@ -222,7 +222,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 ```
 Vous avez terminé. Vous n’avez plus qu’à l’utiliser !
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation du Stockage Microsoft Azure avec C#, consultez [Bibliothèque cliente Stockage Microsoft Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Pour plus d’informations sur l’API REST Blob, consultez [API REST du service BLOB](https://msdn.microsoft.com/library/azure/dd135733.aspx).

@@ -48,7 +48,6 @@ Pour plus d’options de commande, exécutez `az acs scale --help`.
 
 * Selon l’orchestrateur que vous déployez dans votre cluster, vous pouvez mettre à l’échelle séparément le nombre d’instances d’un conteneur en cours d’exécution sur le cluster. Par exemple, dans un cluster de contrôleur de domaine/système d’exploitation, utilisez l’[interface utilisateur Marathon](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) pour modifier le nombre d’instances d’une application conteneur.
 
-* Actuellement, la mise à l’échelle automatique de nœuds d’agent dans un cluster du service de conteneur n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [d’autres exemples](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) d’utilisation des commandes de la CLI Azure 2.0 avec Azure Container Service.

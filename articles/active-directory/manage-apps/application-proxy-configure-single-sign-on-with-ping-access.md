@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 37b5e5d05559088d7f5aac796f452f2ed83447fc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e7976cf0574952fdafbdc8b40db47af3a5420fd5
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294629"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368817"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -38,7 +38,7 @@ Par ailleurs, comme les connecteurs Application Proxy redirigent le trafic dist
 
 Comme ce scénario est possible grâce à un partenariat entre Azure Active Directory et PingAccess, vous avez besoin de licences pour les deux services. Toutefois, les abonnements Azure Active Directory Premium incluent une licence PingAccess de base qui couvre jusqu’à 20 applications. Si vous devez publier plus de 20 applications basées sur un en-tête, vous pouvez acheter une licence supplémentaire auprès de PingAccess. 
 
-Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](../active-directory-whatis.md).
+Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="publish-your-application-in-azure"></a>Publier votre application dans Azure
 

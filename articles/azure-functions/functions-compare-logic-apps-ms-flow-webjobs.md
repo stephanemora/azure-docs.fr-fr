@@ -3,7 +3,7 @@ title: Comparer Flow, Logic Apps, Functions et WebJobs - Azure
 description: 'Comparez les services de cloud computing Microsoft qui sont optimisés pour les tâches d’intégration : Flow, Logic Apps, Functions et WebJobs.'
 services: functions,app-service\logic
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 tags: ''
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, traitement d’événements, calcul dynamique, architecture sans serveur
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9b9ef150a86a754d4ed328184eb02c1937008b7b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9e79cba0b186ace97609409f49369ac89b5a1eeb
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970136"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346281"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparer Flow, Logic Apps, Functions et WebJobs
 
@@ -43,7 +43,7 @@ Flow permet à n’importe quel employé de bureau d’effectuer des intégratio
 
 Le tableau suivant vous aide à déterminer si Flow ou Logic Apps convient le mieux à une intégration donnée.
 
-|  | Flux | Logic Apps |
+|  | Flux | Logic Apps |
 | --- | --- | --- |
 | Utilisateurs |Employés de bureau, utilisateurs de l’entreprise, administrateurs SharePoint |Intégrateurs et développeurs professionnels, professionnels de l’informatique |
 | Scénarios |Libre-service |Intégrations avancées |
@@ -60,7 +60,7 @@ Pour Azure Functions, vous développez des orchestrations en écrivant du code e
 
 Vous pouvez mélanger et associer les services lorsque vous créez une orchestration, en appelant des fonctions à partir d’applications logiques et inversement. Vous pouvez opter pour l’un ou l’autre des services pour créer chacune de vos orchestrations en fonction des capacités de ceux-ci ou de vos préférences. Le tableau suivant répertorie certaines des principales différences entre ces services :
  
-|  | Fonctions durables | Logic Apps |
+|  | Fonctions durables | Logic Apps |
 | --- | --- | --- |
 | Développement | Orienté code (impératif) | Orienté concepteur (déclaratif) |
 | Connectivité | [Environ une douzaine de types de liaison intégrés](functions-triggers-bindings.md#supported-bindings), écriture de code pour les liaisons personnalisées | [Grande collection de connecteurs](../connectors/apis-list.md), [Enterprise Integration Pack pour les scénarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [intégration de connecteurs personnalisés](../logic-apps/custom-connector-overview.md) |

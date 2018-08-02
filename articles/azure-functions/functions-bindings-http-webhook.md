@@ -3,7 +3,7 @@ title: Liaisons HTTP et webhook Azure Functions
 description: Découvrez comment utiliser des déclencheurs et des liaisons HTTP et webhook dans Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: tdykstra
-ms.openlocfilehash: c85af21a40a1b110ae2088fdf6fc8077ec919039
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: glenga
+ms.openlocfilehash: 5f6538c69139b8cd254b44cb9875e18a14c8fa8b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724623"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344145"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Liaisons HTTP et webhook Azure Functions
 
@@ -38,7 +38,7 @@ Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.E
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Packages - Functions 2.x
+## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
 Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/).
 

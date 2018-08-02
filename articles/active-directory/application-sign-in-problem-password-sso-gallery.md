@@ -10,16 +10,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: dbb25ee959193ebc8d1c15ad76555e8d7dc9fe4b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8708b826a55f24b4674730c2908f81b008855b48
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331494"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365637"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe
 
@@ -183,7 +183,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, proc�
 Après une courte période, les utilisateurs que vous avez sélectionnés sont en mesure de lancer ces applications dans le volet d’accès.
 
 ## <a name="if-these-troubleshoot-steps-dont-resolve-the-issue"></a>Si ces étapes de dépannage ne résolvent pas le problème 
-Créez un ticket de support en fournissant les informations suivantes, si disponibles :
+Ouvrez un ticket de support en fournissant les informations suivantes, dans la mesure du possible :
 
 -   ID d’erreur de corrélation
 

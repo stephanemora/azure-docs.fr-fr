@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/03/2018
-ms.author: danis
-ms.openlocfilehash: 1febf81745ed804de59113da4f48376e9564b68f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: roiyz
+ms.openlocfilehash: d95a1b510411f913a05762494dd48d6a5b6f84fd
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449190"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413669"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Linux de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du contrat de licence utilisateur final NVIDIA. Pendant le processus d’installation, votre machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 
@@ -35,7 +35,7 @@ Les termes du contrat de licence utilisateur final de NVIDIA se trouvent ici : 
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-Cette extension prend en charge les systèmes d’exploitation suivants :
+Cette extension prend en charge les systèmes d’exploitation suivants :
 
 | Distribution | Version |
 |---|---|
@@ -175,6 +175,6 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/community/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les extensions de machine virtuelle, voir [Extensions et fonctionnalités de machine virtuelle pour Linux](features-linux.md).
+Pour plus d’informations sur les extensions, consultez la page [Extensions et fonctionnalités de machine virtuelle pour Linux](features-linux.md).
 
 Pour plus d’informations sur les machines virtuelles de gamme N, voir [Tailles de machine virtuelle à GPU optimisé](../linux/sizes-gpu.md).

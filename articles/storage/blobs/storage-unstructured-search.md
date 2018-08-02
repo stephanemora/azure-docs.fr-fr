@@ -2,25 +2,24 @@
 title: Rechercher des données non structurées dans le stockage cloud Azure
 description: Recherche de données non structurées à l’aide de Recherche Azure.
 author: roygara
-manager: twooley
 services: storage
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: e50ff3b3a53a13d1604fcb7872853d758259ff9f
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: eba2ef280e60693cfd4402348fe61b122cdccdf6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136534"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399854"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Rechercher des données non structurées dans le stockage cloud
 
 Dans ce didacticiel, vous apprenez à rechercher des données non structurées à l’aide de [Recherche Azure](../../search/search-what-is-azure-search.md) en utilisant des données stockées dans des objets blob Azure. Les données non structurées sont des données qui ne sont pas organisées de manière prédéfinie ou qui n’ont pas de modèle de données. Un fichier .txt en est un exemple.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un groupe de ressources
