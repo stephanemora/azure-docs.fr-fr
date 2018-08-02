@@ -1,6 +1,6 @@
 ---
 title: Forum aux questions sur le service de reconnaissance vocale dans Azure | Microsoft Docs
-description: Vous y trouverez les réponses aux questions les plus posées sur le service de reconnaissance vocale.
+description: Vous trouverez ici des réponses aux questions les plus posées sur le service de reconnaissance vocale.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,146 +9,48 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4a29435c0ace79fc3a5d3a5a42a0e91bdbc8da5e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045841"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082822"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Forum aux questions : Custom Speech Service
+# <a name="text-to-speech-frequently-asked-questions"></a>Forum aux questions sur la synthèse vocale
 
-Si vous ne trouvez pas les réponses dans ce FAQ, posez votre question à la communauté Custom Speech Service sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) et [UserVoice](https://cognitive.uservoice.com/)
+Si vous ne trouvez pas les réponses à vos questions dans ce Forum aux questions, essayez d’interroger la Communauté Custom Speech Service sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) et [UserVoice](https://cognitive.uservoice.com/).
 
 ## <a name="general"></a>Généralités
 
-**Question** : Quelle est la différence entre les modèles de ligne de base et de reconnaissance vocale personnalisés Custom Speech ?
+**Question** : Quelle est la différence entre les modèles vocaux standard et personnalisés ?
 
-**Réponse** : les modèles de ligne de base ont été formés avec des données possédées par Microsoft et sont déjà déployés dans le cloud. Les modèles personnalisés permettent à l’utilisateur d’adapter un modèle afin qu’il corresponde mieux à un environnement particulier avec bruit ambiant et langage spécifiques. Des ateliers, des voitures ou des rues bruyantes ont besoin d’un modèle acoustique adapté tandis que des sujets tels que la biologie, la physique, la radiologie, les noms de produits et les acronymes personnalisés nécessitent un modèle de langage.
+**Réponse**  : Les modèles vocaux standard (également appelés polices de la voix) ont été formés avec des données appartenant à Microsoft et sont déjà déployés dans le cloud. Les modèles vocaux personnalisés permettent à l’utilisateur soit d’adapter un modèle moyen et de transférer le timbre et la manière de s’exprimer en fonction du style de voix de l’orateur, soit de former un modèle entièrement nouveau basé sur les données d’apprentissage préparées par l’utilisateur. Aujourd'hui, de plus en plus de clients veulent avoir une voie unique et reconnaissable pour leurs robots. Dans ce cas, la plateforme de création de voix personnalisées est le bon choix.
 
-**Question** : Où commencer si je souhaite utiliser un modèle de ligne de base ?
+**Question** : Par où commencer si je souhaite utiliser un modèle vocal standard ?
 
-**Réponse** : Il vous faut d’abord une [clé d’abonnement](get-started.md). Si vous souhaitez passer des appels REST vers des modèles de ligne de base prédéployés, consultez ces [informations](rest-apis.md). Si vous voulez utiliser WebSockets, télécharger le [Kit de développement logiciel (SDK)](speech-sdk.md)
+**Réponse**: Plus de 80 modèles vocaux standard dans plus de 45 langues sont disponibles via des requêtes HTTP. Vous devez tout d’abord obtenir une [clé d’abonnement](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). Si vous voulez passer des appels REST à des modèles vocaux prédéployés, consultez les [informations détaillées ici](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-**Question** : Faut-il toujours que je crée un modèle vocal personnalisé ?
+**Question**: Si je souhaite utiliser un modèle vocal personnalisé, l’API est-elle la même que celle des voix standard ?
 
-**Réponse** : Non. Si votre application utilise un langage quotidien générique, sans vocabulaire spécifique ou rare, vous n’êtes pas obligé de personnaliser un modèle. En outre, si votre application a pour but d’être utilisée comme environnement avec peu de bruit de fond, voire aucun, vous n’êtes pas non plus obligé de personnaliser un modèle. Le portail permet aux utilisateurs de déployer des modèles de ligne de base et personnalisés, et d’exécuter des tests de précision. Ils peuvent utiliser cette fonctionnalité pour mesurer la précision d’un modèle de ligne de base et celle d’un modèle personnalisé.
+**Réponse**: Lorsque vous avez créé et déployé le modèle vocal personnalisé, vous obtenez un point de terminaison unique pour votre modèle. Vous devez spécifier le point de terminaison dans vos requêtes HTTP pour que la voix parle dans vos applications. La fonctionnalité disponible via l’API REST pour le service de synthèse vocale l’est également pour votre point de terminaison personnalisé. Voyez comment [créer et utiliser votre point de terminaison personnalisé](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
-**Question** : Comment savoir si le traitement de mon jeu de données ou de mon modèle est terminé ?
+**Question** : Dois-je préparer les données d’apprentissage pour créer moi-même des modèles vocaux personnalisés ?
 
-**Réponse** : Actuellement, le statut du modèle ou du jeu de données situé dans le tableau est le seul qui compte.
-Lorsque le traitement est terminé, l’état indiquera « Prêt ».
+**Réponse** : Vous devrez préparer vous-même les données d’apprentissage. Une collection de données vocales est nécessaire pour créer un modèle vocal personnalisé. Cette collection se compose d’un ensemble de fichiers audio d’enregistrements vocaux et d’un fichier texte de transcription pour chaque fichier audio. Le résultat de votre voix numérique dépend fortement de la qualité de vos données d’apprentissage. Pour produire une bonne voix TTS, il est important que les enregistrements soient effectués dans une pièce calme avec un micro sur support. Pour générer une voix numérique de qualité, il est essentiel de faire attention à l’homogénéité du volume, au débit et à la tonalité, ainsi qu’à la cohérence dans la manière de s’exprimer. Nous vous recommandons vivement d’enregistrer les voix dans un studio d’enregistrement.
+Pour le moment, nous ne prenons pas en charge l’enregistrement en ligne et ne recommandons pas de studios d’enregistrement. Concernant les formats requis, consultez [Comment préparer les enregistrements et les transcriptions](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts)
+ 
+**Question** : Quels scripts dois-je utiliser pour enregistrer les données vocales pour l’apprentissage de la voix personnalisée ? 
 
-**Question** : Puis-je créer plus d’un modèle à la fois ?
+**Réponse** : Nous ne limitons pas les scripts pour l’enregistrement vocal. Vous pouvez utiliser vos propres scripts pour enregistrer la voix. Veillez simplement à avoir suffisamment de couverture phonétique dans vos données vocales. Pour former une voix personnalisée, vous pouvez démarrer avec un petit volume de données vocales, ce qui pourrait correspondre à 50 phrases différentes (sur 3 à 5 minutes d’enregistrement). Plus vous fournirez de données, plus votre voix sera naturelle. Vous pouvez commencer à former une police de la voix complète lorsque vous fournissez des enregistrements de plus de 2 000 phrases (environ 3 à 4 heures d’enregistrement). Pour obtenir une voix complète de grande qualité, vous devrez préparer des enregistrements de plus de 6 000 phrases (environ 8 à 10 heures d’enregistrement).  
+Nous fournissons des services supplémentaires afin de vous aider à préparer des scripts pour l’enregistrement. Contactez le [service clientèle chargé des voix personnalisées](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) pour obtenir des informations.
 
-**Réponse** :Il n’y aucune limite au nombre de modèles dans votre collection, mais vous ne pouvez en créer qu’un à la fois sur chaque page.
-Par exemple, vous ne pouvez pas démarrer la création d’un modèle de langage si un modèle de langage est déjà en cours de création.
-Toutefois, vous pouvez traiter un modèle acoustique et un modèle de langage en même temps. 
+**Question** : Que faire si j’ai besoin d’une concurrence plus élevée que la valeur par défaut ou que ce qui est proposé dans le portail ?
 
-**Question** : J’ai réalisé que j’ai fait une erreur. Comment annuler l’importation de mes données ou la création d’un modèle en cours ? 
+**Réponse** : Vous pouvez augmenter la taille de votre modèle par incréments de 20 requêtes simultanées. Contactez le [service clientèle chargé des voix personnalisées](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) pour obtenir des informations sur les niveaux de concurrence supérieurs.
 
-**Réponse** : Actuellement, vous ne pouvez pas restaurer un processus d’adaptation de langage ou acoustique.
-Les données importées peuvent être supprimées après leur importation.
+**Question** : Puis-je télécharger mon modèle et l’exécuter localement ?
 
-**Question** : Quelle est la différence entre les modèles Recherche & Dictée et les modèles Conversational ?
-
-**Réponse** : Il existe deux choix modèles de langage et acoustique de base dans Custom Speech Service :
-les requêtes de recherche, ou la dictée. Le modèle Microsoft Conversational AM est approprié pour la reconnaissance vocale dans un style conversationnel.
-Ce type de voix s’adresse généralement à une autre personne, comme dans les centres d’appel ou les réunions.
-
-**Question** : Puis-je mettre à jour mon modèle existant (pile de modèles) ?
-
-**Réponse** : Les modèles existants ne peuvent pas être mis à jour. Pour contourner cela, combinez l’ancien jeu de données avec le nouveau, et réadaptez.
-
-Les anciens et nouveaux jeux de données doivent être combinés en un seul fichier .zip (s’il s’agit de données acoustiques) ou en un fichier .txt (s’il s’agit de données de langage). Une fois l’adaptation terminée, le nouveau modèle mis à jour doit être retiré afin d’obtenir un nouveau point de terminaison
-
-**Question** : Que faire si j’ai besoin d’une concurrence plus élevée que la valeur par défaut ou que ce qui est offert dans le portail ? 
-
-**Réponse** : Vous pouvez augmenter la taille de votre modèle par incrément de 20 requêtes concurrentes. 
-
-Contactez-nous si vous avez besoin d’augmenter cette taille.
-
-**Question** : Puis-je télécharger mon modèle et l’exécuter en local ?
-
-**Réponse** : Les modèles ne peuvent pas être téléchargés et exécutés en local.
-
-**Question** : Mes requêtes sont-elles consignées ?
-
-**Réponse** : Lors de la création d’un déploiement, vous pouvez décider de désactiver le suivi, ce qui signifie qu’aucun son ni transcription ne sera consigné. Autrement, les requêtes sont généralement consignées dans Azure dans un stockage sécurisé. Si vous avez d’autres questions sur la confidentialité qui vous empêchent d’utiliser Custom Speech Service, contactez l’un des canaux de support.
-
-## <a name="importing-data"></a>Importation de données
-
-**Question** : Quelle est la limite de taille du jeu de données ? Pourquoi ? 
-
-**Réponse** : La limite actuelle pour un jeu de données est de 2 Go, en raison de la restriction de taille d’un fichier pour le chargement HTTP. 
-
-**Question** : Puis-je compresser mes fichiers texte pour charger un fichier texte plus grand ? 
-
-**Réponse** : Non, seuls des fichiers texte non compressés sont actuellement autorisés.
-
-**Question** : Le rapport de données indique que des énoncés ont échoué. Quel est le problème ?
-
-**Réponse** : L’échec du chargement à 100 % des énoncés dans un fichier n’est pas un problème.
-Si la majeure partie des énoncés dans un jeu de données acoustiques ou de langage (par exemple, plus de 95 %) est importée avec succès, le jeu de données peut être utilisable. Toutefois, il est recommandé d’essayer de comprendre la raison de l’échec des énoncés et d’y remédier. La plupart des problèmes communs, comme les erreurs de formatage, sont faciles à régler. 
-
-## <a name="creating-am"></a>Création de l'AM
-
-**Question** : De quel volume de données acoustiques aie-je besoin ?
-
-**Réponse** : Nous vous recommandons de commencer par 30 minutes voire une heure de données acoustiques.
-
-**Question** : Quelles données dois-je collecter ?
-
-**Réponse** : Collectez les données qui sont le plus proche possible du scénario d’application et du cas d’usage.
-La collection de données doit correspondre l’application et les utilisateurs cible en termes d’appareil(s), environnements, et types d’orateurs. En général, vous devez collecter des données d’un éventail d’orateurs aussi large que possible. 
-
-**Question** : Comment les collecter ? 
-
-**Réponse** : Vous pouvez créer une application de collection de données autonome, ou en utiliser depuis le logiciel d’enregistrement audio.
-Vous pouvez également créer une version de votre application qui journalise les données audio et les utilise. 
-
-**Question** : Dois-je transcrire moi-même les données d’adaptation ? 
-
-**Réponse** : Les données doivent être transcrites. Vous pouvez les transcrire vous-même ou utiliser un service de transcription professionnel. Certains de ces services utilisent des transcripteurs professionnels, tandis que d’autres utilisent le crowdsourcing.
-
-**Question** : Combien de temps faut-il pour créer un modèle acoustique personnalisé ?
-
-**Réponse** : Le temps de traitement de la création d’un modèle acoustique personnalisé est à peu près identique à la longueur du jeu de données acoustiques.
-Par conséquent, le traitement d’un modèle acoustique personnalisé créé à partir d’un jeu de données de cinq heures prend environ cinq heures. 
-
-## <a name="offline-testing"></a>Tests hors ligne
-
-**Question** : Puis-je effectuer des tests hors ligne de mon modèle acoustique personnalisé à l’aide d’un modèle de langage personnalisé ?
-
-**Réponse** : Oui. Sélectionnez simplement le modèle de langage personnalisé dans la liste déroulante quand vous configurez le test hors ligne.
-
-**Question** : Puis-je effectuer un test hors ligne de mon modèle de langage personnalisé à l’aide d’un modèle acoustique personnalisé ?
-
-**Réponse** : Oui. Sélectionnez simplement le modèle acoustique personnalisé dans la liste déroulante quand vous configurez le test hors ligne.
-
-**Question** : Quel est le taux d’erreur de mots et comment est-il calculé ?
-
-**Réponse** : Le taux d’erreur de mots est la métrique d’évaluation de la reconnaissance vocale. Il est calculé comme le nombre total d’erreurs, lequel inclut les insertions, les suppressions et les remplacements, divisé par le nombre total de mots présents dans la transcription de référence.
-
-**Question** : Comment déterminer si les résultats d’un test de précision sont corrects ?
-
-**Réponse** : Les résultats montrent une comparaison entre le modèle de base et celui que vous avez personnalisé.
-Vous devez veiller à améliorer le modèle de base pour rendre la personnalisation pertinente.
-
-**Question** : Comment déterminer le taux d’erreurs de mots des modèles de base, afin de savoir s’il y a eu une amélioration ? 
-
-**Réponse** : Les résultats des tests hors ligne indiquent la précision de base du modèle personnalisé et l’amélioration par rapport à cette précision de base
-
-## <a name="creating-lm"></a>Création d’un modèle de langage
-
-**Question** : Quel volume de données texte dois-je télécharger ?
-
-**Réponse** : Cela dépend de la différence du vocabulaire et des expressions utilisées dans votre application par rapport aux modèles de langage de départ. Pour tous les nouveaux mots, il est utile de fournir autant d’exemples que possible de l’utilisation de ces mots. Pour les expressions courantes qui sont utilisées dans votre application, il est également utile d’inclure des expressions dans les données de langage, car cela indique au système d’écouter aussi ces termes. Il est courant d’avoir au moins une centaine, et généralement plusieurs centaines, d’énoncés dans le jeu de données de langage. De plus, si certains types de requêtes sont censés être plus courants que d’autres, vous pouvez insérer plusieurs copies des requêtes courantes dans le jeu de données.
-
-**Question** : Puis-je simplement charger une liste de mots ?
-
-**Réponse** : Le chargement d’une liste de mots place les mots dans le vocabulaire, mais n’apprend pas au système comment les mots sont généralement utilisés.
-En fournissant des énoncés complets ou partiels (phrases ou expressions que les utilisateurs sont susceptibles de dire), le modèle de langage peut apprendre les mots nouveaux et la façon dont ils sont utilisés. Le modèle de langage personnalisé est approprié non seulement pour obtenir de nouveaux mots dans le système, mais également pour ajuster la probabilité de mots connus pour votre application. Fournir des énoncés complets permet au système de mieux apprendre. 
+**Réponse** : Les modèles ne peuvent pas être téléchargés et exécutés localement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

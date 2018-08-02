@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2017
+ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a2b764e76cd1987c83e7be38d365c1dfa8513db9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108457"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214786"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Désactiver et supprimer un appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article explique comment désactiver et supprimer un appareil StorSimple qui est connecté à un service StorSimple Device Manager. Les instructions de cet article s’appliquent uniquement aux appareils de la gamme StorSimple 8000, y compris les instances StorSimple Cloud Appliance. Si vous utilisez un StorSimple Virtual Array, consultez [Désactiver et supprimer un StorSimple Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md).
 
@@ -110,7 +110,7 @@ La désactivation entraîne ce qui suit :
 
 * L’instance StorSimple Cloud Appliance est supprimée du service.
 * La machine virtuelle de l’instance StorSimple Cloud Appliance est supprimée.
-* Les disques de données et de système d’exploitation créés pour l’instance StorSimple Cloud Appliance sont supprimés.
+* Les disques de données et de système d’exploitation créés pour StorSimple Cloud Appliance sont conservés. Si vous n’utilisez pas ces entités, vous devez les supprimer manuellement.
 * Le service hébergé et le réseau virtuel créés lors de l’approvisionnement sont conservés. Si vous n’utilisez pas ces entités, vous devez les supprimer manuellement.
 * Les instantanés cloud créés par l’instance StorSimple Cloud Appliance sont conservés.
 

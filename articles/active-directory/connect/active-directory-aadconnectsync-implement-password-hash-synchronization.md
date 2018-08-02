@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d62eb4d5f43625b336ade68532cf734ef0cde6a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593450"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214691"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -68,7 +68,7 @@ La fonctionnalité de synchronisation de hachage de mot de passe tente automatiq
 La synchronisation d’un mot de passe n’a aucun impact sur l’utilisateur actuellement connecté.
 Votre session de service cloud en cours n’est pas immédiatement affectée par une modification de mot de passe synchronisé effectuée lorsque vous êtes connecté à un service cloud. Toutefois, lorsque le service cloud vous oblige à vous authentifier à nouveau, vous devez fournir votre nouveau mot de passe.
 
-Un utilisateur doit entrer ses informations d’identification d’entreprise une deuxième fois pour s’authentifier auprès d’Azure AD, qu’il soit connecté à son réseau d’entreprise ou non. Ce modèle peut être réduit, cependant, si l’utilisateur coche la case « Maintenir la connexion » lors de la connexion. Cette sélection définit un cookie de session qui ignore l’authentification pendant une courte période. Le comportement KMSI peut être activé ou désactivé par l’administrateur Azure AD.
+Un utilisateur doit entrer ses informations d’identification d’entreprise une deuxième fois pour s’authentifier auprès d’Azure AD, qu’il soit connecté à son réseau d’entreprise ou non. Ce modèle peut être réduit, cependant, si l’utilisateur coche la case « Maintenir la connexion » lors de la connexion. Cette sélection définit un cookie de session qui ignore l’authentification pendant 180 jours. Le comportement KMSI peut être activé ou désactivé par l’administrateur Azure AD. De plus, vous pouvez réduire les invites de mot de passe en activant l’[authentification unique fluide](active-directory-aadconnect-sso.md) qui connecte automatiquement les utilisateurs lorsque leurs appareils d’entreprise sont connectés au réseau de l’entreprise.
 
 > [!NOTE]
 > La synchronisation de mot de passe est uniquement prise en charge pour l'utilisateur de type d'objet dans Active Directory. Elle n'est pas prise en charge pour le type d'objet iNetOrgPerson.
@@ -99,10 +99,6 @@ Lors de la synchronisation des mots de passe, la version en texte brut de votre 
 
 L’authentification de l’utilisateur s’effectue par rapport à Azure AD plutôt que sur l’instance Active Directory de l’organisation. Si votre organisation a des inquiétudes à l’idée que des données de mot de passe puissent quitter les locaux sous une forme quelconque, n’oubliez pas que les données de mot de passe SHA256 stockées dans Azure AD (un hachage du hachage MD4 d’origine) sont nettement plus sécurisées que celles stockées dans Active Directory. En outre, étant donné que ce hachage SHA256 ne peut pas être déchiffré, il ne peut pas être réimporté dans l’environnement Active Directory de l’organisation et présenté sous la forme d’un mot de passe utilisateur valide dans une attaque de type pass-the-hash.
 
-
-
-
-
 ### <a name="password-policy-considerations"></a>Remarques sur les stratégies de mot de passe
 Deux types de stratégies de mot de passe sont affectés par l’activation de la synchronisation de hachage de mot de passe :
 
@@ -121,7 +117,7 @@ Si un utilisateur est concerné par la synchronisation de hachage de mot de pass
 Vous pouvez continuer à vous connecter aux services cloud à l’aide d’un mot de passe synchronisé qui a expiré dans votre environnement local. Votre mot de passe cloud est mis à jour la prochaine fois que vous modifiez le mot de passe dans l’environnement local.
 
 #### <a name="account-expiration"></a>Expiration du compte
-Si votre organisation utilise l’attribut accountExpires dans le cadre de la gestion des comptes utilisateur, n’oubliez pas que cet attribut n’est pas synchronisé avec Azure AD. Par conséquent, un compte Active Directory expiré dans un environnement configuré pour la synchronisation de hachage de mot de passe sera toujours actif dans Azure AD. Il est recommandé, si le compte a expiré, qu’une action de workflow doive déclencher un script PowerShell qui désactive le compte Azure AD de l’utilisateur. Inversement, lorsque le compte est activé, l’instance Azure AD doit être activée.
+Si votre organisation utilise l’attribut accountExpires dans le cadre de la gestion des comptes utilisateur, n’oubliez pas que cet attribut n’est pas synchronisé avec Azure AD. Par conséquent, un compte Active Directory expiré dans un environnement configuré pour la synchronisation de hachage de mot de passe sera toujours actif dans Azure AD. Nous recommandons, si le compte a expiré, qu’une action de workflow déclenche un script PowerShell qui désactive le compte Azure AD de l’utilisateur (via l’applet de commande [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)). Inversement, lorsque le compte est activé, l’instance Azure AD doit être activée.
 
 ### <a name="overwrite-synchronized-passwords"></a>Remplacement des mots de passe synchronisés
 Un administrateur peut réinitialiser manuellement votre mot de passe à l’aide de Windows PowerShell.
@@ -134,21 +130,14 @@ La synchronisation d’un mot de passe n’a aucun impact sur l’utilisateur Az
 
 ### <a name="additional-advantages"></a>Autres avantages
 
-- En règle générale, la synchronisation de hachage de mot de passe est plus simple à implémenter qu’un service de fédération. Elle ne nécessite pas de serveurs supplémentaires et élimine la dépendance vis-à-vis d’un service de fédération hautement disponible pour authentifier les utilisateurs. 
+- En règle générale, la synchronisation de hachage de mot de passe est plus simple à implémenter qu’un service de fédération. Elle ne nécessite pas de serveurs supplémentaires et élimine la dépendance vis-à-vis d’un service de fédération hautement disponible pour authentifier les utilisateurs.
 - La synchronisation de hachage de mot de passe peut également être activée en plus de la fédération. Vous pouvez l’utiliser comme solution de secours si votre service de fédération connaît une défaillance.
 
-
-
-
-
-
-
-
-
-
-
-
 ## <a name="enable-password-hash-synchronization"></a>Activer la synchronisation de hachage de mot de passe
+
+>[!IMPORTANT]
+>Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers la synchronisation de hachage du mot de passe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, publié [ici](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+
 La synchronisation de hachage de mot de passe est activée automatiquement si vous installez Azure AD Connect avec la **configuration rapide**. Pour plus d’informations, voir [Prise en main d’Azure AD Connect avec la configuration rapide](active-directory-aadconnect-get-started-express.md).
 
 Si vous utilisez des paramètres personnalisés lors de l’installation d’Azure AD Connect, la synchronisation de hachage de mot de passe est disponible dans la page de connexion utilisateur. Pour plus d’informations, voir [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md).

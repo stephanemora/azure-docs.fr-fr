@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070866"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173048"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
@@ -26,35 +26,22 @@ Cet article récapitule les composants et les configurations pris en charge lors
 
 **Interface utilisateur** |  **Prise en charge / Non prise en charge**
 --- | ---
-**Portail Azure** | Prise en charge
-**Portail Classic** | Non pris en charge
+**Portail Azure** | Pris en charge
 **PowerShell** | [Réplication d’Azure vers Azure avec PowerShell](azure-to-azure-powershell.md)
 **API REST** | Non prise en charge pour le moment
 **INTERFACE DE LIGNE DE COMMANDE** | Non prise en charge pour le moment
 
 
-## <a name="resource-move-support"></a>Prise en charge du déplacement de ressources
+## <a name="resource-support"></a>Prise en charge des ressources
 
-**Type de déplacement de ressources** | **Pris en charge / Non pris en charge** | **Remarques**  
+**Type de déplacement de ressources** | **Détails** 
 --- | --- | ---
-**Déplacer le coffre entre plusieurs groupes de ressources** | Non pris en charge |Vous ne pouvez pas déplacer le coffre Recovery services d’un groupe de ressources à un autre.
-**Déplacer le calcul, le stockage et le réseau entre plusieurs groupes de ressources** | Non pris en charge |Si vous déplacez une machine virtuelle (ou ses composants associés, tels que le réseau et le stockage) après avoir activé la réplication, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
+**Déplacer le coffre entre plusieurs groupes de ressources** | Non pris en charge<br/><br/> Vous ne pouvez pas déplacer un coffre Recovery Services d’un groupe de ressources à un autre.
+**Déplacer le calcul/le stockage/les ressources réseau entre plusieurs groupes de ressources** | Non pris en charge.<br/><br/> Si vous déplacez une machine virtuelle ou des composants associés tels que le stockage/réseau après sa réplication, vous devez désactiver et réactiver la réplication pour la machine virtuelle.
+**Répliquer des machines virtuelles Azure d’un abonnement à un autre pour la reprise d’activité** | Non pris en charge.
+**Migrer des machines virtuelles entre des abonnements** | Non pris en charge.
+**Migrer des machines virtuelles au sein de la même région** | Non pris en charge.
 
-
-
-## <a name="support-for-deployment-models"></a>Prise en charge des modèles de déploiement
-
-**Modèle de déploiement** | **Prise en charge / Non prise en charge** | **Remarques**  
---- | --- | ---
-**Classique** | Prise en charge | Vous pouvez uniquement répliquer une machine virtuelle classique et la récupérer en tant que machine virtuelle classique. Vous ne pouvez pas la récupérer en tant que machine virtuelle Resource Manager. Si vous déployez une machine virtuelle classique sans réseau virtuel directement vers une région Azure, elle n’est pas prise en charge.
-**Resource Manager** | Prise en charge |
-
->[!NOTE]
->
-> 1. La réplication de machines virtuelles Azure d’un abonnement sur l’autre pour les scénarios de récupération d’urgence n’est pas prise en charge.
-> 2. La migration de machines virtuelles Azure entre abonnements n’est pas prise en charge.
-> 3. La migration de machines virtuelles Azure dans la même région n’est pas prise en charge.
-> 4. La migration de machines virtuelles Azure du modèle de déploiement Classic au modèle de déploiement Resource Manager n’est pas prise en charge.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Prise en charge des versions de système d’exploitation de machine répliquée
 
@@ -146,6 +133,13 @@ Chine | Est de la Chine, Nord de la Chine
 >
 > Pour la région Sud du Brésil, vous pouvez uniquement effectuer une réplication et un basculement vers les régions Sud-Centre des États-Unis, Ouest-Centre des États-Unis, Est des États-Unis, Est des États-Unis 2, Ouest des États-Unis, Ouest des États-Unis 2 et Nord-Centre des États-Unis, puis effectuer une restauration automatique.
 
+## <a name="support-for-vmdisk-management"></a>Prise en charge de la gestion des machines virtuelles/disques
+
+**Action** | **Détails**
+-- | ---
+Redimensionner le disque sur la machine virtuelle répliquée | Pris en charge
+Ajouter un disque à la machine virtuelle répliquée | Non pris en charge. Vous devez désactiver la réplication pour la machine virtuelle, ajouter le disque, puis réactiver la réplication.
+
 
 ## <a name="support-for-compute-configuration"></a>Prise en charge de la configuration de calcul
 
@@ -174,7 +168,7 @@ Disques sur des comptes de stockage Premium | Prise en charge | Si une machine v
 Disques gérés Standard | Pris en charge dans les régions Azure dans lesquelles Azure Site Recovery est pris en charge. |  
 Disques gérés Premium | Pris en charge dans les régions Azure dans lesquelles Azure Site Recovery est pris en charge. |
 Espaces de stockage | Prise en charge |         
-Chiffrement au repos (SSE) | Prise en charge | SSE est le paramètre par défaut sur les comptes de stockage.   
+Chiffrement au repos (SSE) | Pris en charge | SSE est le paramètre par défaut sur les comptes de stockage.   
 Azure Disk Encryption (ADE) | Non pris en charge |
 Ajout/suppression de disque à chaud | Non pris en charge | Si vous ajoutez ou supprimez un disque de données sur la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
 Exclure le disque | Non pris en charge|   Le disque temporaire est exclu par défaut.

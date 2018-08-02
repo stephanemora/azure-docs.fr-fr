@@ -9,29 +9,27 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5783a7a06d75a409969abad011de3bbd31dec292
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368737"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085757"
 ---
 # <a name="text-moderation"></a>Modération de texte
 
-Utilisez la modération du texte assistée par ordinateur et les fonctionnalités à [intervention humaine](Review-Tool-User-Guide/human-in-the-loop.md) de Content Moderator pour modérer le contenu du texte.
+Utilisez la modération du texte assistée par ordinateur et les fonctionnalités de [révision par des humains](Review-Tool-User-Guide/human-in-the-loop.md) de Content Moderator pour modérer le contenu du texte.
 
-Les entreprises utilisent le service de modération du texte pour bloquer, approuver ou réviser le contenu en fonction de leurs stratégies et de leurs seuils. Le service de modération du texte peut être utilisé pour augmenter la modération humaine des environnements qui exigent des partenaires, des employés et des consommateurs qu’ils génèrent du contenu de texte. Ces environnements incluent notamment les salles de conversation, les forums de discussion, les bots conversationnels, les catalogues de commerce électronique et les documents. 
-
-L’API analyse le texte entrant (au maximum 1 024 caractères) pour détecter les propos injurieux, classe le texte indésirable possible (préversion), corrige automatiquement le texte et détecte les éventuelles informations d’identification personnelle (PII). Elle met également en correspondance des listes personnalisées de termes. La fonctionnalité de correction automatique permet d’intercepter les mots délibérément mal orthographiés. Une fois le contenu traité, le service retourne une réponse détaillée. Vous pouvez utiliser cette réponse pour créer une révision par un opérateur humain dans l’outil de révision ou la noter, etc.
+Vous bloquez, approuvez ou révisez le contenu en fonction de vos stratégies et de vos seuils. Utilisez-le pour augmenter la modération humaine dans des environnements où des partenaires, des employés et des consommateurs de génèrent du contenu de texte. Ces environnements incluent notamment les salles de conversation, les forums de discussion, les bots conversationnels, les catalogues d’e-commerce et les documents. 
 
 La réponse du service inclut les informations suivantes :
 
-- Propos injurieux : correspondance basée sur des termes avec une liste prédéfinie de termes injurieux dans plusieurs langues
+- Vulgarité : correspondance basée sur des termes avec une liste prédéfinie de termes injurieux dans différentes langues
 - Classification : classification en trois catégories assistée par ordinateur
 - Informations d’identification personnelle (PII)
 - Texte corrigé automatiquement
 - Texte d’origine
-- Langue
+- Langage
 
 ## <a name="profanity"></a>Propos injurieux
 
@@ -50,14 +48,11 @@ Si l’API détecte des termes injurieux dans l’une des [langues prises en cha
 >
 > Pour la détection des **termes injurieux**, utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez le paramètre vide.
 
-## <a name="classification"></a>Classification
+## <a name="classification"></a>classification ;
 
-La **fonctionnalité de classification de texte** assistée par ordinateur de Content Moderator, qui prend en charge **uniquement l’anglais**, permet de détecter le contenu potentiellement indésirable. Le contenu marqué d’un indicateur peut être jugé comme inapproprié en fonction du contexte. En plus d’exprimer la probabilité de chaque catégorie, elle peut recommander une révision du contenu par un opérateur humain. Cette fonctionnalité utilise un modèle entraîné pour identifier un langage potentiellement abusif, dépréciatif ou discriminatoire. Cela inclut l’argot, les mots abrégés, les mots offensants et les mots intentionnellement mal orthographiés à réviser. 
+La **fonctionnalité de classification de texte** assistée par ordinateur de Content Moderator, qui prend en charge **uniquement l’anglais**, permet de détecter le contenu potentiellement indésirable. Le contenu marqué d’un indicateur peut être considéré comme inapproprié en fonction du contexte. La classification de texte informe de cette probabilité pour chaque catégorie et peut vous recommander une révision par des humains. Cette fonctionnalité utilise un modèle entraîné pour identifier un langage potentiellement abusif, dépréciatif ou discriminatoire. Cela inclut l’argot, les mots abrégés, les mots offensants et les mots intentionnellement mal orthographiés à réviser. 
 
 L’extrait suivant de l’extrait de code JSON présente un exemple de sortie :
-
-> [!NOTE]
-> La fonctionnalité « Classification » assistée par ordinateur est en préversion.
 
     "Classification": {
         "ReviewRecommended": true,
@@ -74,9 +69,9 @@ L’extrait suivant de l’extrait de code JSON présente un exemple de sortie :
 
 ### <a name="explanation"></a>Explication
 
-- `Category1` représente la présence de langage pouvant être considéré comme sexuellement explicite ou réservé aux adultes dans certaines situations.
-- `Category2` représente la présence de langage pouvant être considéré comme sexuellement suggestif ou réservé aux adultes dans certaines situations.
-- `Category3` représente la présence de langage pouvant être considéré comme choquant dans certaines situations.
+- `Category1` se réfère à la présence potentielle de langage pouvant être considéré comme sexuellement explicite ou réservé aux adultes dans certaines situations.
+- `Category2` se réfère à la présence potentielle de langage pouvant être considéré comme sexuellement suggestif ou réservé aux adultes dans certaines situations.
+- `Category3` se réfère à la présence potentielle de langage pouvant être considéré comme choquant dans certaines situations.
 - `Score` est compris entre 0 et 1. Plus le score est élevé, plus le modèle prédit que la catégorie peut être applicable. Cette préversion s’appuie sur un modèle statistique plutôt que sur des résultats codés manuellement. Nous vous recommandons d’effectuer le test avec votre propre contenu afin de déterminer comment chaque catégorie correspond à vos besoins.
 - La valeur de `ReviewRecommended` est true ou false, selon les seuils de score internes. Les clients doivent évaluer l’opportunité d’utiliser cette valeur ou choisir des seuils personnalisés en fonction de leurs stratégies de contenu.
 
@@ -151,7 +146,7 @@ Si vous demandez la correction automatique, la réponse contient la version corr
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Création et gestion de vos listes personnalisées de termes
 
-Bien que la liste globale par défaut de termes fonctionne parfaitement pour la plupart des cas, vous pouvez passer au crible un texte pour détecter des termes qui sont spécifiques à vos besoins professionnels. Vous pouvez, par exemple, filtrer tous les noms de marques de concurrents dans des posts d’utilisateurs. Le seuil du contenu de texte autorisé peut être différent de la liste par défaut.
+Bien que la liste globale par défaut de termes fonctionne parfaitement pour la plupart des cas, vous pouvez passer au crible un texte pour détecter des termes qui sont spécifiques à vos besoins professionnels. Vous pouvez, par exemple, filtrer tous les noms de marques de concurrents dans des posts d’utilisateurs.
 
 > [!NOTE]
 > Il existe une limite maximale de **5 listes de termes**, chaque liste ne devant **pas dépasser 10 000 termes**.
@@ -171,4 +166,4 @@ Content Moderator fournit une [API de liste de termes](https://westus.dev.cognit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Évaluez la [Console d’API Modération du texte](try-text-api.md) et utilisez les exemples de code API REST. Consultez également le [démarrage rapide .NET de API de modération du texte](text-moderation-quickstart-dotnet.md) si vous connaissez déjà Visual Studio et C#.
+Évaluez la [Console d’API Modération du texte](try-text-api.md) et utilisez les exemples de code API REST. Consultez également le [démarrage rapide .NET de l’API de modération du texte](text-moderation-quickstart-dotnet.md) si vous connaissez déjà Visual Studio et C#.

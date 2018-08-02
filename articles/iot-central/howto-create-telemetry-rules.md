@@ -8,12 +8,12 @@ ms.date: 04/16/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: 083410c6407ce7aa83c3829f884890561b0b44b8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 42516e4dd6a85e0d07d4a8e70e958b2ec6e84aad
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008210"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225198"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Créer une règle de télémétrie et configurer une action dans votre application Azure IoT Central
 
@@ -60,7 +60,9 @@ Cette section vous montre comment ajouter une condition pour surveiller la tél�
 
 ### <a name="add-an-action"></a>Ajouter une action
 
-Cette section vous montre comment ajouter une action à une règle. Cet exemple montre comment ajouter l’action d’envoi d’e-mail, mais vous pouvez également [ajouter une action Microsoft Flow](howto-add-microsoft-flow.md) à votre règle pour lancer un flux de travail dans Microsoft Flow quand la règle est déclenchée.
+Cet exemple montre comment ajouter une action à une règle. Il montre comment ajouter l’action d’e-mail, mais vous pouvez également ajouter d’autres actions :
+-  [Action Microsoft Flow](howto-add-microsoft-flow.md) pour lancer un workflow dans Microsoft Flow quand une règle est déclenchée
+- [Action de Webhook](howto-create-webhooks.md) pour informer d’autres services quand une règle est déclenchée
 
 > [!NOTE]
 > Actuellement, vous ne pouvez associer qu’une seule action à une même règle.

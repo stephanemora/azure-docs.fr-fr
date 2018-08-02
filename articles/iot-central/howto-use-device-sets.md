@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261676"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206069"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utiliser des ensembles d’appareils dans votre application Azure IoT Central
 
@@ -112,13 +112,13 @@ Pour ajouter une carte des emplacements à votre tableau de bord d’ensembles d
     ![Enregistrer les cartes du tableau de bord](media/howto-use-device-sets/LocationMaps3.png)
 
 
-5. À présent, lorsqu’un opérateur affiche le tableau de bord des ensembles d’appareils, il peut voir toutes les mosaïques que vous avez configurées, y compris la carte des emplacements, et visualiser ainsi en un clin d’œil l’emplacement de tous les appareils.
+5. À présent, lorsqu’un opérateur affiche le tableau de bord des ensembles d’appareils, il peut voir toutes les mosaïques que vous avez configurées, y compris la carte des emplacements, et visualiser ainsi en un clin d’œil l’emplacement de tous les appareils. 
 
     ![Affichage des emplacements sur le tableau de bord de l’opérateur](media/howto-use-device-sets/LocationMaps4.png)
 
-    Vous ne pourrez pas redimensionner la carte à la taille désirée.
+    Vous pouvez redimensionner la carte à la taille désirée.
 
-
+    Un clic sur une épingle sur la carte affiche les informations sur l’appareil, ainsi que son nom et son emplacement. Vous pouvez cliquer sur le menu contextuel pour accéder à la page de propriétés de l’appareil.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurer la liste pour votre ensemble d’appareils

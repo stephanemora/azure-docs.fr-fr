@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: edafc2e0c11f4395540081e4b09614f2beb70696
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f1616f7a20fdd55b98b3bfb37973a783997e2eb0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115923"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145238"
 ---
 # <a name="grow-your-business-on-marketplace"></a>Développer votre activité sur la place de marché 
 Une fois que vous avez publié votre offre sur AppSource ou à la Place de marché Azure, vous pouvez utiliser votre annonce comme une plateforme de lancement d’activités de mise sur le marché (GTM, Go-To-Market) en partenariat avec Microsoft. Diriger le trafic vers votre offre sur la place de marché et renforcer votre relation avec les prospects de la place de marché, par exemple, sont des méthodes efficaces permettant d’accélérer le développement de votre activité. Dans cet article, nous partagerons de nombreuses bonnes pratiques marketing permettant de développer votre activité sur la place de marché.
@@ -186,8 +186,8 @@ Les activités fournies par Microsoft diffèrent selon l’état de votre soluti
 
 | Vitrine | Autres avantages disponibles |
 |:--- |:--- |   
-| AppSource | <table> <tr><td>Partenaires Microsoft Gold</td></tr> <tr><td>Applications d’essai</td></tr> </table> |  
-| Place de marché Azure | <table> <tr><td>Offres de transaction</td></tr> <tr><td>Offres d’essai</td></tr> </table> | 
+| AppSource | <table> <tr><td>Partenaires Microsoft Gold</td></tr> <tr><td>Applications d’évaluation</td></tr> </table> |  
+| Place de marché Azure | <table> <tr><td>Offres de transaction</td></tr> <tr><td>Offres d’évaluation</td></tr> </table> | 
 
 
 Pour optimiser l’impact de ces activités, il est préférable selon Microsoft que votre plan de lancement soit prêt à être mis en œuvre. Vous pouvez utiliser votre page d’accueil pour un grand nombre de vos tactiques de lancement.
@@ -215,7 +215,7 @@ Afin de promouvoir votre offre ou application, utilisez le tableau suivant pour 
 | Adhérer au programme IP Co-Sell Ready | Vous pouvez être éligible au programme de co-vente IP Co-Sell Ready, qui vous permet de collaborer directement avec des vendeurs Microsoft et d’autres partenaires sur des opportunités client cibles ou dans le cadre de la planification de comptes. Votre solution devient visible pour les vendeurs Microsoft dans leurs catalogues de solutions. Les vendeurs Microsoft sont récompensés pour leur collaboration et réussite avec vous.<br /> Pour plus d’informations sur l’état de préparation à la co-vente, y compris les conditions d’éligibilité, consultez [Promouvoir votre entreprise](https://partner.microsoft.com/reach-customers/promote-your-business). |
 
 
-# <a name="azure-partner-revenue-attribution"></a>Attribution des recettes des partenaires Azure
+## <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
 En tant que partenaire en logiciels pour Azure, vos solutions requièrent les composants Azure ou sont déployées directement sur l’infrastructure Azure.  Aujourd'hui, lorsqu’une solution de partenaire est déployée par le client et utilise des ressources Azure provisionnées par le client, il est difficile pour le partenaire d’améliorer sa visibilité de l’état de ces déploiements et de percevoir l’impact sur la croissance d’Azure pour s’aligner sur les équipes de vente Microsoft et le crédit pour les programmes partenaires Microsoft.   
 
@@ -291,8 +291,6 @@ client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
 
 >Cela doit être fait pour chaque client, il n’existe aucune configuration statique globale (vous pouvez avoir recours à une fabrique de clients pour vous assurer que chaque client procède ainsi). 
 >[Informations de référence supplémentaires](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
-
-## <a name="registering-a-guid"></a>Enregistrement d'un GUID : 
 
 Comment baliser un déploiement en utilisant Azure PowerShell ou l’interface de ligne de commande Azure : si vous déployez des ressources via Azure PowerShell, vous pouvez ajouter votre GUID à l’aide de la méthode suivante :
 
@@ -398,11 +396,14 @@ Lorsque vous déployez notre logiciel, Microsoft peut identifier l’installatio
 
 Pour obtenir une assistance, veuillez suivre les étapes ci-dessous :
  1. Consultez la page de support à l’adresse [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
- 2. Pour des problèmes d’association d’utilisation – sélectionnez le type de problème : **Intégration sur la place de marché** et la catégorie : **Autre**, puis cliquez sur **Envoyer une demande**.
-
-Pour des problèmes liés à l’accès au portail Cloud Partner de la Place de marché Azure – sélectionnez le type de problème : **Intégration sur la place de marché** et la catégorie : **Problème d’accès**, puis cliquez sur **Envoyer une demande**.
+ 2. Pour des problèmes d’association d’utilisation – sélectionnez le type de problème : **Intégration sur la place de marché** et la catégorie : **Autre**, puis cliquez sur **Envoyer une demande**. 
+>[!Note]
+>Pour des problèmes liés à l’accès au portail Cloud Partner de la Place de marché Azure – sélectionnez le type de problème : **Intégration sur la place de marché** et la catégorie : **Problème d’accès**, puis cliquez sur **Envoyer une demande**.
  3. Renseignez les champs requis à la page suivante, puis cliquez sur **Continuer**.
  4. Renseignez les champs de texte libres à la page suivante.  
+ 
+
+
  
 >[!Important] 
 >Renseignez le Titre de l’incident en spécifiant **« Suivi de l’utilisation ISV »** et décrivez votre problème en détail dans le champ de texte libre volumineux qui suit.  Complétez le reste du formulaire et cliquez sur **Envoyer**.

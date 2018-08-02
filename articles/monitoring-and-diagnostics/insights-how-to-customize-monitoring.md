@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: robb
 ms.component: metrics
-ms.openlocfilehash: 878ba004e7572ad78f574c15fd76c8868b281117
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 44daf6461a062e75435ec6f70fbc3cf10327e799
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262254"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213042"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Tous les services Azure assurent le suivi des mesures clés qui vous permettent de surveiller l’intégrité, les performances, la disponibilité et l'utilisation de vos services. Vous pouvez afficher ces mesures dans le portail Azure, et utiliser [l’API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou le [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) pour accéder à l'ensemble des mesures par programmation.
@@ -43,7 +43,7 @@ Grâce au niveau élevé de personnalisation du portail, vous pouvez ajouter aut
 
 1. Dans le menu **...**, situé en haut du panneau, cliquez sur **Ajouter des vignettes** :  
     ![Ajouter un menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. Vous pouvez ensuite sélectionner un graphique à partir de la **Galerie**, située sur le côté droit de l’écran : ![Galerie](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. Vous pouvez ensuite sélectionner un graphique à partir de la **Galerie**, située sur la droite : ![Galerie](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Si vous ne voyez pas les mesures souhaitées, vous pouvez toujours ajouter une des mesures prédéfinies et **Modifier** le graphique pour afficher les mesures dont vous avez besoin.
 
 ## <a name="monitoring-usage-quotas"></a>Surveillance des quotas d'utilisation

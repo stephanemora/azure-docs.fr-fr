@@ -11,24 +11,47 @@ ms.topic: article
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: douge
-ms.openlocfilehash: 4dee39b56cf0f6494f6e79c70b85bbf711d33d65
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044592"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247318"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
 Ce guide contient des informations sur les problèmes courants que vous êtes susceptible de rencontrer en utilisant Azure Dev Spaces.
 
+## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Erreur « Échec de la création du contrôleur Azure Dev Spaces »
+
+Vous pouvez voir cette erreur lorsqu’il y a un problème de création du contrôleur. Dans le cas d’une erreur temporaire, la suppression puis la recréation du contrôleur suffisent pour la corriger.
+
+### <a name="try"></a>Essayez de procéder comme suit :
+
+Pour supprimer le contrôleur, utilisez Azure Dev Spaces CLI. Il n’est pas possible de le faire dans Visual Studio ou dans Cloud Shell. Pour installer AZDS CLI, installez tout d’abord Azure CLI, puis exécutez cette commande :
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+Exécutez ensuite cette commande pour supprimer le contrôleur :
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+La recréation du contrôleur est possible à partir de CLI ou de Visual Studio. Suivez les instructions dans les tutoriels, comme si vous démarriez pour la première fois.
+
+
 ## <a name="error-service-cannot-be-started"></a>Erreur « Impossible de démarrer le service »
 
 Vous pouvez voir cette erreur lorsque votre code de service ne parvient pas à démarrer. La cause se trouve souvent dans le code utilisateur. Pour obtenir plus d’informations de diagnostic, apportez les modifications suivantes à vos commandes et paramètres :
 
+### <a name="try"></a>Essayez de procéder comme suit :
+
 Sur la ligne de commande :
 
-1. Lorsque vous vous servez de _azds.exe_, utilisez l’option de ligne de commande --verbose, et l’option de ligne de commande --output pour spécifier le format de sortie.
+Lorsque vous vous servez de _azds.exe_, utilisez l’option de ligne de commande --verbose, et l’option de ligne de commande --output pour spécifier le format de sortie.
  
     ```cmd
     azds up --verbose --output json

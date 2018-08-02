@@ -10,18 +10,18 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2efea8054320323df0e0eb603a20a5773d03cad8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0138b44141bb64671ed2feb522c4b7fa14cab696
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676619"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213314"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Connecter Intel Edison à Azure IoT Hub (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux de l’utilisation d’Intel Edison. Vous apprenez ensuite à connecter en toute transparence vos appareils au cloud avec [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
+Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux de l’utilisation d’Intel Edison. Vous apprenez ensuite à connecter en toute transparence vos appareils au cloud avec [Azure IoT Hub](about-iot-hub.md).
 
 Vous n’avez pas encore de kit ? Démarrer [ici](https://azure.microsoft.com/develop/iot/starter-kits)
 
@@ -167,7 +167,7 @@ Consultez [ce lien](https://software.intel.com/en-us/iot/hardware/edison/downloa
 
    ![Connexion au capteur de température](media/iot-hub-intel-edison-kit-c-get-started/12_configuration_tool.png)
 
-Félicitations ! Vous avez réussi à configurer Edison.
+Félicitations ! Vous avez réussi à configurer Edison.
 
 ## <a name="run-a-sample-application-on-intel-edison"></a>Exécution d’un exemple d’application sur Intel Edison
 

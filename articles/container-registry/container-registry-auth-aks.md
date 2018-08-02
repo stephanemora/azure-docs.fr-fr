@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: marsma
-ms.openlocfilehash: ca05e5091d5c96a1a0c2373404e8a6dff5802ffb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b56f2a8b2ae8cf04b8c27ab657be3f4d77ee7402
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968401"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205389"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service
 
@@ -45,7 +45,7 @@ az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Accès à l’aide d’une clé secrète Kubernetes
 
-Dans certains cas, vous ne pourrez peut-être pas assigner le rôle requis au principal du service AKS généré automatiquement lui accordant l’accès à ACR. Par exemple, en raison du modèle de sécurité de votre organisation, vous ne disposez peut-être pas des autorisations suffisantes dans votre annuaire Azure AD pour assigner un rôle au principal du service généré par AKS. Dans ce cas, vous pouvez créer un nouveau principal du service, puis lui accorder l’accès au registre de conteneurs à l’aide d’un secret de tirage (pull) d’image Kubernetes.
+Dans certains cas, vous ne pourrez peut-être pas assigner le rôle requis au principal du service AKS généré automatiquement lui accordant l’accès à ACR. Par exemple, en raison du modèle de sécurité de votre organisation, vous ne disposez peut-être pas d’autorisations suffisantes dans votre annuaire Azure AD pour assigner un rôle au principal du service généré par AKS. Dans ce cas, vous pouvez créer un nouveau principal du service, puis lui accorder l’accès au registre de conteneurs à l’aide d’un secret de tirage (pull) d’image Kubernetes.
 
 Utilisez le script suivant pour créer un nouveau principal du service (vous allez utiliser ses informations d’identification pour le secret de tirage (pull) d’image Kubernetes). Modifiez la variable `ACR_NAME` de votre environnement avant d’exécuter le script.
 
@@ -59,10 +59,10 @@ SERVICE_PRINCIPAL_NAME=acr-service-principal
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
-# Create a contributor role assignment with a scope of the ACR resource.
+# Create a 'Reader' role assignment with a scope of the ACR resource.
 SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
-# Get the service principle client id.
+# Get the service principal client id.
 CLIENT_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
 
 # Output used when creating Kubernetes secret.

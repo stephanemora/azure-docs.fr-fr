@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c36a9798718c37fba889323830b76cf8201785cf
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261897"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205746"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connecter un appareil Windows IoT Core à votre application Azure IoT Central
 
@@ -26,31 +26,17 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 1. Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer votre application Azure IoT Central](howto-create-application.md).
 2. Un appareil exécutant le système d’exploitation Windows 10 IoT Core. Pour cette procédure pas à pas, nous utilisons un appareil Raspberry Pi.
 
-Une application créée à partir du modèle d’application **Exemples de Devkits** présente un modèle d’appareil **Windows IoT Core** avec les caractéristiques suivantes :
 
-### <a name="telemetry-measurements"></a>Mesures de télémétrie
+## <a name="sample-devkits-application"></a>**Exemple d’application Devkits**
 
-| Nom du champ     | Units  | Minimale | Maximale | Nombre de décimales |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1 260    | 0              |
+Une application créée à partir du modèle d’application **Exemples de Devkits** présente un modèle d’appareil **Windows IoT Core** avec les caractéristiques suivantes : 
 
-### <a name="settings"></a>Paramètres
-
-Paramètres numériques
-
-| Nom complet | Nom du champ | Units | Nombre de décimales | Minimale | Maximale | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Vitesse du ventilateur    | fanSpeed   | TR/MIN   | 0              | 0       | 1 000    | 0       |
+- Données de télémétrie qui contiennent les mesures d’**humidité**, de **température** et de **pression** de l’appareil. 
+- Paramètres montrant la **vitesse du ventilateur**.
+- Propriétés contenant la propriété d’appareil **Numéro gravé** et la propriété cloud **Emplacement**.
 
 
-### <a name="properties"></a>properties
-
-| type            | Nom complet | Nom du champ | Type de données |
-| --------------- | ------------ | ---------- | --------- |
-| Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
-| Texte            | Lieu     | location   | N/A       |
+Pour plus d’informations sur la configuration du modèle d’appareil, consultez [Détails de modèle d’appareil Windows IoT Core](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details).
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
@@ -106,3 +92,31 @@ Si vous voulez explorer et modifier le code source de l’application cliente, v
 
 > [!NOTE]
 > Si **git** n’est pas installé dans votre environnement de développement, vous pouvez le télécharger à partir de [https://git-scm.com/download](https://git-scm.com/download).
+
+## <a name="windows-iot-core-device-template-details"></a>Détails de modèle d’appareil Windows IoT Core
+
+Une application créée à partir du modèle d’application **Exemples de Devkits** présente un modèle d’appareil **Windows IoT Core** avec les caractéristiques suivantes :
+
+### <a name="telemetry-measurements"></a>Mesures de télémétrie
+
+| Nom du champ     | Units  | Minimale | Maximale | Nombre de décimales |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humidité       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pression       | hPa    | 260     | 1 260    | 0              |
+
+### <a name="settings"></a>Paramètres
+
+Paramètres numériques
+
+| Nom complet | Nom du champ | Units | Nombre de décimales | Minimale | Maximale | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Vitesse du ventilateur    | fanSpeed   | TR/MIN   | 0              | 0       | 1 000    | 0       |
+
+
+### <a name="properties"></a>properties
+
+| type            | Nom complet | Nom du champ | Type de données |
+| --------------- | ------------ | ---------- | --------- |
+| Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
+| Texte            | Lieu     | location   | N/A       |

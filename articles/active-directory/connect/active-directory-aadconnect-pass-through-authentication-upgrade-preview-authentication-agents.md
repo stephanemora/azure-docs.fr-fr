@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e955973008f1ba3900deb691426d0409440ad08a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917725"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214725"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Connect : authentification directe - mise à niveau de la version préliminaire des agents d’authentification
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article est destiné aux clients utilisant l’authentification directe Azure AD directe via l’aperçu. Nous avons récemment mis à niveau le logiciel de l’agent d’authentification (tout en changeant son nom). Vous devez procéder à la mise à niveau _manuelle_ de la version préliminaire des agents d’authentification sur vos serveurs locaux. Cette mise à niveau manuelle s’effectue une seule fois. Toutes les futures mises à jour des agents d’authentification sont automatiques. Vous pouvez effectuer la mise à niveau pour les raisons suivantes :
 
@@ -51,7 +51,7 @@ Pour vérifier les versions de vos Agents d’authentification sur chaque serveu
 
 1. Accédez à **panneau de configuration -> Programmes -> Programmes et fonctionnalités** sur le serveur local.
 2. S’il existe une entrée pour «**Agent d’authentification Microsoft Azure AD Connect**», vous n’avez pas besoin d’entamer une action sur ce serveur.
-3. S’il existe une entrée pour «**connecteur Proxy d’Application Microsoft Azure AD**», les versions 1.5.132.0 ou version antérieure, vous devez effectuer une mise à jour manuelle sur ce serveur.
+3. S’il existe une entrée pour « **Microsoft Azure AD Application Proxy Connector** » (Connecteur de proxy d’application Microsoft Azure AD), vous devez effectuer une mise à niveau manuelle sur ce serveur.
 
 ![Version préliminaire de l’agent d’authentification](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 
@@ -60,7 +60,7 @@ Pour vérifier les versions de vos Agents d’authentification sur chaque serveu
 Avant la mise à niveau, vérifiez que les éléments suivants sont en place :
 
 1. **Créer le compte d’administrateur général uniquement dans le cloud**: ne pas mettre à niveau sans avoir un compte d’administrateur général uniquement dans le cloud à utiliser en cas d’urgence, lorsque vos agents d’authentification directe ne fonctionnent pas correctement. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette étape est essentielle pour éviter que votre locataire ne soit verrouillé.
-2.  **Garantir une haute disponibilité** : si l’installation précédente a échoué, installez un deuxième agent d’authentification autonome pour fournir une haute disponibilité pour les demandes de connexion, à l’aide de ces [instructions](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+2.  **Garantir une haute disponibilité** : si l’installation précédente a échoué, installez un deuxième agent d’authentification autonome pour fournir une haute disponibilité pour les demandes de connexion, à l’aide de ces [instructions](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Mise à niveau de l’agent d’authentification sur votre serveur Azure AD Connect
 

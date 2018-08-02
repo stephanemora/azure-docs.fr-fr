@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b89ab77b1cd97fd501a754dbf41d1aa74ef118d9
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126658"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144990"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les Restrictions du client pour gérer l’accès aux applications cloud SaaS
 
@@ -97,7 +97,7 @@ Par exemple, un utilisateur sur le réseau Contoso tente d’accéder à l’ins
 
 Bien que la configuration des Restrictions du client est effectuée sur l’infrastructure du proxy d’entreprise, les administrateurs peuvent accéder aux rapports sur les Restrictions du client directement dans le portail Azure. Pour afficher les rapports, accédez à la page de présentation Azure Active Directory, puis à « Autres fonctionnalités ».
 
-L’administrateur du client spécifié en tant que client Restricted-Access-Context peut utiliser ce rapport pour afficher toutes les connexions bloquées en raison de la stratégie Restrictions du client, notamment l’identité utilisée et l’ID du répertoire cible.
+L’administrateur du client spécifié en tant que client Restricted-Access-Context peut utiliser ce rapport pour afficher les connexions bloquées en raison de la stratégie Restrictions du client, notamment l’identité utilisée et l’ID du répertoire cible. Les connexions sont incluses si le client définissant la restriction est le client de l’utilisateur, ou le client de la ressource pour la connexion.
 
 ![Utiliser le portail Azure pour afficher les tentatives de connexion limitées](./media/tenant-restrictions/portal-report.png)
 

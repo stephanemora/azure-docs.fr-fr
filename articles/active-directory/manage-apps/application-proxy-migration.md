@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cf1c39d0270dcb7de3ae8ff487b21874b23db74a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c4ecb812156eae7402065cff4dc4bae3aef1554b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161522"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365173"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparer les solutions d’accès à distance
 
@@ -33,21 +33,21 @@ Ce tableau vous permettra de comparer les solutions Threat Management Gateway (T
 
 | Fonctionnalité | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Authentification par certificat | OUI | OUI | - | - |
-| Publier de manière sélective les applications de navigateur | OUI | OUI | OUI | OUI |
-| Préauthentification et authentification unique | OUI | OUI | OUI | OUI | 
-| Pare-feu de couche 2/3 | OUI | OUI | - | - |
-| Transférer des fonctionnalités de proxy | OUI | - | - | - |
-| Fonctionnalités VPN | OUI | OUI | - | - |
-| Prise en charge du protocole riche | - | OUI | Oui, en cas d’exécution sur HTTP | Oui, en cas d’exécution sur HTTP ou via la passerelle des services Bureau à distance |
-| Sert de serveur proxy AD FS | - | OUI | OUI | - |
-| Un portail pour l’accès de l’application | - | OUI | - | OUI |
-| Traduction du lien de corps de réponse | OUI | OUI | - | OUI | 
-| Authentification avec des en-têtes | - | OUI | - | Oui, avec PingAccess | 
-| Sécurité à l’échelle du cloud | - | - | - | OUI | 
-| Accès conditionnel | - | OUI | - | OUI |
-| Aucun composant dans la zone démilitarisée (DMZ) | - | - | - | OUI |
-| Aucune connexion entrante | - | - | - | OUI |
+| Authentification par certificat | Oui | Oui | - | - |
+| Publier de manière sélective les applications de navigateur | Oui | OUI | OUI | Oui |
+| Préauthentification et authentification unique | Oui | OUI | OUI | Oui | 
+| Pare-feu de couche 2/3 | Oui | Oui | - | - |
+| Transférer des fonctionnalités de proxy | Oui | - | - | - |
+| Fonctionnalités VPN | Oui | Oui | - | - |
+| Prise en charge du protocole riche | - | Oui | Oui, en cas d’exécution sur HTTP | Oui, en cas d’exécution sur HTTP ou via la passerelle des services Bureau à distance |
+| Sert de serveur proxy AD FS | - | Oui | Oui | - |
+| Un portail pour l’accès de l’application | - | Oui | - | Oui |
+| Traduction du lien de corps de réponse | Oui | OUI | - | Oui | 
+| Authentification avec des en-têtes | - | Oui | - | Oui, avec PingAccess | 
+| Sécurité à l’échelle du cloud | - | - | - | Oui | 
+| Accès conditionnel | - | Oui | - | Oui |
+| Aucun composant dans la zone démilitarisée (DMZ) | - | - | - | Oui |
+| Aucune connexion entrante | - | - | - | Oui |
 
 Pour la plupart des scénarios, nous vous recommandons d’utiliser la solution moderne de proxy d’application Azure AD. Le proxy d’application Web est uniquement recommandé dans les scénarios qui requièrent un serveur proxy pour AD FS, et que vous ne pouvez pas utiliser de domaines personnalisés dans Azure Active Directory. 
 

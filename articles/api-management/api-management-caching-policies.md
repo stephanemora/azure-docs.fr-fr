@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: f3734304bdcc4b3f0944ebf568094595eea01a4e
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26344820"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214898"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -43,7 +43,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 > [!NOTE]
 >  Cette stratégie doit avoir une stratégie [Store to cache](api-management-caching-policies.md#StoreToCache) correspondante.  
   
-### <a name="policy-statement"></a>Déclaration de stratégie  
+### <a name="policy-statement"></a>Instruction de la stratégie  
   
 ```xml  
 <cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
@@ -62,7 +62,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="examples"></a>Exemples  
   
-#### <a name="example"></a>Exemple  
+#### <a name="example"></a>Exemples  
   
 ```xml  
 <policies>  
@@ -80,7 +80,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Exemple utilisant des expressions de stratégie  
- Cet exemple montre comment configurer la durée de mise en cache des réponses de Gestion des API qui correspond à la mise en cache de la réponse du service principal comme spécifié par la directive `Cache-Control` du service sauvegardé. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Plus de fonctionnalités de Gestion des API) avec Vlad Vinogradsky et rendez-vous directement à 25’25’’.  
+ Cet exemple montre comment configurer la durée de mise en cache des réponses de Gestion des API qui correspond à la mise en cache de la réponse du service principal, comme spécifié par la directive `Cache-Control` du service sauvegardé. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Plus de fonctionnalités de Gestion des API) avec Vlad Vinogradsky et rendez-vous directement à 25’25’’.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
@@ -104,26 +104,26 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Nom|Description|Requis|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |cache-lookup|Élément racine.|Oui|  
-|vary-by-header|Commence par mettre en cache les réponses selon la valeur d’en-tête spécifiée, telle que Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match.|Non|  
-|vary-by-query-parameter|Commencer la mise en cache des réponses selon la valeur des paramètres de requête spécifiés. Entrez un ou plusieurs paramètres. Utilisez un point-virgule comme séparateur. Si vous n’en spécifiez aucun, tous les paramètres de la requête sont utilisés.|Non|  
+|vary-by-header|Commence par mettre en cache les réponses selon la valeur d’en-tête spécifiée, telle que Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match.|Non |  
+|vary-by-query-parameter|Commencer la mise en cache des réponses selon la valeur des paramètres de requête spécifiés. Entrez un ou plusieurs paramètres. Utilisez un point-virgule comme séparateur. Si vous n’en spécifiez aucun, tous les paramètres de la requête sont utilisés.|Non |  
   
 ### <a name="attributes"></a>Attributs  
   
-|Nom|Description|Requis|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|allow-private-response-caching|Lorsque l’attribut est défini sur `true`, permet la mise en cache des requêtes qui contiennent un en-tête d’autorisation.|Non|false|  
-|downstream-caching-type|Cet attribut doit avoir l’une des valeurs suivantes.<br /><br /> - none : la mise en cache en aval n’est pas autorisée.<br />- private : la mise en cache privée en aval est autorisée.<br />- public : la mise en cache privée et partagée en aval est autorisée.|Non|Aucun|  
-|must-revalidate|Lorsque la mise en cache en aval est activée, cet attribut active ou désactive la directive de contrôle de cache `must-revalidate` dans les réponses de la passerelle.|Non|true|  
+|allow-private-response-caching|Lorsque l’attribut est défini sur `true`, permet la mise en cache des requêtes qui contiennent un en-tête d’autorisation.|Non |false|  
+|downstream-caching-type|Cet attribut doit avoir l’une des valeurs suivantes.<br /><br /> - none : la mise en cache en aval n’est pas autorisée.<br />- private : la mise en cache privée en aval est autorisée.<br />- public : la mise en cache privée et partagée en aval est autorisée.|Non |Aucun|  
+|must-revalidate|Lorsque la mise en cache en aval est activée, cet attribut active ou désactive la directive de contrôle de cache `must-revalidate` dans les réponses de la passerelle.|Non |true|  
 |vary-by-developer|Attribut défini sur `true` pour mettre en cache des réponses par clé de développeur.|Oui||  
 |vary-by-developer-groups|Attribut défini sur `true` pour mettre en cache des réponses par rôle d’utilisateur.|Oui||  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
--   **Sections de la stratégie :** inbound (entrant)  
+-   **Sections de la stratégie :** inbound  
 -   **Étendues de la stratégie :** API, operation, product (API, opération, produit)  
   
 ##  <a name="StoreToCache"></a> Store to cache  
@@ -132,7 +132,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 > [!NOTE]
 >  Cette stratégie avoir une stratégie [Get from cache](api-management-caching-policies.md#GetFromCache) correspondante.  
   
-### <a name="policy-statement"></a>Déclaration de stratégie  
+### <a name="policy-statement"></a>Instruction de la stratégie  
   
 ```xml  
 <cache-store duration="seconds" />  
@@ -140,7 +140,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="examples"></a>Exemples  
   
-#### <a name="example"></a>Exemple  
+#### <a name="example"></a>Exemples  
   
 ```xml  
 <policies>  
@@ -158,7 +158,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Exemple utilisant des expressions de stratégie  
- Cet exemple montre comment configurer la durée de mise en cache des réponses de Gestion des API qui correspond à la mise en cache de la réponse du service principal comme spécifié par la directive `Cache-Control` du service sauvegardé. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Plus de fonctionnalités de Gestion des API) avec Vlad Vinogradsky et rendez-vous directement à 25’25’’.  
+ Cet exemple montre comment configurer la durée de mise en cache des réponses de Gestion des API qui correspond à la mise en cache de la réponse du service principal, comme spécifié par la directive `Cache-Control` du service sauvegardé. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Plus de fonctionnalités de Gestion des API) avec Vlad Vinogradsky et rendez-vous directement à 25’25’’.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
@@ -182,13 +182,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Nom|Description|Requis|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |cache-store|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Nom|Description|Requis|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |duration|Durée de vie des entrées mises en cache (en secondes).|Oui|N/A|  
   
@@ -199,12 +199,12 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   **Étendues de la stratégie :** API, operation, product (API, opération, produit)  
   
 ##  <a name="GetFromCacheByKey"></a> Get value from cache  
- La stratégie `cache-lookup-value` permet d’effectuer une recherche dans le cache par clé et de renvoyer une valeur mise en cache. La clé peut avoir une valeur de chaîne arbitraire. Elle est généralement fournie à l’aide d’une expression de stratégie.  
+ La stratégie `cache-lookup-value` permet d’effectuer une recherche dans le cache par clé et de renvoyer une valeur mise en cache. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.  
   
 > [!NOTE]
 >  Cette stratégie doit avoir une stratégie [Store value in cache](#StoreToCacheByKey) correspondante.  
   
-### <a name="policy-statement"></a>Déclaration de stratégie  
+### <a name="policy-statement"></a>Instruction de la stratégie  
   
 ```xml  
 <cache-lookup-value key="cache key value"   
@@ -212,7 +212,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
     variable-name="name of a variable looked up value is assigned to" />  
 ```  
   
-### <a name="example"></a>Exemple  
+### <a name="example"></a>Exemples  
  Pour plus d’informations et d’exemples sur cette stratégie, consultez [Mise en cache personnalisée dans Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/).  
   
 ```xml  
@@ -224,37 +224,37 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Nom|Description|Requis|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |cache-lookup-value|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Nom|Description|Requis|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|default-value|Valeur attribuée à la variable si la recherche de clés de cache a échoué. Si cet attribut n’est pas spécifié, `null` est attribué.|Non|`null`|  
+|default-value|Valeur attribuée à la variable si la recherche de clés de cache a échoué. Si cet attribut n’est pas spécifié, `null` est attribué.|Non |`null`|  
 |key|Valeur de clé de cache à utiliser dans la recherche.|Oui|N/A|  
 |variable-name|Nom de la [variable contextuelle](api-management-policy-expressions.md#ContextVariables) à laquelle la valeur recherchée est attribuée, si la recherche réussit. Si la recherche aboutit à un échec, la variable reçoit la valeur de l’attribut `default-value` ou `null`, si l’attribut `default-value` est omis.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
--   **Sections de la stratégie :** inbound, outbound, backend, on-error (entrant, sortant, principal, en cas d’erreur)  
+-   **Sections de la stratégie :** inbound, outbound, backend, on-error  
 -   **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)  
   
 ##  <a name="StoreToCacheByKey"></a> Store value in cache  
- La stratégie `cache-store-value` effectue le stockage du cache par clé. La clé peut avoir une valeur de chaîne arbitraire. Elle est généralement fournie à l’aide d’une expression de stratégie.  
+ La stratégie `cache-store-value` effectue le stockage du cache par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.  
   
 > [!NOTE]
 >  Cette stratégie avoir une stratégie [Get value from cache](#GetFromCacheByKey) correspondante.  
   
-### <a name="policy-statement"></a>Déclaration de stratégie  
+### <a name="policy-statement"></a>Instruction de la stratégie  
   
 ```xml  
 <cache-store-value key="cache key value" value="value to cache" duration="seconds" />  
 ```  
   
-### <a name="example"></a>Exemple  
+### <a name="example"></a>Exemples  
  Pour plus d’informations et d’exemples sur cette stratégie, consultez [Mise en cache personnalisée dans Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/).  
   
 ```xml  
@@ -266,13 +266,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Nom|Description|Requis|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |cache-store-value|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Nom|Description|Requis|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |duration|La valeur est mise en cache pendant la durée spécifiée en secondes.|Oui|N/A|  
 |key|Clé de cache sous laquelle la valeur est stockée.|Oui|N/A|  
@@ -281,13 +281,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
--   **Sections de la stratégie :** inbound, outbound, backend, on-error (entrant, sortant, principal, en cas d’erreur)  
+-   **Sections de la stratégie :** inbound, outbound, backend, on-error  
 -   **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)  
   
 ###  <a name="RemoveCacheByKey"></a> Remove value from cache  
 La stratégie `cache-remove-value` supprime un élément mis en cache identifié par sa clé. La clé peut avoir une valeur de chaîne arbitraire. Elle est généralement fournie à l’aide d’une expression de stratégie.  
   
-#### <a name="policy-statement"></a>Déclaration de stratégie  
+#### <a name="policy-statement"></a>Instruction de la stratégie  
   
 ```xml  
   
@@ -295,7 +295,7 @@ La stratégie `cache-remove-value` supprime un élément mis en cache identifié
   
 ```  
   
-#### <a name="example"></a>Exemple  
+#### <a name="example"></a>Exemples  
   
 ```xml  
   
@@ -305,13 +305,13 @@ La stratégie `cache-remove-value` supprime un élément mis en cache identifié
   
 #### <a name="elements"></a>Éléments  
   
-|Nom|Description|Requis|  
+|NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |cache-remove-value|Élément racine.|Oui|  
   
 #### <a name="attributes"></a>Attributs  
   
-|Nom|Description|Requis|Default|  
+|NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |key|Clé de la valeur précédemment mise en cache à supprimer du cache.|Oui|N/A|  
   
@@ -326,6 +326,6 @@ La stratégie `cache-remove-value` supprime un élément mis en cache identifié
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
-+ [Transformer des API](transform-api.md)
++ [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [Exemples de stratégie](policy-samples.md)   
++ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)   

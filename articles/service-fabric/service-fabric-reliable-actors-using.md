@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 41548c3395fa0c8f56e62cfcfb7338a2d53f040f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6aff9e9599d31942f994f3cb4e5e9219f33dc7e1
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212889"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205518"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>Mise en œuvre de fonctionnalités de niveau de service dans votre service d’acteur
 Comme décrit dans les [couches de service](service-fabric-reliable-actors-platform.md#service-layering), le service d’acteur lui-même est un service fiable.  Vous pouvez écrire votre propre service qui dérive de `ActorService` et implémenter des fonctionnalités au niveau du service de la même façon que si vous héritiez d’un élément StatefulService, par exemple :
@@ -149,24 +149,53 @@ public class Program
 ## <a name="implementing-actor-backup-and-restore"></a>Implémentation d’une sauvegarde et restauration d’acteur
 Un service d’acteur personnalisé peut exposer une méthode pour sauvegarder des données d’acteur en tirant parti de l’écouteur de communication à distance déjà présent dans `ActorService`.  Pour obtenir un exemple, consultez [Sauvegarder et restaurer des acteurs](service-fabric-reliable-actors-backup-and-restore.md).
 
+## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>Acteur utilisant la pile Remoting V2(InterfaceCompatible)
+La pile Remoting V2(InterfaceCompatible aka V2_1) présente toutes les fonctionnalités de la pile Remoting V2. Son interface est compatible avec celle de la pile Remoting V1, mais elle n’est pas rétrocompatible avec V2 et V1. Pour effectuer la mise à niveau de V1 vers V2_1 sans affecter la disponibilité du service, suivez [l’article](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability) ci-dessous.
+
+Les modifications suivantes sont requises pour utiliser la pile Remoting V2_1.
+ 1. Ajoutez l’attribut d’assembly suivant sur les interfaces Actor.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
+
+ 2. Créez et mettez à jour des projets ActorService et Actor Client pour démarrer à l’aide de la pile V2.
+
+#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>Mise à niveau du service d’acteur vers la pile Remoting V2(InterfaceCompatible) sans impact sur la disponibilité des services.
+Cette modification sera une mise à niveau en 2 étapes. Suivez les étapes dans l’ordre indiqué.
+
+1.  Ajoutez l’attribut d’assembly suivant sur les interfaces Actor. Cet attribut démarre deux écouteurs pour ActorService, V1 (existant) et V2_1 Listener. Mettez à niveau ActorService avec cette modification.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+  ```
+
+2. Mettez à niveau ActorClients après avoir effectué la mise à niveau ci-dessus.
+Cette étape permet de s’assurer que le proxy d’acteur utilise la pile Remoting V2_1.
+
+3. Cette étape est facultative. Modifiez l’attribut ci-dessus pour supprimer V1 Listener.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+
 ## <a name="actor-using-remoting-v2-stack"></a>Acteur utilisant la pile Remoting V2
 Avec le package nuget 2.8, les utilisateurs peuvent désormais utiliser la pile Remoting V2, qui est plus performante et offre des fonctionnalités comme la sérialisation personnalisée. Remoting V2 n’est pas rétrocompatible avec la pile Remoting existante (nous l’appelons désormais pile V1 Remoting).
 
 Les modifications suivantes sont requises pour utiliser la pile Remoting V2.
  1. Ajoutez l’attribut d’assembly suivant sur les interfaces Actor.
    ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
  2. Créez et mettez à jour des projets ActorService et Actor Client pour démarrer à l’aide de la pile V2.
 
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Mise à niveau du service d’acteur vers la pile Remoting V2 sans impact sur la disponibilité des services.
+#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Mise à niveau du service d’acteur vers la pile Remoting V2 sans impact sur la disponibilité des services.
 Cette modification sera une mise à niveau en 2 étapes. Suivez les étapes dans l’ordre indiqué.
 
 1.  Ajoutez l’attribut d’assembly suivant sur les interfaces Actor. Cet attribut démarre deux écouteurs pour ActorService, V1 (existant) et V2 Listener. Mettez à niveau ActorService avec cette modification.
 
   ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
 2. Mettez à niveau ActorClients après avoir effectué la mise à niveau ci-dessus.
@@ -175,7 +204,7 @@ Cette étape permet de s’assurer de qu’Actor Proxy utilise la pile Remoting 
 3. Cette étape est facultative. Modifiez l’attribut ci-dessus pour supprimer V1 Listener.
 
     ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes

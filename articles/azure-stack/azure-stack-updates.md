@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: 43ec962c91b354d8f07f1be8885b89424d00e452
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 484f04dc2ed523d3f979b0ba857c92f90d9d32ad
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069857"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215808"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-En général, les packages de mise à jour de Microsoft pour les systèmes intégrés Azure Stack sont mis en production autour du quatrième mardi de chaque mois. Interrogez votre fabricant d’ordinateurs OEM sur son processus de notification pour vous assurer que votre organisation reçoive bien les notifications de mise à jour. Vous pouvez également rechercher dans cette bibliothèque de documentation sous **Vue d’ensemble** > **Notes de publication** des informations sur les versions dont le support est actif. 
+En général, les packages de mise à jour de Microsoft pour les systèmes intégrés Azure Stack sont mis en production autour du quatrième mardi de chaque mois. Interrogez votre fabricant d’ordinateurs OEM sur son processus de notification pour vous assurer que votre organisation reçoive bien les notifications de mise à jour. Vous pouvez aussi rechercher dans cette bibliothèque de documentation sous **Vue d’ensemble** > **Notes de publication** des informations sur les versions dont le support est actif. 
 
 Chaque version des mises à jour logicielles Microsoft est fournie sous forme de package de mise à jour unique. En tant qu’opérateur Azure Stack, vous pouvez importer, installer et surveiller la progression de l’installation de ces packages de mise à jour à partir du portail administrateur. 
 

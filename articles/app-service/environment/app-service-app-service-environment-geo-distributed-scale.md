@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: 21f747239e565aba79a84c8e946a71e306b64968
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc85139dfa3589baf6505fac2269f8755dcaddc8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986784"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213246"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Mise à l’échelle géolocalisée avec les environnements App Service
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les scénarios d’application s’appliquant à très grande échelle peuvent dépasser la capacité de ressources de calcul disponible pour un seul déploiement d’application.  À titre d’exemple, les applications de vote, les événements sportifs et les programmes de divertissement télévisés sont des scénarios qui fonctionnent à très grande échelle. Les exigences à grande échelle peuvent être satisfaites par la mise à l’échelle horizontale des applications, avec plusieurs déploiements dans une seule ou plusieurs régions, pour gérer les charges extrêmes.
 
 Les environnements App Service sont une plate-forme idéale pour l’évolution horizontale.  Une fois que la configuration d’environnements App Service a été sélectionnée et qu’elle peut prend en charge un taux de requête connu, les développeurs peuvent déployer des environnements App Service supplémentaires en mode « découpage » pour atteindre la capacité de charge maximale souhaitée.

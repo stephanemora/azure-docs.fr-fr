@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: protection
-ms.date: 07/14/2018
+ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 6c329554b5854f113fb216f874fa5a918110f9c5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ffac7768fefece24cb69789558ce500e1ff64d98
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058091"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257892"
 ---
 # <a name="email-notifications-in-azure-ad-pim"></a>Notifications par e-mail dans Azure AD Privileged Identity Management
 
@@ -32,7 +32,7 @@ Lorsque des événements clés se produisent dans Azure AD Privileged Identity M
 - Quand un rôle privilégié est attribué
 - Quand Azure AD PIM est activé
 
-À compter de fin juillet 2018, les notifications par e-mail envoyées via PIM auront un nouvel expéditeur et une nouvelle conception visuelle. Cette mise à jour va impacter PIM pour Azure AD et PIM pour les ressources Azure. Tous les événements qui déclenchaient l’envoi d’une notification par e-mail dans la version précédente continueront d’envoyer des notifications. Cette mise à jour est purement esthétique, et ne modifie en rien les fonctionnalités.
+À compter de fin juillet 2018, les notifications par e-mail envoyées via PIM auront un nouvel expéditeur et une nouvelle conception visuelle. Cette mise à jour va impacter PIM pour Azure AD et PIM pour les ressources Azure. Tous les événements qui déclenchaient l’envoi d’une notification par e-mail dans la version précédente continueront d’envoyer des notifications. Le contenu de certains e-mails seront mises à jour, fournissant plus d’informations ciblées.
 
 ## <a name="sender-email-address"></a>Adresse e-mail de l’expéditeur
 
@@ -45,6 +45,12 @@ Dans l’ancienne version, les notifications par e-mail provenaient de l’adres
 
 - Adresse e-mail : **azureadnotifications@microsoft.com**
 - Nom d’affichage : Service de notification de Microsoft Azure AD
+
+## <a name="email-subject-line"></a>Ligne Objet d’e-mail
+
+À partir de fin juillet 2018, les notifications par e-mail pour les rôles de ressources Azure et Azure AD comportent désormais un préfixe **PIM** dans la ligne d’objet. Voici un exemple :
+
+- PIM : Le rôle Lecteur de sauvegarde a été définitivement affecté à Alain Charon.
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>E-mails PIM pour les rôles Azure AD
 

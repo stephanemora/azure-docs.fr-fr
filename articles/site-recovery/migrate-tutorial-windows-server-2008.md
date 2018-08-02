@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: bsiva
-ms.openlocfilehash: 0d3f28f0a9f1e9862fabb6ce5e96597f1534abd8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 552a0d131f630db7b3a73293d330377ee350d2a9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011397"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214616"
 ---
 # <a name="migrate-servers-running-windows-server-2008-2008-r2-to-azure"></a>Migrer des serveurs exécutant Windows Server 2008 et 2008 R2 vers Azure
 
@@ -29,7 +29,7 @@ Ce didacticiel montre comment migrer des serveurs locaux exécutant Windows Serv
 > * Configurer l’environnement cible
 > * Configurer une stratégie de réplication
 > * Activer la réplication
-> * Exécuter un test de migration afin de vérifier que tout fonctionne comme prévu
+> * Exécutez un test de migration afin de vérifier que tout fonctionne bien.
 > * Basculer vers Azure et effectuer la migration
 
 La section relative aux limitations et aux problèmes connus répertorie certaines limitations et solutions de contournement de problèmes connus que vous pouvez rencontrer lors de la migration de machines Windows Server 2008 vers Azure. 
@@ -110,15 +110,47 @@ Le nouveau coffre est ajouté à la zone **Tableau de bord** dans **Toutes les r
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>Préparer votre environnement local pour la migration
 
 - Télécharger le programme d’installation du serveur de configuration (installation unifiée) à partir de [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- [Installez](physical-azure-disaster-recovery.md#set-up-the-source-environment) l’environnement source à l’aide du fichier du programme d’installation téléchargé à l’étape précédente.
+- Suivez les étapes décrites ci-dessous pour configurer l’environnement source à l’aide du fichier du programme d’installation téléchargé à l’étape précédente.
 
 > [!IMPORTANT]
-> Veillez à utiliser le fichier d’installation téléchargé à la première étape ci-dessus pour installer et inscrire le serveur de configuration. Ne téléchargez pas le fichier d’installation à partir du portail Azure. Le fichier d’installation disponible à l’adresse [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) est la seule version qui prenne en charge la migration de Windows Server 2008.
+> - Veillez à utiliser le fichier d’installation téléchargé à la première étape ci-dessus pour installer et inscrire le serveur de configuration. Ne téléchargez pas le fichier d’installation à partir du portail Azure. Le fichier d’installation disponible à l’adresse [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) est la seule version qui prenne en charge la migration de Windows Server 2008.
 >
-> Vous ne pouvez pas utiliser un serveur de configuration existant pour migrer des machines exécutant Windows Server 2008. Vous devez configurer un nouveau serveur de configuration en suivant le lien fourni ci-dessus.
+> - Vous ne pouvez pas utiliser un serveur de configuration existant pour migrer des machines exécutant Windows Server 2008. Vous devez configurer un nouveau serveur de configuration en suivant le lien fourni ci-dessus.
+>
+> - Suivez les étapes indiquées ci-dessous pour installer le serveur de configuration. N’essayez pas d’utiliser la procédure d’installation basée sur l’interface graphique utilisateur en exécutant l’installation unifiée directement. Cela entraînerait l’échec de la tentative d’installation avec une erreur incorrecte indiquant qu’il n’existe aucune connectivité Internet.
+
+ 
+1) Téléchargez le fichier d’informations d’identification du coffre à partir du portail : dans le portail Azure, sélectionnez le coffre Recovery Services créé à l’étape précédente. Dans le menu de la page du coffre, sélectionnez **Infrastructure Site Recovery** > **Serveurs de configuration**. Cliquez ensuite sur **+Serveur**. Sélectionnez *Configuration Server for Physical* (Serveur de configuration pour serveur physique) dans le formulaire de type liste déroulante de la page qui s’ouvre. Cliquez sur le bouton Télécharger à l’étape 4 pour télécharger le fichier d’informations d’identification du coffre.
 
  ![Télécharger la clé d’inscription du coffre](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
- 
+
+2) Copiez le fichier d’informations d’identification du coffre téléchargé à l’étape précédente et le fichier d’installation unifiée téléchargé précédemment sur le Bureau de la machine du serveur de configuration (ordinateur Windows Server 2012 R2 ou Windows Server 2016 sur lequel vous souhaitez installer le logiciel du serveur de configuration).
+
+3) Vérifiez que le serveur de configuration a une connectivité Internet et que l’horloge système ainsi que les paramètres de fuseau horaire sur l’ordinateur sont correctement configurés. Téléchargez le programme d’installation [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) et placez-le dans *C:\Temp\ASRSetup* (créez le répertoire s’il n’existe pas). 
+
+4) Créez un fichier d’informations d’identification MySQL avec les lignes suivantes et placez-le sur le Bureau dans **C:\Users\Administrator\MySQLCreds.txt**. Remplacez « Password~1 » ci-dessous par un mot de passe fort et approprié :
+
+```
+[MySQLCredentials]
+MySQLRootPassword = "Password~1"
+MySQLUserPassword = "Password~1"
+```
+
+5) Extrayez le contenu du fichier d’installation unifiée téléchargé sur le Bureau en exécutant la commande suivante :
+
+```
+cd C:\Users\Administrator\Desktop
+
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
+```
+  
+6) Installez le logiciel du serveur de configuration à l’aide du contenu extrait en exécutant les commandes suivantes :
+
+```
+cd C:\Users\Administrator\Desktop\9.18.1
+
+UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
+```
 
 ## <a name="set-up-the-target-environment"></a>Configurer l’environnement cible
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6507158a63de508164fc74bcafe39785046a2c79
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918252"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213348"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : immersion technique
 
@@ -36,8 +36,8 @@ Cette section est composée de trois parties :
 ### <a name="how-does-set-up-work"></a>Comment la configuration s’opère-t-elle ?
 
 L’authentification unique transparente s’active via Azure AD Connect comme indiqué [ici](active-directory-aadconnect-sso-quick-start.md). Voici ce qu’il se passe pendant l’activation de la fonctionnalité :
-- Un compte d’ordinateur nommé `AZUREADSSOACC` (c’est-à-dire Azure AD) est créé dans votre instance Active Directory (AD) locale.
-- La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD.
+- Un compte d’ordinateur nommé `AZUREADSSOACC` (c’est-à-dire Azure AD) est créé sur votre instance Active Directory (AD) locale, dans chaque forêt AD.
+- La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD. S’il existe plusieurs forêts AD, chacun a sa propre clé de déchiffrement Kerberos.
 - Par ailleurs, deux noms de principal du service (SPN) Kerberos sont créés pour représenter les deux URL utilisées pendant la connexion à Azure AD.
 
 >[!NOTE]

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: wesmc
-ms.openlocfilehash: db488f759752880a47a78dfeec13b14f65bd503c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6733891213f15e9ceaf08ef7fb50380db47a695f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910085"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259192"
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Importer et exporter des données dans le Cache Redis Azure
 L’Importation/Exportation est une opération de gestion de données de Cache Redis Azure qui vous permet d’importer ou d’exporter des données depuis ou vers le Cache Redis Azure, en important ou en exportant une capture instantanée de base de données du Cache Redis (RDB) depuis un cache Premium vers un objet blob dans un compte Azure Storage. 
@@ -117,7 +117,7 @@ L’Importation/Exportation n’est disponible que dans le niveau de tarificatio
 Oui, en plus des données exportées à partir d’instances de Cache Redis Azure, vous pouvez importer des fichiers RDB à partir de n’importe quel serveur Redis en cours d’exécution sur n’importe quel environnement ou cloud, tels que Linux, Windows ou tout autre fournisseur de cloud tel qu’Amazon Web Services. Pour ce faire, téléchargez le fichier RDB à partir du serveur Redis souhaité dans un objet blob de pages ou de blocs d’un compte Azure Storage, puis importez-le dans votre instance Premium de Cache Redis. Vous pouvez par exemple exporter les données de votre cache de production et les importer vers un cache faisant partie d’un environnement intermédiaire, à des fins de test ou de migration.
 
 > [!IMPORTANT]
-> Pour importer correctement des données exportées à partir de serveurs Redis autres que le Cache Redis Azure lors de l’utilisation d’un objet blob de pages, la taille de l’objet blob de pages doit être alignée sur une limite de 512 octets. Pour que l’exemple de code exécute un remplissage d’octets, voir [Chargement d’un exemple de blog de pages](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
+> Pour importer correctement des données exportées à partir de serveurs Redis autres que le Cache Redis Azure lors de l’utilisation d’un objet blob de pages, la taille de l’objet blob de pages doit être alignée sur une limite de 512 octets. Pour obtenir un exemple de code permettant d’exécuter un remplissage d’octets, consultez [Sample page blob upload](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
 > 
 > 
 
@@ -158,7 +158,7 @@ Pour résoudre ce problème, démarrez l’importation ou l’exportation avant 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>J’ai obtenu une erreur en exportant mes données vers un stockage d’objets blob Azure. Que s’est-il passé ?
 L’exportation ne fonctionne qu’avec les fichiers RDB stockés sous la forme d’objets blob de pages. Les autres types d’objets blob ne sont pas pris en charge pour l’instant, y compris les comptes de stockage d’objets blob de niveaux chaud et froid. Pour plus d’informations, consultez [Comptes de stockage Blob](../storage/common/storage-account-options.md#blob-storage-accounts).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
 
 * [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md)    

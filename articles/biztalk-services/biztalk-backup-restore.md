@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102339"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214410"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>Sauvegarde et restauration de BizTalk Services
 
@@ -48,13 +48,13 @@ Azure BizTalk Services offre des fonctionnalités de sauvegarde et de restaurati
 ## <a name="create-a-backup"></a>Création d'une sauvegarde
 Une sauvegarde peut être effectuée à tout moment et vous la contrôlez complètement. Pour créer une sauvegarde, utilisez l’[API REST pour la gestion de BizTalk Services sur Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
-## <a name="restore"></a>Restauration
+## <a name="restore"></a>Restore
 Pour restaurer une sauvegarde, utilisez l’[API REST pour la gestion de BizTalk Services sur Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ### <a name="postrestore"></a>Après avoir restauré une sauvegarde
 Le service BizTalk est systématiquement restauré dans un état **Suspendu** . Dans cet état, vous pouvez apporter des modifications à la configuration avant que le nouvel environnement ne soit fonctionnel :
 
-* Si vous avez créé des applications de service BizTalk à l'aide du Kit de développement logiciel (SDK) Azure BizTalk Services, vous devrez peut-être mettre à jour les informations d'identification Access Control (ACS) qui s'y rapportent pour qu'elles fonctionnent dans l'environnement restauré.
+* Si vous avez créé des applications de service BizTalk à l’aide du Kit SDK Azure BizTalk Services, vous devrez peut-être mettre à jour les informations d’identification Access Control (ACS) qui s’y rapportent pour qu’elles fonctionnent dans l’environnement restauré.
 * Vous restaurez un service BizTalk pour répliquer un environnement de service BizTalk existant. Dans ce cas de figure, s'il existe des contrats configurés dans le portail BizTalk Services d'origine utilisant un dossier FTP source, vous devrez peut-être mettre à jour les contrats de l'environnement récemment restauré de manière à utiliser un autre dossier FTP source. Sinon, vous risquez de vous retrouver avec deux contrats différents tentant d'extraire le même message.
 * Si vous avez procédé à la restauration pour plusieurs environnements de service BizTalk, veillez à cibler l'environnement approprié dans les applications Visual Studio, applets de commande PowerShell, API REST ou API OM du portail de gestion du partenaire commercial.
 * Il est recommandé de configurer des sauvegardes automatisées dans l'environnement du service BizTalk récemment restauré.

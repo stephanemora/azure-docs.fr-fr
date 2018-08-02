@@ -3,7 +3,7 @@ title: Créer une machine virtuelle Linux dans Azure avec plusieurs cartes rése
 description: Découvrez comment créer une machine virtuelle Linux dotée de plusieurs cartes réseau avec Azure CLI 2.0 ou des modèles Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -12,19 +12,19 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2017
-ms.author: cynthn
-ms.openlocfilehash: 257b80c30823be41893be8659845d4fcbc922da3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.date: 06/07/2018
+ms.author: iainfou
+ms.openlocfilehash: aae71dafd3685e44975049c4287c083abc2330bc
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932270"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144854"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau
 Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article décrit comment créer une machine virtuelle avec plusieurs cartes réseau attachées et comment ajouter ou supprimer des cartes réseau à partir d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
 
-Cet article explique comment créer une machine virtuelle avec plusieurs cartes réseau à l’aide d’Azure CLI 2.0. 
+Cet article explique comment créer une machine virtuelle avec plusieurs cartes réseau à l’aide d’Azure CLI 2.0. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](multiple-nics-nodejs.md).
 
 
 ## <a name="create-supporting-resources"></a>Créer des ressources de support
@@ -44,9 +44,9 @@ Créez le réseau virtuel avec la commande [az network vnet create](/cli/azure/n
 az network vnet create \
     --resource-group myResourceGroup \
     --name myVnet \
-    --address-prefix 192.168.0.0/16 \
+    --address-prefix 10.0.0.0/16 \
     --subnet-name mySubnetFrontEnd \
-    --subnet-prefix 192.168.1.0/24
+    --subnet-prefix 10.0.1.0/24
 ```
 
 Créez un sous-réseau pour le trafic principal avec la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). L’exemple suivant permet de créer un sous-réseau nommé *mySubnetBackEnd* :
@@ -56,7 +56,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name mySubnetBackEnd \
-    --address-prefix 192.168.2.0/24
+    --address-prefix 10.0.2.0/24
 ```
 
 Créez un groupe de sécurité réseau avec la commande [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). L’exemple suivant crée un groupe de sécurité réseau nommé *myNetworkSecurityGroup* :
@@ -86,7 +86,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Créer une machine virtuelle et attacher les cartes réseau
-Lorsque vous créez la machine virtuelle, spécifiez les cartes réseau que vous avez créées avec `--nics`. Vous devez également faire attention en définissant la taille de la machine virtuelle. Il existe des limites pour le nombre maximal de cartes réseau que vous pouvez ajouter à une machine virtuelle. En savoir plus sur les [tailles des machines virtuelles Linux](sizes.md). 
+Lorsque vous créez la machine virtuelle, spécifiez les cartes réseau que vous avez créées avec `--nics`. Vous devez également faire attention en définissant la taille de la machine virtuelle. Il existe des limites pour le nombre maximal de cartes réseau que vous pouvez ajouter à une machine virtuelle. En savoir plus sur les [tailles des machines virtuelles Linux](sizes.md).
 
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée *myVM* :
 
@@ -187,75 +187,68 @@ Vous pouvez consulter un exemple complet de la [création de plusieurs cartes r�
 Ajoutez des tables de routage au SE invité en suivant la procédure décrite dans [Configurer plusieurs cartes réseau dans un système d’exploitation invité](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurer plusieurs cartes réseau dans un système d’exploitation invité
-Lorsque vous ajoutez plusieurs cartes réseau à une VM Linux, vous devez créer des règles de routage. Ces règles permettent à la machine virtuelle d’envoyer et de recevoir le trafic qui appartient à une carte réseau spécifique. Sinon, le trafic appartenant à *eth1*, par exemple, ne peut pas être traité correctement par l’itinéraire défini par défaut.
 
-Pour corriger ce problème de routage, ajoutez d’abord deux tables de routage */etc/iproute2/rt_tables* comme suit :
+Les étapes précédentes ont permis de créer un réseau virtuel et un sous-réseau, de joindre des cartes réseau, puis de créer une machine virtuelle. Aucune adresse IP publique ni règle de groupe de sécurité réseau qui autorise le trafic SSH n’a été créée. Afin de configurer le système d’exploitation invité pour plusieurs cartes réseau, vous devez autoriser les connexions à distance et exécuter les commandes localement sur la machine virtuelle.
 
-```bash
-echo "200 eth0-rt" >> /etc/iproute2/rt_tables
-echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+Pour autoriser le trafic SSH, créez une règle de groupe de sécurité réseau avec [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) comme suit :
+
+```azurecli
+az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name allow_ssh \
+    --priority 101 \
+    --destination-port-ranges 22
 ```
 
-Pour que le changement devienne permanent et soit appliqué lors de l’activation de la pile réseau, modifiez */etc/sysconfig/network-scripts/ifcfg-eth0* et */etc/sysconfig/network-scripts/ifcfg-eth1*. Remplacez la ligne *« NM_CONTROLLED=yes »* par la ligne *« NM_CONTROLLED=no »*. Sans cette étape, le routage et les règles supplémentaires ne sont pas automatiquement appliquées.
- 
-Étendez ensuite les tables de routage. Supposons que nous ayons la configuration suivante en place :
+Créez une adresse IP publique avec [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) et affectez-la à la première carte réseau avec [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) :
 
-*Routage*
+```azurecli
+az network public-ip-address create --resource-group myResourceGroup --name myPublicIP
 
-```bash
-default via 10.0.1.1 dev eth0 proto static metric 100
-10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
-10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
-168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
-169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+az network nic ip-config update \
+    --resource-group myResourceGroup \
+    --nic-name myNic1 \
+    --name ipconfig1 \
+    --public-ip-addres myPublicIP
 ```
 
-*Interfaces*
+Pour voir l’adresse IP publique de la machine virtuelle, utilisez [az vm show](/cli/azure/vm#az-vm-show) comme suit :
 
-```bash
-lo: inet 127.0.0.1/8 scope host lo
-eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
-eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```azurecli
+az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Vous créez ensuite les fichiers suivants et ajoutez les règles et les itinéraires appropriés dans chaque :
-
-- */etc/sysconfig/network-scripts/rule-eth0*
-
-    ```bash
-    from 10.0.1.4/32 table eth0-rt
-    to 10.0.1.4/32 table eth0-rt
-    ```
-
-- */etc/sysconfig/network-scripts/route-eth0*
-
-    ```bash
-    10.0.1.0/24 dev eth0 table eth0-rt
-    default via 10.0.1.1 dev eth0 table eth0-rt
-    ```
-
-- */etc/sysconfig/network-scripts/rule-eth1*
-
-    ```bash
-    from 10.0.1.5/32 table eth1-rt
-    to 10.0.1.5/32 table eth1-rt
-    ```
-
-- */etc/sysconfig/network-scripts/route-eth1*
-
-    ```bash
-    10.0.1.0/24 dev eth1 table eth1-rt
-    default via 10.0.1.1 dev eth1 table eth1-rt
-    ```
-
-Pour appliquer les modifications, redémarrez le service *réseau* comme suit :
+Établissez maintenant la connexion SSH à l’adresse IP publique de votre machine virtuelle. Le nom d’utilisateur par défaut fourni lors d’une étape précédente était *azureuser*. Indiquez vos propres nom d’utilisateur et adresse IP publique :
 
 ```bash
-systemctl restart network
+ssh azureuser@137.117.58.232
 ```
 
-Les règles de routage sont désormais correctement en place et vous pouvez vous connecter avec chaque interface selon les besoins.
+Pour effectuer un envoi vers ou depuis une interface réseau secondaire, vous devez ajouter manuellement des itinéraires persistants au système d’exploitation pour chaque interface réseau secondaire. Dans cet article, *eth1* représente l’interface secondaire. Les instructions pour l’ajout d’itinéraires persistants au système d’exploitation varient selon la distribution. Consultez la documentation de votre distribution pour obtenir des instructions.
 
+Lors de l’ajout de l’itinéraire au système d’exploitation, l’adresse de la passerelle est *.1* pour tout sous-réseau dans lequel se trouve l’interface réseau. Par exemple, si l’adresse *10.0.2.4* est affectée à l’interface réseau, la passerelle que vous spécifiez pour l’itinéraire est *10.0.2.1*. Vous pouvez définir un réseau spécifique pour la destination de l’itinéraire ou spécifier la destination *0.0.0.0* si vous voulez que tout le trafic pour l’interface passe par la passerelle spécifiée. La passerelle pour chaque sous-réseau est gérée par le réseau virtuel.
+
+Une fois que vous avez ajouté l’itinéraire pour une interface secondaire, vérifiez que l’itinéraire est dans votre table de routage avec `route -n`. L’exemple de sortie suivant concerne la table de routage qui contient les deux interfaces réseau ajoutées à la machine virtuelle dans cet article :
+
+```bash
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.1.1        0.0.0.0         UG    0      0        0 eth0
+0.0.0.0         10.0.2.1        0.0.0.0         UG    0      0        0 eth1
+10.0.1.0        0.0.0.0         255.255.255.0   U     0      0        0 eth0
+10.0.2.0        0.0.0.0         255.255.255.0   U     0      0        0 eth1
+168.63.129.16   10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+169.254.169.254 10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+```
+
+Confirmez que l’itinéraire que vous avez ajouté est conservé entre les redémarrages en vérifiant à nouveau votre table de routage après un redémarrage. Pour tester la connectivité, vous pouvez par exemple entrer la commande suivante, où *eth1* est le nom d’une interface réseau secondaire :
+
+```bash
+ping bing.com -c 4 -I eth1
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vérifiez les [tailles des machines virtuelles Linux](sizes.md) si vous créez une machine virtuelle avec plusieurs cartes réseau. Faites attention au nombre maximal de cartes réseau pris en charge par chaque taille de machine virtuelle. 
+Vérifiez les [tailles des machines virtuelles Linux](sizes.md) si vous créez une machine virtuelle avec plusieurs cartes réseau. Faites attention au nombre maximal de cartes réseau pris en charge par chaque taille de machine virtuelle.
+
+Pour sécuriser davantage vos machines virtuelles, utilisez l’accès aux machines virtuelles juste-à-temps. Cette fonctionnalité ouvre les règles de groupe de sécurité réseau pour le trafic SSH en cas de besoin et pour une période de temps définie. Pour plus d’informations, consultez [Gérer l’accès Juste à temps à la machine virtuelle](../../security-center/security-center-just-in-time.md).

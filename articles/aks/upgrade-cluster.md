@@ -6,15 +6,15 @@ author: gabrtv
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f6b8e964f4277150e104cd6d77db092aaa8553b4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933272"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144582"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Avant la mise à niveau d’un cluster, utilisez la commande `az aks get-upgrade
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Output:
+Sortie :
 
 ```console
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
@@ -36,10 +36,10 @@ Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-Nous avons trois versions disponibles pour la mise à niveau : 1.9.1, 1.9.2 et 1.9.6. Nous pouvons utiliser la commande `az aks upgrade` pour mettre à niveau vers la dernière version disponible.  Pendant le processus de mise à niveau, les nœuds sont soigneusement [coordonnés et purgés][kubernetes-drain] afin de limiter les perturbations pour les applications en cours d’exécution.  Avant d’effectuer une mise à niveau de cluster, assurez-vous de disposer d’une capacité de calcul supplémentaire suffisante pour gérer votre charge de travail au fur et à mesure que des noeuds de cluster sont ajoutés et supprimés.
+Nous avons trois versions disponibles pour la mise à niveau : 1.9.1, 1.9.2 et 1.9.6. Nous pouvons utiliser la commande `az aks upgrade` pour mettre à niveau vers la dernière version disponible.  Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud au cluster, puis soigneusement [isole et draine][kubernetes-drain] un seul nœud à la fois, afin de perturber au minimum les applications en cours d’exécution.
 
 > [!NOTE]
-> Lors de la mise à niveau d’un cluster AKS, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, la mise à niveau entre 1.7.x > 1.8.x ou 1.8.x > 1.9.x est autorisée, toutefois 1.7 > 1.9 ne l’est pas.
+> Lors de la mise à niveau d’un cluster AKS, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau de 1.8.x à 1.9.x ou de 1.9.x à 1.10.x sont autorisées, par contre celle de 1.8 à 1.10 ne l’est pas.
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6
@@ -107,7 +107,7 @@ Vérifiez si la mise à niveau a réussi avec la commande `az aks show`.
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Output:
+Sortie :
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

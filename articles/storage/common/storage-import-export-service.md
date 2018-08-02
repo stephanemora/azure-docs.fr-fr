@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008414"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248772"
 ---
 # <a name="what-is-azure-importexport-service"></a>Qu’est-ce que le service Azure Import/Export ?
 
@@ -71,13 +71,18 @@ Globalement, un travail d’importation comprend les opérations suivantes :
 1. Déterminer les données à importer, le nombre de disques dont vous avez besoin, l’emplacement de l’objet blob de destination de vos données dans Stockage Azure.
 2. Utiliser l’outil WAImportExport pour copier les données sur les lecteurs de disque. Chiffrer les disques avec BitLocker.
 3. Créer un travail d’importation dans votre compte de stockage cible dans le Portail Azure. Charger les fichiers journaux du lecteur.
-2. Indiquer l’adresse de retour et le numéro de compte transporteur à utiliser pour le retour des disques.
-3. Expédier les lecteurs de disque à l’adresse d’expédition indiquée lors de la création du travail.
-4. Mettez à jour le numéro de suivi et envoyez le travail d’importation.
-5. Les disques sont réceptionnés et traités dans le centre de données Azure.
-6. Les disques sont expédiés à l’aide de votre compte de transporteur à l’adresse de retour indiquée dans le travail d’importation.
-  
-    ![Figure 1 : flux d’importation de travail](./media/storage-import-export-service/importjob.png)
+4. Indiquer l’adresse de retour et le numéro de compte transporteur à utiliser pour le retour des disques.
+5. Expédier les lecteurs de disque à l’adresse d’expédition indiquée lors de la création du travail.
+6. Mettez à jour le numéro de suivi et envoyez le travail d’importation.
+7. Les disques sont réceptionnés et traités dans le centre de données Azure.
+8. Les disques sont expédiés à l’aide de votre compte de transporteur à l’adresse de retour indiquée dans le travail d’importation.
+
+> [!NOTE]
+> Pour les expéditions à l’échelle nationale (dans le pays du centre de données), veuillez partager un compte de transporteur domestique 
+>
+> Pour les expéditions à l’étranger (en dehors du pays du centre de données), veuillez partager un compte de transporteur international
+
+ ![Figure 1 : flux d’importation de travail](./media/storage-import-export-service/importjob.png)
 
 Pour obtenir des instructions pas à pas sur l’importation de données, consultez :
 
@@ -101,8 +106,13 @@ Globalement, un travail d’exportation comprend les opérations suivantes :
 8. Les disques sont réceptionnés et traités dans le centre de données Azure.
 9. Les disques sont chiffrés à l’aide de BitLocker et les clés sont disponibles via le Portail Azure.  
 10. Les disques sont expédiés à l’aide de votre compte de transporteur à l’adresse de retour indiquée dans le travail d’importation.
+
+> [!NOTE]
+> Pour les expéditions à l’échelle nationale (dans le pays du centre de données), veuillez partager un compte de transporteur domestique 
+>
+> Pour les expéditions à l’étranger (en dehors du pays du centre de données), veuillez partager un compte de transporteur international
   
-    ![Figure 2 : flux d’exportation de travail](./media/storage-import-export-service/exportjob.png)
+ ![Figure 2 : flux d’exportation de travail](./media/storage-import-export-service/exportjob.png)
 
 Pour obtenir des instructions pas à pas sur l’exportation de données, consultez[Exporter des données à partir d’objets blob Azure](storage-import-export-data-from-blobs.md).
 
@@ -115,12 +125,12 @@ Le service Azure Import/Export prend en charge la copie des données vers et dep
 
 |Pays  |Pays  |Pays  |Pays  |
 |---------|---------|---------|---------|
-|USA Est    | Europe Nord        | Inde centrale        |US Gov Iowa         |
-|USA Ouest     |Europe Ouest         | Inde du Sud        | Est des États-Unis – US DoD        |
+|Est des États-Unis    | Europe du Nord        | Inde centrale        |US Gov Iowa         |
+|États-Unis de l’Ouest     |Europe de l'Ouest         | Inde du Sud        | Est des États-Unis – US DoD        |
 |Est des États-Unis 2    | Est de l'Asie        |  Inde occidentale        | Centre des États-Unis – US DoD        |
-|USA Ouest 2     | Asie du Sud-Est        | Canada Centre        | Chine orientale         |
-|USA Centre     | Australie Est        | Canada Est        | Chine du Nord        |
-|Centre-Nord des États-Unis     |  Sud-est de l’Australie       | Sud du Brésil        | Royaume-Uni Sud        |
+|Ouest des États-Unis 2     | Asie du Sud-Est        | Centre du Canada        | Chine orientale         |
+|Centre des États-Unis     | Est de l’Australie        | Est du Canada        | Chine du Nord        |
+|Centre-Nord des États-Unis     |  Sud-est de l’Australie       | Sud du Brésil        | Sud du Royaume-Uni        |
 |États-Unis - partie centrale méridionale     | Ouest du Japon        |Centre de la Corée         | Centre de l’Allemagne        |
 |Centre-Ouest des États-Unis     |  Est du Japon       | Gouvernement américain - Virginie        | Nord-Est de l’Allemagne        |
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: eeb23b52d5910c3da39d29d3a9c47f598ed5fc5a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777075"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188679"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -60,17 +60,35 @@ Si vous ne trouvez aucun certificat auto-signé à l’aide des étapes précéd
 
 ## <a name="sign-in-issues"></a>Problèmes de connexion
 
-Si vous ne parvenez pas à vous connecter, essayez les méthodes de résolution des problèmes suivantes :
+### <a name="reauthentication-loop-or-upn-change"></a>Boucle de réauthentification ou modification du nom UPN
+Si vous êtes dans une boucle de réauthentification ou avez changé le nom UPN de l’un de vos comptes, essayez ce qui suit :
+1. Supprimez tous les comptes, puis fermez l’Explorateur Stockage.
+2. Supprimez le dossier .IdentityService de votre ordinateur. Sur Windows, le dossier se situe dans `C:\users\<username>\AppData\Local`. Pour Mac et Linux, vous pouvez trouver le dossier à la racine de votre répertoire utilisateur.
+3. Si vous utilisez Mac ou Linux, vous devez également supprimer l’entrée Microsoft.Developer.IdentityService du magasin de clés de votre système d’exploitation. Sur Mac, le magasin de clés est l’application « Gnome Keychain ». Pour Linux, l’application est généralement appelée « Keyring », mais le nom peut être différent en fonction de votre distribution.
 
-* Si vous êtes sous macOS et que la fenêtre de connexion n’apparaît jamais sur la boîte de dialogue « En attente d’authentification... », suivez [ces étapes](#Resetting-the-Mac-Keychain).
+## <a name="mac-keychain-errors"></a>Erreurs de trousseau Mac
+Il peut arriver que le trousseau macOS soit dans un état qui provoque des problèmes dans la bibliothèque d’authentification de l’Explorateur Stockage. Pour modifier l’état du trousseau, suivez ces étapes :
+1. Fermez l’Explorateur Stockage.
+2. Ouvrez le trousseau (**cmd + espace**, tapez keychain et appuyez sur Entrée).
+3. Sélectionnez le trousseau « login ».
+4. Cliquez sur l’icône de cadenas pour verrouiller le trousseau (le verrou s’anime alors en position fermée ; cela peut prendre quelques secondes, selon les applications ouvertes).
+
+    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Lancez l’Explorateur Stockage.
+6. Une fenêtre contextuelle doit s’afficher avec un message du type « Le hub de service souhaite accéder au trousseau ». Entrez alors le mot de passe de votre compte Administrateur Mac et cliquez sur **Toujours autoriser** (ou **Autoriser** si **Toujours autoriser** n’est pas proposé).
+7. Essayez de vous connecter.
+
+### <a name="general-sign-in-troubleshooting-steps"></a>Étapes générales de résolution des problèmes de connexion
+* Si vous êtes sous macOS et que la fenêtre de connexion n’apparaît jamais sur la boîte de dialogue « En attente d’authentification... », suivez [ces étapes](#Mac-Keychain-Errors).
 * Redémarrez l’Explorateur de stockage
 * Si la fenêtre d’authentification est vide, patientez au moins une minute avant de fermer la boîte de dialogue d’authentification.
-* Vérifiez que vos paramètres de proxy et de certificat sont correctement configurés pour votre ordinateur et pour l’Explorateur de stockage
-* Si vous êtes sur Windows et que vous avez accès à Visual Studio 2017 sur le même ordinateur et avec le même ID de connexion, essayez de vous connecter à Visual Studio 2017
+* Vérifiez que vos paramètres de proxy et de certificat sont correctement configurés pour votre ordinateur et pour l’Explorateur Stockage.
+* Si vous êtes sur Windows et que vous avez accès à Visual Studio 2017 sur le même ordinateur et avec le même ID de connexion, essayez de vous connecter à Visual Studio 2017. Après une connexion réussie à Visual Studio 2017, vous devez être en mesure d’ouvrir l’Explorateur Stockage et de voir votre compte dans le panneau des comptes. 
 
 Si aucune de ces méthodes ne fonctionne, [ouvrez un problème sur GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="unable-to-retrieve-subscriptions"></a>Impossible de récupérer les abonnements
+### <a name="missing-subscriptions-and-broken-tenants"></a>Abonnements manquants et locataires en échec
 
 Si vous ne parvenez pas à récupérer vos abonnements après vous être connecté avec succès, essayez l’une des méthodes de résolution de problèmes suivantes :
 
@@ -78,7 +96,7 @@ Si vous ne parvenez pas à récupérer vos abonnements après vous être connect
 * Assurez-vous que vous vous êtes connecté à l’aide de l’environnement approprié (Azure, Azure Chine, Azure Allemagne, Azure Gouvernement des États-Unis ou environnement personnalisé).
 * Si vous vous trouvez derrière un proxy, vérifiez que vous avez correctement configuré le proxy de l’Explorateur de stockage.
 * Essayez de supprimer et de rajouter le compte.
-* Regardez la console Outils de développement (Aide > Activer/désactiver les outils de développement) pendant que l’Explorateur de stockage charge des abonnements. Recherchez des messages d’erreur (en rouge) ou un message contenant le texte « Impossible de charger des abonnements pour le locataire. » Si vous voyez des messages préoccupants, [ouvrez un ticket d’incident sur GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* S’il existe un lien « Plus d’informations », examinez les messages d’erreur signalés pour les locataires en échec. Si les messages d’erreur que vous voyez ne vous aident pas, n’hésitez pas à [ouvrir un problème sur GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="cannot-remove-attached-account-or-storage-resource"></a>Impossible de supprimer le compte ou la ressource de stockage joints
 
@@ -155,19 +173,6 @@ Pour les distributions Linux autres que Ubuntu 16.04, vous devez peut-être ins
 * GCC à jour
 
 En fonction de votre distribution, vous devez peut-être installer d’autres packages. Les [Notes de publication](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) de l’Explorateur Stockage contiennent des étapes propres à certaines distributions.
-
-## <a name="resetting-the-mac-keychain"></a>Réinitialiser le trousseau Mac
-Il peut arriver que le trousseau macOS soit dans un état qui provoque des problèmes dans la bibliothèque d’authentification de l’Explorateur Stockage. Pour modifier l’état du trousseau, suivez ces étapes :
-1. Fermez l’Explorateur Stockage.
-2. Ouvrez le trousseau (**cmd + espace**, tapez keychain et appuyez sur Entrée).
-3. Sélectionnez le trousseau « login ».
-4. Cliquez sur l’icône de cadenas pour verrouiller le trousseau (le verrou s’anime alors en position fermée ; cela peut prendre quelques secondes, selon les applications ouvertes).
-
-    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
-
-5. Lancez l’Explorateur Stockage.
-6. Une fenêtre contextuelle s’affiche, avec un message du type « Service hub wants to access the keychain » (« Le hub de service souhaite accéder au trousseau »). Entrez le mot de passe de votre compte Administrateur Mac et cliquez sur **Toujours autoriser** (ou **Autoriser** si **Toujours autoriser** n’est pas proposé).
-7. Essayez de vous connecter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

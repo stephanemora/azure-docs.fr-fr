@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441491"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144565"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article vous aide à démarrer en effectuant plusieurs actions qui optimisent les avantages qu’offre Azure Security Center. En effet, en effectuant ces actions, vous obtenez une meilleure visibilité de tous les abonnements Azure qui sont liés à votre locataire Azure Active Directory et vous gérez efficacement la sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité sur plusieurs abonnements en même temps.
@@ -85,8 +85,20 @@ Les administrateurs de locataires Azure Active Directory n’ont pas d’accès 
 
 5. Effectuez les tâches que vous devez accomplir via un accès élevé. Lorsque vous avez terminé, repositionnez le commutateur sur **Non**.
 
+### <a name="open-or-refresh-security-center"></a>Ouvrir ou actualiser Security Center
+Une fois que vous disposez d’un accès élevé, ouvrez ou actualisez Azure Security Center pour vérifier que vous voyez tous les abonnements sous votre locataire Azure AD. 
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+2. Veillez à sélectionner tous les abonnements dans le sélecteur d’abonnements que vous souhaitez afficher dans Security Center.
+    ![Capture d’écran du sélecteur d’abonnements](./media/security-center-management-groups/subscription-selector.png)
+1. Sélectionnez **Tous les services** sous le menu principal d’Azure, puis sélectionnez **Security Center**.
+2. Dans la **Vue d’ensemble**, se trouve un graphique des abonnements couverts. 
+    ![Capture d’écran du graphique des abonnements couverts](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. Cliquez sur **Couverture** pour voir la liste des abonnements couverts. 
+    ![Capture d’écran de la liste des abonnements couverts](./media/security-center-management-groups/security-center-coverage.png)
+
 ### <a name="assign-rbac-roles-to-users"></a>Attribuer des rôles RBAC aux utilisateurs
-Une fois qu’un administrateur de locataires a un accès élevé, il peut attribuer un rôle RBAC aux utilisateurs appropriés au niveau du groupe d’administration racine. Le rôle recommandé à attribuer est [ **Lecteur**](../role-based-access-control/built-in-roles.md#reader). Ce rôle est nécessaire pour obtenir une visibilité au niveau locataire. Le rôle attribué est automatiquement propagé à tous les groupes d’administration et tous les abonnements sous le groupe d’administration racine. Pour plus d’informations sur les rôles RBAC, consultez [Rôles disponibles](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
+Une fois qu’un administrateur de locataires a un accès élevé, il peut attribuer un rôle RBAC aux utilisateurs appropriés au niveau du groupe d’administration racine. Le rôle recommandé à attribuer est [ **Lecteur**](../role-based-access-control/built-in-roles.md#reader). Ce rôle est nécessaire pour obtenir une visibilité au niveau locataire. Le rôle attribué est automatiquement propagé à tous les groupes d’administration et tous les abonnements sous le groupe d’administration racine. Pour plus d’informations sur les rôles RBAC, consultez [Rôles disponibles](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles). 
 
 1. Installez [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Exécutez les commandes suivantes : 
@@ -141,15 +153,7 @@ Une fois que les rôles RBAC ont été attribués aux utilisateurs, l’administ
 
 4. Cliquez sur **Enregistrer** pour enregistrer votre paramètre.
 
-### <a name="open-or-refresh-security-center"></a>Ouvrir ou actualiser Security Center
-Une fois que vous avez attribué les rôles RBAC, ouvrez ou actualisez Azure Security Center pour vérifier que vous voyez tous les abonnements sous votre locataire Azure AD. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
-2. Sélectionnez **Tous les services** sous le menu principal d’Azure, puis sélectionnez **Security Center**.
-3. Dans la **Vue d’ensemble**, se trouve un graphique des abonnements couverts. 
-    ![Capture d’écran du graphique des abonnements couverts](./media/security-center-management-groups/security-center-subscription-coverage.png)
-4. Cliquez sur **Couverture** pour voir la liste des abonnements couverts. 
-    ![Capture d’écran de la liste des abonnements couverts](./media/security-center-management-groups/security-center-coverage.png)
 
 ## <a name="adding-subscriptions-to-a-management-groups"></a>Ajout d’abonnements à un groupe d’administration
 Vous pouvez ajouter des abonnements au groupe d’administration que vous avez créé. Ces étapes ne sont pas obligatoires pour obtenir une visibilité au niveau locataire ni pour gérer les accès et les stratégies globales.

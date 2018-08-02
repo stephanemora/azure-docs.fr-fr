@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969603"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144949"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Pilote de volume Azure Files pour Service Fabric (version préliminaire)
 Le plug-in de volume Azure Files est un [plug-in de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) qui fournit des volumes basés sur [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) pour les conteneurs Docker. Ce plug-in de volume Docker est fourni sous la forme d’une application Service Fabric qui peut être déployée sur des clusters Service Fabric. Il vise à fournir des volumes basés sur Azure Files aux autres applications de conteneur Service Fabric qui sont déployées sur le cluster.
@@ -36,6 +36,33 @@ Le plug-in de volume Azure Files est un [plug-in de volume Docker](https://docs.
 * Suivez les instructions de la [documentation Azure Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) pour créer un partage de fichiers pour l’application de conteneur Service Fabric à utiliser en tant que volume.
 
 * Vous devrez avoir installé [Powershell avec le module Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) ou [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli).
+
+* Si vous utilisez des conteneurs Hyper-V, les extraits de code suivants doivent être ajoutés dans ClusterManifest (cluster local), à la section fabricSettings dans votre modèle ARM (cluster Azure) ou dans le fichier ClusterConfig.json (cluster autonome). Vous avez besoin du nom de volume et du port que le volume écoute sur le cluster. 
+
+Dans ClusterManifest, vous devez ajouter ce qui suit à la section Hosting. Dans cet exemple, le nom de volume est **sfazurefile** et le port qu’il écoute sur le cluster est **19300**.  
+
+``` xml 
+<Section Name="Hosting">
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+</Section>
+```
+
+Dans la section fabricSettings de votre modèle ARM (pour les déploiements Azure) ou le fichier ClusterConfig.json (pour les déploiements autonomes), l’extrait de code suivant doit être ajouté. 
+
+```json
+"fabricSettings": [
+  {
+    "name": "Hosting",
+    "parameters": [
+      {
+          "name": "VolumePluginPorts",
+          "value": "sfazurefile:19300"
+      }
+    ]
+  }
+]
+```
+
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Déployer l’application Azure Files pour Service Fabric
 

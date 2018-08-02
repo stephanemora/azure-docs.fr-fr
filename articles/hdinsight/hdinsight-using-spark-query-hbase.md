@@ -1,31 +1,28 @@
 ---
-title: Utiliser Spark pour lire et écrire des données HBase - Azure HDInsight | Microsoft Docs
+title: Utiliser Spark pour lire et écrire des données HBase - Azure HDInsight
 description: Utilisez le connecteur HBase Spark pour lire et écrire des données d’un cluster Spark sur un cluster HBase.
 services: hdinsight
-documentationcenter: ''
 author: maxluk
+ms.author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: maxluk
-ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.topic: conceptual
+ms.date: 07/18/2018
+ms.openlocfilehash: 5123a95852fae58adf0b4a4684b012d3b9c71e3b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161173"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144769"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Utiliser Spark pour lire et écrire des données HBase
 
 Apache HBase est généralement interrogé soit avec son API de bas niveau (analyses, obtentions et insertions), soit avec une syntaxe SQL à l’aide de Phoenix. Apache fournit également le connecteur HBase Spark, qui constitue une alternative pratique et performante pour interroger et modifier des données stockées par HBase.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Deux clusters HDInsight distincts, un HBase et un Spark avec Spark 2.1 (HDInsight 3.6).
 * Le cluster Spark doit communiquer directement avec le cluster HBase avec une latence minimale. La configuration recommandée consiste donc à déployer les deux clusters sur le même réseau virtuel. Pour plus d’informations, consultez [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
@@ -131,7 +128,7 @@ Lors de cette étape, vous allez créer et remplir un tableau simple dans HBase,
 1. Connectez-vous au nœud principal de votre cluster Spark à l’aide de SSH.
 2. Démarrez l’interpréteur de commandes Spark en spécifiant le package de connecteur HBase Spark :
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
 
 3. Laissez cette instance de l’interpréteur de commandes Spark ouverte et passez à l’étape suivante.
 

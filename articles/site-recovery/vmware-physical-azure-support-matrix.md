@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: raynew
-ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 516cb69042e923a46168c7655dc3e3010d9557e6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070907"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173790"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice de support pour la réplication des machines virtuelles VMware et des serveurs physiques vers Azure
 
@@ -61,7 +61,7 @@ Site Recovery assure la réplication de toutes les charges de travail exécutée
 **Composant** | **Détails**
 --- | ---
 Paramètres de la machine | Les ordinateurs qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#azure-vm-requirements).
-Système d’exploitation Windows | Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1. </br></br>  [Windows Server 2008 avec au moins SP2 - 32 bits et 64 bits](migrate-tutorial-windows-server-2008.md) (migration uniquement). </br></br> * *Windows 2016 Nano Server n’est pas pris en charge.*
+Système d’exploitation Windows | Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1. </br></br>  [Windows Server 2008 avec au moins SP2 - 32 bits et 64 bits](migrate-tutorial-windows-server-2008.md) (migration uniquement). </br></br> Windows 2016 Nano Server n’est pas pris en charge.
 Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.5 <br/><br/>CentOS : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.5 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versions du noyau prises en charge)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versions du noyau prises en charge)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>* *La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas pris en charge. Pour effectuer la mise à niveau, désactivez la réplication, puis réactiver-la après la mise à niveau.*
 
 
@@ -120,7 +120,12 @@ Répertoires | Ces répertoires (s’ils sont configurés en tant que partitions
 Espace libre requis| 2 Go sur la partition/root <br/><br/> 250 Mo dans le dossier d’installation
 XFSv5 | Les fonctionnalités XFSv5 sur des systèmes de fichiers XFS, tels que les sommes de contrôle de métadonnées, sont prises en charge à partir du service Mobilité version 9.10 et versions ultérieures. Utilisez l’utilitaire xfs_info pour vérifier le superbloc XFS pour la partition. Si ftype est défini sur 1, les fonctionnalités XFSv5 sont utilisées.
 
+## <a name="vmdisk-management"></a>Gestion des machines virtuelles/disques
 
+**Action** | **Détails**
+--- | ---
+Redimensionner le disque sur la machine virtuelle répliquée | Pris en charge.
+Ajouter un disque à la machine virtuelle répliquée | Désactivez la réplication pour la machine virtuelle, ajoutez le disque, puis réactivez la réplication. L’ajout d’un disque sur une machine virtuelle de réplication n’est pas pris en charge pour l’instant.
 
 ## <a name="network"></a>Réseau
 
@@ -150,14 +155,14 @@ Plusieurs cartes réseau | OUI
 Adresses IP réservées | OUI
 IPv4 | OUI
 Conserver l’adresse IP source | OUI
-Points de terminaison du service Réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | Oui
+Points de terminaison du service Réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | OUI
 Mise en réseau accélérée | Non 
 
 ## <a name="storage"></a>Stockage
 **Composant** | **Pris en charge**
 --- | ---
 Hôte NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques
-Hôte SAN (iSCSI/FC) | Oui
+Hôte SAN (iSCSI/FC) | OUI
 vSAN hôte | Oui pour VMware<br/><br/> N/A pour les serveurs physiques
 Multipath hôte (MPIO) | Oui, testé avec : Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON
 Volumes virtuels hôtes (VVols) | Oui pour VMware<br/><br/> N/A pour les serveurs physiques
@@ -170,11 +175,11 @@ SMB 3.0 invité/serveur | Non
 RDM invité/serveur | OUI<br/><br/> N/A pour les serveurs physiques
 Disque invité/serveur > 1 To | OUI<br/><br/>Jusqu’à 4 095 Go
 Disque invité/serveur avec une taille de secteur logique de 4 Ko et une taille de secteur physique de 4 K | OUI
-Disque invité/serveur avec une taille de secteur logique de 4 K et une taille de secteur physique de 512 octets | Oui
-Volume invité/serveur avec disque à bandes > 4 To <br><br/>Gestion des volumes logiques (LVM)| Oui
+Disque invité/serveur avec une taille de secteur logique de 4 K et une taille de secteur physique de 512 octets | OUI
+Volume invité/serveur avec disque à bandes > 4 To <br><br/>Gestion des volumes logiques (LVM)| OUI
 Invité/serveur - Espaces de stockage | Non 
 Ajout/retrait à chaud de disque d’Invité/de serveur | Non 
-Invité/serveur - Exclure le disque | Oui
+Invité/serveur - Exclure le disque | OUI
 Multipath invité/serveur (MPIO) | Non 
 
 > [!NOTE]
@@ -182,20 +187,20 @@ Multipath invité/serveur (MPIO) | Non
 
 > - Seule la migration vers Azure est prise en charge. La restauration automatique vers un site VMware local n’est pas prise en charge.
 > - Le disque de système d’exploitation du serveur ne doit pas comprendre plus de 4 partitions.
-> - Nécessite le service Mobilité version 9.13 ou ultérieure.
+> - Nécessite la version 9.13 du service Mobilité d’Azure Site Recovery, ou une version ultérieure.
 > - Non pris en charge pour les serveurs physiques.
 
 ## <a name="azure-storage"></a>Stockage Azure
 
 **Composant** | **Pris en charge**
 --- | ---
-Stockage localement redondant | Oui
-Stockage géo-redondant | Oui
-Stockage géo-redondant avec accès en lecture | Oui
+Stockage localement redondant | OUI
+Stockage géo-redondant | OUI
+Stockage géo-redondant avec accès en lecture | OUI
 Stockage froid | Non 
 Stockage chaud| Non 
 Objets blob de blocs | Non 
-Chiffrement au repos (Storage Service Encryption)| Oui
+Chiffrement au repos (Storage Service Encryption)| OUI
 Stockage Premium | OUI
 Service Import/Export | Non 
 Pare-feu et réseaux virtuels de stockage Azure configurés dans le compte de stockage de cache/de stockage cible (utilisé pour stocker les données de réplication) | Non 
@@ -244,5 +249,5 @@ Configuration unifiée Azure Site Recovery | Coordonne les communications entre 
 Service Mobilité | Coordonne la réplication entre les serveurs VMware/serveurs physiques et Azure/site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer | 9.12.4653.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://aka.ms/latest_asr_updates)
 
 
-## <a name="next-steps"></a>étapes suivantes
-[Découvrez comment](tutorial-prepare-azure.md) préparer Azure à la reprise après sinistre de machines virtuelles VMware.
+## <a name="next-steps"></a>Étapes suivantes
+[Découvrez comment](tutorial-prepare-azure.md) préparer Azure à la récupération d’urgence de machines virtuelles VMware.

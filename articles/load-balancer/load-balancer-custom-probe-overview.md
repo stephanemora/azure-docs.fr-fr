@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8d354e3f409a51bdbb03ad340c951c39cc6137e1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112720"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186442"
 ---
 # <a name="understand-load-balancer-probes"></a>Comprendre les sondes de l’équilibrage de charge
 
@@ -28,7 +28,7 @@ Azure Load Balancer utilise des sondes d’intégrité pour déterminer quelle i
 
 Les sondes d’intégrité déterminent si de nouveaux flux sont établis vers des instances principales intègres. Lors d’un échec d’une sonde d’intégrité, l’équilibreur de charge cesse d’envoyer de nouveaux flux à l’instance non intègre concernée.  Les connexions TCP établies perdurent après l’échec de la sonde d’intégrité.  Les flux UDP existants sont déplacés de l’instance non intègre vers une autre instance intègre dans le pool principal.
 
-Si toutes les sondes d’un pool principal échouent, l’équilibreur de charge de base met fin à tous les flux TCP existants vers le pool principal, alors que l’équilibreur de charge standard autorise les flux TCP établis à perdurer et aucun nouveau flux n’est envoyé au pool principal.  Tous les flux UDP existants prennent fin pour les équilibreurs de charge de base et standard lorsque toutes les sondes d’un pool principal échouent.
+Si toutes les sondes d’un pool principal échouent, l’équilibreur de charge de base met fin à tous les flux TCP existants vers le pool principal, alors que l’équilibreur de charge standard autorise les flux TCP établis à perdurer et aucun nouveau flux n’est envoyé au pool principal.  Tous les flux UDP existants prennent fin pour les équilibreurs de charge de base et standard lorsque toutes les sondes d’un pool principal échouent.  UDP est sans connexion et il n’existe aucun état de flux suivi pour UDP.  Tant que le hachage produit le même résultat, le flux de datagrammes reste sur une instance spécifique.  Un changement de sonde d’intégrité dans le pool backend peut déplacer les nouveaux datagrammes vers une autre instance dans le pool backend.
 
 Les rôles de service cloud (rôles de travail et rôles Web) utilisent un agent invité pour la surveillance par sonde. Les sondes d’intégrité personnalisées TCP ou HTTP doivent être configurées quand vous utilisez les services cloud avec des machines virtuelles IaaS derrière un équilibreur de charge.
 

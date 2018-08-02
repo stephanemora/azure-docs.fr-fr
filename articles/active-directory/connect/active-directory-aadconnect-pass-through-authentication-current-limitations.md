@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 34b83c54e31ed73af3f776a6add8f218dda35cf7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918918"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258284"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : limitations actuelles
 
@@ -29,36 +29,32 @@ ms.locfileid: "37918918"
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-Les scénarios suivants sont entièrement pris en charge :
+Les scénarios suivants sont pris en charge :
 
-- L’utilisateur se connecte à toutes les applications basées sur un navigateur Web.
-- L’utilisateur se connecte aux applications Office prenant en charge [l’authentification moderne](https://aka.ms/modernauthga) : Office 2016 et Office 2013 _avec_ une authentification moderne.
-- L’utilisateur se connecte aux clients Outlook à l’aide des protocoles hérités, tels qu’Exchange ActiveSync, SMTP, POP et IMAP.
-- L’utilisateur se connecte à Skype Entreprise, qui prend en charge l’authentification moderne, notamment les topologies en ligne et hybrides. Pour en savoir plus sur les topologies prises en charge, cliquez [ici](https://technet.microsoft.com/library/mt803262.aspx).
-- Jonctions de domaine Azure AD pour les appareils Windows 10.
+- L’utilisateur se connecte à des applications s’appuyant sur un navigateur web.
+- L’utilisateur se connecte aux clients Outlook à l’aide des protocoles hérités, comme Exchange ActiveSync, EAS, SMTP, POP et IMAP.
+- L’utilisateur se connecte aux applications clientes Office héritées et aux applications Office prenant en charge [l’authentification moderne](https://aka.ms/modernauthga) : les versions d’Office 2010, 2013 et 2016.
+- L’utilisateur se connecte à des applications de protocole héritées, telles que PowerShell version 1.0, etc.
+- Jonctions Azure AD pour les appareils Windows 10.
 - Mots de passe d'application pour l’authentification multifacteur.
 
 ## <a name="unsupported-scenarios"></a>Scénarios non pris en charge
 
 Les scénarios suivants ne sont _pas_ pris en charge :
 
-- L’utilisateur se connecte aux applications clientes Office héritées, à l’exception d’Outlook (consultez : **scénarios pris en charge** ci-dessus) : Office 2010 et Office 2013 _sans_ l’authentification moderne. Nous recommandons aux entreprises de basculer si possible vers l’authentification moderne. L'authentification moderne permet la prise en charge de l'authentification directe. Elle vous aide à sécuriser vos comptes d'utilisateurs grâce à des fonctionnalités d'[accès conditionnel](../active-directory-conditional-access-azure-portal.md) comme Azure Multi-Factor Authentication.
-- Accédez aux informations de disponibilité et de partage de calendrier dans des environnements hybrides Exchange sur Office 2010 uniquement.
-- L’utilisateur se connecte à des applications clientes Skype Entreprise, _sans_ authentification moderne.
-- L'utilisateur se connecte à PowerShell version 1.0. Nous vous recommandons d’utiliser PowerShell version 2.0.
 - Détection des utilisateurs avec des [informations d’identification volées](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services a besoin que la synchronisation du hachage de mot de passe soit activée sur le locataire. Ainsi, les locataires qui utilisent l’authentification directe _uniquement_ ne fonctionnent pas pour les scénarios qui ont besoin d’Azure AD Domain Services.
 - L’authentification directe n’est pas intégrée à [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
-- Le programme d’inscription des appareils Apple (Apple DEP) à l’aide de l’Assistant de configuration iOS ne prend pas en charge l’authentification moderne. Les appareils Apple DEP ne pourront pas s’inscrire dans Intune pour les domaines managés utilisant l’authentification directe. Envisagez l’utilisation de [l’application Portail d’entreprise](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) en guise d’alternative.
 
 >[!IMPORTANT]
->Comme solution de contournement _uniquement_ pour les scénarios non pris en charge, activez la synchronisation du hachage de mot de passe dans la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) de l’Assistant Azure AD Connect. Quand des utilisateurs se connectent à des applications répertoriées dans la section « Scénarios non pris en charge », ces demandes de connexion spécifiques _ne sont pas_ traitées par des Agents d’authentification directe et ne sont donc pas enregistrées dans les [Journaux d’authentification directe](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Comme solution de contournement _uniquement_ pour les scénarios non pris en charge (à l’exception de l’intégration d’Azure AD Connect Health), activez la synchronisation de hachage du mot de passe dans la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) de l’Assistant Azure AD Connect. Quand des utilisateurs se connectent à des applications répertoriées dans la section « Scénarios non pris en charge », ces demandes de connexion spécifiques _ne sont pas_ traitées par des Agents d’authentification directe et ne sont donc pas enregistrées dans les [Journaux d’authentification directe](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
-L’activation de la synchronisation de hachage de mot de passe vous donne la possibilité de basculer l’authentification en cas d’interruption de votre infrastructure sur site. Ce basculement de l’authentification directe vers la synchronisation de hachage de mot de passe Active Directory n’est pas automatique. Vous devrez basculer la méthode de connexion manuellement avec Azure AD Connect. Si le serveur exécutant Azure AD Connect tombe en panne, vous devrez demander de l’aide au Support Microsoft pour désactiver l’authentification directe.
+L’activation de la synchronisation de hachage du mot de passe vous donne la possibilité de basculer l’authentification en cas d’interruption de votre infrastructure locale. Ce basculement de l’authentification directe vers la synchronisation de hachage du mot de passe n’est pas automatique. Vous devrez basculer la méthode de connexion manuellement avec Azure AD Connect. Si le serveur exécutant Azure AD Connect tombe en panne, vous devrez demander de l’aide au Support Microsoft pour désactiver l’authentification directe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
+- [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Présentation technique approfondie](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne l'authentification directe.
 - [Forum aux questions](active-directory-aadconnect-pass-through-authentication-faq.md) : trouvez des réponses aux questions fréquemment posées sur la fonctionnalité Authentification directe.

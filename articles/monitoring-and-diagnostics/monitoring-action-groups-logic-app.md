@@ -1,21 +1,21 @@
 ---
-title: Guide pratique pour déclencher des actions complexes avec des alertes et des groupes d’actions Azure Monitor
+title: Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
 description: Découvrez comment créer une action d’application logique pour traiter des alertes Azure Monitor.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 034e708b79bbdf15d7fa628f388402998f49c0d9
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049185"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161504"
 ---
-# <a name="create-a-logic-app-action"></a>Créer une action d’application logique
+# <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
 
 Cet article explique comment configurer une application logique pour qu’elle crée une conversation dans Microsoft Teams quand une alerte se déclenche.
 
@@ -290,6 +290,9 @@ Le processus de création d’une alerte de métrique est semblable à celui de 
        ![« Action de publication pour condition fausse d’alerte de métrique »](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Action de publication pour condition fausse d’alerte de métrique")
 
 - L’étape 15 est identique. Suivez les instructions pour enregistrer votre application logique et mettre à jour votre groupe d’actions.
+
+## <a name="calling-other-applications-besides-microsoft-teams"></a>Appel d’applications autres que Microsoft Teams
+Logic Apps propose plusieurs connecteurs qui vous permettent de déclencher des actions dans un large éventail d’applications et de bases de données. Slack, SQL Server, Oracle, Salesforce en sont quelques exemples. Pour plus d’informations sur les connecteurs, consultez [Connecteurs Logic App](../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Dans une [vue d’ensemble des alertes du journal d’activité Azure](monitoring-overview-alerts.md), découvrez comment recevoir des alertes.  

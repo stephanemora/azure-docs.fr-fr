@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a453e2d16edecda9753c2940a745b260a3a2b893
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045436"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160261"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Didacticiel : Intégration d’Azure Active Directory à Salesforce
 
@@ -60,14 +60,14 @@ Pour configurer l’intégration de Salesforce avec Azure AD, vous devez ajoute
 
 **Pour ajouter Salesforce à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory][1]
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
-    
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
@@ -103,26 +103,26 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Boîte de dialogue Authentification unique](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. Dans la section **Domaine et URL Salesforce**, procédez comme suit :
 
     ![Informations d’authentification unique dans Domaine et URL Salesforce](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant :
-    
+
     Compte d’entreprise : `https://<subdomain>.my.salesforce.com`
 
     Compte de développeur : `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. Dans la zone de texte **Identificateur**, entrez la valeur au format suivant :
-    
+
     Compte d’entreprise : `https://<subdomain>.my.salesforce.com`
 
     Compte de développeur : `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Salesforce](https://help.salesforce.com/support).
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat**, puis enregistrez le fichier du certificat sur votre ordinateur.
@@ -170,14 +170,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Dans le champ **Issuer**, collez la valeur de **ID d’entité SAML** que vous avez copiée à partir du portail Azure.
 
     c. Dans la zone de texte **ID d’entité**, tapez votre nom de domaine Salesforce en suivant ce modèle :
-      
+
       * Compte d’entreprise : `https://<subdomain>.my.salesforce.com`
       * Compte de développeur : `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. Dans **Identity Provider Certificate**, cliquez sur **Choose File** pour sélectionner le fichier de certificat que vous avez téléchargé à partir du portail Azure.
 
     e. Comme **SAML Identity Type**, choisissez l’une des options suivantes :
-    
+
       * Sélectionnez **Assertion contains the User’s Salesforce username** si le Salesforce Username de l’utilisateur est passé dans l’assertion SAML.
 
       * Sélectionnez **Assertion contains the Federation ID from the User object** si le Federation ID de l’objet User est passé dans l’assertion SAML.
@@ -189,7 +189,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     g. Pour **Liaison de demande initiée par le fournisseur de service**, sélectionnez **Redirection HTTP**.
 
     h. Dans la zone de texte **Identity Provider Login URL**, collez la valeur de l’**URL du service d’authentification unique** que vous avez copiée à partir du portail Azure.
-    
+
     i. Enfin, cliquez sur **Enregistrer** pour appliquer vos paramètres d’authentification unique SAML.
 
 14. Dans le volet de navigation de gauche de Salesforce, cliquez sur **Company Settings** pour développer la section associée, puis cliquez sur **My Domain**.
@@ -200,7 +200,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. Dans la section **Configuration de l’authentification**, cochez **Page de connexion** comme **Service d’authentification** de votre configuration SSO SAML, puis cliquez sur **Enregistrer**.
+16. Dans la section **Authentication Configuration** (Configuration de l’authentification), cochez **AzureSSO** comme **Authentication Service** (Service d’authentification) de votre configuration SSO SAML, puis cliquez sur **Save** (Enregistrer).
 
     ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-auth-config.png)
 

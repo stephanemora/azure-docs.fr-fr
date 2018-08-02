@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001828"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171253"
 ---
 # <a name="monitor-batch-solutions"></a>Solutions Monitor Batch
 
@@ -63,7 +63,7 @@ Dans vos applications Batch, utilisez les API Batch pour surveiller ou interroge
   > L’utilisation d’Application Insights peut induire des frais supplémentaires. Consultez les [options de tarification](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs) est un outil client autonome, gratuit et doté de nombreuses fonctionnalités, aidant à créer, déboguer et surveiller les applications Azure Batch. Téléchargez un [package d’installation](https://azure.github.io/BatchLabs/) pour Mac, Linux ou Windows. Le cas échéant, configurez votre solution Batch pour [afficher des données Application Insights](https://github.com/Azure/batch-insights) comme des compteurs de performances de machines virtuelles dans BatchLabs.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer) est un outil client autonome gratuit, doté de nombreuses fonctionnalités aidant à créer, déboguer et surveiller les applications Azure Batch. Téléchargez un [package d’installation](https://azure.github.io/BatchExplorer/) pour Mac, Linux ou Windows. Le cas échéant, configurez votre solution Batch pour [afficher des données Application Insights](https://github.com/Azure/batch-insights), comme des compteurs de performances de machines virtuelles dans Batch Explorer.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

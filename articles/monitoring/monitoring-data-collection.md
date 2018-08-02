@@ -1,6 +1,6 @@
 ---
 title: Collecte de données de surveillance dans Azure | Microsoft Docs
-description: Vue d’ensemble des données de surveillance collectées à partir de l’application et des services dans Azure, ainsi que des outils utilisés pour les analyser.
+description: Vue d’ensemble des données de surveillance collectées à partir des applications et des services Azure, ainsi que des outils utilisés pour les analyser.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: bwren
-ms.openlocfilehash: d3ebd512f8244de74c009ac8a2936ed8e817dad9
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: efbf0907f3ed75957159c38a536bd31e88a0dbb3
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992234"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213297"
 ---
 # <a name="collecting-monitoring-data-in-azure"></a>Collecte de données de surveillance dans Azure
-Cet article fournit une vue d’ensemble des données de surveillance collectées à partir des applications et services dans Azure, ainsi que des outils utilisés pour les analyser. 
+Cet article fournit une vue d’ensemble des données de surveillance collectées à partir des applications et des services Azure, ainsi que des outils utilisés pour les analyser. 
 
 ## <a name="types-of-monitoring-data"></a>Types de données de surveillance
 Toutes les données de surveillance sont de l’un des deux types fondamentaux, les métriques ou les journaux. Chaque type présente des caractéristiques distinctes, adaptées aux scénarios particuliers décrits ci-dessous.
 
-### <a name="metrics"></a>Métriques
+### <a name="metrics"></a>Mesures
 Les métriques sont des valeurs numériques décrivant un aspect d’un système à un moment précis dans le temps. Elles incluent des données distinctes, dont la valeur proprement dite, l’heure de collecte de la valeur, le type de mesure que la valeur représente, et la ressource à laquelle la valeur est associée. Les métriques sont collectées à intervalles réguliers, que la valeur change ou non. Par exemple, vous pouvez collecter la mesure de l’utilisation du processeur d’une machine virtuelle à chaque minute, ou le nombre d’utilisateurs connecté à votre application toutes les 10 minutes.
 
 Les métriques sont légères et capables de prendre en charge des scénarios en quasi temps réel. Elles sont particulièrement utiles pour créer des alertes, dans la mesure où elles peuvent être échantillonnées fréquemment, et où une alerte peut être déclenchée rapidement avec une logique relativement simple. Par exemple, vous pouvez déclencher une alerte quand une métrique dépasse une valeur de seuil, ou quand la différence entre les valeurs de deux métriques atteint une valeur particulière.

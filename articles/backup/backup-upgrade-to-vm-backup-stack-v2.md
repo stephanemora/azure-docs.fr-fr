@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136893"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205338"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2
 
@@ -48,7 +48,7 @@ Par défaut, les instantanés sont conservés pendant sept jours. Cette fonction
 
 * Les instantanés sont stockés localement pour accélérer la création des points de récupération ainsi que les opérations de restauration. Vous voyez donc des coûts de stockage correspondant aux instantanés pris pendant la période de sept jours.
 
-* Les instantanés incrémentiels sont stockés sous la forme d’objets blob de pages. Tout client qui utilise des disques non managés est facturé pour les sept jours pendant lesquels les instantanés sont stockés dans son compte de stockage local. Selon le modèle de tarification actuel, les disques managés n’entraînent pas de frais pour les clients.
+* Les instantanés incrémentiels sont stockés sous la forme d’objets blob de pages. Tout client qui utilise des disques non managés est facturé pour les sept jours pendant lesquels les instantanés sont stockés dans son compte de stockage local. Étant donné que les collections de point de restauration utilisées par les sauvegardes de machine virtuelle managée utilisent des instantanés d’objet blob au niveau du stockage sous-jacent, pour les disques managés vous voyez les coûts correspondant au [tarif de l’instantané d’objet blob](https://docs.microsoft.com/rest/api/storageservices/understanding-how-snapshots-accrue-charges) et ils sont incrémentiels. 
 
 * Si vous restaurez une machine virtuelle Premium à partir d’un point de récupération d’instantané, un emplacement de stockage temporaire est utilisé pendant la création de la machine virtuelle.
 
@@ -56,7 +56,7 @@ Par défaut, les instantanés sont conservés pendant sept jours. Cette fonction
 
 ## <a name="upgrade"></a>Mise à niveau
 ### <a name="the-azure-portal"></a>Le portail Azure
-Si vous utilisez le portail Azure, une notification s’affiche sur le tableau de bord du coffre. Elle concerne la prise en charge des disques volumineux et les améliorations de la vitesse de sauvegarde et de restauration.
+Si vous utilisez le portail Azure, une notification s’affiche sur le tableau de bord du coffre. Elle concerne la prise en charge des disques volumineux et les améliorations de la vitesse de sauvegarde et de restauration. Vous pouvez aussi accéder à la page des propriétés du coffre pour obtenir l’option de mise à niveau.
 
 ![Tâche de sauvegarde dans le modèle de déploiement Resource Manager pour la pile de sauvegarde de machine virtuelle : notification de prise en charge](./media/backup-azure-vms/instant-rp-banner.png) 
 
@@ -72,13 +72,13 @@ Exécutez les applets de commande suivantes à partir d’un terminal PowerShell
     PS C:> Connect-AzureRmAccount
     ```
 
-2.  Sélectionnez l’abonnement que vous voulez inscrire pour la préversion :
+2.  Sélectionnez l’abonnement à inscrire :
 
     ```
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
 
-3.  Inscrivez cet abonnement pour une préversion privée :
+3.  Inscrivez cet abonnement :
 
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
@@ -101,13 +101,13 @@ Les questions et réponses suivantes ont été collectées dans les forums et le
 
 Si vous effectuez une mise à niveau vers la version 2, il n’y a aucun impact sur vos sauvegardes actuelles et il n’est pas nécessaire de reconfigurer votre environnement. Effectuez la mise à niveau : votre environnement de sauvegarde continue de fonctionner comme avant.
 
-### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>Combien coûte la mise à niveau vers la version 2 de la pile de sauvegarde Azure ?
+### <a name="what-does-it-cost-to-upgrade-to-azure-vm-backup-stack-v2"></a>Combien coûte la mise à niveau vers la pile de sauvegarde de machine virtuelle Azure v2 ?
 
-La mise à niveau vers la version 2 de la pile de sauvegarde Azure ne coûte rien. Les instantanés sont stockés localement pour accélérer la création des points de récupération et les opérations de restauration. Vous voyez donc des coûts de stockage correspondant aux instantanés pris pendant la période de sept jours.
+Il n’y a aucun coût pour mettre à niveau la pile à la version 2. Les instantanés sont stockés localement pour accélérer la création des points de récupération et les opérations de restauration. Vous voyez donc des coûts de stockage correspondant aux instantanés pris pendant la période de sept jours.
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>La mise à niveau vers la version 2 de la pile augmente-t-elle la limite des instantanés du compte de stockage Premium de 10 To ?
 
-Non.
+Les instantanés pris dans le cadre de la pile v2 sont comptabilisés dans la limite des instantanés de 10 To d’un compte de stockage Premium pour les disques non managés. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Dans les comptes de stockage Premium, les instantanés créés pour un point de récupération instantanée occupent-ils la limite de 10 To ?
 
@@ -117,14 +117,6 @@ Oui, pour les comptes de stockage Premium, les instantanés pris pour un point d
 
 Chaque jour, un nouvel instantané est pris. Il existe sept instantanés individuels. Le service n’effectue **pas** de copie le premier jour, et il ajoute ensuite les modifications au cours des six jours suivants.
 
-### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>Que se passe-t-il si le groupe de ressources par défaut est supprimé accidentellement ?
-
-Si le groupe de ressources est supprimé, les instantanés de point de récupération de toutes les machines virtuelles protégées dans cette région sont perdus. Lors de la sauvegarde suivante, le groupe de ressources est recréé et les sauvegardes continuent comme prévu. Cette fonctionnalité n’est pas propre aux points de récupération instantanée.
-
-### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>Puis-je supprimer le groupe de ressources par défaut créé pour les points de récupération instantanée ?
-
-Le service Sauvegarde Azure crée le groupe de ressources managé. Actuellement, vous ne pouvez pas changer ou modifier le groupe de ressources. Vous ne devez pas non plus verrouiller le groupe de ressources. Ceci ne vaut pas seulement pour la pile V2.
- 
 ### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Un instantané v2 est-il un instantané incrémentiel ou un instantané complet ?
 
-Des instantanés incrémentiels sont utilisés pour les disques non managés. Pour les disques managés, l’instantané est un instantané complet.
+Des instantanés incrémentiels sont utilisés pour les disques non managés. Pour les disques managés, la collection de points de restauration créée par la sauvegarde Azure utilise des instantanés d’objets blob, et sont donc incrémentiels. 

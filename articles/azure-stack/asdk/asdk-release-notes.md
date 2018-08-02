@@ -11,46 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 06/04/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 86ac1f1b5433104faa89e1f107fa36fc1da5f70e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d86f0e96f64a56644b3161725f7f6a430568a72f
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989892"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242697"
 ---
-# <a name="azure-stack-development-kit-release-notes"></a>Notes de publication du Kit de développement Azure Stack  
+# <a name="azure-stack-development-kit-release-notes"></a>Notes de publication du Kit de développement Azure Stack
 Ces notes de publication fournissent des informations sur les améliorations, les correctifs et les problèmes connus relatifs au Kit de développement Azure Stack. Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Restez informé des nouveautés concernant l’ASDK en vous abonnant au [![flux](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11805147"></a>Build 1.1805.1.47
+## <a name="build-11805142"></a>Build 1.1805.1.42
 
-> [!TIP]  
-> En fonction des commentaires des clients, il existe une mise à jour du schéma de la version en cours d’utilisation pour Microsoft Azure Stack. À compter de cette mise à jour, 1805, le nouveau schéma représente mieux la version cloud actuelle.  
-> 
-> Le schéma de version est à présent *Version.YearYearMonthMonth.MinorVersion.BuildNumber* où le deuxième et le troisième ensemble indiquent la version et la publication. Par exemple, 1805.1 représente la *version finalisée* de 1805.  
-
-
-### <a name="new-features"></a>Nouvelles fonctionnalités 
-Cette build inclut les améliorations et les correctifs suivants pour Azure Stack.  
-
-- <!-- 2297790 - IS, ASDK --> **Azure Stack inclut désormais un client *Syslog* en tant** que *fonctionnalité préliminaire*. Ce client permet le transfert des journaux d’audit et de sécurité liés à l’infrastructure d’Azure Stack vers un serveur Syslog ou un logiciel SIEM externe à Azure Stack. Actuellement, le client Syslog ne prend en charge que les connexions UDP non authentifiées via le port par défaut 514. La charge utile de chaque message Syslog est formatée en CEF (Common Event Format). 
-
-  Pour configurer le client Syslog, utilisez la cmdlet **Set-SyslogServer** exposée dans le point de terminaison privilégié. 
-
-  Avec cette préversion, vous pouvez voir les trois alertes suivantes. Présentées par Azure Stack, ces alertes incluent des *descriptions* et des conseils de *correction*. 
-  - TITRE : Intégrité du code désactivée  
-  - TITRE : Intégrité du code en mode audit 
-  - TITRE : Compte d’utilisateur créé
-
-  Tant que cette fonctionnalité est en préversion, vous ne devez pas l’utiliser dans votre environnement de production.   
+<!-- ### New features 
+This build includes the following improvements and fixes for Azure Stack.  
+-->
 
 
 ### <a name="fixed-issues"></a>Problèmes résolus
-- Nous avons résolu le problème qui bloquait l’[ouverture d’une nouvelle requête de support dans la liste déroulante](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) depuis le portail d’administration. Cette option fonctionne désormais normalement. 
 
 - **Divers correctifs** pour les performances, la stabilité, la sécurité et le système d’exploitation utilisé par Azure Stack
 
@@ -64,14 +47,6 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 ### <a name="known-issues"></a>Problèmes connus
  
 #### <a name="portal"></a>Portail
-- <!-- 2551834 - IS, ASDK --> Lorsque vous sélectionnez **Vue d’ensemble** pour un compte de stockage sur le portail d’administration ou utilisateur, les informations du volet *Éléments principaux* ne s’affichent pas.  Le volet Éléments principaux affiche des informations sur le compte comme son *groupe de ressources*, son *emplacement* et son *ID d’abonnement*.  D’autres options de la vue d’ensemble sont accessibles, par exemple *Services* et *Surveillance*, ainsi que des options permettant d’*Ouvrir dans Explorer* ou de *Supprimer le compte de stockage*.  
-
-  Pour afficher les informations non disponibles, utilisez la cmdlet PowerShell [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0). 
-
-- <!-- 2551834 - IS, ASDK --> Lorsque vous sélectionnez **Balises** pour un compte de stockage sur le portail d’administration ou utilisateur, les informations ne se chargent pas.  
-
-  Pour afficher les informations non disponibles, utilisez la cmdlet PowerShell [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0).
-
 - <!-- TBD - IS ASDK --> N’utilisez pas les nouveaux types d’abonnement d’administration *Abonnement de contrôle* et *Abonnement de consommation*. Ces nouveaux types d’abonnement ont été introduits avec la version 1804 mais ne sont pas encore prêts à être utilisés. Vous devez continuer à utiliser le type d’abonnement *Fournisseur par défaut*.  
 
 - <!-- 2403291 - IS ASDK --> Il se peut que vous ne puissiez pas utiliser la barre de défilement horizontale au bas du portail d’administration et du portail utilisateur. Si vous ne pouvez pas accéder à la barre de défilement horizontale, utilisez les barres de navigation pour accéder à un panneau précédent dans le portail en sélectionnant le nom du panneau que vous souhaitez afficher dans la liste des barres de navigation en haut à gauche du portail.
@@ -97,40 +72,9 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
    - COMPOSANT : Contrôleur d’intégrité
    - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
 
-  Les deux alertes #1 et #2 peuvent être ignorées en toute sécurité. Elles se ferment automatiquement au bout d’un moment. 
-
-  Vous pouvez également voir l’alerte suivante pour *Capacité*. Pour cette alerte, le pourcentage de mémoire disponible identifiée dans la description peut varier :  
-
-  Alerte #3 :
-   - NOM : Capacité de mémoire faible
-   - NIVEAU DE GRAVITÉ : Critique
-   - COMPOSANT : Capacité
-   - DESCRIPTION : La région a consommé plus de 80 % de la mémoire disponible. La création de machines virtuelles avec de grandes quantités de mémoire peut échouer.  
-
-  Dans cette version d’Azure Stack, cette alerte peut s’envoyer de façon incorrecte. Si les machines virtuelles d’abonné continuent de déployer avec succès, vous pouvez ignorer cette alerte en toute sécurité. 
-  
-  L’alerte #3 n’est pas automatiquement mise à jour. Si vous fermez cette alerte, Azure Stack crée la même alerte dans les 15 minutes qui suivent.  
-
-- <!-- 2368581 - IS ASDK --> En tant qu’opérateur d’Azure Stack, si vous recevez une alerte d’insuffisance de mémoire et que les machines virtuelles client ne parviennent pas à se déployer à cause d’une *erreur de création de la structure de la machine virtuelle*, il est possible que l’horodatage d’Azure Stack soit en dehors de la mémoire disponible. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail. 
-
+  Ces deux alertes peuvent être ignorées en toute sécurité. Elles se ferment automatiquement dans le temps.  
 
 #### <a name="compute"></a>Calcul
-- <!-- TBD - IS, ASDK --> Lorsque vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
-  Pour résoudre ce problème, utilisez l’une des méthodes suivantes pour déployer une machine virtuelle. Dans chaque méthode, vous devez spécifier la taille de machine virtuelle que vous voulez utiliser.
-
-  - **Modèle Azure Resource Manager :** lorsque vous utilisez un modèle, définissez la valeur *vmSize* dans le modèle pour qu’elle soit égale à la taille de machine virtuelle que vous voulez utiliser. Par exemple, l’entrée suivante permet de déployer une machine virtuelle qui utilise la taille *F32s_v2* :  
-
-    ```
-        "properties": {
-        "hardwareProfile": {
-                "vmSize": "Standard_F32s_v2"
-        },
-    ```  
-  - **Azure CLI :** Vous pouvez utiliser la commande [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) et spécifiez la taille de machine virtuelle comme paramètre, identique à `--size "Standard_F32s_v2"`.
-
-  - **PowerShell :** avec PowerShell, vous pouvez utiliser [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) avec le paramètre qui spécifie la taille de machine virtuelle, identique à `-VMSize "Standard_F32s_v2"`.
-
-
 - <!-- TBD -  IS ASDK --> Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
 
 - <!-- TBD -  IS ASDK --> Lorsque vous créez des machines virtuelles sur le portail utilisateur Azure Stack, ce dernier affiche un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de série D. Toutes les machines virtuelles de série D prises en charge peuvent prendre en charge autant de disques de données que la configuration Azure.
@@ -146,16 +90,13 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - <!-- 1662991 - IS ASDK --> Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic. 
 
 #### <a name="networking"></a>Mise en réseau
-- <!-- TBD - IS ASDK --> Impossible de créer des itinéraires définis par l’utilisateur, que ce soit sur le portail d’administration ou le portail utilisateur. Pour résoudre ce problème, utilisez [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
-
 - <!-- 1766332 - IS, ASDK --> Sous **Mise en réseau**, si vous cliquez sur **Créer une passerelle VPN** pour configurer une connexion VPN, l’option **Basé sur des stratégies** s’affiche dans la liste des types de VPN. Ne sélectionnez pas cette option. Seule l’option **Basé sur itinéraires** est prise en charge dans Azure Stack.
 
 - <!-- 2388980 -  IS ASDK --> Lorsqu’une machine virtuelle est créée et associée à une adresse IP publique, vous ne pouvez pas dissocier cette machine virtuelle de cette adresse IP. La dissociation semble fonctionner, mais l’adresse IP publique qui a été assignée précédemment reste associée à la machine virtuelle d’origine.
 
   Actuellement, vous devez utiliser uniquement les nouvelles adresses IP publiques pour les nouvelles machines virtuelles que vous créez.
 
-  Ce comportement se produit même si vous réaffectez l’adresse IP à une nouvelle machine virtuelle (ce qui est communément appelé un *échange d’adresses IP virtuelles*). Toutes les futures tentatives de connexion au moyen de cette adresse IP aboutissent à une connexion à la machine virtuelle originelle et non à la nouvelle.
-
+  Ce comportement se produit même si vous réaffectez l’adresse IP à une nouvelle machine virtuelle (ce qui est communément appelé un *échange d’adresses IP virtuelles*). Toutes les futures tentatives de connexion au moyen de cette adresse IP aboutissent à une connexion à la machine virtuelle associée à l’origine et non à la nouvelle.
 
 - <!-- 2292271 - IS ASDK --> Si vous définissez une limite de quota pour une ressource réseau qui fait partie d’une offre et d’un plan associés à un abonnement de locataire, la nouvelle limite n’est pas appliquée à cet abonnement. Toutefois, la nouvelle limite s’applique aux nouveaux abonnements créés après l’augmentation du quota. 
 
@@ -237,7 +178,7 @@ Les versions suivantes sont maintenant disponibles, mais ne nécessitent pas la 
 
 - <!-- TBD -  IS ASDK --> Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack. Pour résoudre ce problème, utilisez PowerShell pour vérifier les autorisations.
 
--   <!-- TBD -  IS ASDK --> Dans le portail d’administration, vous pouvez voir une alerte critique pour le composant Microsoft.Update.Admin. Le nom, la description et la correction de l’alerte s’affichent tous comme suit :  
+-   <!-- TBD -  IS ASDK --> Dans le portail d’administration, vous pouvez voir une alerte critique pour le composant Microsoft.Update.Admin. Le nom de l’alerte, la description et la correction s’affichent tous comme suit :  
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.* (ERREUR - Absence du modèle de FaultType ResourceProviderTimeout.)
 
     Cette alerte peut être ignorée en toute sécurité. 
@@ -284,7 +225,7 @@ Les versions suivantes sont maintenant disponibles, mais ne nécessitent pas la 
 
   Actuellement, vous devez utiliser uniquement les nouvelles adresses IP publiques pour les nouvelles machines virtuelles que vous créez.
 
-  Ce comportement se produit même si vous réaffectez l’adresse IP à une nouvelle machine virtuelle (ce qui est communément appelé un *échange d’adresses IP virtuelles*). Toutes les futures tentatives de connexion au moyen de cette adresse IP aboutissent à une connexion à la machine virtuelle originelle et non à la nouvelle.
+  Ce comportement se produit même si vous réaffectez l’adresse IP à une nouvelle machine virtuelle (ce qui est communément appelé un *échange d’adresses IP virtuelles*). Toutes les futures tentatives de connexion au moyen de cette adresse IP aboutissent à une connexion à la machine virtuelle associée à l’origine et non à la nouvelle.
 
 - <!-- 2292271 - IS ASDK --> Si vous définissez une limite de quota pour une ressource réseau qui fait partie d’une offre et d’un plan associés à un abonnement de locataire, la nouvelle limite n’est pas appliquée à cet abonnement. Toutefois, la nouvelle limite s’applique aux nouveaux abonnements créés après l’augmentation du quota. 
 
@@ -394,7 +335,7 @@ Les nouveaux correctifs et fonctionnalités publiés pour les systèmes intégr�
 #### <a name="compute"></a>Calcul
 - Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
 
-- Quand vous créez des machines virtuelles sur le portail utilisateur Azure Stack, ce dernier affiche un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de série DS. Les machines virtuelles de série DS peuvent prendre en charge autant de disques de données que la configuration Azure.
+- Lorsque vous créez des machines virtuelles sur le portail utilisateur Azure Stack, le portail affiche un nombre incorrect de disques de données que vous pouvez attacher à une machine virtuelle de la série DS. Les machines virtuelles de série DS peuvent prendre en charge autant de disques de données que la configuration Azure.
 
 - Lorsqu’une image de machine virtuelle ne peut pas être créée, un élément ayant échoué que vous ne pouvez pas supprimer peut être ajouté au panneau Compute des images de machine virtuelle.
 
@@ -414,7 +355,7 @@ Les nouveaux correctifs et fonctionnalités publiés pour les systèmes intégr�
 
   Actuellement, vous devez utiliser uniquement les nouvelles adresses IP publiques pour les nouvelles machines virtuelles que vous créez.
 
-  Ce comportement se produit même si vous réaffectez l’adresse IP à une nouvelle machine virtuelle (ce qui est communément appelé un *échange d’adresses IP virtuelles*). Toutes les futures tentatives de connexion au moyen de cette adresse IP aboutissent à une connexion à la machine virtuelle originelle et non à la nouvelle.
+  Ce comportement se produit même si vous réaffectez l’adresse IP à une nouvelle machine virtuelle (ce qui est communément appelé un *échange d’adresses IP virtuelles*). Toutes les futures tentatives de connexion au moyen de cette adresse IP aboutissent à une connexion à la machine virtuelle associée à l’origine et non à la nouvelle.
 
 
 
@@ -451,8 +392,3 @@ Les nouveaux correctifs et fonctionnalités publiés pour les systèmes intégr�
   Cette erreur se produit en raison d’une désapprobation récente de la prise en charge GitHub des normes de chiffrement Tlsv1 et Tlsv1.1 (valeur par défaut pour PowerShell). Pour plus d’informations, consultez [Avis de suppression des normes de chiffrement faible](https://githubengineering.com/crypto-removal-notice/).
 
   Pour résoudre ce problème, ajoutez `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` au début du script pour forcer la console PowerShell à utiliser TLSv1.2 lors du téléchargement à partir de dépôts GitHub.
-
-
-
-
-

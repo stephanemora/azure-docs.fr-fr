@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 05340c8504150ed568e0d5ce5c8250127e59bca0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6d1d90ff0f9a49d3db9f4dc8894c9837942658f0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003235"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214997"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Migration de Contoso : refactoriser un déploiement de Team Foundation Server vers Visual Studio Team Services (VSTS) dans Azure
 
@@ -95,7 +95,7 @@ Voici comment Azure va effectuer la migration :
 > * **Étape 4 : créer les fichiers de migration** : ils vont créer des fichiers de migration à l’aide de l’outil de migration de TFS. 
 
 
-## <a name="step-1-create-a-storage-account"></a>Étape 1 : créer un compte de stockage
+## <a name="step-1-create-a-storage-account"></a>Étape 1 : création d’un compte de stockage
 
 1. Dans le portail Azure, Contoso crée un compte de stockage (**contosodevmigration**).
 2. Ils placent le compte dans leur région secondaire qu’ils utilisent pour le basculement, USA Centre. Ils utilisent un compte standard à usage général avec un stockage localement redondant.

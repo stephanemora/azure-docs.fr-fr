@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 9d05c41e7ebf9d1cc0735da8853e4ad1617eb810
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d40ab5d6bb29878c633a2645810d6256ac661071
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610495"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213698"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notification aux patients des modifications des dossiers médicaux HL7 FHIR à l’aide de Logic Apps et Azure Cosmos DB
 
@@ -55,7 +55,7 @@ Azure Cosmos DB est le référentiel dédié aux ressources FHIR, tel que repr�
 
 ![Compte Azure Cosmos DB utilisé dans ce didacticiel de soins de santé HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/account.png)
 
-#### <a name="logic-apps"></a>Logic Apps
+#### <a name="logic-apps"></a>Logic Apps
 Logic Apps gère le processus du workflow. Les captures d’écran suivantes représentent les applications logiques créées pour cette solution. 
 
 
@@ -206,7 +206,7 @@ Nous utilisons la classe [`CreateDocumentChangeFeedQuery`](https://msdn.microsof
 
 ### <a name="testing-the-fhirnotificationapi"></a>Test de l’élément FhirNotificationApi 
 
-L’image suivante illustre la manière dont l’élément swagger a été utilisé pour tester l’élément [FhirNotificationApi](#api-app-source).
+L’image suivante illustre la manière dont l’élément swagger a été utilisé pour tester [FhirNotificationApi](#api-app-source).
 
 ![Le fichier Swagger utilisé pour tester l’application API](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-testing-app.png)
 

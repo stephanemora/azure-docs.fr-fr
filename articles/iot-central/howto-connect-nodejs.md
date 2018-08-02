@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628536"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206035"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connecter une application cliente Node.js générique à votre application Azure IoT Central (Node.js)
 
@@ -26,6 +26,8 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 1. Une application Azure IoT Central. Pour plus d’informations, consultez [Créer votre application Azure IoT Central](howto-create-application.md).
 1. Une machine de développement où [Node.js](https://nodejs.org/) version 4.0.0 ou ultérieure est installé. Vous pouvez exécuter `node --version` sur la ligne de commande pour vérifier la version. Node.js est disponible pour un large éventail de systèmes d’exploitation.
 
+## <a name="create-a-device-template"></a>Créer un modèle d’appareil
+
 Dans votre application Azure IoT Central, vous avez besoin d’un modèle d’appareil où les mesures et les propriétés d’appareil suivantes sont définies :
 
 ### <a name="telemetry-measurements"></a>Mesures de télémétrie
@@ -34,9 +36,9 @@ Ajoutez la télémétrie suivante dans la page **Mesures** :
 
 | Nom d’affichage | Nom du champ  | Units | Min | max | Nombre de décimales |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Température  | temperature | F     | 60  | 110 | 0              |
-| Humidité     | humidity    | %     | 0   | 100 | 0              |
-| Pression     | pressure    | kPa   | 80  | 110 | 0              |
+| Température  | température | F     | 60  | 110 | 0              |
+| Humidité     | humidité    | %     | 0   | 100 | 0              |
+| Pression     | pression    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
   Le type de données de la mesure de télémétrie est « double ».
@@ -60,7 +62,7 @@ Entrez les noms des champs dans le modèle d’appareil exactement comme ils fig
 
 Ajoutez l’événement suivant dans la page **Mesures** :
 
-| Nom d’affichage | Nom du champ  | Niveau de gravité |
+| Nom d’affichage | Nom du champ  | Severity |
 | ------------ | ----------- | -------- |
 | Surchauffe  | overheat    | Error    |
 
@@ -73,8 +75,8 @@ Ajoutez les propriétés d’appareil suivantes dans la **page Propriétés** :
 
 | Nom d’affichage        | Nom du champ        | Type de données |
 | ------------------- | ----------------- | --------- |
-| Numéro de série       | serialNumber      | text      |
-| Fabricant de l’appareil | manufacturer      | text      |
+| Numéro de série       | serialNumber      | texte      |
+| Fabricant de l’appareil | manufacturer      | texte      |
 
 Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms de champ ne correspondent pas, l’application ne peut pas afficher la valeur des propriétés.
 
@@ -89,11 +91,11 @@ Ajoutez les paramètres **numériques**  suivants dans la **page Paramètres** :
 
 Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms de champ ne correspondent pas, l’appareil ne peut pas recevoir la valeur du paramètre.
 
-### <a name="add-a-real-device"></a>Ajouter un appareil réel
+## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
 Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil que vous créez et notez la chaîne de connexion de l’appareil. Pour plus d’informations, consultez [Ajouter un appareil réel à votre application Azure IoT Central](tutorial-add-device.md).
 
-## <a name="create-a-nodejs-application"></a>Création d’une application Node.js
+### <a name="create-a-nodejs-application"></a>Création d’une application Node.js
 
 Les étapes suivantes montrent comment créer une application cliente qui implémente l’appareil réel que vous avez ajouté à l’application.
 

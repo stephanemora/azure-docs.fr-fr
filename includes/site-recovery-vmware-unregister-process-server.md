@@ -19,4 +19,4 @@ Les étapes d’annulation de l’inscription d’un serveur de traitement diff�
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. Cette opération vide les informations du serveur de traitement du système.
+4. Ce message est émis quand le serveur de processus est supprimé avec succès : **Désinscription de nom-serveur réussie> (adresse-IP-serveur)**.

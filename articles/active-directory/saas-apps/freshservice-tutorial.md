@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 28a334cc43f8c14d2bf639b715e891cc6bb8c1cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cccbe2052336012b9ac98b3e28dc6481cbf9aefb
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214448"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Didacticiel : intégration d’Azure Active Directory à Freshservice
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Freshservice**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_samlbase.png)
+    ![Configurer l'authentification unique](./media/freshservice-tutorial/tutorial_freshservice_samlbase.png)
 
 3. Dans la section **Domaine et URL Freshservice**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_url.png)
+    ![Configurer l'authentification unique](./media/freshservice-tutorial/tutorial_freshservice_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<democompany>.freshservice.com`
 
@@ -121,15 +121,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
  
 4. Dans la section **Certificat de signature SAML**, copiez la valeur **THUMBPRINT** du certificat.
 
-    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png) 
+    ![Configurer l'authentification unique](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/freshservice-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de Freshservice**, cliquez sur **Configurer Freshservice** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_configure.png) 
+    ![Configurer l'authentification unique](./media/freshservice-tutorial/tutorial_freshservice_configure.png) 
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Freshservice en tant qu’administrateur.
 
@@ -149,17 +149,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     b. Sélectionnez **SAML SSO**.
 
-    c. Dans la zone de texte **URL de connexion SAML**, collez la valeur de **l’URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+    c. Dans la zone de texte **SAML Login URL** (URL de connexion SAML), collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
-    d. Dans la zone de texte **URL de déconnexion**, collez la valeur de **l’URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    d. Dans la zone de texte **Logout URL** (URL de déconnexion), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    e. Dans la zone de texte **Security Certificate Fingerprint** (Empreinte du certificat de sécurité), collez la valeur **THUMBPRINT** du certificat que vous avez copiée à partir du portail Azure.
+    e. Dans la zone de texte **Security Certificate Fingerprint** (Empreinte du certificat de sécurité), collez la valeur **THUMBPRINT** du certificat, que vous avez copiée à partir du portail Azure.
 
     f. Cliquez sur **Enregistrer**.
-   
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -238,7 +234,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Freshservice, vous 
 
 2. Dans la liste des applications, sélectionnez **Freshservice**.
 
-    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_app.png) 
+    ![Configurer l'authentification unique](./media/freshservice-tutorial/tutorial_freshservice_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

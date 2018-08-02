@@ -4,18 +4,18 @@ description: Rapports sur les événements de réinitialisation de mot de passe 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e2c4c59e52f277358027f5d228fdf43822822992
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044526"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258794"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -54,6 +54,10 @@ Dans l’interface du portail Azure, nous avons amélioré la méthode d’affic
 6. Pour filtrer cette vue et afficher uniquement les événements associés à la réinitialisation de mot de passe, sélectionnez le bouton **Filtrer** en haut du volet.
 7. Dans le menu **Filtrer**, sélectionnez la liste déroulante **Catégorie** et changez pour le type de catégorie **Gestion des mots de passe en libre-service**.
 8. Si vous le souhaitez, vous pouvez affiner le filtre de la liste en choisissant l’**Activité** spécifique qui vous intéresse.
+
+### <a name="converged-registration-preview"></a>Inscription convergée (préversion)
+
+Si vous participez à la préversion publique de l’inscription convergée, les informations sur l’activité des utilisateurs dans les journaux d’audit se trouvent sous la catégorie **Méthodes d’authentification**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 

@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069261"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247208"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Database Managed Instance
 
@@ -24,7 +24,7 @@ Dans cet article, vous allez découvrir les méthodes de migration d’une insta
 
 SQL Database Managed Instance est une extension du service SQL Database actuel. Elle fournit une troisième option de déploiement en plus des bases de données uniques et des pools élastiques.  Cette extension est conçue pour permettre une migration « lift-and-shift » d’une base de données vers un PaaS entièrement géré, sans reconcevoir l’application. SQL Database Managed Instance fournit une forte compatibilité avec le modèle de programmation SQL Server local, ainsi qu’un support prêt à l’emploi pour la grande majorité des fonctionnalités SQL Server et les outils et services connexes.
 
-Le processus général de migration d’une application est illustré dans le diagramme suivant :
+Le processus général de migration d’une application ressemble à ce qui suit :
 
 ![processus de migration](./media/sql-database-managed-instance-migration/migration-process.png)
 

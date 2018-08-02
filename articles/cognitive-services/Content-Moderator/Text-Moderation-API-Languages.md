@@ -9,19 +9,19 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0fb9f92e736e598662f66ae3d283ba02f715e3af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 973e4efcbe9d0627ca261def2449a237819559ad
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368733"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441146"
 ---
 # <a name="text-moderation---supported-languages-by-feature"></a>Modération de texte - Langues prises en charge par fonctionnalité
 
 > [!NOTE]
 > Pour le paramètre **langue**, attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité en préversion). **Cette fonctionnalité prend en charge uniquement l’anglais**.
 >
-> Pour la détection des **termes vulgaires**, utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez-le vide.
+> Pour la détection des **termes injurieux**, utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez le paramètre vide.
 
 
 | Détection de la langue | Termes vulgaires   | OCR    | Correction automatique     |
@@ -36,61 +36,61 @@ ms.locfileid: "35368733"
 | Chinois (traditionnel) | Bengali - Bangladesh | Finnois  | Italien
 | Slavon d’église (slave) | Bengali - Inde | Français     | Coréen
 | Copte | Basque | Allemand                      | Norvégien
-| Maldivien | Biélorusse | Grec (moderne)         | Polonais
-| Farsi | Bosniaque - cyrillique | Hongrois        | Portugais
-| Grec | Bosniaque - latin | Italien             | Roumain
-| Haïtien (créole) | Breton [non géopol] | Japonais  | Russe
-| Hébreu | Bulgare | Coréen                        | Slovaque
-| Hmong | Catalan | Norvégien                        | Espagnol
-| Kurde (arabe) | Kurde central | Polonais        | Turc
-| Kurde (latin) | Cherokee | Portugais
-| Lepcha | Chinois (simplifié) | Roumain
-| Limbu | Chinois (traditionnel) - Hong Kong R.A.S. | Russe
-| Lu | Chinois (traditionnel) - Taïwan | Serbe cyrillique
-| Lycien | Croate | Serbe latin
-| Lydien | Tchèque | Slovaque
-| Mycénien (grec) | Danois | Espagnol
-| N’ko | Dari | Suédois
-| Norvégien (bokmål) | Néerlandais | Turc
-| Norvégien (nynorsk) | Français 
-| Ancien (persan) | Estonien 
-| Pachto | Filipino
-| Pendjabi | Finnois
-| Rejang | Français
-| Santali | Galicien
-| Sasak | Géorgien
-| Saurashtra | Allemand
-| Serbe (cyrillique) | Grec
-| Serbe (latin) | Goudjrati
-| Sinhala | Hausa
-| Slovène | Hébreu
-| Sylheti | Hindi
-| Syriaque | Hongrois
-| Tagbanwa | Islandais
-| Tai (nüa) | Igbo
-| Tamacheq | Indonésien
-| Ougaritique | Inuktitut
-| Ouzbek (cyrillique) | Irlandais
-| Ouzbek (latin) | isiXhosa
-| Vaï | Zoulou
-| Yi | Italien
-| Zhuang, Chuang | Japonais
-| | Kannada
-| | Kazakh
-| | Khmer
-| | K'iche'
-| | Kinyarwanda
-| | Kiswahili
-| | Konkani
-| | Coréen
-| | Kirghiz
-| | Lao
-| | Letton
-| | Lituanien
-| | Luxembourgeois
-| | Macédonien
-| | Malais
-| | Malayalam
+| Tchèque |  Biélorusse | Grec (moderne)         | Polonais
+| Maldivien | Bosniaque - cyrillique | Hongrois      | Portugais
+| Néerlandais | Bosniaque - latin | Italien             | Roumain
+| Français | (Créole) | Breton [non géopol] | Japonais  | Russe
+| Farsi | Bulgare | Coréen                        | Slovaque
+| Français | Catalan | Norvégien                        | Espagnol
+| Allemand | Kurde central | Polonais        | Turc
+| Grec | Cherokee | Portugais
+| Haïtien | Chinois (simplifié) | Roumain
+| Hébreu | Chinois (traditionnel) - Hong Kong R.A.S. | Russe
+| Hindi | Chinois (traditionnel) - Taïwan | Serbe cyrillique
+| Hmong | Croate | Serbe latin
+| Hongrois | Tchèque | Slovaque
+| Italien | Danois | Espagnol
+| Japonais | Dari | Suédois
+| Coréen | Néerlandais | Turc
+| Kurde (arabe) | Français
+| Kurde (latin) | Estonien
+| Lepcha | Filipino
+| Limbu | Finnois
+| Lu | Français
+| Lycien | Galicien
+| Lydien | Géorgien
+| Mycénien (grec) | Allemand
+| N’ko | Grec
+| Norvégien (bokmål) | Goudjrati
+| Norvégien (nynorsk) |  Hausa
+| Ancien (persan) | Hébreu
+| Pachto | Hindi
+| Polonais | Hongrois
+| Portugais | Islandais
+| Pendjabi | Igbo
+| Rejang | Indonésien
+| Russe | Inuktitut
+| Santali | Irlandais
+| Sasak | isiXhosa
+| Saurashtra | Zoulou
+| Serbe (cyrillique) | Italien
+| Serbe (latin) | Japonais
+| Sinhala | Kannada
+| Slovène | Kazakh
+| Espagnol | Khmer
+| Suédois | K'iche'
+| Sylheti | Kinyarwanda
+| Syriaque | Kiswahili
+| Tagbanwa | Konkani
+| Tai (nüa) | Coréen
+| Tamacheq | Kirghiz
+| Turc | Lao
+| Ougaritique | Letton
+| Ouzbek (cyrillique) | Lituanien
+| Ouzbek (latin) | Luxembourgeois
+| Vaï | Macédonien
+| Yi | Malais
+| Zhuang, Chuang | Malayalam
 | | Maltais
 | | Maori
 | | Marathi

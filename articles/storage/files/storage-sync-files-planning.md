@@ -1,5 +1,5 @@
 ---
-title: Planification d’un déploiement Azure File Sync (préversion) | Microsoft Docs
+title: Planification d’un déploiement Azure File Sync | Microsoft Docs
 description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
 services: storage
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335837"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214881"
 ---
-# <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planification d’un déploiement Azure File Sync (préversion)
-Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+# <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
+Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Cet article décrit les points importants à prendre en compte pour le déploiement d’Azure File Sync. Nous vous recommandons de lire aussi l’article [Planification d’un déploiement Azure Files](storage-files-planning.md). 
 
@@ -149,7 +149,7 @@ Pour plus d’informations, consultez [Vue d’ensemble de la réplication DFS](
 L’utilisation de sysprep sur un serveur sur lequel l’agent Azure File Sync est installé n’est pas prise en charge et peut produire des résultats inattendus. L’installation de l’agent et l’inscription du serveur doivent être effectués après avoir déployé l’image du serveur et terminé la mini-configuration de sysprep.
 
 ### <a name="windows-search"></a>Recherche Windows
-Si la hiérarchisation cloud est activée sur un serveur de point de terminaison, les fichiers qui sont hiérarchisés sont ignorés et non indexés par la recherche de Windows. Les fichiers non hiérarchisés sont indexés correctement.
+Si la hiérarchisation cloud est activée sur un point de terminaison de serveur, les fichiers qui sont hiérarchisés sont ignorés et ne sont pas indexés par Windows Search. Les fichiers non hiérarchisés sont indexés correctement.
 
 ### <a name="antivirus-solutions"></a>Solutions antivirus
 Du fait que les antivirus analysent les fichiers pour détecter la présence éventuelle de code malveillant connu, ils peuvent provoquer le rappel de fichiers hiérarchisés. Comme les fichiers hiérarchisés ont l’attribut « hors connexion » défini, nous vous recommandons de contacter votre éditeur de logiciel pour savoir comment configurer la solution de façon à ignorer la lecture des fichiers hors connexion. 
@@ -180,13 +180,13 @@ Azure File Sync est connu pour ne pas fonctionner avec les solutions suivantes 
 
 - Système de fichiers chiffrés NTFS (EFS)
 
-En règle générale, Azure File Sync prend en charge l’interopérabilité avec les solutions de chiffrement qui se trouvent sous le système de fichiers, comme BitLocker, et avec les solutions qui sont implémentées dans le format de fichier, comme BitLocker. Aucune interopérabilité spécifique n’a été prévue pour les solutions qui se trouvent au-dessus du système de fichiers (par exemple, le système de fichiers NTFS).
+En règle générale, Azure File Sync prend en charge l’interopérabilité avec les solutions de chiffrement qui se trouvent sous le système de fichiers, comme BitLocker, et avec les solutions qui sont implémentées dans le format de fichier, comme Azure Information Protection. Aucune interopérabilité spécifique n’a été prévue pour les solutions qui se trouvent au-dessus du système de fichiers (par exemple, le système de fichiers NTFS).
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Autres solutions de gestion hiérarchique du stockage (HSM)
 Aucune autre solution HSM ne doit être utilisée avec Azure File Sync.
 
 ## <a name="region-availability"></a>Disponibilité des régions
-Azure File Sync (préversion) est disponible uniquement dans les régions suivantes :
+Azure File Sync est disponible uniquement dans les régions suivantes :
 
 | Région | Emplacement du centre de données |
 |--------|---------------------|
@@ -205,7 +205,29 @@ Azure File Sync (préversion) est disponible uniquement dans les régions suivan
 | Europe de l'Ouest | Pays-bas |
 | États-Unis de l’Ouest | Californie |
 
-La préversion prend en charge la synchronisation uniquement avec un partage de fichiers Azure qui est situé dans la même région que le service de synchronisation de stockage.
+Azure File Sync prend en charge la synchronisation uniquement avec un partage de fichiers Azure qui est situé dans la même région que le service de synchronisation de stockage.
+
+### <a name="azure-disaster-recovery"></a>Reprise d’activité après sinistre Azure
+Pour une protection contre la perte d’une région Azure, Azure File Sync s’intègre à l’option de [redondance du stockage géoredondant](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). Le stockage GRS fonctionne en utilisant la réplication de blocs asynchrone entre le stockage dans la région primaire, avec laquelle vous interagissez normalement, et le stockage dans la région secondaire associée. En cas de sinistre entraînant la mise hors connexion temporaire ou définitive d’une région Azure, Microsoft bascule le stockage vers la région associée. 
+
+Pour prendre en charge l’intégration du basculement entre le stockage géoredondant et Azure File Sync, toutes les régions Azure File Sync sont associées à une région secondaire qui correspond à la région secondaire utilisée par le stockage. Ces associations sont les suivantes :
+
+| Région primaire      | Région jumelée      |
+|---------------------|--------------------|
+| Est de l’Australie      | Sud-Est de l’Australie |
+| Sud-est de l’Australie | Est de l’Australie     |
+| Canada Centre      | Est du Canada        |
+| Est du Canada         | Centre du Canada     |
+| Centre des États-Unis          | Est des États-Unis 2          |
+| Est de l'Asie           | Asie du Sud-Est     |
+| Est des États-Unis             | États-Unis de l’Ouest            |
+| Est des États-Unis 2           | Centre des États-Unis         |
+| Europe du Nord        | Europe de l'Ouest        |
+| Asie du Sud-Est      | Est de l'Asie          |
+| Sud du Royaume-Uni            | Ouest du Royaume-Uni            |
+| Ouest du Royaume-Uni             | Sud du Royaume-Uni           |
+| Europe de l'Ouest         | Europe du Nord       |
+| États-Unis de l’Ouest             | Est des États-Unis            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

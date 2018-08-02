@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054821"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346438"
 ---
 # <a name="batch-transcription"></a>Transcription Batch
 
@@ -40,7 +40,7 @@ wav |  Stéréo  |
 
 Dans le cas des flux audio stéréo, l’API de transcription Batch fractionne les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. L’exemple JSON ci-après illustre la sortie d’un canal.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,10 +53,10 @@ Dans le cas des flux audio stéréo, l’API de transcription Batch fractionne l
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
-> L’API de transcription Batch utilise un service REST pour demander des transcriptions, l’état de ces dernières, ainsi que les résultats associés. Elle repose sur .NET et ne comporte aucune dépendance externe. La section ci-après décrit le mode d’utilisation de l’API.
+> L’API de transcription Batch utilise un service REST pour demander des transcriptions, l’état de ces dernières, ainsi que les résultats associés. L’API peut être utilisée à partir de n’importe quel langage. La section ci-après décrit le mode d’utilisation de l’API.
 
 ## <a name="authorization-token"></a>Jeton d’autorisation
 
@@ -77,7 +77,24 @@ Comme pour toutes les fonctionnalités du service Speech unifié, l’utilisateu
 
 ## <a name="sample-code"></a>Exemple de code
 
-L’utilisation de l’API est relativement simple. Vous devez personnaliser l’exemple de code ci-après avec une clé d’abonnement et une clé API.
+L’utilisation de l’API est relativement simple. L’exemple de code ci-dessous doit être personnalisé avec une clé d’abonnement et une clé d’API, ce qui permet au développeur d’obtenir un jeton du porteur, comme le montre l’extrait de code suivant :
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+Une fois le jeton obtenu, le développeur doit spécifier l’Uri SAP qui pointe vers le fichier audio à transcrire. Le reste du code effectue simplement une itération dans l’état et affiche les résultats.
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ L’utilisation de l’API est relativement simple. Vous devez personnaliser l�
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -139,7 +156,7 @@ L’utilisation de l’API est relativement simple. Vous devez personnaliser l�
 > La clé d’abonnement mentionnée dans l’extrait de code ci-dessus est la clé de la ressource Speech (préversion) que vous créez dans le Portail Azure. Les clés obtenues à partir de la ressource Custom Speech Service ne fonctionneront pas.
 
 
-Notez la configuration asynchrone concernant la publication des données audio et la réception de l’état de la transcription. Le client créé est un client HTTP .NET. Le code utilise une méthode `PostTranscriptions` pour l’envoi des détails du fichier audio, et une méthode `GetTranscriptions` pour la réception des résultats. `PostTranscriptions` renvoie un descripteur, que la méthode `GetTranscriptions` utilise pour créer un descripteur permettant d’obtenir l’état de la transcription.
+Notez la configuration asynchrone concernant la publication des données audio et la réception de l’état de la transcription. Le client créé est un client http .NET. Le code utilise une méthode `PostTranscriptions` pour l’envoi des détails du fichier audio, et une méthode `GetTranscriptions` pour la réception des résultats. `PostTranscriptions` renvoie un descripteur, que la méthode `GetTranscriptions` utilise pour créer un descripteur permettant d’obtenir l’état de la transcription.
 
 L’exemple de code actuel ne spécifie aucun modèle personnalisé. Le service utilisera les modèles de base pour la transcription du ou des fichiers. Si l’utilisateur souhaite spécifier les modèles, il peut transmettre à la même méthode les ID du modèle acoustique et du modèle de langage. 
 

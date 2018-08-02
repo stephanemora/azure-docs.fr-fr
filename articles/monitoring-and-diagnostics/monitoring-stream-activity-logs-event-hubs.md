@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436703"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257996"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs
 Vous pouvez diffuser en continu le [journal d’activité Azure](monitoring-overview-activity-logs.md) en temps quasi réel vers n’importe quelle application :
@@ -34,7 +34,7 @@ Si vous n’avez pas d’espace de noms Event Hubs, vous devez d’abord en cré
 
 La stratégie d’accès partagé définit les autorisations dont dispose le mécanisme de diffusion en continu. À l’heure actuelle, la diffusion vers Event Hubs requiert des autorisations de **gestion**, d’**envoi** et d’**écoute**. Vous pouvez créer ou modifier des stratégies d’accès partagé de l’espace de noms Event Hubs dans le portail Azure, sous l’onglet **Configurer** de votre espace de noms Event Hubs. 
 
-Pour mettre à jour le profil de journal d’activité afin d’inclure la diffusion en continu, l’utilisateur qui apporte la modification doit avoir l’autorisation ListKey sur la règle d’autorisation Event Hubs. Il n’est pas nécessaire que l’espace de noms Event Hubs se trouve dans le même abonnement que l’abonnement qui génère des journaux, à condition que l’utilisateur configurant le paramètre ait un accès RBAC approprié aux deux abonnements.
+Pour mettre à jour le profil de journal d’activité afin d’inclure la diffusion en continu, l’utilisateur qui apporte la modification doit avoir l’autorisation ListKey sur la règle d’autorisation Event Hubs. Il n’est pas nécessaire que l’espace de noms Event Hubs se trouve dans le même abonnement que l’abonnement qui génère des journaux, à condition que l’utilisateur configurant le paramètre dispose d’un accès RBAC aux deux abonnements, et que ces derniers se trouvent dans le même locataire AAD.
 
 ### <a name="via-the-azure-portal"></a>Via le portail azure
 1. Accédez au panneau **Journal d’activité** à l’aide de la recherche **Tous les services** sur le côté gauche du portail.
@@ -53,8 +53,9 @@ Pour mettre à jour le profil de journal d’activité afin d’inclure la diffu
    > Si vous sélectionnez autre chose que **Toutes les régions**, vous manquerez des événements clés que vous attendez de recevoir. Le journal d’activité étant un journal global (non régional), aucune région n’est associée à la plupart des événements. 
    >
 
-4. Sélectionnez **Enregistrer** pour enregistrer ces paramètres. Les paramètres sont appliqués immédiatement à votre abonnement.
-5. Si vous avez plusieurs abonnements, répétez cette action et envoyez toutes les données au même Hub d’événements.
+4. Cliquez sur l’option **Azure Event Hubs**, sélectionnez l’espace de noms Event Hubs vers lequel les journaux doivent être envoyés, puis cliquez sur **OK**.
+5. Sélectionnez **Enregistrer** pour enregistrer ces paramètres. Les paramètres sont appliqués immédiatement à votre abonnement.
+6. Si vous avez plusieurs abonnements, répétez cette action et envoyez toutes les données au même Hub d’événements.
 
 ### <a name="via-powershell-cmdlets"></a>Via les applets de commande PowerShell
 Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, puis créer un nouveau profil de journal.

@@ -10,15 +10,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 09/19/2017
+ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0ac43637adc91c22aaab78f04732a613c74706d9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f583e962023603dbd7428c32bde52b9040246814
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446115"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205117"
 ---
 # <a name="review-your-access"></a>Effectuer votre propre révision d’accès
 
@@ -26,7 +26,11 @@ Azure Active Directory (Azure AD) simplifie la manière dont les entreprises gè
 
 ## <a name="open-an-access-review"></a>Ouvrir une révision d’accès
 
-Pour voir les révisions d’accès en attente, cliquez sur le lien contenu dans l’e-mail. Si vous n’avez pas reçu l’e-mail, vous pouvez localiser les révisions d’accès en procédant comme suit :
+Pour voir les révisions d’accès en attente, cliquez sur le lien de révision d’accès contenu dans l’e-mail. À compter d’août 2018, les notifications par e-mail des rôles Azure AD affichent désormais une nouvelle conception visuelle. L’illustration suivante montre un exemple d’e-mail qui est envoyé à un utilisateur pour l’inviter à être réviseur.
+
+![E-mail de révision d’accès](./media/active-directory-azure-ad-controls-how-to-review-your-access/new-ar-email.png)
+
+Si vous n’avez pas reçu l’e-mail, vous pouvez localiser les révisions d’accès en procédant comme suit :
 
 1. Connectez-vous au [panneau d’accès Azure AD](https://myapps.microsoft.com).
 

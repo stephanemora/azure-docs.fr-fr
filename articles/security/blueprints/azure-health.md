@@ -3,27 +3,22 @@ title: Plan d’analytique Azure Health
 description: Instructions pour le déploiement d’un plan d’analytique de santé HIPAA/HITRUST
 services: security
 documentationcenter: na
-author: jomolesk
-manager: mbaldwin
-editor: tomsh
+author: RajeevRangappa
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
 ms.service: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/27/2018
-ms.author: jomolesk
-ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/23/2018
+ms.author: rarangap
+ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113229"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214939"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 **Le Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST propose un déploiement clé en main d’une solution PaaS Azure afin d’illustrer comment ingérer, stocker, analyser et interagir de manière sécurisée avec des données de santé tout en respectant les exigences de l’industrie en matière de conformité. Le plan aide à accélérer l’adoption et l’utilisation du cloud pour les clients avec des données réglementées.**
 
@@ -31,7 +26,7 @@ Le Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/H
 
 ![](images/components.png)
 
-La solution est conçue afin de consommer un exemple de jeu de données mis en forme à l’aide de FHIR (Fast Healthcare Interoperability Resources), une norme internationale d’échange d’informations de soins de santé par voie électronique, et de le stocker de manière sécurisée. Les clients peuvent ensuite utiliser Azure Machine Learning pour tirer parti de puissants outils de décisionnel et d’analytique afin de passer en revue les prédictions effectuées sur les exemples de données. En guise d’exemple du genre d’expérience pouvant être facilitée par Azure Machine Learning, le plan inclut un exemple de jeu de données, des scripts et des outils pour la prédiction de la durée du séjour d’un patient dans un hôpital. 
+La solution est conçue afin de consommer un exemple de jeu de données mis en forme à l’aide de FHIR (Fast Healthcare Interoperability Resources), une norme internationale d’échange d’informations de soins de santé par voie électronique, et de le stocker de manière sécurisée. Les clients peuvent ensuite utiliser Azure Machine Learning Studio pour tirer parti de puissants outils de décisionnel et d’analytique afin de passer en revue les prédictions effectuées sur les exemples de données. En guise d’exemple du genre d’expérience pouvant être facilitée par Azure Machine Learning Studio, le plan inclut un exemple de jeu de données, des scripts et des outils pour la prédiction de la durée du séjour d’un patient dans un hôpital. 
 
 Ce plan est destiné à servir de base modulaire. Il pourra être adapté par les clients en fonction de leurs besoins spécifiques, notamment en vue du développement de nouvelles expériences Azure Machine Learning pour résoudre des scénarios de cas d’usage à la fois clinique et opérationnel. Il est conçu pour être sécurisé et conforme lors du déploiement. Toutefois, il incombe aux clients de configurer correctement les rôles et d’implémenter les éventuelles modifications. Notez les points suivants :
 
@@ -66,7 +61,7 @@ Pour obtenir une présentation rapide du fonctionnement de cette solution, regar
 
 L’architecture de base est constituée des éléments suivants :
 
--   **[Modèle de menaces](https://aka.ms/healththreatmodel)** Un modèle de menaces complet est fourni au format tm7 pour une utilisation avec [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168). Il présente les composants de la solution, les flux de données entre eux, ainsi que les délimitations d’approbation. Le modèle peut aider les clients à comprendre les points de risque potentiel dans l’infrastructure du système lors du développement de composants d’apprentissage automatique ou autres modifications.
+-   **[Modèle de menaces](https://aka.ms/healththreatmodel)** Un modèle de menaces complet est fourni au format tm7 pour une utilisation avec [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168). Il présente les composants de la solution, les flux de données entre eux, ainsi que les délimitations d’approbation. Le modèle peut aider les clients à comprendre les points de risque potentiel dans l’infrastructure du système lors du développement de composants Machine Learning Studio ou d’autres modifications.
 
 -   **[Matrice d’implémentation client](https://aka.ms/healthcrmblueprint)** Un classeur Microsoft Excel répertorie les exigences HITRUST pertinentes, et explique de quelle manière Microsoft et le client doivent satisfaire chacune d’entre elles.
 
@@ -107,7 +102,7 @@ Il n’a pas accès aux dossiers des patients.
  ### <a name="data-scientist"></a>Scientifique des données
 
 
-Le scientifique des données assure le fonctionnement du service Azure Machine Learning. Il peut importer, exporter et gérer les données, et exécuter des rapports. Il a accès aux données des patients, mais ne dispose pas des privilèges d’administrateur.
+Le scientifique des données assure le fonctionnement du service Azure Machine Learning Studio. Il peut importer, exporter et gérer les données, et exécuter des rapports. Il a accès aux données des patients, mais ne dispose pas des privilèges d’administrateur.
 
 -   Attributions de rôles intégrées : [Contributeur de comptes de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
@@ -148,12 +143,12 @@ L’auditeur évalue la conformité de la solution. Ils n’ont aucun accès dir
 ## <a name="example-use-case"></a>Exemple de cas d’usage
 
 
-L’exemple de cas d’usage inclus avec ce plan illustre comment vous pouvez l’utiliser pour activer l’apprentissage automatique et l’analytique sur des données de santé dans le cloud. Contosoclinic est un petit hôpital situé aux États-Unis. Les administrateurs du réseau de l’hôpital souhaitent utiliser Azure Machine Learning pour mieux prédire la durée de séjour d’un patient au moment de l’admission, afin d’accroître l’efficacité de la charge de travail opérationnelle et d’améliorer la qualité des soins fournis.
+L’exemple de cas d’usage inclus avec ce plan illustre comment vous pouvez l’utiliser pour activer l’apprentissage automatique et l’analytique sur des données de santé dans le cloud. Contosoclinic est un petit hôpital situé aux États-Unis. Les administrateurs du réseau de l’hôpital souhaitent utiliser Azure Machine Learning Studio pour mieux prédire la durée de séjour d’un patient au moment de l’admission, afin d’accroître l’efficacité de la charge de travail opérationnelle et d’améliorer la qualité des soins fournis.
 
 ### <a name="predicting-length-of-stay"></a>Prédiction de durée du séjour
 
 
-L’exemple de scénario d’usage utilise Azure Machine Learning pour prédire la durée du séjour d’un nouveau patient en comparant les détails médicaux pris au moment de son admission aux données historiques agrégées à partir de patients précédents.
+L’exemple de scénario d’usage utilise Azure Machine Learning Studio pour prédire la durée du séjour d’un nouveau patient en comparant les détails médicaux pris au moment de son admission aux données historiques agrégées à partir de patients précédents.
 Le plan comprend un jeu étendu de dossiers médicaux anonymes afin d’illustrer les fonctionnalités de formation et de prédiction de la solution. Dans un déploiement de production, les clients utiliseraient leurs propres dossiers pour la formation de la solution, afin de refléter de manière plus précise les caractéristiques uniques de leur environnement, équipements et patients.
 
 ### <a name="users-and-roles"></a>Utilisateurs et rôles
@@ -356,8 +351,8 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [La journalisation est activée](/azure/machine-learning/studio/web-services-logging) pour les services web de Machine Learning.
-- L’utilisation de [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench nécessite le développement d’expériences, ce qui permet de réaliser des prédictions d’après un jeu de solution. L’[intégration de Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) peut aider à simplifier la gestion des expériences.
+-   [La journalisation est activée](/azure/machine-learning/studio/web-services-logging) pour les services web de Machine Learning Studio.
+- L’utilisation de [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench nécessite le développement d’expériences, ce qui permet de réaliser des prédictions d’après un jeu de solutions. L’[intégration de Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) peut aider à simplifier la gestion des expériences.
 
 ## <a name="security"></a>SÉCURITÉ
 

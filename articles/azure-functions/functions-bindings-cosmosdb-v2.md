@@ -3,7 +3,7 @@ title: Liaisons Azure Cosmos DB pour Functions 2.x (Préversion)
 description: Découvrez comment utiliser des déclencheurs et liaisons Azure Cosmos DB dans Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: tdykstra
-ms.openlocfilehash: e3a4af27a2e662b9d857f3293814fd06f6b0e284
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.author: glenga
+ms.openlocfilehash: e77ccdc5b4bc03ba233aae49eda8465704e5405e
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055081"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344373"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Liaisons Azure Cosmos DB pour Azure Functions 2.x (Préversion)
 
@@ -1610,7 +1610,7 @@ Par défaut, lorsque vous écrivez dans le paramètre de sortie de votre fonctio
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison | Référence |
+| Liaison | Informations de référence |
 |---|---|
 | CosmosDB | [Codes d’erreur CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 

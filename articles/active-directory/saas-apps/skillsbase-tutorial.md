@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 84aac0017496c50f0006fd6e184537e4c14f10c7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057611"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutoriel : Intégration d’Azure Active Directory à Skills Base
 
@@ -110,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE] 
-    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe du support technique Skills Base](mailto:support@skills-base.com).
+    > Vous pouvez obtenir l’URL d’authentification à partir de l’application Skills Base. Connectez-vous en tant qu’administrateur et accédez à Administration -> Paramètres -> Détails de l’instance -> lien de raccourci. Copiez l’URL d’authentification et collez-la dans la zone de texte au-dessus.
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -141,7 +141,6 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Cliquez sur **Enregistrer**.
     
-
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -179,7 +178,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Skills Base. Skills Base prend en charge le provisionnement juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. Lorsque vous tentez d’accéder à Skills Base, si aucun utilisateur n’existe, Skills Base en crée un automatiquement.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique Skills Base](mailto:support@skills-base.com).
+>Si vous avez besoin de créer un utilisateur manuellement, suivez les instructions [ici](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

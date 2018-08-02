@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "34757225"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144932"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
 
@@ -40,42 +40,44 @@ Les étapes qui suivent supposent que vous avez une machine virtuelle existante 
 2. En haut du portail Azure, entrez le nom de la machine virtuelle dans la zone de recherche. Quand le nom de la machine virtuelle apparaît dans les résultats de la recherche, sélectionnez-la.
 3. Sous **PARAMÈTRES**, sélectionnez **Mise en réseau**, comme indiqué dans l’image suivante :
 
-    ![Voir les règles de sécurité](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![Voir les règles de sécurité](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-    Les règles répertoriées dans l’image précédente concernent une interface réseau nommée **myVMVMNic**. Vous voyez qu’il y a des **RÈGLES DE PORT ENTRANT** pour l’interface réseau à partir de deux groupes de sécurité réseau différents : - **mySubnetNSG** : associé au sous-réseau dans lequel figure l’interface réseau.
-        - **myVMNSG** : associé à l’interface réseau dans la machine virtuelle nommée **myVMVMNic**.
+   Les règles répertoriées dans l’image précédente concernent une interface réseau nommée **myVMVMNic**. Vous voyez qu’il existe des **RÈGLES DE PORT ENTRANT** pour l’interface réseau en provenance de deux groupes de sécurité réseau différents :
+   
+   - **mySubnetNSG** : associé au sous-réseau dans lequel se trouve l’interface réseau.
+   - **myVMNSG** : associé à l’interface réseau de la machine virtuelle nommée **myVMVMNic**.
 
-    La règle nommée **DenyAllInBound** est celle qui empêche les communications entrantes vers la machine virtuelle via le port 80 à partir d’internet, comme décrit dans le [scénario](#scenario). La règle liste *0.0.0.0/0* pour **SOURCE**, ce qui inclut l’internet. Aucune autre règle avec une priorité plus élevée (numéro inférieur) ne permet de trafic entrant par le port 80. Pour autoriser le trafic entrant par le port 80 vers la machine virtuelle à partir d’internet, consultez [Résoudre un problème](#resolve-a-problem). Pour plus d’informations sur les règles de sécurité et de quelle façon Azure les applique, consultez [Groupes de sécurité réseau](security-overview.md).
+   La règle nommée **DenyAllInBound** est celle qui empêche les communications entrantes vers la machine virtuelle via le port 80 à partir d’internet, comme décrit dans le [scénario](#scenario). La règle liste *0.0.0.0/0* pour **SOURCE**, ce qui inclut l’internet. Aucune autre règle avec une priorité plus élevée (numéro inférieur) ne permet de trafic entrant par le port 80. Pour autoriser le trafic entrant par le port 80 vers la machine virtuelle à partir d’internet, consultez [Résoudre un problème](#resolve-a-problem). Pour plus d’informations sur les règles de sécurité et de quelle façon Azure les applique, consultez [Groupes de sécurité réseau](security-overview.md).
 
-    Au bas de l’image, vous voyez également les **RÈGLES DE PORT SORTANT**. Les règles de port sortant pour l’interface réseau se trouvent en-dessous. Bien que l’image montre uniquement quatre règles de trafic entrant pour chaque groupe de sécurité réseau, vos groupes de sécurité réseau peuvent avoir beaucoup plus de quatre règles. Dans l’image, vous voyez **VirtualNetwork** sous **SOURCE** et **DESTINATION** et **AzureLoadBalancer** sous  **SOURCE**. **VirtualNetwork** et **AzureLoadBalancer** sont des [balises de service](security-overview.md#service-tags). Les balises de service représentent un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité.
+   Au bas de l’image, vous voyez également les **RÈGLES DE PORT SORTANT**. Les règles de port sortant pour l’interface réseau se trouvent en-dessous. Bien que l’image montre uniquement quatre règles de trafic entrant pour chaque groupe de sécurité réseau, vos groupes de sécurité réseau peuvent avoir beaucoup plus de quatre règles. Dans l’image, vous voyez **VirtualNetwork** sous **SOURCE** et **DESTINATION** et **AzureLoadBalancer** sous  **SOURCE**. **VirtualNetwork** et **AzureLoadBalancer** sont des [balises de service](security-overview.md#service-tags). Les balises de service représentent un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité.
 
 4. Assurez-vous que la machine virtuelle est en cours d’exécution, et sélectionnez **Règles de sécurité effectives**, comme illustré dans l’image précédente, pour voir les règles de sécurité effectives illustrées dans l’image suivante :
 
-    ![Voir les règles de sécurité effectives](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Voir les règles de sécurité effectives](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-    Les règles répertoriées sont identiques à celles de l’étape 3, bien qu’il existe différents onglets pour le groupe de sécurité réseau associé à l’interface réseau et au sous-réseau. Comme vous pouvez le voir dans l’image, seules les 50 premières règles sont affichées. Pour télécharger un fichier CSV contenant toutes les règles, sélectionnez **Télécharger**.
+   Les règles répertoriées sont identiques à celles de l’étape 3, bien qu’il existe différents onglets pour le groupe de sécurité réseau associé à l’interface réseau et au sous-réseau. Comme vous pouvez le voir dans l’image, seules les 50 premières règles sont affichées. Pour télécharger un fichier CSV contenant toutes les règles, sélectionnez **Télécharger**.
 
-    Pour voir les préfixes représentés par chaque balise de service, sélectionnez une règle, telle que la règle nommée **AllowAzureLoadBalancerInbound**. L’illustration suivante montre les préfixes pour la balise de service **AzureLoadBalancer** :
+   Pour voir les préfixes représentés par chaque balise de service, sélectionnez une règle, telle que la règle nommée **AllowAzureLoadBalancerInbound**. L’illustration suivante montre les préfixes pour la balise de service **AzureLoadBalancer** :
 
-    ![Voir les règles de sécurité effectives](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Voir les règles de sécurité effectives](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
-    Bien que la balise de service **AzureLoadBalancer** représente uniquement un préfixe, d’autres balises de service en représentent plusieurs.
+   Bien que la balise de service **AzureLoadBalancer** représente uniquement un préfixe, d’autres balises de service en représentent plusieurs.
 
-4. Les étapes précédentes ont montré les règles de sécurité pour une interface réseau nommée **myVMVMNic**, mais vous avez également vu une interface réseau nommée **myVMVMNic2** dans certaines des images précédentes. La machine virtuelle dans cet exemple a deux interfaces réseau attachées. Les règles de sécurité effectives peuvent être différentes pour chaque interface réseau.
+5. Les étapes précédentes ont montré les règles de sécurité pour une interface réseau nommée **myVMVMNic**, mais vous avez également vu une interface réseau nommée **myVMVMNic2** dans certaines des images précédentes. La machine virtuelle dans cet exemple a deux interfaces réseau attachées. Les règles de sécurité effectives peuvent être différentes pour chaque interface réseau.
 
-    Pour voir les règles pour l’interface réseau **myVMVMNic2**, sélectionnez-le. Comme indiqué dans l’illustration qui suit, l’interface réseau a les mêmes règles associées à son sous-réseau que l’interface réseau **myVMVMNic**, car les deux interfaces réseau sont dans le même sous-réseau. Lorsque vous associez un groupe de sécurité réseau à un sous-réseau, ses règles sont appliquées à toutes les interfaces réseau dans le sous-réseau.
+   Pour voir les règles pour l’interface réseau **myVMVMNic2**, sélectionnez-le. Comme indiqué dans l’illustration qui suit, l’interface réseau a les mêmes règles associées à son sous-réseau que l’interface réseau **myVMVMNic**, car les deux interfaces réseau sont dans le même sous-réseau. Lorsque vous associez un groupe de sécurité réseau à un sous-réseau, ses règles sont appliquées à toutes les interfaces réseau dans le sous-réseau.
 
-    ![Voir les règles de sécurité](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![Voir les règles de sécurité](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
-    Contrairement à l’interface réseau **myVMVMNic**, l’interface réseau **myVMVMNic2** ne dispose pas d’un groupe de sécurité réseau associé. Chaque interface réseau et sous-réseau peuvent avoir aucun ou un groupe de sécurité réseau associé. Le groupe de sécurité réseau associé à chaque interface réseau ou sous-réseau peut être le même ou ils peuvent être différents. Vous pouvez associer le même groupe de sécurité réseau à toutes les interfaces réseau individuelles et à tous les sous-réseaux que vous souhaitez.
+   Contrairement à l’interface réseau **myVMVMNic**, l’interface réseau **myVMVMNic2** ne dispose pas d’un groupe de sécurité réseau associé. Chaque interface réseau et sous-réseau peuvent avoir aucun ou un groupe de sécurité réseau associé. Le groupe de sécurité réseau associé à chaque interface réseau ou sous-réseau peut être le même ou ils peuvent être différents. Vous pouvez associer le même groupe de sécurité réseau à toutes les interfaces réseau individuelles et à tous les sous-réseaux que vous souhaitez.
 
-Bien que les règles de sécurité effectives aient été affichées au moyen de la machine virtuelle, vous pouvez également les afficher avec :
-- **Interface réseau individuelle** : découvrez comment [afficher une interface réseau](virtual-network-network-interface.md#view-network-interface-settings).
-- **Groupe de sécurité réseau individuel** : découvrez comment [afficher un groupe de sécurité réseau](manage-network-security-group.md#view-details-of-a-network-security-group).
+Bien que les règles de sécurité effectives aient été affichées au moyen de la machine virtuelle, vous pouvez aussi les consulter avec les éléments individuels suivants :
+- **Interface réseau** : découvrez comment [afficher une interface réseau](virtual-network-network-interface.md#view-network-interface-settings).
+- **Groupe de sécurité réseau** : découvrez comment [afficher un groupe de sécurité réseau](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnostiquer à l’aide de PowerShell
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Login-AzureRmAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Login-AzureRmAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
 Obtenez les règles de sécurité effectives pour une interface réseau avec [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). L’exemple suivant obtient les règles de sécurité effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
@@ -109,7 +111,7 @@ Dans la précédente sortie, le nom d’interface réseau est *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnostiquer à l’aide d’Azure CLI
 
-Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez aussi exécuter `az login` et vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez aussi exécuter `az login` et vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
 Obtenez les règles de sécurité effectives d’une interface réseau avec [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). L’exemple suivant obtient les règles de sécurité effectives d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 

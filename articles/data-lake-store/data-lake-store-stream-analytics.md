@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8c045bed943427b5cb74291d70ee2eebcb90b2ef
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 396d514d0d75c43f20ab7b0fcdf8c7351cb3dd89
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625231"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213450"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Diffuser des données à partir d’un objet blob Azure Storage dans Data Lake Store à l’aide d’Azure Stream Analytics
 Dans cet article, vous allez apprendre à utiliser Azure Data Lake Store comme sortie d’une tâche Azure Stream Analytics. Cet article présente un scénario simple qui lit des données à partir d’un objet blob Azure Storage (entrée) et écrit les données dans Data Lake Store (sortie).
@@ -77,7 +77,7 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
     ![Ajout d’une sortie à votre travail](./media/data-lake-store-stream-analytics/create.output.2.png "Ajout d’une sortie à votre travail")
 
-    * Pour **Alias de sortie**, entrez un nom unique pour la sortie de travail. Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers Data Lake Store.
+    * Dans la zone **Alias de sortie**, entrez un nom unique pour la sortie de travail. Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers Data Lake Store.
     * Pour **Récepteur**, sélectionnez **Data Lake Store**.
     * Vous serez invité à autoriser l’accès au compte Data Lake Store. Cliquez sur **Autoriser**.
 

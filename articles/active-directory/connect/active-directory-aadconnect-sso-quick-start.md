@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8639cbb5c7ba86b4786f3d0b913d64bad59ad66
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917514"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259117"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -41,9 +41,15 @@ Vérifiez que les prérequis suivants sont remplis :
     >[!NOTE]
     >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) pour en savoir plus.
 
-* **Définir les informations d'identification de l'administrateur de domaine** : Vous devez disposer des informations d'identification de l'administrateur de domaine pour chaque forêt Active Directory, dans les scénarios suivants :
+* **Utiliser une topologie Azure AD Connect prise en charge** . Veillez à utiliser une des topologies d’Azure Connect AD prises en charge et décrites [ici](active-directory-aadconnect-topologies.md).
+
+* **Définir les informations d'identification de l'administrateur de domaine**. Vous devez disposer des informations d'identification de l'administrateur de domaine pour chaque forêt Active Directory, dans les scénarios suivants :
     * Synchronisation avec Azure AD via Azure AD Connect.
     * La forêt contient des utilisateurs pour lesquels vous souhaitez activer Seamless SSO.
+    
+* **Activer l’authentification moderne**. Vous devez activer [l’authentification moderne](https://aka.ms/modernauthga) sur votre locataire pour que cette fonctionnalité fonctionne.
+
+* **Utiliser les dernières versions de clients Office 365**. Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vous avez besoin des versions 16.0.8730.xxxx ou ultérieures.
 
 ## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
 
@@ -77,21 +83,27 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
-Pour déployer la fonctionnalité sur les systèmes de vos utilisateurs, ajoutez l’URL Azure AD ci-après aux paramètres de zone intranet des utilisateurs en utilisant la stratégie de groupe dans Active Directory :
+Vous pouvez déployer progressivement l’authentification unique fluide pour vos utilisateurs en suivant les instructions fournies ci-dessous. Vous commencez par ajouter l’URL Azure AD ci-après aux paramètres de la zone Intranet de tous les utilisateurs ou des utilisateurs sélectionnés en utilisant la stratégie de groupe dans Active Directory :
 
 - https://autologon.microsoftazuread-sso.com
-
 
 En outre, vous devez activer un paramètre de stratégie Zone intranet appelé **Autoriser les mises à jour de la barre d’état via le script** via la stratégie de groupe. 
 
 >[!NOTE]
-> Les instructions suivantes ne valent que pour les navigateurs Internet Explorer et Google Chrome sur Windows (si ce dernier partage l’ensemble des URL de sites de confiance avec Internet Explorer). Lisez la section suivante pour savoir comment configurer Mozilla Firefox et Google Chrome sur Mac.
+> Les instructions suivantes ne valent que pour les navigateurs Internet Explorer et Google Chrome sur Windows (si ce dernier partage l’ensemble des URL de sites de confiance avec Internet Explorer). Lisez la section suivante pour savoir comment configurer Mozilla Firefox et Google Chrome sur macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Pourquoi devez-vous modifier les paramètres de la zone Intranet des utilisateurs ?
 
 Par défaut, le navigateur calcule automatiquement la zone appropriée, Internet ou Intranet, à partir d’une URL spécifique. Par exemple, l’adresse « http://intranet.contoso.com/ » est mappée à la zone Intranet, tandis que l’adresse « http://contoso/ » est mappée à la zone Internet (car l’URL contient un point). Les navigateurs n’enverront pas de tickets Kerberos à un point de terminaison cloud, comme l’URL Azure AD, sauf si vous ajoutez explicitement l’URL à la zone intranet du navigateur.
 
-### <a name="detailed-steps"></a>Procédure détaillée
+Il y a deux façons de modifier les paramètres de la zone Intranet des utilisateurs :
+
+| Option | Considération de l’administrateur | Expérience utilisateur |
+| --- | --- | --- |
+| Stratégie de groupe | L’administrateur verrouille la modification des paramètres de la zone Intranet | Les utilisateurs ne peuvent pas modifier leurs propres paramètres |
+| Préférences de stratégie de groupe |  L’administrateur autorise la modification sur les paramètres de la zone Intranet | Les utilisateurs peuvent modifier leurs propres paramètres |
+
+### <a name="group-policy-option---detailed-steps"></a>Option « Stratégie de groupe » - Procédure détaillée
 
 1. Ouvrez l’outil Éditeur de gestion des stratégies de groupe.
 2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
@@ -123,6 +135,32 @@ Par défaut, le navigateur calcule automatiquement la zone appropriée, Internet
 
     ![Authentification unique](./media/active-directory-aadconnect-sso/sso12.png)
 
+### <a name="group-policy-preference-option---detailed-steps"></a>Option « Préférences de stratégie de groupe » - Procédure détaillée
+
+1. Ouvrez l’outil Éditeur de gestion des stratégies de groupe.
+2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
+3. Accédez à **Configuration utilisateur** > **Préférences** > **Paramètres Windows** > **Registre**  >  **Nouveau** > **Élément de Registre**.
+
+    ![Authentification unique](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. Entrez les valeurs suivantes dans les champs appropriés et cliquez sur **OK**.
+   - **Chemin de la clé** : ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Nom de la valeur** : ***https***.
+   - **Type de valeur** : ***REG_DWORD***.
+   - **Données de la valeur** : ***00000001***.
+ 
+    ![Authentification unique](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![Authentification unique](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. Accédez à **Configuration utilisateur** > **Modèles d’administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
+
+    ![Authentification unique](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. Activez le paramètre de stratégie, puis sélectionnez **OK**.
+
+    ![Authentification unique](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### <a name="browser-considerations"></a>Considérations sur le navigateur
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (toutes les plateformes)
@@ -134,15 +172,15 @@ Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Cha
 4. Entrez https://autologon.microsoftazuread-sso.com dans le champ.
 5. Sélectionnez **OK** puis rouvrez le navigateur.
 
-#### <a name="safari-mac-os"></a>Safari (Mac OS)
+#### <a name="safari-macos"></a>Safari (macOS)
 
-Assurez-vous que l’ordinateur utilisant Mac OS est connecté à AD. Pour obtenir des instructions sur la façon de rejoindre AD, voir [Meilleures pratiques pour intégrer OS X dans Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Assurez-vous que la machine utilisant le système macOS est jointe à AD. Pour obtenir des instructions sur la façon de rejoindre AD, voir [Meilleures pratiques pour intégrer OS X dans Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (toutes les plateformes)
 
 Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (https://autologon.microsoftazuread-sso.com)).
 
-#### <a name="google-chrome-mac-os-only"></a>Google Chrome (Mac OS uniquement)
+#### <a name="google-chrome-macos-only"></a>Google Chrome (macOS uniquement)
 
 En ce qui concerne Google Chrome sur Mac OS et sur les autres plateformes non-Windows, consultez la [liste de stratégies du site Chromium Projects](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) afin d’obtenir plus d’informations sur la procédure d’ajout à la liste verte de l’URL Azure AD pour l’authentification intégrée.
 
@@ -169,7 +207,12 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 
 ## <a name="step-5-roll-over-keys"></a>Étape 5 : substituer les clés
 
-À l’étape 2, Azure AD Connect crée des comptes d’ordinateurs (représentant Azure AD) dans toutes les forêts Azure Directory sur lesquelles vous avez activé l’authentification unique transparente. Pour en savoir plus, consultez [Authentification unique transparente Azure Active Directory : immersion technique](active-directory-aadconnect-sso-how-it-works.md). Pour améliorer la sécurité, nous vous recommandons de substituer régulièrement les clés de déchiffrement Kerberos de ces comptes d’ordinateur. Pour obtenir des instructions sur la substitution des clés, voir [Authentification unique transparente Azure Active Directory : questions fréquentes](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
+À l’étape 2, Azure AD Connect crée des comptes d’ordinateurs (représentant Azure AD) dans toutes les forêts Azure Directory sur lesquelles vous avez activé l’authentification unique transparente. Pour en savoir plus, consultez [Authentification unique transparente Azure Active Directory : immersion technique](active-directory-aadconnect-sso-how-it-works.md).
+
+>[!IMPORTANT]
+>Si elle est divulguée, la clé de déchiffrement Kerberos d’un compte d’ordinateur peut être utilisée pour générer des tickets Kerberos à l’attention de n’importe quel utilisateur dans sa forêt Active Directory. Les personnes malveillantes peuvent emprunter l’identité de connexions Azure AD pour des utilisateurs compromis. Nous vous recommandons vivement de renouveler ces clés de déchiffrement Kerberos au moins tous les 30 jours.
+
+Pour obtenir des instructions sur la substitution des clés, voir [Authentification unique transparente Azure Active Directory : questions fréquentes](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Nous étudions actuellement la possibilité d’introduire le déploiement de clés automatisé.
 
 >[!IMPORTANT]
 >Vous n’avez pas besoin d’effectuer cette étape _immédiatement_ après avoir activé la fonctionnalité. Substituez les clés de déchiffrement Kerberos au moins une fois tous les 30 jours.
