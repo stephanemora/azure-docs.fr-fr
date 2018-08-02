@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1a7f37d3f95701779a16cf5dc6844fb67ee7f956
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261931"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215099"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Présentation de Azure Load Balancer Standard
 
@@ -49,7 +49,7 @@ Standard Load Balancer vous permet de faire évoluer vos applications et d’eng
 Consultez la table ci-dessous pour obtenir une vue d’ensemble des différences entre Load Balancer Standard et Load Balancer de base :
 
 >[!NOTE]
-> De nouvelles conceptions doivent être envisagées à l’aide de Load Balancer Standard. 
+> Les nouvelles conceptions doivent adopter Standard Load Balancer. 
 
 | | Référence SKU standard | Référence SKU De base |
 | --- | --- | --- |
@@ -59,8 +59,9 @@ Consultez la table ci-dessous pour obtenir une vue d’ensemble des différences
 | Diagnostics | Azure Monitor, métriques à plusieurs dimensions, notamment les compteurs d’octets et de paquets, état de la sonde d’intégrité, tentatives de connexion (TCP SYN), intégrité de la connexion sortante (flux SNAT réussies et échouées), mesures de plan de données actives | Azure Log Analytics pour l’équilibreur de charge public uniquement, alerte d’épuisement des ports SNAT, mesure de l’intégrité du pool du serveur principal |
 | Ports HA | Équilibreur de charge interne | / |
 | Sécurisé par défaut | par défaut fermé pour les points de terminaison IP et Load Balancer publics et un groupe de sécurité réseau doit être utilisé pour mettre explicitement sur liste verte le flux du trafic | Ouvert par défaut, groupe de sécurité réseau facultatif |
-| Connexions sortantes | Plusieurs serveurs frontaux avec retrait par règle. Un scénario sortant _doit_ être explicitement créé pour que la machine virtuelle puisse utiliser une connectivité sortante.  Les [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) peuvent être atteints sans connectivité sortante et ne sont pas comptabilisés dans les données traitées.  Toutes les adresses IP publiques, y compris les services PaaS Azure non disponibles en tant que points de terminaison de service du réseau virtuel, doivent être atteintes via la connectivité sortante et sont comptabilisées dans les données traitées. Lorsque seul un Load Balancer interne est utilisé par une machine virtuelle, les connexions sortantes via la SNAT par défaut ne sont pas disponibles. La programmation de SNAT sortante est un protocole de transport spécifique basé sur le protocole de la règle d’équilibrage de charge entrant. | Serveur frontal unique, sélectionné de manière aléatoire quand plusieurs serveurs frontaux sont présents.  Quand seul un équilibreur de charge interne gère une machine virtuelle, le mode SNAT par défaut est utilisé. |
-| Plusieurs serveurs frontaux | Trafic entrant et sortant | Entrant uniquement |
+| [Connexions sortantes](load-balancer-outbound-connections.md) | Plusieurs serveurs frontaux avec retrait par règle d’équilibrage de la charge. Un scénario sortant _doit_ être explicitement créé pour que la machine virtuelle puisse utiliser une connectivité sortante.  Les [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) peuvent être atteints sans connectivité sortante et ne sont pas comptabilisés dans les données traitées.  Toutes les adresses IP publiques, y compris les services PaaS Azure non disponibles en tant que points de terminaison de service du réseau virtuel, doivent être atteintes via la connectivité sortante et sont comptabilisées dans les données traitées. Lorsque seul un Load Balancer interne est utilisé par une machine virtuelle, les connexions sortantes via la SNAT par défaut ne sont pas disponibles. La programmation de SNAT sortante est un protocole de transport spécifique basé sur le protocole de la règle d’équilibrage de charge entrant. | Serveur frontal unique, sélectionné de manière aléatoire quand plusieurs serveurs frontaux sont présents.  Quand seul un équilibreur de charge interne gère une machine virtuelle, le mode SNAT par défaut est utilisé. |
+| [Plusieurs serveurs frontaux](load-balancer-multivip-overview.md) | Entrant et [sortant](load-balancer-outbound-connections.md) | Entrant uniquement |
+| [Comportement en cas de panne de sonde d’intégrité](load-balancer-custom-probe-overview.md) | Les connexions TCP restent actives quand la sonde d’instance est en panne __et__ quand toutes les sondes sont en panne. | Les connexions TCP restent actives quand la sonde d’instance est en panne. Toutes les connexions TCP sont arrêtées quand toutes les sondes sont en panne. |
 | Opérations de gestion | La plupart des opérations < 30 secondes | Généralement 60 à 90 secondes et plus |
 | Contrat SLA | 99,99 % pour le chemin de données avec deux machines virtuelles saines | Implicite dans le SLA de la machine virtuelle | 
 | Tarifs | Facturation en fonction du nombre de règles configurées et des données associées aux ressources traitées en entrée ou en sortie  | Aucun frais |

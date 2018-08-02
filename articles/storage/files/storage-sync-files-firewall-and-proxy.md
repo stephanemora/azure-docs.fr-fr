@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/19/2018
 ms.author: fauhse
-ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 39888772a257e9dc00e5a93736d8676ac6891a16
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342724"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161739"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -27,7 +27,7 @@ Azure File Sync connecte vos serveurs locaux à Azure Files, activant des foncti
 Cet article fournit des informations sur les exigences spécifiques et les options disponibles pour connecter un serveur en toute sécurité à Azure File Sync.
 
 > [!Important]
-> La synchronisation de fichiers Azure ne prend pas encore en charge les pare-feu et réseaux virtuels pour un compte de stockage. 
+> La synchronisation de fichiers Azure ne prend pas encore en charge les pare-feu et réseaux virtuels pour un compte de stockage.
 
 ## <a name="overview"></a>Vue d'ensemble
 Azure File Sync fait office de service d’orchestration entre votre serveur Windows Server, votre partage de fichiers Azure et plusieurs autres services Azure pour synchroniser les données définies dans votre groupe de synchronisation. Pour qu’Azure File Sync fonctionne correctement, vous devez configurer vos serveurs de manière qu’ils puissent communiquer avec les services Azure suivants :
@@ -39,7 +39,6 @@ Azure File Sync fait office de service d’orchestration entre votre serveur Win
 
 > [!Note]  
 > Comme l’agent Azure File Sync sur Windows Server initialise toutes les requêtes vers les services cloud, seul le trafic sortant est à prendre en compte du point de vue du pare-feu. <br /> Aucun service Azure n’établit de connexion avec l’agent Azure File Sync.
-
 
 ## <a name="ports"></a>Ports
 Azure File Sync déplace les métadonnées et données de fichiers exclusivement via le protocole HTTPS et nécessite que le port 443 soit ouvert en sortie.
@@ -79,26 +78,27 @@ Le tableau suivant décrit les domaines requis pour la communication :
 > [!Important]
 > Quand le trafic vers &ast;.one.microsoft.com est autorisé, la destination du trafic à partir du serveur n’est pas limitée au service de synchronisation. Les sous-domaines incluent de nombreux autres services Microsoft.
 
-Si &ast;.one.microsoft.com est trop vaste, vous pouvez limiter les communications du serveur en autorisant uniquement des instances régionales explicites du service Azure Files Sync. Les instances à définir dépendent de la région du service de synchronisation de stockage où vous avez déployé et inscrit le serveur. C’est cette région que vous devez autoriser pour le serveur. D’autres URL seront bientôt disponibles afin d’offrir de nouvelles fonctionnalités de continuité d’activité. 
+Si &ast;.one.microsoft.com est trop vaste, vous pouvez limiter les communications du serveur en autorisant uniquement des instances régionales explicites du service Azure Files Sync. Les instances à définir dépendent de la région du service de synchronisation de stockage où vous avez déployé et inscrit le serveur. Cette région est appelée « URL de point de terminaison principal » dans le tableau ci-dessous.
 
-| Région | URL du point de terminaison régional d’Azure File Sync |
-|--------|---------------------------------------|
-| Est de l’Australie | https://kailani-aue.one.microsoft.com |
-| Centre du Canada | https://kailani-cac.one.microsoft.com |
-| Est des États-Unis | https://kailani1.one.microsoft.com |
-| Asie du Sud-Est | https://kailani10.one.microsoft.com |
-| Sud du Royaume-Uni | https://kailani-uks.one.microsoft.com |
-| Europe de l'Ouest | https://kailani6.one.microsoft.com |
-| États-Unis de l’Ouest | https://kailani.one.microsoft.com |
+Pour des raisons de récupération d’urgence et de continuité d’activité (BCDR) vous avez peut-être spécifié des partages de vos fichiers Azure dans un compte de stockage globalement redondant (GRS). Si tel est le cas, vos partages de fichiers Azure basculeront vers la région jumelée en cas de panne régionale durable. Azure File Sync utilise les même paires régionales en tant que stockage. Par conséquent, si vous utilisez des comptes de stockage GRS, vous devez activer des URL supplémentaires pour permettre à votre serveur de communiquer avec la région jumelée pour Azure File Sync. Le tableau ci-dessous appelle cela « Région Jumelée ». De plus, il existe une URL du profil de gestionnaire de trafic qui doit être activée également. Ainsi, le trafic réseau peut être à nouveau routé en toute transparence vers la région jumelée en cas de basculement et est appelé « URL de détection » dans le tableau ci-dessous.
 
-> [!Important]
-> Si vous définissez ces règles de pare-feu détaillées, consultez régulièrement ce document et mettez à jour vos règles de pare-feu pour éviter les interruptions de service dues à des listes d’URL obsolètes ou incomplètes.
+| Région | URL de point de terminaison principal | Région jumelée | URL de détection | |---|---|| --------|| ---------------------------------------| | Australie Est | https://kailani-aue.one.microsoft.com | Australie Sud-Est | https://kailani-aue.one.microsoft.com | | Australie Sud-Est | https://kailani-aus.one.microsoft.com | Australie Est | https://tm-kailani-aus.one.microsoft.com | | Canada Centre | https://kailani-cac.one.microsoft.com | Canada Est | https://tm-kailani-cac.one.microsoft.com | | Canada Est | https://kailani-cae.one.microsoft.com | Canada Centre | https://tm-kailani.cae.one.microsoft.com | | USA Centre | https://kailani-cus.one.microsoft.com | USA Est 2 | https://tm-kailani-cus.one.microsoft.com | | Asie Est | https://kailani11.one.microsoft.com | Asie Sud-est | https://tm-kailani11.one.microsoft.com | | USA Est | https://kailani1.one.microsoft.com |USA Ouest | https://tm-kailani1.one.microsoft.com | | USA Est 2 | https://kailani-ess.one.microsoft.com | USA Centre | https://tm-kailani-ess.one.microsoft.com | | Europe Nord | https://kailani7.one.microsoft.com | Europe Ouest | https://tm-kailani7.one.microsoft.com | | Asie Sud-Est | https://kailani10.one.microsoft.com | Asie Est | https://tm-kailani10.one.microsoft.com | | Royaume-Uni Sud | https://kailani-uks.one.microsoft.com | Royaume-Uni Ouest | https://tm-kailani-uks.one.microsoft.com | | Royaume-Uni Ouest | https://kailani-ukw.one.microsoft.com | Royaume-Uni Sud | https://tm-kailani-ukw.one.microsoft.com | | Europe Ouest | https://kailani6.one.microsoft.com | Europe Nord | https://tm-kailani6.one.microsoft.com | | USA Ouest | https://kailani.one.microsoft.com | USA Est | https://tm-kailani.one.microsoft.com |
+
+- Si vous utilisez des comptes de stockage localement redondants (LRS) ou des comptes de stockage de redondants dans une zone (ZRS), vous devez uniquement activer l’URL répertoriée sous « URL de point de terminaison principal ».
+
+- Si vous utilisez des comptes de stockage géoredondants (GRS), activez les trois URL.
+
+**Exemple :** Vous déployez un service de synchronisation de stockage dans `"West US"` et inscrivez votre serveur avec celui-ci. Les URL permettant au serveur de communiquer sont dans ce cas :
+
+> - https://kailani.one.microsoft.com (point de terminaison principal : USA Ouest)
+> - https://kailani1.one.microsoft.com (région de basculement jumelée :USA Est)
+> - https://tm-kailani.one.microsoft.com (URL de détection de la région principale)
 
 ## <a name="summary-and-risk-limitation"></a>Résumé et limitation des risques
-La liste fournie plus haut contient les URL avec lesquelles Azure File Sync communique actuellement. Les pare-feu doivent être en mesure d’autoriser le trafic sortant en direction de ces domaines, ainsi que les réponses provenant de ceux-ci. Microsoft s’efforce de maintenir cette liste à jour.
+La liste fournie plus haut contient les URL avec lesquelles Azure File Sync communique actuellement. Les pare-feux doivent être en mesure d’autoriser le trafic sortant vers ces domaines. Microsoft s’efforce de maintenir cette liste à jour.
 
-La configuration de règles de pare-feu restreignant les domaines peut permettre de renforcer la sécurité. Si vous utilisez ces configurations de pare-feu, gardez à l’esprit que des URL seront ajoutées et modifiées au fil du temps. Par conséquent, il est recommandé de consulter les tableaux de ce document dans le cadre d’un déploiement-test de la dernière version de l’agent Azure File Sync. Vous pourrez ainsi vous assurer que votre pare-feu est configuré de manière à autoriser le trafic vers les domaines requis par l’agent le plus récent.
+La configuration de règles de pare-feu restreignant les domaines peut permettre de renforcer la sécurité. Si ces configurations de pare-feu sont utilisées, vous ne devez pas oublier que des URL seront ajoutées et peuvent même changer au fil du temps. Consultez cet article régulièrement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)
-- [Déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md)
+- [Déployer Azure File Sync](storage-sync-files-deployment-guide.md)

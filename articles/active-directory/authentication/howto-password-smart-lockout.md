@@ -4,22 +4,24 @@ description: Le verrouillage intelligent d’Azure Active Directory permet de pr
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/25/2018
+ms.topic: conceptual
+ms.date: 07/18/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: d5beb5ce6e167cd100bec2ed54dc6ea0e78ba37b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b0fded9f5543d151091955c0b0d645bf9db16b7d
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034432"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158581"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Verrouillage intelligent Azure Active Directory
 
 Le verrouillage intelligent utilise l’intelligence cloud pour empêcher les pirates de deviner vos mots de passe ou d’utiliser des méthodes de force brute pour rentrer dans vos systèmes. Cette intelligence est capable de reconnaître les connexions provenant des utilisateurs validés, et les traite différemment de celles des pirates et autres utilisateurs inconnus. Le verrouillage intelligent empêche les attaquants de pénétrer dans le système, tout en permettant à vos utilisateurs d’accéder à leurs comptes et de travailler.
+
+Par défaut, le verrouillage intelligent empêche les tentatives de connexion au compte pendant une minute après dix tentatives infructueuses. Le compte se verrouille à nouveau après chaque échec de connexion consécutif. Le premier verrouillage dure une minute, les suivants durent plus longtemps.
 
 Le verrouillage intelligent est activé en permanence pour les clients Azure AD disposant des paramètres par défaut qui offrent la combinaison idéale de sécurité et de facilité d’utilisation. Pour personnaliser les paramètres de verrouillage intelligent en vue de répondre aux besoins de votre organisation, vos utilisateurs doivent disposer d’une licence Azure AD Basic ou plus élevée.
 
@@ -52,7 +54,7 @@ Pour vérifier ou modifier les valeurs de verrouillage intelligent de votre orga
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), et cliquez sur **Azure Active Directory**, puis sur **Méthodes d’authentification**.
 1. Définissez le **Seuil de verrouillage**, c’est-à-dire le nombre d’échecs de connexions autorisé avant qu’un compte ne soit verrouillé. La valeur par défaut est de 10.
-1. Définissez la **Durée du verrouillage en secondes** sur la durée en secondes souhaitée de chaque verrouillage.
+1. Définissez la **Durée du verrouillage en secondes** sur la durée en secondes souhaitée de chaque verrouillage. La valeur par défaut est 60 secondes (une minute).
 
 > [!NOTE]
 > Si la première connexion après verrouillage échoue également, le compte est de nouveau verrouillé. Si un compte est verrouillé à plusieurs reprises, la durée de verrouillage augmente.

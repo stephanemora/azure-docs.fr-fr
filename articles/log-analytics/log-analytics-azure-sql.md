@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: f57a47677f752a644975a25fa746d78bced5d766
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 440e16416b8567178c61c3d6ce2155e0e331521c
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133351"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216323"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Surveiller les instances Azure SQL Database avec Azure SQL Analytics (préversion)
 

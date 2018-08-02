@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be6ee88f43254ec3075a64299005d3597af968e7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31787656"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224763"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Ajout de l'authentification à votre application Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -55,7 +55,7 @@ L’authentification sécurisée nécessite de définir un nouveau schéma d’U
 Ensuite, vous mettrez à jour l’application cliente pour demander des ressources au backend Mobile App avec un utilisateur authentifié.
 
 ## <a name="add-authentication-to-the-app"></a>Ajout de l'authentification à l'application
-Dans cette section, vous allez modifier l'application de façon à afficher un écran de connexion avant d'afficher des données. Quand l'application démarre, elle ne se connecte pas à votre service App Service et n'affiche pas de données. Après le premier geste d'actualisation de l'utilisateur, l'écran de connexion s'affiche. Une fois la connexion réussie, la liste des tâches s'affiche.
+Dans cette section, vous allez modifier l'application de façon à afficher un écran de connexion avant d'afficher des données. Quand l’application démarre, elle ne se connecte pas à votre service App Service et n’affiche pas de données. Après le premier geste d'actualisation de l'utilisateur, l'écran de connexion s'affiche. Une fois la connexion réussie, la liste des tâches s'affiche.
 
 1. Dans le projet client, ouvrez le fichier **QSTodoService.cs** et ajoutez l’instruction suivante et `MobileServiceUser` avec l’accesseur à la classe QSTodoService :
  

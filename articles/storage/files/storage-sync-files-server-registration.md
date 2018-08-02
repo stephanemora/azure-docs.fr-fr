@@ -1,5 +1,5 @@
 ---
-title: Gérer des serveurs inscrits à Azure File Sync (préversion) | Microsoft Docs
+title: Gérer des serveurs inscrits avec Azure File Sync | Microsoft Docs
 description: Découvrez comment inscrire un serveur Windows Server au service de synchronisation de stockage Azure File Sync et le désinscrire.
 services: storage
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: fde4f7eeb07dff1e44edcabec390ae2921ecf832
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738290"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160924"
 ---
-# <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gérer des serveurs inscrits à Azure File Sync (préversion)
-La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+# <a name="manage-registered-servers-with-azure-file-sync"></a>Gérer des serveurs inscrits avec Azure File Sync
+Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
-L’article suivant décrit comment inscrire un serveur au service de synchronisation de stockage et le gérer. Consultez [Guide pratique pour déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md) pour plus d’informations le déploiement de bout en bout d’Azure File Sync.
+L’article suivant décrit comment inscrire un serveur au service de synchronisation de stockage et le gérer. Consultez [Comment déployer Azure File Sync](storage-sync-files-deployment-guide.md) pour plus d’informations sur comment déployer Azure File Sync de bout en bout.
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Inscrire/désinscrire un serveur au service de synchronisation de stockage
 L’inscription d’un serveur à Azure File Sync établit une relation d’approbation entre Windows Server et Azure. Cette relation peut ensuite être utilisée pour créer des *points de terminaison de serveur* sur le serveur, qui représentent des dossiers spécifiques qui doivent être synchronisés avec un partage de fichiers Azure (également appelé un *point de terminaison de cloud*). 
@@ -33,7 +33,7 @@ L’inscription d’un serveur à Azure File Sync établit une relation d’appr
 Pour inscrire un serveur à un service de synchronisation de stockage, vous devez d’abord préparer votre serveur avec les prérequis nécessaires :
 
 * Votre appareil doit exécuter une version prise en charge de Windows Server. Pour plus d’informations, consultez [Versions de Windows Server prises en charge](storage-sync-files-planning.md#supported-versions-of-windows-server).
-* Vérifiez qu’un service de synchronisation de stockage a été déployé. Pour plus d’informations sur le déploiement d’un service de synchronisation de stockage, consultez [Guide pratique pour déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md).
+* Vérifiez qu’un service de synchronisation de stockage a été déployé. Pour plus d’informations sur comment déployer un service de synchronisation de stockage, consultez [Comment déployer Azure File Sync](storage-sync-files-deployment-guide.md).
 * Vérifiez que le serveur est connecté à Internet et qu’Azure est accessible.
 * Désactivez la Configuration de sécurité renforcée d’Internet Explorer pour les administrateurs avec l’interface utilisateur du Gestionnaire de serveur.
     
@@ -194,6 +194,6 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 Lorsqu’Azure File Sync est hébergé dans une machine virtuelle s’exécutant sur un hôte de virtualisation Windows Server, vous pouvez utiliser la QoS de stockage (qualité de service de stockage) pour contrôler la consommation d’E/S de stockage. La stratégie de QoS de stockage peut être définie comme une valeur maximale (ou limite, comme la limite StorageSyncNetwork appliquée ci-dessus) ou minimale (ou réservation). La définition d’une valeur minimale plutôt que maximale permet à Azure File Sync d’optimiser l’utilisation de la bande passante de stockage disponible si d’autres charges de travail ne l’utilisent pas. Pour plus d’informations, consultez [Qualité de service de stockage](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## <a name="see-also"></a>Voir aussi
-- [Planification d’un déploiement Azure File Sync (préversion)](storage-sync-files-planning.md)
-- [Déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md) 
-- [Résoudre les problèmes de synchronisation de fichiers Azure (préversion)](storage-sync-files-troubleshoot.md)
+- [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)
+- [Déployer Azure File Sync](storage-sync-files-deployment-guide.md) 
+- [Résoudre les problèmes d’Azure File Sync](storage-sync-files-troubleshoot.md)

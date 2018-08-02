@@ -4,18 +4,18 @@ description: Conseils pour réussir le lancement de la réinitialisation du mot 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e14c51d644a29985e759da7c8a29927680d3891
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048949"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158860"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
@@ -23,35 +23,32 @@ Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitia
 
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
-1. [Activez la réinitialisation du mot de passe dans votre répertoire](quickstart-sspr.md).
-2. [Configurez les autorisations Active Directory locales pour l’écriture différée du mot de passe](howto-sspr-writeback.md#active-directory-permissions).
-3. [Configurez l’écriture différée du mot de passe](howto-sspr-writeback.md#configure-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local.
-4. [Affectez et vérifiez les licences requises](concept-sspr-licensing.md).
-5. Décidez si vous souhaitez effectuer un déploiement progressif. Si vous souhaitez lancer progressivement la réinitialisation de mot de passe en libre-service, vous pouvez limiter l’accès à un groupe d’utilisateurs afin de piloter le programme avec un groupe spécifique. Pour effectuer le lancement pour un groupe spécifique, définissez le commutateur **Réinitialisation du mot de passe en libre-service activée** sur **Sélectionné** et sélectionnez le groupe de sécurité qui doit pouvoir utiliser la réinitialisation du mot de passe.  L’imbrication de groupes de sécurité est prise en charge ici.
-6. Remplissez les [Données d’authentification](howto-sspr-authenticationdata.md) nécessaires pour l’inscription de vos utilisateurs, telles que leur téléphone de bureau, téléphone mobile et adresse de messagerie.
-7. [Personnalisez l’expérience de connexion Azure AD pour inclure la marque de votre société](concept-sspr-customization.md).
-8. Apprenez à vos utilisateurs à utiliser la réinitialisation du mot de passe libre-service. Envoyez-leur des instructions pour leur montrer comment s’inscrire et comment réinitialiser leurs mots de passe.
-9. Déterminez quand vous voulez appliquer l’inscription. Vous pouvez choisir d’appliquer l’inscription à tout moment. Vous pouvez également demander aux utilisateurs de reconfirmer leurs informations d’authentification après un certain laps de temps.
-10. Utilisez la fonctionnalité de création de rapports. Vous pouvez passer en revue l’inscription et l’utilisation des utilisateurs au fil du temps avec la [fonctionnalité de création de rapports fournie par Azure AD](howto-sspr-reporting.md).
-11. Activez la réinitialisation du mot de passe. Lorsque vous êtes prêt, activez la réinitialisation du mot de passe pour tous les utilisateurs en définissant le commutateur **Réinitialisation du mot de passe en libre-service activée** sur **Tout le monde**. 
+1. Effectuez un déploiement pilote avec un petit sous-ensemble de votre organisation.
+   * Vous trouverez des informations sur la façon de piloter dans le [Didacticiel : compléter un déploiement pilote de réinitialisation du mot de passe libre-service Azure AD](tutorial-sspr-pilot.md).
+1. Formez votre support technique.
+   * Comment vont-ils aider vos utilisateurs ?
+   * Obligerez-vous les utilisateurs à utiliser SSPR et interdisez-vous à votre support technique d’aider les utilisateurs ?
+   * Leur avez-vous fourni les URL pour l’inscription et la réinitialisation ?
+      * Inscription : https://aka.ms/ssprsetup
+      * Réinitialisation : https://aka.ms/sspr
+1. Formez vos utilisateurs.
+   * Les sections suivantes de ce document comprennent les exemples de communication, les portails de mot de passe, l’application d’inscription, et le remplissage de données d’authentification.
+   * Le groupe de produits Azure Active Directory a créé un [plan de déploiement étape par étape](https://aka.ms/SSPRDeploymentPlan) que les organisations peuvent utiliser en parallèle avec la documentation disponible sur ce site pour effectuer une étude de cas et un plan de déploiement de la réinitialisation de mot de passe en libre-service.
+1. Activez la réinitialisation du mot de passe en libre-service pour toute votre organisation.
+   * Lorsque vous êtes prêt, activez la réinitialisation du mot de passe pour tous les utilisateurs en définissant le commutateur **Réinitialisation du mot de passe en libre-service activée** sur **Tout le monde**.
 
-   > [!NOTE]
-   > Modifier cette option de façon qu’elle passe d’un groupe sélectionné à tout le monde ne rend pas non valides les données d’authentification existantes qu’un utilisateur a enregistrées dans le cadre d’un groupe de test. Les utilisateurs qui sont configurés et qui possèdent des données d’authentification valides enregistrées continuent de fonctionner.
+## <a name="sample-communication"></a>Exemple de communication
 
-12. [Permettez aux utilisateurs de Windows 10 de réinitialiser leur mot de passe sur l’écran de connexion](tutorial-sspr-windows.md).
-
-   > [!IMPORTANT]
-   > Testez la réinitialisation de mot de passe libre-service avec un utilisateur plutôt qu’un administrateur, car Microsoft applique des spécifications d’authentification forte pour les comptes d’administrateur Azure. Pour plus d’informations sur la stratégie de mot de passe administrateur, consultez notre article [Stratégie de mot de passe](concept-sspr-policy.md#administrator-password-policy-differences).
-
-## <a name="email-based-rollout"></a>Déploiement par courrier électronique
-
-De nombreux clients estiment qu’une campagne par courrier électronique incluant des instructions simples d’utilisation constitue le moyen le plus simple pour que les utilisateurs aient recours à la réinitialisation du mot de passe libre-service. [Nous avons créé trois courriers électroniques simples que vous pouvez utiliser comme modèles pour vous aider dans votre lancement](https://www.microsoft.com/download/details.aspx?id=56768) :
+De nombreux clients estiment qu’une campagne par courrier électronique incluant des instructions simples d’utilisation constitue le moyen le plus simple pour que les utilisateurs aient recours à la réinitialisation du mot de passe libre-service. [Nous avons créé des e-mails simples et d’autres collatéraux que vous pouvez utiliser comme modèles pour vous aider dans votre lancement](https://www.microsoft.com/download/details.aspx?id=56768) :
 
 * **Bientôt disponible** : modèle de courrier électronique à utiliser dans les semaines ou les jours précédant le lancement pour informer les utilisateurs s’ils ont besoin d’effectuer une action.
 * **Disponible dès maintenant** : modèle de courrier électronique à utiliser le jour du lancement du programme pour inciter les utilisateurs à s’inscrire et à confirmer leurs données d’authentification. En s’inscrivant maintenant, les utilisateurs pourront utiliser la réinitialisation du mot de passe libre-service lorsqu’ils en auront besoin.
 * **Rappel d’inscription** : modèle de courrier électronique à utiliser dans les jours ou les semaines qui suivent le déploiement pour rappeler aux utilisateurs de s’inscrire et de confirmer leurs données d’authentification.
+* **Affiches SSPR** : les affiches que vous pouvez personnaliser et afficher autour de votre organisation dans les jours et semaines jusqu’à votre lancement et ceux qui suivent.
+* **Chevalets de table SSPR** : des cartes que vous pouvez placer dans la salle à manger, les salles de conférence, ou dans les bureaux pour encourager vos utilisateurs à terminer l’inscription.
+* **Autocollants SSPR** : modèles de vignette que vous pouvez personnaliser et imprimer pour les coller sur les ordinateurs portables, les moniteurs, les claviers ou les téléphones portables pour se rappeler comment accéder à SSPR.
 
-![E-mail][Email]
+![Exemples d’e-mails SSPR][Email]
 
 ## <a name="create-your-own-password-portal"></a>Création de votre propre portail de mot de passe
 
@@ -64,10 +61,6 @@ Nombre de nos clients choisissent d’héberger une page web et de créer une en
 
 Dans toutes vos communications par courrier électronique ou prospectus, vous pouvez inclure une URL de marque, facile à retenir que les utilisateurs peuvent suivre quand ils doivent utiliser les services. Pour votre bénéfice, nous avons créé une [page d’exemple de réinitialisation du mot de passe](https://github.com/ajamess/password-reset-page) que vous pouvez utiliser et personnaliser pour les besoins de votre organisation.
 
-## <a name="step-by-step-deployment-plan"></a>Plan de déploiement étape par étape
-
-Le groupe de produits Azure Active Directory a créé un [plan de déploiement étape par étape](https://aka.ms/SSPRDeploymentPlan) que les organisations peuvent utiliser en parallèle avec la documentation disponible sur ce site pour effectuer une étude de cas et un plan de déploiement de la réinitialisation de mot de passe en libre-service.
-
 ## <a name="use-enforced-registration"></a>Utilisation de l’inscription forcée
 
 Si vous souhaitez que vos utilisateurs s’inscrivent pour la réinitialisation du mot de passe, vous pouvez les obliger à s’inscrire lorsqu’ils se connectent via Azure AD. Vous pouvez activer cette option dans le volet **Réinitialisation de mot de passe** de votre répertoire en activant l’option **Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent** dans l’onglet **Inscription**.
@@ -78,11 +71,11 @@ Une fois que vous avez activé cette option, lorsque les utilisateurs se connect
 
 ## <a name="populate-authentication-data"></a>Renseigner les données d’authentification
 
-Vous devez [renseigner les données d’authentification de vos utilisateurs](howto-sspr-authenticationdata.md). De cette façon, les utilisateurs n’ont pas besoin de s’inscrire pour la réinitialisation du mot de passe avant de pouvoir utiliser la fonctionnalité SSPR. Tant que leurs données d’authentification sont conformes à la stratégie de réinitialisation de mot de passe que vous avez définie, les utilisateurs sont en mesure de réinitialiser leurs mots de passe.
+Vous devez envisager de [remplir au préalable quelques données d’authentification pour vos utilisateurs](howto-sspr-authenticationdata.md). De cette façon, les utilisateurs n’ont pas besoin de s’inscrire pour la réinitialisation du mot de passe avant de pouvoir utiliser la fonctionnalité SSPR. Tant que leurs données d’authentification sont conformes à la stratégie de réinitialisation de mot de passe que vous avez définie, les utilisateurs sont en mesure de réinitialiser leurs mots de passe.
 
 ## <a name="disable-self-service-password-reset"></a>Désactiver la réinitialisation du mot de passe libre-service
 
-Il est facile de désactiver la réinitialisation du mot de passe libre-service. Ouvrez votre locataire Azure AD et accédez à **Réinitialisation de mot de passe** > **Propriétés**, puis sélectionnez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**.
+Si votre organisation décide de désactiver la réinitialisation du mot de passe libre-service, c’est un processus simple. Ouvrez votre locataire Azure AD et accédez à **Réinitialisation de mot de passe** > **Propriétés**, puis sélectionnez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**. Les utilisateurs conserveront toujours le leur
 
 ## <a name="next-steps"></a>Étapes suivantes
 

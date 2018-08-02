@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917990"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215082"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Immersion dans la sécurité de l’authentification directe Azure Active Directory
 
@@ -37,14 +37,14 @@ Les sujets abordés sont les suivants :
 Voici les aspects clés de cette fonctionnalité relevant de la sécurité :
 - Elle repose sur une architecture mutualisée sécurisée qui assure l’isolation des demandes de connexion entre les locataires.
 - Les mots de passe locaux ne sont jamais stockés dans le cloud sous quelque forme que ce soit.
-- Les agents d’authentification locale, qui écoutent et répondent aux demandes de validation de mot de passe, établissent uniquement des connexions sortantes à partir de votre réseau. Il n’est pas nécessaire d’installer ces agents d’authentification dans un réseau de périmètre (DMZ).
+- Les agents d’authentification locale, qui écoutent et répondent aux demandes de validation de mot de passe, établissent uniquement des connexions sortantes à partir de votre réseau. Il n’est pas nécessaire d’installer ces agents d’authentification dans un réseau de périmètre (DMZ). En tant que bonne pratique, traitez tous les serveurs exécutant des agents d’authentification comme des systèmes de niveau 0 (voir [référence](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Seuls les ports standard (80 et 443) permettent d’établir une communication sortante des agents d’authentification à Azure AD. Vous n’avez pas besoin d’ouvrir des ports d’entrée sur votre pare-feu. 
   - Le port 443 est utilisé pour toutes les communications sortantes authentifiées.
   - Le port 80 est utilisé uniquement pour télécharger les listes de révocation de certificats (CRL) pour s’assurer que les certificats utilisés par cette fonctionnalité n’ont pas été révoqués.
   - Pour obtenir la configuration requise pour le réseau complète, consultez [Authentification Azure Active Directory : Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Les mots de passe fournis par les utilisateurs pendant la connexion sont chiffrés dans le cloud avant que les agents d’authentification locale ne l’est acceptent pour être validés dans l’annuaire Active Directory.
 - Le canal HTTPS entre Azure AD et l’agent d’authentification locale est sécurisé à l’aide de l’authentification mutuelle.
-- La fonctionnalité s’intègre parfaitement aux fonctionnalités de protection du cloud d’Azure AD telles que les stratégies d’accès conditionnel (y compris Azure Multi-Factor Authentication), la protection d’identité et le verrouillage intelligent.
+- Il protège vos comptes utilisateur en toute transparence avec les [stratégies d’accès conditionnel d’Azure AD](../active-directory-conditional-access-azure-portal.md), y compris l’authentification multifacteur (MFA), [en bloquant l’authentification héritée](../active-directory-conditional-access-conditions.md) et [en filtrant des attaques de mot de passe par recherche exhaustive](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Composants impliqués
 
@@ -156,7 +156,7 @@ Pour vous assurer que l’authentification directe reste sécurisée sur le plan
 
 Pour renouveler la relation d’approbation d’un agent d’authentification avec Azure AD :
 
-1. L’agent d’authentification effectue régulièrement un test ping dans Azure AD (toutes les heures) pour vérifier s’il est temps de renouveler son certificat. 
+1. L’agent d’authentification effectue régulièrement un test ping dans Azure AD (toutes les heures) pour vérifier s’il est temps de renouveler son certificat. Le certificat est renouvelé 30 jours avant son expiration.
     - Cette vérification est effectuée via un canal HTTPS mutuellement authentifié et utilise le même certificat que celui émis lors de l’inscription.
 2. Si le service indique qu’il est temps de procéder au renouvellement, l’agent d’authentification génère une nouvelle paire de clés : une clé publique et une clé privée.
     - Ces clés sont générées à l’aide du chiffrement standard RSA 2 048 bits.
@@ -209,6 +209,7 @@ Pour mettre à jour automatiquement un agent d’authentification :
 ## <a name="next-steps"></a>Étapes suivantes
 - [Limitations actuelles](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
+- [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Fonctionnement](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez les principes de fonctionnement de l’authentification directe Azure AD.
 - [Forum aux questions](active-directory-aadconnect-pass-through-authentication-faq.md) : trouvez des réponses aux questions fréquemment posées.

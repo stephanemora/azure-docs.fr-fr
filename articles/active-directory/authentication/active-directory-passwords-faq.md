@@ -4,18 +4,18 @@ description: Forum aux questions concernant la réinitialisation du mot de passe
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c006e448b8da1acaf51c8339cbcd0b6170f29874
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054809"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160740"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -115,7 +115,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q : Comment puis-je informer mes utilisateurs des liens sur lesquels ils peuvent cliquer pour réinitialiser leurs mots de passe ?**
 
-  > **R :** Essayez certaines des suggestions de notre [article sur le déploiement de la réinitialisation de mot de passe](howto-sspr-deployment.md#email-based-rollout).
+  > **R :** Essayez certaines des suggestions de notre [article sur le déploiement de la réinitialisation de mot de passe](howto-sspr-deployment.md#sample-communication).
   >
   >
 * **Q : Puis-je utiliser cette page à partir d’un appareil mobile ?**
@@ -170,7 +170,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q : J’ai configuré ma stratégie de sorte qu’elle demande aux utilisateurs d’utiliser les questions de sécurité à des fins de réinitialisation, mais les administrateurs Azure semblent configurés différemment.**
 
-  > **R :** C’est le comportement normal. Microsoft applique par défaut une stratégie de réinitialisation de mot de passe fort à deux verrous pour tous les rôles d’administrateur Azure. Cela empêche les administrateurs d’utiliser les questions de sécurité. Vous trouverez plus d’informations sur cette stratégie dans l’article [Stratégies de mot de passe et restrictions dans Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences).
+  > **R :** C’est le comportement normal. Microsoft applique par défaut une stratégie de réinitialisation de mot de passe fort à deux verrous pour tous les rôles d’administrateur Azure. Cela empêche les administrateurs d’utiliser les questions de sécurité. Vous trouverez plus d’informations sur cette stratégie dans l’article [Stratégies de mot de passe et restrictions dans Azure Active Directory](concept-sspr-policy.md).
   >
   >
 * **Q : Si un utilisateur a inscrit plus de questions que le nombre maximal requis pour la réinitialisation, comment les questions de sécurité sont-elles sélectionnées lors de la réinitialisation ?**
@@ -274,7 +274,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q : L’écriture différée du mot de passe est-elle sécurisée ?  Comment puis-je être sûr de ne pas être piraté ?**
 
-  > **R :** Oui, l’écriture différée du mot de passe est sécurisée. Pour en savoir plus sur les quatre couches de sécurité implémentées par le service de réécriture du mot de passe, consultez [Modèle de sécurité de l’écriture différée de mot de passe](howto-sspr-writeback.md#password-writeback-security-model) dans l’article [Vue d’ensemble de la réécriture du mot de passe](howto-sspr-writeback.md).
+  > **R :** Oui, l’écriture différée du mot de passe est sécurisée. Pour en savoir plus sur les multiples couches de sécurité implémentées par le service de réécriture du mot de passe, consultez la section [Sécurité de réécriture du mot de passe](concept-sspr-writeback.md#password-writeback-security) dans l’article [Vue d’ensemble de la réécriture du mot de passe](howto-sspr-writeback.md).
   >
   >
 

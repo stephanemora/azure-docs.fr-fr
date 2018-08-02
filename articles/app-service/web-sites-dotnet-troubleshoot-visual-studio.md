@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30266136"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224107"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio
 ## <a name="overview"></a>Vue d'ensemble
@@ -39,7 +39,7 @@ Vous apprendrez ce qui suit :
 Si vous disposez de Visual Studio Ultimate, vous pouvez également utiliser [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) à des fins de débogage. IntelliTrace n’est pas couvert dans ce didacticiel.
 
 ## <a name="prerequisites"></a>Configuration requise
-Ce didacticiel fonctionne avec l’environnement de développement, le projet Web et l’application Web Azure que vous avez configurés dans le didacticiel [Prise en main d’Azure et ASP.NET][GetStarted]. Pour les sections WebJobs, vous aurez besoin de l’application créée dans le cadre de la [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure][GetStartedWJ].
+Ce didacticiel fonctionne avec l’environnement de développement, le projet web et l’application web Azure que vous avez configurés dans le didacticiel [Prise en main d’Azure et ASP.NET](app-service-web-get-started-dotnet-framework.md). Pour les sections WebJobs, vous aurez besoin de l’application créée dans le cadre de la [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure][GetStartedWJ].
 
 Les exemples de code inclus dans ce didacticiel sont destinés à une application Web C# MVC, mais les procédures de résolution de problèmes sont identiques pour les applications Visual Basic et Web Forms.
 
@@ -61,7 +61,7 @@ Visual Studio permet d’accéder à un sous-ensemble des fonctionnalités de g
 
     Pour plus d’informations sur la connexion aux ressources Azure à partir de Visual Studio, consultez la page [Gérer des comptes, des abonnements et des rôles d’administrateur](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. Dans l’**Explorateur de serveurs**, développez **Azure**, puis **App Service**.
-3. Développez le groupe de ressources incluant l’application web que vous avez créée dans [Créer une application web ASP.NET dans Azure][app-service-web-get-started-dotnet.md], puis cliquez sur le nœud d’application web et sur **Afficher les paramètres**.
+3. Développez le groupe de ressources incluant l’application web que vous avez créée dans le cadre du didacticiel [Création d’une application web ASP.NET dans Azure](app-service-web-get-started-dotnet-framework.md), puis cliquez avec le bouton droit sur le nœud d’application web et sélectionnez **Afficher les paramètres**.
 
     ![Afficher les paramètres dans l'Explorateur de serveurs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -118,9 +118,9 @@ Si le message d'erreur détaillé ne fournit pas assez d'informations et que vou
 
 Le débogage à distance ne fonctionne pas avec les éditions Express de Visual Studio.
 
-Cette section illustre comment déboguer à distance à l’aide du projet que vous créez dans [Créer une application web ASP.NET dans Azure](app-service-web-get-started-dotnet.md).
+Cette section illustre comment déboguer à distance à l’aide du projet que vous créez dans [Créer une application web ASP.NET dans Azure](app-service-web-get-started-dotnet-framework.md).
 
-1. Ouvrez le projet web que vous avez créé dans [Créer une application web ASP.NET dans Azure](app-service-web-get-started-dotnet.md).
+1. Ouvrez le projet web que vous avez créé dans [Créer une application web ASP.NET dans Azure](app-service-web-get-started-dotnet-framework.md).
 
 2. Ouvrez *Controllers\HomeController.cs*.
 
@@ -138,7 +138,7 @@ public ActionResult About()
 
 5. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
 
-6. Dans la liste déroulante **Profil**, sélectionnez le même profil que celui utilisé dans [Créer une application web ASP.NET dans Azure](app-service-web-get-started-dotnet.md). Puis, cliquez sur Paramètres.
+6. Dans la liste déroulante **Profil**, sélectionnez le même profil que celui utilisé dans [Créer une application web ASP.NET dans Azure](app-service-web-get-started-dotnet-framework.md). Puis, cliquez sur Paramètres.
 
 7. Dans la boîte de dialogue **Publier**, cliquez sur l’onglet **Paramètres** et remplacez **Configuration** par **Déboguer**, puis cliquez sur **Enregistrer**.
 
@@ -273,7 +273,7 @@ Les journaux sont écrits dans des fichiers issus du dossier *LogFiles*, au sein
 ## <a name="apptracelogs"></a>Création et affichage des journaux de suivi d’application
 Dans cette section, vous effectuerez les tâches suivantes :
 
-* ajout d’instructions de traçage au projet Web que vous avez créé dans [Prise en main d’Azure et ASP.NET][GetStarted] ;
+* ajout d’instructions de traçage au projet web que vous avez créé dans [Prise en main d’Azure et ASP.NET](app-service-web-get-started-dotnet-framework.md).
 * affichage des journaux lorsque vous exécutez le projet localement ;
 * affichage des journaux durant leur génération par l'application exécutée dans Azure.
 

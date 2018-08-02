@@ -10,25 +10,22 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 03/04/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bbc87f529cb70b6f4b21984199ed87427b4e3108
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6553fdba463144c6eda1e35c0967e92a3c44aff6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506409"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225574"
 ---
-# <a name="different-administrative-role-in-azure-active-directory-pim"></a>Rôle d’administrateur différent dans Azure Active Directory PIM
+# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>Rôles d’annuaire que vous pouvez gérer à l’aide d’Azure AD PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
-Vous pouvez affecter aux utilisateurs de votre organisation différents rôles administratifs dans Azure AD. Ces affectations de rôles contrôlent quelles tâches, telles que l’ajout/la suppression d’utilisateurs ou la modification des paramètres de service, les utilisateurs sont autorisés à effectuer sur Azure AD, Office 365 et autres services Microsoft Online Services et applications connectées.  
+Vous pouvez affecter aux utilisateurs de votre organisation différents rôles administratifs dans Azure AD. Ces affectations de rôles contrôlent les tâches (ajouter/supprimer des utilisateurs, modifier des paramètres de service, etc.) que les utilisateurs peuvent effectuer sur Azure AD, Office 365 et d’autres services en ligne Microsoft et applications connectées.  
 
-> [!IMPORTANT]
-> Microsoft vous recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure.
-
-Un administrateur général peut mettre à jour les utilisateurs **définitivement** affectés aux rôles dans Azure AD à l’aide des applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`, ou par le biais du portail, comme décrit à la rubrique [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Un administrateur général peut mettre à jour les utilisateurs **définitivement** affectés aux rôles dans Azure AD par le biais du portail, comme décrit à la rubrique [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md), ou à l’aide des [commandes PowerShell](/powershell/module/azuread#directory_roles).
 
 Azure AD Privileged Identity Management (PIM) gère les stratégies pour l’accès privilégié des utilisateurs dans Azure AD. PIM affecte aux utilisateurs un ou plusieurs rôles dans Azure AD, et vous pouvez affecter définitivement le rôle à une personne, ou la rendre éligible au rôle. Lorsqu’un utilisateur est définitivement affecté à un rôle ou qu’il active une affectation de rôle éligible, il peut alors gérer Azure Active Directory, Office 365 et d’autres applications avec les autorisations attribuées aux rôles.
 

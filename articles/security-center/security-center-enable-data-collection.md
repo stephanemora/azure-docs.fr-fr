@@ -3,7 +3,7 @@ title: Collecte de données dans Azure Security Center | Microsoft Docs
 description: " Découvrez comment activer la collecte des données dans Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2018
-ms.author: terrylan
-ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 07/19/2018
+ms.author: rkarlin
+ms.openlocfilehash: d70eb1a329b2d1ba560aecbbb4132d2a8e2b7df1
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619107"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160125"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
-Azure Security Center collecte des données à partir de vos machines virtuelles Azure et ordinateurs autres qu’Azure pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de Microsoft Monitoring Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté et ID de locataire. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans votre espace de travail.
+Azure Security Center collecte des données à partir de vos machines virtuelles Azure et ordinateurs autres qu’Azure pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de Microsoft Monitoring Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version du système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté, évènements AppLocker et ID de locataire. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans votre espace de travail.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Activer l’approvisionnement automatique de Microsoft Monitoring Agent     
 L’approvisionnement automatique est désactivé par défaut. Lorsque l’approvisionnement automatique est activé, Security Center approvisionne Microsoft Monitoring Agent pour toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées. Le provisionnement automatique est fortement recommandé. Toutefois, l’installation manuelle des agents est également disponible. [Découvrez comment installer l’extension Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 > [!NOTE]
-> La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources. Pour plus d’informations, consultez la section [Désactiver l’approvisionnement automatique](security-center-enable-data-collection.md#disable-automatic-provisioning) de cet article. La collecte des artefacts et les captures instantanées des disques de machine virtuelle sont activées, même si l’approvisionnement automatique est désactivé.
->
+> - La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources. Pour plus d’informations, consultez la section [Désactiver l’approvisionnement automatique](security-center-enable-data-collection.md#disable-automatic-provisioning) de cet article. La collecte des artefacts et les captures instantanées des disques de machine virtuelle sont activées, même si l’approvisionnement automatique est désactivé.
+> - Pour activer la collecte de données pour les [Contrôles d’application adaptatifs](security-center-adaptive-application.md), Security Center configure une stratégie AppLocker locale en mode Audit pour autoriser toutes les applications. Cela conduira AppLocker à générer des événements qui sont ensuite recueillis et exploités par Security Center. Il est important de noter que cette stratégie ne sera configurée sur aucun ordinateur possédant déjà une stratégie AppLocker configurée. 
 >
 
 Pour activer l’approvisionnement automatique de Microsoft Monitoring Agent :
@@ -123,8 +123,8 @@ Voici le détail complet des ID d’événement App Locker et de sécurité pour
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> Si vous utilisez l’objet de stratégie de groupe (GPO), il est recommandé d’activer les stratégies d’audit d’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Pour plus d’informations sur l’événement de création de processus 4688, consultez la [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled) de Security Center. Pour plus d’informations sur ces stratégies d’audit, consultez les [recommandations pour la stratégie d’audit](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
->
+> - Si vous utilisez l’objet de stratégie de groupe (GPO), il est recommandé d’activer les stratégies d’audit d’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Pour plus d’informations sur l’événement de création de processus 4688, consultez la [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled) de Security Center. Pour plus d’informations sur ces stratégies d’audit, consultez les [recommandations pour la stratégie d’audit](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> -  Pour activer la collecte de données pour les [Contrôles d’application adaptatifs](security-center-adaptive-application.md), Security Center configure une stratégie AppLocker locale en mode Audit pour autoriser toutes les applications. Cela conduira AppLocker à générer des événements qui sont ensuite recueillis et exploités par Security Center. Il est important de noter que cette stratégie ne sera configurée sur aucun ordinateur possédant déjà une stratégie AppLocker configurée. 
 >
 
 Pour choisir votre stratégie de filtrage :

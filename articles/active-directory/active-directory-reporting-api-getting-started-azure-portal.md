@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442081"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159677"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Prise en main de l’API de création de rapports Azure Active Directory
 
@@ -36,6 +36,7 @@ Si vous rencontrez des problèmes, consultez [Comment obtenir une assistance pou
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour accéder à l’API de création de rapports, même si vous envisagez d’accéder à l’API à l’aide d’un script, vous devez :
 
 1. Affecter des rôles (lecteur Sécurité, administrateur de la sécurité, administrateur général)
@@ -49,9 +50,9 @@ Pour plus d’instructions, consultez les [prérequis à l’accès à l’API d
 
 ## <a name="apis-with-graph-explorer"></a>API avec l’Afficheur Graph
 
-Vous pouvez utiliser l’[Afficheur Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) pour vérifier vos données de connexion et d’API d’audit. Veillez à vous connecter à votre compte à l’aide des deux boutons de connexion disponibles dans l’interface utilisateur de l’Afficheur Graph, puis à définir les autorisations **Tasks.ReadWrite** et **Directory.ReadAll** pour votre locataire, comme indiqué.   
+Vous pouvez utiliser l’[Afficheur Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) pour vérifier vos données de connexion et d’API d’audit. Veillez à vous connecter à votre compte à l’aide des deux boutons de connexion disponibles dans l’interface utilisateur de l’Explorateur Graph, puis à définir les autorisations **AuditLog.Read.All** et **Directory.ReadAll** pour votre abonné, comme indiqué.   
 
-![Explorateur Graph](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
+![Afficheur Graph](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
 
 ![Modifier l’interface utilisateur des autorisations](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 

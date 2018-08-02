@@ -1,5 +1,5 @@
 ---
-title: Ajouter/supprimer un point de terminaison de serveur Azure File Sync (préversion) | Microsoft Docs
+title: Ajouter/supprimer un point de terminaison de serveur Azure File Sync | Microsoft Docs
 description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
 services: storage
 documentationcenter: ''
@@ -12,27 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 93331dd936a6d7b30ca18743d2079900421b2620
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c8da3f501d03a05ef5490197d4fd38ada01a4997
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738477"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158435"
 ---
-# <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Ajouter/supprimer un point de terminaison de serveur Azure File Sync (préversion)
-La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+# <a name="addremove-an-azure-file-sync-server-endpoint"></a>Ajouter/supprimer un point de terminaison de serveur Azure File Sync
+Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Un *point de terminaison de serveur* représente un emplacement spécifique sur un *serveur inscrit*, comme un dossier sur un volume de serveur ou la racine du volume. Plusieurs points de terminaison de serveur peuvent se trouver sur le même volume si leurs espaces de noms ne se chevauchent pas (par exemple, F:\sync1 et F:\sync2). Vous pouvez configurer des stratégies de hiérarchisation cloud individuellement pour chaque point de terminaison de serveur. Si vous ajoutez un emplacement de serveur avec un ensemble de fichiers existants comme point de terminaison de serveur à un groupe de synchronisation, ces fichiers sont fusionnés avec tout autre fichier déjà présent sur les autres points de terminaison dans le groupe de synchronisation.
 
-Consultez [Guide pratique pour déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md) pour plus d’informations le déploiement de bout en bout d’Azure File Sync.
+Consultez [Comment déployer Azure File Sync](storage-sync-files-deployment-guide.md) pour plus d’informations sur comment déployer Azure File Sync de bout en bout.
 
 ## <a name="prerequisites"></a>Prérequis
 Pour créer un point de terminaison de serveur, vous devez d’abord vérifier que les critères suivants sont remplis : 
-- L’agent de synchronisation de fichiers Azure est installé le serveur et ce dernier a été inscrit. Vous trouverez des instructions pour l’installation de l’agent de synchronisation de fichiers Azure dans l’article [Inscrire/désinscrire un serveur de la synchronisation de fichiers Azure (préversion)](storage-sync-files-server-registration.md). 
-- Vérifiez qu’un service de synchronisation de stockage a été déployé. Consultez [Guide pratique pour déployer la synchronisation de fichiers Azure (préversion)](storage-sync-files-deployment-guide.md) pour plus d’informations sur le déploiement d’un service de synchronisation de stockage. 
-- Vérifiez qu’un groupe de synchronisation a été déployé. Découvrez comment [Créer un groupe de synchronisation](storage-sync-files-deployment-guide.md#create-a-sync-group).
+- L’agent de synchronisation de fichiers Azure est installé le serveur et ce dernier a été inscrit. Vous trouverez des instructions pour l’installation de l’agent Azure File Sync dans l’article [Inscrire/désinscrire un serveur auprès d’Azure File Sync](storage-sync-files-server-registration.md). 
+- Vérifiez qu’un service de synchronisation de stockage a été déployé. Consultez le [Guide pratique pour déployer Azure File Sync](storage-sync-files-deployment-guide.md) pour en savoir plus sur le déploiement d’un service de synchronisation de stockage. 
+- Vérifiez qu’un groupe de synchronisation a été déployé. Découvrez comment [Créer un groupe de synchronisation](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
 - Vérifiez que le serveur est connecté à Internet et qu’Azure est accessible. Nous utilisons le port 443 pour toutes les communications entre le serveur et notre service.
 
 ## <a name="add-a-server-endpoint"></a>Ajouter un point de terminaison de serveur
@@ -74,5 +74,5 @@ Pour supprimer le point de terminaison de serveur
     ![Suppression d’un point de terminaison de serveur d’un groupe de synchronisation](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Inscrire/désinscrire un serveur de la synchronisation de fichiers Azure (préversion)](storage-sync-files-server-registration.md)
+- [Inscrire ou désinscrire un serveur auprès d’Azure File Sync](storage-sync-files-server-registration.md)
 - [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)

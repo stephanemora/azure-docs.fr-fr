@@ -1,114 +1,190 @@
 ---
 title: Gérer les types de contenu - Azure Logic Apps | Microsoft Docs
-description: Découvrir comment les applications logiques gèrent les types de contenu au moment de la conception et de l’exécution
+description: Découvrez comment Logic Apps gère les types de contenu au moment du design et au moment de l’exécution
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: cd1f08fd-8cde-4afc-86ff-2e5738cc8288
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 809cc8524bf0d9922aec1f88aa5bfe3b8f2f4d78
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 07/20/2018
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 82eb9c895f016efe569651dc89885d2e4850fd59
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297119"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159089"
 ---
-# <a name="handle-content-types-in-logic-apps"></a>Gérer les types de contenu dans les applications logiques
+# <a name="handle-content-types-in-azure-logic-apps"></a>Gérer les types de contenu dans Azure Logic Apps
 
-De nombreux types de contenu peuvent transiter par une application logique, notamment les données binaires, les fichiers plats, ainsi que les contenus XML et JSON. Si le moteur Logic Apps prend en charge tous les types de contenu, certains sont compris en mode natif. D’autres peuvent nécessiter un transtypage ou des conversions en fonction des besoins. Cet article décrit comment le moteur gère les différents types de contenu et comment gérer correctement ces types lorsque cela est nécessaire.
+De nombreux types de contenu peuvent transiter par une application logique, notamment les données binaires, les fichiers plats, ainsi que les contenus XML et JSON. Pendant que Logic Apps prend en charge tous les types de contenu, certains ont une prise en charge native et ne nécessitent pas de transtypage ou de conversion dans vos applications logiques. D’autres types peuvent nécessiter un transtypage ou une conversion en fonction des besoins. Cet article décrit comment Logic Apps gère les types de contenu et comment vous pouvez caster ou convertir correctement ces types lorsque cela est nécessaire.
 
-## <a name="content-type-header"></a>Entête Content-Type
+Pour déterminer la méthode appropriée pour la gestion des types de contenu, Logic Apps s’appuie sur la valeur de l’en-tête `Content-Type` dans les appels HTTP, par exemple :
 
-Pour démarrer simplement, examinons les deux `Content-Types` qui ne nécessitent pas l’utilisation d’une conversion ou d’un transtypage dans une application logique : `application/json` et `text/plain`.
+* [application/json](#application-json) (type natif)
+* [texte/brut](#text-plain) (type natif)
+* [application/xml and application/octet-stream](#application-xml-octet-stream)
+* [Autres types de contenu](#other-content-types)
 
-## <a name="applicationjson"></a>Application/JSON
+<a name="application-json"></a>
 
-Le moteur de flux de travail s’appuie sur l’en-tête `Content-Type` des appels HTTP pour déterminer la gestion appropriée. Toute demande comportant le type de contenu `application/json` est stockée et gérée comme un objet JSON. Le contenu JSON peut également être analysé par défaut sans subir de transtypage. 
+## <a name="applicationjson"></a>application/json
 
-Par exemple, vous pouvez analyser une demande comportant un en-tête de type de contenu `application/json ` dans un flux de travail à l’aide d’une expression telle que `@body('myAction')['foo'][0]` pour obtenir la valeur `bar` dans ce cas :
+Logic Apps stocke et gère n’importe quelle requête dont le type *application/json* en tant qu’objet JavaScript Notation (JSON). Par défaut, vous pouvez analyser le contenu JSON sans aucun transtypage. Pour analyser une requête comportant un en-tête avec le type de contenu « application/json », vous pouvez utiliser une expression. Cet exemple retourne la valeur `dog` à partir du tableau `animal-type` sans transtypage : 
+ 
+`@body('myAction')['animal-type'][0]` 
+  
+  ```json
+  {
+    "client": {
+       "name": "Fido",
+       "animal-type": [ "dog", "cat", "rabbit", "snake" ]
+    }
+  }
+  ```
 
-```
-{
-    "data": "a",
-    "foo": [
-        "bar"
-    ]
-}
-```
+Si vous travaillez avec des données JSON qui ne spécifient pas un en-tête, vous pouvez convertir manuellement ces données au format JSON à l’aide de la [fonction json()](../logic-apps/workflow-definition-language-functions-reference.md#json), par exemple : 
+  
+`@json(triggerBody())['animal-type']`
 
-Aucun transtypage supplémentaire n’est nécessaire. Si vous utilisez des données JSON pour lesquelles aucun en-tête n’a été spécifié, vous pouvez les convertir manuellement en données JSON en utilisant la fonction `@json()` (par exemple : `@json(triggerBody())['foo']`).
+### <a name="create-tokens-for-json-properties"></a>Créer des jetons pour les propriétés JSON
 
-### <a name="schema-and-schema-generator"></a>Schéma et générateur de schéma
+Logic Apps offre la possibilité de générer des jetons conviviaux qui représentent les propriétés dans le contenu JSON afin de pouvoir référencer et utiliser ces propriétés plus facilement dans le flux de travail de votre application logique.
 
-Le déclencheur de requête vous permet d’entrer un schéma JSON pour la charge utile que vous vous attendez à recevoir. Ce schéma permet au concepteur de générer des jetons pour vous aider à utiliser le contenu de la demande. Si aucun schéma n’est disponible, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma** afin de générer un schéma JSON à partir d’un exemple de charge utile.
+* **Déclencheur de requête**
 
-![Schéma](./media/logic-apps-http-endpoint/manualtrigger.png)
+  Lorsque vous utilisez ce déclencheur dans le Concepteur d’application logique, vous pouvez fournir un schéma JSON qui décrit la charge utile que vous comptez recevoir. 
+  Le concepteur analyse le contenu JSON à l’aide de ce schéma et génère des jetons conviviaux qui représentent les propriétés dans votre contenu JSON. 
+  Vous pouvez ensuite facilement référencer et utiliser ces propriétés dans l’ensemble de flux de travail de votre application logique. 
+  
+  Si vous n’avez pas un schéma, vous pouvez en générer un. 
+  
+  1. Dans le déclencheur de requête, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.  
+  
+  2. Sous **Entrer ou coller un exemple de charge utile JSON**, fournissez un exemple de charge utile, puis choisissez **Terminé**. Par exemple :  
 
-### <a name="parse-json-action"></a>Action d’analyse JSON
+     ![Fournir l’exemple de charge utile JSON](./media/logic-apps-content-type/request-trigger.png)
 
-L’action `Parse JSON` vous permet d’analyser le contenu JSON en jetons conviviaux à utiliser dans l’application logique. À l’instar du déclencheur de requête, cette action vous permet d’entrer ou de générer un schéma JSON pour le contenu que vous souhaitez analyser. Cet outil facilite l’utilisation des données de Service Bus, Azure Cosmos DB, etc.
+     Le schéma généré apparaît désormais dans votre déclencheur.
 
-![Analyse JSON](./media/logic-apps-content-type/ParseJSON.png)
+     ![Fournir l’exemple de charge utile JSON](./media/logic-apps-content-type/generated-schema.png)
 
-## <a name="textplain"></a>Text/plain
+     Voici la définition sous-jacente pour votre déclencheur de requête dans l’éditeur en mode Code :
 
-À l’image de `application/json`, les messages HTTP reçus avec l’en-tête `Content-Type` `text/plain` sont stockés dans leur forme brute. En outre, si ces messages sont inclus dans les actions suivantes sans transtypage, ces demandes sortent avec l’en-tête`Content-Type` : `text/plain`. Par exemple, lorsque vous travaillez avec un fichier plat, vous pouvez obtenir ce contenu HTTP en tant que `text/plain` :
+     ```json
+     "triggers": { 
+        "manual": {
+           "type": "Request",
+           "kind": "Http",
+           "inputs": { 
+              "schema": {
+                 "type": "object",
+                 "properties": {
+                    "client": {
+                       "type": "object",
+                       "properties": {
+                          "animal-type": {
+                             "type": "array",
+                             "items": {
+                                "type": "string"
+                             },
+                          },
+                          "name": {
+                             "type": "string"
+                          }
+                       }
+                    }
+                 }
+              }
+           }
+        }
+     }
+     ```
 
-```
-Date,Name,Address
-Oct-1,Frank,123 Ave.
-```
+  3. Dans votre requête, veillez à inclure un en-tête `Content-Type` et à définir la valeur de l’en-tête sur `application/json`.
 
-Si dans l’action suivante vous envoyez la demande en tant que corps d’une autre demande (`@body('flatfile')`), celle-ci a un en-tête Content-Type `text/plain`. Si vous utilisez des données de texte brut pour lesquelles aucun en-tête n’a été spécifié, vous pouvez les convertir manuellement en données texte en utilisant la fonction `@string()` (par exemple : `@string(triggerBody())`).
+* **Action d’analyse de JSON**
 
-## <a name="applicationxml-and-applicationoctet-stream-and-converter-functions"></a>Application/xml, Application/octet-stream et fonctions de conversion
+  Lorsque vous utilisez cette action dans le Concepteur d’application logique, vous pouvez analyser la sortie JSON et générer des jetons conviviaux qui représentent les propriétés dans votre contenu JSON. 
+  Vous pouvez ensuite facilement référencer et utiliser ces propriétés dans l’ensemble de flux de travail de votre application logique. À l’instar du déclencheur de requête, vous pouvez fournir ou générer un schéma JSON qui décrit le contenu JSON que vous souhaitez analyser. 
+  De cette façon, vous pouvez utiliser plus facilement les données à partir d’Azure Service Bus, Azure Cosmos DB, et ainsi de suite.
 
-Le moteur Logic Apps conserve toujours le `Content-Type` reçu sur la demande ou réponse HTTP. Par conséquent, si le moteur reçoit le contenu avec le `Content-Type` de `application/octet-stream`, et que vous incluez le contenu dans une action ultérieure sans transtypage, la demande sortante a pour en-tête `Content-Type` : `application/octet-stream`. De cette façon, le moteur garantit qu’aucune donnée n’est perdue lors du déplacement dans le flux de travail. Toutefois, les états d’action (entrées et sorties) sont parallèlement stockés dans un objet JSON au fur et à mesure que l’état se déplace ans le flux de travail. Pour préserver certains types de données, le moteur convertit le contenu en une chaîne binaire encodée en base64, avec les métadonnées appropriées, qui conserve `$content` et `$content-type`, automatiquement convertis. 
+  ![Analyse JSON](./media/logic-apps-content-type/parse-json.png)
 
-* `@json()` : convertit les données en `application/json`
-* `@xml()` : convertit les données en `application/xml`
-* `@binary()` : convertit les données en `application/octet-stream`
-* `@string()` : convertit les données en `text/plain`
-* `@base64()` : convertit le contenu en une chaîne encodée en base64
-* `@base64toString()` : convertit une chaîne encodée en base64 en `text/plain`
-* `@base64toBinary()` : convertit une chaîne encodée en base64 en `application/octet-stream`
-* `@encodeDataUri()` : encode une chaîne en tableau d’octets dataUri
-* `@decodeDataUri()` : décode un dataUri en tableau d’octets
+<a name="text-plain"></a>
 
-Par exemple, si vous recevez une demande HTTP avec `Content-Type` : `application/xml` :
+## <a name="textplain"></a>texte/brut
 
-```
+Lorsque votre application logique reçoit des messages HTTP qui ont l’en-tête `Content-Type` défini sur `text/plain`, votre application logique stocke ces messages au format brut. Si vous incluez ces messages dans les actions suivantes sans transtypage, ces demandes sortent avec l’en-tête `Content-Type` défini sur `text/plain`. 
+
+Par exemple, lorsque vous travaillez avec un fichier plat, vous pouvez obtenir une requête HTTP avec l’ `Content-Type` en-tête défini sur `text/plain` type de contenu :
+
+`Date,Name,Address`</br>
+`Oct-1,Frank,123 Ave`
+
+Si vous envoyez ensuite cette demande dans une action ultérieure dans le corps d’une autre demande, par exemple, `@body('flatfile')`, cette seconde requête possède également un en-tête `Content-Type` qui est défini sur `text/plain`. Si vous travaillez avec des données qui sont du texte brut mais sans en-tête spécifié, vous pouvez caster manuellement ces données au texte à l’aide de la [fonction string()](../logic-apps/workflow-definition-language-functions-reference.md#string) telle que cette expression : 
+
+`@string(triggerBody())`
+
+<a name="application-xml-octet-stream"></a>
+
+## <a name="applicationxml-and-applicationoctet-stream"></a>application/xml et application/octet-stream
+
+Logic Apps conserve toujours le `Content-Type` dans une requête HTTP ou une réponse reçues. Par conséquent, si votre application logique reçoit le contenu avec le `Content-Type` défini sur `application/octet-stream`, et que vous incluez le contenu dans une action ultérieure sans transtypage, la requête sortante a également `Content-Type` défini sur `application/octet-stream`. De cette façon, Logic Apps peut garantir que les données ne se perdent pas lors du déplacement dans le flux de travail. Toutefois, les états d’action, ou les entrées et sorties, sont parallèlement stockés dans un objet JSON tandis que l’état se déplace dans le flux de travail. 
+
+## <a name="converter-functions"></a>Fonctions de conversion
+
+Pour conserver certains types de données, Logic Apps convertit le contenu en une chaîne binaire encodée en base64, avec les métadonnées appropriées, qui conservent aussi bien la charge utile `$content` et le `$content-type`, qui sont automatiquement convertis. 
+
+Cette liste décrit comment Logic Apps convertit le contenu lorsque vous utilisez ces [fonctions](../logic-apps/workflow-definition-language-functions-reference.md) :
+
+* `json()` : caste les données en `application/json`
+* `xml()` : caste les données en `application/xml`
+* `binary()` : caste les données en `application/octet-stream`
+* `string()` : caste les données en `text/plain`
+* `base64()` : convertit le contenu en une chaîne encodée en base64
+* `base64toString()` : convertit une chaîne encodée en base64 en `text/plain`
+* `base64toBinary()` : convertit une chaîne encodée en base64 en `application/octet-stream`
+* `encodeDataUri()` : encode une chaîne en tableau d’octets dataUri
+* `decodeDataUri()` : décode un `dataUri` en tableau d’octets
+
+Par exemple, si vous recevez une requête HTTP où `Content-Type` est défini sur `application/xml`, tel que ce contenu :
+
+```html
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomerName>Frank</CustomerName>
 ```
 
-Vous pouvez appliquer un transtypage et utiliser le résultat ultérieurement avec, par exemple, `@xml(triggerBody())` ou dans une fonction comme `@xpath(xml(triggerBody()), '/CustomerName')`.
+Vous pouvez caster ce contenu à l’aide de l’expression `@xml(triggerBody())` avec les fonctions `xml()` et `triggerBody()` pour ensuite utiliser ce contenu ultérieurement. Vous pouvez également utiliser l’expression `@xpath(xml(triggerBody()), '/CustomerName')` avec les fonctions `xpath()` et `xml()`. 
 
 ## <a name="other-content-types"></a>Autres types de contenu
 
-D’autres types de contenu sont pris en charge et fonctionnent avec des applications logiques, mais vous pouvez être amené à récupérer manuellement le corps du message en décodant le `$content`. Supposons par exemple que vous déclenchiez une requête `application/x-www-url-formencoded` où `$content` est la charge utile encodée sous la forme d’une chaîne en base64 pour préserver toutes les données :
+Logic Apps fonctionne avec et prend en charge d’autres types de contenu, mais peut nécessiter que vous obteniez manuellement le corps du message en décodant la variable `$content`.
 
-```
-CustomerName=Frank&Address=123+Avenue
-```
+Par exemple, supposons que votre application logique est déclenchée par une requête avec le type de contenu `application/x-www-url-formencoded`. Pour conserver toutes les données, la variable `$content` dans le corps de la requête a une charge utile qui est encodée sous forme de chaîne en base64 :
+
+`CustomerName=Frank&Address=123+Avenue`
 
 Étant donné que la demande n’est pas en texte brut ou JSON, elle est stockée dans l’action comme suit :
 
-```
-...
+```json
 "body": {
-    "$content-type": "application/x-www-url-formencoded",
-    "$content": "AAB1241BACDFA=="
+   "$content-type": "application/x-www-url-formencoded",
+   "$content": "AAB1241BACDFA=="
 }
 ```
 
-Dans la mesure où il n’existe actuellement pas de fonction native pour les données de formulaire, vous pouvez toujours utiliser ces données dans un flux de travail en y accédant manuellement avec une fonction comme `@string(body('formdataAction'))`. Pour que la demande sortante ait également l’en-tête de type de contenu `application/x-www-url-formencoded`, vous pouvez l’ajouter au corps de l’action sans transtypage comme suit : `@body('formdataAction')`. Toutefois, cette méthode ne fonctionne que si le corps est le seul paramètre dans l’entrée `body`. Si vous essayez d’utiliser `@body('formdataAction')` dans une demande `application/json`, vous obtenez une erreur d’exécution, car le corps codé est envoyé.
+Logic Apps offre des fonctions natives pour la gestion des données de formulaire, par exemple : 
 
+* [triggerFormDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
+* [triggerFormDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues)
+* [formDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
+* [formDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues)
+
+Ou bien, vous pouvez manuellement accéder aux données à l’aide d’une expression telle que cet exemple :
+
+`@string(body('formdataAction'))` 
+
+Pour que la demande sortante ait également le même type de contenu d’en-tête `application/x-www-url-formencoded`, vous pouvez ajouter la requête au corps de l’action sans transtypage en utilisant une expression telle que `@body('formdataAction')`. Toutefois, cette méthode ne fonctionne que si le corps est le seul paramètre dans l’entrée `body`. Si vous essayez d’utiliser l’expression `@body('formdataAction')` dans une requête `application/json`, vous obtenez une erreur d’exécution, car le corps est envoyé codé.

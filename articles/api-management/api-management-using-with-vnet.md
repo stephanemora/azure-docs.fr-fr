@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 11af7a7a8acde263ad278239546e145245343581
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437193"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187381"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
@@ -111,7 +111,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 | * / 80, 443 |Trafic entrant |TCP |INTERNET / VIRTUAL_NETWORK|Communication client avec Gestion des API|Externe |
 | * / 3443 |Trafic entrant |TCP |INTERNET / VIRTUAL_NETWORK|Point de terminaison de gestion pour le portail Azure et Powershell |Interne |
 | * / 80, 443 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Dépendance vis-à-vis du Stockage Azure**, d’Azure Service Bus et d’Azure Active Directory (le cas échéant).|Externe et interne |
-| * / 1433 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès aux points de terminaison de SQL Azure** |Externe et interne |
+| * / 1433 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / SQL|**Accès aux points de terminaison de SQL Azure** |Externe et interne |
 | * / 5672 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance |Externe et interne |
 | * / 445 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance sur le partage de fichiers Azure pour GIT |Externe et interne |
 | * / 1886 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Nécessaire pour publier l’état d’intégrité sur Resource Health |Externe et interne |
@@ -150,6 +150,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 * **Installation initiale** : si le déploiement initial du service Gestion des API sur un sous-réseau échoue, nous vous recommandons de commencer par déployer une machine virtuelle sur ce sous-réseau. Ensuite, utilisez le Bureau à distance pour vous connecter à la machine virtuelle et confirmez qu’il existe une connectivité à chacune des ressources de votre abonnement Azure mentionnées ci-dessous.
     * Stockage Blob Azure
     * Azure SQL Database
+    * Azure Storage Table
 
  > [!IMPORTANT]
  > Après avoir validé la connectivité, veillez à supprimer toutes les ressources déployées sur le sous-réseau avant d’y déployer le service Gestion des API.

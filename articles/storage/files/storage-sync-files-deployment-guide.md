@@ -1,5 +1,5 @@
 ---
-title: Déployer Azure File Sync (préversion) | Microsoft Docs
+title: Déployer Azure File Sync | Microsoft Docs
 description: Découvrez comment déployer Azure File Sync, du début à la fin.
 services: storage
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 808bc3908790c8d6dedf1d9f00a4c70b42c7c490
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867067"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215143"
 ---
-# <a name="deploy-azure-file-sync-preview"></a>Déployer Azure File Sync (préversion)
-Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+# <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
+Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Nous vous recommandons fortement de lire les articles [Planification d’un déploiement Azure Files](storage-files-planning.md) et [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) avant d’effectuer les étapes décrites dans cet article.
 
@@ -135,7 +135,7 @@ Le déploiement de Azure File Sync commence par le placement d’une ressource *
 > Le service de synchronisation de stockage a hérité des autorisations d’accès de l’abonnement et du groupe de ressources dans lequel il a été déployé. Nous vous recommandons de vérifier soigneusement les personnes qui y ont accès. Les entités avec un accès en écriture peuvent démarrer la synchronisation de nouveaux ensembles de fichiers à partir des serveurs inscrits dans ce service de synchronisation de stockage et permettre le flux de données vers le stockage Azure qui leur est accessible.
 
 # <a name="portaltabportal"></a>[Portail](#tab/portal)
-Pour déployer un service de synchronisation de stockage, accédez au [portail Azure](https://portal.azure.com/), cliquez sur *Nouveau*, puis recherchez Azure File Sync. Dans les résultats de la recherche, sélectionnez **Azure File Sync (préversion)**, puis sélectionnez **Créer** pour ouvrir l’onglet **Déployer la synchronisation du stockage**.
+Pour déployer un service de synchronisation de stockage, accédez au [portail Azure](https://portal.azure.com/), cliquez sur *Nouveau*, puis recherchez Azure File Sync. Dans les résultats de la recherche, sélectionnez **Azure File Sync**, puis sélectionnez **Créer** pour ouvrir l’onglet **Déployer la synchronisation du stockage**.
 
 Dans le volet qui s’ouvre, entrez les informations suivantes :
 

@@ -9,19 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: c96e9825cddd0b60e67cd4752fab8f440ceaae76
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227775"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
-Azure Stream Analytics agrège la pondération des performances d’exécution d’un travail dans des unités de streaming. Les unités de streaming représentent les ressources informatiques consommées pour exécuter un travail. Ces unités permettent de décrire la capacité relative de traitement des événements basée sur une mesure mixte du processeur, de la mémoire et des taux de lecture et d’écriture. Cette capacité vous permet de vous concentrer sur la logique de requête et résume la nécessité de gérer le matériel pour exécuter votre travail Stream Analytics en temps voulu.
+Les unités de streaming sont les ressources de calcul allouées pour exécuter un travail. Plus le nombre d’unités de streaming est élevé, plus il y a de ressources d’UC et de mémoire allouées pour votre travail. Cette capacité vous permet de vous concentrer sur la logique de requête et résume la nécessité de gérer le matériel pour exécuter votre travail Stream Analytics en temps voulu.
 
-Afin d’obtenir un traitement du streaming à faible latence, les travaux Azure Stream Analytics effectuent tout le traitement en mémoire. Quand la mémoire devient insuffisante, le travail de streaming échoue. Par conséquent, pour un travail de production, il est important de surveiller l’utilisation des ressources d’un travail de streaming et de vérifier qu’il existe suffisamment de ressources allouées afin d’assurer l’exécution des travaux 24 heures sur 24 et 7 jours sur 7.
+Pour obtenir un traitement de streaming à faible latence, les travaux Azure Stream Analytics effectuent tout le traitement en mémoire. Quand la mémoire devient insuffisante, le travail de streaming échoue. Par conséquent, pour un travail de production, il est important de surveiller l’utilisation des ressources d’un travail de streaming et de vérifier qu’il existe suffisamment de ressources allouées afin d’assurer l’exécution des travaux 24 heures sur 24 et 7 jours sur 7.
 
-La métrique correspond à un pourcentage compris entre 0 % et 100 %. Pour un travail de streaming avec un encombrement minimal, la métrique % d’utilisation de SU se situe généralement entre 10 et 20 %. Il est préférable de conserver la métrique sous 80 % pour prendre en compte les pics occasionnels. Microsoft recommande de définir une alerte sur 80 % de la métrique d’utilisation de l’unité de stockage pour empêcher l’insuffisance des ressources. Pour plus d’informations, consultez [Didacticiel : configurer des alertes pour les travaux Azure Stream Analytics](stream-analytics-set-up-alerts.md).
+La métrique de pourcentage d’utilisation des unités de streaming, comprise entre 0 % et 100 %, décrit la consommation de mémoire de votre charge de travail. Pour un travail de streaming avec un encombrement minimal, la métrique se situe généralement entre 10 et 20 %. Si le pourcentage d’utilisation des unités de streaming est faible et que des événements d’entrée sont retardés, il est probable que votre charge de travail nécessite davantage de ressources de calcul, ce qui vous oblige à augmenter le nombre d’unités de streaming. Il est préférable de conserver une métrique inférieure à 80 % pour prendre en compte les pics d’activité occasionnels. Microsoft recommande de définir une alerte sur 80 % de la métrique d’utilisation de l’unité de stockage pour empêcher l’insuffisance des ressources. Pour plus d’informations, consultez [Didacticiel : configurer des alertes pour les travaux Azure Stream Analytics](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configurer des unités de streaming Stream Analytics
 1. Connectez-vous au [portail Azure](http://portal.azure.com/)
@@ -45,7 +46,7 @@ Calculez le débit prévu pour la charge de travail. Si le débit est plus faibl
 
 Le choix du nombre d’unités de streaming requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. La page **Mise à l’échelle** vous permet de définir le nombre adapté d’unités de streaming. Il est recommandé d’allouer plus d’unités de streaming que nécessaire. Le moteur de traitement Stream Analytics est configuré pour une latence et un débit supérieurs, en allouant une capacité de mémoire supplémentaire.
 
-En règle générale, la meilleure pratique consiste à démarrer avec 6 unités de streaming pour les requêtes qui n’utilisent pas **PARTITION BY**. Déterminez ensuite la configuration idéale en utilisant une méthode d’essai et d’erreur où vous modifiez le nombre d’unités de streaming, une fois que vous avez transmis le volume représentatif de données et examiné la métrique % d’utilisation de SU.
+En règle générale, la meilleure pratique consiste à démarrer avec 6 unités de streaming pour les requêtes qui n’utilisent pas **PARTITION BY**. Déterminez ensuite la configuration idéale en utilisant une méthode d’essai et d’erreur où vous modifiez le nombre d’unités de streaming, une fois que vous avez transmis le volume représentatif de données et examiné la métrique % d’utilisation de SU. Le nombre maximal d’unités de streaming qui peut être utilisé par un travail Stream Analytics varie selon le nombre d’étapes de la requête définie pour le travail et le nombre de partitions pour chaque étape. Pour obtenir plus d’informations sur les limites à respecter, cliquez [ici](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
 Pour plus d’informations sur le choix du nombre adapté d’unités de streaming, consultez cette page : [Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit](stream-analytics-scale-jobs.md)
 
@@ -56,7 +57,7 @@ Pour plus d’informations sur le choix du nombre adapté d’unités de streami
 
 Les éléments de requête temporelle (orientée sur le temps) sont l’ensemble des opérateurs fournis par Stream Analytics. Stream Analytics gère l’état de ces opérations en interne au nom de l’utilisateur, grâce à la gestion de la consommation de mémoire, les points de contrôle pour la résilience et la récupération de l’état au cours des mises à niveau du service. Même si Stream Analytics gère totalement les états, il existe un nombre de recommandations de meilleure pratique que les utilisateurs doivent prendre en compte.
 
-## <a name="stateful-query-logic-in-temporal-elements"></a>Logique de requête avec état dans des éléments temporels
+## <a name="stateful-query-logic-in-temporal-elements"></a>Logique de requête avec état dans les éléments temporels
 L’une des caractéristiques propres à un travail Azure Stream Analytics consiste à effectuer un traitement avec état, comme des agrégations fenêtrées, jointures temporelles et fonctions d’analyse temporelle. Chacun de ces opérateurs conserve des informations d’état. La taille maximale de la fenêtre pour ces éléments de requête est de sept jours. 
 
 Le concept de fenêtre temporelle apparaît dans plusieurs éléments de requête Stream Analytics :

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: a7ddcb834b135d2177355a0523c7e99bcc599e99
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 42d5b55e0bddf2d027810bfdf146de9bfee8a0fb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931512"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188129"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Créer, répertorier et supprimer une identité affectée par l’utilisateur avec Azure Resource Manager
 
@@ -35,10 +35,11 @@ Il n’est pas possible de répertorier et supprimer une identité affectée par
 - [Supprimer une identité affectée par l’utilisateur](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-identity)
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
-- Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 
-Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel. Vérifiez également que votre compte appartient à un rôle vous donnant des autorisations en écriture sur la machine virtuelle (par exemple, le rôle « Contributeur de machines virtuelles »).
+- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identité affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
+- Pour effectuer les opérations de cet article, votre compte doit disposer de l’attribution de rôle suivant :
+    - [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor), pour créer, lire (lister), mettre à jour et supprimer une identité affectée par l’utilisateur.
 
 ## <a name="template-creation-and-editing"></a>Création et modification du modèle
 
@@ -49,7 +50,7 @@ Comme pour le portail Azure et le script, les modèles Azure Resource Manager of
 - Utilisation d’un [éditeur local JSON (VS Code, par exemple)](../../azure-resource-manager/resource-manager-create-first-template.md), puis téléchargement/déploiement à l’aide de PowerShell ou Azure CLI.
 - Utilisez le [projet de groupe de ressources Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) de Visual Studio pour créer et déployer un modèle. 
 
-## <a name="create-a-user-assigned-identity"></a>Créer une identité attribuée à l’utilisateur 
+## <a name="create-a-user-assigned-identity"></a>Créer une identité affectée par l’utilisateur 
 
 Pour créer une identité affectée par l’utilisateur, utilisez le modèle suivant. Remplacez la valeur `<USER ASSIGNED IDENTITY NAME>` avec vos propres valeurs :
 

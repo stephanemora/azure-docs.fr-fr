@@ -3,7 +3,7 @@ title: Gérer les enregistrements DNS dans Azure DNS à l’aide d’Azure CLI 2
 description: Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes CLI 2.0 destinées aux opérations sur les jeux d’enregistrements et les enregistrements.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
-ms.author: kumud
-ms.openlocfilehash: d7a90cb46c25e4e01b89bbf4da563685e92a7249
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: victorh
+ms.openlocfilehash: 41366f29ecf5dcd6ffe23148acd61100681620df
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201235"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174250"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gérer les enregistrements DNS et les jeux d’enregistrement dans Azure DNS à l’aide d’Azure CLI 2.0
 
@@ -56,7 +56,7 @@ L’exemple suivant crée un enregistrement A appelé *www* dans la zone *contos
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Pour créer un jeu d’enregistrements à l’extrémité de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "\@\" (guillemets compris) :
+Pour créer un jeu d’enregistrements à l’extrémité de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "\@" (guillemets compris) :
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
@@ -119,7 +119,7 @@ az network dns record-set cname set-record --resource-group myresourcegroup --zo
 
 ### <a name="create-an-mx-record"></a>Créer un enregistrement MX
 
-Dans cet exemple, nous utilisons le nom de jeu d’enregistrements « @ » pour créer l’enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
+Dans cet exemple, nous utilisons le nom de jeu d’enregistrements « \@ » pour créer l’enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
 
 ```azurecli
 az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
@@ -141,7 +141,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>Création d’un enregistrement SRV
 
-Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le *\_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "\@\" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’extrémité de la zone.
+Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le *\_service* et le *\_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure « \@ » dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’extrémité de la zone.
 
 ```azurecli
 az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com

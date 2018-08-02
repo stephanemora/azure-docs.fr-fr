@@ -1,11 +1,11 @@
 ---
-title: "Présentation des enregistrements et zones DNS - Azure DNS | Microsoft Docs"
-description: "Vue d’ensemble de la prise en charge de l’hébergement d’enregistrements et zones DNS dans le DNS Microsoft Azure."
+title: Présentation des enregistrements et zones DNS - Azure DNS | Microsoft Docs
+description: Vue d’ensemble de la prise en charge de l’hébergement d’enregistrements et zones DNS dans le DNS Microsoft Azure.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: kumud
-ms.openlocfilehash: 0a0808d3963cc037aaf113c67fd01679ee8c1d40
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.author: victorh
+ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174290"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Vue d’ensemble des enregistrements et des zones DNS
 
@@ -27,7 +28,7 @@ Cette page explique les concepts clés des domaines, zones DNS, enregistrements 
 
 ## <a name="domain-names"></a>Noms de domaine
 
-DNS est une hiérarchie de domaines. Celle-ci démarre à partir du domaine « racine », dont le nom est simplement « **.** ».  Puis viennent les domaines de niveau supérieur, tels que « com », « net », « org », « uk » ou « jp ».  Vous trouvez ensuite les domaines de second niveau, comme « org.uk » ou « co.jp ». Dans une hiérarchie DNS, les domaines sont distribués et hébergés par des serveurs de noms situés dans le monde entier.
+DNS est une hiérarchie de domaines. Celle-ci démarre à partir du domaine « racine », dont le nom est simplement «  **.**  ».  Puis viennent les domaines de niveau supérieur, tels que « com », « net », « org », « uk » ou « jp ».  Vous trouvez ensuite les domaines de second niveau, comme « org.uk » ou « co.jp ». Dans une hiérarchie DNS, les domaines sont distribués et hébergés par des serveurs de noms situés dans le monde entier.
 
 Un bureau d’enregistrement de noms de domaine est une organisation permettant d’acheter un nom de domaine tel que « contoso.com ».  L’achat d’un nom de domaine vous autorise à contrôler la hiérarchie DNS sous ce nom, par exemple à diriger le nom « www.contoso.com » vers le site web de votre organisation. Le bureau d’enregistrement peut héberger le domaine sur ses propres serveurs de noms en votre nom, ou vous autoriser À spécifier d’autres serveurs de noms.
 
@@ -69,21 +70,21 @@ Un enregistrement CAA permet aux propriétaires de domaine de spécifier les aut
 
 Les jeux d’enregistrements CNAME ne peuvent pas coexister avec d’autres jeux d’enregistrements portant le même nom. Par exemple, vous ne pouvez pas créer un jeu d’enregistrements CNAME avec le nom relatif « www » et un enregistrement A avec le nom relatif « www » en même temps.
 
-Étant donné que le sommet (apex) de la zone (nom = « @ ») contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau du sommet (apex) de la zone.
+Étant donné que l’extrémité (apex) de la zone (nom = « \@ ») contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau de l’extrémité (apex) de la zone.
 
 Ces contraintes résultent des normes DNS. Il ne s’agit pas de limites posées par le DNS Azure.
 
 ### <a name="ns-records"></a>Enregistrements NS
 
-Le jeu d’enregistrements NS au sommet (apex) de la zone (nom = « @ ») est créé automatiquement avec chaque zone DNS, et est automatiquement supprimé lorsque la zone est supprimée (il ne peut pas être supprimé séparément).
+Le jeu d’enregistrements NS à l’extrémité (apex) de la zone (nom = « \@ ») est créé automatiquement avec chaque zone DNS, et est automatiquement supprimé lorsque la zone est supprimée (il ne peut pas être supprimé séparément).
 
 Ce jeu d’enregistrements contient les noms des serveurs de noms Azure DNS attribués à la zone. Vous pouvez ajouter des serveurs de noms supplémentaires à ce jeu d’enregistrements NS, pour prendre en charge le co-hébergement de domaines avec plusieurs fournisseurs DNS. Vous pouvez également modifier la durée de vie et les métadonnées pour ce jeu d’enregistrements. Toutefois, vous ne pouvez pas supprimer ni modifier les serveurs de noms Azure DNS préremplis. 
 
-Notez que cela s’applique uniquement au jeu d’enregistrements NS défini à l’apex de la zone. Les autres jeux d’enregistrements NS dans votre zone (tels que ceux utilisés pour déléguer des zones enfants) peuvent être créés, modifiés et supprimés sans contrainte.
+Cela s’applique uniquement au jeu d’enregistrements NS défini à l’extrémité de la zone. Les autres jeux d’enregistrements NS dans votre zone (tels que ceux utilisés pour déléguer des zones enfants) peuvent être créés, modifiés et supprimés sans contrainte.
 
 ### <a name="soa-records"></a>Enregistrements SOA
 
-Un jeu d’enregistrements SOA est créé automatiquement au sommet (apex) de chaque zone (nom = « @ »), et est automatiquement supprimé lors de la suppression de la zone.  Il n’est pas possible de créer ou supprimer séparément des enregistrements SOA.
+Un jeu d’enregistrements SOA est créé automatiquement au sommet (apex) de chaque zone (nom = « \@ »), et est automatiquement supprimé lors de la suppression de la zone.  Il n’est pas possible de créer ou supprimer séparément des enregistrements SOA.
 
 Vous pouvez modifier toutes les propriétés de l’enregistrement SOA, sauf la propriété « host » qui est préconfigurée pour faire référence au nom du serveur de noms principal fourni par le DNS Azure.
 
@@ -95,7 +96,7 @@ Vous pouvez modifier toutes les propriétés de l’enregistrement SOA, sauf la 
 
 Les [enregistrements SRV](https://en.wikipedia.org/wiki/SRV_record) sont utilisés par différents services pour spécifier les emplacements de serveur. Lorsque vous spécifiez un enregistrement SRV dans le DNS Azure :
 
-* Le *service* et le *protocole* doivent être spécifiés dans le nom du jeu d’enregistrements, préfixés avec des traits de soulignement.  Par exemple, « \_sip.\_TCP.Name ».  Pour un enregistrement au sommet (apex) de la zone, il est inutile de spécifier « @ » dans son nom. Utilisez simplement le service et le protocole, par exemple, « \_sip.\_tcp ».
+* Le *service* et le *protocole* doivent être spécifiés dans le nom du jeu d’enregistrements, préfixés avec des traits de soulignement.  Par exemple, « \_sip.\_TCP.Name ».  Pour un enregistrement à l’extrémité (apex) de la zone, il est inutile de spécifier « \@ » dans son nom. Utilisez simplement le service et le protocole, par exemple, « \_sip.\_tcp ».
 * La *priorité*, le *poids*, le *port* et la *cible* sont spécifiés en tant que paramètres de chaque enregistrement dans le jeu d’enregistrements.
 
 ### <a name="txt-records"></a>Enregistrements TXT

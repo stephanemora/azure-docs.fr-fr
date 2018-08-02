@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 07/20/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 255056390cdbdbee49eba47f8168618929b386c8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298407"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187255"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Forum aux questions pour Azure Cost Management
 
@@ -138,6 +138,14 @@ Cloudyn traite les données du jour précédent lorsque des données complètes 
 Les données du mois en cours ne sont pas disponibles pour la collecte au début de chaque mois. Durant la période, les fournisseurs de services finalisent leur facturation pour le mois précédent. Les données du mois précédent s’affichent dans Cloudyn 5 à 10 jours après le début de chaque mois. Pendant ce temps, seuls les coûts amortis du mois précédent peuvent s’afficher. Les données de facturation ou d’utilisation quotidiennes peuvent ne pas s’afficher. Lorsque les données deviennent disponibles, Cloudyn les traite de façon rétroactive. Après le traitement, toutes les données mensuelles s’affichent entre le 5 et le 10 de chaque mois.
 
 En cas de délai d’envoi des données à partir d’Azure vers Cloudyn, les données sont toujours enregistrées dans Azure. Les données sont transférées à Cloudyn lorsque la connexion est rétablie.
+
+## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Fluctuations de coûts dans les rapports de coûts Cloudyn
+
+Les rapports des coûts peuvent afficher des fluctuations de coûts lorsque les fournisseurs de services cloud envoient des fichiers de facturation mis à jour. Les coûts fluctuants se produisent lors de la réception de nouveaux fichiers à partir d’un fournisseur de services cloud en dehors de la planification habituelle quotidienne ou mensuelle. Les modifications de coûts ne proviennent pas de recalculs de Cloudyn. 
+
+Au cours du mois, tous les fichiers de facturation envoyés par votre fournisseur de services cloud correspondent à une estimation de vos coûts quotidiens. Il arrive que les données soient fréquemment mises à jour, parfois plusieurs fois par jour. Les mises à jour sont plus fréquentes avec AWS qu’avec Azure. Les coûts totaux doivent rester stables lorsque le calcul de la facturation pour le mois précédent est terminée, et que le fichier de facturation final est reçu. En règle générale, cela se produit aux alentours du 10ème jour du mois.
+
+Les modifications sont effectuées lorsque vous recevez des ajustements de coûts de votre fournisseur de services cloud. Par exemple, lorsque vous recevez des crédits. Les modifications peuvent être effectuées plusieurs mois après que le mois en question ait été clôturé. Les modifications apparaissent lorsque votre fournisseur de services cloud effectue un recalcul. Cloudyn met à jour ses données d’historique pour s’assurer que tous les ajustements sont recalculés. Il vérifie également que les coûts sont affichés correctement dans les rapports.
 
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Comment un CSP direct peut-il configurer l’accès à Cloudyn pour les clients ou partenaires d’un CSP indirect ?
 

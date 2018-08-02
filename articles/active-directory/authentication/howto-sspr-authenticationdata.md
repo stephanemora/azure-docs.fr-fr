@@ -4,18 +4,18 @@ description: Exigences en matière de données pour la réinitialisation du mot 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044173"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159564"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Déployer la réinitialisation du mot de passe sans demander l’inscription de l’utilisateur final
 
@@ -47,20 +47,19 @@ Comme le montre la capture d’écran suivante, un administrateur général peut
 
 ![Contact][Contact]
 
-Si le champ Téléphone est renseigné et si l’option Téléphone mobile est activée dans la stratégie SSPR, l’utilisateur voit ce numéro dans la page d’inscription de réinitialisation du mot de passe, et lors du flux de travail de réinitialisation du mot de passe. 
+Si le champ Téléphone est renseigné et si l’option Téléphone mobile est activée dans la stratégie SSPR, l’utilisateur voit ce numéro dans la page d’inscription de réinitialisation du mot de passe, et lors du flux de travail de réinitialisation du mot de passe.
 
 Le champ Autre téléphone n’est pas utilisé pour la réinitialisation du mot de passe.
 
 Si le champ Adresse e-mail est renseigné et si l’option Adresse e-mail est activée dans la stratégie SSPR, l’utilisateur voit cette adresse e-mail dans la page d’inscription de réinitialisation du mot de passe, et lors du flux de travail de réinitialisation du mot de passe.
 
-Si le champ Autre adresse de messagerie est renseigné et si l’option Adresse e-mail est activée dans la stratégie SSPR, l’utilisateur **ne voit pas** cette adresse e-mail dans la page d’inscription de réinitialisation du mot de passe. Toutefois, il la voit lors du flux de travail de réinitialisation du mot de passe. 
-
+Si le champ Autre adresse de messagerie est renseigné et si l’option Adresse e-mail est activée dans la stratégie SSPR, l’utilisateur **ne voit pas** cette adresse e-mail dans la page d’inscription de réinitialisation du mot de passe. Toutefois, il la voit lors du flux de travail de réinitialisation du mot de passe.
 
 ## <a name="security-questions-and-answers"></a>Questions et réponses de sécurité
 
-Les questions et les réponses de sécurité sont stockées de manière sécurisée dans votre locataire Azure AD et sont uniquement accessibles aux utilisateurs par le biais du [portail d’inscription SSPR](https://aka.ms/ssprsetup). Les administrateurs ne peuvent pas voir ou modifier le contenu des questions et des réponses des autres utilisateurs.
+Les questions et les réponses de sécurité sont stockées de manière sécurisée dans votre locataire Azure AD et sont uniquement accessibles aux utilisateurs par le biais du [portail d’inscription SSPR](https://aka.ms/ssprsetup). Les administrateurs ne peuvent pas voir, définir ou modifier le contenu des questions et des réponses des autres utilisateurs.
 
-### <a name="what-happens-when-a-user-registers"></a>Ce qu’il se passe lorsqu'un utilisateur s'inscrit
+## <a name="what-happens-when-a-user-registers"></a>Ce qu’il se passe lorsqu'un utilisateur s'inscrit
 
 Lorsqu’un utilisateur s'inscrit, la page d’inscription définit les champs suivants :
 

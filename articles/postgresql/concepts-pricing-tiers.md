@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970259"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173705"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -97,6 +97,8 @@ Le serveur est marqué en lecture seule lorsque la quantité de stockage disponi
 Lorsque le serveur est marqué en lecture seule, toutes les sessions existantes sont déconnectées et les transactions non validées sont restaurées. Toutes les opérations d’écriture suivantes et les validations de transactions ultérieures échouent. Toutes les requêtes de lecture ultérieures fonctionnent sans interruption.  
 
 Vous pouvez augmenter la quantité de stockage provisionné sur votre serveur ou démarrer une nouvelle session en mode lecture-écriture et supprimer des données pour récupérer du stockage disponible. L’exécution de `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` définit la session actuelle en mode lecture-écriture. Pour éviter une altération des données, n’effectuez pas d’opérations d’écriture lorsque le serveur est toujours en lecture seule.
+
+Nous vous recommandons de configurer une alerte pour vous avertir quand votre serveur de stockage est proche du seuil afin d’éviter la mise en lecture seule. Pour plus d’informations, consultez la documentation sur la manière de [configurer une alerte](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Sauvegarde
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.openlocfilehash: b553da54cd8ce63638fc52dd078bb517a1f9e713
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: f335ffae153893a39312326738ee4188c3756ff4
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34634656"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185473"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -79,7 +79,9 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 
   Pour plus d’informations sur la génération de jetons SAP, consultez la section consacrée aux appareils dans la rubrique [Utilisation de jetons de sécurité IoT Hub][lnk-sas-tokens].
 
-  Lors du test, vous pouvez également utiliser l’outil [Explorateur d’appareils][lnk-device-explorer] pour générer rapidement un jeton SAP à copier et coller dans votre propre code :
+  Lors du test, vous pouvez également utiliser l’outil [Device Explorer][lnk-device-explorer] ou l’[extension Azure loT Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) multiplateforme afin de générer rapidement un jeton SAP que vous pouvez copier-coller dans votre propre code :
+
+Pour Device Explorer :
 
   1. Accédez à l’onglet **Management** (Gestion) de **l’Explorateur d’appareils**.
   2. Cliquez sur **SAS Token** (Jeton SAP) en haut à droite.
@@ -93,6 +95,13 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
      La partie de ce jeton à utiliser dans le champ **Password** (Mot de passe) pour la connexion avec le protocole MQTT est :
 
      `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+     
+Pour Azure IoT Toolkit :
+
+  1. Déroulez l’onglet **APPAREILS AZURE IOT HUB** dans le coin inférieur gauche de Visual Studio Code.
+  2. Faites un clic droit sur votre appareil et sélectionnez **Générer un jeton SAP pour l’appareil**.
+  3. Définissez un **Délai d’expiration** et appuyez sur « ENTRÉE ».
+  4. Le jeton SAP est créé et copié dans le Presse-papiers.
 
 Pour les paquets de connexion et de déconnexion MQTT, IoT Hub émet un événement sur le canal **Surveillance des opérations** . Cet événement comporte des informations supplémentaires qui peuvent vous aider à résoudre les problèmes de connectivité.
 

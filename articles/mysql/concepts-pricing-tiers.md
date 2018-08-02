@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 07/11/2018
-ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971935"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173671"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 
@@ -94,6 +94,8 @@ Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l�
 Le serveur est marqué en lecture seule lorsque la quantité de stockage disponible est inférieure à 5 Go ou 5 % du stockage provisionné, selon la valeur qui est inférieure. Par exemple, si vous avez provisionné 100 Go de stockage, et que l’utilisation réelle dépasse 95 Go, le serveur est marqué en lecture seule. Ou, si vous avez provisionné 5 Go de stockage, le serveur est marqué en lecture seule lorsque le stockage disponible est inférieur à 250 Mo.  
 
 Pendant que le service tente de marquer le serveur en lecture seule, toutes les nouvelles demandes de transactions d’écriture sont bloquées et les transactions actives existantes continuent de s’exécuter. Une fois que le serveur est marqué en lecture seule, toutes les opérations d’écriture et validations de transaction ultérieures échouent. Les requêtes de lecture continueront de fonctionner sans interruption. Après avoir augmenté le stockage provisionné, le serveur sera prêt à accepter de nouvelles transactions d’écriture.
+
+Nous vous recommandons de configurer une alerte pour vous avertir quand votre serveur de stockage est proche du seuil afin d’éviter la mise en lecture seule. Pour plus d’informations, consultez la documentation sur [comment configurer une alerte](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Sauvegarde
 

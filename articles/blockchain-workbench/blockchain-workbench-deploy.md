@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 7/13/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294847"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224294"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Déployer Azure Blockchain Workbench
 
@@ -213,9 +213,13 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
 
 8.  Cliquez sur **OK** à la fin de la section de configuration des paramètres Azure AD.
 
-9.  Terminez la définition des paramètres de **taille réseau et de performances**.
+9.  Dans **Paramètres réseau et niveau de performance**, choisissez si vous souhaitez créer un réseau blockchain ou utiliser un réseau blockchain de preuve d’autorité existant.
 
-    ![Paramètres réseau et performances](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
+    Pour **Créer** :
+
+    L’option *Créer* permet de créer un ensemble de nœuds Ethereum Proof-of Authority (PoA) dans l’abonnement d’un seul membre. 
+
+    ![Paramètres réseau et niveau de performance](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-new.png)
 
     | Paramètre | Description  |
     |---------|--------------|
@@ -223,7 +227,23 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
     | Performances de stockage | Choisissez les performances de stockage de machine virtuelle préférées pour votre réseau blockchain. |
     | Taille de la machine virtuelle | Choisissez la taille de machine virtuelle préférée pour votre réseau blockchain. |
 
-10. Sélectionnez **OK** à la fin de la section relative à la taille du réseau et aux performances.
+    Pour **Utiliser l’existant** :
+
+    L’option *Utiliser l’existant* vous permet de spécifier un réseau blockchain Ethereum Proof-of-Authority (PoA). Les points de terminaison doivent répondre aux exigences suivantes.
+
+    * Le point de terminaison doit être un réseau blockchain Ethereum Proof-of-Authority (PoA).
+    * Le point de terminaison doit être accessible publiquement sur le réseau.
+    * Le réseau blockchain PoA doit être configuré de sorte que le prix du gaz soit défini sur la valeur zéro (remarque : les comptes Blockchain Workbench ne sont pas financés. Si des fonds sont requis, les transactions échoueront.).
+
+    ![Paramètres réseau et niveau de performance](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-existing.png)
+
+    | Paramètre | Description  |
+    |---------|--------------|
+    | Point de terminaison Ethereum RPC | Indiquez le point de terminaison RPC d’un réseau blockchain PoA existant. Le point de terminaison commence par http:// et se termine par un numéro de port. Par exemple, `http://contoso-chain.onmicrosoft.com:8545` |
+    | Performances de stockage | Choisissez les performances de stockage de machine virtuelle préférées pour votre réseau blockchain. |
+    | Taille de la machine virtuelle | Choisissez la taille de machine virtuelle préférée pour votre réseau blockchain. |
+
+10. Sélectionnez **OK** pour valider les paramètres réseau et le niveau de performance.
 
 11. Terminez la définition des paramètres **Azure Monitor**.
 

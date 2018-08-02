@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/15/2017
+ms.date: 06/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 501e28cf3d01385d65a2308db06702d2db0d91ee
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: d9d61762a2e7956c95356cb4e884675e38deeb1b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937911"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145381"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Schéma de configuration de Microsoft Azure Diagnostics 1.3 et versions ultérieures
 > [!NOTE]
@@ -408,7 +408,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attributs|Description|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | Quantité maximale d’espace disque local pouvant être utilisé par les différents types de données de diagnostic collectés par Azure Diagnostics. Le paramètre par défaut est 4 096 Mo.<br />
-|**useProxyServer** | Configurez Azure Diagnostics pour utiliser les paramètres de serveur proxy tels que définis dans les paramètres d’Internet Explorer.|  
+|**useProxyServer** | Configurez Azure Diagnostics pour utiliser les paramètres de serveur proxy tels que définis dans les paramètres d’Internet Explorer.|
+|**récepteurs** | Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur pour envoyer également des données de diagnostic à tous les éléments enfants qui prennent en charge les récepteurs. Des exemples de récepteur comme Application Insights ou Event Hubs.|  
+
 
 <br /> <br />
 
@@ -539,7 +541,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Élément enfant|Description|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Les attributs suivants sont requis :<br /><br /> - **counterSpecifier** - Nom du compteur de performance. Par exemple : `\Processor(_Total)\% Processor Time`. Pour obtenir une liste des compteurs de performances se trouvant sur votre hôte, exécutez la commande `typeperf`.<br /><br /> - **sampleRate** - Fréquence à laquelle le compteur doit être échantillonné.<br /><br /> Attribut facultatif :<br /><br /> **unit** -Unité de mesure du compteur.|  
+|**PerformanceCounterConfiguration**|Les attributs suivants sont requis :<br /><br /> - **counterSpecifier** - Nom du compteur de performance. Par exemple : `\Processor(_Total)\% Processor Time`. Pour obtenir une liste des compteurs de performances se trouvant sur votre hôte, exécutez la commande `typeperf`.<br /><br /> - **sampleRate** - Fréquence à laquelle le compteur doit être échantillonné.<br /><br /> Attribut facultatif :<br /><br /> **unit** -Unité de mesure du compteur.|  
 
 
 
@@ -570,7 +572,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**bufferQuotaInMB**|**unsignedInt**|facultatif. Définit la quantité maximale de stockage du système de fichiers disponible pour les données spécifiées.<br /><br /> La valeur par défaut est 0.|  
 |**scheduledTransferLogLevelFilterr**|**string**|facultatif. Définit le niveau de gravité minimal des entrées de journal transférées. La valeur par défaut qui transfère tous les journaux est **Undefined**. Les autres valeurs possibles sont, du plus informatif au moins informatif : **Détaillé**, **Informations**, **Avertissement**, **Erreur**, **Critique**.|  
 |**scheduledTransferPeriod**|**duration**|facultatif. Définit l’intervalle entre les transferts planifiés de données, arrondi à la minute la plus proche.<br /><br /> La valeur par défaut est PT0S.|  
-|**sinks** - Ajouté à la version 1.5|**string**|facultatif. Pointe vers un emplacement de récepteur permettant d’envoyer également des données de diagnostic. Par exemple, Application Insights.|  
+|**récepteurs** |**string**| Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur permettant d’envoyer également des données de diagnostic. Par exemple, Application Insights ou Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*

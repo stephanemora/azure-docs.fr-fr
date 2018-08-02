@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: bhanupr
-ms.openlocfilehash: d6cd0dd8b326f5340e5014bba4babc6dd945744d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8845a049ebcda59bc0e6fd26618c33f51565e0ca
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406828"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225487"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Mettre à niveau le cluster HDInsight
 Pour tirer parti des dernières fonctionnalités proposées par HDInsight, nous vous recommandons de mettre à niveau les clusters HDInsight vers la version la plus récente. Suivez les instructions ci-dessous pour mettre à niveau vos clusters HDInsight.
 
 > [!NOTE]
-> Les clusters HDInsight version 3.2 et 3.3 seront bientôt obsolètes. Pour obtenir des informations sur les versions HDInsight prises en charge, consultez [Quels sont les différents composants Hadoop disponibles avec HDInsight ?](hdinsight-component-versioning.md#supported-hdinsight-versions).
+> Pour obtenir des informations sur les versions HDInsight prises en charge, consultez [Quels sont les différents composants Hadoop disponibles avec HDInsight ?](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
 

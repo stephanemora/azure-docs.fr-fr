@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: afeac0cdb24593f5b7614a145021eefd7b376be9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 70a8c9018cdc2929abc85336211beecf82bf32cb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904023"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188044"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-rest-api-calls"></a>Créer, lister ou supprimer une identité affectée par l’utilisateur à l’aide d’appels d’API REST
 
@@ -31,11 +31,14 @@ Dans cet article, découvrez comment créer, lister et supprimer une identité m
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identité affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Si vous utilisez Windows, installez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) dans le portail Azure.
 - Si vous utilisez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou un [système d’exploitation de distribution Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installez la console locale Azure CLI](/azure/install-azure-cli).
 - Si vous utilisez la console locale Azure CLI, connectez-vous à Azure à l’aide de `az login` avec un compte associé à l’abonnement Azure sous lequel vous souhaitez déployer ou récupérer des informations sur les identités managées affectées par l’utilisateur.
+- Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer des attributions de rôles suivants :
+    - [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor), pour créer, lire (lister), mettre à jour et supprimer une identité affectée par l’utilisateur.
+    - [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator) pour lire (lister) les propriétés d’une identité affectée par l’utilisateur.
 - Récupérez un jeton d’accès du porteur en utilisant `az account get-access-token` pour effectuer les opérations suivantes relatives aux identités managées affectées par l’utilisateur.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -54,7 +57,7 @@ ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Be
 
 ## <a name="list-user-assigned-managed-identities"></a>Lister les identités managées affectées par l’utilisateur
 
-Pour lister les identités managées affectées par l’utilisateur, utilisez la requête CURL suivante dans l’API Azure Resource Manager.  Remplacez les valeurs `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` et `<ACCESS TOKEN>` par vos propres valeurs :
+Pour lister les identités managées affectées par l’utilisateur, utilisez la requête CURL suivante dans l’API Azure Resource Manager. Remplacez les valeurs `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` et `<ACCESS TOKEN>` par vos propres valeurs :
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"

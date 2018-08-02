@@ -1,34 +1,35 @@
 ---
-title: Prise en main du fournisseur Azure Multi-Factor Auth | Microsoft Docs
-description: Découvrez comment créer un fournisseur Azure Multi-Factor Auth.
+title: Quand et comment utiliser un fournisseur Azure Multi-Factor Auth ?
+description: Quand devriez-vous utiliser un fournisseur d’authentification avec Azure MFA ?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 453b8cc399c78ddb26ae601abf64626d2a6bf36f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 4a6ce07bfe641d9efdbe0eac841bb4f27f468b34
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866121"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161462"
 ---
-# <a name="getting-started-with-an-azure-multi-factor-authentication-provider"></a>Prise en main d’un fournisseur Azure Multi-Factor Authentication
+# <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quand utiliser un fournisseur Azure Multi-Factor Authentication
+
 La vérification en deux étapes est disponible par défaut pour les administrateurs généraux disposant d’Azure Active Directory et les utilisateurs Office 365. Toutefois, si vous souhaitez tirer parti des [fonctionnalités avancées](howto-mfa-mfasettings.md), vous devez acheter la version complète d’Azure Multi-Factor Authentication (MFA).
 
-Un fournisseur d’authentification multifacteur Azure permet de tirer parti des fonctionnalités fournies par la version complète de l’authentification multifacteur Azure. Il s’adresse aux utilisateurs **qui ne possèdent pas de licences via l’authentification multifacteur Azure (MFA), Azure AD Premium ou Enterprise Mobility + Security (EMS)**.  L’authentification multifacteur Azure, Azure AD Premium et EMS incluent la version complète de l’authentification Multifacteur Azure par défaut. Vous n’avez pas besoin d’un fournisseur d’authentification multifacteur Azure si vous possédez des licences.
+Un fournisseur d’authentification multifacteur Azure permet de tirer parti des fonctionnalités fournies par la version complète de l’authentification multifacteur Azure. Il s’adresse aux utilisateurs qui **ne possèdent pas de licences via Azure MFA, Azure AD Premium ou des offres groupées qui incluent Azure AD Premium ou Azure MFA**. Azure MFA et Azure AD Premium incluent la version complète d’Azure MFA par défaut.
 
-Il sera en revanche nécessaire si vous souhaitez télécharger le Kit de développement logiciel (SDK).
+Si vous avez des licences qui couvrent tous les utilisateurs de votre organisation, vous n’avez donc pas besoin d’un fournisseur Azure Multi-Factor Auth. Créez un fournisseur Azure Multi-Factor Authentication uniquement si vous avez également besoin de fournir la vérification en deux étapes pour certains utilisateurs dépourvus de licences.
 
-> [!IMPORTANT]
-> La dépréciation du Kit de développement logiciel (SDK) Azure Multi-Factor Authentication a été annoncée. Cette fonctionnalité n’est plus prise en charge pour les nouveaux clients. Les clients actuels peuvent continuer à utiliser le Kit de développement logiciel (SDK) jusqu’au 14 novembre 2018. Passée cette date, les appels au Kit de développement logiciel (SDK) échoueront.
+## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Mises en garde liées au Kit de développement logiciel (SDK) Azure MFA
 
-> [!IMPORTANT]
->Pour télécharger le Kit de développement logiciel (SDK), vous devez créer un fournisseur d’authentification multifacteur Azure, même si vous disposez de licences EMS, AAD Premium ou Azure MFA.  Si vous créez un fournisseur d’authentification multifacteur Azure à cet effet et que vous avez déjà des licences, veillez à créer le fournisseur avec le modèle **Par utilisateur activé**. Ensuite, liez le fournisseur au répertoire qui contient les licences de l’authentification multifacteur Azure, Azure AD Premium ou EMS. Cette configuration garantit que vous n’êtes facturé que si vous avez plus d’utilisateurs uniques utilisant la vérification en deux étapes que le nombre de licences en votre possession. 
+Il sera en revanche nécessaire si vous souhaitez télécharger le Kit de développement logiciel (SDK). Remarque que le Kit de développement logiciel a été déconseillé et n’est plus pris en charge pour les nouveaux clients et continueront à fonctionner uniquement jusqu’au 14 novembre 2018. Passée cette date, les appels au Kit de développement logiciel (SDK) échoueront.
+
+Pour télécharger le Kit de développement logiciel (SDK), créez un fournisseur Azure Multi-Factor Auth, même si vous disposez d’Azure MFA, AAD Premium, ou d’autres licences groupées. Si vous créez un fournisseur d’authentification multifacteur Azure à cet effet et que vous avez déjà des licences, veillez à créer le fournisseur avec le modèle **Par utilisateur activé**. Ensuite, liez le fournisseur au répertoire qui contient les licences Azure MFA, Azure AD Premium, ou d’autres licences groupées. Cette configuration garantit que vous n’êtes facturé que si vous avez plus d’utilisateurs uniques utilisant la vérification en deux étapes que le nombre de licences en votre possession.
 
 ## <a name="what-is-an-mfa-provider"></a>Qu’est-ce qu’un fournisseur MFA ?
 
@@ -40,7 +41,7 @@ Il existe deux types de fournisseurs d’authentification, qui se distinguent pa
 
 Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Authentication dans le portail Azure :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Sélectionnez **Azure Active Directory** > **Serveur MFA** > **Fournisseurs**.
 
    ![Fournisseurs][Providers]
@@ -51,7 +52,7 @@ Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Auth
    - **Modèle d’utilisation** : vous pouvez choisir l’une des deux options suivantes :
       * Par authentification – modèle d'achat facturé par authentification. Généralement utilisé pour les scénarios qui utilisent Azure Multi-Factor Authentication dans une application orientée client.
       * Par utilisateur activé – modèle d'achat facturé par utilisateur activé. Généralement utilisé pour l’accès des employés aux applications telles qu’Office 365. Choisissez cette option si vous avez des utilisateurs qui disposent déjà d’une licence pour l’authentification multifacteur Azure.
-   - **Abonnement** : abonnement Azure facturé pour une vérification en deux étapes via le fournisseur. 
+   - **Abonnement** : abonnement Azure facturé pour une vérification en deux étapes via le fournisseur.
    - **Répertoire** : locataire Azure Active Directory auquel le fournisseur est associé.
       * Vous n'avez pas besoin d’un répertoire Azure AD pour créer un fournisseur. Laissez ce champ vide si vous prévoyez uniquement de télécharger le serveur Azure Multi-Factor Authentication.
       * Le fournisseur doit être associé avec un répertoire Azure AD pour tirer parti des fonctionnalités avancées.
@@ -61,7 +62,7 @@ Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Auth
 
 Vous ne pouvez pas modifier le modèle d’utilisation (par utilisateur activé ou par authentification) après avoir créé un fournisseur MFA. Toutefois, vous pouvez supprimer le fournisseur MFA, puis en créer un avec un autre modèle d’utilisation.
 
-Si le fournisseur Multi-Factor Auth actuel est associé à un répertoire Azure AD (également appelé locataire Azure AD), vous pouvez en toute sécurité le supprimer et en créer un associé au même locataire Azure AD. Si vous avez acheté suffisamment de licences MFA, Azure AD Premium, ou Enterprise Mobility + Security (EMS) pour couvrir tous les utilisateurs activés pour MFA, vous pouvez également supprimer complètement le fournisseur MFA.
+Si le fournisseur Multi-Factor Auth actuel est associé à un répertoire Azure AD (également appelé locataire Azure AD), vous pouvez en toute sécurité le supprimer et en créer un associé au même locataire Azure AD. Si vous avez acheté suffisamment de licences MFA, Azure AD Premium, ou d’offres groupées qui incluent des licences Azure AD Premium ou Azure MFA pour couvrir tous les utilisateurs activés pour MFA, vous pouvez également supprimer complètement le fournisseur MFA.
 
 Si votre fournisseur MFA n’est pas associé à un locataire Azure AD, ou si vous associez le nouveau fournisseur MFA à un autre locataire Azure AD, les paramètres utilisateur et les options de configuration ne sont pas transférés. Par ailleurs, les serveurs Azure MFA existants doivent être réactivés à l’aide des informations d’identification d’activation générées via le nouveau fournisseur MFA. Le fait de réactiver les serveurs MFA afin de les lier au nouveau fournisseur MFA n’a pas de conséquence sur l’authentification des appels téléphoniques et des SMS. Toutefois, les notifications d’applications mobiles cessent de fonctionner pour tous les utilisateurs jusqu’à ce qu’ils réactivent l’application mobile.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 739ef5423f7b1769fa793f0cac5306efa634b781
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 97836c4160349b8095ba2095176783ae17b46e82
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262971"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216197"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure
 Cet article décrit comment mettre à l’échelle votre ressource par une mesure personnalisée dans le portail Azure.
@@ -39,7 +39,7 @@ Cet article suppose que vous disposez d’une application web avec Application I
 > Remarque : s’il existe un problème de lecture des métriques de ressource et que la capacité actuelle est inférieure à la capacité par défaut, pour garantir la disponibilité de la ressource, la mise à l’échelle automatique sera modifiée sur la valeur par défaut. Si la capacité actuelle est déjà supérieure à la capacité par défaut, la mise à l’échelle n’est pas réduite.
 - Cliquez sur « Enregistrer »
 
-Félicitations ! Vous avez maintenant correctement créé vos valeurs de mise à l’échelle automatique à pour mettre à l’échelle automatiquement votre application web sur la base d’une mesure personnalisée.
+Félicitations ! Vous avez correctement créé vos valeurs de mise à l’échelle pour mettre à l’échelle automatiquement votre application web sur la base d’une métrique personnalisée.
 
 > Remarque : Les mêmes étapes sont applicables pour commencer avec un rôle de service cloud ou un jeu de mise à l’échelle de machine virtuelle.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9
 description: Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9
 services: app-service\web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01b8ccc9fe6b5469408131bce68a903f15382998
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150955"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222526"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.9
 
@@ -32,7 +32,7 @@ Dans cette version, aucune modification importante n’a été apportée au Kit�
 
 ### <a name="visual-studio-2017-release-candidate"></a>Version finale de Visual Studio 2017
 
-- Dans la version finale de Visual Studio 2017, cette version du Kit SDK pour .NET est intégrée dans la charge de travail Azure. Tous les outils requis pour le développement Azure équipent l’ensemble des versions de Visual Studio, à compter de la version finale 2017. Pour Visual Studio 2015 et Visual Studio 2013, le SDK est également disponible via WebPI.  Nous arrêterons d’équiper les versions du Kit SDK Azure pour .NET pour Visual Studio 2013 au moment du lancement de la version finale de Visual Studio 2017. Suivez ce lien pour télécharger Visual Studio 2017 RC : https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- Dans la version finale de Visual Studio 2017, cette version du Kit de développement logiciel (SDK) pour .NET est intégrée dans la charge de travail Azure. Tous les outils requis pour le développement Azure équipent l’ensemble des versions de Visual Studio, à compter de la version finale 2017. For Visual Studio 2015 et Visual Studio 2013, le SDK est également disponible via WebPI. Nous arrêterons d’équiper les versions du Kit SDK Azure pour .NET pour Visual Studio 2013 au moment du lancement de la version finale de Visual Studio 2017. Suivez ce lien pour télécharger Visual Studio 2017 RC : https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
@@ -60,7 +60,7 @@ Dans cette version, aucune modification importante n’a été apportée au Kit�
 
 ## <a name="azure-sdk-for-net-29-summary"></a>Synthèse du Kit SDK Azure pour .NET 2.9
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce document contient les notes de publication du Kit de développement logiciel (SDK) Azure pour .NET version 2.9. 
 
 Pour plus d’informations sur les mises à jour de cette version, voir le [billet d’annonce du Kit de développement logiciel (SDK) Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/).
@@ -68,7 +68,7 @@ Pour plus d’informations sur les mises à jour de cette version, voir le [bill
 ## <a name="azure-sdk-29-for-visual-studio-2015-update-2-and-visual-studio-15-preview"></a>Aperçu du Kit de développement logiciel (SDK) 2.9 pour Visual Studio 2015 Update 2 et Visual Studio "15"
 Cette mise à jour inclut les correctifs suivants :
 
-* Problème lié à REST API Client Generation dans lequel la chaîne "Unknown Type" s'affiche en tant que le nom du dossier de la génération du code et/ou le nom de l'espace de noms est déposé dans le code généré.
+* Problème lié à l’API REST Client Generation dans lequel la chaîne "Unknown Type" s’affiche en tant que nom du dossier de génération de code et/ou le nom de l’espace de noms est déposé dans le code généré.
 * Problème lié à Scheduled WebJobs dans lequel les informations d'authentification n'ont pas pu être transmises au processus d'approvisionnement de Scheduler.
 
 Cette mise à jour inclut les nouvelles fonctionnalités suivantes :

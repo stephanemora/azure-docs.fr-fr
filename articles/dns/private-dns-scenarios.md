@@ -1,25 +1,18 @@
 ---
-title: Scénarios pour Azure DNS Private Zones | Microsoft Docs
+title: Scénarios pour les zones privées Azure DNS
 description: Vue d’ensemble des scénarios courants pour l’utilisation d’Azure DNS Private Zones.
 services: dns
-documentationcenter: na
-author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
+author: vhorne
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/15/2018
-ms.author: kumud
-ms.openlocfilehash: de543913d4f8264fa8e5b3bca0c510c99c479cae
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: d84da36ad6b1ef3e2a507a0944aac583861d5ccb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771869"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162165"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Scénarios Azure DNS Private Zones
 Azure DNS Private Zones fournit la résolution de noms au sein d’un réseau virtuel, ainsi qu’entre des réseaux virtuels. Dans cet article, nous étudions certains des scénarios courants pouvant être mis en œuvre à l’aide de cette fonctionnalité. 

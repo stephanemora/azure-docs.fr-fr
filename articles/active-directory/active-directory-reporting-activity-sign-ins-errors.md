@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971072"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160244"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory
 
@@ -59,6 +59,7 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 
 |Error|Description|
 |---|---|
+|16000|C’est un détail d’implémentation interne et non un état d’erreur. Vous pouvez ignorer sans problème cette référence.|
 |20001|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
 |20012|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
 |20033|Il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème.|
@@ -174,6 +175,7 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |81001|Le ticket Kerberos de l’utilisateur est trop volumineux. Cela peut se produire si l’utilisateur appartient à trop de groupes, auquel cas le ticket Kerberos contient trop d’appartenances aux groupes. Réduisez les appartenances à des groupes de l’utilisateur, puis réessayez.|
 |81005|Le package d’authentification n’est pas pris en charge.|
 |81007|Le locataire n’est pas activé pour l’authentification unique transparente.|
+|81012|Ce n’est pas un état d’erreur. Cela indique que l’utilisateur qui tente de se connecter à Azure AD est différent de l’utilisateur connecté à l’appareil. Vous pouvez ignorer sans problème ce code dans les journaux.|
 |90010|La requête n’est pas prise en charge pour diverses raisons. Par exemple, la requête est effectuée à l’aide d’une méthode de requête non prise en charge (seule la méthode POST est prise en charge) ou l’algorithme de signature de jeton demandé n’est pas pris en charge. Contactez le développeur de l’application.|
 |90014| Un champ obligatoire du message de protocole n’a pas été renseigné. Contactez le propriétaire de l’application. Si vous êtes le propriétaire de l’application, vérifiez que vous disposez de tous les paramètres nécessaires pour la requête de connexion. |
 |90072| Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous, puis connectez-vous avec un autre compte Azure AD.|

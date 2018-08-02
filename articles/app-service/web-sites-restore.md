@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: d4b84904db703d1e8e78240cb971250672ef9615
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 69e0e8282ee0b8503fe11a57b8ba6037247822dd
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753283"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160499"
 ---
 # <a name="restore-an-app-in-azure"></a>Restauration d'une application dans Azure App Service
 Cet article vous explique comment restaurer une application dans [Azure App Service](../app-service/app-service-web-overview.md) que vous avez précédemment sauvegardée (voir [Sauvegarde de votre application dans Azure](web-sites-backup.md)). Vous pouvez restaurer votre application avec ses bases de données liées à la demande à un état antérieur ou créer une application à partir de l’une des sauvegardes de votre application d’origine. Azure App Service prend en charge les bases de données suivantes pour la sauvegarde et restauration :
@@ -49,6 +49,11 @@ La restauration à partir de sauvegardes est disponible pour des applications ex
    
    > [!WARNING]
    > Si vous choisissez **Remplacer**, toutes les données existantes dans votre application actuelle seront effacées et remplacées. Avant de cliquer sur **OK**, vérifiez que c'est bien ce que vous voulez faire.
+   > 
+   > 
+   
+   > [!WARNING]
+   > Si l’App Service écrit les données dans la base de données pendant que vous effectuez la restauration, il peut entraîner des symptômes tels qu’une violation de CLÉ PRIMAIRE et une perte de données. Il est conseillé d’arrêter en premier App Service avant de commencer à restaurer la base de données.
    > 
    > 
    

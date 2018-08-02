@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343209"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171770"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitations des bases de données Azure pour PostgreSQL
 Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données.
@@ -55,8 +55,9 @@ Le système Azure a besoin de cinq connexions pour effectuer le monitoring du se
 ### <a name="vnet-service-endpoints"></a>Points de terminaison de service VNet
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
 
-### <a name="point-in-time-restore-pitr"></a>Point-in-time-restore (PITR)
-- Lorsque vous utilisez la fonctionnalité PITR, le nouveau serveur est créé avec la même configuration que le serveur sur lequel il est basé.
+### <a name="restoring-a-server"></a>Restauration d’un serveur
+- Lorsque vous utilisez la fonctionnalité PITR, le nouveau serveur est créé avec les mêmes configurations de niveau tarifaire que le serveur sur lequel il est basé.
+- Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu qui existaient sur le serveur d’origine. Les règles de pare-feu doivent être définies séparément pour ce nouveau serveur.
 - La restauration d’un serveur supprimé n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes

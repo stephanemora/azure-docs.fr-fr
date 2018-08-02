@@ -11,13 +11,13 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 04/13/2018
-ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.date: 07/18/2018
+ms.openlocfilehash: 9bd1690003fd37b6c2edd0f0421cf8d0e74f8cb5
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34627362"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144174"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 Ce guide décrit les stratégies permettant de résoudre les problèmes courants liés à l’utilisation du service Microsoft Genomics. Pour consulter les questions fréquentes (FAQ), consultez [Questions courantes](frequently-asked-questions-genomics.md). 

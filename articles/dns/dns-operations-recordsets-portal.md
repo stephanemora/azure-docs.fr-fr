@@ -3,7 +3,7 @@ title: Gérer des jeux d’enregistrements DNS et des enregistrements avec Azure
 description: Azure DNS permet de gérer les jeux d’enregistrements DNS et les enregistrements lors de l’hébergement de votre domaine.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: kumud
-ms.openlocfilehash: da7d2118a0fb6bc5004856d994a01a932094ca45
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: b95ec9b4b5077b236c5f3a7183820552b7ccac49
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174310"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure
 
@@ -106,7 +107,7 @@ Les enregistrements NS et SOA qui sont créés automatiquement sont gérés diff
 
 ### <a name="modify-soa-records"></a>Modification d'enregistrements SOA
 
-Vous ne pouvez pas ajouter ou supprimer d’enregistrements dans le jeu d’enregistrements SOA créé automatiquement à l’extrémité de la zone (nom = « @ »). Vous pouvez cependant modifier les paramètres dans l’enregistrement SOA (à l’exception de « l’hôte ») et pendant la durée de vie du jeu d’enregistrements.
+Vous ne pouvez pas ajouter ou supprimer d’enregistrements dans le jeu d’enregistrements SOA créé automatiquement à l’extrémité de la zone (nom = « \@ »). Vous pouvez cependant modifier les paramètres dans l’enregistrement SOA (à l’exception de « l’hôte ») et pendant la durée de vie du jeu d’enregistrements.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modification d’enregistrements NS à l’extrémité de la zone
 
@@ -118,7 +119,7 @@ Notez que cela s’applique uniquement au jeu d’enregistrements NS défini à 
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Suppression de jeux d’enregistrements SOA ou NS
 
-Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’extrémité de la zone (nom = « @ ») qui sont créés automatiquement quand la zone est créée. Ils sont automatiquement supprimés lorsque vous supprimez la zone.
+Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’extrémité de la zone (nom = « \@ ») qui sont créés automatiquement quand la zone est créée. Ils sont automatiquement supprimés lorsque vous supprimez la zone.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

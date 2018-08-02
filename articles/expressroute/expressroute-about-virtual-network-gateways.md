@@ -1,35 +1,32 @@
 ---
-title: À propos des passerelles de réseau virtuel pour ExpressRoute | Microsoft Docs
+title: À propos des passerelles de réseau virtuel Azure ExpressRoute | Microsoft Docs
 description: En savoir plus sur les passerelles de réseau virtuel pour ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: carmonm
-editor: ''
-tags: azure-resource-manager, azure-service-management
-ms.assetid: 7e0d9658-bc00-45b0-848f-f7a6da648635
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.topic: conceptual
+ms.date: 07/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae971e7743d6dd3269c0a4f976bd2a5316300f58
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a27200803ff13ed04a194fcbe45cf5edfe62ea50
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235323"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161721"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>À propos des passerelles de réseau virtuel pour ExpressRoute
-Une passerelle de réseau virtuel est conçue pour faire circuler le trafic réseau entre les réseaux virtuels Azure et les emplacements locaux. Lorsque vous configurez une connexion ExpressRoute, vous devez créer et configurer une passerelle de réseau virtuel et une connexion à la passerelle de réseau virtuel.
+Une passerelle de réseau virtuel est conçue pour faire circuler le trafic réseau entre les réseaux virtuels Azure et les emplacements locaux. Vous pouvez utiliser une passerelle de réseau virtuel pour le trafic ExpressRoute ou le trafic VPN. Cet article décrit la passerelle de réseau virtuelle ExpressRoute.
 
-Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez plusieurs paramètres. L’un des paramètres requis spécifie si la passerelle sera utilisée pour le trafic ExpressRoute ou le trafic VPN de site à site. Dans le modèle de déploiement de Resource Manager, le paramètre est « -GatewayType ».
+## <a name="gateway-types"></a>Types de passerelle
 
-Lorsque le trafic réseau est envoyé sur une connexion privée, vous utilisez le type de passerelle « ExpressRoute ». C’est ce que l’on appelle une passerelle ExpressRoute. Lorsque le trafic réseau est transmis chiffré sur l’Internet public, vous utilisez le type de passerelle « Vpn ». Il s’agit alors d’une passerelle VPN. Les connexions site à site, point à site et réseau virtuel à réseau virtuel utilisent toutes une passerelle VPN.
+Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez plusieurs paramètres. L’un des paramètres requis, « Type Passerelle », spécifie si la passerelle est utilisée pour le trafic ExpressRoute, ou le trafic VPN. Les types de passerelles sont les suivants: 
 
-Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau virtuel par type de passerelle. Par exemple, une passerelle de réseau virtuel peut utiliser le type de passerelle VPN et une autre le type de passerelle ExpressRoute. Cet article décrit la passerelle de réseau virtuel ExpressRoute.
+* **Vpn** : Pour envoyer le trafic chiffré sur l’Internet public, vous utilisez le type de passerelle « Vpn ». Il s’agit alors d’une passerelle VPN. Les connexions site à site, point à site et réseau virtuel à réseau virtuel utilisent toutes une passerelle VPN.
+
+* **ExpressRoute** : Pour envoyer le trafic réseau sur une connexion privée, vous utilisez le type de passerelle « ExpressRoute ». C’est également appelé une passerelle ExpressRoute et c’est le type de passerelle que vous utilisez lors de la configuration ExpressRoute.
+
+
+Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau virtuel par type de passerelle. Par exemple, une passerelle de réseau virtuel peut utiliser le type de passerelle VPN et une autre le type de passerelle ExpressRoute.
 
 ## <a name="gwsku"></a>SKU de passerelle
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
@@ -45,6 +42,20 @@ Le tableau ci-dessous présente les types de passerelle et les performances esti
 > Les performances de l’application dépendent de plusieurs facteurs, tels que la latence de bout en bout et le nombre de flux de trafic que l’application ouvre. Les numéros indiqués dans le tableau représentent la limite supérieure que l’application peut théoriquement atteindre dans un environnement idéal. 
 > 
 >
+
+### <a name="zrgw"></a>Référence SKU de passerelle redondante dans la zone (préversion)
+
+Vous pouvez également déployer des passerelles ExpressRoute dans des zones de disponibilité Azure. Cela les sépare physiquement et logiquement dans différentes zones de disponibilité, tout en protégeant votre connectivité de réseau local à Azure des échecs au niveau de la zone.
+
+![Passerelle ExpressRoute redondante dans la zone](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
+
+Les passerelles redondante dans la zone utilisent de nouvelles références SKU spécifiques de passerelle pour la passerelle ExpressRoute. Les nouvelles références SKU sont actuellement disponibles en **Préversion publique**.
+
+* ErGw1AZ
+* ErGw2AZ
+* ErGw3AZ
+
+Les nouvelles références SKU de passerelle prennent également en charge les autres options de déploiement pour mieux répondre à vos besoins. Lorsque vous créez une passerelle de réseau virtuel avec les nouvelles références SKU de passerelle, vous avez également la possibilité de déployer la passerelle dans une zone spécifique. Il s’agit alors d’une passerelle zonale. Lorsque vous déployez une passerelle zonale, les deux instances de la passerelle sont déployées dans la même zone de disponibilité. Pour s’inscrire à la préversion, consultez [Créer une passerelle de réseau virtuel redondante dans la zone](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
 ## <a name="resources"></a>API REST et applets de commande PowerShell
 Pour accéder à des ressources techniques supplémentaires et connaître les exigences spécifiques en matière de syntaxe lors de l’utilisation d’API REST et d’applets de commande PowerShell pour les configurations de passerelles de réseau virtuel, consultez les pages suivantes :

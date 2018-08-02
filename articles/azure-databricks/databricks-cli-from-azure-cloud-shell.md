@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: c20ad02f962fbee22bb16653c5eab351d9f3de17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3ea4ebbd95237b50054fb0e344f260120d597ab5
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598723"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225232"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Utiliser la CLI Databricks à partir d’Azure Cloud Shell
 
@@ -36,11 +36,11 @@ Découvrez comment utiliser la CLI Databricks à partir d’Azure Cloud Shell po
  
 2. Dans l’angle supérieur droit, cliquez sur l’icône **Cloud Shell**.
 
-   ![Lancer Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Lancer ODBC depuis Excel")
+   ![Lancer Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Lancer Azure Cloud Shell")
 
 3. Veillez à sélectionner **Bash** comme environnement Cloud Shell. Vous pouvez effectuer la sélection à partir de l’option de liste déroulante, comme indiqué dans la capture d’écran suivante.
 
-   ![Lancer Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Lancer ODBC depuis Excel") 
+   ![Sélectionner Bash comme environnement Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Sélectionner Bash") 
 
 4. Créez un environnement virtuel dans lequel vous pouvez installer la CLI Databricks. Dans l’extrait de code ci-dessous, vous créez un environnement virtuel appelé `databrickscli`.
 
@@ -60,11 +60,9 @@ Découvrez comment utiliser la CLI Databricks à partir d’Azure Cloud Shell po
 
     Les invites suivantes s’affichent :
 
-    * Vous êtes invité à entrer l’hôte Databricks. Entrez la valeur au format `https://eastus2.azuredatabricks.net`. Ici, **Est des États-Unis 2** correspond à la région Azure où vous avez créé votre espace de travail Azure Databricks.
+    * Tout d’abord, vous êtes invité à saisir l’hôte Databricks. Saisissez la valeur au format `https://eastus2.azuredatabricks.net`. Ici, **Est des États-Unis 2** correspond à la région Azure où vous avez créé votre espace de travail Azure Databricks.
 
-    * Vous êtes invité à saisir un nom d’utilisateur. Entrez un **jeton**.
-
-    * Pour finir, vous êtes invité à entrer le mot de passe. Entrez le jeton que vous avez créé précédemment.
+    * Ensuite, vous êtes invité à saisir un jeton. Entrez le jeton que vous avez créé précédemment.
 
 Après avoir terminé ces étapes, vous pouvez commencer à utiliser la CLI Databricks à partir d’Azure Cloud Shell.
 

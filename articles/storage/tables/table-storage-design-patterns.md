@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0d098b7befe5426db4aff503e9633623b1249dbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: db621cdd6d38cb2f235c45c9bfcb76677ed6ba17
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659769"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227809"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -142,7 +142,7 @@ Permet de conserver un comportement cohérent entre les limites de partition ou 
 ### <a name="context-and-problem"></a>Contexte et problème
 Les EGT activent les transactions atomiques de plusieurs entités qui partagent la même clé de partition. Pour des raisons d'évolutivité et de performances, vous pouvez décider de stocker des entités ayant des exigences de cohérence dans des partitions distinctes ou dans un système de stockage distinct : dans ce scénario, vous ne pouvez pas utiliser les EGT pour maintenir la cohérence. Par exemple, vous pouvez avoir besoin de maintenir la cohérence entre :  
 
-* des entités stockées dans deux partitions différentes dans la même table, dans des tables différentes, dans différents comptes de stockage ;  
+* des entités stockées dans deux partitions différentes de la même table, dans des tables différentes ou dans différents comptes de stockage ;  
 * une entité stockée dans le service de Table et un objet blob stocké dans le service d'objets blob ;  
 * une entité stockée dans le service de Table et un fichier dans un système de fichiers ;  
 * un magasin d'entités du service de Table encore indexé en utilisant le service Azure Search.  
@@ -1022,7 +1022,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## <a name="controlling-access-with-shared-access-signatures"></a>Contrôle d’accès avec des signatures d’accès partagé
-Vous pouvez utiliser des signature d'accès partagé (SAP) pour permettre aux applications clientes de modifier (et d'interroger) des entités de table directement, sans avoir besoin de s'authentifier directement auprès du service de Table. En règle générale, il existe trois principaux avantages à l'utilisation de SAP dans votre application :  
+Vous pouvez utiliser des jetons de signature d’accès partagé (SAP) pour permettre aux applications clientes de modifier (et d’interroger) des entités de table sans inclure votre clé de compte de stockage dans votre code. En règle générale, il existe trois principaux avantages à l'utilisation de SAP dans votre application :  
 
 * Vous n'avez plus besoin de distribuer votre clé de compte de stockage vers une plateforme non sécurisée (par exemple un appareil mobile) pour permettre à ce périphérique d'accéder à des entités dans le service de Table et de les modifier.  
 * Vous pouvez décharger certaines tâches effectuées par les rôles web et de travail lors de la gestion de vos entités sur les périphériques clients tels que les ordinateurs et appareils mobiles des utilisateurs finaux.  

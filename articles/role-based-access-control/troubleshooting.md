@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes liés au contrôle d’accès en fonction du rôle dans Azure | Microsoft Docs
+title: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle dans Azure | Microsoft Docs
 description: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle Azure.
 services: azure-portal
 documentationcenter: na
@@ -11,29 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437363"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223294"
 ---
-# <a name="troubleshooting-rbac-in-azure"></a>Résolution des problèmes liés au contrôle d’accès en fonction du rôle dans Azure
+# <a name="troubleshoot-rbac-in-azure"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle dans Azure
 
-Cet article répond aux questions fréquentes sur le contrôle d’accès en fonction du rôle, afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles sur le Portail Azure et que vous puissiez résoudre les problèmes d’accès. Ces trois rôles couvrent tous les types de ressources :
+Cet article répond aux questions fréquentes sur le contrôle d’accès en fonction du rôle, afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles sur le Portail Azure et que vous puissiez résoudre les problèmes d’accès.
 
-* Propriétaire  
-* Contributeur  
-* Lecteur  
+## <a name="web-app-features-that-require-write-access"></a>Fonctionnalités d’application web qui nécessitent un accès en écriture
 
-Les utilisateurs ayant le rôle Propriétaire ou Contributeur disposent tous les deux d’un accès complet à toutes les opérations de gestion, mais un utilisateur avec le rôle Contributeur ne peut pas accorder d’accès à d’autres utilisateurs ou groupes. Le rôle Lecteur est un peu plus intéressant, et c’est ce sur quoi nous allons nous attarder. Pour plus d’informations sur l’octroi des accès, consultez [Manage access using RBAC and the Azure portal](role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure).
-
-## <a name="app-service"></a>App Service
-### <a name="write-access-capabilities"></a>Fonctionnalités d’accès en écriture
 Si vous accordez un accès utilisateur en lecture seule à une seule application web, certaines fonctionnalités sont désactivées, ce que vous n’avez peut-être pas prévu. Les fonctionnalités de gestion suivantes exigent un accès en **écriture** à une application web (Collaborateur ou Propriétaire) et ne sont pas disponibles en lecture seule.
 
 * Commandes (comme start, stop, etc.)
@@ -49,8 +43,9 @@ Si vous accordez un accès utilisateur en lecture seule à une seule application
 
 Si vous ne pouvez accéder à aucune de ces vignettes, vous devez obtenir l’accès Collaborateur à l’application web auprès de votre administrateur.
 
-### <a name="dealing-with-related-resources"></a>Gestion des ressources connexes
-Les applications web sont compliqués par la présence de quelques ressources différentes qui interagissent. Voici un groupe de ressources classique avec deux sites web :
+## <a name="web-app-resources-that-require-write-access"></a>Ressources d’application web qui nécessitent un accès en écriture
+
+Les applications web sont compliqués par la présence de quelques ressources différentes qui interagissent. Voici un groupe de ressources classique avec plusieurs sites web :
 
 ![Groupe de ressources d'application web](./media/troubleshooting/website-resource-model.png)
 
@@ -70,15 +65,9 @@ Les éléments suivants requièrent l’accès **en écriture** à l’ensemble 
 * Composants Application Insights  
 * Tests web  
 
-## <a name="azure-functions"></a>Azure Functions
-Certaines fonctionnalités de [Azure Functions](../azure-functions/functions-overview.md) nécessitent un accès en écriture. Par exemple, si un utilisateur est assigné au rôle de Lecteur, il ne peut pas voir les fonctions au sein d’une application de fonction. Le portail affiche **(aucun accès)**.
+## <a name="virtual-machine-features-that-require-write-access"></a>Fonctionnalités de machine virtuelle qui nécessitent un accès en écriture
 
-![Aucun accès aux applications de fonction](./media/troubleshooting/functionapps-noaccess.png)
-
-Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme**, puis cliquez sur **Tous les paramètres** pour afficher certains paramètres liés à une application de fonction (semblable à une application Web), mais il ne peut pas modifier ces paramètres.
-
-## <a name="virtual-machine"></a>Machine virtuelle
-Comme pour les applications web, certaines fonctionnalités du volet de la machine virtuelle exigent un accès en écriture à la machine virtuelle ou à d'autres ressources du groupe de ressources.
+Comme pour les applications web, certaines fonctionnalités du volet de la machine virtuelle exigent un accès en écriture à la machine virtuelle ou à d’autres ressources du groupe de ressources.
 
 Les machines virtuelles sont associées aux noms de domaine, réseaux virtuels, comptes de stockage et règles d'alerte.
 
@@ -96,6 +85,18 @@ Les éléments suivants requièrent l’accès **en écriture** à la **machine 
 * Règles d'alerte  
 
 Si vous ne pouvez accéder à aucune de ces vignettes, demandez l’accès Collaborateur au groupe de ressources à votre administrateur.
+
+## <a name="azure-functions-and-write-access"></a>Azure Functions et accès en écriture
+
+Certaines fonctionnalités de [Azure Functions](../azure-functions/functions-overview.md) nécessitent un accès en écriture. Par exemple, si un utilisateur est assigné au rôle de Lecteur, il ne peut pas voir les fonctions au sein d’une application de fonction. Le portail affiche **(aucun accès)**.
+
+![Aucun accès aux applications de fonction](./media/troubleshooting/functionapps-noaccess.png)
+
+Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme**, puis cliquez sur **Tous les paramètres** pour afficher certains paramètres liés à une application de fonction (semblable à une application Web), mais il ne peut pas modifier ces paramètres.
+
+## <a name="rbac-changes-are-not-being-detected"></a>Les changements de contrôle d’accès en fonction du rôle ne sont pas détectés
+
+Azure Resource Manager met parfois en cache des données et des configurations pour améliorer les performances. Lors de la création ou de la suppression d’attributions de rôles, un délai de 30 minutes maximum peut être nécessaire avant que les modifications soient prises en compte. Si vous utilisez le portail Azure, Azure PowerShell ou Azure CLI, vous pouvez forcer une actualisation de vos modifications d’attribution de rôle en vous déconnectant et en vous reconnectant. Si vous apportez des modifications d’attribution de rôle à l’aide d’appels d’API REST, vous pouvez forcer une actualisation en actualisant votre jeton d’accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Manage access using RBAC and the Azure portal](role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure)

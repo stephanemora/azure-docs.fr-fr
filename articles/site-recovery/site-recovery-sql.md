@@ -2,24 +2,16 @@
 title: Répliquer des applications avec SQL Server et Azure Site Recovery | Microsoft Docs
 description: Cet article explique comment répliquer SQL Server à l’aide d’Azure Site Recovery pour les fonctionnalités de récupération d’urgence de SQL Server.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
-ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920829"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216357"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Protéger SQL Server à l’aide de la récupération d’urgence SQL Server et d’Azure Site Recovery
 
@@ -48,10 +40,10 @@ Site Recovery peut protéger SQL Server comme décrit dans le tableau ci-dessous
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | OUI | OUI
-**VMware** | OUI | OUI
-**Serveur physique** | OUI | OUI
-**Microsoft Azure**|N/D| OUI
+**Hyper-V** | Oui | Oui
+**VMware** | Oui | Oui
+**Serveur physique** | Oui | Oui
+**Microsoft Azure**|N/D| Oui
 
 ### <a name="supported-sql-server-versions"></a>Versions de SQL Server prises en charge
 Les scénarios de cet article prennent en charge les versions de SQL Server suivantes :
@@ -78,9 +70,9 @@ Ce tableau récapitule nos recommandations pour intégrer les technologies BCDR 
 
 | **Version** | **Édition** | **Déploiement** | **Local à local** | **Local vers Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 ou 2012 |Entreprise |Instance de cluster de basculement |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn |
+| SQL Server 2016, 2014 ou 2012 |Entreprise |Instance de cluster de basculement |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn |
 || Entreprise |Groupes de disponibilité AlwaysOn pour la haute disponibilité |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn | |
-|| Standard |Instance de cluster de basculement (FCI) |Réplication Site Recovery avec miroir local |Réplication Site Recovery avec miroir local | |
+|| standard |Instance de cluster de basculement (FCI) |Réplication Site Recovery avec miroir local |Réplication Site Recovery avec miroir local | |
 || Enterprise ou Standard |Standalone |Réplication de la récupération de sites |Réplication de la récupération de sites | |
 | SQL Server 2008 R2 ou 2008 |Enterprise ou Standard |Instance de cluster de basculement (FCI) |Réplication Site Recovery avec miroir local |Réplication Site Recovery avec miroir local |
 || Enterprise ou Standard |Standalone |Réplication de la récupération de sites |Réplication de la récupération de sites | |

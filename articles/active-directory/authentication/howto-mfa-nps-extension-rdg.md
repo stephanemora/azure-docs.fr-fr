@@ -4,18 +4,18 @@ description: Intégration de votre infrastructure de passerelle des services Bur
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 08/15/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 74e56480c5bbf86ee6cbc059431d7d5a328dfcec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049063"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160101"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
@@ -23,7 +23,7 @@ Cet article décrit l’intégration de votre infrastructure de passerelle des s
 
 L’extension de serveur NPS (Network Policy Server) pour Azure permet aux clients de protéger le protocole d’authentification client RADIUS (Remote Authentication Dial-In User Service) à l’aide de l’authentification Azure [Multi-Factor Authentication (MFA)](multi-factor-authentication.md) basée sur le cloud. Cette solution fournit une vérification en deux étapes pour ajouter une deuxième couche de sécurité aux connexions et transactions utilisateur.
 
-Cet article fournit des instructions détaillées étape par étape pour l’intégration de l’infrastructure de serveur NPS avec l’authentification multifacteur Azure à l’aide de l’extension de serveur NPS pour Azure. Cela permet une vérification sécurisée pour les utilisateurs tentant de se connecter à une passerelle des services Bureau à distance. 
+Cet article fournit des instructions détaillées étape par étape pour l’intégration de l’infrastructure de serveur NPS avec l’authentification multifacteur Azure à l’aide de l’extension de serveur NPS pour Azure. Cela permet une vérification pour les utilisateurs tentant de se connecter à une passerelle des services Bureau à distance. 
 
 Les services de stratégie et d’accès réseau (NPS) permettent aux entreprises d’effectuer les opérations suivantes :
 * définir des emplacements centraux pour la gestion et le contrôle des demandes du réseau en spécifiant qui peut se connecter, les heures de connexion autorisées pendant la journée, la durée des connexions et le niveau de sécurité que les clients doivent utiliser pour se connecter, et autres. Plutôt que de spécifier ces stratégies sur chaque serveur VPN ou de passerelle des services Bureau à distance (RD), ces stratégies peuvent être spécifiées une seule fois dans un emplacement central. Le protocole RADIUS fournit l’authentification, l’autorisation et la gestion des comptes (AAA) centralisées. 
@@ -55,6 +55,7 @@ Lorsque l’extension de serveur NPS pour Azure est intégrée au serveur NPS et
 7. L’utilisateur a accès à la ressource réseau demandée via la passerelle des services Bureau à distance.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Cette section détaille les conditions préalables nécessaires avant d’intégrer Azure MFA à la passerelle des services Bureau à distance. Avant de commencer, vous devez disposer des conditions requises en place suivantes.  
 
 * Infrastructure des Services Bureau à distance (RDS)

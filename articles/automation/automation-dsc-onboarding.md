@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
 ms.topic: conceptual
+ms.date: 07/20/2018
 manager: carmonm
-ms.openlocfilehash: 4493f9da0de12fbdfffdf0f4da0dd581ac3b589f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 907bb9b998012a5b907c041b3eba061036289cc1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195554"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186983"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Gestion de machines avec Azure Automation DSC
 
@@ -24,9 +24,8 @@ Tout comme le service [Desired State Configuration de PowerShell](https://techne
 
 Azure Automation DSC peut servir à gérer une grande diversité de machines :
 
-* Machines virtuelles Azure (classiques)
-* Machines virtuelles Azure
-* Machines virtuelles Amazon Web Services (AWS)
+* Machines virtuelles Azure (déployées à la fois dans le modèle de déploiement classique et Azure Resource Manager)
+* Instances EC2 d’Amazon Web Services (AWS) 
 * Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS
 * Machines physiques/virtuelles Linux sur site, dans Azure, ou dans un cloud autre qu’Azure
 

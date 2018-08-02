@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de0d6ee32380367bfba4a27958c9c1e739b5dba3
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635066"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173424"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL à l’aide de l’interface Azure CLI
 
@@ -84,6 +84,8 @@ Les valeurs d’emplacement et de niveau tarifaire du serveur restauré restent 
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
 
+Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu qui existaient sur le serveur d’origine. Les règles de pare-feu doivent être définies séparément pour ce nouveau serveur.
+
 ## <a name="geo-restore"></a>Restauration géographique
 Si vous avez configuré votre serveur pour les sauvegardes redondantes géographiquement, un serveur peut être créé à partir de la sauvegarde de ce serveur existant. Ce serveur peut être créé dans toutes les régions dans lesquelles Azure Database pour PostgreSQL est disponible.  
 
@@ -121,6 +123,8 @@ La commande `az postgres server georestore` requiert les paramètres suivants :
 >Lorsque vous créez un nouveau serveur par une restauration géographique, il hérite de la même taille de stockage et du même niveau tarifaire que le serveur source. Ces valeurs ne peuvent pas être modifiées lors de la création. Une fois le nouveau serveur créé, sa taille de stockage peut être montée en puissance.
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement.
+
+Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu qui existaient sur le serveur d’origine. Les règles de pare-feu doivent être définies séparément pour ce nouveau serveur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [sauvegardes](concepts-backup.md) du service.

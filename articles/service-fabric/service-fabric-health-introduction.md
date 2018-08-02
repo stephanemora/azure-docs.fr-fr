@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114314"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215228"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Présentation du contrôle d’intégrité de Service Fabric
 Azure Service Fabric introduit un modèle d’intégrité qui fournit une évaluation et des rapports d’intégrité riches, flexibles et extensibles. Ce modèle permet un contrôle quasiment en temps réel de l’état du cluster et des services qu’il exécute. Vous pouvez facilement obtenir les informations de contrôle d’intégrité et corriger les problèmes potentiels avant qu’ils ne s’enchaînent et ne provoquent des pannes massives. Dans le modèle standard, les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
@@ -186,8 +186,8 @@ Une fois que le magasin d’intégrité a évalué tous les enfants, il agrège 
 
 * Si tous les enfants sont à l’état OK, l’état d’intégrité agrégé des enfants sera OK.
 * Si des enfants ont des états OK et Warning, l’état d’intégrité agrégé des enfants sera Warning.
-* S’il existe des enfants à l’état Error dont le nombre dépasse le pourcentage maximum autorisé d’enfants défectueux, l’état d’intégrité agrégé sera Error.
-* Si le nombre d’enfants à l’état Error ne dépasse pas le pourcentage maximum autorisé d’enfants défectueux, l’état d’intégrité agrégé sera Warning.
+* S’il existe des enfants à l’état Error dont le nombre dépasse le pourcentage maximum autorisé d’enfants défectueux, l’état d’intégrité parent agrégé sera Error.
+* Si le nombre d’enfants à l’état Error ne dépasse pas le pourcentage maximum autorisé d’enfants défectueux, l’état d’intégrité parent agrégé sera Warning.
 
 ## <a name="health-reporting"></a>Rapports d'intégrité
 Les composants système, les applications System Fabric et les agents de surveillance internes/externes peuvent établir des rapports sur les entités Service Fabric. Les rapporteurs déterminent *localement* l’intégrité des entités analysées en fonction des conditions dans lesquelles elles sont contrôlées. Ils n’ont pas besoin d’examiner les données d’agrégation ou l’état global. Le comportement voulu consiste à disposer de rapporteurs simples, au lieu d’organismes complexes, qui doivent examiner de nombreux éléments pour en déduire les informations à envoyer.

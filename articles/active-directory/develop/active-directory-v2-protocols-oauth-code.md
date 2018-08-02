@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a3e8f8ab1594e992b6a6c9e9530c3b363d6d0346
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0b8471f77fd36b03a74e9312833cc6cb8a8a71ec
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158235"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226575"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocoles v2.0 : flux du code d’autorisation OAuth 2.0
 L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API Web. Avec la mise en œuvre du modèle d’application v2.0 d’OAuth 2.0, vous pouvez ajouter une connexion et un accès API à vos applications mobiles et de bureau. Ce guide est indépendant de la langue. Il explique comment envoyer et recevoir des messages HTTP sans utiliser aucune des [bibliothèques d’authentification Open Source Azure](active-directory-authentication-libraries.md).
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type         | required    | Doit inclure `code` pour le flux de code d’autorisation.       |
 | redirect_uri          | recommandé | L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. Pour les applications natives et mobiles, vous devez utiliser la valeur par défaut `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | scope                 | required    | Liste séparée par des espaces d’ [étendues](active-directory-v2-scopes.md) pour lesquelles vous souhaitez que l’utilisateur donne son consentement.           |
-| response_mode         | recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Peut être `query` ou `form_post`.   |
+| response_mode         | recommandé | Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Peut être `query`, `fragment` ou `form_post`. `query` fournit le code sous forme de paramètre de chaîne de requête sur votre URI de redirection. Si vous demandez un jeton d’ID à l’aide du flux implicite, vous ne pouvez pas utiliser `query` comme spécifié dans les [spécifications OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si vous ne demandez que le code, vous pouvez utiliser `query`, `fragment` ou `form_post`. `form_post` exécute une requête POST contenant le code pour votre URI de redirection. Pour plus d’informations, voir [Protocole OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | state                 | recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](http://tools.ietf.org/html/rfc6749#section-10.12). La valeur peut également encoder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou la vue sur laquelle il était. |
 | prompt                | facultatif    | Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont « login », « none » et « consent ». `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. Avec `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu'aucune invite interactive d'aucune sorte n'est présentée à l'utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, le point de terminaison v2.0 renvoie une erreur `interaction_required`. `prompt=consent` déclenche l’affichage de la boîte de dialogue de consentement OAuth après la connexion de l’utilisateur, afin de lui demander d’octroyer des autorisations à l’application. |
 | login_hint            | facultatif    | Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`.                                                                                                                                                                                                                                                                                                    |

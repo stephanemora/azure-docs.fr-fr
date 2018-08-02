@@ -1,6 +1,6 @@
 ---
 title: Sécurité de l’infrastructure Azure | Microsoft Docs
-description: Cet article décrit comment Microsoft garantit la sécurité de ses centres de données.
+description: Cet article décrit comment Microsoft garantit la sécurité de nos centres de données Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 397bd1f904b676a6ba020ec78fb1cad05c460be1
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9385c6ea8d2a04e9a8595a22e6e2ff7638394b41
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903854"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172970"
 ---
 # <a name="azure-infrastructure-security"></a>Sécurité de l’infrastructure Azure
 Microsoft Azure s’exécute dans des centres de données gérés et exploités par Microsoft. Ces centres de données répartis à divers endroits sont conformes aux principales normes du secteur relatives à la sécurité et à la fiabilité, telles que ISO/IEC 27001:2013 et NIST SP 800-53. Les centres de données sont gérés, surveillés et administrés par le personnel d’exploitation de Microsoft. Le personnel d’exploitation a des années d’expérience dans les services en ligne les plus importants au monde avec une continuité des activités 24 heures sur 24, 7 jours sur 7.
@@ -38,32 +38,32 @@ Cette série d’articles fournit des informations sur ce que Microsoft fait pou
 - [Protection des données](azure-protection-of-customer-data.md)
 
 ## <a name="shared-responsibility-model"></a>Modèle de responsabilité partagée
-Il est important de comprendre la répartition des responsabilités entre vous et Microsoft. Localement, vous avez toute la responsabilité, mais, lorsque vous vous déplacez vers le cloud, certaines responsabilités sont transférées à Microsoft. La matrice de responsabilité suivante montre les zones de la pile dans un déploiement SaaS (Software as a Service), PaaS (Platform as a Service) et IaaS (Infrastructure as a Service) dont vous êtes responsable et celles dont Microsoft est responsable.
+Il est important de comprendre la répartition des responsabilités entre vous et Microsoft. Localement, vous avez toute la responsabilité, mais, lorsque vous vous déplacez vers le cloud, certaines responsabilités sont transférées à Microsoft. Le graphique suivant illustre les domaines de responsabilité, en fonction du type de déploiement de votre pile (software as a service [SaaS], platform as a service [PaaS], infrastructure as a service [IaaS] ou local).
 
-![Responsabilité partagée][1]
+![Graphique illustrant les responsabilités][1]
 
-Les responsabilités qui sont toujours les vôtres quel que soit le type de déploiement sont les suivantes :
+Vous êtes toujours responsable des éléments suivants, quel que soit le type de déploiement :
 
 - Données
 - Points de terminaison
 - Compte
-- Gestion de l’accès
+- gestion de l’accès
 
 Veillez à bien comprendre la répartition des responsabilités entre Microsoft et vous-même dans un déploiement SaaS, PaaS et IaaS. Pour plus d’informations, consultez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur ce que Microsoft fait pour sécuriser l’infrastructure Azure, consultez :
+Pour en savoir plus sur ce que Microsoft fait pour sécuriser l’infrastructure Azure, consultez :
 
 - [Sécurité locale et physique des centres de données Azure](azure-physical-security.md)
 - [Disponibilité de l’infrastructure Azure](azure-infrastructure-availability.md)
 - [Composants et limites du système d’informations Azure](azure-infrastructure-components.md)
 - [Architecture réseau Azure](azure-infrastructure-network.md)
 - [Réseau de production Azure](azure-production-network.md)
-- [Fonctionnalités de sécurité de Microsoft Azure SQL Database](azure-infrastructure-sql.md)
+- [Fonctionnalités de sécurité d’Azure SQL Database](azure-infrastructure-sql.md)
 - [Opérations de production et administration Azure](azure-infrastructure-operations.md)
 - [Surveillance de l’infrastructure Azure](azure-infrastructure-monitoring.md)
 - [Intégrité de l’infrastructure Azure](azure-infrastructure-integrity.md)
-- [Protection des données des clients dans Azure](azure-protection-of-customer-data.md)
+- [Protection des données client Azure](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-security-infrastructure/responsibility-zones.png

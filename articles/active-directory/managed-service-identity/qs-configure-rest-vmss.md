@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: a31f36c144cc449790a4c62e8e4e5efcd4cd325d
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e6c0fc981030b934cd1b8568946344262936e18c
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901073"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215705"
 ---
 # <a name="configure-managed-identity-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurer une identité managée sur un groupe de machines virtuelles identiques à l’aide d’appels d’API REST
 
@@ -34,8 +34,12 @@ Dans cet article, découvrez comment effectuer les opérations suivantes sur des
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identité affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
+- Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer des attributions de rôles suivantes :
+    - [Contributeur de machines virtuelles](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor), pour créer un groupe de machines virtuelles identiques, puis activer et supprimer l’identité managée affectée par le système et/ou par l’utilisateur à partir d’un groupe de machines virtuelles identiques.
+    - [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor), pour créer une identité affectée par l’utilisateur.
+    - [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator), pour attribuer et supprimer une identité affectée par l’utilisateur depuis et vers un groupe de machines virtuelles identiques.
 - Si vous utilisez Windows, installez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) dans le portail Azure.
 - [Installez la console locale Azure CLI](/azure/install-azure-cli), si vous utilisez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou un [système d’exploitation de distribution Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Si vous utilisez la console locale Azure CLI, connectez-vous à Azure à l’aide de la commande `az login` avec un compte associé à l’abonnement Azure sous lequel vous souhaitez gérer les identités affectées par le système ou l’utilisateur.

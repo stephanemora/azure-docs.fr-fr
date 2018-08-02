@@ -1,21 +1,21 @@
 ---
-title: Personnalisation de la réinitialisation de mot de passe libre-service - Azure Active Directory
+title: Personnalisation de la réinitialisation de mot de passe libre-service Azure AD
 description: Options de personnalisation de la réinitialisation du mot de passe libre-service Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054588"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222786"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -24,8 +24,9 @@ Les professionnels de l’informatique qui souhaitent déployer la réinitialisa
 ## <a name="customize-the-contact-your-administrator-link"></a>Personnaliser le lien « Contactez votre administrateur »
 
 Même si la réinitialisation n’est pas activée, les utilisateurs disposent toujours d’un lien « Contactez votre administrateur » dans le portail de réinitialisation du mot de passe. Si l’utilisateur sélectionne ce lien, l’une des actions ci-dessous se produit :
-   * Un e-mail est envoyé à vos administrateurs pour demander une assistance lors de la modification du mot de passe de l’utilisateur. 
-   * Les utilisateurs sont dirigés vers une URL que vous spécifiez pour l’assistance. 
+
+   * Un e-mail est envoyé à vos administrateurs pour demander une assistance lors de la modification du mot de passe de l’utilisateur.
+   * Les utilisateurs sont dirigés vers une URL que vous spécifiez pour l’assistance.
 
 Nous vous recommandons de définir comme contact une adresse e-mail ou un site web que vos utilisateurs utilisent déjà pour des questions de support.
 
@@ -45,9 +46,7 @@ Pour en savoir plus sur les différents rôles d’administrateur et sur la faç
 
 Si votre organisation ne souhaite pas avertir les administrateurs au sujet des demandes de réinitialisation de mot de passe, vous pouvez activer la configuration suivante :
 
-* Activez la réinitialisation du mot de passe en libre-service pour tous les utilisateurs finaux. Cette option se trouve sous **Réinitialisation de mot de passe** > **Propriétés**.
-  
-  Si vous ne voulez pas que les utilisateurs réinitialisent leurs propres mots de passe, vous pouvez étendre l’accès à un groupe vide. *Nous ne recommandons pas cette option.*
+* Activez la réinitialisation du mot de passe en libre-service pour tous les utilisateurs finaux. Cette option se trouve sous **Réinitialisation de mot de passe** > **Propriétés**. Si vous ne voulez pas que les utilisateurs réinitialisent leurs propres mots de passe, vous pouvez étendre l’accès à un groupe vide. *Nous ne recommandons pas cette option.*
 * Personnalisez le lien du support technique pour fournir une URL web ou un lien mailto: que les utilisateurs peuvent utiliser pour obtenir une assistance. Cette option se trouve sous **Réinitialisation de mot de passe** > **Personnalisation** > **Adresse e-mail ou URL du support technique**.
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Personnaliser la page de connexion AD FS pour la réinitialisation du mot de passe libre-service
@@ -56,7 +55,7 @@ Les administrateurs des services de fédération Active Directory (AD FS) peuven
 
 Pour ajouter un lien vers la page de connexion AD FS, exécutez la commande suivante sur votre serveur AD FS. Les utilisateurs peuvent utiliser cette page pour accéder au flux de travail de réinitialisation du mot de passe libre-service.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Personnaliser l’apparence du panneau d’accès et de la page de connexion
 

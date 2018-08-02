@@ -14,13 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 13/22/2018
+ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216720"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -71,12 +72,15 @@ Il existe quelques éléments que vous devez connaître et deux choses que vous 
 Vous devez avoir une compréhension opérationnelle des technologies suivantes :
 
 - [Technologies de cluster Windows](http://technet.microsoft.com/library/hh831579.aspx)
--  [Instances de cluster de basculement SQL Server](http://msdn.microsoft.com/library/ms189134.aspx).
+- [Instances de cluster de basculement SQL Server](http://msdn.microsoft.com/library/ms189134.aspx).
 
 Vous devez également avoir une compréhension générale des technologies suivantes :
 
 - [Solution hyper-convergée utilisant les Espaces de stockage direct dans Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Groupes de ressources Azure](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> À ce stade, l’[extension Agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md) n’est pas prise en charge pour l’ICF SQL Server sur Azure. Nous vous recommandons de désinstaller l’extension des machines virtuelles qui participent à l’ICF. Cette extension prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées, ainsi que certaines fonctionnalités du portail pour SQL. Ces fonctionnalités n’opèrent pas pour les machines virtuelles SQL une fois l’agent désinstallé.
 
 ### <a name="what-to-have"></a>Éléments à mettre en place
 
@@ -278,7 +282,7 @@ Un témoin cloud est un nouveau type de témoin de quorum de cluster stocké dan
 
 1. Enregistrez les clés d’accès et l’URL du conteneur.
 
-1. Configurez le témoin de quorum du cluster de basculement. Consultez, [Configurer le témoin de quorum dans l’interface utilisateur]. (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) dans l’interface utilisateur.
+1. Configurez le témoin de quorum du cluster de basculement. Consultez la section [Configurer le témoin de quorum dans l’interface utilisateur](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) dans l’interface utilisateur.
 
 ### <a name="add-storage"></a>Ajouter du stockage
 

@@ -12,20 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4a98b971367c9f83826e85bdc24bbcfe48483f57
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 674952982ac4342caaf31c05f3d644c1e74b649d
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916263"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215894"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Authentification directe Azure Active Directory : immersion technique
 Cet article propose une vue d’ensemble du fonctionnement de l’authentification directe Azure Active directory (Azure AD). Pour en savoir plus sur la sécurité et accéder à d’autres détails techniques, consultez l’article [Présentation approfondie des fonctions de sécurité](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Comment l’authentification directe Azure Active Directory fonctionne-t-elle ?
+
+>[!NOTE]
+>Pour que l’authentification directe fonctionne, les utilisateurs doivent être approvisionnés dans Azure AD à partir d’une instance Active Directory locale à l’aide d’Azure AD Connect. La fonctionnalité Authentification directe ne s’applique pas aux utilisateurs « cloud uniquement ».
 
 Quand un utilisateur tente de se connecter à une application sécurisée par Azure AD et que l’authentification directe est activée sur le client, les étapes suivantes se produisent :
 
@@ -49,6 +52,7 @@ Le schéma suivant illustre tous les composants et les étapes impliquées dans 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Limitations actuelles](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
+- [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Forum aux questions](active-directory-aadconnect-pass-through-authentication-faq.md) : trouvez des réponses aux questions fréquemment posées.
 - [Résoudre les problèmes](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.

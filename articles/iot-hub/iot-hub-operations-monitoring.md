@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0a1da3812d6f11aa6525857596b394fbfa3dc88a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634802"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186194"
 ---
 # <a name="iot-hub-operations-monitoring"></a>Surveillance des opérations IoT Hub
 
 La surveillance des opérations IoT Hub vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel. IoT Hub effectue le suivi des événements entre différentes catégories d’opérations. Vous pouvez opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de votre IoT Hub en vue de leur traitement. Vous pouvez surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
 >[!NOTE]
->La surveillance des opérations d’IoT Hub est déconseillée et sera supprimée d’IoT Hub le 10 octobre 2018. Pour plus d’informations sur la surveillance des opérations et de l’intégrité d’IoT Hub, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes][lnk-monitor]. Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health][lnk-blog-announcement].
+>La surveillance des opérations d’IoT Hub est déconseillée et sera supprimée d’IoT Hub le 10 mars 2019. Pour plus d’informations sur la surveillance des opérations et de l’intégrité d’IoT Hub, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes][lnk-monitor]. Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health][lnk-blog-announcement].
 
 IoT Hub surveille six catégories d’événements :
 
@@ -296,7 +296,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 [lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
 [lnk-monitor]: iot-hub-monitor-resource-health.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md

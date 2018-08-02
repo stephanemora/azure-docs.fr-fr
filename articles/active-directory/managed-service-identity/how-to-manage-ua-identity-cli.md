@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 23567c985f4f9df46ee7d80051c15dc5910a1ea8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5deaace49bfff994defc06a5f60597add6affc0b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904060"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188146"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-the-azure-cli"></a>Créer, lister ou supprimer une identité attribuée à l’utilisateur à l’aide d’Azure CLI
 
@@ -31,11 +31,12 @@ Dans cet article, vous allez découvrir comment créer, lister et supprimer une 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous ne connaissez pas MSI, consultez la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identité affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
-
+- Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer des attributions de rôles suivants :
+    - [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor), pour créer, lire (lister), mettre à jour et supprimer une identité affectée par l’utilisateur.
+    - [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator) pour lire (lister) les propriétés d’une identité affectée par l’utilisateur.
 - Pour exécuter les exemples de script d’Azure CLI, vous disposez de trois options :
-
     - Utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) à partir du portail Azure (voir section suivante).
     - Utilisez l’interface intégrée Azure Cloud Shell via le bouton « Essayer », situé dans le coin supérieur droit de chaque bloc de code.
     - [Installez la dernière version de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou version ultérieure) si vous préférez utiliser une console CLI locale. Connectez-vous à Azure avec la commande `az login` en utilisant un compte associé à l’abonnement Azure sous lequel vous souhaitez déployer l’identité MSI attribuée à l’utilisateur.
@@ -53,7 +54,7 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-identities"></a>Lister les identités attribuées à l’utilisateur
 
-Pour lister les identités attribuées à l’utilisateur, utilisez la commande [az identity list](/cli/azure/identity#az-identity-list).  Le paramètre `-g` spécifie le groupe de ressources dans lequel l’identité attribuée à l’utilisateur a été créée.  Remplacez `<RESOURCE GROUP>` par votre propre valeur :
+Pour lister les identités attribuées à l’utilisateur, utilisez la commande [az identity list](/cli/azure/identity#az-identity-list). Remplacez `<RESOURCE GROUP>` par votre propre valeur :
 
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
@@ -64,7 +65,7 @@ Dans la réponse json, les identités utilisateurs ont une valeur `"Microsoft.Ma
 
 ## <a name="delete-a-user-assigned-identity"></a>Supprimer une identité attribuée à l’utilisateur
 
-Pour supprimer une identité attribuée à l’utilisateur, utilisez la commande [az identity delete](/cli/azure/identity#az-identity-delete).  Le paramètre -n spécifie son nom et le paramètre -g spécifie le groupe de ressources où l’identité attribuée à l’utilisateur a été créée.  Remplacez les valeurs des paramètres `<USER ASSIGNED IDENTITY NAME>` et `<RESOURCE GROUP>` par vos propres valeurs :
+Pour supprimer une identité attribuée à l’utilisateur, utilisez la commande [az identity delete](/cli/azure/identity#az-identity-delete).  Le paramètre -n spécifie son nom et le paramètre -g spécifie le groupe de ressources où l’identité attribuée à l’utilisateur a été créée. Remplacez les valeurs des paramètres `<USER ASSIGNED IDENTITY NAME>` et `<RESOURCE GROUP>` par vos propres valeurs :
 
  ```azurecli-interactive
 az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>

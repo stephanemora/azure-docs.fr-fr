@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5106bbbb073908af7e7e8f045fa6fb60e8a306f4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c52c9fc6b47b03b3ca6db96decb8b4777577d00e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316910"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174240"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Exécuter des tâches simultanément pour optimiser l’utilisation des nœuds de calcul Batch 
 
@@ -56,15 +56,15 @@ La propriété [CloudPool.TaskSchedulingPolicy][task_schedule] vous permet de sp
 Pour illustrer l’importance de cette fonctionnalité, examinons le pool de nœuds [Standard_Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (dans l’exemple ci-dessus) configuré avec une propriété [CloudPool.MaxTasksPerComputeNode][maxtasks_net] d’une valeur de 16. Si la propriété [CloudPool.TaskSchedulingPolicy][task_schedule] est configurée avec une propriété [ComputeNodeFillType][fill_type] de type *Pack*, l’utilisation des 16 cœurs de chaque nœud est optimisée et un [pool de mise à l’échelle automatique](batch-automatic-scaling.md) est autorisé pour nettoyer les nœuds inutilisés du pool (nœuds sans aucune tâche affectée). Ceci limite l'utilisation des ressources et permet d'économiser de l'argent.
 
 ## <a name="batch-net-example"></a>Exemple .NET Batch
-Cet extrait de code de l’API [Batch .NET][api_net] illustre une demande de création d’un pool contenant quatre grands nœuds avec un maximum de quatre tâches par nœud. Une stratégie de planification de tâche est également spécifiée ; elle remplira chaque nœud de tâches avant d'attribuer des tâches à un autre nœud du pool. Pour plus d’informations sur l’ajout de pools à l’aide de l’API Batch .NET, consultez [BatchClient.PoolOperations.CreatePool][poolcreate_net].
+Cet extrait de code de l’API [Batch .NET][api_net] illustre une demande de création d’un pool contenant quatre nœuds avec un maximum de quatre tâches par nœud. Une stratégie de planification de tâche est également spécifiée ; elle remplira chaque nœud de tâches avant d'attribuer des tâches à un autre nœud du pool. Pour plus d’informations sur l’ajout de pools à l’aide de l’API Batch .NET, consultez [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
 ```csharp
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
         poolId: "mypool",
         targetDedicatedComputeNodes: 4
-        virtualMachineSize: "large",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 pool.MaxTasksPerComputeNode = 4;
 pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
@@ -125,13 +125,13 @@ La deuxième exécution de l'exemple montre une diminution significative de la d
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
-### <a name="batchlabs-heat-map"></a>Carte thermique BatchLabs
-[BatchLabs][batch_labs] est un outil client autonome, gratuit et doté de nombreuses fonctionnalités, aidant à créer, déboguer et surveiller les applications Azure Batch. BatchLabs contient une fonctionnalité *Carte thermique* qui fournit une visualisation de l’exécution des tâches. Lorsque vous exécutez l’exemple d’application [ParallelTasks][parallel_tasks_sample], utilisez la fonctionnalité Carte thermique pour visualiser l’exécution de tâches parallèles sur chaque nœud.
+### <a name="batch-explorer-heat-map"></a>Carte thermique Batch Explorer
+[Batch Explorer][batch_labs] est un outil client autonome gratuit, doté de nombreuses fonctionnalités aidant à créer, déboguer et surveiller les applications Azure Batch. Batch Explorer contient une fonctionnalité *Carte thermique* qui fournit une visualisation de l’exécution des tâches. Lorsque vous exécutez l’exemple d’application [ParallelTasks][parallel_tasks_sample], utilisez la fonctionnalité Carte thermique pour visualiser l’exécution de tâches parallèles sur chaque nœud.
 
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx

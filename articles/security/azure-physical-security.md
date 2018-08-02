@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a6a9b1d6e12dabb09cde684c34481b4b3442c1b8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 69a54640ae3b4e71d7782712ad1764babab7104a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101532"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170675"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Sécurité locale et physique des centres de données Azure
-Le cloud Microsoft est composé d’une [infrastructure de centres de données distribuée à l’échelle mondiale](https://azure.microsoft.com/global-infrastructure/) qui gère des milliers de services en ligne et couvre plus de 100 installations sous haute sécurité dans le monde entier.
+Azure est composé d’une [infrastructure de centres de données distribuée à l’échelle mondiale](https://azure.microsoft.com/global-infrastructure/) qui gère des milliers de services en ligne et couvre plus de 100 installations de haute sécurité dans le monde entier.
 
 L’infrastructure est conçue pour rapprocher les applications des utilisateurs dans le monde entier, en préservant la résidence des données et en offrant aux clients des options complètes de conformité et de résilience. Azure est présent dans 52 régions du monde et disponible dans 140 pays.
 
@@ -32,57 +32,57 @@ Les régions Azure sont organisées en zones géographiques. Une zone géographi
 
 Les zones géographiques permettent aux clients ayant des besoins spécifiques en conformité et résidence des données de conserver leurs données et leurs applications à proximité. Les zones géographiques sont tolérantes aux pannes et peuvent résister à une défaillance complète de la région, car elles sont connectées à l’infrastructure réseau haute capacité dédiée.
 
-Les zones de disponibilité sont des emplacements physiquement séparés au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un refroidissement et d’un réseau indépendants. Les zones de disponibilité permettent aux clients d’exécuter des applications stratégiques en bénéficiant d’une haute disponibilité et d’une réplication à faible latence.
+Les zones de disponibilité sont des emplacements physiquement séparés au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un refroidissement et d’un réseau indépendants. Les zones de disponibilité vous permettent d’exécuter des applications critiques avec une haute disponibilité et une réplication de latence faible.
 
 La figure suivante montre comment l’infrastructure mondiale d’Azure associe une région à des zones de disponibilité dans la même limite de résidence des données pour bénéficier d’une haute disponibilité, d’une reprise d’activité après sinistre et d’une sauvegarde.
 
-![Limite de résidence des données][1]
+![Diagramme montrant la limite de résidence des données][1]
 
-Un grand réseau géographiquement distribué de centres de données permet à Microsoft d’être proche des clients pour réduire la latence du réseau et rendre possibles les basculements et les sauvegardes géoredondantes.
+Des centres de données distribués géographiquement permettent à Microsoft d’être proche des clients pour réduire la latence du réseau et rendre possibles les basculements et les sauvegardes géoredondantes.
 
 ## <a name="physical-security"></a>Sécurité physique
-Microsoft conçoit, crée et utilise des centres de données de manière à assurer un contrôle strict de l’accès physique aux zones où sont stockées les données des clients. Microsoft comprend l’importance de protéger les données des clients et s’engage à contribuer à la sécurisation des centres de données qui contiennent vos données. Microsoft compte une division entière dédiée à la conception, à la création et au fonctionnement des installations physiques qui gèrent Azure. Cette équipe est investie dans la conservation d’une sécurité physique à la pointe.
+Microsoft conçoit, crée et utilise des centres de données de manière à assurer un contrôle strict de l’accès physique aux zones où vos données sont stockées. Microsoft comprend l’importance de protéger les données de ses clients et s’engage à contribuer à la sécurisation des centres de données qui contiennent vos données. Microsoft compte une division entière dédiée à la conception, à la création et au fonctionnement des installations physiques qui gèrent Azure. Cette équipe est investie dans la conservation d’une sécurité physique à la pointe.
 
-Microsoft adopte une approche en couches de la sécurité physique pour réduire le risque que des utilisateurs non autorisés puissent accéder physiquement aux données et aux ressources des centres de données. Les centres de données gérés par Microsoft présentent des couches de protection complètes : approbation de l’accès au périmètre de l’installation, au périmètre du bâtiment, à l’intérieur du bâtiment et à l’étage du centre de données. Les couches de la sécurité physique sont :
+Microsoft adopte une approche en couche de la sécurité physique, pour réduire les risques que des utilisateurs non autorisés puissent avoir un accès physique aux données et aux ressources des centres de données. Les centres de données gérés par Microsoft présentent des couches de protection complètes : approbation de l’accès au périmètre de l’installation, au périmètre du bâtiment, à l’intérieur du bâtiment et à l’étage du centre de données. Les couches de la sécurité physique sont :
 
-- Demande et approbation des accès : Vous devez demander un accès avant d’arriver au centre de données. Vous êtes obligé de fournir une justification professionnelle valide de votre visite, par exemple pour des raisons de conformité ou d’audit. Toutes les demandes sont approuvées au cas par cas par les employés de Microsoft. La gestion des accès au cas par cas permet de garder le nombre de personnes qui ont besoin d’effectuer une tâche dans les centres de données au strict minimum. Une fois que la personne obtient une autorisation, elle peut accéder uniquement à la zone du centre de données pour laquelle sa justification a été approuvée. Les autorisations sont limitées dans le temps et expirent après le temps imparti.
+- **Demande d’accès et approbation.** Vous devez demander l’accès avant d’arriver au centre de données. Vous êtes obligé de fournir une justification professionnelle valide de votre visite, par exemple pour des raisons de conformité ou d’audit. Toutes les demandes sont approuvées au cas par cas par les employés de Microsoft. La gestion des accès au cas par cas permet de garder le nombre de personnes qui ont besoin d’effectuer une tâche dans les centres de données au strict minimum. Une fois qu’une personne obtient une autorisation de Microsoft, elle n’a accès qu’à la zone du centre de données requise, pour laquelle sa justification a été approuvée. Les autorisations sont limitées dans le temps et expirent.
 
-- Périmètre de l’installation : Quand vous arrivez dans un centre de données, vous êtes obligé de passer par un point d’accès bien défini. En règle générale, des clôtures hautes en acier et en béton couvrent chaque centimètre du périmètre. Des caméras sont postées autour des centres de données et une équipe de sécurité visionne les vidéos 24 heures sur 24 et 7 jours sur 7, 365 jours par an.
+- **Périmètre de l’installation.** Quand vous arrivez dans un centre de données, vous êtes obligé de passer par un point d’accès bien défini. En règle générale, des clôtures hautes en acier et en béton couvrent chaque centimètre du périmètre. Des caméras sont postées autour des centres de données et une équipe de sécurité visionne les vidéos en permanence.
 
-- Entrée du bâtiment : L’entrée des centres de données est surveillée par des professionnels de la sécurité qui ont suivi une formation stricte et dont les antécédents ont été vérifiés. Ces professionnels de la sécurité patrouillent aussi régulièrement dans le centre de données tout en contrôlant les vidéos des caméras qui se trouvent à l’intérieur, 24 heures sur 24 et 7 jours sur 7, 365 jours par an.
+- **Entrée du bâtiment.** L’entrée des centres de données est surveillée par des professionnels de la sécurité qui ont suivi une formation stricte et dont les antécédents ont été vérifiés. Ces professionnels de la sécurité patrouillent aussi régulièrement dans le centre de données tout en contrôlant les vidéos des caméras qui se trouvent à l’intérieur en permanence.
 
-- Intérieur du bâtiment : Après être entré dans le bâtiment, vous devez passer une authentification à deux facteurs avec biométrie pour pouvoir vous déplacer dans le centre de données. Si votre identité est validée, vous pouvez entrer dans la partie du centre de données pour laquelle votre accès a été approuvé. Vous pouvez y rester uniquement pendant la durée approuvée.
+- **À l’intérieur du bâtiment.** Après être entré dans le bâtiment, vous devez passer une authentification à deux facteurs avec biométrie pour pouvoir vous déplacer dans le centre de données. Si votre identité est validée, vous pouvez entrer dans la partie du centre de données pour laquelle votre accès a été approuvé. Vous pouvez y rester uniquement pendant la durée approuvée.
 
-- Étage du centre de données : Vous êtes autorisé à vous rendre uniquement à l’étage pour lequel votre accès a été approuvé. Vous êtes obligé de passer sous un portique de détection de métaux. Pour réduire le risque que des données non autorisées entrent ou sortent du centre de données sans notre connaissance, seuls les appareils approuvés sont admis à l’étage du centre de données. Par ailleurs, des caméras vidéo surveillent les deux côtés de chaque rack de serveurs. Quand vous quittez l’étage du centre de données, vous devez repasser par le portique de détection de métaux. Pour quitter le centre de données, vous devez passer par un autre scan de sécurité.
+- **Étage du centre de données** Vous n’êtes autorisé à vous rendre qu’à l’étage pour lequel votre accès a été approuvé. Vous êtes obligé de passer sous un portique de détection de métaux. Pour réduire le risque que des données non autorisées entrent ou sortent du centre de données sans notre connaissance, seuls les appareils approuvés sont admis à l’étage du centre de données. Par ailleurs, des caméras vidéo surveillent les deux côtés de chaque rack de serveurs. Quand vous quittez l’étage du centre de données, vous devez repasser par le portique de détection de métaux. Pour quitter le centre de données, vous devez passer par un autre scan de sécurité.
 
 Les visiteurs doivent rendre leurs badges quand ils quittent un bâtiment Microsoft.
 
 ## <a name="physical-security-reviews"></a>Révisions de la sécurité physique
-Les révisions de la sécurité physique des bâtiments sont effectuées régulièrement pour s’assurer que les centres de données répondent aux critères de sécurité de Microsoft Azure. Le personnel du fournisseur d’hébergement de centre de données ne fournit aucune gestion des services Microsoft Azure. Il n’a pas d’accès de connexion aux systèmes Azure ni d’accès physique à la salle et aux cages de collocation Azure.
+Les révisions de la sécurité physique des bâtiments sont effectuées régulièrement pour s’assurer que les centres de données répondent aux critères de sécurité d’Azure. Le personnel du fournisseur d’hébergement du centre de données ne fournit aucune gestion des services Azure. Il ne peut pas se connecter aux systèmes Azure n’a pas d’accès physique à la salle et aux cages de collocation Azure.
 
 ## <a name="data-bearing-devices"></a>Appareils contenant des données
-Microsoft utilise les procédures de bonne pratique et une solution d’effacement [conforme à la norme NIST 800-88](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01). Pour les disques durs qui ne peuvent pas être effacés, une procédure de destruction est utilisée pour les détruire et rendre la récupération des informations impossible. La procédure de destruction peut être une désintégration, un déchiquetage, une pulvérisation ou une incinération. Le mode d’élimination approprié est déterminé par le type de matériel. Les informations sur les destructions sont conservées.  
+Microsoft utilise les procédures de bonne pratique et une solution d’effacement [conforme à la norme NIST 800-88](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01). Pour les disques durs qui ne peuvent pas être effacés, une procédure de destruction est utilisée pour les détruire et rendre la récupération des informations impossible. Le processus de destruction peut être une désintégration, un déchiquetage, une pulvérisation ou une incinération. Nous déterminons les moyens d’élimination en fonction du type de ressource. Les enregistrements des destructions sont conservés.  
 
 ## <a name="equipment-disposal"></a>Élimination de l’équipement
-Microsoft Azure implémente ce principe pour le compte des clients. À la fin du cycle de vie d’un système, le personnel d’exploitation de Microsoft suit les procédures rigoureuses de traitement des données et d’élimination de matériel afin de s’assurer qu’aucun matériel susceptible de contenir des données de client n’est accessible à des tiers non approuvés. Une approche d’effacement sécurisé est suivie (via le microprogramme du disque dur) pour les lecteurs qui la prennent en charge. Pour les disques durs qui ne peuvent pas être effacés, une procédure de destruction est utilisée pour les détruire et rendre la récupération des informations impossible. La procédure de destruction peut être une désintégration, un déchiquetage, une pulvérisation ou une incinération. Le mode d’élimination approprié est déterminé par le type de matériel. Les informations sur les destructions sont conservées. Tous les services Microsoft Azure utilisent des services de gestion des supports de stockage et d’élimination approuvés.
+À la fin du cycle de vie d’un système, le personnel d’exploitation de Microsoft suit les procédures rigoureuses de traitement des données et d’élimination de matériel afin de s’assurer qu’aucun matériel susceptible de contenir les données d’un client ne soit accessible à des tiers non approuvés. Nous utilisons une approche d’effacement sécurisée pour les disques durs qui la prennent en charge. Pour les disques durs qui ne peuvent pas être effacés, un processus de destruction est utilisé pour les détruire et rendre la récupération des informations impossible. Le processus de destruction peut être une désintégration, un déchiquetage, une pulvérisation ou une incinération. Nous déterminons les moyens d’élimination en fonction du type de ressource. Les enregistrements des destructions sont conservés. Tous les services Microsoft Azure utilisent des services de gestion des supports de stockage et d’élimination approuvés.
 
 ## <a name="compliance"></a>Conformité
-L’infrastructure Azure est conçue et gérée pour répondre à un large éventail de normes de conformité internationales et spécifiques au secteur, telles que ISO 27001, HIPAA, FedRAMP, SOC 1 et SOC 2. Des normes propres aux pays sont également respectées, comme l’IRAP en Australie, UK G-Cloud et la MTCS à Singapour. Des audits rigoureux de tiers, comme ceux effectués par le British Standards Institute, vérifient l’adhérence d’Azure aux contrôles de sécurité stricts imposés par ces normes.
+L’infrastructure Azure est conçue et gérée pour répondre à un large éventail de normes de conformité internationales et spécifiques au secteur, telles que ISO 27001, HIPAA, FedRAMP, SOC 1 et SOC 2. Les normes propres aux pays sont également respectées, comme l’IRAP en Australie, UK G-Cloud et la MTCS à Singapour. Des audits rigoureux de tiers, comme ceux effectués par le British Standards Institute, vérifient l’adhérence d’Azure aux contrôles de sécurité stricts imposés par ces normes.
 
-Consultez les [offres de conformité](https://www.microsoft.com/trustcenter/compliance/complianceofferings) pour avoir une liste complète des normes de conformité observées par Azure.
+Pour avoir une liste complète des normes de conformité observées par Azure, consultez les [Offres de conformité](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur ce que Microsoft fait pour sécuriser l’infrastructure Azure, consultez :
+Pour en savoir plus sur ce que Microsoft fait pour sécuriser l’infrastructure Azure, consultez :
 
 - [Disponibilité de l’infrastructure Azure](azure-infrastructure-availability.md)
 - [Composants et limites du système d’informations Azure](azure-infrastructure-components.md)
 - [Architecture réseau Azure](azure-infrastructure-network.md)
 - [Réseau de production Azure](azure-production-network.md)
-- [Fonctionnalités de sécurité de Microsoft Azure SQL Database](azure-infrastructure-sql.md)
+- [Fonctionnalités de sécurité d’Azure SQL Database](azure-infrastructure-sql.md)
 - [Opérations de production et administration Azure](azure-infrastructure-operations.md)
-- [Monitoring de l’infrastructure Azure](azure-infrastructure-monitoring.md)
+- [Surveillance de l’infrastructure Azure](azure-infrastructure-monitoring.md)
 - [Intégrité de l’infrastructure Azure](azure-infrastructure-integrity.md)
-- [Protection des données des clients dans Azure](azure-protection-of-customer-data.md)
+- [Protection des données client Azure](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-physical-security/data-residency-boundary.png

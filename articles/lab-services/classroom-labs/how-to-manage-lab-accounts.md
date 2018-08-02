@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 6039ea482b0968d48fc21ff3dfec82a2ff0db43d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715324"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225300"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gérer des comptes de laboratoire dans Azure Lab Services 
 Dans Azure Lab Services, un compte de laboratoire est un conteneur pour les laboratoires gérés tels que les laboratoires de classe. Un administrateur configure un compte de laboratoire avec Azure Lab Services et fournit l’accès à tous les propriétaires de laboratoire qui peuvent alors créer des laboratoires dans leur compte. Cet article explique comment créer un compte de laboratoire, voir tous les comptes de laboratoire et supprimer un compte de laboratoire.
@@ -45,7 +45,7 @@ Dans Azure Lab Services, un compte de laboratoire est un conteneur pour les labo
     ![Page Lab account (Compte de laboratoire)](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Ajouter un utilisateur au rôle Créateur de laboratoire
-Pour donner aux formateurs l’autorisation de créer des laboratoires pour leurs classes, ajoutez-les au rôle Créateur de laboratoire :
+Pour configurer un laboratoire de classe dans un compte de laboratoire, l’utilisateur doit être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer le compte de laboratoire est automatiquement ajouté à ce rôle. Si vous envisagez d’utiliser le même compte d’utilisateur pour créer un laboratoire de classe, vous pouvez ignorer cette étape. Pour utiliser un autre compte d’utilisateur pour créer un laboratoire de classe, procédez comme suit : 
 
 1. Dans la page **Lab account** (Compte de laboratoire), sélectionnez **Contrôle d’accès (IAM)**, puis cliquez sur **+Ajouter** dans la barre d’outils. 
 
@@ -54,6 +54,22 @@ Pour donner aux formateurs l’autorisation de créer des laboratoires pour leur
 
     ![Ajouter un utilisateur au rôle Créateur de laboratoire](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>Spécifier les images de la Place de marché disponibles pour les propriétaires de laboratoire
+Dans cette section, vous spécifiez les images de la Place de marché que les propriétaires de laboratoire peuvent utiliser pour créer des laboratoires de classe. 
+
+1. Sélectionnez **Images de la Place de marché** à gauche du menu. Par défaut, la liste complète des images (activées et désactivées) s’affiche. Vous pouvez filtrer la liste pour afficher uniquement les images activées/désactivées en sélectionnant l’option **Enabled only (Activées uniquement)**/**Disabled only (Désactivées uniquement)** dans la liste déroulante en haut. 
+
+    ![Page des images de la Place de marché](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. Pour **désactiver** une image de la Place de marché qui a été activée, effectuez l’une des actions suivantes : 
+    1. Sélectionnez **... (points de suspension)** dans la dernière colonne, puis sélectionnez **Disable image (Désactiver l’image)**. 
+
+        ![Désactiver une image](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Sélectionnez une ou plusieurs images dans la liste en cochant la case à côté du nom de l’image, puis sélectionnez **Disable selected images (Désactiver les images sélectionnées)**. 
+
+        ![Désactiver plusieurs images](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. De même, pour **activer** une image de la Place de marché, effectuez l’une des actions suivantes : 
+    1. Sélectionnez **... (points de suspension)** dans la dernière colonne, puis sélectionnez **Enable image (Désactiver l’image)**. 
+    2. Sélectionnez une ou plusieurs images dans la liste en cochant la case à côté du nom de l’image, puis sélectionnez **Disable selected images (Désactiver les images sélectionnées)**. 
 
 ## <a name="view-lab-accounts"></a>Afficher les comptes de laboratoire
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a01c5bc2ca6310ee87f2ead1ea590987c854e733
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fab9ddefc022cb5643f98cf7fea4ca74d4f7101b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595323"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227781"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0
 Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos [bibliothèques open source](active-directory-authentication-libraries.md).
@@ -44,7 +44,7 @@ Le flux de code d'autorisation commence par le client dirigeant l'utilisateur ve
 https://login.microsoftonline.com/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
-&redirect_uri=http%3A%2F%2Flocalhost%3A%12345
+&redirect_uri=http%3A%2F%2Flocalhost%3A12345
 &response_mode=query
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &state=12345
@@ -56,7 +56,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |required |L’ID de l’application assignée à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Azure Active Directory** dans le volet de services, sur **Inscriptions des applications**, puis choisissez l’application. |
 | response_type |required |Doit inclure `code` pour le flux de code d’autorisation. |
 | redirect_uri |recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. Pour les applications natives et mobiles, vous devez utiliser la valeur par défaut `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |recommandé |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Peut être `query` ou `form_post`. `query` fournit le code sous forme de paramètre de chaîne de requête sur votre URI de redirection, tandis que `form_post` exécute une requête POST contenant le code pour votre URI de redirection. |
+| response_mode |recommandé |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Peut être `query`, `fragment` ou `form_post`. `query` fournit le code en tant que paramètre d’une chaîne de requête sur votre URI de redirection. Si vous demandez un jeton ID à l’aide du flux implicite, vous ne pouvez pas utiliser `query` comme indiqué dans les [spécifications OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si vous ne demandez que le code, vous pouvez utiliser `query`, `fragment` ou `form_post`. `form_post` exécute un POST contenant le code adressé à votre URI de redirection. |
 | state |recommandé |Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](http://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | resource | recommandé |URI ID d’application de l’API web cible (ressource sécurisée). Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez sur **Azure Active Directory**, **Inscriptions des applications**, ouvrez la page **Paramètres** de l’application, puis cliquez sur **Propriétés**. Il peut également s’agir d’une ressource externe comme `https://graph.microsoft.com`. Il est nécessaire dans les requêtes de jeton ou d’autorisation. Pour réduire le nombre d’invites d’authentification, placez-le dans la requête d’autorisation afin d’être sûr que le consentement est reçu par l’utilisateur. |
 | scope | **ignoré** | Pour les applications Azure AD v1, les étendues doivent être configurées statiquement dans le portail Azure dans les **Paramètres** de l’application, sous **Autorisations requises**. |

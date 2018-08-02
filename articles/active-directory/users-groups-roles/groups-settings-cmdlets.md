@@ -14,12 +14,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 658ec5bb2aa7c15fb1d38da5249ff9b13973cf41
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 9e065b04083cce958bc42f2efade0038bf137f8a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867995"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145109"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 Cet article contient des instructions concernant l’utilisation des applets de commande PowerShell Azure Active Directory (Azure AD) pour créer et mettre à jour des groupes. Ce contenu s’applique uniquement aux groupes Office 365 (parfois appelés groupes unifiés). 
@@ -96,7 +96,8 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified. Sa
 |  <ul><li>EnableGroupCreation<li>Type : booléen<li>Par défaut : True |Indicateur spécifiant si la création de groupes Office 365 est autorisée dans le répertoire par les utilisateurs non administrateurs. Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Type : string<li>Valeur par défaut : “” |GUID du groupe de sécurité pour lequel les membres sont autorisés à créer des groupes Office 365 même lorsque EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Type : string<li>Valeur par défaut : “” |Lien vers les instructions d’utilisation du groupe. |
-|  <ul><li>ClassificationDescriptions<li>Type : string<li>Valeur par défaut : “” | Liste séparée par des virgules des descriptions de classification. |
+|  <ul><li>ClassificationDescriptions<li>Type : string<li>Valeur par défaut : “” | Liste séparée par des virgules des descriptions de classification. La valeur de ClassificationDescriptions est uniquement valide au format suivant :
+  $setting [« ClassificationDescriptions »] = « Classification:Description,Classification:Description », où Classification correspond aux chaînes dans la liste ClassificationList.|
 |  <ul><li>DefaultClassification<li>Type : string<li>Valeur par défaut : “” | Classification qui doit être utilisée en tant que classement par défaut pour un groupe si aucune classification n’a été spécifiée.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Type : string<li>Valeur par défaut : “” | Chaîne d’une longueur maximale de 64 caractères qui définit la convention d’affectation de noms configurée pour les groupes Office 365. Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Type : string<li>Valeur par défaut : “” | Chaîne d’expressions séparées par des virgules que les utilisateurs ne seront pas autorisés à employer dans les noms ou alias de groupe. Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)](groups-naming-policy.md). |

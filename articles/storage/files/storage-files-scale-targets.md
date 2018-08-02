@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/04/2017
+ms.date: 7/19/2018
 ms.author: wgries
-ms.openlocfilehash: beb3e5caf8c8dce9b2ea06bbd0a2ea5a4e05a714
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 8937b0cfc620114c602278a3f8989ba1f3f60685
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738072"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173722"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
-[Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync (préversion).
+[Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
 
 Les objectifs de performance et d’extensibilité répertoriés ici sont des objectifs haut de gamme, mais ils peuvent être affectés par d'autres variables de votre déploiement. Par exemple, le débit d’un fichier peut également être limité par votre bande passante réseau disponible, et pas seulement par les serveurs qui hébergent le service Azure Files. Nous vous recommandons vivement de tester votre modèle d’utilisation pour déterminer si l’extensibilité et les performances d'Azure Files répondent à vos besoins. Nous sommes résolus à augmenter ces limites au fil du temps. N’hésitez pas à nous faire part de vos remarques, soit dans les commentaires ci-dessous ou sur [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files), concernant les limites que vous aimeriez voir augmenter.
 
@@ -73,11 +73,11 @@ Pour vous aider à planifier votre déploiement pour chacune des phases, voici l
 |-|--|
 | Nombre d’objets synchronisés| 125 000 objets (variation ~1 %) | 
 | Taille du jeu de données| 50 GiB |
-| Taille de fichier moyenne | ~500 KiB (plus gros fichier : 100 GiB) |
+| Taille de fichier moyenne | ~ 500 Kio |
 | Débit de chargement | 20 objets par seconde |
 | Débit de téléchargement complet* | 30 objets par seconde |
  
-Si la hiérarchisation cloud est activée, vous devez avoir de meilleures performances, car seules certaines données de fichier sont téléchargées. Azure File Sync télécharge uniquement les données des fichiers mis en cache quand elles changent sur un point de terminaison. Pour les fichiers hiérarchisés ou nouvellement créés, l’agent ne télécharge pas les données de fichier et, à la place, synchronise uniquement l’espace de noms sur tous les points de terminaison de serveur. L’agent prend également en charge les téléchargements partiels de fichiers hiérarchisés à mesure qu’ils sont consultés par l’utilisateur. 
+* Si la hiérarchisation cloud est activée, vous devez avoir de meilleures performances, car seules certaines données de fichier sont téléchargées. Azure File Sync télécharge uniquement les données des fichiers mis en cache quand elles changent sur un point de terminaison. Pour les fichiers hiérarchisés ou nouvellement créés, l’agent ne télécharge pas les données de fichier et, à la place, synchronise uniquement l’espace de noms sur tous les points de terminaison de serveur. L’agent prend également en charge les téléchargements partiels de fichiers hiérarchisés à mesure qu’ils sont consultés par l’utilisateur. 
  
 > [!Note]  
 > Les nombres ci-dessus ne sont pas une indication des performances que vous allez rencontrer. Les performances réelles dépendent de plusieurs facteurs comme indiqué au début de cette section.

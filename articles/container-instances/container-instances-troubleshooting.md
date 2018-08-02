@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 39c43c079ea4d10686bd656ba2d451ff42aac9f6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 550b53cf40133c8a67306c61cbfa7dae21be4648
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700228"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39163629"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
@@ -22,25 +22,43 @@ Cet article explique comment résoudre les problèmes courants de gestion ou de 
 
 ## <a name="naming-conventions"></a>Conventions d’affectation de noms
 
-Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs.
-Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) dans le centre Azure Architecture Center.
+Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans Azure Architecture Center.
 
 | Étendue | Longueur | Casse | Caractères valides | Modèle suggéré | Exemples |
 | --- | --- | --- | --- | --- | --- | --- |
-| Nom du groupe de conteneurs | 1-64 |Non-respect de la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première et dernière positions |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nom du groupe de conteneurs | 1-64 |Non-respect de la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nom du conteneur | 1-64 |Non-respect de la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Ports du conteneur | Entre 1 et 65 535 |Entier  |Entier compris entre 1 et 65 535 |`<port-number>` |`443` |
 | Étiquette du nom DNS | 5 à 63 |Non-respect de la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>` |`frontend-site1` |
-| Variable d’environnement | 1-63 |Non-respect de la casse |Caractères alphanumériques et caractère « _ » n’importe où sauf en première ou dernière position |`<name>` |`MY_VARIABLE` |
+| Variable d’environnement | 1-63 |Non-respect de la casse |Caractères alphanumériques et trait de soulignement (_) n’importe où sauf en première ou dernière position |`<name>` |`MY_VARIABLE` |
 | Nom du volume | 5 à 63 |Non-respect de la casse |Lettres minuscules, chiffres et traits d’union n’importe où sauf en première ou dernière position. Ne peut pas contenir deux traits d’union consécutifs. |`<name>` |`batch-output-volume` |
 
-## <a name="image-version-not-supported"></a>Version d’image non prise en charge
+## <a name="os-version-of-image-not-supported"></a>La version du système d’exploitation de l’image n’est pas prise en charge
 
-Si l’image spécifiée n’est pas prise en charge par Azure Container Instances, une erreur `ImageVersionNotSupported` est renvoyée. La valeur de l’erreur est `The version of image '{0}' is not supported.` et s’applique généralement aux images Windows 1709. Pour résoudre ce problème, utilisez une image LTS Windows. La prise en charge pour des images Windows 1709 est en cours d’élaboration.
+Si l’image spécifiée n’est pas prise en charge par Azure Container Instances, une erreur `OsVersionNotSupported` est renvoyée. L’erreur est semblable à ce qui suit, où `{0}` est le nom de l’image que vous avez tentée de déployer :
+
+```json
+{
+  "error": {
+    "code": "OsVersionNotSupported",
+    "message": "The OS version of image '{0}' is not supported."
+  }
+}
+```
+
+Cette erreur se produit généralement lorsque vous déployez des images Windows qui sont basées sur une version du canal semi-annuel (SAC). Par exemple, les versions Windows 1709 et 1803 sont des versions du SAC et génèrent cette erreur lors du déploiement.
+
+Azure Container Instances prend en charge les images Windows basées sur des versions du canal de maintenance à long terme (LTSC). Pour résoudre ce problème lorsque vous déployez les conteneurs Windows, déployez toujours les images basées sur LTSC.
+
+Pour plus d’informations sur les versions de LTSC et du SAC Windows, consultez [Vue d’ensemble du canal semi-annuel du serveur Windows][windows-sac-overview].
 
 ## <a name="unable-to-pull-image"></a>Impossible d’extraire l’image
 
-Si Azure Container Instances ne parvient pas à extraire votre image initialement, il réessaie pendant une certaine période, sans succès. Des événements tels que les suivants sont alors affichés dans la sortie de [az container show][az-container-show] :
+Si Azure Container Instances ne parvient pas à extraire votre image initialement, il réessaie pendant une certaine période, sans succès. Si l’opération d’extraction image continue à échouer, le déploiement ACI risque d’échouer, et vous verrez une erreur `Failed to pull image`.
+
+Pour résoudre ce problème, supprimez l’instance de conteneur et réessayez votre déploiement. Vérifiez que l’image existe dans le Registre, et que vous avez correctement tapé le nom de l’image.
+
+Des événements tels que les suivants sont alors affichés dans la sortie de [az container show][az-container-show] :
 
 ```bash
 "events": [
@@ -71,13 +89,11 @@ Si Azure Container Instances ne parvient pas à extraire votre image initialemen
 ],
 ```
 
-Pour résoudre cette situation, supprimez le conteneur et essayez de le redéployer, en veillant à taper correctement le nom de l’image.
-
 ## <a name="container-continually-exits-and-restarts"></a>Le conteneur s’arrête et redémarre en permanence
 
 Si votre conteneur s’exécute jusqu’à complétion et redémarre automatiquement, vous devrez peut-être définir une [stratégie de redémarrage](container-instances-restart-policy.md) avec la valeur **OnFailure** ou **Never**. Si vous spécifiez **OnFailure** et constatez encore des redémarrages continus, il peut y avoir un problème avec l’application ou le script exécutés dans votre conteneur.
 
-L’API Container Instances inclut une propriété `restartCount`. Pour vérifier le nombre de redémarrages d’un conteneur, vous pouvez utiliser la commande [az container show][az-container-show] dans Azure CLI 2.0. Dans l’exemple de sortie suivant (qui a été tronqué par souci de concision), vous pouvez voir la propriété `restartCount` à la fin de la sortie.
+L’API Container Instances inclut une propriété `restartCount`. Pour vérifier le nombre de redémarrages d’un conteneur, vous pouvez utiliser la commande [az container show][az-container-show] dans Azure CLI. Dans l’exemple de sortie suivant (qui a été tronqué par souci de concision), vous pouvez voir la propriété `restartCount` à la fin de la sortie.
 
 ```json
 ...
@@ -158,7 +174,7 @@ Pour garantir le meilleur temps de démarrage du conteneur Windows, utilisez une
 
 ### <a name="windows-containers-slow-network-readiness"></a>Disponibilité lente du réseau des conteneurs Windows
 
-Les conteneurs Windows peuvent s’exposer à l’absence de connectivité entrante ou sortante pendant 5 secondes au plus à la création initiale. Après l’installation initiale, la mise en réseau de conteneur doit reprendre correctement.
+Les conteneurs Windows peuvent s’exposer à l’absence de connectivité entrante ou sortante pendant 5 secondes au plus à la création initiale. Après l’installation initiale, la mise en réseau de conteneur devrait reprendre correctement.
 
 ## <a name="resource-not-available-error"></a>Erreur : ressource non disponible
 
@@ -173,10 +189,16 @@ Cette erreur indique qu’en raison d’une charge importante dans la région da
 * Déployer sur une autre région Azure
 * Déployer plus tard
 
+## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Ne peut pas se connecter à l’API Docker sous-jacent ou exécuter des conteneurs privilégiés
+
+Azure Container Instances n’expose pas un accès direct à l’infrastructure sous-jacente qui héberge les groupes de conteneurs. Cela inclut l’accès à l’API Docker en cours d’exécution sur l’hôte du conteneur et les conteneurs privilégiés en cours d’exécution. Si vous avez besoin d’interaction avec le Docker, vérifiez la [Documentation de référence REST](https://aka.ms/aci/rest) pour voir ce que l’API ACI prend en charge. S’il manque des informations, envoyez une requête sur le [Forum Internet de commentaires ACI](https://aka.ms/aci/feedback).
+
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [récupérer les journaux et événements de conteneur](container-instances-get-logs.md) pour aider à déboguer vos conteneurs.
 
 <!-- LINKS - External -->
+[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
 [docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/

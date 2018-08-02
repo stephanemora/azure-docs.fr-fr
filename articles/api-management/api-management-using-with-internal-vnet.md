@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151227"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145738"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -36,7 +36,6 @@ Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios su
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -62,6 +61,9 @@ Le service Gestion des API dans un réseau virtuel interne est hébergé derriè
 Une fois le déploiement réussi, l’adresse IP virtuelle interne de votre service apparaît sur le tableau de bord.
 
 ![Tableau de bord Gestion des API avec réseau virtuel interne configuré][api-management-internal-vnet-dashboard]
+
+> [!NOTE]
+> La Console de test disponible sur le portail Azure ne fonctionnera pas pour le service de réseau VNET **Interne** déployé, car l’URL de la passerelle n’est pas inscrite sur le DNS Public. À la place, vous devez utiliser la Console de test fournie sur le **Portail des développeurs**.
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Activer une connexion de réseau virtuel à l’aide des applets de commande PowerShell
 Vous pouvez également activer une connectivité de réseau virtuel à l’aide d’applets de commande PowerShell.

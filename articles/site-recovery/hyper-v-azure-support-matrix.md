@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923467"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171981"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice de prise en charge pour la réplication d’Hyper-V vers Azure
 
@@ -48,7 +48,12 @@ Configuration des machines virtuelles | Les machines virtuelles qui répliquent 
 Système d’exploitation invité | N’importe quel système d’exploitation invité pris en charge par Azure.<br/><br/> Windows Server 2016 Nano Server n’est pas pris en charge.
 
 
+## <a name="vmdisk-management"></a>Gestion des machines virtuelles/disques
 
+**Action** | **Détails**
+--- | ---
+Redimensionner le disque sur la machine virtuelle Hyper-V répliquée | Non pris en charge. Désactivez la réplication, effectuez la modification, puis réactivez la réplication pour la machine virtuelle.
+Ajouter un disque sur la machine virtuelle Hyper-V répliquée | Non pris en charge. Désactivez la réplication, effectuez la modification, puis réactivez la réplication pour la machine virtuelle.
 
 ## <a name="hyper-v-network-configuration"></a>Configuration réseau Hyper-V
 

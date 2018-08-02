@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c0c3e6fab27ff16f0cc75fde3587d280278be882
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034906"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215286"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.

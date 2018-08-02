@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8b5f62daf2b43453aadb0373171bc98f96494688
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048966"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215065"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
@@ -28,7 +28,7 @@ Cet article présente les réponses aux questions fréquemment posées sur l’a
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Parmi les nouvelles méthodes de connexion Azure AD - authentification directe, synchronisation de hachage de mot de passe et services de fédération Active Directory (AD FS) - laquelle dois-je choisir ?
 
-Cela dépend de votre environnement local et des exigences de votre organisation. Lisez l'article [Options de connexion de l’utilisateur via Azure AD Connect](active-directory-aadconnect-user-signin.md) pour obtenir une comparaison des différentes méthodes de connexion Azure AD.
+Consultez [ce guide](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) pour voir une comparaison entre les différentes méthodes de connexion Azure AD et savoir comment choisir la méthode de connexion appropriée pour votre organisation.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>L’authentification directe est-elle une fonctionnalité gratuite ?
 
@@ -48,7 +48,7 @@ Oui. L’authentification directe prend en charge `Alternate ID` comme nom d’u
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 
-Non. L’authentification directe _ne bascule pas_ automatiquement vers la synchronisation de hachage de mot de passe. Elle agit uniquement comme solution de secours pour les [scénarios que l’authentification directe ne prend pas en charge aujourd'hui](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Non. L’authentification directe _ne bascule pas_ automatiquement vers la synchronisation de hachage de mot de passe. Elle agit uniquement comme solution de secours pour les [scénarios que l’authentification directe ne prend pas en charge aujourd'hui](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../manage-apps/application-proxy.md) sur le même serveur qu’un agent d’authentification directe ?
 
@@ -82,7 +82,7 @@ Oui. Si Web Proxy Auto-Discovery (WPAD) est activé dans votre environnement sur
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Puis-je installer deux ou plusieurs agents d’authentification directe sur le même serveur ?
 
-Non, vous ne pouvez installer qu’un seul agent d’authentification directe sur un serveur unique. Si vous souhaitez configurer l’authentification directe pour la haute disponibilité, suivez les instructions de la section [Authentification directe Azure Active Directory : Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Non, vous ne pouvez installer qu’un seul agent d’authentification directe sur un serveur unique. Si vous souhaitez configurer l’authentification directe pour la haute disponibilité, suivez les instructions de la section [Authentification directe Azure Active Directory : Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Comment supprimer un agent d’authentification directe ?
 
@@ -92,12 +92,7 @@ Si vous consultez le panneau Authentification directe dans le [Centre d’admini
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>J'utilise déjà AD FS pour me connecter Azure AD. Comment basculer vers l’authentification directe ?
 
-Si vous avez configuré AD FS en tant que méthode de connexion à l’aide de l’Assistant Azure AD Connect, choisissez Authentification directe comme méthode permettant à l'utilisateur de se connecter. Cette modification permet l’authentification directe sur le client et convertit _tous_ vos domaines fédérés en domaines gérés. L’authentification directe gère toutes les prochaines requêtes de connexion à votre client. Actuellement, il n’existe aucun moyen pris en charge dans Azure AD Connect pour utiliser une combinaison d’AD FS et d’authentification directe sur différents domaines.
-
-Si AD FS a été configuré en tant que méthode de connexion _à l'extérieur_ de l’Assistant Azure AD Connect, définissez la méthode de connexion utilisateur sur Authentification directe. Vous pouvez effectuer cette modification à l'aide de l'option **Ne pas configurer**. Cette modification permet l’authentification directe sur le client, mais tous vos domaines fédérés continueront d'utiliser AD FS pour la connexion. Utilisez PowerShell pour convertir manuellement certains ou l’ensemble de ces domaines fédérés en domaines gérés. Une fois cette modification effectuée, *seule* l'authentification directe gère toutes les requêtes de connexion aux domaines gérés.
-
->[!IMPORTANT]
->L’authentification directe ne gère pas la connexion pour les utilisateurs Azure AD dans le cloud uniquement.
+Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers l’authentification directe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, qui est publié [ici](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Puis-je utiliser l’authentification directe dans un environnement à plusieurs forêts Active Directory ?
 
@@ -105,7 +100,7 @@ Oui. Les environnements à plusieurs forêts sont pris en charge s’il existe d
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Combien d’agents d’authentification directe dois-je installer ?
 
-L’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Mais cela ne fournit pas un équilibrage de charge déterministe entre les agents d’authentification.
+L’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability). Mais cela ne fournit pas un équilibrage de charge déterministe entre les agents d’authentification.
 
 Envisagez la charge moyenne et les pics de charge lors des demandes de connexion que vous attendez de la part de votre locataire. À titre de référence, un seul agent d’authentification peut gérer entre 300 et 400 authentifications par seconde sur un serveur doté d’un CPU à 4 cœurs et de 16 Go de RAM.
 
@@ -133,6 +128,7 @@ La désinstallation d’un agent d’authentification directe à partir d’un s
 ## <a name="next-steps"></a>Étapes suivantes
 - [Limitations actuelles](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
+- [Migrer depuis AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) : guide détaillé pour la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Présentation technique approfondie](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne l'authentification directe.
 - [Résoudre les problèmes](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
