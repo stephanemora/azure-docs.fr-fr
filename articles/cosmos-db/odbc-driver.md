@@ -10,18 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ffd13f5077ca91537d8397c1940521f475133a03
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096507"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248870"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
 Le pilote ODBC Azure Cosmos DB vous permet de vous connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle comme SQL Server Integration Services, Power BI Desktop et Tableau, pour analyser et créer une représentation visuelle de vos données Azure Cosmos DB dans ces solutions.
 
 Le pilote ODBC Azure Cosmos DB est conforme à ODBC 3.8 et prend en charge la syntaxe ANSI SQL-92. Le pilote offre de puissantes fonctionnalités pour vous aider à renormaliser les données dans Azure Cosmos DB. Grâce à ce pilote, vous pouvez représenter les données dans Azure Cosmos DB sous forme de tables et de vues. Il vous permet d’effectuer des opérations SQL dans des tables et des vues, notamment des regroupements par requêtes, des insertions, des mises à jour et des suppressions.
+
+> [!NOTE]
+> La connexion à Azure Cosmos DB avec le pilote ODBC est actuellement prise en charge uniquement pour les comptes de l’API SQL Azure Cosmos DB.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Pourquoi dois-je normaliser mes données ?
 Azure Cosmos DB étant une base de données sans schéma, elle offre un développement rapide d’applications en permettant à ces applications d’itérer leur modèle de données à la volée sans schéma strict. Une même base de données Azure Cosmos DB peut contenir des documents JSON de différentes structures. C’est une solution idéale pour le développement rapide d’applications, mais si vous souhaitez analyser et créer des rapports de vos données à l’aide d’outils d’analyse de données et décisionnels, les données doivent souvent être aplaties et respecter un schéma spécifique.

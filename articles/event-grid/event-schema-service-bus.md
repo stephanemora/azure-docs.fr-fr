@@ -6,14 +6,14 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 02/21/2018
+ms.date: 07/23/2018
 ms.author: babanisa
-ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39bf8df69f491aace546386b1b3aabce9ea6c696
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303315"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226541"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Schéma des événements Azure Event Grid pour Service Bus
 
@@ -93,7 +93,7 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| nameSpaceName | chaîne | Espace de noms Service Bus dans lequel figure la ressource. |
+| namespaceName | chaîne | Espace de noms Service Bus dans lequel figure la ressource. |
 | requestUri | chaîne | URI vers la file d’attente spécifique ou l’abonnement qui génère l’événement. |
 | entityType | chaîne | Type d’entité Service Bus générant des événements (file d’attente ou abonnement). |
 | queueName | chaîne | File d’attente contenant des messages actives en cas d’abonnement à une file d’attente. Valeur null si des rubriques / abonnements sont utilisés. |

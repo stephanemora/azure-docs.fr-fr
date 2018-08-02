@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a98a23de3ea58af5c4a63958f554de1e002ec456
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969076"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248313"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Bien démarrer avec l’application web Azure AD Node.js
 Nous utilisons Passport pour :
@@ -62,7 +62,10 @@ L'application terminée est également fournie à la fin de ce didacticiel.
 
 6. Une fois l’application enregistrée, Azure AD lui affecte un ID d’application unique. Copiez cette valeur à partir de la page de l’application, car vous en aurez besoin dans les sections suivantes.
 7. À partir de la page **Paramètres** -> **Propriétés** de votre application, mettez à jour l’URI ID d’application. Un **URI ID d’application** est un identificateur unique pour votre application. La convention consiste à utiliser le format `https://<tenant-domain>/<app-name>`, par exemple : `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Pour créer une clé secrète, suivez l’étape 4 dans [Pour ajouter des informations d’identification d’application ou des autorisations pour accéder aux API web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+8. Dans la page **Settings (Paramètres)** -> **Reply URLs (URL de réponse)** de votre application, indiquez l’URL ajoutée dans l’URL de connexion à partir de l’étape 5, puis cliquez sur Save (Enregistrer).
+
+9. Pour créer une clé secrète, suivez l’étape 4 dans [Pour ajouter des informations d’identification d’application ou des autorisations pour accéder aux API web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Copiez la valeur de la clé d’application. Il s’agit de la valeur pour le `clientSecret`, dont vous aurez besoin pour l’**étape 3** ci-dessous. 
@@ -91,7 +94,7 @@ Ici, nous configurons Express pour utiliser le protocole d’authentification Op
 
   * L’élément `clientID` est l’**ID d’application** affecté à votre application dans le portail d’inscription.
 
-  * L’élément `returnURL` est l’**URI de redirection** que vous avez saisie dans le portail.
+  * L’élément `returnURL` est l’**URL de réponse** que vous avez saisie dans le portail.
 
   * L’élément `clientSecret` est la clé secrète que vous avez générée dans le portail.
 
@@ -382,7 +385,7 @@ Votre application est maintenant correctement configurée pour communiquer avec 
     <% } %>
     ```
 
-5. Améliorons-en l’apparence à l’aide d’une mise en page. Créez l’affichage « /views/layout.ejs » sous le répertoire racine.
+5. Améliorons-en l’apparence à l’aide d’une mise en page. Créez la vue `/views/layout.ejs` sous le répertoire racine.
 
     ```HTML
 

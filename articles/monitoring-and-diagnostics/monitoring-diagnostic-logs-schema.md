@@ -5,19 +5,19 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/06/2018
+ms.date: 7/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: f4bf77f07bd8f6b8172798ec3faf8c0bdaf3d3f5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c1189e1b120f0bd1b3169618bebdb929d1cee18e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921227"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248788"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
-Les [journaux de diagnostic des ressources Azure](monitoring-overview-of-diagnostic-logs.md) sont des journaux générés par vos ressources Azure qui décrivent le fonctionnement de cette ressource. Tous les journaux de diagnostic disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
+Les [journaux de diagnostic Azure Monitor](monitoring-overview-of-diagnostic-logs.md) sont des journaux générés par les services Azure qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de diagnostic disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
 
 Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Cet article décrit le schéma de niveau supérieur pour les journaux de diagnostic et les liens vers les schémas pour chaque service.
 
@@ -26,7 +26,8 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 | NOM | Obligatoire ou facultatif | Description |
 |---|---|---|
 | time | Obligatoire | Horodatage (heure UTC) de l’événement. |
-| ResourceId | Obligatoire | ID de la ressource qui a émis l’événement. |
+| ResourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |
+| tenantId | Obligatoire pour les journaux de l’abonné | ID d’abonné de l’abonné Active Directory auquel cet événement est lié. Cette propriété est utilisée uniquement pour les journaux de niveau abonné ; elle n’apparaît pas dans les journaux de niveau ressource. |
 | operationName | Obligatoire | Nom de l’opération représentée par cet événement. Si l’événement représente une opération RBAC, il s’agit du nom de l’opération RBAC (par ex. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Généralement modélisée sous la forme d’une opération du Gestionnaire de ressources, même s’il ne s’agit pas d’opérations réelles documentées du Gestionnaire des ressources (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Facultatif | Version d’api associée à l’opération, si operationName a été effectuée à l’aide d’une API (par ex. http://myservice.windowsazure.net/object?api-version=2016-06-01). S’il n’existe aucune API qui corresponde à cette opération, la version représente la version de cette opération si les propriétés associées à l’opération viennent à changer. |
 | category | Obligatoire | Catégorie de journal de l’événement. La catégorie est la granularité selon laquelle vous pouvez activer ou désactiver des journaux sur une ressource particulière. Les propriétés qui apparaissent dans l’objet blob de propriétés d’un événement sont les mêmes au sein d’un type de ressource et d’une catégorie de journal spécifique. Les catégories de journaux classiques sont « Audit » « opérationnel » « Exécution » et « Demande ». |
@@ -46,8 +47,9 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 
 | de diffusion en continu | Schéma et documentation |
 | --- | --- |
+| Azure Active Directory | [Vue d’ensemble](../active-directory/reporting-azure-monitor-diagnostics-overview.md), [Schéma des journaux d’audit](../active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md) et [Schéma des connexions](../active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
-| Gestion des API | [Journaux de diagnostic Gestion des API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| API Management | [Journaux de diagnostic Gestion des API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics pour Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Journalisation des diagnostics Azure Batch](../batch/batch-diagnostics.md) |
@@ -61,8 +63,8 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | ExpressRoute | Schéma non disponible. |
 | IoT Hub | [Opérations IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Journalisation d’Azure Key Vault](../key-vault/key-vault-logging.md) |
-| Load Balancer |[Analytique des journaux de l'équilibreur de charge Azure](../load-balancer/load-balancer-monitor-log.md) |
-| Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Équilibreur de charge |[Analytique des journaux de l'équilibreur de charge Azure](../load-balancer/load-balancer-monitor-log.md) |
+| Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Group |[Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protection DDOS | [Gérer le service Azure DDoS Protection standard](../virtual-network/manage-ddos-protection.md) |
 | Dédié à PowerBI | Schéma non disponible. |
@@ -93,7 +95,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.DataLakeAnalytics/accounts|Audit|Journaux d’audit|
 |Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
 |Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
-|Microsoft.DataLakeStore/accounts|Requests|Journaux de requête|
+|Microsoft.DataLakeStore/accounts|Demandes|Journaux de requête|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Journaux de serveur PostgreSQL|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|Événements de sauvegarde PostgreSQL|
 |Microsoft.Devices/IotHubs|connexions|connexions|

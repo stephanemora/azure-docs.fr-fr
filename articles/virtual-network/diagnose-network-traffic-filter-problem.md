@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144932"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364010"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
 
@@ -32,7 +32,7 @@ Les groupes de sécurité réseau vous permettent de contrôler les types de tra
 
 Vous essayez de vous connecter à une machine virtuelle via le port 80 à partir d’internet, mais la connexion échoue. Pour déterminer la raison pour laquelle le port 80 n’est pas accessible à partir d’internet, vous pouvez afficher les règles de sécurité effectives pour une interface réseau à l’aide du [portail](#diagnose-using-azure-portal) Azure, de [PowerShell](#diagnose-using-powershell), ou de [Azure CLI](#diagnose-using-azure-cli).
 
-Les étapes qui suivent supposent que vous avez une machine virtuelle existante dont les règles de sécurité efficace peuvent être affichées. Si vous n’avez pas une machine virtuelle existante, vous devez tout d’abord déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour effectuer les tâches de cet article. Les exemples contenus dans cet article sont prévus pour une machine virtuelle nommée *myVM*, et une interface réseau appelée *myVMVMNic*. La machine virtuelle et l’interface réseau se trouvent dans un groupe de ressources nommé *myResourceGroup*, et se situent dans la région *Est des États-Unis*. Modifiez les valeurs dans les étapes, selon le cas, pour la machine virtuelle dont vous analysez le problème.
+Les étapes qui suivent supposent que vous avez une machine virtuelle existante dont les règles de sécurité efficace peuvent être affichées. Si vous n’avez pas une machine virtuelle existante, vous devez tout d’abord déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour effectuer les tâches de cet article. Les exemples contenus dans cet article sont prévus pour une machine virtuelle nommée *myVM*, et une interface réseau appelée *myVMVMNic*. La machine virtuelle et l’interface réseau se trouvent dans un groupe de ressources nommé *myResourceGroup*, et se situent dans la région *USA Est*. Modifiez les valeurs dans les étapes, selon le cas, pour la machine virtuelle dont vous analysez le problème.
 
 ## <a name="diagnose-using-azure-portal"></a>Diagnostiquer à l’aide du portail Azure
 
@@ -152,7 +152,7 @@ Dans la sortie précédente, le nom de l’interface réseau est *interface myVM
 
 ## <a name="interpret-command-output"></a>Interpréter la sortie de commande
 
-Indépendamment du fait d’avoir utilisé [PowerShell](#diangose-using-powershell) ou [Azure CLI](#diagnose-using-azure-cli) pour diagnostiquer le problème, vous recevez une sortie contenant les informations suivantes :
+Indépendamment du fait d’avoir utilisé [PowerShell](#diagnose-using-powershell) ou [Azure CLI](#diagnose-using-azure-cli) pour diagnostiquer le problème, vous recevez une sortie contenant les informations suivantes :
 
 - **NetworkSecurityGroup** : l’ID du groupe de sécurité réseau.
 - **Association**: si le groupe de sécurité réseau est associé à une *interface réseau* ou à un *sous-réseau*. Si un groupe de sécurité réseau est associé aux deux, la sortie est retournée avec le **NetworkSecurityGroup**, **Association**, et les **EffectiveSecurityRules**, pour chaque groupe de sécurité réseau. Si le groupe de sécurité réseau est associé ou dissocié immédiatement avant l’exécution de cette commande pour afficher les règles de sécurité effectives, il se peut que vous deviez attendre quelques secondes pour que la modification apparaisse dans la sortie de la commande.

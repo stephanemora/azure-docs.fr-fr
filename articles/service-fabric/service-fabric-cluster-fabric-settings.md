@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/27/2018
+ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: 499c7182fba9d8efeebfb22e22a692d431dcb7ac
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888651"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238945"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -59,11 +59,11 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|chaîne, valeur par défaut : L"None"|statique| ApplicationCertificateValidationPolicy : None : Ne pas valider le certificat de serveur ; échec de la demande. ServiceCertificateThumbprints : reportez-vous à la configuration ServiceCertificateThumbprints pour obtenir la liste séparée par des virgules des empreintes de certificats distants auxquels le proxy inversé peut faire confiance. ServiceCommonNameAndIssuer : reportez-vous à la configuration ServiceCommonNameAndIssuer pour le nom de l’objet et l’empreinte de l’émetteur des certificats distants auxquels le proxy inversé peut faire confiance. |
+|ApplicationCertificateValidationPolicy|Chaîne (valeur par défaut : "None")|statique| Cela ne valide pas le certificat de serveur ; succès de la requête. Reportez-vous à la configuration ServiceCertificateThumbprints pour obtenir la liste séparée par des virgules des empreintes de certificats distants auxquels le proxy inversé peut faire confiance. Reportez-vous à la configuration ServiceCommonNameAndIssuer pour le nom de l’objet et l’empreinte de l’émetteur des certificats distants auxquels le proxy inversé peut faire confiance. |
 |BodyChunkSize |Valeur Uint (valeur par défaut : 16384) |Dynamique| Indique la taille en octets du bloc utilisé pour lire le corps. |
 |CrlCheckingFlag|uint, valeur par défaut : 0x40000000 |Dynamique| Indicateurs pour la validation de la chaîne de certificats de l’application/service, par exemple CRL checking 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Si définie sur 0, cette valeur désactive la vérification CRL La liste complète des valeurs prises en charge est documentée par dwFlags de CertGetCertificateChain : http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Durée en secondes. La valeur par défaut est 120 |Dynamique|Spécifiez la durée en secondes.  Indique le délai d’expiration par défaut des requêtes HTTP traitées par la passerelle HTTP. |
-|ForwardClientCertificate|valeur booléenne, valeur par défaut : FALSE|Dynamique| |
+|ForwardClientCertificate|valeur booléenne, valeur par défaut : FALSE|Dynamique|Lorsque la valeur est FALSE, le proxy inversé ne demande pas le certificat client. Lorsque la valeur est TRUE, le proxy inversé demande le certificat client pendant l’établissement de connexion SSL et transfère la chaîne de format PEM encodée en base64 au service dans un en-tête nommé X-Client-Certificate. Ce service peut faire échouer la requête avec le code d’état approprié après avoir inspecté les données du certificat. Si la valeur est TRUE et que le client ne présente pas de certificat, le proxy inversé transfère un en-tête vide et laisse le service gérer le cas. Le proxy inverse agit comme une couche transparente.|
 |GatewayAuthCredentialType |Chaîne (valeur par défaut : "None") |statique| Indique le type d’informations d’identification de sécurité à utiliser comme point d’extrémité de la passerelle d’application HTTP. Les valeurs autorisées sont None/X509. |
 |GatewayX509CertificateFindType |Chaîne (valeur par défaut : "FindByThumbprint") |Dynamique| Indique comment rechercher un certificat dans le magasin spécifié par GatewayX509CertificateStoreName. Valeur prise en charge : FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | Chaîne (valeur par défaut : "") |Dynamique| Valeur du filtre de recherche utilisée pour localiser le certificat de la passerelle d’application HTTP. Ce certificat est configuré sur le point d’extrémité HTTPS et peut également servir à vérifier l’identité de l’application au besoin par les services. Le paramètre FindValue est consulté en premier. S’il n’existe pas, FindValueSecondary est consulté. |
@@ -73,23 +73,23 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |IgnoreCrlOfflineError|Valeur booléenne, valeur par défaut : TRUE|Dynamique|Indique s’il faut ou non ignorer l’erreur en mode hors connexion de la liste CRL pour la vérification du certificat de l’application/service. |
 |IsEnabled |Valeur booléenne (valeur par défaut : false) |statique| Active/désactive le paramètre HttpApplicationGateway. Le paramètre Httpgateway est désactivé par défaut et cette configuration doit être définie pour l’activer. |
 |NumberOfParallelOperations | Valeur Uint (par défaut : 5000) |statique|Nombre de lectures à publier dans la file d’attente du serveur HTTP. Ce paramètre contrôle le nombre de requêtes concurrentes que la passerelle HTTP peut satisfaire. |
-|RemoveServiceResponseHeaders|chaîne, valeur par défaut : L"Date; Server"|statique|Liste séparée par des points-virgules/virgules d’en-têtes de réponse qui sera supprimée de la réponse du service avant son transfert vers le client. Si cette valeur est une chaîne vide, transmettre tels quels tous les en-têtes retournés par le service. Par exemple, ne pas remplacer la date et le serveur |
+|RemoveServiceResponseHeaders|chaîne, valeur par défaut : « Date; Server »|statique|Liste séparée par des points-virgules/virgules d’en-têtes de réponse qui sera supprimée de la réponse du service avant son transfert vers le client. Si cette valeur est une chaîne vide, transmettre tels quels tous les en-têtes retournés par le service. Par exemple, ne pas remplacer la date et le serveur |
 |ResolveServiceBackoffInterval |Durée en secondes (valeur par défaut : 5) |Dynamique|Spécifiez la durée en secondes.  Indique l’interface d’interruption par défaut avant de retenter une opération du service de résolution ayant échoué. |
 |SecureOnlyMode|valeur booléenne, valeur par défaut : FALSE|Dynamique| SecureOnlyMode : true : le proxy inversé transfère uniquement les demandes vers les services qui publient des points de terminaison sécurisés. False : le proxy inversé peut transférer les demandes vers des points de terminaison sécurisés/non sécurisés.  |
-|ServiceCertificateThumbprints|chaîne, valeur par défaut : L""|Dynamique| |
+|ServiceCertificateThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Liste séparée par des virgules des empreintes de certificats distants auxquels le proxy inversé peut faire confiance.  |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|  |
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| Nom de l’objet et empreinte de l’émetteur des certificats distants auxquels le proxy inversé peut faire confiance.|
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|entier (valeur par défaut : 0)|statique|Paramètre MinReplicaSetSize pour BackupRestoreService |
-|PlacementConstraints|valeur wstring (valeur par défaut : L"")|statique| Paramètre PlacementConstraints pour le service BackupRestore |
-|SecretEncryptionCertThumbprint|valeur wstring (valeur par défaut : L"")|Dynamique|Empreinte numérique du certificat X509 de chiffrement de secret |
-|SecretEncryptionCertX509StoreName|valeur wstring (valeur par défaut : L"My")|  Dynamique|    Ce paramètre indique le certificat à utiliser pour le chiffrement et le déchiffrement des informations d’identification. Nom du magasin de certificats X.509 utilisé pour le chiffrement et le déchiffrement des informations d’identification de magasin qu’utilise le service de restauration de sauvegarde |
+|PlacementConstraints|chaîne, valeur par défaut : « »|statique|  Paramètre PlacementConstraints pour le service BackupRestore |
+|SecretEncryptionCertThumbprint|chaîne, valeur par défaut : « »|Dynamique|Empreinte numérique du certificat X509 de chiffrement de secret |
+|SecretEncryptionCertX509StoreName|chaîne, valeur par défaut : « MY »|   Dynamique|    Ce paramètre indique le certificat à utiliser pour le chiffrement et le déchiffrement des informations d’identification. Nom du magasin de certificats X.509 utilisé pour le chiffrement et le déchiffrement des informations d’identification de magasin qu’utilise le service de restauration de sauvegarde |
 |TargetReplicaSetSize|entier (valeur par défaut : 0)|statique| Paramètre TargetReplicaSetSize pour BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
@@ -157,8 +157,10 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="dnsservice"></a>DnsService
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau**| **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|IsEnabled|valeur booléenne, valeur par défaut : FALSE|statique| |
-|InstanceCount|entier, valeur par défaut : -1|statique|  |
+|InstanceCount|entier, valeur par défaut : -1|statique|valeur par défaut : -1, ce qui signifie que DnsService est en cours d’exécution sur chaque nœud. OneBox a besoin de cette option ait la valeur 1, dans la mesure où DnsService utilise le port 53 bien connu. Donc, il ne peut pas avoir plusieurs instances sur le même ordinateur.|
+|IsEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Active/désactive DnsService. DnsService est désactivé par défaut, et cette configuration doit être définie pour l’activer. |
+|PartitionPrefix|chaîne, valeur par défaut : « - »|statique|Contrôle la valeur de la chaîne de préfixe de partition dans les requêtes DNS pour les services partitionnés. La valeur : <ul><li>doit être conforme à RFC, car elle fera partie d’une requête DNS ;</li><li>ne doit pas contenir de point (« . »), car le point interfère avec le comportement de suffixe DNS ;</li><li>ne doit pas comporter plus de 5 caractères ;</li><li>ne peut pas être une chaîne vide.</li><li>Si le paramètre PartitionPrefix est remplacé, PartitionSuffix doit être substitué et vice versa.</li></ul>Pour en savoir plus, voir [Service DNS Service Fabric](service-fabric-dnsservice.md).|
+|PartitionSuffix|Chaîne (valeur par défaut : "")|statique|Contrôle la valeur de la chaîne de suffixe de partition dans les requêtes DNS pour les services partitionnés. La valeur : <ul><li>doit être conforme à RFC, car elle fera partie d’une requête DNS ;</li><li>ne doit pas contenir de point (« . »), car le point interfère avec le comportement de suffixe DNS ;</li><li>ne doit pas comporter plus de 5 caractères ;</li><li>Si le paramètre PartitionPrefix est remplacé, PartitionSuffix doit être substitué et vice versa.</li></ul>Pour en savoir plus, voir [Service DNS Service Fabric](service-fabric-dnsservice.md). |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -221,7 +223,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ExpectedReplicaUpgradeDuration|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamique|Spécifiez la durée en secondes. La durée prévue de la mise à niveau de tous les réplicas sur un nœud lors de la mise à niveau de l’application. |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|Valeur booléenne, valeur par défaut : TRUE|Dynamique|Si cette valeur est définie sur true, les réplicas avec une taille de jeu de réplicas cible de 1 seront autorisés à se déplacer lors de la mise à niveau. |
 |MinReplicaSetSize|entier, valeur par défaut : 3|Non autorisée|Taille minimale du jeu de réplicas pour le FM. Si le nombre de réplicas FM actifs passe sous cette valeur, le FM rejette toutes les modifications apportées au cluster tant que le nombre minimal de réplicas n’a pas été récupéré |
-|PlacementConstraints|chaîne, valeur par défaut : L""|Non autorisée|Toutes les contraintes de placement pour les réplicas de Failover Manager |
+|PlacementConstraints|Chaîne (valeur par défaut : "")|Non autorisée|Toutes les contraintes de placement pour les réplicas de Failover Manager |
 |PlacementTimeLimit|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(600)|Dynamique|Spécifiez la durée en secondes. Le délai pour atteindre le nom de réplicas cible après lequel un rapport d’intégrité Warning est généré |
 |QuorumLossWaitDuration |Durée en secondes (valeur par défaut : MaxValue) |Dynamique|Spécifiez la durée en secondes. Il s’agit de la durée maximale pour laquelle nous autorisons une partition à être dans un état de perte de quorum. Si la partition est toujours en perte de quorum au-delà de cette durée, elle est rétablie en considérant les réplicas arrêtés comme perdus. Notez que cela peut potentiellement provoquer une perte de données. |
 |ReconfigurationTimeLimit|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(300)|Dynamique|Spécifiez la durée en secondes. Le délai de reconfiguration après lequel un rapport d’intégrité Warning est généré |
@@ -251,20 +253,22 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="federation"></a>Fédération
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
+|GlobalTicketLeaseDuration|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(300)|statique|Spécifiez la durée en secondes. Les nœuds du cluster doivent maintenir un bail global avec les votants. Les votants soumettent leurs baux globaux en vue de la propagation dans le cluster pendant cette durée. Une fois le délai écoulé, le bail est perdu. Suite à la perte de quorum des baux, un nœud abandonne le cluster, car il ne reçoit pas les communications du quorum de nœuds pendant cette période.  Cette valeur doit être ajustée en fonction de la taille du cluster. |
 |LeaseDuration |Durée en secondes, la valeur par défaut est 30 |Dynamique|Durée de bail entre un nœud et ses voisins. |
 |LeaseDurationAcrossFaultDomain |Durée en secondes, la valeur par défaut est 30 |Dynamique|Durée de bail entre un nœud et ses voisins dans des domaines d’erreur. |
 
 ## <a name="filestoreservice"></a>FileStoreService
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
+|AcceptChunkUpload|Valeur booléenne, valeur par défaut : TRUE|Dynamique|Configurez ce paramètre pour déterminer si le service de magasin de fichiers accepte le chargement de fichiers en fonction du bloc lors de la copie du package d’application. |
 |AnonymousAccessEnabled | Valeur booléenne (valeur par défaut : true) |statique|Activez ou désactivez l’accès anonyme aux partages FileStoreService. |
-|CommonName1Ntlmx509CommonName|chaîne, valeur par défaut : L""|statique| Nom commun du certificat X509 utilisé pour générer le code HMAC sur le CommonName1NtlmPasswordSecret en cas d’authentification NTLM |
-|CommonName1Ntlmx509StoreLocation|chaîne, valeur par défaut : L"LocalMachine"|statique|Emplacement du magasin du certificat X509 utilisé pour générer le code HMAC sur le CommonName1NtlmPasswordSecret en cas d’authentification NTLM |
-|CommonName1Ntlmx509StoreName|chaîne, valeur par défaut : L"MY"| statique|Nom du magasin du certificat X509 utilisé pour générer le code HMAC sur le CommonName1NtlmPasswordSecret en cas d’authentification NTLM |
-|CommonName2Ntlmx509CommonName|chaîne, valeur par défaut : L""|statique|Nom commun du certificat X509 utilisé pour générer le code HMAC sur le CommonName2NtlmPasswordSecret en cas d’authentification NTLM |
-|CommonName2Ntlmx509StoreLocation|chaîne, valeur par défaut : L"LocalMachine"| statique|Emplacement du magasin du certificat X509 utilisé pour générer le code HMAC sur le CommonName2NtlmPasswordSecret en cas d’authentification NTLM |
-|CommonName2Ntlmx509StoreName|chaîne, valeur par défaut : L"MY"|statique| Nom du magasin du certificat X509 utilisé pour générer le code HMAC sur le CommonName2NtlmPasswordSecret en cas d’authentification NTLM |
-|CommonNameNtlmPasswordSecret|SecureString, valeur par défaut : Common::SecureString(L"")| statique|Secret de mot de passe utilisé comme valeur initiale pour générer le même mot de passe en cas d’authentification NTLM |
+|CommonName1Ntlmx509CommonName|Chaîne (valeur par défaut : "")|statique| Nom commun du certificat X509 utilisé pour générer le code HMAC sur le CommonName1NtlmPasswordSecret en cas d’authentification NTLM |
+|CommonName1Ntlmx509StoreLocation|Chaîne (valeur par défaut : "LocalMachine")|statique|Emplacement du magasin du certificat X509 utilisé pour générer le code HMAC sur le CommonName1NtlmPasswordSecret en cas d’authentification NTLM |
+|CommonName1Ntlmx509StoreName|Chaîne (valeur par défaut : "MY")| statique|Nom du magasin du certificat X509 utilisé pour générer le code HMAC sur le CommonName1NtlmPasswordSecret en cas d’authentification NTLM |
+|CommonName2Ntlmx509CommonName|Chaîne (valeur par défaut : "")|statique|Nom commun du certificat X509 utilisé pour générer le code HMAC sur le CommonName2NtlmPasswordSecret en cas d’authentification NTLM |
+|CommonName2Ntlmx509StoreLocation|Chaîne (valeur par défaut : "LocalMachine")| statique|Emplacement du magasin du certificat X509 utilisé pour générer le code HMAC sur le CommonName2NtlmPasswordSecret en cas d’authentification NTLM |
+|CommonName2Ntlmx509StoreName|Chaîne (valeur par défaut : "MY")|statique| Nom du magasin du certificat X509 utilisé pour générer le code HMAC sur le CommonName2NtlmPasswordSecret en cas d’authentification NTLM |
+|CommonNameNtlmPasswordSecret|SecureString, valeur par défaut : Common::SecureString("")| statique|Secret de mot de passe utilisé comme valeur initiale pour générer le même mot de passe en cas d’authentification NTLM |
 |GenerateV1CommonNameAccount| Valeur booléenne, valeur par défaut : TRUE|statique|Spécifie s’il faut générer un compte avec l’algorithme de génération V1 de nom d’utilisateur. Depuis Service Fabric version 6.1, un compte avec la génération v2 est toujours créé. Le compte V1 est nécessaire pour les mises à niveau à partir de/vers des versions qui ne prennent pas en charge la génération V2 (avant 6.1).|
 |MaxCopyOperationThreads | Valeur Uint (valeur par défaut : 0) |Dynamique| Nombre maximum de fichiers parallèles que le réplica secondaire peut copier à partir du réplica principal. 0 = nombre de cœurs. |
 |MaxFileOperationThreads | Valeur Uint (valeur par défaut : 100) |statique| Nombre maximum de threads parallèles autorisés à effectuer des opérations sur les fichiers (copie/déplacement) dans le réplica principal. 0 = nombre de cœurs. |
@@ -315,8 +319,10 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ActivationTimeout| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(180)|Dynamique| Spécifiez la durée en secondes. Délai d’attente pour l’activation, la désactivation et la mise à niveau de l’application. |
 |ApplicationHostCloseTimeout| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique| Spécifiez la durée en secondes. Lorsqu’une sortie de Fabric est détectée dans des processus auto-activés ; FabricRuntime ferme tous les réplicas dans le processus de l’hôte de l’utilisateur (applicationhost). Il s’agit du délai d’attente pour l’opération de fermeture. |
 |ApplicationUpgradeTimeout| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(360)|Dynamique| Spécifiez la durée en secondes. Délai de mise à niveau de l’application. Si le délai d’attente est inférieur à "ActivationTimeout", le déploiement échouera. |
-|ContainerServiceArguments|valeur wstring (valeur par défaut : L"-H localhost:2375 -H npipe://")|statique|Service Fabric (SF) gère le démon Docker (sauf sur les ordinateurs clients Windows comme Win10). Cette configuration permet à l’utilisateur de spécifier des arguments personnalisés qui doivent être passés au démon Docker quand vous le démarrez. Quand des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument « --pidfile ». Par conséquent, les utilisateurs ne doivent pas spécifier l’argument « --pidfile » dans le cadre de leurs arguments personnalisés. Les arguments personnalisés doivent également vérifier que le démon Docker écoute sur le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric puisse communiquer avec lui.|
+|ContainerServiceArguments|chaîne, valeur par défaut : « -H localhost:2375 -H npipe:// »|statique|Service Fabric (SF) gère le démon Docker (sauf sur les ordinateurs clients Windows comme Win10). Cette configuration permet à l’utilisateur de spécifier des arguments personnalisés qui doivent être passés au démon Docker quand vous le démarrez. Quand des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument « --pidfile ». Par conséquent, les utilisateurs ne doivent pas spécifier l’argument « --pidfile » dans le cadre de leurs arguments personnalisés. Les arguments personnalisés doivent également vérifier que le démon Docker écoute sur le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric puisse communiquer avec lui.|
 |CreateFabricRuntimeTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique| Spécifiez la durée en secondes. La valeur du délai d’expiration pour l’appel de synchronisation FabricCreateRuntime |
+|DefaultContainerRepositoryAccountName|Chaîne (valeur par défaut : "")|statique|Informations d’identification par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml |
+|DefaultContainerRepositoryPassword|Chaîne (valeur par défaut : "")|statique|Informations d’identification de mot de passe par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml|
 |DeploymentMaxFailureCount|entier, valeur par défaut : 20| Dynamique|Le déploiement de l’application sera retenté DeploymentMaxFailureCount fois avant l’échec du déploiement de cette application sur le nœud.| 
 |DeploymentMaxRetryInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(3600)|Dynamique| Spécifiez la durée en secondes. Intervalle maximum avant une nouvelle tentative de déploiement. À chaque échec continu, l’intervalle avant nouvelle tentative est calculé de la manière suivante : Min( DeploymentMaxRetryInterval; Nombre d’échecs continus * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(10)|Dynamique|Spécifiez la durée en secondes. Intervalle de temporisation pour l’échec du déploiement. À chaque échec de déploiement continu, le système retentera le déploiement jusqu'à la valeur MaxDeploymentFailureCount. L’intervalle entre chaque tentative est un produit de l’échec du déploiement continu et de l’intervalle de temporisation de déploiement. |
@@ -328,9 +334,10 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |FirewallPolicyEnabled|valeur booléenne, valeur par défaut : FALSE|statique| Permet l’ouverture des ports du pare-feu pour les ressources de points de terminaison avec des ports explicites spécifiés dans ServiceManifest |
 |GetCodePackageActivationContextTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique|Spécifiez la durée en secondes. La valeur du délai d’expiration pour les appels CodePackageActivationContext. Ne s’applique pas aux services ad hoc. |
 |IPProviderEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Permet la gestion des adresses IP. |
-|LinuxExternalExecutablePath|valeur wstring (valeur par défaut : L"/usr/bin/") |statique|Répertoire principal des commandes exécutables externes sur le nœud.|
+|IsDefaultContainerRepositoryPasswordEncrypted|valeur booléenne, valeur par défaut : FALSE|statique|Indique si DefaultContainerRepositoryPassword est chiffré ou non.|
+|LinuxExternalExecutablePath|chaîne, valeur par défaut : « /usr/bin/ » |statique|Répertoire principal des commandes exécutables externes sur le nœud.|
 |NTLMAuthenticationEnabled|valeur booléenne, valeur par défaut : FALSE|statique| Active la prise en charge pour l’utilisation de NTLM par les packages de code exécutés comme d’autres utilisateurs afin que les processus sur plusieurs ordinateurs puissent communiquer en toute sécurité. |
-|NTLMAuthenticationPasswordSecret|SecureString, valeur par défaut : Common::SecureString(L"")|statique|Valeur chiffrée utilisée pour générer le mot de passe des utilisateurs NTLM. Doit être définie si NTLMAuthenticationEnabled a la valeur true. Validé par le déploiement. |
+|NTLMAuthenticationPasswordSecret|SecureString, valeur par défaut : Common::SecureString("")|statique|Valeur chiffrée utilisée pour générer le mot de passe des utilisateurs NTLM. Doit être définie si NTLMAuthenticationEnabled a la valeur true. Validé par le déploiement. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromMinutes(3)|Dynamique|Spécifiez la durée en secondes. Paramètres spécifiques à l’environnement. L’intervalle périodique selon lequel l’hébergement recherche de nouveaux certificats à utiliser pour la configuration NTLM FileStoreService. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromMinutes(4)|Dynamique| Spécifiez la durée en secondes. Le délai d’attente pour la configuration des utilisateurs NTLM qui se servent de noms de certificats communs. Les utilisateurs NTLM sont nécessaires pour les partages FileStoreService. |
 |RegisterCodePackageHostTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique| Spécifiez la durée en secondes. La valeur du délai d’expiration pour l’appel de synchronisation FabricRegisterCodePackageHost. Applicable uniquement pour les hôtes d’application avec plusieurs packages de code, par exemple FWP |
@@ -541,9 +548,9 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |MaxSecondaryReplicationQueueSize|uint, valeur par défaut : 2048|statique|Nombre maximum d’opérations pouvant exister dans la file d’attente de réplication secondaire. Ce nombre doit être une puissance de 2.|
 |QueueHealthMonitoringInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(30)|statique|Spécifiez la durée en secondes. Cette valeur détermine la période de temps utilisée par le réplicateur pour surveiller tous les événements de contrôle d’intégrité d’erreur/avertissement dans les files d’attente des opérations de réplication. Une valeur '0' désactive le contrôle d’intégrité |
 |QueueHealthWarningAtUsagePercent|uint, valeur par défaut : 80|statique|Cette valeur détermine l’utilisation de la file d’attente de réplication (en pourcentage) après laquelle nous envoyons un avertissement pour utilisation intensive de la file d’attente. Nous effectuons cette opération après un délai de grâce de QueueHealthMonitoringInterval. Si l’utilisation de la file d’attente est inférieure au pourcentage de ce délai de grâce|
-|ReplicatorAddress|chaîne, valeur par défaut : L"localhost:0"|statique|Point de terminaison sous la forme d’une chaîne « IP:port» utilisée par le réplicateur Windows Fabric pour se connecter à d’autres réplicas afin d’envoyer/recevoir des opérations.|
-|ReplicatorListenAddress|chaîne, valeur par défaut : L"localhost:0"|statique|Point de terminaison sous la forme d’une chaîne 'IP:Port' utilisée par le réplicateur Windows Fabric pour recevoir des opérations d’autres réplicas.|
-|ReplicatorPublishAddress|chaîne, valeur par défaut : L"localhost:0"|statique|Point de terminaison sous la forme d’une chaîne 'IP:Port' utilisée par le réplicateur Windows Fabric pour envoyer des opérations à d’autres réplicas.|
+|ReplicatorAddress|Chaîne (valeur par défaut : "localhost:0")|statique|Point de terminaison sous la forme d’une chaîne « IP:port» utilisée par le réplicateur Windows Fabric pour se connecter à d’autres réplicas afin d’envoyer/recevoir des opérations.|
+|ReplicatorListenAddress|Chaîne (valeur par défaut : "localhost:0")|statique|Point de terminaison sous la forme d’une chaîne 'IP:Port' utilisée par le réplicateur Windows Fabric pour recevoir des opérations d’autres réplicas.|
+|ReplicatorPublishAddress|Chaîne (valeur par défaut : "localhost:0")|statique|Point de terminaison sous la forme d’une chaîne 'IP:Port' utilisée par le réplicateur Windows Fabric pour envoyer des opérations à d’autres réplicas.|
 |RetryInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(5)|statique|Spécifiez la durée en secondes. Lorsqu’une opération est perdue ou rejetée, cette minuterie détermine la fréquence à laquelle le réplicateur réessaiera d’envoyer l’opération.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
@@ -582,35 +589,35 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="security"></a>Sécurité
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau**| **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|AADClientApplication|chaîne, valeur par défaut : L""|statique|Nom de l’application cliente native ou ID représentant les clients Fabric |
-|AADClusterApplication|chaîne, valeur par défaut : L""|statique|Nom de l’application API Web ou ID représentant le cluster |
-|AADTenantId|chaîne, valeur par défaut : L""|statique|ID de client (GUID) |
-|AdminClientCertThumbprints|chaîne, valeur par défaut : L""|Dynamique|Empreintes de certificats utilisées par les clients dans le rôle d’administrateur. Il s’agit d’une liste de noms séparés par des virgules. |
-|AdminClientClaims|chaîne, valeur par défaut : L""|Dynamique|Toutes les revendications possibles attendues des clients d’administration ; même format que ClientClaims ; cette liste est ajoutée en interne à ClientClaims ; par conséquent, pas besoin d’ajouter également les mêmes entrées à ClientClaims. |
-|AdminClientIdentities|chaîne, valeur par défaut : L""|Dynamique|Identités Windows des clients de la structure dans le rôle d’administrateur ; utilisé pour autoriser des opérations de structure privilégiées. Il s’agit d’une liste séparée par des virgules ; chaque entrée est un nom de compte de domaine ou nom de groupe. Pour des raisons pratiques ; le compte qui exécute fabric.exe reçoit automatiquement un rôle d’administrateur ; par conséquent, le groupe ServiceFabricAdministrators l’est aussi. |
+|AADClientApplication|Chaîne (valeur par défaut : "")|statique|Nom de l’application cliente native ou ID représentant les clients Fabric |
+|AADClusterApplication|Chaîne (valeur par défaut : "")|statique|Nom de l’application API Web ou ID représentant le cluster |
+|AADTenantId|Chaîne (valeur par défaut : "")|statique|ID de client (GUID) |
+|AdminClientCertThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Empreintes de certificats utilisées par les clients dans le rôle d’administrateur. Il s’agit d’une liste de noms séparés par des virgules. |
+|AdminClientClaims|Chaîne (valeur par défaut : "")|Dynamique|Toutes les revendications possibles attendues des clients d’administration ; même format que ClientClaims ; cette liste est ajoutée en interne à ClientClaims ; par conséquent, pas besoin d’ajouter également les mêmes entrées à ClientClaims. |
+|AdminClientIdentities|Chaîne (valeur par défaut : "")|Dynamique|Identités Windows des clients de la structure dans le rôle d’administrateur ; utilisé pour autoriser des opérations de structure privilégiées. Il s’agit d’une liste séparée par des virgules ; chaque entrée est un nom de compte de domaine ou nom de groupe. Pour des raisons pratiques ; le compte qui exécute fabric.exe reçoit automatiquement un rôle d’administrateur ; par conséquent, le groupe ServiceFabricAdministrators l’est aussi. |
 |CertificateExpirySafetyMargin|TimeSpan, la valeur par défaut est Common::TimeSpan::FromMinutes(43200)|statique|Spécifiez la durée en secondes. Marge de sécurité pour l’expiration du certificat ; l’état d’intégrité du certificat passe de OK à Warning lorsque le délai d’expiration est plus proche que cette valeur. La valeur par défaut est 30 jours. |
 |CertificateHealthReportingInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(3600 * 8)|statique|Spécifiez la durée en secondes. Spécifiez l’intervalle de génération des rapports d’intégrité de certificats ; la valeur par défaut est 8 heures ; Si défini sur 0, désactive le rapport de contrôle d’intégrité de certificat |
-|ClientCertThumbprints|chaîne, valeur par défaut : L""|Dynamique|Empreintes de certificats utilisés par les clients pour communiquer avec le cluster ; le cluster utilise ce paramètre pour autoriser la connexion entrante. Il s’agit d’une liste de noms séparés par des virgules. |
+|ClientCertThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Empreintes de certificats utilisés par les clients pour communiquer avec le cluster ; le cluster utilise ce paramètre pour autoriser la connexion entrante. Il s’agit d’une liste de noms séparés par des virgules. |
 |ClientClaimAuthEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Indique si l’authentification basée sur les revendications est activée sur les clients ; si définie sur true, définit implicitement ClientRoleEnabled. |
-|ClientClaims|chaîne, valeur par défaut : L""|Dynamique|Toutes les revendications possibles attendues des clients pour se connecter à la passerelle. Il s’agit d’une liste « OR » : ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... chaque ClaimsEntry est une liste « AND » : ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue... |
-|ClientIdentities|chaîne, valeur par défaut : L""|Dynamique|Identités Windows de FabricClient ; la passerelle d’affectation de noms utilise ce paramètre pour autoriser les connexions entrantes. Il s’agit d’une liste séparée par des virgules ; chaque entrée est un nom de compte de domaine ou nom de groupe. Pour des raisons pratiques ; le compte qui exécute fabric.exe est autorisé automatiquement ; par conséquent, les groupes ServiceFabricAllowedUsers et ServiceFabricAdministrators le sont aussi. |
+|ClientClaims|Chaîne (valeur par défaut : "")|Dynamique|Toutes les revendications possibles attendues des clients pour se connecter à la passerelle. Il s’agit d’une liste « OR » : ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... chaque ClaimsEntry est une liste « AND » : ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue... |
+|ClientIdentities|Chaîne (valeur par défaut : "")|Dynamique|Identités Windows de FabricClient ; la passerelle d’affectation de noms utilise ce paramètre pour autoriser les connexions entrantes. Il s’agit d’une liste séparée par des virgules ; chaque entrée est un nom de compte de domaine ou nom de groupe. Pour des raisons pratiques ; le compte qui exécute fabric.exe est autorisé automatiquement ; par conséquent, les groupes ServiceFabricAllowedUsers et ServiceFabricAdministrators le sont aussi. |
 |ClientRoleEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Indique si le rôle de client est activé ; si cette valeur est définie True ; les clients reçoivent des rôles selon leur identité. Pour V2 ; activer cette option signifie que le client qui ne figure pas dans AdminClientCommonNames/AdminClientIdentities peut uniquement exécuter des opérations en lecture seule. |
-|ClusterCertThumbprints|chaîne, valeur par défaut : L""|Dynamique|Empreintes de certificats autorisées à rejoindre le cluster ; une liste de noms séparés par des virgules. |
-|ClusterCredentialType|chaîne, valeur par défaut : L"None"|Non autorisée|Indique le type d’informations d’identification de sécurité à utiliser pour sécuriser le cluster. Les valeurs valides sont "None/X509/Windows" |
-|ClusterIdentities|chaîne, valeur par défaut : L""|Dynamique|Identités Windows des nœuds de cluster ; utilisé pour l’autorisation de l’appartenance au cluster. Il s’agit d’une liste séparée par des virgules ; chaque entrée est un nom de compte de domaine ou nom de groupe |
-|ClusterSpn|chaîne, valeur par défaut : L""|Non autorisée|Nom de principal du service du cluster ; lorsque Fabric s’exécute en tant qu’utilisateur de domaine unique (gMSA/compte d’utilisateur de domaine). Il s’agit du nom de principal de service (SPN) des écouteurs de bail et écouteurs dans fabric.exe : écouteurs de fédération ; écouteurs de réplication internes ; écouteur de service runtime et écouteur de la passerelle d’affectation de noms. Doit être vide lorsque la structure s’exécute en tant que comptes d’ordinateur ; dans ce cas, connecter le SPN de l’écouteur côté ordinateur à partir de l’adresse de transport de l’écouteur. |
+|ClusterCertThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Empreintes de certificats autorisées à rejoindre le cluster ; une liste de noms séparés par des virgules. |
+|ClusterCredentialType|Chaîne (valeur par défaut : "None")|Non autorisée|Indique le type d’informations d’identification de sécurité à utiliser pour sécuriser le cluster. Les valeurs valides sont "None/X509/Windows" |
+|ClusterIdentities|Chaîne (valeur par défaut : "")|Dynamique|Identités Windows des nœuds de cluster ; utilisé pour l’autorisation de l’appartenance au cluster. Il s’agit d’une liste séparée par des virgules ; chaque entrée est un nom de compte de domaine ou nom de groupe |
+|ClusterSpn|Chaîne (valeur par défaut : "")|Non autorisée|Nom de principal du service du cluster ; lorsque Fabric s’exécute en tant qu’utilisateur de domaine unique (gMSA/compte d’utilisateur de domaine). Il s’agit du nom de principal de service (SPN) des écouteurs de bail et écouteurs dans fabric.exe : écouteurs de fédération ; écouteurs de réplication internes ; écouteur de service runtime et écouteur de la passerelle d’affectation de noms. Doit être vide lorsque la structure s’exécute en tant que comptes d’ordinateur ; dans ce cas, connecter le SPN de l’écouteur côté ordinateur à partir de l’adresse de transport de l’écouteur. |
 |CrlCheckingFlag|uint, valeur par défaut : 0x40000000|Dynamique|Indicateur de validation de chaîne de certificats par défaut ; peut être remplacé par un indicateur spécifique au composant ; par exemple Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Si définie sur 0, cette valeur désactive la vérification CRL La liste complète des valeurs prises en charge est documentée par dwFlags de CertGetCertificateChain : http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|TimeSpan, la valeur par défaut est Common::TimeSpan::FromMinutes(15)|Dynamique|Spécifiez la durée en secondes. Durée de la désactivation de la vérification de la liste CRL pour un certificat donné après une erreur en mode hors connexion ; l’erreur en mode hors connexion de la liste CRL peut être ignorée. |
 |CrlOfflineHealthReportTtl|TimeSpan, la valeur par défaut est Common::TimeSpan::FromMinutes(1440)|Dynamique|Spécifiez la durée en secondes. |
 |DisableFirewallRuleForDomainProfile| Valeur booléenne, valeur par défaut : TRUE |statique| Indique si la règle de pare-feu ne doit pas être activée pour le profil de domaine |
 |DisableFirewallRuleForPrivateProfile| Valeur booléenne, valeur par défaut : TRUE |statique| Indique si la règle de pare-feu ne doit pas être activée pour le profil privé | 
 |DisableFirewallRuleForPublicProfile| Valeur booléenne, valeur par défaut : TRUE | statique|Indique si la règle de pare-feu ne doit pas être activée pour le profil public |
-|FabricHostSpn| chaîne, valeur par défaut : L"" |statique| Nom de principal du service de FabricHost ; lorsque Fabric s’exécute en tant qu’utilisateur de domaine unique (gMSA/compte d’utilisateur de domaine) et que FabricHost s’exécute sous le compte d’ordinateur. Il s’agit du SPN de l’écouteur IPC pour FabricHost ; qui par défaut doit être vide car FabricHost s’exécute sous le compte d’ordinateur |
+|FabricHostSpn| Chaîne (valeur par défaut : "") |statique| Nom de principal du service de FabricHost ; lorsque Fabric s’exécute en tant qu’utilisateur de domaine unique (gMSA/compte d’utilisateur de domaine) et que FabricHost s’exécute sous le compte d’ordinateur. Il s’agit du SPN de l’écouteur IPC pour FabricHost ; qui par défaut doit être vide car FabricHost s’exécute sous le compte d’ordinateur |
 |IgnoreCrlOfflineError|valeur booléenne, valeur par défaut : FALSE|Dynamique|Indique s’il faut ou non ignorer l’erreur en mode hors connexion de la liste CRL lorsque le côté serveur vérifie des certificats de client entrants |
 |IgnoreSvrCrlOfflineError|Valeur booléenne, valeur par défaut : TRUE|Dynamique|Indique s’il faut ou non ignorer l’erreur en mode hors connexion de la liste CRL lorsque le côté client vérifie des certificats clients entrants ; valeur par défaut : true. Les attaques avec des certificats serveurs révoqués exigent de compromettre le DNS ; plus difficile qu’avec des certificats clients révoqués. |
-|ServerAuthCredentialType|chaîne, valeur par défaut : L"None"|statique|Indique le type d’informations d’identification de sécurité à utiliser pour sécuriser la communication entre FabricClient et le cluster. Les valeurs valides sont "None/X509/Windows" |
-|ServerCertThumbprints|chaîne, valeur par défaut : L""|Dynamique|Empreintes de certificats de serveur utilisés par le cluster pour communiquer avec les clients ; les clients l’utilisent pour authentifier le cluster. Il s’agit d’une liste de noms séparés par des virgules. |
-|SettingsX509StoreName| chaîne, valeur par défaut : L"MY"| Dynamique|Magasin de certificats X509 utilisé par l’infrastructure pour protéger la configuration |
+|ServerAuthCredentialType|Chaîne (valeur par défaut : "None")|statique|Indique le type d’informations d’identification de sécurité à utiliser pour sécuriser la communication entre FabricClient et le cluster. Les valeurs valides sont "None/X509/Windows" |
+|ServerCertThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Empreintes de certificats de serveur utilisés par le cluster pour communiquer avec les clients ; les clients l’utilisent pour authentifier le cluster. Il s’agit d’une liste de noms séparés par des virgules. |
+|SettingsX509StoreName| Chaîne (valeur par défaut : "MY")| Dynamique|Magasin de certificats X509 utilisé par l’infrastructure pour protéger la configuration |
 |UseClusterCertForIpcServerTlsSecurity|valeur booléenne, valeur par défaut : FALSE|statique|Indique s’il faut utiliser le certificat de cluster pour sécuriser l’unité de transport TLS du serveur IPC |
 |X509Folder|chaîne, valeur par défaut : /var/lib/waagent|statique|Dossier dans lequel se trouvent les certificats X509 et les clés privées |
 
@@ -626,17 +633,19 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |CancelTestCommand |Chaîne (valeur par défault : "Admin") |Dynamique| Annule une commande de test si elle est en cours. |
 |CodePackageControl |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour redémarrer des packages de code. |
 |CreateApplication |Chaîne (valeur par défault : "Admin") | Dynamique|Configuration de la sécurité pour la création d’applications. |
-|CreateComposeDeployment|chaîne, valeur par défaut : L"Admin"| Dynamique|Crée un déploiement compose décrit par les fichiers compose |
+|CreateComposeDeployment|Chaîne (valeur par défault : "Admin")| Dynamique|Crée un déploiement compose décrit par les fichiers compose |
 |CreateName |Chaîne (valeur par défault : "Admin") |Dynamique|Configuration de la sécurité pour la création d’URI d’attribution de noms. |
 |CreateService |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour la création de services. |
 |CreateServiceFromTemplate |Chaîne (valeur par défault : "Admin") |Dynamique|Configuration de la sécurité pour la création de services à partir d’un modèle. |
+|CreateVolume|Chaîne (valeur par défault : "Admin")|Dynamique|Crée un volume. |
 |DeactivateNode |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour désactiver un nœud. |
 |DeactivateNodesBatch |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour désactiver plusieurs nœuds. |
 |Supprimer |Chaîne (valeur par défault : "Admin") |Dynamique| Configurations de la sécurité pour l’opération de suppression de clients du magasin d’images (interne). |
 |DeleteApplication |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour la suppression d’applications. |
-|DeleteComposeDeployment|chaîne, valeur par défaut : L"Admin"| Dynamique|Supprime le déploiement compose |
+|DeleteComposeDeployment|Chaîne (valeur par défault : "Admin")| Dynamique|Supprime le déploiement compose |
 |DeleteName |Chaîne (valeur par défault : "Admin") |Dynamique|Configuration de la sécurité pour la suppression d’URI d’attribution de noms. |
 |DeleteService |Chaîne (valeur par défault : "Admin") |Dynamique|Configuration de la sécurité pour la suppression de services. |
+|DeleteVolume|Chaîne (valeur par défault : "Admin")|Dynamique|Supprime un volume.| 
 |EnumerateProperties |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour l’énumération de propriétés d’attribution de noms. |
 |EnumerateSubnames |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour l’énumération d’URI d’attribution de noms. |
 |FileContent |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour le transfert de fichiers clients du magasin d’images (externe vers le cluster). |
@@ -654,11 +663,11 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |GetServiceDescription |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour la lecture des descriptions de service et les notifications de sondage de longue durée. |
 |GetStagingLocation |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour récupérer l’emplacement intermédiaire du client du magasin d’images. |
 |GetStoreLocation |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour récupérer l’emplacement du client du magasin d’images. |
-|GetUpgradeOrchestrationServiceState|chaîne, valeur par défaut : L"Admin"| Dynamique|Déclenche GetUpgradeOrchestrationServiceState sur une partition |
+|GetUpgradeOrchestrationServiceState|Chaîne (valeur par défault : "Admin")| Dynamique|Déclenche GetUpgradeOrchestrationServiceState sur une partition |
 |GetUpgradesPendingApproval |Chaîne (valeur par défault : "Admin") |Dynamique| Déclenche GetUpgradesPendingApproval sur une partition. |
 |GetUpgradeStatus |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour interroger l’état de mise à niveau de l’application. |
 |InternalList |Chaîne (valeur par défault : "Admin") | Dynamique|Configuration de la sécurité pour l’opération de liste de fichiers clients deumagasin d’images (interne). |
-|InvokeContainerApi|valeur wstring (valeur par défaut : L"Admin")|Dynamique|Invoke container API |
+|InvokeContainerApi|chaîne, valeur par : « Admin »|Dynamique|Invoke container API |
 |InvokeInfrastructureCommand |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour les commandes de gestion des tâches d’infrastructure. |
 |InvokeInfrastructureQuery |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour interroger les tâches d’infrastructure. |
 |Liste |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour l’opération de liste de fichiers clients du magasin d’images. |
@@ -689,11 +698,11 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ResolveNameOwner |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour résoudre le propriétaire de l’URI d’attribution de noms. |
 |ResolvePartition |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour résoudre les services du système. |
 |ResolveService |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour la résolution de services en fonction de la réclamation. |
-|ResolveSystemService|Chaîne, la valeur par défaut est L« Admin\|\|User »|Dynamique| Configuration de la sécurité pour résoudre les services du système |
+|ResolveSystemService|Chaîne, la valeur par défaut est « Admin\|\|User »|Dynamique| Configuration de la sécurité pour résoudre les services du système |
 |RollbackApplicationUpgrade |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour annuler des mises à niveau d’application. |
 |RollbackFabricUpgrade |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour annuler des mises à niveau de cluster. |
 |ServiceNotifications |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour les notifications de service basées sur l’événement. |
-|SetUpgradeOrchestrationServiceState|chaîne, valeur par défaut : L"Admin"| Dynamique|Déclenche SetUpgradeOrchestrationServiceState sur une partition |
+|SetUpgradeOrchestrationServiceState|Chaîne (valeur par défault : "Admin")| Dynamique|Déclenche SetUpgradeOrchestrationServiceState sur une partition |
 |StartApprovedUpgrades |Chaîne (valeur par défault : "Admin") |Dynamique| Déclenche StartApprovedUpgrades sur une partition. |
 |StartChaos |Chaîne (valeur par défault : "Admin") |Dynamique| Démarre Chaos si ce n’est déjà fait. |
 |StartClusterConfigurationUpgrade |Chaîne (valeur par défault : "Admin") |Dynamique| Déclenche StartClusterConfigurationUpgrade sur une partition. |
@@ -709,7 +718,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |UnreliableTransportControl |Chaîne (valeur par défault : "Admin") |Dynamique| Transport non fiable pour ajouter et supprimer des comportements. |
 |UpdateService |Chaîne (valeur par défault : "Admin") |Dynamique|Configuration de la sécurité pour les mises à niveau de services. |
 |UpgradeApplication |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour démarrer ou arrêter des mises à niveau d’application. |
-|UpgradeComposeDeployment|chaîne, valeur par défaut : L"Admin"| Dynamique|Met à niveau le déploiement compose |
+|UpgradeComposeDeployment|Chaîne (valeur par défault : "Admin")| Dynamique|Met à niveau le déploiement compose |
 |UpgradeFabric |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour démarrer des mises à niveau de cluster. |
 |Télécharger |Chaîne (valeur par défault : "Admin") | Dynamique|Configuration de la sécurité pour l’opération de chargement de clients du magasin d’images. |
 
@@ -746,7 +755,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="setup"></a>Paramétrage
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|ContainerNetworkName|chaîne, valeur par défaut : L""| statique |Le nom du réseau à utiliser lors de la configuration d’un réseau de conteneur.|
+|ContainerNetworkName|Chaîne (valeur par défaut : "")| statique |Le nom du réseau à utiliser lors de la configuration d’un réseau de conteneur.|
 |ContainerNetworkSetup|valeur booléenne, valeur par défaut : FALSE| statique |Spécifie si un réseau de conteneur doit être configuré.|
 |FabricDataRoot |Chaîne | Non autorisée |Répertoire racine des données Service Fabric. La valeur par défaut pour Azure est d:\svcfab |
 |FabricDataRoot |Chaîne | Non autorisée |Répertoire racine du journal Service Fabric. Il s’agit de l’emplacement des journaux et des traces de SF. |
@@ -781,7 +790,10 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau** |**Conseils ou brève description** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(60)|statique|Spécifiez la durée en secondes. Délai d’expiration pour la configuration de la connexion côté entrant et acceptant (y compris la négociation de sécurité en mode sécurisé) |
-|ResolveOption|chaîne, valeur par défaut : L"unspecified"|statique|Détermine la façon dont le nom de domaine complet est résolu.  Les valeurs valides sont "unspecified/ipv4/ipv6". |
+|FrameHeaderErrorCheckingEnabled|Valeur booléenne, valeur par défaut : TRUE|statique|Paramètre par défaut pour la vérification d’erreurs dans l’en-tête d’image en mode non sécurisé ; remplacé par le paramètre du composant. |
+|MessageErrorCheckingEnabled|valeur booléenne,valeur par défaut : FALSE|statique|Paramètre par défaut pour la vérification d’erreurs dans l’en-tête et le corps de message en mode non sécurisé ; remplacé par le paramètre du composant. |
+|ResolveOption|chaîne, valeur par défaut : « unspecified »|statique|Détermine la façon dont le nom de domaine complet est résolu.  Les valeurs valides sont "unspecified/ipv4/ipv6". |
+|SendTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(300)|Dynamique|Spécifiez la durée en secondes. Envoyez un délai d'expiration pour détecter une connexion bloquée. Les rapports d’échec TCP ne sont pas fiables dans certains environnements. Cela peut être ajusté en fonction de la bande passante réseau disponible et de la taille des données sortantes (\*MaxMessageSize\/\*SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |

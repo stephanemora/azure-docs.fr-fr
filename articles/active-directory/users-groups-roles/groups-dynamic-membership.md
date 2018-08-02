@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a48dcff6eedc2aa6e8bb6cd5b0668af72259493b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869085"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248887"
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory
-Dans Azure Active Directory (Azure AD), vous pouvez créer des règles personnalisées pour activer des appartenances dynamiques complexes basées sur les attributs pour les groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils. Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365.
+# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Créer des groupes dynamiques avec une appartenance basée sur des attributs dans Azure Active Directory
+
+Dans Azure Active Directory (Azure AD), vous pouvez créer des règles complexes basées sur des attributs pour activer des appartenances dynamiques pour des groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils. Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365.
 
 Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système évalue toutes les règles de groupe dynamique d’un annuaire pour voir si la modification déclenche des ajouts ou suppressions de groupe. Si un utilisateur ou un appareil respecte une règle d’un groupe, il est ajouté en tant que membre de ce groupe. S’il ne respecte plus la règle, il est supprimé.
 
@@ -34,6 +35,7 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 > Il est actuellement impossible de créer un groupe d’appareil basé sur les attributs de l’utilisateur propriétaire. Les règles d’appartenance d’un appareil ne peuvent définir que des attributs immédiats d’objets d’appareil dans le répertoire.
 
 ## <a name="to-create-an-advanced-rule"></a>Pour créer une règle avancée
+
 1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général ou en tant qu’administrateur de compte d’utilisateur.
 2. Sélectionnez **Utilisateurs et groupes**.
 3. Sélectionnez **Tous les groupes**, puis **Nouveau groupe**.
@@ -58,6 +60,7 @@ Vous pouvez voir l’état du traitement de l’appartenance et la date de la de
 
 
 Les messages d’état suivants peuvent être affichés pour l’état **Traitement de l’appartenance** :
+
 * **Évaluation** : le changement de groupe a été reçu, et les mises à jour sont en cours d’évaluation.
 * **Traitement** : les mises à jour sont en cours de traitement.
 * **Mise à jour terminée** : le traitement est terminé, et toutes les mises à jour applicables ont été effectuées.
@@ -65,6 +68,7 @@ Les messages d’état suivants peuvent être affichés pour l’état **Traitem
 * **Mise à jour suspendue** : les mises à jour de la règle d’appartenance dynamique ont été suspendues par l’administrateur. Le paramètre MembershipRuleProcessingState est défini sur « Suspendu ».
 
 Les messages d’état suivants peuvent être affichés pour l’état **Dernière mise à jour de l’appartenance** :
+
 * &lt;**Date et heure**&gt; : date et heure de la dernière mise à jour de l’appartenance.
 * **En cours** : les mises à jour sont en cours d’exécution.
 * **Inconnue** : impossible de récupérer l’heure de la dernière mise à jour. Cela tient peut-être au groupe qui vient d’être créé.
@@ -74,6 +78,7 @@ Si une erreur se produit lors du traitement de la règle d’appartenance pour u
 ![message d’erreur de traitement](./media/groups-dynamic-membership/processing-error.png)
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Construction du corps d’une règle avancée
+
 La règle avancée que vous pouvez créer pour l’appartenance dynamique à des groupes est essentiellement une expression binaire qui se compose de trois parties et qui génère un résultat true ou false. Les trois parties sont les suivantes :
 
 * Paramètre de gauche (leftParameter)
@@ -96,6 +101,7 @@ La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 04
 > Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : `"\`Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Opérateurs de règle d’expression pris en charge
+
 Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
 
 | Operator | Syntaxe |
@@ -114,6 +120,7 @@ Le tableau suivant répertorie tous les opérateurs de règle d’expression pri
 ## <a name="operator-precedence"></a>Précédence des opérateurs
 
 Tous les opérateurs sont répertoriés ci-dessous par priorité, de la plus faible à la plus élevée. Les opérateurs sur la même ligne ont la même priorité :
+
 ````
 -any -all
 -or
@@ -121,15 +128,20 @@ Tous les opérateurs sont répertoriés ci-dessous par priorité, de la plus fai
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 Tous les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union. Des parenthèses ne sont nécessaires que lorsque la priorité ne répond pas à vos besoins.
 Par exemple : 
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 équivaut à :
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## <a name="using-the--in-and--notin-operators"></a>Utilisation des opérateurs -in et -notIn
 
 Si vous souhaitez comparer la valeur d’un attribut utilisateur par rapport à un nombre de valeurs différentes, vous pouvez utiliser les opérateurs -in ou -notin. Voici un exemple d’utilisation d’un opérateur -in :
@@ -140,6 +152,7 @@ Notez l’utilisation de « [ » et «] » au début et à la fin de la liste
 
 
 ## <a name="query-error-remediation"></a>Correction d’erreur de requête
+
 Le tableau suivant répertorie les erreurs courantes et les méthodes pour les corriger
 
 | Erreur d’analyse de requête | Utilisation incorrecte | Utilisation corrigée |
@@ -149,9 +162,11 @@ Le tableau suivant répertorie les erreurs courantes et les méthodes pour les c
 | Erreur : erreur de compilation de la requête. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Opérateur manquant. Utilisez -and ou -or pour associer les prédicats<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Erreur dans l’expression régulière utilisée avec -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternativement : (user.userPrincipalName -match "\@domain.ext$")|
 
 ## <a name="supported-properties"></a>Propriétés prises en charge
+
 Voici toutes les propriétés d’utilisateur que vous pouvez utiliser dans vos règles avancées :
 
 ### <a name="properties-of-type-boolean"></a>Propriétés de type booléen
+
 Opérateurs autorisés
 
 * -eq
@@ -163,6 +178,7 @@ Opérateurs autorisés
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propriétés de type chaîne
+
 Opérateurs autorisés
 
 * -eq
@@ -206,6 +222,7 @@ Opérateurs autorisés
 | userType |member guest *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriétés de type collection de chaînes
+
 Opérateurs autorisés
 
 * -contains
@@ -217,6 +234,7 @@ Opérateurs autorisés
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Propriétés à valeurs multiples
+
 Opérateurs autorisés
 
 * -any (respectée lorsqu’au moins un élément de la collection correspond à la condition)
@@ -225,6 +243,7 @@ Opérateurs autorisés
 | properties | Valeurs | Usage |
 | --- | --- | --- |
 | assignedPlans |Chaque objet de la collection affiche les propriétés de chaînes suivantes : capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -et assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
 Les propriétés à valeurs multiples sont des collections d’objets du même type. Vous pouvez utiliser les opérateurs -any et -all pour appliquer respectivement une condition à un ou tous les objets de la collection. Par exemple : 
 
@@ -234,14 +253,24 @@ assignedPlans est une propriété à valeurs multiples qui répertorie tous les 
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(L’identificateur Guid détermine le plan de service Exchange Online (Plan 2).)
+(L’identificateur GUID détermine le plan de service Exchange Online (Plan 2).)
 
 > [!NOTE]
 > Ceci est utile si vous souhaitez identifier tous les utilisateurs pour lesquels une fonctionnalité Office 365 (ou tout autre service en ligne Microsoft) a été activée, pour cibler un ensemble de stratégies défini, par exemple.
 
-L’expression suivante sélectionne tous les utilisateurs qui disposent d’un plan de service associé au service Intune (identifié par le nom de service « SCO ») :
+L’expression suivante sélectionne tous les utilisateurs qui disposent d’un plan de service associé au service Intune (identifié par le nom de service « SCO ») :
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### <a name="using-the-underscore--syntax"></a>Utilisation de la syntaxe de trait de soulignement (\_)
+
+La syntaxe de trait de soulignement (\_) correspond aux occurrences d’une valeur spécifique dans une des propriétés de collection de chaîne à valeurs multiples pour ajouter des utilisateurs ou des appareils à un groupe dynamique. Elle est utilisée avec les opérateurs -any ou -all.
+
+Voici un exemple d’utilisation du trait de soulignement (\_) dans une règle pour ajouter des membres à partir de user.proxyAddress (le même principe s’applique pour user.otherMails). Cette règle ajoute au groupe n’importe quel utilisateur avec l’adresse de proxy contenant « contoso ».
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## <a name="use-of-null-values"></a>Utiliser des valeurs Null
@@ -256,14 +285,17 @@ Les attributs d’extension et les attributs personnalisés sont pris en charge 
 
 Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15.
 Voici en exemple de règle utilisant un attribut d’extension :
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Les attributs personnalisés sont synchronisés à partir de Windows Server AD local ou d’une application SaaS connectée et le format de « user.extension[GUID]\__[Attribut] », lorsque [GUID] est l’identificateur unique dans AAD pour l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé.
-Voici un exemple de règle utilisant un attribut personnalisé :
+
+Les attributs personnalisés sont synchronisés à partir de Windows Server AD local ou d’une application SaaS connectée et le format de « user.extension[GUID]\__[Attribut] », lorsque [GUID] est l’identificateur unique dans Azure AD pour l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé. Voici un exemple de règle utilisant un attribut personnalisé :
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 Vous pouvez accéder au nom de l’attribut personnalisé dans le répertoire en lançant une requête sur un attribut d’utilisateur, à l’aide de l’explorateur graphique, et en recherchant le nom d’attribut.
 
 ## <a name="direct-reports-rule"></a>Règle de « collaborateurs directs »

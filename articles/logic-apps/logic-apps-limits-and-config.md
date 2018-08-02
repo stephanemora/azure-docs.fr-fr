@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8baca0fc46489a22d587ba6e742615b1da79c19a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970225"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238309"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -96,8 +96,9 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 | Appels sortants simultanés des actions | ~2,500 | Diminuer le nombre de requêtes simultanées ou réduire la durée en fonction des besoins. | 
 | Point de terminaison du runtime : appels entrants simultanés | ~1,000 | Diminuer le nombre de requêtes simultanées ou réduire la durée en fonction des besoins. | 
 | Point de terminaison du runtime : appels de lecture toutes les cinq minutes  | 60 000 | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. | 
-| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes| 45,000 | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. | 
-|||| 
+| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes| 45,000 | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. |
+| Débit de contenu par tranche de 5 minutes | 600 Mo | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. |  
+||||| 
 
 Pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter des tests de charge susceptibles d’entraîner leur dépassement, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) afin d’obtenir de l’aide.
 
@@ -302,8 +303,8 @@ Pour prendre en charge les appels passés par les [connecteurs](../connectors/ap
 | Est de l’Australie | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
 | Sud-est de l’Australie | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
 | Sud du Brésil | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
-| Centre du Canada | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
-| Est du Canada | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Centre du Canada | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13, 52.233.26.83 | 
+| Est du Canada | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52, 52.229.120.131 | 
 | Inde centrale | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
 | Centre des États-Unis | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
 | Est de l'Asie | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
@@ -316,13 +317,13 @@ Pour prendre en charge les appels passés par les [connecteurs](../connectors/ap
 | États-Unis - partie centrale méridionale | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
 | Inde du Sud | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
 | Asie du Sud-Est | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
-| Centre-Ouest des États-Unis | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| Centre-Ouest des États-Unis | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212, 52.161.128 | 
 | Europe de l'Ouest | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
 | Inde occidentale | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
 | États-Unis de l’Ouest | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
-| Ouest des États-Unis 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
-| Sud du Royaume-Uni | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
-| Ouest du Royaume-Uni | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
+| Ouest des États-Unis 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14, 13.66.221.19 | 
+| Sud du Royaume-Uni | 51.140.148.0 - 51.140.148.15, 51.140.80.51 | 
+| Ouest du Royaume-Uni | 51.140.211.0 - 51.140.211.15, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Étapes suivantes  

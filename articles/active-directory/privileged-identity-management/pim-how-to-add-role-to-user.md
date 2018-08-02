@@ -1,6 +1,6 @@
 ---
-title: Ajouter ou supprimer un rôle d’utilisateur | Microsoft Docs
-description: Découvrez comment ajouter des rôles privilégiés avec l’application Azure Active Directory Privileged Identity Management.
+title: Attribuer des rôles d’annuaire à des utilisateurs à l’aide d’Azure AD PIM | Microsoft Docs
+description: Découvrez comment attribuer des rôles d’annuaire à des utilisateurs à l’aide d’Azure Active Directory Privileged Identity Management et du portail Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,57 +10,106 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 01/03/2018
+ms.date: 07/23/2018
 ms.author: rolyon
-ms.openlocfilehash: eac0869c0f4a7dd780d6988ff9bc4362458a7e3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1834addb4e51030afda43a2d7acad5d7ffc1889a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723331"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226694"
 ---
-# <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management : comment ajouter ou supprimer un rôle d’utilisateur
-Avec Azure Active Directory (AD), un administrateur général (ou un administrateur d’entreprise) peut mettre à jour les utilisateurs auxquels des rôles sont **définitivement** affectés dans Azure AD. Cette opération s’effectue avec les applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`. Il peut également utiliser le portail Azure comme décrit dans [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+# <a name="assign-directory-roles-to-users-using-azure-ad-pim"></a>Attribuer des rôles d’annuaire à des utilisateurs à l’aide d’Azure AD PIM
 
-L’application Azure AD Privileged Identity Management permet aux administrateurs de rôle privilégié de rendre les affectations de rôle permanentes. En outre, les administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles d’administrateur. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé.
+Avec Azure Active Directory (Azure AD), un administrateur général peut effectuer des attributions de rôles d’annuaire **permanentes**. Ces attributions de rôles peuvent être créées via le [portail Azure](../users-groups-roles/directory-assign-admin-roles.md) ou à l’aide de [commandes PowerShell](/powershell/module/azuread#directory_roles).
 
-## <a name="manage-roles-with-pim-in-the-azure-portal"></a>Gérer des rôles avec PIM dans le portail Azure
-Vous pouvez affecter aux utilisateurs de votre organisation différents rôles administratifs dans Azure AD, Office 365, et d’autres services et applications Microsoft.  Vous trouverez plus d’informations sur les rôles disponibles dans [Rôles dans Azure AD PIM](pim-roles.md).
+Le service Azure AD Privileged Identity Management (PIM) permet également aux administrateurs de rôle privilégié d’établir des attributions de rôles d’annuaire permanentes. En outre, les administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles d’annuaire. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé. Pour plus d’informations sur les rôles que vous pouvez gérer à l’aide de PIM, consultez l’article [Rôles d’annuaire que vous pouvez gérer à l’aide d’Azure AD PIM](pim-roles.md).
 
-Pour ajouter ou supprimer un utilisateur dans un rôle à l’aide de Privileged Identity Management, affichez le tableau de bord PIM. Puis, cliquez sur le bouton **Utilisateurs dans les rôles d’administrateur** ou sélectionnez un rôle spécifique (comme Administrateur général) dans la table des rôles.
+## <a name="make-a-user-eligible-for-a-role"></a>Rendre un utilisateur éligible pour un rôle
 
-> [!NOTE]
-> Si vous n’avez pas encore activé PIM dans le portail Azure, accédez à [Prise en main d’Azure AD PIM](pim-getting-started.md) pour plus d’informations.
+Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d’annuaire Azure AD.
 
-Si vous souhaitez donner l’accès à PIM à un autre utilisateur, consultez [Comment accorder l’accès à PIM](pim-how-to-give-access-to-pim.md)pour plus d’informations sur les rôles qu’exige PIM.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-## <a name="add-a-user-to-a-role"></a>Ajouter un utilisateur à un rôle
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez la mosaïque **Azure AD Privileged Identity Management** sur le tableau de bord.
-2. Sélectionnez **Gérer les rôles privilégiés**.
-3. Dans la table **Résumé des rôles** , puis sélectionnez le rôle que vous souhaitez gérer.
-4. Dans le panneau du rôle, sélectionnez **Ajouter**.
-5. Cliquez sur **Sélectionner les utilisateurs** et recherchez l’utilisateur dans le panneau **Sélectionner les utilisateurs**.  
-6. Sélectionnez l’utilisateur dans la liste des résultats, puis cliquez sur **OK**.
-7. Cliquez sur **OK** pour enregistrer votre sélection. L’utilisateur que vous avez sélectionné apparaît comme éligible pour ce rôle.
+    Pour savoir comment accorder un autre accès utilisateur pour gérer PIM, consultez l’article [Comment accéder à PIM](pim-how-to-give-access-to-pim.md).
 
-> [!NOTE]
-> Les nouveaux utilisateurs d’un rôle sont uniquement éligibles pour le rôle par défaut. Si vous souhaitez conserver le rôle, cliquez sur l’utilisateur dans la liste. Les informations de l’utilisateur s’affichent dans un nouveau panneau. Sélectionnez **Rendre permanent** dans le menu des informations utilisateur.  
-> Si un utilisateur ne peut pas inscrire pour authentification multifacteur (MFA) Azure ou utilise un compte Microsoft (généralement @outlook.com), vous devez le rendre permanent dans tous ses rôles. Les administrateurs éligibles sont invités à s’inscrire à MFA lors de l’activation.
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
-Maintenant que l’utilisateur est éligible à un rôle, indiquez-lui qu’il peut l’activer en suivant les instructions dans [Comment activer ou désactiver un rôle](pim-how-to-activate-role.md).
+    Si vous n’avez pas encore activé PIM dans le portail Azure, accédez à [Prise en main d’Azure AD PIM](pim-getting-started.md).
+
+1. Cliquez sur **Rôles d’annuaire Azure AD**.
+
+1. Cliquez sur **Rôle (préversion)** ou **Membres**.
+
+    ![Rôles d’annuaire Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+
+1. Cliquez sur **Ajouter un membre** pour ouvrir la boîte de dialogue Ajouter des membres managés.
+
+1. Cliquez sur **Sélectionner un rôle**, sélectionnez un rôle que vous souhaitez gérer, puis cliquez sur **Sélectionner**.
+
+    ![Sélectionnez un rôle](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+
+1. Cliquez sur **Sélectionner des membres**, sélectionnez les utilisateurs que vous souhaitez assigner au rôle, puis cliquez sur **Sélectionner**.
+
+    ![Sélectionnez un rôle](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+
+1. Sous Ajouter des membres managés, cliquez sur **OK** pour ajouter l’utilisateur au rôle.
+
+     Une fois le rôle attribué, l’utilisateur que vous avez sélectionné apparaît comme **éligible** pour ce rôle dans la liste des membres.
+
+    ![Utilisateur éligible pour un rôle](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+
+1. Maintenant que l’utilisateur est éligible pour le rôle, indiquez-lui qu’il peut l’activer en suivant les instructions de l’article [Comment activer ou désactiver un rôle](pim-how-to-activate-role.md).
+
+    Les administrateurs éligibles sont invités à s’inscrire au service d’authentification multifacteur (MFA) Azure lors de l’activation. Si un utilisateur ne peut pas s’inscrire à l’authentification multifacteur (MFA) Azure ou utilise un compte Microsoft (généralement @outlook.com), vous devez le rendre permanent dans tous ses rôles.
+
+## <a name="make-a-role-assignment-permanent"></a>Rendre une attribution de rôle permanente
+
+Par défaut, les nouveaux utilisateurs sont uniquement éligibles pour un rôle d’annuaire. Suivez ces étapes si vous souhaitez rendre une attribution de rôle permanente.
+
+1. Ouvrez **Azure AD Privileged Identity Management**.
+
+1. Cliquez sur **Rôles d’annuaire Azure AD**.
+
+1. Cliquez sur **Membres**.
+
+    ![Liste des membres](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+
+1. Cliquez sur un rôle **éligible** que vous souhaitez rendre permanent.
+
+1. Cliquez sur **Plus**, puis sur **Rendre permanent**.
+
+    ![Rendre une attribution de rôle permanente](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+
+    Le rôle est désormais répertorié comme **permanent**.
+
+    ![Liste des membres avec modification permanente](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>Supprimer un utilisateur d’un rôle
-Vous pouvez supprimer des utilisateurs des attributions de rôle éligible, mais assurez-vous qu’il reste toujours au moins un administrateur général permanent.
 
-Suivez ces étapes pour supprimer un utilisateur spécifique d’un rôle :
+Vous pouvez supprimer des utilisateurs des attributions de rôles, mais assurez-vous qu’il reste toujours au moins un administrateur général permanent. Si vous ne savez pas quels utilisateurs ont toujours besoin de leurs attributions de rôles, vous pouvez [démarrer une révision d’accès pour le rôle](pim-how-to-start-security-review.md).
 
-1. Accédez au rôle dans la liste des rôles, en sélectionnant un rôle dans le tableau de bord Azure AD PIM ou en cliquant sur le bouton **Utilisateurs dans les rôles d’administrateur** .
-2. Cliquez sur l’utilisateur dans la liste des utilisateurs.
-3. Cliquez sur **Supprimer**. Un message vous demande de confirmer.
-4. Cliquez sur **Oui** pour supprimer le rôle de l’utilisateur.
+Suivez ces étapes pour supprimer un utilisateur spécifique d’un rôle d’annuaire.
 
-Si vous ne savez pas quels utilisateurs ont toujours besoin de leurs attributions de rôles, vous pouvez [démarrer une révision de l’accès pour le rôle](pim-how-to-start-security-review.md).
+1. Ouvrez **Azure AD Privileged Identity Management**.
+
+1. Cliquez sur **Rôles d’annuaire Azure AD**.
+
+1. Cliquez sur **Membres**.
+
+    ![Liste des membres](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+
+1. Cliquez sur l’attribution de rôle que vous souhaitez supprimer.
+
+1. Cliquez sur **Plus**, puis sur **Supprimer**.
+
+    ![Supprimer un rôle](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+
+1. Dans le message qui vous invite à confirmer la suppression, cliquez sur **Oui**.
+
+    ![Supprimer un rôle](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+
+    L’attribution de rôle est supprimée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
-

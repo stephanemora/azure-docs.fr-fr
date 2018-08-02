@@ -8,31 +8,35 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a6435f74141429cbe4f9a169fd2f234161d486c4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918738"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248164"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Collecter et utiliser des données de journaux à partir de vos ressources Azure
 
-## <a name="what-are-azure-resource-diagnostic-logs"></a>Présentation des journaux de diagnostic des ressources Azure
+## <a name="what-are-azure-monitor-diagnostic-logs"></a>Présentation des journaux de diagnostics Azure Monitor
 
-Les **journaux de diagnostic au niveau des ressources Azure** sont des journaux émis par une ressource, qui fournissent des informations détaillées et riches sur l’utilisation de celle-ci, à intervalles réguliers. Le contenu de ces journaux varie en fonction du type de ressource. Les compteurs de règles du groupe de sécurité réseau et les audits de coffres de clés sont deux exemples de catégories de journaux de ressource.
+Les **journaux de diagnostic Azure Monitor** sont des journaux émis par un service Azure qui fournissent des informations riches et fréquentes sur le fonctionnement de ce service. Azure Monitor propose deux types de journaux de diagnostic :
+* **Journaux de locataire** : ces journaux proviennent des services au niveau du locataire qui existent en dehors d’un abonnement Azure, tels que les journaux Azure Active Directory.
+* **Journaux de ressources** : ces journaux proviennent des services Azure qui déploient des ressources au sein d’un abonnement Azure, tels que les groupes de sécurité réseau ou les comptes de stockage.
 
-Les journaux de diagnostic des ressources ne fournissent pas les mêmes informations que le [Journal d’activité](monitoring-overview-activity-logs.md). Le journal d’activité fournit un aperçu des opérations qui ont été effectuées sur les ressources de votre abonnement à l’aide de Resource Manager (par exemple, la création d’une machine virtuelle ou la suppression d’une application logique). Il s’intéresse aux opérations effectuées au niveau de l’abonnement. Les journaux de diagnostic des ressources, quant à eux, donnent un aperçu des opérations qui ont été effectuées au sein d’une ressource (par exemple, l’obtention d’un secret à partir d’un coffre de clés).
+    ![Comparaison entre les journaux de diagnostic des ressources et les autres types de journaux ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
-Les journaux de diagnostic des ressources diffèrent également des journaux de diagnostic de système d’exploitation invité. Les journaux de diagnostic de système d’exploitation invité sont collectés par un agent exécuté sur une machine virtuelle ou un autre type de ressource pris en charge. Les journaux de diagnostic des ressources ne nécessitent aucun agent et capturent les données relatives à la ressource à partir de la plateforme Azure, alors que les journaux de diagnostic du système d’exploitation invité capturent les données provenant du système d’exploitation et des applications exécutées sur la machine virtuelle.
+Le contenu de ces journaux varie en fonction du service Azure et du type de ressource. Les compteurs de règles du groupe de sécurité réseau et les audits de coffres de clés sont deux exemples de types de journaux de diagnostic.
 
-Le nouveau type de journal de diagnostic décrit ici n’est cependant pas pris en charge par toutes les ressources. Cet article comprend une section répertoriant les types de ressources qui prennent en charge les nouveaux journaux de diagnostic des ressources.
+Ces journaux sont différents du [journal d’activité](monitoring-overview-activity-logs.md). Le journal d’activité fournit un aperçu des opérations qui ont été effectuées sur les ressources de votre abonnement à l’aide de Resource Manager (par exemple, la création d’une machine virtuelle ou la suppression d’une application logique). Il s’intéresse aux opérations effectuées au niveau de l’abonnement. Les journaux de diagnostic des ressources, quant à eux, donnent un aperçu des opérations qui ont été effectuées au sein d’une ressource (par exemple, l’obtention d’un secret à partir d’un coffre de clés).
 
-![Comparaison entre les journaux de diagnostic des ressources et les autres types de journaux ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+Ces journaux diffèrent également des journaux de diagnostic de système d’exploitation invité. Les journaux de diagnostic de système d’exploitation invité sont collectés par un agent exécuté sur une machine virtuelle ou un autre type de ressource pris en charge. Les journaux de diagnostic des ressources ne nécessitent aucun agent et capturent les données relatives à la ressource à partir de la plateforme Azure, alors que les journaux de diagnostic du système d’exploitation invité capturent les données provenant du système d’exploitation et des applications exécutées sur la machine virtuelle.
 
-## <a name="what-you-can-do-with-resource-level-diagnostic-logs"></a>Comment utiliser les journaux de diagnostic au niveau des ressources
-Voici ce que vous pouvez faire avec les journaux de diagnostic des ressources :
+Toutes les services ne prennent pas en charge les journaux de diagnostic décrits ici. [Cet article contient une section répertoriant les services prenant en charge les journaux de diagnostic](./monitoring-diagnostic-logs-schema.md).
 
-![Positionnement logique des journaux de diagnostic des ressources](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+## <a name="what-you-can-do-with-diagnostic-logs"></a>Ce que vous pouvez faire avec les journaux de diagnostic
+Voici ce que vous pouvez faire avec les journaux de diagnostic :
+
+![Positionnement logique des journaux de diagnostic](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
 * Enregistrez-les dans un [**compte de stockage**](monitoring-archive-diagnostic-logs.md) pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **paramètres de diagnostic des ressources**.
 * [Diffusez-les en streaming sur **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
@@ -48,18 +52,18 @@ Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hubs qui n
 >
 > 
 
-## <a name="resource-diagnostic-settings"></a>Paramètres de diagnostic des ressources
+## <a name="diagnostic-settings"></a>Paramètres de diagnostic
 
-Les journaux de diagnostic des ressources non liées au calcul sont configurés à l’aide des paramètres de diagnostic des ressources. **Paramètres de diagnostic des ressources** pour un contrôle des ressources :
+Les journaux de diagnostic des ressources sont configurés à l’aide des paramètres de diagnostic des ressources. Les journaux de diagnostic des locataires sont configurés à l’aide des paramètres de diagnostic des locataires. **Paramètres de diagnostic** pour un contrôle de service :
 
-* Où les journaux de diagnostic des ressources et les métriques sont envoyés (Compte de stockage, Event Hubs et/ou Log Analytics).
+* Où les journaux de diagnostic et les métriques sont envoyés (compte de stockage, Event Hubs et/ou Log Analytics).
 * Les catégories de journal envoyées et les données de mesure également envoyées.
 * La durée pendant laquelle chaque catégorie de journal doit être conservée dans un compte de stockage
     - Une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
     - Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou Log Analytics sont sélectionnées), les stratégies de rétention n’ont aucun effet.
     - Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux de votre compte de stockage peut prendre jusqu’à 24 heures.
 
-Ces paramètres peuvent être facilement configurés via les paramètres de diagnostics pour une ressource dans le portail Azure, via les commandes Azure PowerShell et de l’interface CLI ou via [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Ces paramètres peuvent être facilement configurés via les paramètres de diagnostics du portail Azure, via les commandes Azure PowerShell et de l’interface CLI, ou via l’[API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
@@ -68,17 +72,14 @@ Ces paramètres peuvent être facilement configurés via les paramètres de diag
 >
 >
 
-> [!WARNING]
-> Les métriques et les journaux de diagnostic concernant la couche Système d’exploitation invité des ressources Compute (comme les machines virtuelles ou Service Fabric) utilisent [un mécanisme distinct pour la configuration et la sélection des sorties](../azure-diagnostics.md).
+## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Activer la collecte des journaux de diagnostic
 
-## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Comment activer la collecte des journaux de diagnostic des ressources
-
-La collecte des journaux de diagnostic des ressources peut être activée [dans le cadre de la création d’une ressource dans un modèle Resource Manager](./monitoring-enable-diagnostic-logs-using-template.md) ou après la création d’une ressource via la page d’une ressource dans le portail. Vous pouvez également activer la collecte à tout moment via les commandes de l’interface de ligne de commande ou d’Azure PowerShell, ou via l’API REST Azure Monitor.
+La collecte des journaux de diagnostic peut être activée [dans le cadre de la création d’une ressource dans un modèle de Gestionnaire des ressources](./monitoring-enable-diagnostic-logs-using-template.md) ou après la création d’une ressource via la page de cette ressource dans le portail. Vous pouvez également activer la collecte à tout moment via les commandes de l’interface de ligne de commande ou d’Azure PowerShell, ou via l’API REST Azure Monitor.
 
 > [!TIP]
 > Ces instructions peuvent ne pas s’appliquer directement à toutes les ressources. Consultez les liens de schéma en bas de cette page pour comprendre les étapes spécifiques qui peuvent concerner certains types de ressources.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-in-the-portal"></a>Activer la collecte des journaux de diagnostic des ressources dans le portail
+### <a name="enable-collection-of-diagnostic-logs-in-the-portal"></a>Activer la collecte des journaux de diagnostic dans le portail
 
 Vous pouvez activer la collecte des journaux de diagnostic des ressources dans le portail Azure après la création d’une ressource, en allant vers une ressource spécifique ou en navigant vers Azure Monitor. Pour activer cette option via Azure Monitor :
 
@@ -103,6 +104,10 @@ Vous pouvez activer la collecte des journaux de diagnostic des ressources dans l
 4. Cliquez sur **Enregistrer**.
 
 Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres de cette ressource et les journaux de diagnostic sont envoyés vers les destinations spécifiées dès la génération de nouvelles données d’événements.
+
+Les paramètres de diagnostic de locataire peuvent uniquement être configurés dans le panneau de portail correspondant au service de locataire ; ces paramètres n’apparaissent pas dans le panneau de paramètres de diagnostic Azure Monitor. Par exemple, vous configurez les journaux d’audit Azure Active Directory en cliquant sur les **paramètres d’exportation de données** dans le panneau des journaux d’audit.
+
+![Paramètres de diagnostic AAD](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-aad.png)
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Activer la collecte des journaux de diagnostic des ressources via PowerShell
 
@@ -137,6 +142,8 @@ Vous pouvez obtenir l’ID de ressource de votre espace de travail Log Analytics
 ```
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
+
+Actuellement, vous ne pouvez pas configurer les paramètres de diagnostic de locataire à l’aide d’Azure PowerShell.
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Activer la collecte des journaux de diagnostic des ressources par l’intermédiaire d’Azure CLI 2.0
 
@@ -198,9 +205,13 @@ L’argument `--resource-group` est obligatoire seulement si `--workspace` n’e
 
 À l’aide d’une commande, vous pouvez ajouter des catégories supplémentaires au journal de diagnostic par l’adjonction de dictionnaires au tableau JSON transmis en tant que paramètre `--logs`. Vous pouvez combiner les paramètres `--storage-account`, `--event-hub` et `--workspace` pour activer plusieurs options de sortie.
 
+Actuellement, vous ne pouvez pas configurer les paramètres de diagnostic de locataire à l’aide de l’interface CLI.
+
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>Activer la collecte des journaux de diagnostic des ressources via l’API REST
 
-Pour modifier les paramètres de diagnostic à l’aide de Azure Monitor REST API, consultez [ce document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+Pour modifier les paramètres de diagnostic à l’aide de Azure Monitor REST API, consultez [ce document](https://docs.microsoft.com/rest/api/monitor/).
+
+Actuellement, vous ne pouvez pas configurer les paramètres de diagnostic de locataire à l’aide de l’API REST Azure Monitor.
 
 ## <a name="manage-resource-diagnostic-settings-in-the-portal"></a>Gérer les paramètres de diagnostic des ressources dans le portail
 
@@ -216,7 +227,7 @@ Dans cette section, vous pouvez afficher et filtrer toutes les ressources qui pr
 
 L’ajout d’un paramètre de diagnostic permet d’afficher le panneau Paramètres de diagnostic, où vous pouvez activer, désactiver ou modifier vos paramètres de diagnostic pour la ressource sélectionnée.
 
-## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Services, catégories et schémas pris en charge pour les journaux de diagnostic de ressources
+## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Services, catégories et schémas pris en charge pour les journaux de diagnostic
 
 [Consultez cet article](monitoring-diagnostic-logs-schema.md) pour obtenir la liste complète des services pris en charge et des catégories de journaux et des schémas utilisés par ces services.
 

@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 06179d42d2904a4d82f466be0719768f9f010858
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1ae7286bb08379b12f3e5b35e97a5f9538c605f6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868556"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238146"
 ---
 # <a name="azure-active-directory-reporting"></a>Création de rapports Active Directory
 
@@ -38,7 +38,6 @@ L’architecture de création de rapports s’appuie sur deux axes principaux 
 - Rapports d’activité
 
 ![Reporting](./media/active-directory-reporting-azure-portal/01.png)
-
 
 
 ## <a name="security-reports"></a>Rapports de sécurité
@@ -88,7 +87,7 @@ Pour en savoir plus, voir la section **Comparaison des caractéristiques de disp
 
 
 
-Le **rapport d’activité des connexions** vous permet de trouver les réponses aux questions suivantes :
+Le **rapport d’activité des connexions** vous permet de trouver les réponses aux questions suivantes :
 
 - Quel est le modèle de connexion d’un utilisateur ?
 - Combien d’utilisateurs se sont connectés au cours d’une semaine ?

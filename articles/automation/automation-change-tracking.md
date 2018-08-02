@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069445"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238877"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -118,7 +118,7 @@ Utilisez les étapes suivantes pour configurer le suivi des clés de Registre su
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
 |Clé de Registre Windows   | Chemin dans lequel rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 
 Actuellement, la solution Change Tracking ne prend pas en charge les éléments suivants :
 

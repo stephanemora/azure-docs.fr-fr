@@ -219,7 +219,7 @@
           href: luis-how-to-manage-keys.md
         - name: Gérer les versions
           href: luis-how-to-manage-versions.md
-        - name: Collaborer avec d'autres auteurs
+        - name: Gérer les créateurs et collaborateurs
           href: luis-how-to-collaborate.md
         - name: Gérer la clé de création
           href: luis-how-to-account-settings.md
@@ -237,7 +237,7 @@
           href: luis-find-region-csharp.md
         - name: Utilisation de Node.js
           href: luis-find-region-nodejs.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Confidentialité de l'utilisateur
       href: luis-reference-gdpr.md

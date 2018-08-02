@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 07/24/2018
 ms.author: juliako
-ms.openlocfilehash: 5ef1ca201bc564949ee65f81970d0b040679d6b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 220ff194ab5f8fa49ba7603ecd91122459d4dc1e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671423"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249221"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 Ces notes de publication pour Azure Media Services récapitulent les modifications par rapport aux précédentes versions et les problèmes connus.
@@ -45,6 +45,10 @@ Ces notes de publication pour Azure Media Services récapitulent les modificatio
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Historique des versions de l’API REST
 Pour obtenir des informations sur l’historique des versions de l’API REST, consultez la [Référence de l’API REST d’Azure Media Services].
+
+## <a name="july-2018"></a>Juillet 2018
+
+La dernière version du service comprend des changements mineurs de mise en forme des messages d’erreur retournés par le service en cas d’échec d’un travail, du point de vue de sa décomposition en deux ou plusieurs lignes.
 
 ## <a name="may-2018"></a>Mai 2018 
 

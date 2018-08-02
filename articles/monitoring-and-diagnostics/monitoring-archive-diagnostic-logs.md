@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a0146c0bf2b5a10f27cb59e32978aa6dff8f5982
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916324"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249153"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivage des journaux de diagnostic Azure
 
@@ -33,7 +33,7 @@ Avant de commencer, vous devez [créer un compte de stockage](../storage/storage
 
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
 
-Pour archiver vos journaux de diagnostic à l’aide de l’une des méthodes ci-dessous, vous devez définir un **paramètre de diagnostic** pour chaque ressource. Un paramètre de diagnostic pour une ressource définit les catégories de journaux et les données métriques envoyées vers une destination (compte de stockage, espace de noms Event Hubs ou Log Analytics). Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements de chaque catégorie de journal et de données métriques stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment (c’est-à-dire pour toujours). Une stratégie de rétention peut également être définie sur n’importe quel nombre de jours entre 1 et 2147483647. [Vous trouverez plus d’informations sur les paramètres de diagnostic ici](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux de votre compte de stockage peut prendre jusqu’à 24 heures. 
+Pour archiver vos journaux de diagnostic à l’aide de l’une des méthodes ci-dessous, vous devez définir un **paramètre de diagnostic** pour chaque ressource. Un paramètre de diagnostic pour une ressource définit les catégories de journaux et les données métriques envoyées vers une destination (compte de stockage, espace de noms Event Hubs ou Log Analytics). Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements de chaque catégorie de journal et de données métriques stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment (c’est-à-dire pour toujours). Une stratégie de rétention peut également être définie sur n’importe quel nombre de jours entre 1 et 2147483647. [Vous trouverez plus d’informations sur les paramètres de diagnostic ici](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux de votre compte de stockage peut prendre jusqu’à 24 heures. 
 
 > [!NOTE]
 > L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
@@ -74,10 +74,10 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
-| ResourceId |OUI |ID de la ressource pour laquelle vous voulez définir un paramètre de diagnostic. |
+| ResourceId |Oui |ID de la ressource pour laquelle vous voulez définir un paramètre de diagnostic. |
 | StorageAccountId |Non  |ID de ressource du compte de stockage dans lequel les journaux de diagnostic doivent être enregistrés. |
 | Catégories |Non  |Liste séparée par des virgules des catégories de journaux à activer. |
-| activé |OUI |Valeur booléenne indiquant si les diagnostics sont activés ou désactivés pour cette ressource. |
+| activé |Oui |Valeur booléenne indiquant si les diagnostics sont activés ou désactivés pour cette ressource. |
 | RetentionEnabled |Non  |Valeur booléenne indiquant si une stratégie de rétention est activée pour cette ressource. |
 | RetentionInDays |Non  |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie. |
 
@@ -163,4 +163,5 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 
 * [Télécharger des objets blob pour analyse](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Diffuser en continu les journaux de diagnostic sur un espace de noms Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Archive Azure Active Directory logs with Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md) (Archivage des journaux Azure Active Directory avec Azure Monitor)
 * [En savoir plus sur les journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md)

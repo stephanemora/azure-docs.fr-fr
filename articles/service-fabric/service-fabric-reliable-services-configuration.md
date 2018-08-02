@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866176"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249017"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configuration des services fiables (Reliable Services) avec état
 Il existe deux ensembles de paramètres de configuration pour les services fiables (Reliable Services). L’un des ensembles est global pour tous les services fiables dans le cluster, alors que l’autre est spécifique à un service fiable.
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |Spécifie un GUID unique à utiliser pour identifier le fichier journal partagé utilisé avec ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogId est spécifié, SharedLogPath doit l'être aussi. |
 | SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d'accès complet où sera créé le fichier journal partagé pour ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
 | SlowApiMonitoringDuration |Secondes |300 |Définit l’intervalle de surveillance pour les appels d’API gérées. Exemple : fonction de rappel de sauvegarde fournie par l’utilisateur. Une fois l’intervalle écoulé, un rapport d’intégrité Warning sera adressé au Gestionnaire d’intégrité. |
+| LogTruncationIntervalSeconds |Secondes |0 |Intervalle configurable à partir duquel la troncature des journaux se lance sur chaque réplica. Il permet de s’assurer que le journal est également tronqué en fonction du temps plutôt que de sa taille uniquement. Ce paramètre permet également de forcer le vidage des entrées supprimées dans un dictionnaire fiable. Il peut donc servir à s’assurer que les éléments supprimés sont nettoyés en temps opportun. |
 
 ### <a name="sample-configuration-via-code"></a>Exemple de configuration au moyen du code
 ```csharp

@@ -25,6 +25,8 @@
   items:
     - name: Méthodes d’authentification
       href: concept-authentication-methods.md
+    - name: Inscription convergée
+      href: concept-registration-mfa-sspr-converged.md
     - name: Réinitialisation de mot de passe libre-service
       items:
         - name: Fonctionnement de la réinitialisation des mots de passe
@@ -172,7 +174,7 @@
               href: howto-mfaserver-nps-vpn.md
             - name: Erreurs d’extension NPS
               href: howto-mfa-nps-extension-errors.md
-    - name: Résoudre les problèmes
+    - name: Résolution des problèmes
       items:
         - name: Résoudre les problèmes SSPR
           href: active-directory-passwords-troubleshoot.md
@@ -182,7 +184,7 @@
           href: multi-factor-authentication-faq.md
         - name: Extension NPS
           href: howto-mfa-nps-extension-errors.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Guide d’utilisation MFA
       href: ./end-user/current/multi-factor-authentication-end-user.md

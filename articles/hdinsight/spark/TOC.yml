@@ -319,6 +319,8 @@
       items:
         - name: Déboguer des tâches Spark
           href: apache-spark-job-debugging.md
+        - name: Déboguer des travaux Spark via le graphique du travail
+          href: apache-azure-spark-history-server.md
         - name: Utiliser IntelliJ pour déboguer des travaux Spark
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent

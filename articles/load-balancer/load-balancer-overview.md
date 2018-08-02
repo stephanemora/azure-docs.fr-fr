@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7495ac8b1414412dba9d62d0fb5668c6db364997
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215048"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325477"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -123,20 +123,7 @@ _Il est recommandé de spécifier les références SKU de manière explicite, m�
 >[!IMPORTANT]
 >La référence SKU Standard de Load Balancer est un nouveau produit qui constitue essentiellement une version plus avancée de la référence De base de Load Balancer. Il existe des différences importantes et délibérées entre ces deux produits. N’importe quel scénario complet possible avec la référence SKU De base de Load Balancer peut également être créé avec la référence SKU Standard. Si vous êtes déjà habitué à la référence SKU De base de Load Balancer, vous devez vous familiariser avec la référence SKU Standard de Load Balancer pour comprendre les changements les plus récents en termes de comportement entre ces deux références et leur impact. Lisez attentivement cette section.
 
-| | Référence SKU standard | Référence SKU De base |
-| --- | --- | --- |
-| Taille de pool de serveur principal | Jusqu'à 1 000 instances | Jusqu'à 100 instances |
-| Points de terminaison du pool du serveur principal | Toute machine virtuelle dans un réseau virtuel, y compris la combinaison de machines virtuelles, de groupes à haute disponibilité et de groupes de machines virtuelles identiques | Machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique |
-| Zones de disponibilité | Serveurs frontaux redondants dans une zone et zonaux pour le trafic entrant et sortant, mappages de flux sortants protégés contre les défaillances de zone, équilibrage de charge interzones | / |
-| Diagnostics | Azure Monitor, métriques à plusieurs dimensions, notamment les compteurs d’octets et de paquets, état de la sonde d’intégrité, tentatives de connexion (TCP SYN), intégrité de la connexion sortante (flux SNAT réussies et échouées), mesures de plan de données actives | Azure Log Analytics pour l’équilibreur de charge public uniquement, alerte d’épuisement des ports SNAT, mesure de l’intégrité du pool du serveur principal |
-| Ports HA | Équilibreur de charge interne | / |
-| Sécurisé par défaut | par défaut fermé pour les points de terminaison IP et Load Balancer publics et un groupe de sécurité réseau doit être utilisé pour mettre explicitement sur liste verte le flux du trafic | Ouvert par défaut, groupe de sécurité réseau facultatif |
-| [Connexions sortantes](load-balancer-outbound-connections.md) | Plusieurs serveurs frontaux avec retrait par règle d’équilibrage de la charge. Un scénario sortant _doit_ être explicitement créé pour que la machine virtuelle puisse utiliser une connectivité sortante.  Les [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) peuvent être atteints sans connectivité sortante et ne sont pas comptabilisés dans les données traitées.  Toutes les adresses IP publiques, y compris les services PaaS Azure non disponibles en tant que points de terminaison de service du réseau virtuel, doivent être atteintes via la connectivité sortante et sont comptabilisées dans les données traitées. Lorsque seul un Load Balancer interne est utilisé par une machine virtuelle, les connexions sortantes via la SNAT par défaut ne sont pas disponibles. La programmation de SNAT sortante est un protocole de transport spécifique basé sur le protocole de la règle d’équilibrage de charge entrant. | Serveur frontal unique, sélectionné de manière aléatoire quand plusieurs serveurs frontaux sont présents.  Quand seul un équilibreur de charge interne gère une machine virtuelle, le mode SNAT par défaut est utilisé. |
-| [Plusieurs serveurs frontaux](load-balancer-multivip-overview.md) | Entrant et [sortant](load-balancer-outbound-connections.md). | Entrant uniquement |
-| [Comportement en cas de panne de sonde d’intégrité](load-balancer-custom-probe-overview.md) | Les connexions TCP restent actives quand la sonde d’instance est en panne __et__ quand toutes les sondes sont en panne. | Les connexions TCP restent actives quand la sonde d’instance est en panne. Toutes les connexions TCP sont arrêtées quand toutes les sondes sont en panne. |
-| Opérations de gestion | La plupart des opérations < 30 secondes | Généralement 60 à 90 secondes et plus |
-| Contrat SLA | 99,99 % pour le chemin de données avec deux machines virtuelles saines | Implicite dans le SLA de la machine virtuelle | 
-| Tarifs | Facturation en fonction du nombre de règles configurées et des données associées aux ressources traitées en entrée ou en sortie  | Aucuns frais |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Pour plus d’informations, voir [Limites de service pour Load Balancer](https://aka.ms/lblimits). Pour obtenir plus d’informations sur la référence SKU Standard de Load Balancer, consultez également la [présentation](load-balancer-standard-overview.md), la page relative à la [tarification](https://aka.ms/lbpricing) et la page relative au [SLA](https://aka.ms/lbsla).
 

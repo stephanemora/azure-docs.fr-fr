@@ -5,19 +5,21 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/06/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902987"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248094"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
 Azure Monitor fournit un pipeline pour accéder à l’ensemble des données de surveillance de votre environnement Azure. Vous pouvez ainsi configurer facilement des systèmes SIEM et des outils de surveillance partenaires de manière à ce qu’ils utilisent ces données. Cet article vous aide à configurer différentes couches à partir des données de votre environnement Azure, en vue de les envoyer vers un espace de noms ou un hub d’événements Event Hubs, où elles pourront être collectées par un outil externe.
+
+> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>Quelles données puis-je envoyer vers un hub d’événements ? 
 
@@ -27,8 +29,9 @@ Au sein de votre environnement Azure, il existe plusieurs « couches » de donn�
   - En instrumentant votre code avec un SDK tel que le [SDK Application Insights](../application-insights/app-insights-overview.md)
   - En exécutant un agent de surveillance qui écoute les nouveaux journaux d’application sur la machine qui exécute votre application, tel que [l’agent de diagnostic Azure pour Windows](./azure-diagnostics.md) ou [l’agent de diagnostic Azure pour Linux](../virtual-machines/linux/diagnostic-extension.md)
 - **Données de surveillance du système d’exploitation invité :** données concernant le système d’exploitation sur lequel votre application est exécutée. Il peut s’agir, par exemple, de journaux système Linux ou d’événements système Windows. Pour collecter ce type de données, vous devez installer un agent tel que [l’agent de diagnostic Azure pour Windows](./azure-diagnostics.md) ou [l’agent de diagnostic Azure pour Linux](../virtual-machines/linux/diagnostic-extension.md).
-- **Données de surveillance des ressources Azure :** données concernant le fonctionnement d’une ressource Azure. Pour certains types de ressources Azure, telles que les machines virtuelles, il existe un système d’exploitation invité et des applications qui permettent de surveiller ce qui se passe dans le service Azure. Pour d’autres ressources Azure, telles que les groupes de sécurité réseau, les données de surveillance des ressources constituent la couche de données la plus élevée (dans la mesure où aucun système d’exploitation invité ni aucune application ne sont exécutés sur ces ressources). Ces données peuvent être collectées à l’aide des [paramètres de diagnostic des ressources](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-- **Données de surveillance de la plateforme Azure :** données concernant le fonctionnement et la gestion d’un abonnement ou d’un locataire Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. Le [journal d’activité](./monitoring-overview-activity-logs.md), y compris les données d’intégrité du service, et les audits Active Directory, sont des exemples de données de surveillance de la plateforme. Ces données peuvent également être collectées à l’aide des paramètres de diagnostic.
+- **Données de surveillance des ressources Azure :** données concernant le fonctionnement d’une ressource Azure. Pour certains types de ressources Azure, telles que les machines virtuelles, il existe un système d’exploitation invité et des applications qui permettent de surveiller ce qui se passe dans le service Azure. Pour d’autres ressources Azure, telles que les groupes de sécurité réseau, les données de surveillance des ressources constituent la couche de données la plus élevée (dans la mesure où aucun système d’exploitation invité ni aucune application ne sont exécutés sur ces ressources). Ces données peuvent être collectées à l’aide des [paramètres de diagnostic des ressources](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Données de surveillance d’abonnement Azure :** données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. Le [journal d’activité](./monitoring-overview-activity-logs.md) contient la plupart des données de surveillance d’abonnement, telles que les incidents d’intégrité de service et les audits d’Azure Resource Manager. Vous pouvez collecter ces données à l’aide d’un profil de journal.
+- **Données de surveillance de locataire Azure :** données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory. Les connexions et les audits d’Azure Active Directory sont des exemples de données de surveillance de locataire. Ces données peuvent être collectées à l’aide d’un paramètre de diagnostic de locataire.
 
 Vous pouvez envoyer les données de toutes les couches vers un hub d’événements, duquel elles pourront être extraites par un outil partenaire. Les sections suivantes expliquent comment configurer les données de chaque couche de sorte qu’elles soient diffusées vers un hub d’événements. Ces étapes supposent que cette couche contient déjà des ressources à surveiller.
 
@@ -45,11 +48,17 @@ Avant de commencer, vous devez [créer un espace de noms et un hub Event Hubs](.
 
 Consultez également le [Forum aux questions (FAQ) sur Azure Event Hubs](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance de la plateforme Azure pour qu’elles soient diffusées vers un hub d’événements ?
+## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance des locataires Azure pour qu’elles soient diffusées vers un hub d’événements ?
 
-Les données de surveillance de la plateforme Azure proviennent principalement de deux sources :
-1. Le [journal d’activité Azure](./monitoring-overview-activity-logs.md), qui contient les opérations de création, de mise à jour et de suppression du Gestionnaire de ressources, les changements [d’intégrité du service Azure](../service-health/service-health-overview.md) qui peuvent impacter les ressources de votre abonnement, les transitions d’état [d’intégrité des ressources](../service-health/resource-health-overview.md), et plusieurs autres types d’événements au niveau de l’abonnement. [Cet article décrit toutes les catégories d’événements qui s’affichent dans le journal d’activité Azure](./monitoring-activity-log-schema.md).
-2. Les [rapports Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md), qui contiennent l’historique des connexions et la piste d’audit des modifications apportées à un locataire particulier. Il n’est pas encore possible de diffuser des données Azure Active Directory vers un hub d’événements.
+Les données de surveillance des locataires Azure ne sont actuellement disponibles que pour Azure Active Directory. Vous pouvez utiliser les données des [rapports Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md), qui contiennent l’historique des connexions et la piste d’audit des modifications apportées à un locataire particulier.
+
+### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Diffuser les données Azure Active Directory vers un hub d’événements
+
+Pour envoyer des données à partir du journal Azure Active Directory dans un espace de noms Event Hubs, vous configurer un paramètre de diagnostic de locataire sur votre locataire AAD. [Suivez ce guide](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) pour configurer un paramètre de diagnostic de locataire.
+
+## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance d’abonnement Azure pour qu’elles soient diffusées vers un hub d’événements ?
+
+Les données de surveillance d’abonnement Azure sont disponibles dans le [journal d’activité Azure](./monitoring-overview-activity-logs.md). Celui-ci contient les opérations de création, de mise à jour et de suppression du Gestionnaire des ressources, les changements d’[intégrité du service Azure](../service-health/service-health-overview.md) qui peuvent influer sur les ressources de votre abonnement, les transitions d’état d’[intégrité des ressources](../service-health/resource-health-overview.md), et plusieurs autres types d’événements au niveau de l’abonnement. [Cet article décrit toutes les catégories d’événements qui s’affichent dans le journal d’activité Azure](./monitoring-activity-log-schema.md).
 
 ### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Diffuser les données du journal d’activité Azure vers un hub d’événements
 

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83d5b89422a0181c06dbfe3b2bd8975ef7214b9d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f6d49ffa59ed53c0a1966a4132fd5fe1689a13ce
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193255"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247347"
 ---
 # <a name="azure-automation-dsc-overview"></a>Vue d'ensemble d'Azure Automation DSC
 
@@ -27,7 +27,7 @@ Azure Automation DSC offre plusieurs avantages par rapport à l’utilisation de
 
 ### <a name="built-in-pull-server"></a>Serveur collecteur intégré
 
-Azure Automation fournit un [serveur collecteur DSC](https://msdn.microsoft.com/powershell/dsc/pullserver) afin que les nœuds cibles reçoivent automatiquement les configurations, soient conformes à l’état souhaité et renvoient un rapport attestant de leur conformité.
+Azure Automation fournit un serveur collecteur DSC semblable à celui de[Windows Feature DSC-Service](/powershell/dsc/pullserver), afin que les nœuds cibles reçoivent automatiquement les configurations, soient conformes à l’état souhaité et renvoient un rapport attestant de leur conformité.
 Le serveur collecteur intégré dans Azure Automation vous permet d’éviter d’avoir à configurer et à gérer votre propre serveur collecteur.
 Azure Automation peut cibler des machines physiques ou virtuelles Windows ou Linux, dans le cloud ou en local.
 

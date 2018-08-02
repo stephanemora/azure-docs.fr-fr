@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801471"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242935"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -26,7 +26,7 @@ Le tableau suivant montre les différences entre ces deux choix d’identité :
 |---------|---------|---------|
 |Facturation|Doit être une capacité<br> Contrat Entreprise (EA) uniquement|Selon la capacité ou paiement à l’utilisation<br>EA ou fournisseur de solutions cloud (CSP)|
 |Identité|Doit être AD FS|Azure AD ou AD FS|
-|Syndication de Place de marché|Prise en charge<br>Licences BYOL|Prise en charge<br>Licences BYOL|
+|Syndication de Place de marché|Pris en charge<br>Licences BYOL|Pris en charge<br>Licences BYOL|
 |Inscription|Recommandé, nécessite un support amovible<br> et un appareil connecté distinct.|Automatisé|
 |Correctifs et mises à jour|Requis, nécessite un support amovible<br> et un appareil connecté distinct.|Un package de mise à jour peut être téléchargé directement<br> depuis Internet dans Azure Stack.|
 
@@ -162,7 +162,7 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 |Paramètre|Description|Exemples|
 |---------|---------|---------|
 |CustomAdfsName|Nom du fournisseur de revendications. Il apparaît ainsi dans la page d’accueil AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|Fichier de métadonnées de fédération|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomADFSFederationMetadataFileContent|Contenu de métadonnées|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Créer un fichier de métadonnées de fédération
 
@@ -176,27 +176,22 @@ Pour la procédure suivante, vous devez utiliser un ordinateur qui dispose d’u
    $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
-2. Copiez le fichier de métadonnées vers un partage accessible depuis le point de terminaison privilégié.
-
+2. Copiez le fichier de métadonnées sur un ordinateur qui peut communiquer avec le point de terminaison privilégié.
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Déclencher l’automation pour configurer un fournisseur de revendications de confiance dans Azure Stack
 
-Pour cette procédure, utilisez un ordinateur qui peut communiquer avec le point de terminaison privilégié dans Azure Stack.
+Pour cette procédure, utilisez un ordinateur qui peut communiquer avec le point de terminaison privilégié dans Azure Stack et qui a accès au fichier de métadonnées que vous avez créé à l’étape précédente.
 
-1. Ouvrez une session Windows PowerShell avec élévation de privilèges et connectez-vous au point de terminaison privilégié.
+1. Ouvrez une session Windows PowerShell avec des privilèges élevés.
 
    ```PowerShell  
+   $federationMetadataFileContent = get-content c:\metadata.cml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Maintenant que vous êtes connecté au point de terminaison privilégié, exécutez la commande suivante en utilisant les paramètres correspondant à votre environnement :
-
-   ```PowerShell  
-   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
-   ```
-
-3. Exécutez la commande suivante pour mettre à jour le propriétaire de l’abonnement du fournisseur par défaut, en utilisant les paramètres correspondant à votre environnement :
+2. Exécutez la commande suivante pour mettre à jour le propriétaire de l’abonnement du fournisseur par défaut, en utilisant les paramètres correspondant à votre environnement :
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
