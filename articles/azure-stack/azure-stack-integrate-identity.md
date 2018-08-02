@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242935"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412863"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -26,7 +26,7 @@ Le tableau suivant montre les différences entre ces deux choix d’identité :
 |---------|---------|---------|
 |Facturation|Doit être une capacité<br> Contrat Entreprise (EA) uniquement|Selon la capacité ou paiement à l’utilisation<br>EA ou fournisseur de solutions cloud (CSP)|
 |Identité|Doit être AD FS|Azure AD ou AD FS|
-|Syndication de Place de marché|Pris en charge<br>Licences BYOL|Pris en charge<br>Licences BYOL|
+|Marketplace |Pris en charge<br>Licences BYOL|Pris en charge<br>Licences BYOL|
 |Inscription|Recommandé, nécessite un support amovible<br> et un appareil connecté distinct.|Automatisé|
 |Correctifs et mises à jour|Requis, nécessite un support amovible<br> et un appareil connecté distinct.|Un package de mise à jour peut être téléchargé directement<br> depuis Internet dans Azure Stack.|
 

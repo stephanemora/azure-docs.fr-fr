@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 59ae7e83bc2b76cb679b0baf1f5739f28ec7046c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d868a59dd5d00dea410cbe8c373263e13903d3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248278"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413142"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Que sont les conditions dans l’accès conditionnel Azure Active Directory ? 
 
@@ -152,7 +152,7 @@ Les cas d’utilisation courants pour cette condition sont des stratégies qui o
 
 - Bloquez l’accès aux applications web, mais autorisez l’accès à partir des applications de bureau et mobiles.
 
-Vous pouvez appliquer cette condition aux protocoles d’authentification modernes et d’authentification unique web. Vous pouvez également l’appliquer aux applications de messagerie qui utilisent Microsoft Exchange ActiveSync. Par exemple, aux applications de messagerie natives sur la plupart des smartphones. Actuellement, les applications clientes qui utilisent des protocoles hérités doivent être sécurisées à l’aide du service FS (Federation Service) Azure AD.
+Vous pouvez appliquer cette condition aux protocoles d’authentification modernes et d’authentification unique web. Vous pouvez également l’appliquer aux applications de messagerie qui utilisent Microsoft Exchange ActiveSync. Par exemple, aux applications de messagerie natives sur la plupart des smartphones. 
 
 Vous ne pouvez choisir la condition d’applications clientes que si Microsoft Office 365 Exchange Online est la seule application cloud que vous avez sélectionnée.
 

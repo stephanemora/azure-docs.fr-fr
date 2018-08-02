@@ -1,6 +1,6 @@
 - name: Documentation Application Gateway
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des passerelles Application Gateway
       href: overview.md
@@ -71,6 +71,8 @@
           href: create-ssl-portal.md
         - name: Arrêt SSL avec Azure PowerShell
           href: tutorial-ssl-powershell.md
+        - name: Arrêt SSL de bout en bout avec Azure PowerShell
+          href: application-gateway-end-to-end-ssl-powershell.md
         - name: Renouveler les certificats
           href: renew-certificates.md
         - name: Configurer la stratégie SSL
