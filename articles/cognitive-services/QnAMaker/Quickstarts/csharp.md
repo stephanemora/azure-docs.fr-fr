@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 15f0415819bc0ae51e8160bb2b4a12c409b13baa
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301324"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866081"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Démarrage rapide pour l’API QnA Maker Microsoft avec C# 
 <a name="HOLTop"></a>

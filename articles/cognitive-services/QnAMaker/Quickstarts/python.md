@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: add5322dde89f3e3f44fddc1e3c63eb2f91013a8
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: c0d02a0f586857f6dd303fc98407da71b2addb9b
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301744"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869117"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Démarrage rapide pour l’API QnA Maker Microsoft avec Python 
 <a name="HOLTop"></a>

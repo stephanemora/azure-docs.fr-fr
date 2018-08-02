@@ -9,12 +9,12 @@ ms.technology: microsoft translator
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 31435fcfca61517bfc72d534e911a1dcadbee52b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370237"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868083"
 ---
 # <a name="text-api-30-dictionary-lookup"></a>API de texte 3.0 : Recherche dans le dictionnaire
 
@@ -49,14 +49,14 @@ Les paramètres transmis à la chaîne de requête sont les suivants :
   </tr>
 </table>
 
-Les en-têtes de requête sont les suivants :
+Les en-têtes de requête sont les suivants :
 
 <table width="100%">
   <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>_One authorization_<br/>_header_</td>
-    <td>*En-tête de requête obligatoire*.<br/>Voir les [options disponibles pour l’authentification](./v3-0-reference.md#authentication).</td>
+    <td>*En-tête de requête obligatoire*.<br/>Consultez les [options disponibles pour l’authentification](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -68,7 +68,7 @@ Les en-têtes de requête sont les suivants :
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Facultative*.<br/>GUID généré par le client et servant à identifier la requête de façon unique. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
+    <td>*Facultative*.<br/>GUID généré par le client pour identifier la requête de façon unique. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -85,7 +85,7 @@ Le corps de la requête est un tableau JSON. Chaque élément du tableau est un 
 Les limites suivantes s'appliquent :
 
 * Le tableau ne peut pas compter plus de 10 éléments.
-* La valeur de texte d’un élément de tableau ne peut pas dépasser 100 caractères, espaces compris.
+* La valeur texte d’un élément de tableau ne peut pas dépasser 100 caractères, espaces compris.
 
 ## <a name="response-body"></a>Response body
 
@@ -120,7 +120,7 @@ Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne 
 
     * `confidence` : valeur comprise entre 0,0 et 1,0 représentant la « confiance » (ou pour être plus précis la « probabilité dans les données d’apprentissage ») de cette paire de traduction. La somme des scores de confiance d’un mot source peut ou non totaliser 1,0. 
 
-    * `prefixWord` : chaîne indiquant le mot à afficher en tant que préfixe de la traduction. Actuellement, il s’agit du déterminant genré des noms, dans les langues utilisant des déterminants genrés. Par exemple, le préfixe du mot espagnol « mosca » est « la », car « mosca » est un nom féminin en espagnol. Cela dépend uniquement de la traduction, et non pas de la source. En l’absence de préfixe, la chaîne sera vide.
+    * `prefixWord` : chaîne indiquant le mot à afficher en préfixe de la traduction. Actuellement, il s’agit du déterminant genré des noms, dans les langues utilisant des déterminants genrés. Par exemple, le préfixe du mot espagnol « mosca » est « la », car « mosca » est un nom féminin en espagnol. Cela dépend uniquement de la traduction, et non pas de la source. En l’absence de préfixe, la chaîne sera vide.
     
     * `backTranslations` : liste des « traductions inverses » de la cible. Par exemple, les mots source pouvant être traduits dans la langue cible. La liste est assurée de contenir le mot source qui a été demandé (par exemple, si le mot source recherché est « fly », vous êtes sûr que « fly » figurera dans la liste `backTranslations`). Toutefois, il n’est pas garanti que le terme arrive en première position. Chaque élément de la liste `backTranslations` est un objet décrit par les propriétés suivantes :
 
@@ -147,7 +147,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?ap
 
 ---
 
-Le corps de réponse (abrégé pour plus de clarté) est :
+Le corps de la réponse (abrégé pour plus de clarté) est :
 
 ```
 [

@@ -9,12 +9,12 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: adc2f83f703e740e40d9ba4fd3ed08ba429e5d97
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369708"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865873"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informations de référence sur l’aperçu d’URL du projet v7
 
@@ -41,48 +41,48 @@ La requête doit utiliser le protocole HTTPS et inclure le paramètre de requêt
 
 Les sections suivantes fournissent des détails techniques sur les objets de la réponse, les paramètres de la requête et les en-têtes qui affectent les résultats de la recherche. 
   
-Pour plus d’informations sur les en-têtes de la requête, consultez la section [En-têtes](#headers).  
+Pour plus d’informations sur les en-têtes que doivent comporter les demandes, voir [En-têtes](#headers).  
   
-Pour plus d’informations sur les paramètres de la requête, consultez la section [Paramètres de la requête](#query-parameters).  
+Pour plus d’informations sur les paramètres de requête que doivent comporter les demandes, voir [Paramètres de la requête](#query-parameters).  
   
-Pour plus d’informations sur les objets JSON de la réponse, consultez la section [Objets de la réponse](#response-objects).
+Pour plus d’informations sur les objets JSON que comporte la réponse, voir [Objets de la réponse](#response-objects).
 
-La longueur maximale pour l’URL de la requête est de 2 048 caractères. Pour vous assurer que votre URL ne dépasse pas la limite, la longueur maximale de vos paramètres de requête doit être inférieure à 1 500 caractères. Si l’URL dépasse 2 048 caractères, le serveur renvoie une erreur 404 (Introuvable).  
+La longueur maximale de l’URL de la requête est de 2 048 caractères. Pour que votre URL ne dépasse pas la limite, la longueur maximale de vos paramètres de requête doit être inférieure à 1 500 caractères. Si l’URL dépasse 2 048 caractères, le serveur retourne une erreur 404 (Introuvable).  
 
-Pour plus d’informations sur l’utilisation et l’affichage des résultats, consultez la section [Conditions d’utilisation et d’affichage](use-display-requirements.md). 
+Pour plus d’informations sur l’utilisation autorisée et l’affichage des résultats, voir [Conditions d’utilisation et d’affichage](use-display-requirements.md). 
 
 > [!NOTE]
-> Certains en-têtes de requête jugés pertinents pour d’autres API de recherche n’affectent pas l’aperçu d’URL.
+> Certains en-têtes de demande pertinents pour d’autres API de recherche n’affectent pas l’aperçu d’URL :
 > - Pragma : l’appelant n’a aucun contrôle sur l’utilisation éventuelle d’un cache par l’aperçu d’URL.
 > - User-Agent : pour l’instant, l’API d’aperçu d’URL ne fournit pas des réponses différentes selon que les appels proviennent de PC, d’ordinateurs portables ou d’appareils mobiles.
 
-> De même, certains paramètres ne sont actuellement pas pertinents pour l’API d’aperçu d’URL, mais ils pourront être utilisés à l’avenir dans le cadre d’une globalisation améliorée. 
+> De même, certains paramètres ne sont actuellement pas pertinents pour l’API d’aperçu d’URL, mais ils pourront être utilisés à l’avenir dans le but d’améliorer la globalisation. 
  
 ## <a name="headers"></a>headers  
-Voici les en-têtes possibles d’une requête et d’une réponse.  
+Voici les en-têtes possibles d’une demande et d’une réponse.  
   
 |En-tête|Description|  
 |------------|-----------------|   
-|<a name="market" />BingAPIs-Market|En-tête de réponse.<br /><br /> Marché utilisé par la requête. Le formulaire est \<languageCode\>-\<countryCode\>. Par exemple, en-US.|  
-|<a name="traceid" />BingAPIs-TraceId|En-tête de réponse.<br /><br /> ID de l’entrée de journal contenant les détails de la requête. Lorsqu’une erreur se produit, il est nécessaire de saisir cet identifiant. Si vous n’êtes pas en mesure de déterminer ni de résoudre le problème, insérez cet identifiant ainsi que les autres informations envoyées à l’équipe du support technique.|  
-|<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|En-tête de requête requis.<br /><br /> Clé d’abonnement que vous avez reçue lorsque vous vous êtes inscrit à ce service dans [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
-|<a name="clientid" />X-MSEdge-ClientID|En-tête de requête et de réponse facultatif.<br /><br /> Bing utilise cet en-tête pour garantir aux utilisateurs un comportement cohérent d’un appel d’API Bing à l’autre. Bing propose souvent de nouvelles fonctionnalités et améliorations, et se sert de l’identifiant de client comme d’une clé pour attribuer le trafic aux différentes versions d’évaluation. Si vous n’attribuez pas le même identifiant de client à un utilisateur d’une requête à l’autre, Bing affecte cet utilisateur à plusieurs versions d’évaluation en conflit. Le fait d’être affecté à plusieurs versions d’évaluation en conflit peut nuire à l’expérience utilisateur. Par exemple, si la deuxième requête possède une attribution de version d’évaluation autre que la première, l’expérience se révèle inattendue. De même, Bing peut utiliser l’identifiant de client pour personnaliser les résultats sur le web d’après l’historique de recherche correspondant à cet identifiant et ainsi proposer à l’utilisateur une expérience plus riche.<br /><br /> Bing utilise également cet en-tête pour aider à améliorer le classement des résultats en analysant l’activité générée par un identifiant de client. Les améliorations de la pertinence vous permettent d’obtenir des résultats d’API Bing de meilleure qualité et en retour, des taux de clic plus élevés pour le consommateur de l’API.<br /><br />Voici les règles d’utilisation de base qui s’appliquent à cet en-tête.<br /><ul><li>Chaque utilisateur qui utilise votre application sur l’appareil doit avoir un identifiant client unique, généré par Bing.<br /><br/>Si vous n’insérez pas cet en-tête dans la requête, Bing génère un ID et le renvoie dans l’en-tête de réponse X-MSEdge-ClientID. Sachez néanmoins que la première fois où l’utilisateur utilise votre application sur cet appareil est la seule fois où vous ne devez PAS inclure cet en-tête dans une requête.<br /><br/></li><li>Utilisez l’identifiant de client pour chaque requête d’API Bing que votre application effectue pour cet utilisateur, sur l’appareil.<br /><br/></li><li>**ATTENTION :** vous devez vous assurer que cet identifiant de client ne peut pas être associé à des informations de compte utilisateur authentifiables.</li><br/><li>Conservez l’identifiant de client. Pour conserver l’identifiant dans une application de navigateur, utilisez un cookie HTTP persistant qui garantit l’utilisation de cet identifiant dans toutes les sessions. N’utilisez pas de cookie de session. Pour d’autres applications telles que des applications mobiles, utilisez le stockage persistant de l’appareil pour conserver cet identifiant.<br /><br/>La prochaine fois que l’utilisateur utilisera votre application sur cet appareil, vous récupérerez l’identifiant de client que vous avez conservé.</li></ul><br /> **REMARQUE :** les réponses de Bing peuvent inclure ou ne pas inclure cet en-tête. Si la réponse inclut cet en-tête, conservez l’identifiant de client et utilisez-le pour toutes les demandes Bing suivantes concernant l’utilisateur sur cet appareil.<br /><br /> **REMARQUE :** si vous insérez la valeur X-MSEdge-ClientID, n’incluez pas les cookies dans la requête.|  
-|<a name="clientip" />X-MSEdge-ClientIP|En-tête de requête facultatif.<br /><br /> Adresse IPv4 ou IPv6 de l’appareil client. L’adresse IP est utilisée pour découvrir l’emplacement de l’utilisateur. Bing utilise les informations d’emplacement pour déterminer le comportement de recherche approprié.<br /><br />  N’obfusquez pas l’adresse (par exemple, en donnant au dernier octet la valeur 0). En obfusquant l’adresse, vous provoquez un éloignement de l’appareil, soit le renvoi possible par Bing de résultats erronés.|  
+|<a name="market" />BingAPIs-Market|En-tête de réponse.<br /><br /> Marché utilisé par la demande. Le format est \<code de langue\>-\<code du pays\>. Par exemple, en-US.|  
+|<a name="traceid" />BingAPIs-TraceId|En-tête de réponse.<br /><br /> ID de l’entrée du journal contenant les détails de la demande. Lorsqu’une erreur se produit, capturez cet ID. Si vous ne parvenez pas à identifier ou à résoudre le problème, précisez cet ID avec les autres informations envoyées à l’équipe de support.|  
+|<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|En-tête de demande requis.<br /><br /> Clé d’abonnement que vous avez reçue lorsque vous vous êtes inscrit à ce service dans [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
+|<a name="clientid" />X-MSEdge-ClientID|En-tête de demande et de réponse facultatif.<br /><br /> Bing utilise cet en-tête pour garantir aux utilisateurs un comportement cohérent d’un appel d’API Bing à l’autre. Bing propose souvent de nouvelles fonctionnalités et améliorations, et se sert de l’ID client comme d’une clé pour attribuer le trafic aux différentes versions d’évaluation. Si vous n’assignez pas le même ID client à un utilisateur d’une demande à l’autre, Bing est susceptible d’affecter cet utilisateur à plusieurs versions d’évaluation en conflit, ce qui risque de nuire à l’expérience utilisateur. Par exemple, si la deuxième demande comporte une attribution de version d’évaluation différente de la première, l’expérience se révélera peut-être inattendue. De même, Bing peut utiliser l’ID client pour personnaliser les résultats web d’après l’historique de recherche correspondant à cet ID et ainsi proposer à l’utilisateur une expérience plus riche.<br /><br /> Bing utilise également cet en-tête pour aider à améliorer le classement des résultats en analysant l’activité générée par un ID client. Les améliorations de la pertinence vous permettent d’obtenir des résultats d’API Bing de meilleure qualité et en retour, des taux de clic plus élevés pour le consommateur de l’API.<br /><br />Voici les règles d’utilisation de base qui s’appliquent à cet en-tête.<br /><ul><li>Chaque utilisateur de votre application sur l’appareil doit avoir un ID client unique, généré par Bing.<br /><br/>Si vous n’insérez pas cet en-tête dans la demande, Bing génère un ID et le retourne dans l’en-tête de réponse X-MSEdge-ClientID. La première fois que l’utilisateur utilise votre application sur cet appareil est la seule fois où vous ne devez PAS inclure cet en-tête dans la demande.<br /><br/></li><li>Utilisez l’ID client pour chaque demande d’API Bing que votre application effectue pour cet utilisateur sur l’appareil.<br /><br/></li><li>**ATTENTION :** Vérifiez que cet ID client ne peut pas être associé à des informations authentifiables sur le compte d’utilisateur.</li><br/><li>Conservez l’ID client. Pour conserver l’identifiant dans une application de navigateur, utilisez un cookie HTTP persistant qui garantit l’utilisation de cet identifiant dans toutes les sessions. N’utilisez pas de cookie de session. Dans le cas d’autres applications, comme des applications mobiles, utilisez le stockage persistant de l’appareil pour conserver cet identifiant.<br /><br/>La prochaine fois que l’utilisateur utilisera votre application sur cet appareil, vous récupérerez l’ID client que vous aurez conservé.</li></ul><br /> **REMARQUE :** Les réponses de Bing ne comportent pas forcément cet en-tête. Si elles l’incluent, capturez l’ID client et utilisez-le pour toutes les demandes Bing suivantes concernant l’utilisateur sur cet appareil.<br /><br /> **REMARQUE :** Si vous insérez l’en-tête X-MSEdge-ClientID, n’incluez pas les cookies dans la demande.|  
+|<a name="clientip" />X-MSEdge-ClientIP|En-tête de demande facultatif.<br /><br /> Adresse IPv4 ou IPv6 de l’appareil client. L’adresse IP est utilisée pour découvrir l’emplacement de l’utilisateur. Bing utilise les informations d’emplacement pour déterminer le comportement de recherche approprié.<br /><br />  N’obfusquez pas l’adresse (par exemple, en donnant au dernier octet la valeur 0). En obfusquant l’adresse, vous provoquez un éloignement de l’appareil, soit le renvoi possible par Bing de résultats erronés.|  
 <br /><br /></li></ul>   
 
 ## <a name="query-parameters"></a>Paramètres de requête  
-La requête peut inclure les paramètres suivants. Consultez la colonne correspondant aux paramètres requis. Vous devez coder au format URL les paramètres de la requête. La requête doit être une URL absolue avec un schéma de type http ou https. Nous ne prenons pas en charge les URL relatives ou autres schémas du type ftp://.
+La demande peut comporter les paramètres de requête suivants. Consultez la colonne Requis pour savoir lesquels sont obligatoires. Vous devez coder au format URL les paramètres de la requête. La requête doit être une URL absolue avec un schéma de type http ou https. Nous ne prenons pas en charge les URL relatives ou autres schémas du type ftp://.
   
   
 |NOM|Valeur|type|Obligatoire|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour obtenir une liste des valeurs de marché possibles, consultez la section [Codes de marché](#market-codes).<br /><br /> **REMARQUE :** actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|OUI|  
-|<a name="query" />q|URL servant à afficher l’aperçu|Chaîne|OUI|  
-|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, consultez la section [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse inclut les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, consultez la section [JSON-LD](http://json-ld.org/).|Chaîne|Non |
-|<a name="safesearch"/>safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image)</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.| 
+|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|OUI|  
+|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](http://json-ld.org/).|Chaîne|Non |
+|<a name="safesearch"/>safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.| 
 
 ## <a name="response-objects"></a>Objets de la réponse  
-Le schéma de réponse est soit [WebPage] soit ErrorResponse, comme dans l’API Recherche Web. Si la requête échoue, l’objet de niveau supérieur est l’objet [ErrorResponse](#errorresponse).
+Le schéma de réponse est soit [WebPage] soit ErrorResponse, comme dans l’API Recherche Web. Si la demande échoue, l’objet de niveau supérieur est l’objet [ErrorResponse](#errorresponse).
 
 
 |Object|Description|  
@@ -95,21 +95,21 @@ Définit l’erreur qui s’est produite.
   
 |Élément|Description|type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />code|Code d’erreur identifiant la catégorie de l’erreur. Pour obtenir une liste des codes possibles, consultez la section [Codes d’erreur](#error-codes).|Chaîne|  
+|<a name="error-code" />code|Code d’erreur identifiant la catégorie de l’erreur. Pour connaître la liste des codes possibles, voir [Codes d’erreur](#error-codes).|Chaîne|  
 |<a name="error-message" />message|Description de l’erreur.|Chaîne|  
-|<a name="error-moredetails" />moreDetails|Description de l’erreur avec des informations supplémentaires sur l’erreur.|Chaîne|  
-|<a name="error-parameter" />parameter|Paramètre de la requête ayant provoqué l’erreur.|Chaîne|  
-|<a name="error-subcode" />subCode|Code d’erreur identifiant l’erreur. Par exemple, si `code` est InvalidRequest, `subCode` peut être ParameterInvalid ou ParameterInvalidValue. |Chaîne|  
+|<a name="error-moredetails" />moreDetails|Description de l’erreur comportant des informations supplémentaires.|Chaîne|  
+|<a name="error-parameter" />parameter|Paramètre de requête de la demande ayant provoqué l’erreur.|Chaîne|  
+|<a name="error-subcode" />subCode|Code identifiant l’erreur. Par exemple, si `code` est InvalidRequest, `subCode` peut être ParameterInvalid ou ParameterInvalidValue. |Chaîne|  
 |<a name="error-value" />value|Valeur du paramètre de requête qui n’était pas valide.|Chaîne|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
-Objet de niveau supérieur figurant dans la réponse en cas d’échec de la requête.  
+Objet de niveau supérieur figurant dans la réponse en cas d’échec de la demande.  
   
 |NOM|Valeur|type|  
 |----------|-----------|----------|  
-|_type|Conseil sur le type.|Chaîne|  
-|<a name="errors" />errors|Liste des erreurs qui décrivent les raisons pour lesquelles la requête a échoué.|[Error](#error)[]|   
+|_type|Indicateur de type.|Chaîne|  
+|<a name="errors" />errors|Liste des erreurs qui décrivent les raisons pour lesquelles la demande a échoué.|[Error](#error)[]|   
   
 
 ### <a name="webpage"></a>WebPage  
@@ -117,22 +117,22 @@ Définit les informations concernant la page web dans l’aperçu.
   
 |NOM|Valeur|type|  
 |----------|-----------|----------|
-|Nom|Titre de la page, mais pas nécessairement le titre HTML|Chaîne|
-|url|L’URL qui a réellement été analysée (des redirections y figurent peut-être)|Chaîne|  
-|description|Brève description de la page et de son contenu|Chaîne|  
-|isFamilyFriendly|Précision maximale pour les éléments figurant dans l’index web ; les extractions en temps réel effectuent cette détection uniquement d’après l’URL et non le contenu de la page|booléenne|
-|primaryImageOfPage/contentUrl|URL vers une image représentative à inclure dans l’aperçu|Chaîne| 
+|Nom|Titre de la page (pas nécessairement le titre HTML).|Chaîne|
+|url|URL réellement analysée (potentiellement avec redirections de la demande).|Chaîne|  
+|description|Brève description de la page et de son contenu.|Chaîne|  
+|isFamilyFriendly|Précision maximale pour les éléments figurant dans l’index web ; les extractions en temps réel effectuent cette détection d’après l’URL uniquement, et non d’après le contenu de la page.|booléenne|
+|primaryImageOfPage/contentUrl|URL d’une image représentative à inclure dans l’aperçu.|Chaîne| 
 
 
 ### <a name="identifiable"></a>Identifiable
 |NOM|Valeur|type|  
 |-------------|-----------------|----------|
-|id|Identificateur de ressource|Chaîne|
+|id|Identificateur de ressource.|Chaîne|
  
 
 ## <a name="error-codes"></a>Codes d’erreur
 
-Voici les codes d’état HTTP possibles qu’une requête renvoie.  
+Les codes d’état HTTP qu’une requête peut renvoyer sont les suivants.  
   
 |Code d’état|Description|  
 |-----------------|-----------------|  
@@ -142,12 +142,12 @@ Voici les codes d’état HTTP possibles qu’une requête renvoie.
 |400|ServerError, subCode ResourceError : l’URL demandée n’a pas renvoyé de code attestant de la réussite (y compris si elle renvoie une erreur HTTP 404).|
 |400|InvalidRequest, subCode Blocked : l’URL demandée contient peut-être du contenu réservé aux adultes et a été bloquée.| 
 |401|La clé d’abonnement est manquante ou non valide.|  
-|403|L’utilisateur est authentifié (par exemple, il a utilisé une clé d’abonnement valide), mais il n’est pas autorisé à accéder à la ressource demandée.<br /><br /> Bing peut également renvoyer son état si l’appelant a dépassé son quota mensuel de requêtes.|  
-|410|La requête a utilisé le protocole HTTP et non le protocole HTTPS. HTTPS est le seul protocole pris en charge.|  
+|403|L’utilisateur est authentifié (par exemple, il a utilisé une clé d’abonnement valide), mais il n’est pas autorisé à accéder à la ressource demandée.<br /><br /> Bing peut également retourner cet état si l’appelant a dépassé son quota mensuel de requêtes.|  
+|410|La demande a utilisé le protocole HTTP au lieu du protocole HTTPS. HTTPS est le seul protocole pris en charge.|  
 |429|L’appelant a dépassé son quota de requêtes par seconde.|  
 |500|Événement serveur inattendu.|
 
-Si la requête échoue, la réponse contient un objet [ErrorResponse](#errorresponse) qui contient une liste d’objets [Error](#error) décrivant l’origine de l’erreur. Si l’erreur est liée à un paramètre, le champ `parameter` identifie celui à l’origine du problème. De plus, si l’erreur est liée à une valeur parameter, le champ `value` identifie la valeur considérée comme non valide.
+Si la demande échoue, la réponse comporte un objet [ErrorResponse](#errorresponse) qui contient une liste d’objets [Error](#error) décrivant l’origine de l’erreur. Si l’erreur est liée à un paramètre, le champ `parameter` identifie celui qui pose problème. De même, si l’erreur est liée à une valeur de paramètre, le champ `value` identifie la valeur non valide.
 
 ```json
 {
@@ -175,15 +175,15 @@ Si la requête échoue, la réponse contient un objet [ErrorResponse](#errorresp
 }
 ```
 
-Voici les valeurs de code d’erreur et de sous-code d’erreur possibles.
+Voici les valeurs possibles de code d’erreur et de sous-code d’erreur.
 
 |Code|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Le code d’état HTTP est 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqué|Bing renvoie InvalidRequest chaque fois qu’une partie de la requête n’est pas valide. Par exemple, un paramètre obligatoire est manquant ou une valeur de paramètre n’est pas valide.<br/><br/>Si l’erreur est ParameterMissing ou ParameterInvalidValue, le code d’état HTTP est 400.<br/><br/>Si vous utilisez le protocole HTTP au lieu du protocole HTTPS, Bing renvoie HttpNotAllowed, et le code d’état HTTP est 410.
-|RateLimitExceeded|Aucun sous-code|Bing renvoie RateLimitExceeded chaque fois que vous dépassez votre quota de requêtes par seconde (QPS) ou votre quota mensuel de requêtes (QPM).<br/><br/>Si vous dépassez votre QPS, Bing renvoie le code d’état HTTP 429, et si vous dépassez votre QPM, Bing renvoie le code d’état 403.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing renvoie InvalidAuthorization si aucune authentification de l’appelant n’est possible. Par exemple, l’en-tête `Ocp-Apim-Subscription-Key` est manquant ou la clé de l’abonnement n’est pas valide.<br/><br/>Une redondance se produit si vous spécifiez plusieurs méthodes d’authentification.<br/><br/>Si l’erreur est InvalidAuthorization, le code d’état HTTP est 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationDisabled|Bing renvoie InsufficientAuthorization lorsque l’appelant n’est pas autorisé à accéder à la ressource. Cela peut se produire si la clé de l’abonnement a été désactivée ou a expiré. <br/><br/>Si l’erreur est InvalidAuthorization, le code d’état HTTP est 403.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqué|Bing renvoie InvalidRequest à chaque fois que l’une partie de la requête n’est pas valide. Par exemple, un paramètre obligatoire est manquant ou une valeur de paramètre n’est pas valide.<br/><br/>Si l’erreur est ParameterMissing ou ParameterInvalidValue, le code d’état HTTP est 400.<br/><br/>Si vous utilisez le protocole HTTP au lieu du protocole HTTPS, Bing retourne HttpNotAllowed, et le code d’état HTTP est 410.
+|RateLimitExceeded|Aucun sous-code|Bing retourne RateLimitExceeded chaque fois que vous dépassez votre quota de requêtes par seconde (QPS) ou par mois (QPM).<br/><br/>Si vous dépassez votre QPS, Bing retourne le code d’état HTTP 429 ; si vous dépassez votre QPM, Bing retourne le code d’état 403.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourne InvalidAuthorization s’il ne parvient pas à identifier l’appelant. Par exemple, l’en-tête `Ocp-Apim-Subscription-Key` est manquant ou la clé d’abonnement n’est pas valide.<br/><br/>Il y a redondance si plusieurs méthodes d’authentification sont spécifiées.<br/><br/>Si l’erreur est InvalidAuthorization, le code d’état HTTP est 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing retourne InsufficientAuthorization lorsque l’appelant n’est pas autorisé à accéder à la ressource. Cela peut se produire si la clé d’abonnement a été désactivée ou a expiré. <br/><br/>Si l’erreur est InsufficientAuthorization, le code d’état HTTP est 403.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide C#](csharp.md)

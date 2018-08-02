@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: e9faf595e65ba4475a743e4cb45919fd30fbd6e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 214695ed3e23d1f501d6d4691104b3f8a91f6efc
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367973"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866506"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Créer des révisions à partir de la console d’API
 
-Utilisez les [opérations de révision](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) de l’API Review (Révision) pour créer des révisions de texte ou d’image pour la modération humaine. Les modérateurs utilisent l’outil de révision pour passer en revue le contenu. Utilisez cette opération en fonction de votre logique métier post-modération. Utilisez-la une fois que vous avez analysé votre contenu à l’aide des API de texte ou d’image de Content Moderator ou d’autres API Cognitive Services. 
+Utilisez les [opérations de révision](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) de l’API Review (Révision) pour créer des révisions de texte ou d’image pour la modération humaine. Les modérateurs utilisent l’outil de révision pour vérifier le contenu. Utilisez cette opération en fonction de votre logique métier post-modération. Utilisez-la une fois que vous avez analysé votre contenu à l’aide des API de texte ou d’image de Content Moderator ou d’autres API Cognitive Services. 
 
 Une fois qu’un modérateur a examiné les balises affectées automatiquement ainsi que les données de prédiction et soumis une décision finale en matière de modération, l’API Review (Révision) soumet toutes les informations à votre point de terminaison d’API.
 

@@ -9,19 +9,19 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 48fc234e15ce3b9172d766f6fae11b51a017ce70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370741"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858457"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>Appeler le point de terminaison Recherche personnalisée Bing (Node.js)
 
 Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Node.js pour appeler le point de terminaison Recherche personnalisée Bing. 
 
 ## <a name="prerequisites"></a>Prérequis
-Pour suivre ce guide de démarrage rapide, les éléments suivants sont requis :
+Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 - Une instance de recherche personnalisée. Consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
 
@@ -34,12 +34,16 @@ Pour suivre ce guide de démarrage rapide, les éléments suivants sont requis 
 Pour appeler le point de terminaison Recherche personnalisée Bing, effectuez les étapes suivantes :
 
 1. Créez un dossier pour votre code.
+
 2. À partir d’un terminal ou d’une invite de commandes, accédez au dossier que vous venez de créer.
+
 3. Installez le module du nœud **request** :
     <pre>
     npm install request
     </pre>
-4. Créez le fichier BingCustomSearch.js et copiez-y le code ci-dessous.
+    
+4. Créez le fichier BingCustomSearch.js et copiez-y le code suivant.
+
 5. Remplacez **YOUR-SUBSCRIPTION-KEY** et **YOUR-CUSTOM-CONFIG-ID** par votre clé et votre ID de configuration (voir l’étape 1).
 
     ``` javascript

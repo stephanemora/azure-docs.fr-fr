@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 36d8e5a1d9f86da94fbdbe4ff01e93ba32ce6af6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301459"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868396"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Démarrage rapide pour l’API QnA Maker Microsoft avec Java 
 <a name="HOLTop"></a>
