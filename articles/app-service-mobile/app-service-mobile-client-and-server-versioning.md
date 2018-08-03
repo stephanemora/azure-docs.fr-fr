@@ -80,7 +80,7 @@ Remarque : les SDK clients Mobile Services n’envoient *pas* de valeur d’en-
 ### <a name="mobile-services-server-sdks"></a>SDK serveurs Mobile *Services*
 | Plateforme de serveur | Version | En-têtes de versions acceptés |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Aucun en-tête de version ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Aucun en-tête de version** |
 | Node.js |(bientôt disponible) |**Aucun en-tête de version** |
 
 <!-- TODO: add Node npm version -->
