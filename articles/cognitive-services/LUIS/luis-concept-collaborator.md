@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222670"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399569"
 ---
 # <a name="collaborating"></a>Collaboration
 
@@ -25,7 +25,7 @@ Un compte de LUIS est associé à un seul compte [Microsoft Live](https://login.
 
 Un compte LUIS peut contenir de nombreuses applications LUIS.
 
-Pour plus d’informations sur les comptes d’utilisateur Active Directory, voir [Utilisateur du locataire Azure Active Directory](luis-how-to-account-settings.md#azure-active-directory-tenant-user). 
+Pour plus d’informations sur les comptes d’utilisateur Active Directory, voir [Utilisateur du locataire Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user). 
 
 ## <a name="luis-app-owner"></a>Propriétaire d’application LUIS
 Le compte qui crée une application en est le propriétaire. Chaque application a un seul propriétaire. Le propriétaire apparaît dans les **[Paramètres](luis-how-to-collaborate.md)** de l’application. Il s’agit du compte qui peut supprimer l’application. C’est également le compte qui reçoit un e-mail lorsque le quota du point de terminaison atteint 75 % de la limite mensuelle. 

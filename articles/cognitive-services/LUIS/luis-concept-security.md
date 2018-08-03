@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 13b769a0b5a940e0f3dd5f2e0cc3567d9879ee0d
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe0ee7d575e69c883ad7f980477e86fbd004778e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223777"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397241"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Accès utilisateur à la création et au point de terminaison
 L’accès à la création est disponible pour les propriétaires et les collaborateurs. Pour une application privée, l’accès au point de terminaison est disponible pour les propriétaires et les collaborateurs. Pour une application publique, l’accès au point de terminaison est disponible à tous les utilisateurs qui possèdent leur propre compte LUIS et l’ID de l’application publique. 
@@ -62,7 +62,7 @@ Un utilisateur qui n’est pas propriétaire ou collaborateur peut uniquement ac
 ## <a name="microsoft-user-accounts"></a>Comptes utilisateur Microsoft
 Les créateurs et les collaborateurs peuvent ajouter des clés à LUIS sur la page Publier. Le compte utilisateur Microsoft qui crée la clé LUIS dans le portail Azure doit être le propriétaire de l’application ou un collaborateur de l’application. 
 
-Pour plus d’informations sur les comptes d’utilisateur Active Directory, voir [Utilisateur du locataire Azure Active Directory](luis-how-to-account-settings.md#azure-active-directory-tenant-user). 
+Pour plus d’informations sur les comptes d’utilisateur Active Directory, voir [Utilisateur du locataire Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user). 
 
 <!--
 ### Individual consent

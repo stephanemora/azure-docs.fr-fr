@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/08/2018
 ms.author: diberry
-ms.openlocfilehash: 963a7f8c196702ea899ddfe31e6187a15eb5f683
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 73e90e5ae86db2c2c4625762b285f8c86f0e241b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223206"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398043"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gérer le compte et la clé de création
 Les deux informations clés d’un compte LUIS sont le compte d’utilisateur et la clé de création. Vos informations de connexion sont gérées sur [account.microsoft.com](https://account.microsoft.com). Votre clé de création est gérée depuis le site web [LUIS](luis-reference-regions.md), page **Paramètres**. 
@@ -36,25 +36,6 @@ Si votre clé de création est compromise, réinitialisez la clé. La clé est r
 
 ## <a name="delete-account"></a>Supprimer le compte
 Consultez la page [Stockage et suppression de données](luis-concept-data-storage.md#accounts) pour savoir quelles données sont supprimées lorsque vous supprimez votre compte. 
-
-## <a name="azure-active-directory-tenant-user"></a>Utilisateur du locataire Azure Active Directory
-LUIS utilise le flux de consentement standard Azure Active Directory (Azure AD). 
-
-L’administrateur de locataire doit travailler directement avec l’utilisateur qui a besoin d’accéder à LUIS dans Azure AD. 
-
-D’abord, l’utilisateur se connecte à LUIS, et une boîte de dialogue contextuelle nécessitant l’approbation de l’administrateur s’affiche. L’utilisateur doit contacter l’administrateur de locataire avant de poursuivre. 
-
-Ensuite, l’administrateur de locataire se connecte à LUIS, et une boîte de dialogue contextuelle de flux de consentement s’affiche. C’est avec cette boîte de dialogue que l’administrateur accorde l’autorisation à l’utilisateur. Une fois que l’administrateur a donné son autorisation, l’utilisateur peut poursuivre avec LUIS.
-
-Si l’administrateur de locataire ne se connecte pas à LUIS, l’administrateur peut [consentir](https://account.activedirectory.windowsazure.com/r#/applications) à l’accès à LUIS. 
-
-![Autorisation Azure Active Directory par site web d’application](./media/luis-how-to-account-settings/tenant-permissions.png)
-
-Si l’administrateur de locataire souhaite que seulement certains utilisateurs accèdent à LUIS, référez-vous à ce [blog d’identité](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
-
-### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Comptes d’utilisateur avec plusieurs adresses e-mails pour les collaborateurs
-Si vous ajoutez des collaborateurs à votre application LUIS, vous devez spécifier l’adresse e-mail exacte dont un collaborateur a besoin pour utiliser LUIS en tant que collaborateur. Si Azure Active Directory (Azure AD) permet à un utilisateur unique d’utiliser plusieurs adresses e-mails de manière interchangeable, pour LUIS l’utilisateur doit se connecter avec l’adresse e-mail spécifiée dans la liste du collaborateur. 
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

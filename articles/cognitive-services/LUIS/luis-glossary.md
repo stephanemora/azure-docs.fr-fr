@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3f99e58a38bbe9ecc87165b5e6fa24a5a49e5e4a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225504"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390056"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -163,7 +163,7 @@ L’analyse des sentiments attribue des valeurs positives ou négatives aux éno
 
 ## <a name="speech-priming"></a>Préparation vocale
 
-La préparation vocale permet de préparer votre service vocal avec votre modèle LUIS. Voir [Activer la préparation vocale](luis-how-to-publish-app.md#enable-speech-priming).
+La préparation vocale permet de préparer votre service vocal avec votre modèle LUIS. 
 
 ## <a name="spelling-correction"></a>Correction orthographique
 
