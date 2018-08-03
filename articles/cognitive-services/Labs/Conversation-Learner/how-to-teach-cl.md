@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 639fea64fc8eeb2c1f6e6240c4eb26efc68febbd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369568"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170597"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Formation avec l’Apprenant de conversation 
 
@@ -54,11 +54,12 @@ Correspondance exacte des mots dans l’énoncé actuel de l’utilisateur actue
 Mots similaires dans l’énoncé actuel de l’utilisateur | 3 | 
 Actions du système avant la fois précédente | 4 |
 Entités présentes les fois précédentes | 4 | 
-Énoncés précédents de l’utilisateur | 5 | 
+Énoncés précédents de l’utilisateur | 5. | 
 
-Notez que la sélection d’action ne prend pas le contenu des actions du système (texte, contenu de carte, ou bien nom ou comportement d’API), mais uniquement l’identité de l’action du système.  Par conséquent, la modification du contenu d’une action ne modifiera pas le comportement du modèle de sélection d’action.
-
-Notez par ailleurs que les contenu/valeurs d’entités proprement dits ne sont pas utilisés, mais uniquement leur présence/absence.
+> [!NOTE]
+> La sélection d’action ne prend pas le contenu des actions du système (texte, contenu de carte, ou bien nom ou comportement d’API), mais uniquement l’identité de l’action du système.  Par conséquent, la modification du contenu d’une action ne modifiera pas le comportement du modèle de sélection d’action.
+>
+> Par ailleurs, les contenu/valeurs d’entités proprement dits ne sont pas utilisés, mais uniquement leur présence/absence.
 
 Si la sélection d'action ne se comporte pas comme prévu, il est possible d’y remédier :
 

@@ -2,25 +2,25 @@
 title: Tester votre application LUIS - Azure | Microsoft Docs
 description: Utilisez LUIS (Language Understanding) pour travailler en continu sur votre application afin d’affiner et d’améliorer sa compréhension de la langue.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8c702d2adbadd2736eed05c7580e8aabf69affbf
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266326"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224345"
 ---
 # <a name="testing-in-luis"></a>Tests dans LUIS
 
 Le test est le processus consistant à fournir des exemples d’énoncés à LUIS et obtenir une réponse des intentions et des entités reconnues par LUIS. 
 
-Vous pouvez [tester](interactive-test.md) LUIS de manière interactive, un énoncé à la fois, ou fournir un [lot](luis-concept-batch-test.md) d’énoncés. Avec les tests, vous comparez le modèle [actif](luis-concept-version.md#active-version) actuel au modèle publié. 
+Vous pouvez [tester](luis-interactive-test.md) LUIS de manière interactive, un énoncé à la fois, ou fournir un [lot](luis-concept-batch-test.md) d’énoncés. Avec les tests, vous comparez le modèle [actif](luis-concept-version.md#active-version) actuel au modèle publié. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -35,7 +35,7 @@ Le test interactif s’effectue à partir du panneau **Test** du site web. Vous 
 Consultez [Test par lot](luis-concept-batch-test.md) si vous testez plusieurs énoncés à la fois.
 
 ## <a name="endpoint-testing"></a>Test des points de terminaison
-Vous pouvez tester en utilisant le [point de terminaison](luis-glossary.md#endpoint) avec deux versions maximum de votre application. Avec la version principale ou live de votre application définie en tant que point de terminaison de **production**, ajoutez une deuxième version au point de terminaison **intermédiaire**. Cette approche vous offre trois versions d’un énoncé : le modèle actuel dans le volet Test du site web [LUIS][LUIS] et les deux versions sur les deux points de terminaison différents. 
+Vous pouvez tester en utilisant le [point de terminaison](luis-glossary.md#endpoint) avec deux versions maximum de votre application. Avec la version principale ou live de votre application définie en tant que point de terminaison de **production**, ajoutez une deuxième version au point de terminaison **intermédiaire**. Cette approche vous offre trois versions d’un énoncé : le modèle actuel dans le volet Test du site web [LUIS](luis-reference-regions.md) et les deux versions sur les deux points de terminaison différents. 
 
 Tous les tests sur votre point de terminaison sont inclus dans votre quota d’utilisation. 
 
@@ -43,9 +43,9 @@ Tous les tests sur votre point de terminaison sont inclus dans votre quota d’u
 Si vous testez sur un point de terminaison et que vous ne souhaitez pas que l’énoncé soit enregistré, pensez à utiliser la configuration de la chaîne de requête `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Où trouver les énoncés
-LUIS stocke tous les énoncés enregistrés dans le journal des requêtes, disponible au téléchargement sur le site web [LUIS][LUIS] et la page répertoriant les **Applications**, ainsi que les [API de création](https://aka.ms/luis-authoring-apis) LUIS. 
+LUIS stocke tous les énoncés enregistrés dans le journal des requêtes, disponible au téléchargement sur le site web [LUIS](luis-reference-regions.md) à la page répertoriant les **Applications**, ainsi que les [API de création](https://aka.ms/luis-authoring-apis) LUIS. 
 
-Les énoncés dont LUIS n’est pas sûr sont répertoriés dans la page **[Réviser les énoncés de point de terminaison](label-suggested-utterances.md)** du site web [LUIS][LUIS]. 
+Les énoncés dont LUIS n’est pas sûr sont répertoriés dans la page **[Réviser les énoncés de point de terminaison](luis-how-to-review-endoint-utt.md)** du site web [LUIS](luis-reference-regions.md). 
 
 ![Réviser les énoncés de point de terminaison](./media/luis-concept-test/review-endpoint-utterances.png)
  
@@ -57,6 +57,4 @@ Découvrir les [meilleures pratiques](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur le [test](interactive-test.md) de vos énoncés.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+* En savoir plus sur le [test](luis-interactive-test.md) de vos énoncés.

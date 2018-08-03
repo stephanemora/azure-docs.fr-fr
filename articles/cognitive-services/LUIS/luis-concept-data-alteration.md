@@ -2,19 +2,19 @@
 title: Comprendre les concepts de modification des données dans LUIS - Azure | Microsoft Docs
 description: Découvrez comment les données peuvent être modifiées avant les prédictions de LUIS (Language Understanding)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4fb1a5542bb56bd853984e66198ebfbd189451f8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: d8421114bb5a7416ad2523fe9b0353f03f672619
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266863"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223981"
 ---
 # <a name="data-alterations"></a>Modifications des données
 LUIS fournit des méthodes pour manipuler l’énoncé avant ou pendant la prédiction. 
@@ -22,7 +22,7 @@ LUIS fournit des méthodes pour manipuler l’énoncé avant ou pendant la préd
 ## <a name="correct-spelling-errors-in-utterance"></a>Corriger les erreurs d’orthographe dans l’énoncé
 LUIS utilise [l’API Vérification orthographique Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) pour corriger les fautes d’orthographe dans l’énoncé. LUIS a besoin de la clé associée à ce service. Créez la clé, puis ajoutez la clé en tant que paramètre de chaîne de requête au [point de terminaison](https://aka.ms/luis-endpoint-apis). 
 
-Vous pouvez également corriger les fautes d’orthographe dans le panneau **Test** en [entrant la clé](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). La clé est conservée en tant que variable de session dans le navigateur pour le panneau Test. Ajoutez la clé dans le panneau Test dans chaque session de navigateur où vous souhaitez corriger l’orthographe. 
+Vous pouvez également corriger les fautes d’orthographe dans le panneau **Test** en [entrant la clé](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). La clé est conservée en tant que variable de session dans le navigateur pour le panneau Test. Ajoutez la clé dans le panneau Test dans chaque session de navigateur où vous souhaitez corriger l’orthographe. 
 
 L’utilisation de la clé dans le panneau Test et sur le point de terminaison est prise en compte dans le quota [d’utilisation de la clé](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/). LUIS implémente les limites de la Vérification orthographique Bing pour la longueur du texte. 
 
@@ -31,7 +31,7 @@ Le point de terminaison nécessite deux paramètres pour que les corrections ort
 |Paramètre|Valeur|
 |--|--|
 |`spellCheck`|booléenne|
-|`bing-spell-check-subscription-key`|Clé d’abonnement [API Vérification orthographique Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
+|`bing-spell-check-subscription-key`|Clé de point de terminaison d’[API Vérification orthographique v7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
 
 Lorsque [l’API Vérification orthographique Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) détecte une erreur, l’énoncé d’origine et l’énoncé corrigé sont retournés avec des prédictions à partir du point de terminaison.
 
@@ -89,5 +89,3 @@ int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 
 > [!div class="nextstepaction"]
 > [Corriger les erreurs d’orthographe avec ce tutoriel](luis-tutorial-bing-spellcheck.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

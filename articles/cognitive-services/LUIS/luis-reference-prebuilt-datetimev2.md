@@ -3,19 +3,19 @@ title: Documentation de référence pour l’entité prédéfinie datetimev2 de 
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie datetimev2 dans Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 261f6f27c39c280efdcd070888d735374a473c85
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 13f62e98a33aac51eae86d5ce1b802d4701ef3f6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321571"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236769"
 ---
 # <a name="datetimev2-entity"></a>Entité Datetimev2
 
@@ -51,9 +51,9 @@ L’exemple suivant de réponse JSON a une entité `datetimeV2` avec un sous-typ
 
 |Nom de la propriété |Type et description de la propriété|
 |---|---|
-|Entity|**string** : texte extrait de l’énoncé avec le type de date, d’heure, de plage de dates ou de plage d’heures.|
-|type|**string** : l’un des [sous-types de datetimev2](#subtypes-of-datetimev2).
-|startIndex|**int** : index dans l’énoncé auquel l’entité commence.|
+|Entité|**string** : texte extrait de l’énoncé avec le type de date, d’heure, de plage de dates ou de plage d’heures.|
+|Type|**string** : l’un des [sous-types de datetimev2](#subtypes-of-datetimev2).
+|index_début|**int** : index dans l’énoncé auquel l’entité commence.|
 |endIndex|**int** : index dans l’énoncé auquel l’entité finit.|
 |resolution|Tableau `values` contenant une, deux ou quatre [valeurs de résolution](#values-of-resolution).|
 |end|Valeur de fin d’une plage d’heures ou de dates, au même format que `value`. Utilisée uniquement si `type` est `daterange`, `timerange` ou `datetimerange`.|
@@ -71,17 +71,17 @@ L’entité prédéfinie **datetimev2** a les sous-types ci-dessous, pour lesque
 
 ## <a name="values-of-resolution"></a>Valeurs de résolution
 * Le tableau contient un seul élément si la date ou l’heure dans l’énoncé sont complètement spécifiées et non équivoques.
-* Le tableau contient deux éléments si la valeur datetimev2 est ambiguë. L’ambiguïté résulte de l’absence d’année, d’heure ou d’intervalle de temps spécifiques. Pour obtenir des exemples, voir [Dates ambiguës](#ambiguous-dates). Quand l’heure est ambiguë au sens où elle ne permet pas de déterminer s’il s’agit de l’avant-midi (AM) ou de l’après-midi (PM), les deux valeurs sont incluses.
+* Le tableau contient deux éléments si la valeur datetimev2 est ambiguë. L’ambiguïté résulte de l’absence d’année, d’heure ou d’intervalle de temps spécifiques. Pour obtenir des exemples, voir [Dates ambiguës](#ambiguous-dates). Lorsque l’heure est ambiguë concernant A.M. ou P.M., les deux valeurs sont incluses.
 * Le tableau contient quatre éléments si l’énoncé comporte deux éléments ambigus. Cette ambiguïté a trait aux éléments qui incluent :
   * Une date ou une plage de dates ambiguës pour l’année
-  * Une heure ou une plage d’heures ambiguës parce qu’elles ne permettent pas de déterminer s’il s’agit de l’avant-midi (AM) ou de l’après-midi (PM). Par exemple, le 3 avril à 3 heures.
+  * Une heure ou une plage d’heures ambiguës concernant A.M. ou P.M. Par exemple, le 3 avril à 3 heures.
 
 Chaque élément du tableau `values` peut comprendre les champs suivants : 
 
 |Nom de la propriété|Description de la propriété|
 |--|--|
 |timex|Heure, date ou plage de dates exprimées au format TIMEX qui suit la [norme ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et les attributs TIMEX3 pour l’annotation à l’aide du langage TimeML. Cette annotation est décrite dans les [recommandations TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|type|Sous-type qui peut être l’un des éléments suivants : datetime, date, time, daterange, timerange, datetimerange, duration, set.|
+|Type|Sous-type qui peut être l’un des éléments suivants : datetime, date, time, daterange, timerange, datetimerange, duration, set.|
 |value|**Facultatif.** Objet datetime au format aaaa:MM:jj (date), HH:mm:ss (heure), aaaa:MM:dd HH:mm:ss (dateheure). Si `type` est `duration`, la valeur est le nombre de secondes (durée). <br/> Utilisé uniquement si `type` est `datetime`, `date`, `time` ou une durée.|
 
 ## <a name="valid-date-values"></a>Valeurs de date valides
@@ -190,7 +190,7 @@ L’exemple suivant montre comment LUIS utilise **datetimev2** pour résoudre l�
   ]
 ```
 ## <a name="ambiguous-time"></a>Heure ambiguë
-Le tableau des valeurs contient deux éléments si l’heure ou la plage d’heures sont ambiguës. Quand une heure est ambiguë, les valeurs comprennent les deux possibilités (AM et PM) .
+Le tableau des valeurs contient deux éléments si l’heure ou la plage d’heures sont ambiguës. Quand une heure est ambiguë, les valeurs comprennent à la fois les heures A.M. et P.M .
 
 ## <a name="time-range-resolution-example"></a>Exemple de résolution de plage d’heures
 
@@ -219,7 +219,7 @@ L’exemple suivant montre comment LUIS utilise **datetimev2** pour résoudre l�
 
 ## <a name="deprecated-prebuilt-datetime"></a>Désapprobation de l’entité prédéfinie datetime
 
-L’entité prédéfinie `datetime` est désapprouvée et remplacée par [`datetimeV2`](#builtindatetimev2). 
+L’entité prédéfinie `datetime` est désapprouvée et remplacée par **datetimeV2**. 
 
 Pour remplacer `datetime` par `datetimeV2` dans votre application LUIS, procédez comme suit :
 

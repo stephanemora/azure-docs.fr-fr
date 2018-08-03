@@ -3,24 +3,24 @@ title: Référence de domaine prédéfini - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Référence pour les domaines prédéfinis, qui sont des collections prédéfinies d’intentions et d’entités de LUIS (Language Understanding Intelligent Service).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061962"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238894"
 ---
 # <a name="prebuilt-domain-reference"></a>Référence de domaine prédéfini
 Cette référence fournit des informations sur les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md), qui sont des collections prédéfinies d’intentions et d’entités proposées par LUIS.
 
-Les [domaines personnalisés](create-new-app.md), en revanche, commencent sans intentions ni modèles. Vous pouvez ajouter des intentions et entités de domaine prédéfini à un modèle personnalisé.
+Les [domaines personnalisés](luis-how-to-start-new-app.md), en revanche, commencent sans intentions ni modèles. Vous pouvez ajouter des intentions et entités de domaine prédéfini à un modèle personnalisé.
 
 ## <a name="list-of-prebuilt-domains"></a>Liste des domaines prédéfinis
 LUIS propose 20 domaines prédéfinis. 
@@ -43,7 +43,7 @@ LUIS propose 20 domaines prédéfinis.
 | Rappel | Gestion des requêtes liées à la création, la modification et la recherche de rappels.| fr-FR<br/> zh-CN |
 | RestaurantReservation | Gestion des requêtes pour gérer les réservations de restaurant.| fr-FR<br/> zh-CN |
 | Taxi | Gestion des réservations de taxi.| fr-FR<br/> zh-CN |
-| Traduire | Traduction de texte dans une langue cible.| fr-FR<br/> zh-CN |
+| Translate | Traduction de texte dans une langue cible.| fr-FR<br/> zh-CN |
 | TV | Contrôle des téléviseurs.| fr-FR |
 | Services  | Gestion des requêtes communes à de nombreux domaines telles que « aide », « répéter », « recommencer ».| fr-FR |
 | Météo | Obtention de rapports et de prévisions météo.| fr-FR<br/> zh-CN |
@@ -102,7 +102,7 @@ Le domaine Communication fournit des intentions et entités liées à la message
 | AssignContactNickname| Attribuez un surnom à un contact.|Remplacer Isaac par papa <br/>Modifier le surnom de Jim<br/>Ajouter un surnom à Patti Owens|
 | CallVoiceMail| Connectez-vous à la messagerie vocale de l’utilisateur.|Me connecter à ma boîte de messagerie vocale <br/>Messagerie vocale<br/>Appeler la messagerie vocale|
 | CheckIMStatus| Vérifiez l’état d’un contact dans Skype.|L’état En ligne de Jim est-il défini sur Absent ? <br/>Carol est-elle disponible pour une conversation ?|
-| Confirmer| Confirmez une action.|OUI<br/>OK<br/>D’accord<br/>Je confirme que je souhaite envoyer ce courrier électronique.<br/>|
+| Confirmer| Confirmez une action.|Oui<br/>OK<br/>D’accord<br/>Je confirme que je souhaite envoyer ce courrier électronique.<br/>|
 | Composer| Effectuez un appel téléphonique.|Appeler Jim<br/>Merci de composer 311<br/>|
 | FindContact| Recherchez des informations de contact par nom.|Rechercher le numéro de Carol<br/>Me montrer le numéro de Carol<br/>|
 | FindSpeedDial| Recherchez le numéro de numérotation rapide défini pour un numéro de téléphone et vice versa.|À quoi correspond le numéro 5 ?<br/>La numérotation rapide est-elle définie ?<br/>Quel est le numéro pour 941-5555-333 ?|
@@ -154,7 +154,7 @@ Le domaine Divertissement fournit les intentions et entités liées à la recher
 | ContentRating | Évaluation de contenu multimédia telle que G ou R pour les films.|Vidéo pour enfants.<br/>Évalué PG.|
 | Genre | Genre d’un film, d’un jeu, d’une application ou d’une chanson.|Comédies<br/>Dramas<br/>Amusant|
 | Mot clé| Mot-clé de recherche générique spécifiant un attribut qui n’existe pas dans les emplacements multimédias plus spécifiques.|Bandes son<br/>Moon River<br/>Amelia Earhart|
-| Langage | Évaluation de contenu multimédia telle que G ou R pour les films.|Français<br/>Français<br/>Coréen|
+| Langage | Langage utilisé dans les médias, tels que la langue parlée dans un film ou une chanson.|Français<br/>Français<br/>Coréen|
 | MediaFormat | Type technique spécial supplémentaire dans lequel le média est formaté.|Films HD<br/>Films 3D<br/>Téléchargeable|
 | MediaSource | Boutique ou Place de marché pour acquérir le média.|Netflix<br/>Prime|
 | MediaSubTypes| Types de médias plus petits que les films et jeux.|Démonstrations<br/>Dlc<br/>Bandes-annonce|
@@ -171,7 +171,7 @@ Le domaine Événements fournit les intentions et entités liées à la réserva
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
 | ---------------- |-----------------------|----|
-| Réserver| Achetez des tickets pour un événement.|Je souhaiterai acheter un ticket pour la symphonie ce week-end.|
+| Book| Achetez des tickets pour un événement.|Je souhaiterai acheter un ticket pour la symphonie ce week-end.|
 
 
 ### <a name="entities"></a>Entités
@@ -250,7 +250,7 @@ When is Captain Omar showing?
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
 | ---------------- |-----------------------|----|
-| Réserver | Achetez des tickets de films.|M’acheter deux tickets pour Captain Omar and the two musketeers<br/>Je souhaite acheter un ticket pour le film de demain<br/>Je souhaite un ticket pour Captian Omar Part 2 mercredi prochain|
+| Book | Achetez des tickets de films.|M’acheter deux tickets pour Captain Omar and the two musketeers<br/>Je souhaite acheter un ticket pour le film de demain<br/>Je souhaite un ticket pour Captian Omar Part 2 mercredi prochain|
 |GetShowTime| Obtenez la présentation d’un film.|De quoi parle Captain Omar ?|
 
 
@@ -511,7 +511,7 @@ Cancel my Uber
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
 | ---------------- |-----------------------|----|
-| Réserver | Appelez un taxi. |M’obtenir un taxi<br/>Trouver un taxi<br/>Me réserver un uber x|
+| Book | Appelez un taxi. |M’obtenir un taxi<br/>Trouver un taxi<br/>Me réserver un uber x|
 | Annuler | Annulez une action liée à la réservation d’un taxi.|Annuler mon taxi<br/>Annuler mon Uber|
 | Suivre | Suivez un itinéraire de taxi.|Combien de temps dois-je attendre mon taxi ?<br/>Où est mon Uber ?|
 
@@ -527,7 +527,7 @@ Cancel my Uber
 | TransportationCompany | Nom d’un prestataire de transport.|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | Type de transport.|Bus<br/>Former<br/>Conduite|
 
-## <a name="translate"></a>Traduire 
+## <a name="translate"></a>Translate 
 Le domaine Traduire fournit les intentions et entités liées à la traduction de texte dans une langue cible.
 
 ### <a name="examples"></a>Exemples
@@ -540,7 +540,7 @@ Translate this sentence to English
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
 | ---------------- |-----------------------|----|
-| Traduire| Traduisez du texte dans une autre langue.|Traduire en français<br/>Traduire hello en allemand|
+| Translate| Traduisez du texte dans une autre langue.|Traduire en français<br/>Traduire hello en allemand|
 
 
 ### <a name="entities"></a>Entités

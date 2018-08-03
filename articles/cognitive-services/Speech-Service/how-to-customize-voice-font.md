@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: ad5af799fd46dc51b85432999f986de8cdb056ec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370317"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258845"
 ---
 # <a name="creating-custom-voice-fonts"></a>Création de polices de voix personnalisée
 
@@ -29,17 +29,7 @@ La personnalisation vocale est disponible pour l’anglais américain (en-US) et
 
 La fonctionnalité de personnalisation vocale Text to Speech est actuellement en préversion privée. [Remplissez le formulaire de demande](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) pour y avoir accès.
 
-Vous aurez également besoin des éléments suivants :
-
-* Un compte Azure ([inscrivez-vous gratuitement](https://azure.microsoft.com/free/ai/) si vous n’avez pas encore de compte).
-
-* Un abonnement au service Speech. Si vous ne l’avez pas déjà fait, [créez-en un](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
-
-    ![Créer un panneau](media/custom-voice/create-panel.png)
-
-Après avoir créé votre abonnement, vous trouverez deux clés d’abonnement sur le panneau Démarrage rapide ou Vue d’ensemble du nouvel abonnement. Vous pouvez utiliser celle de votre choix.
-
-Enfin, connectez votre abonnement au portail Custom Voice en procédant comme suit.
+Vous avez besoin d’un compte Azure et d’un abonnement au service Speech. Si vous ne l’avez pas déjà fait, [créez-en un](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Connectez votre abonnement au portail Custom Voice en procédant comme suit.
 
 1. Connectez-vous au [portail Custom Voice](https://customvoice.ai) à l’aide du compte Microsoft que vous avez utilisé pour faire votre demande d’accès.
 
@@ -51,7 +41,7 @@ Enfin, connectez votre abonnement au portail Custom Voice en procédant comme su
 
      ![Connecter l’abonnement existant](media/custom-voice/connect-existing-sub.png)
 
-4. Collez votre clé d’abonnement dans le tableau, comme indiqué ci-dessous.
+4. Collez votre clé d’abonnement dans le tableau, comme indiqué ci-dessous. Chaque abonnement dispose de deux clés et vous pouvez utiliser n’importe laquelle des deux.
 
      ![Ajouter un abonnement](media/custom-voice/add-subscription.png)
 
@@ -63,7 +53,7 @@ Un jeu de données d’apprentissage vocal se compose d’un ensemble de fichier
 
 Vous pouvez préparer ces fichiers dans l’ordre de votre choix : soit écrire un script et le faire lire par une voix professionnelle, ou bien utiliser un enregistrement audio disponible publiquement et le transcrire en texte. Dans ce dernier cas, éliminez les disfluences des fichiers audio telles que les « euh» et autres sons de remplissage, bégaiements, mots marmonnés ou erreurs de prononciation.
 
-Pour produire une police vocale de qualité satisfaisante, il est important que les enregistrements soient effectués dans une salle silencieuse avec un microphone de haute qualité. Pour concevoir une voix numérique de qualité, il est essentiel de faire attention à l’homogénéité du volume, au débit et à la tonalité, ainsi que de s’exprimer de manière expressive. Pour créer une voix à des fins de production, nous vous recommandons de faire appel aux services d’un studio d’enregistrement et d’une voix professionnelle.
+Pour produire une police vocale de qualité satisfaisante, il est important que les enregistrements soient effectués dans une salle silencieuse avec un microphone de haute qualité. Pour concevoir une voix numérique de qualité, il est essentiel de faire attention à l’homogénéité du volume, au débit et à la tonalité, ainsi que de s’exprimer de manière expressive. Pour créer une voix à des fins de production, nous vous recommandons de faire appel aux services d’un studio d’enregistrement et d’une voix professionnelle. Pour plus de détails, consultez le [Guide pratique pour enregistrer des exemples de voix pour une voix personnalisée](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Fichiers audio
 
@@ -74,8 +64,7 @@ Les fichiers audio doivent être préparés comme suit. Les autres formats ne so
 | **Propriété** | **Valeur** |
 | ------------ | --------- |
 | Format de fichier  | RIFF (WAV)|
-| Taux d’échantillonnage| 16 000 Hz |
-| Canaux     | 1 (monophonique)  |
+| Taux d’échantillonnage| au moins 16 000 Hz |
 | Format d’échantillonnage| PCM, 16 bits |
 | Nom de fichier    | Numérique, avec l’extension `.wav` |
 | Format d’archive| Zip      |
@@ -84,11 +73,12 @@ Les fichiers audio doivent être préparés comme suit. Les autres formats ne so
 Placez l’ensemble des fichiers audio dans un même dossier sans sous-répertoires. Tous les fichiers doivent se trouver dans un même fichier d’archive ZIP.
 
 > [!NOTE]
+> Les fichiers son avec un taux d’échantillonnage inférieur à 16 000 Hz seront rejetés. Si un fichier zip contient des sons avec différents taux d’échantillonnage, seuls ceux égaux ou supérieurs à 16 000 Hz seront importés.
 > Actuellement, le portail importe les archives ZIP jusqu’à 200 Mo. Toutefois, il est possible de charger plusieurs archives. Le nombre maximal de jeux de données autorisés est de 10 fichiers ZIP pour les utilisateurs d’abonnement gratuit et de 50 pour les utilisateurs d’abonnement standard.
 
 ### <a name="transcripts"></a>Transcriptions
 
-Le fichier de transcription est un simple fichier texte Unicode (UTF-16 little-endian). Chaque ligne du fichier de transcription doit contenir le nom d’un fichier audio, suivi d’un onglet (code de caractère 9) et enfin de la transcription. Aucune ligne vide n’est autorisée.
+Le fichier de transcription est un fichier texte brut (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE). Chaque ligne du fichier de transcription doit contenir le nom d’un fichier audio, suivi d’un onglet (code de caractère 9) et enfin de la transcription. Aucune ligne vide n’est autorisée.
 
 Par exemple : 
 
@@ -198,7 +188,7 @@ L’état indiqué reflète le processus de conversion de votre jeu de données 
 Le temps d’apprentissage varie selon le volume de données audio traitées. Il varie généralement d’environ 30 minutes pour plusieurs centaines d’énoncés à 40 heures pour 20 000 énoncés.
 
 > [!NOTE]
-> Les utilisateurs d’abonnement gratuit peuvent former deux polices vocales à la fois. Les utilisateurs d’abonnement standard peuvent, quant à eux, former trois polices vocales simultanément. Si vous atteignez la limite, attendez au moins la fin de la formation de l’une de vos polices vocales, puis recommencez l’opération.
+> Les utilisateurs d’abonnements gratuits peuvent former une police vocale à la fois. Les utilisateurs d’abonnement standard peuvent, quant à eux, former trois polices vocales simultanément. Si vous atteignez la limite, attendez au moins la fin de la formation de l’une de vos polices vocales, puis recommencez l’opération.
 
 ## <a name="test-your-voice-font"></a>Tester votre police vocale
 
@@ -218,21 +208,21 @@ Après avoir renseigné la zone de texte et confirmé le mode d’entrée, cliqu
 
 Une fois que vous avez créé et testé votre modèle vocal, déployez-le dans un point de terminaison de synthèse vocale personnalisé. Vous pouvez ensuite utiliser ce point de terminaison à la place du point de terminaison habituel lorsque vous effectuez des requêtes de synthèse vocale via l’API REST. Votre point de terminaison personnalisé peut être appelé uniquement par l’abonnement que vous avez utilisé pour déployer la police.
 
-Pour créer un nouveau point de terminaison, choisissez **Points de terminaison** dans le menu Custom Voice en haut de la page. La page Déploiement s’affiche avec, le cas échéant, le tableau des points de terminaison vocaux personnalisés en cours.
+Pour créer un nouveau point de terminaison, choisissez **Points de terminaison** dans le menu Custom Voice en haut de la page. La page Mes voix déployées s’affiche avec, le cas échéant, son tableau des points de terminaison vocaux personnalisés en cours. Les paramètres régionaux actuels figurent à la première ligne du tableau. Pour créer un déploiement dans une autre langue, modifiez les paramètres régionaux qui s’affichent. (Ils doivent correspondre à la voix que vous déployez.)
 
-Cliquez sur le bouton **Déployer les voix** pour créer un nouveau point de terminaison. Dans la page Créer un point de terminaison, les paramètres régionaux actuels sont répercutés dans la première ligne du tableau. Pour créer un déploiement dans une autre langue, modifiez les paramètres régionaux qui s’affichent. (Ils doivent correspondre à la voix que vous déployez.) Entrez le nom et la description de votre point de terminaison personnalisé.
+Cliquez sur le bouton **Déployer les voix** pour créer un nouveau point de terminaison. Entrez le nom et la description de votre point de terminaison personnalisé.
 
 Dans le menu Abonnement, choisissez l’abonnement que vous souhaitez utiliser. Les utilisateurs d’abonnement gratuit ne peuvent déployer qu’un seul modèle à la fois. Les utilisateurs d’abonnement standard, quant à eux, peuvent créer jusqu’à 20 points de terminaison, chacun avec sa propre voix personnalisée.
 
 ![Créer un point de terminaison](media/custom-voice/create-endpoint.png)
 
-Après avoir sélectionné le modèle à déployer, cliquez sur **Créer**. La page Déploiement s’affiche à nouveau et contient désormais une entrée pour votre nouveau point de terminaison. L’instanciation d’un nouveau point de terminaison peut prendre quelques minutes. Lorsque l’état du déploiement affiche Réussi, le point de terminaison est prêt à être utilisé.
+Après avoir sélectionné le modèle à déployer, cliquez sur **Créer**. La page Mes voix déployées s’affiche à nouveau et contient désormais une entrée pour votre nouveau point de terminaison. L’instanciation d’un nouveau point de terminaison peut prendre quelques minutes. Lorsque l’état du déploiement affiche Réussi, le point de terminaison est prêt à être utilisé.
 
 ![Mes voix déployées](media/custom-voice/my-deployed-voices.png)
 
 Lorsque l’état du déploiement affiche Réussi, le point de terminaison de votre police vocale déployée apparaît dans le tableau Mes voix déployées. Vous pouvez utiliser cet URI directement dans une requête HTTP.
 
-Il est également possible d’effectuer un test en ligne du point de terminaison via le portail Custom Voice. Pour tester votre point de terminaison, choisissez **Test des points de terminaison** dans le menu déroulant de Custom Voice. La page de test des points de terminaison s’affiche. Choisissez une voix que vous avez déployée et saisissez le texte à lire (au format texte brut ou SSML) dans la zone de texte.
+Il est également possible d’effectuer un test en ligne du point de terminaison via le portail Custom Voice. Pour tester votre point de terminaison, choisissez **Test des points de terminaison** dans le menu déroulant de Custom Voice. La page de test des points de terminaison s’affiche. Choisissez une voix personnalisée déployée et saisissez le texte à lire (au format texte brut ou SSML) dans la zone de texte.
 
 > [!NOTE] 
 > Lorsque vous utilisez SSML, la balise `<voice>` doit spécifier le nom que vous avez donné à votre voix personnalisée lors de sa création.
@@ -246,4 +236,4 @@ D’un point de vue fonctionnel, le point de terminaison personnalisé est ident
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconnaissance vocale dans C#](quickstart-csharp-windows.md)
+- [Reconnaissance vocale dans C#](quickstart-csharp-dotnet-windows.md)

@@ -2,19 +2,19 @@
 title: Gérer les versions dans les applications LUIS dans Azure | Microsoft Docs
 description: Découvrez comment gérer les versions dans des applications Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: v-geberr
-ms.openlocfilehash: 672f7991be0fc236e39daf7d1ce1d6080b31815b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368056"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226592"
 ---
 # <a name="manage-versions"></a>Gérer les versions
 
@@ -28,7 +28,7 @@ Pour travailler avec ces versions, ouvrez votre application en sélectionnant so
 La page **Paramètres** permet de configurer les paramètres de l’application entière, y compris les versions et les collaborateurs. 
 
 ## <a name="clone-a-version"></a>Cloner une version
-1. Dans la page **Paramètres**, après les sections Paramètres de l’application et Collaborateurs, recherchez la ligne avec la version que vous souhaitez cloner. Sélectionnez les points de suspension (...) tout à fait à droite. 
+1. Dans la page **Paramètres**, après les sections Paramètres de l’application et Collaborateurs, recherchez la ligne avec la version que vous souhaitez cloner. Sélectionnez les points de suspension (***...***) tout à fait à droite. 
 
     ![Propriétés de la ligne de la version](./media/luis-how-to-manage-versions/version-section.png)
 
@@ -51,7 +51,7 @@ La page **Paramètres** permet de configurer les paramètres de l’application 
  > Comme illustré dans l’image précédente, une version publiée est associée à une marque de couleur indiquant le type d’emplacement où elle a été publiée : Production (vert), Préparation (rouge) ou les deux (noir). Les dates de formation et de publication sont affichées pour chaque version publiée.
 
 ## <a name="set-active-version"></a>Définir la version active
-1. Dans la page **Paramètres**, dans la liste **Versions**, sélectionnez les points de suspension (...) tout à fait à droite.
+1. Dans la page **Paramètres**, dans la liste **Versions**, sélectionnez les points de suspension (***...***) tout à fait à droite.
 
 2. Dans la liste contextuelle, sélectionnez **Définir comme active**.
 
@@ -82,14 +82,14 @@ Vous pouvez exporter une version dans un fichier JSON.
 
 **Exporter une version :**
 
-1. Dans la page **Paramètres**, dans la liste **Versions**, sélectionnez les points de suspension (...) tout à fait à droite.
+1. Dans la page **Paramètres**, dans la liste **Versions**, sélectionnez les points de suspension (***...***) tout à fait à droite.
 
 2. Sélectionnez **Exporter** dans la liste contextuelle des actions et sélectionnez l’emplacement où vous souhaitez enregistrer le fichier.
 
 ## <a name="delete-a-version"></a>Supprimer une version
 Vous pouvez supprimer des versions, mais vous devez conserver au moins une version de l’application. Vous pouvez supprimer toutes les versions à l’exception de la version active. 
 
-1. Dans la page **Paramètres**, dans la liste **Versions**, sélectionnez les points de suspension (...) tout à fait à droite.
+1. Dans la page **Paramètres**, dans la liste **Versions**, sélectionnez les points de suspension (***...***) tout à fait à droite.
 
 2. Sélectionnez **Supprimer** dans la liste contextuelle des actions et sélectionnez l’emplacement où vous souhaitez enregistrer le fichier.
 
@@ -99,7 +99,7 @@ Vous pouvez supprimer des versions, mais vous devez conserver au moins une versi
 ## <a name="rename-a-version"></a>Renommer une version
 Vous pouvez renommer les versions tant que le nom de la version n’est pas déjà utilisé.  
 
-1. Dans la page **Paramètres**, dans la liste **Versions**, sélectionnez les points de suspension (...) tout à fait à droite.
+1. Dans la page **Paramètres**, dans la liste **Versions**, sélectionnez les points de suspension (***...***) tout à fait à droite.
 
 2. Sélectionnez **Renommer** dans la liste contextuelle des actions.
 

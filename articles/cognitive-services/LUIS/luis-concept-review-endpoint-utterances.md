@@ -2,28 +2,31 @@
 title: Passez en revue les énoncés de point de terminaison pour utiliser l’apprentissage actif dans Language Understanding (LUIS) - Azure | Microsoft Docs
 description: Utilisez la fonctionnalité d’apprentissage actif nommée « Réviser les énoncés de point de terminaison » afin d’accélérer les prédictions de performance.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: b9672e8e63fb601d4411a342b7f3c00e30f9e002
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: diberry
+ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35379133"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222611"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Activer l’apprentissage actif en passant en revue les énoncés de point de terminaison
 L’apprentissage actif est l’une des trois stratégies pour améliorer la précision de la prédiction et simplifier l’implémentation. 
 
 ## <a name="what-is-active-learning"></a>Présentation de l’apprentissage actif
-L’apprentissage actif est un processus en deux étapes. Tout d’abord, LUIS sélectionne les énoncés qu’il reçoit au niveau du point de terminaison de l’application nécessitant une validation. La deuxième étape est effectuée par le propriétaire de l’application ou un collaborateur pour valider les énoncés sélectionnés pour [révision](label-suggested-utterances.md), y compris l’intention correcte et toutes les entités au sein de l’intention. Après avoir passé en revue les énoncés, formez et publiez de nouveau l’application. 
+L’apprentissage actif est un processus en deux étapes. Tout d’abord, LUIS sélectionne les énoncés qu’il reçoit au niveau du point de terminaison de l’application nécessitant une validation. La deuxième étape est effectuée par le propriétaire de l’application ou un collaborateur pour valider les énoncés sélectionnés pour [révision](luis-how-to-review-endoint-utt.md), y compris l’intention correcte et toutes les entités au sein de l’intention. Après avoir passé en revue les énoncés, formez et publiez de nouveau l’application. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>Quels sont les énoncés dans la liste de révision ?
 LUIS ajoute des énoncés à la liste de révision lorsque la première intention de déclenchement a un faible score ou que les scores les deux premières intentions sont trop proches. 
+
+## <a name="single-pool-for-utterances-per-app"></a>Pool unique pour énoncés par application
+La liste **Réviser les énoncés de point de terminaison** ne change pas en fonction de la version. Il existe un seul pool d’énoncés à réviser, quelle que soit la version de l’énoncé que vous modifiez ou la version de l’application publiée au point de terminaison. 
 
 ## <a name="where-are-the-utterances-from"></a>D’où les énoncés proviennent-ils ?
 Les énoncés de point de terminaison proviennent de requêtes de l’utilisateur final sur le point de terminaison HTTP de l’application. Si votre application n’est pas publiée ou n’a pas encore reçu de correspondances, vous n’avez aucun énoncé à réviser. Si aucune correspondance de point de terminaison n’est reçue pour une intention ou une entité spécifique, vous n’avez aucun énoncé les contenant à réviser. 
@@ -36,4 +39,4 @@ Si votre application est volumineuse, vous pouvez choisir de réviser certains �
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [révision](Label-Suggested-Utterances.md) des énoncés de point de terminaison
+* En savoir plus sur la [révision](luis-how-to-review-endoint-utt.md) des énoncés de point de terminaison

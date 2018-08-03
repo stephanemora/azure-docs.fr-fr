@@ -3,19 +3,19 @@ title: Ajouter des gabarits de modèle dans les applications LUIS | Microsoft Do
 titleSuffix: Azure
 description: Découvrez comment ajouter des gabarits de modèle dans les applications Language Understanding (LUIS) pour améliorer la précision de la prédiction.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 68c0ea1fd3f2e60e0adec631f33c8bd09a3d9960
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.author: diberry;
+ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35379085"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222594"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Comment ajouter des modèles pour améliorer la précision de la prédiction
 Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, utilisez le [concept](luis-concept-patterns.md) des modèles pour améliorer la précision de la prédiction des énoncés qui s’appuient sur un modèle d’ordre des mots et de choix de mot. Les modèles utilisent des [entités](luis-concept-entity-types.md) et leurs rôles pour extraire des données à l’aide de la syntaxe spécifique du modèle. 
@@ -57,7 +57,7 @@ La recherche vous permet de retrouver des modèles qui contiennent du texte donn
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Modifier un modèle
-1. Pour modifier un modèle, sélectionnez l’icône des points de suspension (...) à l’extrémité droite de la ligne de ce modèle, puis sélectionnez **Modifier**. 
+1. Pour modifier un modèle, sélectionnez le bouton Points de suspension (***...***) à l’extrémité droite de la ligne de ce modèle, puis sélectionnez **Modifier**. 
 
     ![Capture d’écran de l’élément de menu Modifier dans une ligne de modèle](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ Pour réaffecter plusieurs modèles à une autre intention, cochez la case à ga
 
 ## <a name="delete-a-single-pattern"></a>Supprimer un modèle
 
-1. Pour supprimer un modèle, sélectionnez l’icône des points de suspension (...) à l’extrémité droite de la ligne de ce modèle, puis sélectionnez **Supprimer**. 
+1. Pour spprimer un modèle, sélectionnez le bouton Points de suspension (***...***) à l’extrémité droite de la ligne de ce modèle, puis sélectionnez **Supprimer**. 
 
     ![Capture d’écran de suppression d’énoncé](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ Le filtre est supprimé et tous les modèles s’affichent.
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Ajouter un modèle à partir d’un énoncé existant sur une page d’intention ou d’entité
 Vous pouvez créer un modèle à partir d’un énoncé existant sur la page **Intention** ou **Entité**. Tous les énoncés sur n’importe quelle page d’intention ou d’entité sont affichés dans une liste avec la colonne de droite permettant d’accéder aux options du niveau de l’énoncé telles que **Modifier**, **Supprimer**, et **Add as pattern** (Ajouter en tant que modèle).
 
-1. Sur la ligne sélectionnée de l’énoncé, sélectionnez les points de suspension (...) à droite de l’énoncé, puis **Add as pattern** (Ajouter en tant que modèle).
+1. Sur la ligne sélectionnée de l’énoncé, sélectionnez le bouton Points de suspension (***...***) à droite de l’énoncé et sélectionnez **Add as pattern** (Ajouter en tant que modèle).
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Capture d’écran de la table d’énoncés avec l’option d’ajout de modèle mise en surbrillance dans le menu des options")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
@@ -132,7 +132,7 @@ Vous pouvez créer un modèle à partir d’un énoncé existant sur la page **I
     ![Capture d’écran de modèles filtrés par entité](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>Former votre application après modification du modèle avec des modèles
-Après avoir ajouté, modifié, supprimé ou réaffecté un énoncé, [formez](luis-how-to-train.md) et [publiez](PublishApp.md) votre application pour que vos modifications affectent les requêtes de point de terminaison. 
+Après avoir ajouté, modifié, supprimé ou réaffecté un énoncé, [formez](luis-how-to-train.md) et [publiez](luis-how-to-publish-app.md) votre application pour que vos modifications affectent les requêtes de point de terminaison. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

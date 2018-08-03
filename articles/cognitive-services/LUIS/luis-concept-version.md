@@ -2,19 +2,19 @@
 title: Comprendre le contrôle de version dans LUIS - Azure | Microsoft Docs
 description: Découvrir comment utiliser les versions pour gérer les modifications dans Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
-ms.author: v-geberr
-ms.openlocfilehash: dabe7def2766770b686be3c43d4af4f331dd9577
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266071"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225725"
 ---
 # <a name="versions"></a>Versions
 Créez des modèles différents de la même application avec des [versions](luis-how-to-manage-versions.md). 
@@ -26,7 +26,7 @@ L’ID de version est composé de caractères, de chiffres ou de « . » et ne p
 La version d’origine (0.1) est la version active par défaut. 
 
 ## <a name="active-version"></a>Version active
-[Définir une version](luis-how-to-manage-versions.md#set-active-version) en tant que version active signifie qu’elle est actuellement modifiée et testée dans le site web [LUIS][LUIS]. Définissez une version en tant que version active pour accéder à ses données, effectuer des mises à jour, ainsi que pour la tester et la publier.
+[Définir une version](luis-how-to-manage-versions.md#set-active-version) en tant que version active signifie qu’elle est actuellement modifiée et testée dans le site web [LUIS](luis-reference-regions.md). Définissez une version en tant que version active pour accéder à ses données, effectuer des mises à jour, ainsi que pour la tester et la publier.
 
 Le nom de la version active est affiché dans le volet supérieur gauche, après le nom de l’application. 
 
@@ -52,7 +52,7 @@ Pour sauvegarder votre application LUIS, exportez chaque version dans la page **
 Vous pouvez supprimer toutes les versions à l’exception de la version active dans la liste Versions sur la page Paramètres. 
 
 ## <a name="version-availability-at-the-endpoint"></a>Disponibilité de la version sur le point de terminaison
-Les versions formées ne sont pas automatiquement disponibles sur le [point de terminaison](luis-glossary.md#endpoint) de votre application. Vous devez [publier](PublishApp.md) ou republier une version afin qu’elle soit disponible sur le point de terminaison de votre application. Vous pouvez publier dans **Intermédiaire** et **Production**, ce qui vous donne deux versions de l’application disponibles sur le point de terminaison. Si vous avez besoin de davantage de versions de l’application disponibles sur un point de terminaison, vous devez exporter la version et la réimporter dans une nouvelle application. La nouvelle application a un ID d’application différent.
+Les versions formées ne sont pas automatiquement disponibles sur le [point de terminaison](luis-glossary.md#endpoint) de votre application. Vous devez [publier](luis-how-to-publish-app.md) ou republier une version afin qu’elle soit disponible sur le point de terminaison de votre application. Vous pouvez publier dans **Intermédiaire** et **Production**, ce qui vous donne deux versions de l’application disponibles sur le point de terminaison. Si vous avez besoin de davantage de versions de l’application disponibles sur un point de terminaison, vous devez exporter la version et la réimporter dans une nouvelle application. La nouvelle application a un ID d’application différent.
 
 ## <a name="collaborators"></a>Collaborateurs
 Le propriétaire et tous les [collaborateurs](luis-how-to-collaborate.md) ont un accès complet à toutes les versions de l’application.
@@ -62,5 +62,3 @@ Le propriétaire et tous les [collaborateurs](luis-how-to-collaborate.md) ont un
 Découvrez comment ajouter le [contrôle de version](luis-how-to-manage-versions.md) sur la page Paramètres de l’application. 
 
 Découvrez comment concevoir des [intentions](luis-concept-intent.md) dans le modèle.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

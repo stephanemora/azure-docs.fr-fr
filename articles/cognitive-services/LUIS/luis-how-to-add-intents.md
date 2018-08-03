@@ -2,19 +2,19 @@
 title: Ajouter des intentions dans les applications LUIS | Microsoft Docs
 description: Utilisez Language Understanding (LUIS) pour ajouter des intentions afin d’aider les applications à comprendre les requêtes utilisateur et à y réagir correctement.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 6e013e994a3bcb60c3104aa10cd7bad1535706f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370764"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225884"
 ---
 # <a name="manage-intents"></a>Gérer les intentions 
 Ajoutez des [intentions](luis-concept-intent.md) à votre application LUIS pour identifier des groupes de questions ou des commandes qui ont les mêmes intentions. 
@@ -75,9 +75,9 @@ Voir [Ajouter un modèle à partir d’un énoncé existant sur une page d’int
 
 ## <a name="edit-an-utterance-on-intent-page"></a>Modifier un énoncé sur la page de l’intention
 
-Pour modifier un énoncé, sélectionnez l’icône des points de suspension (...) à l’extrémité droite de la ligne de cet énoncé, puis sélectionnez **Modifier**. Modifiez le texte, puis appuyez sur la touche Entrée du clavier.
+Pour modifier un énoncé, sélectionnez le bouton à points de suspension (***...***) à l’extrémité droite de la ligne de cet énoncé, puis sélectionnez **Modifier**. Modifiez le texte, puis appuyez sur la touche Entrée du clavier.
 
-![Capture d’écran de la page de détails Intents (Intentions), avec l’icône des points de suspension en surbrillance](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Capture d’écran de la page de détails Intents (Intentions), avec le bouton à points de suspension en surbrillance](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>Réaffecter des énoncés sur la page de l’intention
 Vous pouvez modifier l’intention d’un ou plusieurs énoncés en les réaffectant à une autre intention. 
@@ -92,7 +92,7 @@ Pour modifier l’intention de plusieurs énoncés, cochez les cases à gauche d
 
 ## <a name="delete-utterances-on-intent-page"></a>Supprimer des énoncés sur la page de l’intention
 
-Pour supprimer un énoncé, sélectionnez l’icône des points de suspension (...) à l’extrémité droite de la ligne de cet énoncé, puis sélectionnez **Supprimer**. L’énoncé est supprimé de la liste et de l’application LUIS.
+Pour supprimer un énoncé, sélectionnez le bouton à points de suspension (***...***) à l’extrémité droite de la ligne de cet énoncé, puis sélectionnez **Supprimer**. L’énoncé est supprimé de la liste et de l’application LUIS.
 
 ![Capture d’écran de la page de détails Intents (Intentions), avec l’énoncé Supprimer en surbrillance](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 
@@ -139,7 +139,7 @@ Activez **Tokens View** (Vue des jetons) pour afficher les jetons au lieu des no
 ![Capture d’écran de l’intention BookFlight avec la vue du jeton mise en surbrillance](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>Former votre application après modification du modèle avec des intentions
-Après avoir ajouté, modifié ou supprimé des intentions, [formez](luis-how-to-train.md) et [publiez](PublishApp.md) votre application pour que vos modifications affectent les requêtes de point de terminaison. 
+Après avoir ajouté, modifié ou supprimé des intentions, [formez](luis-how-to-train.md) et [publiez](luis-how-to-publish-app.md) votre application pour que vos modifications affectent les requêtes de point de terminaison. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

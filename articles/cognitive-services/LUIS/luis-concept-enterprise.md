@@ -2,19 +2,19 @@
 title: Concepts d’entreprise pour une application LUIS - Azure | Microsoft Docs
 description: Comprendre les principes de conception pour les applications LUIS volumineuses.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263751"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224858"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Stratégies d’entreprise pour une application LUIS
 Révisez ces stratégies de conception pour votre application d’entreprise.
@@ -27,17 +27,17 @@ Exportez l’application LUIS originale, puis réimportez-la dans des applicatio
 
 Pour obtenir la même intention principale dans toutes les applications, vérifiez que la prédiction d’intention entre la première et la deuxième intention est assez variée pour ne pas provoquer de confusion chez LUIS en donnant des résultats différents d’une application à l’autre en raison de variations mineures des énoncés. 
 
-Désigner une seule application en tant que le maître. Tous les énoncés dont la révision est suggérée doivent être ajoutés à l’application maître, puis déplacés vers toutes les autres applications. Il s’agit d’une exportation complète de l’application, ou du chargement des énoncés étiquetés du maître vers les enfants. Le chargement peut être effectué à partir du site web [LUIS][LUIS] ou de l’API de création pour un [seul énoncé](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) ou pour un [lot](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
+Désigner une seule application en tant que le maître. Tous les énoncés dont la révision est suggérée doivent être ajoutés à l’application maître, puis déplacés vers toutes les autres applications. Il s’agit d’une exportation complète de l’application, ou du chargement des énoncés étiquetés du maître vers les enfants. Le chargement peut être effectué à partir du site web [LUIS](luis-reference-regions.md) ou de l’API de création pour un [seul énoncé](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) ou pour un [lot](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Pour un apprentissage actif, planifiez une [révision d’énoncés de point de terminaison](label-suggested-utterances.md) à intervalles réguliers, par exemple toutes les deux semaines, puis entraînez et publiez à nouveau. 
+Pour un apprentissage actif, planifiez une [révision d’énoncés de point de terminaison](luis-how-to-review-endoint-utt.md) à intervalles réguliers, par exemple toutes les deux semaines, puis entraînez et publiez à nouveau. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Affecter plusieurs clés LUIS à la même application
-Si votre application LUIS reçoit plus d’accès au point de terminaison que les quotas de votre clé unique ne le permettent, créez et affectez plusieurs clés à l’application LUIS. Créez un gestionnaire de trafic ou un équilibreur de charge afin de gérer les requêtes de point de terminaison pour toutes les clés d’abonnement. 
+Si votre application LUIS reçoit plus d’accès au point de terminaison que les quotas de votre clé unique ne le permettent, créez et affectez plusieurs clés à l’application LUIS. Créez un gestionnaire de trafic ou un équilibreur de charge afin de gérer les requêtes de point de terminaison pour toutes les clés de point de terminaison. 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Lorsque votre application monolithique retourne une intention incorrecte
 Si votre application est destinée à prédire une grande variété d’énoncés de l’utilisateur, envisagez d’implémenter le [modèle de répartition](#dispatch-tool-and-model). La rupture d’une application monolithique permet à LUIS de concentrer avec succès la détection sur les intentions au lieu d’être perturbée par les intentions des applications parent et enfants. 
 
-Pour un apprentissage actif, planifiez une [révision d’énoncés de point de terminaison](label-suggested-utterances.md) à intervalles réguliers, par exemple toutes les deux semaines, puis entraînez et publiez à nouveau. 
+Pour un apprentissage actif, planifiez une [révision d’énoncés de point de terminaison](luis-how-to-review-endoint-utt.md) à intervalles réguliers, par exemple toutes les deux semaines, puis entraînez et publiez à nouveau. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Lorsque vous avez besoin de plus de 500 intentions
 Par exemple, supposons que vous développez un assistant office qui a plus de 500 intentions. Si 200 intentions sont liées à la planification des réunions, 200 sont des rappels, 200 concernent l’obtention d’informations sur les collègues et 200 sont destinées à l’envoi de courrier électronique, groupez les intentions afin que chaque groupe soit dans une même application, puis créez une application de niveau supérieur qui contient chaque intention. Utilisez l’[l’outil et l’architecture de répartition](#dispatch-tool-and-model) pour générer l’application de niveau supérieur. Modifiez ensuite votre bot pour utiliser l’appel en cascade comme indiqué dans le [tutoriel de répartition][dispatcher-application-tutorial]. 
@@ -65,6 +65,5 @@ Une application de répartition a 500 sources de répartition maximum, ce qui é
 
 * Découvrir comment [tester un lot](luis-how-to-batch-test.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
 [dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch

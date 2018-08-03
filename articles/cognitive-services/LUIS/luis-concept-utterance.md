@@ -2,19 +2,19 @@
 title: Énoncés dans les applications LUIS dans Azure | Microsoft Docs
 description: Ajoutez des énoncés dans les applications Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: v-geberr
-ms.openlocfilehash: 66a23876eebe177c767b20f60f86891c35da3385
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: diberry
+ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301860"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224413"
 ---
 # <a name="utterances-in-luis"></a>Énoncés dans LUIS
 
@@ -23,7 +23,7 @@ Des **énoncés** sont des entrées de l’utilisateur que votre application doi
 Collectez des phrases dont vous pensez que les utilisateurs les entreront. Incluez des énoncés de sens identique, mais construits différemment sur le plan de la longueur et du positionnement des mots. 
 
 ## <a name="how-to-choose-varied-utterances"></a>Comment choisir les énoncés variés
-Lorsque vous commencez à [ajouter des exemples d’énoncé][add-example-utterances] à votre modèle LUIS, voici quelques principes à garder à l’esprit.
+Lorsque vous commencez à [ajouter des exemples d’énoncé](luis-how-to-add-example-utterances.md) à votre modèle LUIS, voici quelques principes à garder à l’esprit.
 
 ### <a name="utterances-arent-always-well-formed"></a>Les énoncés ne sont pas toujours correctement formés
 Il peut s’agir d’une phrase, telle que « Réserver un billet pour Paris », ou d’un fragment de phrase, tel que « Réservation » ou « Vol pour Paris ».  Les utilisateurs font souvent des fautes d’orthographe. Lorsque vous planifiez votre application, considérez s’il est opportun d’appliquer une vérification orthographique aux entrées des utilisateurs avant de transmettre celles-ci à LUIS. L’[API Vérification orthographique Bing][BingSpellCheck] s’intègre avec LUIS. Lorsque vous publiez votre application LUIS, vous pouvez l’associer à une clé externe pour l’API Vérification orthographique Bing. Si vous décidez de ne pas vérifier l’orthographe des énoncés des utilisateurs, vous devez former LUIS sur des énoncés contenant des fautes de frappe et d’orthographe.
@@ -47,11 +47,11 @@ Ici, le terme clé, « computer » (ordinateur), n’est pas varié. Il peut d
 Chaque intention doit avoir des exemples d’énoncés, au minimum entre 10 et 15. Si vous avez une intention dépourvue d’exemple d’énoncé, vous ne pouvez pas former LUIS. Si vous avez une intention avec un seul exemple d’énoncé ou très peu d’exemples, LUIS ne prédira pas l’intention avec précision. 
 
 ## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>Ajouter de petits groupes de 10 à 15 énoncés pour chaque itération de création
-Dans chaque itération du modèle, n’ajoutez pas une grande quantité d’énoncés. Ajoutez une dizaine d’énoncés. [Formez](luis-how-to-train.md), [publiez](publishapp.md) et [testez](interactive-test.md) à nouveau.  
+Dans chaque itération du modèle, n’ajoutez pas une grande quantité d’énoncés. Ajoutez une dizaine d’énoncés. [Formez](luis-how-to-train.md), [publiez](luis-how-to-publish-app.md) et [testez](luis-interactive-test.md) à nouveau.  
 
 LUIS génère des modèles efficaces avec des énoncés choisis avec soin. L’ajout d’un trop grand nombre d’énoncés n’est pas productif, car cela introduit de la confusion.  
 
-Il est préférable de commencer avec quelques énoncés, puis d’[examiner les énoncés de point de terminaison](label-suggested-utterances.md) pour vérifier le bon fonctionnement de la prédiction d’intention et de l’extraction entité.
+Il est préférable de commencer avec quelques énoncés, puis d’[examiner les énoncés de point de terminaison](luis-how-to-review-endoint-utt.md) pour vérifier le bon fonctionnement de la prédiction d’intention et de l’extraction entité.
 
 ## <a name="ignoring-words-and-punctuation"></a>Ignorer les mots et les signes de ponctuation
 Si vous souhaitez ignorer des mots ou des signes de ponctuation spécifiques dans l’exemple d’énoncé, utilisez un [modèle](luis-concept-patterns.md#pattern-syntax) avec la syntaxe _ignore_. 
@@ -61,16 +61,15 @@ La formation (ou l’apprentissage) n’est pas déterministe : la prédiction 
 
 ## <a name="testing-utterances"></a>Test des énoncés 
 
-Les développeurs doivent commencer à tester leur application LUIS avec un trafic réel en envoyant des énoncés au point de terminaison. Ces énoncés sont utilisés pour améliorer les performances des intentions et des entités à l’aide d’un [examen des énoncés](label-suggested-utterances.md). Les tests soumis via le volet de test du site web LUIS ne sont pas envoyés via le point de terminaison. Ils ne contribuent donc pas à un apprentissage actif. 
+Les développeurs doivent commencer à tester leur application LUIS avec un trafic réel en envoyant des énoncés au point de terminaison. Ces énoncés sont utilisés pour améliorer les performances des intentions et des entités à l’aide d’un [examen des énoncés](luis-how-to-review-endoint-utt.md). Les tests soumis via le volet de test du site web LUIS ne sont pas envoyés via le point de terminaison. Ils ne contribuent donc pas à un apprentissage actif. 
 
 ## <a name="review-utterances"></a>Examen des énoncés
-Une fois votre modèle formé et publié, et après réception des requêtes de [point de terminaison](luis-glossary.md#endpoint), [examinez les énoncés](label-suggested-utterances.md) suggérés par LUIS. LUIS sélectionne sur le point de terminaison les énoncés qui présentent des scores bas en lien avec l’intention ou l’entité. 
+Une fois votre modèle formé et publié, et après réception des requêtes de [point de terminaison](luis-glossary.md#endpoint), [examinez les énoncés](luis-how-to-review-endoint-utt.md) suggérés par LUIS. LUIS sélectionne sur le point de terminaison les énoncés qui présentent des scores bas en lien avec l’intention ou l’entité. 
 
 ## <a name="best-practices"></a>Meilleures pratiques
 Pour en savoir plus, voir [Meilleures pratiques](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la formation d’une application LUIS pour comprendre les énoncés des utilisateurs, voir [Ajouter des exemples d’énoncés][add-example-utterances].
+Pour plus d’informations sur la formation d’une application LUIS pour comprendre les énoncés des utilisateurs, voir [Ajouter des exemples d’énoncés](luis-how-to-add-example-utterances.md).
 
-[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

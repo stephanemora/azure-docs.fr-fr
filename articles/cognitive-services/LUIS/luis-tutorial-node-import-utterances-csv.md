@@ -3,27 +3,27 @@ title: Créer une application LUIS par programmation à l’aide de Node.js | Mi
 titleSuffix: Azure
 description: Découvrez comment créer une application LUIS par programmation à partir de données préexistantes au format CSV à l’aide de l’API de création LUIS.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: 09c9d4da835b7b30fd132770f9d13b33fa80a3f5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 42b9800c94171ecbd2dadf30bb2ce2f342063552
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268310"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238503"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Créer une application LUIS par programmation à l’aide de Node.js
 
-LUIS fournit une API de programmation qui fait tout ce que le site web [LUIS][LUIS] fait. Ceci permet de gagner du temps lorsque vous avez des données préexistantes et qu’il serait plus rapide de créer une application LUIS par programmation que d’entrer manuellement des informations. 
+LUIS fournit une API de programmation qui fait tout ce que le site web [LUIS](luis-reference-regions.md) fait. Ceci permet de gagner du temps lorsque vous avez des données préexistantes et qu’il serait plus rapide de créer une application LUIS par programmation que d’entrer manuellement des informations. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Connectez-vous au site web [LUIS][LUIS] et recherchez votre [clé de création](luis-concept-keys.md#authoring-key) dans les paramètres du compte. Cette clé vous permet d’appeler les API de création.
+* Connectez-vous au site web [LUIS](luis-reference-regions.md) et recherchez votre [clé de création](luis-concept-keys.md#authoring-key) dans les paramètres du compte. Cette clé vous permet d’appeler les API de création.
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 * Ce tutoriel commence par un volume partagé de cluster pour les fichiers journaux d’une société fictive de requêtes d’utilisateurs. Téléchargez-le [ici](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installez la dernière version de Node.js avec NPM. Téléchargez-la [ici](https://nodejs.org/en/download/).
@@ -111,7 +111,7 @@ Installez les dépendances de Node.js à partir de NPM dans le terminal/la ligne
 ````
 
 ### <a name="change-configuration-settings"></a>Modifier les paramètres de configuration
-Pour pouvoir utiliser cette application, vous devez modifier les valeurs dans le fichier index.js en fonction de votre propre clé d’abonnement et indiquer le nom que vous souhaitez donner à l’application. Vous pouvez également définir la culture de l’application ou modifier le numéro de version.
+Pour pouvoir utiliser cette application, vous devez modifier les valeurs dans le fichier index.js en fonction de votre propre clé de point de terminaison et indiquer le nom que vous souhaitez donner à l’application. Vous pouvez également définir la culture de l’application ou modifier le numéro de version.
 
 Ouvrez le fichier index.js et modifiez ces valeurs en haut du fichier.
 
@@ -163,7 +163,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>Ouvrir l’application LUIS
-Une fois le script terminé, vous pouvez vous connecter à [LUIS][LUIS] et voir l’application LUIS que vous avez créée sous **Mes applications**. Vous devriez voir les énoncés que vous avez ajoutés sous les intentions **TurnOn**, **TurnOff** et **None**.
+Une fois le script terminé, vous pouvez vous connecter à [LUIS](luis-reference-regions.md) et voir l’application LUIS que vous avez créée sous **Mes applications**. Vous devriez voir les énoncés que vous avez ajoutés sous les intentions **TurnOn**, **TurnOff** et **None**.
 
 ![Intention TurnOn](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -171,7 +171,7 @@ Une fois le script terminé, vous pouvez vous connecter à [LUIS][LUIS] et voir 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tester votre application et effectuez son apprentissage sur le site web de LUIS](interactive-test.md)
+> [Tester votre application et effectuez son apprentissage sur le site web de LUIS](luis-interactive-test.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
@@ -179,7 +179,4 @@ Cet exemple d’application utilise les API suivantes de LUIS :
 - [créer une application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [ajouter des intentions](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
 - [ajouter des entités](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [ajouter des énoncés](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
-
+- [ajouter des énoncés](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

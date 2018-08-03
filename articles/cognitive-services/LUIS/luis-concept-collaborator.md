@@ -2,19 +2,19 @@
 title: Comprendre la collaboration pour les applications LUIS - Azure | Microsoft Docs
 description: Les applications LUIS requièrent un seul propriétaire et des collaborateurs facultatifs.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 51b3958f83cd110ace27f6ee42571c05843f5aa2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265063"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222670"
 ---
 # <a name="collaborating"></a>Collaboration
 
@@ -24,6 +24,8 @@ LUIS offre la collaboration pour permettre à un groupe de personnes de créer u
 Un compte de LUIS est associé à un seul compte [Microsoft Live](https://login.live.com/). Chaque compte LUIS reçoit une [clé de création](luis-concept-keys.md#authoring-key) gratuite à utiliser pour la création de toutes les applications LUIS auxquelles le compte a accès. 
 
 Un compte LUIS peut contenir de nombreuses applications LUIS.
+
+Pour plus d’informations sur les comptes d’utilisateur Active Directory, voir [Utilisateur du locataire Azure Active Directory](luis-how-to-account-settings.md#azure-active-directory-tenant-user). 
 
 ## <a name="luis-app-owner"></a>Propriétaire d’application LUIS
 Le compte qui crée une application en est le propriétaire. Chaque application a un seul propriétaire. Le propriétaire apparaît dans les **[Paramètres](luis-how-to-collaborate.md)** de l’application. Il s’agit du compte qui peut supprimer l’application. C’est également le compte qui reçoit un e-mail lorsque le quota du point de terminaison atteint 75 % de la limite mensuelle. 
@@ -37,7 +39,7 @@ Un propriétaire d’application peut ajouter des collaborateurs à une applicat
 Si vous souhaitez partager plusieurs applications avec des collaborateurs, l’adresse e-mail des collaborateurs doit être ajoutée dans chaque application. 
 
 ## <a name="managing-multiple-authors"></a>Gérer plusieurs auteurs
-Le site web [LUIS][LUIS] n’offre actuellement pas la création au niveau des transactions. Vous pouvez autoriser les auteurs à travailler sur des versions indépendantes à partir d’une version de base. Deux méthodes différentes sont décrites dans les sections suivantes.
+Le site web [LUIS](luis-reference-regions.md#luis-website) n’offre actuellement pas la création au niveau des transactions. Vous pouvez autoriser les auteurs à travailler sur des versions indépendantes à partir d’une version de base. Deux méthodes différentes sont décrites dans les sections suivantes.
 
 ### <a name="manage-multiple-versions-inside-the-same-app"></a>Gérer plusieurs versions dans la même application
 Commencez par le [clonage](luis-how-to-manage-versions.md#clone-a-version), à partir d’une version de base, pour chaque auteur. 
@@ -60,6 +62,3 @@ Comprendre les concepts du [contrôle de version](luis-concept-version.md).
 Consultez les [Paramètres de l’application](luis-how-to-collaborate.md) pour savoir comment gérer les collaborateurs dans votre application LUIS.
 
 Consultez [Ajouter une adresse e-mail à la liste d’accès](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58fcccdd5aca2f08a4104342) avec les API de création.
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -2,19 +2,19 @@
 title: Localisation de la prise en charge avec les applications LUIS dans Azure | Microsoft Docs
 description: Découvrez les langues prises en charge par LUIS.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2017
-ms.author: cahann
-ms.openlocfilehash: 1eabc01ee07f8791680738a156471e3efe2c44ff
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370965"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248415"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>Compréhension propre à la culture dans les applications LUIS
 
@@ -59,7 +59,7 @@ La prise en charge linguistique varie pour les [entités prédéfinies](luis-ref
      - です ne signifie pas la même chose que だ. 
 
 ### <a name="text-analytics-support-notes"></a>**Notes sur la prise en charge de l’analyse de texte
-Seul le portugais est pris en charge pour les sous-cultures : `pt-PT` et `pt-BR`. Toutes les autres cultures sont prises en charge au niveau de la culture principale. En savoir plus sur les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) par l’analyse de texte. 
+L’analyse de texte inclut l’entité keyPhrase prédéfinie et l’analyse des sentiments. Seul le portugais est pris en charge pour les sous-cultures : `pt-PT` et `pt-BR`. Toutes les autres cultures sont prises en charge au niveau de la culture principale. En savoir plus sur les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) par l’analyse de texte. 
 
 ### <a name="speech-api-supported-languages"></a>Langues prises en charge par l’API Microsoft Speech
 Consultez les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) par Speech pour connaître les langues du mode de dictée de Speech.

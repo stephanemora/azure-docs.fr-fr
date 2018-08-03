@@ -2,31 +2,31 @@
 title: Comprendre le stockage de données dans LUIS - Azure | Microsoft Docs
 description: Découvrez comment les données sont stockées dans Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: v-geberr
-ms.openlocfilehash: f235c787e7d2064696e5421219a297d914b5882d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: e4e289db0803a127bdbff5122095ae2125cdbb38
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266003"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226190"
 ---
 # <a name="data-storage-and-removal"></a>Stockage et suppression de données
 LUIS stocke les données chiffrées dans un magasin de données Azure correspondant à la région spécifiée par la clé. Ces données sont stockées pendant 30 jours. 
 
 ## <a name="export-and-delete-app"></a>Exporter et supprimer l’application
-Les utilisateurs ont le contrôle total sur l’[exportation](create-new-app.md#export-app) et la [suppression](create-new-app.md#delete-app) de l’application. 
+Les utilisateurs ont le contrôle total sur l’[exportation](luis-how-to-start-new-app.md#export-app) et la [suppression](luis-how-to-start-new-app.md#delete-app) de l’application. 
 
 ## <a name="utterances-in-an-intent"></a>Énoncés dans une intention
-Supprimer des exemples d’énoncés utilisés pour l’apprentissage de [LUIS][LUIS]. Si vous supprimez un exemple d’énoncé de votre application LUIS, il est supprimé du service web LUIS et n’est plus disponible pour l’exportation.
+Supprimer des exemples d’énoncés utilisés pour l’apprentissage de [LUIS](luis-reference-regions.md). Si vous supprimez un exemple d’énoncé de votre application LUIS, il est supprimé du service web LUIS et n’est plus disponible pour l’exportation.
 
 ## <a name="utterances-in-review"></a>Énoncés et révision
-Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **[Réviser les énoncés de point de terminaison](label-suggested-utterances.md)**. La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux.
+Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **[Réviser les énoncés de point de terminaison](luis-how-to-review-endoint-utt.md)**. La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux.
 
 ## <a name="accounts"></a>Comptes
 Si vous supprimez un compte, toutes les applications sont supprimées, ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées pendant 60 jours avant que le compte et les données ne soient définitivement supprimés.
@@ -44,6 +44,4 @@ Dans le cadre de la conservation et de la suppression des données, une applicat
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur l’exportation et la suppression d’une application](create-new-app.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [En savoir plus sur l’exportation et la suppression d’une application](luis-how-to-start-new-app.md)

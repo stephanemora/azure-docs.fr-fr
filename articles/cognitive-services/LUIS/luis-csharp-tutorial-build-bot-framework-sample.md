@@ -2,19 +2,19 @@
 title: Intégrer LUIS dans un bot à l’aide du Kit de développement logiciel (SDK) Bot Builder pour C# dans Azure | Microsoft Docs
 description: Créer un bot intégré avec une application LUIS à l’aide de Bot Framework.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: v-geberr
-ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263878"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225956"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Bot d’application web utilisant le modèle LUIS pour C#
 
@@ -47,7 +47,7 @@ Créer un bot conversationnel avec compréhension de langage intégrée.
     * Dans **Nom de l’application**, entrez le nom de votre bot. Il sera utilisé comme sous-domaine lors du déploiement de votre bot sur le cloud (par exemple, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Sélectionnez l’abonnement, le [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), le plan App Service et [l’emplacement](https://azure.microsoft.com/regions/).
     * Sélectionnez le modèle **Language Understanding (C#)** pour le champ **Modèle de bot**.
-    * Sélectionnez **l’emplacement de l’application LUIS**. L’application sera créée dans cette [région][LUIS].
+    * Sélectionnez **l’emplacement de l’application LUIS**. L’application sera créée dans cette [région](luis-reference-regions.md).
     * Cochez la case de confirmation de la mention légale. Les conditions de la mention légale figurent sous la case à cocher.
 
     ![Service de robot](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
@@ -72,7 +72,7 @@ Le bot répond : « Vous vous trouvez dans l’intention Salutations. Vous avez
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>Connecter votre application LUIS au bot
 
-Ouvrez **Paramètres de l’application** et ajoutez l’ID de votre application LUIS dans le champ **LuisAppId**. Si vous avez créé votre application HomeAutomation LUIS dans une région autre que l’Ouest des États-Unis, vous devez également modifier **LuisAPIHostName**. La clé **LuisAPIKey** actuellement configurée est votre clé de création. Elle devient votre clé d’abonnement lorsque votre trafic dépasse le quota du niveau gratuit. 
+Ouvrez **Paramètres de l’application** et ajoutez l’ID de votre application LUIS dans le champ **LuisAppId**. Si vous avez créé votre application HomeAutomation LUIS dans une région autre que l’Ouest des États-Unis, vous devez également modifier **LuisAPIHostName**. La clé **LuisAPIKey** actuellement configurée est votre clé de création. Elle devient votre clé de point de terminaison lorsque votre trafic dépasse le quota du niveau gratuit. 
 
   ![Mettre à jour l’ID d’application LUIS dans Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
@@ -80,7 +80,7 @@ Ouvrez **Paramètres de l’application** et ajoutez l’ID de votre application
 > Si vous ne connaissez pas l’ID de l’application LUIS pour l’[application Home Automation](luis-get-started-create-app.md), connectez-vous au site web [LUIS](luis-reference-regions.md) avec le compte que vous utilisez pour vous connecter à Azure. 
 > 1. Cliquer sur **Mes applications**. 
 > 2. Localisez l’application LUIS que vous avez créée et qui contient les intentions et les entités du domaine HomeAutomation.
-> 3. Sur la page **Paramètres** de l’application LUIS, recherchez et copiez l’ID de l’application. Assurez-vous qu’elle [a effectué l’apprentissage](interactive-test.md) et [a été publiée](PublishApp.md). 
+> 3. Sur la page **Paramètres** de l’application LUIS, recherchez et copiez l’ID de l’application. Assurez-vous qu’elle [a effectué l’apprentissage](luis-interactive-test.md) et [a été publiée](luis-how-to-publish-app.md). 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -145,7 +145,7 @@ Dans le portail Azure, cliquez sur **Test dans le chat web** pour tester le bot.
    ![Tester le bot HomeAutomation dans la Discussion Web](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Ce nouvel apprentissage de votre application LUIS est possible sans aucune modification du code du bot. Voir [Ajouter des exemples d’énoncés](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) et [Entraîner et tester votre application LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test). 
+> Ce nouvel apprentissage de votre application LUIS est possible sans aucune modification du code du bot. Voir [Ajouter des exemples d’énoncés](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) et [Entraîner et tester votre application LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Télécharger le bot à déboguer
 Si votre bot ne fonctionne pas, téléchargez le projet sur votre ordinateur local et poursuivez le [débogage](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
@@ -170,7 +170,6 @@ Ajoutez les intentions de LUIS et les boîtes du service Bot pour la gestion des
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+
 <!-- tested on Win10 -->

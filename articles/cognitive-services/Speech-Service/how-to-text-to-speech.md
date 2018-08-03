@@ -10,22 +10,22 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6c358b5a40b1d8e91c2e1af5eb493b13604cf82e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045056"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213331"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utiliser la fonctionnalité Synthèse vocale du service Speech
 
 Le service Speech vous offre une fonctionnalité de synthèse vocale par le biais d’une simple requête HTTP. Vous PUBLIEZ le texte à énoncer sur le point de terminaison approprié, puis le service vous renvoie un fichier audio (`.wav`) contenant la voix de synthèse. Votre application peut ensuite utiliser ce fichier audio selon vos besoins.
 
-Le corps de la requête de publication POST pour la synthèse vocale peut prendre la forme d’un texte brut (ASCII ou UTF8) ou d’un document [SSML](speech-synthesis-markup.md). Les requêtes portant sur un texte brut sont énoncées avec une voix par défaut. Dans la plupart des cas, vous utiliserez un corps SSML. La requête HTTP doit inclure un jeton d’autorisation. 
+Le corps de la requête de publication POST pour la synthèse vocale peut prendre la forme d’un texte brut (ASCII ou UTF8) ou d’un document [SSML](speech-synthesis-markup.md). Les requêtes portant sur un texte brut sont énoncées avec une voix par défaut. Dans la plupart des cas, vous utiliserez un corps SSML. La requête HTTP doit inclure un jeton d’[autorisation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication). 
 
 Les différents points de terminaison de synthèse vocale régionaux sont indiqués ci-après. Utilisez le point de terminaison adapté à votre abonnement.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Spécifier une voix
 
@@ -49,7 +49,7 @@ En-tête|Valeurs|Commentaires
 -|-|-
 |`Content-Type` | `application/ssml+xml` | Format du texte d’entrée.
 |`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | Format audio de sortie.
-|`User-Agent`   |Nom de l’application | Le nom d’application est requis et doit comporter moins de 255 caractères.
+|`User-Agent`   |Nom de l’application | Le nom de l’application est requis. Il doit utiliser moins de 255 caractères.
 | `Authorization`   | Jeton d’autorisation obtenu par présentation de votre clé d’abonnement au service de jetons. Chaque jeton a une durée de validité de dix minutes. Consultez la section [REST APIs: Authentication](rest-apis.md#authentication) (API REST : Authentification).
 
 > [!NOTE]
@@ -87,7 +87,7 @@ Si une erreur se produit, les codes d’état ci-après sont utilisés. Le corps
 |Code|Description|Problème|
 |-|-|-|
 400 |Demande incorrecte |Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long.
-401|Non autorisé |La requête n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton sont valides.
+401|Non autorisé |La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton sont valides.
 413|Entité de requête trop volumineuse|L’entrée SSML comporte plus de 1 024 caractères.
 |502|Passerelle incorrecte    | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides.
 
@@ -95,5 +95,7 @@ Pour plus d’informations sur l’API REST Synthèse vocale, consultez l’arti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir votre abonnement d’essai gratuit du service Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconnaissance vocale dans C#](quickstart-csharp-windows.md)
+- [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Reconnaissance vocale dans C++](quickstart-cpp-windows.md)
+- [Reconnaissance vocale dans C#](quickstart-csharp-dotnet-windows.md)
+- [Reconnaissance vocale dans Java](quickstart-java-android.md)

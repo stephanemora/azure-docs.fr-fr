@@ -1,69 +1,44 @@
 ---
 title: 'Tutoriel : Utiliser des modèles pour améliorer les prédictions de LUIS – Azure | Microsoft Docs'
-titleSuffix: Azure
+titleSuffix: Cognitive Services
 description: Ce tutoriel utilise les modèles d’intentions afin d’améliorer les prédictions de LUIS en matière d’intentions et d’entités.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: ff5572366be548132b28e5ce03b9595e7f98128c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 07/20/2018
+ms.author: diberry
+ms.openlocfilehash: 9ad1d9e1543c3d9a74025fb23bd1767478b53b4b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265314"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238452"
 ---
-# <a name="tutorial-use-patterns-to-improve-predictions"></a>Tutoriel : Utiliser des modèles pour améliorer les prédictions
+# <a name="tutorial-improve-app-with-patterns"></a>Tutoriel : Améliorer l’application avec des modèles
 
 Ce tutoriel utilise les modèles pour améliorer les prédictions en matière d’intentions et d’entités.  
 
 > [!div class="checklist"]
 * Identifier quand un modèle serait utile à votre application.
 * Créer un modèle. 
-* Utiliser des entités prédéfinies et personnalisées dans un modèle. 
 * Vérifier l’amélioration des prédictions de modèle.
-* Ajouter un rôle à une entité pour trouver des entités liées au contexte.
-* Ajouter une entité Pattern.any pour rechercher des entités à structure libre.
 
-Pour les besoins de cet article, il vous faudra un compte [LUIS][LUIS] gratuit pour créer votre application LUIS.
+Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md) gratuit afin de créer votre application LUIS.
 
-## <a name="import-humanresources-app"></a>Importer une application HumanResources
-Ce tutoriel permet d’importer une application HumanResources. Cette application a trois intentions : None, GetEmployeeOrgChart et GetEmployeeBenefits. Elle comporte deux entités : le nombre prédéfini et Employees. L’entité Employee est une entité simple permettant d’extraire le nom d’un employé. 
+## <a name="before-you-begin"></a>Avant de commencer
+Si vous ne disposez pas de l’application Ressources humaines du tutoriel [test par lots](luis-tutorial-batch-testing.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json).
 
-1. Créez un fichier d’application LUIS et nommez-le `HumanResources.json`. 
-
-2. Copiez la définition d’application suivante dans le fichier :
-
-   [!code-json[Add the LUIS model](~/samples-luis/documentation-samples/tutorial-patterns/HumanResources.json?range=1-164 "Add the LUIS model")]
-
-3. Sur la page **Applications** LUIS, sélectionnez **Importer une nouvelle application**. 
-
-4. Dans la boîte de dialogue **Importer une nouvelle application**, sélectionnez le fichier `HumanResources.json` que vous avez créé à l’étape 1.
-
-5. Sélectionnez l’intention **GetEmployeeOrgChart**, puis passez de **Vue Entités** à **Vue Tokens**. Plusieurs exemples d’énoncés sont listés. Chacun comporte un nom, qui correspond à une entité Employee. Tous les noms sont différents et l’ordre des mots diffère pour chaque énoncé. Cette diversité aide LUIS à apprendre un large éventail d’énoncés.
-
-    ![Capture d’écran de la page Intention avec Vue Entités](media/luis-tutorial-pattern/utterances-token-view.png)
-
-6. Sélectionnez **Entraîner** dans la barre de navigation supérieure pour effectuer l’apprentissage de l’application. Attendez que la barre de réussite verte apparaisse.
-
-7. Sélectionnez **Tester** dans le volet supérieur. Entrez `Who does Patti Owens report to?`, puis sélectionnez Entrée. Sélectionnez **Inspecter** sous l’énoncé pour voir plus d’informations sur le test.
-    
-    Le nom de l’employée, Patti Owens, n’a pas encore été utilisé dans un exemple d’énoncé. Il s’agit d’un test pour voir si LUIS a bien appris cet énoncé pour l’intention `GetEmployeeOrgChart` ; l’entité Employee doit être `Patti Owens`. Le résultat doit être inférieur à 50 % (0,50) pour l’intention `GetEmployeeOrgChart`. L’intention est correcte, mais le score est faible. L’entité Employee est aussi correctement identifiée comme `Patti Owens`. Les modèles augmentent ce score de prédiction initial. 
-
-    ![Capture d’écran du volet Tester](media/luis-tutorial-pattern/original-test.png)
-
-8. Fermez le panneau de test en sélectionnant le bouton **Tester** dans le volet de navigation supérieur. 
+Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `patterns`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
 
 ## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Apprendre à LUIS les énoncés courants avec moins d’exemples grâce aux modèles
 En raison de la nature du domaine des ressources humaines, il existe plusieurs moyens courants de poser des questions sur les relations des employés dans les organisations. Par exemple : 
 
 ```
-Who does Mike Jones report to?
-Who reports to Mike Jones? 
+Who does Jill Jones report to?
+Who reports to Jill Jones? 
 ```
 
 Ces énoncés sont trop proches pour permettre de déterminer l’unicité contextuelle de chacun sans fournir trop d’exemples d’énoncé. Si l’on ajoute un modèle pour une intention, LUIS apprend les modèles d’énoncés courants de cette intention avec peu d’exemples d’énoncés. 
@@ -75,181 +50,319 @@ Who does {Employee} report to?
 Who reports to {Employee}? 
 ```
 
-Le modèle est une combinaison de correspondance par expression régulière et de Machine Learning. Ensuite, indiquez quelques exemples d’énoncés de modèle pour que LUIS puisse apprendre le modèle. Ces exemples, ainsi que les énoncés de l’intention, permettent à LUIS de mieux comprendre quels énoncés correspondent à l’intention et où se trouve l’entité dans l’énoncé. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
+Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré. Un modèle est une combinaison de correspondance par expression régulière et de Machine Learning.  Les exemples de modèles d’énoncés, ainsi que les énoncés de l’intention, permettent à LUIS de mieux comprendre quels énoncés correspondent à l’intention.
+
+Pour qu’un modèle corresponde à un énoncé, les entités au sein de l’énoncé doivent d’abord correspondre aux entités du modèle d’énoncé. Cependant, le modèle contribue uniquement à la prédicition d’intentions, mais pas d’entités. 
+
+**Même si les modèles vous permettent de fournir moins d’exemples d’énoncés, si les entités ne sont pas détectées, le modèle ne correspond pas.**
+
+Souvenez-vous : les employés ont été créés dans le [tutoriel d’entité de liste](luis-quickstart-intent-and-list-entity.md).
+
+## <a name="create-new-intents-and-their-utterances"></a>Créer de nouvelles intentions et leurs énoncés
+Ajouter deux nouvelles intentions de nouveau : `OrgChart-Manager` et `OrgChart-Reports`. Une fois que LUIS retourne une prédiction à l’application cliente, le nom de l’intention peut être utilisé comme nom de fonction dans l’application cliente, et l’entité Employee peut être utilisée comme paramètre de cette fonction.
+
+```
+OrgChart-Manager(employee){
+    ///
+}
+```
+
+1. Assurez-vous que votre application Ressources humaines figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
+
+2. Dans la page **Intents** (Intentions), sélectionnez **Create new intent** (Créer une intention). 
+
+3. Entrez `OrgChart-Manager` dans la boîte de dialogue contextuelle, puis sélectionnez **Terminé**.
+
+    ![Créer une fenêtre contextuelle de message](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
+
+4. Ajoutez des exemples d’énoncés à l’intention.
+
+    |Exemples d’énoncés|
+    |--|
+    |De qui John W. Smith est-il le subordonné ?|
+    |À qui John W. Smith rend-il compte ?|
+    |Qui est le responsable de John W. Smith ?|
+    |À qui Jill Jones rend-il compte directement ?|
+    |Qui est le superviseur de Jill Jones ?|
+
+    [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captures d’écran de LUIS ajoutant de nouveaux énoncés à l’intention")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+
+    Ne vous inquiétez pas si l’entité keyPhrase est étiquetée dans les énoncés de l’intention au lieu de l’entité Employee. Les deux sont correctement prédites dans le volet de test et au point de terminaison. 
+
+5. Sélectionnez **Intentions** dans le volet de navigation gauche.
+
+6. Sélectionnez **Créer une intention**. 
+
+7. Entrez `OrgChart-Reports` dans la boîte de dialogue contextuelle, puis sélectionnez **Terminé**.
+
+8. Ajoutez des exemples d’énoncés à l’intention.
+
+    |Exemples d’énoncés|
+    |--|
+    |Qui sont les subordonnés de John W. Smith ?|
+    |Qui rend compte à John W. Smith ?|
+    |De qui John W. Smith est-il responsable ?|
+    |Qui sont les collaborateurs directs de Jill Jones ?|
+    |De qui Jill Jones est-il le superviseur ?|
+
+## <a name="caution-about-example-utterance-quantity"></a>Attention à la quantité des exemples d’énoncés
+La quantité des exemples d’énoncés dans ces intentions ne suffit pas pour un apprentissage correct de LUIS. Dans une application réelle, chaque intention doit avoir un minimum de 15 énoncés, avec un large éventail de mots au choix et de longueurs d’énoncés. Ces quelques énoncés sont spécialement sélectionnés pour mettre en évidence des modèles. 
+
+## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
+La nouvelle intention et les nouveaux énoncés nécessitent un apprentissage. 
+
+1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
+
+    ![Image du bouton d’apprentissage](./media/luis-tutorial-pattern/hr-train-button.png)
+
+2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+
+    ![Image de la barre de notification de réussite](./media/luis-tutorial-pattern/hr-trained-inline.png)
+
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
+Pour obtenir une prédiction LUIS dans un chatbot ou une autre application, vous devez publier l’application. 
+
+1. En haut à droite du site web LUIS, sélectionnez le bouton **Publier**. 
+
+2. Sélectionnez l’emplacement Production et le bouton **Publier**.
+
+    [![Capture d’écran de la page Publier avec le bouton Publier vers l’emplacement Production mis en surbrillance](./media/luis-tutorial-pattern/hr-publish-to-production.png)](./media/luis-tutorial-pattern/hr-publish-to-production.png#lightbox)
+
+3. La publication est terminée lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Interroger le point de terminaison avec un autre énoncé
+1. Dans la page **Publier**, sélectionnez le lien **Point de terminaison** en bas de la page. Cette action ouvre une autre fenêtre de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresses. 
+
+    [![Capture d’écran de la page Publier avec l’URL du point de terminaison mise en surbrillance](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png)](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png#lightbox)
+
+
+2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Who is the boss of Jill Jones?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
+
+    ```JSON
+    {
+        "query": "who is the boss of jill jones?",
+        "topScoringIntent": {
+            "intent": "OrgChart-Manager",
+            "score": 0.353984952
+        },
+        "intents": [
+            {
+                "intent": "OrgChart-Manager",
+                "score": 0.353984952
+            },
+            {
+                "intent": "OrgChart-Reports",
+                "score": 0.214128986
+            },
+            {
+                "intent": "EmployeeFeedback",
+                "score": 0.08434003
+            },
+            {
+                "intent": "MoveEmployee",
+                "score": 0.019131
+            },
+            {
+                "intent": "GetJobInformation",
+                "score": 0.004819009
+            },
+            {
+                "intent": "Utilities.Confirm",
+                "score": 0.0043958663
+            },
+            {
+                "intent": "Utilities.StartOver",
+                "score": 0.00312064588
+            },
+            {
+                "intent": "Utilities.Cancel",
+                "score": 0.002265454
+            },
+            {
+                "intent": "Utilities.Help",
+                "score": 0.00133465114
+            },
+            {
+                "intent": "None",
+                "score": 0.0011388344
+            },
+            {
+                "intent": "Utilities.Stop",
+                "score": 0.00111166481
+            },
+            {
+                "intent": "FindForm",
+                "score": 0.0008900076
+            },
+            {
+                "intent": "ApplyForJob",
+                "score": 0.0007836131
+            }
+        ],
+        "entities": [
+            {
+                "entity": "jill jones",
+                "type": "Employee",
+                "startIndex": 19,
+                "endIndex": 28,
+                "resolution": {
+                    "values": [
+                        "Employee-45612"
+                    ]
+                }
+            },
+            {
+                "entity": "boss of jill jones",
+                "type": "builtin.keyPhrase",
+                "startIndex": 11,
+                "endIndex": 28
+            }
+        ]
+    }
+    ```
+
+Cette requête n’a réussi ? Pour ce cycle de formation, elle a réussi. Les scores des deux intentions principales sont proches. Étant donné que la formation de LUIS n’est pas exactement la même chaque fois, il y a une petite variation. Ces deux scores pourraient s’inverser lors du prochain cycle de formation. Il en résulte que l’intention erronée pourrait être retournée. 
+
+Utiliser des modèles pour augmenter significativement le score de l’intention en pourcentage et l’éloigner du score le plus élevé suivant. 
 
 ## <a name="add-the-template-utterances"></a>Ajouter les énoncés de modèle
 
-1. Dans le volet de navigation gauche, sous **Améliorer les performances de l’application**, sélectionnez **Modèles**.
+1. Sélectionnez **Build** dans le menu supérieur.
 
-2. Sélectionnez l’intention **GetEmployeeOrgChart**, puis entrez les énoncés de modèle suivants, un par un, en sélectionnant Entrée après chacun :
+2. Dans le volet de navigation gauche, sous **Améliorer les performances de l’application**, sélectionnez **Modèles**.
 
-    ```
-    Does {Employee} have {number} subordinates?
-    Does {Employee} have {number} direct reports?
-    Who does {Employee} report to?
-    Who reports to {Employee}?
-    Who is {Employee}'s manager?
-    Who are {Employee}'s subordinates?
-    ```
+3. Sélectionnez l’intention **OrgChart-Manager**, puis entrez les énoncés de modèle suivants, un par un, en sélectionnant Entrée après chacun :
+
+    |Modèles d’énoncés|
+    |:--|
+    |De qui {Employee} est-il le subordonné[?]|
+    |À qui {Employee} rend-il compte[?]|
+    |Qui est le responsable de {Employee}[?]|
+    |À qui {Employee} rend-il directement compte[?]|
+    |Qui est le superviseur de {Employee}[?]|
+    |Qui est le patron de {Employee}[?]|
 
     La syntaxe `{Employee}` marque le type et l’emplacement de l’entité dans l’énoncé de modèle. 
+    
+    Les entités avec des rôles utilisent la syntaxe qui inclut le nom de rôle et sont traitées dans un [tutoriel séparé sur les rôles](luis-tutorial-pattern-roles.md). 
 
-    ![Capture d’écran de la saisie d’énoncés de modèle pour une intention](./media/luis-tutorial-pattern/enter-pattern.png)
+    La syntaxe facultative, `[]`, marque les mots ou la ponctuation facultatifs. LUIS établit une correspondance avec l’énoncé et ignore le texte facultatif à l’intérieur des crochets.
 
-3. Sélectionnez **Entraîner** dans la barre de navigation supérieure. Attendez que la barre de réussite verte apparaisse.
+    Si vous tapez le modèle d’énoncé, LUIS vous aide à remplir l’entité lorsque vous entrez l’accolade gauche, `{`.
 
-4. Sélectionnez **Tester** dans le volet supérieur. Entrez `Who does Patti Owens report to?` dans la zone de texte. Sélectionnez Entrée. Il s’agit de l’énoncé testé dans la section précédente. Le résultat devrait être supérieur pour l’intention `GetEmployeeOrgChart`. 
+    [![Capture d’écran de la saisie de modèles d’énoncés pour une intention](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-    Le score est maintenant bien meilleur. LUIS a appris le modèle correspondant à l’intention sans qu’il soit nécessaire de fournir de nombreux exemples.
 
-    ![Capture d’écran du volet Tester avec un score élevé](./media/luis-tutorial-pattern/high-score.png)
 
-    L’entité est trouvée en premier, suivie du modèle, indiquant l’intention. Si, dans votre résultat de test, l’entité n’est pas détectée et, par conséquent, le modèle est introuvable, vous devrez ajouter des exemples d’énoncés sur l’intention (et non le modèle). 
+4. Sélectionnez l’intention **OrgChart-Reports**, puis entrez les modèles d’énoncés suivants, un par un, en actionnant Entrée après chacun d’eux :
 
-5. Fermez le panneau de test en sélectionnant le bouton **Tester** dans le volet de navigation supérieur.
+    |Modèles d’énoncés|
+    |:--|
+    |Qui sont les subordonnés de {Employee}[?]|
+    |Qui rend compte à {Employee}[?]|
+    |De qui {Employee} est-il responsable[?]|
+    |Qui sont les collaborateurs directs de{Employee}[?]|
+    |Qui supervise {Employee}[?]|
+    |Qui est le chef de {Employee}[?]|
 
-## <a name="use-an-entity-with-a-role-in-a-pattern"></a>Utiliser une entité avec un rôle dans un modèle
-L’application LUIS est utilisée pour déplacer des employés d’un endroit à un autre. Exemple d’énoncé : `Move Bob Jones from Seattle to Los Colinas`. Chacun des lieux de l’énoncé a une signification différente. Seattle est l’emplacement d’origine et Los Colinas l’emplacement de destination du déplacement. Afin de différencier ces lieux dans le modèle, vous allez créer dans les sections suivantes une entité simple pour l’emplacement avec deux rôles : origine et destination. 
+## <a name="query-endpoint-when-patterns-are-used"></a>Point de terminaison de requête lorsque des modèles sont utilisés
 
-### <a name="create-a-new-intent-for-moving-people-and-assets"></a>Créer une intention pour déplacer des personnes et des ressources
-Créez une intention pour tous les énoncés liés au déplacement de personnes ou de ressources.
+1. Former et publier à nouveau l’application.
 
-1. Sélectionnez **Intentions** dans le volet de navigation gauche.
-2. Sélectionnez **Créer une intention**.
-3. Nommez la nouvelle intention `MoveAssetsOrPeople`.
-4. Ajoutez des exemples d’énoncés :
+2. Dans la page **Publier**, sélectionnez le lien **Point de terminaison** en bas de la page. Cette action ouvre une autre fenêtre de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresses. 
 
+3. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Who is the boss of Jill Jones?` en tant qu’énoncé. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
+
+    ```JSON
+    {
+        "query": "who is the boss of jill jones?",
+        "topScoringIntent": {
+            "intent": "OrgChart-Manager",
+            "score": 0.9999989
+        },
+        "intents": [
+            {
+                "intent": "OrgChart-Manager",
+                "score": 0.9999989
+            },
+            {
+                "intent": "OrgChart-Reports",
+                "score": 7.616303E-05
+            },
+            {
+                "intent": "EmployeeFeedback",
+                "score": 7.84204349E-06
+            },
+            {
+                "intent": "GetJobInformation",
+                "score": 1.20674213E-06
+            },
+            {
+                "intent": "MoveEmployee",
+                "score": 7.91245157E-07
+            },
+            {
+                "intent": "None",
+                "score": 3.875E-09
+            },
+            {
+                "intent": "Utilities.StartOver",
+                "score": 1.49E-09
+            },
+            {
+                "intent": "Utilities.Confirm",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Help",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Stop",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Cancel",
+                "score": 1.225E-09
+            },
+            {
+                "intent": "FindForm",
+                "score": 1.123077E-09
+            },
+            {
+                "intent": "ApplyForJob",
+                "score": 5.625E-10
+            }
+        ],
+        "entities": [
+            {
+                "entity": "jill jones",
+                "type": "Employee",
+                "startIndex": 19,
+                "endIndex": 28,
+                "resolution": {
+                    "values": [
+                        "Employee-45612"
+                    ]
+                },
+                "role": ""
+            },
+            {
+                "entity": "boss of jill jones",
+                "type": "builtin.keyPhrase",
+                "startIndex": 11,
+                "endIndex": 28
+            }
+        ]
+    }
     ```
-    Move Bob Jones from Seattle to Los Colinas
-    Move Dave Cooper from Redmond to Seattle
-    Move Jim Smith from Toronto to Vancouver
-    Move Jill Benson from Boston to London
-    Move Travis Hinton from Portland to Orlando
-    ```
-    ![Capture d’écran d’exemple d’énoncé pour l’intention MoveAssetsOrPeople](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-    L’objectif des exemples d’énoncés est de donner suffisamment d’exemples. Si, dans la suite du test, l’entité Location n’est pas détectée et, par conséquent, le modèle non plus, revenez à cette étape et ajoutez d’autres d’exemples. Effectuez à nouveau l’apprentissage et les tests. 
+La prédiction de l’intention la prédiction est maintenant beaucoup plus élevée. 
 
-5. Marquez les entités des exemples d’énoncés avec l’entité Employee en sélectionnant le prénom puis le nom dans l’énoncé, puis en sélectionnant l’entité Employee dans la liste.
-
-    ![Capture d’écran d’énoncés dans MoveAssetsOrPeople marqués avec l’entité Employee](./media/luis-tutorial-pattern/intent-moveasserts-employee.png)
-
-6. Sélectionnez le texte `portland` dans l’énoncé `move travis hinton from portland to orlando`. Dans la boîte de dialogue contextuelle, entrez le nouveau nom d’entité `Location`, puis sélectionnez **Créer une entité**. Choisissez le type d’entité **Simple** et sélectionnez **Terminé**.
-
-    ![Capture d’écran de la création d’une nouvelle entité Location](./media/luis-tutorial-pattern/create-new-location-entity.png)
-
-    Marquez le reste des noms de lieux dans les énoncés. 
-
-    ![Capture d’écran de toutes les entités marquées](./media/luis-tutorial-pattern/moveasset-all-entities-labeled.png)
-
-    Le modèle de choix et d’ordre des mots est évident dans l’image précédente. Si, alors que les énoncés de l’intention ont une structure évidente, vous ne vous servez **pas** de modèles, c’est le signe que vous devriez en utiliser. 
-
-    Si vous attendez une grande variété d’énoncés, vous aurez les mauvais exemples d’énoncés au lieu d’un modèle. Il vous faudra dans ce cas des énoncés très variables dans le choix des mots, la longueur de l’énoncé et la place des entités. 
-
-<!--TBD: what guidance to move from hier entities to patterns with roles -->
-<!--    The [Hierarchical entity quickstart](luis-quickstart-intent-and-hier-entity.md) uses the  same idea of location but uses child entities to find origin and destination locations. 
--->
-### <a name="add-role-to-location-entity"></a>Ajouter un rôle à une entité Location 
-Les rôles ne servent que pour les modèles. Ajoutez les rôles Origin et Destination à l’entité Location. 
-
-1. Sélectionnez **Entités** dans le volet de navigation gauche, puis **Location** dans la liste des entités.
-
-2. Ajoutez les rôles `Origin` et `Destination` à l’entité.
-
-    ![Capture d’écran de la nouvelle entité avec les rôles](./media/luis-tutorial-pattern/location-entity.png)
-
-    Les rôles ne sont pas marqués sur la page de l’intention MoveAssetsOrPeople, car ils n’existent pas sur les énoncés des intentions. Ils ne sont présents que sur les énoncés de modèle. 
-
-### <a name="add-template-utterances-that-uses-location-and-destination-roles"></a>Ajouter des énoncés de modèle qui utilisent des rôles de lieu et de destination
-Ajoutez des énoncés de modèle qui utilisent la nouvelle entité.
-
-1. Sélectionnez **Modèles** dans le volet de navigation gauche.
-
-2. Sélectionnez l’intention **MoveAssetsOrPeople**.
-
-3. Entrez un nouvel énoncé de modèle à l’aide de la nouvelle entité `Move {Employee} from {Location:Origin} to {Location:Destination}`. La syntaxe d’une entité et d’un rôle au sein d’un énoncé de modèle est `{entity:role}`.
-
-    ![Capture d’écran de la nouvelle entité avec les rôles](./media/luis-tutorial-pattern/pattern-moveassets.png)
-
-4. Effectuez l’apprentissage de l’application pour la nouvelle intention, l’entité et le modèle.
-
-### <a name="test-the-new-pattern-for-role-data-extraction"></a>Tester l’extraction de données de rôle dans le nouveau modèle
-Validez le nouveau modèle par un test.
-
-1. Sélectionnez **Tester** dans le volet supérieur. 
-2. Entrez l’énoncé `Move Tammi Carlson from Bellingham to Winthrop`.
-3. Sélectionnez **Inspecter** sous le résultat afin de voir les résultats des tests pour l’entité et l’intention.
-
-    ![Capture d’écran de la nouvelle entité avec les rôles](./media/luis-tutorial-pattern/test-with-roles.png)
-
-    Les entités sont trouvées en premier, suivies du modèle, indiquant l’intention. Si, dans votre résultat de test, les entités ne sont pas détectées et, par conséquent, le modèle est introuvable, vous devrez ajouter des exemples d’énoncés sur l’intention (et non le modèle). 
-
-4. Fermez le panneau de test en sélectionnant le bouton **Tester** dans le volet de navigation supérieur.
-
-## <a name="use-a-patternany-entity-to-find-free-form-entities-in-a-pattern"></a>Utiliser une entité Pattern.any pour rechercher des entités à structure libre dans un modèle
-Cette application HumanResources permet également aux employés de trouver les formulaires de l’entreprise. La plupart des formulaires ont des titres de longueur variable. Certaines expressions peuvent être sources de confusion pour LUIS, qui ne sait pas où se termine le nom du formulaire. Dans un modèle, l’entité **Pattern.any** permet de spécifier le début et la fin du nom du formulaire afin que LUIS puisse extraire correctement son nom. 
-
-### <a name="create-a-new-intent-for-the-form"></a>Créer une intention pour le formulaire
-Créez une intention pour les énoncés qui recherchent des formulaires.
-
-1. Sélectionnez **Intentions** dans le volet de navigation gauche.
-
-2. Sélectionnez **Créer une intention**.
-
-3. Nommez la nouvelle intention `FindForm`.
-
-4. Ajoutez un exemple d’énoncé.
-
-    ```
-    `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`
-    ```
-
-    ![Capture d’écran de la nouvelle entité avec les rôles](./media/luis-tutorial-pattern/intent-findform.png)
-
-    Le titre du formulaire est `What to do when a fire breaks out in the Lab`. L’énoncé demande l’emplacement du formulaire et la personne chargée de le signer pour confirmer que l’employé l’a lu. Sans entité Pattern.any, il serait difficile de comprendre où se termine le titre du formulaire et de l’extraire en tant qu’entité de l’énoncé.
-
-### <a name="create-a-patternany-entity-for-the-form-title"></a>Créer une entité Pattern.any pour le titre du formulaire
-L’entité Pattern.any gère des entités de longueur variable. Elle fonctionne seulement dans un modèle, car le modèle marque le début et la fin de l’entité. Si vous constatez que votre modèle, quand il comporte une entité Pattern.any, extrait mal les entités, utilisez une [liste explicite](luis-concept-patterns.md#explicit-lists) pour corriger ce problème. 
-
-1. Sélectionnez **Entités** dans le volet de navigation gauche.
-
-2. Sélectionnez **Créer une entité**. 
-
-3. Nommez l’entité `FormName` avec le type **Pattern.any**. Dans le cadre de ce tutoriel, il n’est pas nécessaire d’ajouter des rôles à l’entité.
-
-    ![Image de la boîte de dialogue pour le nom et le type d’entité](./media/luis-tutorial-pattern/create-entity-pattern-any.png)
-
-### <a name="add-a-pattern-that-uses-the-patternany"></a>Ajouter un modèle qui utilise l’entité Pattern.any
-
-1. Sélectionnez **Modèles** dans le volet de navigation gauche.
-
-2. Sélectionnez l’intention **FindForm**.
-
-3. Entrez un énoncé de modèle à l’aide de la nouvelle entité `Where is the form {FormName} and who needs to sign it after I read it?`.
-
-    ![Capture d’écran d’un énoncé de modèle utilisant l’entité Pattern.any](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
-
-4. Effectuez l’apprentissage de l’application pour la nouvelle intention, l’entité et le modèle.
-
-### <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Tester l’extraction de données à structure libre dans le nouveau modèle
-1. Sélectionnez **Tester** dans la barre supérieure pour ouvrir le panneau de test. 
-
-2. Entrez l’énoncé `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
-
-3. Sélectionnez **Inspecter** sous le résultat afin de voir les résultats des tests pour l’entité et l’intention.
-
-    ![Capture d’écran d’un énoncé de modèle utilisant l’entité Pattern.any](./media/luis-tutorial-pattern/test-pattern.any-results.png)
-
-    L’entité est trouvée en premier, suivie du modèle, indiquant l’intention. Si, dans votre résultat de test, les entités ne sont pas détectées et, par conséquent, le modèle est introuvable, vous devrez ajouter des exemples d’énoncés sur l’intention (et non le modèle).
-
-4. Fermez le panneau de test en sélectionnant le bouton **Tester** dans le volet de navigation supérieur.
-
-## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour cela, sélectionnez le menu représentant trois points (…) à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+## <a name="clean-up-resources"></a>Supprimer les ressources
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour cela, sélectionnez les points de suspension (***...*** ) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Utilisez une liste d’expressions pour améliorer la prédiction](luis-tutorial-interchangeable-phrase-list.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [En savoir plus sur l’utilisation de rôles avec un modèle](luis-tutorial-pattern-roles.md)

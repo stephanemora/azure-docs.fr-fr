@@ -2,19 +2,19 @@
 title: Glossaire du service d’API Language Understanding (LUIS) | Microsoft Docs
 description: Le glossaire explique les termes que vous pourriez rencontrer en utilisant le service API LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265385"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225504"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -72,7 +72,7 @@ Dans le contexte de LUIS, un **domaine** est un champ de connaissances propre à
 
 ## <a name="endpoint"></a>Point de terminaison
 
-L’URL du [point de terminaison LUIS](https://aka.ms/luis-endpoint-apis) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison sur la page **[Publier](publishapp.md)** de votre application ou dans le tableau Ressources et clés. Vous pouvez également récupérer l’URL du point de terminaison avec l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+L’URL du [point de terminaison LUIS](https://aka.ms/luis-endpoint-apis) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison sur la page **[Publier](luis-how-to-publish-app.md)** de votre application ou dans le tableau Ressources et clés. Vous pouvez également récupérer l’URL du point de terminaison avec l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Voici un exemple de point de terminaison :
 
@@ -82,7 +82,7 @@ Voici un exemple de point de terminaison :
 |--|--|
 |region| [Région publiée](luis-reference-regions.md#publishing-regions) |
 |appID | ID d’application LUIS |
-|subscriptionID | Clé d’abonnement LUIS créé sur le Portail Azure |
+|subscriptionID | Clé de point de terminaison (d’abonnement) LUIS créée sur le portail Azure |
 |q | Énoncé |
 |timezoneOffset| minutes|
 
@@ -92,15 +92,15 @@ Les [entités](luis-concept-entity-types.md) sont des mots importants dans les [
 
 ## <a name="f-measure"></a>F-mesure
 
-Il s’agit d’une mesure de précision d’un [test par lots][batch-testing].
+Il s’agit d’une mesure de précision d’un [test par lots](luis-interactive-test.md#batch-testing).
 
 ## <a name="false-negative"></a>Faux négatif (FN)
 
-Dans les [tests par lots][batch-testing], les points de données représentent les énoncés dans lesquels votre application a mal prédit l’absence de l’intention/entité cible.
+Dans les [tests par lots](luis-interactive-test.md#batch-testing), les points de données représentent les énoncés dans lesquels votre application a mal prédit l’absence de l’intention/entité cible.
 
 ## <a name="false-positive"></a>Faux positif (FP)
 
-Dans les [tests par lots][batch-testing], les points de données représentent les énoncés dans lesquels votre application a mal prédit l’existence de l’intention/entité cible.
+Dans les [tests par lots](luis-interactive-test.md#batch-testing), les points de données représentent les énoncés dans lesquels votre application a mal prédit l’existence de l’intention/entité cible.
 
 ## <a name="features"></a>Caractéristiques
 
@@ -135,10 +135,10 @@ Un [domaine prédéfini](luis-how-to-use-prebuilt-domains.md) est une applicatio
 
 ## <a name="prebuilt-entity"></a>Entité prédéfinie
 
-Une [entité prédéfinie](pre-builtentities.md) est une entité fournie par LUIS pour les types d’informations courants, comme le nombre, l’URL et l’adresse électronique. Vous pouvez choisir d’en ajouter ou non à votre application. 
+Une [entité prédéfinie](luis-prebuilt-entities.md) est une entité fournie par LUIS pour les types d’informations courants, comme le nombre, l’URL et l’adresse électronique. Vous pouvez choisir d’en ajouter ou non à votre application. 
 
 ## <a name="precision"></a>Précision
-Dans les [tests par lots][batch-testing], la précision (également appelée coefficient de prévision d'un test positif) est la part d’énoncés pertinents parmi les énoncés récupérés.
+Dans les [tests par lots](luis-interactive-test.md#batch-testing), la précision (également appelée coefficient de prévision d'un test positif) est la part d’énoncés pertinents parmi les énoncés récupérés.
 
 ## <a name="programmatic-key"></a>Clé programmatique
 
@@ -153,7 +153,7 @@ La publication consiste à rendre disponible une [version active](#active-versio
 Le quota LUIS correspond à la limitation du [niveau d’abonnement Azure](https://aka.ms/luis-price-tier). Il peut être exprimé en demandes par seconde (état HTTP 429), en nombre total de demandes par mois (état HTTP 403) ou les deux. 
 
 ## <a name="recall"></a>Rappel
-Dans les [tests par lots][batch-testing], le rappel (également appelé sensibilité) correspond à la capacité de généralisation de LUIS. 
+Dans les [tests par lots](luis-interactive-test.md#batch-testing), le rappel (également appelé sensibilité) correspond à la capacité de généralisation de LUIS. 
 
 ## <a name="semantic-dictionary"></a>Dictionnaire sémantique
 Un dictionnaire sémantique est proposé sur la page Entité de liste ainsi que sur la page Liste d’expressions. Il propose des suggestions de mots en fonction de la portée actuelle.
@@ -163,11 +163,11 @@ L’analyse des sentiments attribue des valeurs positives ou négatives aux éno
 
 ## <a name="speech-priming"></a>Préparation vocale
 
-La préparation vocale permet de préparer votre service vocal avec votre modèle LUIS. Voir [Activer la préparation vocale](publishapp.md#enable-speech-priming).
+La préparation vocale permet de préparer votre service vocal avec votre modèle LUIS. Voir [Activer la préparation vocale](luis-how-to-publish-app.md#enable-speech-priming).
 
 ## <a name="spelling-correction"></a>Correction orthographique
 
-Sur la page Publier, activez la [vérification orthographique Bing](publishapp.md#enable-bing-spell-checker) pour corriger les mots mal orthographiés dans les énoncés avant la prédiction. 
+Sur la page Publier, activez la [vérification orthographique Bing](luis-how-to-publish-app.md#enable-bing-spell-checker) pour corriger les mots mal orthographiés dans les énoncés avant la prédiction. 
 
 ## <a name="starter-key"></a>Clé de démarrage
 
@@ -175,11 +175,11 @@ Identique à la [clé programmatique](#programmatic-key), renommée Clé de cré
 
 ## <a name="subscription-key"></a>Clé d’abonnement
 
-La clé d’abonnement est la clé associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé d’abonnement, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé d’abonnement actuelle au sein de l’URL du point de terminaison en bas de la [page **Publier une application**](publishapp.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**. 
+La clé d’abonnement est la clé de **point de terminaison** associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé de point de terminaison, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé de point de terminaison actuelle au sein de l’URL du point de terminaison en bas de la [page **Publier une application**](luis-how-to-publish-app.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**. 
 
 ## <a name="test"></a>Test
 
-[Tester](interactive-test.md#test-your-app) une application LUIS signifie soumettre un énoncé à LUIS et afficher les résultats JSON.
+[Tester](luis-interactive-test.md#test-your-app) une application LUIS signifie soumettre un énoncé à LUIS et afficher les résultats JSON.
 
 ## <a name="timezoneoffset"></a>timezoneOffset
 
@@ -196,11 +196,11 @@ L’apprentissage est le processus consistant à indiquer à LUIS toutes les mod
 
 ## <a name="true-negative"></a>Vrai négatif (TN)
 
-Dans les [tests par lots][batch-testing], les points de données représentent les énoncés dans lesquels votre application a bien prédit l’absence de l’intention/entité cible.
+Dans les [tests par lots](luis-interactive-test.md#batch-testing), les points de données représentent les énoncés dans lesquels votre application a bien prédit l’absence de l’intention/entité cible.
 
 ## <a name="true-positive"></a>Vrai positif (TP)
 
-Dans les [tests par lots][batch-testing], les points de données représentent les énoncés dans lesquels votre application a bien prédit l’existence de l’intention/entité cible.
+Dans les [tests par lots](luis-interactive-test.md#batch-testing), les points de données représentent les énoncés dans lesquels votre application a bien prédit l’existence de l’intention/entité cible.
 
 ## <a name="utterance"></a>Énoncé
 
@@ -209,5 +209,3 @@ Un énoncé est une expression en langage naturel comme « Réserve 2 billets p
 ## <a name="version"></a>Version
 
 Une [version](luis-how-to-manage-versions.md) de LUIS est un modèle de données spécifique associé à un ID d’application LUIS et au point de terminaison publié. Chaque application LUIS a au moins une version.
-
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

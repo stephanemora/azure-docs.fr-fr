@@ -2,19 +2,19 @@
 title: Comprendre les concepts d’extraction des données dans LUIS – Azure | Microsoft Docs
 description: Découvrez quel type de données il est possible d’extraire à partir de Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265250"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225680"
 ---
 # <a name="data-extraction"></a>Extraction de données
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable.
@@ -26,9 +26,9 @@ LUIS fournit les données à partir du [point de terminaison](luis-glossary.md#e
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-La valeur `appID` est disponible sur la page **Paramètres** de l’application LUIS ; elle fait également partie de l’URL (après `/apps/`) sur la page de modification de l’application. La clé `subscription-key` est la clé du point de terminaison utilisée pour interroger l’application. Vous pouvez utiliser votre clé gratuite de démarrage/création tant que vous apprenez à vous servir de LUIS, mais il est important de la remplacer par une clé qui prend en charge votre [utilisation attendue de LUIS](luis-boundaries.md#key-limits). L’unité `timezoneOffset` est exprimée en minutes.
+La valeur `appID` est disponible sur la page **Paramètres** de l’application LUIS ; elle fait également partie de l’URL (après `/apps/`) sur la page de modification de l’application. La clé `subscription-key` est la clé du point de terminaison utilisée pour interroger l’application. Vous pouvez utiliser votre clé gratuite de démarrage/création tant que vous apprenez à vous servir de LUIS, mais il est important de remplacer la clé de point de terminaison par une clé qui prend en charge votre [utilisation attendue de LUIS](luis-boundaries.md#key-limits). L’unité `timezoneOffset` est exprimée en minutes.
 
-La **réponse HTTPS** contient toutes les informations que LUIS peut déterminer sur les intentions et les entités à partir du modèle publié à un instant t d’un point de terminaison intermédiaire ou de production. L’URL du point de terminaison se trouve sur la page **Publier** du site web [LUIS][LUIS]. 
+La **réponse HTTPS** contient toutes les informations que LUIS peut déterminer sur les intentions et les entités à partir du modèle publié à un instant t d’un point de terminaison intermédiaire ou de production. L’URL du point de terminaison se trouve sur la page **Publier** du site web [LUIS](luis-reference-regions.md). 
 
 ## <a name="data-from-intents"></a>Données issues des intentions
 La principale donnée est le **nom de l’intention** qui a obtenu le meilleur score. Avec le `MyStore`Démarrage rapide [](luis-quickstart-intents-only.md), la réponse du point de terminaison est la suivante :
@@ -201,7 +201,7 @@ Les entités [composites](luis-concept-entity-types.md) sont des valeurs issues 
 
 `book 2 tickets to paris`
 
-Notez qu’entre `2`, le nombre, et `paris`, ToLocation, se trouvent des mots qui ne font partie d’aucune entité. Le soulignement vert, utilisé dans un énoncé étiqueté sur le site web [LUIS][LUIS], indique une entité composite.
+Notez qu’entre `2`, le nombre, et `paris`, ToLocation, se trouvent des mots qui ne font partie d’aucune entité. Le soulignement vert, utilisé dans un énoncé étiqueté sur le site web [LUIS](luis-reference-regions.md), indique une entité composite.
 
 ![Entité composite](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -426,13 +426,13 @@ Les entités [d’expression régulière](luis-concept-entity-types.md) sont dé
 Il est difficile d’extraire des noms d’un énoncé, car un nom peut être pratiquement n’importe quelle combinaison de lettres et de mots. Les possibilités dépendent du type de nom extrait. Il ne s’agit pas de règles, mais plutôt de recommandations. 
 
 ### <a name="names-of-people"></a>Noms de personnes
-Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utilisez soit une entité hiérarchique avec comme enfants le prénom et le nom, soit une entité simple avec des rôles de nom et de prénom. Veillez à donner des exemples qui utilisent le prénom et le nom à différents endroits de l’énoncé, dans des énoncés de longueurs différentes et pour toutes les intentions, y compris l’intention None. [Vérifiez](label-suggested-utterances.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement. 
+Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utilisez soit une entité hiérarchique avec comme enfants le prénom et le nom, soit une entité simple avec des rôles de nom et de prénom. Veillez à donner des exemples qui utilisent le prénom et le nom à différents endroits de l’énoncé, dans des énoncés de longueurs différentes et pour toutes les intentions, y compris l’intention None. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement. 
 
 ### <a name="names-of-places"></a>Noms de lieux
-Les noms d’endroits sont définis et connus : villes, départements, États, provinces et pays. Si votre application utilise un ensemble connu de lieux, envisagez d’utiliser une entité de liste. Si vous devez rechercher tous les noms de lieux, créez une entité simple et donnez différents exemples. Ajoutez une liste d’expressions de noms de lieux pour renforcer le type de noms de lieux de votre application. [Vérifiez](label-suggested-utterances.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement. 
+Les noms d’endroits sont définis et connus : villes, départements, États, provinces et pays. Si votre application utilise un ensemble connu de lieux, envisagez d’utiliser une entité de liste. Si vous devez rechercher tous les noms de lieux, créez une entité simple et donnez différents exemples. Ajoutez une liste d’expressions de noms de lieux pour renforcer le type de noms de lieux de votre application. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement. 
 
 ### <a name="new-and-emerging-names"></a>Nouveaux noms
-Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Il s’agit du type le plus difficile d’extraction de données. Commencez par une entité simple et ajoutez une liste d’expressions. [Vérifiez](label-suggested-utterances.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement. 
+Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Il s’agit du type le plus difficile d’extraction de données. Commencez par une entité simple et ajoutez une liste d’expressions. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement. 
 
 ## <a name="pattern-roles-data"></a>Données de rôles de modèle
 Les rôles sont des différences d’entités contextuelles. 
@@ -709,6 +709,4 @@ Le point de terminaison LUIS peut découvrir les mêmes données dans différent
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Ajouter des entités](luis-how-to-add-entities.md) pour découvrir comment ajouter des entités à votre application LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+Consulter [Ajouter des entités](luis-how-to-add-entities.md) pour découvrir comment ajouter des entités à votre application LUIS.

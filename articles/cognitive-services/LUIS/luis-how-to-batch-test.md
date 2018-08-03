@@ -2,19 +2,19 @@
 title: Tester votre application LUIS par lot - Azure | Microsoft Docs
 description: Utiliser les tests par lot Language Understanding (LUIS) pour rechercher des énoncés avec des intentions et des entités incorrectes.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 822fb1e2d5b13941527d242e8501b423bd6b81cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 2c648cdd82f89a9646fa0b311a7f1f68dd4bc4a9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265511"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223579"
 ---
 # <a name="batch-testing"></a>Test par lot
  Le test par lot est un test complet sur votre modèle formé en cours afin d’en mesurer les performances dans LUIS. 
@@ -26,7 +26,7 @@ ms.locfileid: "36265511"
 
     ![Lien Test par lot](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Sélectionnez **Importer le jeu de données**. La boîte de dialogue **Importer le nouveau jeu de données** s’affiche. Choisissez **Sélectionner un fichier** et recherchez le fichier [JSON](luis-concept-batch-test.md#batch-file-format) qui ne contient *pas plus de 1 000* énoncés à tester.
+2. Sélectionnez **Importer le jeu de données**. La boîte de dialogue **Importer le nouveau jeu de données** s’affiche. Choisissez **Sélectionner un fichier** et recherchez un fichier JSON avec le [format JSON](luis-concept-batch-test.md#batch-file-format)correct qui ne contient *pas plus de 1 000* énoncés à tester.
 
     ![Importer le fichier de jeu de données](./media/luis-how-to-batch-test/batchtest-importset.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "36265511"
 4. Sélectionnez **Terminé**. Le fichier de jeu de données est ajouté.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Exécuter, renommer, exporter ou supprimer le jeu de données
-Pour exécuter, renommer, exporter ou supprimer le jeu de données, utilisez les points de suspension (**...**) à la fin de la ligne du jeu de données.
+Pour exécuter, renommer, exporter ou supprimer le jeu de données, utilisez le bouton à points de suspension (***...***) à la fin de la ligne du jeu de données.
 
 ![Actions du jeu de données](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -77,13 +77,6 @@ Pour filtrer le graphique en fonction d’une intention ou d’une entité spéc
  
 ![Résultat du test par lot visualisé](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## <a name="view-single-point-utterance-data"></a>Afficher les données d’énoncé d’un point unique
 Dans le graphique, pointez sur un point de données pour afficher le score de certitude de la prédiction. Sélectionnez un point de données pour récupérer l’énoncé correspondant dans la liste des énoncés au bas de la page. 
 
@@ -107,16 +100,7 @@ Les deux sections du graphique en vert correspondent à la prédiction attendue.
 
 Si le test indique que votre application LUIS ne reconnaît pas les entités et les intentions correctes, vous pouvez travailler à l’amélioration des performances de votre application LUIS en étiquetant plus d’énoncés ou en ajoutant des fonctionnalités. 
 
-* [Étiqueter des énoncés suggérés avec LUIS](Label-Suggested-Utterances.md) 
+* [Étiqueter des énoncés suggérés avec LUIS](luis-how-to-review-endoint-utt.md) 
 * [Utiliser les fonctionnalités pour améliorer les performances de votre application LUIS](luis-how-to-add-features.md) 
 * [Comprendre le test par lot avec ce tutoriel](luis-tutorial-batch-testing.md)
 * [Découvrir les concepts du test par lot](luis-concept-batch-test.md).
-
-[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
-[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
-[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
-[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
-[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
-[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
-[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
-
