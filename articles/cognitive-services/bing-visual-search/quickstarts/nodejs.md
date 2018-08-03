@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd28c829d8d24980a746244dc6aca880d2d69224
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60b1dc9b8ea9eda258e9776b8967df38c97d964e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370316"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071700"
 ---
 # <a name="your-first-bing-visual-search-query-in-javascript"></a>Votre première requête de recherche visuelle Bing dans JavaScript
 
 L’API Recherche visuelle Bing renvoie des informations sur une image que vous fournissez. Cette image est accessible via son URL, un jeton insights ou par chargement. Pour plus d’informations sur ces options, consultez la section [Qu’est-ce que l’API Recherche visuelle Bing ?](../overview.md) Cet article explique comment charger une image. Il peut se révéler utile de charger une image prise sur un appareil mobile. Par exemple, vous photographiez un monument très connu pour obtenir en retour des informations sur celui-ci. Ces informations sont parfois très variées. 
 
-Si vous chargez une image enregistrée en local, voici les données de formulaire que vous devez inclure dans le corps du POST. Les données du formulaire doivent inclure un en-tête Content-Disposition. Son paramètre `name` doit être défini sur « image » tandis que le paramètre `filename` peut être défini sur une chaîne quelle qu’elle soit. Le contenu du formulaire correspond au code binaire de l’image. La taille maximale de l’image que vous chargez est de 1 Mo. 
+Si vous chargez une image enregistrée en local, voici les données de formulaire que vous devez inclure dans le corps du POST. Les données du formulaire doivent inclure l’en-tête Content-Disposition. Son paramètre `name` doit être défini sur « image » tandis que le paramètre `filename` peut être défini sur une chaîne quelle qu’elle soit. Le contenu du formulaire correspond au code binaire de l’image. La taille maximale de l’image que vous chargez est de 1 Mo. 
 
 ```
 --boundary_1234-abcd
@@ -95,8 +95,9 @@ function requestCallback(err, res, body) {
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Obtenir des informations sur une image à l’aide d’un jeton insights](../use-insights-token.md)  
-[Didacticiel de l’application à page unique Recherche visuelle Bing](../tutorial-bing-visual-search-single-page-app.md)  
+[Tutoriel de chargement d’images pour Recherche visuelle Bing](../tutorial-visual-search-image-upload.md)
+[Tutoriel de l’application à page unique Recherche visuelle Bing](../tutorial-bing-visual-search-single-page-app.md)  
 [Présentation de l’API Recherche visuelle Bing](../overview.md)  
 [Essayer](https://aka.ms/bingvisualsearchtryforfree)  
-[Obtenir une clé d’accès pour un essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Obtenir une clé d’accès d’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Informations de référence sur l’API Recherche visuelle Bing](https://aka.ms/bingvisualsearchreferencedoc)

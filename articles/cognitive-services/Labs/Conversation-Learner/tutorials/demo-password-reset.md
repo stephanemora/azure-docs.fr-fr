@@ -1,7 +1,7 @@
 ---
-title: Application Apprenant de conversation de démonstration, réinitialisation de mot de passe – Microsoft Cognitive Services | Microsoft Docs
+title: Modèle Conversation Learner de démonstration, réinitialisation de mot de passe – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment créer une application Apprenant de conversation de démonstration.
+description: Découvrez comment créer un modèle Conversation Learner de démonstration.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,17 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 24d61787a79ee1a1a9737c417aa966cc8fd75930
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369584"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170631"
 ---
 # <a name="demo-password-reset"></a>Démonstration : réinitialisation de mot de passe
 Cette démonstration illustre un robot de support technique simple qui peut aider à effectuer des réinitialisations de mot de passe. 
 
 Il montre comment Apprenant de conversation peut apprendre des flux de dialogue non triviaux, des séquences à plusieurs tours, y compris une classe hors domaine. Cette démonstration n’utilise pas de code ni d’entités.
+
+## <a name="video"></a>Vidéo
+
+[![Aperçu de démonstration Mot de passe](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>Configuration requise
 Ce didacticiel requiert l’exécution du robot de réinitialisation de mot de passe.
@@ -29,7 +33,7 @@ Ce didacticiel requiert l’exécution du robot de réinitialisation de mot de p
 
 ### <a name="open-the-demo"></a>Ouvrir la démonstration
 
-Dans la liste des applications de l’interface utilisateur web, cliquez sur le didacticiel de démonstration Réinitialisation de mot de passe. 
+Dans la liste des modèles de l’interface utilisateur web, cliquez sur Tutorial Demo Password Reset. 
 
 ### <a name="actions"></a>Actions
 

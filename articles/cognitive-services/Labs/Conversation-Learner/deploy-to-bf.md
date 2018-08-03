@@ -10,22 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 77cc998227d996a6e52b1b5629204da5dc735ede
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369561"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171474"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Comment déployer un bot Apprenant de conversation
 
 Ce document explique comment déployer un bot Apprenant de conversation, localement ou dans Azure.
 
-## <a name="prerequisite-determine-the-application-id"></a>Prérequis : déterminer l’ID d’application 
+## <a name="prerequisite-determine-the-model-id"></a>Prérequis : déterminer l’ID du modèle 
 
-Pour exécuter un bot en dehors de l’interface utilisateur de l’Apprenant de Conversation, vous devez définir l’ID d’application Apprenant de Conversation à utiliser par le bot : par exemple, l’ID du modèle Machine Learning dans le cloud de l’Apprenant de conversation.  (En revanche, lorsque vous exécutez le bot via l’interface utilisateur de l’Apprenant de conversation, c’est l’interface utilisateur choisit l’ID d’application).  
+Pour exécuter un bot en dehors de l’interface utilisateur de l’Apprenant de Conversation, vous devez définir l’ID de modèle Apprenant de conversation à utiliser par le bot : par exemple, l’ID du modèle Machine Learning dans le cloud de l’Apprenant de conversation.  (En revanche, lorsque vous exécutez le bot via l’interface utilisateur de l’Apprenant de conversation, c’est l’interface utilisateur qui choisit l’ID du modèle).  
 
-Voici comment obtenir l’ID d’application :
+Voici comment obtenir l’ID du modèle :
 
 1. Démarrez votre bot et l’interface utilisateur de l’Apprenant de conversation.  Consultez le guide de démarrage rapide pour obtenir des instructions complètes. Pour résumer :
 
@@ -47,11 +47,11 @@ Voici comment obtenir l’ID d’application :
 
 2. Ouvrez http://localhost:5050 dans la fenêtre du navigateur 
 
-3. Cliquez sur l’application de l’Apprenant de conversation pour laquelle vous souhaitez obtenir l’ID
+3. Cliquez sur le modèle Apprenant de conversation pour lequel vous souhaitez obtenir l’ID
 
 4. Cliquez sur « Paramètres » à gauche dans la barre de navigation.
 
-5. Le GUID « ID d’application » s’affiche en haut de la page.
+5. Le GUID « ID du modèle » s’affiche en haut de la page.
 
 ## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Option 1 : déploiement d’un bot Apprenant de conversation à exécuter localement
 
@@ -62,7 +62,7 @@ Déploie un bot sur votre ordinateur local et montre comment vous pouvez y accé
 Lorsque vous exécutez un bot localement, ajoutez l’ID d’application au fichier `.env` du bot :
 
     ```
-    CONVERSATION_LEARNER_APP_ID=<YOUR_APP_ID>
+    CONVERSATION_LEARNER_MODEL_ID=<YOUR_MODEL_ID>
     ```
 
 Ensuite, démarrez votre bot :
@@ -116,8 +116,8 @@ Vous trouverez ci-dessous des instructions pas à pas pour le déploiement d’u
         Variable d’environnement | value
         --- | --- 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_APP_ID      | Guide de l’lD d’application, obtenu à partir de l’interface utilisateur de l’Apprenant de conversation, sous « paramètres » de l’application >
-        LUIS_AUTHORING_KEY               | Clé de création LUIS pour cette application
+        CONVERSATION_LEARNER_MODEL_ID      | Guide de l’lD d’application, obtenu à partir de l’interface utilisateur de l’Apprenant de conversation, sous « paramètres » du modèle>
+        LUIS_AUTHORING_KEY               | Clé de création LUIS pour ce modèle
     
     4. Cliquez sur « Enregistrer » dans le haut de la page
     5. Sur la gauche, ouvrez l’élément de navigation « Générer »

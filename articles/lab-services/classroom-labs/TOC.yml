@@ -1,6 +1,6 @@
 - name: Documentation Lab Services
   href: /azure/lab-services
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des laboratoires de salle de classe
       href: classroom-labs-overview.md
@@ -14,6 +14,8 @@
       href: tutorial-setup-classroom-lab.md
     - name: 3. Accéder à un laboratoire de salle de classe
       href: tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 4. Suivre l’utilisation d’un laboratoire de classe
+      href: tutorial-track-usage.md
 - name: Procédures
   items:
     - name: Gérer les comptes de laboratoire
@@ -28,7 +30,7 @@
       href: /cli/azure/lab
     - name: PowerShell
       href: '/powershell/module/azurerm.devtestlabs/#devtest_labs'
-    - name: de l’API REST
+    - name: API REST
       href: 'https://docs.microsoft.com/rest/api/dtl/'
 - name: Ressources
   items:

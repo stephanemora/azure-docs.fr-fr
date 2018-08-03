@@ -1,106 +1,96 @@
 ---
-title: Démarrage rapide du kit SDK de reconnaissance vocale pour C++ et Windows | Microsoft Docs
+title: 'Démarrage rapide : reconnaissance vocale dans C++ sur Windows Desktop à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech | Microsoft Docs'
 titleSuffix: Microsoft Cognitive Services
-description: Obtenez des informations et des exemples de code pour vous aider à commencer rapidement à utiliser le kit SDK de reconnaissance vocale avec Windows et C++ dans Cognitive Services.
+description: Découvrez comment effectuer une reconnaissance vocale dans C++ sur Windows Desktop à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0bcdc3c4357cb8985fad16c607957bffad4a2b8c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4a8c5f7053c1976233bf9de6a0c142885b73c8aa
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049228"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071196"
 ---
-# <a name="quickstart-for-c-and-windows"></a>Démarrage rapide pour C++ et Windows
-
-La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `0.4.0`.
+# <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans C++ sur Windows Desktop à l’aide du kit de développement logiciel (SDK) Speech
 
 Nous expliquons comment créer une application console C++ pour Windows Desktop qui utilise le kit SDK de reconnaissance vocale.
-L’application est basée sur le [package NuGet du kit SDK Microsoft Cognitive Services](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) et Microsoft Visual Studio 2017.
+L’application est basée sur le [package NuGet du kit SDK Microsoft Cognitive Services Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
 
-> [!NOTE]
-> Si vous recherchez un guide de démarrage rapide pour C++ et Linux, rendez-vous [ici](quickstart-cpp-linux.md).<br>
-> Si vous recherchez un guide de démarrage rapide pour C# et Windows, rendez-vous [ici](quickstart-csharp-windows.md).
+## <a name="prerequisites"></a>Prérequis
 
-> [!NOTE]
-> Ce guide de démarrage rapide nécessite un PC avec un microphone qui fonctionne.<br>
-> Pour voir un exemple qui procède à la reconnaissance vocale d’un fichier audio spécifique, consultez l’[exemple](speech-to-text-sample.md#speech-recognition-from-a-file).
+* Clé d’abonnement pour le service Speech. Consultez l’article [Try the speech service for free](get-started.md) (Essayer le service Speech gratuitement).
+* Un PC Windows avec un microphone opérationnel.
+* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition ou version ultérieure.
+* La charge de travail **Développement Desktop avec C++** dans Visual Studio et le composant **Gestionnaire de package NuGet** dans Visual Studio.
+  Vous pouvez activer ces deux éléments dans **Outils** \> **Obtenir des outils et des fonctionnalités**, dans les onglets **Charges de travail** et **Composants individuels**, respectivement :
 
-> [!NOTE]
-> Vérifiez que votre installation Visual Studio inclut la charge de travail **Développement Desktop en C++**.
-> Si vous avez des doutes, utilisez les étapes suivantes pour vérifier et corriger : Dans Visual Studio 2017, sélectionnez **Outils** \> **Obtenir des outils et des fonctionnalités**, confirmez l’invite du contrôle de compte d’utilisateur en choisissant **Oui**.
-> Sous l’onglet **Charges de travail**, si aucune case n’est cochée en regard de **Développement Desktop en C++**, définissez-la, puis cliquez sur **Modifier** pour enregistrer les modifications apportées.
+  ![Activer la charge de travail Développement Desktop avec C++](media/sdk/vs-enable-cpp-workload.png)
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+  ![Activer le gestionnaire de package NuGet dans Visual Studio ](media/sdk/vs-enable-nuget-package-manager.png)
 
-## <a name="creating-an-empty-console-application-project"></a>Création d’un projet d’application console vide
+## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
-Dans Visual Studio 2017, créez une application console Windows Desktop Visual C++ avec le nom « CppHelloSpeech » :
+Dans Visual Studio 2017, créez une application console Windows Desktop Visual C++. Dans la boîte de dialogue **Nouveau projet**, dans le volet gauche, développez **Installé** \> **Visual C++** \> **Windows Desktop**, puis sélectionnez **Application console Windows**. Pour le nom du projet, entrez *helloworld*.
 
-![Créer une application console Windows Desktop Visual C++](media/sdk/speechsdk-05-vs-cpp-new-console-app.png)
+![Créer une application console Windows Desktop Visual C++](media/sdk/qs-cpp-windows-01-new-console-app.png)
 
 Si vous effectuez une exécution sur une installation Windows 64 bits, vous pouvez éventuellement passer votre plateforme de génération à `x64` :
 
-![Passer la plateforme de génération à x64](media/sdk/speechsdk-07-vs-cpp-switch-to-x64.png)
+![Passer la plateforme de génération à x64](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
 
 ## <a name="install-and-reference-the-speech-sdk-nuget-package"></a>Installer et référencer le package NuGet du kit SDK de reconnaissance vocale
 
-> [!NOTE]
-> Vérifiez que le gestionnaire de package NuGet est activé pour votre installation Visual Studio 2017.
-> Dans Visual Studio 2017, sélectionnez **Outils** \> **Obtenir des outils et des fonctionnalités**, confirmez l’invite du contrôle de compte d’utilisateur en choisissant **Oui**. Sélectionnez ensuite l’onglet **Composants individuels**, puis recherchez **Gestionnaire de package NuGet** sous **Outils de code**.
-> Si la case à sa gauche n’est pas cochée, veillez à la définir, puis cliquez sur **Modifier** pour enregistrer les modifications apportées.
->
-> ![Activer le gestionnaire de package NuGet dans Visual Studio ](media/sdk/speechsdk-05-vs-enable-nuget-package-manager.png)
-
 Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution**.
 
-![Cliquer avec le bouton droit sur Gérer les packages NuGet pour la solution](media/sdk/speechsdk-09-vs-cpp-manage-nuget-packages.png)
+![Cliquer avec le bouton droit sur Gérer les packages NuGet pour la solution](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
 En haut à droite, dans le champ **Source du package**, choisissez « Nuget.org ».
-Sous l’onglet **Parcourir**, recherchez le package « Microsoft.CognitiveServices.Speech », sélectionnez-le, puis cochez les cases **Projet** et **CppHelloSpeech** à droite. Sélectionnez ensuite **Installer** pour l’installer dans le projet CppHelloSpeech.
+Sous l’onglet **Parcourir**, recherchez le package « Microsoft.CognitiveServices.Speech », sélectionnez-le, puis cochez les cases **Projet** et **helloworld** à droite. Sélectionnez ensuite **Installer** pour l’installer dans le projet helloworld.
 
-![Installer le package NuGet Microsoft.CognitiveServices.Speech](media/sdk/speechsdk-11-vs-cpp-manage-nuget-install.png)
+> [!NOTE]
+> La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `0.5.0`.
+
+![Installer le package NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 
 Dans l’écran de licence qui s’affiche, acceptez la licence :
 
-![Accepter la licence](media/sdk/speechsdk-12-vs-cpp-manage-nuget-license.png)
+![Accepter la licence](media/sdk/qs-cpp-windows-05-nuget-license.png)
 
 ## <a name="add-the-sample-code"></a>Ajouter l’exemple de code
 
-Remplacez votre code de démarrage par défaut par le suivant :
+1. Remplacez votre code de démarrage par défaut par le suivant :
 
-[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
-> [!IMPORTANT]
-> Remplacez la clé d’abonnement par celle que vous avez obtenue. <br>
-> Remplacez la région par votre région de [l’API REST du service de reconnaissance vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis) ; par exemple, remplacez-la par « westus ».
+1. Remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.
 
-![Ajouter votre clé d’abonnement](media/sdk/sub-key-recognize-speech-cpp.png)
+1. Remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
+
+1. Enregistrez des modifications dans le projet.
 
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
 
-Le code doit maintenant se compiler sans erreurs :
+1. Générez l’application. Dans la barre de menus, sélectionnez **Générer** > **Générer la solution**. Le code doit maintenant se compiler sans erreurs :
 
-![Build réussie](media/sdk/speechsdk-16-vs-cpp-build.png)
+   ![Build réussie](media/sdk/qs-cpp-windows-06-build.png)
 
-Lancez le programme sous le débogueur avec le bouton Lancer ou à l’aide du raccourci clavier F5 :
+1. Lancez l’application. Dans la barre de menus, sélectionnez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5**.
 
-![Lancer l’application en débogage](media/sdk/speechsdk-17-vs-cpp-f5.png)
+   ![Lancer l’application en débogage](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-Une fenêtre de console vous demandant de dire quelque chose (en anglais) s’affiche.
-Le résultat de la reconnaissance s’affiche sur l’écran.
+1. Une fenêtre de console vous invitant à dire quelque chose (en anglais) s’affiche.
+   Le résultat de la reconnaissance s’affiche sur l’écran.
 
-![Sortie de la console après une reconnaissance réussie](media/sdk/speechsdk-18-vs-cpp-console-output-release.png)
+   ![Sortie de la console après une reconnaissance réussie](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-## <a name="downloading-the-sample"></a>Téléchargement de l’exemple
-
-Pour obtenir la dernière série d’exemples, consultez le [dépôt GitHub d’exemples pour le kit SDK de reconnaissance vocale Cognitive Services](https://aka.ms/csspeech/samples).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Recherchez cet exemple dans le dossier `quickstart/cpp-windows`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

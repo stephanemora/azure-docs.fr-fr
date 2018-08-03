@@ -47,8 +47,34 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
+      items:
+        - name: Créer une rubrique personnalisée
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: S’abonner à un abonnement Azure
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: S’abonner à un stockage blob
+          href: scripts/event-grid-cli-blob.md
+        - name: S’abonner à une rubrique personnalisée
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: S’abonner à un groupe de ressources
+          href: scripts/event-grid-cli-resource-group.md
+        - name: S’abonner et filtrer les événements pour le groupe de ressources
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: Créer une rubrique personnalisée
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: S’abonner à un abonnement Azure
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: S’abonner à un stockage blob
+          href: scripts/event-grid-powershell-blob.md
+        - name: S’abonner à une rubrique personnalisée
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: S’abonner à un groupe de ressources
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: S’abonner et filtrer les événements pour le groupe de ressources
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: Modèles Resource Manager
       href: template-samples.md
     - name: Exemples de code
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: Recevoir des événements sur un point de terminaison HTTP
       href: receive-events.md
-    - name: Gérer la remise d’événement
+    - name: Lettres mortes et nouvelle tentative
       href: manage-event-delivery.md
     - name: Surveiller la remise d’événement
       href: monitor-event-delivery.md
@@ -81,7 +107,7 @@
       href: input-mappings.md
     - name: Utiliser le schéma CloudEvents
       href: cloudevents-schema.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/eventgrid

@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 0db6620c7433486babebe95090f3682582f1c212
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422159"
 documentType: LandingData
-title: Documentation du service de reconnaissance vocale (préversion)
+title: Documentation sur le Kit de développement logiciel (SDK) et le service Speech (préversion)
 metadata:
   title: Documentation du service de reconnaissance vocale - Tutoriels, démarrages rapides, référence de l’API - Cognitive Services | Microsoft Docs
-  meta.description: The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
+  meta.description: "The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications. \nExamples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.\n"
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -15,19 +21,16 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/16/2018
   ms.author: nolachar
-  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39070108"
 abstract:
-  description: Le service de reconnaissance vocale Microsoft fournit aux développeurs un moyen simple d’ajouter des fonctionnalités de reconnaissance vocale puissantes dans leurs applications, telles que la commande vocale, la transcription, la dictée et la traduction à l’aide d’une <a href="rest-apis">API REST</a> ou d’un <a href="speech-sdk">Kit de développement logiciel (SDK) C#, C++ ou Java</a>.<p>Le service de reconnaissance vocale vous permet de personnaliser des modèles de <a href="how-to-customize-speech-models">reconnaissance vocale</a> pour prendre en compte le vocabulaire spécialisé, les environnements bruyants et les différentes façons de parler. La <a href="https://cris.ai/Home/customvoice">synthèse vocale</a> et la <a href="https://www.microsoft.com/translator/customization.aspx">traduction vocale</a> personnalisées sont également disponibles.<p>Pour en savoir plus, consultez <a href="overview">Qu’est-ce que le service de reconnaissance vocale ?</a>
+  description: >
+    Via notre Kit de développement logiciel (SDK) associé, le <a href="overview">service Speech</a> permet aux développeurs d’ajouter des fonctionnalités de reconnaissance vocale à leurs applications.<br/>
+
+    Les fonctionnalités incluent : <i>reconnaissance vocale</i> (parole-texte), <i>intention</i>, <i>traduction</i>, et <i>synthèse vocale</i>.
 sections:
-- title: Démarrages rapides en 10 minutes
+- title: Guide de démarrage rapide et téléchargement du Kit de développement logiciel (SDK) en 5 minutes
   items:
   - type: paragraph
-    text: 'Découvrez comment installer le Kit de développement logiciel (SDK) de reconnaissance vocale et bien démarrer :'
+    text: Découvrez comment télécharger, installer et utiliser ce Kit en cliquant sur le lien en forme de flèche <img src="media/index/link.jpg" height="15" width="15"></img> souhaité ci-dessous.
   - type: table
     style: dataMatrix
     columns:
@@ -40,13 +43,13 @@ sections:
     - image:
         src: media/index/logo_netcore.svg
     - image:
-        src: media/index/logo_java.svg
+        src: media/index/logo_java.jpg
     - image:
         src: media/index/logo_rest_sr.svg
     - image:
         src: media/index/logo_rest_tts.svg
     rows:
-    - title: Windows
+    - title: Windows (x86/x64)
       values:
       - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
@@ -55,14 +58,14 @@ sections:
       - href: 
       - href: 
       - href: 
-    - title: Linux
+    - title: Linux (x86/x64)
       values:
       - href: 
       - href: 
       - href: quickstart-cpp-linux
       - href: 
       - href: 
-    - title: Kit de développement logiciel Android
+    - title: Android (ARM32/ARM64)
       values:
       - href: 
       - href: 
@@ -71,7 +74,7 @@ sections:
       - href: quickstart-java-android
       - href: 
       - href: 
-    - title: Kit de développement logiciel d’appareils
+    - title: Kit de développement logiciel (SDK) d’appareil (ARM64)
       values:
       - href: 
       - href: 
@@ -89,17 +92,40 @@ sections:
       - href: 
       - href: rest-apis
       - href: rest-apis
-- title: Exemples et référence
+- title: Exemples et référence du Kit de développement logiciel (SDK) de Speech
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Exemples
-      html: <ul><li><a href="speech-to-text-sample.md">Reconnaissance vocale</a></li><li><a href="intent.md">Reconnaissance de l'intention</a></li><li><a href="translation.md">Traduction</a></li></ul>
+      html: >
+        &nbsp;&#8226; <a href="speech-to-text-sample.md">Reconnaissance vocale</a><br/>
+
+        &nbsp;&#8226; <a href="intent.md">Reconnaissance de l’intention vocale</a><br/>
+
+        &nbsp;&#8226; <a href="translation.md">Traduction</a>
     - title: Référence API
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API C# (inclut UWP et .NET Standard)</a></li><li><a href="https://aka.ms/csspeech/cppref">API C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API Java</a> pour le kit de développement logiciel Speech<br>et le kit de développement logiciel Speech Devices</li></ul>
-- title: Kit de développement logiciel (SDK) Speech Devices
+      html: >
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">API C# (plateforme Windows universelle et .NET)</a><br/>
+
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">API C++</a><br/>
+
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">API Java</a>
+  - type: paragraph
+    text: Utilisez les exemples et les API ci-dessus avec votre clé d’abonnement (voir <a href="get-started.md">Essayez le service Speech gratuitement</a>).
+- title: Personnalisation de Speech avec vos propres données
   items:
   - type: paragraph
-    text: "Avec l’introduction du service de reconnaissance vocale unifié, Microsoft et ses partenaires offrent désormais une plateforme matérielle/logicielle intégrée, optimisée pour le développement de dispositifs vocaux : le <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Kit de développement logiciel (SDK) de dispositifs vocaux</a>. Adapté au développement d’appareils ambiants pour tous types d’applications, ce kit de développement logiciel vous permet de définir un <I>mot déclencheur</I> unique pour votre marque. Le matériel fournit également un traitement audio supérieur à partir de sources multicanaux pour une reconnaissance vocale plus précise, incluant notamment la suppression de bruit, la voix en champ lointain et la formation de faisceaux."
+    text: >
+      Le service Speech vous permet de personnaliser des modèles de façon à prendre en compte le vocabulaire spécialisé, les environnements bruyants et les différentes façons de parler.<br/>
+
+      &nbsp;&#8226; <a href="how-to-customize-speech-models">Reconnaissance vocale personnalisée</a><br/>
+
+      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Traduction vocale personnalisée</a><br/>
+
+      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Synthèse vocale personnalisée</a>
+- title: Conception de référence du matériel avec reconnaissance vocale Speech
+  items:
+  - type: paragraph
+    text: Les utilisateurs souhaitant créer des composants matériels avec reconnaissance vocale peuvent consulter la référence du <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Kit de développement logiciel (SDK) de Speech</a>.

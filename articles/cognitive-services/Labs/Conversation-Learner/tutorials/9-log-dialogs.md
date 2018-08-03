@@ -1,7 +1,7 @@
 ---
-title: Guide pratique pour consigner les dialogues dans une application Conversation Learner – Microsoft Cognitive Services | Microsoft Docs
+title: Guide pratique pour consigner les dialogues dans un modèle Conversation Learner – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment consigner les dialogues dans une application Conversation Learner.
+description: Découvrez comment consigner les dialogues dans un modèle Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 477545c48aeca05d56fdae28ac65a8f381a482fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369664"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171433"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-application"></a>Guide pratique pour consigner les dialogues dans une application Conversation Learner
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Guide pratique pour consigner les dialogues dans un modèle Conversation Learner
 
 Ce tutoriel montre comment effectuer des tests de type utilisateur final dans l’interface Conversation Learner, comment consigner les dialogues et comment apporter des corrections aux dialogues consignés afin d’améliorer le modèle.
 
+## <a name="video"></a>Vidéo
+
+[![Aperçu du tutoriel 9](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+
 ## <a name="requirements"></a>Configuration requise
-Pour les besoins de ce tutoriel, le bot général des tutoriels doit être en cours d’exécution.
+Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
 
     npm run tutorial-general
 
@@ -31,15 +35,15 @@ Les dialogues consignés peuvent servir à vérifier et à apporter des correcti
 
 ## <a name="steps"></a>Étapes
 
-### <a name="create-the-application"></a>Création de l'application
+### <a name="create-the-model"></a>Création du modèle
 
-1. Dans l’interface utilisateur web, cliquez sur Nouvelle application.
+1. Dans l’interface utilisateur web, cliquez sur Nouveau modèle.
 2. Dans Nom, entrez LogDialogs. Cliquez ensuite sur Créer.
 
 ### <a name="create-an-entity"></a>Créer une entité
 
 1. Cliquez sur Entités, puis sur Nouvelle entité.
-2. Dans Nom de l’entité, entrez « city ».
+2. Dans la partie correspondant au nom de l’entité, entrez la ville.
 3. Cliquez sur Créer.
 
 ### <a name="create-two-actions"></a>Créer deux actions
@@ -117,7 +121,7 @@ Nous allons maintenant apporter des corrections à l’autre dialogue :
 
 1. Cliquez sur « Bonjour » sous Consigner les dialogues.
     - La conversation s’ouvre.
-3. Notez que la réponse à « Bonjour » est « Quelle ville ? ». Nous voulons la remplacer par une réponse plus pertinente, comme « Bonjour, je suis le bot météo ». Mais il n’existe aucune action de ce type ; il nous faut donc en créer une.
+3. La réponse à « Bonjour » est « Quelle ville ? ». Nous voulons la remplacer par une réponse plus pertinente, comme « Bonjour, je suis le bot météo ». Mais il n’existe aucune action de ce type ; il nous faut donc en créer une.
 4. Cliquez sur Action.
     - Dans Réponse, tapez « Je suis le bot météo. Je peux vous donner les prévisions. »
 6. Décochez la case Attendre la réponse pour que ce ne soit pas une action d’attente.

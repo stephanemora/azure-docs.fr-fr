@@ -1,7 +1,7 @@
 ---
-title: Comment utiliser des appels d’API avec une application d’Apprenant de conversation - Microsoft Cognitive Services | Microsoft Docs
+title: Utiliser des appels d’API avec un modèle d’Apprenant de conversation - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment utiliser des appels d'API avec une application d’Apprenant de conversation.
+description: Découvrez comment utiliser des appels d'API avec un modèle d’Apprenant de conversation.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ec752cbadfac7a47e08ed7b0ffe8bb475969fac5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d4013d736d8cfcb75874bc0c86d20b86ab4dd62
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369612"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215837"
 ---
-# <a name="how-to-add-api-calls-to-a-conversation-learner-application"></a>Comment ajouter des appels d'API à une application d’Apprenant de conversation
+# <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Comment ajouter des appels d'API à un modèle d’Apprenant de conversation
 
-Ce tutoriel montre comment ajouter des appels d’API à votre application. Les appels d’API sont des fonctions que vous définissez et écrivez dans votre bot et que l’Apprenant de conversation peut appeler.
+Ce tutoriel montre comment ajouter des appels d’API à votre modèle. Les appels d’API sont des fonctions que vous définissez et écrivez dans votre bot et que l’Apprenant de conversation peut appeler.
+
+## <a name="video"></a>Vidéo
+
+[![Aperçu du didacticiel 12](http://aka.ms/cl-tutorial-12-preview)](http://aka.ms/blis-tutorial-12)
 
 ## <a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot « tutorialAPICalls.ts » soit en cours d’exécution.
@@ -34,11 +38,11 @@ Ce tutoriel nécessite que le bot « tutorialAPICalls.ts » soit en cours d’
 
 ### <a name="open-the-demo"></a>Ouvrir la démonstration
 
-Dans la liste des applications de l’interface utilisateur web, cliquez sur Tutorial-12-APICalls. 
+Dans la liste des modèles de l’interface utilisateur web, cliquez sur Tutorial-12-APICalls. 
 
 ### <a name="entities"></a>Entités
 
-Nous avons défini une entité appelée Nombre dans l’application.
+Nous avons défini une entité appelée Nombre dans le modèle.
 
 ![](../media/tutorial12_entities.PNG)
 
@@ -81,7 +85,7 @@ Examinons une boîte de dialogue d’apprentissage.
 4. Entrez « 8 ». Cliquez ensuite sur Attribuer un score aux actions.
 4. Sélectionnez « Multiplier $number 12 ». Notez le résultat de la multiplication.
 5. Sélectionnez « Effacer entités ».
-    - Notez que la valeur de l’entité du nombre a été effacée.
+    - La valeur de l’entité `number` a été effacée.
 3. Cliquez pour sélectionner « Quel nombre souhaitez-vous multiplier par 12 ? »
 4. Cliquez sur Tests terminés.
 

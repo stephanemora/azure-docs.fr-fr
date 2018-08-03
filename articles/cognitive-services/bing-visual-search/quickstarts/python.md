@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: a520466825eb429e45e0500b52bd7af502c0a38c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 96bd94e37c75d10726245fbcea7044d4ae2ed07e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370304"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070373"
 ---
 # <a name="your-first-bing-visual-search-query-in-python"></a>Votre première requête de recherche visuelle Bing dans Python
 
@@ -100,7 +100,8 @@ if __name__ == '__main__':
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Obtenir des informations sur une image à l’aide d’un jeton insights](../use-insights-token.md)  
-[Didacticiel de l’application à page unique Recherche visuelle Bing](../tutorial-bing-visual-search-single-page-app.md)  
+[Tutoriel de chargement d’images pour Recherche visuelle Bing](../tutorial-visual-search-image-upload.md)
+[Tutoriel de l’application à page unique Recherche visuelle Bing](../tutorial-bing-visual-search-single-page-app.md)  
 [Présentation de l’API Recherche visuelle Bing](../overview.md)  
 [Essayer](https://aka.ms/bingvisualsearchtryforfree)  
 [Obtenir une clé d’accès d’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

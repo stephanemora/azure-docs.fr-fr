@@ -1,7 +1,7 @@
 ---
-title: Comment utiliser des cartes avec une application d’apprenant de conversation, 2e partie - Microsoft Cognitive Services | Microsoft Docs
+title: Guide pratique pour utiliser des cartes avec un modèle Conversation Learner, 2e partie – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment utiliser des cartes avec une application d’Apprenant de conversation.
+description: Découvrez comment utiliser des cartes avec un modèle Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,17 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 254f0953fd3e281a35857e69d9795e3decebf45d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369564"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170570"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Comment utiliser des cartes (partie 1 de 2)
 Ce tutoriel montre comment ajouter une carte de formulaire à remplir à votre bot. Il indique comment les champs de formulaire se déplacent vers les entités.
 
 L’Apprenant de conversation attend que vos fichiers de définition de carte se trouvent dans un répertoire appelé « cartes », dans le répertoire où le bot est démarré.
+
+## <a name="video"></a>Vidéo
+
+[![Aperçu du tutoriel 14](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
@@ -33,7 +37,7 @@ Les cartes sont des éléments de l’interface utilisateur qui permettent à l�
 
 ### <a name="open-the-demo"></a>Ouvrir la démonstration
 
-Dans la liste des applications de l’interface utilisateur web, cliquez sur Tutorial-14-Cards-2. 
+Dans la liste des modèles de l’interface utilisateur web, cliquez sur Tutorial-14-Cards-2. 
 
 ### <a name="the-card"></a>La carte
 

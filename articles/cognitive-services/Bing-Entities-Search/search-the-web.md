@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que la Recherche d’entités Bing ? | Microsoft Docs
+title: Qu’est-ce que la Recherche d’entités Bing ? | Microsoft Docs
 description: Découvrez comment utiliser l’API Recherche d’entités Bing pour rechercher des entités et des lieux sur le web.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: f1b87c07d5b56307fd6b3fc68999598aeab6eb82
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370185"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008108"
 ---
 # <a name="what-is-bing-entity-search"></a>Qu’est-ce que la Recherche d’entités Bing ?
 
@@ -45,6 +45,8 @@ Pour un exemple de requête, consultez [Création de votre première requête](.
 ## <a name="the-response"></a>La réponse
 
 La réponse contient un objet [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse). Si Bing trouve une entité ou un lieu pertinent(e), l’objet inclut le champ `entities`, le champ `places`, ou les deux. Sinon, l’objet de réponse n’inclut aucun de ces champs.
+> [!NOTE]
+> Les réponses d’entité prennent en charge plusieurs marchés, mais la réponse Lieux prend en charge uniquement les adresses professionnelles aux États-Unis. 
 
 Le champ `entities` est un objet [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) qui contient une liste d’objets [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (voir le champ `value`). La liste peut contenir une seule entité dominante, plusieurs entités de levée de l’ambiguïté ou les deux. 
 
@@ -189,6 +191,8 @@ Les lieux incluent des restaurants, des hôtels ou des entreprises locales. Le c
     "Restaurant"]
 }, ...
 ```
+> [!NOTE]
+> Les réponses d’entité prennent en charge plusieurs marchés, mais la réponse Lieux prend en charge uniquement les adresses professionnelles aux États-Unis. 
 
 Les requêtes d’entités locales telles que *restaurant à proximité* ont besoin de l’emplacement de l’utilisateur pour fournir des résultats précis. Vos requêtes doivent toujours utiliser les en-têtes X-Search-Location et X-MSEdge-ClientIP pour spécifier l’emplacement de l’utilisateur. Si Bing pense que la requête a besoin de l’emplacement de l’utilisateur, il définit le champ `askUserForLocation` de [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) sur **true**. 
 

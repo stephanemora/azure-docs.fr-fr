@@ -1,7 +1,7 @@
 ---
-title: Comment utiliser des entités à valeurs multiples avec une application d’Apprenant de conversation - Microsoft Cognitive Services | Microsoft Docs
+title: Comment utiliser des entités à valeurs multiples avec un modèle d’Apprenant de conversation - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment utiliser des entités à valeurs multiples avec une application d’Apprenant de conversation.
+description: Découvrez comment utiliser des entités à valeurs multiples avec un modèle d’Apprenant de conversation.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 865b50747b2c9574b5f88d4902bea9e4c8e0e032
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369593"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173099"
 ---
-# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-application"></a>Comment utiliser des entités à valeurs multiples avec une application d’Apprenant de conversation
+# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Utiliser des entités à valeurs multiples avec un modèle d’Apprenant de conversation
 Ce tutoriel montre la propriété « valeur multiple » des entités.
+
+## <a name="video"></a>Vidéo
+
+[![Aperçu du didacticiel 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
 ##<a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
@@ -32,9 +36,9 @@ Concrètement, si une entité est marquée comme « valeur multiple », chaque
 
 ## <a name="steps"></a>Étapes
 
-### <a name="create-the-application"></a>Création de l'application
+### <a name="create-the-model"></a>Création du modèle
 
-1. Dans l’interface utilisateur web, cliquez sur New App
+1. Dans l’interface utilisateur web, cliquez sur New Model
 2. Dans Nom, entrez MultiValueEntities. Cliquez ensuite sur Créer.
 
 ### <a name="create-an-entity"></a>Créer une entité
@@ -76,7 +80,7 @@ Vous avez maintenant deux actions.
 3. Cliquez sur « champignons », puis sélectionnez des garnitures.
 4. Cliquez sur « fromage », puis sélectionnez des garnitures.
 5. Cliquez sur Attribuer un score aux actions
-    - Notez que les deux valeurs sont désormais présentes dans l’entité Garnitures. 
+    - Les deux valeurs sont désormais présentes dans l’entité Garnitures. 
 6. Sélectionnez « Voici vos garnitures : $Toppings ».
 
 Nous pouvons également ajouter :
@@ -84,7 +88,7 @@ Nous pouvons également ajouter :
 7. Entrez « ajouter des poivrons ».
     - Cliquez sur « poivrons » sous la détection d’entité, puis sélectionnez des ingrédients.
 3. Cliquez sur Attribuer un score aux actions.
-    - Notez que maintenant, les poivrons s’affichent comme valeur supplémentaire dans les garnitures.
+    - Maintenant, les « poivrons » s’affichent comme valeur supplémentaire dans les garnitures.
 6. Sélectionnez « Voici vos garnitures : $Toppings ».
 
 Nous allons supprimer une garniture et en ajouter une :
@@ -93,7 +97,7 @@ Nous allons supprimer une garniture et en ajouter une :
 1. Cliquez sur « poivrons », puis sur le x rouge pour les supprimer.
 2. Cliquez sur « poivrons » et sélectionnez « Garnitures ».
 3. Cliquez sur Attribuer un score aux actions.
-    - Notez que « poivrons » a été supprimé et que « salami » a été ajouté.
+    - « poivrons » a été supprimé et « salami » a été ajouté.
 6. Sélectionnez « Voici vos garnitures : $Toppings ».
 
 Maintenant nous allons essayez de tout supprimer :
@@ -101,7 +105,7 @@ Maintenant nous allons essayez de tout supprimer :
 6. Entrez « supprimer champignons, supprimer fromage et supprimer salami ».
 7. Cliquez sur chacun des trois, puis sélectionnez « -Garnitures ».
 7. Cliquez sur Attribuer un score aux actions.
-    - Notez que toutes les garnitures sont désactivées.
+    - Toutes les garnitures sont désactivées.
 2. Sélectionnez « Quelles garnitures voulez-vous ? »
 3. Cliquez sur Apprentissage terminé
 

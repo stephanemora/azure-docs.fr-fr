@@ -10,72 +10,60 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 2a1850e6a4f3c8eebd1b947aabe1374bdaab3fc8
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b08b461ceccbdf5e79d7bb4320bdc15d09c4b859
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030248"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114240"
 ---
 # <a name="sample-for-speech-to-text"></a>Exemple de reconnaissance vocale
 
-> [!NOTE]
-> Pour savoir comment télécharger cet exemple (et d’autres), consultez [Exemples de kit de développement logiciel (SDK) Speech](samples.md).
+[!include[Get a Subscription Key](../../../includes/cognitive-services-speech-service-get-subscription-key.md)]
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+## <a name="top-level-declarations"></a>Déclarations de niveau supérieur
 
-> [!NOTE]
-> Pour tous les exemples ci-dessous, les déclarations de niveau supérieur suivantes doivent être en place :
->
-> [!code-csharp[](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#toplevel)]
->
-> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#toplevel)]
->
-> - - -
+Pour tous les exemples ci-dessous, les déclarations de niveau supérieur suivantes doivent être en place :
+
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#toplevel)]
+
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#toplevel)]
+
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#toplevel)]
 
 ## <a name="speech-recognition-using-the-microphone"></a>Reconnaissance vocale avec le microphone
 
 L’extrait de code ci-dessous montre comment faire fonctionner la reconnaissance vocale depuis le microphone dans la langue par défaut (`en-US`).
 
-[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionWithMicrophone)]
+[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionWithMicrophone)]
 
-[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
+[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
 
-- - -
-
-## <a name="speech-recognition-from-a-file"></a>Reconnaissance vocale depuis un fichier
-
-L’extrait de code suivant reconnaît l’entrée vocale depuis un fichier audio dans la langue par défaut (`en-US`). Le format pris en charge est un canal WAV / PCM simple (mono) avec un taux d’échantillonnage de 16 KHz.
-
-[!include[Sample Audio](includes/sample-audio.md)]
-
-[!code-csharp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs?name=recognitionFromFile)]
-
-[!code-cpp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp?name=SpeechRecognitionWithFile)]
-
-- - -
+[!code-java[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionWithMicrophone)]
 
 ## <a name="speech-recognition-using-a-customized-model"></a>Reconnaissance vocale à l’aide d’un modèle personnalisé
 
 Le service [Custom Speech Service (CRIS)](https://www.cris.ai/) permet de personnaliser le moteur de reconnaissance vocale de Microsoft pour votre application. L’extrait de code ci-dessous montre comment reconnaître l’entrée vocale depuis un microphone à l’aide de votre modèle CRIS. Renseignez votre clé d’abonnement CRIS et l’identification de votre déploiement avant de l’exécuter.
 
-[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionCustomized)]
+[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionCustomized)]
 
-[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
+[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
 
-- - -
+[!code-java[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionCustomized)]
 
-## <a name="continuous-speech-recognition"></a>Reconnaissance vocale continue
+## <a name="continuous-speech-recognition-from-a-file"></a>Reconnaissance vocale continue depuis un fichier
 
-[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionContinuous)]
+L’extrait de code suivant reconnaît de façon continue l’entrée vocale depuis un fichier audio dans la langue par défaut (`en-US`). Le format pris en charge est un canal WAV / PCM simple (mono) avec un taux d’échantillonnage de 16 kHz.
 
-[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionUsingEvents)]
+[!include[Sample Audio](../../../includes/cognitive-services-speech-service-sample-audio.md)]
 
-- - -
+[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionContinuousWithFile)]
 
-## <a name="sample-source-code"></a>Exemple de code source
+[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionWithFile)]
 
-La dernière version des exemples et des exemples encore plus avancés se trouvent dans un [référentiel GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk) dédié.
+[!code-java[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionContinuousWithFile)]
+
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2214436b193932e5b3b80c190f7754a0436b7ed8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369668"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171015"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Guide pratique pour utiliser les entrées de remplacement
 
 Ce tutoriel montre comment utiliser le champ « Entrées de remplacement » de l’entrée de l’utilisateur dans l’interface d’apprentissage.
 
+## <a name="video"></a>Vidéo
+
+[![Aperçu du didacticiel 8](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+
 ## <a name="requirements"></a>Configuration requise
-Pour les besoins de ce tutoriel, le bot général des tutoriels doit être en cours d’exécution.
+Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
 
     npm run tutorial-general
 
@@ -31,15 +35,15 @@ Les « entrées de remplacement » sont des énoncés que l’utilisateur aura
 
 ## <a name="steps"></a>Étapes
 
-### <a name="create-the-application"></a>Création de l'application
+### <a name="create-the-model"></a>Création du modèle
 
-1. Dans l’interface utilisateur web, cliquez sur Nouvelle application.
+1. Dans l’interface utilisateur web, cliquez sur New Model
 2. Dans Nom, entrez AlternativeInputs. Cliquez ensuite sur Créer.
 
 ### <a name="create-an-entity"></a>Créer une entité
 
 1. Cliquez sur Entités, puis sur Nouvelle entité.
-2. Dans Nom de l’entité, entrez « city ».
+2. Dans la partie correspondant au nom de l’entité, entrez la ville.
 3. Cliquez sur Créer.
 
 ### <a name="create-three-actions"></a>Créer trois actions
@@ -74,8 +78,8 @@ Vous avez maintenant trois actions.
 2. Entrez « Denver ».
 3. Double-cliquez sur « Denver » et sélectionnez « ville ».
     - Seattle est marqué comme entité de type « ville ».
-5. Cliquez sur Attribuer un score aux actions.
-    - Notez que Denver est maintenant présente dans l’entité « ville ». 
+5. Cliquez sur Attribuer un score aux actions
+    - denver est maintenant présente dans l’entité ville. 
 6. Sélectionnez « Il fait probablement beau à $city ».
 7. Cliquez sur Apprentissage terminé.
 
@@ -87,8 +91,8 @@ Ajoutez un autre exemple de dialogue :
 2. Tapez « Quel temps fait-il à Seattle ? ».
 3. Double-cliquez sur « Seattle » et sélectionnez « ville ».
     - Seattle est marqué comme entité de type « ville ».
-5. Cliquez sur Attribuer un score aux actions.
-    - Notez que Seattle est maintenant présente dans l’entité « ville ». 
+5. Cliquez sur Attribuer un score aux actions
+    - seattle est maintenant présente dans l’entité ville. 
 6. Sélectionnez « Il fait probablement beau à $city ».
 7. Cliquez sur Apprentissage terminé.
 
@@ -97,7 +101,7 @@ Voyons ce qui se passe si le propos de l’utilisateur est similaire d’un poin
 1. Cliquez sur Nouvelle Action, puis sur Nouveau dialogue d’apprentissage.
 2. Tapez « Aide ».
 3. Cliquez sur Attribuer un score aux actions.
-    - Notez que les scores des deux réponses potentielles sont très proches, ce qui indique que le modèle ne connaît pas la limite entre les deux actions.
+    - Les scores des deux réponses potentielles sont très proches. ce qui indique que le modèle ne connaît pas la limite entre les deux actions.
 6. Cliquez sur Abandonner l’apprentissage et Confirmer.
 
 ![](../media/tutorial8_closescores.png)
@@ -117,7 +121,7 @@ Dans ce cas, il serait utile d’ajouter des entrées de remplacement aux dialog
 
 2. Cliquez maintenant sur « Quel temps fait-il à Seattle ? ».
     1. Dans Ajouter une entrée de remplacement, entrez « météo de Seattle ».
-    2. Double-cliquez sur « Seattle » et sélectionnez « ville ». Notez que les entrées de remplacement doivent avoir le même jeu d’entités et que celles-ci doivent être présentes. Si le contenu des entités est différent, cela ne pose pas de problème.
+    2. Double-cliquez sur « Seattle » et sélectionnez « ville ». Les entités des entrées de remplacement doivent avoir le même jeu d’entités et que celles-ci doivent être présentes. Si le contenu des entités est différent, cela ne pose pas de problème.
     3. Dans Ajouter une entrée de remplacement, entrez « Va-t-il pleuvoir aujourd'hui à Denver ? ».
     4. Cliquez sur « Denver » et sélectionnez « ville ».
     5. Cliquez sur Envoyer les modifications et Terminé.
@@ -134,7 +138,7 @@ Ajoutons des entrées de remplacement au premier dialogue :
 4. Cliquez pour sélectionner « Denver » dans le volet gauche :
     1. Dans Ajouter une entrée de remplacement, entrez « de Seattle ».
     2. Entrez « météo d’Austin ».
-        - Notez que l’expression complète est mise en surbrillance. Cliquez dessus, puis sur la croix (x) rouge. Ensuite, sélectionnez Austin et cliquez sur « ville ».
+        - L’expression complète est mise en surbrillance. Cliquez dessus, puis sur la croix (x) rouge. Ensuite, sélectionnez Austin et cliquez sur « ville ».
         - Cliquez sur Envoyer les modifications.
     1. Cliquez sur Terminé pour entraîner à nouveau le modèle.
 
@@ -145,7 +149,7 @@ Essayons les variantes :
 1. Cliquez sur Nouveau dialogue d’apprentissage.
 2. Tapez « Quelles sont vos fonctionnalités ? ».
 3. Cliquez sur Attribuer un score aux actions.
-    - Notez que les scores sont maintenant plus déterminants pour l’action suivante, qui indique le degré de certitude du modèle.
+    - Les scores sont maintenant plus déterminants pour l’action suivante, qui indique le degré de certitude du modèle.
 2. Sélectionnez « Essayez de demander la météo ».
 6. Cliquez sur Apprentissage terminé.
 

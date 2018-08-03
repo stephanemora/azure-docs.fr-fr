@@ -8,28 +8,22 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b9b7b8af5ce3d75788fd2c4f5e0309b5ca561a8f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370685"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113390"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>À propos du Kit de développement logiciel (SDK) Speech de Cognitive Services
 
 Le Kit de développement logiciel (SDK) Speech de Cognitive Services fournit à vos applications un accès natif aux fonctions du service Speech, facilitant le développement de logiciels. Actuellement, le SDK fournit un accès à **Reconnaissance vocale**, **Traduction vocale** et **Reconnaissance de l'intention**.
 
-Le tableau répertorie les systèmes d’exploitation et langages de programmation actuellement pris en charge.
+[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-|Système d’exploitation pris en charge|Langage de programmation|
-|-|-|
-|Windows|C/C++, C#|
-|Linux|C/C++|
-|Appareils|Java\*|
-
-\* *Le Kit de développement logiciel (SDK) Java fait partie du [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).*
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="get-the-windows-sdk"></a>Obtenir le SDK Windows
 
@@ -61,9 +55,25 @@ Pour créer une application, copiez ou déplacez les fichiers binaires (et les b
 
 ## <a name="get-the-java-sdk"></a>Obtenir le Kit de développement logiciel (SDK) Java
 
-Le Kit de développement logiciel (SDK) Java fait partie du [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).
+Le Kit de développement logiciel (SDK) Java pour Android est empaqueté sous forme de package [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires ainsi que les autorisations Android requises pour son utilisation.
+Il est hébergé dans un référentiel Maven dans `https://csspeechstorage.blob.core.windows.net/maven/`, en tant que package `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
+Pour utiliser le package dans votre projet Android Studio, effectuez les modifications suivantes :
+
+* Dans le fichier `build.gradle` au niveau du projet, ajoutez le texte suivant à la section `repository` :
+
+  ```text
+  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
+  ```
+
+* Dans le fichier `build.gradle` au niveau du module, ajoutez le texte suivant à la section `dependencies` :
+
+  ```text
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
+  ```
+
+Le Kit de développement logiciel (SDK) Java fait aussi partie du [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-windows.md)
+* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-dotnet-windows.md)

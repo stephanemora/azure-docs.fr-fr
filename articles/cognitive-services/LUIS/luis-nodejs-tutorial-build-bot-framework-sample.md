@@ -2,19 +2,19 @@
 title: Intégrer LUIS avec un bot à l’aide du Kit SDK Bot Builder pour Node.js dans Azure | Microsoft Docs
 description: Générez un bot intégré à une application LUIS à l’aide de Bot Framework.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: v-geberr
-ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264971"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224073"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Intégrer LUIS avec un bot à l’aide du Kit SDK Bot Builder pour Node.js
 
@@ -38,7 +38,7 @@ Le bot répond aux intentions du domaine HomeAutomation qui se trouvent dans l�
 
     ![Créer une ressource](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
-2. Dans la zone de recherche, recherchez **Bot Web App**. 
+2. Dans la zone de recherche, recherchez **Web App Bot**. 
 
     ![Créer une ressource](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
@@ -235,10 +235,10 @@ Sur le Portail Azure, sélectionnez **Tester dans la Discussion Web** pour teste
    ![Tester le bot HomeAutomation dans la Discussion Web](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Si vous trouvez que votre bot ne reconnaît pas toujours la bonne intention ou les bonnes entités, améliorez les performances de votre application LUIS en lui donnant d’autres exemples d’énoncés pour l’entraîner. Ce nouvel apprentissage est possible sans aucune modification du code du bot. Voir [Ajouter des exemples d’énoncés](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) et [Entraîner et tester une application LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> Si vous trouvez que votre bot ne reconnaît pas toujours la bonne intention ou les bonnes entités, améliorez les performances de votre application LUIS en lui donnant d’autres exemples d’énoncés pour l’entraîner. Ce nouvel apprentissage est possible sans aucune modification du code du bot. Voir [Ajouter des exemples d’énoncés](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) et [Entraîner et tester une application LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>En savoir plus sur Bot Framework
-En savoir plus sur [Bot Framework](https://dev.botframework.com/) et les Kits SDK [3.x](https://github.com/Microsoft/BotBuilder) et [4.x](https://github.com/Microsoft/botbuilder-js).
+En savoir plus sur [Bot Framework](https://dev.botframework.com/) et sur les kits de développement logiciel (SDK) [3.x](https://github.com/Microsoft/BotBuilder) et [4.x](https://github.com/Microsoft/botbuilder-js).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

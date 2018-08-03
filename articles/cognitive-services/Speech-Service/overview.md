@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que le service Speech (préversion) ? | Microsoft Docs
+title: Qu’est-ce que le service Speech (préversion) ? | Microsoft Docs
 description: 'Le service Speech fait partie des services Cognitive Services de Microsoft et regroupe plusieurs services de reconnaissance vocale Azure qui étaient auparavant disponibles séparément : la reconnaissance vocale Bing (incluant la reconnaissance vocale et la synthèse vocale), Custom Speech et la traduction vocale.'
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e7c09eee1634c52e78a523a7cc65641ea99f23e6
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: adfc854fc24b9e285c405f3038a21ec84cd2f4c2
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370993"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989333"
 ---
 # <a name="what-is-the-speech-service-preview"></a>Qu’est-ce que le service Speech (préversion) ?
 
@@ -38,8 +38,8 @@ Le service Speech est accessible de deux manières. [Le kit de développement lo
 
 |<br>Méthode|Speech<br>to Text|Text to<br>Speech|Speech<br>Traduction|<br>Description|
 |-|-|-|-|-|
-|[Kits de développement logiciel (SDK)](speech-sdk.md)|OUI|Non |OUI|Bibliothèques pour des langages de programmation spécifiques qui simplifient le développement.|
-|[REST](rest-apis.md)|OUI|OUI|Non |API simple basée sur HTTP qui permet d’ajouter facilement la reconnaissance vocale à votre application.|
+|[Kits de développement logiciel (SDK)](speech-sdk.md)|Oui|Non |Oui|Bibliothèques pour des langages de programmation spécifiques qui simplifient le développement.|
+|[REST](rest-apis.md)|Oui|Oui|Non |API simple basée sur HTTP qui permet d’ajouter facilement la reconnaissance vocale à votre application.|
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
@@ -60,7 +60,7 @@ Vous pouvez personnaliser des modèles linguistiques et acoustiques de reconnais
 
 L’API [Synthèse vocale](text-to-speech.md) (TTS) convertit le texte brut en un discours plus naturel qui est remis à votre application dans un fichier audio. Plusieurs voix, avec des genres et accents variés, sont disponibles pour de nombreuses langues prises en charge.
 
-L’API prend en charge les balises de langage de balisage de synthèse vocale (SSML). Vous pouvez ainsi spécifier la prononciation phonétique exacte des mots problématiques. Le SSML peut également indiquer les caractéristiques vocales (comme l’accentuation, la fréquence, le volume, le genre et le ton) directement dans le texte.
+L’API prend en charge les [balises de langage de balisage de synthèse vocale (SSML)](speech-synthesis-markup.md). Vous pouvez ainsi spécifier la prononciation phonétique exacte des mots problématiques. Le SSML peut également indiquer les caractéristiques vocales (comme l’accentuation, la fréquence, le volume, le genre et le ton) directement dans le texte.
 
 Voici des cas d’utilisation courants pour l’API Synthèse vocale.
 
@@ -68,7 +68,7 @@ Voici des cas d’utilisation courants pour l’API Synthèse vocale.
 * L’invite vocale pour les applications de voiture, telles que la navigation
 * Les interfaces utilisateur de conversation conjointement avec l’API Reconnaissance vocale
 
-Si vous avez besoin d’utiliser un dialecte non pris en charge ou souhaitez une voix unique pour votre application, l’API Synthèse vocale prend en charge des modèles vocaux personnalisés.
+Si vous avez besoin d’utiliser un dialecte non pris en charge ou souhaitez une voix unique pour votre application, l’API Synthèse vocale prend en charge des [modèles vocaux personnalisés](how-to-customize-voice-font.md).
 
 ## <a name="speech-translation"></a>Traduction vocale
 
@@ -84,6 +84,8 @@ Les cas d’usage de la traduction vocale incluent les éléments suivants.
 Avec l’introduction du service Speech unifié, Microsoft et ses partenaires offrent une plateforme matérielle/logicielle intégrée, optimisée pour le développement de dispositifs vocaux : le [kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md). Ce SDK est approprié pour le développement de dispositifs vocaux connectés pour tous les types d’applications.
 
 Le kit de développement logiciel (SDK) Speech Devices vous permet de créer vos propres appareils ambiants avec un mot déclencheur personnalisé, de façon à ce que l’élément qui déclenche la capture audio soit spécifique à votre marque. Il fournit également un traitement audio supérieur à partir de sources multicanaux pour une reconnaissance vocale plus précise, incluant notamment la suppression de bruit, la voix en champ lointain et la formation de faisceaux.
+
+Le Kit de développement logiciel (SDK) est basé sur des sockets web via le port 443.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8160302faa373d69b65afe6b68a8efb44442850d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41e0855b126ca6e54d0a487a88fe59a0be6f72f6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370344"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071993"
 ---
 # <a name="your-first-bing-visual-search-query-in-java"></a>Votre première requête de recherche visuelle Bing dans Java
 
@@ -32,12 +32,12 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Cet article inclut une application console qui envoie une requête d’API Recherche visuelle Bing et affiche les résultats de la recherche au format JSON. Si d’un côté l’application est écrite en Java, de l’autre, l’API est un service web RESTful compatible avec n’importe quel langage de programmation dès lors qu’il est capable de formuler des requêtes HTTP et d’analyser un format JSON. 
+Cet article inclut une application console qui envoie une requête d’API Recherche visuelle Bing et affiche les résultats de la recherche au format JSON. Alors que cette application est écrite en Java, l’API est un service web RESTful compatible avec n’importe quel langage de programmation qui peut formuler des requêtes HTTP et analyser JSON. 
 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer de [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) pour compiler et exécuter ce code. Vous pouvez utiliser un IDE Java si vous préférez, mais un éditeur de texte suffit.
+Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
 
 Pour ce démarrage rapide, vous pouvez utiliser une clé d’abonnement en [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou en version payante.
 
@@ -48,8 +48,8 @@ Voici comment charger l’image à l’aide de MultipartEntityBuilder dans Java.
 Pour exécuter cette application, suivez les étapes ci-dessous :
 
 1. Téléchargez ou installez la [bibliothèque gson](https://github.com/google/gson). Vous pouvez également l’obtenir via Maven.
-2. Créez un projet Java dans votre éditeur ou IDE préféré.
-3. Ajoutez le code fourni dans un fichier appelé `VisualSearch.java`.
+2. Créez un projet Java dans votre éditeur ou IDE favori.
+3. Ajoutez le code fourni dans un fichier nommé `VisualSearch.java`.
 4. Remplacez la valeur `subscriptionKey` par votre clé d’abonnement.
 4. Remplacez la valeur `imagePath` par le chemin d’accès de l’image à charger.
 5. Exécutez le programme.
@@ -147,9 +147,10 @@ public class UploadImage2 {
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Obtenir des informations sur une image à l’aide d’un jeton insights](../use-insights-token.md)  
-[Didacticiel de l’application à page unique Recherche visuelle Bing](../tutorial-bing-visual-search-single-page-app.md)  
+[Tutoriel de chargement d’images pour Recherche visuelle Bing](../tutorial-visual-search-image-upload.md)
+[Tutoriel de l’application à page unique Recherche visuelle Bing](../tutorial-bing-visual-search-single-page-app.md)  
 [Présentation de l’API Recherche visuelle Bing](../overview.md)  
 [Essayer](https://aka.ms/bingvisualsearchtryforfree)  
-[Obtenir une clé d’accès pour un essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Obtenir une clé d’accès d’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Informations de référence sur l’API Recherche visuelle Bing](https://aka.ms/bingvisualsearchreferencedoc)
 

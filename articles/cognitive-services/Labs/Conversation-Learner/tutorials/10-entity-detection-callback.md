@@ -1,7 +1,7 @@
 ---
-title: Comment utiliser le rappel de détection d’entités avec une application d’Apprenant de conversation - Microsoft Cognitive Services | Microsoft Docs
+title: Guide pratique pour utiliser le rappel de détection d’entités avec un modèle Conversation Learner – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment utiliser le rappel de détection d’entités avec une application d’Apprenant de conversation.
+description: Découvrez comment utiliser le rappel de détection d’entités avec un modèle Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,42 +10,46 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e41ea5930ff0c8395d0c93aa42e224ebfc894ba8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f168018a23d03ffb957da2dd1f67881420a21208
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369601"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171101"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Comment utiliser le rappel de détection d’entités
 
 Ce tutoriel montre le rappel de détection d’entités et illustre un modèle courant pour résoudre des entités.
 
+## <a name="video"></a>Vidéo
+
+[![Aperçu du tutoriel 10](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
+
 ## <a name="requirements"></a>Configuration requise
-Ce tutoriel nécessite que le bot « tutorialEntityDetectionCallback » soit en cours d’exécution.
+Pour les besoins de ce tutoriel, le bot `tutorialEntityDetectionCallback` doit être en cours d’exécution.
 
     npm run tutorial-entity-detection
 
 ## <a name="details"></a>Détails
-Le rappel de détection d’entité permet d’utiliser du code personnalisé pour gérer des règles d’entreprise concernant des entités. Dans cette démonstration, nous allons utiliser des rappels et des entités par programmation pour résoudre le nom de ville entré par l’utilisateur à un nom canonique, par exemple, résolution de « la grosse pomme » à « new york ».
+Le rappel de détection d’entité permet d’utiliser du code personnalisé pour gérer des règles d’entreprise concernant des entités. Cette démonstration utilise des rappels et des entités programmatiques pour traduire le nom de ville entré par l’utilisateur en un nom canonique, par exemple, « Big Apple » en « New York ».
 
 ### <a name="open-the-demo"></a>Ouvrir la démonstration
 
-Dans la liste des applications, cliquez sur Tutorial-10-EntityDetenctionCallback. 
+Dans la liste des modèles, cliquez sur Tutorial-10-EntityDetectionCallback. 
 
 ### <a name="entities"></a>Entités
 
-Nous avons défini trois entités dans l’application.
+Trois entités sont définies dans le modèle.
 
 ![](../media/tutorial10_entities.PNG)
 
-1. La ville est une entité personnalisée que l’utilisateur fournit sous forme d’entrée de texte.
-2. CityUnknown est une entité de programmation. Cela sera rempli par le système. Il copiera l’entrée de l’utilisateur si le système ne sait pas de quelle ville il s’agit.
-3. CityResolved est la ville que le système connaît. Ce sera le nom canonique de la ville par exemple « grosse pomme » sera converti en « new york ».
+1. La ville est une entité personnalisée fournie par l’utilisateur en entrée textuelle.
+2. CityUnknown est une entité de programmation. Elle sera remplie par le système. Il copiera l’entrée de l’utilisateur si le système ne sait pas de quelle ville il s’agit.
+3. CityResolved est la ville que le système connaît. Ce sera le nom canonique de la ville ; par exemple, « Big Apple » sera traduit en « New York ».
 
 ### <a name="actions"></a>Actions
 
-Nous avons créé trois actions. 
+Trois actions sont définies dans le modèle.
 
 ![](../media/tutorial10_actions.PNG)
 
@@ -62,7 +66,7 @@ Examinons le code. Vous pouvez trouver la méthode EntityDetectionCallback dans 
 Cette fonction est appelée après la résolution d’entité.
  
 - La première chose qu’elle fera est de supprimer $CityUknown. $CityUknown persiste uniquement une fois, puisqu’elle est toujours supprimée au début.
-- Ensuite, nous obtenons la liste des villes qui ont été reconnues. Prenez la première et essayez de la résoudre.
+- Ensuite, elle récupère la liste des villes qui ont été reconnues. Prenez la première et essayez de la résoudre.
 - La fonction qui résout (resolveCity) est définie plus haut dans le code. Elle contient une liste de noms de villes canoniques. Si elle trouve le nom de ville dans la liste, elle le retourne. Sinon, elle recherche dans 'cityMap' et renvoie le nom mappé. Si elle ne trouve pas de ville, elle retourne la valeur null.
 - Enfin, si la ville est résolu en un nom, nous le stockons dans l’entité $CityKnown. Sinon, supprimez ce que l’utilisateur a dit et remplissez l’entité $CityUknown.
 
@@ -72,9 +76,9 @@ Cette fonction est appelée après la résolution d’entité.
 2. Tapez « Bonjour ».
 3. Cliquez sur Attribuer un score aux actions et sélectionnez « Quelle ville souhaitez-vous ? »
 2. Entrez « new york ».
-    - Notez qu’elle est reconnue comme entité de ville.
+    - Le texte est reconnu comme étant une entité de ville.
 5. Cliquez sur Attribuer un score aux actions
-    - Notez que la ville et CityResolved ont été renseignées.
+    - `City` et `CityResolved` ont été remplis.
 6. Sélectionnez « Vous avez dit $City, et j’ai résolu avec $CityResolved ».
 7. Cliquez sur Apprentissage terminé.
 
@@ -84,9 +88,9 @@ Ajoutez un autre exemple de dialogue :
 2. Tapez « Bonjour ».
 3. Cliquez sur Attribuer un score aux actions et sélectionnez « Quelle ville souhaitez-vous ? »
 2. Entrez « big apple ».
-    - Notez qu’elle est reconnue comme entité de ville.
+    - Le texte est reconnu comme étant une entité de ville.
 5. Cliquez sur Attribuer un score aux actions
-    - Notez que CityResolved montre l’effet du code en cours d’exécution.
+    - `CityResolved` montre l’effet du code en cours d’exécution.
 6. Sélectionnez « Vous avez dit $City, et j’ai résolu avec $CityResolved ».
 7. Cliquez sur Apprentissage terminé.
 
@@ -101,7 +105,7 @@ Ajoutez un autre exemple de dialogue :
 6. Sélectionnez « Je ne connais pas cette ville, $CityUknown. Quelle ville souhaitez-vous ? ».
 7. Entrez « new york ».
 8. Cliquez sur Attribuer un score aux actions.
-    - Notez que CityUknown a été supprimé et que CityResolved est rempli.
+    - `CityUknown` a été effacé, et `CityResolved` est rempli.
 6. Sélectionnez « Vous avez dit $City, et j’ai résolu avec $CityResolved ».
 7. Cliquez sur Apprentissage terminé.
 

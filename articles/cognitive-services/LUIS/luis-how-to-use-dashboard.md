@@ -2,19 +2,19 @@
 title: Tableau de bord des applications LUIS | Microsoft Docs
 description: Découvrez le tableau de bord d’application, un outil visuel de création de rapports, qui permet de surveiller vos applications en un coup d’œil.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: diberry
+ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370773"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224498"
 ---
 # <a name="application-dashboard"></a>Tableau de bord d’application
 Le tableau de bord d’application permet de surveiller votre application d’un seul coup d’œil. Le **tableau de bord** s’affiche lorsque vous ouvrez une application en cliquant sur son nom sur la page **Mes applications**, puis choisissez **Tableau de bord** dans le panneau supérieur. 
@@ -69,7 +69,7 @@ Pour sélectionner une période à afficher sur le graphique :
 2. Sélectionnez une période dans la liste, puis cliquez sur la flèche vers la gauche ![Flèche vers la gauche](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) pour afficher le graphique.
 
 ### <a name="key-usage"></a>Utilisation de la clé
-Nombre d’accès utilisés à partir de la clé d’abonnement de l’application. Pour plus d’informations sur les clés d’abonnement, consultez la rubrique sur les [clés dans LUIS](luis-concept-keys.md). 
+Nombre d’accès utilisés à partir de la clé de point de terminaison de l’application. Pour plus d’informations sur les clés de point de terminaison, voir [Clés dans LUIS](luis-concept-keys.md). 
   
 ## <a name="intent-breakdown"></a>Répartition des intentions
 La **répartition des intentions** repose sur les énoncés étiquetés ou les accès de point de terminaison. Ce graphique de synthèse indique l’importance relative de chaque intention dans l’application. Lorsque vous placez le pointeur de la souris sur un secteur, vous voyez le nom de l’intention et son pourcentage par rapport au nombre total d’énoncés étiquetés ou d’accès de point de terminaison. 

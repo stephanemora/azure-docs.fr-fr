@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: d9c61a83450844461f621ff16354881a029f7ad6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 94847adf761652a25fd3e2d594c7169776fefc89
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266292"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125123"
 ---
 # <a name="quickstart-for-text-analytics-api-with-c"></a>Démarrage rapide de l’API Analyse de texte avec C# 
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) p
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API Analyse de texte**. Vous pouvez utiliser le **niveau gratuit à 5 000 transactions/mois** pour suivre ce guide de démarrage rapide.
+Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API Analyse de texte**. Vous pouvez utiliser le **niveau gratuit pour 5 000 transactions par mois** afin de suivre ce guide de démarrage rapide.
 
 Il vous faut également le [point de terminaison et la clé d'accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription. 
 
@@ -48,7 +48,7 @@ Il vous faut également le [point de terminaison et la clé d'accès](../How-tos
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>Appeler l’API Analyse de texte avec le Kit SDK
 1. Remplacez Program.cs par le code ci-dessous. Ce programme illustre les fonctionnalités de l’API Analyse de texte en trois sections (extraction de la langue, extraction de phrases clés et analyse des sentiments).
 1. Remplacez la valeur d’en-tête `Ocp-Apim-Subscription-Key` par une clé d’accès valide pour votre abonnement.
-1. Remplacez l’emplacement dans `client.AzureRegion` (actuellement, `AzureRegions.Westus`) par la région sur laquelle porte votre inscription.
+1. Remplacez l’emplacement dans `client.BaseUri` par le point de terminaison sur lequel porte votre inscription. Vous trouverez le point de terminaison dans les ressources du portail Azure. Le point de terminaison se présente généralement sous la forme « https://[région].api.cognitive.microsoft.com/text/analytics/v2.0 ».
 1. Exécutez le programme.
 
 ```csharp
@@ -81,8 +81,8 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsAPI client = new TextAnalyticsAPI(new ApiKeyServiceClientCredentials());
-            client.AzureRegion = AzureRegions.Westus;
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
+            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
@@ -155,10 +155,10 @@ namespace ConsoleApp1
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Analyse de texte avec Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Analyse de texte avec Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Voir aussi 
 
- [Vue d’ensemble de l’Analyse de texte](../overview.md)  
- [Foire aux questions (FAQ)](../text-analytics-resource-faq.md)
+ [Vue d’ensemble d’Analyse de texte](../overview.md)  
+ [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)
 

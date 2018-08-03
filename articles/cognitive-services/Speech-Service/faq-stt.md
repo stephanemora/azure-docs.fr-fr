@@ -9,22 +9,22 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054891"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223885"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Forum aux questions sur Custom Speech Service
+# <a name="speech-to-text-frequently-asked-questions"></a>Foire aux questions sur la reconnaissance vocale
 
-Si vous ne trouvez pas les réponses à vos questions dans ce Forum aux questions, essayez d’interroger la Communauté Custom Speech Service sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) et [UserVoice](https://cognitive.uservoice.com/).
+Si vous ne trouvez pas les réponses à vos questions dans cette FAQ, essayez d’interroger la communauté Custom Speech Service sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) et [UserVoice](https://cognitive.uservoice.com/).
 
 ## <a name="general"></a>Généralités
 
-**Question** : Quelle est la différence entre les modèles de base et les modèles de reconnaissance vocale personnalisés ?
+**Question** : Quelle est la différence entre les modèles de reconnaissance vocale personnalisés et les modèles de base ?
 
-**Réponse** : Les modèles de base ont été formés avec des données appartenant à Microsoft et sont déjà déployés dans le cloud. Les modèles personnalisés permettent à l’utilisateur d’adapter un modèle afin qu’il corresponde mieux à un environnement particulier avec du bruit ambiant ou un langage spécifiques. Des usines, des voitures ou des rues bruyantes nécessitent un modèle acoustique adapté, tandis que des sujets tels que la biologie, la physique, la radiologie, les noms de produits et les acronymes personnalisés nécessitent un modèle de langage.
+**Réponse** : Les modèles de base ont été formés avec des données appartenant à Microsoft et sont déjà déployés dans le cloud. Les modèles personnalisés permettent à l’utilisateur d’adapter un modèle afin qu’il corresponde mieux à un environnement particulier avec du bruit ambiant ou un langage spécifiques. Les ateliers, les voitures et les rues bruyantes supposent un modèle acoustique adapté, tandis que des sujets tels que la biologie, la physique ou la radiologie, les noms de produits et les acronymes personnalisés nécessitent un modèle de langage approprié.
 
 **Question** : Par où commencer si je souhaite utiliser un modèle de base ?
 
@@ -32,29 +32,24 @@ Si vous ne trouvez pas les réponses à vos questions dans ce Forum aux question
 
 **Question** : Dois-je toujours générer un modèle vocal personnalisé ?
 
-**Réponse** : Non. Si votre application utilise un langage de tous les jours générique, sans vocabulaire spécifique ou rare, vous n’êtes pas obligé de personnaliser un modèle. En outre, si votre application doit être utilisée dans un environnement avec peu ou pas de bruit de fond, il n’est pas non plus nécessaire de personnaliser un modèle. Le portail permet aux utilisateurs de déployer des modèles de base et des modèles personnalisés, ainsi que d’exécuter des tests de précision dessus. Ils peuvent utiliser cette fonctionnalité pour mesurer la précision d’un modèle de base et celle d’un modèle personnalisé.
+**Réponse** : Non. Si votre application utilise un langage générique de tous les jours, il n’est pas nécessaire de personnaliser un modèle. Si elle est utilisée dans un environnement dénué de bruit de fond ou presque, ce n’est pas nécessaire non plus. Le portail permet aux utilisateurs de déployer des modèles de base et des modèles personnalisés, ainsi que d’exécuter des tests de précision dessus. Ils peuvent utiliser cette fonctionnalité pour mesurer la précision d’un modèle de base et celle d’un modèle personnalisé.
 
 **Question** : Comment savoir si le traitement de mon jeu de données ou de mon modèle est terminé ?
 
 **Réponse** : Actuellement, la seule façon de le savoir est de consulter l’état du modèle ou du jeu de données situé dans la table.
-Quand le traitement est terminé, l’état indique « Prêt ».
+Quand le traitement est terminé, l’état indique « Réussi ».
 
-**Question** : Puis-je créer plusieurs modèles à la fois ?
+**Question** : Puis-je créer plusieurs modèles ?
 
-**Réponse** : Le nombre de modèles dans votre collection n’est pas limité, mais vous ne pouvez en créer qu’un seul à la fois sur chaque page.
-Par exemple, vous ne pouvez pas démarrer le processus de création d’un modèle de langage s’il y en a déjà un en cours de création.
-Il est toutefois possible qu’un modèle acoustique et un modèle de langage soient traités simultanément. 
+**Réponse** : Le nombre de modèles dans une collection n’est pas limité.
 
 **Question** : J’ai réalisé que j’ai fait une erreur. Comment annuler l’importation de mes données ou la création d’un modèle en cours ? 
 
-**Réponse** : Actuellement, vous ne pouvez pas restaurer un processus d’adaptation de langage ou acoustique.
-Les données importées peuvent être supprimées après leur importation.
+**Réponse** : Actuellement, vous ne pouvez pas restaurer un processus d’adaptation de langage ou acoustique. Les modèles et les données importés peuvent être supprimés une fois qu’ils sont dans un état final.
 
 **Question** : Quelle est la différence entre les modèles Recherche & Dictée et les modèles de conversation ?
 
-**Réponse** : Custom Speech Service permet de choisir entre deux modèles de langage et acoustiques de base :
-requêtes de recherche ou dictée. Le modèle acoustique de conversation (Conversational) Microsoft est approprié pour la reconnaissance vocale de mots prononcés dans un style conversationnel.
-Ce type de contenu vocal s’adresse généralement à une autre personne, comme dans les centres d’appel ou les réunions.
+**Réponse** : Il existe plusieurs modèles de base dans le service de reconnaissance vocale. Le modèle Conversation est adapté à la reconnaissance vocale de type conversationnel. Il est idéal pour transcrire des appels, tandis que Recherche & Dictée convient tout particulièrement aux applications à commande vocale. Le nouveau modèle Universel vise à couvrir ces deux scénarios.
 
 **Question** : Puis-je mettre à jour mon modèle existant (empilement de modèles) ?
 
@@ -62,7 +57,7 @@ Ce type de contenu vocal s’adresse généralement à une autre personne, comme
 
 L’ancien jeu de données et le nouveau doivent être combinés en un seul fichier .zip (s’il s’agit de données acoustiques) ou en un fichier .txt (s’il s’agit de données de langage). Une fois l’adaptation terminée, le déploiement du nouveau modèle mis à jour doit être annulé afin d’obtenir un nouveau point de terminaison.
 
-**Question** : Que faire si j’ai besoin d’une concurrence plus élevée que la valeur par défaut ou que ce qui est offert dans le portail ? 
+**Question** : Que faire si j’ai besoin d’une concurrence plus élevée pour mon modèle déployé que ce que propose le portail ? 
 
 **Réponse** : Vous pouvez augmenter la taille de votre modèle par incréments de 20 requêtes simultanées. 
 
@@ -78,13 +73,13 @@ Contactez-nous si vous avez besoin d’augmenter cette valeur.
 
 ## <a name="importing-data"></a>Importation de données
 
-**Question** : Quelle est la limite de taille du jeu de données ? Pourquoi ? 
+**Question** : Quelle est la limite de taille du jeu de données ? Pourquoi ? 
 
 **Réponse** : La limite actuelle pour un jeu de données est de 2 Go, en raison de la restriction de taille d’un fichier pour le chargement HTTP. 
 
 **Question** : Puis-je compresser mes fichiers texte pour charger un fichier texte plus volumineux ? 
 
-**Réponse** : Non. Actuellement, seuls les fichiers texte non compressés sont autorisés.
+**Réponse** : Non, seuls des fichiers texte non compressés sont actuellement autorisés.
 
 **Question** : Le rapport de données indique que des énoncés ont échoué. Quel est le problème ?
 
@@ -109,14 +104,9 @@ Vous pouvez également créer une version de votre application qui journalise le
 
 **Question** : Dois-je transcrire moi-même les données d’adaptation ? 
 
-**Réponse** : Les données doivent être transcrites. Vous pouvez les transcrire vous-même ou utiliser un service de transcription professionnel. Certains de ces services utilisent des transcripteurs professionnels, tandis que d’autres utilisent le crowdsourcing.
+**Réponse** : Oui ! Vous pouvez les transcrire vous-même ou utiliser un service de transcription professionnel. Certains utilisateurs préfèrent les transcripteurs professionnels, tandis que d’autres utilisent le crowdsourcing ou font les transcriptions eux-mêmes.
 
-**Question** : Combien de temps faut-il pour créer un modèle acoustique personnalisé ?
-
-**Réponse** : Le temps de traitement de la création d’un modèle acoustique personnalisé est à peu près identique à la longueur du jeu de données acoustiques.
-Par conséquent, le traitement d’un modèle acoustique personnalisé créé à partir d’un jeu de données de cinq heures prend environ cinq heures. 
-
-## <a name="offline-testing"></a>Tests hors ligne
+## <a name="accuracy-testing"></a>Tests de précision
 
 **Question** : Puis-je effectuer des tests hors ligne de mon modèle acoustique personnalisé à l’aide d’un modèle de langage personnalisé ?
 
@@ -126,24 +116,24 @@ Par conséquent, le traitement d’un modèle acoustique personnalisé créé à
 
 **Réponse** : Oui. Sélectionnez simplement le modèle acoustique personnalisé dans le menu déroulant quand vous configurez le test hors ligne.
 
-**Question** : Quel est le taux d’erreur de mots et comment est-il calculé ?
+**Question** : Qu’est-ce que le taux d’erreur de mots ? Comment est-il calculé ?
 
-**Réponse** : Le taux d’erreur de mots est la métrique d’évaluation de la reconnaissance vocale. Il est calculé comme le nombre total d’erreurs, lequel inclut les insertions, les suppressions et les remplacements, divisé par le nombre total de mots présents dans la transcription de référence.
+**Réponse** : Le taux d’erreur de mots est la métrique d’évaluation de la reconnaissance vocale. Il est calculé comme le nombre total d’erreurs, lequel inclut les insertions, les suppressions et les remplacements, divisé par le nombre total de mots présents dans la transcription de référence. Plus de détails [ici](https://en.wikipedia.org/wiki/Word_error_rate).
 
 **Question** : Comment déterminer si les résultats d’un test de précision sont corrects ?
 
 **Réponse** : Les résultats montrent une comparaison entre le modèle de base et celui que vous avez personnalisé.
-Vous devez veiller à améliorer le modèle de base pour rendre la personnalisation pertinente.
+L’objectif doit être de surpasser le modèle de base pour que la personnalisation soit pertinente.
 
-**Question** : Comment déterminer le taux d’erreurs de mots des modèles de base, afin de savoir s’il y a eu une amélioration ? 
+**Question** : Comment déterminer le taux d’erreurs de mots des modèles de base, pour savoir s’il y a eu une amélioration ? 
 
-**Réponse** : Les résultats des tests hors ligne indiquent la précision de base du modèle personnalisé et l’amélioration par rapport à cette précision de base
+**Réponse** : Les résultats de test hors ligne indiquent la précision de base du modèle personnalisé et l’amélioration atteinte par rapport à cette référence.
 
 ## <a name="creating-lm"></a>Création d’un modèle de langage
 
 **Question** : Quel volume de données texte dois-je télécharger ?
 
-**Réponse** : Cela dépend de la différence du vocabulaire et des expressions utilisés dans votre application par rapport aux modèles de langage de départ. Pour tous les nouveaux mots, il est utile de fournir autant d’exemples que possible de l’utilisation de ces mots. Pour les expressions courantes qui sont utilisées dans votre application, il est également utile d’inclure des expressions dans les données de langage, car cela indique au système d’écouter aussi ces termes. Il est courant d’avoir au moins une centaine, et généralement plusieurs centaines, d’énoncés dans le jeu de données de langage. De plus, si certains types de requêtes sont sensées être plus courantes que d’autres, vous pouvez insérer plusieurs copies des requêtes courantes dans le jeu de données.
+**Réponse** : Cela dépend de la différence du vocabulaire et des expressions utilisées dans votre application par rapport aux modèles de langage de départ. Pour tous les nouveaux mots, il est utile de fournir autant d’exemples que possible de l’utilisation de ces mots. Pour les expressions courantes qui sont utilisées dans votre application, il est également utile d’inclure des expressions dans les données de langage, car cela indique au système d’écouter aussi ces termes. Il est courant d’avoir au moins une centaine, et généralement plusieurs centaines, d’énoncés dans le jeu de données de langage. De plus, si certains types de requêtes sont censés être plus courants que d’autres, vous pouvez insérer plusieurs copies des requêtes courantes dans le jeu de données.
 
 **Question** : Puis-je simplement charger une liste de mots ?
 

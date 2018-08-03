@@ -1,7 +1,7 @@
 ---
-title: Comment utiliser des entités qui peuvent être niées avec une application Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
+title: Comment utiliser des entités qui peuvent être niées avec un modèle d’Apprenant de conversation - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment utiliser des entités qui peuvent être niées avec une application Conversation Learner.
+description: Découvrez comment utiliser des entités qui peuvent être niées avec un modèle d’Apprenant de conversation.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3d65376c9c43ee1407468f3e8bf3e058048bd556
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369632"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171399"
 ---
-# <a name="how-to-use-negatable-entities-with-a-conversation-learner-application"></a>Comment utiliser des entités qui peuvent être niées avec une application Conversation Learner
+# <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Utiliser des entités qui peuvent être niées avec un modèle d’Apprenant de conversation
 
 Ce didacticiel illustre la propriété « negatable » des entités.
 
+## <a name="video"></a>Vidéo
+
+[![Aperçu du didacticiel 5](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
+
 ## <a name="requirements"></a>Configuration requise
-Ce didacticiel nécessite que le bot tutoriel général soit en cours d’exécution
+Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
 
     npm run tutorial-general
 
@@ -37,9 +41,9 @@ Concrètement, si la propriété « negatable » d’une entité est définie :
 
 ## <a name="steps"></a>Étapes
 
-### <a name="create-the-application"></a>Création de l'application
+### <a name="create-the-model"></a>Création du modèle
 
-1. Dans l’interface utilisateur web, cliquez sur New App
+1. Dans l’interface utilisateur web, cliquez sur New Model
 2. Dans Nom, entrez NegatableEntity. Cliquez ensuite sur Créer.
 
 ### <a name="create-an-entity"></a>Créer une entité
@@ -47,7 +51,7 @@ Concrètement, si la propriété « negatable » d’une entité est définie :
 1. Cliquez sur Entités, puis sur Nouvelle entité.
 2. Dans Nom de l’entité, entrez le nom.
 3. Vérifiez ce qui peut être nié.
-    - Ceci indique que l’utilisateur pourra fournir une valeur pour l’entité, ou que quelque chose n’est *pas* la valeur de l’entité. Dans le dernier cas, cela entraîne la suppression d’une valeur correspondante de l’entité.
+    - Cette propriété indique que l’utilisateur pourra fournir une valeur pour l’entité, ou que quelque chose n’est *pas* la valeur de l’entité. Dans le dernier cas, cela entraîne la suppression d’une valeur correspondante de l’entité.
 3. Cliquez sur Créer.
 
 ![](../media/tutorial5_entities.PNG)
@@ -74,19 +78,19 @@ Vous avez maintenant deux actions.
 1. Cliquez sur Boîtes de dialogue d’apprentissage, puis sur Nouvelle boîte de dialogue d’apprentissage.
 2. Tapez « Bonjour ».
 3. Cliquez sur Score Actions (Attribuer un score aux actions), puis sélectionnez « Je ne connais pas votre nom »
-    - Notez que le score obtenu est de 100 %, car c’est la seule action valide.
+    - Le score est de 100 % car c’est la seule action valide.
 2. Entrez « mon nom est david »
 3. Sélectionnez « david » et choisissez l’étiquette « + nom »
-    - Notez qu’il existe deux instances de « nom » : « + nom » et « -nom ».  « Plus » signifie que nous fournissons cette valeur. « Moins » signifie que nous indiquons au système que quelque chose n’est pas la valeur.
+    - Il existe deux instances de « nom » : « + nom » et « -nom ».  (+) Signe plus ajoute ou remplace la valeur. (-) Signe moins supprime la valeur.
 5. Cliquez sur Attribuer un score aux actions
-    - Notez que la valeur du nom figure maintenant dans la mémoire du bot.
+    - La valeur du nom figure maintenant dans la mémoire du bot.
     - « Je connais votre nom. « $name » et c’est la seule réponse possible. 
 6. Sélectionnez « Je connais votre nom. Il s’agit de $name ».
 
 Essayons d’effacer l’entité pouvant être niée :
 
 7. Entrez « mon nom n’est pas david ».
-    - Notez que « non » est sélectionné comme nom sur la base du modèle précédent. Ceci est incorrect.
+    - Notez que « non » est sélectionné comme nom sur la base du modèle précédent. Cette étiquette est incorrecte.
 2. Cliquez sur « non », puis sur le x rouge. 
 3. Cliquez sur « david ».
     - Il s’agit désormais d’une entité négative indiquant qu’il ne s’agit pas de la valeur de l’entité du nom.

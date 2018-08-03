@@ -9,12 +9,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 94e3632884d7033971ff1c45b455afb9a09ee798
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35370929"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113349"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Utiliser des métadonnées et l’API GenerateAnswer
 
@@ -57,7 +57,7 @@ Vous appelez GenerateAnswer à l’aide d’une requête HTTP POST. Pour obtenir
     - **QnAMaker endpoint** (chaîne) : nom d’hôte du point de terminaison déployé dans votre abonnement Azure.
 - **En-têtes de requête**
     - **Content-Type** (chaîne) : type de média du corps envoyé à l’API.
-    - **Authorization** (chaîne) : clé de votre point de terminaison.
+    - **Autorisation** (chaîne) : votre clé de point de terminaison (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Corps de la demande**
     - **question** (chaîne) : question de l’utilisateur qui fait l’objet d’une recherche dans votre base de connaissances.
     - **top** (entier facultatif) : nombre de résultats classés à inclure dans la sortie. La valeur par défaut est 1.
@@ -82,6 +82,7 @@ Vous appelez GenerateAnswer à l’aide d’une requête HTTP POST. Pour obtenir
     - **answers** : liste de réponses à la requête utilisateur, triées par ordre décroissant du score de classement.
         - **score** : score de classement compris entre 0 et 100.
         - **questions** : questions posées par l’utilisateur.
+        - **réponse** : réponse à la question.
         - **source** : nom de la source à partir de laquelle la réponse a été extraite ou enregistrée dans la base de connaissances.
         - **metadata** : métadonnées associées à la réponse.
             - name : nom des métadonnées. (chaîne obligatoire, longueur maximale : 100)

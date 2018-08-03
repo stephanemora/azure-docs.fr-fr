@@ -1,7 +1,7 @@
 ---
-title: Comment utiliser les opérations de création et de suppression de branche avec une application Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
+title: Comment utiliser les opérations de création et de suppression de branche avec un modèle Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment utiliser les opérations de création et de suppression de branche avec une application Conversation Learner.
+description: Découvrez comment utiliser les opérations de création et de suppression de branche avec un modèle Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 724a9e47267e0bd7417130efe54c609ac7a465fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 05140693026e21a73b756ed0ea7bc9936bef067e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369609"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173296"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Comment utiliser les opérations de création et de suppression de branche
 Dans ce didacticiel, nous allons aborder les opérations de création et de suppression de branche.
+
 
 ## <a name="details"></a>Détails
 - Annuler : permet au développeur d’« annuler » un choix d’entrée ou d’action utilisateur. En arrière-plan, « annuler » crée en fait une nouvelle boîte de dialogue et la répète jusqu’à l’étape précédente.  Cela signifie que le rappel de détection d’entité et les appels d’API dans la boîte de dialogue seront rappelés.
@@ -33,7 +34,7 @@ Ce didacticiel requiert l’exécution du robot de réinitialisation de mot de p
 
 ### <a name="open-the-demo"></a>Ouvrir la démonstration
 
-Dans la liste des applications de l’interface utilisateur web, cliquez sur TutorialDemo Pizza Order. 
+Dans la liste des modèles de l’interface utilisateur web, cliquez sur TutorialDemo Pizza Order. 
 
 Pour plus d’informations sur la démonstration de commande de pizza, consultez le didacticiel de commande de pizza.
 
@@ -55,7 +56,7 @@ Ouvrons une session d’apprentissage.
 7. Entrez « remove mushrooms and add peppers » (supprimer les champignons et ajouter des poivrons).
     - Sélectionnez «mushrooms » (champignons) et désélectionnez l’entité « Toppings » (Garnitures). Nous allons créer une action qui nous permettra d’annuler.
 2. Cliquez sur Undo Step (Annuler une étape).
-    - Notez que la dernière entrée est supprimée, et nous revenons à « Would you like anything else? » (Voulez-vous autre chose ?).  (capture d’écran ci-dessous)
+    - La dernière entrée est supprimée, et nous revenons à « Would you like anything else? » (Voulez-vous autre chose ?)  (capture d’écran ci-dessous)
 2. Entrez « remove mushrooms and add peppers » (supprimer les champignons et ajouter des poivrons).
 8. Cliquez pour sélectionner « you have $Toppings on your pizza » (vous avez $Toppings sur votre pizza)
     - Assurez-vous que les deux entités sont correctement sélectionnées.
@@ -73,7 +74,7 @@ Par exemple, ouvrons une boîte de dialogue d’apprentissage existante et créo
 1. Cliquez sur Boîtes de dialogue d’apprentissage, puis sur « new order » (nouvelle commande) pour ouvrir la boîte de dialogue existant. 
 2. Cliquez sur le dernier « no » (non) dans la boîte de dialogue (voir la capture d’écran ci-dessous).
 3. Cliquez sur Branche.
-    - Notez que « no » (non) est supprimé, et la boîte de dialogue entière à ce stade est copiée dans une nouvelle. 
+    - « no » (non) est supprimé, et la boîte de dialogue entière à ce stade est copiée dans une nouvelle. 
     - Vous ne devez donc pas entrer à nouveau les informations précédentes pour observer une nouvelle « branche » à ce stade.
 1. Entrez « yes » (oui).
 2. Cliquez sur Action de score.

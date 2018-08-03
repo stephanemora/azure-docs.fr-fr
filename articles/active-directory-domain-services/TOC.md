@@ -1,6 +1,6 @@
 # [Documentation des services de domaine Azure AD ](index.yml)
 
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Présentation d’Azure AD Domain Services](active-directory-ds-overview.md)
 ## Est-il adapté pour vous ?
 ### [Comparer avec Windows Server AD](active-directory-ds-comparison.md)
@@ -36,6 +36,9 @@
 #### [Tâche 1 : Obtenir un certificat pour le protocole LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tâche 2 : Exporter le certificat LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [Tâche 3 : Activer le protocole LDAP sécurisé pour le domaine managé à l’aide du portail Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Tâche 4 : Configurer DNS pour accéder au domaine managé à partir d’Internet](active-directory-ds-ldaps-configure-dns.md)
+#### [Tâche 5 : Effectuer une liaison au domaine managé et bloquer l’accès LDAP sécurisé](active-directory-ds-ldaps-bind-lockdown.md)
+#### [Résoudre les problèmes du protocole LDAP sécurisé](active-directory-ds-ldaps-troubleshoot.md)
 
 ### [Créer une UO sur un domaine géré](active-directory-ds-admin-guide-create-ou.md)
 ### [Créer un compte de service administré de groupe sur un domaine managé](active-directory-ds-create-gmsa.md)

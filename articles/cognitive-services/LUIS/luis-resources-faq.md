@@ -1,20 +1,20 @@
 ---
 title: Forum Aux Questions sur Language Understanding (LUIS) dans Azure | Microsoft Docs
 description: Découvrez les réponses aux questions fréquemment posées sur Language Understanding (LUIS)
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333613"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239115"
 ---
 # <a name="language-understanding-faq"></a>FAQ sur Language Understanding
 
@@ -53,21 +53,25 @@ Voir [Entités](luis-concept-entity-types.md) et [Extraction de données](luis-c
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Les variantes d’un exemple d’énoncé incluent-elles des signes de ponctuation ? 
 Ajoutez les différentes variantes en tant qu’exemples d’énoncés à l’intention ou ajoutez le modèle de l’exemple d’énoncé avec la [syntaxe pour ignorer](luis-concept-patterns.md#pattern-syntax) les signes de ponctuation. 
 
+### <a name="does-luis-currently-support-cortana"></a>LUIS prend-il en charge Cortana ?
+
+Les applications prédéfinies Cortana sont déconseillées depuis 2017. Elles ne sont plus prises en charge. 
+
 ## <a name="luis-endpoint"></a>Point de terminaison LUIS
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Pourquoi LUIS ajoute-t-il des espaces à la requête autour ou au milieu de mots ?
 LUIS [tokénise](luis-glossary.md#token) l’énoncé en fonction de la [culture](luis-supported-languages.md#tokenization). Tant la valeur d’origine que la valeur tokénisée sont disponibles pour l’[extraction de données](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Comment faire pour créer et affecter une clé de point de terminaison LUIS ?
-[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md#create-luis-endpoint-key) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Affectez la clé](Manage-keys.md#assign-endpoint-key) sur la page  **[Publier](publishapp.md)**. Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
+[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md#create-luis-endpoint-key) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Affectez la clé](luis-how-to-manage-keys.md#assign-endpoint-key) sur la page  **[Publier](luis-how-to-publish-app.md)**. Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Comment interpréter les scores de LUIS ? 
 Votre système doit utiliser l’intention de score le plus élevée, quelle qu’en soit la valeur. Par exemple, un score inférieur à 0,5 (moins de 50 %) ne signifie pas nécessairement que la confiance de LUIS est faible. La fourniture de données d’apprentissage supplémentaires peut aider à augmenter le score de l’intention la plus probable.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Pourquoi ne vois-je pas les accès à mon point de terminaison sur le tableau de bord de mon application ?
-Le nombre total d’accès au point de terminaison est mis à jour régulièrement sur le tableau de bord de votre application, mais les métriques associées à la clé de votre abonnement LUIS sur le portail Azure sont mises à jour plus fréquemment. 
+Le nombre total d’accès de point de terminaison est régulièrement mis à jour sur le tableau de bord de l’application, mais la fréquence de mise à jour est plus élevée pour les métriques associées à la clé du point de terminaison LUIS sur le Portail Azure. 
 
-Si vous ne voyez pas les accès au point de terminaison mis à jour sur le tableau de bord, connectez-vous au portail Azure et trouvez la ressource associée à la clé de votre abonnement LUIS, puis ouvrez **Métriques** pour sélectionner la métrique **Total des appels**. Si la clé d’abonnement est utilisée pour plusieurs applications LUIS, la métrique sur le portail Azure montre le nombre agrégé d’appels à partir de toutes les applications LUIS qui l’utilisent.
+Si vous ne voyez pas les accès de point de terminaison mis à jour sur le tableau de bord, connectez-vous au Portail Azure et trouvez la ressource associée à la clé de votre point de terminaison LUIS, puis ouvrez **Métriques** pour sélectionner la métrique **Nombre total d’appels**. Si la clé de point de terminaison est utilisée pour plusieurs applications LUIS, la métrique du Portail Azure indique le nombre agrégé d’appels provenant de toutes les applications LUIS qui l’utilisent.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Mon application LUIS fonctionnait hier, et aujourd’hui j’obtiens des erreurs 403. Je n’ai pas modifié l’application. Comment la corriger ? 
 En suivant les [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) du FAQ suivant pour créer une clé de point de terminaison LUIS et l’affecter à l’application. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -115,8 +119,9 @@ Dans Azure, un locataire représente le client ou l’organisation associés à 
 
 ![ID de locataire sur le portail Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Pourquoi y a-t-il plus de clés d’abonnement sur la page de publication de mon application que celles que j’ai attribuées à l’application ? 
-Chaque application LUIS possède la clé authoring/starter. Les clés d’abonnement LUIS créées pendant la période de disponibilité générale sont visibles sur votre page de publication, que vous les ayez ajoutées ou non à l’application. Cela a été conçu pour faciliter la migration pendant la période de disponibilité générale. Les nouvelles clés d’abonnement LUIS n’apparaissent pas sur la page de publication. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Pourquoi y a-t-il plus de clés de point de terminaison sur la page de publication de mon application que je ne lui en ai attribué ? 
+Chaque application LUIS possède la clé authoring/starter. Les clés de point de terminaison LUIS créées pendant la période de disponibilité générale sont visibles sur votre page de publication, que vous les ayez ajoutées ou non à l’application. Cela a été conçu pour faciliter la migration pendant la période de disponibilité générale. Les nouvelles clés de point de terminaison LUIS n’apparaissent pas sur la page de publication. 
 
 ## <a name="app-management"></a>Gestion des applications
 
@@ -153,7 +158,7 @@ Si vous utilisez votre journal à des fins d’analyse prédictive, ne capturez 
 ## <a name="app-notification"></a>Notification d’application
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Pourquoi ai-je reçu un e-mail indiquant que je suis presque hors quota ?
-Votre clé authoring/starter n’autorise que 1 000 requêtes sur le point de terminaison par mois. Créez une clé d’abonnement LUIS (gratuite ou payante), et utilisez-la pour les requêtes sur le point de terminaison. Si vous effectuez des requêtes sur le point de terminaison à partir d’un bot ou d’une autre application cliente, vous devez y modifier la clé de point de terminaison LUIS. 
+Votre clé authoring/starter n’autorise que 1 000 requêtes sur le point de terminaison par mois. Créez une clé de point de terminaison LUIS (gratuite ou payante) et utilisez-la pour effectuer des requêtes sur le point de terminaison. Si vous effectuez des requêtes sur le point de terminaison à partir d’un bot ou d’une autre application cliente, vous devez y modifier la clé de point de terminaison LUIS. 
 
 ## <a name="integrating-luis"></a>Intégration de LUIS
 
@@ -167,7 +172,7 @@ La [préparation vocale](https://docs.microsoft.com/bot-framework/bot-service-ma
 
 ## <a name="luis-service"></a>Service LUIS 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>LUIS est-il disponible localement ou dans un cloud privé ?
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS est-il disponible en local ou dans un cloud privé ?
 Non. 
 
 ## <a name="changes-to-the-docs"></a>Modifications apportées à la documentation
@@ -182,7 +187,7 @@ Les articles qui étaient précédemment accessibles dans la section Didacticiel
 |Créer une application LUIS par programmation à l’aide de [Node.js](luis-tutorial-node-import-utterances-csv.md)|
 |Utiliser une [entité composite](luis-tutorial-composite-entity.md) pour extraire des données groupées|
 |Ajouter une [entité list](luis-tutorial-list-entity.md) pour accroître la détection d’entité à l’aide de Node.js|
-|Améliorer la précision de prédiction avec une [liste de phrases](luis-tutorial-interchangeable-phrase-list.md), des [modèles](luis-tutorial-pattern.md), et des [tests par lot](luis-tutorial-batch-testing.md)|
+|Améliorer la précision de prédiction avec une [liste de phrases](luis-quickstart-primary-and-secondary-data.md), des [modèles](luis-tutorial-pattern.md), et des [tests par lot](luis-tutorial-batch-testing.md)|
 |[Corriger l’orthographe](luis-tutorial-batch-testing.md) avec l’API Vérification orthographique Bing v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Lors de la conférence Build 2018, j’ai entendu parler d’une fonctionnalité ou d’une démonstration de Language Understanding, mais je ne me rappelle pas son nom 
@@ -193,7 +198,7 @@ Les fonctionnalités publiées lors de la conférence Build 2018 sont les suiva
 |--|--|
 |Améliorations|Entité [Expression régulière](luis-concept-data-extraction.md##regular-expression-entity-data) et entité [Phrase clé](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
 |Modèles|Modèles [concept](luis-concept-patterns.md), [didacticiel](luis-tutorial-pattern.md), [procédure](luis-how-to-model-intent-pattern.md)<br>Concept d’entité [Patterns.Any](luis-concept-entity-types.md) incluant une [Liste explicite](luis-concept-patterns.md#explicit-lists) pour les exceptions<br>Concept [Rôles](luis-concept-roles.md)|
-|Intégrations|Intégration dans l’[analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) de l’[analyse des sentiments](publishapp.md#enable-sentiment-analysis)<br>Intégration dans [Speech](https://docs.microsoft.com/azure/cognitive-services/speech) de la [préparation vocale](publishapp.md#enable-speech-priming) ainsi que du [Kit de développement logiciel (SDK) Speech](https://aka.ms/SpeechSDK)|
+|Intégrations|Intégration dans l’[analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) de l’[analyse des sentiments](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Intégration dans [Speech](https://docs.microsoft.com/azure/cognitive-services/speech) de la [préparation vocale](luis-how-to-publish-app.md#enable-speech-priming) ainsi que du [Kit de développement logiciel (SDK) Speech](https://aka.ms/SpeechSDK)|
 |Outil Répartition|Intégré dans [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), l’[outil](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) en ligne de commande Répartition permet de combiner plusieurs applications LUIS et QnA Maker dans une application LUIS unique pour améliorer la reconnaissance des intentions dans un bot
 
 Des [itinéraires d’API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) de création supplémentaires ont été inclus. 
@@ -212,5 +217,3 @@ Projets :
 Pour en savoir plus sur LUIS, voir les ressources suivantes :
 * [Questions de Stack Overflow balisées avec LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [Forum Language Understanding Intelligent Services (LUIS) de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -8,14 +8,14 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 878a31992415b1f8688afcfb186fcd94ce2567b4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 26cecedfc3ad2d472b9686e25054fe08253cee77
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35378925"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068520"
 ---
 # <a name="use-speech-to-text-in-the-speech-service"></a>Utiliser la « reconnaissance vocale » du service Speech
 
@@ -23,16 +23,14 @@ Vous pouvez utiliser la **reconnaissance vocale** dans vos applications de deux 
 
 | Méthode | Description |
 |-|-|
-| [Foundation](speech-sdk.md) | Méthode la plus simple pour les développeurs C/C++, C# et Java* |
+| [Foundation](speech-sdk.md) | Méthode la plus simple pour les développeurs C/C++, C# et Java |
 | [REST](rest-apis.md) | Reconnaître les énoncés courts à l’aide d’une requête HTTP POST | 
-
-\* *Le Kit de développement logiciel (SDK) Java fait partie du [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).*
 
 ## <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
 
 Le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) fournit la méthode d’utilisation de la **reconnaissance vocale** la plus simple dans votre application avec des fonctionnalités complètes.
 
-1. Créez une fabrique vocale en indiquant une clé d’abonnement au service Speech ou un jeton d’autorisation. À ce stade, vous pouvez également configurer des options, telles que la langue de reconnaissance ou un point de terminaison personnalisé pour vos propres modèles de reconnaissance vocale.
+1. Créez une fabrique vocale en indiquant une clé d’abonnement au service Speech et une [région](regions.md) ou un jeton d’autorisation. À ce stade, vous pouvez également configurer des options, telles que la langue de reconnaissance ou un point de terminaison personnalisé pour vos propres modèles de reconnaissance vocale.
 
 2. Obtenez un module de reconnaissance auprès de la fabrique. Trois types de modules de reconnaissance différents sont disponibles. Chaque type de module de reconnaissance peut utiliser le microphone par valeur de votre appareil, un flux audio ou l’audio d’un fichier.
 
@@ -47,6 +45,8 @@ Le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) fournit la méth
 4. Liez les événements pour un fonctionnement asynchrone, si vous le souhaitez. Le module de reconnaissance appelle ensuite vos gestionnaires d’événements lorsqu’il trouve des résultats intermédiaires et finaux. Sinon, votre application recevra un résultat de transcription final.
 
 5. Démarrez la reconnaissance.
+   Pour une reconnaissance ponctuelle, comme la reconnaissance de commande ou de requête, utilisez `RecognizeAsync()`, qui retourne le premier énoncé reconnu.
+   Pour une reconnaissance en continu, comme la transcription, utilisez `StartContinuousRecognitionAsync()` et liez les événements afin d’obtenir une reconnaissance asynchrone.
 
 ### <a name="sdk-samples"></a>Exemples du Kit de développement logiciel (SDK)
 
@@ -59,10 +59,11 @@ L’API REST est la méthode la plus simple pour reconnaître la voix si vous n�
 > [!NOTE]
 > Les énoncés sont limités à 15 secondes maximum lors de l’utilisation de l’API REST.
 
-
 Pour plus d’informations sur l’API REST **Reconnaissance vocale**, consultez l’article sur les [API REST](rest-apis.md#speech-to-text). Pour le voir en action, téléchargez les [exemples API REST](https://github.com/Azure-Samples/SpeechToText-REST) à partir de GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir votre abonnement d’essai gratuit du service Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconnaissance vocale dans C#](quickstart-csharp-windows.md)
+- [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Reconnaissance vocale dans C++](quickstart-cpp-windows.md)
+- [Reconnaissance vocale dans C#](quickstart-csharp-dotnet-windows.md)
+- [Reconnaissance vocale dans Java](quickstart-java-android.md)

@@ -1,6 +1,6 @@
 ---
-title: Langues et pays pris en charge pour l’API Recherche personnalisée Bing sur Azure | Microsoft Docs
-description: Découvrez les langues et pays pris en charge par l’API Recherche personnalisée Bing.
+title: Langues et pays/régions pris en charge pour l’API Recherche personnalisée Bing sur Azure | Microsoft Docs
+description: Découvrez les langues et pays/régions pris en charge par l’API Recherche personnalisée Bing.
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
@@ -9,26 +9,26 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: v-gedod
-ms.openlocfilehash: 7ff309f9b789662c4ebd791dffaa2bc2e440763e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7009991ddd0bc8fd9fc68eaab57585b752db1fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368848"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006493"
 ---
-# <a name="bing-custom-search-countries-and-languages"></a>Langues et pays dans Recherche personnalisée Bing
+# <a name="bing-custom-search-countriesregions-and-languages"></a>Langues et pays/régions dans Recherche personnalisée Bing
 
-L’API Recherche personnalisée Bing prend en charge plus d’une trentaine de pays, dont beaucoup d’entre eux ont plus d’une langue. 
+L’API Recherche personnalisée Bing prend en charge plus d’une trentaine de pays/régions, dont beaucoup possèdent plusieurs langues. 
 
 La requête peut indiquer le paramètre [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) (facultatif), qui vous permet de choisir le marché dont proviennent les résultats. Pour obtenir la liste complète des paramètres de requête facultatifs, consultez [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) (Paramètres de requête).
 
-Vous pouvez spécifier un pays à l’aide du paramètre de requête `cc`. Si vous spécifiez un pays, vous devez également spécifier un ou plusieurs codes de langue à l’aide de l’en-tête `Accept-Language`. Les langues prises en charge varient selon le pays ; elles sont indiquées pour chaque pays dans le tableau **Marchés**.
+Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête `cc`. Si vous spécifiez un pays/une région, vous devez également spécifier un ou plusieurs codes de langue à l’aide de l’en-tête `Accept-Language`. Les langues prises en charge varient selon le pays/la région ; elles sont indiquées pour chaque pays/région dans le tableau **Marchés**.
 
 Étant donné que l’en-tête `Accept-Language` et le paramètre de requête `setLang` s’excluent mutuellement, ne spécifiez pas les deux. Pour plus d’informations, consultez [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## <a name="countries"></a>Pays
 
-|Pays|Code|
+|Pays/région|Code|
 |-------|----|
 |Argentine|AR|
 |Australie|AU|
@@ -41,7 +41,7 @@ Vous pouvez spécifier un pays à l’aide du paramètre de requête `cc`. Si vo
 |Finlande|FI|
 |France|FR|
 |Allemagne|DE|
-|Hong Kong (R.A.S.)|HK|
+|Hong Kong|HK|
 |Inde|IN|
 |Indonésie|ID|
 |Italie|IT|
@@ -70,7 +70,7 @@ Vous pouvez spécifier un pays à l’aide du paramètre de requête `cc`. Si vo
 
 ## <a name="markets"></a>Marchés
 
-|Pays|Langage|Code du marché|
+|Pays/région|Langage|Code du marché|
 |-------|--------|-----------|
 |Argentine|Espagnol|es-AR|
 |Australie|Français|en-AU|
@@ -85,7 +85,7 @@ Vous pouvez spécifier un pays à l’aide du paramètre de requête `cc`. Si vo
 |Finlande|Finnois|fi-FI|
 |France|Français|fr-FR|
 |Allemagne|Allemand|de-DE|
-|Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|
+|Hong Kong|Chinois traditionnel|zh-HK|
 |Inde|Français|en-IN|
 |Indonésie|Français|en-ID|
 |Italie|Italien|it-IT|

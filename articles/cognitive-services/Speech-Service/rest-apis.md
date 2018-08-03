@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37044818"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112871"
 ---
 # <a name="speech-service-rest-apis"></a>API REST du service de reconnaissance vocale
 
@@ -24,7 +24,7 @@ Les API REST du service de reconnaissance vocale unifié sont similaires aux API
 
 Dans l’API de reconnaissance vocale, seuls les points de terminaison utilisés diffèrent du service de reconnaissance vocale précédent API de reconnaissance vocale. Les nouveaux points de terminaison sont affichés dans le tableau ci-dessous. Utilisez celui qui correspond à votre région d’abonnement.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 L’API de reconnaissance vocale est par ailleurs similaire à l’[API REST](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) pour l’API de reconnaissance vocale précédente.
 
@@ -50,12 +50,12 @@ Le service de reconnaissance vocale fournit désormais deux voix 24 KHz :
 
 Paramètres régionaux | Langage   | Sexe | Mappage du nom du service
 -------|------------|--------|------------
-fr-FR  | Français | Féminin | « Voix de Synthèse vocale pour la reconnaissance vocale du serveur Microsoft (fr-FR, Jessa24kRUS) » 
-fr-FR  | Français | Masculin   | « Voix de Synthèse vocale pour la reconnaissance vocale du serveur Microsoft (fr-FR, Guy24kRUS) »
+fr-FR  | Français | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, Jessa24kRUS) » 
+fr-FR  | Français | Masculin   | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, Guy24kRUS) »
 
 Voici les points de terminaison REST pour le service vocal unifié API Synthèse vocale. Utilisez le point de terminaison correspondant à votre région d’abonnement.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Gardez ces différences à l’esprit lorsque vous vous référez à la [documentation de l’API REST](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) pour l’API Microsoft Speech précédente.
 
@@ -63,7 +63,7 @@ Gardez ces différences à l’esprit lorsque vous vous référez à la [documen
 
 L’envoi d’une requête à l’API REST du service Microsoft Speech nécessite un jeton d’accès. Vous obtenez un jeton en fournissant votre clé d’abonnement à un point de terminaison `issueToken` de service Microsoft Speech régional, affiché dans le tableau ci-dessous. Utilisez le point de terminaison correspondant à votre région d’abonnement.
 
-[!include[](includes/endpoints-token-service.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Chaque jeton d’accès est valide pour une durée de 10 minutes. Vous pouvez obtenir un nouveau jeton à tout moment ; notamment, si vous le souhaitez, juste avant chaque requête API REST Microsoft Speech. Pour réduire la latence et le trafic réseau, toutefois, nous recommandons d’utiliser le même jeton durant neuf minutes.
 
@@ -265,5 +265,7 @@ Comme précédemment, assurez-vous que la valeur `FetchTokenUri` correspond à l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir votre abonnement d’essai gratuit du service Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Voir comment personnaliser un modèle vocal](how-to-customize-speech-models.md)
+- [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
+- [Personnaliser les modèles de langage](how-to-customize-language-model.md)
+

@@ -9,21 +9,21 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 2578b0212f9b4a6483402074d7c9eff73e51ca6b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb9cc2335582c4ec75ec45635e519346d65d7e08
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368521"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072090"
 ---
 # <a name="emotion-api-javascript-quick-start"></a>Démarrage rapide de l’API Émotion avec JavaScript
 
 > [!IMPORTANT]
-> La préversion de l’API Vidéo a pris fin le 30 octobre 2017. Essayez la nouvelle [préversion de l’API Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) pour extraire facilement des insights des vidéos et améliorer les expériences de découverte de contenu, telles que les résultats de recherche, en détectant le texte parlé, les visages, les personnes et les émotions. [Plus d’informations](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
+> La préversion de l’API Vidéo a pris fin le 30 octobre 2017. Essayez la nouvelle [préversion de l’API Vidéo Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) pour extraire facilement des insights des vidéos et améliorer les expériences de découverte de contenu, telles que les résultats de recherche, en détectant le texte parlé, les visages, les personnes et les émotions. [Plus d’informations](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer rapidement avec la [méthode Recognize de l’API Émotion](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) à l’aide de JavaScript afin de reconnaître les émotions exprimées par une ou plusieurs personnes dans une image.
 
-## <a name="prerequisite"></a>Prérequis
+## <a name="prerequisite"></a>Configuration requise
 * Obtenez votre clé d’abonnement gratuite [ici](https://azure.microsoft.com/try/cognitive-services/) ou, si vous avez un abonnement Azure, créez une ressource API Émotion et obtenez votre clé d’abonnement et votre point de terminaison à partir de cette ressource.
 
 ![Créer la ressource API Émotion](../Images/create-resource.png)
@@ -36,7 +36,7 @@ Copiez le script suivant et enregistrez-le dans un fichier tel que `test.html`. 
 
 ![Clé d’abonnement d’API](../Images/keys.png)
 
-et modifiez le corps de la requête de façon à utiliser l’emplacement d’une image que vous souhaitez utiliser. Pour exécuter l’exemple, glissez-déplacez le fichier dans votre navigateur.
+Modifiez le corps de la requête de façon à utiliser l’emplacement d’une image que vous souhaitez utiliser. Pour exécuter l’exemple, glissez-déplacez le fichier dans votre navigateur.
 
 ```html
 <!DOCTYPE html>

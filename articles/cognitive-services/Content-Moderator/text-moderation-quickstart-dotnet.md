@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368716"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049879"
 ---
 # <a name="moderate-text-using-net"></a>Modérer du texte à l’aide de .NET
 
@@ -29,7 +29,7 @@ Cet article part du principe que vous connaissez déjà Visual Studio et C#.
 ## <a name="sign-up-for-content-moderator-services"></a>S’inscrire aux services Content Moderator
 
 Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement.
-Reportez-vous au guide de [démarrage rapide](quick-start.md) pour découvrir comment obtenir la clé.
+Reportez-vous au [démarrage rapide](quick-start.md) pour découvrir comment obtenir la clé.
 
 ## <a name="create-your-visual-studio-project"></a>Créer votre projet Visual Studio
 
@@ -51,7 +51,7 @@ Installez les packages NuGet suivants :
 
 ### <a name="update-the-programs-using-statements"></a>Mettre à jour les instructions using du programme
 
-Modifiez les instructions using du programme.
+Mettez à jour les instructions using du programme.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -63,7 +63,7 @@ Modifiez les instructions using du programme.
     using System.Threading;
 
 
-### <a name="initialize-application-specific-settings"></a>Initialiser les paramètres spécifiques à l’application
+### <a name="initialize-application-specific-settings"></a>Initialiser les paramètres spécifiques de l’application
 
 Ajoutez les champs statiques suivants à la classe **Program** dans Program.cs.
 
@@ -117,9 +117,9 @@ Ajoutez le code suivant à la méthode **Main**.
     }
 
 > [!NOTE]
-> Votre clé de service Content Moderator a une limite de fréquence des demandes par seconde (RPS). Si vous dépassez cette limite, le SDK lève une exception avec le code d’erreur 429.
+> Votre clé de service Content Moderator a une limite de fréquence des requêtes par seconde. Si vous dépassez cette limite, le Kit de développement logiciel (SDK) lève une exception avec le code d’erreur 429.
 >
-> Une clé de niveau gratuit a une limite de fréquence d’une demande par seconde (RSP).
+> Lorsque vous utilisez une clé de niveau gratuit, la fréquence des requêtes est limitée à une requête par seconde.
 
 ## <a name="run-the-program-and-review-the-output"></a>Exécuter le programme et examiner la sortie
 
@@ -211,4 +211,4 @@ L’exemple de sortie du programme, tel qu’écrit dans le fichier journal, est
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Télécharger la solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET, et commencer votre intégration.
+[Téléchargez la solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET, puis commencez votre intégration.

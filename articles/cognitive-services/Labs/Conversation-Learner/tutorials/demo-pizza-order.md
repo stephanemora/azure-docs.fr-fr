@@ -1,7 +1,7 @@
 ---
-title: Application Conversation Learner de démonstration, commande de pizza – Microsoft Cognitive Services | Microsoft Docs
+title: Modèle Conversation Learner de démonstration, commande de pizza – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment créer une application Conversation Learner de démonstration.
+description: Découvrez comment créer un modèle Conversation Learner de démonstration.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99cd89c4f4430f2d65ed0963e3092d51a83842d7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 052ef249f3367a562e5598b90533c0e52ed75df4
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369669"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171382"
 ---
 # <a name="demo-pizza-order"></a>Démonstration : commande de pizza
 Cette démonstration illustre un bot de commande de pizza. Il prend en charge la commande d’une seule pizza avec cette fonctionnalité :
@@ -24,6 +24,10 @@ Cette démonstration illustre un bot de commande de pizza. Il prend en charge la
 - vérifier si les ingrédients d’une pizza sont en stock ou en rupture de stock, et réagir de manière appropriée
 - mémoriser les ingrédients d’une pizza à partir d’une commande précédente et proposer une nouvelle commande avec les mêmes ingrédients
 
+## <a name="video"></a>Vidéo
+
+[![Aperçu de démonstration Pizza](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
+
 ## <a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot de commande de pizza soit en cours d’exécution
 
@@ -31,21 +35,21 @@ Ce tutoriel nécessite que le bot de commande de pizza soit en cours d’exécut
 
 ### <a name="open-the-demo"></a>Ouvrir la démonstration
 
-Dans la liste des applications de l’interface utilisateur web, cliquez sur TutorialDemo Pizza Order. 
+Dans la liste des modèles de l’interface utilisateur web, cliquez sur TutorialDemo Pizza Order. 
 
 ## <a name="entities"></a>Entités
 
-Nous avons créé trois entités.
+Vous avez créé trois entités.
 
-- Toppings : cumule les ingrédients que l’utilisateur a demandés. Cela inclut les ingrédients valides en stock. Et vérifie si un ingrédient est en stock ou en rupture de stock.
-- OutofStock : utilisé pour indiquer à l’utilisateur que l’ingrédient sélectionné est en rupture de stock.
+- Toppings : cette entité accumule les garnitures que l’utilisateur a demandées. Cela inclut les ingrédients valides en stock. Et vérifie si un ingrédient est en stock ou en rupture de stock.
+- OutofStock : cette entité sert à indiquer à l’utilisateur que la garniture sélectionnée est en rupture de stock.
 - LastToppings : une fois qu’une commande est passée, cette entité est utilisée pour proposer à l’utilisateur la liste des ingrédients dans sa commande.
 
 ![](../media/tutorial_pizza_entities.PNG)
 
 ### <a name="actions"></a>Actions
 
-Nous avons créé un ensemble d’actions, notamment demander à l’utilisateur ce qu’il veut sur sa pizza, lui indiquer ce qu’il a ajouté jusqu’à présent, etc.
+Vous avez créé un ensemble d’actions : demander à l’utilisateur ce qu’il veut sur sa pizza, lui indiquer ce qu’il a ajouté jusqu’ici, etc.
 
 Il y a également deux appels d’API :
 
@@ -55,7 +59,7 @@ Il y a également deux appels d’API :
 ![](../media/tutorial_pizza_actions.PNG)
 
 ### <a name="training-dialogs"></a>Dialogues d’apprentissage
-Nous avons défini un certain nombre de dialogues d’apprentissage. 
+Vous avez défini quelques dialogues d’apprentissage. 
 
 ![](../media/tutorial_pizza_dialogs.PNG)
 
@@ -68,22 +72,22 @@ Par exemple, nous allons tester une session d’apprentissage.
 4. Entrez « mushrooms and cheese » (champignons et fromage).
     - Notez que LUIS a étiqueté les deux en tant qu’ingrédients. Si cela n’est pas correct, vous pouvez cliquer pour les sélectionner, puis les corriger.
     - Le signe « + » en regard de l’entité signifie qu’elle est ajoutée à l’ensemble des ingrédients.
-5. Cliquez sur Actions de score.
-    - Notez que les champignons et le fromage ne sont pas dans la mémoire de Toppings.
+5. Cliquez sur Attribuer un score aux actions.
+    - Vous remarquerez que `mushrooms` et `cheese` ne sont pas dans la mémoire des garnitures.
 3. Cliquez pour sélectionner « you have $Toppings on your pizza » (vous avez $Toppings sur votre pizza)
     - Notez qu'il s’agit d’une action de non-attente, donc le bot demande l’action suivante.
 6. Sélectionnez « Would you like anything else? » (Voulez-vous autre chose ?)
 7. Entrez « remove mushrooms and add peppers » (supprimer les champignons et ajouter des poivrons).
-    - Vous remarquerez qu’un signe « - » s’affiche en regard de **mushroom** pour pouvoir le supprimer. Et un signe « + » s’affiche en regard de « peppers » pour pouvoir l’ajouter aux ingrédients.
-2. Cliquez sur Action de score.
-    - **peppers** est maintenant affiché en gras car il s’agit d’un nouvel élément. Et **mushrooms** a été barré.
+    - Vous remarquerez qu’un signe « - » s’affiche à côté de `mushroom` pour pouvoir le supprimer. Par ailleurs, `peppers` est accompagné d’un signe « + » qui permet de l’ajouter aux garnitures.
+2. Cliquez sur Attribuer un score aux actions.
+    - Vous remarquerez que `peppers` est maintenant affiché en gras, car il s’agit d’un nouvel élément. Par ailleurs, `mushrooms` a été barré.
 8. Cliquez pour sélectionner « you have $Toppings on your pizza » (vous avez $Toppings sur votre pizza)
 6. Sélectionnez « Would you like anything else? » (Voulez-vous autre chose ?)
 7. Entrez « add peas » (ajouter des petits pois).
-    - Les petits pois sont un exemple d’ingrédient en rupture de stock. Notez que cet élément est toujours indiqué comme ingrédient.
-2. Cliquez sur Action de score.
-    - « Peas » s’affiche en tant que OutOfStock.
-    - Pour voir comment cela s’est produit, ouvrons le code dans C:\<\installedpath>\src\demos\demoPizzaOrder.ts. Et notez la méthode EntityDetectionCallback. Cette méthode est appelée après chaque ingrédient pour voir si celui-ci est en stock. Si ce n’est pas le cas, l’ingrédient est supprimé de l’ensemble des ingrédients et ajouté à l’entité OutOfStock. La variable inStock est définie au-dessus de cette méthode qui présente la liste des ingrédients en stock.
+    - `Peas` est un exemple de garniture en rupture de stock. Il est toujours indiqué comme étant une garniture.
+2. Cliquez sur Attribuer un score aux actions.
+    - `Peas` apparaît comme OutOfStock.
+    - Pour voir pourquoi, ouvrez le code sur `C:\<\installedpath>\src\demos\demoPizzaOrder.ts`. Regardez la méthode EntityDetectionCallback. Cette méthode est appelée après chaque ingrédient pour voir si celui-ci est en stock. Si ce n’est pas le cas, l’ingrédient est supprimé de l’ensemble des ingrédients et ajouté à l’entité OutOfStock. La variable inStock est définie au-dessus de cette méthode qui présente la liste des ingrédients en stock.
 6. Sélectionnez « We don't have $OutOfStock » (Nous n’avons pas $OutOfStock).
 7. Sélectionnez « Would you like anything else? » (Voulez-vous autre chose ?)
 8. Entrez « no » (non).
@@ -91,8 +95,8 @@ Par exemple, nous allons tester une session d’apprentissage.
 10. Sélectionnez l’appel de l’API « FinalizeOrder ». 
     - La fonction « FinalizeOrder » définie dans le code est appelée. Cela efface les ingrédients et retourne « your order is on its way » (votre commande est en cours). 
 2. Entrez « order another » (commander une autre). Nous commençons une nouvelle commande.
-9. Cliquez sur Action de score.
-    - Vous pouvez remarquer que le fromage et les poivrons sont dans la mémoire en tant qu’ingrédients de la commande précédente.
+9. Cliquez sur Attribuer un score aux actions.
+    - « cheese » et « peppers » sont en mémoire en tant que garnitures de la commande précédente.
 1. Sélectionnez « Would you like $LastToppings » (Voulez-vous $LastToppings).
 2. Entrez « yes » (oui)
 3. Cliquez sur Action de score.

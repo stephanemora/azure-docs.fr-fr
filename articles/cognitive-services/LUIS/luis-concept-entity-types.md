@@ -2,19 +2,19 @@
 title: Comprendre les types d’entités dans les applications LUIS dans Azure | Microsoft Docs
 description: Ajouter des entités (données clés dans le domaine de votre application) dans les applications Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/22/2018
-ms.author: v-geberr
-ms.openlocfilehash: ccb7269109309355e2af95f6fb2aa060c1998b22
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.date: 06/28/2018
+ms.author: diberry
+ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286016"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226609"
 ---
 # <a name="entities-in-luis"></a>Entités dans LUIS
 
@@ -65,19 +65,19 @@ LUIS offre de nombreux types d’entités : entités prédéfinies, entités pe
 
 | NOM | Étiquette Can (Peut) | Description |
 | -- |--|--|
-| **Prédéfinie** <br/>[Personnalisée](#prebuilt)| |  **Définition**<br>Types intégrés qui représentent des concepts courants. <br><br>**Liste**<br/>nombre de phrases clés, ordinal, température, dimension, argent, âge, pourcentage, e-mail, URL, numéro de téléphone et phrase clé. <br><br>Les noms des entités prédéfinies sont réservés. <br><br>Toutes les entités prédéfinies qui sont ajoutées à l’application sont retournées dans la requête du [point de terminaison](luis-glossary.md#endpoint). Pour plus d’informations, consultez [Entités prédéfinies](./Pre-builtEntities.md). <br/><br/>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#prebuilt-entity-data)|
+| **Prédéfinie** <br/>[Personnalisée](#prebuilt)| |  **Définition**<br>Types intégrés qui représentent des concepts courants. <br><br>**Liste**<br/>nombre de phrases clés, ordinal, température, dimension, argent, âge, pourcentage, e-mail, URL, numéro de téléphone et phrase clé. <br><br>Les noms des entités prédéfinies sont réservés. <br><br>Toutes les entités prédéfinies qui sont ajoutées à l’application sont retournées dans la requête du [point de terminaison](luis-glossary.md#endpoint). Pour plus d’informations, consultez [Entités prédéfinies](./luis-prebuilt-entities.md). <br/><br/>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#prebuilt-entity-data)|
 |<!-- added week of 3/21/08 --> **Expression régulière**<br/>[RegEx](#regex)||**Définition**<br>Expression régulière personnalisée pour le texte d’énoncé brut mis en forme. Elle ignore la casse et la variante culturelle.  <br><br>Cette entité est adaptée aux mots ou phrases mis en forme de manière cohérente avec toute variation également cohérente.<br><br>La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique. <br><br>Si l’expression régulière est trop complexe (par ex. elle utilise trop de crochets), vous ne pouvez pas ajouter l’expression au modèle. <br><br>**Exemple**<br>`kb[0-9]{6,}` correspond à kb123456.<br/><br/>[Démarrage rapide](luis-quickstart-intents-regex-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md)|
 | **Simple** <br/>[Issue de l’apprentissage automatique](#machine-learned) | ✔ | **Définition**<br>Une entité simple est une entité générique qui décrit un concept unique et est apprise à partir d’un contexte issu de l’apprentissage automatique. Le contexte inclue le choix des mots, l’emplacement des mots et la longueur de l’énoncé.<br/><br/>Il s’agit d’une bonne entité pour les mots ou les phrases qui ne sont pas mis en forme de manière cohérente, mais qui ont la même signification. <br/><br/>[Démarrage rapide](luis-quickstart-primary-and-secondary-data.md)<br/>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#simple-entity-data)|  
-| **Liste** <br/>[Correspondance exacte](#exact-match)|| **Définition**<br>Les entités de liste représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes, dans votre système. <br><br>Chaque entité de liste peut avoir une ou plusieurs formes. Les entités de liste sont adaptées à un ensemble connu de variations sur les manières de représenter le même concept.<br/><br/>LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez le [dictionnaire sémantique](luis-glossary.md#semantic-dictionary) pour rechercher des suggestions de nouveaux mots en fonction de la liste actuelle.<br/><br>S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison. <br/><br/>[Démarrage rapide](luis-quickstart-intent-and-list-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#list-entity-data)| 
+| **Liste** <br/>[Correspondance exacte](#exact-match)|| **Définition**<br>Les entités de liste représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes, dans votre système. <br><br>Chaque entité de liste peut avoir une ou plusieurs formes. Les entités de liste sont adaptées à un ensemble connu de variations sur les manières de représenter le même concept.<br/><br/>LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle.<br/><br>S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison. <br/><br/>[Démarrage rapide](luis-quickstart-intent-and-list-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Mixte](#mixed) | ✔|**Définition**<br>Patterns.any est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine.  <br><br>**Exemple**<br>Si un énoncé recherche des livres en fonction du titre, pattern.any extrait le titre complet. Un gabarit d’énoncé utilisant pattern.any est `Who wrote {BookTitle}[?]`.<br/><br/>[Didacticiel](luis-tutorial-pattern.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Composite** <br/>[Issue de l’apprentissage automatique](#machine-learned) | ✔|**Définition**<br>Une entité composite est constituée d’autres entités, telles que des entités prédéfinies et simples. Les entités distinctes forment une entité entière. Les entités de liste ne sont pas autorisées dans les entités composites. <br><br>**Exemple**<br>Une entité composite nommée PlaneTicketOrder peut avoir les entités enfants prédéfinies `number` et `ToLocation`. <br/><br/>[Didacticiel](luis-tutorial-composite-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Hiérarchique** <br/>[Issue de l’apprentissage automatique](#machine-learned) |✔ | **Définition**<br>Une entité hiérarchique est une catégorie d’entités apprises de façon contextuelle.<br><br>**Exemple**<br>Avec une entité hiérarchique `Location` avec les enfants `ToLocation` et `FromLocation`, chaque enfant peut être déterminé en fonction du **contexte** dans l’énoncé. Dans l’énoncé, `Book 2 tickets from Seattle to New York`, `ToLocation` et `FromLocation` sont différents au niveau du contexte selon les mots qui les entourent. <br/><br/>**Ne pas utiliser si**<br>Si vous recherchez une entité avec des correspondances de texte exactes dans les enfants, quel que soit le contexte, vous devez utiliser une entité de liste. Si vous recherchez une relation parent-enfant avec d’autres types d’entités, vous devez utiliser l’entité Composite.<br/><br/>[Démarrage rapide](luis-quickstart-intent-and-hier-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#hierarchical-entity-data)|
+| **Composite** <br/>[Issue de l’apprentissage automatique](#machine-learned) | ✔|**Définition**<br>Une entité composite est constituée d’autres entités (prédéfinies, simples, regex, liste ou hiérarchiques). Les entités distinctes forment une entité entière. Les entités de liste ne sont pas autorisées dans les entités composites. <br><br>**Exemple**<br>Une entité composite nommée PlaneTicketOrder peut avoir les entités enfants prédéfinies `number` et `ToLocation`. <br/><br/>[Didacticiel](luis-tutorial-composite-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Hiérarchique** <br/>[Issue de l’apprentissage automatique](#machine-learned) |✔ | **Définition**<br>Une entité hiérarchique est une catégorie d’entités simples apprises de façon contextuelle.<br><br>**Exemple**<br>Avec une entité hiérarchique `Location` avec les enfants `ToLocation` et `FromLocation`, chaque enfant peut être déterminé en fonction du **contexte** dans l’énoncé. Dans l’énoncé, `Book 2 tickets from Seattle to New York`, `ToLocation` et `FromLocation` sont différents au niveau du contexte selon les mots qui les entourent. <br/><br/>**Ne pas utiliser si**<br>Si vous recherchez une entité avec des correspondances de texte exactes dans les enfants, quel que soit le contexte, vous devez utiliser une entité de liste. Si vous recherchez une relation parent-enfant avec d’autres types d’entités, vous devez utiliser l’entité Composite.<br/><br/>[Démarrage rapide](luis-quickstart-intent-and-hier-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>
 **Les entités prédéfinies** sont des entités personnalisées fournies par LUIS. Certaines de ces entités sont définies dans le projet [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) open source. Il existe de nombreux [exemples](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) dans le répertoire /Specs pour les cultures prises en charge. Si votre culture ou entité spécifique n’est pas encore prise en charge, vous pouvez contribuer au projet. 
 
 <a name="machine-learned"></a>
-**Les entités issues de l’apprentissage automatique** fonctionnent mieux quand elles sont testées via des [requêtes du point de terminaison](luis-concept-test.md#endpoint-testing) et [l’examen des énoncés du point de terminaison](label-suggested-utterances.md). 
+**Les entités issues de l’apprentissage automatique** fonctionnent mieux quand elles sont testées via des [requêtes du point de terminaison](luis-concept-test.md#endpoint-testing) et [l’examen des énoncés du point de terminaison](luis-how-to-review-endoint-utt.md). 
 
 <a name="regex"></a>
 **Les entités d’expression régulière** sont définies par une expression régulière fournie par l’utilisateur dans le cadre de la définition de l’entité. 
@@ -90,6 +90,9 @@ LUIS offre de nombreux types d’entités : entités prédéfinies, entités pe
 
 ## <a name="entity-limits"></a>Limites de l’entité
 Consultez les [limites](luis-boundaries.md#model-boundaries) pour comprendre le nombre de chaque type d’entité que vous pouvez ajouter à un modèle.
+
+## <a name="entity-roles"></a>Rôles d’entité
+Les [rôles](luis-concept-roles.md) d’entité ne sont utilisés que dans les modèles. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>Entités composites et hiérarchiques
 Les entités composites et les entités hiérarchiques ont des relations parent-enfant et sont issues de l’apprentissage automatique. L’apprentissage automatique permet à LUIS de comprendre les entités dans différents contextes (organisation des mots). Les entités composite sont plus flexibles, car elles acceptent différents types d’entités en tant qu’enfants. Les enfants d’une entité hiérarchique sont des entités simples. 
@@ -194,7 +197,7 @@ Les entités composites représentent les parties d’un ensemble. Par exemple, 
 
 LUIS fournit également le type d’entité de liste qui n’est pas issu de l’apprentissage automatique, mais qui permet à votre application LUIS de spécifier une liste fixe de valeurs. Consultez les [Limites de LUIS](luis-boundaries.md) pour passer en revue les limites du type d’entité de liste. 
 
-Si vous avez envisagé les entités hiérarchiques, composites et liste, mais avez besoin d’aller au-delà de la limite, contactez le support technique. Pour ce faire, rassemblez des informations détaillées sur votre système, accédez au site web [LUIS][LUIS], puis sélectionnez **Support**. Si votre abonnement Azure inclut des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). 
+Si vous avez envisagé les entités hiérarchiques, composites et liste, mais avez besoin d’aller au-delà de la limite, contactez le support technique. Pour cela, rassemblez des informations détaillées sur votre système, accédez au site web [LUIS](luis-reference-regions.md#luis-website), puis sélectionnez **Support**. Si votre abonnement Azure comprend des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="best-practices"></a>Meilleures pratiques
 
@@ -213,5 +216,3 @@ Pour plus d’informations, consultez les [meilleures pratiques](luis-concept-be
 Découvrez les concepts relatifs aux bons [énoncés](luis-concept-utterance.md). 
 
 Consultez [Ajouter des entités](luis-how-to-add-entities.md) pour découvrir comment ajouter des entités à votre application LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

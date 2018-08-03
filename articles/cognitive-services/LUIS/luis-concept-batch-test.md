@@ -2,19 +2,19 @@
 title: Tester votre application LUIS par lot - Azure | Microsoft Docs
 description: Utilisez des tests par lot pour travailler en continu sur votre application afin d’affiner et d’améliorer sa compréhension de la langue.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3803df32d6431b8413e8df0837ed62b2e4344cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 07/06/2018
+ms.author: diberry
+ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369153"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222651"
 ---
 # <a name="batch-testing-in-luis"></a>Tests par lot dans LUIS
 
@@ -34,14 +34,99 @@ Envoyez un fichier d’énoncés, appelé *jeu de données*, pour les tests par 
 
 *Les doublons sont considérés comme des correspondances de chaînes exactes, et non comme des correspondances qui sont tokenizées en premier. 
 
+## <a name="entities-allowed-in-batch-tests"></a>Entités autorisées dans les tests de lots
+Il existe des entités simples, des entités parentes hiérarchiques et des entités composites. Toutes les entités de ces types s’affichent dans le filtre d’entités de test de lot, même s’il n’y a aucune entité correspondante dans le fichier de commandes.
+
+
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## <a name="batch-file-format"></a>Format de fichier de traitement par lot
 Le fichier de traitement par lot est constitué d’énoncés. Chaque énoncé doit avoir une prédiction d’intention attendue ainsi que toute [entité d’apprentissage automatique](luis-concept-entity-types.md#types-of-entities) censée être détectée. 
 
-Voici un exemple de fichier de traitement par lot :
+Voici un exemple de fichier de commandes avec la syntaxe adaptée :
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## <a name="batch-syntax-template"></a>Modèle de syntaxe de lot
+
+Utilisez le modèle suivant pour démarrer votre fichier de commandes :
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+Le fichier de commandes utilise les propriétés **startPos** et **endPos** pour noter le début et la fin d’une entité. Les valeurs commencent à zéro ; elles ne doivent ni commencer ni se terminer par un espace. 
+
+Les journaux de requêtes, eux, utilisent les propriétés startIndex et endIndex. 
 
 
 ## <a name="common-errors-importing-a-batch"></a>Erreurs courantes d’importation de lot
@@ -49,6 +134,7 @@ Les erreurs courantes sont les suivantes :
 
 > * Plus de 1000 énoncés
 > * Objet JSON d’énoncé n’ayant pas de propriété d’entités
+> * Mot(s) étiqueté(s) dans plusieurs entités
 
 ## <a name="batch-test-state"></a>État du test par lot
 LUIS effectue le suivi de l’état du dernier test de chaque jeu de données. Cela inclut la taille (nombre d’énoncés du lot), la date de la dernière exécution et le dernier résultat (nombre d’énoncés prédits correctement).

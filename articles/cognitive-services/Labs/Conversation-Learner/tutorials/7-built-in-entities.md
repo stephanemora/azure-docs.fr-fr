@@ -1,7 +1,7 @@
 ---
-title: Comment ajouter des entités préintégrées à une application Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
+title: Comment ajouter des entités préintégrées à un modèle application Apprenant de conversation - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment ajouter des entités préintégrées à une application Conversation Learner.
+description: Découvrez comment ajouter des entités préintégrées à un modèle Apprenant de conversation.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f014464419bfac39a9e57e679fcd28a737e9ebdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370313"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171365"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Comment ajouter des entités préintégrées
-Ce didacticiel explique comment ajouter des entités « préintégrées » à votre application Conversation Learner.
+Ce didacticiel explique comment ajouter des entités « préintégrées » à votre modèle Apprenant de conversation.
+
+## <a name="video"></a>Vidéo
+
+[![Aperçu du didacticiel 7](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
@@ -31,9 +35,9 @@ Les entités préintégrées reconnaissent les types classiques d’entités, te
 
 ## <a name="steps"></a>Étapes
 
-### <a name="create-the-application"></a>Création de l'application
+### <a name="create-the-model"></a>Création du modèle
 
-1. Dans l’interface utilisateur web, cliquez sur New App
+1. Dans l’interface utilisateur web, cliquez sur New Model
 2. Sous Nom, entrez BuiltInEntities. Cliquez ensuite sur Créer.
 
 ### <a name="create-an-entity"></a>Créer une entité

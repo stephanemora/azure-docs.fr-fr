@@ -147,7 +147,7 @@
           href: automation-dsc-cd-chocolatey.md
         - name: Transférer des données de rapport Azure Automation DSC à OMS Log Analytics
           href: automation-dsc-diagnostics.md
-    - name: Gérer les ressources
+    - name: Gérer les ressources partagées
       items:
         - name: Certificats
           href: automation-certificates.md
@@ -199,7 +199,7 @@
           href: automation-orchestrator-migration.md
         - name: Déplacer le compte Automation
           href: automation-migrate-account-subscription.md
-    - name: Résoudre les problèmes
+    - name: Résolution des problèmes
       items:
         - name: Mise en route
           href: troubleshoot/onboarding.md
@@ -211,7 +211,7 @@
           href: troubleshoot/hybrid-runbook-worker.md
         - name: Update Management
           href: troubleshoot/update-management.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation

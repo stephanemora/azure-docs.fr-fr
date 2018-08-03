@@ -3,19 +3,19 @@ title: Ajouter l’API Vérification orthographique Bing v7 à des requêtes LUI
 titleSuffix: Azure
 description: Corrigez les mots mal orthographiés dans les énoncés en ajoutant l’API Vérification orthographique Bing v7 aux requêtes de point de terminaison LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 340fb34c234a12f93fcfc3182ac3fd44fce324fe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370969"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239149"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corriger les mots mal orthographiés avec la vérification orthographique Bing
 
@@ -26,8 +26,9 @@ Votre [première clé d’API Vérification orthographique Bing v7](https://azu
 
 ![Créer une clé gratuite](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-## <a name="create-subscription-key"></a>Créer une clé d’abonnement
-Si votre clé gratuite a expiré, créez une clé d’abonnement.
+<a name"create-subscription-key"></a>
+## <a name="create-endpoint-key"></a>Créer une clé de point de terminaison
+Si votre clé gratuite a expiré, créez une clé de point de terminaison.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 
@@ -56,7 +57,7 @@ Si votre clé gratuite a expiré, créez une clé d’abonnement.
 10. Copiez la première clé. Vous avez seulement besoin d’une des deux clés. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>Utilisation de la clé dans le panneau de test LUIS
-Il existe deux emplacements dans LUIS pour utiliser la clé. Le premier est le [panneau de test](train-test.md#view-bing-spell-check-corrections-in-test-panel). La clé n’est pas enregistrée dans LUIS, mais c’est une variable de session. Vous devez définir la clé chaque fois que le panneau de test doit appliquer le service de l’API Vérification orthographique Bing v7 à l’énoncé. Consultez les [instructions](train-test.md#view-bing-spell-check-corrections-in-test-panel) de paramétrage de la clé dans le panneau de test.
+Il existe deux emplacements dans LUIS pour utiliser la clé. Le premier est le [panneau de test](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). La clé n’est pas enregistrée dans LUIS, mais c’est une variable de session. Vous devez définir la clé chaque fois que le panneau de test doit appliquer le service de l’API Vérification orthographique Bing v7 à l’énoncé. Consultez les [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) de paramétrage de la clé dans le panneau de test.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Ajout de la clé à l’URL de point de terminaison
 La requête de point de terminaison a besoin de la clé transmise dans les paramètres de chaîne de requête pour chaque requête à laquelle vous souhaitez appliquer la correction orthographique. Vous pouvez avoir un chatbot qui appelle LUIS, ou vous pouvez appeler l’API de point de terminaison LUIS directement. Quelle que soit la façon dont le point de terminaison est appelé, chaque appel doit inclure les informations requises pour que les corrections orthographiques fonctionnent correctement.
@@ -90,7 +91,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription
 Si vous ne souhaitez pas utiliser le service d’API Vérification orthographique Bing v7, vous pouvez étiqueter les énoncés qui présentent des fautes d’orthographe afin que LUIS puisse apprendre orthographe adéquate, ainsi que les fautes de frappe. Cette option requiert davantage d’efforts en matière d’étiquetage que l’utilisation d’un vérificateur d’orthographe.
 
 ## <a name="publishing-page"></a>Page de publication
-La page de [publication](publishapp.md) comporte une case à cocher permettant d’**activer la vérification orthographique Bing**. Cela est pratique pour créer la clé et de comprendre comment l’URL de point de terminaison change. Vous devez toujours utiliser les paramètres de point de terminaison appropriés afin de disposer de l’orthographe corrigée pour chaque énoncé. 
+La page de [publication](luis-how-to-publish-app.md) comporte une case à cocher permettant d’**activer la vérification orthographique Bing**. Cela est pratique pour créer la clé et de comprendre comment l’URL de point de terminaison change. Vous devez toujours utiliser les paramètres de point de terminaison appropriés afin de disposer de l’orthographe corrigée pour chaque énoncé. 
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les exemples d’énoncés](luis-how-to-add-example-utterances.md)

@@ -1,7 +1,7 @@
 ---
-title: Comment utiliser des rappels de session avec une application Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
+title: Guide pratique pour utiliser les rappels de session avec un modèle Conversation Learner – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment utiliser des rappels de session avec une application Conversation Learner.
+description: Découvrez comment utiliser les rappels de session avec un modèle Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f8970620c1f0f87ccae13d031092a048144ffb19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0f51b232470e4e4da3f25d40d025dd3b09dd1204
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369600"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171913"
 ---
-# <a name="how-to-use-session-callbacks-with-a-conversation-learner-application"></a>Comment utiliser des rappels de session avec une application Conversation Learner
+# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Guide pratique pour utiliser les rappels de session avec un modèle Conversation Learner
 
 Ce didacticiel illustre les rappels onSessionStart et onSessionEnd.
 
+## <a name="video"></a>Vidéo
+
+[![Aperçu du tutoriel 11](http://aka.ms/cl-tutorial-11-preview)](http://aka.ms/blis-tutorial-11)
+
 ## <a name="requirements"></a>Configuration requise
-Ce didacticiel nécessite que le bot « tutorialSessionCallbacks.ts » soit en cours d’exécution.
+Pour les besoins de ce tutoriel, le bot `tutorialSessionCallbacks` doit être en cours d’exécution.
 
     npm run tutorial-session-callbacks
 
@@ -35,19 +39,19 @@ S’il existe des arrêts longs, le bot passe à sa session suivante.  Démarrer
 
 ### <a name="open-the-demo"></a>Ouvrir la démonstration
 
-Dans la liste des applications, cliquez sur Tutorial-11-SessionCallbacks. 
+Dans la liste des modèles, cliquez sur Tutorial-11-SessionCallbacks. 
 
 ### <a name="entities"></a>Entités
 
-Nous avons défini quatre entités dans l’application.
+Quatre entités sont définies dans le modèle.
 
 ![](../media/tutorial11_entities.PNG)
 
-Une information importante est que BotName est une entité de programmation.  Elle sera définie par le bot à l’heure de début de session.
+Une information importante est que BotName est une entité de programmation.  Cette entité sera définie par le bot au démarrage de la session.
 
 ### <a name="actions"></a>Actions
 
-Nous avons créé quatre actions. 
+Quatre actions sont définies dans le modèle.
 
 ![](../media/tutorial11_actions.PNG)
 
@@ -70,7 +74,7 @@ Le code pour les méthodes de rappel se trouve dans le fichier C: c:\<installedp
 Ces deux méthodes sont facultatives.
 
 - OnSessionStartCallback : cette méthode définit l’entité BotName.
-- OnSessionEndCallback : vous pouvez spécifier ce que vous voulez effacer. Cela effacera toutes les entités sauf le nom d’utilisateur et le téléphone de l’utilisateur.
+- OnSessionEndCallback : vous pouvez spécifier ce que vous voulez conserver. Cela effacera toutes les entités sauf le nom d’utilisateur et le téléphone de l’utilisateur.
 
 ### <a name="try-the-bot"></a>Essayer le bot
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d42f903559a1e07b42ded33972be4b552f21b5e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9de4377857188a8cf483321654fb857e428c7f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369572"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171637"
 ---
 # <a name="managing-user-data"></a>Gestion des données utilisateur
 
@@ -27,7 +27,7 @@ Par défaut, le service cloud Apprenant de conversation enregistre les interacti
 
 ## <a name="how-to-disable-logging"></a>Comment désactiver la journalisation
 
-Vous pouvez décider si les conversations avec les utilisateurs finaux doivent s’afficher sur la page « Paramètres » de votre application Apprenant de conversation.  Il existe une case à cocher pour « Consigner les dialogues ».  En désactivant cette case, les conversations avec les utilisateurs finaux ne seront pas enregistrées.
+Vous pouvez spécifier si les conversations avec les utilisateurs finaux doivent s’afficher sur la page « Paramètres » de votre modèle Conversation Learner.  Il existe une case à cocher pour « Consigner les dialogues ».  En désactivant cette case, les conversations avec les utilisateurs finaux ne seront pas enregistrées.
 
 ## <a name="what-is-logged"></a>Quels sont les éléments consignés ? 
 
@@ -81,9 +81,10 @@ Pour obtenir les données brutes d’un dialogue consigné, vous pouvez utiliser
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Où `<appId>` représente le GUID de cette application Apprenant de conversation, et `<logDialgoId>` l’ID du dialogue consigné que vous souhaitez récupérer.  
+Où `<appId>` représente le GUID de cette application Conversation Learner et `<logDialgoId>` l’ID du dialogue consigné à récupérer.  
 
-Notez que les dialogues consignés peuvent être modifiés par le développeur et ensuite stockés en tant que dialogues d’apprentissage.  Une fois l’opération effectuée, Apprenant de conversation stocke l’ID du dialogue « source » consigné avec le dialogue d’apprentissage.  En outre, un dialogue d’apprentissage peut être relié par « branches » dans l’interface utilisateur ; si un dialogue d’apprentissage a un ID de dialogue consigné source associé, les branches de ce dialogue d’apprentissage seront marquées avec le même ID de dialogue consigné.
+> [!NOTE]
+> Les dialogues consignés peuvent être modifiés par le développeur, puis stockés en tant que dialogues d’apprentissage.  Une fois l’opération effectuée, Apprenant de conversation stocke l’ID du dialogue « source » consigné avec le dialogue d’apprentissage.  En outre, un dialogue d’apprentissage peut être relié par « branches » dans l’interface utilisateur ; si un dialogue d’apprentissage a un ID de dialogue consigné source associé, les branches de ce dialogue d’apprentissage seront marquées avec le même ID de dialogue consigné.
 
 Pour obtenir tous les dialogues d’apprentissage dérivés d’un dialogue consigné, procédez comme suit.
 
@@ -93,7 +94,7 @@ Récupérez tout d’abord tous les dialogues d’apprentissage :
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-Où `<appId>` représente le GUID de cette application Apprenant de conversation.  
+Où `<appId>` représente le GUID de ce modèle Conversation Learner.  
 
 Cela renvoie tous les dialogues d’apprentissage.  Dans cette liste, recherchez le `sourceLogDialogId` associé et notez le `trainDialogId` associé. 
 
@@ -103,7 +104,7 @@ Pour récupérer un seul dialogue d’apprentissage par ID :
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Où `<appId>` représente le GUID de cette application Apprenant de conversation, et `<trainDialogId>` l’ID du dialogue consigné que vous souhaitez récupérer.  
+Où `<appId>` représente le GUID de cette application Conversation Learner et `<trainDialogId>` l’ID du dialogue d’apprentissage à récupérer.  
 
 ## <a name="how-to-delete-a-logged-dialog"></a>Comment supprimer un dialogue consigné
 
@@ -113,7 +114,7 @@ Si vous souhaitez supprimer un dialogue consigné en fonction de son ID, vous po
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Où `<appId>` représente le GUID de cette application Apprenant de conversation, et `<logDialogId>` l’ID du dialogue consigné que vous souhaitez supprimer. 
+Où `<appId>` représente le GUID de cette application Conversation Learner et `<logDialogId>` l’ID du dialogue consigné à supprimer. 
 
 Si vous souhaitez supprimer un dialogue d’apprentissage en fonction de son ID, vous pouvez utiliser cet appel HTTP :
 
@@ -121,4 +122,4 @@ Si vous souhaitez supprimer un dialogue d’apprentissage en fonction de son ID,
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Où `<appId>` représente le GUID de cette application Apprenant de conversation, et `<trainDialogId>` l’ID du dialogue d’apprentissage que vous souhaitez supprimer. 
+Où `<appId>` représente le GUID de cette application Conversation Learner et `<trainDialogId>` l’ID du dialogue d’apprentissage à supprimer. 

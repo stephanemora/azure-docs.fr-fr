@@ -2,19 +2,19 @@
 title: Collaborer avec d’autres contributeurs sur les applications LUIS dans Azure | Microsoft Docs
 description: Découvrez comment collaborer avec d’autres contributeurs sur les applications Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: c0451f7621a3c18dbf365f3a03934924c030092f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 9ea0269439b3d00bf36186cf2fd5c73311526bec
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369925"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225599"
 ---
 # <a name="collaborate-with-others-on-language-understanding-luis-apps"></a>Collaborer avec d’autres utilisateurs sur les applications Language Understanding (LUIS)  
 
@@ -31,6 +31,8 @@ Pour autoriser des collaborateurs à modifier votre application LUIS, sur la pag
 
 * Les collaborateurs peuvent se connecter et modifier votre application LUIS en même temps que vous travaillez sur l’application. <!--If a collaborator edits the LUIS app, you see a notification at the top of the browser.-->
 * Les collaborateurs ne peuvent pas ajouter d’autres collaborateurs.
+
+Pour plus d’informations sur les comptes d’utilisateur Active Directory, voir [Utilisateur du locataire Azure Active Directory](luis-how-to-account-settings.md#azure-active-directory-tenant-user). 
 
 ## <a name="set-application-as-public"></a>Définir une application comme publique
 Consultez [Accès au point de terminaison d’application publique](luis-concept-security.md#public-app-endpoint-access) pour plus d’informations.

@@ -1,6 +1,6 @@
 - name: Documentation Réseau virtuel
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos du Réseau virtuel
       href: virtual-networks-overview.md
@@ -211,6 +211,8 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: Configurer PTR pour la vérification de la bannière SMTP
           href: create-ptr-for-smtp-service.md
+        - name: Résolution des problèmes de la check-list pour les appliances virtuelles
+          href: virtual-network-troubleshoot-nva.md
     - name: Classique
       items:
         - name: Créer et gérer un réseau virtuel

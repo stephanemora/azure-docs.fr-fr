@@ -1,7 +1,7 @@
 ---
-title: Comment utiliser les entités avec une application Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
+title: Comment utiliser des entités avec un modèle d’Apprenant de conversation - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment utiliser les entités avec une application Conversation Learner.
+description: Découvrez comment utiliser les entités avec un modèle Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,20 +10,24 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 85df31c2e2ff3ca81698921a1f17f415daefb6c5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f851d43d69999a848dea01c9457a379adb63353b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369589"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172379"
 ---
 # <a name="introduction-to-entities"></a>Présentation des entités
 
 Ce didacticiel présente les entités et montre comment utiliser les champs « entités disqualifiantes » et « entités requises » dans les actions.
 
+## <a name="video"></a>Vidéo
+
+[![Aperçu du didacticiel 3](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
+
 ## <a name="requirements"></a>Configuration requise
 
-Vous devez exécuter le bot didacticiel général pour utiliser ce didacticiel.
+Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
 
     npm run tutorial-general
 
@@ -37,9 +41,9 @@ D’autres didacticiels couvrent des aspects annexes des entités : entités pr�
 
 ## <a name="steps"></a>Étapes
 
-### <a name="create-the-application"></a>Création de l'application
+### <a name="create-the-model"></a>Création du modèle
 
-1. Dans l’interface utilisateur web, cliquez sur Nouvelle application.
+1. Dans l’interface utilisateur web, cliquez sur New Model
 2. Dans Nom, entrez IntroToEntities. Cliquez ensuite sur Créer.
 
 ### <a name="create-entity"></a>Créer une entité
@@ -48,17 +52,18 @@ D’autres didacticiels couvrent des aspects annexes des entités : entités pr�
 2. Dans la partie correspondant au nom de l’entité, entrez la ville.
 3. Click Create
 
-Notez le type d’entité « personnalisé », c’est-à-dire que l’entité peut être formée.  Il existe également des entités prédéfinies, ce qui signifie que leur comportement ne peut pas être ajusté. Nous les aborderons dans un autre didacticiel.
+> [!NOTE]
+> Le type d’entité « personnalisé », c’est-à-dire que l’entité peut être formée.  Il existe également des entités prédéfinies, ce qui signifie que leur comportement ne peut pas être ajusté. Nous les aborderons dans un autre didacticiel.
 
 ### <a name="create-two-actions"></a>Créer deux actions
 
 1. Cliquez sur Actions, puis sur Nouvelle Action.
 2. Dans Réponse, tapez « Je ne sais pas quelle ville vous recherchez ».
-3. Dans Disqualifying Entities (Entités disqualifiantes), entrez $city. Cliquez sur Enregistrer.
+3. Dans Entités disqualifiantes, entrez $city. Cliquez sur Enregistrer.
     - Cela signifie que si cette entité est définie dans la mémoire du bot, cette action ne sera *pas* disponible.
 2. Cliquez sur Actions, puis sur Nouvelle Action pour en créer une deuxième.
 3. Dans Réponse, tapez « Il fait probablement beau à $city ».
-4. Dans Required Entities (Entités requises), notez que l’entité ville a été ajoutée automatiquement dans la mesure où elle a été désignée.
+4. Dans Required Entities (Entités requises), l’entité ville a été ajoutée automatiquement dans la mesure où elle a été désignée.
 5. Cliquez sur Enregistrer.
 
 Vous avez maintenant deux actions.
@@ -67,19 +72,19 @@ Vous avez maintenant deux actions.
 
 ### <a name="train-the-bot"></a>Former le bot
 
-1. Cliquez sur Train Dialogs (Dialogues d’apprentissage), puis sur Nouveau dialogue d’apprentissage.
+1. Cliquez sur Boîtes de dialogue d’apprentissage, puis sur Nouvelle boîte de dialogue d’apprentissage.
 2. Tapez « hello ».
 3. Cliquez sur Score Actions (Actions de score), puis sélectionnez « Je ne sais pas quelle ville vous recherchez ».
-    - Notez que la réponse dans laquelle l’entité ville est requise ne peut pas être sélectionnée, car l’entité ville n’est pas définie dans la mémoire du bot.
+    - La réponse dans laquelle l’entité ville est requise ne peut pas être sélectionnée, car l’entité ville n’est pas définie dans la mémoire du bot.
 2. Sélectionnez « Je ne sais pas quelle ville vous recherchez ».
 4. Entrez « seattle ». Mettez seattle en surbrillance, puis cliquez sur ville.
-5. Cliquez sur (Score Actions) Actions de score.
-    - Veuillez noter que la valeur ville figure maintenant dans la mémoire du bot.
+5. Cliquez sur Attribuer un score aux actions
+    - La valeur ville figure maintenant dans la mémoire du bot.
     - La réponse « Il fait probablement beau à $city » est maintenant disponible. 
 6. Sélectionnez « Il fait probablement beau à $city ».
 
 Supposons qu’un utilisateur saisisse « veuillez répéter ». 
-1. Saisissez cela et appuyez sur Entrée. Notez que l’entité ville et sa valeur sont en mémoire et disponibles.
+1. Saisissez cela et appuyez sur Entrée. L’entité ville et sa valeur sont en mémoire et disponibles.
 2. Sélectionnez « Il fait probablement beau à $city ».
 
 ![](../media/tutorial3_entities.PNG)

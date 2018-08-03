@@ -2,19 +2,19 @@
 title: Comprendre le score de prédiction retourné par LUIS - Azure | Documents Microsoft
 description: Découvrez ce que signifie le score de prédiction dans LUIS
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265986"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224584"
 ---
 # <a name="prediction-score"></a>Score de prédiction
 Un score de prédiction indique le degré de confiance que LUIS a dans les résultats de prédiction. 
@@ -28,7 +28,7 @@ Un score de prédiction est généralement compris entre zéro (0) et un (1). Un
 |0.01|faible confiance|
 |0|échec définitif de correspondance|
 
-Lorsqu’un énoncé entraîne un score de faible confiance, LUIS le met en surbrillance sur le site web [LUIS][LUIS], page **Intention**, avec **labeled-intent** marqué en rouge. 
+Lorsqu’un énoncé obtient un score à faible degré de confiance, LUIS le signale sur la page **Intention** du site web [LUIS](luis-reference-regions.md), en encadrant **labeled-intent** en rouge. 
 
 ![Disparité de score](./media/luis-concept-score/score-discrepancy.png)
 
@@ -58,8 +58,9 @@ Lorsque vous effectuez l’apprentissage du même modèle dans une autre applica
 
 Si votre chatbot requiert un score LUIS spécifique pour indiquer la confiance dans un énoncé, à la place, vous devez utiliser la différence de score entre les deux intentions principales. Ceci offre une flexibilité pour varier l’apprentissage. 
 
+## <a name="punctuation"></a>Ponctuation
+La ponctuation est un jeton distinct dans LUIS. Un énoncé qui se termine par un point et un énoncé qui n’en comporte pas sont deux énoncés distincts, qui sont susceptibles d’obtenir deux prédictions différentes. Veillez à ce que le modèle gère la ponctuation soit dans les [exemples d’énoncés](luis-concept-utterance.md) (avec ou sans ponctuation), soit dans les [modèles}(luis-concept-patterns.md) où il est plus facile d’ignorer la ponctuation avec la syntaxe spéciale : `I am applying for the {Job} position[.]`.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consulter [Ajouter des entités](luis-how-to-add-entities.md) pour découvrir comment ajouter des entités à votre application LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

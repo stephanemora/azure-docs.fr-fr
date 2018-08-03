@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd7531004759cdaeb59f4706dc2650d0db3c0cdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370340"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070924"
 ---
 # <a name="your-first-bing-visual-search-query-in-c"></a>Votre première requête de recherche visuelle Bing dans C#
 
@@ -387,8 +387,9 @@ Remplacez la méthode BingImageSearch par ce code :
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Obtenir des informations sur une image à l’aide d’un jeton insights](../use-insights-token.md)  
-[Didacticiel de l’application à page unique Recherche visuelle Bing](../tutorial-bing-visual-search-single-page-app.md)
-[Vue d’ensemble de la Recherche visuelle Bing](../overview.md)  
+[Tutoriel de chargement d’images pour Recherche visuelle Bing](../tutorial-visual-search-image-upload.md)
+[Tutoriel de l’application à page unique Recherche visuelle Bing](../tutorial-bing-visual-search-single-page-app.md)
+[Présentation de Recherche visuelle Bing](../overview.md)  
 [Essayer](https://aka.ms/bingvisualsearchtryforfree)  
 [Obtenir une clé d’accès d’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Informations de référence sur l’API Recherche visuelle Bing](https://aka.ms/bingvisualsearchreferencedoc)

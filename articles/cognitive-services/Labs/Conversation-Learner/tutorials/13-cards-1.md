@@ -1,7 +1,7 @@
 ---
-title: Comment utiliser des cartes avec une application d’apprenant de conversation, 1ère partie - Microsoft Cognitive Services | Microsoft Docs
+title: Comment utiliser des cartes avec un modèle d’Apprenant de conversation, 1ère partie - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Découvrez comment utiliser des cartes avec une application d’Apprenant de conversation.
+description: Découvrez comment utiliser des cartes avec un modèle d’Apprenant de conversation.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,18 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e90ccd42b21eea6139c402937be7e20513d73c84
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 988a2433f098f41bca4796299825293efd4de44b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369576"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171132"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Comment utiliser des cartes (partie 1 de 2)
 
 Ce tutoriel montre comment ajouter et utiliser une carte simple dans votre bot.
 
-Notez que l’Apprenant de conversation attend que vos fichiers de définition de carte se trouvent dans un répertoire appelé « cartes », dans le répertoire où le bot est démarré.
+> [!NOTE]
+> Actuellement, l’Apprenant de conversation attend que vos fichiers de définition de carte se trouvent dans un répertoire appelé « cartes », dans le répertoire où le bot est démarré. Nous rendrons prochainement cette option configurable.
+
+## <a name="video"></a>Vidéo
+
+[![Aperçu du didacticiel 13](http://aka.ms/cl-tutorial-13-preview)](http://aka.ms/blis-tutorial-13)
 
 ## <a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
@@ -34,7 +39,7 @@ Les cartes sont des éléments de l’interface utilisateur qui permettent à l�
 
 ### <a name="open-the-demo"></a>Ouvrir la démonstration
 
-Dans la liste des applications de l’interface utilisateur web, cliquez sur Tutorial-13-Cards-1. 
+Dans la liste des modèles de l’interface utilisateur web, cliquez sur Tutorial-13-Cards-1. 
 
 ### <a name="the-card"></a>La carte
 
@@ -44,8 +49,9 @@ Le système s’attend à trouver les définitions de la carte dans ce répertoi
 
 ![](../media/tutorial13_prompt.PNG)
 
-- Notez le TextBlock et le modèle de requête.
-- Il y a deux boutons Envoyer et le texte qui est envoyé pour chacun.
+> [!NOTE]
+> Notez le type de corps `TextBlock` et l’espace réservé `{{question}}` dans le champ de texte.
+> Il y a deux boutons Envoyer et le texte qui est envoyé pour chacun.
 
 ### <a name="actions"></a>Actions
 
@@ -57,7 +63,8 @@ Voyons comment le type d’action de carte a été créé :
 
 ![](../media/tutorial13_cardaction.PNG)
 
-Notez l’entrée de la question et les boutons 1 et 2. Ce sont des modèles de références dans la carte où vous entrez la question et les réponses respectives. Vous pouvez également référencer et utiliser des entités, ou un mélange de texte et d’entités.
+> [!NOTE]
+> L’entrée de la question et les boutons 1 et 2. Ce sont des modèles de références dans la carte où vous entrez la question et les réponses respectives. Vous pouvez également référencer et utiliser des entités, ou un mélange de texte et d’entités.
 
 L’icône en forme d’œil vous montre à quoi ressemble la carte.
 
