@@ -1,21 +1,20 @@
 ---
-title: À propos du Kit de développement logiciel (SDK) Speech de Cognitive Services | Microsoft Docs
+title: À propos du Kit de développement logiciel (SDK) Speech de Cognitive Services
 description: Vue d’ensemble des Kits de développement logiciel (SDK) disponibles pour le service Speech.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c7eaa2aa37b05bd0e125e1841357979af4f6763a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113390"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326057"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>À propos du Kit de développement logiciel (SDK) Speech de Cognitive Services
 
@@ -25,11 +24,13 @@ Le Kit de développement logiciel (SDK) Speech de Cognitive Services fournit à 
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="get-the-windows-sdk"></a>Obtenir le SDK Windows
+## <a name="get-the-sdk"></a>Obtention du Kit de développement logiciel (SDK)
+
+### <a name="get-the-windows-sdk"></a>Obtenir le SDK Windows
 
 La version Windows du Kit de développement logiciel (SDK) Speech inclut des bibliothèques client C/C++ 32 bits et 64 bits, ainsi que des bibliothèques managées (.NET) pour l’utilisation avec C#. Le Kit de développement logiciel (SDK) peut être installé dans Visual Studio à l’aide de NuGet. Recherchez simplement `Microsoft.CognitiveServices.Speech`.
 
-## <a name="get-the-linux-sdk"></a>Obtenir le SDK Linux
+### <a name="get-the-linux-sdk"></a>Obtenir le SDK Linux
 
 Vérifiez que vous disposez du compilateur et des bibliothèques requis en exécutant les commandes shell suivantes :
 
@@ -53,7 +54,7 @@ Ensuite, [téléchargez le SDK](https://aka.ms/csspeech/linuxbinary) et décompr
 
 Pour créer une application, copiez ou déplacez les fichiers binaires (et les bibliothèques) requis dans votre environnement de développement et incluez-les dans votre processus de génération en fonction de vos besoins.
 
-## <a name="get-the-java-sdk"></a>Obtenir le Kit de développement logiciel (SDK) Java
+### <a name="get-the-java-sdk"></a>Obtenir le Kit de développement logiciel (SDK) Java
 
 Le Kit de développement logiciel (SDK) Java pour Android est empaqueté sous forme de package [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires ainsi que les autorisations Android requises pour son utilisation.
 Il est hébergé dans un référentiel Maven dans `https://csspeechstorage.blob.core.windows.net/maven/`, en tant que package `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
@@ -72,6 +73,8 @@ Pour utiliser le package dans votre projet Android Studio, effectuez les modific
   ```
 
 Le Kit de développement logiciel (SDK) Java fait aussi partie du [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).
+
+[!include[Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

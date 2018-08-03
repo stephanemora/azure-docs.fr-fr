@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226609"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282277"
 ---
 # <a name="entities-in-luis"></a>Entités dans LUIS
 
@@ -70,7 +70,7 @@ LUIS offre de nombreux types d’entités : entités prédéfinies, entités pe
 | **Simple** <br/>[Issue de l’apprentissage automatique](#machine-learned) | ✔ | **Définition**<br>Une entité simple est une entité générique qui décrit un concept unique et est apprise à partir d’un contexte issu de l’apprentissage automatique. Le contexte inclue le choix des mots, l’emplacement des mots et la longueur de l’énoncé.<br/><br/>Il s’agit d’une bonne entité pour les mots ou les phrases qui ne sont pas mis en forme de manière cohérente, mais qui ont la même signification. <br/><br/>[Démarrage rapide](luis-quickstart-primary-and-secondary-data.md)<br/>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Liste** <br/>[Correspondance exacte](#exact-match)|| **Définition**<br>Les entités de liste représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes, dans votre système. <br><br>Chaque entité de liste peut avoir une ou plusieurs formes. Les entités de liste sont adaptées à un ensemble connu de variations sur les manières de représenter le même concept.<br/><br/>LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle.<br/><br>S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison. <br/><br/>[Démarrage rapide](luis-quickstart-intent-and-list-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Mixte](#mixed) | ✔|**Définition**<br>Patterns.any est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine.  <br><br>**Exemple**<br>Si un énoncé recherche des livres en fonction du titre, pattern.any extrait le titre complet. Un gabarit d’énoncé utilisant pattern.any est `Who wrote {BookTitle}[?]`.<br/><br/>[Didacticiel](luis-tutorial-pattern.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Composite** <br/>[Issue de l’apprentissage automatique](#machine-learned) | ✔|**Définition**<br>Une entité composite est constituée d’autres entités (prédéfinies, simples, regex, liste ou hiérarchiques). Les entités distinctes forment une entité entière. Les entités de liste ne sont pas autorisées dans les entités composites. <br><br>**Exemple**<br>Une entité composite nommée PlaneTicketOrder peut avoir les entités enfants prédéfinies `number` et `ToLocation`. <br/><br/>[Didacticiel](luis-tutorial-composite-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Composite** <br/>[Issue de l’apprentissage automatique](#machine-learned) | ✔|**Définition**<br>Une entité composite est constituée d’autres entités (prédéfinies, simples, regex, liste ou hiérarchiques). Les entités distinctes forment une entité entière. <br><br>**Exemple**<br>Une entité composite nommée PlaneTicketOrder peut avoir les entités enfants prédéfinies `number` et `ToLocation`. <br/><br/>[Didacticiel](luis-tutorial-composite-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#composite-entity-data)|  
 | **Hiérarchique** <br/>[Issue de l’apprentissage automatique](#machine-learned) |✔ | **Définition**<br>Une entité hiérarchique est une catégorie d’entités simples apprises de façon contextuelle.<br><br>**Exemple**<br>Avec une entité hiérarchique `Location` avec les enfants `ToLocation` et `FromLocation`, chaque enfant peut être déterminé en fonction du **contexte** dans l’énoncé. Dans l’énoncé, `Book 2 tickets from Seattle to New York`, `ToLocation` et `FromLocation` sont différents au niveau du contexte selon les mots qui les entourent. <br/><br/>**Ne pas utiliser si**<br>Si vous recherchez une entité avec des correspondances de texte exactes dans les enfants, quel que soit le contexte, vous devez utiliser une entité de liste. Si vous recherchez une relation parent-enfant avec d’autres types d’entités, vous devez utiliser l’entité Composite.<br/><br/>[Démarrage rapide](luis-quickstart-intent-and-hier-entity.md)<br>[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>

@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: zhouwang
-ms.openlocfilehash: 56c41fd7f6a00d80bc6bccd61894654e057e926e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368380"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040536"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Bien démarrer avec l’API Reconnaissance vocale en JavaScript
 
@@ -24,10 +24,10 @@ Vous pouvez développer des applications qui convertissent du contenu vocal en t
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>S’abonner à l’API Reconnaissance vocale et obtenir une clé d’abonnement d’essai
 
-L’API Microsoft Speech fait partie de Cognitive Services. Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération retourne une clé principale et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
+L’API Microsoft Speech fait partie de Cognitive Services. Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération renvoie une clé primaire et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
 
 > [!IMPORTANT]
-> Obtenez une clé d’abonnement. Pour pouvoir utiliser des bibliothèques clientes Speech, vous devez disposer d’une [clé d’abonnement](https://azure.microsoft.com/try/cognitive-services/).
+> Obtenez une clé d’abonnement. Pour pouvoir utiliser des bibliothèques de client Speech, vous devez disposer d’une [clé d’abonnement](https://azure.microsoft.com/try/cognitive-services/).
 
 ## <a name="get-started"></a>Prise en main
 
@@ -48,7 +48,7 @@ Pour tester l’exemple localement, clonez ce dépôt :
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-Compilez les sources TypeScript et regroupez-les par le biais d’une opération bundle/browserify en un seul fichier JavaScript ([npm](https://www.npmjs.com/) doit être installé sur votre ordinateur). Accédez à la racine du dépôt cloné et exécutez les commandes :
+Compilez les sources TypeScript et regroupez-les par le biais d’une opération bundle en un seul fichier JavaScript ([npm](https://www.npmjs.com/) doit être installé sur votre ordinateur). Accédez à la racine du dépôt cloné et exécutez les commandes :
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle
