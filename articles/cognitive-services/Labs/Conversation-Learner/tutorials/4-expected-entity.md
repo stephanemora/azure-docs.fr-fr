@@ -50,7 +50,7 @@ Concrètement, si le champ « Entité attendue » d’une action est défini sur
 
 1. Cliquez sur Entités, puis sur Nouvelle entité.
 2. Dans Nom de l’entité, entrez le nom.
-3. Click Create
+3. Cliquez sur Create.
 
 > [!NOTE]
 > Le type d’entité est « CUSTOM », ce qui signifie que l’entité peut être entraînée.  Il existe également des entités prédéfinies, dont le comportement n’est pas ajustable.  Elles sont traitées dans le [tutoriel Entités prédéfinies](./7-built-in-entities.md).

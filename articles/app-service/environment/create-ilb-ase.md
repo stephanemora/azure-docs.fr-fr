@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355370"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347281"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
 
@@ -30,7 +30,7 @@ ms.locfileid: "34355370"
 
 Cet article explique comment créer un ASE ILB. Pour une présentation de l’ASE, consultez [Présentation des environnements App Service][Intro]. Pour savoir comment créer un ASE externe, voir [Créer un environnement App Service externe][MakeExternalASE].
 
-## <a name="overview"></a>Vue d'ensemble ##
+## <a name="overview"></a>Vue d’ensemble ##
 
 Vous pouvez déployer un ASE avec un point de terminaison accessible via Internet ou avec une adresse IP de votre réseau virtuel. Pour définir l’adresse IP sur une adresse de réseau virtuel, l’ASE doit être déployé avec un ILB. Lorsque vous déployez votre ASE avec un ILB, vous devez indiquer :
 
@@ -64,13 +64,7 @@ Pour créer un ILB ASE :
 
 4. Sélectionnez ou créez un réseau virtuel.
 
-    * Si vous sélectionnez un nouveau réseau virtuel, vous pouvez spécifier un nom et un emplacement. Si vous envisagez d’héberger des applications Linux sur cet environnement ASE, seules les six régions suivantes sont prises en charge pour le moment : **Ouest des États-Unis, Est des États-Unis, Europe de l’Ouest, Europe du Nord, Est de l’Australie et Asie du Sud-Est**. 
-
-5. Si vous sélectionnez un réseau virtuel existant, vous devez créer un sous-réseau pour accueillir l’ASE. Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute croissance éventuelle à venir de votre environnement ASE. Nous recommandons la taille `/25`, qui comprend 128 adresses et peut gérer un ASE de taille maximale. La taille minimale que vous pouvez sélectionner est `/28`. Selon les besoins de l’infrastructure, cette taille peut être mise à l’échelle jusqu’à un maximum de 3 instances.
-
-    * Allez au-delà du nombre maximal par défaut de 100 instances dans vos plans App Service.
-
-    * Mettez à l’échelle jusqu’à près de 100 instances, mais avec une mise à l’échelle du serveur frontal plus rapide.
+5. Si vous sélectionnez un réseau virtuel existant, vous devez créer un sous-réseau pour accueillir l’ASE. Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute croissance éventuelle à venir de votre environnement ASE. Nous recommandons la taille `/24`, qui comprend 256 adresses et qui peut gérer un ASE de taille maximale ainsi que les besoins de mise à l’échelle. 
 
 6. Sélectionnez **Réseau virtuel/Emplacement** > **Configuration du réseau virtuel**. Définissez le **Type d’adresse IP virtuelle** sur **Interne**.
 
@@ -119,7 +113,7 @@ Pour créer une application dans un ASE ILB, procédez de la même façon que po
 
 5. Sélectionnez votre OS. 
 
-    * Si vous souhaitez créer une application Linux à l’aide d’un conteneur Docker personnalisé, vous pouvez tout simplement utiliser votre propre conteneur en suivant ces instructions. 
+    * Si vous souhaitez créer une application Linux à l’aide d’un conteneur Docker personnalisé, vous pouvez tout simplement utiliser votre propre conteneur en suivant les instructions [ici][linuxapp]. 
 
 6. Sélectionnez ou créez un plan App Service. Si vous souhaitez créer un plan App Service, sélectionnez votre ASE en tant qu’emplacement. Sélectionnez le pool de workers dans lequel vous souhaitez créer votre plan App Service. Lorsque vous créez le plan App Service, sélectionnez votre ASE en tant qu’emplacement et pool de workers. Lorsque vous spécifiez le nom de l’application, le domaine sous le nom de votre application est remplacé par celui de votre ASE.
 
@@ -172,7 +166,6 @@ Pour charger vos propres certificats et tester l’accès :
 
     > [!NOTE] 
     > N’essayez pas de créer cette machine virtuelle dans le même sous-réseau que l’ASE, car cela échouera ou provoquera des problèmes.
-    >
     >
 
 6. Définissez le service DNS pour le domaine de votre environnement ASE. Vous pouvez utiliser un caractère générique avec votre domaine dans votre DNS. Pour effectuer des tests simples, modifiez le fichier hosts sur votre machine virtuelle afin de définir le nom de l’application web sur l’adresse IP de l’adresse IP virtuelle :
@@ -258,3 +251,4 @@ Pour en savoir plus sur la configuration de votre ASE ILB avec un dispositif WA
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[linuxapp]: ../containers/app-service-linux-intro.md

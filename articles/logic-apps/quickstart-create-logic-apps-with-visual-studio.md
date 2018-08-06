@@ -6,17 +6,17 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/15/2018
+ms.date: 07/31/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 92f4fb57e3bd1f3ee61625256d661980d6a11275
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300750"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367128"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : créer et automatiser des tâches, des processus et des flux de travail avec Azure Logic Apps - Visual Studio
 
@@ -39,7 +39,8 @@ Avant de commencer, vérifiez que vous disposez des éléments ci-après :
   * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 ou Visual Studio 2015 - édition Community ou supérieure</a>. 
   Ce démarrage rapide utilise Visual Studio Community 2017, qui est gratuit.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">SDK Azure (2.9.1 ou version ultérieure)</a> et <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK pour .NET (2.9.1 ou version ultérieure)</a> et <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>. 
+  En savoir plus sur <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK pour .NET</a>.
 
   * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Outils Azure Logic Apps pour Visual Studio 2017</a> ou <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015</a>
   
@@ -95,8 +96,8 @@ Après avoir créé votre projet de groupe de ressources Azure, créez et géné
    | ------- | ------------- | ----------- | 
    | Liste de profils utilisateur | Contoso <br> jamalhartnett@contoso.com | Par défaut, le compte que vous avez utilisé pour vous connecter | 
    | **Abonnement** | Pay-As-You-Go <br> (jamalhartnett@contoso.com) | Le nom de votre abonnement Azure et le compte associé |
-   | **Groupe de ressources** | MyLogicApp-RG <br> (Ouest des États-Unis) | Le groupe de ressources Azure et l’emplacement de stockage et de déploiement des ressources pour votre application logique | 
-   | **Lieu** | MyLogicApp-RG2 <br> (Ouest des États-Unis) | Un autre emplacement si vous ne souhaitez pas utiliser l’emplacement du groupe de ressources |
+   | **Groupe de ressources** | MyLogicApp-RG <br> (USA Ouest) | Le groupe de ressources Azure et l’emplacement de stockage et de déploiement des ressources pour votre application logique | 
+   | **Lieu** | MyLogicApp-RG2 <br> (USA Ouest) | Un autre emplacement si vous ne souhaitez pas utiliser l’emplacement du groupe de ressources |
    ||||
 
 3. Le Concepteur d’application logique s’ouvre et affiche une page contenant une vidéo de présentation et les déclencheurs couramment utilisés. Faites défiler la vidéo et les déclencheurs. Sous **Modèles**, sélectionnez **Application logique vide**.
@@ -107,7 +108,7 @@ Après avoir créé votre projet de groupe de ressources Azure, créez et géné
 
 Ensuite, ajoutez un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) qui s’active lorsqu’un nouvel élément de flux RSS apparaît. Chaque application logique doit commencer avec un déclencheur, qui s’active quand des critères spécifiques sont remplis. Chaque fois que le déclencheur est activé, le moteur Logic Apps crée une instance d’application logique qui exécute votre workflow.
 
-1. Dans le Concepteur d’application logique, entrez « rss » dans la zone de recherche. Sélectionnez le déclencheur suivant : **RSS - Lors de la publication d’un élément de flux**
+1. Dans le Concepteur d’application logique, entrez « rss » dans la zone de recherche. Sélectionnez le déclencheur suivant : **Lors de la publication d’un élément de flux**
 
    ![Générer votre application logique en ajoutant un déclencheur et des actions](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -129,7 +130,7 @@ Maintenant, avant de pouvoir tester votre application logique, déployez votre a
 
 Avant de pouvoir exécuter votre application logique, déployez l’application à partir de Visual Studio dans Azure ; pour ce faire, seules quelques étapes doivent être effectuées.
 
-1. Dans l’Explorateur de solutions, dans le menu contextuel de votre projet, sélectionnez **Déployer** > **Nouveau...**. Si vous y êtes invité, connectez-vous à votre compte Azure.
+1. Dans l’Explorateur de solutions, dans le menu contextuel de votre projet, sélectionnez **Déployer** > **Nouveau**. Si vous y êtes invité, connectez-vous à votre compte Azure.
 
    ![Créer le déploiement de l’application logique](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
@@ -160,15 +161,16 @@ Avant de pouvoir exécuter votre application logique, déployez l’application 
 
 Félicitations, vous avez maintenant correctement généré et déployé votre application logique avec Visual Studio ! Pour gérer votre application logique et examiner son historique des exécutions, consultez [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) (Gérer des applications logiques avec Visual Studio).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées.
 
 1. Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a> avec le même compte que celui utilisé pour créer votre application logique. 
 
-2. Dans le menu Azure principal, choisissez **Groupes de ressources**. Sélectionnez le groupe de ressources pour votre application logique.
+2. Dans le menu Azure principal, choisissez **Groupes de ressources**.
+Sélectionnez le groupe de ressources pour votre application logique, puis sélectionnez **Vue d’ensemble**.
 
-3. Choisissez **Supprimer un groupe de ressources**. Confirmez le nom du groupe de ressources, puis choisissez **Supprimer**.
+3. Dans la page **Vue d’ensemble**, choisissez **Supprimer un groupe de ressources**. Confirmez le nom du groupe de ressources, puis choisissez **Supprimer**.
 
    ![« Groupes de ressources » > « Vue d’ensemble » > « Supprimer un groupe de ressources »](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
 

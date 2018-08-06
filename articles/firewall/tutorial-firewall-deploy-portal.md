@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145316"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358944"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -49,7 +49,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
 
-Les exemples indiqués dans les articles relatifs au Pare-feu Azure supposent que vous avez déjà activé la préversion publique du Pare-feu Azure. Pour plus d’informations, consultez [Activer la préversion publique du Pare-feu Azure](public-preview.md).
+Les exemples des articles sur le service Pare-feu Azure supposent que vous avez déjà activé la préversion publique de Pare-feu Azure. Pour plus d’informations, consultez [Activer la préversion publique du Pare-feu Azure](public-preview.md).
 
 Pour ce tutoriel, vous devez créer un seul réseau virtuel avec trois sous-réseaux :
 - **FW-SN** : le pare-feu est dans ce sous-réseau.
@@ -88,6 +88,9 @@ Tout d’abord, créez un groupe de ressources qui contiendra les ressources né
     Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
 11. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.
 12. Utilisez les autres paramètres par défaut, puis cliquez sur **Créer**.
+
+> [!NOTE]
+> La taille minimale du sous-réseau AzureFirewallSubnet est /25.
 
 ### <a name="create-additional-subnets"></a>Créer des sous-réseaux supplémentaires
 
@@ -172,6 +175,9 @@ Utilisez les informations du tableau suivant pour configurer les **Paramètres**
 4. Une fois le déploiement terminé, accédez au groupe de ressources **Test-FW-RG**, puis cliquez sur le pare-feu **Test-FW01**.
 6. Notez l’adresse IP privée. Vous l’utiliserez plus tard lors de la création de l’itinéraire par défaut.
 
+> [!NOTE]
+> L’adresse IP publique doit être le type de référence (SKU) Standard.
+
 [//]: # (N’oubliez pas de noter l’adresse IP privée pour le pare-feu.)
 
 ## <a name="create-a-default-route"></a>Créer un itinéraire par défaut
@@ -223,7 +229,7 @@ Pour le sous-réseau **Workload-SN**, vous devez configurer l’itinéraire sort
 >- l’accès de stockage de l’état des disques managés.
 >- Diagnostics Windows
 >
-> Vous pouvez remplacer ce regroupement de règles d’infrastructure intégré en créant un regroupement de règles d’application *Refuser tout* qui sera traité en dernier. Il sera toujours traité avant le regroupement de règles d’infrastructure. Tout ce qui ne se trouve pas dans le regroupement de règles d’infrastructure est refusé par défaut.
+> Vous pouvez remplacer ce regroupement de règles d’infrastructure intégré en créant un regroupement de règles d’application *Refuser tout* qui sera traité en dernier. Il sera toujours traité avant le groupe de règles d’infrastructure. Tout ce qui ne se trouve pas dans le regroupement de règles d’infrastructure est refusé par défaut.
 
 ## <a name="configure-network-rules"></a>Configurer des règles de réseau
 
@@ -233,7 +239,7 @@ Pour le sous-réseau **Workload-SN**, vous devez configurer l’itinéraire sort
 4. Pour **Action**, sélectionnez **Autoriser**.
 
 6. Sous **Règles**, pour **Nom**, entrez **AllowDNS**.
-8. Pour **Protocole**, sélectionnez **TCP**.
+8. Pour **Protocole**, sélectionnez **UDP**.
 9. Pour **Adresses sources**, entrez **10.0.2.0/24**.
 10. Pour Adresse de destination, entrez **209.244.0.3,209.244.0.4**
 11. Pour **Ports de destination**, entrez **53**.

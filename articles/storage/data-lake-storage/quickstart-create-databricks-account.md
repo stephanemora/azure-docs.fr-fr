@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e3515cba449826389fbff35765de9631728de5d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063423"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324304"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
@@ -35,9 +35,10 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="set-aside-storage-account-configuration"></a>Mettre de côté la configuration du compte de stockage
 
-Pendant ce didacticiel, vous devez avoir accès au nom et à la clé d’accès de votre compte de stockage. Dans le portail Azure, sélectionnez **Tous les services** et filtrez sur *stockage*. Sélectionnez **Comptes de stockage** et recherchez le compte que vous avez créé pour ce didacticiel.
-
-À partir de la **Vue d’ensemble**, copiez le nom du compte de stockage dans un éditeur de texte. Sélectionnez ensuite **Clés d’accès** et copiez la valeur de **key1** dans votre éditeur de texte pour les deux valeurs nécessaires pour les commandes ultérieures.
+> [!IMPORTANT]
+> Pendant ce didacticiel, vous devez avoir accès au nom et à la clé d’accès de votre compte de stockage. Dans le portail Azure, sélectionnez **Tous les services** et filtrez sur *stockage*. Sélectionnez **Comptes de stockage** et recherchez le compte que vous avez créé pour ce didacticiel.
+>
+> À partir de la **Vue d’ensemble**, copiez le **nom** du compte de stockage dans un éditeur de texte. Sélectionnez ensuite **Clés d’accès** et copiez la valeur de **key1** dans votre éditeur de texte pour les deux valeurs nécessaires pour les commandes ultérieures.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
@@ -105,7 +106,7 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
 
     Sélectionnez **Créer**.
 
-4. Entrez le code suivant dans la première cellule, en remplaçant les valeurs d’espace réservé par le nom de votre compte, la clé et un nom pour votre système de fichiers.
+4. Dans le code suivant, remplacez les textes **ACCOUNT_NAME** et **ACCOUNT_KEY** par les valeurs que vous avez conservées au début de ce démarrage rapide. Remplacez également le texte **FILE_SYSTEM_NAME** par le nom souhaité pour votre système de fichiers. Entrez le code dans la première cellule.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -122,17 +123,17 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
 
 Avant de commencer cette section, vous devez effectuer les prérequis suivants :
 
-* Téléchargez **small_radio_json.json** [à partir de GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-* Chargez l’exemple de fichier JSON à l’aide d’**AzCopy version 10** vers le compte de stockage Blob Azure et le système de fichiers que vous avez créé :
+Entrez le code suivant dans une cellule du bloc-notes :
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> AzCopy version 10 est disponible uniquement pour les clients de la préversion.
+Dans la cellule, appuyez sur `Shift` + `Enter` pour exécuter le code.
+
+Maintenant, dans une nouvelle cellule en-dessous de celle-ci, entrez le code suivant (remplacez **FILE_SYSTEM** et **ACCOUNT_NAME** par les mêmes valeurs que vous avez utilisées précédemment :
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+Dans la cellule, appuyez sur `Shift` + `Enter` pour exécuter le code.
 
 ## <a name="run-a-spark-sql-job"></a>Exécuter un travail SQL Spark
 
@@ -186,7 +187,7 @@ Effectuez les tâches suivantes pour exécuter une tâche SQL Spark sur les donn
 
      ![Personnaliser le graphique à barres](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Personnaliser le graphique à barres")
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous avez terminé avec cet article, vous pouvez arrêter le cluster. Dans l’espace de travail Azure Databricks, sélectionnez **Clusters** et recherchez le cluster que vous voulez arrêter. Déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Terminer**.
 

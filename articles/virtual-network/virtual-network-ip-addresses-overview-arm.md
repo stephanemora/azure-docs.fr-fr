@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f55dfa8ffadc4ddee1ff3861682e5596b675f0d0
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767856"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325283"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -97,11 +97,11 @@ Des adresses IP publiques statiques sont fréquemment utilisées dans les cas su
 * Vous utilisez des certificats SSL liés à une adresse IP.
 
 > [!NOTE]
-> Azure alloue des adresses IP publiques d’une plage unique à chaque région Azure. Pour plus de détails, consultez[Plages IP du Centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+> Azure alloue des adresses IP publiques d’une plage unique à chaque région dans chaque Cloud Azure. Vous pouvez télécharger la liste des plages (préfixes) pour les clouds Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [Gouvernement américain](https://www.microsoft.com/download/details.aspx?id=57063), [Chine](https://www.microsoft.com/download/details.aspx?id=57062), et [Allemagne](https://www.microsoft.com/download/details.aspx?id=57064).
 >
 
 ### <a name="dns-hostname-resolution"></a>Résolution de nom d’hôte DNS
-Vous pouvez spécifier une étiquette de nom de domaine DNS pour une ressource IP publique, qui crée un mappage pour l’élément *domainnamelabel*.*location*.cloudapp.azure.com vers l’adresse IP publique dans les serveurs DNS gérés par Azure. Par exemple, si vous créez une ressource IP publique avec **contoso** en tant que *domainnamelabel* dans **l’emplacement** Azure *États-Unis de l’Ouest*, le nom de domaine complet (FQDN) **contoso.westus.cloudapp.azure.com** est associé à l’adresse IP publique de la ressource. Vous pouvez utiliser le nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure. À la place ou en plus de l’étiquette de nom DNS avec le suffixe par défaut, vous pouvez utiliser le service Azure DNS pour configurer un nom DNS avec un suffixe personnalisé qui se résout en adresse IP publique. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
+Vous pouvez spécifier une étiquette de nom de domaine DNS pour une ressource IP publique, qui crée un mappage pour l’élément *domainnamelabel*.*location*.cloudapp.azure.com vers l’adresse IP publique dans les serveurs DNS gérés par Azure. Par exemple, si vous créez une ressource IP publique avec **contoso** en tant que *domainnamelabel* dans **l’emplacement** Azure *USA Ouest*, le nom de domaine complet (FQDN) **contoso.westus.cloudapp.azure.com** est associé à l’adresse IP publique de la ressource. Vous pouvez utiliser le nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure. À la place ou en plus de l’étiquette de nom DNS avec le suffixe par défaut, vous pouvez utiliser le service Azure DNS pour configurer un nom DNS avec un suffixe personnalisé qui se résout en adresse IP publique. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
 
 > [!IMPORTANT]
 > Chaque étiquette de nom de domaine créée doit être unique dans son emplacement Azure.  
@@ -128,10 +128,10 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 
 | Ressources de niveau supérieur | Association d’adresse IP | Dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |OUI |OUI |
-| Équilibreur de charge accessible sur Internet |Configuration frontale |OUI |OUI |
-| passerelle VPN |Configuration IP de la passerelle |OUI |Non  |
-| passerelle d’application |Configuration frontale |OUI |Non  |
+| Machine virtuelle |interface réseau |Oui |Oui |
+| Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
+| passerelle VPN |Configuration IP de la passerelle |Oui |Non  |
+| passerelle d’application |Configuration frontale |Oui |Non  |
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées
 Les adresses IP privées permettent aux ressources Azure de communiquer avec d’autres ressources dans un [réseau virtuel](virtual-networks-overview.md) ou dans un réseau local par le biais d’une passerelle VPN ou d’un circuit ExpressRoute, sans utiliser d’adresse IP accessible via Internet.
@@ -176,9 +176,9 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 
 | Ressources de niveau supérieur | Association d’adresse IP | dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |OUI |OUI |
-| Équilibrage de charge |Configuration frontale |OUI |OUI |
-| passerelle d’application |Configuration frontale |OUI |OUI |
+| Machine virtuelle |interface réseau |Oui |Oui |
+| Équilibrage de charge |Configuration frontale |Oui |Oui |
+| passerelle d’application |Configuration frontale |Oui |Oui |
 
 ## <a name="limits"></a>limites
 Les limites imposées pour l’adressage IP sont indiquées dans l’ensemble des [limites pour la mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) dans Azure. Ces limites sont exprimées par région et par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut jusqu’aux limites maximum en fonction des besoins de votre entreprise.

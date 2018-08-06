@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: spelluru
-ms.openlocfilehash: d4bfd684792e5ec13b2a4a020fa21249f1888657
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b60c1e84eb5b62bfce0eb2ba96129deeee2fc3c3
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226344"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345306"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutoriel : Configurer un compte de laboratoire avec Azure Lab Services
 Dans Azure Lab Services, un compte de laboratoire sert de compte central, dans lequel sont gérés tous les laboratoires de votre entreprise. Dans votre compte lab, accordez l’autorisation à d’autres personnes pour créer des laboratoires et définissez des stratégies qui s’appliquent à tous les laboratoires du compte de laboratoire. Dans ce tutoriel, découvrez comment créer un compte de laboratoire en tant qu’administrateur de laboratoire. 
@@ -69,11 +69,17 @@ Pour donner aux formateurs l’autorisation de créer des laboratoires pour leur
     ![Ajouter un utilisateur au rôle Créateur de laboratoire](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Spécifier les images de la Place de marché disponibles pour les propriétaires de laboratoire
-Dans cette section, vous spécifiez les images de la Place de marché que les propriétaires de laboratoire peuvent utiliser pour créer des laboratoires de classe. 
+En tant que propriétaire d’un compte de laboratoire, vous pouvez spécifier les images de la place de marché, que les créateurs de laboratoire peuvent utiliser pour créer des laboratoires dans le compte de laboratoire. 
 
 1. Sélectionnez **Images de la Place de marché** à gauche du menu. Par défaut, la liste complète des images (activées et désactivées) s’affiche. Vous pouvez filtrer la liste pour afficher uniquement les images activées/désactivées en sélectionnant l’option **Enabled only (Activées uniquement)**/**Disabled only (Désactivées uniquement)** dans la liste déroulante en haut. 
-
+    
     ![Page des images de la Place de marché](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+
+    Les images de la place de marché affichées dans la liste sont uniquement celles qui satisfont les conditions suivantes :
+        
+    - Crée une seule machine virtuelle.
+    - Utilise Azure Resource Manager pour approvisionner des machines virtuelles
+    - Ne nécessite pas l’achat d’un plan de licences supplémentaire
 2. Pour **désactiver** une image de la Place de marché qui a été activée, effectuez l’une des actions suivantes : 
     1. Sélectionnez **... (points de suspension)** dans la dernière colonne, puis sélectionnez **Disable image (Désactiver l’image)**. 
 

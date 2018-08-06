@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005813"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413012"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil Linux x64
 
@@ -43,18 +43,18 @@ Ajoutez l’extension Azure IoT à l’instance de Cloud Shell.
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-
+   
 ## <a name="prerequisites"></a>Prérequis
 
-Ce démarrage rapide utilise une machine Linux en tant qu’appareil IoT Edge. Si vous n’en avez pas pour le test, vous pouvez en créer une à l’aide d’Azure CLI. 
+Ressources cloud : 
 
-Créez un groupe de ressources. Vous pouvez utiliser ce groupe de ressources pour les autres ressources Azure que vous créez dans ce démarrage rapide, pour simplifier la gestion.  
+* Un groupe de ressources permettant de gérer toutes les ressources que vous utilisez lors de ce démarrage rapide. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-Créez la machine virtuelle. Vous n’avez pas besoin d’une très grande machine virtuelle pour tester IoT Edge. Une taille comparable à **B1ms** est suffisante.
+* Une machine virtuelle Linux faisant office de périphérique IoT Edge. 
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -62,18 +62,13 @@ Créez la machine virtuelle. Vous n’avez pas besoin d’une très grande machi
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-Commencez le guide de démarrage rapide en créant votre hub IoT dans le portail Azure.
-![Créer un IoT Hub][3]
+Commencez le guide de démarrage rapide en créant votre hub IoT avec Azure CLI. 
+
+![Créer un hub IoT][3]
 
 Le niveau gratuit d'IoT Hub fonctionne pour ce démarrage rapide. Si vous avez utilisé IoT Hub par le passé et que vous avez créé gratuitement un hub, vous pouvez utiliser cet IoT Hub. Chaque abonnement peut avoir uniquement un IoT hub gratuit. 
 
-1. Dans Azure Cloud Shell, créez un groupe de ressources si vous ne l’avez pas fait auparavant. En plaçant toutes les ressources pour les démarrages rapides et les didacticiels dans un groupe, vous pouvez les gérer ensemble. 
-
-   ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
-   ```
-
-1. Créez un IoT hub dans votre nouveau groupe de ressources. Le code suivant crée un hub gratuit **F1** dans le groupe de ressources **IoTEdgeResources**. Remplacez *{hub_name}* par un nom unique pour votre IoT Hub.
+Le code suivant crée un hub gratuit **F1** dans le groupe de ressources **IoTEdgeResources**. Remplacez *{hub_name}* par un nom unique pour votre IoT Hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 

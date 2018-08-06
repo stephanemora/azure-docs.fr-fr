@@ -13,23 +13,28 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a84148a3ac31d51ff30cebffab00e5fec8fdaa87
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a35ba993e6fd1162fa4a18bc0d6bc9351fe7dfa2
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236950"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358259"
 ---
 # <a name="azure-stack-add-on-plans"></a>Plans de module complémentaire de Azure Stack
-En tant qu’opérateur Azure Stack, vous créez des plans qui contiennent les services souhaités et les quotas applicables auxquels vos utilisateurs peuvent s’abonner. Ces [*plans de base*](azure-stack-create-plan.md) contiennent les principaux services offerts à vos utilisateurs et vous ne pouvez avoir qu’un plan de base par offre. Si vous devez modifier votre offre, vous pouvez utiliser des *plans d’extension* qui vous permettent de modifier le plan pour étendre les quotas d’ordinateurs, de stockage ou réseau proposés initialement avec le plan de base. 
 
-Même s’il peut s’avérer optimal de tout regrouper dans un seul plan dans certains cas, il est judicieux d’avoir un plan de base et d’offrir des services complémentaires avec des plans d’extension. Par exemple, vous pouvez choisir d’offrir des services IaaS dans le cadre d’un plan de base, avec tous les services PaaS traités comme des plans d’extension. Vous pouvez également vous servir des plans pour contrôler la consommation des ressources dans votre environnement Azure Stack. Par exemple, si vous souhaitez que vos utilisateurs fassent attention à leur utilisation des ressources, vous pourriez proposer un plan de base relativement petit (selon les services requis) où dès lors que les utilisateurs atteignent le seuil défini, ils sont avertis qu’ils ont déjà consommé les ressources allouées de leur plan attribué. À partir de là, les utilisateurs peuvent sélectionner un plan d’extension disponible pour obtenir des ressources supplémentaires. 
+En tant qu’opérateur Azure Stack, vous créez des plans d’extension pour modifier un [*plan de base*](azure-stack-create-plan.md) lorsque vous souhaitez proposer des services supplémentaires ou étendre vos quotas en matière d’*ordinateur*, de *stockage* , ou de *réseau* au-delà de l’offre initiale des plans de base. Les plans additionnels modifient un plan de base et constituent des extensions facultatives auxquelles les utilisateurs peuvent s’abonner. 
+
+La meilleure solution est parfois de tout regrouper dans un seul plan. Mais vous pouvez aussi parfois préférer disposer d’un plan de base, puis proposer des services supplémentaires à l’aide de plans d’extension. Par exemple, vous pouvez choisir d’offrir des services IaaS dans le cadre d’un plan de base, avec tous les services PaaS traités comme des plans d’extension.
+
+Le fait que les plans d’extension contribuent à rendre les utilisateurs conscients de leur utilisation des ressources constitue une autre raison de les utiliser. Pour ce faire, vous pouvez commencer avec un plan de base qui inclut des quotas relativement petits (selon les services requis). Ensuite, alors les utilisateurs atteignent une pleine capacité, ils sont avertis de leur consommation des ressources allouées en fonction de leur plan attribué. Dès lors, les utilisateurs peuvent sélectionner un plan d’extension qui fournit les ressources supplémentaires.
 
 > [!NOTE]
-> Lorsqu’un utilisateur ajoute un plan d’extension à son abonnement existant à une offre, les ressources supplémentaires peuvent prendre une heure à s’afficher. 
+> Lorsque vous ne souhaitez pas utiliser un plan d’extension pour étendre un quota, vous pouvez également choisir de [modifier la configuration d’origine du quota](azure-stack-quota-types.md#to-edit-a-quota). 
+
+Lorsqu’un utilisateur ajoute un plan d’extension à son abonnement existant à une offre, les ressources supplémentaires peuvent prendre une heure à s’afficher. 
 
 ## <a name="create-an-add-on-plan"></a>Créer un plan d’extension
 Les plans d’extension sont créés en modifiant une offre existante :
@@ -44,7 +49,7 @@ Les plans d’extension sont créés en modifiant une offre existante :
    
     ![](media/create-add-on-plan/2.PNG)
 
-5. Sélectionnez le plan à ajouter. Dans cet exemple, le plan se nomme **Key vault plan**. Cliquez ensuite sur **Sélectionner** pour ajouter le plan à l’offre. Vous devriez recevoir une notification vous indiquant que le plan a été ajouté à l’offre.
+5. Sélectionnez le plan à ajouter. Dans cet exemple, le plan s’intitule **Key vault plan**. Après avoir sélectionné le plan, cliquez sur **Sélectionnez** pour ajouter le plan à l’offre. Vous devriez recevoir une notification vous indiquant que le plan a été ajouté à l’offre.
    
     ![](media/create-add-on-plan/3.PNG)
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dcde63c4bce17993ec9e1a9d83889a001d7880e1
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473984"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264434"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
 Les **paramètres personnalisés** Azure AD Connect sont utilisés lorsque vous souhaitez davantage d’options d’installation. Ils sont utiles si vous disposez de plusieurs forêts ou si vous voulez configurer des fonctionnalités facultatives que l’installation rapide ne propose pas. Ils sont utilisés dans tous les cas où l’option d’[**installation rapide**](active-directory-aadconnect-get-started-express.md) ne convient pas à votre déploiement ou à votre topologie.
@@ -41,7 +41,7 @@ Lorsque vous installez les services de synchronisation, vous pouvez laisser la s
 | Configuration facultative | Description |
 | --- | --- |
 | Utiliser un serveur SQL Server existant |Permet de spécifier le nom du serveur SQL et le nom de l’instance. Choisissez cette option si vous souhaitez utiliser un serveur de base de données existant. Si la navigation n’est pas activée sur votre serveur SQL Server, saisissez le nom de l’instance dans la zone **Nom de l’instance** , suivi d’une virgule et du numéro de port. |
-| Utiliser un compte de service existant |Par défaut, Azure AD Connect utilise un compte de service virtuel, que les services de synchronisation doivent utiliser. Si vous utilisez un serveur SQL Server distant ou un proxy qui requiert une authentification, vous devez utiliser un **compte de service géré** ou un compte de service dans le domaine et devez connaître le mot de passe. Dans ce cas, entrez le compte à utiliser. Assurez-vous que l’utilisateur qui exécute l’installation est une association de sécurité dans SQL pour qu’il soit possible de créer une session pour le compte de service.  Consultez [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). </br></br>Avec la version la plus récente, l’approvisionnement de la base de données peut désormais être exécuté hors bande par l’administrateur SQL. L’installation s’effectue ensuite par l’administrateur Azure AD Connect disposant des droits du propriétaire de la base de données.  Pour plus d’informations, consultez la section [Install Azure AD Connect using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md) (Installer Azure AD Connect à l’aide d’autorisations administrateur déléguées SQL).|
+| Utiliser un compte de service existant |Par défaut, Azure AD Connect utilise un compte de service virtuel, que les services de synchronisation doivent utiliser. Si vous utilisez un serveur SQL Server distant ou un proxy qui requiert une authentification, vous devez utiliser un **compte de service géré** ou un compte de service dans le domaine et devez connaître le mot de passe. Dans ce cas, entrez le compte à utiliser. Assurez-vous que l’utilisateur qui exécute l’installation est une association de sécurité dans SQL pour qu’il soit possible de créer une session pour le compte de service.  Consultez [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). </br></br>Avec la version la plus récente, l’approvisionnement de la base de données peut désormais être exécuté hors bande par l’administrateur SQL. L’installation s’effectue ensuite par l’administrateur Azure AD Connect disposant des droits du propriétaire de la base de données.  Pour plus d’informations, consultez la section [Install Azure AD Connect using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md) (Installer Azure AD Connect à l’aide d’autorisations administrateur déléguées SQL).|
 | Spécifier des groupes de synchronisation personnalisés |Par défaut, Azure AD Connect crée quatre groupes locaux sur le serveur lorsque les services de synchronisation sont installés. Ces groupes sont Administrateurs, Opérateurs, Parcourir et Réinitialisation du mot de passe. Vous pouvez spécifier vos propres groupes ici. Les groupes doivent être locaux sur le serveur et ne peuvent pas être situés dans le domaine. |
 
 ### <a name="user-sign-in"></a>Connexion de l’utilisateur
@@ -83,14 +83,14 @@ Après avoir saisi le nom de la forêt et cliqué sur **Ajouter un répertoire**
 | Option | Description |
 | --- | --- |
 | Créer un compte | Sélectionnez cette option si vous souhaitez que l’Assistant Azure AD Connect crée le compte AD DS dont il a besoin pour se connecter à la forêt AD pendant la synchronisation des répertoires. Lorsque cette option est sélectionnée, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur d’entreprise. Le compte d’administrateur d’entreprise fourni sera utilisé par l’Assistant Azure AD Connect pour créer le compte AD DS requis. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, c’est-à-dire FABRIKAM\administrator ou fabrikam.com\administrator. |
-| Utiliser un compte existant | Sélectionnez cette option si vous souhaitez qu’Azure AD Connect utilise un compte AD DS existant pour se connecter à la forêt AD pendant la synchronisation des répertoires. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, par exemple, FABRIKAM\syncuser ou fabrikam.com\syncuser. Ce compte peut être un compte d’utilisateur normal, car seules des autorisations de lecture par défaut sont nécessaires. Toutefois, selon votre scénario, vous pouvez avoir besoin d’autorisations supplémentaires. Pour en savoir plus, voir [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
+| Utiliser un compte existant | Sélectionnez cette option si vous souhaitez qu’Azure AD Connect utilise un compte AD DS existant pour se connecter à la forêt AD pendant la synchronisation des répertoires. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, par exemple, FABRIKAM\syncuser ou fabrikam.com\syncuser. Ce compte peut être un compte d’utilisateur normal, car seules des autorisations de lecture par défaut sont nécessaires. Toutefois, selon votre scénario, vous pouvez avoir besoin d’autorisations supplémentaires. Pour en savoir plus, voir [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md##create-the-ad-ds-connector-account). |
 
 ![Répertoire Connect](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
 
 ### <a name="azure-ad-sign-in-configuration"></a>Configuration de connexion AD Azure
 Cette page permet d’examiner les domaines UPN présents dans les services de domaine AD locaux et qui ont été vérifiés dans Azure AD. Cette page vous permet également de configurer l’attribut à utiliser pour userPrincipalName.
 
-![Domaines non vérifiés](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
+![Domaines non vérifiés](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig2.png)  
 Passez en revue chaque domaine marqué **Non ajouté** et **Non vérifié**. Assurez-vous que les domaines que vous utilisez ont été vérifiés dans Azure AD. Cliquez sur le symbole d’actualisation dès que vous avez vérifié vos domaines. Pour plus d’informations, consultez [Ajouter et vérifier le domaine](../active-directory-domains-add-azure-portal.md)
 
 **UserPrincipalName** : cet attribut est utilisé par les utilisateurs lorsqu’ils se connectent à Azure AD et Office 365. Les domaines utilisés, également nommés « Suffixe UPN » doivent être vérifiés dans Azure AD avant la synchronisation des utilisateurs. Microsoft recommande de conserver la valeur d’attribut userPrincipalName par défaut. Si cet attribut ne peut pas être acheminé ni vérifié, vous pouvez sélectionner un autre attribut. Par exemple, vous pouvez choisir une adresse de messagerie électronique comme attribut contenant l’ID de connexion. Tout attribut utilisé à la place de l’élément userPrincipalName est qualifié d’ **ID secondaire**. La valeur de l’attribut ID secondaire doit suivre la norme RFC822. Un ID secondaire peut être utilisé avec la fédération et la synchronisation de mots de passe. L’attribut ne doit pas être défini dans Active Directory en tant que valeurs multiples, même s’il ne possède qu’une seule valeur.
@@ -121,7 +121,7 @@ S’il s’affiche, vérifiez que ces domaines sont effectivement inaccessibles 
 #### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Sélectionnez la façon dont les utilisateurs doivent être identifiés dans vos répertoires locaux
 La fonctionnalité Correspondance entre les forêts vous permet de définir la méthode de représentation des utilisateurs de vos forêts AD DS dans Azure AD. Il est possible de représenter seulement une fois chaque utilisateur entre toutes les forêts, ou de présenter une combinaison des comptes activés et désactivés. L’utilisateur peut également être représenté en tant que contact dans certaines forêts.
 
-![Unique](./media/active-directory-aadconnect-get-started-custom/unique.png)
+![Unique](./media/active-directory-aadconnect-get-started-custom/unique2.png)
 
 | Paramètre | Description |
 | --- | --- |
@@ -156,7 +156,7 @@ Dans un déploiement de production complet, il est difficile de maintenir un seu
 ### <a name="optional-features"></a>Fonctionnalités facultatives
 Cet écran vous permet de sélectionner des fonctionnalités facultatives pour vos scénarios spécifiques.
 
-![Fonctionnalités facultatives](./media/active-directory-aadconnect-get-started-custom/optional.png)
+![Fonctionnalités facultatives](./media/active-directory-aadconnect-get-started-custom/optional2.png)
 
 > [!WARNING]
 > Si DirSync ou Azure AD Sync sont actuellement actifs, n’activez aucune des fonctionnalités d’écriture différée dans Azure AD Connect.
@@ -378,6 +378,28 @@ Pour vérifier que l’authentification de bout en bout réussit, vous devez eff
 * Validez la connexion du navigateur à partir d’un ordinateur joint au domaine sur l’intranet : connectez-vous à https://myapps.microsoft.com et vérifiez la connexion avec votre compte connecté. Le compte d’administrateur AD DS intégré n’est pas synchronisé et ne peut pas être utilisé pour la vérification.
 * Vérifiez que vous pouvez vous connecter à partir d’un appareil, depuis l’extranet. Sur un ordinateur personnel ou un appareil mobile, connectez-vous à https://myapps.microsoft.com et fournissez vos informations d’identification.
 * Valider la connexion à un client complet. Pour cela, connectez-vous à https://testconnectivity.microsoft.com, sélectionnez l’onglet **Office 365**, puis **Test d’authentification unique dans Office 365**.
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+La section suivante contient des informations générales et de dépannage que vous pouvez utiliser si vous rencontrez un problème lors de l’installation d’Azure AD Connect.
+
+### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>« The ADSync database already contains data and cannot be overwritten » (La base de données ADSync contient déjà des données et ne peut pas être écrasée) 
+Lorsque vous procédez à une installation personnalisée d’Azure AD Connect et que vous sélectionnez l’option **Use an existing SQL server** (Utiliser un serveur SQL existant) sur la page **Install required components** (installer les composants requis), vous pouvez rencontrer une erreur indiquant **The ADSync database already contains data and cannot be overwritten. Please remove the existing database and try again.** (La base de données ADSync contient déjà des données et ne peut pas être écrasée. Veuillez supprimer la base de données existante et réessayer.)
+
+![Error](media/active-directory-aadconnect-get-started-custom/error1.png)
+
+Cela provient du fait qu’il existe déjà une base de données nommée **ADSync** sur l’instance SQL de SQL server, que vous avez spécifiée dans les zones de texte au-dessus.
+
+Cela se produit généralement après avoir désinstallé Azure AD Connect.  La base de données n’est pas supprimé du serveur SQL Server après désinstallation.
+
+Pour résoudre ce problème, vérifiez d’abord que la base de données **ADSync** qui a été utilisée par Azure AD Connect avant d’être désinstallée n’est plus utilisée.
+
+Ensuite, il est recommandé de sauvegarder la base de données avant de la supprimer. 
+
+Enfin, vous devez supprimer la base de données.  Vous pouvez le faire à l’aide de **Microsoft SQL Server Management Studio** et en vous connectant à l’instance SQL. Recherchez la base de données **ADSync**, cliquez avec le bouton droit dessus, puis sélectionnez **Supprimer** dans le menu contextuel.  Ensuite, cliquez sur le bouton **OK** pour la supprimer.
+
+![Error](media/active-directory-aadconnect-get-started-custom/error2.png)
+
+Après avoir supprimé la base de données **ADSync**, vous pouvez cliquer sur le bouton **Installer** pour tenter à nouveau l’installation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois l’installation terminée, déconnectez-vous puis reconnectez-vous à Windows avant d’utiliser le gestionnaire Synchronization Service Manager ou l’éditeur de règles de synchronisation.

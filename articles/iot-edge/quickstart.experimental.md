@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 54a8b5f14cc2f9fb0ac887da8995623353e73ac9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 28d50ac3a4c080062c12c11977eebb61b0e52eed
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115583"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412533"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Démarrage rapide : Déployer votre premier module IoT Edge à partir du portail Azure sur un appareil Windows - préversion
 
@@ -179,8 +179,14 @@ Configurez le runtime avec la chaîne de connexion de votre appareil IoT Edge qu
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Recherchez la section **Paramètres de runtime de conteneur Moby**  et vérifiez que la valeur de **network** est définie sur `nat`.
+8. Recherchez la section **Paramètres de runtime de conteneur Moby**  et vérifiez que la valeur de **Réseau** n’est pas commentée et définie sur **azure-iot-edge**
 
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
+   
 9. Enregistrez le fichier de configuration. 
 
 10. Dans PowerShell, redémarrez le service IoT Edge.
@@ -210,7 +216,8 @@ Vérifiez que le runtime a été correctement installé et configuré.
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. Affichez tous les modules s’exécutant sur votre appareil IoT Edge. Comme le service vient de démarrer pour la première fois, vous devez uniquement voir le module **edgeAgent** en cours d’exécution. Le module edgeAgent s’exécute par défaut et vous aide à installer et démarrer tous les modules supplémentaires que vous déployez sur votre appareil. 
@@ -273,7 +280,7 @@ Si vous envisagez d’utiliser l’appareil IoT Edge ultérieurement à des fins
    Stop-Service iotedge -NoWait
    ```
 
-Vous pouvez redémarrer le service lorsque vous êtes prêt à recommencer le test
+Vous pouvez redémarrer le service lorsque vous êtes prêt à recommencer le test.
 
    ```powershell
    Start-Service iotedge

@@ -4,17 +4,17 @@ description: Azure Policy est un service dans Azure, que vous utilisez pour cré
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249862"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364426"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -115,7 +115,7 @@ Dans ce scénario, quand vous définissez les paramètres d’initiative pour **
 - Fournir des valeurs pour les paramètres des définitions de stratégie dans la définition de cette initiative. Dans cet exemple, vous pouvez fournir une liste d’emplacements au **paramètre de policyA, allowedLocations** et au **paramètre de policyB, allowedSingleLocation**. Vous pouvez également fournir des valeurs lors de l’affectation de cette initiative.
 - Fournir une liste d’options de *valeurs* qui peuvent être utilisées lors de l’affectation de cette initiative. Lorsque vous affectez cette initiative, les paramètres hérités des définitions de stratégie dans l’initiative peuvent avoir seulement des valeurs provenant de cette liste fournie.
 
-Par exemple, vous pouvez créer une liste d’options de valeur dans une définition d’initiative contenant les valeurs *EastUS*, *WestUS*, *CentralUS* et *WestEurope*. Si tel est le cas, vous ne pouvez pas entrer une valeur différente comme *Asie du Sud-Est* pendant l’affectation d’initiative, car elle ne fait pas partie de la liste.
+Par exemple, vous pouvez créer une liste d’options de valeur dans une définition d’initiative contenant les valeurs *EastUS*, *WestUS*, *CentralUS* et *WestEurope*. Si tel est le cas, vous ne pouvez pas entrer une valeur différente comme *Asie Sud-Est* pendant l’affectation d’initiative, car elle ne fait pas partie de la liste.
 
 ## <a name="maximum-count-of-policy-objects"></a>Nombre maximal d’objets de stratégie Azure Policy
 
@@ -126,11 +126,11 @@ Il existe un nombre maximal pour chaque type d’objet pour Azure Policy. Une en
 | Étendue | Définitions de stratégies | 250 |
 | Étendue | Définitions d’initiative | 100 |
 | Locataire | Définitions d’initiative | 1 000 |
-| Étendue | Affectation de rôle | 100 |
+| Étendue | Affectations d'initiative/de stratégie | 100 |
 | Définition de stratégie | parameters | 20 |
 | Définition d’initiative | Stratégies | 100 |
 | Définition d’initiative | parameters | 100 |
-| Affectation de rôle | Exclusion (notScopes) | 100 |
+| Affectations d'initiative/de stratégie | Exclusion (notScopes) | 100 |
 | Règle de stratégie | Éléments conditionnels imbriqués | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>Recommandations pour la gestion des stratégies

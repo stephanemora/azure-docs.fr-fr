@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 07/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: ad3b8755615332249ac00f43a2d0cc5fa13a7233
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113282"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325929"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Présentation d’Azure Media Services v3
 
@@ -117,21 +117,22 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
 
 ## <a name="how-can-i-get-started-with-v3"></a>Comment bien démarrer avec v3 ?
 
-En tant que développeur, vous pouvez utiliser [l’API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST, de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. Vous pouvez trouver un exemple REST Postman [à cette adresse](https://github.com/Azure-Samples/media-services-v3-rest-postman). Vous pouvez également utiliser une [API REST Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates).
+En tant que développeur, vous pouvez utiliser [l’API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST, de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés.  
+
+Media Services fournit des [fichiers Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) que vous pouvez utiliser pour générer des kits SDK pour votre langage ou technologie préféré(e).  
 
 Microsoft génère et prend en charge les bibliothèques clientes suivantes : 
 
-|Bibliothèque cliente|Exemples|
-|---|---|
-|[Kit de développement logiciel (SDK) Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)|[Exemples d’interface de ligne de commande Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
-|[Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[Exemples relatifs à .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
-|[Kit de développement logiciel (SDK) .NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (choisissez l’onglet **.NET CLI**)|[Exemples .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
-|[Kit de développement logiciel (SDK) Java](https://docs.microsoft.com/java/api/mediaservices/management?view=azure-java-stable)||
-|[Kit de développement logiciel (SDK) Node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Exemples relatifs à Node.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
-|[Kit de développement logiciel (SDK) Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
-|[Kit de développement logiciel (SDK) Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
-
-Media Services fournit des [fichiers Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) que vous pouvez utiliser pour générer des kits SDK pour votre langage ou technologie préféré(e).  
+|Informations de référence des API|Kits de développement logiciel/outils|Exemples|
+|---|---|---|---|
+|[Ref REST](https://aka.ms/ams-v3-rest-ref)|[Kit de développement logiciel REST](https://aka.ms/ams-v3-rest-sdk)|[Exemples de Postman REST](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[API Azure Resource Manager basé sur l’API REST](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
+|[Ref de l’interface de ligne de commande Azure](https://aka.ms/ams-v3-cli-ref)|[interface de ligne de commande Azure](https://aka.ms/ams-v3-cli)|[Exemples d’interface de ligne de commande Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
+|[Ref de .NET](https://aka.ms/ams-v3-dotnet-ref)|[Kit de développement logiciel (SDK) .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Exemples .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
+||[Kit de développement logiciel (SDK) .NET Core](https://aka.ms/ams-v3-dotnet-sdk) (choisissez l’onglet **.NET CLI**)|[Exemples .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
+|[Ref de Java](https://aka.ms/ams-v3-java-ref)|[Kit de développement logiciel (SDK) Java](https://aka.ms/ams-v3-java-sdk)||
+|[Ref de Node.js ](https://aka.ms/ams-v3-nodejs-ref)|[Kit de développement logiciel (SDK) Node.js](https://aka.ms/ams-v3-nodejs-sdk)|[Exemples relatifs à Node.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
+|[Ref de Python](https://aka.ms/ams-v3-python-ref)|[Kit de développement logiciel (SDK) Python](https://aka.ms/ams-v3-python-sdk)||
+|[Ref de Go](https://aka.ms/ams-v3-go-ref)|[Kit de développement logiciel (SDK) Go](https://aka.ms/ams-v3-go-sdk)||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

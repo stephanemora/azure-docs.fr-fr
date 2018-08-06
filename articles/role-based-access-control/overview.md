@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4dcfb71e0adb05922603715e4dbcbdb243305927
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37438194"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344747"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?
 
 Il est vital pour toute organisation qui utilise le cloud de pouvoir gérer les accès aux ressources situées dans cloud. Le contrôle d’accès basé sur un rôle (RBAC) permet de gérer les utilisateurs ayant accès aux ressources Azure, les modes d’utilisation des ressources par ces derniers et les zones auxquelles ils ont accès.
 
-Le RBAC est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) qui propose une gestion affinée des accès des ressources dans Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions sur une étendue donnée.
+Le RBAC est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) qui propose une gestion affinée des accès des ressources dans Azure.
 
 ## <a name="what-can-i-do-with-rbac"></a>Que puis-je faire avec le contrôle d’accès en fonction du rôle (RBAC) ?
 
@@ -35,6 +35,14 @@ Voici quelques exemples de ce que vous pouvez faire avec le contrôle d’accès
 - Permettre à un groupe d’administrateurs de base de données de gérer des bases de données SQL dans un abonnement
 - Permettre à un utilisateur à gérer toutes les ressources dans un groupe de ressources, telles que des machines virtuelles, des sites Web et des sous-réseaux
 - Permettre à une application d’accéder à toutes les ressources d’un groupe de ressources
+
+## <a name="best-practice-for-using-rbac"></a>Meilleure pratique pour l’utilisation de RBAC
+
+Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions sur une étendue donnée.
+
+Lorsque vous planifiez votre stratégie de contrôle d’accès, vous pouvez accorder aux utilisateurs les privilèges minimaux pour effectuer leur travail. Le diagramme suivante illustre un modèle suggéré pour l’utilisation de RBAC.
+
+![RBAC et privilège minimum](./media/overview/rbac-least-privilege.png)
 
 ## <a name="how-rbac-works"></a>Fonctionnement du le contrôle d’accès en fonction du rôle (RBAC)
 

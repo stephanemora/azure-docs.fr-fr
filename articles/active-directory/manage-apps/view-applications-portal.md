@@ -1,6 +1,6 @@
 ---
-title: Afficher toutes les applications d’entreprise que je peux gérer dans Azure Active Directory | Microsoft Docs
-description: Comment afficher la liste des applications d’entreprise que vous avez l’autorisation de gérer dans Azure Active Directory
+title: Afficher les applications du tenant - Azure Active Directory | Microsoft Docs
+description: Utilisez le portail Azure pour afficher les applications dans votre tenant Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,31 +11,86 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/28/2017
+ms.topic: quickstart
+ms.date: 07/25/2018
 ms.author: barbkess
-ms.reviewer: asteen
+ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: 5054cb3b1b0b886c882dac18131eb73244adb336
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: bedd83426ecb24681fcfa292a049b8d4a3271d6a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302233"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39266390"
 ---
-# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Afficher toutes les applications d’entreprise que je peux gérer dans Azure Active Directory
-Vous pouvez gérer vos applications d’entreprise dans Azure Active Directory (Azure AD). Vous pouvez visualiser les applications que vous avez la possibilité de gérer, affecter des utilisateurs ou des groupes à une application, gérer les propriétés de l’application, comme le nom/logo d’application, et même désactiver une application afin qu’aucun utilisateur ne puisse s’y connecter.
+# <a name="view-your-azure-active-directory-tenant-applications"></a>Afficher les application du tenant Azure Active Directory
 
-## <a name="how-do-i-view-all-my-apps"></a>Comment afficher toutes mes applications ?
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Tous les services**, entrez **Azure Active Directory** dans la zone de texte, puis sélectionnez **Entrée**.
-3. Dans le volet **Azure Active Directory -** ***NomRépertoire*** (autrement dit, le volet Azure AD du répertoire que vous gérez), sélectionnez **Applications d’entreprise**.
+Ce démarrage rapide utilise le portail Azure pour afficher les applications dans votre tenant Azure Active Directory (Azure AD).
 
-    ![Ouverture des applications d’entreprise](./media/view-applications-portal/open-enterprise-apps.png)
-4. Dans le volet **Applications d’entreprise**, sélectionnez **Toutes les applications**. À partir de ce volet, vous pouvez sélectionner les applications à gérer, modifier les colonnes affichées ou filtrer la liste pour trouver l’application souhaitée (par exemple, pour afficher uniquement les applications désactivées).
+## <a name="before-you-begin"></a>Avant de commencer
+
+Pour afficher des résultats, vous devez avoir au moins une application dans votre tenant Azure AD. Pour ajouter une application, consultez le démarrage rapide [d’ajout d’une application](add-application-portal.md).
+
+Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général pour votre tenant Azure AD, administrateur d’application cloud ou administrateur d’application.
+
+## <a name="find-the-list-of-tenant-applications"></a>Trouver la liste des applications du tenant
+
+Vos applications de tenant Azure AD sont visibles dans la section **Applications d’entreprise** du portail Azure.
+
+Pour rechercher les applications de votre tenant :
+
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur **Azure Active Directory**. 
+
+2. Dans le panneau Azure Active Directory, cliquez sur **Applications d’entreprise**. 
+
+3. À partir du menu déroulant **Type d’Application**, sélectionnez **Toutes les Applications**, puis cliquez sur **Appliquer**. Un échantillon aléatoire des applications de votre tenant s’affiche.
+
+    ![Applications Entreprise](media/view-applications-portal/open-enterprise-apps.png)
+   
+4. Pour afficher davantage d’applications, cliquez sur **Afficher plus** en bas de la liste. Selon le nombre d’applications de votre tenant, il peut être plus facile de [rechercher une application particulière](#search-for-a-tenant-application) que de faire défiler la liste.
+
+## <a name="select-viewing-options"></a>Sélectionner les options d'affichage
+
+Dans cette section, sélectionnez les options en fonction de ce que vous recherchez.
+
+1. Vous pouvez afficher les applications en fonction des options pour **Type d’Application**, **État de l’Application**, et **Visibilité de l’Application**. 
+
+    ![Options de recherche](media/view-applications-portal/search-options.png)
+
+2. Sous **Type d’Application**, choisissez l’une des options suivantes :
+
+    - **Applications d’entreprise** montre les applications non Microsoft.
+    - **Applications Microsoft** montre les applications Microsoft.
+    - **Toutes les Applications** montre les applications non Microsoft et Microsoft.
+
+3. Sous **État de l’Application**, choisissez **Quelconque**, **Désactivé**, ou **Activé**. L’option **Quelconque** inclut les applications activées et désactivées.
+
+4. Sous **Visibilité de l’Application**, choisissez **Quelconque** ou **Masqué**. L’option **Masqué** affiche les applications qui sont dans le tenant, mais ne sont pas visibles pour les utilisateurs.
+
+5. Après avoir choisi les options souhaitées, cliquez sur **Appliquer**.
+ 
+
+## <a name="search-for-a-tenant-application"></a>Rechercher une application de tenant
+
+Pour rechercher une application particulière :
+
+1. À partir du menu déroulant **Type d’Application**, sélectionnez **Toutes les Applications**, puis cliquez sur **Appliquer**.
+
+2. Entrez le nom de l’application recherchée. Si l’application a été ajoutée à votre tenant Azure AD, elle apparaît dans les résultats de recherche. Cet exemple montre que GitHub n’a pas été ajouté aux applications du tenant.
+
+    ![Rechercher une application](media/view-applications-portal/search-for-tenant-application.png)
+
+3. Essayez d’entrer les premières lettres du nom de l’application.  Cet exemple montre toutes les applications qui commencent par **Sales**.
+
+    ![Recherche avec un préfixe](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Affecter un utilisateur ou un groupe à une application d’entreprise](assign-user-or-group-access-portal.md)
-* [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](remove-user-or-group-access-portal.md)
-* [Désactiver les connexions utilisateur pour une application d’entreprise](disable-user-sign-in-portal.md)
-* [Modifier le nom ou le logo d’une application d’entreprise dans la version préliminaire d’Azure Active Directory](change-name-or-logo-portal.md)
+
+Dans ce démarrage rapide, vous avez appris comment afficher les applications dans votre tenant Azure AD et filtrer la liste des applications par type d’application, état et visibilité. Vous avez également appris comment rechercher une application particulière.
+
+Maintenant que vous avez trouvé l’application que vous cherchiez, vous pouvez continuer à [ajouter d’autres applications à votre tenant](add-application-portal.md), ou cliquer sur l’application pour afficher ou modifier les propriétés et les options de configuration. Vous pouvez par exemple configurer l’authentification unique. 
+
+> [!div class="nextstepaction"]
+> [Configurer l’authentification unique](configure-single-sign-on-portal.md)
+
+

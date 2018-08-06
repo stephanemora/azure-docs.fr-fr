@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 52d469236d607a145430134c24c4237346dafb4c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2e884164347239838d08fbbc1616ed54ffc4ff24
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358733"
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 
 Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les limites de ressources qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur de créer jusqu’à cinq machines virtuelles. Chaque ressource peut avoir ses propres types de quotas.
 
-## <a name="compute-quota-types"></a>Types de quotas de capacité de traitement (compute)
+## <a name="compute-quota-types"></a>Types de quotas de capacité de traitement (compute) 
 | **Type** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
 | Nombre maximal de machines virtuelles | 20 | Nombre maximal de machines virtuelles qu’un abonnement peut créer à cet emplacement. |
@@ -35,17 +36,14 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 | Nombre maximal de groupes à haute disponibilité | 10 | Nombre maximal de groupes à haute disponibilité qui peuvent être créés à cet emplacement. |
 | Nombre maximal de groupes de machines virtuelles identiques | 20 | Nombre maximal de groupes de machines virtuelles identiques qui peuvent être créés à cet emplacement. |
 
-
-
-## <a name="storage-quota-types"></a>Types de quotas de stockage
+## <a name="storage-quota-types"></a>Types de quotas de stockage 
 | **Item** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
 | Capacité maximale (Go) |500 |Capacité de stockage totale qui peut être consommée par un abonnement à cet emplacement. |
 | Nombre total de comptes de stockage |20 |Nombre maximal de comptes de stockage qu’un abonnement peut créer à cet emplacement. |
 
 > [!NOTE]  
-> L’application d’un quota de stockage peut prendre jusqu’à deux heures. 
-> 
+> L’application d’un quota de stockage peut prendre jusqu’à deux heures.
 
 
 ## <a name="network-quota-types"></a>Types de quotas pour les réseaux
@@ -60,11 +58,25 @@ Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les li
 | Nombre maximal de groupes de sécurité réseau |50 |Nombre maximal de groupes de sécurité réseau qu’un abonnement peut créer à cet emplacement. |
 
 ## <a name="view-an-existing-quota"></a>Afficher un quota existant
-1. Cliquez sur **Autres services** > **Fournisseurs de ressources**.
-2. Sélectionnez le service avec le quota que vous voulez afficher.
+1. Sur le tableau de bord par défaut du portail administrateur, recherchez la vignette **Fournisseurs de ressources**.
+2. Sélectionnez le service avec le quota que vous voulez afficher, par exemple **Calculs** ou **Stockage**.
 3. Cliquez sur **Quotas**, puis sélectionnez le quota que vous voulez afficher.
 
-## <a name="next-steps"></a>Étapes suivantes
-[Découvrez plus d’informations sur les plans, les offres et les quotas.](azure-stack-plan-offer-quota-overview.md)
 
-[Créez des quotas lors de la création d’un plan.](azure-stack-create-plan.md)
+## <a name="edit-a-quota"></a>Modifier un quota  
+Vous pouvez choisir de modifier la configuration d’origine d’un quota au lieu d’[utiliser un plan d’extension](create-add-on-plan.md). Lorsque vous modifiez un quota, la nouvelle configuration s’applique automatiquement à tous les plans qui utilisent ce quota et à tous les abonnements existants qui utilisent ces plans. La modification d’un quota est différente de celle d’un plan d’extension visant à fournir un quota modifié, auquel un utilisateur choisit de s’abonner. 
+
+### <a name="to-edit-a-quota"></a>Modifier un quota  
+1. Sur le tableau de bord par défaut du portail administrateur, recherchez la vignette **Fournisseurs de ressources**.
+2. Sélectionnez le service avec le quota que vous voulez modifier, par exemple **Calculs**, **Réseau** ou **Stockage**.
+3. Cliquez ensuite sur **Quotas**, puis sélectionnez le quota que vous voulez modifier.
+4. Sur le volet **définir des quotas**, modifiez les valeurs, puis sélectionnez **Enregistrer**. 
+
+Les nouvelles valeurs pour le quota s’appliquent globalement à tous les plans qui utilisent le quota modifié et à tous les abonnements existants qui utilisent ces plans. 
+
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Découvrez plus d’informations sur les plans, les offres et les quotas.](azure-stack-plan-offer-quota-overview.md)
+- [Créez des quotas lors de la création d’un plan.](azure-stack-create-plan.md)

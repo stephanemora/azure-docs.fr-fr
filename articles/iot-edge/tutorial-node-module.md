@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cdcd30ea29c5c7066a6ae05f64b5bf0720572599
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9ab441bdd30e7598dacfec8dd74702aef0299e1b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299204"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413488"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Didacticiel : Développer et déployer un module IoT Edge Node.js sur votre appareil simulé
 
@@ -29,15 +29,25 @@ Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente
 
 Le module IoT Edge que vous créez dans ce tutoriel filtre les données de température générées par votre appareil. Il envoie uniquement des messages en amont lorsque la température dépasse un seuil spécifié. Ce type d’analyse à la périphérie est utile pour réduire la quantité de données communiquées et stockées dans le cloud. 
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Appareil Azure IoT Edge que vous avez créé dans le guide de démarrage rapide pour les appareils [Linux](quickstart-linux.md) ou [Windows](quickstart.md).
+Un appareil Azure IoT Edge :
+
+* Vous pouvez utiliser votre ordinateur de développement ou une machine virtuelle comme un appareil Edge, en suivant les étapes décrites dans le Guide de démarrage rapide pour [Linux](quickstart-linux.md) ou pour les [Appareils Windows](quickstart.md).
+* Le module Azure Machine Learning ne prend pas en charge les processeurs ARM.
+
+Ressources cloud :
+
+* Un niveau standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure. 
+
+Ressources de développement :
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Extension Azure IoT Edge pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* [Docker](https://docs.docker.com/engine/installation/) sur le même ordinateur que celui sur lequel Visual Studio Code est installé. L’édition Community (CE) est suffisante pour ce tutoriel. 
-* [Node.js et npm](https://nodejs.org). npm est distribué avec Node.js, ce qui signifie que lorsque vous téléchargez Node.js, npm est automatiquement installé sur votre ordinateur.
+* [Extension Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) pour Visual Studio Code. 
+* [Docker CE](https://docs.docker.com/engine/installation/). 
+* [Node.js et npm](https://nodejs.org). Le paquet npm est distribué avec Node.js, ce qui signifie que lorsque vous téléchargez Node.js, npm est automatiquement installé sur votre ordinateur.
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 Dans ce tutoriel, utilisez l’extension Azure IoT Edge pour Visual Studio Code afin de créer un module et de créer une **image conteneur** à partir des fichiers. Puis envoyez cette image à un **registre** qui stocke et gère vos images. Enfin, déployez votre image à partir de votre registre de façon à l’exécuter sur votre appareil IoT Edge.  
@@ -90,7 +100,7 @@ Le fichier d’environnement stocke les informations d’identification de votre
 
 ### <a name="update-the-module-with-custom-code"></a>Mettre à jour le module avec du code personnalisé
 
-Chaque modèle est fourni avec un exemple de code, qui utilise des simulations de données de capteur du module **tempSensor** et les achemine vers IoT Hub. Dans cette section, ajoutez du code pour que NodeModule analyse les messages avant leur envoi. 
+Chaque modèle est fourni avec un exemple de code, qui utilise des données de capteur simulées du module **tempSensor** et les achemine vers IoT Hub. Dans cette section, ajoutez du code pour que NodeModule analyse les messages avant leur envoi. 
 
 1. Dans l’Explorateur VS Code, ouvrez **modules** > **NodeModule** > **app.js**.
 

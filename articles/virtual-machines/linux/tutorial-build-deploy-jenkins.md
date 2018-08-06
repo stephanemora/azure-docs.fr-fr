@@ -1,25 +1,24 @@
 ---
 title: 'Didacticiel : intégration continue/déploiement continu de Jenkins vers des machines virtuelles Azure avec Team Services | Microsoft Docs'
 description: Avec ce didacticiel, vous allez apprendre à configurer l’intégration continue (CI) et le déploiement continu (CD) d’une application Node.js en utilisant Jenkins sur des machines virtuelles Azure à partir de Release Management dans Visual Studio Team Services ou Microsoft Team Foundation Server
-author: ahomer
-manager: douge
-editor: tysonn
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
-ms.openlocfilehash: 6b74ab4d97df7e1e6b9bec8e3bcb150c99bd5b5c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
+ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903449"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390593"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Didacticiel : déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Visual Studio Team Services
 
@@ -168,7 +167,11 @@ Pour créer la définition de mise en production dans Team Services :
 5. Dans votre navigateur, ouvrez l’URL de l’un des serveurs que vous avez ajoutés à votre groupe de déploiement. Par exemple, entrez **http://{adresse-ip-de-votre-serveur}**.
 6. Accédez au dépôt Git source et modifiez le contenu du titre **h1** dans le fichier app/views/index.jade en apportant quelques corrections au texte.
 7. Validez votre modification.
-8. Après quelques minutes, vous voyez une nouvelle mise en production dans la page **Mises en production** de Team Services ou Team Foundation Server. Ouvrez la mise en production pour voir le déploiement en action. Félicitations !
+8. Après quelques minutes, vous voyez une nouvelle mise en production dans la page **Mises en production** de Team Services ou Team Foundation Server. Ouvrez la mise en production pour voir le déploiement en action. Félicitations !
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Dépannage du plug-in Jenkins
+
+Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème dans le [Jenkins JIRA](https://issues.jenkins-ci.org/) du composant en question.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

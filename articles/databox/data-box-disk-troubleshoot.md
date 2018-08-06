@@ -13,20 +13,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: alkohli
-ms.openlocfilehash: f63eadc9a6ab834e02d62be9a209b504d76d3c8e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090773"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362658"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Résoudre les problèmes rencontrés dans Azure Data Box Disk (préversion)
 
 Cet article s’applique à Microsoft Azure Data Box exécutant une préversion. Cet article décrit certains des flux de travail et tâches de gestion complexes qui peuvent être effectués sur Data Box et Data Box Disk. 
 
-Vous pouvez gérer Data Box à l’aide de l’interface utilisateur du service Data Box (également appelée interface utilisateur du portail) et de l’interface utilisateur web locale de l’appareil. Data Box Disk ne peut être géré que via le portail Azure. Cet article se concentre sur les tâches que vous pouvez effectuer à l’aide du portail Azure. Utilisez le portail Azure pour gérer les commandes et les appareils, et suivre l’état des commandes lorsqu’elles passent à l’étape terminale.
+Vous pouvez gérer Data Box Disk via le portail Azure. Cet article se concentre sur les tâches que vous pouvez effectuer à l’aide du portail Azure. Utilisez le portail Azure pour gérer les commandes et les appareils, et suivre l’état des commandes jusqu’à l’étape terminale.
 
 Cet article inclut les didacticiels suivants :
 

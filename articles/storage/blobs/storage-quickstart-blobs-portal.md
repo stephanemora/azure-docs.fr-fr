@@ -3,24 +3,23 @@ title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objet
 description: Dans ce Démarrage rapide, vous utilisez le portail Azure dans un stockage d’objets (blob). Ensuite, vous utilisez le portail Azure pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob dans un conteneur.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: 1468aa0f12a05b71e3b997e1850d345a492308f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3f281532260cfc895ecea56666260a1df1fb0c0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400499"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure
 
 Dans ce démarrage rapide, vous apprenez à utiliser le [portail Azure](https://portal.azure.com/) pour créer un conteneur dans le stockage Azure, ainsi que pour charger et télécharger des objets blob de blocs dans ce conteneur.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -66,7 +65,7 @@ Vous pouvez télécharger un objet blob de blocs à afficher dans le navigateur 
 
 ![Capture d’écran montrant comment télécharger un objet blob dans le portail Azure](media/storage-quickstart-blobs-portal/download-blob.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Pour supprimer les ressources que vous avez créées dans ce démarrage rapide, vous pouvez simplement supprimer le conteneur. Tous les objets blob dans le conteneur seront également supprimés.
 

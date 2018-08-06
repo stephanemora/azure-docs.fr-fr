@@ -1,6 +1,6 @@
 ---
 title: Didacticiel - Déployer les travaux ASA sur des appareils Azure IoT Edge | Microsoft Docs
-description: Déployer Azure Stream Analytics en tant que module dans un appareil IoT Edge
+description: Dans ce tutoriel, vous déployez Azure Stream Analytics en tant que module dans une zone d’un appareil Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540170"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413873"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Didacticiel : Déployer Azure Stream Analytics en tant que module IoT Edge - version préliminaire
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Stream Analytics en tant que module IoT Edge - (prévision)
 
 De nombreuses solutions IoT utilisent les services d’analytiques pour obtenir des informations sur les données envoyées par les appareils IoT au fur et à mesure de leur arrivée dans le Cloud. Avec Azure IoT Edge, vous pouvez utiliser cette logique [Azure Stream Analytics] [ azure-stream] et la transposer à l’appareil lui-même. Lors du traitement des flux de données de télémétrie en périphérie, vous pouvez réduire la quantité de données chargées et réduire le temps nécessaire pour réagir aux informations actionnables.
 
@@ -36,10 +36,19 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 >[!NOTE]
 >Les modules Azure Stream Analytics pour IoT Edge sont en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 
-* Un hub IoT
-* L’appareil Azure IoT Edge que vous avez créé dans le guide de démarrage rapide pour les appareils [Windows][lnk-quickstart-win] ou [Linux][lnk-quickstart-lin]. 
+Un appareil Azure IoT Edge :
+
+* Vous pouvez utiliser votre ordinateur de développement ou une machine virtuelle comme un appareil Edge, en suivant les étapes décrites dans le Guide de démarrage rapide pour [Linux](quickstart-linux.md) ou pour les [Appareils Windows](quickstart.md).
+* Le module Azure Machine Learning ne prend pas en charge les processeurs ARM.
+
+Ressources cloud :
+
+* Un niveau standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure. 
+
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Créer un travail Azure Stream Analytics
 
@@ -67,7 +76,7 @@ Il vous faut un compte de Stockage Azure pour votre travail Azure Stream Analyti
    2. Utilisez le même **groupe de ressources** et **emplacement** que votre hub IoT. 
 
       > [!NOTE]
-      > Actuellement, les travaux Azure Stream Analytics sur IoT Edge ne sont pas pris en charge dans la région Ouest des États-Unis 2. 
+      > Actuellement, les travaux Azure Stream Analytics sur IoT Edge ne sont pas pris en charge dans la région USA Ouest 2. 
 
    3. Sous **Environnement d’hébergement**, sélectionnez **Edge**.
     

@@ -6,14 +6,14 @@ author: srinia
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 06/14/2018
+ms.date: 07/26/2018
 ms.author: srinia
-ms.openlocfilehash: 65e920858b1c859dc9f8e911cdf59d4ab02da6d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972160"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309042"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Gérer des groupes de bases de données avec des travaux de base de données élastique
 
@@ -106,11 +106,25 @@ Un *groupe cible* définit l’ensemble de bases de données sur lequel une éta
 > [!TIP]
 > Au moment de l’exécution du travail, *l’énumération dynamique* réévalue l’ensemble des bases de données dans les groupes de cibles qui incluent des serveurs ou des pools. L’énumération dynamique garantit que **les travaux s’exécutent sur toutes les bases de données qui existent dans le serveur ou le pool au moment de l’exécution du travail**. La réévaluation de la liste des bases de données au moment de l’exécution est particulièrement utile dans les scénarios où l’appartenance au pool ou au serveur change fréquemment.
 
-
 Il est possible de désigner des pools et des bases de données uniques comme faisant partie ou non du groupe. Vous pouvez ainsi créer un groupe cible avec n’importe quelle combinaison de bases de données. Par exemple, vous pouvez ajouter un serveur à un groupe cible, mais exclure certaines bases de données d’un pool élastique (ou exclure un pool entier).
 
 Un groupe cible peut inclure des bases de données dans plusieurs abonnements et dans plusieurs régions. Notez que les exécutions entre régions ont une latence plus élevée que celles dans une même région.
 
+Les exemples suivants montrent comment différentes définitions de groupes cibles sont énumérées dynamiquement au moment de l’exécution du travail pour déterminer les bases de données qui seront exécutées par le travail :
+
+![Exemples de groupe cible](media/elastic-jobs-overview/targetgroup-examples1.png)
+
+L’**exemple 1** montre un groupe cible se composant d’une liste de bases de données individuelles. Lorsqu’une étape de travail est exécutée à l’aide de ce groupe cible, l’action de l’étape de travail sera exécutée dans chacune de ces bases de données.<br>
+L’**exemple 2** montre un groupe cible qui contient un serveur SQL Azure comme cible. Lorsqu’une étape de travail est exécutée à l’aide de ce groupe cible, le serveur est énuméré dynamiquement pour déterminer la liste des bases de données qui se trouvent actuellement dans le serveur. L’action de l’étape de travail sera exécutée dans chacun de ces bases de données.<br>
+L’**exemple 3** montre un groupe cible similaire à l’*exemple 2*, mais une base de données individuelle est explicitement exclue. L’action de l’étape de travail ne sera *pas* exécutée dans la base de données exclue.<br>
+L’**exemple 4** montre un groupe cible qui contient un pool élastique comme cible. Semblable à *exemple 2*, le pool est énuméré dynamiquement à l’exécution du travail pour déterminer la liste des bases de données dans le pool.
+<br><br>
+
+
+![Exemples de groupe cible](media/elastic-jobs-overview/targetgroup-examples2.png)
+
+L’**exemple 5** et l’*exemple 6* montrent des scénarios avancés où les serveurs SQL Azure, les pools élastiques et les bases de données peuvent être combinées avec des règles d’inclusion et d’exclusion.<br>
+L’**exemple 7** montre que les partitions d’une carte de partitions peuvent également être évaluées au moment de l’exécution du travail.
 
 ### <a name="job"></a>Travail
 

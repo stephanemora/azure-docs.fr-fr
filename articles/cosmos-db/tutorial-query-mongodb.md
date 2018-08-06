@@ -11,25 +11,23 @@ ms.topic: tutorial
 ms.date: 03/29/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 539e41dbd4d9e115c2d8daf90405d7683bcaa462
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e941eb27e9c55f9a4b0e7af8d4cd8efa0220616b
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763185"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264458"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API MongoDB
 
 [L’API pour MongoDB](mongodb-introduction.md) d’Azure Cosmos DB prend en charge les [requêtes shell MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
-Cet article décrit les tâches suivantes : 
+Cet article décrit les tâches suivantes : 
 
 > [!div class="checklist"]
 > * Interrogation des données avec MongoDB
 
-Vous pouvez commencer par regarder cette vidéo avec Andy Hoh, responsable du programme Azure Cosmos DB, présentant les requêtes MongoDB :
-
->[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
+Vous pouvez commencer en utilisant les exemples dans ce document et regarder la vidéo [Interroger Azure Cosmos DB avec l’interpréteur de commandes MongoDB](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/).
 
 ## <a name="sample-document"></a>Exemple de document
 

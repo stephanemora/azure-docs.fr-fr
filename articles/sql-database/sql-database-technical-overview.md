@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que le service Azure SQL Database ? | Microsoft Docs
+title: Qu’est-ce que le service Azure SQL Database ? | Microsoft Docs
 description: 'Introduction à la base de données SQL : détails techniques et fonctionnalités du système de gestion des bases de données relationnelles Microsoft dans le cloud.'
 keywords: introduction à sql, intro à sql, qu’est-ce qu’une base de données sql
 services: sql-database
@@ -7,18 +7,27 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8e5518e0a2be98cc080a76cdf0697d6812ab22f8
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092101"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413380"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ? 
 
-SQL Database est un service administré de bases de données relationnelles à usage général de Microsoft Azure qui prend en charge des structures telles que les données relationnelles, JSON, les données spatiales et XML. SQL Database propose des serveurs logiques pouvant contenir des [bases de données SQL uniques](sql-database-servers-databases.md), des [pools élastiques](sql-database-elastic-pool.md) et des [instances gérées](sql-database-managed-instance.md) (en préversion publique) qui contiennent les bases de données système et utilisateur. SQL Database offre des performances évolutives de façon dynamique dans deux modèles d’achat différents : un [modèle d’achat vCore](sql-database-service-tiers-vcore.md) et un [modèle d’achat DTU](sql-database-service-tiers-dtu.md). SQL Database fournit aussi des options telles que les [index columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) pour la génération de rapport et l’analyse extrême, et [OLTP en mémoire](sql-database-in-memory.md) pour le traitement transactionnel extrême. Microsoft gère toutes les applications de correctifs et mises à jour de la base de code SQL en toute transparence et élimine toute la gestion de l’infrastructure sous-jacente. 
+SQL Database est un service administré de bases de données relationnelles à usage général de Microsoft Azure qui prend en charge des structures telles que les données relationnelles, JSON, les données spatiales et XML. SQL Database offre des performances évolutives de façon dynamique dans deux modèles d’achat différents : un [modèle d’achat vCore](sql-database-service-tiers-vcore.md) et un [modèle d’achat DTU](sql-database-service-tiers-dtu.md). SQL Database fournit aussi des options telles que les [index columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) pour la génération de rapport et l’analyse extrême, et [OLTP en mémoire](sql-database-in-memory.md) pour le traitement transactionnel extrême. Microsoft gère toutes les applications de correctifs et mises à jour de la base de code SQL en toute transparence et élimine toute la gestion de l’infrastructure sous-jacente. 
+
+Azure SQL Database fournit les options de déploiement suivantes pour une base de données SQL Azure :
+- En tant que base de données unique avec son propre ensemble de ressources géré via un serveur logique 
+- En tant que base de données regroupée dans un [pool élastique](sql-database-elastic-pool.md) avec un ensemble partagé de ressources géré via un serveur logique
+- Dans le cadre d’une collection de bases de données connue comme une [instance managée](sql-database-managed-instance.md) (en préversion publique) qui contient les bases de données utilisateur et système et partageant un ensemble de ressources
+
+L’illustration suivante représente ces options de déploiement :
+
+![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
 
 SQL Database partage sa base de code avec le [moteur de base de données Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Avec la stratégie orientée cloud de Microsoft, les dernières fonctionnalités de SQL Server sont tout d’abord publiées dans SQL Database, puis dans SQL Server. Cette approche vous procure les fonctionnalités SQL Server les plus récentes sans frais d’application de correctifs ou de mise à niveau, et ces fonctionnalités ont déjà été testées sur des millions de bases de données. Pour plus d’informations sur les nouvelles fonctionnalités annoncées, voir :
 

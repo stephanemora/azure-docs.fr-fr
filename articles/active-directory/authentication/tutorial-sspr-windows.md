@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e4e94567cf978631be52a3304b47b68f61ac3fff
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161161"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413732"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutoriel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -115,6 +115,8 @@ Lorsque vous testez cette fonctionnalité à l’aide de Hyper-V, le lien « Ré
 Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance, le lien « Réinitialiser le mot de passe » n’apparaît pas.
 
 * Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un Bureau à distance.
+
+Si l’écran de verrouillage Windows est désactivé à l’aide d’une clé de registre ou d’une stratégie de groupe, **Réinitialiser le mot de passe** ne sera pas disponible.
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 

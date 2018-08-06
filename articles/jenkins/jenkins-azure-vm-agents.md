@@ -1,22 +1,19 @@
 ---
 title: Mettre à l’échelle des déploiements Jenkins avec des agents de machines virtuelles Azure.
 description: Dotez vos pipelines Jenkins d’une capacité supplémentaire en utilisant des machines virtuelles Azure avec le plug-in Jenkins Azure VM Agents.
-services: multiple
-documentationcenter: ''
-author: rloutlaw
-manager: justhe
-ms.service: multiple
-ms.workload: multiple
-ms.topic: article
-ms.date: 8/25/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: 7f3facbc1bca51061d49ca99778c60d58c525144
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29392638"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391272"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Mettre à l’échelle vos déploiements Jenkins pour répondre à la demande avec des agents de machines virtuelles Azure
 
@@ -143,7 +140,11 @@ Sélectionnez **Verify Template** (Vérifier le modèle) pour vérifier la confi
 
 ![Sortie de la console](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="troubleshooting-the-jenkins-plugin"></a>Dépannage du plug-in Jenkins
+
+Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème dans le [Jenkins JIRA](https://issues.jenkins-ci.org/) du composant en question.
+
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [CI/CD vers Azure App Service](java-deploy-webapp-tutorial.md)

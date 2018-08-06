@@ -6,21 +6,21 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 04/29/2018
+ms.date: 07/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 5fd410f0c6c19dcbe2a728f193f3a10d3824693f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344472"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343455"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)
 
 Dans ce guide de démarrage rapide, vous allez déployer un cluster AKS à l’aide du portail Azure. Une application de plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est alors exécutée sur le cluster. Ceci fait, l’application est accessible via internet.
 
-![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image de la navigation vers le modèle d’application Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 Ce guide de démarrage rapide suppose une compréhension élémentaire des concepts liés à Kubernetes. Pour plus d’informations sur Kubernetes, consultez la [documentation de Kubernetes][kubernetes-documentation].
 
@@ -28,56 +28,59 @@ Ce guide de démarrage rapide suppose une compréhension élémentaire des conce
 
 Connectez-vous au portail Azure sur http://portal.azure.com.
 
-## <a name="create-aks-cluster"></a>Créer un cluster ACS
+## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
-Choisissez **Créer une ressource** > sélectionnez **Service Kubernetes**.
+Sélectionnez **Créer une ressource** > **Kubernetes Service** dans le coin supérieur gauche du portail Azure.
 
-Suivez les étapes sous chaque en-tête du formulaire Créer un cluster AKS.
+Pour créer un cluster AKS, exécutez les étapes suivantes :
 
-- **DÉTAILS DU PROJET** : sélectionnez un abonnement Azure et un groupe de ressources Azure (nouveau ou existant).
-- **DÉTAILS DU CLUSTER** : entrez le nom, la région, la version et le préfixe de nom DNS du cluster AKS.
-- **AUTHENTIFICATION** : utilisez un principal du service existant ou créez-en un nouveau. Si vous utilisez un nom de principal du service existant, indiquez l’ID client et la clé secrète associés.
-- **ÉCHELLE** : sélectionnez une taille de machine virtuelle pour les nœuds AKS. Elle ne sera **pas modifiable** une fois le cluster AKS déployé. Sélectionnez également le nombre de nœuds à déployer dans le cluster. Le nombre de nœuds est **modifiable** après le déploiement du cluster.
+1. **Bases** - Configurez les options suivantes :
+    - *DÉTAILS DE PROJET* : choisissez un abonnement Azure, puis sélectionnez ou créez un groupe de ressources Azure, tel que *myResourceGroup*. Entrez un **nom du cluster Kubernetes**, tel que *myAKSCluster*.
+    - *DÉTAILS DU CLUSTER* : sélectionnez une région, une version de Kubernetes, et le préfixe de nom DNS pour le cluster AKS.
+    - *MISE À L’ÉCHELLE* : sélectionnez une taille de machine virtuelle pour les nœuds AKS. Elle ne sera **pas modifiable** une fois le cluster AKS déployé.
+        - Sélectionnez également le nombre de nœuds à déployer dans le cluster. Pour effectuer ce démarrage rapide, définissez le **Nombre de nœuds** à *1*. Le nombre de nœuds est **modifiable** après le déploiement du cluster.
+    
+    ![Créer un cluster AKS - fournir des informations de base](media/kubernetes-walkthrough-portal/create-cluster-1.png)
 
-Sélectionnez **Suivant : Mise en réseau** lorsque vous avez terminé.
+    Sélectionnez **Suivant : authentification** lorsque vous avez terminé.
 
-![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-1.png)
+1. **Authentification** : configurez les options suivantes :
+    - Créez un principal de service ou *Configurez*-en un pour utiliser un principal existant. Si vous utilisez un nom de principal du service existant, indiquez l’ID client et la clé secrète associés.
+    - Activez l’option pour les contrôles d’accès en fonction des rôles Kubernetes (RBAC). Ces options fournissent un contrôle plus précis sur l’accès aux ressources Kubernetes déployées dans votre cluster AKS.
 
-Configurez les options de mise en réseau suivantes :
+    ![Créer le cluster AKS - configurer l’authentification](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
-- **Routage des applications HTTP** : configure un contrôleur d’entrée intégré en activant la création automatique de noms DNS publics. Pour plus d’informations sur le routage HTTP, voir [DNS et routage HTTP AKS][http-routing].
-- **Configuration réseau** : choisissez entre la configuration réseau de base, à l’aide du plug-in [kubenet][kubenet] de Kubernetes, ou la configuration réseau avancée, avec [Azure CNI][azure-cni]. Pour plus d’informations sur les options de mise en réseau, voir [Vue d’ensemble de la mise en réseau AKS][aks-network].
+    Sélectionnez **Suivant : Mise en réseau** lorsque vous avez terminé.
 
-Sélectionnez **Suivant : Monitoring** lorsque vous avez terminé.
+1. **Mise en réseau** : configurez les options de mise en réseau suivantes, qui doivent être réglées par défaut :
+    
+    - **Routage des applications HTTP** - Sélectionnez **Oui** pour configurer un contrôleur d’entrée intégré en activant la création automatique de noms DNS publics. Pour plus d’informations sur le routage HTTP, voir [DNS et routage HTTP AKS][http-routing].
+    - **Configuration réseau** - Sélectionnez la configuration réseau **De base**, à l’aide du plug-in [kubenet][kubenet] de Kubernetes, plutôt que de choisir une configuration réseau avancée, avec [Azure CNI][azure-cni]. Pour plus d’informations sur les options de mise en réseau, voir [Vue d’ensemble de la mise en réseau AKS][aks-network].
+    
+    Sélectionnez **Suivant : Monitoring** lorsque vous avez terminé.
 
-![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-2.png)
+1. Lorsque vous déployez un cluster AKS, vous pouvez configurer Azure Container Insights de façon qu’il surveille l’intégrité du cluster AKS et des pods en cours d’exécution sur le cluster. Pour plus d’informations sur l’analyse du fonctionnement des conteneurs, voir [Analyser le fonctionnement d’Azure Kubernetes Service][aks-monitor].
 
-Lorsque vous déployez un cluster AKS, vous pouvez configurer Azure Container Insights de façon qu’il surveille l’intégrité du cluster AKS et des pods en cours d’exécution sur le cluster. Pour plus d’informations sur l’analyse du fonctionnement des conteneurs, voir [Analyser le fonctionnement d’Azure Kubernetes Service][aks-monitor].
+    Sélectionnez **Oui** pour activer le monitoring du conteneur ; ensuite, sélectionnez un espace de travail Log Analytics existant ou créez-en un.
+    
+    Sélectionnez **Vérifier + créer**, puis **Créer** lorsque vous êtes prêt.
 
-Sélectionnez **Oui** pour activer le monitoring du conteneur ; ensuite, sélectionnez un espace de travail Log Analytics existant ou créez-en un.
+Il ne faut que quelques minutes pour créer le cluster AKS et que celui-ci soit prêt à être utilisé. Accédez au groupe de ressources de cluster AKS, comme *myResourceGroup*, puis sélectionnez la ressource AKS, comme *myAKSCluster*. Le tableau de bord du cluster AKS s’affiche, comme dans la capture d’écran suivante :
 
-Sélectionnez **Vérifier + créer**, puis **Créer** lorsque vous avez terminé.
-
-![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-3.png)
-
-Après un court délai, le cluster AKS est déployé et prêt à être utilisé. Accédez au groupe de ressources de cluster AKS et sélectionnez la ressource AKS : le tableau de bord du cluster AKS s’affiche.
-
-![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-5.png)
+![Exemple de tableau de bord AKS dans le portail Azure](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 
-Pour gérer un cluster Kubernetes, utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes. Le client kubectl est préinstallé dans Azure Cloud Shell.
+Pour gérer un cluster Kubernetes, utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes. Le client `kubectl` est préinstallé dans Azure Cloud Shell.
 
 Ouvrez Cloud Shell à l’aide du bouton situé dans le coin supérieur droit du portail Azure.
 
-![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
+![Ouvrez Azure Cloud Shell dans le portail](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
-Exécutez la commande [az aks get-credentials][az-aks-get-credentials] pour configurer kubectl afin qu’il se connecte à votre cluster Kubernetes.
-
-Copiez et collez la commande suivante dans Cloud Shell. Modifiez le nom du cluster et du groupe de ressources si nécessaire.
+Exécutez la commande [az aks get-credentials][az-aks-get-credentials] pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes. L’exemple suivant obtient les informations d’identification du nom du cluster *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get][kubectl-get] pour retourner une liste des nœuds du cluster.
@@ -86,20 +89,18 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-Output:
+L’exemple de sortie suivant montre le nœud unique créé au cours des étapes précédentes.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-11482510-0   Ready     agent     9m        v1.9.6
-aks-agentpool-11482510-1   Ready     agent     8m        v1.9.6
-aks-agentpool-11482510-2   Ready     agent     9m        v1.9.6
+aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
 ```
 
-## <a name="run-the-application"></a>Exécution de l’application
+## <a name="run-the-application"></a>Exécution de l'application
 
-Les fichiers manifestes Kubernetes définissent un état souhaité pour un cluster, et en particulier les images conteneur à exécuter. Dans cet exemple, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Parmi eux figurent deux [déploiements Kubernetes][kubernetes-deployment] : un pour la composante frontale d’Azure Vote, l’autre pour une instance Redis. En outre, deux [services Kubernetes][kubernetes-service] sont créés, un service interne pour l’instance Redis et un service externe pour l’accès à l’application Azure Vote à partir d’Internet.
+Les fichiers manifestes Kubernetes définissent un état souhaité pour un cluster, et en particulier les images conteneur à exécuter. Dans ce guide de démarrage rapide, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Parmi ces objets figurent deux [déploiements Kubernetes][kubernetes-deployment] - un pour la composante frontale d’Azure Vote, l’autre pour une instance Redis. En outre, deux [services Kubernetes][kubernetes-service] sont créés, un service interne pour l’instance Redis et un service externe pour l’accès à l’application Azure Vote à partir d’Internet.
 
-Créez un fichier nommé `azure-vote.yaml` et copiez-y le code YAML suivant. Si vous travaillez dans Azure Cloud Shell, créez ce fichier à l’aide de vi ou de Nano, comme si vous travailliez sur un système virtuel ou physique.
+Créez un fichier nommé `azure-vote.yaml` et copiez-y le code YAML suivant. Si vous travaillez dans Azure Cloud Shell, créez ce fichier à l’aide de `vi` ou de `Nano`, comme si vous travailliez sur un système virtuel ou physique.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -165,10 +166,10 @@ spec:
 Utilisez la commande [kubectl apply][kubectl-apply] pour exécuter l’application.
 
 ```azurecli-interactive
-kubectl apply -f azure-vote.yaml
+kubectl create -f azure-vote.yaml
 ```
 
-Output:
+L’exemple de sortie suivant présente les ressources Kubernetes créées sur votre cluster AKS :
 
 ```
 deployment "azure-vote-back" created
@@ -200,28 +201,28 @@ Une fois que l’adresse *EXTERNAL-IP* est passée du statut *En attente* à *Ad
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Accédez maintenant à l’adresse IP externe pour voir l’application Azure Vote.
+Ouvrez un navigateur web à l’adresse IP externe de votre service pour voir l’application Azure Vote, comme indiqué dans l’exemple suivant :
 
-![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image de la navigation vers l’exemple d’application Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="monitor-health-and-logs"></a>Analyser le fonctionnement et les journaux
 
-Si le monitoring Container Insights a été activé, le tableau de bord du cluster AKS comporte des mesures d’intégrité sur le cluster AKS et sur les pods en cours d’exécution sur le cluster. Pour plus d’informations sur l’analyse du fonctionnement des conteneurs, voir [Analyser le fonctionnement d’Azure Kubernetes Service][aks-monitor].
+Les informations du conteneur de surveillance ont été activées dès lors que vous avez créé le cluster. Cette fonctionnalité de surveillance fournit des indicateurs d’intégrité pour le cluster AKS et les pods en cours d’exécution sur le cluster. Pour plus d’informations sur l’analyse du fonctionnement des conteneurs, voir [Analyser le fonctionnement d’Azure Kubernetes Service][aks-monitor].
 
-Pour afficher l’état actuel, la durée de fonctionnement et l’utilisation des ressources des blocs Azure Vote, revenez à la ressource AKS, sélectionnez **Analyser le fonctionnement du conteneur** > sélectionnez l’espace de noms **par défaut** > et sélectionnez **Conteneurs**. Ces données s’afficheront sur le Portail Azure au bout de quelques minutes.
+Ces données s’afficheront sur le Portail Azure au bout de quelques minutes. Pour afficher l’état actuel, la durée de fonctionnement et l’utilisation des ressources pour les pods Azure Vote, accédez à la ressource AKS dans le portail Azure, comme *myAKSCluster*. Choisissez **Surveiller l’intégrité des conteneurs** > sélectionnez l’espace de noms **par défaut** > puis sélectionnez **Conteneurs**.  Les conteneurs *azure-vote-back* et *azure-vote-front* sont affichés :
 
-![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-6.png)
+![Afficher l’intégrité des conteneurs en cours d’exécution dans AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Pour afficher les journaux du pod `azure-vote-front`, sélectionnez le lien **Afficher les journaux**. Vous pourrez voir les flux stdout et stderr du conteneur.
+Pour afficher les journaux pour le pod `azure-vote-front`, sélectionnez le lien **Afficher les journaux** sur le côté droit de la liste de conteneurs. Ces flux journaux comprennent les flux *stdout* et *stderr* du conteneur.
 
-![Créer le cluster AKS 1](media/container-service-walkthrough-portal/aks-portal-7.png)
+![Afficher les journaux de conteneurs dans AKS](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
 
 ## <a name="delete-cluster"></a>Supprimer un cluster
 
-Dès vous n’avez plus besoin du cluster, supprimez la ressource de cluster : toutes les ressources associées seront ainsi supprimées. Vous pouvez effectuer cette opération sur le Portail Azure en cliquant sur le bouton Supprimer sur le tableau de bord du cluster AKS. Vous pouvez aussi exécuter la commande [az aks delete][az-aks-delete] dans Cloud Shell.
+Dès vous n’avez plus besoin du cluster, supprimez la ressource de cluster : toutes les ressources associées seront ainsi supprimées. Vous pouvez effectuer cette opération sur le Portail Azure en cliquant sur le bouton **Supprimer** du tableau de bord du cluster AKS. Vous pouvez aussi exécuter la commande [az aks delete][az-aks-delete] dans Cloud Shell :
 
 ```azurecli-interactive
-az aks delete --resource-group myAKSCluster --name myAKSCluster --no-wait
+az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 ## <a name="get-the-code"></a>Obtenir le code
