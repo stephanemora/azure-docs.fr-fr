@@ -137,6 +137,9 @@
                   href: create-vm-accelerated-networking-powershell.md
                 - name: Azure CLI
                   href: create-vm-accelerated-networking-cli.md
+                  items:
+                    - name: Installer le DPDK
+                      href: setup-dpdk.md
             - name: Débit réseau des machines virtuelles
               href: virtual-machine-network-throughput.md
         - name: Scénarios de connectivité

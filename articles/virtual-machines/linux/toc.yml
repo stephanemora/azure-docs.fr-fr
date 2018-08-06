@@ -1,6 +1,6 @@
 - name: Documentation sur les machines virtuelles Linux
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des Machines virtuelles
       href: overview.md
@@ -175,8 +175,6 @@
           href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Gérer les machines virtuelles
       items:
-        - name: Prépayer les machines virtuelles - instances réservées
-          href: prepay-reserved-vm-instances.md
         - name: Utilisation de machines virtuelles
           href: vm-usage.md
         - name: Tâches d’interface de ligne de commande courantes
@@ -214,7 +212,7 @@
               href: update-infrastructure-redhat.md
         - name: Agent de machine virtuelle Azure
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../extensions/agent-linux.md
             - name: Mise à jour de l’agent
               href: update-agent.md
@@ -228,6 +226,14 @@
           href: instance-metadata-service.md
         - name: Obtenir les métriques d'utilisation avec REST
           href: metrics-vm-usage-rest.md
+    - name: Gérer les coûts
+      items:
+        - name: Prépayer les machines virtuelles - instances réservées
+          href: prepay-reserved-vm-instances.md
+        - name: Que sont les instances réservées ?
+          href: ../../billing/billing-save-compute-costs-reservations.md
+        - name: Flexibilité de taille d'instance des machines virtuelles
+          href: reserved-vm-instance-size-flexibility.md
     - name: Utiliser des images
       items:
         - name: Trouver et utiliser des images
@@ -323,7 +329,7 @@
       items:
         - name: Cloud Foundry
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: cloudfoundry-get-started.md
             - name: Déployer votre première application
               href: cloudfoundry-deploy-your-first-app.md

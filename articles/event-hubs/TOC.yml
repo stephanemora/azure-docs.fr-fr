@@ -4,7 +4,7 @@
   items:
     - name: "Qu’est-ce qu’Event Hubs\_?"
       href: event-hubs-about.md
-    - name: Event Hubs pour Apache Kafka
+    - name: Event Hubs pour Apache Kafka (préversion)
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: Event Hubs Capture
       href: event-hubs-capture-overview.md

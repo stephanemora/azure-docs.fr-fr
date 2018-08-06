@@ -1,6 +1,6 @@
 - name: Documentation sur les extensions de machine virtuelle
   href: ../index.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des extensions Azure
       href: overview.md
@@ -38,7 +38,9 @@
           href: custom-script-windows.md
         - name: Gestion des services Azure (classique)
           href: custom-script-classic.md
-    - name: Diagnostics
+    - name: Logiciel anti-programme malveillant IaaS pour Windows
+      href: iaas-antimalware-windows.md
+    - name: Instantané de machine virtuelle
       items:
         - name: Linux
           href: vmsnapshot-linux.md

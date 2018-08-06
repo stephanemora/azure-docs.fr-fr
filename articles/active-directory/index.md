@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: mtillman
-ms.openlocfilehash: 452c8104f4f5abd5730126fbe2a5755564d37d16
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5f193425912ad9c15d9f6b0b7681178fab54b83e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226065"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504615"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentation Azure Active Directory
 
@@ -31,10 +31,11 @@ Azure Active Directory (Azure AD) est un service cloud et multilocataire de gest
                     <div class="cardText">
                         <h3>Notions de base</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-whatis">Présentation d’Azure AD</a><br/>
-                        <a href="/azure/active-directory/understand-azure-identity-solutions">Solutions d’identité</a><br/>
-                        <a href="/azure/active-directory/get-started-azure-ad">Démarrer</a><br/>
-                        <a href="/azure/active-directory/whats-new">Nouveautés</a>
+                        <a href="/azure/active-directory/fundamentals/active-directory-whatis">Présentation d’Azure AD</a><br/>
+                        <a href="/azure/active-directory/fundamentals/understand-azure-identity-solutions">Solutions d’identité</a><br/>
+                        <a href="/azure/active-directory/fundamentals/get-started-azure-ad">Démarrer</a><br/>
+                        <a href="/azure/active-directory/fundamentals/whats-new">Nouveautés</a><br/>
+                        <a href="/azure/active-directory/fundamentals/active-directory-deployment-plans">Plans de déploiement d’Azure AD</a>
                         </p>
                     </div>
                 </div>
@@ -162,7 +163,7 @@ Azure Active Directory (Azure AD) est un service cloud et multilocataire de gest
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Référence</h3>
+                        <h3>Informations de référence</h3>
                         <p>
                         <a href="/powershell/module/azurerm.resources#active_directory">Azure RM PowerShell</a><br/>
                         <a href="/powershell/azure/active-directory/overview">Azure AD PowerShell</a><br/>

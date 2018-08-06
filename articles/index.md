@@ -6,12 +6,12 @@ description: Découvrez comment créer et gérer des applications performantes �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 7db35731a7a95a1ba327445a2044050c28fafb4c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 323b0118d4635b141b2a0f3fb2692d082929c201
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224202"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495473"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -688,7 +688,7 @@ Azure DevOps Project </a>
                                         <li>
                                             <a href="/azure/network-watcher/">
                                                 <img src="media/index/network-watcher.svg" alt="" />
-                                                <p>Network Watcher</p>
+                                                <p>Network Watcher</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1047,6 +1047,12 @@ Azure DevOps Project </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/databox/">
+                                                <img src="media/index/Service-icon.png" alt="" />
+                                                <p>Data Box</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
                                                 <img src="media/index/storage.svg" alt="" />
                                                 <p>Explorateur Stockage</p>
@@ -1337,7 +1343,7 @@ Azure DevOps Project </a>
                                         <li>
                                             <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1355,7 +1361,7 @@ Azure DevOps Project </a>
                                         <li>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gestion des API</p>
+                                                <p>API Management</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2237,7 +2243,7 @@ Azure DevOps Project </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>Stockage Data Lake Storage sécurisé et hautement évolutif</p>
+                                                    <p>Data Lake Storage hautement évolutif et sécurisé, avec intégration du stockage Blob</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3969,7 +3975,7 @@ Azure DevOps Project </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Logic Apps</h3>
+                                                    <h3>Logic Apps</h3>
                                                     <p>Automatisez l’accès à vos données et leur utilisation dans différents clouds sans écrire de code</p>
                                                 </div>
                                             </div>

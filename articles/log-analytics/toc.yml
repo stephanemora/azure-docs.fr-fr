@@ -9,9 +9,9 @@
   items:
     - name: Collecter - Machines virtuelles Azure
       href: log-analytics-quick-collect-azurevm.md
-    - name: Collecter - Ordinateur Linux
+    - name: Collecter - Ordinateur Linux hybride
       href: log-analytics-quick-collect-linux-computer.md
-    - name: Collecter - Ordinateur Windows
+    - name: Collecter - Ordinateur Windows hybride
       href: log-analytics-quick-collect-windows-computer.md
 - name: Didacticiels
   items:
