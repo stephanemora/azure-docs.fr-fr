@@ -6,7 +6,7 @@
     - name: Concepts de base de l’authentification
       href: authentication-scenarios.md
     - name: Types d’applications
-      href: 'active-directory-authentication-scenarios.md#application-types-and-scenarios'
+      href: 'authentication-scenarios.md#application-types-and-scenarios'
 - name: Prise en main
   items:
     - name: Applications mobiles et de bureau
@@ -22,7 +22,7 @@
         - name: .NET (Xamarin)
           href: quickstart-v1-xamarin.md
         - name: "OAuth\_2.0"
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
     - name: les applications web
       items:
         - name: Vue d’ensemble
@@ -38,13 +38,13 @@
         - name: NodeJS
           href: quickstart-v1-openid-connect-code.md
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
     - name: Applications à page unique
       items:
         - name: Vue d’ensemble
           href: 'active-directory-authentication-scenarios.md#single-page-application-spa'
         - name: Angular JS
-          href: active-directory-devquickstarts-angular.md
+          href: quickstart-v1-angularjs-spa.md
         - name: JavaScript
           href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
     - name: "API\_Web"
@@ -52,35 +52,35 @@
         - name: Vue d’ensemble
           href: 'active-directory-authentication-scenarios.md#web-application-to-web-api'
         - name: ASP.NET
-          href: active-directory-devquickstarts-webapi-dotnet.md
+          href: quickstart-v1-dotnet-webapi.md
         - name: NodeJS
-          href: active-directory-devquickstarts-webapi-nodejs.md
+          href: quickstart-v1-nodejs-webapi.md
     - name: Service à service
       items:
         - name: Vue d’ensemble
           href: 'active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api'
         - name: .NET
-          href: 'active-directory-code-samples.md#server-or-daemon-application-to-web-api'
+          href: 'sample-v1-code.md#server-or-daemon-application-to-web-api'
         - name: "Informations d’identification du client OAuth\_2.0"
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
 - name: Guides
   items:
     - name: Inscription de l’application
       href: quickstart-v1-integrate-apps-with-azure-ad.md
     - name: Applications multi-locataires
-      href: active-directory-devhowto-multi-tenant-overview.md
+      href: howto-convert-app-to-be-multi-tenant.md
     - name: Accès conditionnel
-      href: active-directory-conditional-access-developer.md
+      href: conditional-access-dev-guide.md
     - name: Autorisations
-      href: active-directory-permissions.md
+      href: v1-permissions-and-consent.md
     - name: "OAuth et OpenID\_Connect"
       items:
         - name: Protocole OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: Octroi du code d’authentification OAuth 2.0
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: Octroi implicite OAuth 2.0
-          href: active-directory-dev-understanding-oauth2-implicit-grant.md
+          href: v1-oauth2-implicit-grant-flow.md
     - name: "SAML\_2.0"
       href: active-directory-saml-protocol-reference.md
       items:
@@ -89,23 +89,23 @@
         - name: Personnaliser des revendications
           href: active-directory-saml-claims-customization.md
         - name: Déboguer l’authentification unique SAML
-          href: active-directory-saml-debugging.md
+          href: howto-v1-debug-saml-sso-issues.md
         - name: Protocole SAML d’authentification unique
-          href: active-directory-single-sign-on-protocol-reference.md
+          href: single-sign-on-saml-protocol.md
         - name: Protocole SAML de déconnexion unique
-          href: active-directory-single-sign-out-protocol-reference.md
+          href: single-sign-out-saml-protocol.md
     - name: Créer un client
       href: quickstart-create-new-tenant.md
     - name: Conditions de service et déclaration de confidentialité
-      href: active-directory-app-terms-service-privacy-statement.md
+      href: howto-add-terms-of-service-privacy-statement.md
     - name: Instructions de personnalisation
-      href: active-directory-branding-guidelines.md
+      href: howto-add-branding-in-azure-ad-apps.md
     - name: Authentification unique Mobile et Bureau
       items:
         - name: Activer l’authentification unique sur Android
-          href: active-directory-sso-android.md
+          href: howto-v1-enable-sso-on-android.md
         - name: Activer l’authentification unique sur iOS
-          href: active-directory-sso-ios.md
+          href: howto-v1-enable-sso-on-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: Attribution d’utilisateurs avec SCIM
@@ -148,32 +148,32 @@
     - name: Bibliothèques d’authentification (ADAL)
       href: active-directory-authentication-libraries.md
     - name: Exemples de code par scénario
-      href: active-directory-code-samples.md
+      href: sample-v1-code.md
     - name: Glossaire
       href: active-directory-dev-glossary.md
     - name: Protocoles d’authentification
       href: active-directory-authentication-protocols.md
       items:
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: OAuth
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: Service aux appels de service
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
         - name: Flux On-Behalf-Of
-          href: active-directory-protocols-oauth-on-behalf-of.md
+          href: v1-oauth2-on-behalf-of-flow.md
         - name: Types de jeton et de revendication pris en charge
-          href: active-directory-token-and-claims.md
+          href: v1-id-and-access-tokens.md
         - name: Configurer des revendications d’application facultatives et personnalisées
           href: active-directory-optional-claims.md
         - name: Substitution de la clé de signature
           href: active-directory-signing-key-rollover.md
         - name: Métadonnées de fédération
-          href: active-directory-federation-metadata.md
+          href: azure-ad-federation-metadata.md
         - name: Informations d’identification de certificat
           href: active-directory-certificate-credentials.md
     - name: Objets d’application
-      href: active-directory-application-objects.md
+      href: app-objects-and-service-principals.md
       items:
         - name: Applications et Azure AD
           href: active-directory-how-applications-are-added.md
@@ -193,7 +193,7 @@
         - name: Limites
           href: active-directory-v2-limitations.md
         - name: Comparaison v1-v2
-          href: active-directory-v2-compare.md
+          href: azure-ad-endpoint-comparison.md
     - name: Prise en main
       items:
         - name: Applications mobiles et de bureau
@@ -241,28 +241,28 @@
         - name: Bibliothèques d’authentification
           href: active-directory-v2-libraries.md
         - name: Exemples de code v2.0 par scénario
-          href: active-directory-v2-code-samples.md
+          href: sample-v2-code.md
         - name: Protocoles d’authentification v2.0
           href: active-directory-v2-protocols.md
           items:
             - name: OpenID Connect
-              href: active-directory-v2-protocols-oidc.md
+              href: v2-protocols-oidc.md
             - name: Octroi de code d’autorisation OAuth 2.0
-              href: active-directory-v2-protocols-oauth-code.md
+              href: v2-oauth2-auth-code-flow.md
             - name: Octroi implicite OAuth 2.0
-              href: active-directory-v2-protocols-implicit.md
+              href: v2-oauth2-implicit-grant-flow.md
             - name: Octroi des informations d’identification du client OAuth 2.0
-              href: active-directory-v2-protocols-oauth-client-creds.md
+              href: v2-oauth2-client-creds-grant-flow.md
             - name: Flux OAuth 2.0 On-Behalf-Of
-              href: active-directory-v2-protocols-oauth-on-behalf-of.md
+              href: v2-oauth2-on-behalf-of-flow.md
             - name: Informations d’identification de certificat
               href: active-directory-certificate-credentials.md
             - name: Exemple de code Oauth 2.0
               href: active-directory-protocols-oauth-get-jwt-token.md
         - name: Jetons
-          href: active-directory-v2-tokens.md
+          href: v2-id-and-access-tokens.md
         - name: Étendues et consentement
-          href: active-directory-v2-scopes.md
+          href: v2-permissions-and-consent.md
 - name: Ressources
   items:
     - name: Obtenir de l’aide

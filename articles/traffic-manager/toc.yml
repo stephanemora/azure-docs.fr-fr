@@ -7,7 +7,7 @@
 - name: Démarrage rapide
   items:
     - name: Créer un profil Traffic Manager
-      href: traffic-manager-create-profile.md
+      href: quickstart-create-traffic-manager-profile.md
 - name: Didacticiels
   items:
     - name: Acheminer le trafic en fonction de l’emplacement géographique du point de terminaison
