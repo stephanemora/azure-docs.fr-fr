@@ -119,7 +119,7 @@
               href: redirect-internal-site-cli.md
     - name: Assistance multi-locataire
       items:
-        - name: Configurer la prise en charge multi-locataire
+        - name: Configurer un support muti-tenant
           href: create-web-app.md
     - name: Rediriger le trafic web avec Azure PowerShell
       href: tutorial-url-redirect-powershell.md

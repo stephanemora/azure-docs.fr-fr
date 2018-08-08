@@ -8,18 +8,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248772"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364523"
 ---
 # <a name="what-is-azure-importexport-service"></a>Qu’est-ce que le service Azure Import/Export ?
 
-Le service Azure Import/Export est utilisé pour importer en toute sécurité des volumes importants de données dans Stockage Blob Azure et Azure Files en expédiant des lecteurs de disque vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disque et les expédier vers vos sites locaux. Les données d’un ou plusieurs disques peuvent être importées dans Stockage Blob Azure ou Azure Files. 
+Le service Azure Import/Export est utilisé pour importer en toute sécurité des volumes importants de données dans Stockage Blob Azure et Azure Files en expédiant des lecteurs de disque vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disque et les expédier vers vos sites locaux. Les données d’un ou plusieurs lecteurs de disque peuvent être importées dans le Stockage Blob Azure ou Azure Files. 
 
-Le service Azure Import/Export vous oblige à fournir vos propres disques. Si vous souhaitez transférer des données à l’aide de disques fournis par Microsoft, vous pouvez utiliser un disque Azure Data Box pour importer des données dans Azure. Microsoft envoie jusqu’à 5 disques SSD chiffrés dotés d’une capacité de 40 To par commande à votre centre de données via un transporteur régional. Vous pouvez rapidement configurer les disques, y copiez des données via une connexion USB 3.0, puis les réexpédier à Azure. Pour plus d’informations, accédez à la [vue d’ensemble d’Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+Utilisez vos propres lecteurs de disque et transférez des données avec le service Azure Import/Export. Vous pouvez également utiliser les lecteurs de disque fournis par Microsoft. 
+
+Si vous souhaitez transférer des données à l’aide des lecteurs de disque fournis par Microsoft, vous pouvez utiliser un [disque Azure Data Box](../../databox/data-box-disk-overview.md) pour importer des données dans Azure. Microsoft envoie jusqu’à 5 lecteurs de disque SSD chiffrés dotés d’une capacité totale de 40 To par commande à votre centre de données via un transporteur régional. Vous pouvez rapidement configurer les lecteurs de disque, y copiez des données via une connexion USB 3.0, puis les réexpédier à Azure. Pour plus d’informations, accédez à la [vue d’ensemble d’Azure Data Box Disk](../../databox/data-box-disk-overview.md).
 
 ## <a name="azure-importexport-usecases"></a>Scénarios d’utilisation du service Azure Import/Export
 
@@ -34,23 +36,23 @@ Envisagez d’utiliser le service Azure Import/Export lorsque le chargement ou l
 
 Le service Azure Import/Export utilise les composants suivants :
 
-- **Service Import/Export** : ce service disponible dans le Portail Azure permet à l’utilisateur de créer et d’effectuer le suivi de travaux d’importation et d’exportation.  
+- **Service Import/Export** : ce service disponible dans le portail Azure permet à l’utilisateur de créer et d’effectuer le suivi de travaux d’importation (chargement) et d’exportation (téléchargement) de données.  
 
 - **Outil WAImportExport** : outil en ligne de commande qui effectue les opérations suivantes : 
-    - prépare vos lecteurs expédiés à l’importation ;
+    - prépare vos lecteurs de disque expédiés à l’importation ;
     - facilite la copie de vos données sur le lecteur ;
     - chiffre les données sur le lecteur avec BitLocker ;
     - génère les fichiers journaux de lecteur utilisés lors de la création de l’importation ;
     - permet d’identifier le nombre de disques requis pour les travaux d’exportation.
+    
+> [!NOTE]
+> L’outil WAImportExport est disponible dans deux versions, la version 1 et la version 2. Nous vous recommandons d’utiliser :
+> - la version 1 pour l’importation/exportation dans Stockage Blob Azure ; 
+> - la version 2 pour l’importation de données dans des fichiers Azure Files.
+>
+> L’outil WAImportExport est compatible uniquement avec le système d’exploitation Windows 64 bits. Pour connaître les versions de système d’exploitation prises en charge, consultez [Conditions requises pour le service Azure Import/Export](storage-import-export-requirements.md#supported-operating-systems).
 
-    Cet outil est disponible dans deux versions, la version 1 et la version 2. Nous vous recommandons d’utiliser :
-
-    - la version 1 pour l’importation/exportation dans Stockage Blob Azure ; 
-    - la version 2 pour l’importation de données dans des fichiers Azure Files.
-
-    L’outil WAImportExport est compatible uniquement avec le système d’exploitation Windows 64 bits. Pour connaître les versions de système d’exploitation prises en charge, consultez [Conditions requises pour le service Azure Import/Export](storage-import-export-requirements.md#supported-operating-systems).
-
-- **Disques** : vous pouvez expédier des disques SSD (Solid-state drive) ou des disques HDD (Hard disk drive) au centre de données Azure. Lorsque vous créez un travail d’importation, vous expédiez les lecteurs de disque contenant vos données. Lorsque vous créez un travail d’exportation, vous expédiez des lecteurs vides au centre de données Azure. Pour les types de disques, consultez [Types de disques pris en charge](storage-import-export-requirements.md#supported-hardware).
+- **Lecteurs de disque** : vous pouvez expédier des disques SSD ou des disques durs au centre de données Azure. Lorsque vous créez un travail d’importation, vous expédiez les lecteurs de disque contenant vos données. Lorsque vous créez un travail d’exportation, vous expédiez des lecteurs vides au centre de données Azure. Pour les types de disques, consultez [Types de disques pris en charge](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Comment fonctionne le service Import/Export ?
 
@@ -58,18 +60,12 @@ Le service Azure Import/Export permet le transfert de données dans des objets b
 
 Il peut s’agir d’un travail d’importation ou d’exportation. Un travail d’importation vous permet d’importer des données dans des objets blob Azure ou des fichiers Azure Files, tandis que le travail d’exportation permet d’exporter des données à partir d’objets blob Azure. Dans le cas d’un travail d’importation, vous expédiez des disques contenant vos données. Lorsque vous créez un travail d’exportation, vous expédiez des lecteurs vides à un centre de données Azure. Dans les deux cas, vous pouvez expédier jusqu’à 10 lecteurs de disque par travail.
 
-> [!IMPORTANT]
-> L’exportation de données dans des fichiers Azure Files n’est pas prise en charge.
-
-Cette section décrit la procédure générale mise en œuvre dans les travaux d’importation et d’exportation. 
-
-
 ### <a name="inside-an-import-job"></a>Dans un travail d’importation
 
 Globalement, un travail d’importation comprend les opérations suivantes :
 
 1. Déterminer les données à importer, le nombre de disques dont vous avez besoin, l’emplacement de l’objet blob de destination de vos données dans Stockage Azure.
-2. Utiliser l’outil WAImportExport pour copier les données sur les lecteurs de disque. Chiffrer les disques avec BitLocker.
+2. Utiliser l’outil WAImportExport pour copier les données sur les lecteurs de disque. Chiffrer les lecteurs de disque avec BitLocker.
 3. Créer un travail d’importation dans votre compte de stockage cible dans le Portail Azure. Charger les fichiers journaux du lecteur.
 4. Indiquer l’adresse de retour et le numéro de compte transporteur à utiliser pour le retour des disques.
 5. Expédier les lecteurs de disque à l’adresse d’expédition indiquée lors de la création du travail.
@@ -125,14 +121,14 @@ Le service Azure Import/Export prend en charge la copie des données vers et dep
 
 |Pays  |Pays  |Pays  |Pays  |
 |---------|---------|---------|---------|
-|Est des États-Unis    | Europe du Nord        | Inde centrale        |US Gov Iowa         |
-|États-Unis de l’Ouest     |Europe de l'Ouest         | Inde du Sud        | Est des États-Unis – US DoD        |
-|Est des États-Unis 2    | Est de l'Asie        |  Inde occidentale        | Centre des États-Unis – US DoD        |
-|Ouest des États-Unis 2     | Asie du Sud-Est        | Centre du Canada        | Chine orientale         |
-|Centre des États-Unis     | Est de l’Australie        | Est du Canada        | Chine du Nord        |
-|Centre-Nord des États-Unis     |  Sud-est de l’Australie       | Sud du Brésil        | Sud du Royaume-Uni        |
-|États-Unis - partie centrale méridionale     | Ouest du Japon        |Centre de la Corée         | Centre de l’Allemagne        |
-|Centre-Ouest des États-Unis     |  Est du Japon       | Gouvernement américain - Virginie        | Nord-Est de l’Allemagne        |
+|USA Est    | Europe Nord        | Inde Centre        |US Gov Iowa         |
+|USA Ouest     |Europe Ouest         | Inde Sud        | Est des États-Unis – US DoD        |
+|USA Est 2    | Asie Est        |  Inde Ouest        | Centre des États-Unis – US DoD        |
+|USA Ouest 2     | Asie Sud-Est        | Centre du Canada        | Chine orientale         |
+|USA Centre     | Australie Est        | Est du Canada        | Chine du Nord        |
+|USA Centre Nord     |  Australie Sud-Est       | Brésil Sud        | Sud du Royaume-Uni        |
+|USA Centre Sud     | Japon Ouest        |Centre de la Corée         | Centre de l’Allemagne        |
+|USA Centre-Ouest     |  Japon Est       | Gouvernement américain - Virginie        | Nord-Est de l’Allemagne        |
 
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité

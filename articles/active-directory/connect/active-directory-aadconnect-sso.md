@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213229"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285355"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -30,12 +30,12 @@ L’authentification unique transparente Azure Active Directory connecte automat
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-L’authentification unique transparente peut être combinée avec la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) et [l’authentification directe](active-directory-aadconnect-pass-through-authentication.md).
+L’authentification unique transparente peut être combinée avec la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) et [l’authentification directe](active-directory-aadconnect-pass-through-authentication.md). L’authentification unique transparente n’est _pas_ applicable aux services de fédération Active Directory (AD FS).
 
 ![Authentification unique transparente](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->L’authentification unique transparente n’est _pas_ applicable aux services de fédération Active Directory (AD FS).
+>L’authentification unique fluide nécessite que l’appareil de l’utilisateur soit **joint au domaine**, mais n’a pas besoin que l’appareil soit [joint à Azure AD](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Principaux avantages
 
@@ -76,7 +76,9 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](active-directory-aadconnect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
-- [**Immersion technique**](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
+- [**Plan de déploiement**](https://aka.ms/AuthenticationDeploymentPlan) : plan de déploiement étape par étape.
+- [**Immersion technique**](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Questions fréquentes (FAQ)**](active-directory-aadconnect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
+

@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 23b5b5d79f0f905d7c4a173247232ede2cad2877
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34806834"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412445"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Utiliser des profils de version des API avec Python dans Azure Stack
 
@@ -121,7 +121,7 @@ Les exemples ne sont pas forcément fournis dans l’ordre indiqué dans la list
 
 6.  Définissez les variables d’environnement suivantes, puis exportez-les dans votre environnement actuel. 
 
-    ````bash
+    ```bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
     export AZURE_CLIENT_SECRET={your client secret}
@@ -129,32 +129,29 @@ Les exemples ne sont pas forcément fournis dans l’ordre indiqué dans la list
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
+7.  Pour que vous puissiez exécuter cet exemple, les images Ubuntu 16.04-LTS et WindowsServer 2012-R2-Datacenter doivent être présentes sur la Place de marché Azure Stack. Ces images peuvent être [téléchargées à partir d’Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) ou [ajoutées au référentiel PIR (Platform Image Repository)](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
-8. Run the sample.
+8. Exécutez l’exemple.
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## Notes
+## <a name="notes"></a>Notes
 
-You may be tempted to try to retrieve a VM's OS disk by using
-`virtual_machine.storage_profile.os_disk`.
-In some cases, this may do what you want,
-but be aware that it gives you an `OSDisk` object.
-In order to update the OS Disk's size, as `example.py` does,
-you need not an `OSDisk` object but a `Disk` object.
-`example.py` gets the `Disk` object with the following:
+Vous pouvez être tenté de récupérer le disque du système d’exploitation d’une machine virtuelle en utilisant `virtual_machine.storage_profile.os_disk`.
+Dans certains cas, cela peut donner le résultat escompté, mais vous obtiendrez un objet `OSDisk`.
+Pour changer la taille du disque du système d’exploitation, comme le fait `example.py`, il ne faut pas un objet `OSDisk`, mais un objet `Disk`.
+`example.py` obtient l’objet `Disk` de cette façon :
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## Next steps
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
-- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
-- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
+- [Centre de développement Python pour Azure](https://azure.microsoft.com/develop/python/)
+- [Documentation sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/)
+- [Parcours d’apprentissage des machines virtuelles](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- Si vous n’avez pas d’abonnement Microsoft Azure, vous pouvez obtenir un compte d’essai GRATUIT [ici](http://go.microsoft.com/fwlink/?LinkId=330212).

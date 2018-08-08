@@ -1,20 +1,19 @@
 ---
-title: API de transcription Azure Batch | Azure Microsoft Docs
+title: API de transcription Azure Batch
 description: Exemples
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f21973855ceb3a257627c147490ac50465c54020
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346438"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281937"
 ---
 # <a name="batch-transcription"></a>Transcription Batch
 
@@ -178,4 +177,4 @@ L’exemple affiché ici est disponible sur [GitHub](https://github.com/PanosPer
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir votre abonnement d’essai gratuit du service Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)

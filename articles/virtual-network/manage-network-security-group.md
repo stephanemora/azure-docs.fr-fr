@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 5ca70b085b5ac9db4d108966fa695f042c20489d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76a7b2f8339798d9580ef989e8931a6776129885
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920509"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346623"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -33,7 +33,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
 - Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel requiert le module Azure PowerShell version 5.4.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.28 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.28 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou avoir un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des actions appropriées répertoriées dans [Autorisations ](#permissions).
 
@@ -104,7 +104,7 @@ Si un groupe de sécurité réseau est associé à des sous-réseaux ou à des i
 **Commandes**
 
 - Azure CLI : [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete)
-- PowerShell : [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroupp) 
+- PowerShell : [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
 
 ## <a name="work-with-security-rules"></a>Utiliser des règles de sécurité
 
@@ -171,7 +171,7 @@ La liste contient toutes les règles que vous avez créées et le groupe de séc
 **Commandes**
 
 - Azure CLI : [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
-- PowerShell : [Set-AzureRmSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
+- PowerShell : [Set-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
 
 ### <a name="delete-a-security-rule"></a>Supprimer une règle de sécurité
 
@@ -181,7 +181,7 @@ La liste contient toutes les règles que vous avez créées et le groupe de séc
 **Commandes**
 
 - Azure CLI : [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
-- PowerShell : [Remove-AzureRmSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
+- PowerShell : [Remove-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
 
 ## <a name="work-with-application-security-groups"></a>Utiliser des groupes de sécurité d’application
 
@@ -198,7 +198,7 @@ Un groupe de sécurité d’application contient zéro interface réseau, ou plu
     | NOM           | Le nom doit être unique au sein d’un groupe de ressources.        |
     | Abonnement   | Sélectionnez votre abonnement.                               |
     | Groupe de ressources | Sélectionnez un groupe de ressources existant ou créez-en un. |
-    | Emplacement       | Sélectionner un emplacement                                       |
+    | Lieu       | Sélectionner un emplacement                                       |
 
 **Commandes**
 
@@ -208,7 +208,7 @@ Un groupe de sécurité d’application contient zéro interface réseau, ou plu
 ### <a name="view-all-application-security-groups"></a>Voir tous les groupes de sécurité d’application
 
 1. En haut à gauche du portail Azure, sélectionnez **Tous les services**.
-2. Entrez *Groupes de sécurité d’application* dans la zone **Filtre Tous les services** zone, puis sélectionnez **Groupes de sécurité d’application** quand il apparaît dans les résultats de recherche.
+2. Entrez *Groupes de sécurité d’application* dans la zone **Filtre Tous les services**, puis sélectionnez **Groupes de sécurité d’application** quand il apparaît dans les résultats de recherche.
 
 **Commandes**
 

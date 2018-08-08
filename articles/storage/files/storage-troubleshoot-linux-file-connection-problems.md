@@ -3,7 +3,7 @@ title: Résoudre les problèmes liés à Azure Files dans Linux | Microsoft Docs
 description: Résolution des problèmes liés à Azure Files dans Linux
 services: storage
 documentationcenter: ''
-author: wmgries
+author: jeffpatt24
 manager: aungoo
 editor: tamram
 tags: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: wgries
-ms.openlocfilehash: 4a80b868529b18875100d8205fd8c3a664b6b9e2
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: jeffpatt
+ms.openlocfilehash: 5781a3c2e121b81275683d73eb3047ba949857c7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738362"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415712"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
 
@@ -43,11 +43,11 @@ Réduisez le nombre de handles ouverts simultanément en en fermant certains, pu
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Ralentissement des copies de fichiers vers et à partir d’Azure Files dans Linux
 
--   Si vous n’avez pas d’exigence de taille d’E/S minimum spécifique, nous vous recommandons d’utiliser une taille d’E/S de 1 Mo pour des performances optimales.
--   Si vous connaissez la taille finale d’un fichier que vous étendez à l’aide d’écritures, et si votre logiciel ne présente aucun problème de compatibilité lorsqu’une fin non écrite du fichier contient des zéros, définissez la taille du fichier à l’avance pour éviter que chaque écriture ne soit une écriture d’extension.
--   Utilisez la méthode de copie appropriée :
-    -   Utilisez [AZCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) pour les transferts entre deux partages de fichiers.
-    -   Utilisez [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre les partages de fichiers sur un ordinateur local.
+- Si vous n’avez pas d’exigence de taille d’E/S minimum spécifique, nous vous recommandons d’utiliser une taille d’E/S de 1 Mio pour des performances optimales.
+- Si vous connaissez la taille finale d’un fichier que vous étendez à l’aide d’écritures, et si votre logiciel ne présente aucun problème de compatibilité lorsqu’une fin non écrite du fichier contient des zéros, définissez la taille du fichier à l’avance pour éviter que chaque écriture ne soit une écriture d’extension.
+- Utilisez la méthode de copie appropriée :
+    - Utilisez [AZCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) pour les transferts entre deux partages de fichiers.
+    - Utilisez [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre les partages de fichiers sur un ordinateur local.
 
 <a id="error112"></a>
 ## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>« Erreur de montage (112) : l’hôte est hors service » en raison d’un délai d’expiration de reconnexion
@@ -58,7 +58,7 @@ L’erreur de montage 112 se produit sur le client Linux s’il est resté inac
 
 La connexion peut être inactive pour les raisons suivantes :
 
--   Des échecs de communication réseau qui empêchent le rétablissement d’une connexion TCP avec le serveur quand l’option de montage « conditionnel » par défaut est utilisée.
+-   Des échecs de communication réseau qui empêchent le rétablissement d’une connexion TCP avec le serveur quand l’option de montage « conditionnel » par défaut est utilisée
 -   Les correctifs de reconnexion récents qui ne sont pas présents dans les anciens noyaux.
 
 ### <a name="solution"></a>Solution
@@ -66,9 +66,9 @@ La connexion peut être inactive pour les raisons suivantes :
 Ce problème de reconnexion dans le noyau Linux est maintenant résolu dans le cadre des modifications suivantes :
 
 - [Résoudre le problème de reconnexion pour ne pas différer la reconnexion de la session SMB3 longtemps après la reconnexion du socket](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
--   [Appeler le service d’écho immédiatement après la reconnexion du socket](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
--   [CIFS : Corriger une éventuelle corruption de la mémoire lors de la reconnexion](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
--   [CIFS: Fix a possible double locking of mutex during reconnect (for kernel v4.9 and later) (CIFS : corriger un éventuel double verrouillage du mutex lors de la reconnexion [pour les noyaux v4.9 et ultérieurs])](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
+- [Appeler le service d’écho immédiatement après la reconnexion du socket](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+- [CIFS : Corriger une éventuelle corruption de la mémoire lors de la reconnexion](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: Fix a possible double locking of mutex during reconnect (for kernel v4.9 and later) (CIFS : corriger un éventuel double verrouillage du mutex lors de la reconnexion [pour les noyaux v4.9 et ultérieurs])](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 Toutefois, il se peut que ces modifications n’aient pas encore été appliquées à l’ensemble des distributions Linux. Ce correctif et les autres correctifs de reconnexion sont apportés dans les noyaux Linux courants suivants : 4.4.40, 4.8.16 et 4.9.1. Vous pouvez obtenir ce correctif en procédant à la mise à niveau vers l’une de ces versions du noyau recommandées.
 
@@ -139,15 +139,19 @@ Causes courantes de ce problème :
 
 - Vous utilisez un client de distribution Linux non compatible. Nous vous recommandons d’utiliser les distributions Linux suivantes pour vous connecter à un partage de fichiers Azure :
 
-    - Ubuntu Server 14.04+ 
-    - RHEL 7+ 
-    - CentOS 7+ 
-    - Debian 8 
-    - openSUSE 13.2+ 
-    - SUSE Linux Enterprise Server 12
+* **Versions minimales recommandées avec capacités de montage correspondantes (comparaison entre SMB version 2.1 et SMB version 3.0)**    
+    
+    |   | SMB 2.1 <br>(Montages sur des machines virtuelles au sein de la même région Azure) | SMB 3.0 <br>(Montages en local et entre les régions) |
+    | --- | :---: | :---: |
+    | Serveur Ubuntu | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
 - Les éléments CIFS-util ne sont pas installés sur le client.
-- La version de SMB/CIFS minimale, la version 2.1, n’est pas installée sur le client.
+- La version de SMB/CIFS minimale, la version 2.1, n’est pas installée sur le client.
 - Le chiffrement SMB 3.0 n’est pas pris en charge sur le client. Le chiffrement SMB 3.0 est disponible dans Ubuntu 16.4 et plus et SUSE 12.3 et plus. Les autres distributions requièrent un noyau de versions 4.11 et plus.
 - Vous tentez de vous connecter à un compte de stockage via le port TCP 445, qui n’est pas pris en charge.
 - Vous tentez de cous connecter à un partage de fichiers Azure depuis une machine virtuelle Azure, qui n’est pas située dans la même région que le compte de stockage.
@@ -170,6 +174,31 @@ Mettez à niveau le noyau Linux vers les versions suivantes qui incluent un corr
 - 4.9.48+
 - 4.12.11+
 - Toutes les versions 4.13 ou supérieures
+
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Impossible de créer des liens symboliques - Dans : impossible de créer le lien symbolique « t » : Opération non prise en charge
+
+### <a name="cause"></a>Cause :
+Par défaut, le montage des partages de fichiers Azure sur Linux à l’aide de CIFS n’active pas la prise en charge des liens symboliques. Vous verrez un lien d’erreur semblable à celui-ci :
+```
+ln -s linked -n t
+ln: failed to create symbolic link 't': Operation not supported
+```
+### <a name="solution"></a>Solution
+Le client Linux CIFS ne prend pas en charge la création de liens symboliques de type Windows via le protocole SMB2/3. Le client Linux prend actuellement en charge un autre style de liens symboliques appelés [liens symboliques Mishall+French] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) pour créer et suivre les opérations. Les clients ayant besoin de liens symboliques peuvent utiliser l’option de montage « mfsymlinks ». « mfsymlinks » est généralement recommandé, car il s’agit également du format utilisé par les ordinateurs Mac.
+
+Pour pouvoir utiliser les liens symboliques, ajoutez le code suivant à la fin de votre commande de montage CIFS :
+
+```
+,mfsymlinks
+```
+
+La commande doit donc ressembler à ceci :
+
+```
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+```
+
+Une fois ajouté, vous pourrez créer des liens symboliques comme suggéré sur le [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 

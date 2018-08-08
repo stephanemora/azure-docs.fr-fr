@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 525416506a22f386de574ca02b2e919ac47b8737
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 51facd32fd7dbffe39fd959b0c8e9321d04657e0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311133"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412377"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mise à l'échelle de ressources de singletons Azure SQL Database unique
 
@@ -26,6 +26,9 @@ Cet article décrit comment faire évoluer les ressources de calcul et de stocka
 - Vous pouvez configurer du stockage pour une base de données unique en augmentant ou en diminuant sa taille maximale à l’aide du [portail Azure](https://portal.azure.com), de [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de [l’API REST](/rest/api/sql/databases/update).
 - SQL Database alloue automatiquement 30 % de stockage supplémentaire pour les fichiers journaux et 32 Go par vCore pour TempDB, dans une limite de 384 Go. TempDB se trouve sur un SSD attaché pour tous les niveaux de service.
 - Le prix du stockage pour une base de données unique est égal à la somme des volumes de stockage des données et de stockage des journaux multipliée par le prix unitaire du stockage pour le niveau de service. Le coût de TempDB est inclus dans le prix de vCore. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>Modèle d’achat vCore : modifier les ressources de calcul
 
@@ -47,12 +50,15 @@ La durée de la totalité du processus de montée en puissance dépend de la tai
 ## <a name="dtu-based-purchasing-model-change-storage-size"></a>Modèle d’achat DTU : modifier la taille de stockage
 
 - Le prix des DTU pour une base de données unique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et limites de taille maximale incluses, consultez [Base de données unique : tailles de stockage et niveaux de performance](#single-database-storage-sizes-and-performance-levels).
-- Vous pouvez configurer du stockage supplémentaire pour une base de données en augmentant sa taille maximale à l’aide du [portail Azure](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), de [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de [l’API REST](/rest/api/sql/databases/update).
+- Vous pouvez approvisionner un espace de stockage supplémentaire pour une base de données unique en augmentant la taille maximale à l’aide du Portail Azure, de [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de [l’API REST](/rest/api/sql/databases/update).
 - Le prix de l’espace de stockage supplémentaire pour une base de données unique est égal au volume de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
 ## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>Modèle d’achat DTU : modifier les ressources de calcul (DTU)
 
-Après la sélection initiale d’un niveau de service, d’un niveau de performance et d’une quantité de stockage, vous pouvez faire évoluer une base de données vers le haut ou vers le bas de façon dynamique en fonction de l’expérience réelle à l’aide du [portail Azure](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), de [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de [l’API REST](/rest/api/sql/databases/update). 
+Après la sélection initiale d’un niveau de service, d’un niveau de performance et d’une quantité de stockage, vous pouvez procéder à la montée ou descente en puissance d’une base de données de manière dynamique en fonction de l’expérience réelle à l’aide du Portail Azure, de [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de [l’API REST](/rest/api/sql/databases/update). 
 
 La vidéo suivante montre la modification dynamique du niveau de performance pour augmenter les DTU disponibles pour une base de données.
 
@@ -76,7 +82,7 @@ La durée de la totalité du processus de montée en puissance dépend de la tai
 
 ## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Modèle d’achat DTU : limitations de P11 et P15 lorsque la taille maximale est supérieure à 1 To
 
-Une taille maximale supérieure à 1 To pour les bases de données P11 et P15 est prise en charge dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, Centre de la France, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Centre de la Corée, Centre-Nord des États-Unis, Europe du Nord, Centre-Sud des États-Unis, Sud-Est asiatique, Sud du Royaume-Uni, Ouest du Royaume-Uni, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis – Virginie et Europe de l’Ouest. Les considérations et limitations suivantes s’appliquent aux bases de données P11 et P15 avec une taille maximale supérieure à 1 To :
+Une taille maximale supérieure à 1 To pour les bases de données P11 et P15 est prise en charge dans les régions suivantes : Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, USA Centre, France Centre, Allemagne Centre, Japon Est, Japon Ouest, Corée Centre, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, USA Est 2, USA Ouest, US Gov Virginie et Europe Ouest. Les considérations et limitations suivantes s’appliquent aux bases de données P11 et P15 avec une taille maximale supérieure à 1 To :
 
 - Si vous choisissez une taille maximale supérieure à 1 To lors de la création d’une base de données (avec une valeur de 4 To ou de 4096 Go), la commande de création échoue avec une erreur si la base de données est configurée dans une région non prise en charge.
 - Pour les bases de données P11/P15 existantes situées dans l’une des régions prises en charge, vous pouvez augmenter la taille maximale du stockage au-delà de 1 To par incréments de 256 Go jusqu’à 4 To. Pour voir si une plus grande taille est prise en charge dans votre région, utilisez la fonction [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) ou inspectez la taille de la base de données dans le portail Azure. La mise à niveau d’une base de données P11 ou P15 existante ne peut être effectuée que par le biais d’une connexion du principal au niveau du serveur ou par les membres du rôle de base de données dbmanager. 

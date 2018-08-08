@@ -39,6 +39,8 @@
       items:
         - name: Vue d’ensemble
           href: content-protection-overview.md
+        - name: Système multi-DRM avec contrôle d’accès
+          href: design-multi-drm-system-with-access-control.md
     - name: Encodage
       items:
         - name: Vue d’ensemble

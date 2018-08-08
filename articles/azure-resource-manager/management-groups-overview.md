@@ -10,31 +10,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/09/2018
+ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: c8152a6c12c776806d9a17c5e434d825d6c91165
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466641"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358767"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
 Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. Les groupes d’administration Azure fournissent un niveau d’étendue au-delà des abonnements. Vous organisez les abonnements en conteneurs appelés « groupes d’administration » et vous appliquez vos conditions de gouvernance aux groupes d’administration. Tous les abonnements d’un groupe d’administration héritent automatiquement des conditions appliquées à ce groupe d’administration. Les groupes d’administration vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements.
-
-La fonctionnalité de groupe d’administration est disponible dans une préversion publique. Pour commencer à utiliser des groupes d’administration, connectez-vous au [portail Azure](https://portal.azure.com), puis recherchez **Groupes d’administration** dans la section **Tous les services**.
 
 Par exemple, vous pouvez appliquer des stratégies à un groupe d’administration afin de limiter les régions disponibles pour la création de machines virtuelles. Une telle stratégie s’appliquerait alors à tous les groupes d’administration, abonnements et ressources sous ce groupe d’administration en autorisant uniquement la création de machines virtuelles dans une région donnée.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hiérarchie des groupes d’administration et des abonnements
 
 Vous pouvez créer une structure flexible de groupes d’administration et d’abonnements pour organiser vos ressources dans une hiérarchie à des fins de stratégie unifiée et de gestion de l’accès.
-Le diagramme suivant illustre un exemple de hiérarchie qui comprend des groupes d’administration et des abonnements organisés en services.
+Le diagramme suivant montre un exemple de création d’une hiérarchie pour la gouvernance à l’aide des groupes d’administration.
 
 ![arborescence](media/management-groups/MG_overview.png)
 
-En créant une hiérarchie regroupée par services, vous pouvez attribuer des rôles de [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md) dont *héritent* les services de ce groupe d’administration. En utilisant des groupes d’administration, vous pouvez réduire votre charge de travail et le risque d’erreur en n’ayant à attribuer le rôle qu’une seule fois.
+En créant une hiérarchie, comme dans cet exemple, vous pouvez appliquer une stratégie, par exemple, les emplacements de machine virtuelle limités à la région USA Ouest sur le groupe « Groupe d’administration de l’équipe d’infrastructure » pour les stratégies de sécurité et de conformité aux réglementations internes. Cette stratégie héritera sur les deux abonnements EA dans ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Comme cette stratégie hérite le groupe d’administration pour les abonnements, cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
+
+Un autre scénario où vous pouvez utiliser les groupes d’administration consiste à fournir un accès utilisateur à plusieurs abonnements.  En déplaçant plusieurs abonnements dans ce groupe d’administration, vous avez la possibilité de créer une affectation RBAC sur le groupe d’administration, qui héritera de l’accès sur tous les abonnements.  Sans devoir scripter les affectations RBAC sur plusieurs abonnements, une assignation sur le groupe d’administration peut autoriser les utilisateurs à accéder à tout ce que dont ils ont besoin.
 
 ### <a name="important-facts-about-management-groups"></a>Faits importants sur les groupes d’administration
 
@@ -44,19 +44,6 @@ En créant une hiérarchie regroupée par services, vous pouvez attribuer des r�
 - Chaque groupe d’administration et chaque abonnement ne prennent en charge qu’un seul parent.
 - Chaque groupe d’administration peut avoir plusieurs enfants.
 - Dans chaque annuaire, tous les abonnements et groupes d’administration sont contenus dans une même hiérarchie. Pour connaître les exceptions relatives à la préversion, consultez [Faits importants sur le groupe d’administration racine](#important-facts-about-the-root-management-group).
-
-### <a name="preview-subscription-visibility-limitation"></a>Limitation de visibilité des abonnements aux préversions
-
-Il existe actuellement une limitation dans la préversion ne vous permettant pas d’afficher les abonnements dont vous avez hérité l’accès. L’accès à l’abonnement est hérité, mais Azure Resource Manager n’est pas encore en mesure d’honorer l’accès hérité.  
-
-L’utilisation de l’API REST pour obtenir des informations sur l’abonnement retourne les détails puisque vous y avez accès, mais les abonnements n’apparaissent ni dans le portail Azure ni dans Azure PowerShell.
-
-Ce point est en cours de traitement et sera résolu avant que les groupes d’administration ne soient annoncés en tant que « Disponibilité générale ».  
-
-### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Limitation du fournisseur de solutions Cloud pendant la préversion
-
-Les partenaires du fournisseur de solutions Cloud rencontrent actuellement une limitation : ils ne peuvent ni créer ni gérer les groupes d’administration de leur client dans l’annuaire dudit client.  
-Ce point est en cours de traitement et sera résolu avant que les groupes d’administration ne soient annoncés en tant que « Disponibilité générale ».
 
 ## <a name="root-management-group-for-each-directory"></a>Groupe d’administration racine pour chaque annuaire
 
@@ -76,7 +63,7 @@ Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique
   - Personne ne reçoit par défaut l’accès au groupe d’administration racine. Les administrateurs généraux d’annuaires sont les seuls utilisateurs à pouvoir élever leurs privilèges pour obtenir l’accès.  Une fois l’accès obtenu, les administrateurs d’annuaires peuvent attribuer un rôle RBAC aux autres utilisateurs qu’ils doivent gérer.  
 
 >[!NOTE]
->Si votre annuaire utilisait déjà le service des groupes d’administration au 25/6/2018, il peut ne pas être configuré avec tous les abonnements de la hiérarchie. Au mois de juillet 2018, l’équipe du groupe d’administration va mettre à jour rétroactivement tous les annuaires qui utilisent les groupes d’administration de la préversion publique depuis une date antérieure au 25/6/2018. Tous les abonnements des annuaires deviendront des abonnements enfants sous le groupe d’administration racine.  
+>Si votre annuaire utilisait déjà le service des groupes d’administration au 25/6/2018, il peut ne pas être configuré avec tous les abonnements de la hiérarchie. L’équipe du groupe d’administration va mettre à jour rétroactivement tous les annuaires qui utilisent les groupes d’administration de la préversion publique depuis une date antérieure au mois de juillet/août 2018. Tous les abonnements des annuaires deviendront des abonnements enfants sous le groupe d’administration racine.  
 >
 >Si vous avez des questions sur ce processus rétroactif, contactez : managementgroups@microsoft.com  
   
@@ -97,9 +84,13 @@ Le graphique suivant montre la liste des rôles, ainsi que les actions prises en
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |Propriétaire                       | X      | X      | X    | X      | X             |               | X     |
 |Contributeur                 | X      | X      | X    | X      |               |               | X     |
+|Contributeur MG*             | X      | X      | X    | X      |               |               | X     |
 |Lecteur                      |        |        |      |        |               |               | X     |
+|Lecteur MG*                  |        |        |      |        |               |               | X     |
 |Contributeur de la stratégie de ressource |        |        |      |        |               | X             |       |
 |Administrateur de l'accès utilisateur   |        |        |      |        | X             |               |       |
+
+* : Contributeur MG et lecteur MG autorisent uniquement les utilisateurs à effectuer ces actions sur l’étendue du groupe d’administration.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Définition et attribution d’un rôle RBAC personnalisé
 

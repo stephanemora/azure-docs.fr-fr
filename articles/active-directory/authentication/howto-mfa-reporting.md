@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: ead1c5a899057bb26154b45c75251e7d9e481147
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: bb5a005ba553d6392bf1427a4c2bba9ac5aad191
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160890"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358664"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapports dans Azure Multi-Factor Authentication
 
@@ -29,13 +29,97 @@ Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être u
 | Historique de l'utilisateur contourné | Azure AD > Serveur MFA > Contournement à usage unique | Affiche l’historique des demandes de contournement de Multi-Factor Authentication pour un utilisateur. |
 | État du serveur | Azure AD > Serveur MFA > État du serveur | Affiche l’état des serveurs Multi-Factor Authentication associés à votre compte. |
 
-## <a name="view-reports"></a>Afficher des rapports 
+## <a name="view-mfa-reports"></a>Afficher les rapports MFA
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sur la gauche, sélectionnez **Azure Active Directory** > **Serveur MFA**.
 3. Sélectionnez le rapport que vous souhaitez afficher.
 
    <center>![Cloud](./media/howto-mfa-reporting/report.png)</center>
+
+## <a name="azure-ad-sign-ins-report"></a>Rapport de connexion Azure AD
+
+Le **rapport d’activité de connexion** du [portail Azure](https://portal.azure.com) vous permet d’obtenir les informations dont vous avez besoin pour évaluer l’état de votre environnement.
+
+Le rapport d’activité de connexion peut vous fournir des informations sur l’utilisation des applications gérées et des activités de connexion des utilisateurs, y compris des informations sur l’utilisation de l’authentification multifacteur (MFA). Les données d’authentification multifacteur vous donnent un aperçu du fonctionnement de l’authentification multifacteur dans votre organisation. Elles vous permettent de répondre aux questions telles que :
+
+- La connexion a-t-elle été protégée avec l’authentification multifacteur ?
+- Comment l’utilisateur a-t-il effectué l’authentification multifacteur ?
+- Pourquoi l’utilisateur était-il incapable d’effectuer l’authentification multifacteur ?
+- Combien d’utilisateurs sont-ils invités à utiliser l’authentification multifacteur ?
+- Combien d’utilisateurs n’ont pas pu résoudre le défi de l’authentification multifacteur ?
+- Quels sont les problèmes courants d’authentication multifacteur auxquels les utilisateurs sont confrontés ?
+
+Ces données sont disponibles via le [portail Azure](https://portal.azure.com) et [l’API de génération de rapports](../active-directory-reporting-api-getting-started-azure-portal.md).
+
+![Cloud](./media/howto-mfa-reporting/sign-in-report.png)
+
+### <a name="sign-ins-report-structure"></a>Structure du rapport de connexion
+
+Les rapports d’activité de connexion pour l’authentification multifacteur vous permettent d’accéder aux informations suivantes :
+
+**Authentification multifacteur requise :** spécifie si la MFA est nécessaire pour la connexion ou non. L’authentification multifacteur peut être nécessaire en raison de l’authentification multifacteur par utilisateur, de l’accès conditionnel ou d’autres raisons. Les valeurs possibles sont **Oui** ou **Non**.
+
+**Résultat de l’authentification multifacteur :** plus d’informations indiquant si l’authentification multifacteur a été réussie ou refusée :
+
+- Si l’authentification multifacteur a été réussie, cette colonne fournit plus d’informations sur la façon dont l’authentification multifacteur a été satisfaite.
+   - Azure Multi-Factor Authentication
+      - achevée dans le cloud
+      - a expiré en raison des politiques configurées pour l’abonné
+      - inscription demandée
+      - satisfaite par une revendication dans le jeton
+      - satisfaite par une revendication fournie par un fournisseur externe
+      - satisfaite par l’authentification forte
+      - ignorée, car le flux testé était un flux d’ouverture de session de répartiteur de service Windows
+      - ignorée en raison de mot de passe
+      - ignorée en raison d’emplacement
+      - ignorée en raison de l’appareil enregistré
+      - ignorée en raison de l’appareil mémorisé
+      - réussie
+   - Redirigé vers un fournisseur externe pour l’authentification multifacteur
+
+- Si l’authentification multifacteur a été refusée, cette colonne fournit la raison de refus.
+   - Azure Multi-Factor Authentication refusée ;
+      - authentification en cours
+      - double tentative d’authentification
+      - code erroné entré beaucoup de fois
+      - authentification invalide
+      - code de vérification de l’application mobile incorrect
+      - configuration incorrecte
+      - appel téléphonique passé à la messagerie vocale
+      - numéro de téléphone de format invalide
+      - erreur de service
+      - téléphone de l’utilisateur injoignable
+      - Impossible d’envoyer la notification d’application mobile à l’appareil
+      - Impossible d’envoyer la notification d’application mobile
+      - refus de l’authentification par l’utilisateur
+      - l’utilisateur n’a pas répondu à la notification d’application mobile
+      - l’utilisateur ne dispose pas de toutes les méthodes de vérification enregistrés
+      - l’utilisateur a entré un code erroné
+      - l’utilisateur a entré un code PIN erroné
+      - l’utilisateur a raccroché l’appel téléphonique sans réussir l’authentification
+      - l’utilisateur est bloqué
+      - l’utilisateur n’a jamais entré le code de vérification
+      - utilisateur non trouvé
+      - code de vérification déjà utilisé une fois
+
+**Méthode d’authentification multifacteur :** la méthode d’authentification que l’utilisateur a utilisé pour effectuer l’authentification multifacteur. Les valeurs possibles incluent :
+
+- SMS
+- Notification sur l’application mobile
+- Appel téléphonique (téléphone d’authentification)
+- Code de vérification de l’application mobile
+- Appel téléphonique (téléphone du bureau)
+- Appel téléphonique (téléphone d’authentification alternatif)
+
+**Détail d’authentification MFA :** version nettoyée du numéro de téléphone, par exemple : + X XXXXXXXX64.
+
+**Accès conditionnel :** permet de trouver des informations sur les stratégies d’accès conditionnel qui ont affecté la tentative de connexion, notamment :
+
+- Nom de la stratégie
+- Contrôles d’octroi
+- Contrôles de session
+- Résultat
 
 ## <a name="powershell-reporting"></a>Génération de rapports PowerShell
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 48e0e68794e83739835d97aa8a2b26516c660357
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714882"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345189"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Acheter un nom de domaine personnalisé pour Azure Web Apps
 
@@ -29,7 +29,7 @@ Cet article concerne Azure App Service (Web Apps, API Apps, Mobile Apps, Logic A
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 * [Créez une application App Service](/azure/app-service/), ou utilisez une application créée pour un autre didacticiel.
 * [Supprimez la limite de dépense de votre abonnement](../billing/billing-spending-limit.md#remove). Vous ne pouvez pas acheter des domaines App Service avec des crédits d'abonnement gratuits.
@@ -77,6 +77,9 @@ Lorsque la notification suivante s’affiche, cela signifie que l’opération e
 ![Confirmation d’opération de mise à l’échelle](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## <a name="buy-the-domain"></a>Acheter le domaine
+
+### <a name="pricing-information"></a>Informations sur la tarification
+Pour obtenir des informations de tarification sur les domaines Azure App Service, visitez la [page Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) et faites défiler jusqu’au domaine App Service.
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 Ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous avec votre compte Azure.

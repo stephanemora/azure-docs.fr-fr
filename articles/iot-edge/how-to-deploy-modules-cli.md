@@ -4,17 +4,17 @@ description: Utiliser l’extension IoT pour Azure CLI 2.0 afin de déployer des
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/08/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 98a4be02188f7e0462979792a6061d535a64a18d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29c11139a2c773db2d26bf44984ad4dc72f2d870
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095971"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324603"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli-20"></a>Déployer des modules Azure IoT Edge avec Azure CLI 2.0
 
@@ -35,13 +35,13 @@ Cet article explique comment créer un manifeste de déploiement JSON, puis util
 
 Un manifeste de déploiement est un document JSON qui décrit les modules à déployer, le flux des données entre les modules et les propriétés souhaitées des jumeaux de module. Pour plus d’informations sur le fonctionnement et la création des manifestes de déploiement, consultez [Comprendre comment les modules IoT Edge peuvent être utilisés, configurés et réutilisés](module-composition.md).
 
-Pour déployer des modules à l’aide d’Azure CLI 2.0, enregistrez localement le manifeste de déploiement dans un fichier .txt. Vous utiliserez le chemin du fichier dans la section suivante au moment d’exécuter la commande permettant d’appliquer la configuration à votre appareil. 
+Pour déployer des modules à l’aide d’Azure CLI 2.0, enregistrez le manifeste de déploiement localement dans un fichier .json. Vous utiliserez le chemin du fichier dans la section suivante au moment d’exécuter la commande permettant d’appliquer la configuration à votre appareil. 
 
 Par exemple, voici un manifeste de déploiement de base comportant un seul module :
 
    ```json
    {
-     "moduleContent": {
+     "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
            "schemaVersion": "1.0",
@@ -50,13 +50,8 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
              "settings": {
                "minDockerVersion": "v1.25",
                "loggingOptions": "",
-               "registryCredentials": {
-                 "registryName": {
-                   "username": "",
-                   "password": "",
-                   "address": ""
-                 }
-               }
+               "registryCredentials": {}
+             }
            },
            "systemModules": {
              "edgeAgent": {
@@ -112,6 +107,8 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
 
 Vous déployez les modules sur votre appareil en appliquant le manifeste de déploiement que vous avez configuré avec les informations des modules. 
 
+Remplacez les répertoires par le dossier dans lequel votre manifeste de déploiement est enregistré. Si vous avez utilisé l’un des modèles IoT Edge VS Code, utilisez le fichier `deployment.json` dans le dossier **config** du répertoire de votre solution. N’utilisez pas le fichier `deployment.template.json`. 
+
 Pour appliquer la configuration à un appareil IoT Edge, utilisez la commande suivante :
 
    ```cli
@@ -119,6 +116,8 @@ Pour appliquer la configuration à un appareil IoT Edge, utilisez la commande su
    ```
 
 Le paramètre device-id respecte la casse. Le paramètre content pointe vers le fichier manifeste de déploiement que vous avez enregistré. 
+
+   ![Définition de modules](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>Afficher les modules sur votre appareil
 

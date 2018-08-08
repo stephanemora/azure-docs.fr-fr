@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/05/2018
-ms.openlocfilehash: d70d39f027df1fba7934c4b752b1dd2100f2e8b9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 08/02/2018
+ms.openlocfilehash: 9b182b0efad16f74c21b04712143b70071943c1e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905372"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412550"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrer l’instance SQL Server locale vers la base de données SQL Azure à l’aide d’Azure PowerShell
 Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou une version ultérieure ou Microsoft Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Microsoft Azure SQL Database, à l’aide du module `AzureRM.DataMigration`, dans Microsoft Azure PowerShell.
@@ -29,7 +29,6 @@ Dans cet article, vous apprendrez comment :
 > * Exécuter la migration.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour effectuer cette procédure, vous avez besoin de :
 
 - [SQL Server 2016 ou version ultérieure](https://www.microsoft.com/sql-server/sql-server-downloads) (toute édition)
@@ -39,7 +38,7 @@ Pour effectuer cette procédure, vous avez besoin de :
 - [Assistant Migration des données](https://www.microsoft.com/download/details.aspx?id=53595) version 3.3 ou ultérieure.
 - Azure Database Migration Service nécessite un réseau virtuel créé à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux à l’aide de la fonction [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - L’évaluation de la base de données locale et de la migration de schéma à l’aide de Microsoft Data Migration Assistant, comme indiqué dans l’article relatif à [l’évaluation de la migration de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
-- Téléchargez et installez le module AzureRM.DataMigration sur PowerShell Gallery avec la [cmdlet Install-Module PowerShell](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
+- Téléchargez et installez le module AzureRM.DataMigration à partir de PowerShell Gallery en utilisant la [cmdlet PowerShell Install-Module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
 - Les informations d’identification utilisées pour se connecter à une instance SQL Server source doivent être associées à l’autorisation [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Les informations d’identification utilisées pour se connecter à une instance Azure SQL DB cible doivent être associées à l’autorisation CONTROL DATABASE concernant les bases de données Azure SQL Database cibles.
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -61,11 +60,11 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 Vous pouvez créer une instance Azure Database Migration Service à l’aide de l’applet de commande `New-AzureRmDataMigrationService`. Cette cmdlet attend les paramètres requis suivants :
 - *Nom du groupe de ressources Azure*. Vous pouvez utiliser la commande [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) pour créer le groupe de ressources Azure indiqué précédemment et indiquez son nom en tant que paramètre.
 - *Nom du service*. Chaîne qui correspond au nom de service unique à donner à l’instance Azure Database Migration Service. 
-- *Emplacement*. Spécifie l’emplacement du service. Indiquez un emplacement de centre de données Azure, tels que l’Ouest des États-Unis or le Sud-Est asiatique.
+- *Emplacement*. Spécifie l’emplacement du service. Indiquez un emplacement de centre de données Azure, tel que USA Ouest ou Asie Sud-Est.
 - *Référence SKU*. Ce paramètre correspond au nom de référence SKU DMS. Les noms de référence SKU actuellement pris en charge sont *Basic_1vCore*, *Basic_2vCores* et *GeneralPurpose_4vCores*.
 - *Identificateur de sous-réseau virtuel*. Créez un sous-réseau avec la cmdlet [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1). 
 
-L’exemple suivant crée un service nommé *MyDMS* dans le groupe de ressources *MyDMSResourceGroup*, qui se trouve dans la région *Est des États-Unis* à l’aide d’un réseau virtuel appelé *MySubnet* et d’un sous-réseau appelé *MySubnet*.
+L’exemple suivant crée un service nommé *MyDMS* dans le groupe de ressources *MyDMSResourceGroup*, qui se trouve dans la région *USA Est* à l’aide d’un réseau virtuel appelé *MySubnet* et d’un sous-réseau appelé *MySubnet*.
 
 ```powershell
  $vNet = Get-AzureRmVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
@@ -118,7 +117,7 @@ $dbList = @($dbInfo1)
 ```
 
 ### <a name="create-a-project-object"></a>Créer un objet de projet
-Enfin, vous pouvez créer le projet Azure Database Migration appelé *MyDMSProject*, situé dans la région *Est des États-Unis*, à l’aide du paramètre `New-AzureRmDataMigrationProject`, et en ajoutant les connexions source et cible créées précédemment et la liste des bases de données à migrer.
+Enfin, vous pouvez créer le projet Azure Database Migration appelé *MyDMSProject*, situé dans la région *USA Est*, à l’aide du paramètre `New-AzureRmDataMigrationProject`, et en ajoutant les connexions source et cible créées précédemment et la liste des bases de données à migrer.
 
 ```powershell
 $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `

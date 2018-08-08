@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0493679575e9ff94ede1ad40c2bcadc6066afa6b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214881"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399013"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -156,6 +156,10 @@ Du fait que les antivirus analysent les fichiers pour détecter la présence év
 
 Les solutions suivantes peuvent ignorer les fichiers hors connexion :
 
+- [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - Windows Defender ignore automatiquement la lecture de ces fichiers. Nous avons testé Defender et identifié un problème mineur : lorsque vous ajoutez un serveur à un groupe de synchronisation existant, les fichiers de mois de 800 octets sont rappelés (téléchargés) sur le nouveau serveur. Ces fichiers resteront sur le nouveau serveur et ne seront pas hiérarchisés, car ils ne respectent pas les exigences de taille de niveau (> à 64 Ko).
+- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - SCEP fonctionne comme Defender ; voir ci-dessus
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (consultez « Scan only what you need to » à la page 90 du PDF)
 - [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
@@ -214,20 +218,20 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 
 | Région primaire      | Région jumelée      |
 |---------------------|--------------------|
-| Est de l’Australie      | Sud-Est de l’Australie |
-| Sud-est de l’Australie | Est de l’Australie     |
+| Australie Est      | Sud-Est de l’Australie |
+| Australie Sud-Est | Australie Est     |
 | Canada Centre      | Est du Canada        |
 | Est du Canada         | Centre du Canada     |
-| Centre des États-Unis          | Est des États-Unis 2          |
-| Est de l'Asie           | Asie du Sud-Est     |
-| Est des États-Unis             | États-Unis de l’Ouest            |
-| Est des États-Unis 2           | Centre des États-Unis         |
-| Europe du Nord        | Europe de l'Ouest        |
-| Asie du Sud-Est      | Est de l'Asie          |
+| USA Centre          | USA Est 2          |
+| Asie Est           | Asie Sud-Est     |
+| USA Est             | USA Ouest            |
+| USA Est 2           | USA Centre         |
+| Europe Nord        | Europe Ouest        |
+| Asie Sud-Est      | Asie Est          |
 | Sud du Royaume-Uni            | Ouest du Royaume-Uni            |
 | Ouest du Royaume-Uni             | Sud du Royaume-Uni           |
-| Europe de l'Ouest         | Europe du Nord       |
-| États-Unis de l’Ouest             | Est des États-Unis            |
+| Europe Ouest         | Europe Nord       |
+| USA Ouest             | USA Est            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

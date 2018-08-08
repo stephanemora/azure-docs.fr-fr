@@ -1,42 +1,42 @@
 ---
 title: Chiffrement du service de stockage Azure à l’aide de clés gérées par le client dans Azure Key Vault | Microsoft Docs
-description: La fonctionnalité Azure Storage Service Encryption permet de chiffrer votre stockage Blob Azure côté service lors du stockage des données et de le déchiffrer lorsque vous récupérez les données à l’aide de clés gérées par le client.
+description: La fonctionnalité Azure Storage Service Encryption permet de chiffrer votre stockage d’objets blob Azure, Azure Files, votre stockage File d’attente et votre stockage de tables Azure côté service lors du stockage des données et de les déchiffrer lorsque vous récupérez les données à l’aide de clés gérées par le client.
 services: storage
 author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b92a486ea8dfc148cd10b905f90a0e871602cc61
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415702"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault
+Microsoft Azure s’engage à vous aider à protéger et préserver vos données pour répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Une manière de protéger vos données avec la plateforme de stockage Azure consiste à utiliser Storage Service Encryption (SSE), qui chiffre automatiquement vos données lors de leur écriture dans le stockage et les déchiffre lors de leur récupération. Le chiffrement et le déchiffrement sont automatiques et transparents ; ils utilisent la technologie de [chiffrement AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, l’un des chiffrements par bloc les plus sécurisés qui soient.
 
-Microsoft Azure s’engage à vous aider à protéger et préserver vos données pour répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Une manière de protéger vos données avec le stockage Azure consiste à utiliser Storage Service Encryption (SSE), qui chiffre automatiquement vos données lors de leur écriture dans le stockage et les déchiffre lors de leur récupération. Le chiffrement et le déchiffrement sont automatiques et transparents ; ils utilisent la technologie de [chiffrement AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, l’un des chiffrements par bloc les plus sécurisés qui soient.
+Vous pouvez utiliser des clés de chiffrement gérées par Microsoft avec SSE ou utiliser vos propres clés de chiffrement. Cet article décrit comment utiliser vos propres clés de chiffrement. Pour plus d’informations sur l’utilisation de clés gérées par Microsoft, ou sur SSE en général, consultez [Storage Service Encryption pour les données au repos](storage-service-encryption.md).
 
-Vous pouvez utiliser des clés de chiffrement gérées par Microsoft avec SSE ou utiliser vos propres clés de chiffrement. Cet article décrit comment utiliser vos propres clés de chiffrement. Pour plus d’informations sur l’utilisation de clés gérées par Microsoft, ou sur SSE en général, consultez [Chiffrement du service Stockage Azure pour les données au repos](storage-service-encryption.md).
+SSE pour le stockage d’objets blob et Azure Files est intégré à Azure Key Vault afin que vous puissiez utiliser un coffre de clés pour gérer vos clés de chiffrement. Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Azure Key Vault vous permet de gérer et de contrôler vos clés, ainsi que d’auditer votre utilisation des clés.
 
-SSE pour le stockage d’objets blob et de fichiers est intégré à Azure Key Vault afin que vous puissiez utiliser un coffre de clés pour gérer vos clés de chiffrement. Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Azure Key Vault vous permet de gérer et de contrôler vos clés, ainsi que d’auditer votre utilisation des clés.
+> [!Note]  
+> Storage Service Encryption n’est pas disponible pour [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Nous vous recommandons d’utiliser le chiffrement au niveau du système d’exploitation, tel que [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), qui utilise [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) standard sur Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sur Linux pour fournir un chiffrement intégré avec KeyVault.
 
 Pourquoi créer vos propres clés ? Les clés personnalisées vous permettent de gagner en flexibilité : vous pouvez créer, changer, désactiver et définir des contrôles d’accès. Les clés personnalisées vous permettent également d’effectuer un audit des clés de chiffrement utilisées pour protéger vos données.
 
 ## <a name="get-started-with-customer-managed-keys"></a>Prise en main des clés gérées par le client
-
 Pour utiliser des clés gérées par le client avec SSE, vous pouvez créer un coffre de clés et une clé ou utiliser un coffre de clés et une clé existants. Le compte de stockage et le coffre de clés doivent se trouver dans la même région, mais ils peuvent appartenir à des abonnements différents. 
 
 ### <a name="step-1-create-a-storage-account"></a>Étape 1 : création d’un compte de stockage
-
 Commencez par créer un compte de stockage si vous n’en avez pas encore. Pour plus d’informations, consultez la rubrique [Créer un compte de stockage](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Étape 2 : activer SSE pour le service de stockage d’objets blob et de fichiers
-
 Pour activer SSE à l’aide de clés de gérée par le client, deux fonctionnalités de protection des clés, Suppression réversible et Ne pas vider, doivent également être activées. Ces paramètres empêchent la suppression accidentelle ou intentionnelle des clés. La période de rétention maximale des clés est définie à 90 jours, ce qui protège les utilisateurs contre les intervenants malveillants ou les rançongiciels.
 
-Si vous souhaitez activer des clés pour SSE par programmation gérée par le client, vous pouvez utiliser l’[API REST du fournisseur de ressources de stockage Azure](https://docs.microsoft.com/rest/api/storagerp), la [bibliothèque decClient du fournisseur de ressources de stockage pour .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), ou [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
+Si vous souhaitez activer des clés pour SSE par programmation gérée par le client, vous pouvez utiliser [l’API REST du fournisseur de ressources de stockage Azure](https://docs.microsoft.com/rest/api/storagerp), la [Storage Resource Provider Client Library pour .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 Pour utiliser des clés gérée par le client avec SSE, vous devez attribuer une identité de compte de stockage au compte de stockage. Vous pouvez définir l’identitié en exécutant la commande PowerShell suivante :
 
@@ -63,17 +63,14 @@ $resource.Properties
 ```
 
 ### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>Étape 3 : activer le chiffrement avec des clés gérées par le client
-
 Par défaut, SSE utilise les clés gérées par Microsoft. Vous pouvez activer SSE avec les clés gérées par le client pour le compte de stockage dans le [portail Azure](https://portal.azure.com/). Sur le panneau **Paramètres** du compte de stockage, cliquez sur **Chiffrement**. Sélectionnez l’option **Utiliser votre propre clé**, comme indiqué dans l’illustration suivante.
 
 ![Capture d’écran du portail affichant l’option de chiffrement](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
 ### <a name="step-4-select-your-key"></a>Étape 4 : sélectionner votre clé
-
 Vous pouvez spécifier votre clé en tant qu’URI, ou en sélectionnant la clé dans un coffre de clés.
 
 #### <a name="specify-a-key-as-a-uri"></a>Spécifier une clé en tant qu’URI
-
 Pour spécifier votre clé à partir d’un URI, procédez comme suit :
 
 1. Choisissez l’option **Entrer l’URI de la clé**.  
@@ -83,7 +80,6 @@ Pour spécifier votre clé à partir d’un URI, procédez comme suit :
 
 
 #### <a name="specify-a-key-from-a-key-vault"></a>Spécifiez une clé à partir d’un coffre de clés 
-
 Pour spécifier votre clé à partir d’un coffre de clés, procédez comme suit :
 
 1. Choisissez l’option **Sélectionner dans le coffre de clés**.  
@@ -108,69 +104,56 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storag
 Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
-
 ### <a name="step-5-copy-data-to-storage-account"></a>Étape 5 : copier les données dans le compte de stockage
-
 Pour transférer des données vers votre nouveau compte de stockage afin qu’il soit chiffré. Pour plus d’informations, voir [FAQ sur le chiffrement du service de stockage](storage-service-encryption.md#faq-for-storage-service-encryption).
 
-### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Étape 6 : Interroger l’état des données chiffrées
-
+### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Étape 6 : interroger l’état des données chiffrées
 Interroger l’état des données chiffrées.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>FAQ pour SSE avec clés gérées par le client
+**J’utilise le stockage Premium. Puis-je utiliser des clés gérées par le client avec SSE ?**  
+Oui, SSE avec des clés gérées par Microsoft ou par le client est pris en charge sur le stockage Standard et sur le stockage Premium.
 
-**Q : J’utilise le stockage Premium. Puis-je utiliser des clés gérées par le client avec SSE ?**
+**Puis-je créer des comptes de stockage dans lesquels SSE avec des clés gérées par le client est activé à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure ?**  
+Oui.
 
-R : Oui, SSE avec des clés gérées par Microsoft ou par le client est pris en charge sur le stockage Standard et sur le stockage Premium.
+**Quel est le coût supplémentaire du stockage Azure si j’utilise des clés gérées par le client avec SSE ?**  
+Un coût spécifique est associé à l’utilisation d’Azure Key Vault. Pour plus d’informations, consultez [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). SSE est activé pour tous les comptes de stockage et ne génère aucun coût supplémentaire.
 
-**Q : Puis-je créer des comptes de stockage dans lesquels SSE avec clés de gérées par le client est activé à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure ?**
+**Storage Service Encryption est-il disponible sur Azure Managed Disks ?**  
+Non, Storage Service Encryption n’est pas disponible pour [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Nous vous recommandons d’utiliser le chiffrement au niveau du système d’exploitation, tel que [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), qui utilise [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) standard sur Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sur Linux pour fournir un chiffrement intégré avec KeyVault.
 
-R. : Oui.
+**En quoi Storage Service Encryption est-il différent d’Azure Disk Encryption ?**  
+Azure Disk Encryption fournit une intégration entre les solutions basées sur le système d’exploitation telles que BitLocker et DM-Crypt, et Azure Key Vault. Storage Service Encryption fournit un chiffrement en mode natif dans la couche de plateforme de stockage Azure, sous la machine virtuelle.
 
-**Q : Quel est le coût supplémentaire du stockage Azure si j’utilise des clés gérées par le client avec SSE ?**
+**Est-il possible de révoquer l’accès aux clés de chiffrement ?**
+Oui, vous pouvez révoquer l’accès à tout moment. Il existe plusieurs façons de révoquer l’accès à vos clés. Reportez-vous aux pages [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) et [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) pour plus d’informations. La révocation de l’accès bloque efficacement l’accès à tous les objets blob dans le compte de stockage, car la clé de chiffrement du compte n’est pas accessible au stockage Azure.
 
-R : Un coût spécifique est associé à l’utilisation d’Azure Key Vault. Pour plus d’informations, consultez [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). SSE est activé pour tous les comptes de stockage et ne génère aucun coût supplémentaire.
+**Puis-je créer un compte de stockage et une clé dans une autre région ?**  
+Non, le compte de stockage, Azure Key Vault et la clé doivent être dans la même région.
 
-**Q : Est-il possible de révoquer l’accès aux clés de chiffrement ?**
+**Puis-je activer des clés gérées par le client pour SSE lors de la création du compte de stockage ?**  
+Non. Lorsque vous créez le compte de stockage, seules les clés gérées par Microsoft sont disponibles pour SSE. Pour utiliser des clés gérées par le client, vous devez mettre à jour les propriétés du compte de stockage. Vous pouvez utiliser REST ou l’une des bibliothèques clientes de stockage pour mettre à jour votre compte de stockage par programmation, ou mettre à jour les propriétés du compte de stockage à l’aide du portail Azure après la création du compte.
 
-R : Oui, vous pouvez révoquer l’accès à tout moment. Il existe plusieurs façons de révoquer l’accès à vos clés. Reportez-vous aux pages [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) et [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) pour plus d’informations. La révocation de l’accès bloque efficacement l’accès à tous les objets blob dans le compte de stockage, car la clé de chiffrement du compte n’est pas accessible au stockage Azure.
+**Puis-je désactiver le chiffrement lorsque j’utilise des clés gérées par le client avec SSE ?**  
+Non, vous ne pouvez pas désactiver le chiffrement. Le chiffrement est activé par défaut pour le stockage d’objets blob Azure, Azure Files, le stockage File d’attente Azure et le stockage de tables Azure. Vous pouvez éventuellement passer de l’utilisation de clés gérées par Microsoft à l’utilisation de clés gérées par le client, et vice versa.
 
-**Q : Puis-je créer un compte de stockage et une clé dans autre région ?**
+**Est-ce que SSE est activé lorsque je crée un compte de stockage ?**  
+SSE est activé pour tous les comptes de stockage et pour le stockage d’objets blob, Azure Files, le stockage File d’attente Azure et le stockage de tables Azure.
 
-R : Non, le compte de stockage, le coffre de clés Azure et la clé doivent être dans la même région.
+**Je ne parviens pas à activer SSE à l’aide de clés gérées par le client sur mon compte de stockage.**  
+S’agit-il d’un compte de stockage Azure Resource Manager? Les comptes de stockage classiques ne sont pas pris en charge avec des clés gérées par le client. SSE avec des clés gérées par le client ne peut être activé que sur des comptes de stockage Resource Manager.
 
-**Q : Puis-je activer des clés gérées par le client pour SSE lors de la création du compte de stockage ?**
+**Que signifient Suppression réversible et Ne pas vider ? Dois-je activer ce paramètre pour utiliser SSE avec des clés de gérées par le client ?**  
+Suppression réversible et Ne pas vider doivent être activés pour utiliser SSE avec des clés gérées par le client. Ces paramètres empêchent la suppression accidentelle ou intentionnelle de votre clé. La période de rétention maximale des clés est définie à 90 jours, ce qui protège les utilisateurs contre les intervenants malveillants et les rançongiciels. Ce paramètre ne peut pas être désactivé.
 
-R : Non. Lorsque vous créez le compte de stockage, seules les clés gérée par Microsoft sont disponibles pour SSE. Pour utiliser des clés gérées par le client, vous devez mettre à jour les propriétés du compte de stockage. Vous pouvez utiliser REST ou l’une des bibliothèques clientes de stockage pour mettre à jour votre compte de stockage par programmation, ou mettre à jour les propriétés du compte de stockage à l’aide du portail Azure après la création du compte.
+**SSE avec des clés gérées par le client est-il uniquement autorisé dans des régions spécifiques ?**  
+SSE avec des clés gérées par le client est actuellement disponible dans toutes les régions pour le stockage d’objets blob et Azure Files.
 
-**Q : Puis-je désactiver le chiffrement lorsque j’utilise des clés gérées par le client avec SSE ?**
-
-R : Non, vous ne pouvez pas désactiver le chiffrement. Le chiffrement est activé par défaut pour tous les services: stockage Blob, Fichier, Table et File d’attente. Vous pouvez éventuellement passer de l’utilisation de clés gérées par Microsoft à l’utilisation de clés gérées par le client, et vice versa.
-
-**Q : Est-ce que SSE est activé par défaut lorsque je crée un compte de stockage ?**
-
-R : SSE est activé par défaut pour tous les comptes de stockage et pour tous les services : stockage Blob, Fichier, Table et File d’attente.
-
-**Q : Je ne parviens pas à activer SSE à l’aide de clés de gérée par le client sur mon compte de stockage.**
-
-R : S’agit-il d’un compte de stockage Azure Resource Manager ? Les comptes de stockage classiques ne sont pas pris en charge avec des clés gérées par le client. SSE avec des clés gérées par le client ne peut être activé que sur des comptes de stockage Resource Manager.
-
-**Q : Que signifient Suppression réversible et Ne pas vider ? Dois-je activer ce paramètre pour utiliser SSE avec des clés de gérées par le client ?**
-
-A: Suppression réversible et Ne pas vider doivent être activés pour utiliser SSE avec des clés gérées par le client. Ces paramètres empêchent la suppression accidentelle ou intentionnelle de votre clé. La période de rétention maximale des clés est définie à 90 jours, ce qui protège les utilisateurs contre les intervenants malveillants et les rançongiciels. Ce paramètre ne peut pas être désactivé.
-
-**Q : SSE avec des clés gérées par le client est-il uniquement autorisé dans des régions spécifiques ?**
-
-A: SSE avec des clés de gérée par le client est disponible dans toutes les régions pour le stockage Blob et Fichier.
-
-**Q : Comment obtenir de l’aide si je rencontre des problèmes ou que je souhaite envoyer des commentaires ?**
-
-R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) pour les problèmes liés au chiffrement du service Stockage.
+**Comment obtenir de l’aide si je rencontre des problèmes ou que je souhaite envoyer des commentaires ?**  
+Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) pour les problèmes liés à Storage Service Encryption.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
--   Pour plus d’informations sur l’ensemble complet des fonctionnalités de sécurité qui aident les développeurs à créer des applications sécurisées, consultez le [Guide sur la sécurité du stockage](storage-security-guide.md).
-
--   Pour plus d’informations générales sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis).
-
--   Pour prendre en main Azure Key Vault, consultez [Prise en main d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+- Pour plus d’informations sur l’ensemble complet des fonctionnalités de sécurité qui aident les développeurs à créer des applications sécurisées, consultez le [Guide sur la sécurité du stockage](storage-security-guide.md).
+- Pour plus d’informations générales sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis).
+- Pour prendre en main Azure Key Vault, consultez [Prise en main d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).

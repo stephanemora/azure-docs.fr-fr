@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236922"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412108"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Présentation des limites de ressources d’Azure SQL Database 
 
@@ -28,10 +28,12 @@ Cet article fournit une présentation des limites de ressources d’Azure SQL Da
 | Nombre par défaut de serveurs par abonnement dans n’importe quelle région | 20 |
 | Nombre maximal de serveurs par abonnement dans n’importe quelle région | 200 |
 | Quota DTU/eDTU par serveur | 54 000 |
+| Quota vCore par serveur | 540 |
+| Nombre maximal de pools par serveur | Limité par le nombre de DTU ou de vCores |
 |||
 
 > [!NOTE]
-> Pour obtenir un quota DTU/eDTU ou une quantité de serveurs supérieure à la quantité par défaut, vous pouvez envoyer une nouvelle demande de support dans le portail Azure pour l’abonnement avec le type de problème « Quota ». Le quota DTU/eDTU et le nombre maximal de bases de données par serveur limitent le nombre de pools élastiques par serveur. 
+> Pour augmenter le quota DTU/eDTU ou vCore ou pour obtenir une quantité de serveurs supérieure à la quantité par défaut, vous pouvez envoyer une nouvelle demande de support dans le Portail Azure pour l’abonnement en indiquant le type de problème « Quota ». Le quota DTU/eDTU et le nombre maximal de bases de données par serveur limitent le nombre de pools élastiques par serveur. 
 
 > [!IMPORTANT]
 > Le nombre de bases de données approchant la limite par serveur, les éléments suivants peuvent se produire :
@@ -56,6 +58,7 @@ En cas d’utilisation élevée de l’espace, voici certaines des options d’a
 
 - Augmenter la taille maximale de la base de données ou du pool élastique, ou ajouter plus de stockage. Consultez [Mise à l’échelle des ressources d’une base de données unique](sql-database-single-database-scale.md) et [Mise à l'échelle des ressources d’un pool élastique](sql-database-elastic-pool-scale.md).
 - Si la base de données est dans un pool élastique, vous pouvez également déplacer la base de données en dehors du pool afin que son espace de stockage ne soit pas partagé avec d’autres bases de données.
+- Réduire une base de données afin de récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
 ### <a name="sessions-and-workers-requests"></a>Sessions et workers (requêtes) 
 

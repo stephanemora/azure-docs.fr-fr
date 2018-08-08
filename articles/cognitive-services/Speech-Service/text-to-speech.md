@@ -1,21 +1,20 @@
 ---
-title: À propos de la synthèse vocale | Microsoft Docs
+title: À propos de la synthèse vocale
 description: Vue d’ensemble des fonctionnalités de synthèse vocale.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e3543c2056934372a2795bd50f340432ceec3b6d
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: d111a9f852b849df15dbd056a7210fac82cee190
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257944"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324253"
 ---
 # <a name="about-the-text-to-speech-api"></a>À propos de l’API Synthèse vocale
 
@@ -42,4 +41,4 @@ Si vous voulez une voix unique pour votre application, vous pouvez créer des [p
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-dotnet-windows.md)
+* [Découvrir comment synthétiser une entrée vocale via l’API REST](how-to-text-to-speech.md)

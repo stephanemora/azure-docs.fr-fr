@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3176a3a4acc6e9ca486d409d861f2ed0e63473ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056502"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346713"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des fonctions Azure pour Azure IoT Edge
 
@@ -23,7 +23,7 @@ Cet article vous montre comment utiliser [Visual Studio Code (VS Code)](https://
 Cet article part du principe que vous utilisez un ordinateur ou une machine virtuelle Windows ou Linux comme machine de développement. Vous pouvez utiliser un autre appareil physique comme appareil IoT Edge. Sinon, vous pouvez aussi simuler votre appareil IoT Edge sur votre machine de développement.
 
 > [!NOTE]
-> Ce tutoriel de débogage montre comment attacher un processus dans un conteneur de module et comment le déboguer avec VS Code. Vous pouvez uniquement déboguer des modules C# dans des conteneurs Linux amd64. Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging). 
+> Ce tutoriel de débogage montre comment attacher un processus dans un conteneur de module et comment le déboguer avec VS Code. Dans les conteneurs Linux amd64, vous pouvez uniquement déboguer des fonctions C#. Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Cet article utilise Visual Studio Code comme outil de développement principal. Installez VS Code. Ensuite, ajoutez les extensions nécessaires : 
 
@@ -71,7 +71,7 @@ La solution comprend quatre éléments :
 
 * Un fichier **deployment.template.json**, qui répertorie votre nouveau module, ainsi qu’un exemple de module **tempSensor** qui simule les données que vous pouvez utiliser à des fins de test. Pour plus d’informations sur le fonctionnement des manifestes de déploiement, consultez [Découvrez comment utiliser des manifestes de déploiement pour déployer des modules et établir des itinéraires](module-composition.md).
 
-## <a name="devlop-your-module"></a>Développer un module
+## <a name="develop-your-module"></a>Développer votre module
 
 Le code Azure Function par défaut qui est fourni avec la solution se trouve sous **modules** > **\<nom de votre module\>** > **EdgeHubTrigger-Csharp** > **run.csx**. Le module et le fichier deployment.template.json sont définis de manière à vous permettre de générer la solution, de l’envoyer vers votre registre de conteneurs et de la déployer sur un appareil pour commencer les tests, sans avoir à utiliser de code. Le module est conçu pour récupérer les entrées d’une source (dans ce cas, le module tempSensor qui simule des données) et les acheminer vers IoT Hub. 
 

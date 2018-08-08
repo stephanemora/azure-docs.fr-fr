@@ -16,7 +16,6 @@
     - name: Créer des modèles - Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Didacticiels
-  expanded: true
   items:
     - name: Créer un compte de stockage chiffré
       href: resource-manager-tutorial-create-encrypted-storage-accounts.md
@@ -52,10 +51,12 @@
               href: resource-manager-templates-outputs.md
         - name: Modèles liés et imbriqués
           href: resource-group-linked-templates.md
-        - name: Définir la dépendance entre les ressources
+        - name: Dépendances des ressources
           href: resource-group-define-dependencies.md
         - name: Créer plusieurs instances
           href: resource-group-create-multiple.md
+        - name: Créer un groupe de ressources dans le modèle
+          href: create-resource-group-in-template.md
         - name: Mettre à jour une ressource
           href: /azure/architecture/building-blocks/extending-templates/update-resource
     - name: Déployer

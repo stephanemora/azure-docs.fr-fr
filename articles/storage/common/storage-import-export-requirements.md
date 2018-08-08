@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188669"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308052"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -30,13 +30,12 @@ Pour préparer les disques durs à l’aide de l’outil WAImportExport, un cert
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012 et Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 
-Le service Azure Import/Export prend en charge les comptes de stockage Azure suivants.
-- Classique
+Le service Azure Import/Export prend en charge les [comptes de stockage Azure](storage-account-options.md) suivants.
+- Comptes de stockage à usage général v1 (déploiements Classic ou Azure Resource Manager)
 - Comptes de stockage d’objets blob
-- Comptes de stockage à usage général v1. 
+- Comptes de stockage à usage général v2
 
 Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
 
@@ -48,10 +47,10 @@ Chaque tâche peut servir à transférer des données vers ou à partir d'un seu
 Les types de stockage suivants sont pris en charge avec le service Azure Import/Export.
 
 
-|Travail  |Stockage  |Pris en charge  |Non pris en charge  |
+|Travail  |Service de stockage |Pris en charge  |Non pris en charge  |
 |---------|---------|---------|---------|
-|Importer     |  Stockage Blob Azure. <br>Objets blob de blocs et de pages pris en charge. <br> Fichiers Azure pris en charge.       |         |
-|Exportation     |   Stockage Blob Azure. <br>Objets blob de blocs, de pages et d’ajout pris en charge.       | Fichiers Azure non pris en charge.        |
+|Importer     |  Stockage d'objets blob Azure <br><br> Présentation du stockage de fichiers       | Objets blob de blocs et de pages pris en charge <br><br> Fichiers pris en charge          |
+|Exportation     |   Stockage d'objets blob Azure       | Objets blob de blocs, de pages et d’ajout pris en charge         | Fichiers Azure non pris en charge
 
 
 ## <a name="supported-hardware"></a>Matériel pris en charge 

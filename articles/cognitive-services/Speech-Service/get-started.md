@@ -1,21 +1,20 @@
 ---
-title: Essayer le service Speech gratuitement | Microsoft Docs
+title: Essayez le service Speech gratuitement
 description: Découvrez comment vous pouvez essayer gratuitement le service Speech.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3feef04694336d9173b419285a96fcaef543e18f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ff9a258d42f25ded82545909cdeade119548148e
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35378936"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325205"
 ---
 # <a name="try-the-speech-service-for-free"></a>Essayez le service Speech gratuitement
 
@@ -130,10 +129,8 @@ Pour ajouter une ressource de service Speech à votre compte Azure, procédez co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Téléchargez un kit de développement logiciel (SDK) et un exemple de code pour découvrir le service Speech.
+Effectuez l’un de nos Démarrages rapides de 10 minutes, ou consultez nos exemples de kit de développement logiciel (SDK).
 
 > [!div class="nextstepaction"]
-> [Kits de développement logiciel (SDK) Speech](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Exemple de code](samples.md)
+> [Démarrage rapide : reconnaissance vocale dans C#](quickstart-csharp-dotnet-windows.md)
+> [Exemples du kit de développement logiciel (SDK) de Speech](speech-sdk.md#get-the-samples)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: raynew
-ms.openlocfilehash: 2415812a62fc000ddb18318ac52b764c1b5de51b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008431"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359204"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migration de Contoso : réhéberger une application locale sur des machines virtuelles Azure et un groupe de disponibilité SQL Server AlwaysOn
 
@@ -34,12 +34,12 @@ Article 6 : Réhéberger une application sur des machines virtuelles Azure et un
 [Article 9 : Refactoriser une application sur Azure Web Apps et Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Montre comment Contoso migre l’application SmartHotel vers une application web Azure, et migre la base de données d’application vers une instance de serveur SQL Azure | Disponible
 [Article 10 : Refactoriser une application Linux sur Azure Web Apps et Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Montre comment Contoso migre l’application Linux osTicket vers Azure Web Apps dans plusieurs sites intégrés à GitHub pour assurer une livraison continue. Elle migre la base de données d’application vers une instance Azure MySQL. | Disponible
 [Article 11 : Refactoriser TFS sur VSTS](contoso-migration-tfs-vsts.md) | Montre comment Contoso migre son déploiement TFS (Team Foundation Server) local vers VSTS (Visual Studio Team Services) dans Azure. | Disponible
-[Article 12 : Réarchitecturer une application sur des conteneurs Azure et Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Montre comment Contoso migre et réarchitecture son application SmartHotel sur Azure. Elle réarchitecture la couche web d’application en tant que conteneur Windows et la base de données d’application en une base de données Azure SQL Database. | Disponible
+[Article 12 : Réarchitecturer une application sur des conteneurs Azure et Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Montre comment Contoso migre et réarchitecture son application SmartHotel sur Azure. Elle réarchitecture la couche web d’application en tant que conteneur Windows et la base de données d’application en une base de données Azure SQL Database. | Disponible
 [Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Montre comment Contoso regénère l’application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment App Services, Azure Kubernetes, Azure Functions, Cognitive Services et Cosmos DB. | Disponible
 
 
 
-Cet article explique comment Contoso migre les fenêtres à deux niveaux. Application NET SmartHotel s’exécutant sur des machines virtuelles VMware vers Azure. Si vous souhaitez utiliser cette application, elle est disponible en open source et vous pouvez la télécharger à partir de [GitHub](https://github.com/Microsoft/SmartHotel360).
+Dans cet article, Contoso effectue une migration de l’application à deux niveaux Windows .NET SmartHotel s’exécutant sur des machines virtuelles VMware vers Azure. Si vous souhaitez utiliser cette application, elle est disponible en open source et vous pouvez la télécharger à partir de [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Axes stratégiques
 
@@ -142,13 +142,13 @@ Voici comment Contoso configure le cluster :
     - Noms des machines virtuelles : **SQLAOG1** et **SQLAOG2**.
     - Étant donné que les machines sont vitales pour l’entreprise, on active SSD comme type de disque de machine virtuelle.
     - Des informations d’identification sont spécifiées pour la machine.
-    - Les machines virtuelles sont déployées dans la région primaire de l’Est des États-Unis 2, dans le groupe de ressources ContosoRG.
+    - Les machines virtuelles sont déployées dans la région primaire USA Est 2, dans le groupe de ressources ContosoRG.
 
 3. Dans **Taille**, on commence par la référence SKU D2s_V3 pour les deux machines virtuelles. Elles seront mises à l’échelle ultérieurement, en fonction des besoins.
 4. Dans **Paramètres**, on procède comme suit :
 
     - Étant donné que ces machines virtuelles sont des bases de données critiques pour l’application, des disques disque managé sont utilisés.
-    - Les machines sont placées dans le réseau de production de la région primaire de l’Est des États-Unis 2(**VNET-PROD-EUS2**), dans le sous-réseau de la base de données (**PROD-DB-EUS2**).
+    - Les machines sont placées dans le réseau de production de la région primaire USA Est 2(**VNET-PROD-EUS2**), dans le sous-réseau de la base de données (**PROD-DB-EUS2**).
     - Un nouveau groupe à haute disponibilité est créé : **SQLAOGAVSET**, avec deux domaines d’erreur et cinq domaines de mise à jour.
 
     ![Machine virtuelle SQL](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
@@ -457,7 +457,7 @@ Maintenant, Contoso spécifie les paramètres de réplication de la cible.
 
 ### <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
 
-Maintenant, Contoso peut créer une stratégie de réplication.
+Maintenant,  Contoso peut créer une stratégie de réplication.
 
 1. Dans **Préparer l’infrastructure** > **Paramètres de réplication** > **Stratégie de réplication** >  **Créer et associer**, elle crée une stratégie **ContosoMigrationPolicy**.
 2. Elle utilise les paramètres par défaut :

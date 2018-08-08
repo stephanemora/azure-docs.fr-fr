@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 78cd8b2d6afe98e34c33ed3c841c8023d9dab764
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635268"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346659"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device SDK pour C
 
@@ -70,9 +70,10 @@ Maintenant que vous avez l’exemple de code source, vous devez à présent obte
 Il existe plusieurs outils open source pour vous aider à gérer votre IoT Hub.
 
 * Une application Windows appelée [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Une extension de Visual Studio Code multiplateforme appelée [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 * Un outil CLI Python multiplateforme appelé [extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Ce didacticiel utilise l’outil graphique *Explorateur d’appareils*. Vous pouvez également utiliser l’outil d’*extension IoT pour Azure CLI 2.0* si vous préférez utiliser un outil CLI.
+Ce didacticiel utilise l’outil graphique *Explorateur d’appareils*. Vous pouvez utiliser l’*extension Azure IoT Toolkit pour VS Code* si vous développez dans VS Code. Vous pouvez également utiliser l’outil d’*extension IoT pour Azure CLI 2.0* si vous préférez utiliser un outil CLI.
 
 L’outil Explorateur d’appareils utilise les bibliothèques de service Azure IoT pour effectuer diverses fonctions sur IoT Hub, notamment ajouter des appareils. Si vous utilisez l'outil Explorateur d'appareils pour ajouter un appareil, vous obtenez une chaîne de connexion pour votre appareil. Vous avez besoin de cette chaîne de connexion pour exécuter les exemples d'applications.
 
@@ -84,7 +85,7 @@ Lorsque vous exécutez le programme, vous voyez cette interface :
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-Entrez votre **chaîne de connexion IoT Hub** dans le premier champ, puis cliquez sur **Mettre à jour**. Cette étape sert à configurer l’outil pour lui permettre de communiquer avec IoT Hub.
+Entrez votre **chaîne de connexion IoT Hub** dans le premier champ, puis cliquez sur **Mettre à jour**. Cette étape sert à configurer l’outil pour lui permettre de communiquer avec IoT Hub. La **chaîne de connexion** peut être trouvée sous **Service IoT Hub** > **Paramètres** > **Stratégie d’accès partagé** > **iothubowner**.
 
 Lorsque la chaîne de connexion IoT Hub est configurée, cliquez sur l’onglet **Gestion** :
 
@@ -102,7 +103,7 @@ Lorsque l’appareil est créé, la liste des appareils s’actualise avec tous 
 
 Si vous choisissez **Copier la chaîne de connexion de l’appareil sélectionné**, la chaîne de connexion en question est copiée dans le Presse-papiers. Conservez une copie de la chaîne de connexion de l’appareil. Vous en avez besoin au moment d’exécuter les exemples d’application décrits dans les sections suivantes.
 
-Lorsque vous avez effectué les opérations ci-dessus, vous êtes prêt à commencer l’exécution du code. En haut du fichier source principal, les deux exemples décrits ci-dessous contiennent une constante qui permet d’entrer une chaîne de connexion. Par exemple, la ligne correspondante de l’application **iothub\_client\_sample\_mqtt** se présente comme suit.
+Lorsque vous avez effectué les opérations ci-dessus, vous êtes prêt à commencer l’exécution du code. En haut du fichier source principal, la plupart des exemples décrits ci-dessous contiennent une constante qui permet d’entrer une chaîne de connexion. Par exemple, la ligne correspondante de l’application **iothub\_client\_sample\_mqtt** se présente comme suit.
 
 ```c
 static const char* connectionString = "[device connection string]";

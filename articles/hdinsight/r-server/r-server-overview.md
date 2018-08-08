@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 9633a7df1cb72f3e9e5ee79be0c332565e7e8f2a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c952d64229102f99dde393bc9a6efda45fc1c717
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054100"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358849"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Présentation de ML Services et des fonctionnalités R open source sur HDInsight
 
@@ -84,13 +84,13 @@ Vous pouvez également utiliser [Azure Files](../../storage/files/storage-how-to
 
 ## <a name="access-ml-services-edge-node"></a>Accéder à un nœud de périphérie ML Services
 
-Vous pouvez vous connecter à Microsoft ML Server sur le nœud de périphérie à l’aide d’un navigateur. ML Server est installé par défaut pendant la création du cluster. Pour plus d’informations, consultez [Bien commencer avec ML Services sur HDInsight](r-server-get-started.md). Vous pouvez aussi vous connecter au nœud de périphérie du cluster à partir de la ligne de commande en utilisant SSH/PuTTY pour accéder à la console R.
+Vous pouvez vous connecter à Microsoft ML Server sur le nœud de périphérie à l’aide d’un navigateur. R Server est installé par défaut lors de la création du cluster. Pour plus d’informations, consultez [Bien commencer avec ML Services sur HDInsight](r-server-get-started.md). Vous pouvez aussi vous connecter au nœud de périphérie du cluster à partir de la ligne de commande en utilisant SSH/PuTTY pour accéder à la console R.
 
 ## <a name="develop-and-run-r-scripts"></a>Développer et exécuter des scripts R
 
 Les scripts R que vous créez et exécutez peuvent utiliser n’importe quels packages R open source parmi plus de 8000, en plus des routines distribuées et parallélisées de la bibliothèque ScaleR. En général, un script exécuté avec ML Services sur le nœud de périphérie s’exécute au sein de l’interpréteur R de ce nœud, à l’exception des étapes qui doivent appeler une fonction ScaleR avec un contexte de calcul défini sur Hadoop MapReduce (RxHadoopMR) ou Spark (RxSpark). Dans ce cas, la fonction s’exécute en mode distribué sur les différents nœuds de données (tâches) du cluster qui sont associés aux données référencées. Pour plus d’informations sur les différentes options de contexte de calcul, consultez [Options de contexte de calcul pour ML Services sur HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>Opérationnaliser un modèle
+## <a name="operationalize-a-model"></a>Faire fonctionner un modèle
 
 Une fois la modélisation de vos données terminée, vous pouvez rendre opérationnel le modèle de façon à effectuer des prédictions pour de nouvelles données, que ce soit à partir d’Azure ou localement. Ce processus est appelé notation. La notation est possible dans HDInsight, dans Azure Machine Learning ou en local.
 
@@ -106,7 +106,7 @@ Si vous choisissez cette option, vous devez convertir tous les objets de modèle
 
 ### <a name="score-on-premises"></a>Noter localement
 
-Pour noter localement après la création de votre modèle, vous pouvez sérialiser le modèle dans R, le télécharger, le désérialiser, puis l’utiliser pour noter de nouvelles données. Vous pouvez noter les nouvelles données à l’aide de l’approche décrite précédemment dans [Noter dans HDInsight](#scoring-in-hdinsight) ou en utilisant [DeployR](https://deployr.revolutionanalytics.com/).
+Pour noter localement après la création de votre modèle, vous pouvez sérialiser le modèle dans R, le télécharger, le désérialiser, puis l’utiliser pour noter de nouvelles données. Vous pouvez noter les nouvelles données à l’aide de l’approche décrite précédemment dans [Noter dans HDInsight](#scoring-in-hdinsight)ou en utilisant le [service web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Maintenance du cluster
 

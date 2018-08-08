@@ -553,8 +553,8 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Augmenter par programme la taille des instances
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Mettre à l'échelle ou à niveau des machines virtuelles du type de nœud principal
-                  href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
+                - name: Mise à l’échelle de type nœud de groupe de machines virtuelles identiques
+                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
             - name: Mise à niveau
               href: service-fabric-cluster-upgrade.md
             - name: Définir un contrôle d’accès

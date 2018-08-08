@@ -1,21 +1,20 @@
 ---
-title: À propos de la traduction vocale | Microsoft Docs
+title: À propos de la traduction vocale
 description: Vue d’ensemble des fonctionnalités de traduction vocale
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a569c968d444c36ceb3bce4779d2eca39c21f9bc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7d653a17212c727d65820382e22196d62af086e9
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069193"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324406"
 ---
 # <a name="about-the-speech-translation-api"></a>À propos de l’API Traduction vocale
 
@@ -43,4 +42,4 @@ Les différences entre les modèles sont internes au moteur de traduction. Les u
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-dotnet-windows.md)
+* [Découvrir comment traduire une entrée vocale dans C#](how-to-translate-speech-csharp.md)

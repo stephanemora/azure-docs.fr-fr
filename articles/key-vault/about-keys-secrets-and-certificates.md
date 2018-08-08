@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972398"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359187"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Présentation des clés, des secrets et des certificats
 Azure Key Vault permet aux utilisateurs de stocker et d’utiliser des clés de chiffrement dans l’environnement Microsoft Azure. Key Vault prend en charge plusieurs types de clés et algorithmes, et permet d’utiliser des modules de sécurité matériels (HSM) pour les clés de valeur supérieure. Key Vault permet également aux utilisateurs de stocker des secrets en toute sécurité. Les secrets sont des objets octets de taille limitée sans sémantique spécifique. Key Vault prend également en charge les certificats, qui sont basés sur des clés et secrets, et qui offrent une fonctionnalité de renouvellement automatique.
@@ -117,15 +117,36 @@ Où :
 
 Les clés de chiffrement dans Azure Key Vault sont représentées en tant qu’objets de clé web JSON [JWK]. Les spécifications JWK/JWA de base sont également étendues pour activer des types de clés spécifiques à l’implémentation d’Azure Key Vault, par exemple l’importation de clés dans Azure Key Vault à l’aide de l’empaquetage spécifique du fournisseur HSM (Thales) afin de permettre un transport sécurisé de clés telles que celles ne pouvant être utilisées que dans les HSM Azure Key Vault.  
 
-La version initiale d’Azure Key Vault prend en charge les clés RSA uniquement. Les versions ultérieures pourront prendre en charge d’autres types de clés comme les clés symétriques et courbe elliptique.  
-
--   **RSA** : clé RSA de 2 048 bits. Il s’agit d’une clé « logicielle », qui est traitée dans le logiciel par Key Vault, mais qui est stockée chiffrée au repos à l’aide d’une clé système qui se trouve dans un HSM. Les clients peuvent importer une clé RSA existante ou demander à Azure Key Vault d’en générer une.  
--   **RSA-HSM** : clé RSA qui est traitée dans un HSM. Les clés RSA-HSM sont protégées dans un des mondes de sécurité HSM Azure Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA, sous forme logicielle ou en exportant depuis un appareil HSM compatible, ou demander à Azure Key Vault d’en générer une. Ce type de clé ajoute l’attribut T à la JWK pour le transport du matériel de clé HSM.  
+- **Clés « logicielles »** :clé traitée dans le logiciel par Key Vault, mais qui est chiffrée au repos à l’aide d’une clé système qui se trouve dans un HSM. Les clients peuvent importer une clé RSA ou EC existante ou demander à Azure Key Vault d’en générer une.
+- **clés « matérielles »** : clé traitée dans un module HSM (Hardware Security Module). Ces clés sont protégées dans un des mondes de sécurité HSM Azure Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA ou EC, sous forme logicielle ou en exportant depuis un appareil HSM compatible, ou demander à Azure Key Vault d’en générer une. Ce type de clé ajoute l’attribut T à la JWK pour le transport du matériel de clé HSM.
 
      Pour plus d’informations sur les frontières géographiques, consultez [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
+Azure Key Vault prend en charge les clés RSA et à courbe elliptique uniquement. Les versions ultérieures pourront prendre en charge d’autres types de clés comme les clés symétriques.
+
+-   **EC** : clé « logicielle »à courbe elliptique.
+-   **EC** : clé « matérielle » à courbe elliptique.
+-   **RSA** : clé « logicielle » RSA.
+-   **RSA-HSM** : clé « matérielle » RSA.
+
+Azure Key Vault prend en charge les clés RSA de tailles 2048, 3072 et 4 096, ainsi que les clés à courbe elliptique de type P-256, P-384, P-521 et P-256_K.
+
+### <a name="BKMK_Cryptographic"></a> Protection par chiffrement
+
+Les modules de chiffrement utilisé par Azure Key Vault, HSM ou logiciels, sont conformes aux normes FIPS (Federal Information Processing Standard). Aucune action spéciale ne doit être effectuée pour l’exécution en mode FIPS. Si vous **créez** ou **importez** des clés protégées par HSM, leur traitement dans des HSM conformes à FIPS 140-2 niveau 2 ou supérieur est garanti. Si vous **créez** ou **importez** clés protégées par logiciel, elles sont traitées dans des modules de chiffrement conformes à FIPS 140-2 niveau 1 ou supérieur. Pour plus d’informations, consultez [Clés et types de clés](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+
+###  <a name="BKMK_ECAlgorithms"></a> Algorithmes EC
+ Les identificateurs d’algorithme suivants sont pris en charge avec les clés EC et EC-HSM dans Azure Key Vault. 
+
+#### <a name="signverify"></a>SIGN/VERIFY
+
+-   **ES256** : ECDSA pour codes de hachage SHA-256 et clés créées avec la courbe P-256. Cet algorithme est décrit dans [RFC7518].
+-   **ES256K** : ECDSA pour codes de hachage SHA-256 et clés créées avec la courbe P-256K. Cet algorithme est en attente de normalisation.
+-   **ES384** : ECDSA pour codes de hachage SHA-384 et clés créées avec la courbe P-384. Cet algorithme est décrit dans [RFC7518].
+-   **ES512** : ECDSA pour codes de hachage SHA-512 et clés créées avec la courbe P-521. Cet algorithme est décrit dans [RFC7518].
+
 ###  <a name="BKMK_RSAAlgorithms"></a> Algorithmes RSA  
- Les identificateurs d’algorithme suivants sont pris en charge avec les clés RSA dans Azure Key Vault.  
+ Les identificateurs d’algorithme suivants sont pris en charge avec les clés RSA et RSA-HSM dans Azure Key Vault.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
@@ -138,25 +159,6 @@ La version initiale d’Azure Key Vault prend en charge les clés RSA uniquement
 -   **RS384** : RSASSA-PKCS-v1_5 utilisant SHA-384. La valeur de synthèse fournie par l’application doit être calculée à l’aide de SHA-384 et doit être d’une longueur de 48 octets.  
 -   **RS512** : RSASSA-PKCS-v1_5 utilisant SHA-512. La valeur de synthèse fournie par l’application doit être calculée à l’aide de SHA-512 et doit être d’une longueur de 64 octets.  
 -   **RSNULL** : consultez [RFC2437], un cas d’utilisation spécial permettant certains scénarios TLS.  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> Algorithmes RSA-HSM  
-Les identificateurs d’algorithme suivants sont pris en charge avec les clés RSA-HSM dans Azure Key Vault.  
-
-### <a name="BKMK_Cryptographic"></a> Protection par chiffrement
-
-Les modules de chiffrement utilisé par Azure Key Vault, HSM ou logiciels, sont conformes aux normes FIPS (Federal Information Processing Standard). Aucune action spéciale ne doit être effectuée pour l’exécution en mode FIPS. Si vous **créez** ou **importez** des clés protégées par HSM, leur traitement dans des HSM conformes à FIPS 140-2 niveau 2 ou supérieur est garanti. Si vous **créez** ou **importez** clés protégées par logiciel, elles sont traitées dans des modules de chiffrement conformes à FIPS 140-2 niveau 1 ou supérieur. Pour plus d’informations, consultez [Clés et types de clés](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
-
-#### <a name="wrapunwrap-encryptdecrypt"></a>WRAP/UNWRAP, ENCRYPT/DECRYPT
-
--   **RSA1_5** : chiffrement à clé RSAES-PKCS1-V1_5 [RFC3447].  
--   **RSA-OAEP** : RSAES utilisant OAEP (Optimal Asymmetric Encryption Padding) [RFC3447], avec les paramètres par défaut spécifiés par RFC 3447, section A.2.1. Ces paramètres par défaut utilisent une fonction de hachage de SHA-1 et une fonction de génération de masque de MGF1 avec SHA-1.  
-
- #### <a name="signverify"></a>SIGN/VERIFY  
-
--   **RS256** : RSASSA-PKCS-v1_5 utilisant SHA-256. La valeur de synthèse fournie par l’application doit être calculée à l’aide de SHA-256 et doit être d’une longueur de 32 octets.  
--   **RS384** : RSASSA-PKCS-v1_5 utilisant SHA-384. La valeur de synthèse fournie par l’application doit être calculée à l’aide de SHA-384 et doit être d’une longueur de 48 octets.  
--   **RS512** : RSASSA-PKCS-v1_5 utilisant SHA-512. La valeur de synthèse fournie par l’application doit être calculée à l’aide de SHA-512 et doit être d’une longueur de 64 octets.  
--   RSNULL : consultez [RFC2437], un cas d’utilisation spécial permettant certains scénarios TLS.  
 
 ###  <a name="BKMK_KeyOperations"></a> Opérations sur les clés
 

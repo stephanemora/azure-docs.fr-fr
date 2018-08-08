@@ -1,6 +1,6 @@
 - name: Azure Blockchain Workbench (préversion publique)
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: À propos d’Azure Blockchain Workbench
@@ -46,10 +46,9 @@
       href: blockchain-workbench-database-views.md
     - name: API de messagerie
       href: blockchain-workbench-messages-overview.md
-    - name: de l’API REST
+    - name: API REST
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: Ressources
-  expanded: true
   items:
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
@@ -60,10 +59,12 @@
     - name: Forum
       href: 'https://aka.ms/workbenchforum'
     - name: Commentaires sur le produit
-      href: 'https://feedback.azure.com/forums/586780-blockchain'
-    - name: Modèles de solution
-      items:
-        - name: Consortium de preuve de travail Ethereum
-          href: ethereum-deployment-guide.md
-        - name: Consortium de Fabric Hyperledger
-          href: hyperledger-fabric-single-member-blockchain.md
+      href: 'https://aka.ms/blockchainuservoice'
+- name: Ethereum Proof-of-Authority Consortium
+  href: ethereum-poa-deployment.md
+- name: Modèles de solution
+  items:
+    - name: Ethereum Proof-of-Work Consortium
+      href: ethereum-deployment-guide.md
+    - name: Consortium de Fabric Hyperledger
+      href: hyperledger-fabric-single-member-blockchain.md

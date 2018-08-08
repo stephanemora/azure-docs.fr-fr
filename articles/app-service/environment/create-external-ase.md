@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 34248d75c190aa4636c39f087d399d946b589d58
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dc5b5cbe9b1f000d8ddf9d38cfe13f5275e698f2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347707"
 ---
 # <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service externe #
 
@@ -40,7 +41,7 @@ Une fois l’environnement App Service créé, les éléments suivants ne peuven
 - Taille du sous-réseau
 
 > [!NOTE]
-> Quand vous choisissez un réseau virtuel et spécifiez un sous-réseau, vérifiez que leur taille leur permet de prendre en compte les évolutions futures. Nous vous recommandons une taille de `/25` avec 128 adresses.
+> Quand vous choisissez un réseau virtuel et spécifiez un sous-réseau, vérifiez que leur taille leur permet de prendre en compte les évolutions futures et les besoins de mise à l'échelle. Nous vous recommandons une taille de `/24` avec 256 adresses.
 >
 
 ## <a name="three-ways-to-create-an-ase"></a>Trois façons de créer un ASE ##
@@ -67,10 +68,7 @@ Pour créer un environnement App Service en même temps que le plan App Service 
 
 3. Sélectionnez ou créez un groupe de ressources. Vous pouvez utiliser des groupes de ressources pour gérer des ressources Azure connexes en tant qu’unité. Les groupes de ressources sont également utiles lorsque vous souhaitez établir des règles de contrôle d’accès en fonction du rôle (RBAC) pour vos applications. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager][ARMOverview].
 
-4. Sélectionnez votre OS. 
-
-    * Étant donné que l’hébergement d’une application Linux dans un environnement ASE est une nouvelle fonctionnalité préliminaire, nous vous suggérons de ne pas ajouter d’applications Linux dans un environnement ASE qui est en train d’exécuter des charges de travail de production. 
-    * L’ajout d’une application Linux dans un environnement ASE signifie que l’environnement ASE est également en préversion. 
+4. Sélectionnez votre système d’exploitation (Windows, Linux ou Docker). 
 
 5. Cliquez sur le plan App Service, puis sélectionnez **Créer un nouveau**. Les applications web Linux et les applications web Windows ne peuvent pas se trouver dans le même plan App Service, mais elles peuvent être dans le même environnement ASE. 
 
@@ -78,13 +76,7 @@ Pour créer un environnement App Service en même temps que le plan App Service 
 
 6. Dans la liste déroulante **Emplacement**, sélectionnez la région où vous souhaitez créer l’environnement App Service. Si vous sélectionnez un environnement App Service existant, aucun environnement App Service n’est créé. Le plan App Service est créé dans l’environnement App Service que vous avez sélectionné. 
 
-    > [!NOTE]
-    > Linux dans un environnement ASE est activé uniquement dans 6 régions, à savoir pour le moment : **Ouest des États-Unis, Est des États-Unis, Europe de l’Ouest, Europe du Nord, Est de l’Australie, Asie du Sud-Est.** Étant donné que Linux sur ASE est une fonctionnalité préliminaire, NE sélectionnez PAS un environnement ASE que vous avez créé avant cette préversion.
-    >
-
 7. Sélectionnez **Niveau tarifaire**, puis choisissez l’une des références SKU de tarification **Isolé**. Si vous choisissez une carte de référence SKU **Isolé** et un emplacement autre qu’un environnement App Service, un nouvel environnement App Service est créé à cet emplacement. Pour démarrer le processus de création d’un environnement App Service, cliquez sur **Sélectionner**. La référence SKU **Isolé** n’est disponible qu’avec un environnement App Service. Vous ne pouvez pas utiliser une autre référence SKU de tarification dans un environnement App Service qui n’est pas **Isolé**. 
-
-    * Pour la préversion de Linux sur un environnement ASE, une remise de 50 % sera appliquée à la référence Isolé (aucune remise sur les forfaits liés à l’environnement ASE lui-même).
 
     ![Sélection du niveau tarifaire][3]
 
@@ -120,13 +112,7 @@ Pour créer un environnement App Service en même temps que le plan App Service 
 
 5. Dans la liste déroulante **Emplacement**, sélectionnez la région où vous souhaitez créer l’environnement App Service. Si vous sélectionnez un environnement App Service existant, aucun environnement App Service n’est créé. Le plan App Service est créé dans l’environnement App Service que vous avez sélectionné. 
 
-    > [!NOTE]
-    > Linux dans un environnement ASE est activé uniquement dans 6 régions, à savoir pour le moment : **Ouest des États-Unis, Est des États-Unis, Europe de l’Ouest, Europe du Nord, Est de l’Australie, Asie du Sud-Est.** Étant donné que Linux sur ASE est une fonctionnalité préliminaire, NE sélectionnez PAS un environnement ASE que vous avez créé avant cette préversion.
-    >
-
 6. Sélectionnez **Niveau tarifaire**, puis choisissez l’une des références SKU de tarification **Isolé**. Si vous choisissez une carte de référence SKU **Isolé** et un emplacement autre qu’un environnement App Service, un nouvel environnement App Service est créé à cet emplacement. Pour démarrer le processus de création d’un environnement App Service, cliquez sur **Sélectionner**. La référence SKU **Isolé** n’est disponible qu’avec un environnement App Service. Vous ne pouvez pas utiliser une autre référence SKU de tarification dans un environnement App Service qui n’est pas **Isolé**. 
-
-    * Pour la préversion de Linux sur un environnement ASE, une remise de 50 % sera appliquée à la référence Isolé (aucune remise sur les forfaits liés à l’environnement ASE lui-même).
 
     ![Sélection du niveau tarifaire][3]
 
@@ -147,7 +133,7 @@ Pour créer un environnement App Service en même temps que le plan App Service 
 9.  Sélectionnez Configurer le conteneur.
     * Entrez le nom de votre image personnalisée (vous pouvez utiliser Azure Container Registry, Docker Hub et votre propre registre privé). Si vous ne souhaitez pas utiliser votre propre conteneur personnalisé, vous pouvez simplement ajouter votre code et utiliser une image intégrée avec App Service sur Linux, en suivant les instructions ci-dessus. 
 
-    ![Configure Container][9]
+    ![Configurer le conteneur][9]
 
 10. Sélectionnez **Créer** pour créer l’environnement App Service. Ce processus crée également le plan App Service et l’application. L’environnement App Service, le plan App Service et l’application sont regroupés au sein du même abonnement et du même groupe de ressources. Si votre environnement App Service a besoin d’un groupe de ressources distinct, ou si vous avez besoin d’un environnement App Service ILB, procédez aux étapes permettant de créer un environnement App Service de manière autonome.
 
@@ -170,7 +156,7 @@ Lorsque vous créez un environnement App Service autonome, celui-ci est vide. M�
 
 5. Sélectionnez le réseau virtuel et l’emplacement. Vous pouvez créer un réseau virtuel ou sélectionner un réseau virtuel existant : 
 
-    * Si vous sélectionnez un nouveau réseau virtuel, vous pouvez spécifier un nom et un emplacement. Si vous envisagez d’héberger des applications Linux sur cet environnement ASE, seules les six régions suivantes sont prises en charge pour le moment : **Ouest des États-Unis, Est des États-Unis, Europe de l’Ouest, Europe du Nord, Est de l’Australie et Asie du Sud-Est**. 
+    * Si vous sélectionnez un nouveau réseau virtuel, vous pouvez spécifier un nom et un emplacement. 
     
     * Le nouveau réseau virtuel se voit affecter la plage d’adresses 192.168.250.0/23 et un sous-réseau nommé default. Le sous-réseau reçoit la plage d’adresses 192.168.250.0/24. Vous pouvez uniquement sélectionner un réseau virtuel Resource Manager. La sélection du **type d’adresse IP virtuelle** détermine si votre environnement App Service est accessible directement à partir d’Internet (externe) ou s’il utilise un équilibreur de charge interne (ILB). Pour plus d’informations, consultez [Créer et utiliser un équilibreur de charge interne avec un environnement Azure App Service Environment][MakeILBASE]. 
 
@@ -195,7 +181,7 @@ Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnem
 [6]: ./media/how_to_create_an_external_app_service_environment/createexternalase-network.png
 [7]: ./media/how_to_create_an_external_app_service_environment/createexternalase-createwafc.png
 [8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-aspcreatewafc.png
-[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
+[9]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
 
 
 

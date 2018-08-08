@@ -1,110 +1,118 @@
 ---
-title: Application Microsoft Authenticator pour les téléphones mobiles - Azure AD | Microsoft Docs
-description: Découvrez comment effectuer une mise à niveau vers la dernière version d’Azure Authenticator.
-services: multi-factor-authentication
-documentationcenter: ''
+title: Prise en main de l’application Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+description: Découvrez comment effectuer une mise à niveau vers la dernière version de Microsoft Authenticator.
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
-ms.service: multi-factor-authentication
+ms.service: active-directoary
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 10/17/2017
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 8241dcaaf5623a22f4fc485f021766276472fb51
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058151"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346485"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Prise en main de l’application Microsoft Authenticator
-L’application Microsoft Authenticator fournit un niveau supplémentaire de sécurité dans votre compte professionnel ou scolaire (p. ex. bsimon@contoso.com) ou votre compte Microsoft (p. ex. bsimon@outlook.com).
 
-L’application fonctionne de l’une des deux façons suivantes :
+L’application Microsoft Authenticator empêche tout accès non autorisé aux comptes et arrête les transactions frauduleuses en vous apportant un niveau de sécurité supplémentaire pour votre compte professionnel ou scolaire (par exemple, alain@contoso.com) ou votre compte Microsoft personnel (par exemple, alain@outlook.com). Vous pouvez vous en servir comme deuxième méthode de vérification ou en remplacement de votre mot de passe lorsque vous utilisez la connexion par téléphone. Pour plus d’informations sur la configuration et l’utilisation de la connexion par téléphone sans mot de passe, consultez [Connectez-vous avec votre téléphone, et non votre mot de passe](microsoft-authenticator-app-phone-signin-faq.md).
 
-* **Notification**. L’application peut aider à empêcher tout accès non autorisé aux comptes et à arrêter les transactions frauduleuses en envoyant une notification à votre smartphone ou tablette. Affichez simplement la notification et si elle est légitime, sélectionnez **Vérifier**. Sinon, vous pouvez sélectionner **Refuser**.
-* **Code de vérification**. L’application peut être utilisée comme jeton logiciel pour générer un code de vérification OAuth. Après avoir entré votre nom d’utilisateur et votre mot de passe, vous entrez le code fourni par l’application dans l’écran de connexion. Le code de vérification fournit un deuxième formulaire d’authentification.
+Lors de l’utilisation de l’application pour la vérification en deux étapes, elle peut fonctionner de l’une des deux façons suivantes :
 
-L’application Microsoft Authenticator remplace l’application Azure Authenticator. L’application Azure Authenticator continue de fonctionner, mais cet article peut vous aider si vous décidez d’adopter la nouvelle application Azure Authenticator.  
+- **Notification.** L’application envoie une notification à votre appareil. Assurez-vous que la notification est juste, puis sélectionnez **Vérifier**. Si vous ne reconnaissez pas la notification, sélectionnez **Refuser**.
+
+- **Code de vérification.** Après avoir tapé votre nom d’utilisateur et votre mot de passe, vous pouvez ouvrir l’application et copiez le code de vérification fourni dans l’écran **Comptes** sur l’écran de connexion. Le code de vérification agit comme un deuxième formulaire d’authentification.
 
 ## <a name="opt-in-for-two-step-verification"></a>Abonnement à la vérification en deux étapes
 
-L’application Microsoft Authenticator ne fonctionne pas toute seule. Configurez chacun de vos comptes pour être invité à exécuter une deuxième méthode de vérification après vous être connecté avec votre nom d’utilisateur et votre mot de passe.
+Votre organisation décide si vous devez utiliser la vérification en deux étapes avec votre compte professionnel ou scolaire. Votre administrateur vous indiquera quelles méthodes de vérification doivent être configurées et utilisées. Pour plus d’informations, consultez [Présentation concrète de Multi-Factor Authentication Azure](multi-factor-authentication-end-user.md).
 
-En général, pour un compte professionnel ou scolaire, vous ne pouvez pas prendre cette décision vous-même. Un administrateur de sécurité s’abonne à votre place et vous avertit que vous devez inscrire les méthodes de vérification pour votre compte. Si ce scénario vous concerne, reportez-vous à [Présentation concrète de Multi-Factor Authentication Azure](multi-factor-authentication-end-user.md).
+Vous pouvez utiliser la vérification en deux étapes pour votre compte Microsoft personnel. Pour plus d’informations détaillées et des instructions, consultez [À propos de la vérification en deux étapes](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-Pour un compte personnel, vous devez configurer la vérification en deux étapes vous-même. Si vous avez un compte Microsoft, ces étapes sont disponibles dans [À propos de la vérification en deux étapes](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
-
-Vous pouvez également utiliser Microsoft Authenticator avec des comptes non-Microsoft. La fonction peut ne pas s’appeler « vérification en deux étapes », mais vous devez pouvoir la trouver dans les paramètres de sécurité ou de connexion.
+Vous pouvez également utiliser l’application Microsoft Authenticator avec des comptes non Microsoft. Ces comptes peuvent ne pas appeler la fonctionnalité « vérification en deux étapes », mais vous devez pouvoir la trouver dans les paramètres de sécurité ou de connexion. Pour plus d’informations sur la configuration de ces comptes non Microsoft, consultez les [vidéos de support technique Microsoft](https://www.youtube.com/playlist?list=PLyhj1WZ29G65QdD9NxTOAm8HwOS-OBUrX).
 
 ## <a name="install-the-app"></a>Installer l’application
-L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) et [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+
+L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) et [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). Pour une expérience optimale, vous devez laisser l’application recevoir des notifications lorsque vous y êtes invité. 
 
 ## <a name="add-accounts-to-the-app"></a>Ajouter des comptes à l’application
-Pour chaque compte que vous souhaitez ajouter à l’application Microsoft Authenticator, utilisez l’une des procédures suivantes :
 
-### <a name="add-a-personal-microsoft-account-to-the-app"></a>Ajouter un compte Microsoft personnel à l’application
+Vous pouvez ajouter des comptes professionnels ou scolaires ou des comptes personnels à l’application Microsoft Authenticator. 
+
+### <a name="add-a-personal-microsoft-account"></a>Ajouter un compte Microsoft personnel
 
 Pour un compte Microsoft personnel (celui qui vous permet de vous connecter à Outlook.com, Xbox, Skype, etc.), il vous suffit de vous connecter à votre compte dans l’application Microsoft Authenticator.
 
-### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Ajouter un compte professionnel ou scolaire à l’application à l’aide du scanneur de code QR
-1. Accédez à l’écran des paramètres de vérification de la sécurité.  Pour savoir comment accéder à cet écran, consultez [Problèmes avec Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
-2. Cochez la case **Application Authenticator**, puis sélectionnez **Configurer**.
+### <a name="add-a-work-or-school-account"></a>Ajouter un compte professionnel ou scolaire
 
-    ![Le bouton Configurer sur l’écran des paramètres de vérification de la sécurité.](./media/microsoft-authenticator-app-how-to/azureauthe.png)
+1. Si possible, accédez à l’écran [Vérification de sécurité supplémentaire](http://aka.ms/mfasetup) sur un autre ordinateur ou appareil. Pour savoir comment accéder à cet écran, consultez [Modification des paramètres de sécurité](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) ou contactez votre administrateur.
 
-    Cela fait apparaître un écran avec un code QR dessus.
+    >[!Note]
+    >Si votre administrateur a activé les informations de sécurité en préversion, vous pouvez suivre les instructions dans la section [Set up security info to use an authenticator app](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser une application d’authentification).
 
-    ![Écran qui fournit le code QR](./media/microsoft-authenticator-app-how-to/barcode2.png)
-3. Ouvrez l’application Microsoft Authenticator Sur l’écran des **comptes**, sélectionnez **+**, puis indiquez que vous souhaitez ajouter un compte professionnel ou scolaire.
-4. Utilisez l’appareil photo pour scanner le code QR, puis sélectionnez **Terminé** pour fermer l’écran de code QR.
+2. Cochez la case **Application d’authentification**, puis sélectionnez **Configurer**.
 
-    Si votre appareil photo ne fonctionne pas correctement, vous pouvez [entrer manuellement le code QR et l’URL](#add-an-account-to-the-app-manually).
+    ![Le bouton Configurer sur l’écran des paramètres de vérification de la sécurité.](./media/microsoft-authenticator-app-how-to/auth-app-configure.png)
 
-5. Lorsque l’application affiche le nom de votre compte souligné d’un code à six chiffres, c’est que vous avez terminé.
+    L’écran **Configurer l’application mobile** s’affiche avec un code QR que vous pouvez scanner avec l’application d’authentification.
 
-    ![Écran de comptes](./media/microsoft-authenticator-app-how-to/accounts.png)
+    ![Écran qui fournit le code QR](./media/microsoft-authenticator-app-how-to/auth-app-barcode.png)
+
+3. Ouvrez l’application Microsoft Authenticator. Sur l’écran **Comptes**, sélectionnez **Ajouter un compte**, puis **Compte professionnel ou scolaire**.
+
+4. Utilisez l’appareil photo de votre appareil pour scanner le code QR, puis sélectionnez **Terminé** pour fermer l’écran de code QR.
+
+    >[!Note]
+    >Si votre appareil photo ne fonctionne pas correctement, vous pouvez [entrer manuellement le code QR et l’URL](#add-an-account-to-the-app-manually).
+
+    L’écran **Comptes** de l’application affiche votre nom de compte et un code de vérification à six chiffres. Pour renforcer la sécurité, le code de vérification change toutes les 30 secondes, ce qui vous empêche d’utiliser deux fois le même code.  
+
+    ![Écran de comptes](./media/microsoft-authenticator-app-how-to/auth-app-accounts.png)
 
 ### <a name="add-an-account-to-the-app-manually"></a>Ajouter manuellement un compte à l’application
-1. Accédez à l’écran des paramètres de vérification de la sécurité.  Pour savoir comment accéder à cet écran, consultez [Problèmes avec Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md).
-2. Sélectionnez **Configurer**.
 
-    ![Le bouton Configurer sur l’écran des paramètres de vérification de la sécurité.](./media/microsoft-authenticator-app-how-to/azureauthe.png)
+1. Accédez à l’écran **Vérification de sécurité supplémentaire**. Pour savoir comment accéder à cet écran, consultez [Problèmes avec Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
 
-    Cela fait apparaître un écran avec un code QR dessus.  Notez le code et l’URL.
+2. Cochez la case **Application d’authentification**, puis sélectionnez **Configurer**.
 
-    ![Écran qui fournit le code QR et l’URL](./media/microsoft-authenticator-app-how-to/barcode2.png)
-3. Ouvrez l’application Microsoft Authenticator Sur l’écran des **comptes**, sélectionnez **+**, puis indiquez que vous souhaitez ajouter un compte professionnel ou scolaire.
+    L’écran **Configurer l’application mobile** s’affiche.
 
-4. Dans le scanner, sélectionnez **enter code manually**(entrer le code manuellement).
+3. Copiez le code et les informations d’URL depuis l’écran **Configurer l’application mobile** afin de les taper manuellement dans le scanner QR.
 
-    ![Écran pour scanner un code QR](./media/microsoft-authenticator-app-how-to/scan2.png)
-5. Entrez le code et l’URL dans les zones appropriées de l’application, puis sélectionnez **Terminer**.
+4. Ouvrez l’application Microsoft Authenticator. Sur l’écran **Comptes**, sélectionnez **Ajouter un compte**, puis **Compte professionnel ou scolaire**.
 
-    ![Écran pour saisir le code et de l’URL](./media/microsoft-authenticator-app-how-to/manual.png)
+5. Dans l’écran du scanner QR, sélectionnez **Entrer le code manuellement**.
 
-6. Lorsque l’application affiche le nom de votre compte souligné d’un code à six chiffres, c’est que vous avez terminé.
+    ![Écran pour scanner un code QR](./media/microsoft-authenticator-app-how-to/auth-app-manual-code.png)
+   
+6. Tapez le code et l’URL depuis l’écran avec le code QR dans l’écran **Ajouter un compte**, puis sélectionnez **Terminer**.
 
-    ![Écran de comptes](./media/microsoft-authenticator-app-how-to/accounts.png)
+    ![Écran pour saisir le code et de l’URL](./media/microsoft-authenticator-app-how-to/auth-app-code-url.png)
 
-### <a name="add-an-account-to-the-app-using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>Ajouter un compte à l’application à l’aide des fonctionnalités d’identification par empreinte digitale ou reconnaissance faciale de votre appareil
-Votre organisation peut exiger un code PIN pour effectuer le test de vérification. Au lieu de demander un code PIN, l’application Microsoft Authenticator peut utiliser les fonctionnalités d’identification par empreinte digitale ou reconnaissance faciale de votre appareil. Pour configurer ces fonctionnalités lors de la première vérification dans l’application, choisissez d’utiliser Touch ID (pour iOS) ou l’identification par empreinte digitale. 
+    L’écran **Comptes** de l’application affiche votre nom de compte et un code de vérification à six chiffres. Pour renforcer la sécurité, le code de vérification change toutes les 30 secondes, ce qui vous empêche d’utiliser deux fois le même code.
 
-Pour configurer Touch ID pour Microsoft Authenticator, vous devez effectuer un test de vérification normal avec un code PIN. Microsoft Authenticator configure automatiquement Touch ID pour les appareils qui le prennent en charge. 
+### <a name="using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>Utiliser les fonctionnalités d’identification par empreinte digitale ou reconnaissance faciale de votre appareil
 
-![Vérification de la configuration de Touch ID](./media/microsoft-authenticator-app-how-to/touchid1.png)
-
-À partir de là, lorsque vous êtes invité à vérifier votre connexion, vous sélectionnez la notification Push reçue et vous scannez votre empreinte digitale au lieu d’entrer votre code confidentiel.
-
-![Notification Push](./media/microsoft-authenticator-app-how-to/touchid2.png)
+Votre organisation peut nécessiter un code PIN pour effectuer la vérification d’identité. Au lieu de demander un code PIN, vous pouvez configurer l’application Microsoft Authenticator pour qu’elle utilise les fonctionnalités d’identification par empreinte digitale ou reconnaissance faciale de votre appareil. Vous pouvez configurer cela la première fois que vous utilisez l’application d’authentification pour vérifier votre compte, en sélectionnant l’option pour utiliser les fonctionnalités biométriques de votre appareil comme moyen d’identification au lieu de votre code PIN.
 
 ## <a name="use-the-app-when-you-sign-in"></a>Utilisation de l’application lors de la connexion
 
-Une fois que votre compte est ajouté à l’application, vous pouvez être invité à effectuer une vérification du test pour vous assurer que tout a été correctement configuré. Après cela, vous avez terminé ! Vous n’avez rien d’autre à faire avant la prochaine connexion.
+Après avoir ajouté vos comptes à l’application, vous pouvez utiliser l’application pour vous connecter à vos comptes.
 
-Si vous avez choisi d’utiliser des codes de vérification dans l’application, ils s’affichent sur la page d’accueil. Ils changent toutes les 30 secondes, de sorte que vous ayez toujours un nouveau code lorsque vous en avez besoin. Mais vous n’avez rien à faire tant que vous n’êtes pas connecté et invité à saisir un code de vérification.  
+Si vous avez choisi d’utiliser des codes de vérification dans l’application, ils s’afficheront sur la page **Comptes**. Le code change toutes les 30 secondes, de sorte que vous ayez toujours un nouveau code lorsque vous en avez besoin. Mais vous n’avez rien à faire tant que vous n’êtes pas connecté et invité à saisir un code de vérification.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Si vous avez des questions plus générales concernant l’application, consultez le [Forum aux questions sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+
+- Si vous avez des questions sur l’utilisation de la connexion par téléphone, consultez [Connectez-vous avec votre téléphone, et non votre mot de passe](microsoft-authenticator-app-phone-signin-faq.md)
+
+- Pour plus d’informations sur la vérification en deux étapes, consultez [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md)
+
+- Pour plus d’informations sur les informations de sécurité, consultez [Gérer vos informations de sécurité](security-info-manage-settings.md)

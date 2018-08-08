@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 72fb594265e69eb1dc16cb29ad4df6acb3a87720
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cb31bb91c80e4d5dd032b009b40d8e3fc435e0c8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34663625"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359457"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Inscrire votre application avec votre client AD
 Tout d’abord, vous devez inscrire votre application avec votre client Azure Active Directory (Azure AD). Ceci vous fournira un ID d’application pour votre application et lui permettra de recevoir des jetons.
 
 * Connectez-vous au [Portail Azure](https://portal.azure.com).
-* Sélectionnez votre client Azure AD en cliquant sur votre compte dans le coin supérieur droit de la page.
+* Choisissez votre abonné Azure AD en cliquant sur votre compte dans l’angle supérieur droit de la page, puis en cliquant sur la navigation **Changer de répertoire** ensuite sélectionnez l’abonné approprié. 
+  * Ignorez cette étape, si vous avez un seul abonné Azure AD sous votre compte ou si vous avez déjà sélectionné l’abonné Azure AD approprié.
 * Dans le volet de navigation gauche, cliquez sur **Azure Active Directory**.
 * Cliquez sur **Inscriptions des applications**, puis sur **Nouvelle inscription d’application**.
 * Suivez les invites et créez une application. Pour ce didacticiel, il peut s’agir d’une application web ou d’une application native. Cependant, si vous souhaitez obtenir des exemples spécifiques pour les applications web ou les applications natives, consultez nos rubriques de [démarrage rapide](../articles/active-directory/develop/active-directory-developers-guide.md).

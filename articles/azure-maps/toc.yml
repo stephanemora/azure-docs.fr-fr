@@ -40,6 +40,8 @@
       items:
         - name: Gérer les comptes et les clés
           href: how-to-manage-account-keys.md
+        - name: Afficher les métriques d’utilisation
+          href: how-to-view-api-usage.md
     - name: Obtenir des données de cartes à partir de l’API REST
       items:
         - name: Rechercher une adresse
@@ -70,7 +72,7 @@
           href: map-events.md
         - name: Applications de cartes accessibles
           href: map-accessibility.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Extensions d’API et de paramètre
       items:

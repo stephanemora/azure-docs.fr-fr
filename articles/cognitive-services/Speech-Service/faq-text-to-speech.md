@@ -1,24 +1,23 @@
 ---
-title: Forum aux questions sur le service de reconnaissance vocale dans Azure | Microsoft Docs
+title: Forum aux questions sur le service de reconnaissance vocale dans Azure
 description: Vous trouverez ici des réponses aux questions les plus posées sur le service de reconnaissance vocale.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 4a29435c0ace79fc3a5d3a5a42a0e91bdbc8da5e
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d70c4a359c713d6c5f46423193e9c9e7e1f3baf
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082822"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282855"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Forum aux questions sur la synthèse vocale
 
-Si vous ne trouvez pas les réponses à vos questions dans ce Forum aux questions, essayez d’interroger la Communauté Custom Speech Service sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) et [UserVoice](https://cognitive.uservoice.com/).
+Si vous ne trouvez pas de réponses à vos questions dans ce forum aux questions, consultez d’autres options d’assistance [ici](support.md).
 
 ## <a name="general"></a>Généralités
 

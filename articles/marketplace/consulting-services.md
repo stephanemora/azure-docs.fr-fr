@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950404"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414699"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Services de conseil de Place de marché Azure
 Les services de conseil de la Place de marché Azure permettent aux partenaires Microsoft de connecter les clients aux services pour gérer et étendre leur utilisation d’Azure. La Place de marché Azure prend en charge le référencement des offres de services de conseil des partenaires intégrateurs de systèmes de Microsoft. 
@@ -31,17 +31,17 @@ Les vitrines de la Place de marché s’adaptent au public visé et aux produits
 
 |         |Place de marché Azure  |AppSource |
 |---------|---------|---------|
-|Audience   |IT Pros et développeurs cloud|Utilisateurs professionnels/Décideurs métier|
+|**Public ciblé**   |**IT Pros et développeurs cloud**|**Utilisateurs professionnels/Décideurs métier**|
 |Pertinence de la solution     |Applications techniques générées pour ou reposant sur Azure|Applications métier qui optimisent/étendent D365, Power BI, O365, Azure (applications finies sous la forme de complément ou d’extension)|
 |Options de publication     |Me contacter, Version d’essai, Transaction ou Services de conseil|Me contacter, Version d’essai ou Services de conseil|
 |Expérience du produit      |Portail de gestion Azure|Dynamics 365, Office 365, applications clientes Office| 
 |Autres      |Publication locale via Azure Stack|Services de conseil pour Dynamics et Power BI|
 
->[!Note]
->Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un public technique axé sur des *solutions et services techniques Azure*.
-
-
 Les offres de services qui sont basées sur Microsoft Dynamics 365, Office 365 et Power BI peuvent être répertoriées sur AppSource. Pour plus d’informations, consultez [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Instructions de référencement des services de conseil Microsoft AppSource). 
+
+>[!Note]
+>Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un **public technique axé sur des *solutions et services techniques Azure.* **
+
 
 >[!TIP]
 >Ces informations s’appliquent uniquement aux services Place de marché Azure. Pour publier une offre dans la vitrine Place de marché, vous effectuerez cette sélection en choisissant « Azure » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner. Pour publier une offre sur AppSource, vous procéderez à cette sélection en choisissant « Dynamics 365 », « Power BI » ou « Power Apps » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner.
@@ -59,7 +59,7 @@ Les partenaires doivent également avoir une **compétence Silver ou Gold** dans
 Pour plus d’informations, consultez les [compétences via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
  
 
-Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 18 pays suivants. 
+**Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 18 pays suivants**
 
 |Pays éligibles |  |  |
 |---------|---------|---------|
@@ -70,7 +70,7 @@ Les partenaires intégrateurs de systèmes peuvent envoyer des offres de service
 |Finlande     |Mexique         |Royaume-Uni         |
 |France     |Pays-bas         |États-Unis         |
 
-Le lancement des services de conseil de Place de marché Azure sera tout d’abord effectué pour l’Australie, le Canada, le Royaume-Uni et les États-Unis. Les catalogues pour les autres pays seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
+Le lancement des services de conseil de la Place de marché Azure sera effectué dans une région géographique spécifique. Le premier lancement sera effectué aux États-Unis, au Canada, au Royaume-Uni et en Australie. Les catalogues pour les autres pays seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Comment s’inscrire aux services de conseil de la Place de marché Azure
 Commencez par l’inscription de vos services de conseil avec la [Place de marché Azure](https://azuremarketplace.microsoft.com/en-us/sell/signup). Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
@@ -121,7 +121,7 @@ Les offres doivent correspondre à l’un des cinq types de services suivants (v
 * **Preuve de concept** : implémentation de portée limitée pour déterminer si une solution répond aux exigences du client. 
 * **Atelier** : engagement interactif réalisé dans les locaux du client. Il peut inclure une formation, des réunions d’information, des évaluations ou des démonstrations reposant sur les données ou l’environnement du client. 
 
-Remarque : À l’exception du type de service *Réunion d’information*, les services de conseil peuvent être offerts en personne (à savoir, sur site chez un client ou dans les bureaux d’un partenaire) ou virtuellement (à savoir, via la téléconférence, la conférence web ou l’implémentation à distance). Les réunions doivent être proposées en personne.
+**Remarque :** À l’exception du type de service *Réunion d’information*, les services de conseil peuvent être offerts en personne (à savoir, sur site chez un client ou dans les bureaux d’un partenaire) ou virtuellement (à savoir, via la téléconférence, la conférence web ou l’implémentation à distance). Les réunions doivent être proposées en personne.
 
 Une fois que vous avez configuré les éléments requis répertoriés ci-dessus, l’équipe de révision du contenu vérifie que la description de votre offre est informative et exhaustive pour votre public cible. 
 
@@ -144,11 +144,11 @@ Lors de la révision des descriptions et des résumés des offres, l’équipe a
 
 |Type d’offre  |Obligatoire |Recommandé  |
 |---------|---------|---------|
-|Évaluation    |   Incluez un agenda détaillé des évaluations de plusieurs jours ou plusieurs semaines et formulez les livrables dont le client bénéficiera.      |    Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.     |
-|Réunion d’information    |   Formulez les livrables dont le client bénéficiera. N’oubliez pas que les réunions d’information doivent également être dispensées en personne. Si vous proposez un service virtuel, choisissez un autre type d’offre.    |  Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.       |
-|Implémentation    |  Incluez un agenda détaillé des implémentations de plusieurs jours ou plusieurs semaines, et formulez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client.       |    Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.     |
-|Preuve de concept    |    Formulez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client.     | Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.        |
-|Atelier    |   Incluez un agenda détaillé quotidien, hebdomadaire ou mensuel, selon la durée que vous avez choisie pour votre offre. Formulez les objectifs d’apprentissage ou les autres livrables de votre atelier.     |   Optimisez le récapitulatif de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.      |
+|**Évaluation**    |   Incluez un agenda détaillé des évaluations de plusieurs jours ou plusieurs semaines et formulez les livrables dont le client bénéficiera.      |    Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.     |
+|**Réunion d’information**    |   Formulez les livrables dont le client bénéficiera. N’oubliez pas que les réunions d’information doivent également être dispensées en personne. Si vous proposez un service virtuel, choisissez un autre type d’offre.    |  Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.       |
+|**Implémentation**    |  Incluez un agenda détaillé des implémentations de plusieurs jours ou plusieurs semaines, et formulez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client.       |    Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.     |
+|**Preuve de concept**    |    Formulez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client.     | Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.        |
+|**Atelier**    |   Incluez un agenda détaillé quotidien, hebdomadaire ou mensuel, selon la durée que vous avez choisie pour votre offre. Formulez les objectifs d’apprentissage ou les autres livrables de votre atelier.     |   Optimisez le récapitulatif de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.      |
 
 Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre référencement en utilisant [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Ce langage de conception léger vous aidera à peaufiner l’aspect de votre référencement. 
 
@@ -160,3 +160,12 @@ Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre r�
 *   Saut de ligne après le titre
 *   ** = gras (sans espace) (par ex. : **Sans espace**) •   Résumé de l’offre en italique •   Agenda and Deliverables est un titre
 
+## <a name="next-steps"></a>Étapes suivantes
+
+Si vous ne l’avez pas déjà fait, 
+
+- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché
+
+Si vous êtes inscrit et utilisez le portail Cloud Partner, 
+
+- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre

@@ -2,24 +2,19 @@
 title: Créer et utiliser une signature d’accès partagé (SAP) avec le Stockage Blob Azure | Documents Microsoft
 description: Ce didacticiel vous montre comment créer des signatures d’accès partagé en vue d’une utilisation avec Stockage Blob et comment les utiliser dans vos applications clientes.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
+ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: blobs
+ms.openlocfilehash: 6546553fa3537ac63d956dc5febfd77efe9fd34d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23056794"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400122"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Blob Storage
 
@@ -72,7 +67,7 @@ Modifiez le fichier app.config pour qu'il contienne un paramètre de configurati
 ### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Générer une URI de signature d’accès partagé pour un conteneur
 Pour commencer, nous allons ajouter une méthode pour générer une signature d'accès partagé sur un nouveau conteneur. Ici, la signature n'est pas associée à une stratégie d'accès stocké. C’est pourquoi elle reporte sur l’URI les informations concernant son heure d’expiration et les autorisations qu’elle accorde.
 
-Ajoutons du code à la méthode **Main()** pour authentifier l'accès à votre compte de stockage et créer un conteneur :
+Commencez par ajouter du code à la méthode **Main()** pour autoriser l’accès à votre compte de stockage et créer un conteneur :
 
 ```csharp
 static void Main(string[] args)

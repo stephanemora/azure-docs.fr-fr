@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f3460d22354a944a14c814c372cacf6839dc7bb7
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214725"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325426"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Connect : authentification directe - mise à niveau de la version préliminaire des agents d’authentification
 
@@ -68,7 +68,7 @@ La mise à niveau d’Azure AD Connect doit précéder celle de l’agent d’au
 
 1. **Mettre à niveau Azure AD Connect** : consultez cet [article](./active-directory-aadconnect-upgrade-previous-version.md) pour obtenir la version la plus récente d’Azure AD Connect.
 2. **Désinstaller la version préliminaire de l’agent d’authentification** : téléchargez [ce script PowerShell](https://aka.ms/rmpreviewagent) et exécutez-le en tant qu’administrateur sur le serveur.
-3. **Téléchargez la dernière version de l’agent d’authentification (version 1.5.193.0 ou ultérieure)**  : connectez-vous au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) avec les droits d’administrateur général de votre locataire. Sélectionnez **Azure Active Directory -> Azure AD Connect -> authentification directe -> agent de téléchargement**. Acceptez les [conditions d’utilisation](https://aka.ms/authagenteula) et téléchargez la dernière version de l’agent d’authentification. Vous pouvez également télécharger l’agent d’authentification [ici](https://aka.ms/getauthagent).
+3. **Téléchargez la dernière version de l’agent d’authentification (version 1.5.389.0 ou ultérieure)** : connectez-vous au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) avec les droits d’administrateur général de votre locataire. Sélectionnez **Azure Active Directory -> Azure AD Connect -> authentification directe -> agent de téléchargement**. Acceptez les [conditions d’utilisation](https://aka.ms/authagenteula) et téléchargez la dernière version de l’agent d’authentification. Vous pouvez également télécharger l’agent d’authentification [ici](https://aka.ms/getauthagent).
 4. **Installer la dernière version de l’agent d’authentification** : exécutez le fichier exécutable téléchargé à l’étape 3. Fournissez les informations d’identification de l’administrateur général de votre locataire lorsque vous y êtes invité.
 5. **Vérifier que la version la plus récente a été installée** : comme indiqué précédemment, accédez à **Panneau de configuration -&gt; Programmes -&gt; Programmes et fonctionnalités** et vérifiez qu’il existe une entrée pour «**Agent d’authentification Microsoft Azure AD Connect**».
 
@@ -80,7 +80,7 @@ La mise à niveau d’Azure AD Connect doit précéder celle de l’agent d’au
 Procédez comme suit pour mettre à niveau les agents d’authentification sur d’autres serveurs (lorsqu’Azure AD Connect n’est pas installé) :
 
 1. **Désinstaller la version préliminaire de l’agent d’authentification** : téléchargez [ce script PowerShell](https://aka.ms/rmpreviewagent) et exécutez-le en tant qu’administrateur sur le serveur.
-2. **Téléchargez la dernière version de l’agent d’authentification (version 1.5.193.0 ou ultérieure)**  : connectez-vous au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) avec les droits d’administrateur général de votre locataire. Sélectionnez **Azure Active Directory -> Azure AD Connect -> authentification directe -> agent de téléchargement**. Acceptez les conditions d’utilisation et téléchargez la dernière version.
+2. **Téléchargez la dernière version de l’agent d’authentification (version 1.5.389.0 ou ultérieure)** : connectez-vous au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) avec les droits d’administrateur général de votre locataire. Sélectionnez **Azure Active Directory -> Azure AD Connect -> authentification directe -> agent de téléchargement**. Acceptez les conditions d’utilisation et téléchargez la dernière version.
 3. **Installer la dernière version de l’agent d’authentification** : exécutez le fichier exécutable téléchargé à l’étape 2. Fournissez les informations d’identification de l’administrateur général de votre locataire lorsque vous y êtes invité.
 4. **Vérifier que la version la plus récente a été installée** : comme indiqué précédemment, accédez à **Panneau de configuration -&gt; Programmes -&gt; Programmes et fonctionnalités** et vérifiez qu’il existe une entrée appelée **Agent d’authentification Microsoft Azure AD Connect**.
 

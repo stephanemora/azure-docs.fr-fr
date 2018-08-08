@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ac9070e328ef867a0b0e8d7d81f5147a50357928
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 603a6e2f3ce744d792ad9c9be20622c65a37dda3
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126406"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414604"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique
 
@@ -22,9 +22,13 @@ Cet article détaille les limites de ressources des bases de données uniques Az
 
 Pour les limites du modèle d’achat DTU, consultez [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md).
 
+> [!IMPORTANT]
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
+
+
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Base de données unique : tailles de stockage et niveaux de performance
 
-Pour les bases de données uniques, les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de performance et de service. Vous pouvez définir le niveau de service, le niveau de performance et la quantité de stockage pour une base de données unique à l’aide du [portail Azure](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), de [Transact-SQL](sql-database-servers-databases-manage.md#transact-sql-manage-logical-servers-and-databases), de [PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases), [d’Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases) ou de [l’API REST](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+Pour les bases de données uniques, les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de performance et de service. Vous pouvez définir le niveau de service, le niveau de performance et la quantité de stockage pour une base de données unique à l’aide du [portail Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), de [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), de [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [d’Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) ou de [l’API REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
 ### <a name="general-purpose-service-tier"></a>Niveau de service Usage général
 
@@ -34,7 +38,7 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Génération H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Mémoire (Go)|7|14|28|56|112|168|
-|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -56,7 +60,7 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|
 |vCores|2|4|8|16|24|32|40|80|
 |Mémoire (Go)|11|22|44|88|132|176|220|440|
-|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -80,7 +84,7 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Génération H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Mémoire (Go)|7|14|28|56|112|168|
-|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|1|2|4|8|20|36|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
@@ -92,7 +96,7 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|3|3|3|3|3|3|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|Oui|Oui|Oui|Oui|Oui|Oui|
+|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 
@@ -102,7 +106,7 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|
 |vCores|2|4|8|16|24|32|40|80|
 |Mémoire (Go)|11|22|44|88|132|176|220|440|
-|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|1 571|3 142|6 284|15 768|25 252|37 936|52.22|131,64|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|

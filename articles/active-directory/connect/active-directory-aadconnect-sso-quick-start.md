@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259117"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325385"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -43,13 +43,13 @@ Vérifiez que les prérequis suivants sont remplis :
 
 * **Utiliser une topologie Azure AD Connect prise en charge** . Veillez à utiliser une des topologies d’Azure Connect AD prises en charge et décrites [ici](active-directory-aadconnect-topologies.md).
 
-* **Définir les informations d'identification de l'administrateur de domaine**. Vous devez disposer des informations d'identification de l'administrateur de domaine pour chaque forêt Active Directory, dans les scénarios suivants :
+* **Définir les informations d'identification de l'administrateur de domaine** : Vous devez disposer des informations d'identification de l'administrateur de domaine pour chaque forêt Active Directory, dans les scénarios suivants :
     * Synchronisation avec Azure AD via Azure AD Connect.
     * La forêt contient des utilisateurs pour lesquels vous souhaitez activer Seamless SSO.
     
 * **Activer l’authentification moderne**. Vous devez activer [l’authentification moderne](https://aka.ms/modernauthga) sur votre locataire pour que cette fonctionnalité fonctionne.
 
-* **Utiliser les dernières versions de clients Office 365**. Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vous avez besoin des versions 16.0.8730.xxxx ou ultérieures.
+* **Utiliser les dernières versions de clients Office 365**. Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vos utilisateurs doivent utiliser la version 16.0.8730.xxxx ou une version ultérieure.
 
 ## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
 
@@ -80,6 +80,9 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 4. Vérifiez que la fonctionnalité **Authentification unique transparente** est **activée**.
 
 ![Portail Azure : volet Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> L’authentification unique fluide crée un compte d’ordinateur nommé `AZUREADSSOACC` (c’est-à-dire Azure AD) sur votre instance Active Directory (AD) locale, dans chaque forêt AD. Ce compte d’ordinateur est nécessaire pour que la fonctionnalité soit opérationnelle. Déplacez le compte d’ordinateur `AZUREADSSOACC` vers une unité d’organisation (UO) où d’autres comptes d’ordinateurs sont stockés. Vous serez ainsi assuré qu’il sera géré de la même façon et qu’il ne sera pas supprimé.
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
@@ -194,7 +197,7 @@ L’authentification unique transparente ne fonctionne pas en mode de navigation
 
 Pour tester la fonctionnalité d’un utilisateur spécifique, assurez-vous que toutes les conditions suivantes sont en place :
   - L’utilisateur se connecte à un appareil d’entreprise.
-  - L'appareil est joint à votre domaine Active Directory.
+  - L'appareil est joint à votre domaine Active Directory. L’appareil _n’a pas_ besoin d’être [joint à Azure AD](../active-directory-azureadjoin-overview.md).
   - L’appareil dispose d’une connexion directe à votre contrôleur de domaine, soit sur le réseau câblé ou sans fil de l’entreprise, soit par le biais d’une connexion d’accès à distance, comme une connexion VPN.
   - Vous avez [déployé la fonctionnalité](##step-3-roll-out-the-feature) pour cet utilisateur via la stratégie de groupe.
 

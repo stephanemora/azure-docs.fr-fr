@@ -6,20 +6,20 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 08/01/2018
 ms.author: marsma
-ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 63bbd9b5711330207c34ac4aa05aac3a71304653
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582628"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413577"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework avec ACR Build
 
 Les conteneurs fournissent de nouveaux niveaux de virtualisation en isolant les dépendances d’application et de développement des spécifications opérationnelles et d’infrastructure. Ce qui demeure, toutefois, est la nécessité de gérer les mises à jour correctives de cette virtualisation d’application.
 
-**ACR Build**, suite de fonctionnalités dans Azure Container Registry, permet non seulement de créer des images de conteneur de manière native, mais automatise également [les mises à jour correctives du système d’exploitation et du framework](#automate-os-and-framework-patching) pour vos conteneurs Docker.
+**ACR Build** est une suite de fonctionnalités dans Azure Container Registry. Elle fournit la création d’image conteneur informatique pour Linux, Windows et ARM, et peut automatiser [la mise à jour corrective du framework et du système d’exploitation](#automate-os-and-framework-patching) pour vos conteneurs Docker.
 
 [!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
@@ -33,7 +33,20 @@ Vous pouvez déclencher automatiquement la génération d’image de conteneur q
 
 La gestion du cycle de vie commence avant que les développeurs valident leurs premières lignes de code. La fonctionnalité de [Génération rapide](container-registry-tutorial-quick-build.md) d’ACR Build permet de bénéficier d’une expérience de développement en boucle interne locale et intégrée, déchargeant les builds vers Azure. Avec la génération rapide, vous pouvez vérifier vos définitions de build automatisées avant de valider votre code.
 
-Utilisant le format `docker build` bien connu, la commande [az acr build][az-acr-build] dans Azure CLI prend un contexte local, l’envoie au service ACR Build et, par défaut, exécute un push de l’image intégrée vers son registre lors de son achèvement. ACR Build suit vos registres géorépliqués, ce qui permet aux équipes de développement dispersées géographiquement de tirer parti du registre répliqué le plus proche. Durant la période de préversion, ACR est disponible dans les régions États-Unis de l’Est et Europe de l’Ouest.
+Utilisant le format `docker build` bien connu, la commande [az acr build][az-acr-build] dans Azure CLI prend un **contexte** (un ensemble de fichiers à générer), l’envoie au service ACR Build et, par défaut, exécute un push de l’image intégrée vers son registre lors de son achèvement.
+
+Le tableau suivant présente quelques exemples d’emplacements de contexte pris en charge pour ACR Build :
+
+| Emplacement du contexte | Description | Exemples |
+| ---------------- | ----------- | ------- |
+| Système de fichiers local | Fichiers dans un répertoire sur le système de fichiers local. | `/home/user/projects/myapp` |
+| Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub.  | `https://github.com/gituser/myapp-repo.git` |
+| Branche GitHub | Branche spécifique d’un référentiel GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub PR | Demande de tirage dans un référentiel GitHub. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
+| Sous-dossier de GitHub | Fichiers dans un sous-dossier d’un référentiel GitHub. L’exemple affiche la combinaison de spécifications de PR et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Tarball distant | Fichiers dans une archive compressée sur un serveur Web à distance. | `http://remoteserver/myapp.tar.gz` |
+
+ACR Build suit vos registres géorépliqués, ce qui permet aux équipes de développement dispersées géographiquement de tirer parti du registre répliqué le plus proche.
 
 ACR Build est conçu comme primitif du cycle de vie de conteneur. Vous pouvez par exemple intégrer ACR Build à votre solution CI/CD. En exécutant [az login][az-login] avec un [principal de service][az-login-service-principal], votre solution CI/CD pourra alors émettre des commandes [az acr build][az-acr-build] pour lancer des générations d’image.
 
@@ -49,7 +62,7 @@ Découvrez comment déclencher une génération lors de la validation du code so
 
 L’aptitude d’ACR Build à réellement améliorer votre pipeline de génération de conteneur provient de sa capacité à détecter la mise à jour d’une image de base. Quand l’image de base mise à jour est envoyée vers votre registre, ACR Build peut générer automatiquement toute image d’application basée sur elle.
 
-Les images de conteneur appartiennent en gros à deux catégories : les images de *base* et les images d’*application*. En règle générale, vos images de base incluent les frameworks d’application et de système d’exploitation sur lesquels votre application est générée, ainsi que d’autres personnalisations. Ces images de base sont elles-mêmes généralement basées sur des images publiques en amont, par exemple [Alpine Linux][base-alpine] ou [Node.js][base-node]. Plusieurs de vos images d’application peuvent partager une image de base commune.
+Les images de conteneur appartiennent en gros à deux catégories : les images de *base* et les images d’*application*. En règle générale, vos images de base incluent les frameworks d’application et de système d’exploitation sur lesquels votre application est générée, ainsi que d’autres personnalisations. Ces images de base sont elles-mêmes généralement basées sur des images publiques en amont, par exemple [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], ou [Node.js][base-node]. Plusieurs de vos images d’application peuvent partager une image de base commune.
 
 Quand une image de framework d’application ou de système d’exploitation est mise à jour par le chargé de maintenance en amont, par exemple avec un correctif de sécurité critique du système d’exploitation, vous devez également mettre à jour vos images de base pour qu’elles contiennent ce correctif critique. Chaque image d’application doit ensuite être également recréée pour inclure ces correctifs en amont maintenant inclus dans votre image de base.
 
@@ -58,7 +71,7 @@ Quand une image de framework d’application ou de système d’exploitation est
 Pour en savoir plus sur la mise à jour corrective du système d’exploitation et du framework, consultez le troisième tutoriel ACR Build, [Automatiser la génération d’images lors de la mise à jour de l’image de base avec Azure Container Registry Build](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Pour la préversion initiale, les mises à jour de l’image de base déclenchent une génération uniquement quand les images de base et d’application se trouvent dans le même registre de conteneur Azure.
+> Pour la préversion initiale, les mises à jour de l’image de base déclenchent une génération uniquement quand les images de base et d’application se trouvent dans le même registre de conteneur Azure ou les référentiels Docker Hub accessibles publiquement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

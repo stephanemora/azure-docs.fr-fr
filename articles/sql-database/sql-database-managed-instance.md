@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: bonova
-ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ff571035c9360730546732205f34d75ace38fbff
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091991"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414314"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
@@ -139,15 +139,16 @@ Le niveau de service Critique pour l’entreprise est conçu pour les applicatio
 
 La liste suivante décrit les principales caractéristiques du niveau de service Critique pour l’entreprise : 
 -   Conçu pour les applications d’entreprise avec les exigences les plus hautes en matière de performances et de disponibilité 
--   Fourni avec un stockage SSD extrêmement rapide (jusqu’à 1 To sur Gen 4, jusqu’à 4 To sur Gen 5) : prend en charge jusqu’à 100 bases de données par instance 
+-   Fourni avec un stockage SSD extrêmement rapide (jusqu’à 1 To sur Gen 4, jusqu’à 4 To sur Gen 5)
+-   Prend en charge jusqu'à 100 bases de données par instance 
 
 |Fonctionnalité | Description|
 |---|---|
-| Nombre de vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
+| Nombre de vCores* | 8, 16, 24, 32 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
 | Version/Build de SQL Server | SQL Server (version la plus récente disponible) |
 | Fonctionnalités supplémentaires | [OLTP en mémoire](sql-database-in-memory.md)<br> 1 réplica en lecture seule supplémentaire ([échelle horizontale en lecture](sql-database-read-scale-out.md))
 | Taille de stockage minimale | 32 Go |
-| Taille de stockage maximale | Gen 4 : 1 To (toutes tailles de vCore)<br> Gen 5 :<ul><li>1 To pour 8, 16 vCores</li><li>2 To pour 24 vCores</li><li>4 To pour 40, 60, 80 vCores</ul>|
+| Taille de stockage maximale | Gen 4 : 1 To (toutes tailles de vCore)<br> Gen 5 :<ul><li>1 To pour 8, 16 vCores</li><li>2 To pour 24 vCores</li><li>4 To pour 32, 40, 64, 80 vCores</ul>|
 | Espace de stockage maximal par base de données | Déterminé par la taille de stockage maximale par instance |
 | Nombre de fichiers de données (ROWS) par base de données | Multiple | 
 | Nombre de fichiers journaux (LOG) par base de données | 1 | 

@@ -2,8 +2,8 @@
 title: Créer des abonnements Azure Enterprise par programmation| Microsoft Docs
 description: Découvrez comment créer des abonnements Azure Enterprise ou Enterprise Dev/Test supplémentaires par programmation.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
-ms.openlocfilehash: df66ba1ec2c855a24731387210b0127892f5796f
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.author: adpick
+ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234782"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358351"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Créer des abonnements Azure Enterprise par programmation (préversion)
 
@@ -28,9 +28,11 @@ Lorsque vous créez un abonnement Azure par le biais de cette API, cet abonnemen
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Votre compte doit être un Propriétaire du compte dans une inscription Azure EA. Dans le cas contraire, demandez à votre administrateur d’inscription de [vous ajouter en tant que propriétaire de compte à l’aide du portail EA](https://ea.azure.com/helpdocs/addNewAccount) (connexion requise). Suivez les instructions de l’e-mail d’invitation que vous recevez pour créer manuellement un premier abonnement. Confirmez la propriété du compte et créez manuellement un premier abonnement EA avant de passer à l’étape suivante. Ajouter simplement le compte à l’inscription ne suffit pas.
+Vous devez disposer d’un rôle de propriétaire ou contributeur sur le compte d’inscription dans lequel vous souhaitez créer des abonnements. Vous pouvez obtenir ces rôles de deux manières :
 
-* Si vous souhaitez utiliser un principal de service pour créer l’abonnement EA, vous devez [accorder à ce principal de service la capacité à créer des abonnements](grant-access-to-create-subscription.md).
+* Votre administrateur d’inscription peut [vous rendre propriétaire d’un compte](https://ea.azure.com/helpdocs/addNewAccount) (connexion obligatoire) ce qui vous rend propriétaire du compte d’inscription. Suivez les instructions de l’e-mail d’invitation que vous recevez pour créer manuellement un premier abonnement. Confirmez la propriété du compte et créez manuellement un premier abonnement EA avant de passer à l’étape suivante. Ajouter simplement le compte à l’inscription ne suffit pas.
+
+* Un propriétaire existant du compte d’inscription peut [vous accorder l’accès](grant-access-to-create-subscription.md). Par ailleurs, si vous souhaitez utiliser un principal de service pour créer l’abonnement EA, vous devez [accorder à ce principal de service la capacité à créer des abonnements](grant-access-to-create-subscription.md).
 
 ## <a name="find-accounts-you-have-access-to"></a>Rechercher les comptes auxquels vous avez accès
 
@@ -152,7 +154,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | Nom de l’élément  | Obligatoire | type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Non       | Chaîne | Nom d’affichage de l’abonnement. Si cet élément n’est pas spécifié, il est défini sur le nom de l’offre, tel que « Microsoft Azure Enterprise ».                                 |
-| `offerType`   | OUI      | Chaîne | Offre de l’abonnement. Les deux options pour EA sont [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilisation en production) et [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (développement/test, à [activer à l’aide du portail EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `offerType`   | Oui      | Chaîne | Offre de l’abonnement. Les deux options pour EA sont [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilisation en production) et [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (développement/test, à [activer à l’aide du portail EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | Non        | Chaîne | ID d’objet de tout utilisateur que vous souhaitez ajouter en tant que propriétaire RBAC sur l’abonnement au moment de sa création.  |
 
 Dans la réponse, vous obtenez un objet `subscriptionOperation` pour le monitoring. Quand la création de l’abonnement est terminée, l’objet `subscriptionOperation` retourne un objet `subscriptionLink`, qui a l’ID d’abonnement.
@@ -161,7 +163,7 @@ Dans la réponse, vous obtenez un objet `subscriptionOperation` pour le monitori
 
 Pour utiliser ce module en préversion, installez-le en exécutant `Install-Module AzureRM.Subscription -AllowPrerelease` d’abord. Pour vous assurer que `-AllowPrerelease` fonctionne, installez une version récente de PowerShellGet à partir de la page [Obtenir le module PowerShellGet](/powershell/gallery/installing-psget).
 
-Utilisez la commande [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) avec l’ID d’objet `enrollmentAccount` comme paramètre `EnrollmentAccountObjectId` pour créer un abonnement. 
+Utilisez la commande [New-AzureRmSubscription](/powershell/module/azurerm.subscription) avec l’ID d’objet `enrollmentAccount` comme paramètre `EnrollmentAccountObjectId` pour créer un abonnement. 
 
 ```azurepowershell-interactive
 New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
@@ -170,8 +172,8 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 | Nom de l’élément  | Obligatoire | type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Non       | Chaîne | Nom d’affichage de l’abonnement. Si cet élément n’est pas spécifié, il est défini sur le nom de l’offre, tel que « Microsoft Azure Enterprise ».                                 |
-| `OfferType`   | OUI      | Chaîne | Offre de l’abonnement. Les deux options pour EA sont [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilisation en production) et [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (développement/test, à [activer à l’aide du portail EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | OUI       | Chaîne | ID d’objet du compte d’inscription sous lequel l’abonnement est créé et facturé. Il s’agit d’une valeur GUID que vous obtenez à partir de `Get-AzureRmEnrollmentAccount`. |
+| `OfferType`   | Oui      | Chaîne | Offre de l’abonnement. Les deux options pour EA sont [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilisation en production) et [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (développement/test, à [activer à l’aide du portail EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Oui       | Chaîne | ID d’objet du compte d’inscription sous lequel l’abonnement est créé et facturé. Il s’agit d’une valeur GUID que vous obtenez à partir de `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Non        | Chaîne | ID d’objet de tout utilisateur que vous souhaitez ajouter en tant que propriétaire RBAC sur l’abonnement au moment de sa création.  |
 | `OwnerSignInName`    | Non        | Chaîne | Adresse e-mail de tout utilisateur que vous souhaitez ajouter en tant que propriétaire RBAC sur l’abonnement au moment de sa création. Vous pouvez utiliser ce paramètre au lieu de `OwnerObjectId`.|
 | `OwnerApplicationId` | Non        | Chaîne | ID d’application de tout principal de service que vous souhaitez ajouter en tant que propriétaire RBAC sur l’abonnement au moment de sa création. Vous pouvez utiliser ce paramètre au lieu de `OwnerObjectId`.| 
@@ -191,8 +193,8 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | Nom de l’élément  | Obligatoire | type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Non       | Chaîne | Nom d’affichage de l’abonnement. Si cet élément n’est pas spécifié, il est défini sur le nom de l’offre, tel que « Microsoft Azure Enterprise ».                                 |
-| `offer-type`   | OUI      | Chaîne | Offre de l’abonnement. Les deux options pour EA sont [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilisation en production) et [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (développement/test, à [activer à l’aide du portail EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | OUI       | Chaîne | ID d’objet du compte d’inscription sous lequel l’abonnement est créé et facturé. Il s’agit d’une valeur GUID que vous obtenez à partir de `az billing enrollment-account list`. |
+| `offer-type`   | Oui      | Chaîne | Offre de l’abonnement. Les deux options pour EA sont [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilisation en production) et [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (développement/test, à [activer à l’aide du portail EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Oui       | Chaîne | ID d’objet du compte d’inscription sous lequel l’abonnement est créé et facturé. Il s’agit d’une valeur GUID que vous obtenez à partir de `az billing enrollment-account list`. |
 | `owner-object-id`      | Non        | Chaîne | ID d’objet de tout utilisateur que vous souhaitez ajouter en tant que propriétaire RBAC sur l’abonnement au moment de sa création.  |
 | `owner-upn`    | Non        | Chaîne | Adresse e-mail de tout utilisateur que vous souhaitez ajouter en tant que propriétaire RBAC sur l’abonnement au moment de sa création. Vous pouvez utiliser ce paramètre au lieu de `owner-object-id`.|
 | `owner-spn` | Non        | Chaîne | ID d’application de tout principal de service que vous souhaitez ajouter en tant que propriétaire RBAC sur l’abonnement au moment de sa création. Vous pouvez utiliser ce paramètre au lieu de `owner-object-id`.| 
@@ -207,10 +209,10 @@ Pour obtenir la liste complète de tous les paramètres, consultez [az account c
 - Il existe une limite de 50 abonnements par compte. Au-delà, les abonnements ne peuvent être créés qu’à l’aide du Centre des comptes.
 - Il doit y avoir au moins un abonnement EA ou EA Dev/Test sous le compte, ce qui signifie que le propriétaire du compte a effectué une inscription manuelle au moins une fois.
 - Les utilisateurs qui ne sont pas propriétaires de compte, mais qui ont été ajoutés à un compte d’inscription par le biais de RBAC, ne peuvent pas créer d’abonnements à l’aide du Centre de gestion.
-- Vous ne pouvez pas sélectionner le locataire où l’abonnement doit être créé. L’abonnement est toujours créé dans le locataire de base du propriétaire du compte. Pour déplacer l’abonnement vers un autre locataire, consultez [Changer le locataire d’abonnement](..\active-directory\active-directory-how-subscriptions-associated-directory.md).
+- Vous ne pouvez pas sélectionner le locataire où l’abonnement doit être créé. L’abonnement est toujours créé dans le locataire de base du propriétaire du compte. Pour déplacer l’abonnement vers un autre locataire, consultez [Changer le locataire d’abonnement](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir un exemple de création d’abonnements à l’aide de .NET, consultez [l’exemple de code sur GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Maintenant que vous avez créé un abonnement, vous pouvez accorder cette capacité à d’autres utilisateurs et principaux de service. Pour plus d’informations, consultez [Accorder l’accès pour créer des abonnements Azure Enterprise (préversion)](grant-access-to-create-subscription.md).
-* Pour en savoir plus sur la gestion d’un nombre élevé d’abonnement avec des groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](management-groups-overview.md).
+* Pour en savoir plus sur la gestion d’un nombre élevé d’abonnement avec des groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](management-groups-overview.md)

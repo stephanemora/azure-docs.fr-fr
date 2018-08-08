@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: d86f0e96f64a56644b3161725f7f6a430568a72f
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 2f732dfdfe9bf4aff2753114c3041f8f646421c2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242697"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344730"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notes de publication du Kit de développement Azure Stack
 Ces notes de publication fournissent des informations sur les améliorations, les correctifs et les problèmes connus relatifs au Kit de développement Azure Stack. Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -47,6 +47,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### <a name="known-issues"></a>Problèmes connus
  
 #### <a name="portal"></a>Portail
+- <!-- TBD - IS ASDK --> Vous ne pouvez pas appliquer les mises à jour de pilote à l’aide d’un package d’extension OEM avec cette version d’Azure Stack.  Il n’existe aucune solution de contournement pour ce problème.
+ 
 - <!-- TBD - IS ASDK --> N’utilisez pas les nouveaux types d’abonnement d’administration *Abonnement de contrôle* et *Abonnement de consommation*. Ces nouveaux types d’abonnement ont été introduits avec la version 1804 mais ne sont pas encore prêts à être utilisés. Vous devez continuer à utiliser le type d’abonnement *Fournisseur par défaut*.  
 
 - <!-- 2403291 - IS ASDK --> Il se peut que vous ne puissiez pas utiliser la barre de défilement horizontale au bas du portail d’administration et du portail utilisateur. Si vous ne pouvez pas accéder à la barre de défilement horizontale, utilisez les barres de navigation pour accéder à un panneau précédent dans le portail en sélectionnant le nom du panneau que vous souhaitez afficher dans la liste des barres de navigation en haut à gauche du portail.
@@ -168,6 +170,8 @@ Les versions suivantes sont maintenant disponibles, mais ne nécessitent pas la 
 ### <a name="known-issues"></a>Problèmes connus
  
 #### <a name="portal"></a>Portail
+- <!-- TBD - IS ASDK --> Vous ne pouvez pas appliquer les mises à jour de pilote à l’aide d’un package d’extension OEM avec cette version d’Azure Stack.  Il n’existe aucune solution de contournement pour ce problème.
+ 
 - <!-- TBD - IS ASDK --> La possibilité d’[ouvrir une nouvelle demande de support dans la liste déroulante](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) à partir du portail d’administration n’est pas disponible. À la place, utilisez le lien suivant :     
     - Pour le Kit de développement Azure Stack, utilisez https://aka.ms/azurestackforum.    
 

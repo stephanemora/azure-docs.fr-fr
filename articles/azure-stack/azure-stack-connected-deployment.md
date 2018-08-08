@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d64b834f1c6794976461c93d4ad1d05f8647e986
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120384"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414587"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement connecté à Azure pour les systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
@@ -40,7 +40,7 @@ Lorsque vous utilisez Azure AD comme magasin d’identités, vous avez besoin de
 1. **Compte administrateur général** (requis uniquement pour les déploiements connectés). Ce compte Azure est utilisé pour créer des applications et des principaux de service pour les services d’infrastructure Azure Stack dans Azure Active Directory. Ce compte doit disposer d’autorisations d’administrateur de répertoire pour le répertoire dans lequel vous allez déployer votre système Azure Stack. Il deviendra l’administrateur général de l’opérateur cloud pour le locataire Azure AD et sera utilisé : 
     - Pour provisionner et déléguer des applications et des principaux de service pour tous les services Azure Stack qui doivent interagir avec Azure Active Directory et l’API Graph. 
     - Comme compte de l’administrateur de service. Il s’agit du propriétaire de l’abonnement du fournisseur par défaut (vous pouvez modifier ce paramètre ultérieurement). Vous pouvez vous connecter au portail d’administration Azure Stack à l’aide de ce compte et vous pouvez l’utiliser pour créer des offres et des plans, définir des quotas et effectuer d’autres fonctions d’administration dans Azure Stack.
-2. **Compte de facturation** (requis pour les déploiements connectés et déconnectés). Ce compte Azure est utilisé pour établir la relation de facturation entre votre système Azure Stack intégré et le serveur principal Azure Commerce. Il s’agit du compte sur lequel seront facturés les frais relatifs à Azure Stack. Ce compte sera également utilisé pour la syndication de marketplace et d’autres scénarios hybrides. 
+2. **Compte de facturation** (requis pour les déploiements connectés et déconnectés). Ce compte Azure est utilisé pour établir la relation de facturation entre votre système Azure Stack intégré et le serveur principal Azure Commerce. Il s’agit du compte sur lequel seront facturés les frais relatifs à Azure Stack. Ce compte sera également utilisé pour offrir des éléments dans le Marketplace et d’autres scénarios hybrides. 
 
 ### <a name="ad-fs-identity-store"></a>Magasin d’identités AD FS
 Choisissez cette option si vous souhaitez utiliser votre propre magasin d’identités, tel que votre instance Active Directory d’entreprise, pour vos comptes d’administrateur de service.  
@@ -64,12 +64,12 @@ Si vous vous apprêtez à utiliser un abonnement CSP, consultez le tableau ci-de
 ### <a name="capacity-based-billing"></a>Facturation selon la capacité
 Si vous décidez d’utiliser le modèle de facturation selon la capacité, vous devez acheter une référence (SKU) de plan de capacité Azure Stack correspondant à la capacité de votre système. Vous devrez connaître le nombre de cœurs physiques composant votre système Azure Stack pour pouvoir acheter la quantité appropriée. 
 
-La facturation selon la capacité nécessite un abonnement Azure EA (Enterprise Agreement) à des fins d’inscription. Cela s’explique par le fait que l’inscription configure la syndication, ce qui requiert un abonnement Azure. L’abonnement n’est pas utilisé pour l’utilisation de Azure Stack.
+La facturation selon la capacité nécessite un abonnement Azure EA (Enterprise Agreement) à des fins d’inscription. La raison est que l’inscription configure la disponibilité des éléments dans le Marketplace, ce qui nécessite un abonnement Azure. L’abonnement n’est pas utilisé pour l’utilisation de Azure Stack.
 
 ## <a name="learn-more"></a>En savoir plus
 - Pour plus d’informations sur les cas d’usage, l’achat, les partenaires et les fabricants de matériel OEM, consultez la page produit [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
 - Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack, consultez le livre blanc : [Azure Stack : une extension de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Pour en savoir plus sur l’empaquetage et la tarification de Microsoft Azure Stack, [téléchargez le fichier PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Intégration au réseau du centre de données](azure-stack-network.md)

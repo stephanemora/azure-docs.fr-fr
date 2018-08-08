@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37052764"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325351"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copier des données depuis/vers Azure Cosmos DB à l’aide d’Azure Data Factory
 
@@ -51,7 +51,7 @@ Les propriétés prises en charge pour le service lié Azure Cosmos DB sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **CosmosDb**. | OUI |
+| Type | La propriété type doit être définie sur **CosmosDb**. | Oui |
 | connectionString |Spécifiez les informations requises pour se connecter à la base de données Azure Cosmos DB. Notez que vous devez spécifier des informations de base de données dans la chaîne de connexion comme dans l’exemple ci-dessous. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -84,8 +84,8 @@ Pour copier des données depuis/vers Azure Cosmos DB, définissez la propriété
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **DocumentDbCollection** |OUI |
-| collectionName |Nom de la collection de documents Cosmos DB. |OUI |
+| Type | La propriété type du jeu de données doit être définie sur **DocumentDbCollection** |Oui |
+| collectionName |Nom de la collection de documents Cosmos DB. |Oui |
 
 **Exemple :**
 
@@ -122,7 +122,7 @@ Pour copier des données d’Azure Cosmos DB, définissez le type de source dans
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **DocumentDbCollectionSource** |OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **DocumentDbCollectionSource** |Oui |
 | query |Spécifiez la requête Cosmos DB pour lire les données.<br/><br/>Exemple : `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Non  <br/><br/>Si non spécifié, l’instruction SQL exécutée : `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Caractère spécial pour indiquer que le document est imbriqué et comment aplatir jeu de résultats.<br/><br/>Par exemple, si une requête Azure Cosmos DB retourne un résultat imbriqué `"Name": {"First": "John"}`, l’activité de copie identifie le nom de colonne en tant que « Nom.Prénom » avec la valeur « John » lorsque le séparateur (nestedSeparator) est un point. |Non (la valeur par défaut est un point `.`) |
 
@@ -164,7 +164,9 @@ Pour copier des données dans Azure Cosmos DB, définissez le type de récepteur
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DocumentDbCollectionSink**. |OUI |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DocumentDbCollectionSink**. |Oui |
+| writeBehavior |Décrit comment écrire des données dans Cosmos DB. Les valeurs autorisées sont : `insert` et `upsert`.<br/>Le comportement de la valeur **upsert** consiste à remplacer le document si un document portant le même identificateur existe déjà ; sinon, les données sont insérées. Notez qu’Azure Data Factory génère automatiquement un id pour le document s’il n’est pas spécifié dans le document d’origine ou par le mappage de colonnes, ce qui signifie que vous devez vous assurer que votre document comporte un « id » afin qu’upsert fonctionne comme prévu. |Non, la valeur par défaut est insert |
+| writeBatchSize | Data Factory utilise [l’exécuteur en bloc Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) pour écrire les données dans Cosmos DB. « writeBatchSize » contrôle à chaque fois la taille des documents que nous fournissons à la bibliothèque. Vous pouvez essayer d’augmenter la valeur writeBatchSize afin d’améliorer les performances. |Non  |
 | nestingSeparator |Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, `Name.First` dans la structure du jeu de données de sortie génère la structure JSON suivante dans le document Cosmos DB :`"Name": {"First": "[value maps to this column from source]"}` lorsque le séparateur nestedSeparator est un point. |Non (la valeur par défaut est un point `.`) |
 
 **Exemple :**
@@ -191,7 +193,8 @@ Pour copier des données dans Azure Cosmos DB, définissez le type de récepteur
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }

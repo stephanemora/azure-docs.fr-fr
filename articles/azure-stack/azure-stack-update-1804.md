@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990130"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413513"
 ---
 # <a name="azure-stack-1804-update"></a>Mise à jour 1804 d’Azure Stack
 
@@ -80,7 +80,10 @@ Les versions suivantes sont maintenant disponibles, mais ne nécessitent pas la 
 ## <a name="before-you-begin"></a>Avant de commencer    
 
 ### <a name="prerequisites"></a>Prérequis
-- Installez la [mise à jour 1803](azure-stack-update-1803.md) d’Azure Stack avant d’appliquer la mise à jour 1804 d’Azure Stack.    
+- Installez la [mise à jour 1803](azure-stack-update-1803.md) d’Azure Stack avant d’appliquer la mise à jour 1804 d’Azure Stack.  
+  
+- Installez [la dernière mise à jour ou le dernier correctif logiciel disponibles pour la version 1803](azure-stack-update-1803.md#post-update-steps). 
+
 
 ### <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour   
 - Pendant l’installation de la mise à jour 1804, des alertes avec le titre *Erreur - Le modèle de FaultType UserAccounts.New est manquant.* peuvent s’afficher.  Vous pouvez ignorer ces alertes de manière sécurisée. Elles se fermeront automatiquement une fois la mise à jour 1804 terminée.   
@@ -99,6 +102,8 @@ Après l’installation de la version 1804, installez les correctifs logiciels a
 Les éléments suivants sont des problèmes connus de post-installation pour la build **20180513.1**.
 
 #### <a name="portal"></a>Portail
+- <!-- TBD - IS ASDK --> Vous ne pouvez pas appliquer les mises à jour de pilote à l’aide d’un package d’extension OEM avec cette version d’Azure Stack.  Il n’existe aucune solution de contournement pour ce problème.
+
 - <!-- 1272111 - IS --> Une fois que vous aurez installé cette version d’Azure Stack ou effectué une mise à jour vers cette version, vous ne pourrez peut-être pas voir les unités d’échelle Azure Stack sur le portail d’administration.  
   Solution de contournement : Utiliser PowerShell pour voir des informations sur les unités d’échelle. Pour plus d’informations, consultez le contenu [d’aide](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) du Module Azure Stack 1.3.0. 
 
@@ -122,7 +127,7 @@ Les éléments suivants sont des problèmes connus de post-installation pour la 
 
 - <!-- TBD - IS ASDK --> Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack. Pour résoudre ce problème, utilisez PowerShell pour vérifier les autorisations.
 
-- <!-- TBD - IS ASDK --> Sur le portail d’administration, une alerte critique peut apparaître pour le composant *Microsoft.Update.Admin*. Le nom, la description et la correction de l’alerte s’affichent tous comme suit :  
+- <!-- TBD - IS ASDK --> Sur le portail d’administration, une alerte critique peut apparaître pour le composant *Microsoft.Update.Admin*. Le nom de l’alerte, la description et la correction s’affichent tous comme suit :  
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.* (ERREUR - Absence du modèle de FaultType ResourceProviderTimeout.)
 
   Cette alerte peut être ignorée en toute sécurité. 

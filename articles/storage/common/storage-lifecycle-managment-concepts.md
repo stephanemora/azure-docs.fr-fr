@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752790"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413125"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gérer le cycle de vie du stockage d'objets blob Azure (préversion)
 
@@ -70,7 +70,7 @@ Si la fonctionnalité est approuvée et correctement inscrite, vous devriez rece
 
 ## <a name="add-or-remove-policies"></a>Ajouter ou supprimer des stratégies 
 
-Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), des API REST ou des outils client dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du Portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), des [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -133,7 +133,7 @@ Les paramètres nécessaires au sein d’une règle sont :
 
 ## <a name="rules"></a>Règles
 
-Chaque définition de règle se compose d’un jeu de filtres et d’un jeu d’actions. L’exemple de règle suivant modifie le niveau des objets blob de bloc de base avec le préfixe `foo`. Dans la stratégie, ces règles sont définies en tant que :
+Chaque définition de règle se compose d’un jeu de filtres et d’un jeu d’actions. L’exemple de règle suivant modifie le niveau des objets blob de bloc de base avec le préfixe `container1/foo`. Dans la stratégie, ces règles sont définies en tant que :
 
 - Niveau objet blob sur stockage froid 30 jours après la dernière modification
 - Niveau objet blob sur stockage archive 90 jours après la dernière modification
@@ -150,7 +150,7 @@ Chaque définition de règle se compose d’un jeu de filtres et d’un jeu d’
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "foo" ]
+          "prefixMatch": [ "container1/foo" ]
         },
         "actions": {
           "baseBlob": {
@@ -177,8 +177,8 @@ Lors de la version d’évaluation, les filtres valides sont les suivants :
 
 | Nom du filtre | Type de filtre | Notes | Est obligatoire |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Un ensemble de valeurs enum prédéfinies. | Pour la version préliminaire, seul `blockBlob` est pris en charge. | OUI |
-| prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. | Si elle n’a pas été définie, cette règle s’applique à tous les objets blob dans le compte. | Non  |
+| blobTypes   | Un ensemble de valeurs enum prédéfinies. | Pour la version préliminaire, seul `blockBlob` est pris en charge. | Oui |
+| prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si une règle doit s’appliquer à tous les blobs figurant sous « https://myaccount.blob.core.windows.net/mycontainer/mydir/... », le préfixe est « mycontainer/mydir ». | Si elle n’a pas été définie, cette règle s’applique à tous les objets blob dans le compte. | Non  |
 
 ### <a name="rule-actions"></a>Actions de règle
 
@@ -190,7 +190,7 @@ Dans la version préliminaire, la gestion du cycle de vie prend en charge la hi�
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Prend actuellement en charge les objets blob au niveau Chaud         | Non pris en charge |
 | tierToArchive | Prend actuellement en charge les objets blob au niveau Chaud ou Froid | Non pris en charge |
-| delete        | Prise en charge                                   | Prise en charge     |
+| delete        | Pris en charge                                   | Pris en charge     |
 
 >[!NOTE] 
 Si plusieurs actions sont définies sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob (par exemple, l’action `delete` est moins chère que l’action `tierToArchive` et l’action `tierToArchive` est moins chère que l’action `tierToCool`).
@@ -207,7 +207,7 @@ Les exemples suivants expliquent comment résoudre des scénarios courants avec 
 
 ### <a name="move-aging-data-to-a-cooler-tier"></a>Déplacer les données vieillissantes vers un niveau plus froid
 
-L’exemple suivant montre comment déplacer des objets blob de blocs ayant le préfixe `foo` ou `bar`. La stratégie déplace les objets blob qui n’ont pas été modifiés depuis plus de 30 jours vers le stockage froid et les objets blob non modifiés depuis 90 jours vers le niveau archive :
+L’exemple suivant montre comment déplacer des objets blob de blocs ayant le préfixe `container1/foo` ou `container2/bar`. La stratégie déplace les objets blob qui n’ont pas été modifiés depuis plus de 30 jours vers le stockage froid et les objets blob non modifiés depuis 90 jours vers le niveau archive :
 
 ```json
 {
@@ -220,7 +220,7 @@ L’exemple suivant montre comment déplacer des objets blob de blocs ayant le p
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "foo", "bar" ]
+            "prefixMatch": [ "container1/foo", "container2/bar" ]
           },
           "actions": {
             "baseBlob": {
@@ -236,7 +236,7 @@ L’exemple suivant montre comment déplacer des objets blob de blocs ayant le p
 
 ### <a name="archive-data-at-ingest"></a>Archiver les données à la réception 
 
-D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées une fois stockées. Il vaut mieux dans ce cas archiver ces données immédiatement dès leur réception. La stratégie du cycle de vie suivante est configurée pour archiver des données à la réception. Cet exemple déplace immédiatement des objets blob de bloc dans le compte de stockage ayant le préfixe de `archive` dans un niveau archive. Le déplacement immédiat est accompli en agissant sur les objets blob 0 jours après l’heure de dernière modification :
+D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées une fois stockées. Il vaut mieux dans ce cas archiver ces données immédiatement dès leur réception. La stratégie du cycle de vie suivante est configurée pour archiver des données à la réception. Cet exemple déplace immédiatement les objets blob de blocs du compte de stockage au sein du conteneur `archivecontainer` dans un niveau archive. Le déplacement immédiat est accompli en agissant sur les objets blob 0 jours après l’heure de dernière modification :
 
 ```json
 {
@@ -249,7 +249,7 @@ D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas s
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archive" ]
+            "prefixMatch": [ "archivecontainer" ]
           },
           "actions": {
             "baseBlob": { 
@@ -292,7 +292,7 @@ Certaines données sont conçues pour expirer plusieurs jours ou mois après leu
 
 ### <a name="delete-old-snapshots"></a>Supprimer les anciens instantanés
 
-Pour les données qui sont modifiées et consultées régulièrement tout au long de leur durée de vie, les instantanés sont souvent utilisés pour suivre les versions antérieures des données. Vous pouvez créer une stratégie qui supprime les anciens instantanés selon leur ancienneté. L’âge de l’instantané est déterminé en regardant l’heure de création. Cette règle de stratégie supprime les instantanés d’objet blob de bloc ayant le préfixe `activeData` datant de plus de 90 jours après la création des instantanés.
+Pour les données qui sont modifiées et consultées régulièrement tout au long de leur durée de vie, les instantanés sont souvent utilisés pour suivre les versions antérieures des données. Vous pouvez créer une stratégie qui supprime les anciens instantanés selon leur ancienneté. L’âge de l’instantané est déterminé en regardant l’heure de création. Cette règle de stratégie supprime les instantanés d’objets blob de blocs au sein du conteneur `activedata` dont la création remonte à plus de 90 jours.
 
 ```json
 {
@@ -305,7 +305,7 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activeData" ]
+            "prefixMatch": [ "activedata" ]
           },
           "actions": {            
             "snapshot": {

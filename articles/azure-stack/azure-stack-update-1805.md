@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091770"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414631"
 ---
 # <a name="azure-stack-1805-update"></a>Mise à jour 1805 d’Azure Stack
 
@@ -72,7 +72,8 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
 ## <a name="before-you-begin"></a>Avant de commencer    
 
 ### <a name="prerequisites"></a>Prérequis
-- Installez la [mise à jour 1804](azure-stack-update-1804.md) d’Azure Stack avant d’appliquer la mise à jour 1805 d’Azure Stack.    
+- Installez la [mise à jour 1804](azure-stack-update-1804.md) d’Azure Stack avant d’appliquer la mise à jour 1805 d’Azure Stack.  
+- Installez la dernière [mise à jour ou le dernier correctif logiciel disponibles pour la version 1804](azure-stack-update-1804.md#post-update-steps).   
 - Avant de commencer l’installation de la mise à jour 1805, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une intervention. 
 
 ### <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour   
@@ -90,6 +91,8 @@ Après l’installation de la version 1805, installez les correctifs logiciels a
 Les éléments suivants sont des problèmes connus qui apparaissent après l’installation de cette build.
 
 ### <a name="portal"></a>Portail  
+- <!-- TBD - IS ASDK --> Vous ne pouvez pas appliquer les mises à jour de pilote à l’aide d’un package d’extension OEM avec cette version d’Azure Stack.  Il n’existe aucune solution de contournement pour ce problème.
+
 - <!-- 2551834 - IS, ASDK --> Lorsque vous sélectionnez **Vue d’ensemble** pour un compte de stockage sur le portail d’administration ou utilisateur, les informations du volet *Éléments principaux* ne s’affichent pas.  Le volet Éléments principaux affiche des informations sur le compte comme son *groupe de ressources*, son *emplacement* et son *ID d’abonnement*.  D’autres options de la vue d’ensemble sont accessibles, par exemple *Services* et *Surveillance*, ainsi que des options permettant d’*Ouvrir dans Explorer* ou de *Supprimer le compte de stockage*. 
 
   Pour afficher les informations non disponibles, utilisez la cmdlet PowerShell [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0). 

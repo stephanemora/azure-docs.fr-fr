@@ -15,6 +15,8 @@
 | Délai maximum d’expiration de la demande |24 heures | |
 | Nombre de sites |20 |1 par écouteur HTTP |
 | Mappages d’URL par écouteur |1 | |
-| Taille de téléchargement maximale Standard |2 Go | |
+|Longueur maximale d’URL|8000|
+| Taille de téléchargement maximale Standard |2 Go | |
 | Taille de téléchargement maximale WAF |100 Mo| |
+|Limite de taille de corps de WAF (sans les fichiers)|128 Ko|
 

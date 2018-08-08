@@ -46,8 +46,8 @@
       href: stream-analytics-compatibility-level.md
     - name: Modèles de requête courants
       href: stream-analytics-stream-analytics-query-patterns.md
-    - name: Utiliser des types de données complexes dans JavaScript Object Notation et AVRO
-      href: 'https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics'
+    - name: Analyser des données JSON et AVRO
+      href: stream-analytics-parsing-json.md
     - name: Considérations relatives à l’organisation des événements
       href: stream-analytics-out-of-order-and-late-events.md
     - name: Point de contrôle et relecture

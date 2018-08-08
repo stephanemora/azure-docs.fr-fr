@@ -2,7 +2,7 @@
 title: Surveiller l’exécution des fonctions Azure
 description: Découvrez comment utiliser Azure Application Insights avec Azure Functions pour surveiller l’exécution des fonctions.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,16 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: tdykstra
-ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: glenga
+ms.openlocfilehash: ba820c594b5afb34c050c74de30300b0dfc8c3a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344053"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
-## <a name="overview"></a>Vue d'ensemble 
+## <a name="overview"></a>Vue d’ensemble 
 
 [Azure Functions](functions-overview.md) est intégré à [Azure Application Insights](../application-insights/app-insights-overview.md) pour la surveillance des fonctions. Cet article explique comment configurer Azure Functions pour envoyer des données de télémétrie à Application Insights.
 
@@ -222,7 +223,7 @@ Le fichier *host.json* configure la quantité de journalisation qu’une applica
       "categoryLevels": {
         "Host.Results": "Error",
         "Function": "Error",
-        "Host.Aggregator": "Information"
+        "Host.Aggregator": "Trace"
       }
     }
   }
@@ -232,7 +233,7 @@ Le fichier *host.json* configure la quantité de journalisation qu’une applica
 Cet exemple montre comment configurer les règles suivantes :
 
 1. Pour les journaux ayant la catégorie « Host.Results » ou « Function », envoyer uniquement les niveaux `Error` et supérieurs à Application Insights. Les journaux pour les niveaux `Warning` et inférieurs sont ignorés.
-2. Pour les journaux ayant la catégorie Host. Aggregator, envoyer uniquement les niveaux `Information` et supérieurs à Application Insights. Les journaux pour les niveaux `Debug` et inférieurs sont ignorés.
+2. Pour les journaux avec la catégorie Host.Aggregator, envoyez tous les journaux à Application Insights. Le niveau du journal `Trace` est identique à ce que certains enregistreurs d’événements appellent `Verbose`, mais utilisez `Trace` dans le fichier *host.json*.
 3. Pour tous les autres journaux, envoyer uniquement les niveaux `Information` et supérieurs à Application Insights.
 
 La valeur de catégorie dans *host.json* contrôle la journalisation de toutes les catégories qui commencent par la même valeur. Par exemple, « Host » dans *host.json* contrôle la journalisation pour « Host.General », « Host.Executor », « Host.Results » et ainsi de suite.
@@ -558,7 +559,7 @@ Dans l’interface de ligne de commande Azure CLI 2.0, utilisez les commandes su
 az login
 az account list
 az account set <subscriptionNameOrId>
-az appservice web log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 Dans Azure PowerShell, utilisez les commandes suivantes pour ajouter votre compte Azure, choisir votre abonnement et diffuser les fichiers journaux :

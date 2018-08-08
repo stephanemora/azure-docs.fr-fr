@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e8f6b30bb7cbe82159e86fa48721afce3f9477d8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4de24608ba9db174f343bf0d78029913e4b7868f
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591495"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325681"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renouvellement des certificats de fédération pour Office 365 et Azure Active Directory
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Afin d’assurer la fédération réussie entre Azure Active Directory (Azure AD) et Active Directory Federation Services (AD FS), les certificats utilisés par AD FS pour signer les jetons de sécurité destinés à Azure AD doivent correspondre à la configuration d’Azure AD. Toute incompatibilité peut entraîner une rupture de l’approbation. Azure AD garantit la synchronisation de ces informations lorsque vous déployez AD FS et le proxy d’application web (pour l’accès extranet).
 
 Cet article fournit des informations supplémentaires pour gérer vos certificats de signature de jetons et les maintenir synchronisés avec Azure AD dans les scénarios suivants :
@@ -69,13 +69,19 @@ Sur votre serveur AD FS, ouvrez Powershell. Vérifiez que la valeur de AutoCerti
 >Si vous utilisez AD FS 2.0, commencez par exécuter Add-Pssnapin Microsoft.Adfs.Powershell.
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Étape 2 : vérifier que les services AD FS et Azure AD sont synchronisés
-Sur votre serveur AD FS, ouvrez l’invite de commandes Azure AD Powershell et connectez-vous à Azure AD.
+Sur votre serveur AD FS, ouvrez l’invite de commandes MSOnline PowerShell et connectez-vous à Azure AD.
 
 > [!NOTE]
-> Vous pouvez télécharger Azure AD PowerShell [ici](https://technet.microsoft.com/library/jj151815.aspx).
->
+> Les cmdlets MSOL font partie du module MSOnline PowerShell.
+> Vous pouvez télécharger le module MSOnline PowerShell directement à partir de PowerShell Gallery.
+> 
 >
 
+    Install-Module MSOnline
+
+Connectez-vous à Azure AD à l’aide du module MSOnline PowerShell.
+
+    Import-Module MSOnline
     Connect-MsolService
 
 Vérifiez les certificats configurés dans les propriétés d’approbation d’AD FS et d’Azure AD pour le domaine spécifié.
@@ -91,8 +97,8 @@ Dans la sortie de Get-MsolFederationProperty ou Get-AdfsCertificate, vérifiez l
 
 | AutoCertificateRollover | Certificats synchronisés avec Azure AD | Les métadonnées de fédération sont accessibles publiquement | Validité | Action |
 |:---:|:---:|:---:|:---:|:---:|
-| OUI |OUI |OUI |- |Aucune action n'est nécessaire. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). |
-| OUI |Non  |- |Moins de 15 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
+| Oui |OUI |Oui |- |Aucune action n'est nécessaire. Voir [Renouveler le certificat de signature de jetons automatiquement](#autorenew). |
+| Oui |Non  |- |Moins de 15 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
 | Non  |- |- |Moins de 30 jours |Renouvelez immédiatement. Voir [Renouveler le certificat de signature de jetons manuellement](#manualrenew). |
 
 \[-]  N’a pas d’importance

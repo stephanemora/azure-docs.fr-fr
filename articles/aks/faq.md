@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/27/2018
 ms.author: iainfou
-ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205246"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345852"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Azure applique automatiquement les correctifs de sécurité pour les nœuds de v
 
 - Manuellement, via le portail Azure ou l’interface de ligne de commande Azure.
 - En mettant à niveau votre cluster AKS. Le cluster met automatiquement à niveau des [nœuds drain et cordon](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), puis les sauvegarde à nouveau avec la dernière image Ubuntu. Mettez à jour l’image du système d’exploitation sur vos nœuds sans modifier les versions Kubernetes en spécifiant la version actuelle du cluster dans `az aks upgrade`.
-- Utilisation de [Kured](https://github.com/weaveworks/kured), un démon de redémarrage Open Source pour Kubernetes. Kured s’exécute comme un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Ensuite, il orchestre les redémarrages au sein du cluster, en suivant le même processus drain et cordon décrit plus haut.
+- Utilisation de [Kured](https://github.com/weaveworks/kured), un démon de redémarrage Open Source pour Kubernetes. Kured s’exécute comme un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Ensuite, il gère les redémarrages du système d’exploitation au sein du cluster, en suivant le même processus drain et cordon décrit plus haut.
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS prend-il en charge la mise à l’échelle automatique des nœuds ?
 
@@ -39,7 +39,7 @@ Oui, la mise à l'échelle automatique est disponible via [l’outil de mise à 
 
 Oui, le contrôle d’accès en fonction du rôle (RBAC) peut être activé [lors du déploiement d’un cluster AKS à partir du modèle Azure CLI ou Azure Resource Manager](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Cette fonctionnalité sera bientôt disponible dans le portail Azure.
 
-## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Quels sont les contrôleurs d’admission Kubernetes qui sont pris en charge par AKS ? Est-ce configurable ?
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quels sont les contrôleurs d’admission Kubernetes qui sont pris en charge par AKS ? Les contrôleurs d’admission peuvent-ils être ajoutés ou supprimés ?
 
 AKS prend en charge les [contrôleurs d’admission][admission-controllers] suivants :
 
@@ -66,7 +66,7 @@ Pas pour l'instant. Le serveur d’API Kubernetes est exposé en tant que nom de
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault est-il intégré à AKS ?
 
-Pour l’instant, AKS n’est pas intégré nativement à Azure Key Vault. Toutefois, il existe des solutions de la communauté, telles que [the acs-keyvault-agent d’Hexadite][hexadite].
+Pour l’instant, AKS n’est pas intégré nativement à Azure Key Vault. Toutefois, le [projet Flex Volume de KeyVault](https://github.com/Azure/kubernetes-keyvault-flexvol) permet une intégration directe des pods Kubernetes aux secrets KeyVault.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Puis-je exécuter des conteneurs Windows Server sur AKS ?
 
@@ -76,11 +76,11 @@ Pour exécuter des conteneurs Windows Server, vous devez exécuter des nœuds Wi
 
 Chaque déploiement AKS s’étend sur deux groupes de ressources. Le premier, créé par vous, contient uniquement la ressource du service Kubernetes. Le fournisseur de ressources AKS crée automatiquement le second au cours du déploiement avec un nom tel que *MC_myResourceGroup_myAKSCluster_eastus*. Le second groupe de ressources contient toutes les ressources d’infrastructure associées au cluster, tels que des machines virtuelles, la mise en réseau et le stockage. Il est créé pour simplifier le nettoyage des ressources.
 
-Si vous créez des ressources qui seront utilisées avec votre cluster AKS, tels que les comptes de stockage ou l’adresse IP publique réservée, vous devez les placer dans le groupe de ressources généré automatiquement.
+Si vous créez des ressources qui seront utilisées avec votre cluster AKS, tels que les comptes de stockage ou les adresses IP publiques réservées, vous devez les placer dans le groupe de ressources généré automatiquement.
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre-t-il un contrat de niveau de service ?
 
-Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser le client si le niveau du service publié n’est pas rempli. AKS étant gratuit, il n’y a aucuns frais à rembourser et par conséquent aucun contrat SLA formel. Toutefois, nous cherchons à maintenir une disponibilité d’au moins 99,5 % pour le serveur d’API Kubernetes.
+Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser le client si le niveau du service publié n’est pas rempli. AKS étant gratuit, il n’y a aucuns frais à rembourser et par conséquent aucun contrat SLA formel. Toutefois, AKS cherche à maintenir une disponibilité d’au moins 99,5 % pour le serveur d’API Kubernetes.
 
 <!-- LINKS - internal -->
 

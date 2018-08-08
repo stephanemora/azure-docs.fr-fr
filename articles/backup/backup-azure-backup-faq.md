@@ -7,14 +7,14 @@ manager: carmonm
 keywords: sauvegarde et récupération d’urgence ; service de sauvegarde
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
-ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605822"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412949"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Questions sur le service de sauvegarde Azure
 Cet article répond aux questions courantes sur les composants de la Sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez poser des questions sur la sauvegarde Microsoft Azure en cliquant sur **Commentaires** (à droite). Les commentaires sont regroupés à la fin de cet article. Un compte Livefyre est nécessaire pour pouvoir déposer un commentaire. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,8 +33,11 @@ Vous pouvez inscrire jusqu’à 1000 machines virtuelles Azure par coffre. Si vo
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Si mon organisation possède un coffre, comment isoler les données d’un serveur de celles d’un autre serveur lors de la restauration des données ?<br/>
 Tous les serveurs inscrits dans le même coffre sont en mesure de récupérer les données sauvegardées par d’autres serveurs *qui utilisent la même phrase secrète*. Si vous avez des serveurs dont vous souhaitez isoler les données de sauvegarde des autres serveurs de votre organisation, utilisez une phrase secrète désignée pour ces serveurs. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
 
-### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Puis-je « migrer » mon coffre ou mes données de sauvegarde entre des abonnements ? <br/>
-Non. Le coffre est créé au niveau de l’abonnement et ne peut pas être ensuite réaffecté à un autre abonnement.
+### <a name="can-i-migrate-my-vault-between-subscriptions-br"></a>Puis-je migrer mon coffre d’un abonnement vers un autre ? <br/>
+Non. Le coffre est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement.
+
+### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>Puis-je migrer des données de sauvegarde vers un autre coffre ? <br/>
+Non. Les données de sauvegarde stockées dans un coffre ne peuvent pas être déplacées vers un autre coffre.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Les coffres Recovery Services sont basés sur Resource Manager. Les coffres Backup sont-ils toujours pris en charge ? <br/>
 Les coffres Backup ont été convertis en coffres Recovery Services. Si vous n’avez pas converti le coffre Backup en coffre Recovery Services, la conversion a été effectuée automatiquement. 
