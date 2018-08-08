@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224584"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358101"
 ---
 # <a name="prediction-score"></a>Score de prédiction
 Un score de prédiction indique le degré de confiance que LUIS a dans les résultats de prédiction. 
@@ -36,6 +36,8 @@ Lorsqu’un énoncé obtient un score à faible degré de confiance, LUIS le sig
 Chaque prédiction d’énoncé retourne une intention de score principale. Il s’agit d’une comparaison numérique des scores de prédiction. La différence entre les deux principaux scores peut être très faible. LUIS n’indique pas cette proximité autrement qu’en retournant des scores.  
 
 Si vous êtes inquiet de la proximité des scores principaux, vous devez retourner le score pour toutes les intentions. Vous pouvez soit ajouter aux deux intentions des énoncés qui indiquent leurs différences par le biais du choix et de l’ordre des mots, ou bien l’application appelant LUIS peut, telle un chatbot, faire des choix de programmation quant à la manière de gérer les deux intentions principales. 
+
+Deux intentions, qui ont des notations trop proches, peuvent s’inverser en raison d’une formation non déterministe. Le score le plus élevé peut devenir le second score le plus élevé, et le second score le plus élevé peut devenir le score le plus élevé. Pour éviter ce problème, ajoutez des énoncés de l’exemple à chacune des deux principales intentions de cet énoncé, avec un choix de mots et de contexte permettant de différencier les deux intentions. Les deux intentions doivent avoir le même nombre d’énoncés d’exemple. Une règle empirique de séparation visant à empêcher l’inversion en raison de la formation, constitue une différence de score de 15 %.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Retourner le score de prédiction pour toutes les intentions
 Un résultat de test ou de point de terminaison peut inclure toutes les intentions. Cette configuration est définie sur le [point de terminaison](https://aka.ms/v1-endpoint-api-docs) avec la `verbose=true` paire nom/valeur de chaîne de requête. 

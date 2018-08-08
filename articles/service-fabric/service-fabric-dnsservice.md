@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 4d248724597a411f7253be1ccca0be6b85db95af
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237177"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397524"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Service DNS dans Azure Service Fabric
 Le service DNS est un service système facultatif que vous pouvez activer dans votre cluster pour détecter d’autres services utilisant le protocole DNS. 
@@ -159,7 +159,7 @@ Vous pouvez définir le nom DNS d’un service lors de sa création à l’aide 
     -ServiceDnsName service1.application1
 ```
 
-## <a name="making-dns-queries-on-a-stateful-service-partition"></a>Exécution de requêtes DNS sur une partition de service avec état
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[Préversion] Exécution de requêtes DNS sur une partition de service avec état
 À partir de Service Fabric version 6.3, le service DNS de Service Fabric prend en charge les requêtes pour les partitions de service.
 
 Pour les partitions qui seront utilisées dans les requêtes DNS, les restrictions d’affectation de noms suivantes s’appliquent :
@@ -249,6 +249,8 @@ public class ValuesController : Controller
 }
 ```
 
+## <a name="known-issues"></a>Problèmes connus
+* Pour les versions 6.3 et ultérieures de Service Fabric, il y a un problème avec les recherches DNS pour les noms de service contenant un trait d’union dans le nom DNS. Pour plus d’informations sur ce problème, veuillez suivre le [Problème GitHub](https://github.com/Azure/service-fabric-issues/issues/1197) suivant. Une solution à ce problème est prévue dans la prochaine mise à jour 6.3. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la communication de service au sein du cluster, consultez l’article [Se connecter aux services et communiquer avec eux dans Service Fabric](service-fabric-connect-and-communicate-with-services.md)

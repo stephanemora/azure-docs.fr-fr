@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: diberry
-ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: de33b4618eb31707d324098e894682dd254c8ee4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237806"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358369"
 ---
 # <a name="improve-app-with-batch-test"></a>Améliorer l’application avec le test de lot
 
@@ -31,9 +31,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * Corriger les erreurs 
 * Tester à nouveau le lot
 
-Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md#luis-website) gratuit afin de créer votre application LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
+
 Si vous ne disposez pas de l’application Ressources humaines du tutoriel [Vérifier les énoncés de point de terminaison](luis-tutorial-review-endpoint-utterances.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application sur le site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
 
 Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `batchtest`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
@@ -41,6 +42,7 @@ Si vous souhaitez conserver l’application Ressources humaines d’origine, clo
 Effectuez l’apprentissage de l’application.
 
 ## <a name="purpose-of-batch-testing"></a>Objectif du test de lot
+
 Les tests de lots permettent de valider l’état du modèle actif entraîné avec un ensemble connu d’entités et d’énoncés étiquetés. Dans le fichier de lot au format JSON, ajoutez les énoncés et définissez les étiquettes d’entités que vous voulez prédire au sein de l’énoncé. 
 
 <!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Si vous utilisez une application autre que ce tutoriel, veillez à *ne pas* exploiter les exemples d’énoncés déjà ajoutés à une intention. Pour confronter les énoncés de votre test de lot aux exemples d’énoncés, [exportez](luis-how-to-start-new-app.md#export-app) l’application. Comparez les exemples d’énoncés de l’application aux énoncés du test de lot. 
@@ -52,6 +54,7 @@ Exigences des tests de lots :
 * Types d’entités autorisées : seules les entités apprises automatiquement de type simple, hiérarchique (parent uniquement) et composite. Les tests de lots ne sont utiles que pour les entités et les intentions apprises automatiquement.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Créer un fichier de lot avec des énoncés
+
 1. Créez `HumanResources-jobs-batch.json` dans un éditeur de texte comme [VSCode](https://code.visualstudio.com/). 
 
 2. Dans le fichier de lot au format JSON, ajoutez des énoncés avec **l’intention** à prédire dans le test. 
@@ -62,11 +65,9 @@ Exigences des tests de lots :
 
 1. Sélectionnez **Test** dans la barre de navigation supérieure. 
 
-    [ ![Capture d’écran de l’application LUIS avec Tester en surbrillance dans la barre de navigation en haut à droite](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
-
 2. Sélectionnez le **panneau Test par lot** dans le panneau de droite. 
 
-    [ ![Capture d’écran de l’application LUIS avec le panneau de test de lot en surbrillance](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
+    [ ![Capture d’écran de l’application LUIS avec Panneau de test de lot en surbrillance](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Sélectionnez **Importer le jeu de données**.
 
@@ -80,8 +81,6 @@ Exigences des tests de lots :
 
 6. Sélectionnez le bouton **Exécuter**. Attendez la fin du test.
 
-    [ ![Capture d’écran de l’application LUIS avec Exécuter en surbrillance](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. Sélectionnez **Afficher les résultats**.
 
 8. Passez en revue les résultats dans le graphe et la légende.
@@ -89,6 +88,7 @@ Exigences des tests de lots :
     [ ![Capture d’écran de l’application LUIS avec les résultats du test de lot](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Passer en revue les résultats du test par lot
+
 Le graphique de lot présente quatre quadrants de résultats. À droite du graphique se trouve un filtre. Par défaut, il est défini sur la première intention de la liste. Il contient tous les intentions et seulement les entités simples, hiérarchiques (parent uniquement) et composites. Lorsque vous sélectionnez un point ou une [section du graphique](luis-concept-batch-test.md#batch-test-results), le ou les énoncés associés s’affichent sous le graphique. 
 
 Au passage de la souris sur le graphique, la roulette permet d’agrandir ou de réduire l’affichage du graphique, ce qui est utile en présence de nombreux points très rapprochés. 
@@ -96,6 +96,7 @@ Au passage de la souris sur le graphique, la roulette permet d’agrandir ou de 
 Le graphique est divisé en quatre quadrants, dont deux s’affichent en rouge. **Il s’agit des sections sur lesquelles vous devez vous concentrer**. 
 
 ### <a name="getjobinformation-test-results"></a>Résultats de test GetJobInformation
+
 Les résultats de test **GetJobInformation** présentés dans le filtre indiquent que deux des quatre prédictions ont réussi. Sélectionnez le nom **Faux positif** au-dessus du quadrant supérieur droit pour afficher les énoncés sous le graphique. 
 
 ![Énoncés de test de lot de LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
@@ -109,6 +110,7 @@ Comme on peut le constater, les deux intentions comportent le même nombre d’e
 Les énoncés correspondant au point le plus élevé de la section **Faux positif** sont `Can I apply for any database jobs with this resume?` et `Can I apply for any database jobs with this resume?`. Dans le premier, le mot `resume` n’a été utilisé que dans **ApplyForJob**. Même chose pour le second, dont le mot `apply` n’a servi que pour l’intention **ApplyForJob**.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Corriger l’application en fonction des résultats du test par lot
+
 L’objectif de cette section est de corriger l’application afin que tous les énoncés soient correctement prédits pour **GetJobInformation**. 
 
 Il serait en apparence tout aussi rapide de résoudre le problème en ajoutant ces énoncés de fichier de lot à la bonne intention. Mais ce n’est pas ce que l’on souhaite faire. Le but est que LUIS prédise correctement ces énoncés sans les ajouter comme exemples. 
@@ -118,13 +120,10 @@ On peut aussi envisager de supprimer des énoncés de **ApplyForJob** jusqu’à
 La première correction consiste à ajouter des énoncés à **GetJobInformation**. La deuxième supposera de réduire le poids de mots tels que `resume` et `apply` pour l’intention **ApplyForJob**. 
 
 ### <a name="add-more-utterances-to-getjobinformation"></a>Ajoutez des énoncés à **GetJobInformation**.
+
 1. Fermez le panneau de test de lot en sélectionnant le bouton **Tester** dans le volet de navigation supérieur. 
 
-    [ ![Capture d’écran de LUIS avec le bouton Tester en surbrillance](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
-
 2. Sélectionnez **GetJobInformation** dans la liste des intentions. 
-
-    [ ![Capture d’écran de LUIS avec le bouton Tester en surbrillance](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
 3. Ajoutez des énoncés variés du point de vue de la longueur, du choix et de l’ordre des mots et comportant les termes `resume`, `c.v.` et `apply` :
 
@@ -151,6 +150,7 @@ La première correction consiste à ajouter des énoncés à **GetJobInformation
 4. Effectuez l’apprentissage de l’application en sélectionnant **Effectuer l’apprentissage** dans le volet de navigation supérieur droit.
 
 ## <a name="verify-the-fix-worked"></a>Vérifier que la correction a fonctionné
+
 Pour vérifier que les énoncés du test de lot sont correctement prédits, réexécutez le test de lot.
 
 1. Sélectionnez **Test** dans la barre de navigation supérieure. Si les résultats du lot sont toujours ouverts, sélectionnez **Revenir à la liste**.  
@@ -162,6 +162,7 @@ Pour vérifier que les énoncés du test de lot sont correctement prédits, rée
     ![Capture d’écran de LUIS avec le bouton Résultats du lot en surbrillance](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## <a name="create-batch-file-with-entities"></a>Créer un fichier de lot avec des entités 
+
 Les entités doivent être étiquetées dans le fichier JSON de lot pour pouvoir être vérifiées dans le test de lot. Seules les entités apprises automatiquement sont utilisées : simples, hiérarchiques (parent uniquement) et composites. N’ajoutez pas d’autres types d’entités, car elles sont toujours trouvées, soit par expression régulière, soit par correspondance de texte explicite.
 
 Les variations du nombre total de mots ([tokens](luis-glossary.md#token)) dans les entités peuvent avoir un impact sur la qualité des prédictions. Veillez à ce que les données d’apprentissage fournies à l’intention avec des énoncés étiquetés présentent des longueurs variables d’entité. 
@@ -177,7 +178,7 @@ La valeur d’une entité **Job**, fournie dans les énoncés de test, est gén�
 
    [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
-<!--TBD: when will the patterns fix be in for batch testing? -->
+
 ## <a name="run-the-batch-with-entities"></a>Exécuter le lot avec des entités
 
 1. Sélectionnez **Test** dans la barre de navigation supérieure. 
@@ -192,11 +193,10 @@ La valeur d’une entité **Job**, fournie dans les énoncés de test, est gén�
 
 6. Sélectionnez le bouton **Exécuter**. Attendez la fin du test.
 
-    [ ![Capture d’écran de l’application LUIS avec Exécuter en surbrillance](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. Sélectionnez **Afficher les résultats**.
 
 ## <a name="review-entity-batch-results"></a>Vérifier les résultats du lot d’entités
+
 Le graphique s’ouvre sur toutes les intentions correctement prédites. Faites défiler le filtre de droite vers le bas pour trouver les prédictions d’entités erronées. 
 
 1. Sélectionnez l’entité **Job** dans le filtre.
@@ -207,11 +207,12 @@ Le graphique s’ouvre sur toutes les intentions correctement prédites. Faites 
 
 2. Sélectionnez **Faux négatif** dans le quadrant qui se trouve en bas à gauche du graphique. Utilisez ensuite la combinaison de touches Ctrl+E pour passer à l’affichage en tokens. 
 
-    [ ![Affichage en tokens des prédictions d’entités](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    [ ![Affichage des jetons des prédictions d’entités](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
     
     L’examen des énoncés sous le graphique révèle une erreur récurrente lorsque le nom du poste comporte `SQL`. Dans les exemples d’énoncés et la liste d’expressions de postes, SQL n’est utilisé qu’une seule fois et uniquement dans le cadre d’un nom de poste plus long, `sql/oracle database administrator`.
 
 ## <a name="fix-the-app-based-on-entity-batch-results"></a>Corriger l’application en fonction des résultats du test de lot d’entités
+
 Pour corriger l’application, il faut que LUIS détermine correctement les variantes des postes SQL. Il existe plusieurs possibilités. 
 
 * Ajoutez explicitement d’autres exemples d’énoncés qui utilisent SQL et étiquetez ces mots comme étant une entité Job. 
@@ -222,11 +223,12 @@ Il ne vous reste plus qu’à effectuer l’une de ces tâches.
 Le fait d’ajouter un [modèle](luis-concept-patterns.md) avant que l’entité ne soit correctement prédite ne résoudra pas le problème. En effet, le modèle n’aura pas de correspondance tant que toutes ses entités n’auront pas été détectées. 
 
 ## <a name="what-has-this-tutorial-accomplished"></a>Conclusion du tutoriel
+
 La précision des prédictions de l’application a augmenté grâce à l’identification des erreurs dans le lot et à la correction du modèle. 
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension **…** à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
+Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension **…** à droite du nom de l’application dans la liste des applications, puis **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

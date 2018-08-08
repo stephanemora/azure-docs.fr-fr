@@ -1,6 +1,6 @@
 ---
-title: Utiliser les sondes personnalisées de l’équilibreur de charge pour surveiller l’état d’intégrité | Microsoft Docs
-description: Découvrez comment utiliser les sondes personnalisées pour l’équilibreur de charge Azure afin de surveiller les instances situées derrière un équilibreur de charge
+title: Utilisez des sondes d’intégrité de l’équilibreur de charge pour protéger votre service | Microsoft Docs
+description: Découvrez comment utiliser les sondes d’intégrité pour surveiller les instances derrière Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,89 +13,141 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 07/31/2018
 ms.author: kumud
-ms.openlocfilehash: 8d354e3f409a51bdbb03ad340c951c39cc6137e1
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7366273e30132daf7dc5ea15072c574180d1bc8b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186442"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397280"
 ---
-# <a name="understand-load-balancer-probes"></a>Comprendre les sondes de l’équilibrage de charge
+# <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
-Azure Load Balancer utilise des sondes d’intégrité pour déterminer quelle instance de pool principale devrait recevoir de nouveaux flux.   Vous pouvez utiliser des sondes d’intégrité pour détecter la défaillance d’une application sur une instance principale.  Vous pouvez également utiliser la réponse des sondes d’intégrité à partir de votre application pour signaler à l’équilibreur de charge s’il faut continuer à envoyer de nouveaux flux ou arrêter l’envoi de nouveaux flux à une instance principale pour gérer la charge ou le temps d’arrêt planifié.
+Azure Load Balancer utilise des sondes d’intégrité pour déterminer quelle instance de pool principale recevra de nouveaux flux. Vous pouvez utiliser des sondes d’intégrité pour détecter la défaillance d’une application sur une instance principale. Vous pouvez également générer une réponse adaptée à une sonde d’intégrité, et utiliser cette dernière pour contrôler les flux et pour signaler à Load Balancer s’il faut continuer d’envoyer de nouveaux flux ou arrêter l’envoi de nouveaux flux vers une instance principale. Ce peut être utilisé pour gérer la charge ou un temps d’arrêt planifié.
 
-Les sondes d’intégrité déterminent si de nouveaux flux sont établis vers des instances principales intègres. Lors d’un échec d’une sonde d’intégrité, l’équilibreur de charge cesse d’envoyer de nouveaux flux à l’instance non intègre concernée.  Les connexions TCP établies perdurent après l’échec de la sonde d’intégrité.  Les flux UDP existants sont déplacés de l’instance non intègre vers une autre instance intègre dans le pool principal.
-
-Si toutes les sondes d’un pool principal échouent, l’équilibreur de charge de base met fin à tous les flux TCP existants vers le pool principal, alors que l’équilibreur de charge standard autorise les flux TCP établis à perdurer et aucun nouveau flux n’est envoyé au pool principal.  Tous les flux UDP existants prennent fin pour les équilibreurs de charge de base et standard lorsque toutes les sondes d’un pool principal échouent.  UDP est sans connexion et il n’existe aucun état de flux suivi pour UDP.  Tant que le hachage produit le même résultat, le flux de datagrammes reste sur une instance spécifique.  Un changement de sonde d’intégrité dans le pool backend peut déplacer les nouveaux datagrammes vers une autre instance dans le pool backend.
-
-Les rôles de service cloud (rôles de travail et rôles Web) utilisent un agent invité pour la surveillance par sonde. Les sondes d’intégrité personnalisées TCP ou HTTP doivent être configurées quand vous utilisez les services cloud avec des machines virtuelles IaaS derrière un équilibreur de charge.
-
-## <a name="understand-probe-count-and-timeout"></a>Présentation du nombre et du délai d’expiration des sondes
-
-Le comportement des sondes dépend des éléments suivants :
-
-* Le nombre de sondes ayant réussi qui permet à une instance d’être étiquetée comme étant en cours d’exécution.
-* Le nombre de sondes ayant échoué qui permet à une instance d’être étiquetée comme n’étant pas en cours d’exécution.
-
-La valeur du délai d’expiration et de la fréquence définie dans SuccessFailCount détermine si une instance est confirmée comme étant en cours d’exécution ou pas. Dans le portail Azure, le délai d’expiration est défini sur deux fois la valeur de la fréquence.
-
-La configuration de sonde de toutes les instances à charge équilibrée pour un point de terminaison (jeu d’équilibrage de la charge) doit être identique. Vous ne pouvez pas avoir de configuration de sonde différente pour chaque instance de rôle ou machine virtuelle du même service hébergé pour une combinaison de points de terminaison donnée. Par exemple, chaque instance doit avoir des délais d’expiration et des ports locaux identiques.
+Lors d’un échec d’une sonde d’intégrité, l’équilibreur de charge cesse d’envoyer de nouveaux flux à l’instance non intègre concernée. Le comportement de flux nouveaux et existants dépend du caractère TCP ou UDP d’un flux, ainsi que du type de SKU d’équilibreur de charge que vous utilisez.  Consultez [comportement en cas de panne de sonde pour plus d’informations](#probedown).
 
 > [!IMPORTANT]
-> Une sonde d’équilibreur de charge utilise une adresse IP 168.63.129.16. Cette adresse IP publique facilite la communication vers les ressources de plateforme internes pour le scénario « Apportez votre propre réseau virtuel IP Azure ». L’adresse IP publique virtuelle 168.63.129.16 est utilisée dans toutes les régions et ne change pas. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local. Elle ne doit pas être considérée comme un risque de sécurité, car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si vous n’autorisez pas cette adresse IP dans vos stratégies de pare-feu, un comportement inattendu se produit dans différentes situations. Il inclut la configuration de la même plage d’adresses IP (168.63.129.16) et la duplication des adresses IP.
+> Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations.
 
-## <a name="learn-about-the-types-of-probes"></a>En savoir plus sur les types de sondes
+## <a name="health-probe-types"></a>Types de sonde d’intégrité
 
-### <a name="guest-agent-probe"></a>Sonde d’agent invité
+Les sondes d’intégrité peuvent observer n’importe quel port sur une instance de serveur principal, y compris le port sur lequel ledit service est fourni. La sonde d’intégrité prend en charge les écouteurs TCP ou les points de terminaison HTTP. 
 
-Une sonde d’agent invité est disponible pour Azure Cloud Services uniquement. L’équilibreur de charge utilise l’agent invité dans la machine virtuelle. Ensuite, il écoute et répond HTTP 200 OK uniquement lorsque l’instance est prête (les autres états sont de type occupé, recyclage ou arrêt).
+Pour l’équilibrage de charge UDP, vous devez générer un signal de sonde d’intégrité personnalisé pour l’instance de serveur principal en utilisant une sonde d’intégrité TCP ou HTTP.
+
+Lorsque vous utilisez des [règles d’équilibrage de charge de ports à haute disponibilité](load-balancer-ha-ports-overview.md) avec un [équilibreur de charge standard](load-balancer-standard-overview.md), tous les ports possèdent une charge équilibrée et une seule réponse de sonde d’intégrité doit pouvoir refléter l’état de l’intégralité de l’instance.  
+
+Vous ne devez pas utiliser de NAT ou de proxy pour une sonde d’intégrité via l’instance qui reçoit la sonde d’intégrité pour la transférer vers une autre instance de votre réseau virtuel, car cela peut entraîner des défaillances en cascade dans votre scénario.
+
+Si vous souhaitez tester une défaillance de la sonde d’intégrité ou de marquer comme hors-service une instance individuelle, vous pouvez utiliser un groupe de sécurité pour bloquer ladite sonde d’intégrité (destination ou [source](#probesource)).
+
+### <a name="tcp-probe"></a>Sonde TCP
+
+Les sondes TCP établissent une connexion en effectuant une connexion TCP ouverte en trois temps au port défini.  S’ensuit alors une connexion TCP fermée en quatre temps.
+
+L’intervalle minimal de sonde est de 5 secondes et le nombre minimal de réponses défaillantes est de 2.  La durée totale ne peut pas dépasser 120 secondes.
+
+Une sonde TCP échoue quand :
+* L’écouteur TCP sur l’instance ne répond pas durant toute la durée de l’opération.  Une sonde est marquée hors service en fonction du nombre de demandes d’analyse ayant échoué, et qui ont été configurées pour rester sans réponse avant que la sonde ne soit marquée négativement.
+* La sonde reçoit une réinitialisation TCP depuis l’instance.
+
+### <a name="http-probe"></a>Sonde HTTP
+
+Les sondes HTTP établissent une connexion TCP et émettent un HTTP GET avec le chemin d’accès spécifié. Les sondes HTTP prennent en charge les chemins d’accès relatifs pour le HTTP GET. La sonde d’intégrité est marquée comme étant en fonctionnement lorsque l’instance répond avec un statut HTTP de 200 dans la période d’expiration.  Les sondes d’intégrité HTTP tentent de vérifier toutes les 15 secondes, par défaut, le port de sonde d’intégrité configuré. L’intervalle d’analyse de sonde minimal est de 5 secondes. La durée totale ne peut pas dépasser 120 secondes. 
+
+
+Les sondes HTTP peuvent également être utiles pour implémenter votre propre circuit logique, afin de supprimer des instances de la rotation de l’équilibreur de charge. Par exemple, vous pouvez décider de supprimer une instance si elle utilise plus de 90 % du processeur et retourne dans un état HTTP différent de 200. 
+
+Si vous utilisez Cloud Services et que vos rôles web utilisent w3wp.exe, vous bénéficiez aussi d’une surveillance automatique de votre site web. Les défaillances de votre code de site web renvoient un état autre que 200 pour la sonde de l’équilibreur de charge.  Cette sonde HTTP écrase la sonde d’agent invitée par défaut. 
+
+Une sonde HTTP échoue quand :
+* Le point de terminaison de la sonde HTTP renvoie un code de réponse HTTP autre que 200 (par exemple, 403, 404 ou 500). Ceci marquera immédiatement la sonde d’intégrité négativement. 
+* Le point de terminaison de sonde HTTP ne répond pas du tout lors de la période d'expiration de 31 secondes. Selon la valeur définie pour le délai d’attente, il se peut que plusieurs demandes d’analyse ne reçoivent pas de réponse avant que celle-ci ne soit marquée comme n’étant pas en cours d’exécution (autrement dit, avant que les sondes SuccessFailCount soient envoyées).
+* Le point de terminaison de la sonde HTTP clôture la connexion via une réinitialisation TCP.
+
+### <a name="guest-agent-probe-classic-only"></a>Sonde d’agent invité (uniquement classique)
+
+Les rôles de service cloud (rôles de travail et rôles Web) utilisent par défaut un agent invité pour la surveillance par sonde.   Vous devez considérer cette option de dernier recours.  Vous devez toujours définir une sonde d’intégrité explicitement avec une sonde TCP ou HTTP. Une sonde d’agent invité n’est pas aussi efficace que les sondes définies explicitement pour la plupart des scénarios d’application.  
+
+Une sonde d’agent invité procède à une vérification de l’agent invité situé à l’intérieur de la machine virtuelle. Ensuite, il écoute et répond HTTP 200 OK uniquement lorsque l’instance est prête (les autres états sont de type occupé, recyclage ou arrêt).
 
 Pour plus d’informations, consultez les sections relatives à la [configuration du fichier de définition de service (csdef) pour les sondes d’intégrité](https://msdn.microsoft.com/library/azure/ee758710.aspx) ou à la [création d’un équilibreur de charge public pour les services cloud](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
 
-### <a name="what-makes-a-guest-agent-probe-mark-an-instance-as-unhealthy"></a>Dans quelles conditions une sonde d’agent invité marque-t-elle une instance comme étant défectueuse ?
+Si l’agent invité ne répond pas avec HTTP 200 OK, l’équilibreur de charge marque l’instance comme ne répondant pas. Il arrête ensuite d’envoyer des flux vers cette instance. L’équilibreur de charge continue de vérifier l’instance. 
 
-Si l’agent invité ne répond pas avec HTTP 200 OK, l’équilibreur de charge marque l’instance comme ne répondant pas. Il arrête ensuite d’envoyer du trafic vers celle-ci. L’équilibreur de charge continue d’effectuer un test ping sur l’instance. Si l’agent invité répond avec HTTP 200, l’équilibreur de charge renvoie du trafic vers cette instance.
+Si l’agent invité répond avec un HTTP 200, l’équilibreur de charge renvoie de nouveaux flux vers cette instance.
 
 Quand vous utilisez un rôle web, le code du site web s’exécute généralement dans w3wp.exe, qui n’est pas surveillé par l’agent de structure Azure ou l’agent invité. Les échecs dans w3wp.exe (par exemple, les réponses HTTP 500) ne sont pas signalés à l’agent invité. Par conséquent, l’équilibreur de charge n’accepte qu’une instance hors rotation.
 
-### <a name="http-custom-probe"></a>Sonde HTTP personnalisée
+## <a name="probe-health"></a>Sonde d’intégrité
 
-La sonde personnalisée HTTP remplace la sonde d’agent invité par défaut. Vous pouvez créer votre propre logique personnalisée pour déterminer l'état de l'instance de rôle. L’équilibreur de charge sonde régulièrement votre point de terminaison (toutes les 15 secondes, par défaut). L’instance est considérée comme faisant partie de la rotation de l’équilibreur de charge si elle répond avec HTTP 200 dans le délai imparti. Le délai d’attente est de 31 secondes par défaut.
+Les sondes TCP et HTTP sont considérées comme saines et annotent l’instance de rôle comme saine dans les cas suivants :
 
-Une sonde personnalisée HTTP peut être utile pour implémenter votre propre logique afin de supprimer des instances de la rotation de l’équilibreur de charge. Par exemple, vous pouvez décider de supprimer une instance si elle utilise plus de 90 % du processeur et retourne un état autre que 200. Si vous avez des rôles web qui utilisent w3wp.exe, vous obtenez aussi la surveillance automatique de votre site Web. Les défaillances de votre code de site web renvoient un état autre que 200 pour la sonde de l’équilibreur de charge.
-
-> [!NOTE]
-> La sonde HTTP personnalisée prend en charge les chemins relatifs et le protocole HTTP uniquement. HTTPS n’est pas pris en charge.
-
-### <a name="what-makes-an-http-custom-probe-mark-an-instance-as-unhealthy"></a>Dans quelles conditions une sonde HTTP personnalisée marque-t-elle une instance comme étant défectueuse ?
-
-* L’application HTTP retourne un code de réponse HTTP autre que 200 (par exemple, 403, 404 ou 500). Cette reconnaissance positive vous avertit que l’instance d’application doit être mise immédiatement hors service.
-* Le serveur HTTP ne répond pas du tout après le délai d’attente. Selon la valeur définie pour le délai d’attente, il se peut que plusieurs demandes d’analyse ne reçoivent pas de réponse avant que celle-ci ne soit marquée comme n’étant pas en cours d’exécution (autrement dit, avant que les sondes SuccessFailCount soient envoyées).
-* Le serveur ferme la connexion via une réinitialisation TCP.
-
-### <a name="tcp-custom-probe"></a>Sonde TCP personnalisée
-
-Les sondes TCP personnalisées établissent une connexion en effectuant une connexion en trois temps au port défini.
-
-### <a name="what-makes-a-tcp-custom-probe-mark-an-instance-as-unhealthy"></a>Dans quelles conditions une sonde TCP personnalisée marque-t-elle une instance comme étant défectueuse ?
-
-* Le serveur TCP ne répond pas du tout après le délai d’attente. La sonde est marquée comme n’étant pas en cours d’exécution en fonction du nombre de demandes d’analyse ayant échoué, qui ont été configurées pour rester sans réponse avant que la sonde soit marquée comme n’étant pas en cours d’exécution.
-* La sonde reçoit une réinitialisation TCP de l’instance de rôle.
-
-Pour plus d’informations sur la configuration d’une sonde d’intégrité HTTP ou d’une sonde TCP, consultez [Création d’un équilibrage de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell](load-balancer-get-started-internet-arm-ps.md).
-
-## <a name="add-healthy-instances-back-into-the-load-balancer-rotation"></a>Rajouter des instances saines à la rotation de l’équilibreur de charge
-
-Les sondes TCP et HTTP sont considérées comme saines et marquent l’instance de rôle comme saine dans les cas suivants :
-
-* L’équilibreur de charge reçoit une sonde positive au premier démarrage de la machine virtuelle.
+* La sonde d’intégrité est réussie lors du premier démarrage de la machine virtuelle.
 * Le nombre SuccessFailCount (décrit précédemment) définit la valeur des sondes ayant réussi nécessaires pour marquer l’instance de rôle comme étant saine. Si une instance de rôle a été supprimée, le nombre de sondes ayant réussi successives doit être égal ou supérieur à la valeur de SuccessFailCount pour marquer l’instance de rôle comme étant en cours d’exécution.
 
 > [!NOTE]
 > Si l’intégrité d’une instance de rôle fluctue, l’équilibreur de charge attend plus longtemps avant de remettre l’instance de rôle dans un état d’intégrité normal. Ce délai d’attente supplémentaire protège l’utilisateur et l’infrastructure. Il s’agit d’une stratégie intentionnelle.
 
-## <a name="use-log-analytics-for-a-load-balancer"></a>Utiliser l’analytique des journaux pour un équilibreur de charge
+## <a name="probe-count-and-timeout"></a>Nombre et délai d’expiration des sondes
 
-Vous pouvez utiliser [l’analytique des journaux](load-balancer-monitor-log.md) pour l’équilibreur de charge pour vérifier le nombre et l’état d’intégrité des sondes. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
+Le comportement des sondes dépend des éléments suivants :
+
+* Le nombre de sondes ayant réussi et qui permettent à une instance d’être étiquetée positivement.
+* Le nombre de sondes ayant échoué et qui permettent à une instance d’être étiquetée comme étant hors service.
+
+La valeur du délai d’expiration et de la fréquence définie dans SuccessFailCount détermine si une instance est confirmée comme étant en cours d’exécution ou pas. Dans le portail Azure, le délai d’expiration est défini sur deux fois la valeur de la fréquence.
+
+Une règle d’équilibrage de charge possède une sonde d’intégrité unique définie par le pool principal lié.
+
+## <a name="probedown"></a>Comportement en cas de panne de sonde
+
+### <a name="tcp-connections"></a>Connexions TCP
+
+De nouvelles connexions TCP parviennent à l’instance de serveur principal, qui est saine et qui dispose d’un système d’exploitation invité ainsi que d’une application capable d’accepter un nouveau flux.
+
+Si la sonde d’intégrité d’une instance de serveur principal échoue, les connexions TCP établies à cette instance de serveur principal demeurent.
+
+Si toutes les sondes vers toutes les instances d’un pool principal échouent, aucun nouveau flux ne sera envoyé au pool principal. L’équilibreur de charge standard autorise les flux TCP établis à continuer.  L’équilibreur de charge de base arrête tous les flux TCP existants vers le pool principal.
+ 
+Étant donné que le flux est toujours entre le client et le système d’exploitation invité de la machine virtuelle, un pool avec toutes les sondes hors service entraînera une absence de réponse de la part d’un serveur frontal face aux tentatives d’ouverture de connexion TCP, car il n’existe aucune instance de serveur principal saine pour recevoir le flux.
+
+### <a name="udp-datagrams"></a>Datagrammes UDP
+
+Les datagrammes UDP seront remis aux instances du serveur principal saines.
+
+UDP est sans connexion et il n’existe aucun état de flux suivi pour UDP. Si la sonde d’intégrité de n’importe quelle instance de serveur principal échoue, les flux UDP existants peuvent se déplacer vers une autre instance intègre dans le pool principal.
+
+Si l’ensemble des sondes de l’ensemble des instances d’un pool principal échouent, les flux UDP existants prennent fin pour les équilibreurs de charge de base et standard.
+
+
+## <a name="probesource"></a>Adresse IP source de sonde
+
+Toutes les sondes d’intégrité de l’équilibreur de charge ont pour source l’adresse IP 168.63.129.16.  Lorsque vous importez vos propres adresses IP dans le Réseau Virtuel Azure, l’adresse IP de cette sonde intègre est garantie unique car elle est réservée pour Microsoft dans le monde entier.  Cette adresse est la même dans toutes les régions et ne change pas. Elle ne doit pas être considérée comme un risque de sécurité, car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse IP. 
+
+Pour marquer la sonde d’intégrité de l’équilibreur de charge de votre instance comme étant active, vous **devez** autoriser cette adresse IP tous les [Groupes de sécurité](../virtual-network/security-overview.md) et les stratégies de pare-feu local Azure.
+
+Si vous n’autorisez pas cette adresse IP dans vos stratégies de pare-feu, la sonde d’intégrité échouera, car il lui est impossible d’atteindre votre instance.  L’équilibreur de charge marque à son tour votre instance comme étant hors service, en raison de l’échec de la sonde d’intégrité.  Cela peut entraîner l’échec de votre service équilibré en charge. 
+
+Vous devez également éviter de configurer votre réseau virtuel avec la plage d’adresses IP Microsoft qui contient 168.63.129.16.  Cette action crée un conflit avec l’adresse IP de la sonde d’intégrité.
+
+Si vous avez plusieurs interfaces sur votre machine virtuelle, vous devez vous assurer que vous répondez à la sonde sur l’interface à partir de laquelle l’avez reçue.  Cela peut nécessiter une source de traduction d'adresses réseau de cette adresse unique dans la machine virtuelle sur une base par interface.
+
+## <a name="monitoring"></a>Surveillance
+
+Tous les [Équilibreurs de charge Standard](load-balancer-standard-overview.md) exposent l’état de la sonde d’intégrité en tant que mesures multidimensionnelles par instance via Azure Monitor.
+
+Un équilibreur de charge de base expose l’état de la sonde d’intégrité par pool principal via Log Analytics.  Cette fonctionnalité est uniquement disponible pour les équilibreurs de charge publics de base, et est donc indisponible pour les équilibreurs de charge internes de base.  Vous pouvez utiliser [Log Analytics](load-balancer-monitor-log.md) pour vérifier le nombre et l’état d’intégrité des sondes d’équilibreurs de charge publics. La journalisation peut être utilisée avec Power BI ou Operational Insights pour fournir des statistiques sur l’état d’intégrité de l’équilibreur de charge.
+
+
+## <a name="limitations"></a>Limites
+
+-  Une sonde d’intégrité HTTP ne prend pas en charge le protocole TLS (HTTPS).  Utilisez une sonde TCP vers le port 443 à la place.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Créez un équilibreur de charge public dans le Gestionnaire des ressources à l’aide de PowerShell](load-balancer-get-started-internet-arm-ps.md)
+- [API REST pour les sondes d’intégrité](https://docs.microsoft.com/en-us/rest/api/load-balancer/loadbalancerprobes/get)
+

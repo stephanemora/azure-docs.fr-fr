@@ -1,27 +1,26 @@
 ---
-title: Utiliser la synthèse vocale à l’aide des services Speech | Microsoft Docs
+title: Utilisez la synthèse vocale à l’aide des services Speech
 description: Découvrez comment utiliser la fonctionnalité Synthèse vocale du service Speech.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 21157af9ad6361234ffa9b927da64baab505f624
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213331"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281512"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utiliser la fonctionnalité Synthèse vocale du service Speech
 
 Le service Speech vous offre une fonctionnalité de synthèse vocale par le biais d’une simple requête HTTP. Vous PUBLIEZ le texte à énoncer sur le point de terminaison approprié, puis le service vous renvoie un fichier audio (`.wav`) contenant la voix de synthèse. Votre application peut ensuite utiliser ce fichier audio selon vos besoins.
 
-Le corps de la requête de publication POST pour la synthèse vocale peut prendre la forme d’un texte brut (ASCII ou UTF8) ou d’un document [SSML](speech-synthesis-markup.md). Les requêtes portant sur un texte brut sont énoncées avec une voix par défaut. Dans la plupart des cas, vous utiliserez un corps SSML. La requête HTTP doit inclure un jeton d’[autorisation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication). 
+Le corps de la requête de publication POST pour la synthèse vocale peut prendre la forme d’un texte brut (ASCII ou UTF8) ou d’un document [SSML](speech-synthesis-markup.md). Les requêtes portant sur un texte brut sont énoncées avec une voix par défaut. Dans la plupart des cas, vous utiliserez un corps SSML. La requête HTTP doit inclure un jeton d’[autorisation](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication). 
 
 Les différents points de terminaison de synthèse vocale régionaux sont indiqués ci-après. Utilisez le point de terminaison adapté à votre abonnement.
 

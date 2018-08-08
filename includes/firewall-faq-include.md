@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1db5f0a62a21d040949c9f4e4c42f80c86e76506
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e23579479c61810d651bebae7b486b53aaaf0d42
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163676"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361362"
 ---
 ### <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -66,7 +66,7 @@ Pare-feu Azure est intégré à Azure Monitor pour la consultation et l’analys
 
 ### <a name="how-does-azure-firewall-work-relative-to-existing-like-nvas-in-the-marketplace"></a>Comment Pare-feu Azure fonctionne-t-il par rapport à l’existant, notamment les appliances virtuelles réseau rencontrées dans la place de marché ?
 
-Pare-feu Azure est un service de pare-feu de base qui peut résoudre les problèmes que rencontrent les clients dans certains cas. Selon nous, les clients qui utilisent Pare-feu Azure disposent aussi d’appliances virtuelles réseau tierces. À cet égard, nous œuvrons avec nos partenaires pour proposer de meilleures alternatives. 
+Pare-feu Azure est un service de pare-feu de base qui peut résoudre les problèmes que rencontrent les clients dans certains cas. Il est probable que vous obteniez un mélange d’appliances virtuelles réseau et de Pare-feu Azure tiers. Mieux travailler ensemble est une priorité.
  
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Quelle est la différence entre Application Gateway WAF et Pare-feu Azure ?
 
@@ -74,7 +74,7 @@ Le pare-feu d’applications web (WAF, Web Application Firewall) est une fonctio
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsg-and-azure-firewall"></a>Quelle est la différence entre les groupes de sécurité réseau (NSG) et Pare-feu Azure ?
 
-Le service de pare-feu Azure vient en complément de nos fonctionnalités de groupe de sécurité réseau existantes pour assurer une sécurité réseau plus efficace avec une défense en profondeur. Les groupes de sécurité réseau assurent un filtrage du trafic distribué au niveau de la couche réseau pour limiter le trafic aux ressources au sein de réseaux virtuels de chaque abonnement.  Pare-feu Azure est un service de pare-feu entièrement centralisé et avec état qui offre une protection au niveau du réseau et de l’application entre les différents abonnements et réseaux virtuels (VNet). 
+Le service de pare-feu Azure vient compléter nos fonctionnalités de groupe de sécurité réseau pour assurer une sécurité réseau plus efficace avec une défense approfondie. Les groupes de sécurité réseau assurent un filtrage du trafic distribué au niveau de la couche réseau pour limiter le trafic aux ressources au sein de réseaux virtuels de chaque abonnement.  Pare-feu Azure est un service de pare-feu entièrement centralisé et avec état qui offre une protection au niveau du réseau et de l’application entre les différents abonnements et réseaux virtuels (VNet). 
 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Comment faire pour configurer Pare-feu Azure avec mes points de terminaison de service ?
 
@@ -84,4 +84,5 @@ Pour bénéficier d’un accès sécurisé aux services PaaS, nous vous recomman
 
 * Pare-feu Azure a une limite logicielle de 1 000 To/pare-feu/mois. 
 * Une instance Pare-feu Azure qui s’exécute dans un réseau virtuel central est soumise aux limitations du peering des réseaux virtuels : 50 réseaux virtuels spoke, au maximum.  
-* Pare-feu Azure n’étant pas compatible avec le Peering mondial, les clients doivent disposer d’au moins un déploiement du pare-feu par région.
+* Le pare-feu Azure n’étant pas compatible avec le Peering mondial, les clients doivent disposer d’au moins un déploiement de pare-feu par région.
+* Le pare-feu Azure prend en charge 10 000 règles d’application et 10 000 règles de réseau.

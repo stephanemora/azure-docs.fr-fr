@@ -1,21 +1,20 @@
 ---
-title: Langues prises en charge par le service Speech - Microsoft Cognitive Services | Microsoft Docs
+title: Langues prises en charge par le service Speech - Microsoft Cognitive Services
 description: Liste des langues prises en charge par le service Speech.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2a768846958f73ace22971f2f2ca8f886c9df252
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069572"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282154"
 ---
 # <a name="supported-languages-for-speech-service"></a>Langues prises en charge pour le service Speech
 
@@ -29,9 +28,9 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabe (Égypte), standard moderne | Non  | Oui | Non 
  It-IT | Italien (Italie) | Non  | Oui | Non  
- de-DE | Allemand (Allemagne) | Non  | Oui | Oui
+ de-DE | Allemand (Allemagne) | Non  | OUI | Oui
  ja-JP | Japonais (Japon) | Non  | Oui | Non 
- fr-FR | Anglais (États-Unis) | Oui | Oui | Oui
+ fr-FR | Anglais (États-Unis) | Oui | OUI | Oui
  pt-br | Portugais (Brésil) | Non  | Oui | Non 
  es-ES | Espagnol (Espagne) | Non  | Oui | Non 
  ru-RU | Russe (Russie) | Non  | Oui | Non 

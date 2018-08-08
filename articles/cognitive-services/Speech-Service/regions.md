@@ -1,20 +1,19 @@
 ---
-title: Régions du service de reconnaissance vocale | Microsoft Docs
+title: Régions de service de Speech
 description: Informations de référence pour les régions du service de reconnaissance vocale.
 services: cognitive-services
 author: mahilleb-msft
-manager: wolmfa61
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: 11360d163fdba057d373d091d46903cde7789a8b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 082002b25b02e1e496221f4686d0e636630dd438
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071417"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324389"
 ---
 # <a name="regions-of-the-speech-service"></a>Régions du service de reconnaissance vocale
 
@@ -32,13 +31,17 @@ Consultez [API REST](rest-apis.md) pour plus d’informations.
 
 Dans le [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk.md), les régions sont spécifiées sous forme de chaîne (par exemple, en tant que paramètre de [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) dans le Kit de développement logiciel (SDK) de reconnaissance vocale pour C#).
 
+### <a name="regions-for-speech-recognition-and-translation"></a>Régions dédiées à la reconnaissance vocale et à la traduction
+
 Le tableau ci-dessous répertorie les régions disponibles pour la **reconnaissance vocale** et la **traduction** :
 
 Région| Valeur du paramètre de région dans le Kit de développement logiciel (SDK) de reconnaissance vocale
 -|-
 USA Ouest| `westus`
-Est de l'Asie| `eastasia`
+Asie Est| `eastasia`
 Europe Nord| `northeurope`
+
+### <a name="regions-for-intent-recognition"></a>Régions de reconnaissance de l’intention
 
 Les régions disponibles pour la **reconnaissance de l’intention** via le Kit de développement logiciel (SDK) de reconnaissance vocale sont répertoriées dans la [page des régions proposant le service de reconnaissance vocale](/azure/cognitive-services/luis/luis-reference-regions).
 Pour chaque région de publication affichée, le paramètre de région du Kit de développement logiciel (SDK) de reconnaissance vocale correspondant est défini comme étant la première partie du nom de domaine du point de terminaison.

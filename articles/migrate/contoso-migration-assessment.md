@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 2be5ddd51140563efc44b1c1a4c84502bf491020
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215320"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399071"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migration de Contoso : évaluer facilement vos charges de travail locales en vue d’une migration vers Azure
 
@@ -123,8 +123,10 @@ Contoso et les autres utilisateurs doivent respecter les prérequis suivants pou
 - Au moins deux machines virtuelles VMware locales, dont l’une exécutant une base de données SQL Server.
 - Les autorisations nécessaires pour installer des agents Azure Migrate sur chaque machine virtuelle.
 - Les machines virtuelles doivent avoir une connectivité Internet directe.  
-        - Vous pouvez limiter l’accès Internet aux [URL requises](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        - Si vos machines virtuelles ne sont pas connectées à Internet, vous devez y installer la [passerelle OMS](../log-analytics/log-analytics-oms-gateway.md) Azure Log Analytics.
+        
+- Vous pouvez limiter l’accès Internet aux [URL requises](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+
+- Si vos machines virtuelles ne sont pas connectées à Internet, vous devez y installer la [Passerelle OMS](../log-analytics/log-analytics-oms-gateway.md) Azure Log Analytics.
 - Le nom de domaine complet de la machine virtuelle qui exécute l’instance SQL Server, pour l’évaluation de la base de données.
 - Le Pare-feu Windows exécuté sur la machine virtuelle SQL Server doit autoriser les connexions externes via le port TCP 1433 (par défaut). Le programme d’installation permet à l’Assistant Migration de données de se connecter.
 

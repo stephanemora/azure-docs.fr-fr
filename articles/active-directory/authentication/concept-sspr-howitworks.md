@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248217"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413101"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : réinitialisation de mot de passe en libre-service Azure AD
 
@@ -50,6 +50,7 @@ Lisez les étapes suivantes pour en savoir plus sur la logique sous-jacente à l
        * Si les méthodes d'authentification ne sont pas configurées, l’utilisateur est invité à contacter l’administrateur pour réinitialiser son mot de passe.
      * Si la stratégie exige deux méthodes, AAD vérifie que l’utilisateur a défini les données appropriées pour au moins deux méthodes d'authentification activées par la stratégie de l’administrateur.
        * Si les méthodes d'authentification ne sont pas configurées, l’utilisateur est invité à contacter l’administrateur pour réinitialiser son mot de passe.
+     * Si un rôle d’administrateur Azure est affecté à l’utilisateur, la stratégie de mot de passe fort à deux verrous est appliquée. Vous trouverez plus d’informations sur cette stratégie dans la section [Différences en matière de stratégie de réinitialisation par l’administrateur](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Il vérifie si le mot de passe de l’utilisateur est géré localement (fédération, authentification directe ou synchronisation du hachage de mot de passe).
      * Si la réécriture est déployée et que le mot de passe est géré localement, l’utilisateur est autorisé à s’authentifier et à réinitialiser son mot de passe.
      * Si la réécriture n’est pas déployée et que le mot de passe est géré localement, l’utilisateur est invité à contacter son administrateur pour réinitialiser son mot de passe.
@@ -68,6 +69,9 @@ Si SSPR est activé, vous devez sélectionner au moins l’une des options suiva
 
 Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont des données présentes dans les méthodes d’authentification que l’administrateur a activées.
 
+> [!WARNING]
+> Les rôles d’administrateur Azure auxquels sont assignés des comptes seront nécessaires pour utiliser les méthodes définies dans la section [Différences en matière de stratégie de réinitialisation par l’administrateur](concept-sspr-policy.md#administrator-reset-policy-differences).
+
 ![Authentification][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Nombre de méthodes d’authentification requises
@@ -80,13 +84,16 @@ Si un utilisateur n’a pas le nombre minimal requis de méthodes inscrites, une
 
 #### <a name="mobile-app-and-sspr-preview"></a>Application mobile et réinitialisation de mot de passe en libre-service (préversion)
 
-Lorsque vous utilisez une application mobile, comme l’application Microsoft Authenticator, en tant que méthode pour la réinitialisation de mot de passe, les utilisateurs doivent tenir compte de ce qui suit. Lorsque qu’une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option disponible pour les utilisateurs. Lorsque deux méthodes sont requises, les utilisateurs seront en mesure d’effectuer la réinitialisation avec **SOIT** une notification, **SOIT** un code de vérification en plus de n’importe quelle autre méthode activée.
+Lorsque vous utilisez une application mobile, comme l’application Microsoft Authenticator, vous devez tenir compte de ce qui suit concernant la méthode de réinitialisation de mot de passe :
+
+* Lorsque les administrateurs demandent d’utiliser une méthode de réinitialisation de mot de passe, le code de vérification est la seule option disponible.
+* Lorsque les administrateurs demandent d’utiliser deux méthodes de réinitialisation de mot de passe, les utilisateurs seront en mesure d’effectuer la réinitialisation **SOIT** avec une notification, **SOIT** avec un code de vérification en plus de n’importe quelle autre méthode activée.
 
 | Nombre de méthodes requises pour la réinitialisation | Une | Deux |
 | :---: | :---: | :---: |
 | Fonctionnalités d’application mobile disponibles | Code | Code ou notification |
 
-Les utilisateurs n’auront pas la possibilité d’inscrire leur application mobile lors de l’inscription pour la réinitialisation de mot de passe en libre-service. En revanche, les utilisateurs peuvent inscrire leur application mobile sur aka.ms/mfasetup ou dans la préversion de l’inscription des informations de sécurité sur aka.ms/setupsecurityinfo. 
+Les utilisateurs n’auront pas la possibilité d’inscrire leur application mobile lors de l’inscription pour la réinitialisation de mot de passe en libre-service depuis [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). En revanche, les utilisateurs peuvent inscrire leur application mobile sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou dans la nouvelle préversion d’inscription des informations de sécurité sur [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Changer les méthodes d’authentification
 

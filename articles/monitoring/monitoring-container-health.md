@@ -3,7 +3,7 @@ title: Surveiller l’intégrité d’Azure Kubernetes Service (AKS) (préversio
 description: Cet article explique comment évaluer facilement les performances de votre conteneur AKS pour comprendre rapidement l’utilisation de votre environnement Kubernetes hébergé.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 07/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249095"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366094"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Surveiller l’intégrité des conteneurs Azure Kubernetes Service (AKS) (préversion)
 
@@ -39,7 +39,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un cluster AKS nouveau ou existant
 - Un Agent OMS pour Linux conteneurisé microsoft/oms:ciprod04202018 et versions ultérieures. Le numéro de version est représenté par une date au format suivant : *mmjjaaaa*. Cet agent est installé automatiquement lors de l’intégration du contrôle d’intégrité des conteneurs. 
-- Un espace de travail Log Analytics. Vous pouvez le créer lorsque vous activez la surveillance de votre nouveau cluster AKS, ou via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../log-analytics/log-analytics-quick-create-workspace.md).
+- Un espace de travail Log Analytics. Vous pouvez le créer lorsque vous activez la supervision de votre nouveau cluster AKS ou lorsque vous laissez l’expérience d’intégration créer un espace de travail par défaut dans le groupe de ressources par défaut de l’abonnement de cluster AKS. Si vous choisissez de le créer vous-même, vous pouvez le créer via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 - Le rôle Contributeur Log Analytics, pour activer la surveillance des conteneurs. Pour plus d’informations sur la façon de contrôler l’accès à un espace de travail Log Analytics, consultez [Gérer les espaces de travail](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Composants 
@@ -47,14 +47,20 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 Votre capacité à surveiller les performances s’appuie sur un Agent OMS pour Linux conteneurisé afin de collecter les données de performances et les événements à partir de tous les nœuds du cluster. L’agent est automatiquement déployé et inscrit dans l’espace de travail Log Analytics spécifié, une fois que vous activez la surveillance des conteneurs. 
 
 >[!NOTE] 
->Si vous avez déjà déployé un cluster AKS, activez la surveillance à l’aide d’un modèle Azure Resource Manager fourni, comme indiqué plus loin dans cet article. Vous ne pouvez pas utiliser `kubectl` pour mettre à niveau, supprimer, redéployer ou déployer l’agent. 
+>Si vous avez déjà déployé un cluster AKS, activez la supervision à l’aide d’Azure CLI ou un modèle Azure Resource Manager fourni, comme indiqué plus loin dans cet article. Vous ne pouvez pas utiliser `kubectl` pour mettre à niveau, supprimer, redéployer ou déployer l’agent. 
 >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 Connectez-vous au [Portail Azure](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Activer le contrôle d’intégrité du conteneur pour un nouveau cluster
-Pendant le déploiement, vous pouvez activer la surveillance d’un nouveau cluster AKS à partir du portail Azure. Suivez les étapes de l’article de démarrage rapide [Déployer un cluster Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md). Dans la page **Surveillance**, pour l’option **Activer la surveillance**, sélectionnez **Oui**, puis sélectionnez un espace de travail Log Analytics existant ou créez-en un. 
+Pendant le déploiement, vous pouvez activer la supervision d’un nouveau cluster AKS à partir du portail Azure ou avec Azure CLI. Suivez les étapes de l’article de démarrage rapide [Déployer un cluster Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md) si vous souhaitez l’activer depuis le portail. Dans la page **Surveillance**, pour l’option **Activer la surveillance**, sélectionnez **Oui**, puis sélectionnez un espace de travail Log Analytics existant ou créez-en un. 
+
+Pour activer la supervision d’un nouveau cluster AKS créé avec Azure CLI, suivez l’étape de l’article de démarrage rapide sous la section [Créer un cluster AKS](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
+
+>[!NOTE]
+>Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.27 ou ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>
 
 Une fois la surveillance activée et toutes les tâches de configuration terminées correctement, vous pouvez contrôler les performances de votre cluster de deux manières :
 
@@ -66,7 +72,20 @@ Une fois la surveillance activée et toutes les tâches de configuration termin�
 Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler avant que vous ne puissiez voir les données opérationnelles du cluster. 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Activer le contrôle d’intégrité du conteneur pour des clusters gérés existants
-Vous pouvez activer la surveillance d’un cluster AKS déjà déployé, soit à partir du portail Azure ou à l’aide du modèle Azure Resource Manager fourni, en utilisant l’applet de commande PowerShell `New-AzureRmResourceGroupDeployment` ou Azure CLI. 
+Vous pouvez activer la supervision d’un cluster AKS déjà déployé, soit à l’aide d’Azure CLI, à partir du portail, soit à l’aide du modèle Azure Resource Manager fourni en utilisant la cmdlet PowerShell`New-AzureRmResourceGroupDeployment`. 
+
+### <a name="enable-monitoring-using-azure-cli"></a>Activer la supervision à l’aide d’Azure CLI
+L’étape suivante permet la supervision de votre cluster AKS à l’aide d’Azure CLI. Dans cet exemple, vous n'êtes pas obligé de créer ou de spécifier un espace de travail existant. Cette commande simplifie le processus en créant un espace de travail par défaut dans le groupe de ressources par défaut de l’abonnement cluster AKS s’il n’existe pas dans la région.  L’espace de travail créé par défaut est semblable au format de *DefaultWorkspace-<GUID>-<Region>*.  
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+La sortie doit ressembler à ce qui suit :
+
+```azurecli
+provisioningState       : Succeeded
+```
 
 ### <a name="enable-monitoring-in-the-azure-portal"></a>Activer la surveillance dans le portail Azure
 Pour activer la surveillance de votre conteneur AKS à partir du portail Azure, effectuez les étapes suivantes :
@@ -297,6 +316,26 @@ User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
+
+## <a name="view-configuration-with-cli"></a>Afficher la configuration avec l’interface de ligne de commande
+Utilisez la commande `aks show` pour obtenir des détails comme l’activation ou non de la solution, le resourceID de l’espace de travail Log Analytics, et un résumé détaillé du cluster.  
+
+```azurecli
+az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+```
+
+Au bout de quelques minutes, la commande se termine et renvoie des informations formatées JSON sur la solution.  Les résultats de la commande doivent afficher le profil de module complémentaire de supervision et ressemblent à l’exemple de sortie suivant :
+
+```
+"addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+      },
+      "enabled": true
+    }
+  }
+```
 
 ## <a name="view-performance-utilization"></a>Afficher l’utilisation des performances
 Lorsque vous consultez l’intégrité du conteneur, la page affiche aussitôt l’utilisation des performances de votre cluster entier. L’affichage des informations sur votre cluster AKS se présente sous quatre perspectives :

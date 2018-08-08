@@ -3,8 +3,8 @@ title: Devenir éditeur dans les vitrines de la Place de marché | Azure
 description: Cet article décrit comment devenir un éditeur dans la Place de marché.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: ''
 ms.service: marketplace
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172311"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412013"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
 
@@ -103,8 +103,8 @@ Une fois l’inscription au [Centre de développement](https://developer.microso
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez les vitrines de la place de marché : AppSource et Place de marché Azure
-*   Déterminez votre offre pour la place de marché
+* Découvrez les vitrines de la place de marché : [Comparaison entre AppSource et la Place de marché Azure](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [Déterminer le type de référencement pour votre solution](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
 
  
 ---  

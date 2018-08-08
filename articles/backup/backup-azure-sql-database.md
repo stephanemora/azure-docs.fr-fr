@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249078"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364374"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Sauvegarder des bases de données SQL Server sur Azure
 
@@ -53,30 +53,30 @@ Les éléments suivants constituent des limitations connues de la préversion pu
 La sauvegarde Azure est prise en charge pour les zones géographiques suivantes :
 
 - Sud-Est de l’Australie (ASE) 
-- Sud du Brésil (BRS)
+- Brésil Sud (BRS)
 - Centre du Canada (CNC)
 - Est du Canada (CE)
-- Centre des États-Unis (CUS)
-- Est de l’Asie (EA)
+- USA Centre (CUS)
+- Asie Est (EA)
 - Est d’Australie (AE) 
-- Est des États-Unis (EUS)
-- Est des États-Unis 2 (EUS2)
-- Centre de l’Inde (INC) 
+- USA Est (EUS)
+- USA Est 2 (EUS2)
+- Inde Centre (INC) 
 - Sud de l’Inde (INS)
-- Est du Japon (JPE)
-- Ouest du Japon (JPW)
+- Japon Est (JPE)
+- Japon Ouest (JPW)
 - Corée Centre (KRC)
 - Corée du Sud (KRS)
-- Centre-Nord des États-Unis (NCUS) 
-- Europe du Nord (NE) 
-- Centre-Sud des États-Unis (SCUS) 
-- Asie du Sud-Est (SEA)
+- USA Centre Nord (NCUS) 
+- Europe Nord (NE) 
+- USA Centre Sud (SCUS) 
+- Asie Sud-Est (SEA)
 - Sud du Royaume-Uni (UKS) 
 - Ouest du Royaume-Uni (UKW) 
-- Centre-Ouest des États-Unis (WCUS)
-- Europe de l’Ouest (WE) 
-- Ouest des États-Unis (WUS)
-- Ouest des États-Unis 2 (WUS 2) 
+- USA Centre-Ouest (WCUS)
+- Europe Ouest (WE) 
+- USA Ouest (WUS)
+- USA Ouest 2 (WUS 2) 
 
 ## <a name="support-for-operating-systems-and-sql-server-versions"></a>Prise en charge des systèmes d’exploitation et versions de SQL Server
 
@@ -148,7 +148,7 @@ Pour configurer des autorisations :
 
     ![Sélectionnez SQL Server dans une machine virtuelle Azure pour la sauvegarde](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Le menu **Objectif de sauvegarde** affiche deux étapes : **Discover DBs in VMs** (Détecter les bases de données dans les machines virtuelles) et **Configurer la sauvegarde**. L’étape **Discover DBs in VMs (Détecter les bases de données dans les machines virtuelles)** lance une recherche pour les machines virtuelles Azure.
+    Le menu **Objectif de sauvegarde** affiche deux étapes : **Discover DBs in VMs** (Détecter les bases de données dans les machines virtuelles) et **Configurer la sauvegarde**. L’étape **Détecter les bases de données dans les machines virtuelles** lance une recherche pour les machines virtuelles Azure.
 
     ![Passez en revue les deux étapes de l’objectif de sauvegarde](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -216,7 +216,7 @@ Sauvegarde Azure permet de découvrir toutes les bases de données sur une insta
 
 3. Dans la boîte de dialogue **Tous les services**, entrez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste des ressources est filtrée. Sélectionnez **Coffres Recovery Services** dans la liste.
 
-    ![Entrer et choisir Coffres Recovery Services](./media/backup-azure-sql-database/all-services.png) <br/>
+    ![Entrée et choisir Coffres Recovery Services](./media/backup-azure-sql-database/all-services.png) <br/>
 
     La liste des coffres Recovery Services de l’abonnement s’affiche. 
 
@@ -258,7 +258,7 @@ Lorsque vous utilisez l’outil **Découvrir les bases de données**, le service
 
     ![Sélectionner la machine virtuelle et la base de données](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>Configurer la sauvegarde des bases de données SQL Server 
+## <a name="configure-backup-for-sql-server-databases"></a>Configurer la sauvegarde des bases de données SQL Server
 
 Sauvegarde Azure fournit des services de gestion afin de protéger vos bases de données SQL Server et de gérer les travaux de sauvegarde. Les fonctionnalités de gestion et de surveillance dépendent de votre coffre Recovery Services. 
 
@@ -317,6 +317,9 @@ Pour configurer la protection d’une base de données SQL :
 
 8. Dans le menu déroulant **Choisir une stratégie de sauvegarde**, choisissez une stratégie de sauvegarde, puis sélectionnez **OK**. Pour plus d’informations sur la création d’une stratégie de sauvegarde, consultez [Créer une stratégie de sauvegarde](backup-azure-sql-database.md#define-a-backup-policy).
 
+   > [!NOTE]
+   > Dans la préversion, vous ne pouvez pas modifier les stratégies de sauvegarde. Si vous souhaitez une autre stratégie que celles disponibles dans la liste, vous devez créer cette stratégie. Pour plus d’informations sur la création de votre propre stratégie de sauvegarde, consultez la section [Créer une stratégie de sauvegarde](backup-azure-sql-database.md#define-a-backup-policy).
+
     ![Choisir une stratégie de sauvegarde dans la liste](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     Dans le menu déroulant **Choisir une stratégie de sauvegarde** du menu **Stratégie de sauvegarde**, vous pouvez : 
@@ -341,25 +344,32 @@ Pour configurer la protection d’une base de données SQL :
 
 Une stratégie de sauvegarde définit une matrice indiquant le moment auquel les sauvegardes sont effectuées ainsi que la durée de leur rétention. Utilisez Sauvegarde Azure pour planifier trois types de sauvegarde pour les bases de données SQL :
 
-* Sauvegarde complète : une sauvegarde complète de base de données sauvegarde l’intégralité de la base de données. Elle contient toutes les données d’une base de données spécifique ou d’un ensemble de groupes de fichiers ou de fichiers, ainsi qu’un journal suffisant pour récupérer ces données. Vous pouvez déclencher au plus une sauvegarde complète par jour. Vous pouvez choisir d’effectuer une sauvegarde complète tous les jours ou toutes les semaines. 
+* Sauvegarde complète : une sauvegarde complète de base de données sauvegarde l’intégralité de la base de données. Une sauvegarde complète contient toutes les données d’une base de données spécifique ou d’un ensemble de fichiers ou de groupes de fichiers, ainsi qu’un nombre de journaux suffisant pour récupérer ces données. Vous pouvez déclencher au plus une sauvegarde complète par jour. Vous pouvez choisir d’effectuer une sauvegarde complète tous les jours ou toutes les semaines. 
 * Sauvegarde différentielle : une sauvegarde différentielle est basée sur la sauvegarde de données complète précédente la plus récente. Elle capture uniquement les données qui ont changé depuis la sauvegarde complète. Vous pouvez déclencher au plus une sauvegarde différentielle par jour. Vous ne pouvez pas configurer une sauvegarde complète et une sauvegarde différentielle le même jour.
 * Sauvegarde de fichier journal : une sauvegarde de fichier journal permet d’effectuer une restauration ponctuelle à la seconde donnée. Au plus, vous pouvez configurer des sauvegardes du journal des transactions toutes les 15 minutes.
 
-Les stratégies sont créées au niveau du coffre Recovery Services. Plusieurs coffres peuvent utiliser la même stratégie de sauvegarde, mais vous devez appliquer la stratégie de sauvegarde à chaque coffre. Lorsque vous créez une stratégie de sauvegarde, la sauvegarde complète quotidienne est la valeur par défaut. Vous pouvez ajouter une sauvegarde différentielle, mais uniquement si vous configurez les sauvegardes complètes pour qu’elles aient lieu toutes les semaines. La procédure suivante décrit la création d’une stratégie de sauvegarde pour une instance de serveur SQL Server dans une machine virtuelle Azure.
+Les stratégies sont créées au niveau du coffre Recovery Services. Plusieurs coffres peuvent utiliser la même stratégie de sauvegarde, mais vous devez appliquer la stratégie de sauvegarde à chaque coffre. Lorsque vous créez une stratégie de sauvegarde, la sauvegarde complète quotidienne est la valeur par défaut. Vous pouvez ajouter une sauvegarde différentielle, mais uniquement si vous configurez les sauvegardes complètes pour qu’elles aient lieu toutes les semaines. La procédure suivante décrit la création d’une stratégie de sauvegarde pour une instance de serveur SQL Server dans une machine virtuelle Azure. 
 
+> [!NOTE]
+> Dans la préversion, vous ne pouvez pas modifier une stratégie de sauvegarde. Au lieu de cela, vous devez créer une nouvelle stratégie avec les détails désirés.  
+ 
 Pour créer une stratégie de sauvegarde :
 
-1. Dans le menu déroulant **Choisir une stratégie de sauvegarde** du menu **Stratégie de sauvegarde**, sélectionnez **Créer nouveau**.
+1. Dans le coffre Recovery Services qui protège la base de données SQL, cliquez sur **Stratégies de sauvegarde**, puis cliquez sur **Ajouter**. 
 
-   ![Créer une nouvelle stratégie de sauvegarde](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Ouvrez la boîte de dialogue de la stratégie de sauvegarde créée](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    Le menu **Stratégie de sauvegarde** affiche les champs nécessaires pour toute nouvelle stratégie de sauvegarde SQL Server.
+   Le menu **Ajouter** s’affiche.
 
-   ![Champs de la nouvelle stratégie de sauvegarde](./media/backup-azure-sql-database/blank-new-policy.png)
+2. Dans le menu **Ajouter**, cliquez sur **SQL Server dans les machines virtuelles Azure**.
 
-2. Entrez un nom dans la zone **Nom de la stratégie**.
+   ![Choisissez un type de stratégie pour la nouvelle stratégie de sauvegarde](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. Une sauvegarde complète est obligatoire. Vous pouvez accepter les valeurs par défaut de la sauvegarde complète ou sélectionner **Sauvegarde complète** pour modifier la stratégie.
+   Sélectionner SQL Server dans les machines virtuelles Azure définit le type de stratégie et ouvre le menu Stratégie de sauvegarde. Le menu **Stratégie de sauvegarde** affiche les champs nécessaires pour toute nouvelle stratégie de sauvegarde SQL Server.
+
+3. Dans **Nom de la stratégie**, entrez le nom de la nouvelle stratégie.
+
+4. Une sauvegarde complète est obligatoire ; vous ne pouvez pas désactiver l’option **Sauvegarde complète**. Cliquez sur **Sauvegarde complète** pour afficher et modifier la stratégie. Même si vous ne modifiez pas la stratégie de sauvegarde, il est conseillé d’afficher les détails de la stratégie.
 
     ![Champs de la nouvelle stratégie de sauvegarde](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ Pour créer une stratégie de sauvegarde :
 
    ![Paramètre d’intervalle hebdomadaire](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. Par défaut, toutes les options figurant dans la section **Durée de rétention** sont sélectionnées : quotidienne, hebdomadaire, mensuelle et annuelle. Désélectionnez les limites de plage de rétention non désirées. Définissez les intervalles à utiliser. Dans le menu de **stratégie Sauvegarde complète**, cliquez sur **OK** pour accepter les paramètres.
+5. Par défaut, toutes les options figurant dans la section **Durée de rétention** sont sélectionnées : quotidienne, hebdomadaire, mensuelle et annuelle. Désélectionnez les limites de plage de rétention non désirées. Définissez les intervalles à utiliser. Dans le menu de **stratégie Sauvegarde complète**, cliquez sur **OK** pour accepter les paramètres.
 
    ![Paramètres d’intervalle de la durée de rétention](./media/backup-azure-sql-database/retention-range-interval.png)
 
     Des points de récupération sont marqués pour la rétention et varient selon la durée de rétention. Par exemple, si vous sélectionnez une sauvegarde complète quotidienne, seule une sauvegarde complète est déclenchée chaque jour. La sauvegarde d’un jour spécifique est marquée et conservée conformément à la durée et aux paramètres de rétention hebdomadaire. Les durées de rétention mensuelle et annuelle ont le même comportement.
 
-5. Pour ajouter une stratégie de sauvegarde différentielle, sélectionnez **Sauvegarde différentielle**. Le menu **Stratégie de sauvegarde différentielle** s’ouvre. 
+6. Pour ajouter une stratégie de sauvegarde différentielle, sélectionnez **Sauvegarde différentielle**. Le menu **Stratégie de sauvegarde différentielle** s’ouvre. 
 
    ![Ouvrir le menu de stratégie de sauvegarde différentielle](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,30 +401,32 @@ Pour créer une stratégie de sauvegarde :
 
     Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
 
-6. Pour ajouter une stratégie de sauvegarde de fichier journal, cliquez sur **Sauvegarde de fichier journal**. Le menu **Sauvegarde de fichier journal** s’ouvre.
+7. Pour ajouter une stratégie de sauvegarde de fichier journal, cliquez sur **Sauvegarde de fichier journal**. Le menu **Sauvegarde de fichier journal** s’ouvre.
 
     Dans le menu **Sauvegarde de fichier journal**, sélectionnez **Activer** et définissez les contrôles de fréquence et de rétention. Les sauvegardes de fichiers journaux peuvent se produire toutes les 15 minutes et être conservées jusqu’à 35 jours. Sélectionnez **OK** pour enregistrer la stratégie et revenir au menu principal **Stratégie de sauvegarde**.
 
    ![Modifier la stratégie de sauvegarde de fichier journal](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. Dans le menu **Stratégie de sauvegarde**, choisissez s’il convient d’activer l’option **Compression de la sauvegarde SQL**, qui est désactivée par défaut.
+8. Dans le menu **Stratégie de sauvegarde**, choisissez s’il convient d’activer l’option **Compression de la sauvegarde SQL**, qui est désactivée par défaut.
 
     Sur le serveur principal, Sauvegarde Azure utilise la compression de sauvegarde native SQL.
 
-8. Après avoir terminé les modifications apportées à la stratégie de sauvegarde, sélectionnez **OK**. 
+9. Après avoir terminé les modifications apportées à la stratégie de sauvegarde, sélectionnez **OK**. 
 
    ![Accepter une nouvelle stratégie de sauvegarde](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Restaurer une base de données SQL
-
 Sauvegarde Azure fournit les fonctionnalités permettant de restaurer des bases de données particulières à une date ou à une heure spécifiques (jusqu’à la seconde près) à l’aide des sauvegardes du journal des transactions. En fonction des heures de restauration que vous indiquez, Sauvegarde Azure détermine automatiquement la sauvegarde complète, la sauvegarde différentielle et la chaîne des sauvegardes de fichiers journaux requis pour restaurer vos données.
 
 Vous pouvez également sélectionner une sauvegarde complète ou différentielle spécifique à restaurer à un point de récupération spécifique plutôt qu’à un moment donné.
- > [!Note]
- > Avant de déclencher la restauration de la base de données « Master », démarrez l’instance SQL Server en mode mono-utilisateur, avec l’option de démarrage `-m AzureWorkloadBackup`. L’argument lié à l’option `-m` correspond au nom du client. Seul ce client est autorisé à ouvrir la connexion. Pour toutes les bases de données système (model, master, msdb), arrêtez le service SQL Agent avant de déclencher la restauration. Fermez toutes les applications qui tentent de voler une connexion à l’une de ces bases de données.
->
 
-Pour restaurer une base de données :
+### <a name="pre-requisite-before-triggering-a-restore"></a>Conditions préalables avant de déclencher une restauration
+
+1. Vous pouvez restaurer la base de données vers une instance SQL Server dans la même région Azure. Le serveur de destination doit être enregistré dans le même coffre Recovery Services que la source.  
+2. Pour restaurer une base de données chiffrée TDE vers un autre serveur SQL Server, veuillez d’abord restaurer le certificat dans le serveur de destination en suivant les étapes présentées [ici](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. Avant de déclencher la restauration de la base de données « Master », démarrez l’instance SQL Server en mode mono-utilisateur, avec l’option de démarrage `-m AzureWorkloadBackup`. L’argument lié à l’option `-m` correspond au nom du client. Seul ce client est autorisé à ouvrir la connexion. Pour toutes les bases de données système (model, master, msdb), arrêtez le service SQL Agent avant de déclencher la restauration. Fermez toutes les applications qui tentent de voler une connexion à l’une de ces bases de données.
+
+### <a name="steps-to-restore-a-database"></a>Étapes pour restaurer une base de données :
 
 1. Ouvrez le coffre Recovery Services inscrit auprès de la machine virtuelle SQL.
 

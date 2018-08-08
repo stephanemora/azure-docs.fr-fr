@@ -1,23 +1,24 @@
 ---
-title: 'Démarrage rapide : reconnaissance vocale dans C# dans une application UWP à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech | Microsoft Docs'
+title: 'Démarrage rapide : reconnaissance vocale dans C# dans une application UWP, à l’aide du kit de développement logiciel (SDK) Speech de Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
 description: Découvrez comment effectuer une reconnaissance vocale dans une application UWP à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 751736a4333932a68775589dddeb82ef6fa6f398
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 549a8fd29cf1f986da0af1ae49dbf0e5335603bd
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258206"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325698"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans une application UWP à l’aide du kit de développement logiciel (SDK) Speech
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer une application plateforme Windows universelle (UWP9 à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech pour transcrire de la parole en texte.
 L’application est créée avec le [package NuGet du kit SDK Microsoft Cognitive Services Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
@@ -95,7 +96,7 @@ L’application est créée avec le [package NuGet du kit SDK Microsoft Cognitiv
 
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
 
-1. Générez l’application. Dans la barre de menus, sélectionnez **Générer** > **Générer la solution**. Le code doit maintenant se compiler sans erreur.
+1. Générez l’application. Dans la barre de menus, sélectionnez **Générer** > **Générer la solution**. Le code doit maintenant se compiler sans erreurs.
 
     ![Génération réussie](media/sdk/qs-csharp-uwp-08-build.png "Génération réussie")
 
@@ -116,6 +117,6 @@ Recherchez cet exemple dans le dossier `quickstart/csharp-uwp`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Traduction vocale](how-to-translate-speech.md)
+- [Traduction vocale](how-to-translate-speech-csharp.md)
 - [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
 - [Personnaliser les modèles de langage](how-to-customize-language-model.md)

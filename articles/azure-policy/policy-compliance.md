@@ -4,17 +4,17 @@ description: Les évaluations et les effets d’Azure Policy déterminent la con
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250188"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343550"
 ---
 # <a name="getting-compliance-data"></a>Obtention de données de conformité
 
@@ -35,7 +35,7 @@ Différents événements permettent d’évaluer les stratégies et initiatives 
 
 - Affectation d’une nouvelle stratégie ou initiative à une étendue. Lorsque cela se produit, il faut environ 30 minutes pour que l’affectation soit appliquée à l’étendue définie. Une fois celle-ci appliquée, le cycle d’évaluation commence pour les ressources de cette étendue compte tenu de la nouvelle stratégie ou initiative ; de plus, selon les effets utilisés par la stratégie ou l’initiative, les ressources sont marquées comme conformes ou non conformes. L’évaluation d’une stratégie ou d’une initiative volumineuse sur une grande étendue de ressources peut prendre un temps, ce qui signifie qu’il est impossible de déterminer à l’avance à quel moment s’achèvera le cycle d’évaluation. Une fois le cycle terminé, les résultats de conformité à jour sont disponibles dans le portail et dans les kits de développement logiciel.
 - Mise à jour d’une stratégie ou initiative déjà assignée à une étendue. Dans ce scénario, le cycle et le temps d’évaluation sont les mêmes que pour le cas d’une nouvelle affectation à une étendue.
-- Déploiement d’une ressource dans une étendue avec une assignation via le Gestionnaire des ressources, REST, Azure CLI ou Azure PowerShell. Dans ce scénario, les informations relatives à l’événement d’effet (ajout, audit, refus, déploiement) et à l’état de conformité deviennent disponibles dans le portail et les SDK environ 15 minutes plus tard.
+- Déploiement d’une ressource dans une étendue avec une assignation via le Gestionnaire des ressources, REST, Azure CLI ou Azure PowerShell. Dans ce scénario, l’événement d’effet (ajout, audit, refus, déploiement) et l’état de conformité deviennent disponibles dans le portail et les Kits de développement logiciel (SDK) environ 15 minutes plus tard. Cet événement n’entraîne pas une évaluation des autres ressources.
 - Cycle d’évaluation de conformité standard. Les affectations sont automatiquement réévaluées une fois par tranche de 24 heures. L’évaluation d’une stratégie ou d’une initiative volumineuse sur une grande étendue de ressources peut prendre un temps, ce qui signifie qu’il est impossible de déterminer à l’avance à quel moment s’achèvera le cycle d’évaluation. Une fois le cycle terminé, les résultats de conformité à jour sont disponibles dans le portail et dans les kits de développement logiciel.
 
 ## <a name="how-compliance-works"></a>Principe de fonctionnement de la conformité
@@ -51,8 +51,6 @@ Dans une attribution, une ressource est dite non conforme si elle ne respecte pa
 
 \* Les effets Append, DeployIfNotExist et AuditIfNotExist nécessitent que l’instruction IF ait la valeur TRUE.
 Les effets nécessitent également que la condition d’existence ait la valeur FALSE pour être non conformes. Lorsque la valeur est TRUE, la condition IF déclenche l’évaluation de la condition d’existence pour les ressources associées.
-
-Pour mieux comprendre le marquage des ressources comme étant non conformes, nous allons utiliser l’exemple d’attribution de stratégie créé précédemment.
 
 Supposons, par exemple, que vous disposiez d’un groupe de ressources (ContosoRG), comprenant des comptes de stockage (en rouge) qui sont exposés sur des réseaux publics.
 

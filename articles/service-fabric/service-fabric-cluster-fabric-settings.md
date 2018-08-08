@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238945"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309151"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -59,11 +59,11 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|Chaîne (valeur par défaut : "None")|statique| Cela ne valide pas le certificat de serveur ; succès de la requête. Reportez-vous à la configuration ServiceCertificateThumbprints pour obtenir la liste séparée par des virgules des empreintes de certificats distants auxquels le proxy inversé peut faire confiance. Reportez-vous à la configuration ServiceCommonNameAndIssuer pour le nom de l’objet et l’empreinte de l’émetteur des certificats distants auxquels le proxy inversé peut faire confiance. |
+|ApplicationCertificateValidationPolicy|Chaîne (valeur par défaut : "None")|statique| Cela ne valide pas le certificat de serveur ; succès de la requête. Reportez-vous à la configuration ServiceCertificateThumbprints pour obtenir la liste séparée par des virgules des empreintes de certificats distants auxquels le proxy inversé peut faire confiance. Reportez-vous à la configuration ServiceCommonNameAndIssuer pour le nom de l’objet et l’empreinte de l’émetteur des certificats distants auxquels le proxy inversé peut faire confiance. Pour plus d’informations, consultez [Connexion sécurisée du proxy inversé](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 |BodyChunkSize |Valeur Uint (valeur par défaut : 16384) |Dynamique| Indique la taille en octets du bloc utilisé pour lire le corps. |
 |CrlCheckingFlag|uint, valeur par défaut : 0x40000000 |Dynamique| Indicateurs pour la validation de la chaîne de certificats de l’application/service, par exemple CRL checking 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Si définie sur 0, cette valeur désactive la vérification CRL La liste complète des valeurs prises en charge est documentée par dwFlags de CertGetCertificateChain : http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Durée en secondes. La valeur par défaut est 120 |Dynamique|Spécifiez la durée en secondes.  Indique le délai d’expiration par défaut des requêtes HTTP traitées par la passerelle HTTP. |
-|ForwardClientCertificate|valeur booléenne, valeur par défaut : FALSE|Dynamique|Lorsque la valeur est FALSE, le proxy inversé ne demande pas le certificat client. Lorsque la valeur est TRUE, le proxy inversé demande le certificat client pendant l’établissement de connexion SSL et transfère la chaîne de format PEM encodée en base64 au service dans un en-tête nommé X-Client-Certificate. Ce service peut faire échouer la requête avec le code d’état approprié après avoir inspecté les données du certificat. Si la valeur est TRUE et que le client ne présente pas de certificat, le proxy inversé transfère un en-tête vide et laisse le service gérer le cas. Le proxy inverse agit comme une couche transparente.|
+|ForwardClientCertificate|valeur booléenne, valeur par défaut : FALSE|Dynamique|Lorsque la valeur est FALSE, le proxy inversé ne demande pas le certificat client. Lorsque la valeur est TRUE, le proxy inversé demande le certificat client pendant l’établissement de connexion SSL et transfère la chaîne de format PEM encodée en base64 au service dans un en-tête nommé X-Client-Certificate. Ce service peut faire échouer la requête avec le code d’état approprié après avoir inspecté les données du certificat. Si la valeur est TRUE et que le client ne présente pas de certificat, le proxy inversé transfère un en-tête vide et laisse le service gérer le cas. Le proxy inverse agit comme une couche transparente. Pour plus d’informations, consultez [Configurer l’authentification du certificat client](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
 |GatewayAuthCredentialType |Chaîne (valeur par défaut : "None") |statique| Indique le type d’informations d’identification de sécurité à utiliser comme point d’extrémité de la passerelle d’application HTTP. Les valeurs autorisées sont None/X509. |
 |GatewayX509CertificateFindType |Chaîne (valeur par défaut : "FindByThumbprint") |Dynamique| Indique comment rechercher un certificat dans le magasin spécifié par GatewayX509CertificateStoreName. Valeur prise en charge : FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | Chaîne (valeur par défaut : "") |Dynamique| Valeur du filtre de recherche utilisée pour localiser le certificat de la passerelle d’application HTTP. Ce certificat est configuré sur le point d’extrémité HTTPS et peut également servir à vérifier l’identité de l’application au besoin par les services. Le paramètre FindValue est consulté en premier. S’il n’existe pas, FindValueSecondary est consulté. |
@@ -75,13 +75,13 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |NumberOfParallelOperations | Valeur Uint (par défaut : 5000) |statique|Nombre de lectures à publier dans la file d’attente du serveur HTTP. Ce paramètre contrôle le nombre de requêtes concurrentes que la passerelle HTTP peut satisfaire. |
 |RemoveServiceResponseHeaders|chaîne, valeur par défaut : « Date; Server »|statique|Liste séparée par des points-virgules/virgules d’en-têtes de réponse qui sera supprimée de la réponse du service avant son transfert vers le client. Si cette valeur est une chaîne vide, transmettre tels quels tous les en-têtes retournés par le service. Par exemple, ne pas remplacer la date et le serveur |
 |ResolveServiceBackoffInterval |Durée en secondes (valeur par défaut : 5) |Dynamique|Spécifiez la durée en secondes.  Indique l’interface d’interruption par défaut avant de retenter une opération du service de résolution ayant échoué. |
-|SecureOnlyMode|valeur booléenne, valeur par défaut : FALSE|Dynamique| SecureOnlyMode : true : le proxy inversé transfère uniquement les demandes vers les services qui publient des points de terminaison sécurisés. False : le proxy inversé peut transférer les demandes vers des points de terminaison sécurisés/non sécurisés.  |
-|ServiceCertificateThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Liste séparée par des virgules des empreintes de certificats distants auxquels le proxy inversé peut faire confiance.  |
+|SecureOnlyMode|valeur booléenne, valeur par défaut : FALSE|Dynamique| SecureOnlyMode : true : le proxy inversé transfère uniquement les demandes vers les services qui publient des points de terminaison sécurisés. False : le proxy inversé peut transférer les demandes vers des points de terminaison sécurisés/non sécurisés. Pour plus d’informations, consultez [Logique de sélection du point de terminaison proxy inversé](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints).  |
+|ServiceCertificateThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Liste séparée par des virgules des empreintes de certificats distants auxquels le proxy inversé peut faire confiance. Pour plus d’informations, consultez [Connexion sécurisée du proxy inversé](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| Nom de l’objet et empreinte de l’émetteur des certificats distants auxquels le proxy inversé peut faire confiance.|
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| Nom de l’objet et empreinte de l’émetteur des certificats distants auxquels le proxy inversé peut faire confiance. Pour plus d’informations, consultez [Connexion sécurisée du proxy inversé](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -624,7 +624,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paire de « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations du client administrateur. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si non vide, l’émetteur direct de certificats client administrateur doit être dans la liste. |
 
 ## <a name="securityclientaccess"></a>Security/ClientAccess
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -730,7 +730,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="securityclientx509names"></a>Security/ClientX509Names
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paire de « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de client. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si non vide, l’émetteur direct de certificats client doit être dans la liste.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -740,7 +740,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="securityclusterx509names"></a>Security/ClusterX509Names
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paire de « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de cluster. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si non vide, l’émetteur direct de certificats de cluster doit être dans la liste.|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -750,7 +750,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="securityserverx509names"></a>Security/ServerX509Names
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
+|PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paire de « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de serveur. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si non vide, l’émetteur direct de certificats de serveur doit être dans la liste.|
 
 ## <a name="setup"></a>Paramétrage
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |

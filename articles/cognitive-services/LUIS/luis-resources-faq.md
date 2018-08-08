@@ -7,14 +7,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239115"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390192"
 ---
 # <a name="language-understanding-faq"></a>FAQ sur Language Understanding
 
@@ -147,6 +147,12 @@ Si vous utilisez votre journal à des fins d’analyse prédictive, ne capturez 
 * Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **Review endpoint utterances** (Examiner les énoncés du point de terminaison). La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux.
 * Si vous supprimez un compte, toutes les applications sont supprimées, ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées sur les serveurs pendant 60 jours avant leur suppression définitive.
 
+### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft accède-t-il à mes données d’application LUIS à ses propres fins, par exemple, pour améliorer LUIS ou Microsoft en général ? 
+
+Non. Le modèle de données de l’application LUIS n'est pas utilisé pour l’amélioration de LUIS en tant que plateforme, ou par Microsoft d’une quelconque façon. Chaque donnée d’application est séparée et détenue uniquement par l’utilisateur et ses collaborateurs. 
+
+Découvrez-en plus sur la [confidentialité des utilisateurs](luis-reference-gdpr.md), la [conformité de sécurité supplémentaire](luis-concept-security.md#security-compliance), et le [stockage de données](luis-concept-data-storage.md).
+
 ## <a name="language-and-translation-support"></a>Prise en charge des langues et de la traduction 
 
 ### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>Je dispose d’une application dans une langue et souhaite créer une application parallèle dans une autre langue. Quel est le moyen le plus simple de procéder ?
@@ -175,20 +181,6 @@ La [préparation vocale](https://docs.microsoft.com/bot-framework/bot-service-ma
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS est-il disponible en local ou dans un cloud privé ?
 Non. 
 
-## <a name="changes-to-the-docs"></a>Modifications apportées à la documentation
-
-### <a name="where-did-the-tutorials-go"></a>Où sont les didacticiels ? 
-Les articles qui étaient précédemment accessibles dans la section Didacticiel de la documentation sont désormais dans la section Procédures. 
-
-|Didacticiel|
-|--|
-|Intégrer LUIS avec un bot à l’aide de [C#](luis-csharp-tutorial-build-bot-framework-sample.md) et [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
-|Ajouter Application Insights à un bot à l’aide de [C#](luis-tutorial-bot-csharp-appinsights.md) et [Node.js](luis-tutorial-function-appinsights.md)|
-|Créer une application LUIS par programmation à l’aide de [Node.js](luis-tutorial-node-import-utterances-csv.md)|
-|Utiliser une [entité composite](luis-tutorial-composite-entity.md) pour extraire des données groupées|
-|Ajouter une [entité list](luis-tutorial-list-entity.md) pour accroître la détection d’entité à l’aide de Node.js|
-|Améliorer la précision de prédiction avec une [liste de phrases](luis-quickstart-primary-and-secondary-data.md), des [modèles](luis-tutorial-pattern.md), et des [tests par lot](luis-tutorial-batch-testing.md)|
-|[Corriger l’orthographe](luis-tutorial-batch-testing.md) avec l’API Vérification orthographique Bing v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Lors de la conférence Build 2018, j’ai entendu parler d’une fonctionnalité ou d’une démonstration de Language Understanding, mais je ne me rappelle pas son nom 
 
@@ -198,7 +190,7 @@ Les fonctionnalités publiées lors de la conférence Build 2018 sont les suiva
 |--|--|
 |Améliorations|Entité [Expression régulière](luis-concept-data-extraction.md##regular-expression-entity-data) et entité [Phrase clé](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
 |Modèles|Modèles [concept](luis-concept-patterns.md), [didacticiel](luis-tutorial-pattern.md), [procédure](luis-how-to-model-intent-pattern.md)<br>Concept d’entité [Patterns.Any](luis-concept-entity-types.md) incluant une [Liste explicite](luis-concept-patterns.md#explicit-lists) pour les exceptions<br>Concept [Rôles](luis-concept-roles.md)|
-|Intégrations|Intégration dans l’[analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) de l’[analyse des sentiments](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Intégration dans [Speech](https://docs.microsoft.com/azure/cognitive-services/speech) de la [préparation vocale](luis-how-to-publish-app.md#enable-speech-priming) ainsi que du [Kit de développement logiciel (SDK) Speech](https://aka.ms/SpeechSDK)|
+|Intégrations|Intégration dans l’[analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) de l’[analyse des sentiments](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Intégration dans [Speech](https://docs.microsoft.com/azure/cognitive-services/speech) de la préparation vocale ainsi que du [Kit de développement logiciel (SDK) Speech](https://aka.ms/SpeechSDK)|
 |Outil Répartition|Intégré dans [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), l’[outil](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) en ligne de commande Répartition permet de combiner plusieurs applications LUIS et QnA Maker dans une application LUIS unique pour améliorer la reconnaissance des intentions dans un bot
 
 Des [itinéraires d’API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) de création supplémentaires ont été inclus. 

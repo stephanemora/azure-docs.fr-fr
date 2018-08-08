@@ -1,24 +1,23 @@
 ---
-title: Forum aux questions sur le service de reconnaissance vocale dans Azure | Microsoft Docs
+title: Foire aux questions sur le service de reconnaissance vocale dans Azure
 description: Vous trouverez ici des réponses aux questions les plus posées sur le service de reconnaissance vocale.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e5ba01c25646578da22f054659051be3515e9e4b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223885"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281828"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Foire aux questions sur la reconnaissance vocale
 
-Si vous ne trouvez pas les réponses à vos questions dans cette FAQ, essayez d’interroger la communauté Custom Speech Service sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) et [UserVoice](https://cognitive.uservoice.com/).
+Si vous ne trouvez pas de réponses à vos questions dans cette foire aux questions, consultez d’autres options d’assistance [ici](support.md).
 
 ## <a name="general"></a>Généralités
 
@@ -28,7 +27,7 @@ Si vous ne trouvez pas les réponses à vos questions dans cette FAQ, essayez d�
 
 **Question** : Par où commencer si je souhaite utiliser un modèle de base ?
 
-**Réponse** : Vous avez tout d’abord besoin d’une [clé d’abonnement](get-started.md). Si vous voulez passer des appels REST à des modèles de base prédéployés, consultez les [informations disponibles ici](rest-apis.md). Si vous voulez utiliser WebSockets, téléchargez le [kit SDK](speech-sdk.md).
+**Réponse** : Vous avez tout d’abord besoin d’une [clé d’abonnement](get-started.md). Si vous voulez passer des appels REST à des modèles de référence prédéployés, consultez les [informations disponibles ici](rest-apis.md). Si vous voulez utiliser WebSockets, téléchargez le [kit SDK](speech-sdk.md).
 
 **Question** : Dois-je toujours générer un modèle vocal personnalisé ?
 

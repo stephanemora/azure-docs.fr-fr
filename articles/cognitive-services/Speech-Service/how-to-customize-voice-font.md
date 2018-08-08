@@ -1,19 +1,18 @@
 ---
-title: Qu’est-ce que Custom Voice ? - Azure Cognitive Services | Microsoft Docs
+title: Qu’est-ce que Custom Voice ? - Azure Cognitive Services
 description: Cet article présente la personnalisation vocale Microsoft Text to Speech, qui vous permet de créer une voix reconnaissable et spécifique à la marque.
 services: cognitive-services
 author: noellelacharite
-manager: nolach
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258845"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284885"
 ---
 # <a name="creating-custom-voice-fonts"></a>Création de polices de voix personnalisée
 

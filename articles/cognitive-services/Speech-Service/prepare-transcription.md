@@ -1,21 +1,20 @@
 ---
-title: Instructions concernant la transcription pour l’apprentissage de la reconnaissance vocale | Microsoft Docs
+title: Instructions sur la transcription pour l’apprentissage de Speech
 description: Apprenez à préparer le texte pour personnaliser les modèles linguistiques et acoustiques, ainsi que les polices de voix pour le service Speech.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 6043d01e26d9f28f90e45c2cc194863b3a9cd017
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a219db14d659348ef3ed4de1dffa640a948f1954
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072280"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283333"
 ---
 # <a name="transcription-guidelines-for-using-speech-service"></a>Instructions concernant la transcription pour l’utilisation du service Speech
 
