@@ -1,6 +1,6 @@
 - name: Documentation Recherche d’images Bing
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que la Recherche d’images Bing\_?"
       href: overview.md
@@ -47,8 +47,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
 - name: Procédures
   items:
-    - name: Résultats d’utilisation et d’affichage
-      href: UseAndDisplayRequirements.md
     - name: Obtenir des informations sur les images
       href: image-insights.md
     - name: Obtenir des images .gif
@@ -91,5 +89,7 @@
       href: image-search-endpoint.md
     - name: Marchés et pays pris en charge
       href: supported-countries-markets.md
+    - name: Conditions d’utilisation et d’affichage
+      href: UseAndDisplayRequirements.md
     - name: Analytique pour l’API Recherche d’images Bing
       href: bing-image-stats.md

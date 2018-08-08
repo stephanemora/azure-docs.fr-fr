@@ -9,6 +9,7 @@
   items:
     - name: Créer un serveur Jenkins
       href: /azure/jenkins/install-jenkins-solution-template
+      maintainContext: true
 - name: Didacticiels
   items:
     - name: CI/CD vers App Service

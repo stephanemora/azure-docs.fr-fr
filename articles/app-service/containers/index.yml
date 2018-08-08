@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 22994d46cff55d82738e8fc7ff7d65b027e65e0b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617035"
 documentType: LandingData
 title: Documentation relative à App Service sur Linux
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/05/2017
   ms.author: cfowler
-  ms.openlocfilehash: 7113b3fce7d9263d3292bf3cb245ec07b7d2831f
-  ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39172600"
 sections:
 - title: Démarrages en 5 minutes
   items:
@@ -98,10 +98,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Créer une application à l’aide de <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core avec Azure SQL DB</a> ou <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js avec MongoDB</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Mapper un domaine personnalisé existant à votre application</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Lier un certificat SSL existant à votre application</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Ajouter un CDN à votre application</a>
+    - html: Créer une application à l’aide de <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core avec Azure SQL DB</a> ou <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js avec MongoDB</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mapper un domaine personnalisé existant à votre application</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Lier un certificat SSL existant à votre application</a>
+    - html: <a href="/azure/cdn/cdn-add-to-web-app">Ajouter un CDN à votre application</a>
 - title: Exemples
   items:
   - type: paragraph
@@ -112,7 +112,7 @@ sections:
     items:
     - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
     - html: <a href="/cli/azure/appservice">interface de ligne de commande Azure</a>
-- title: Référence
+- title: Informations de référence
   items:
   - type: list
     style: cards
