@@ -252,7 +252,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > L’**application Gestionnaire d’informations d’identification** n’est pas encore disponible pour le chiffrement des informations d’identification dans ADFv2. Cette prise en charge sera ajoutée ultérieurement.  
 
-Si vous préférez ne pas ouvrir le port 8060 sur l’ordinateur du runtime intégration autohébergé, utilisez d’autres mécanismes que l’application **Définition des informations d’identification-- pour configurer les informations d’identification de la banque de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell AzureRmDataFactoryV2LinkedServiceEncryptCredential. Consultez la section Configuration des informations d’identification et de la sécurité pour savoir comment configurer les informations d’identification de la banque de données.
+Si vous préférez ne pas ouvrir le port 8060 sur l’ordinateur du runtime intégration autohébergé, utilisez d’autres mécanismes que l’application Définition des informations d’identification-- pour configurer les informations d’identification de la banque de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell AzureRmDataFactoryV2LinkedServiceEncryptCredential. Consultez la section Configuration des informations d’identification et de la sécurité pour savoir comment configurer les informations d’identification de la banque de données.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

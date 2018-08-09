@@ -135,7 +135,7 @@ Vous devez veiller à améliorer le modèle de base pour rendre la personnalisat
 
 **Réponse** : Il est difficile de donner une réponse précise à cette question, car cela dépend de la différence du vocabulaire et des expressions utilisées dans votre application par rapport aux modèles de langage de départ. Pour tous les nouveaux mots, il est utile de fournir autant d’exemples que possible de l’utilisation de ces mots. Pour les expressions courantes qui sont utilisées dans votre application, il est également utile d’inclure des expressions dans les données de langage, car cela indique au système d’écouter aussi ces termes.
 Il est courant d’avoir au moins une centaine, et généralement plusieurs centaines, d’énoncés dans le jeu de données de langage.
-De plus, si certains types de requêtes sont censés être plus courants que d’autres, vous pouvez insérer plusieurs copies des requêtes courantes dans le jeu de données.
+De plus, si certains types * de requêtes sont censés être plus courants que d’autres, vous pouvez insérer plusieurs copies des requêtes courantes dans le jeu de données.
 
 **Question** : Puis-je simplement charger une liste de mots ?
 

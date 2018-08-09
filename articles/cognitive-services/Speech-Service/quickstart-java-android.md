@@ -1,23 +1,24 @@
 ---
-title: 'Démarrage rapide : reconnaissance vocale dans Java sur Android à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech | Microsoft Docs'
+title: 'Démarrage rapide : reconnaissance vocale dans Java sur Android à l’aide du Kit de développement logiciel (SDK) Speech de Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
 description: Reconnaissance vocale dans Java sur Android à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech
 services: cognitive-services
 author: fmegen
-manager: wolfma
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: fb52bc3fa398cbe5ba4cbea7c1908ee1fece876e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114700"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325123"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans Java sur Android à l’aide du kit de développement logiciel (SDK) Speech
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer une application Java pour Android à l’aide du Kit de développement logiciel (SDK) Cognitive Services Speech pour transcrire de la parole en texte.
 L’application est basée sur le package Maven du kit SDK Microsoft Cognitive Services version 0.5.0 et Android Studio 3.1.
@@ -158,4 +159,4 @@ Recherchez cet exemple dans le dossier `quickstart/java-android`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez la [page d’exemples](samples.md) pour obtenir des exemples supplémentaires.
+* [Découvrez nos exemples](speech-sdk.md#get-the-samples)
