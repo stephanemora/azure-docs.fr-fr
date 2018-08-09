@@ -8,12 +8,12 @@ manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391484"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441678"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
 
@@ -65,7 +65,7 @@ Pour déployer votre projet sur Web App, vous pouvez charger vos artefacts de bu
 Avant de configurer le travail dans Jenkins, vous avez besoin d’un plan Azure App Service et d’une application web pour l’exécution de l’application Java.
 
 
-1. Créez un plan Azure App Service avec le niveau tarifaire **GRATUIT** à l’aide de la [commande Azure CLI](/cli/azure/appservice/plan#az_appservice_plan_create) `az appservice plan create`. Le plan App Service définit les ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent ces ressources. Les ressources partagées vous aident à réduire les coûts lorsque vous hébergez plusieurs applications.
+1. Créez un plan Azure App Service avec le niveau tarifaire **GRATUIT** à l’aide de la [commande Azure CLI](/cli/azure/appservice/plan#az-appservice-plan-create) `az appservice plan create`. Le plan App Service définit les ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent ces ressources. Les ressources partagées vous aident à réduire les coûts lorsque vous hébergez plusieurs applications.
 2. Créez une application web. Vous pouvez utiliser le [portail Azure](/azure/app-service-web/web-sites-configure) ou la commande Azure CLI `az` suivante :
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>

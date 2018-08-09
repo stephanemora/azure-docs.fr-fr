@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6bfe2288e239738addb9c97706c5fc1c9b0e72b8
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283622"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617332"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -232,7 +232,3 @@ Pour plus d’informations sur SQL Database, voir les articles suivants :
 -   [Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
 
 -   [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
-
-### <a name="developer-reference"></a>Référence du développeur
-
--   [Télécharger la documentation de l’API REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

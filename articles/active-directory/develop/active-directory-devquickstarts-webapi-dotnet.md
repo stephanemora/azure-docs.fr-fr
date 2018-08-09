@@ -17,12 +17,12 @@ ms.date: 01/23/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4c5f0bc7f6f23ce16a3e1d6c7ecac1692ca43d9b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ca506d821fe3534468c0d370dd51464e5df90f79
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398230"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504659"
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Bien démarrer avec l'API web Azure AD .NET
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -41,7 +41,7 @@ Pour générer l’API To Do List, vous devez d’abord exécuter les actions su
 2. configurez l’application pour utiliser le pipeline d’authentification OWIN ;
 3. configurez une application cliente pour appeler l’API web.
 
-Pour commencer, téléchargez [la structure de l’application](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Chaque option est une solution Visual Studio 2013. Vous aurez également besoin d’un locataire Azure AD dans lequel inscrire votre application. Si ce n’est pas déjà fait, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
+Pour commencer, téléchargez [la structure de l’application](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Chaque option est une solution Visual Studio 2013. Vous aurez également besoin d’un locataire Azure AD dans lequel inscrire votre application. Si ce n’est pas déjà fait, [découvrez comment en obtenir un](quickstart-create-new-tenant.md).
 
 ## <a name="step-1-register-an-application-with-azure-ad"></a>Étape 1 : Inscrire une application auprès d’Azure AD
 Pour sécuriser votre application, vous devez tout d’abord créer une application dans votre locataire et fournir quelques informations essentielles à Azure AD.

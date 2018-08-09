@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7de567b3aaa5719a123a58c172548a4c0bffca64
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8a331aab32d8bc662026d49e16f63224fbbf6d41
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283238"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503030"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Appels de service à service à l’aide des informations d’identification du client (secret partagé ou certificat)
 Le flux d’octroi des informations d’identification du client OAuth2.0 permet à un service web (*client confidentiel*) d’utiliser ses propres informations d’identification pour s’authentifier lorsqu’il appelle un autre service web, au lieu d’emprunter l’identité d’un utilisateur. Dans ce scénario, le client est généralement un service web de niveau intermédiaire, un service démon ou un site web. Pour augmenter le niveau d’assurance, Azure AD autorise également le service d’appel à utiliser un certificat (au lieu d’un secret partagé) comme une information d’identification.
@@ -38,7 +38,7 @@ Le diagramme suivant explique comment fonctionne le flux d’octroi des informat
 4. Les données de la ressource sécurisée sont retournées à l’application cliente.
 
 ## <a name="register-the-services-in-azure-ad"></a>Inscription des services dans Azure AD
-Inscrivez à la fois le service appelant et le service de destination dans Azure Active Directory (Azure AD). Pour obtenir des instructions détaillées, consultez [Intégration d’applications dans Azure Active Directory](active-directory-integrating-applications.md).
+Inscrivez à la fois le service appelant et le service de destination dans Azure Active Directory (Azure AD). Pour obtenir des instructions détaillées, consultez [Intégration d’applications dans Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="request-an-access-token"></a>Demander un jeton d’accès
 Pour demander un jeton d’accès, envoyez une requête HTTP POST au point de terminaison Azure AD propre au client.

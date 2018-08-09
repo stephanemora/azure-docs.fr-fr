@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265062"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597971"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Revendications facultatives dans Azure AD (préversion)
 
@@ -33,7 +33,7 @@ Cette fonctionnalité est utilisée par les développeurs d’applications pour 
 > [!Note]
 > Cette fonctionnalité est actuellement disponible en préversion publique. Soyez prêt à rétablir ou à supprimer les modifications. La fonctionnalité est disponible dans n’importe quel abonnement Azure AD tant que la préversion publique est utilisée. Toutefois, quand la fonctionnalité sera généralement disponible, il se peut que certains de ses aspects nécessitent un abonnement Azure AD Premium.
 
-Pour obtenir la liste des revendications standard et découvrir comment elles sont utilisées dans les jetons, consultez [cette présentation des jetons émis par Azure AD](active-directory-token-and-claims.md). 
+Pour obtenir la liste des revendications standard et découvrir comment elles sont utilisées dans les jetons, consultez [cette présentation des jetons émis par Azure AD](v1-id-and-access-tokens.md). 
 
 L’un des objectifs du point de terminaison [v2.0 Azure AD](active-directory-appmodel-v2-overview.md) est de réduire la taille des jetons afin de garantir des performances optimales par les clients.  Ainsi, plusieurs revendications précédemment incluses dans les jetons d’accès et d’ID ne sont plus présentes dans les jetons v2.0 et doivent être demandées spécifiquement pour chaque application.  
 
@@ -126,7 +126,7 @@ Cet objet OptionalClaims renvoie au client le jeton d’ID pour y inclure un aut
 
 ## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
 
-Vous pouvez configurer des revendications facultatives pour votre application en modifiant le manifeste de l’application (voir l’exemple ci-dessous). Pour plus d’informations, consultez l’[article de présentation des manifestes d’applications Azure AD](active-directory-application-manifest.md).
+Vous pouvez configurer des revendications facultatives pour votre application en modifiant le manifeste de l’application (voir l’exemple ci-dessous). Pour plus d’informations, consultez l’[article de présentation des manifestes d’applications Azure AD](reference-app-manifest.md).
 
 **Exemple de schéma :**
 
@@ -247,4 +247,4 @@ Plusieurs options sont disponibles pour mettre à jour les propriétés de confi
 
 
 ## <a name="related-content"></a>Contenu connexe
-* Découvrez-en davantage sur les [revendications standard](active-directory-token-and-claims.md) fournies par Azure AD. 
+* Découvrez-en davantage sur les [revendications standard](v1-id-and-access-tokens.md) fournies par Azure AD. 

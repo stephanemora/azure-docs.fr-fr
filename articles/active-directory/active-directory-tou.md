@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
+ms.component: compliance
 ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: edf8eccf8c0a1cba70ac178ac5863a68b26f14a3
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398952"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622073"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main la fonctionnalité Conditions d’utilisation d’Azure Active Directory.
@@ -73,7 +73,7 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 
 5. Activez ou désactivez l’option **Demander aux utilisateurs d’étendre les conditions d’utilisation**.  Si cette option est activée, les utilisateurs finaux seront tenus de visualiser les conditions d’utilisation avant de les accepter.
 
-6. Dans **Accès conditionnel**, vous pouvez **appliquer** les conditions d’utilisation chargées en sélectionnant un modèle dans la liste déroulante ou une stratégie d’accès conditionnel personnalisée.  Les stratégies d’accès conditionnel personnalisées permettent de définir des conditions d’utilisation plus précises, jusqu’au niveau d’une application cloud ou d’un groupe d’utilisateurs.  Pour plus d’informations, consultez [Configuration de stratégies d’accès conditionnel personnalisées](active-directory-conditional-access-best-practices.md).
+6. Dans **Accès conditionnel**, vous pouvez **appliquer** les conditions d’utilisation chargées en sélectionnant un modèle dans la liste déroulante ou une stratégie d’accès conditionnel personnalisée.  Les stratégies d’accès conditionnel personnalisées permettent de définir des conditions d’utilisation plus précises, jusqu’au niveau d’une application cloud ou d’un groupe d’utilisateurs.  Pour plus d’informations, consultez [Configuration de stratégies d’accès conditionnel personnalisées](conditional-access/best-practices.md).
 
     >[!IMPORTANT]
     >Les contrôles de stratégie d’accès conditionnel (y compris les conditions d’utilisation) ne peuvent pas être appliqués sur les comptes de service.  Nous vous recommandons d’exclure tous les comptes de service de la stratégie d’accès conditionnel.
@@ -240,4 +240,4 @@ R : Vous pouvez [consulter les conditions d’utilisation précédemment accept�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Meilleures pratiques l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md)
+- [Meilleures pratiques l’accès conditionnel dans Azure Active Directory](conditional-access/best-practices.md)

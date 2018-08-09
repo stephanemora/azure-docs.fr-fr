@@ -2,24 +2,18 @@
 title: Surveillance d’un compte de stockage Azure | Microsoft Docs
 description: Découvrez comment surveiller un compte de stockage dans Azure en utilisant le portail Azure.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
-ms.openlocfilehash: 931b711d67db2b20c653fe6515735fdedc358b48
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: common
+ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364357"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523374"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 

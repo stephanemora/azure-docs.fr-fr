@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: eb7e77af86628be7f92de1caf3137ae829511d0a
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 3ec6bbcb9250626f8d6ef75330991c5ebac053a7
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263025"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504715"
 ---
 # <a name="azure-active-directory-graph-api"></a>API Graph Azure Active Directory
 > [!IMPORTANT]
@@ -60,12 +60,12 @@ L’API Azure AD Graph fournit les fonctionnalités suivantes :
 L’API Azure AD Graph sert dans de nombreux scénarios d’application. Les scénarios suivants sont les plus courants :
 
 * **Application métier (à un seul client)**  : dans ce scénario, un développeur d’entreprise travaille pour une organisation qui possède un abonnement Office 365. Le développeur crée une application web qui interagit avec Azure AD pour effectuer des tâches telles que l’attribution d’une licence à un utilisateur. Cette tâche nécessite l’accès à l’API Azure AD Graph. Le développeur enregistre donc l’application à un seul locataire dans Azure AD, puis configure les autorisations en lecture et en écriture pour l’API Azure AD Graph. Ensuite, l’application est configurée pour utiliser ses propres informations d’identification ou celles de l’utilisateur actuellement connecté, afin de se procurer un jeton et d’appeler l’API Azure AD Graph.
-* **Application Software as a Service (Multilocataire)** : dans ce scénario, un éditeur de logiciels indépendant (ISV) développe une application web multilocataire hébergée qui fournit des fonctionnalités de gestion utilisateur à d’autres organisations qui utilisent Azure AD. Ces fonctionnalités nécessitant l’accès aux objets d’annuaire, l’application doit donc appeler l’API Azure AD Graph. Le développeur enregistre l’application dans Azure AD, la configure pour exiger des autorisations en lecture et en écriture pour l’API Azure AD Graph, puis active l’accès externe afin que d’autres organisations puissent consentir à utiliser l’application dans leur répertoire. Lorsqu’un utilisateur d’une autre organisation s’authentifie à l’application pour la première fois, une boîte de dialogue de consentement s’affiche, avec les autorisations demandées par l’application. Ce consentement accorde à l’application les autorisations demandées sur l’API Azure AD Graph dans le répertoire de l’utilisateur. Pour plus d’informations sur l’infrastructure de consentement, consultez [Vue d’ensemble de l’infrastructure de consentement](active-directory-integrating-applications.md).
+* **Application Software as a Service (Multilocataire)** : dans ce scénario, un éditeur de logiciels indépendant (ISV) développe une application web multilocataire hébergée qui fournit des fonctionnalités de gestion utilisateur à d’autres organisations qui utilisent Azure AD. Ces fonctionnalités nécessitant l’accès aux objets d’annuaire, l’application doit donc appeler l’API Azure AD Graph. Le développeur enregistre l’application dans Azure AD, la configure pour exiger des autorisations en lecture et en écriture pour l’API Azure AD Graph, puis active l’accès externe afin que d’autres organisations puissent consentir à utiliser l’application dans leur répertoire. Lorsqu’un utilisateur d’une autre organisation s’authentifie à l’application pour la première fois, une boîte de dialogue de consentement s’affiche, avec les autorisations demandées par l’application. Ce consentement accorde à l’application les autorisations demandées sur l’API Azure AD Graph dans le répertoire de l’utilisateur. Pour plus d’informations sur l’infrastructure de consentement, consultez [Vue d’ensemble de l’infrastructure de consentement](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="see-also"></a>Voir aussi
 [Guide de démarrage rapide pour l’API Graph Azure AD](active-directory-graph-api-quickstart.md)
 
 [Documentation REST Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-[Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
+[Guide du développeur Azure Active Directory](azure-ad-developers-guide.md)
 
