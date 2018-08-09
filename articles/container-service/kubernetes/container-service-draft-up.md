@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c635a869506918ab7ee032df349eb307987c1284
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168535"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432277"
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Utiliser Draft avec Azure Container Service et Azure Container Registry pour générer et déployer une application dans Kubernetes
 
@@ -33,7 +33,7 @@ Vous pouvez facilement [créer un service Azure Container Registry](../../contai
       az group create --name draft --location eastus
       ```
 
-2. Créez un registre d’images ACR à l’aide de la commande [az acr create](/cli/azure/acr#az_acr_create), puis vérifiez que l’option `--admin-enabled` est définie sur `true`.
+2. Créez un registre d’images ACR à l’aide de la commande [az acr create](/cli/azure/acr#az-acr-create), puis vérifiez que l’option `--admin-enabled` est définie sur `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -41,7 +41,7 @@ Vous pouvez facilement [créer un service Azure Container Registry](../../contai
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Créer un service Azure Container Service avec Kubernetes
 
-Vous voici prêt à utiliser [az acs create](/cli/azure/acs#az_acs_create) pour créer un cluster ACS à l’aide de Kubernetes en tant que valeur `--orchestrator-type`.
+Vous voici prêt à utiliser [az acs create](/cli/azure/acs#az-acs-create) pour créer un cluster ACS à l’aide de Kubernetes en tant que valeur `--orchestrator-type`.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -221,7 +221,7 @@ Votre fournisseur de domaine dispose de sa propre méthode pour affecter des ser
     ```
 
 2. Créez une zone DNS pour votre domaine.
-Utilisez la commande [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) pour obtenir les serveurs de noms afin de déléguer le contrôle DNS à Azure DNS pour votre domaine.
+Utilisez la commande [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) pour obtenir les serveurs de noms afin de déléguer le contrôle DNS à Azure DNS pour votre domaine.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {

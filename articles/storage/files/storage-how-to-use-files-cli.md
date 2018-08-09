@@ -2,23 +2,18 @@
 title: Gérer les partages de fichiers Azure à l’aide d’Azure CLI
 description: Découvrez comment utiliser Azure CLI pour gérer Azure Files.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 00fd984a6bed8691712df0d4c335d2b9d4fd3ffa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: ebf8605a0f4686a69f89adf0c36d072f12d3c750
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701816"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525254"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Gérer les partages de fichiers Azure à l’aide d’Azure CLI
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Cet article vous explique les bases de l’utilisation des partages de fichiers Azure à l’aide d’Azure CLI. Découvrez comment : 
@@ -35,14 +30,14 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous décidez d’installer et d’utiliser Azure CLI localement, pour les étapes décrites dans cet article, vous devez exécuter Azure CLI version 2.0.4 ou ultérieure. Exécutez **az --version** pour rechercher votre version d’Azure CLI. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Si vous décidez d’installer et d’utiliser Azure CLI localement, pour les étapes décrites dans cet article, vous devez exécuter Azure CLI version 2.0.4 ou ultérieure. Exécutez **az --version** pour rechercher votre version d’Azure CLI. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 Par défaut, les commandes Azure CLI retournent le format JavaScript Object Notation (JSON). JSON est la méthode standard d’envoi et de réception de messages des API REST. Pour simplifier l’utilisation des réponses JSON, quelques exemples dans cet article utilisent le paramètre *query* sur des commandes d’Azure CLI. Ce paramètre utilise le [langage de requête JMESPath](http://jmespath.org/) pour analyser JSON. Pour en savoir plus sur l’utilisation des résultats des commandes d’Azure CLI en suivant le langage de requête JMESPath, consultez le [didacticiel JMESPath](http://jmespath.org/tutorial.html).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Si vous n’avez pas déjà un groupe de ressources Azure, vous pouvez utiliser la commande [az group create](/cli/azure/group#create) pour en créer un. 
 
-L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *Est des États-Unis* :
+L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Est* :
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus

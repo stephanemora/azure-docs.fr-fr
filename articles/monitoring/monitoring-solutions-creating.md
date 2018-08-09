@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92089904941ae913f1992a4407083bfcae010f2d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887419"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528025"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Concevoir et générer une solution de gestion dans Azure (préversion)
 > [!NOTE]
@@ -77,7 +77,7 @@ Lorsque vous développez votre solution, vous devez l’installer et la tester d
 Une fois que vous avez terminé et testé votre solution, vous pouvez la rendre disponible aux clients via les sources suivantes.
 
 - **Modèles de démarrage rapide Azure**.  [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) est un ensemble de modèles Resource Manager fournis par la communauté via GitHub.  Vous pouvez rendre votre solution disponible en suivant les informations dans le [guide de contribution](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
-- **Place de marché Azure**.  La [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/) vous permet de distribuer et de vendre votre solution à d’autres développeurs, ISV et professionnels de l’informatique.  Pour apprendre à publier votre solution dans la Place de marché Azure, consultez la section [Comment publier et gérer une offre dans la Place de marché Azure](../marketplace-publishing/marketplace-publishing-getting-started.md).
+- **Place de marché Azure**.  La [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/) vous permet de distribuer et de vendre votre solution à d’autres développeurs, ISV et professionnels de l’informatique.  Pour apprendre à publier votre solution dans la Place de marché Azure, consultez la section [Comment publier et gérer une offre dans la Place de marché Azure](../marketplace/marketplace-publishers-guide.md).
 
 
 

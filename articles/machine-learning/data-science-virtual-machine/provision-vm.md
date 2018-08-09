@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b749d8a904bc40eba3346cc03d9274236380c80d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31594039"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450289"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionner la machine virtuelle DSVM Windows sur Azure
 La machine virtuelle pour la science des données Microsoft est une image de machine virtuelle Windows Azure préalablement installée et configurée avec plusieurs outils populaires couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. Elle intègre les outils suivants :
@@ -45,8 +45,8 @@ La machine virtuelle pour la science des données Microsoft est une image de mac
 La science des données consiste à itérer sur une séquence de tâches :
 
 1. Recherche, chargement et traitement des données
-2. Création et test des modèles
-3. Déploiement des modèles à des fins d’utilisation dans des applications intelligentes
+1. Création et test des modèles
+1. Déploiement des modèles à des fins d’utilisation dans des applications intelligentes
 
 Les scientifiques de données utilisent différents outils pour effectuer ces tâches. La recherche des versions adéquates des logiciels, puis leur téléchargement et leur installation peuvent prendre un certain temps. La machine virtuelle pour la science des données Microsoft peut faciliter cette tâche en fournissant une image prête à l’emploi qui peut être approvisionnée sur Azure avec tous les outils populaires préalablement installés et configurés. 
 
@@ -58,7 +58,6 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 Une image [Ubuntu](dsvm-ubuntu-intro.md) est également disponible, avec de nombreux outils similaires et quelques autres cadres de formation approfondis. Une image [CentOS](linux-dsvm-intro.md) est également disponible. Nous vous proposons également une [édition Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) de la machine virtuelle de science des données, bien que certains outils sont disponibles uniquement sur l’édition Windows Server 2016.  Sinon, cet article s’applique également à l’édition Windows Server 2012.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de pouvoir créer une machine virtuelle de science des données Microsoft, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**: pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](http://azure.com/free).
@@ -68,23 +67,23 @@ Avant de pouvoir créer une machine virtuelle de science des données Microsoft,
 Pour créer une instance de la machine virtuelle de sciences des données Microsoft, suivez ces étapes :
 
 1. Accédez à la liste des machines virtuelles présentes sur le [portail Azure](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
-2. Sélectionnez le bouton **Créer** au bas de l’écran pour accéder à un Assistant.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
-3. L’Assistant utilisé pour créer la machine virtuelle pour la science des données Microsoft nécessite les **entrées** de chacune des **quatre étapes** énumérées à droite de cette figure. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
+1. Sélectionnez le bouton **Créer** au bas de l’écran pour accéder à un Assistant.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
+1. L’Assistant utilisé pour créer la machine virtuelle pour la science des données Microsoft nécessite les **entrées** de chacune des **quatre étapes** énumérées à droite de cette figure. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
    
    1. **Concepts de base**
       
       1. **Name**(Nom) : nom du serveur Data Science que vous créez.
-      2. **Type de disque de machine virtuelle** : choisissez SSD ou HDD. Pour l’instance GPU NC_v1 (basée sur NVidia Tesla K80), choisissez le type de disque **HDD**. 
-      3. **Nom d’utilisateur**: identifiant de connexion du compte administrateur.
-      4. **Mot de passe**: mot de passe du compte administrateur.
-      5. **Subscription**(Abonnement) : si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
-      6. **Resource Group**(Groupe de ressources) : vous pouvez créer un nouveau groupe ou utiliser un groupe existant.
-      7. **Location**(Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau
-   2. **Taille**: sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez « Afficher tout » pour obtenir d’autres choix de tailles de machines virtuelles
-   3. **Paramètres**:
+      1. **Type de disque de machine virtuelle** : choisissez SSD ou HDD. Pour l’instance GPU NC_v1 (basée sur NVidia Tesla K80), choisissez le type de disque **HDD**. 
+      1. **Nom d’utilisateur**: identifiant de connexion du compte administrateur.
+      1. **Mot de passe**: mot de passe du compte administrateur.
+      1. **Subscription**(Abonnement) : si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
+      1. **Resource Group**(Groupe de ressources) : vous pouvez créer un nouveau groupe ou utiliser un groupe existant.
+      1. **Location**(Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau
+   1. **Taille**: sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez « Afficher tout » pour obtenir d’autres choix de tailles de machines virtuelles
+   1. **Paramètres**:
       
       1. **Utiliser des disques gérés** : choisissez Géré si vous voulez confier à Azure la gestion des disques de la machine virtuelle.  Sinon, vous devez spécifier un compte de stockage nouveau ou existant. 
-      2. **Autres paramètres**: généralement, vous utilisez simplement la valeur par défaut. Si vous envisagez de ne pas utiliser les valeurs par défaut, survolez le lien d’informations pour obtenir de l’aide sur les différents champs.
+      1. **Autres paramètres**: généralement, vous utilisez simplement la valeur par défaut. Si vous envisagez de ne pas utiliser les valeurs par défaut, survolez le lien d’informations pour obtenir de l’aide sur les différents champs.
     a. **Résumé**: vérifiez que toutes les informations que vous avez saisies sont correctes puis cliquez sur **Créer**. **REMARQUE** : la machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille**. 
 
 > [!NOTE]
@@ -113,7 +112,7 @@ Pour un développement basé sur Python, les versions 2.7 et 3.6 de la distribu
 > 
 > 
 
-Anaconda Python 3.6 est installé sous C:\Anaconda et Anaconda Python 2.7 est installé sous c:\Anaconda\envs\python2. Pour obtenir des instructions détaillées, consultez la [documentation de PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) . 
+Anaconda Python 3.6 est installé sous C:\Anaconda et Anaconda Python 2.7 est installé sous c:\Anaconda\envs\python2. Pour obtenir des instructions détaillées, consultez la [documentation de PTVS](/visualstudio/python/installing-python-interpreters.md) . 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d’analyses. Un serveur Jupyter Notebook a été préconfiguré avec Python 2.7, Python 3.x, PySpark, Julia et les noyaux R. Une icône de bureau nommée « Jupyter Notebook » permet de démarrer le serveur Jupyter et de lancer le navigateur pour accéder au serveur Notebook. 

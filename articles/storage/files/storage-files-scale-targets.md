@@ -2,23 +2,18 @@
 title: Objectifs de performance et d’extensibilité d'Azure Files | Microsoft Docs
 description: Obtenez plus d’informations sur les objectifs d’extensibilité et de performances pour Azure Files, y compris la capacité, le taux de demandes et les limites de bande passante entrante et sortante.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 7/19/2018
 ms.author: wgries
-ms.openlocfilehash: 8937b0cfc620114c602278a3f8989ba1f3f60685
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.component: files
+ms.openlocfilehash: 57929b23e437e17ceb90196e3cfa59c16d518f5a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173722"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527435"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.

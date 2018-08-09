@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: fce3fd03f22c7e2d1c1524b9deb1f6935dbc3755
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a4a86576b8f9f842c54cfa195305a3e0d0ff4724
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359490"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527617"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Fonctions des modèles Azure Resource Manager
 Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager.
@@ -148,6 +148,7 @@ Resource Manager fournit les expressions ci-après pour travailler avec des enti
 ## <a name="resource-functions"></a>Fonctions de ressource
 Resource Manager offre les fonctions ci-après pour obtenir des valeurs de ressource :
 
+* [listAccountSas](resource-group-template-functions-resource.md#list)
 * [listKeys](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
 * [list*](resource-group-template-functions-resource.md#list)

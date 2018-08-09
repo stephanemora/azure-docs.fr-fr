@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 49fd4a9407bd46963037b0f7078cfe257d841627
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 46b8aead2a217ab827731a6636d3527fd99ea753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100260"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432104"
 ---
 # <a name="run-applications-in-kubernetes"></a>Exécuter des applications dans Kubernetes
 
@@ -25,7 +25,7 @@ Dans ce didacticiel (le quatrième d’une série de sept), un exemple d’appli
 > [!div class="checklist"]
 > * Mise à jour des fichiers manifeste Kubernetes
 > * Exécuter une application dans Kubernetes
-> * Test de l'application
+> * Test de l’application
 
 Dans les tutoriels suivants, la taille des instances de cette application est augmentée, l’application est mise à jour et Log Analytics est configuré pour la surveillance du cluster Kubernetes.
 
@@ -43,7 +43,7 @@ Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette pro
 
 Dans ce didacticiel, Azure Container Registry (ACR) a été utilisé pour stocker une image conteneur. Avant d’exécuter l’application, le nom de serveur de connexion ACR doit être mis à jour dans le fichier manifeste Kubernetes.
 
-Obtenez le nom du serveur de connexion ACR à l’aide de la commande [az acr list](/cli/azure/acr#az_acr_list).
+Obtenez le nom du serveur de connexion ACR à l’aide de la commande [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -73,7 +73,7 @@ Utilisez la commande [kubectl create](https://kubernetes.io/docs/reference/gener
 kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
-Output:
+Sortie :
 
 ```bash
 deployment "azure-vote-back" created

@@ -2,23 +2,18 @@
 title: Vue d’ensemble du stockage de table Azure | Microsoft Docs
 description: Créez une table de service de Stockage Table Azure dans le portail Azure.
 services: storage
-documentationcenter: ''
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: ''
 ms.service: storage
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: quickstart
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 2e162cebe9212958c71c1350b6c4d8fa23a95f69
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 77aba022b3e4e8a41fa83e24b5694542fd2ae259
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660580"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526527"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Démarrage rapide : créer une table de stockage Azure dans le portail Azure 
 

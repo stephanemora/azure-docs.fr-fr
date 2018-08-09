@@ -1,23 +1,20 @@
 ---
-title: Configurer la réplication de cluster HBase dans les réseaux virtuels Azure | Microsoft Docs
+title: Configurer la réplication de cluster HBase dans les réseaux virtuels Azure
 description: Découvrez comment configurer la réplication HBase d’une version HDInsight à une autre pour l’équilibrage de charge, la haute disponibilité, la mise à jour et migration sans interruption de service , ainsi que la récupération d’urgence.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
-ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951111"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600303"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster HBase dans les réseaux virtuels Azure
 
@@ -72,7 +69,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Emplacement | États-Unis de l’Ouest |
+| Lieu | USA Ouest |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet1 |
 | Préfixe de l’espace d’adressage | 10.1.0.0/16 |
 | Nom du sous-réseau | subnet 1 |
@@ -89,7 +86,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Emplacement | Est des États-Unis |
+| Lieu | USA Est |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet2 |
 | Préfixe de l’espace d’adressage | 10.2.0.0/16 |
 | Nom du sous-réseau | subnet 1 |
@@ -265,7 +262,7 @@ Créez un cluster HBase dans chacun des deux réseaux virtuels avec la configura
 - **Nom du groupe de ressources** : utilisez le même nom de groupe de ressources que vous avez créé pour les réseaux virtuels.
 - **Type de cluster** : HBase
 - **Version** : HBase 1.1.2 (HDI 3.6)
-- **Emplacement** : utilisez l’emplacement du réseau virtuel.  Par défaut, vnet1 représente *Ouest des États-Unis*, et vnet2 correspond à *Est des États-Unis*.
+- **Emplacement** : utilisez l’emplacement du réseau virtuel.  Par défaut, vnet1 représente *USA Ouest*, et vnet2 correspond à *USA Est*.
 - **Stockage** : créez un nouveau compte de stockage pour le cluster.
 - **Réseau virtuel** (dans les paramètres avancés sur le portail) : sélectionnez l’élément vnet1 que vous avez créé dans la dernière procédure.
 - **Sous-réseau** : le nom par défaut utilisé dans le modèle est **subnet1**.

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bda52acc12aad3cad20143c319f557f11d760c42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624659"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435150"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Utiliser Azure Data Lake Store pour capturer des données Event Hubs
 
@@ -39,11 +39,11 @@ Dans cette section, vous allez créer un dossier au sein du compte dans lequel v
 
     ![Explorateur de données Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Explorateur de données Data Lake Store")
 
-2.  Cliquez sur **Nouveau dossier**, puis entrez un nom pour le dossier dans lequel vous souhaitez capturer les données.
+1.  Cliquez sur **Nouveau dossier**, puis entrez un nom pour le dossier dans lequel vous souhaitez capturer les données.
 
     ![Créer un dossier dans Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Créer un dossier dans Data Lake Store")
 
-3. Affectez des autorisations à la racine du compte Data Lake Store. 
+1. Affectez des autorisations à la racine du compte Data Lake Store. 
 
     a. Cliquez sur **Explorateur de données**, sélectionnez la racine du compte Data Lake Store, puis cliquez sur **Accès**.
 
@@ -64,7 +64,7 @@ Dans cette section, vous allez créer un dossier au sein du compte dans lequel v
 
     Cliquez sur **OK**.
 
-4. Affectez des autorisations pour le dossier situé dans le compte Data Lake Store où vous voulez capturer des données.
+1. Affectez des autorisations pour le dossier situé dans le compte Data Lake Store où vous voulez capturer des données.
 
     a. Cliquez sur **Explorateur de données**, sélectionnez le dossier du compte Data Lake Store, puis cliquez sur **Accès**.
 
@@ -86,11 +86,11 @@ Dans cette section, vous allez créer un dossier au sein du compte dans lequel v
 
 Dans cette section, vous allez créer un Event Hub dans un espace de noms Event Hubs. Vous allez également configurer l’Event Hub pour capturer des données et les envoyer vers un compte Azure Data Lake Store. Cette section part du principe que vous avez déjà créé un espace de noms Event Hubs.
 
-2. Dans le volet **Vue d’ensemble** de l’espace de noms Event Hubs, cliquez sur **+ Event Hub**.
+1. Dans le volet **Vue d’ensemble** de l’espace de noms Event Hubs, cliquez sur **+ Event Hub**.
 
     ![Créer un Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Créer un Event Hub")
 
-3. Fournissez les valeurs suivantes pour configurer Event Hubs de manière à capturer des données et à les envoyer vers Data Lake Store.
+1. Fournissez les valeurs suivantes pour configurer Event Hubs de manière à capturer des données et à les envoyer vers Data Lake Store.
 
     ![Créer un Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Créer un Event Hub")
 

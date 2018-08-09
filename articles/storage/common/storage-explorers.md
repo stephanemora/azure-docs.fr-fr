@@ -2,24 +2,18 @@
 title: Outils pour l’utilisation du stockage Azure | Microsoft Docs
 description: Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage.
 services: storage
-documentationcenter: ''
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 5c2add48b128a3e5a632c048f0feb4413fcb26cc
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.component: common
+ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23479900"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526196"
 ---
 # <a name="azure-storage-client-tools"></a>Outils clients d’Azure Storage
 Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction des données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais que le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.

@@ -3,17 +3,17 @@ title: Utilisation de l’émulateur de stockage Azure pour le développement et
 description: L’émulateur de stockage Azure fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure. Apprenez-en plus sur l’autorisation des demandes, la connexion à l’émulateur à partir de votre application et l’utilisation de l’outil en ligne de commande.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.component: common
+ms.openlocfilehash: 4f4c5870bb1bdd804aa4b2da8c46c0698b897798
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291934"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526179"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 

@@ -2,27 +2,22 @@
 title: Gestion de l’accès concurrentiel dans Microsoft Azure Storage
 description: Gestion de l’accès concurrentiel pour les services BLOB, de File d’attente, de Table et de Fichier
 services: storage
-documentationcenter: ''
 author: jasontang501
-manager: tadb
-editor: tysonn
-ms.assetid: cc6429c4-23ee-46e3-b22d-50dd68bd4680
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: common
+ms.openlocfilehash: 9c36347db2d1678e79e5ad80cda491f77850c4a6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23060184"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525237"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans les applications Internet modernes, les données sont généralement consultées et mises à jour par plusieurs utilisateurs à la fois. Les développeurs d'applications doivent donc bien réfléchir à la manière de proposer une expérience prévisible à leurs utilisateurs finaux, notamment lorsque plusieurs utilisateurs peuvent mettre à jour les mêmes données. Les développeurs prennent généralement en compte trois grandes stratégies d’accès concurrentiel aux données :  
 
 1. Accès concurrentiel optimiste – Une application procédant à une mise à jour vérifie, dans le cadre de la mise à jour, que les données n'ont pas été modifiées depuis la dernière lecture. Par exemple, si deux utilisateurs qui consultent une page wiki procèdent à une mise à jour de la même page, la plateforme wiki doit veiller à ce que la deuxième mise à jour n'écrase pas la première et à ce que les deux utilisateurs sachent si leur mise à jour a fonctionné ou non. Cette stratégie est la plus souvent utilisée dans les applications web.
@@ -91,14 +86,14 @@ Le tableau suivant résume les opérations de conteneurs qui acceptent les en-t�
 
 | Opération | Renvoie une valeur ETag de conteneur | Accepte les en-têtes conditionnels |
 |:--- |:--- |:--- |
-| Create Container |OUI |Non  |
-| Get Container Properties |OUI |Non  |
-| Get Container Metadata |OUI |Non  |
-| Set Container Metadata |OUI |OUI |
-| Get Container ACL |OUI |Non  |
-| Set Container ACL |OUI |Oui (*) |
-| Delete Container |Non  |OUI |
-| Lease Container |OUI |OUI |
+| Create Container |Oui |Non  |
+| Get Container Properties |Oui |Non  |
+| Get Container Metadata |Oui |Non  |
+| Set Container Metadata |Oui |Oui |
+| Get Container ACL |Oui |Non  |
+| Set Container ACL |Oui |Oui (*) |
+| Delete Container |Non  |Oui |
+| Lease Container |Oui |Oui |
 | List Blobs |Non  |Non  |
 
 (*) Les autorisations définies par SetContainerACL sont mises en cache et les mises à jour apportées à ces autorisations sont diffusées dans un délai de 30 secondes, période pendant laquelle la cohérence des mises à jour n’est pas garantie.  
@@ -107,22 +102,22 @@ Le tableau suivant résume les opérations d'objets blob qui acceptent les en-t�
 
 | Opération | Renvoie une valeur ETag | Accepte les en-têtes conditionnels |
 |:--- |:--- |:--- |
-| Put Blob |OUI |OUI |
-| Get Blob |OUI |OUI |
-| Get Blob Properties |OUI |OUI |
-| Set Blob Properties |OUI |OUI |
-| Get Blob Metadata |OUI |OUI |
-| Set Blob Metadata |OUI |OUI |
-| Lease Blob (*) |OUI |OUI |
-| Snapshot Blob |OUI |OUI |
-| Copie d'un objet blob |OUI |Oui (pour les objets blob source et de destination) |
+| Put Blob |Oui |Oui |
+| Get Blob |Oui |Oui |
+| Get Blob Properties |Oui |Oui |
+| Set Blob Properties |Oui |Oui |
+| Get Blob Metadata |Oui |Oui |
+| Set Blob Metadata |Oui |Oui |
+| Lease Blob (*) |Oui |Oui |
+| Snapshot Blob |Oui |Oui |
+| Copie d'un objet blob |Oui |Oui (pour les objets blob source et de destination) |
 | Abort Copy Blob |Non  |Non  |
-| Delete Blob |Non  |OUI |
+| Delete Blob |Non  |Oui |
 | Put Block |Non  |Non  |
-| Put Block List |OUI |OUI |
-| Get Block List |OUI |Non  |
-| Put Page |OUI |OUI |
-| Get Page Ranges |OUI |OUI |
+| Put Block List |Oui |Oui |
+| Get Block List |Oui |Non  |
+| Put Page |Oui |Oui |
+| Get Page Ranges |Oui |Oui |
 
 (*) L'opération Lease Blob n'entraîne pas la modification de la balise ETag d'un objet blob.  
 
@@ -242,13 +237,13 @@ Le tableau suivant résume la manière dont les opérations d'entités de table 
 
 | Opération | Renvoie une valeur ETag | Nécessite l'en-tête de demande If-Match |
 |:--- |:--- |:--- |
-| Query Entities |OUI |Non  |
-| Insert Entity |OUI |Non  |
-| Update Entity |OUI |OUI |
-| Merge Entity |OUI |OUI |
-| Delete Entity |Non  |OUI |
-| Insert or Replace Entity |OUI |Non  |
-| Insert or Merge Entity |OUI |Non  |
+| Query Entities |Oui |Non  |
+| Insert Entity |Oui |Non  |
+| Update Entity |Oui |Oui |
+| Merge Entity |Oui |Oui |
+| Delete Entity |Non  |Oui |
+| Insert or Replace Entity |Oui |Non  |
+| Insert or Merge Entity |Oui |Non  |
 
 Notez que les opérations **Insert or Replace Entity** et **Insert or Merge Entity** ne procèdent *pas* à des vérifications d’accès concurrentiel étant donné qu’elles n’envoient pas de valeur ETag au service de Table.  
 

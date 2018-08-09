@@ -1,31 +1,27 @@
 ---
-title: Notes de publication archivées pour Azure HDInsight | Microsoft Docs
+title: Notes de publication archivées pour Azure HDInsight
 description: Notes de publication archivées et versions pour Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-editor: cgronlun
-manager: jhubbard
-author: nitinme
-tags: azure-portal
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
-ms.author: nitinme
-ms.openlocfilehash: d1bb9ed33b8f580afd837cafb9cc2a2e37d1cee4
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: jasonh
+ms.openlocfilehash: 34536316fef5f30df4ef1e3c89ddaaafed188c5d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37438261"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600082"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Notes de publication archivées pour Azure HDInsight
 
 Pour obtenir les mises à jour des notes de publication Azure HDInsight les **plus récentes**, consultez [Notes de publication HDInsight](hdinsight-release-notes.md).
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [l’article sur le contrôle de version de HDInsight](hdinsight-component-versioning.md).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [l’article sur le contrôle de version de HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>Notes du 27/06/2018 – Lancement de nouvelles versions open source, ADLS Gen2, etc. sur HDInsight 3.6
 La version de HDInsight de juin 2018 est une version riche en mises à jour et fonctionnalités pour nos clients. Pour plus de détails, lisez ce [billet](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/).

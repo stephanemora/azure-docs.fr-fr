@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263644"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448966"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -24,9 +24,9 @@ La mise à l’échelle automatique Azure Monitor s’applique uniquement aux je
 Vous pouvez découvrir toutes les ressources pour lesquelles la mise à l’échelle automatique est applicable dans Azure Monitor. Pour une procédure pas à pas, procédez comme suit :
 
 1. Ouvrez le [portail Azure][1]
-2. Cliquez sur l’icône Azure Monitor dans le volet gauche.
+1. Cliquez sur l’icône Azure Monitor dans le volet gauche.
   ![Ouvrez Azure Monitor][2]
-3. Cliquez sur **Mise à l’échelle automatique** pour afficher toutes les ressources pour lesquelles la mise à l’échelle automatique est applicable, ainsi que leur état actuel de mise à l’échelle automatique.
+1. Cliquez sur **Mise à l’échelle automatique** pour afficher toutes les ressources pour lesquelles la mise à l’échelle automatique est applicable, ainsi que leur état actuel de mise à l’échelle automatique.
   ![Découvrir la mise à l’échelle automatique dans Azure Monitor][3]
 
 Vous pouvez utiliser le volet de filtre en haut pour réduire l’étendue de la liste afin de sélectionner des ressources dans un groupe de ressources spécifique, des types de ressources spécifiques ou une ressource spécifique.
@@ -42,11 +42,11 @@ Pour chaque ressource, vous trouverez le nombre d’instances en cours ainsi que
 Suivons maintenant une procédure simple pour créer votre premier paramètre de mise à l’échelle automatique.
 
 1. Ouvrez la panneau **Mise à l’échelle automatique** dans Azure Monitor et sélectionnez une ressource à mettre à l’échelle. (les étapes ci-dessous utilisent un plan App Service associé à une application Web. Vous pouvez [créer votre première application Web ASP.NET dans Azure en 5 minutes][4])
-2. Notez que le nombre d’instances actuel est 1. Cliquez sur **Activer la mise à l’échelle automatique**.
+1. Notez que le nombre d’instances actuel est 1. Cliquez sur **Activer la mise à l’échelle automatique**.
   ![Paramètre d’échelle pour la nouvelle application web][5]
-3. Fournissez un nom pour le paramètre de mise à l’échelle, puis cliquez sur **Ajouter une règle**. Notez les options de règle de mise à l’échelle qui s’ouvrent dans un volet contextuel dans la partie droite. Par défaut, l’option de mise à l’échelle du nombre d’instances est définie sur 1 si le pourcentage processeur de la ressource dépasse 70 %. Laissez les valeurs par défaut et cliquez sur **Ajouter**.
+1. Fournissez un nom pour le paramètre de mise à l’échelle, puis cliquez sur **Ajouter une règle**. Notez les options de règle de mise à l’échelle qui s’ouvrent dans un volet contextuel dans la partie droite. Par défaut, l’option de mise à l’échelle du nombre d’instances est définie sur 1 si le pourcentage processeur de la ressource dépasse 70 %. Laissez les valeurs par défaut et cliquez sur **Ajouter**.
   ![Créer le paramètre de mise à l’échelle pour une application web][6]
-4. Vous avez créé votre première règle de mise à l’échelle. Notez que l’expérience utilisateur recommande les meilleures pratiques et indique « qu’il est recommandé d’avoir au moins une règle de mise à l’échelle. » Pour ce faire :
+1. Vous avez créé votre première règle de mise à l’échelle. Notez que l’expérience utilisateur recommande les meilleures pratiques et indique « qu’il est recommandé d’avoir au moins une règle de mise à l’échelle. » Pour ce faire :
   
     a. Cliquez sur **Ajouter une règle**. 
 
@@ -58,9 +58,9 @@ Suivons maintenant une procédure simple pour créer votre premier paramètre de
 
    Vous devez maintenant avoir un paramètre de mise à l’échelle qui fait monter/diminuer en puissance en fonction de l’utilisation du processeur.
    ![Mise à l’échelle en fonction du processeur][8]
-5. Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
-Félicitations ! Vous avez maintenant correctement créé votre premier paramètre de mise à l’échelle pour mettre à l’échelle automatiquement votre application Web en fonction de l’utilisation du processeur.
+Félicitations ! Vous avez maintenant correctement créé votre premier paramètre de mise à l’échelle pour mettre à l’échelle automatiquement votre application Web en fonction de l’utilisation du processeur.
 
 > [!NOTE] 
 > Les mêmes étapes sont applicables pour bien démarrer avec un jeu de mise à l’échelle de machines virtuelles ou un rôle de service cloud.
@@ -70,18 +70,18 @@ Félicitations ! Vous avez maintenant correctement créé votre premier paramè
 En plus de la mise à l’échelle en fonction du processeur, vous pouvez aussi définir votre mise à l’échelle différemment pour certains jours de la semaine.
 
 1. Cliquez sur **Ajouter une condition de mise à l’échelle**.
-2. La définition du mode de mise à l’échelle et des règles est identique à la condition par défaut.
-3. Sélectionnez **Répéter des jours spécifiques** pour la planification.
-4. Sélectionnez les jours et les heures de début/fin auxquels la condition de mise à l’échelle doit être appliquée.
+1. La définition du mode de mise à l’échelle et des règles est identique à la condition par défaut.
+1. Sélectionnez **Répéter des jours spécifiques** pour la planification.
+1. Sélectionnez les jours et les heures de début/fin auxquels la condition de mise à l’échelle doit être appliquée.
 
 ![Condition de mise à l’échelle basée sur une planification][9]
 ### <a name="scale-differently-on-specific-dates"></a>Mettre à l’échelle différemment à des dates spécifiques
 En plus de la mise à l’échelle en fonction du processeur, vous pouvez aussi définir votre mise à l’échelle différemment pour certaines dates spécifiques.
 
 1. Cliquez sur **Ajouter une condition de mise à l’échelle**.
-2. La définition du mode de mise à l’échelle et des règles est identique à la condition par défaut.
-3. Sélectionnez **Spécifier les dates de début et de fin** pour la planification.
-4. Sélectionnez les dates et les heures de début/fin auxquelles la condition de mise à l’échelle doit être appliquée.
+1. La définition du mode de mise à l’échelle et des règles est identique à la condition par défaut.
+1. Sélectionnez **Spécifier les dates de début et de fin** pour la planification.
+1. Sélectionnez les dates et les heures de début/fin auxquelles la condition de mise à l’échelle doit être appliquée.
 
 ![Condition de mise à l’échelle en fonction des dates][10]
 

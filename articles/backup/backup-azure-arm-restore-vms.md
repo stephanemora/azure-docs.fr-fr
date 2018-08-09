@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: markgal
-ms.openlocfilehash: 52ca7cf4a04ace2a43f15433c05a2db26bde3602
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 872bfc0027fd5b69bb42f391c036f7116789f529
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605591"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431145"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utiliser le portail Azure pour restaurer des machines virtuelles
 Protégez vos données en prenant des instantanés de vos données à des intervalles définis. Ces instantanés sont considérés comme des points de récupération stockés dans des coffres Recovery Services. Lorsqu’il est nécessaire de réparer ou de générer de nouveau une machine virtuelle, sa restauration peut s’effectuer à partir des points de récupération enregistrés. Lorsque vous restaurez un point de récupération, vous pouvez :
@@ -39,34 +39,34 @@ La restauration d’une machine virtuelle ou de tous les disques à partir de la
 ## <a name="select-a-restore-point-for-restore"></a>Sélectionner un point pour la restauration
 1. Connectez-vous au [Portail Azure](http://portal.azure.com/).
 
-2. Dans le menu Azure, sélectionnez **Parcourir**. Dans la liste des services, tapez **Recovery Services**. La liste des services s’ajuste en fonction de ce que vous tapez. Lorsque vous voyez **Coffres Recovery Services**, cliquez dessus.
+1. Dans le menu Azure, sélectionnez **Parcourir**. Dans la liste des services, tapez **Recovery Services**. La liste des services s’ajuste en fonction de ce que vous tapez. Lorsque vous voyez **Coffres Recovery Services**, cliquez dessus.
 
     ![Coffre Recovery Services](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
     La liste des coffres de l’abonnement s’affiche.
 
     ![Liste des coffres Recovery Services](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-3. Dans la liste, sélectionnez le coffre associé à la machine virtuelle que vous souhaitez restaurer. Lorsque vous sélectionnez le coffre, son tableau de bord s’affiche.
+1. Dans la liste, sélectionnez le coffre associé à la machine virtuelle que vous souhaitez restaurer. Lorsque vous sélectionnez le coffre, son tableau de bord s’affiche.
 
     ![Coffre Recovery Services sélectionné](./media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
-4. Sur la vignette **Éléments de sauvegarde** du tableau de bord du coffre, sélectionnez **Machines virtuelles Azure**.
+1. Sur la vignette **Éléments de sauvegarde** du tableau de bord du coffre, sélectionnez **Machines virtuelles Azure**.
 
     ![Tableau de bord du coffre](./media/backup-azure-arm-restore-vms/vault-dashboard.png)
 
     Le panneau **Éléments de sauvegarde** s’ouvre et affiche la liste des machines virtuelles Azure.
 
     ![Liste des machines virtuelles du coffre](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
-5. Dans la liste, sélectionnez une machine virtuelle pour ouvrir le tableau de bord. Le tableau de bord de la machine virtuelle s’ouvre sur la zone de surveillance qui contient la vignette **Points de restauration**.
+1. Dans la liste, sélectionnez une machine virtuelle pour ouvrir le tableau de bord. Le tableau de bord de la machine virtuelle s’ouvre sur la zone de surveillance qui contient la vignette **Points de restauration**.
 
     ![Points de restauration](./media/backup-azure-arm-restore-vms/vm-blade.png)
-6. Dans le menu du tableau de bord de la machine virtuelle, sélectionnez **Restaurer**.
+1. Dans le menu du tableau de bord de la machine virtuelle, sélectionnez **Restaurer**.
 
     ![Bouton Restaurer](./media/backup-azure-arm-restore-vms/vm-blade-menu-restore.png)
 
     Le panneau **Restauration** s’ouvre.
 
     ![Panneau Restauration](./media/backup-azure-arm-restore-vms/restore-blade.png)
-7. Sur le panneau **Restauration**, sélectionnez **Point de restauration**. Le panneau **Sélectionner le point de restauration** s’ouvre.
+1. Sur le panneau **Restauration**, sélectionnez **Point de restauration**. Le panneau **Sélectionner le point de restauration** s’ouvre.
 
     ![Sélectionner le point de restauration](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
@@ -79,13 +79,13 @@ La restauration d’une machine virtuelle ou de tous les disques à partir de la
      * Points de restauration cohérents de système de fichiers
      * Tous les points de restauration
 
-8. Choisissez un point de restauration, puis sélectionnez **OK**.
+1. Choisissez un point de restauration, puis sélectionnez **OK**.
 
     ![Options de point de restauration](./media/backup-azure-arm-restore-vms/select-recovery-point.png)
 
     Le panneau **Restaurer** indique que le point de restauration est défini.
 
-9. Si vous n’en êtes pas encore là, accédez au panneau **Restaurer** . Vérifiez qu’un [point de restauration est sélectionné](#select-a-restore-point-for-restore), puis choisissez **Configuration de la restauration**. Le panneau **Configuration de la restauration** s’ouvre.
+1. Si vous n’en êtes pas encore là, accédez au panneau **Restaurer** . Vérifiez qu’un [point de restauration est sélectionné](#select-a-restore-point-for-restore), puis choisissez **Configuration de la restauration**. Le panneau **Configuration de la restauration** s’ouvre.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Choisir une configuration de restauration de machine virtuelle
 Après avoir sélectionné le point de restauration, choisissez une configuration de restauration de machine virtuelle. Pour configurer la machine virtuelle restaurée, vous pouvez utiliser le portail Azure ou PowerShell.
@@ -93,7 +93,7 @@ Après avoir sélectionné le point de restauration, choisissez une configuratio
 1. Si vous n’en êtes pas encore là, accédez au panneau **Restaurer** . Vérifiez qu’un [point de restauration est sélectionné](#select-a-restore-point-for-restore), puis choisissez **Configuration de la restauration**. Le panneau **Configuration de la restauration** s’ouvre.
 
     ![Assistant Configuration de restauration](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
-2. Dans le panneau **Restaurer la configuration**, vous avez deux possibilités :
+1. Dans le panneau **Restaurer la configuration**, vous avez deux possibilités :
 
    * **Créer une machine virtuelle**
 
@@ -127,7 +127,7 @@ Le portail fournit une option **Création rapide** pour la machine virtuelle res
     >
     >
 
-2. Sur le panneau **Configuration de la restauration**, sélectionnez **OK** pour finaliser la configuration de la restauration. Sur le panneau **Restaurer**, sélectionnez **Restaurer** pour déclencher l’opération de restauration.
+1. Sur le panneau **Configuration de la restauration**, sélectionnez **OK** pour finaliser la configuration de la restauration. Sur le panneau **Restaurer**, sélectionnez **Restaurer** pour déclencher l’opération de restauration.
 
 ## <a name="restore-backed-up-disks"></a>Restaurer des disques sauvegardés
 Pour personnaliser la machine virtuelle que vous souhaitez créer à partir des disques sauvegardés d’une façon différente de celle qui est spécifiée dans le panneau de **configuration de la restauration**, sélectionnez **Restaurer les disques** comme valeur de **Restaurer le type**. Ce choix exige un compte de stockage sur lequel copier les disques à partir des sauvegardes. Lorsque vous choisissez un compte de stockage, sélectionnez un compte qui partage le même emplacement que le coffre Recovery Services. Les comptes de stockage redondant dans une zone ne sont pas pris en charge. S’il n’existe aucun compte de stockage avec le même emplacement que le coffre Recovery Services, vous devez en créer un avant de commencer l’opération de restauration. Le type de réplication du compte de stockage est indiqué entre parenthèses.
@@ -156,9 +156,9 @@ Pour voir l’opération en cours de traitement, ou l’afficher lorsqu’elle e
     La liste des coffres de l’abonnement s’affiche.
 
     ![Liste des coffres Recovery Services](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-2. Dans la liste, sélectionnez le coffre associé à la machine virtuelle que vous avez restaurée. Lorsque vous sélectionnez le coffre, son tableau de bord s’affiche.
+1. Dans la liste, sélectionnez le coffre associé à la machine virtuelle que vous avez restaurée. Lorsque vous sélectionnez le coffre, son tableau de bord s’affiche.
 
-3. Sur la vignette **Travaux de sauvegarde** du tableau de bord du coffre, sélectionnez **Machines virtuelles Azure** pour afficher les travaux associés au coffre.
+1. Sur la vignette **Travaux de sauvegarde** du tableau de bord du coffre, sélectionnez **Machines virtuelles Azure** pour afficher les travaux associés au coffre.
 
     ![Tableau de bord du coffre](./media/backup-azure-arm-restore-vms/vault-dashboard-jobs.png)
 
@@ -178,15 +178,15 @@ Pour obtenir le modèle qui a été généré dans le cadre de l’option de res
 
 1. Accédez aux détails de la tâche correspondant à l’opération de restauration.
 
-2. Dans la fenêtre **Détails du travail de restauration**, sélectionnez **Déployer un modèle** pour lancer le déploiement du modèle. 
+1. Dans la fenêtre **Détails du travail de restauration**, sélectionnez **Déployer un modèle** pour lancer le déploiement du modèle. 
 
      ![Détail du travail de restauration](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
    
-3. Sur le panneau **Déployer un modèle**, utilisez la procédure de déploiement pour [modifier et déployer le modèle](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), ou ajoutez des personnalisations en [créant un modèle](../azure-resource-manager/resource-group-authoring-templates.md) avant d’effectuer le déploiement. 
+1. Sur le panneau **Déployer un modèle**, utilisez la procédure de déploiement pour [modifier et déployer le modèle](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), ou ajoutez des personnalisations en [créant un modèle](../azure-resource-manager/resource-group-authoring-templates.md) avant d’effectuer le déploiement. 
 
    ![Charger un déploiement de modèle](./media/backup-azure-arm-restore-vms/loading-template.png)
    
-4. Après avoir entré les valeurs requises, acceptez les **Conditions générales**, puis sélectionnez **Acheter**.
+1. Après avoir entré les valeurs requises, acceptez les **Conditions générales**, puis sélectionnez **Acheter**.
 
    ![Envoyer un déploiement de modèle](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
@@ -233,7 +233,7 @@ Pour pouvoir recréer entièrement les machines virtuelles après les avoir rest
 
 1. Restaurez les disques à partir d’un coffre Recovery Services à l’aide de [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-2. Créez la configuration de machine virtuelle requise pour l’équilibreur de charge/plusieurs cartes réseau/plusieurs adresses IP réservées à l’aide des applets de commande PowerShell. Utilisez-la pour créer la machine virtuelle avec la configuration souhaitée :
+1. Créez la configuration de machine virtuelle requise pour l’équilibreur de charge/plusieurs cartes réseau/plusieurs adresses IP réservées à l’aide des applets de commande PowerShell. Utilisez-la pour créer la machine virtuelle avec la configuration souhaitée :
 
    a. Créer une machine virtuelle dans le service cloud avec un [équilibreur de charge interne](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 42ac1cc7dd50f46ada263089437740e680928e70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325453"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596050"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons 
 
@@ -44,7 +44,7 @@ Si vous envisagez d’utiliser les exemples de Azure PowerShell dans cet article
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Une application cliente peut demander un [jeton d’accès d’application uniquement](../develop/active-directory-dev-glossary.md#access-token) de Managed Service Identity pour accéder à une ressource donnée. Le jeton est [basé sur le principal du service MSI](overview.md#how-does-it-work). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/active-directory-protocols-oauth-service-to-service.md).
+Une application cliente peut demander un [jeton d’accès d’application uniquement](../develop/developer-glossary.md#access-token) de Managed Service Identity pour accéder à une ressource donnée. Le jeton est [basé sur le principal du service MSI](overview.md#how-does-it-work). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

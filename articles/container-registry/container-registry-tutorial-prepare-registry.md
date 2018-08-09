@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450026"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Didacticiel : Préparer un registre de conteneurs Azure géorépliqué
 
@@ -31,7 +32,7 @@ Dans les didacticiels suivants, vous déploierez le conteneur de votre registre 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce didacticiel requiert une installation locale d’Azure CLI (version 2.0.31 ou ultérieure). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Ce didacticiel requiert une installation locale d’Azure CLI (version 2.0.31 ou ultérieure). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 Vous devez maîtriser les principaux concepts Docker tels que les conteneurs, les images de conteneur et les commandes Docker CLI de base. Pour apprendre les principes de base des conteneurs, consultez [Bien démarrer avec Docker]( https://docs.docker.com/get-started/).
 
@@ -77,7 +78,7 @@ Une carte où les régions Azure disponibles pour la géoréplication sont repr�
 
  ![Carte des régions dans le portail Azure][tut-map-01]
 
-Répliquez votre registre dans la région Est des États-Unis en sélectionnant l’hexagone vert correspondant, puis sélectionnez **Créer** sous **Créer une réplication** :
+Répliquez votre registre dans la région USA Est en sélectionnant l’hexagone vert correspondant, puis sélectionnez **Créer** sous **Créer une réplication** :
 
  ![Boîte de dialogue Créer une réplication dans le portail Azure][tut-portal-04]
 
@@ -89,7 +90,7 @@ Une fois la réplication terminée, le portail indique l’état *Prêt* pour le
 
 Maintenant que vous avez configuré la géoréplication, vous allez générer une image conteneur et l’envoyer à votre registre. Vous devez vous connecter à votre instance ACR avant de lui envoyer des images.
 
-Utilisez la commande [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) pour vous authentifier et mettre en cache les informations d’identification de votre registre. Remplacez `<acrName>` par le nom du registre créé précédemment.
+Utilisez la commande [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) pour vous authentifier et mettre en cache les informations d’identification de votre registre. Remplacez `<acrName>` par le nom du registre créé précédemment.
 
 ```azurecli
 az acr login --name <acrName>
@@ -209,7 +210,7 @@ Utilisez la commande `docker push` pour envoyer l’image *acr-helloworld* à vo
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Comme vous avez configuré votre registre pour la géoréplication, votre image est automatiquement répliquée dans les deux régions *Ouest des États-Unis* et *Est des États-Unis* avec cette simple commande `docker push`.
+Comme vous avez configuré votre registre pour la géoréplication, votre image est automatiquement répliquée dans les deux régions *USA Ouest* et *USA Est* avec cette simple commande `docker push`.
 
 ```console
 $ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1

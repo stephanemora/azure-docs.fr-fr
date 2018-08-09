@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098530"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429880"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Mettre à l’échelle des pods Kubernetes et l’infrastructure Kubernetes
 
@@ -45,7 +45,7 @@ Jusqu’à maintenant, le front-end Azure Vote et l’instance de Redis ont ét�
 kubectl get pods
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -115,7 +115,7 @@ Au bout de quelques minutes, avec une charge minimale sur l’application Azure 
 
 ## <a name="scale-the-agents"></a>Mettre à l’échelle les agents
 
-Si vous avez créé votre cluster Kubernetes à l’aide des commandes par défaut dans le didacticiel précédent, il comporte trois nœuds agents. Vous pouvez ajuster le nombre d’agents manuellement si vous prévoyez davantage ou moins de charges de travail de conteneur sur votre cluster. Utilisez la commande [az acs scale](/cli/azure/acs#az_acs_scale), puis spécifiez le nombre d’agents avec le paramètre `--new-agent-count`.
+Si vous avez créé votre cluster Kubernetes à l’aide des commandes par défaut dans le didacticiel précédent, il comporte trois nœuds agents. Vous pouvez ajuster le nombre d’agents manuellement si vous prévoyez davantage ou moins de charges de travail de conteneur sur votre cluster. Utilisez la commande [az acs scale](/cli/azure/acs#az-acs-scale), puis spécifiez le nombre d’agents avec le paramètre `--new-agent-count`.
 
 L’exemple suivant permet d’augmenter le nombre de nœuds agents à 4 dans le cluster Kubernetes nommé *myK8sCluster*. Quelques minutes sont nécessaires pour exécuter la commande.
 

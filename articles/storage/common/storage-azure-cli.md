@@ -2,24 +2,19 @@
 title: Utilisation d’Azure CLI 2.0 avec le stockage Azure | Microsoft Docs
 description: Découvrez comment utiliser Azure CLI 2.0 avec le stockage Azure pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Azure. Azure CLI 2.0 est un outil multiplateforme écrit en Python.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: common
+ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131869"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527488"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Utilisation d’Azure CLI 2.0 avec le stockage Azure
 
@@ -188,7 +183,7 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [Obligatoire] : emplacement. Par exemple, « États-Unis de l’Ouest ».
+* `--location` [Obligatoire] : emplacement. Par exemple, « USA Ouest ».
 * `--name` [Obligatoire] : nom du compte de stockage. Le nom doit comporter entre 3 et 24 caractères, lesquels ne peuvent être que des caractères alphanumériques minuscules.
 * `--resource-group` [Obligatoire] : nom du groupe de ressources.
 * `--sku` [Obligatoire] : référence du compte de stockage. Valeurs autorisées :

@@ -2,23 +2,18 @@
 title: Gestion du stockage dans les clouds indépendants Azure avec Azure PowerShell | Microsoft Docs
 description: Gestion du stockage dans le cloud chinois, le cloud Government et le cloud allemand avec Azure PowerShell
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.openlocfilehash: 3eecf8918e6628071e44cc588b1826df68a00f10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: common
+ms.openlocfilehash: f3f827958c0c5d71846d8f0d4184ef88b7f0a932
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186910"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527401"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestion du stockage dans les clouds indépendants Azure avec PowerShell
 
@@ -157,7 +152,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 Pour poursuivre, vous pouvez utiliser le même code PowerShell que celui utilisé pour gérer vos comptes de stockage et accéder au plan de données comme indiqué dans l’article [Utilisation d’Azure PowerShell avec Stockage Azure](storage-powershell-guide-full.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous avez créé un groupe de ressources et un compte de stockage pour cet exercice, vous pouvez supprimer toutes les ressources en supprimant le groupe de ressources. Cette opération supprime également toutes les ressources contenues dans le groupe. Dans le cas présent, le compte de stockage créé et le groupe de ressources sont supprimés.
 

@@ -2,24 +2,18 @@
 title: Format de fichier de propriétés et de métadonnées d’Azure Import/Export | Microsoft Docs
 description: Découvrez comment spécifier les métadonnées et les propriétés d’un ou plusieurs objets blob qui font partie d’un travail d’importation ou d’exportation.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 840364c6-d9a8-4b43-a9f3-f7441c625069
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 3f728ad94cdcbd32092b677f11a737ae91376720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059304"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526230"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Format de fichier de propriétés et de métadonnées du service Azure Import/Export
 Vous pouvez spécifier les métadonnées et les propriétés d’un ou plusieurs objets blob dans le cadre d’un travail d’importation ou d’exportation. Pour définir les métadonnées ou les propriétés d’objets blob créés dans le cadre d’un travail d’importation, vous devez fournir un fichier de métadonnées ou de propriétés sur le disque dur contenant les données à importer. Pour un travail d’exportation, les métadonnées et les propriétés sont écrites dans un fichier de métadonnées ou de propriétés inclus sur le disque dur retourné.  
@@ -36,10 +30,10 @@ Le format d’un fichier de métadonnées est le suivant :
 </Metadata>  
 ```
   
-|Élément XML|Type|Description|  
+|Élément XML|type|Description|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Élément racine|Élément racine du fichier de métadonnées.|  
-|`metadata-name`|String|facultatif. L’élément XML spécifie le nom des métadonnées de l’objet blob, et sa valeur spécifie la valeur du paramètre des métadonnées.|  
+|`metadata-name`|Chaîne|facultatif. L’élément XML spécifie le nom des métadonnées de l’objet blob, et sa valeur spécifie la valeur du paramètre des métadonnées.|  
   
 ## <a name="properties-file-format"></a>Format du fichier de propriétés  
 Le format d’un fichier de propriétés est le suivant :  
@@ -58,17 +52,17 @@ Le format d’un fichier de propriétés est le suivant :
 </Properties>  
 ```
   
-|Élément XML|Type|Description|  
+|Élément XML|type|Description|  
 |-----------------|----------|-----------------|  
 |`Properties`|Élément racine|Élément racine du fichier de propriétés.|  
-|`Last-Modified`|String|facultatif. Heure de dernière modification de l’objet blob. Travaux d’exportation uniquement.|  
-|`Etag`|String|facultatif. Valeur ETag de l’objet blob. Travaux d’exportation uniquement.|  
-|`Content-Length`|String|facultatif. Taille de l’objet blob en octets. Travaux d’exportation uniquement.|  
-|`Content-Type`|String|facultatif. Type de contenu de l’objet blob.|  
-|`Content-MD5`|String|facultatif. Hash MD5 de l’objet blob.|  
-|`Content-Encoding`|String|facultatif. Codage du contenu de l’objet blob.|  
-|`Content-Language`|String|facultatif. Langage du contenu de l’objet blob.|  
-|`Cache-Control`|String|facultatif. Chaîne de contrôle du cache de l’objet blob.|  
+|`Last-Modified`|Chaîne|facultatif. Heure de dernière modification de l’objet blob. Travaux d’exportation uniquement.|  
+|`Etag`|Chaîne|facultatif. Valeur ETag de l’objet blob. Travaux d’exportation uniquement.|  
+|`Content-Length`|Chaîne|facultatif. Taille de l’objet blob en octets. Travaux d’exportation uniquement.|  
+|`Content-Type`|Chaîne|facultatif. Type de contenu de l’objet blob.|  
+|`Content-MD5`|Chaîne|facultatif. Hash MD5 de l’objet blob.|  
+|`Content-Encoding`|Chaîne|facultatif. Codage du contenu de l’objet blob.|  
+|`Content-Language`|Chaîne|facultatif. Langage du contenu de l’objet blob.|  
+|`Cache-Control`|Chaîne|facultatif. Chaîne de contrôle du cache de l’objet blob.|  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

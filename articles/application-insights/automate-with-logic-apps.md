@@ -1,22 +1,23 @@
 ---
 title: Automatisez les processus Azure Application Insights en utilisant Logic Apps.
-description: "Découvrez comment automatiser rapidement des processus reproductibles en ajoutant le connecteur Application Insights à votre application logique."
+description: Découvrez comment automatiser rapidement des processus reproductibles en ajoutant le connecteur Application Insights à votre application logique.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450439"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatiser les processus Application Insights en utilisant Logic Apps
 
@@ -32,7 +33,7 @@ Dans ce didacticiel, vous allez apprendre à créer une application logique qui 
 
 ### <a name="step-1-create-a-logic-app"></a>Étape 1 : Créer une application logique
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Cliquez sur **Créer une ressource**, sélectionnez **Web + Mobile**, puis sélectionnez **Application logique**.
+1. Cliquez sur **Créer une ressource**, sélectionnez **Web + Mobile**, puis sélectionnez **Application logique**.
 
     ![Fenêtre Nouvelle application logique](./media/automate-with-logic-apps/logicapp1.png)
 
@@ -41,16 +42,16 @@ Dans ce didacticiel, vous allez apprendre à créer une application logique qui 
 
     ![Fenêtre Concepteur d’application logique](./media/automate-with-logic-apps/logicapp2.png)
 
-2. Dans la zone **Fréquence**, sélectionnez **Jour**, puis, dans la zone **Intervalle**, tapez **1**.
+1. Dans la zone **Fréquence**, sélectionnez **Jour**, puis, dans la zone **Intervalle**, tapez **1**.
 
     ![Fenêtre « Récurrence » du Concepteur d’application logique](./media/automate-with-logic-apps/step2b.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>Étape 3 : Ajouter une action Application Insights
 1. Cliquez sur **Nouvelle étape**, puis sur **Ajouter une action**.
 
-2. Dans la zone de recherche **Choisir une action**, tapez **Azure Application Insights**.
+1. Dans la zone de recherche **Choisir une action**, tapez **Azure Application Insights**.
 
-3. Sous **Actions**, cliquez sur **Azure Application Insights – Visualize Analytics query Preview** (Azure Application Insights – Visualiser la requête Analytics Préversion).
+1. Sous **Actions**, cliquez sur **Azure Application Insights – Visualize Analytics query Preview** (Azure Application Insights – Visualiser la requête Analytics Préversion).
 
     ![Fenêtre de « Choisir une action » du Concepteur d’application logique](./media/automate-with-logic-apps/flow2.png)
 
@@ -82,7 +83,7 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
     | evaluate autocluster()
     ```
 
-2. Dans la zone **Type de graphique**, sélectionnez **Table HTML**.
+1. Dans la zone **Type de graphique**, sélectionnez **Table HTML**.
 
     ![Fenêtre de configuration de requête Analytics](./media/automate-with-logic-apps/flow4.png)
 
@@ -90,13 +91,13 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
 
 1. Cliquez sur **Nouvelle étape**, puis sélectionnez **Ajouter une action**.
 
-2. Dans la zone de recherche, tapez **Office 365 Outlook**.
+1. Dans la zone de recherche, tapez **Office 365 Outlook**.
 
-3. Cliquez sur **Office 365 Outlook – Envoyer un message électronique**.
+1. Cliquez sur **Office 365 Outlook – Envoyer un message électronique**.
 
     ![Sélection d’Office 365 Outlook](./media/automate-with-logic-apps/flow2b.png)
 
-4. Dans la fenêtre **Envoyer un message électronique**, effectuez les étapes suivantes :
+1. Dans la fenêtre **Envoyer un message électronique**, effectuez les étapes suivantes :
 
    a. Tapez l’adresse e-mail du destinataire.
 
@@ -108,7 +109,7 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
 
       ![Configuration d’Office 365 Outlook](./media/automate-with-logic-apps/flow5.png)
 
-5. Dans le menu de contenu dynamique, effectuez les étapes suivantes :
+1. Dans le menu de contenu dynamique, effectuez les étapes suivantes :
 
     a. Sélectionnez **Nom de la pièce jointe**.
 

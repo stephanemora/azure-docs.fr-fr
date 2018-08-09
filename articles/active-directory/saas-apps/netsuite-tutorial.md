@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 5a20af1130d50209b29ad44195c14f30cba30c43
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 511fdcf587d16a59ff2bb11dfc55504b2218a569
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051851"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutoriel : Intégration d’Azure Active Directory à NetSuite
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de NetSuite à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-netsuite-from-the-gallery"></a>Ajout de NetSuite à partir de la galerie
 Pour configurer l’intégration de NetSuite à Azure AD, vous devez ajouter NetSuite à votre liste d’applications SaaS managées, à partir de la galerie.
@@ -63,15 +63,15 @@ Pour configurer l’intégration de NetSuite à Azure AD, vous devez ajouter Net
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
 
-3. Cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **NetSuite**, sélectionnez **NetSuite** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **NetSuite**, sélectionnez **NetSuite** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![NetSuite dans la liste des résultats](./media/netsuite-tutorial/tutorial_netsuite_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme val
 Pour configurer et tester l’authentification unique Azure AD avec NetSuite, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test NetSuite](#creating-a-netsuite-test-user)** : pour avoir un équivalent de Britta Simon dans NetSuite qui soit lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test NetSuite](#creating-a-netsuite-test-user)** : pour avoir un équivalent de Britta Simon dans NetSuite qui soit lié à la représentation Azure AD de l’utilisateur.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -100,11 +100,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/tutorial_NetSuite_samlbase.png)
 
-3. Dans la section **Domaine et URL NetSuite**, effectuez les étapes suivantes :
+1. Dans la section **Domaine et URL NetSuite**, effectuez les étapes suivantes :
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/tutorial_NetSuite_url.png)
 
@@ -125,45 +125,45 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse réel. Pour obtenir ces valeurs, contactez [l’équipe du support technique NetSuite](http://www.NetSuite.com/portal/services/support.shtml).
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/NetSuite-tutorial/tutorial_NetSuite_certificate.png) 
+    ![Configure Single Sign-On](./media/NetSuite-tutorial/tutorial_NetSuite_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de NetSuite**, cliquez sur **Configurer NetSuite** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **Configuration de NetSuite**, cliquez sur **Configurer NetSuite** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/tutorial_NetSuite_configure.png)
 
-7. Ouvrez un nouvel onglet dans votre navigateur et connectez-vous à votre site d’entreprise NetSuite en tant qu’administrateur.
+1. Ouvrez un nouvel onglet dans votre navigateur et connectez-vous à votre site d’entreprise NetSuite en tant qu’administrateur.
 
-8. Dans la barre d’outils en haut de la page, cliquez sur **Setup** (Configuration), puis accédez à **Company** (Entreprise) et cliquez sur **Enable Features** (Activer des fonctionnalités).
+1. Dans la barre d’outils en haut de la page, cliquez sur **Setup** (Configuration), puis accédez à **Company** (Entreprise) et cliquez sur **Enable Features** (Activer des fonctionnalités).
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-9. Dans la barre d’outils située au milieu de la page, cliquez sur **SuiteCloud**.
+1. Dans la barre d’outils située au milieu de la page, cliquez sur **SuiteCloud**.
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-10. Dans la section **Manage Authentication** (Gérer l’authentification), sélectionnez **SAML SINGLE SIGN-ON** (Authentification unique SAML) pour activer l’option du même nom dans NetSuite.
+1. Dans la section **Manage Authentication** (Gérer l’authentification), sélectionnez **SAML SINGLE SIGN-ON** (Authentification unique SAML) pour activer l’option du même nom dans NetSuite.
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-11. Dans la barre d’outils située en haut de la page, cliquez sur **Setup** (Configuration).
+1. Dans la barre d’outils située en haut de la page, cliquez sur **Setup** (Configuration).
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-setup.png)
 
-12. Dans la liste **SETUP TASKS** (Tâches de configuration), sélectionnez **Integration**.
+1. Dans la liste **SETUP TASKS** (Tâches de configuration), sélectionnez **Integration**.
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-integration.png)
 
-13. Dans la section **MANAGE AUTHENTICATION** (Gérer l’authentification), cliquez sur **SAML Single Sign-on** (Authentification unique SAML).
+1. Dans la section **MANAGE AUTHENTICATION** (Gérer l’authentification), cliquez sur **SAML Single Sign-on** (Authentification unique SAML).
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-saml.png)
 
-14. Dans la section **SAML Setup** (Configuration SAML) située sous **NetSuite Configuration** (Configuration NetSuite), effectuez les étapes suivantes :
+1. Dans la section **SAML Setup** (Configuration SAML) située sous **NetSuite Configuration** (Configuration NetSuite), effectuez les étapes suivantes :
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-saml-setup.png)
   
@@ -173,11 +173,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     c. Cliquez sur **Envoyer**.
 
-15. Dans Azure AD, activez la case à cocher **Afficher et modifier tous les autres attributs utilisateur**, puis ajoutez un attribut.
+1. Dans Azure AD, activez la case à cocher **Afficher et modifier tous les autres attributs utilisateur**, puis ajoutez un attribut.
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-attributes.png)
 
-16. Dans le champ **Nom de l’attribut**, entrez `account`. Dans le champ **Valeur de l’attribut** , entrez votre ID de compte NetSuite. Cette valeur est constante et varie selon le compte. Vous trouverez ci-dessous des instructions sur la recherche de votre ID de compte :
+1. Dans le champ **Nom de l’attribut**, entrez `account`. Dans le champ **Valeur de l’attribut** , entrez votre ID de compte NetSuite. Cette valeur est constante et varie selon le compte. Vous trouverez ci-dessous des instructions sur la recherche de votre ID de compte :
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-add-attribute.png)
 
@@ -185,13 +185,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Configurer l'authentification unique](./media/NetSuite-tutorial/ns-account-id.png)
+    ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. Dans la page **Company Information** (Informations sur l’entreprise), dans la colonne de droite, copiez la valeur du champ **ACCOUNT ID** (ID de compte).
 
     c. Collez **l’ID de compte** du compte NetSuite dans le champ **Valeur d’attribut** d’Azure AD. 
 
-17. Avant que les utilisateurs puissent utiliser l’authentification unique dans NetSuite, vous devez d’abord leur affecter les autorisations appropriées dans NetSuite. Procédez comme suit pour attribuer ces instructions.
+1. Avant que les utilisateurs puissent utiliser l’authentification unique dans NetSuite, vous devez d’abord leur affecter les autorisations appropriées dans NetSuite. Procédez comme suit pour attribuer ces instructions.
 
     a. Dans le menu de navigation supérieur, cliquez sur **Setup** (Configuration).
 
@@ -246,15 +246,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/NetSuite-tutorial/create_aaduser_01.png) 
 
-2.  Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1.  Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/NetSuite-tutorial/create_aaduser_02.png) 
 
-3. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
+1. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
  
     ![Création d’un utilisateur de test Azure AD](./media/NetSuite-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/NetSuite-tutorial/create_aaduser_04.png) 
 
@@ -284,23 +284,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **NetSuite**.
+1. Dans la liste des applications, sélectionnez **NetSuite**.
 
     ![Configurer l'authentification unique](./media/NetSuite-tutorial/tutorial_NetSuite_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

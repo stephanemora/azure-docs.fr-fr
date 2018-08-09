@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 81f2302df5740b482f03a4a724d2899734579949
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 9cb5769d7f54a1036bf14199c87961c95ed2e7ce
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096857"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432404"
 ---
 # <a name="update-an-application-in-kubernetes"></a>Mettre à jour une application dans Kubernetes
 
@@ -22,7 +22,7 @@ ms.locfileid: "37096857"
 
 Après avoir déployé une application dans Kubernetes, vous pouvez la mettre à jour en spécifiant une nouvelle image conteneur ou une nouvelle version de l’image. Cette mise à jour se fait alors étape par étape, afin que seulement une partie du déploiement soit mise à jour simultanément. Cette mise à jour progressive permet à l’application de poursuivre son exécution pendant la mise à jour. Elle fournit également un mécanisme de restauration en cas d’échec du déploiement. 
 
-Dans ce didacticiel (le sixième d’une série de sept), l’exemple de l’application Azure Vote est mis à jour. Les tâches que vous effectuez sont les suivantes :
+Dans ce didacticiel (le sixième d’une série de sept), l’exemple de l’application Azure Vote est mis à jour. Les tâches que vous effectuez sont les suivantes :
 
 > [!div class="checklist"]
 > * Mise à jour du code de l’application frontale
@@ -80,7 +80,7 @@ Accédez à http://localhost:8080 pour voir l’application mise à jour.
 
 Marquez l’image `azure-vote-front` avec le loginServer du registre de conteneurs. 
 
-Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#az_acr_list).
+Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -106,7 +106,7 @@ Pour garantir une disponibilité maximale, vous devez exécuter plusieurs instan
 kubectl get pod
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE

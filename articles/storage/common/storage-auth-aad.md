@@ -3,17 +3,17 @@ title: Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Di
 description: Authentifiez l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: tamram
-ms.openlocfilehash: 9a0782b96b45d27c9b7e603959ecadf5b2632064
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: common
+ms.openlocfilehash: 90868961475c2e9d0ac7d28c5d9a50c8eb281675
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737644"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525203"
 ---
 # <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)
 
@@ -41,7 +41,7 @@ Gardez à l’esprit les points suivants concernant la préversion :
     - [JavaScript](https://aka.ms/downloadazurestoragejs))
 
 > [!IMPORTANT]
-> Cette préversion est destinée à une utilisation hors production uniquement. Les contrats de niveau de service de production (SLA) seront disponibles quand l’intégration d’Azure AD pour le Stockage Azure sera en disponibilité générale. Si l’intégration d’Azure AD n’est pas encore prise en charge pour votre scénario, continuez à utiliser l’autorisation de clé partagée ou les jetons SAP dans vos applications.
+> Cette préversion est destinée à une utilisation hors production uniquement. Les contrats SLA (contrats de niveau de service) de production ne sont pas disponibles tant que l’intégration d’Azure AD pour le Stockage Azure n’est pas officiellement disponible de manière générale. Si l’intégration d’Azure AD n’est pas encore prise en charge pour votre scénario, continuez à utiliser l’autorisation de clé partagée ou les jetons SAP dans vos applications.
 >
 > Pendant la préversion, la propagation des attributions de rôles RBAC peut prendre jusqu’à cinq minutes.
 >
@@ -57,4 +57,4 @@ Azure CLI et PowerShell prennent désormais en charge la connexion via une ident
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’intégration d’Azure AD pour les objets blob et les files d’attente Azure, consultez le billet de blog de l’équipe du Stockage Azure : [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/) (Annonce de la préversion de l’authentification Azure AD pour le Stockage Azure).
+Pour plus d’informations sur l’intégration d’Azure AD aux objets blob et files d’attente Azure, consultez le billet de blog de l’équipe Stockage Azure, [Annonce de la préversion d’Azure AD Authentication pour le Stockage Azure](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

@@ -1,33 +1,27 @@
 ---
-title: Téléchargement de données pour les tâches Hadoop dans HDInsight | Microsoft Docs
+title: Téléchargement de données pour les tâches Hadoop dans HDInsight
 description: Découvrez comment télécharger des données pour les tâches Hadoop et y accéder dans HDInsight avec l'interface CLI Azure, Azure Storage Explorer, Azure PowerShell, la ligne de commande Hadoop ou Sqoop.
 keywords: etl hadoop, obtention de données dans hadoop, données de charge hadoop
-services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
+services: hdinsight
+author: jasonwhowell
+editor: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 1734e9f0002ab7f33a8a67e44811352cb5c45fdc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 01d9029eafbefbace80508d27fc3282558a299c9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202456"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596794"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Téléchargement de données pour les tâches Hadoop dans HDInsight
 
 Azure HDInsight fournit un système HDFS (Hadoo Distributed File System) complet pour le Stockage Azure et Azure Data Lake Store. Le Stockage Azure et Data lake Store sont conçus en tant qu’extension HDFS pour fournir une expérience fluide aux clients. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Le Stockage Azure et Data Lake Store sont des systèmes de fichiers distincts qui sont optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages que constitue l’utilisation du Stockage Azure, consultez [Utiliser le Stockage Azure avec HDInsight][hdinsight-storage] et [Utiliser Data Lake Store avec HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Notez les prérequis suivants avant de démarrer :
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887427"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528627"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager
 Une ressource donnée peut comporter d'autres ressources qui doivent exister avant son déploiement. Par exemple, un serveur SQL doit exister avant une tentative de déploiement d'une base de données SQL. Vous définissez cette relation en marquant une seule ressource comme dépendante de l'autre ressource. Pour définir une dépendance, vous devez utiliser l’élément **dependsOn** ou la fonction **reference**. 
@@ -108,7 +108,7 @@ L'exemple suivant montre un serveur SQL et une base de données SQL. Notez qu'un
 ```
 
 ## <a name="reference-and-list-functions"></a>fonctions reference et list
-La [fonction de référence](resource-group-template-functions-resource.md#reference) permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les [fonctions list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) renvoient les valeurs d’une ressource à partir d’une opération de liste.  Les expressions reference et list déclarent implicitement qu’une ressource dépend d’une autre, lorsque la ressource référencée est déployée dans le même modèle et désignée par son nom (pas par son ID). Si vous transmettez l’ID de ressource dans les fonctions reference ou list, une référence implicite n’est pas créée.
+La [fonction de référence](resource-group-template-functions-resource.md#reference) permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les [fonctions list*](resource-group-template-functions-resource.md#list) renvoient les valeurs d’une ressource à partir d’une opération de liste.  Les expressions reference et list déclarent implicitement qu’une ressource dépend d’une autre, lorsque la ressource référencée est déployée dans le même modèle et désignée par son nom (pas par son ID). Si vous transmettez l’ID de ressource dans les fonctions reference ou list, une référence implicite n’est pas créée.
 
 Le format général de la fonction reference est :
 

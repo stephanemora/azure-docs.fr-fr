@@ -2,24 +2,18 @@
 title: Format de fichier journal d’Azure Import/Export | Microsoft Docs
 description: Découvrez-en davantage sur le format des fichiers journaux créés lors de l’exécution des étapes d’un travail du service d’importation/exportation.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b842a80762989c34ae278a397cc49c088ff77fb2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23060004"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525516"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Format de fichier journal du service Azure Import/Export
 Lorsque le service Microsoft Azure Import/Export exécute une action sur un lecteur dans le cadre d’un travail d’importation ou d’exportation, les journaux sont écrits pour bloquer des objets blob dans le compte de stockage associé à ce travail.  
@@ -37,10 +31,10 @@ Le nom du conteneur ou du répertoire virtuel peut être le nom par défaut `wai
   
 Le tableau ci-dessous présente les options possibles :  
   
-|Méthode d’authentification|Valeur de l’élément `ImportExportStatesPath`|Emplacement des objets blob de journal|  
+|Méthode d'authentification|Valeur de l’élément `ImportExportStatesPath`|Emplacement des objets blob de journal|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|Clé du compte de stockage|Valeur par défaut|Un conteneur nommé `waimportexport`, qui est le conteneur par défaut. Par exemple :<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|Clé du compte de stockage|Valeur spécifiée par l’utilisateur|Un conteneur nommé par l’utilisateur. Par exemple :<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|Clé du compte de stockage|Valeur par défaut|Un conteneur nommé `waimportexport`, qui est le conteneur par défaut. Par exemple : <br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Clé du compte de stockage|Valeur spécifiée par l’utilisateur|Un conteneur nommé par l’utilisateur. Par exemple : <br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |SAP de conteneur|Valeur par défaut|Un répertoire virtuel nommé `waimportexport`, qui est le nom par défaut, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, l’emplacement du journal serait alors `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAP de conteneur|Valeur spécifiée par l’utilisateur|Un répertoire virtuel nommé par l’utilisateur, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` et le répertoire virtuel spécifié est nommé `mylogblobs`, l’emplacement du journal serait `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
@@ -107,19 +101,19 @@ properties-status ::=
 
 Le tableau suivant décrit les éléments du fichier journal.  
   
-|Élément XML|Type|Description|  
+|Élément XML|type|Description|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Élément XML|Représente un journal de lecteur.|  
 |`Version`|Attribut, Chaîne|Version du format du journal.|  
-|`DriveId`|String|Numéro de série du matériel du lecteur.|  
-|`Status`|String|État de traitement du lecteur. Pour plus d’informations, consultez le tableau `Drive Status Codes` ci-après.|  
+|`DriveId`|Chaîne|Numéro de série du matériel du lecteur.|  
+|`Status`|Chaîne|État de traitement du lecteur. Pour plus d’informations, consultez le tableau `Drive Status Codes` ci-après.|  
 |`Blob`|Élément XML imbriqué|Représente un objet blob.|  
-|`Blob/BlobPath`|String|URI de l’objet blob.|  
-|`Blob/FilePath`|String|Chemin relatif d’accès au fichier sur le lecteur.|  
-|`Blob/Snapshot`|DateTime|Version de l’instantané de l’objet blob, pour un travail d’exportation.|  
+|`Blob/BlobPath`|Chaîne|URI de l’objet blob.|  
+|`Blob/FilePath`|Chaîne|Chemin relatif d’accès au fichier sur le lecteur.|  
+|`Blob/Snapshot`|Datetime|Version de l’instantané de l’objet blob, pour un travail d’exportation.|  
 |`Blob/Length`|Entier |Longueur totale de l’objet blob en octets.|  
-|`Blob/LastModified`|DateTime|Date/heure de dernière modification de l’objet blob, pour un travail d’exportation.|  
-|`Blob/ImportDisposition`|String|Disposition d’importation de l’objet blob, pour un travail d’exportation uniquement.|  
+|`Blob/LastModified`|Datetime|Date/heure de dernière modification de l’objet blob, pour un travail d’exportation.|  
+|`Blob/ImportDisposition`|Chaîne|Disposition d’importation de l’objet blob, pour un travail d’exportation uniquement.|  
 |`Blob/ImportDisposition/@Status`|Attribut, Chaîne|État de la disposition d’importation.|  
 |`PageRangeList`|Élément XML imbriqué|Représente une liste de plages de pages pour un objet blob de pages.|  
 |`PageRange`|Élément XML|Représente une plage de pages.|  
@@ -136,17 +130,17 @@ Le tableau suivant décrit les éléments du fichier journal.
 |`Block/@Status`|Attribut, Chaîne|État du traitement du bloc.|  
 |`Metadata`|Élément XML imbriqué|Représente les métadonnées de l’objet blob.|  
 |`Metadata/@Status`|Attribut, Chaîne|État de traitement des métadonnées de l’objet blob.|  
-|`Metadata/GlobalPath`|String|Chemin relatif d’accès au fichier de métadonnées global.|  
+|`Metadata/GlobalPath`|Chaîne|Chemin relatif d’accès au fichier de métadonnées global.|  
 |`Metadata/GlobalPath/@Hash`|Attribut, Chaîne|Hachage MD5 encodé en Base16 du fichier de métadonnées global.|  
-|`Metadata/Path`|String|Chemin relatif d’accès au fichier de métadonnées.|  
+|`Metadata/Path`|Chaîne|Chemin relatif d’accès au fichier de métadonnées.|  
 |`Metadata/Path/@Hash`|Attribut, Chaîne|Hachage MD5 encodé en Base16 du fichier de métadonnées.|  
 |`Properties`|Élément XML imbriqué|Représente les propriétés de l’objet blob.|  
 |`Properties/@Status`|Attribut, Chaîne|État de traitement des propriétés de l’objet blob, par exemple, fichier introuvable, terminé.|  
-|`Properties/GlobalPath`|String|Chemin relatif d’accès au fichier de propriétés global.|  
+|`Properties/GlobalPath`|Chaîne|Chemin relatif d’accès au fichier de propriétés global.|  
 |`Properties/GlobalPath/@Hash`|Attribut, Chaîne|Hachage MD5 encodé en Base16 du fichier de propriétés global.|  
-|`Properties/Path`|String|Chemin relatif d’accès au fichier de propriétés.|  
+|`Properties/Path`|Chaîne|Chemin relatif d’accès au fichier de propriétés.|  
 |`Properties/Path/@Hash`|Attribut, Chaîne|Hachage MD5 encodé en Base16 du fichier de propriétés.|  
-|`Blob/Status`|String|État du traitement de l’objet blob.|  
+|`Blob/Status`|Chaîne|État du traitement de l’objet blob.|  
   
 # <a name="drive-status-codes"></a>Codes d’état du lecteur  
 Le tableau suivant répertorie les codes d’état pour le traitement d’un lecteur.  

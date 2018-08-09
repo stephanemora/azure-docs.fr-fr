@@ -2,18 +2,18 @@
 title: Utilisation d’Azure Import/Export pour exporter des données à partir d’objets blob Azure | Microsoft Docs
 description: Découvrez comment créer des tâches d’exportation dans le Portail Azure pour transférer des données à partir d’objets blob Azure.
 author: alkohli
-manager: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb714086a0142d9780bd018d77dc880a430f240e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: common
+ms.openlocfilehash: a7456bedeb6bc870ad5d6892fe697fb2dfcd3bc1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113756"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527802"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour exporter en toute sécurité de grandes quantités de données à partir du Stockage Blob Azure. Pour pouvoir utiliser ce service, vous devez expédier des lecteurs vides au centre de données Azure. Le service exporte les données de votre compte de stockage vers les lecteurs, puis vous réexpédie ces derniers.

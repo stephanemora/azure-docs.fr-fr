@@ -2,24 +2,18 @@
 title: Configuration de l’outil Azure Import-Export v1 | Microsoft Docs
 description: Découvrez comment configurer l’outil de préparation et de réparation de disques pour le service Azure Import/Export. Cela s’applique à la version v1 de l’outil d’importation/exportation.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: c312b1ab-5b9e-4d24-becd-790a88b3ba8d
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 4fb4c7e39c0385cae7c7984eb774d6a468ee18e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: d7f0a40710d0cd7f017d9caa0da8e1644cdf56d3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059784"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526510"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configuration de l’outil Azure Import/Export
 L’outil Microsoft Azure Import/Export est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le service Microsoft Azure Import/Export. Vous pouvez utiliser l’outil pour les fonctions suivantes :  
@@ -30,7 +24,7 @@ L’outil Microsoft Azure Import/Export est l’outil de préparation et de rép
   
 -   Lorsque vous recevez les disques d’un travail d’exportation, vous pouvez utiliser cet outil pour réparer tous les fichiers endommagés ou manquants sur les disques.  
   
-## <a name="prerequisites"></a>Composants requis  
+## <a name="prerequisites"></a>Prérequis  
 Si vous préparez des disques pour un travail d’importation, vous devez remplir les conditions préalables suivantes :  
   
 -   Vous devez avoir un abonnement Azure actif.  

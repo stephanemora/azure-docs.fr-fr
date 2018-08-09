@@ -2,22 +2,19 @@
 title: Introduction aux fonctions de sécurité Hadoop sur la base de clusters Azure HDInsight joints à un domaine
 description: Découvrez comment les clusters Azure HDInsight joints au domaine prennent en charge les quatre piliers de la sécurité d’entreprise.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: 6f2c41aff8aaa389a8f2288cbb445e1ba2e7fd14
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e697b0ffe7cde65cd47a2f1b1db5b544b6dc1d3c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112534"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595628"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Introduction aux fonctions de sécurité Hadoop sur la base de clusters HDInsight joints à un domaine
 
@@ -44,7 +41,7 @@ Un administrateur d’entreprise peut créer un cluster HDInsight joint à un do
 
 Avec cette configuration, des employés de l’entreprise peuvent se connecter aux nœuds du cluster à l’aide de leurs informations d’identification de domaine. Ils peuvent également utiliser leurs informations d’identification de domaine pour s’authentifier auprès d’autres points de terminaison approuvés comme les vues Ambari, ODBC, JDBC, PowerShell et les API REST pour interagir avec le cluster. L’administrateur dispose d’un contrôle total sur la limitation du nombre d’utilisateurs interagissant avec le cluster via ces points de terminaison.
 
-## <a name="authorization"></a>Autorisation
+## <a name="authorization"></a>Authorization
 L’une des bonnes pratiques que la plupart des entreprises appliquent consiste à s’assurer que chaque employé n’a pas accès à l’intégralité des ressources de l’entreprise. Parallèlement, l’administrateur peut définir des stratégies de contrôle d’accès en fonction du rôle pour les ressources du cluster. 
 
 Par exemple, l’administrateur peut configurer [Apache Ranger](http://hortonworks.com/apache/ranger/) pour définir des stratégies de contrôle d’accès pour Hive. Cette fonctionnalité garantit que les employés peuvent accéder uniquement aux données nécessaires à leur travail. L’accès SSH au cluster est aussi limité exclusivement à l’administrateur.

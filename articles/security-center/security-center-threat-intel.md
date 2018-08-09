@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561362"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434188"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Informations sur les menaces dans Azure Security Center
 Cet article vous aide à utiliser les informations sur les menaces d’Azure Security Center pour traiter les problèmes relatifs à la sécurité.
@@ -50,22 +50,22 @@ Pour visualiser les informations sur les menaces actuelles pour votre environnem
 
 1. Ouvrez le tableau de bord **Security Center**.
 
-2. Dans le volet gauche, sous **Protection contre les menaces**, cliquez sur **Threat intelligence**. Une carte s’ouvre.
+1. Dans le volet gauche, sous **Protection contre les menaces**, cliquez sur **Threat intelligence**. Une carte s’ouvre.
 
     ![Threat intelligence map (Carte d’informations sur les menaces)](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. En haut de la carte, sélectionnez **Afficher Threat intelligence classique**. Le tableau de bord **Threat intelligence** s’affiche.
+1. En haut de la carte, sélectionnez **Afficher Threat intelligence classique**. Le tableau de bord **Threat intelligence** s’affiche.
 
     ![Tableau de bord Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
     > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **MISE À JOUR REQUISE**, mettez à jour [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center.
     >
-3. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **Adresse IP malveillante**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
+1. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **Adresse IP malveillante**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
 
     ![Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. Le tableau de bord est divisé en quatre vignettes :
+1. Le tableau de bord est divisé en quatre vignettes :
 
     a.  **Types de menaces**. récapitule les types de menaces détectés dans l’espace de travail sélectionné.
 

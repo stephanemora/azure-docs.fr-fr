@@ -2,29 +2,24 @@
 title: Chiffrement côté client avec Python pour Microsoft Azure Storage | Microsoft Docs
 description: La bibliothèque cliente de stockage Azure pour Python prend en charge le chiffrement côté client pour assurer une sécurité maximale à vos applications Azure Storage.
 services: storage
-documentationcenter: python
 author: lakasa
-manager: jahogg
-editor: tysonn
-ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.component: common
+ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29742640"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528120"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Chiffrement côté client avec Python pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 La [bibliothèque cliente de stockage Azure pour Python](https://pypi.python.org/pypi/azure-storage) prend en charge le chiffrement des données au sein des applications clientes, avant le chargement vers Azure Storage, et le déchiffrement des données pendant leur téléchargement vers le client.
 
 > [!NOTE]
@@ -56,7 +51,7 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 La bibliothèque cliente du stockage utilise [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur. Plus précisément, le mode [CBC (Cipher Block Chaining)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
 
 ### <a name="blobs"></a>Objets blob
-La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lorsque les utilisateurs utilisent les méthodes **create**\*. Les téléchargements complets et les téléchargements de plages sont pris en charge, et la parallélisation du chargement et du téléchargement est disponible.
+La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lorsque les utilisateurs utilisent les méthodes **create***. Les téléchargements complets et les téléchargements de plages sont pris en charge, et la parallélisation du chargement et du téléchargement est disponible.
 
 Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initialisation aléatoire (IV) de 16 octets avec une clé de chiffrement de contenu (CEK) aléatoire de 32 octets, puis effectue le chiffrement d’enveloppe des données d’objets blob à l’aide de ces informations. La clé de chiffrement de contenu encapsulée ainsi que des métadonnées de chiffrement supplémentaires sont ensuite stockées en tant que métadonnées d’objet blob en même temps que l’objet blob chiffré sur le service.
 
@@ -65,9 +60,9 @@ Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initia
 > 
 > 
 
-Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **get**\*. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
+Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **get***. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
 
-Le téléchargement d’une plage arbitraire (méthodes **get**\* avec paramètres de plage transmis) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
+Le téléchargement d’une plage arbitraire (méthodes**get*** avec paramètres de plage transmis) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires pouvant être utilisées pour déchiffrer la plage demandée.
 
 Les objets blob de blocs et les objets blob de pages peuvent être chiffrés/déchiffrés à l’aide de ce schéma. Il n’existe actuellement aucune prise en charge pour le chiffrement des objets blob d’ajout.
 
@@ -243,6 +238,6 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ## <a name="encryption-and-performance"></a>Chiffrement et performances
 Notez que le chiffrement de vos données de stockage affecte les performances. La clé de contenu et le vecteur d’initialisation doivent être générés, le contenu proprement dit doit être chiffré et des métadonnées supplémentaires doivent être mises en forme et chargées. Cette surcharge varie selon la quantité de données chiffrées. Nous recommandons de tester systématiquement les performances des applications au cours du développement.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Télécharger la [bibliothèque cliente Azure Storage pour le package Java PyPi](https://pypi.python.org/pypi/azure-storage)
 * Télécharger la [bibliothèque cliente Azure Storage pour le code source Python à partir de GitHub](https://github.com/Azure/azure-storage-python)

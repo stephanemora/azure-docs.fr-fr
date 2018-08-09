@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237041"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434956"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync
 
@@ -23,9 +23,9 @@ SQL Data Sync permet aux utilisateurs de synchroniser des données entre des bas
 
 Cet article présente une solution pour répliquer automatiquement les modifications de schéma sur tous les points de terminaison SQL Data Sync.
 1. Cette solution utilise un déclencheur DDL pour effectuer le suivi des modifications de schéma.
-2. Le déclencheur insère les commandes de modification de schéma dans une table de suivi.
-3. Cette table de suivi est synchronisée avec tous les points de terminaison à l’aide du service Data Sync.
-4. Les déclencheurs DML après insertion sont utilisés pour appliquer les modifications de schéma aux autres points de terminaison.
+1. Le déclencheur insère les commandes de modification de schéma dans une table de suivi.
+1. Cette table de suivi est synchronisée avec tous les points de terminaison à l’aide du service Data Sync.
+1. Les déclencheurs DML après insertion sont utilisés pour appliquer les modifications de schéma aux autres points de terminaison.
 
 Cet article utilise ALTER TABLE comme exemple d’une modification de schéma, mais cette solution fonctionne également pour d’autres types de modifications de schéma.
 
@@ -136,31 +136,31 @@ Une fois les modifications de schéma répliquées vers tous les points de termi
 
 1.  Modifiez le schéma.
 
-2.  Évitez toute modification de données dans laquelle les nouvelles colonnes sont impliquées, jusqu’à ce que vous ayez terminé l’étape qui crée le déclencheur.
+1.  Évitez toute modification de données dans laquelle les nouvelles colonnes sont impliquées, jusqu’à ce que vous ayez terminé l’étape qui crée le déclencheur.
 
-3.  Attendez que les modifications de schéma soient appliquées à tous les points de terminaison.
+1.  Attendez que les modifications de schéma soient appliquées à tous les points de terminaison.
 
-4.  Actualisez le schéma de base de données et ajoutez la nouvelle colonne au schéma de synchronisation.
+1.  Actualisez le schéma de base de données et ajoutez la nouvelle colonne au schéma de synchronisation.
 
-5.  Les données dans la nouvelle colonne sont synchronisées au cours de la prochaine opération de synchronisation.
+1.  Les données dans la nouvelle colonne sont synchronisées au cours de la prochaine opération de synchronisation.
 
 #### <a name="remove-columns"></a>Supprimer des colonnes
 
 1.  Supprimez les colonnes du schéma de synchronisation. Data Sync arrête la synchronisation des données dans ces colonnes.
 
-2.  Modifiez le schéma.
+1.  Modifiez le schéma.
 
-3.  Actualisez le schéma de base de données.
+1.  Actualisez le schéma de base de données.
 
 #### <a name="update-data-types"></a>Mettre à jour les types de données
 
 1.  Modifiez le schéma.
 
-2.  Attendez que les modifications de schéma soient appliquées à tous les points de terminaison.
+1.  Attendez que les modifications de schéma soient appliquées à tous les points de terminaison.
 
-3.  Actualisez le schéma de base de données.
+1.  Actualisez le schéma de base de données.
 
-4.  Si les types de données anciens et nouveaux ne sont pas entièrement compatibles (par exemple, si vous passez de `int` à `bigint`), la synchronisation peut échouer avant la fin des étapes qui permettent de créer les déclencheurs. La synchronisation réussit après une nouvelle tentative.
+1.  Si les types de données anciens et nouveaux ne sont pas entièrement compatibles (par exemple, si vous passez de `int` à `bigint`), la synchronisation peut échouer avant la fin des étapes qui permettent de créer les déclencheurs. La synchronisation réussit après une nouvelle tentative.
 
 #### <a name="rename-columns-or-tables"></a>Renommer des colonnes ou des tables
 
@@ -176,25 +176,25 @@ La logique de réplication décrite dans cet article s’arrête dans certaines 
 
 1.  Désactivez le déclencheur DDL et évitez toute autre modification de schéma jusqu’à ce que le problème soit résolu.
 
-2.  Dans la base de données du point de terminaison où le problème se produit, désactivez le déclencheur AFTER INSERT sur le point de terminaison où la modification de schéma n’est pas possible. Cette action permet la synchronisation de la commande de modification de schéma.
+1.  Dans la base de données du point de terminaison où le problème se produit, désactivez le déclencheur AFTER INSERT sur le point de terminaison où la modification de schéma n’est pas possible. Cette action permet la synchronisation de la commande de modification de schéma.
 
-3.  Déclenchez la synchronisation pour synchroniser la table de suivi des modifications de schéma.
+1.  Déclenchez la synchronisation pour synchroniser la table de suivi des modifications de schéma.
 
-4.  Dans la base de données du point de terminaison où le problème se produit, interrogez la table d’historique des modifications de schéma pour obtenir l’ID de la dernière commande de modification de schéma appliquée.
+1.  Dans la base de données du point de terminaison où le problème se produit, interrogez la table d’historique des modifications de schéma pour obtenir l’ID de la dernière commande de modification de schéma appliquée.
 
-5.  Interrogez la table de suivi des modifications de schéma pour répertorier toutes les commandes avec un ID supérieur à la valeur d’ID que vous avez récupérée à l’étape précédente.
+1.  Interrogez la table de suivi des modifications de schéma pour répertorier toutes les commandes avec un ID supérieur à la valeur d’ID que vous avez récupérée à l’étape précédente.
 
     a.  Ignorez les commandes qui ne peuvent pas être exécutées dans la base de données du point de terminaison. Vous devez traiter l’incohérence de schéma. Annulez les modifications de schéma d’origine si l’incohérence a un impact sur votre application.
 
     b.  Appliquez manuellement les commandes qui doivent être appliquées.
 
-6.  Mettez à jour la table d’historique des modifications de schéma et définissez le dernier ID appliqué sur la valeur correcte.
+1.  Mettez à jour la table d’historique des modifications de schéma et définissez le dernier ID appliqué sur la valeur correcte.
 
-7.  Vérifiez si le schéma est à jour.
+1.  Vérifiez si le schéma est à jour.
 
-8.  Réactivez le déclencheur AFTER INSERT désactivé dans la deuxième étape.
+1.  Réactivez le déclencheur AFTER INSERT désactivé dans la deuxième étape.
 
-9.  Réactivez le déclencheur DDL désactivé dans la première étape.
+1.  Réactivez le déclencheur DDL désactivé dans la première étape.
 
 Si vous souhaitez nettoyer les enregistrements dans la table de suivi des modifications de schéma, utilisez DELETE au lieu de TRUNCATE. Ne réamorcez jamais la colonne d’identité dans la table de suivi des modifications de schéma à l’aide de DBCC CHECKIDENT. Vous pouvez créer de nouvelles tables de suivi des modifications de schéma et mettre à jour le nom de la table dans le déclencheur DDL si un réamorçage est requis.
 

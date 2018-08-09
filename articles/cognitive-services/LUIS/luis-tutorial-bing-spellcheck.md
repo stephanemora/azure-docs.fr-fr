@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: diberry
-ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 19774d2a87e9c74f291f030aab09cb21fe4a931b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239149"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525220"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corriger les mots mal orthographiés avec la vérification orthographique Bing
 
@@ -64,7 +64,7 @@ La requête de point de terminaison a besoin de la clé transmise dans les param
 
 L’URL de point de terminaison a plusieurs valeurs qui doivent être transmises correctement. La clé d’API Vérification orthographique Bing v7 en fait partie. Vous devez définir le paramètre **spellCheck** sur la valeur True et configurer la valeur de **bing-spell-check-subscription-key** avec la valeur de clé :
 
-https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Envoyer un énoncé mal orthographié à LUIS
 1. Dans un navigateur web, copiez la chaîne précédente et remplacez `region`, `appId`, `luisKey` et `bingKey` par vos propres valeurs. Vérifiez que vous utilisez la région du point de terminaison, si elle est différente de votre [région](luis-reference-regions.md) de publication.

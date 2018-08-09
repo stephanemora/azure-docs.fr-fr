@@ -3,17 +3,17 @@ title: Présentation de Stockage Azure - Stockage cloud sur Azure | Microsoft Do
 description: Le Stockage Azure est une solution de stockage cloud de Microsoft. Le Stockage Azure offre un stockage des objets de données hautement disponible, sécurisé, fiable, évolutif et redondant.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: e6a3ff22d6224ff0accdf39ad098505626659688
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.component: common
+ms.openlocfilehash: 5e9d105e0824eac6052f4ea3f99a09c19a668294
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238248"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525567"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: ced93032203c33dc4cda362d30192ee8eb37d944
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 86a04393761b79d76339c111d5c5c8b76dc983c2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38455109"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431206"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Exemple CLI : Créer un compte Batch dans le mode de service Batch
 
@@ -27,7 +27,7 @@ Ce script crée un compte Azure Batch dans le mode de service Batch et indique d
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.20 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.20 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="example-script"></a>Exemple de script
 
@@ -47,14 +47,14 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Crée le compte Batch. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage. |
-| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Met à jour les propriétés du compte Batch.  |
-| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Récupère les détails relatifs au compte Batch spécifié.  |
-| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Récupère les clés d’accès du compte Batch spécifié.  |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Effectue l’authentification par rapport au compte Batch spécifié pour renforcer les interactions avec la CLI.  |
-| [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Crée le compte Batch. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crée un compte de stockage. |
+| [az batch account set](/cli/azure/batch/account#az-batch-account-set) | Met à jour les propriétés du compte Batch.  |
+| [az batch account show](/cli/azure/batch/account#az-batch-account-show) | Récupère les détails relatifs au compte Batch spécifié.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az-batch-account-keys-list) | Récupère les clés d’accès du compte Batch spécifié.  |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Effectue l’authentification par rapport au compte Batch spécifié pour renforcer les interactions avec la CLI.  |
+| [az group delete](/cli/azure/group#az-group-delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

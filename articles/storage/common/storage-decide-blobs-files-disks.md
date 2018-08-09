@@ -1,19 +1,19 @@
-﻿---
+---
 title: Quand utiliser des objets BLOB Azure, des fichiers Azure ou des disques Azure
 description: Découvrez les différentes façons de stocker les données dans Azure et d’y accéder pour choisir la technologie la mieux adaptée.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: common
+ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30288231"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529501"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Quand utiliser des objets BLOB Azure, des fichiers Azure ou des disques Azure
 
@@ -58,7 +58,7 @@ Le tableau suivant compare les fichiers Azure et les disques Azure.
 |-|-|-|  
 |**Attribut**|**Disques Azure**|**Azure Files**|  
 |Étendue|Exclusif à une seule machine virtuelle|Accès partagé entre plusieurs machines virtuelles|  
-|Captures instantanées et copie|OUI|Non |  
+|Captures instantanées et copie|Oui|Oui|  
 |Configuration|Connexion au démarrage de la machine virtuelle|Connexion après le démarrage de la machine virtuelle|  
 |Authentification|Intégration|Configuration avec net use|  
 |Nettoyage|Automatique|Manuel|  

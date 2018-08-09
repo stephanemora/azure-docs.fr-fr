@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 0e6a34ba9df96f904ebee3fc25dc849f7ce6f2ee
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0bbdf576c38207349bb45e7b54f3ffc85ecf3d36
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053211"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Didacticiel : Intégration d’Azure Active Directory à Help Scout
 
@@ -50,7 +50,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Help Scout à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-help-scout-from-the-gallery"></a>Ajout de Help Scout à partir de la galerie
 Pour configurer l’intégration de Help Scout à Azure AD, vous devez ajouter Help Scout à partir de la galerie à votre liste d’applications SaaS managées.
@@ -61,15 +61,15 @@ Pour configurer l’intégration de Help Scout à Azure AD, vous devez ajouter H
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Help Scout**, sélectionnez **Help Scout** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Help Scout**, sélectionnez **Help Scout** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Help Scout dans la liste des résultats](./media/helpscout-tutorial/tutorial_helpscout_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Comme Help Scout utilise des adresses e-mail pour les connexions, utilisez la m�
 Pour configurer et tester l’authentification unique Azure AD avec Help Scout, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Help Scout](#create-a-help-scout-test-user)** pour avoir un équivalent de Britta Simon dans Help Scout lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test Help Scout](#create-a-help-scout-test-user)** pour avoir un équivalent de Britta Simon dans Help Scout lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -99,11 +99,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/helpscout-tutorial/tutorial_helpscout_samlbase.png)
 
-3. Dans la section **Domaine et URL Help Scout**, suivez les étapes ci-dessous pour configurer l’application en mode initié par le **fournisseur d’identité** :
+1. Dans la section **Domaine et URL Help Scout**, suivez les étapes ci-dessous pour configurer l’application en mode initié par le **fournisseur d’identité** :
 
     ![Informations d’authentification unique dans Domaine et URL Help Scout](./media/helpscout-tutorial/tutorial_helpscout_url.png)
 
@@ -114,36 +114,36 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Les valeurs de ces URL servent uniquement à des fins de démonstration. Vous devez mettre à jour ces valeurs avec l’URL de réponse et l’identificateur réels. Vous obtenez ces valeurs à partir de l’onglet **Authentification unique** sous la section Authentification, qui est décrite plus loin dans le didacticiel.
 
-4. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de services**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez l’étape suivante :
+1. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de services**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez l’étape suivante :
 
     ![Informations d’authentification unique dans Domaine et URL Help Scout](./media/helpscout-tutorial/tutorial_helpscout_url1.png)
 
     Dans la zone de texte **URL d’authentification**, tapez l’URL : `https://secure.helpscout.net/members/login/`
      
-5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/helpscout-tutorial/tutorial_helpscout_certificate.png) 
 
-6. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/helpscout-tutorial/tutorial_general_400.png)
 
 
-7. Dans la section **Configuration de Help Scout**, cliquez sur **Configurer Help Scout** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+1. Dans la section **Configuration de Help Scout**, cliquez sur **Configurer Help Scout** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
     ![Configurer l'authentification unique](./media/helpscout-tutorial/config.png) 
 
-8. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Help Scout en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Help Scout en tant qu’administrateur.
 
-9. Une fois que vous êtes connecté, cliquez sur **Gérer** dans le menu supérieur, puis sélectionnez **Company** (Société) dans le menu déroulant.
+1. Une fois que vous êtes connecté, cliquez sur **Gérer** dans le menu supérieur, puis sélectionnez **Company** (Société) dans le menu déroulant.
 
     ![Configurer l'authentification unique](./media/helpscout-tutorial/settings1.png) 
  
-10. Sélectionnez **Authentification** dans le menu de gauche. 
+1. Sélectionnez **Authentification** dans le menu de gauche. 
 
     ![Configurer l'authentification unique](./media/helpscout-tutorial/settings2.png) 
 
-11. Vous accédez ainsi à la section des paramètres SAML où vous effectuez les étapes suivantes :
+1. Vous accédez ainsi à la section des paramètres SAML où vous effectuez les étapes suivantes :
 
     ![Configurer l'authentification unique](./media/helpscout-tutorial/settings3.png) 
  
@@ -151,7 +151,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     b. Copiez la valeur **URI d’audience (ID d’entité de fournisseur de services)** et collez-la dans la zone **Identificateur** dans le portail Azure, sous la section **Domaine et URL** Help Scout.
 
-12. Activez **Activer SAML** et effectuez les étapes suivantes :
+1. Activez **Activer SAML** et effectuez les étapes suivantes :
 
     ![Configurer l'authentification unique](./media/helpscout-tutorial/settings4.png) 
  
@@ -180,15 +180,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/helpscout-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/helpscout-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/helpscout-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/helpscout-tutorial/create_aaduser_04.png)
 
@@ -218,23 +218,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Help Scout**.
+1. Dans la liste des applications, sélectionnez **Help Scout**.
 
     ![Lien Help Scout dans la liste des applications](./media/helpscout-tutorial/tutorial_helpscout_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

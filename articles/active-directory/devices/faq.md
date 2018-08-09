@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e6d223b386aea3ca41931c600d16c16b53765f26
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415682"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597151"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -37,7 +37,7 @@ ms.locfileid: "39415682"
 
 **Remarques :**
 
-- Les utilisateurs qui sont inclus dans votre stratégie d’accès conditionnel ont besoin d’une [version d’Office pour macOS prise en charge](../active-directory-conditional-access-technical-reference.md#client-apps-condition) pour accéder aux ressources. 
+- Les utilisateurs qui sont inclus dans votre stratégie d’accès conditionnel ont besoin d’une [version d’Office pour macOS prise en charge](../conditional-access/technical-reference.md#client-apps-condition) pour accéder aux ressources. 
 
 - Lors de la première tentative d’accès, vos utilisateurs sont invités à inscrire l’appareil par l’intermédiaire du portail d’entreprise.
 
@@ -146,7 +146,7 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 **Q : Je vois l’enregistrement d’appareil sous les informations UTILISATEUR dans le portail Azure, ainsi que l’état Inscrit sur l’appareil. Ma configuration est-elle correcte pour l’utilisation de l’accès conditionnel ?**
 
-**R :** L’état de jointure de l’appareil, reflété par l’ID d’appareil, doit correspondre à celui d’Azure AD et répondre à tous les critères d’évaluation pour l’accès conditionnel. Pour plus d’informations, consultez [Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel](../active-directory-conditional-access-policy-connected-applications.md).
+**R :** L’état de jointure de l’appareil, reflété par l’ID d’appareil, doit correspondre à celui d’Azure AD et répondre à tous les critères d’évaluation pour l’accès conditionnel. Pour plus d’informations, consultez [Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel](../conditional-access/require-managed-devices.md).
 
 ---
 

@@ -2,24 +2,18 @@
 title: Création d’un partage de fichiers Azure | Microsoft Docs
 description: Créer un partage de fichiers Azure dans Azure Files à l’aide du portail Azure, de PowerShell et d’Azure CLI.
 services: storage
-documentationcenter: ''
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 85e021d439698e864a26bde9515369ae801c3796
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: 9ce0bc425836fffb59e804bdbd19f23cfc26c00e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737858"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527167"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Créer un partage de fichiers dans Azure Files
 Vous pouvez créer des partages de fichiers Azure à l’aide du [portail Azure](https://portal.azure.com/), des cmdlets PowerShell pour le Stockage Azure, des bibliothèques clientes de Stockage Azure ou de l’API REST de Stockage Azure. Ce tutoriel vous apprendra à effectuer les opérations suivantes :

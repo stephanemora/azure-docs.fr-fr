@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6362bcb701b444c8cd71b270222ce4f87b4cc2e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055856"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Didacticiel : Intégration d’Azure Active Directory à vxMaintain
 
@@ -65,19 +65,19 @@ Pour ajouter vxMaintain à partir de la galerie, procédez comme suit :
 
     ![Bouton Azure Active Directory][1]
 
-2. Sélectionnez **Applications d’entreprise** > **Toutes les applications**.
+1. Sélectionnez **Applications d’entreprise** > **Toutes les applications**.
 
     ![Volet Applications d’entreprise][2]
     
-3. Pour ajouter une application, dans la boîte de dialogue **Toutes les applications**, sélectionnez **Nouvelle application**.
+1. Pour ajouter une application, dans la boîte de dialogue **Toutes les applications**, sélectionnez **Nouvelle application**.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **vxMaintain**.
+1. Dans la zone de recherche, tapez **vxMaintain**.
 
     ![Liste déroulante Mode](./media/vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
-5. Dans la liste des résultats, sélectionnez **vxMaintain**, puis **Ajouter**.
+1. Dans la liste des résultats, sélectionnez **vxMaintain**, puis **Ajouter**.
 
     ![Lien vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
@@ -98,11 +98,11 @@ Dans cette section, vous allez activer l’authentification unique (SSO) Azure A
 
     ![Commande Authentification unique][4]
 
-2. Pour activer l’authentification unique, dans la liste déroulante **Mode**, sélectionnez **Authentification basée sur SAML**.
+1. Pour activer l’authentification unique, dans la liste déroulante **Mode**, sélectionnez **Authentification basée sur SAML**.
  
     ![Commande Authentification basée sur SAML](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
-3. Sous **Domaine et URL vxMaintain**, procédez comme suit :
+1. Sous **Domaine et URL vxMaintain**, procédez comme suit :
 
     ![Section Domaine et URL vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
@@ -113,15 +113,15 @@ Dans cette section, vous allez activer l’authentification unique (SSO) Azure A
     > [!NOTE] 
     > Les valeurs ci-dessus ne sont pas réelles. Mettez-les à jour avec l’identificateur et l’URL de réponse réels. Pour obtenir les valeurs, contactez l’[équipe de support vxMaintain](https://www.hubspot.com/company/contact).
  
-4. Sous **Certificat de signature SAML**, sélectionnez **XML des métadonnées** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Sous **Certificat de signature SAML**, sélectionnez **XML des métadonnées** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Section Certificat de signature SAML](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
-5. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
     ![Bouton Enregistrer](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Pour configurer l’authentification unique **vxMaintain**, envoyez le fichier **XML des métadonnées** téléchargé à l’[équipe de support vxMaintain](https://www.hubspot.com/company/contact).
+1. Pour configurer l’authentification unique **vxMaintain**, envoyez le fichier **XML des métadonnées** téléchargé à l’[équipe de support vxMaintain](https://www.hubspot.com/company/contact).
 
 > [!TIP]
 > Lors de la configuration de l’application, vous pouvez lire une version abrégée des instructions précédentes sur le [portail Azure](https://portal.azure.com). Après avoir ajouté cette application à partir de la section **Active Directory** > **Applications d’entreprise**, sélectionnez l’onglet **Authentification unique** et accédez à la documentation incorporée à partir de la section **Configuration**. 
@@ -138,16 +138,16 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
     ![Le bouton « Azure Active Directory »](./media/vxmaintain-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes** > **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes** > **Tous les utilisateurs**.
     
     ![Lien Tous les utilisateurs](./media/vxmaintain-tutorial/create_aaduser_02.png)  
     La boîte de dialogue **Tous les utilisateurs** s’ouvre. 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, sélectionnez **Ajouter**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, sélectionnez **Ajouter**.
  
     ![Bouton Ajouter](./media/vxmaintain-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Boîte de dialogue Utilisateur](./media/vxmaintain-tutorial/create_aaduser_04.png) 
 
@@ -173,21 +173,21 @@ Dans cette section, vous allez autoriser l’utilisateur de test Britta Simon à
 
     ![Lien Toutes les applications][201] 
 
-2. Dans la liste **Applications**, sélectionnez **vxMaintain**.
+1. Dans la liste **Applications**, sélectionnez **vxMaintain**.
 
     ![Lien vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
-3. Dans le volet gauche, sélectionnez **Utilisateurs et groupes**.
+1. Dans le volet gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202] 
 
-4. Sélectionnez **Ajouter** puis, dans le volet **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter** puis, dans le volet **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** de la liste **Utilisateurs**, sélectionnez **Britta Simon**, puis sélectionnez le bouton **Sélectionner**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes** de la liste **Utilisateurs**, sélectionnez **Britta Simon**, puis sélectionnez le bouton **Sélectionner**.
 
-7. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
+1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
     
 ### <a name="test-your-azure-ad-single-sign-on"></a>Tester votre authentification unique Azure AD
 

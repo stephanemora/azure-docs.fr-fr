@@ -1,19 +1,19 @@
 ---
 title: Révoquer l’accès d’un appareil du service Azure IoT Hub Device Provisioning Service
 description: Révoquer l’accès d’un appareil afin d’empêcher le provisionnement via le service Azure IoT Hub Device Provisioning Service
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 4b6c948765575c92c962999fe394ffaf1a0d22f3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628842"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525465"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Révoquer l’accès d’un appareil du service Azure IoT Hub Device Provisioning Service
 

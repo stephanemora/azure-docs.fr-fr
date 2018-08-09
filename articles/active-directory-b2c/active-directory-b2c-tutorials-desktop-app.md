@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: ff9cfd0f1f3d8ee62b7f93d88023b3dedce3e7be
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 18db911782e03d17f0b2e2ace3f8b00ddfdebf70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711730"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599929"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification d’application de bureau avec des comptes à l’aide d’Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="register-desktop-app"></a>Inscrire l’application de bureau
 
-Les applications doivent être [inscrites](../active-directory/develop/active-directory-dev-glossary.md#application-registration) dans votre locataire avant qu’elles ne puissent recevoir des [jetons d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token) de la part de Azure Active Directory. L’inscription d’une application crée un [id d’application](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) pour celle-ci dans votre client. 
+Les applications doivent être [inscrites](../active-directory/develop/developer-glossary.md#application-registration) dans votre locataire avant qu’elles ne puissent recevoir des [jetons d’accès](../active-directory/develop/developer-glossary.md#access-token) de la part de Azure Active Directory. L’inscription d’une application crée un [id d’application](../active-directory/develop/developer-glossary.md#application-id-client-id) pour celle-ci dans votre client. 
 
 Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre client Azure AD B2C.
 
@@ -55,7 +55,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | Mon exemple d’application WPF | Entrez un **nom** décrivant votre application aux consommateurs. | 
     | **Inclure une application/API web** | Non  | Sélectionnez **Non** pour une application de bureau. |
-    | **Inclure le client natif** | OUI | Dans la mesure où il s’agit d’une application de bureau et qu’elle est considérée comme étant un client natif. |
+    | **Inclure le client natif** | Oui | Dans la mesure où il s’agit d’une application de bureau et qu’elle est considérée comme étant un client natif. |
     | **URI de redirection** | Valeurs par défaut | Identificateur unique vers lequel Azure AD B2C redirige l’agent utilisateur dans une réponse OAuth 2.0. |
     | **Obtenir un URI de redirection personnalisé** | `com.onmicrosoft.contoso.appname://redirect/path` | Entrez `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path`. Les stratégies envoient des jetons à cet URI. |
     
@@ -86,7 +86,7 @@ Pour inscrire des utilisateurs puis les connecter à l’application de bureau, 
     | **Name** | SiUpIn | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SiUpIn** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Inscription par e-mail | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Attributs de l’inscription** | Nom d’affichage et Code Postal | Sélectionnez les attributs à collecter auprès de l'utilisateur pendant l'inscription. |
-    | **Revendications de l’application** | Nom d’affichage, Code Postal, L’utilisateur est nouveau, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/active-directory-dev-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Revendications de l’application** | Nom d’affichage, Code Postal, L’utilisateur est nouveau, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Cliquez sur **Créer** pour créer votre stratégie. 
 
@@ -103,7 +103,7 @@ Pour permettre aux utilisateurs de réinitialiser eux-mêmes les informations de
     | **Name** | SiPe | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SiPe** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Local Account SignIn | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Attributs de profil** | Nom d’affichage et Code Postal | Sélectionnez les attributs que les utilisateurs peuvent modifier durant la modification du profil. |
-    | **Revendications de l’application** | Nom d’affichage, Code postal, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/active-directory-dev-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token) après une modification de profil réussie. |
+    | **Revendications de l’application** | Nom d’affichage, Code postal, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une modification de profil réussie. |
 
 2. Cliquez sur **Créer** pour créer votre stratégie. 
 
@@ -119,7 +119,7 @@ Pour activer la réinitialisation du mot de passe sur votre application, vous de
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | SSPR | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SSPR** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Réinitialiser le mot de passe à l’aide d’une adresse e-mail | Il s’agit du fournisseur d’identité utilisé pour identifier l’utilisateur. |
-    | **Revendications de l’application** | ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/active-directory-dev-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token) après une réinitialisation réussie du mot de passe. |
+    | **Revendications de l’application** | ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une réinitialisation réussie du mot de passe. |
 
 2. Cliquez sur **Créer** pour créer votre stratégie. 
 
@@ -179,7 +179,7 @@ Maintenant, l’utilisateur peut utiliser son adresse e-mail pour se connecter e
 > [!NOTE]
 > Si vous cliquez sur le bouton **Appel d’API**, vous recevez une erreur de type « Non autorisé ». Vous recevez cette erreur car vous tentez d’accéder à une ressource du locataire de démonstration. Étant donné que votre jeton d’accès est valide uniquement pour votre locataire Azure AD, l’appel d’API n’est pas autorisé. Passez au didacticiel suivant pour créer une API web protégée pour votre locataire. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 

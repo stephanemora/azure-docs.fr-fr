@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2fcb2f5041b97b7e267f55340bf0cb0b8d2f457b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100968"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449381"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Didacticiel : mettre à jour une application dans Azure Kubernetes Service (AKS)
 
 Après avoir déployé une application dans Kubernetes, vous pouvez la mettre à jour en spécifiant une nouvelle image conteneur ou une nouvelle version de l’image. Cette mise à jour se fait alors étape par étape, afin que seulement une partie du déploiement soit mise à jour simultanément. Cette mise à jour progressive permet à l’application de poursuivre son exécution pendant la mise à jour. Elle fournit également un mécanisme de restauration en cas d’échec du déploiement.
 
-Dans ce didacticiel (le sixième d’une série de sept), l’exemple de l’application Azure Vote est mis à jour. Les tâches que vous effectuez sont les suivantes :
+Dans ce didacticiel (le sixième d’une série de sept), l’exemple de l’application Azure Vote est mis à jour. Les tâches que vous effectuez sont les suivantes :
 
 > [!div class="checklist"]
 > * Mise à jour du code de l’application frontale
@@ -76,7 +76,7 @@ Accédez à http://localhost:8080 pour voir l’application mise à jour.
 
 Marquez l’image `azure-vote-front` avec le loginServer du registre de conteneurs.
 
-Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#az_acr_list).
+Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -102,7 +102,7 @@ Pour garantir une disponibilité maximale, vous devez exécuter plusieurs instan
 kubectl get pod
 ```
 
-Output:
+Sortie :
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -131,7 +131,7 @@ Pour surveiller le déploiement, utilisez la commande [kubectl get pod][kubectl-
 kubectl get pod
 ```
 
-Output:
+Sortie :
 
 ```
 NAME                               READY     STATUS        RESTARTS   AGE
@@ -178,4 +178,4 @@ Passez au didacticiel suivant pour en savoir plus sur la mise à niveau de Kuber
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login

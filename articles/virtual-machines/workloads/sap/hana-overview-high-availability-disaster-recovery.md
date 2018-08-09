@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 554991c7c0f11a095a11ae24dbb693a1a3ba50fd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062239"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430118"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Haute disponibilité et récupération d’urgence des grandes instances SAP HANA sur Azure 
 
@@ -169,12 +169,12 @@ Pour vérifier que le script de capture instantanée s’exécute correctement, 
 
 Les étapes pour configurer des captures instantanées de stockage avec de grandes instances HANA sont les suivantes :
 1. Assurez-vous que Perl est installé sur le système d’exploitation Linux sur le serveur de grandes instances HANA.
-2. Modifiez /etc/ssh/ssh\_config en ajoutant la ligne _MACs hmac-sha1_.
-3. Créez un compte d’utilisateur de sauvegarde SAP HANA sur le nœud principal de chaque instance SAP HANA que vous exécutez, le cas échéant.
-4. Installez le client SAP HANA HDB sur tous les serveurs de grandes instances SAP HANA.
-5. Sur le premier serveur de grandes instances SAP HANA de chaque région, créez une clé publique pour accéder à l’infrastructure de stockage sous-jacente qui contrôle la création de captures instantanées.
-6. Copiez les scripts et le fichier de configuration de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) dans l’emplacement de **hdbsql** dans l’installation de SAP HANA.
-7. Modifiez le fichier *HANABackupDetails.txt* en fonction des spécifications appropriées du client.
+1. Modifiez /etc/ssh/ssh\_config en ajoutant la ligne _MACs hmac-sha1_.
+1. Créez un compte d’utilisateur de sauvegarde SAP HANA sur le nœud principal de chaque instance SAP HANA que vous exécutez, le cas échéant.
+1. Installez le client SAP HANA HDB sur tous les serveurs de grandes instances SAP HANA.
+1. Sur le premier serveur de grandes instances SAP HANA de chaque région, créez une clé publique pour accéder à l’infrastructure de stockage sous-jacente qui contrôle la création de captures instantanées.
+1. Copiez les scripts et le fichier de configuration de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) dans l’emplacement de **hdbsql** dans l’installation de SAP HANA.
+1. Modifiez le fichier *HANABackupDetails.txt* en fonction des spécifications appropriées du client.
 
 Procurez-vous les derniers scripts d’instantané et la documentation associée à partir de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
 
@@ -384,7 +384,7 @@ L’instance HANA est donc incluse en tant qu’argument. En cas d’échec de l
 
    Le nom d’utilisateur de stockage et l’adresse IP de stockage vous sont fournis à la réception de l’unité de grande Instance HANA.
 
-2. Exécutez le script de test :
+1. Exécutez le script de test :
    ```
     ./testStorageSnapshotConnection.pl
    ```
@@ -488,8 +488,8 @@ Dans le cas d’une configuration Scale-out, le script effectue certaines vérif
 Le script `azure_hana_backup.pl` crée la capture instantanée de stockage selon les trois phases suivantes :
 
 1. Exécution d’une capture instantanée SAP HANA
-2. Exécution d’une capture instantanée de stockage
-3. Suppression de la capture instantanée SAP HANA créée avant l’exécution de la capture instantanée de stockage
+1. Exécution d’une capture instantanée de stockage
+1. Suppression de la capture instantanée SAP HANA créée avant l’exécution de la capture instantanée de stockage
 
 Pour exécuter le script, appelez-le depuis le dossier de l’exécutable HDB dans lequel il a été copié. 
 
@@ -701,44 +701,44 @@ La commande suivante vous montre comment préparer la demande :
 
 1. Déterminez la capture instantanée à restaurer. Sauf indication contraire, seul le volume hana/data est restauré. 
 
-2. Arrêtez l’instance HANA.
+1. Arrêtez l’instance HANA.
 
  ![Arrêter l’instance HANA](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
-3. Démontez les volumes de données sur chaque nœud de base de données HANA. Si les volumes de données sont toujours montés sur le système d’exploitation, la restauration de la capture instantanée échoue.
+1. Démontez les volumes de données sur chaque nœud de base de données HANA. Si les volumes de données sont toujours montés sur le système d’exploitation, la restauration de la capture instantanée échoue.
  ![Démonter les volumes de données sur chaque nœud de base de données HANA](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
-4. Ouvrez une demande de support Azure et incluez des instructions sur la restauration d’une capture instantanée spécifique.
+1. Ouvrez une demande de support Azure et incluez des instructions sur la restauration d’une capture instantanée spécifique.
 
  - Pendant la restauration : l’équipe de gestion des services SAP HANA sur Azure peut vous demander de participer à une téléconférence de coordination, vérification et confirmation afin de vous assurer que la capture instantanée de stockage correcte est restaurée. 
 
  - Après la restauration : l’équipe de gestion des services SAP HANA sur Azure vous informe lorsque la capture instantanée de stockage a été restaurée.
 
-5. Une fois le processus de restauration terminé, remontez tous les volumes de données.
+1. Une fois le processus de restauration terminé, remontez tous les volumes de données.
 
  ![Remonter tous les volumes de données](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
-6. Sélectionnez les options de récupération dans SAP HANA Studio, si ces options ne s’affichent pas automatiquement lorsque vous vous reconnectez à la base de données HANA par le biais de SAP HANA Studio. L’exemple ci-après illustre une restauration à partir de la dernière capture instantanée HANA. Une capture instantanée de stockage incorpore une capture instantanée HANA. Si vous effectuez la restauration à partir de la capture instantanée de stockage la plus récente, il doit s’agir de la capture instantanée HANA la plus récente. (Si vous effectuez une restauration à partir d’une capture instantanée de stockage antérieure, vous devez localiser la capture instantanée HANA correspondante en vous basant sur l’heure de création de la capture instantanée de stockage.)
+1. Sélectionnez les options de récupération dans SAP HANA Studio, si ces options ne s’affichent pas automatiquement lorsque vous vous reconnectez à la base de données HANA par le biais de SAP HANA Studio. L’exemple ci-après illustre une restauration à partir de la dernière capture instantanée HANA. Une capture instantanée de stockage incorpore une capture instantanée HANA. Si vous effectuez la restauration à partir de la capture instantanée de stockage la plus récente, il doit s’agir de la capture instantanée HANA la plus récente. (Si vous effectuez une restauration à partir d’une capture instantanée de stockage antérieure, vous devez localiser la capture instantanée HANA correspondante en vous basant sur l’heure de création de la capture instantanée de stockage.)
 
  ![Sélectionner les options de récupération dans SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
-7. Sélectionnez l’option **Recover the database to a specific data backup or storage snapshot (Récupérer la base de données jusqu’à une sauvegarde de données ou une capture instantanée de stockage spécifiques)**.
+1. Sélectionnez l’option **Recover the database to a specific data backup or storage snapshot (Récupérer la base de données jusqu’à une sauvegarde de données ou une capture instantanée de stockage spécifiques)**.
 
  ![Fenêtre de spécification du type de récupération](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
-8. Sélectionnez l’option de **spécification d’une sauvegarde sans catalogue**.
+1. Sélectionnez l’option de **spécification d’une sauvegarde sans catalogue**.
 
  ![Fenêtre de spécification de l’emplacement de sauvegarde](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
-9. Dans la liste **Type de destination**, sélectionnez **Instantané**.
+1. Dans la liste **Type de destination**, sélectionnez **Instantané**.
 
  ![Fenêtre de spécification de la sauvegarde à récupérer](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
-10. Sélectionnez **Finish (Terminer)** pour démarrer le processus de récupération.
+1. Sélectionnez **Finish (Terminer)** pour démarrer le processus de récupération.
 
  ![Sélectionnez « Finish (Terminer) » pour démarrer le processus de récupération.](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
-11. La base de données HANA est restaurée et récupérée à partir de la capture instantanée HANA incluse dans la capture instantanée de stockage.
+1. La base de données HANA est restaurée et récupérée à partir de la capture instantanée HANA incluse dans la capture instantanée de stockage.
 
  ![Base de données HANA restaurée et récupérée dans la capture instantanée de stockage](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
@@ -751,23 +751,23 @@ Le processus suivant restaure la capture instantanée HANA incluse dans la captu
 
 1. Effectuez les étapes 1 à 6 de la section [Récupération jusqu’à la capture instantanée HANA la plus récente](#recovering-to-the-most-recent-hana-snapshot).
 
-2. Sélectionnez l’option de **récupération de la base de données jusqu’à son état le plus récent**.
+1. Sélectionnez l’option de **récupération de la base de données jusqu’à son état le plus récent**.
 
  ![Sélectionner l’option de « récupération de la base de données jusqu’à son état le plus récent »](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
-3. Spécifiez l’emplacement des dernières sauvegardes de journaux HANA. L’emplacement doit contenir toutes les sauvegardes de fichier journal HANA entre la capture instantanée HANA et l’état le plus récent.
+1. Spécifiez l’emplacement des dernières sauvegardes de journaux HANA. L’emplacement doit contenir toutes les sauvegardes de fichier journal HANA entre la capture instantanée HANA et l’état le plus récent.
 
  ![Spécifier l’emplacement des dernières sauvegardes de journaux HANA](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
-4. Sélectionnez une sauvegarde comme base pour la récupération de la base de données. Dans cet exemple, la capture instantanée HANA illustrée dans la capture d’écran représente la capture instantanée HANA qui était incluse dans la capture instantanée de stockage. 
+1. Sélectionnez une sauvegarde comme base pour la récupération de la base de données. Dans cet exemple, la capture instantanée HANA illustrée dans la capture d’écran représente la capture instantanée HANA qui était incluse dans la capture instantanée de stockage. 
 
  ![Sélectionner une sauvegarde comme base pour la récupération de la base de données](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
-5. Désélectionnez l’option **Use Delta Backups (Utiliser les sauvegardes différentielles)** si ces sauvegardes n’existent pas entre le moment de la capture instantanée HANA et l’état le plus récent.
+1. Désélectionnez l’option **Use Delta Backups (Utiliser les sauvegardes différentielles)** si ces sauvegardes n’existent pas entre le moment de la capture instantanée HANA et l’état le plus récent.
 
  ![Désélectionner l’option Use Delta Backups (Utiliser les sauvegardes différentielles) si ces sauvegardes n’existent pas](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
-6. Sur l’écran récapitulatif, sélectionnez **Finish (Terminer)** pour lancer la procédure de restauration.
+1. Sur l’écran récapitulatif, sélectionnez **Finish (Terminer)** pour lancer la procédure de restauration.
 
  ![Cliquer sur "Finish" (Terminer) sur l’écran récapitulatif](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
@@ -775,21 +775,21 @@ Le processus suivant restaure la capture instantanée HANA incluse dans la captu
 Pour effectuer une récupération jusqu’à une date et heure situées entre la capture instantanée HANA (incluse dans la capture instantanée de stockage) et une autre date et heure postérieures à la récupération jusqu`à une date et heure de la capture instantanée HANA, procédez comme suit :
 
 1. Vérifiez que vous disposez de toutes les sauvegardes de fichier journal entre la capture instantanée HANA et l’heure de récupération souhaitée.
-2. Commencez la procédure décrite à la section [Récupération jusqu’à l’état le plus récent](#recovering-to-the-most-recent-state).
-3. À l’étape 2 de la procédure, dans la fenêtre de **spécification du type de récupération**, sélectionnez l’option **Recover the database to the following point in time (Récupérer la base de données jusqu’au point dans le temps suivant)**, spécifiez le point dans le temps, 
-4. puis effectuez les étapes 3 à 6.
+1. Commencez la procédure décrite à la section [Récupération jusqu’à l’état le plus récent](#recovering-to-the-most-recent-state).
+1. À l’étape 2 de la procédure, dans la fenêtre de **spécification du type de récupération**, sélectionnez l’option **Recover the database to the following point in time (Récupérer la base de données jusqu’au point dans le temps suivant)**, spécifiez le point dans le temps, 
+1. puis effectuez les étapes 3 à 6.
 
 ### <a name="monitor-the-execution-of-snapshots"></a>Surveillance de l’exécution des captures instantanées
 
 Quand vous utilisez des captures instantanées de stockage des grandes instances HANA, vous devez également surveiller leur exécution. Le script qui exécute une capture instantanée de stockage écrit la sortie dans un fichier, puis enregistre ce dernier au même emplacement que les scripts Perl. Un fichier distinct est créé pour chaque capture instantanée de stockage. La sortie de chaque fichier montre les différentes phases exécutées par le script de capture instantanée :
 
 1. Recherche des volumes qui doivent créer une capture instantanée.
-2. Recherche des captures instantanées créées à partir de ces volumes.
-3. Suppression des captures instantanées existantes en fonction du nombre de captures instantanées que vous avez spécifiées.
-4. Création d’une capture instantanée SAP HANA.
-5. Création de la capture instantanée de stockage sur les volumes.
-6. Suppression de la capture instantanée SAP HANA.
-7. Changement du nom de la capture instantanée la plus récente en **.0**.
+1. Recherche des captures instantanées créées à partir de ces volumes.
+1. Suppression des captures instantanées existantes en fonction du nombre de captures instantanées que vous avez spécifiées.
+1. Création d’une capture instantanée SAP HANA.
+1. Création de la capture instantanée de stockage sur les volumes.
+1. Suppression de la capture instantanée SAP HANA.
+1. Changement du nom de la capture instantanée la plus récente en **.0**.
 
 La partie la plus importante du fichier cab du script est la suivante :
 ```
@@ -815,7 +815,7 @@ Dans cet exemple, vous pouvez voir la façon dont le script enregistre la créat
 
 
 ## <a name="disaster-recovery-principles"></a>Principes de la récupération d’urgence
-Les grandes instances HANA offrent une fonctionnalité de récupération d’urgence entre les horodatages de grande instance HANA dans différentes régions Azure. Par exemple, si vous déployez des unités de grande instance HANA dans la région Ouest des États-Unis d’Azure, vous pouvez utiliser des unités de grande instance HANA dans la région Est des États-Unis comme des unités de récupération d’urgence. Comme mentionné précédemment, la récupération d’urgence n’est pas configurée automatiquement, car vous devez acheter une autre unité de grande instance HANA dans la région de la récupération d’urgence. La configuration de la récupération d’urgence fonctionne pour les configurations avec montée en puissance et avec montée en puissance parallèle. 
+Les grandes instances HANA offrent une fonctionnalité de récupération d’urgence entre les horodatages de grande instance HANA dans différentes régions Azure. Par exemple, si vous déployez des unités de grande instance HANA dans la région Azure USA Ouest, vous pouvez utiliser des unités de grande instance HANA dans la région USA Est comme des unités de récupération d’urgence. Comme mentionné précédemment, la récupération d’urgence n’est pas configurée automatiquement, car vous devez acheter une autre unité de grande instance HANA dans la région de la récupération d’urgence. La configuration de la récupération d’urgence fonctionne pour les configurations avec montée en puissance et avec montée en puissance parallèle. 
 
 Dans les scénarios déployés jusqu’à présent, nos clients se servent de l’unité dans la région de la récupération d’urgence pour exécuter des systèmes de non-production qui utilisent une instance HANA installée. L’unité de grande instance HANA doit avoir la même référence SKU que celle utilisée à des fins de production. L’image suivante montre la configuration de disque entre l’unité du serveur dans la région de production Azure et la région de récupération d’urgence :
 
@@ -884,10 +884,10 @@ Dans cette configuration, la séquence des sauvegardes de fichier journal, des c
 Pour améliorer le RPO dans le cadre d’une récupération d’urgence, vous pouvez copier les sauvegardes de fichier journal HANA depuis SAP HANA sur Azure (grandes instances) vers l’autre région Azure. Pour réduire encore le RPO, effectuez les étapes suivantes :
 
 1. Sauvegardez le journal des transactions HANA aussi souvent que possible dans /hana/logbackups.
-2. Utilisez rsync pour copier les sauvegardes de fichier journal sur les machines virtuelles Azure hébergées sur le partage NFS. Les machines virtuelles se trouvent dans des réseaux virtuels Azure dans la région Azure de production et dans les régions de récupération d’urgence. Vous devez connecter les deux réseaux virtuels Azure au circuit reliant les grandes instances HANA de production à Azure. Reportez-vous au graphique de la section [Considérations sur le réseau pour la récupération d’urgence avec de grandes instances HANA](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances). 
-3. Conservez les sauvegardes de fichier journal dans la région sur la machine virtuelle attachée au stockage NFS exporté.
-4. Dans le cas d’un basculement d’urgence, complétez les sauvegardes de fichier journal disponibles sur le volume /hana/logbackups avec des sauvegardes de fichier journal plus récentes sur le partage NFS sur le site de récupération d’urgence. 
-5. Lancez une sauvegarde de fichier journal pour restaurer jusqu’à la dernière sauvegarde enregistrée dans la région de la récupération d’urgence.
+1. Utilisez rsync pour copier les sauvegardes de fichier journal sur les machines virtuelles Azure hébergées sur le partage NFS. Les machines virtuelles se trouvent dans des réseaux virtuels Azure dans la région Azure de production et dans les régions de récupération d’urgence. Vous devez connecter les deux réseaux virtuels Azure au circuit reliant les grandes instances HANA de production à Azure. Reportez-vous au graphique de la section [Considérations sur le réseau pour la récupération d’urgence avec de grandes instances HANA](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances). 
+1. Conservez les sauvegardes de fichier journal dans la région sur la machine virtuelle attachée au stockage NFS exporté.
+1. Dans le cas d’un basculement d’urgence, complétez les sauvegardes de fichier journal disponibles sur le volume /hana/logbackups avec des sauvegardes de fichier journal plus récentes sur le partage NFS sur le site de récupération d’urgence. 
+1. Lancez une sauvegarde de fichier journal pour restaurer jusqu’à la dernière sauvegarde enregistrée dans la région de la récupération d’urgence.
 
 Lorsque les opérations de grande instance HANA confirment la relation de réplication configurée et que vous exécutez des sauvegardes de capture instantanée de stockage, la réplication des données commence.
 
@@ -909,15 +909,15 @@ Il existe deux cas à prendre en compte lors du basculement vers le site de réc
 Pour restaurer les dernières captures instantanées de stockage, procédez comme suit : 
 
 1. Arrêtez l’instance de non-production HANA sur l’unité de récupération d’urgence des grandes instances HANA que vous exécutez. Ceci, parce qu’une instance de production HANA dormante est préinstallée.
-2. Assurez-vous qu’aucun processus SAP HANA n’est en cours d’exécution. Utilisez la commande suivante pour effectuer cette vérification : `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. La sortie doit indiquer que le processus **hdbdaemon** est arrêté et qu’aucun autre processus HANA n’est en cours d’exécution ou démarré.
-3. Sur l’unité de grande instance HANA du site de récupération d’urgence, exécutez le script *azure_hana_dr_failover.pl*. Le script demande la restauration d’un SID SAP HANA. Lorsque vous y êtes invité, entrez un ou le seul SID SAP HANA répliqué et conservé dans le fichier *HANABackupCustomerDetails.txt* sur l’unité de grande instance HANA dans le site de récupération d’urgence. 
+1. Assurez-vous qu’aucun processus SAP HANA n’est en cours d’exécution. Utilisez la commande suivante pour effectuer cette vérification : `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. La sortie doit indiquer que le processus **hdbdaemon** est arrêté et qu’aucun autre processus HANA n’est en cours d’exécution ou démarré.
+1. Sur l’unité de grande instance HANA du site de récupération d’urgence, exécutez le script *azure_hana_dr_failover.pl*. Le script demande la restauration d’un SID SAP HANA. Lorsque vous y êtes invité, entrez un ou le seul SID SAP HANA répliqué et conservé dans le fichier *HANABackupCustomerDetails.txt* sur l’unité de grande instance HANA dans le site de récupération d’urgence. 
 
       Si vous souhaitez faire basculer plusieurs instances de SAP HANA, vous devez exécuter le script plusieurs fois. Lorsque vous y êtes invité, entrez le SID SAP HANA que vous souhaitez faire basculer et restaurer. À la fin, le script affiche la liste des points de montage des volumes qui sont ajoutés à l’unité de grande instance HANA. Cette liste inclut également les volumes de récupération d’urgence restaurés.
 
-4. Montez les volumes de récupération d’urgence restaurés, à l’aide des commandes du système d’exploitation Linux, dans l’unité de grande instance HANA sur le site de récupération d’urgence. 
-6. Démarrez l’instance de production SAP HANA dormante.
-7. Si vous avez choisi de copier les journaux de sauvegarde de fichier journal pour réduire le délai RPO, vous devez fusionner ces sauvegardes de fichier journal dans le répertoire de récupération d’urgence /hana/logbackups qui vient d’être monté. Ne remplacez pas les sauvegardes existantes. Copiez les sauvegardes plus récentes qui n’ont pas été répliquées avec la réplication la plus récente d’une capture instantanée de stockage.
-8. Vous pouvez également restaurer des fichiers uniques à partir des captures instantanées qui ont été répliquées sur le volume /hana/shared/PRD dans la région Azure de récupération d’urgence. 
+1. Montez les volumes de récupération d’urgence restaurés, à l’aide des commandes du système d’exploitation Linux, dans l’unité de grande instance HANA sur le site de récupération d’urgence. 
+1. Démarrez l’instance de production SAP HANA dormante.
+1. Si vous avez choisi de copier les journaux de sauvegarde de fichier journal pour réduire le délai RPO, vous devez fusionner ces sauvegardes de fichier journal dans le répertoire de récupération d’urgence /hana/logbackups qui vient d’être monté. Ne remplacez pas les sauvegardes existantes. Copiez les sauvegardes plus récentes qui n’ont pas été répliquées avec la réplication la plus récente d’une capture instantanée de stockage.
+1. Vous pouvez également restaurer des fichiers uniques à partir des captures instantanées qui ont été répliquées sur le volume /hana/shared/PRD dans la région Azure de récupération d’urgence. 
 
 Vous pouvez également tester le basculement de récupération d’urgence sans impacter la relation de réplication réelle. Pour effectuer un basculement de test, suivez les étapes 1 et 2, puis passez à l’étape 3.
 
@@ -935,10 +935,10 @@ Continuez avec l’étape 4.
    >[!NOTE]
    >Si vous avez besoin de basculer vers le site de récupération d’urgence pour récupérer des données supprimées il y a quelques heures et que vous devez configurer les volumes de récupération d’urgence sur une capture instantanée plus ancienne, cette procédure s’applique. 
 
-4. Arrêtez l’instance de non-production HANA sur l’unité de récupération d’urgence des grandes instances HANA que vous exécutez. Ceci, parce qu’une instance de production HANA dormante est préinstallée.
-5. Assurez-vous qu’aucun processus SAP HANA n’est en cours d’exécution. Utilisez la commande suivante pour effectuer cette vérification : `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. La sortie doit indiquer que le processus **hdbdaemon** est arrêté et qu’aucun autre processus HANA n’est en cours d’exécution ou démarré.
-6. Déterminez le nom de capture instantanée ou l’ID de sauvegarde SAP HANA dans lequel vous souhaitez restaurer le site de récupération d’urgence. Dans les cas réels de récupération d’urgence, cette capture instantanée est généralement la capture instantanée la plus récente. Si vous avez besoin de récupérer des données perdues, sélectionnez une capture instantanée antérieure.
-7. Contactez le support Azure en envoyant une demande de support prioritaire. Demandez la restauration de cette capture instantanée (avec son nom et sa date) ou l’ID de sauvegarde HANA sur le site de récupération d’urgence. Par défaut, les opérations ne restaurent que le volume /hana/data. Si vous souhaitez également restaurer les volumes /hana/logbackups, vous devez le préciser. *Ne restaurez pas le volume /hana/shared.* Sélectionnez plutôt des fichiers spécifiques, tels que global.ini, dans le répertoire **.snapshot** et ses sous-répertoires, après avoir remonté le volume /hana/shared pour PRD. 
+1. Arrêtez l’instance de non-production HANA sur l’unité de récupération d’urgence des grandes instances HANA que vous exécutez. Ceci, parce qu’une instance de production HANA dormante est préinstallée.
+1. Assurez-vous qu’aucun processus SAP HANA n’est en cours d’exécution. Utilisez la commande suivante pour effectuer cette vérification : `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. La sortie doit indiquer que le processus **hdbdaemon** est arrêté et qu’aucun autre processus HANA n’est en cours d’exécution ou démarré.
+1. Déterminez le nom de capture instantanée ou l’ID de sauvegarde SAP HANA dans lequel vous souhaitez restaurer le site de récupération d’urgence. Dans les cas réels de récupération d’urgence, cette capture instantanée est généralement la capture instantanée la plus récente. Si vous avez besoin de récupérer des données perdues, sélectionnez une capture instantanée antérieure.
+1. Contactez le support Azure en envoyant une demande de support prioritaire. Demandez la restauration de cette capture instantanée (avec son nom et sa date) ou l’ID de sauvegarde HANA sur le site de récupération d’urgence. Par défaut, les opérations ne restaurent que le volume /hana/data. Si vous souhaitez également restaurer les volumes /hana/logbackups, vous devez le préciser. *Ne restaurez pas le volume /hana/shared.* Sélectionnez plutôt des fichiers spécifiques, tels que global.ini, dans le répertoire **.snapshot** et ses sous-répertoires, après avoir remonté le volume /hana/shared pour PRD. 
 
    Du côté des opérations, les étapes suivantes s’effectuent :
 
@@ -948,26 +948,26 @@ Continuez avec l’étape 4.
    
    c. Après la restauration, les volumes de récupération d’urgence peuvent être montés sur les unités de grande instance HANA dans la région de récupération d’urgence.
       
-8. Montez les volumes de récupération d’urgence sur l’unité de grande instance HANA sur le site de récupération d’urgence. 
-9. Démarrez l’instance de production SAP HANA dormante.
-10. Si vous avez choisi de copier les journaux de sauvegarde de fichier journal pour réduire le délai RPO, vous devez fusionner ces sauvegardes de fichier journal dans le répertoire de récupération d’urgence /hana/logbackups qui vient d’être monté. Ne remplacez pas les sauvegardes existantes. Copiez les sauvegardes plus récentes qui n’ont pas été répliquées avec la réplication la plus récente d’une capture instantanée de stockage.
-11. Vous pouvez également restaurer des fichiers uniques à partir des captures instantanées qui ont été répliquées sur le volume /hana/shared/PRD dans la région Azure de récupération d’urgence.
+1. Montez les volumes de récupération d’urgence sur l’unité de grande instance HANA sur le site de récupération d’urgence. 
+1. Démarrez l’instance de production SAP HANA dormante.
+1. Si vous avez choisi de copier les journaux de sauvegarde de fichier journal pour réduire le délai RPO, vous devez fusionner ces sauvegardes de fichier journal dans le répertoire de récupération d’urgence /hana/logbackups qui vient d’être monté. Ne remplacez pas les sauvegardes existantes. Copiez les sauvegardes plus récentes qui n’ont pas été répliquées avec la réplication la plus récente d’une capture instantanée de stockage.
+1. Vous pouvez également restaurer des fichiers uniques à partir des captures instantanées qui ont été répliquées sur le volume /hana/shared/PRD dans la région Azure de récupération d’urgence.
 
 Les étapes suivantes concernent la récupération de l’instance de production SAP HANA en fonction de la capture instantanée de stockage restaurée et des sauvegardes de fichier journal qui sont disponibles :
 
 1. Modifiez l’emplacement de sauvegarde en le définissant sur **/hana/logbackups** à l’aide de SAP HANA Studio.
    ![Modifier l’emplacement de sauvegarde pour la récupération d’urgence](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-2. SAP HANA parcourt les emplacements de fichier de sauvegarde et propose la restauration de la sauvegarde de fichier journal la plus récente. L’analyse peut prendre quelques minutes jusqu’à ce qu’un écran comme ci-dessous s’affiche : ![Liste des sauvegardes de fichier journal pour la récupération d’urgence](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA parcourt les emplacements de fichier de sauvegarde et propose la restauration de la sauvegarde de fichier journal la plus récente. L’analyse peut prendre quelques minutes jusqu’à ce qu’un écran comme ci-dessous s’affiche : ![Liste des sauvegardes de fichier journal pour la récupération d’urgence](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
-3. Modifiez certains paramètres par défaut :
+1. Modifiez certains paramètres par défaut :
 
       - Désactivez l’option **Use Delta Backups** (Utiliser les sauvegardes différentielles).
       - Sélectionnez l’option **Initialize Log Area** (Initialiser la zone de journalisation).
 
    ![Définir l’option Initialize Log Area (Initialiser la zone de journalisation)](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
-4. Sélectionnez **Terminer**.
+1. Sélectionnez **Terminer**.
 
    ![Terminer la restauration avec récupération d’urgence](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 
@@ -984,11 +984,11 @@ Vous pouvez effectuer une restauration automatique depuis un site de récupérat
 Voici les étapes à effectuer :
 
 1. L’équipe des opérations SAP HANA sur Azure reçoit l’autorisation de synchroniser les volumes de stockage de production à partir des volumes de stockage de récupération d’urgence, qui représentent désormais l’état de production. Dans cet état, l’unité de grande instance HANA sur le site de production est arrêtée.
-2. L’équipe des opérations SAP HANA sur Azure surveille la réplication et s’assure qu’un rattrapage est effectué avant de vous informer.
-3. Vous arrêtez les applications qui utilisent l’instance HANA de production sur le site de récupération d’urgence. Vous effectuez ensuite une sauvegarde de fichier journal HANA. Puis vous arrêtez l’instance HANA en cours d’exécution sur les unités de grande instance HANA dans le site de récupération d’urgence.
-4. Une fois que l’instance HANA en cours d’exécution dans l’unité de grande instance HANA sur le site de récupération d’urgence est arrêtée, l’équipe des opérations resynchronise manuellement les volumes de disque.
-5. L’équipe des opérations SAP HANA sur Azure redémarre l’unité de grande instance HANA sur le site de production et vous la repasse. Vous vérifiez que l’instance SAP HANA est arrêtée au moment du démarrage de l’unité de grande instance HANA.
-6. Vous effectuez les mêmes étapes de restauration de base de données que celles que vous avez réalisées pour le basculement vers le site de récupération d’urgence.
+1. L’équipe des opérations SAP HANA sur Azure surveille la réplication et s’assure qu’un rattrapage est effectué avant de vous informer.
+1. Vous arrêtez les applications qui utilisent l’instance HANA de production sur le site de récupération d’urgence. Vous effectuez ensuite une sauvegarde de fichier journal HANA. Puis vous arrêtez l’instance HANA en cours d’exécution sur les unités de grande instance HANA dans le site de récupération d’urgence.
+1. Une fois que l’instance HANA en cours d’exécution dans l’unité de grande instance HANA sur le site de récupération d’urgence est arrêtée, l’équipe des opérations resynchronise manuellement les volumes de disque.
+1. L’équipe des opérations SAP HANA sur Azure redémarre l’unité de grande instance HANA sur le site de production et vous la repasse. Vous vérifiez que l’instance SAP HANA est arrêtée au moment du démarrage de l’unité de grande instance HANA.
+1. Vous effectuez les mêmes étapes de restauration de base de données que celles que vous avez réalisées pour le basculement vers le site de récupération d’urgence.
 
 ### <a name="monitor-disaster-recovery-replication"></a>Surveillance de la réplication de récupération d’urgence
 

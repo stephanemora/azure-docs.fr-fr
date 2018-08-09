@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186876"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527067"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Navigation dans les résultats de recherche d’Azure Search
 Cet article explique comment utiliser l’API REST de service Azure Search pour implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation.
@@ -102,7 +102,6 @@ Consultez [Recherche de documents (API Recherche Azure)](https://docs.microsoft
 * [API REST de service Azure Search](https://docs.microsoft.com/rest/api/searchservice)
 * [Opérations d’index](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [Opérations de document](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-* [Vidéos et didacticiels relatifs à Azure Search](search-video-demo-tutorial-list.md)
 * [Navigation à facettes dans Azure Search](search-faceted-navigation.md)
 
 <!--Image references-->

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: d852b30568acff4f1d56a1e208528e8c90b5b1f0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 11452dfb94a5a1c8cf4734b1ef21a44cccafbea1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051776"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Didacticiel : Intégration d’Azure Active Directory à RedBrick Health
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de RedBrick Health à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-redbrick-health-from-the-gallery"></a>Ajout de RedBrick Health à partir de la galerie
 Pour configurer l’intégration de RedBrick Health à Azure AD, vous devez ajouter RedBrick Health à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de RedBrick Health à Azure AD, vous devez ajou
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **RedBrick Health**, sélectionnez **RedBrick Health** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **RedBrick Health**, sélectionnez **RedBrick Health** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![RedBrick Health dans la liste des résultats](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dans RedBrick Health, affectez la valeur de **nom d’utilisateur** dans Azure A
 Pour configurer et tester l’authentification unique Azure AD avec RedBrick Health, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test RedBrick Health](#create-a-redbrick-health-test-user)** pour avoir un équivalent de Britta Simon dans RedBrick Health, lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test RedBrick Health](#create-a-redbrick-health-test-user)** pour avoir un équivalent de Britta Simon dans RedBrick Health, lié à la représentation Azure AD de l’utilisateur.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +102,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_samlbase.png)
 
-3. Dans la section **Domaine et URL RedBrick Health**, effectuez les étapes suivantes :
+1. Dans la section **Domaine et URL RedBrick Health**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans RedBrick Health Domain and URLs (Domaine et URL RedBrick Health)](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
@@ -125,11 +125,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > La valeur État de relais n’est pas la valeur réelle. Mettez-la à jour avec l’état de relais réel. Contactez l’[équipe de support technique de RedBrick Health](https://home.redbrickhealth.com/contact/) pour obtenir cette valeur.
 
-4. L’application RedBrick Health s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. Ces revendications sont spécifiques au client et varient en fonction de vos besoins. Les revendications facultatives suivantes sont des exemples que vous pouvez configurer pour votre application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications.
+1. L’application RedBrick Health s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. Ces revendications sont spécifiques au client et varient en fonction de vos besoins. Les revendications facultatives suivantes sont des exemples que vous pouvez configurer pour votre application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications.
 
     ![Configurer l'authentification unique](./media/redbrickhealth-tutorial/attribute.png)
 
-5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
+1. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
     | Nom de l'attribut | Valeur de l’attribut |
     | ---------------| ----------------|
@@ -142,9 +142,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
     
-    ![Configurer l'authentification unique](./media/redbrickhealth-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/redbrickhealth-tutorial/tutorial_attribute_04.png)
     
-    ![Configurer l'authentification unique](./media/redbrickhealth-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/redbrickhealth-tutorial/tutorial_attribute_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -154,19 +154,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     e. Cliquez sur **OK**.
 
-6. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_certificate.png) 
 
-7. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/redbrickhealth-tutorial/tutorial_general_400.png)
 
-8. Dans la section **Configuration de RedBrick Health**, cliquez sur **Configurer RedBrick Health** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** à partir de la **section Référence rapide**.
+1. Dans la section **Configuration de RedBrick Health**, cliquez sur **Configurer RedBrick Health** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** à partir de la **section Référence rapide**.
 
     ![Configuration de RedBrick Health](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_configure.png) 
 
-9. Pour configurer l’authentification unique côté **RedBrick Health**, vous devez envoyer le **Certificat (Base64)** téléchargé et **l’ID d’entité SAML** à [l’équipe de support technique de RedBrick Health](https://home.redbrickhealth.com/contact/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **RedBrick Health**, vous devez envoyer le **Certificat (Base64)** téléchargé et **l’ID d’entité SAML** à [l’équipe de support technique de RedBrick Health](https://home.redbrickhealth.com/contact/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -183,15 +183,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/redbrickhealth-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/redbrickhealth-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/redbrickhealth-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/redbrickhealth-tutorial/create_aaduser_04.png)
 
@@ -219,23 +219,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **RedBrick Health**.
+1. Dans la liste des applications, sélectionnez **RedBrick Health**.
 
     ![Lien correspondant à RedBrick Health dans la liste Applications](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

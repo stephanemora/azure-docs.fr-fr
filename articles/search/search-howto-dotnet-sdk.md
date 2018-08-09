@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: e8a492a0786281bdc1d7c2123a7188c32a124e13
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19913f9c30992e833e5435af7066611d4662ba56
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194122"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525635"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Comment utiliser Azure Search à partir d'une application .NET
 Cet article est une procédure pas à pas dont le but est de vous aider à utiliser le [SDK .NET Azure Search](https://aka.ms/search-sdk). Vous pouvez utiliser le SDK .NET pour intégrer une expérience de recherche enrichie dans votre application à l'aide d’Azure Search.
@@ -60,7 +60,7 @@ Vous devez faire plusieurs choses dans votre application de recherche. Dans ce d
 
 L'exemple de code suivant illustre chacun de ces scénarios. N'hésitez pas à utiliser les extraits de code dans votre propre application.
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 L’application exemple que nous allons examiner crée un index nommé « hotels », le remplit avec des documents, puis exécute des requêtes de recherche. Voici le programme principal, décrivant le flux global :
 
 ```csharp
@@ -588,6 +588,5 @@ Cette étape termine le didacticiel, mais ne vous arrêtez pas en si bon chemin.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Parcourez les références relatives au [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) et à [l’API REST](https://docs.microsoft.com/rest/api/searchservice/).
-* Approfondissez vos connaissances grâce aux [vidéos et autres exemples et didacticiels](search-video-demo-tutorial-list.md).
 * Consultez les [conventions d’affectation de noms](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) pour apprendre les règles de dénomination des différents objets.
 * Faites connaissance avec les [types de données pris en charge](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) par Azure Search.

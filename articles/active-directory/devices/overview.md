@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 151aa2f8065c7232284c560ff515afab40ae7f5c
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 7e71ff5f5da17165d5127f3547d8eb0756411b8c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415762"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597691"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Présentation de la gestion des appareils dans Azure Active Directory
 
@@ -32,7 +32,7 @@ Tout d’abord, dans un appareil où mobilité et cloud occupent le premier plan
 
 Grâce aux appareils, les utilisateurs peuvent accéder aux ressources d’entreprise. Pour protéger vos ressources d’entreprise, en tant qu’administrateur informatique, vous souhaitez avoir le contrôle de ces appareils. Cela vous permet de vous assurer que vos utilisateurs ont accès à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. 
 
-La gestion des appareils est également à la base de [l’accès conditionnel en fonction de l’appareil](../active-directory-conditional-access-policy-connected-applications.md). Avec l’accès conditionnel en fonction des appareils, vous pouvez faire en sorte que l’accès aux ressources de votre environnement ne soit possible qu’avec des appareils gérés.   
+La gestion des appareils est également à la base de [l’accès conditionnel en fonction de l’appareil](../conditional-access/require-managed-devices.md). Avec l’accès conditionnel en fonction des appareils, vous pouvez faire en sorte que l’accès aux ressources de votre environnement ne soit possible qu’avec des appareils gérés.   
 
 Cet article explique comment fonctionne la gestion des appareils dans Azure Active Directory.
 
@@ -178,7 +178,7 @@ En règle générale, vous devez utiliser :
 
 - Pour obtenir une vue d’ensemble de la gestion des appareils dans le portail Azure, consultez [Gestion des appareils via le portail Azure](device-management-azure-portal.md).
 
-- Pour en savoir plus sur l’accès conditionnel basé sur les appareils, consultez [Configurer les stratégies d’accès conditionnel basé sur les appareils Azure Active Directory](../active-directory-conditional-access-policy-connected-applications.md).
+- Pour en savoir plus sur l’accès conditionnel basé sur les appareils, consultez [Configurer les stratégies d’accès conditionnel basé sur les appareils Azure Active Directory](../conditional-access/require-managed-devices.md).
 
 - Pour configurer :
     - Des appareils Windows 10 inscrits à Azure Active Directory, consultez [Guide pratique pour configurer des appareils Windows 10 inscrits à Azure Active Directory](../user-help/device-management-azuread-registered-devices-windows10-setup.md)

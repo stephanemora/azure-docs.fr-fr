@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: e6c0fc981030b934cd1b8568946344262936e18c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: c4ccd75f679e58dd42f136bf1199eda88dc3f087
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215705"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431713"
 ---
 # <a name="configure-managed-identity-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurer une identité managée sur un groupe de machines virtuelles identiques à l’aide d’appels d’API REST
 
@@ -36,7 +36,7 @@ Dans cet article, découvrez comment effectuer les opérations suivantes sur des
 
 - Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identité affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
-- Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer des attributions de rôles suivantes :
+- Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer des attributions des rôles suivants :
     - [Contributeur de machines virtuelles](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor), pour créer un groupe de machines virtuelles identiques, puis activer et supprimer l’identité managée affectée par le système et/ou par l’utilisateur à partir d’un groupe de machines virtuelles identiques.
     - [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor), pour créer une identité affectée par l’utilisateur.
     - [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator), pour attribuer et supprimer une identité affectée par l’utilisateur depuis et vers un groupe de machines virtuelles identiques.
@@ -55,7 +55,7 @@ Dans cette section, découvrez comment activer et désactiver une identité affe
 
 Pour créer un groupe de machines virtuelles identiques dans lequel une identité affectée par le système est activée, vous devez créer un groupe de machines virtuelles identiques et récupérer un jeton d’accès pour utiliser CURL afin d’appeler le point de terminaison Resource Manager avec la valeur de type d’identité affectée par le système.
 
-1. Créez un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md#terminology) pour l’imbrication et le déploiement de votre groupe de machines virtuelles identiques et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az_group_create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
+1. Créez un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md#terminology) pour l’imbrication et le déploiement de votre groupe de machines virtuelles identiques et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus

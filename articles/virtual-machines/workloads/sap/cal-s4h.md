@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 10c5116afa46817a42834e0350937fde7ae0b927
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a99fb959ae1ac1434bedffd782a7c4e0a302d361
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657340"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431406"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Déploiement de SAP S/4HANA ou BW/4HANA sur Azure
 Cet article explique comment déployer S/4HANA sur Azure en utilisant SAP Cloud Appliance Library (SAP CAL) 3.0. Procédez de la même façon pour déployer d’autres solutions SAP HANA, comme BW/4HANA.
@@ -52,7 +52,7 @@ La page **Solutions** montre certaines solutions SAP CAL HANA disponibles sur Az
     > [!NOTE]
     Les étapes suivantes montrent comment créer un compte SAP CAL pour les déploiements Resource Manager. Si vous disposez déjà d’un compte SAP CAL lié au modèle de déploiement Classic, vous *devez* suivre ces étapes pour créer un nouveau compte SAP CAL. Le nouveau compte SAP CAL doit être déployé dans le modèle Resource Manager.
 
-2. Créez un compte SAP CAL. La page **Accounts** (Comptes) affiche trois possibilités pour Azure : 
+1. Créez un compte SAP CAL. La page **Accounts** (Comptes) affiche trois possibilités pour Azure : 
 
     a. **Microsoft Azure (Classic)** est le modèle de déploiement classique et n’est plus recommandé.
 
@@ -64,27 +64,27 @@ La page **Solutions** montre certaines solutions SAP CAL HANA disponibles sur Az
 
     ![Détails du compte SAP CAL](./media/cal-s4h/s4h-pic-2a.png)
 
-3. Dans le champ **Subscription ID** (ID d’abonnement), entrez l’ID d’abonnement Azure indiqué dans le Portail Azure.
+1. Dans le champ **Subscription ID** (ID d’abonnement), entrez l’ID d’abonnement Azure indiqué dans le Portail Azure.
 
    ![Comptes SAP CAL](./media/cal-s4h/s4h-pic3c.png)
 
-4. Pour autoriser le déploiement de SAP CAL dans l’abonnement Azure que vous avez défini, cliquez sur **Authorize** (Autoriser). La page suivante s’affiche dans l’onglet du navigateur :
+1. Pour autoriser le déploiement de SAP CAL dans l’abonnement Azure que vous avez défini, cliquez sur **Authorize** (Autoriser). La page suivante s’affiche dans l’onglet du navigateur :
 
    ![Connexion aux services cloud d’Internet Explorer](./media/cal-s4h/s4h-pic4c.png)
 
-5. Si plusieurs utilisateurs sont répertoriés, choisissez le compte Microsoft lié en tant que coadministrateur de l’abonnement Azure que vous avez sélectionné. La page suivante s’affiche dans l’onglet du navigateur :
+1. Si plusieurs utilisateurs sont répertoriés, choisissez le compte Microsoft lié en tant que coadministrateur de l’abonnement Azure que vous avez sélectionné. La page suivante s’affiche dans l’onglet du navigateur :
 
    ![Confirmation des services cloud d’Internet Explorer](./media/cal-s4h/s4h-pic5a.png)
 
-6. Cliquez sur **Accepter**. Si l’autorisation est accordée, la définition du compte SAP CAL s’affiche à nouveau. Après une courte période, un message confirme que le processus d’autorisation a réussi.
+1. Cliquez sur **Accepter**. Si l’autorisation est accordée, la définition du compte SAP CAL s’affiche à nouveau. Après une courte période, un message confirme que le processus d’autorisation a réussi.
 
-7. Pour assigner le compte SAP CAL nouvellement créé à votre utilisateur, entrez votre identifiant utilisateur dans la zone de texte **User ID** (Identifiant utilisateur) à droite, puis cliquez sur **Add** (Ajouter).
+1. Pour assigner le compte SAP CAL nouvellement créé à votre utilisateur, entrez votre identifiant utilisateur dans la zone de texte **User ID** (Identifiant utilisateur) à droite, puis cliquez sur **Add** (Ajouter).
 
    ![Association du compte à l’utilisateur](./media/cal-s4h/s4h-pic8a.png)
 
-8. Pour associer votre compte à l’utilisateur que vous utilisez pour vous connecter à SAP CAL, cliquez sur **Review** (Revoir). 
+1. Pour associer votre compte à l’utilisateur que vous utilisez pour vous connecter à SAP CAL, cliquez sur **Review** (Revoir). 
  
-9. Pour créer l’association entre votre utilisateur et le compte SAP CAL nouvellement créé, cliquez sur **Create** (Créer).
+1. Pour créer l’association entre votre utilisateur et le compte SAP CAL nouvellement créé, cliquez sur **Create** (Créer).
 
    ![Association d’un utilisateur au compte SAP CAL](./media/cal-s4h/s4h-pic9b.png)
 
@@ -122,29 +122,29 @@ Nous présentons ici la séquence de déploiement de base.
 
    ![Mode de base SAP CAL : créer une instance](./media/cal-s4h/s4h-pic10a.png)
 
-2. Cliquez sur **Create** (Créer), puis, dans la boîte de message qui s’affiche, cliquez sur **OK**.
+1. Cliquez sur **Create** (Créer), puis, dans la boîte de message qui s’affiche, cliquez sur **OK**.
 
    ![Tailles de machine virtuelle prises en charge par SAP CAL](./media/cal-s4h/s4h-pic10b.png)
 
-3. Dans la boîte de dialogue **Private Key** (Clé privée), cliquez sur **Store** (Stocker) pour stocker la clé privée dans SAP CAL. Pour protéger la clé privée par mot de passe, cliquez sur **Download** (Télécharger). 
+1. Dans la boîte de dialogue **Private Key** (Clé privée), cliquez sur **Store** (Stocker) pour stocker la clé privée dans SAP CAL. Pour protéger la clé privée par mot de passe, cliquez sur **Download** (Télécharger). 
 
    ![Clé privée SAP CAL](./media/cal-s4h/s4h-pic10c.png)
 
-4. Lisez le **message d’avertissement** SAP CAL, puis cliquez sur **OK**.
+1. Lisez le **message d’avertissement** SAP CAL, puis cliquez sur **OK**.
 
    ![Avertissement SAP CAL](./media/cal-s4h/s4h-pic10d.png)
 
     Le déploiement s’effectue. Après un délai variable en fonction de la taille et de la complexité de la solution (SAP CAL en donne une estimation), la solution apparaît comme active et prête à être utilisée.
 
-5. Pour trouver les machines virtuelles collectées avec les autres ressources associées dans un groupe de ressources, accédez au Portail Azure : 
+1. Pour trouver les machines virtuelles collectées avec les autres ressources associées dans un groupe de ressources, accédez au Portail Azure : 
 
    ![Objets SAP CAL déployés dans le nouveau portail](./media/cal-s4h/sapcaldeplyment_portalview.png)
 
-6. Sur le portail SAP CAL, l’état affiché est **Active**. Pour vous connecter à la solution, cliquez sur **Connect** (Connexion). Plusieurs options de connexion aux différents composants sont déployées au sein de cette solution.
+1. Sur le portail SAP CAL, l’état affiché est **Active**. Pour vous connecter à la solution, cliquez sur **Connect** (Connexion). Plusieurs options de connexion aux différents composants sont déployées au sein de cette solution.
 
    ![Instances SAP CAL](./media/cal-s4h/active_solution.png)
 
-7. Pour pouvoir utiliser l’une des options de connexion aux systèmes déployés, cliquez sur **Getting Started Guide** (Guide de prise en main). 
+1. Pour pouvoir utiliser l’une des options de connexion aux systèmes déployés, cliquez sur **Getting Started Guide** (Guide de prise en main). 
 
    ![Connexion à l’instance](./media/cal-s4h/connect_to_solution.png)
 

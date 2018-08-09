@@ -1,6 +1,6 @@
 ---
-title: Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique zonal à l’aide d’Azure CLI | Microsoft Docs
-description: Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique zonal à l’aide d’Azure CLI
+title: Créer une instance publique de Load Balancer Standard avec un front-end d’adresse IP publique zonal à l’aide d’Azure CLI | Microsoft Docs
+description: Découvrez comment créer une instance publique de Load Balancer Standard avec un front-end d’adresse IP publique zonal à l’aide d’Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0932195bb95ab9610f723245bfed7fedb01001f9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b4bb0cdb9be59ae35b640ef67b12c382bb621a19
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323632"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433579"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Créer une instance publique de Load Balancer Standard avec un frontend zonal à l’aide d’Azure CLI
+#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Créer une instance publique de Load Balancer Standard avec un front-end zonal à l’aide d’Azure CLI
 
-Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un frontend zonal qui utilise une adresse IP publique Standard. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique.
+Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un front-end zonal qui utilise une adresse IP publique Standard. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique.
 
 Pour plus d’informations sur l’utilisation des zones de disponibilité avec Standard Load Balancer, consultez [Standard Load Balancer et zones de disponibilité](load-balancer-standard-availability-zones.md).
 
@@ -33,14 +33,14 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, assurez-vous que vous avez installé la dernière version [d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et que vous êtes connecté à un compte Azure avec [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, assurez-vous que vous avez installé la dernière version, [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), et que vous êtes connecté à un compte Azure avec [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
 > [!NOTE]
  La prise en charge des zones de disponibilité est assurée pour certaines ressources, régions et familles de tailles de machine virtuelle Azure. Pour bien démarrer avec les zones de disponibilité, et pour plus d’informations sur les ressources, les régions et les familles de tailles de machine virtuelle Azure pour lesquelles vous pouvez tester les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview). Pour obtenir de l’aide, vous pouvez nous contacter sur [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [ouvrir un ticket de support Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroupLB* à l’emplacement *westeurope* :
 
@@ -71,7 +71,7 @@ Cette section explique en détail comment créer et configurer les composants su
 - Une règle d’équilibreur de charge qui définit la distribution du trafic vers les machines virtuelles.
 
 ### <a name="create-the-load-balancer"></a>Créer l’équilibreur de charge
-Créez un équilibrage de charge standard avec la commande [az network lb create](/cli/azure/network/lb#az_network_lb_create). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* et affecte l’adresse *myPublicIP* à la configuration IP frontale.
+Créez un équilibreur de charge standard avec la commande [az network lb create](/cli/azure/network/lb#az-network-lb-create). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* et affecte l’adresse *myPublicIP* à la configuration IP frontale.
 
 ```azurecli-interactive
 az network lb create \
@@ -85,7 +85,7 @@ az network lb create \
 
 ## <a name="create-health-probe-on-port-80"></a>Créer une sonde d’intégrité sur le port 80
 
-Une sonde d’intégrité vérifie toutes les instances de machine virtuelle pour s’assurer qu’elles peuvent transmettre le trafic réseau. L’instance de machine virtuelle présentant des contrôles de sonde défaillants est supprimée de l’équilibrage de charge jusqu’à ce qu’elle revienne en ligne et que la sonde valide son intégrité. Créez une sonde d’intégrité à l’aide de la commande az network lb probe create pour surveiller l’intégrité des machines virtuelles. Pour créer une sonde d’intégrité TCP, utilisez la commande [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). L’exemple suivant permet de créer une sonde d’intégrité nommée *myHealthProbe* :
+Une sonde d’intégrité vérifie toutes les instances de machine virtuelle pour s’assurer qu’elles peuvent transmettre le trafic réseau. L’instance de machine virtuelle présentant des contrôles de sonde défaillants est supprimée de l’équilibrage de charge jusqu’à ce qu’elle revienne en ligne et que la sonde valide son intégrité. Créez une sonde d’intégrité à l’aide de la commande az network lb probe create pour surveiller l’intégrité des machines virtuelles. Pour créer une sonde d’intégrité TCP, utilisez la commande [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). L’exemple suivant permet de créer une sonde d’intégrité nommée *myHealthProbe* :
 
 ```azurecli-interactive
 az network lb probe create \
@@ -97,7 +97,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>Créer une règle d’équilibreur de charge pour le port 80
-Une règle d’équilibreur de charge définit la configuration IP frontale pour le trafic entrant et le pool d’IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Créez une règle d’équilibreur de charge *myLoadBalancerRuleWeb* à l’aide de la commande [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) pour écouter le port 80 dans le pool frontal *myFrontEndPool* et envoyer le trafic réseau équilibré en charge vers le pool d’adresses principal *myBackEndPool* à l’aide du port 80 également.
+Une règle d’équilibreur de charge définit la configuration IP frontale pour le trafic entrant et le pool d’IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Créez une règle d’équilibreur de charge *myLoadBalancerRuleWeb* à l’aide de la commande [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) pour écouter le port 80 dans le pool frontal *myFrontEndPool* et envoyer le trafic réseau équilibré en charge vers le pool d’adresses principal *myBackEndPool* à l’aide du port 80 également.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -117,7 +117,7 @@ Avant de déployer des machines virtuelles et de pouvoir tester votre équilibre
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Créez un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet* dans myResourceGroup à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Créez un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet* dans le myResourceGroup à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
 
 ```azurecli-interactive
@@ -130,7 +130,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
-Créez un groupe de sécurité réseau nommé *myNetworkSecurityGroup* pour définir les connexions entrantes à votre réseau virtuel avec [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
+Créez un groupe de sécurité réseau nommé *myNetworkSecurityGroup* pour définir les connexions entrantes à votre réseau virtuel avec [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
 ```azurecli-interactive
 az network nsg create \
@@ -138,7 +138,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-Créez une règle de groupe de sécurité réseau nommée *myNetworkSecurityGroupRule* pour le port 80 avec [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create).
+Créez une règle de groupe de sécurité réseau nommée *myNetworkSecurityGroupRule* pour le port 80 avec [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create).
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -155,7 +155,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>Créer des cartes réseau
-Créez trois cartes réseau virtuelles à l’aide de la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create) et associez-les à l’adresse IP publique et au groupe de sécurité réseau. L’exemple suivant crée trois cartes réseau virtuelles. (Une carte d’interface réseau virtuelle pour chaque machine virtuelle que vous créez pour votre application dans les étapes suivantes). Vous pouvez créer des machines virtuelles et des cartes d’interface réseau virtuelles supplémentaires à tout moment et les ajouter à l’équilibreur de charge :
+Créez trois cartes réseau virtuelles à l’aide de la commande [az network nic create](/cli/azure/network/nic#az-network-nic-create) et associez-les à l’adresse IP publique et au groupe de sécurité réseau. L’exemple suivant crée trois cartes réseau virtuelles. (Une carte d’interface réseau virtuelle pour chaque machine virtuelle que vous créez pour votre application dans les étapes suivantes). Vous pouvez créer des machines virtuelles et des cartes d’interface réseau virtuelles supplémentaires à tout moment et les ajouter à l’équilibreur de charge :
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -219,7 +219,7 @@ runcmd:
 ```
 
 ### <a name="create-the-zonal-virtual-machines"></a>Créer les machines virtuelles de zone
-Créez les machines virtuelles avec [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée trois machines virtuelles en zone 1 et génère des clés SSH si elles n’existent pas déjà :
+Créez les machines virtuelles avec [az vm create](/cli/azure/vm#az-vm-create). L’exemple suivant crée trois machines virtuelles en zone 1 et génère des clés SSH si elles n’existent pas déjà :
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -235,7 +235,7 @@ done
 ```
 
 ## <a name="test-the-load-balancer"></a>Tester l’équilibreur de charge
-Pour obtenir l’adresse IP publique de l’équilibreur de charge, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). 
+Pour obtenir l’adresse IP publique de l’équilibreur de charge, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurecli-interactive
   az network public-ip show \

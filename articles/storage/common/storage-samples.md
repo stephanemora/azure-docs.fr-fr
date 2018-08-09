@@ -2,24 +2,18 @@
 title: Exemples de code relatifs au service Stockage Azure | Microsoft Docs
 description: Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers, qui utilisent des bibliothèques clientes de stockage .NET, Java, Node.js et C++.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 8fceeff7-dd8a-47d6-b2cd-564a34a2a776
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/03/2017
 ms.author: tamram
-ms.openlocfilehash: 371db3bdbedf4abe12b0b903ea8f428f19f07a9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 0ef00e69a280748900ac521acd32e4ccf5fefa23
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059684"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525186"
 ---
 # <a name="azure-storage-samples"></a>Exemples relatifs à Microsoft Azure Storage
 
@@ -65,7 +59,7 @@ Pour explorer les exemples C++, téléchargez la [bibliothèque cliente de stoc
 
 ## <a name="api-reference-and-source-code"></a>Informations de référence sur l’API et code source
 
-| language | Informations de référence sur l'API | Code source |
+| Langage | Informations de référence sur l'API | Code source |
 |----------|---------------|-------------|
 | .NET | [Référence de la bibliothèque cliente .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Code source de la bibliothèque cliente de stockage .NET](https://github.com/Azure/azure-storage-net) |
 | Java | [Référence de la bibliothèque cliente Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Code source de la bibliothèque cliente de stockage Java](https://github.com/azure/azure-storage-java) |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 60133dd6d541500db448cf107dd3c0ab193a03f7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d617b7a1195f322ad33a47ae2fd99b7eb336b7b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048685"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Cezanne HR Software
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Cezanne HR Software à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-cezanne-hr-software-from-the-gallery"></a>Ajout de Cezanne HR Software à partir de la galerie
 Pour configurer l’intégration de Cezanne HR Software avec Azure AD, vous devez ajouter Cezanne HR Software, disponible dans la galerie, à votre liste d’applications SaaS gérées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de Cezanne HR Software avec Azure AD, vous deve
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Cezanne HR Software**, sélectionnez **Cezanne HR Software** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Cezanne HR Software**, sélectionnez **Cezanne HR Software** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Cezanne HR Software dans la liste des résultats](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dans Cezanne HR Software, affectez la valeur du **nom d’utilisateur** dans Azu
 Pour configurer et tester l’authentification unique Azure AD avec Cezanne HR Software, vous avez besoin de suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créez un utilisateur de test Cezanne HR Software](#create-a-cezannehrsoftware-test-user)** pour avoir un équivalent de Britta Simon dans Cezanne HR Software qui soit lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créez un utilisateur de test Cezanne HR Software](#create-a-cezannehrsoftware-test-user)** pour avoir un équivalent de Britta Simon dans Cezanne HR Software qui soit lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +102,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
 
-3. Dans la section **Domaine et URL Cezanne HR Software**, effectuez les étapes suivantes :
+1. Dans la section **Domaine et URL Cezanne HR Software**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Cezanne HR Software](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
@@ -119,37 +119,37 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez [l’équipe du support Cezanne HR Software](https://cezannehr.com/services/support/).
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. Dans **Configuration de Cezanne HR Software**, cliquez sur **Configurer Cezanne HR Software** pour ouvrir la fenêtre **Configurer l’authentification**.
+1. Dans **Configuration de Cezanne HR Software**, cliquez sur **Configurer Cezanne HR Software** pour ouvrir la fenêtre **Configurer l’authentification**.
 
     ![Configuration Cezanne HR Software](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. Faites défiler jusqu’à la section **Référence rapide**. Copiez **l’URL du service d’authentification unique SAML et l’ID d’entité SAML** à partir de la **section Référence rapide**.
+1. Faites défiler jusqu’à la section **Référence rapide**. Copiez **l’URL du service d’authentification unique SAML et l’ID d’entité SAML** à partir de la **section Référence rapide**.
 
     ![Configuration Cezanne HR Software](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
 
-8. Dans une autre fenêtre de navigateur web, connectez-vous à votre client Cezanne HR Software en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre client Cezanne HR Software en tant qu’administrateur.
 
-9. Dans le volet de navigation gauche, cliquez sur **Configuration système**. Accédez aux **Paramètres de sécurité**. Accédez ensuite à **Configuration de l’authentification unique**.
+1. Dans le volet de navigation gauche, cliquez sur **Configuration système**. Accédez aux **Paramètres de sécurité**. Accédez ensuite à **Configuration de l’authentification unique**.
 
     ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-10. Dans le panneau **Autoriser les utilisateurs à se connecter à l’aide de l’authentification unique**, cochez la case **SAML 2.0** et sélectionnez l’option **Configuration avancée**.
+1. Dans le panneau **Autoriser les utilisateurs à se connecter à l’aide de l’authentification unique**, cochez la case **SAML 2.0** et sélectionnez l’option **Configuration avancée**.
 
     ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-11. Cliquez sur le bouton **Ajouter nouveau** .
+1. Cliquez sur le bouton **Ajouter nouveau** .
 
     ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-12. Dans la section **SAML 2.0 IDENTITY PROVIDERS** , procédez comme suit.
+1. Dans la section **SAML 2.0 IDENTITY PROVIDERS** , procédez comme suit.
 
     ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -167,7 +167,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     g. Cliquez sur le bouton **OK** . 
 
-13. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l’authentification unique côté application](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
@@ -187,15 +187,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/cezannehrsoftware-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/cezannehrsoftware-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/cezannehrsoftware-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/cezannehrsoftware-tutorial/create_aaduser_04.png)
 
@@ -215,11 +215,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
 
 1.  Connectez-vous à votre site d’entreprise Cezanne HR Software en tant qu’administrateur.
 
-2.  Dans le volet de navigation gauche, cliquez sur **Configuration système**. Accédez à **Gérer les utilisateurs**. Accédez ensuite à **Ajouter un nouvel utilisateur**.
+1.  Dans le volet de navigation gauche, cliquez sur **Configuration système**. Accédez à **Gérer les utilisateurs**. Accédez ensuite à **Ajouter un nouvel utilisateur**.
 
     ![Nouvel utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nouvel utilisateur")
 
-3.  À la section **Détails de la personne** , procédez comme suit :
+1.  À la section **Détails de la personne** , procédez comme suit :
 
     ![Nouvel utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nouvel utilisateur")
     
@@ -231,7 +231,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
     
     d. Dans la zone de texte **Email** (E-mail), tapez l’adresse e-mail d’un utilisateur, par exemple, Brittasimon@contoso.com.
 
-4.  À la section **Informations sur le compte** , procédez comme suit :
+1.  À la section **Informations sur le compte** , procédez comme suit :
 
     ![Nouvel utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Nouvel utilisateur")
     
@@ -243,15 +243,15 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
     
     d. Cliquez sur **OK**.
 
-5. Accédez à l’onglet **Authentification unique** et sélectionnez **Ajouter nouveau** dans la zone **Identificateurs SAML 2.0**.
+1. Accédez à l’onglet **Authentification unique** et sélectionnez **Ajouter nouveau** dans la zone **Identificateurs SAML 2.0**.
 
     ![Utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utilisateur")
 
-6. Choisissez votre **fournisseur d’identité** et dans la zone de texte **Identificateur d’utilisateur**, entrez l’adresse de messagerie du compte de Britta Simon.
+1. Choisissez votre **fournisseur d’identité** et dans la zone de texte **Identificateur d’utilisateur**, entrez l’adresse de messagerie du compte de Britta Simon.
 
     ![Utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utilisateur")
     
-7. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Utilisateur](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utilisateur")
 
@@ -267,23 +267,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Cezanne HR Software**.
+1. Dans la liste des applications, sélectionnez **Cezanne HR Software**.
 
     ![Lien Cezanne HR Software dans la liste des applications](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

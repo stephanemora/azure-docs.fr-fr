@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 1932980e1dd2f9de5ddb7ea3e77acb2a9f85fad5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 326f12ff3923855b09462d4909d37638d4010b48
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225345"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Didacticiel : Intégration d’Azure Active Directory à ImageRelay
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout d’Image Relay à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-image-relay-from-the-gallery"></a>Ajout d’Image Relay à partir de la galerie
 Pour configurer l’intégration d’Image Relay avec Azure AD, vous devez ajouter Image Relay à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration d’Image Relay avec Azure AD, vous devez ajou
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **Image Relay**.
+1. Dans la zone de recherche, tapez **Image Relay**.
 
     ![Création d’un utilisateur de test Azure AD](./media/imagerelay-tutorial/tutorial_imagerelay_search.png)
 
-5. Dans le volet de résultats, sélectionnez **Image Relay**, puis cliquez sur **Ajouter** pour ajouter l’application.
+1. Dans le volet de résultats, sélectionnez **Image Relay**, puis cliquez sur **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/imagerelay-tutorial/tutorial_imagerelay_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Dans Image Relay, assignez la valeur de **nom d’utilisateur** dans Azure AD c
 Pour configurer et tester l’authentification unique Azure AD avec Image Relay, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Image Relay](#creating-an-image-relay-test-user)** pour avoir un équivalent de Britta Simon dans Image Relay lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test Image Relay](#creating-an-image-relay-test-user)** pour avoir un équivalent de Britta Simon dans Image Relay lié à la représentation Azure AD associée.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Image Relay**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_samlbase.png)
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_samlbase.png)
 
-3. Dans la section **Domaine et URL Image Relay**, procédez comme suit :
+1. Dans la section **Domaine et URL Image Relay**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_url.png)
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.imagerelay.com/`
 
@@ -121,43 +121,43 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
 
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration d’Image Relay**, cliquez sur **Configurer Image Relay** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL du service de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+1. Dans la section **Configuration d’Image Relay**, cliquez sur **Configurer Image Relay** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL du service de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_configure.png) 
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_configure.png) 
 
-7. Dans une autre fenêtre de navigateur, connectez-vous à votre site d’entreprise Image Relay en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur, connectez-vous à votre site d’entreprise Image Relay en tant qu’administrateur.
 
-8. Dans la barre d’outils du haut, cliquez sur la charge de travail **Utilisateurs et autorisations**.
+1. Dans la barre d’outils du haut, cliquez sur la charge de travail **Utilisateurs et autorisations**.
    
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
-9. Cliquez sur **Créer une nouvelle autorisation**.
+1. Cliquez sur **Créer une nouvelle autorisation**.
    
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
-10. Dans la charge de travail **Paramètres d’authentification unique**, sélectionnez la case à cocher **Ce groupe peut se connecter uniquement via l’authentification unique**, puis cliquez sur **Enregistrer**.
+1. Dans la charge de travail **Paramètres d’authentification unique**, sélectionnez la case à cocher **Ce groupe peut se connecter uniquement via l’authentification unique**, puis cliquez sur **Enregistrer**.
    
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
-11. Accédez à **Paramètres du compte**.
+1. Accédez à **Paramètres du compte**.
    
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
-12. Accédez à la charge de travail **Paramètres d’authentification unique** .
+1. Accédez à la charge de travail **Paramètres d’authentification unique** .
     
-     ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+     ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
-13. Dans la boîte de dialogue **SAML Settings** (Paramètres SAML), procédez comme suit :
+1. Dans la boîte de dialogue **SAML Settings** (Paramètres SAML), procédez comme suit :
     
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
     
     a. Dans la zone de texte **URL de connexion**, collez la valeur de **l’URL du service d’authentification unique** copiée à partir du portail Azure.
 
@@ -169,19 +169,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Sous **Certificat x.509**, cliquez sur **Mettre à jour le certificat**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte Certificat X.509.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     g. Dans la section **Approvisionnement juste à temps des utilisateurs**, sélectionnez la case à cocher **Activer l’approvisionnement juste à temps des utilisateurs**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Sélectionnez le groupe d’autorisations (par exemple, **SSO de base**) qui sera autorisé à se connecter uniquement via l’authentification unique.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Cliquez sur **Enregistrer**.
 
@@ -200,15 +200,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/imagerelay-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/imagerelay-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/imagerelay-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/imagerelay-tutorial/create_aaduser_04.png) 
 
@@ -228,15 +228,15 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 1. Connectez-vous à votre site d’entreprise Image Relay tant qu’administrateur.
 
-2. Accédez à **Utilisateurs et autorisations** et sélectionnez **Créer un utilisateur SSO**.
+1. Accédez à **Utilisateurs et autorisations** et sélectionnez **Créer un utilisateur SSO**.
    
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
-3. Renseignez les champs **E-mail**, **Prénom**, **Nom** et **Société** de l’utilisateur que vous souhaitez configurer, puis sélectionnez le groupe d’autorisations (par exemple authentification unique de base), qui peut se connecter uniquement via l’authentification unique.
+1. Renseignez les champs **E-mail**, **Prénom**, **Nom** et **Société** de l’utilisateur que vous souhaitez configurer, puis sélectionnez le groupe d’autorisations (par exemple authentification unique de base), qui peut se connecter uniquement via l’authentification unique.
    
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_22.png) 
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_22.png) 
 
-4. Cliquez sur **Créer**.
+1. Cliquez sur **Créer**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -250,23 +250,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Image Relay**.
+1. Dans la liste des applications, sélectionnez **Image Relay**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_app.png) 
+    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

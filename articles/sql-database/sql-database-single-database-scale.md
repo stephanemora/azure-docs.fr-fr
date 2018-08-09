@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: carlrab
-ms.openlocfilehash: 51facd32fd7dbffe39fd959b0c8e9321d04657e0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 8ddeedcde142a01cca9efa79ab08029aec798ceb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412377"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525288"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mise à l'échelle de ressources de singletons Azure SQL Database unique
 
@@ -23,7 +23,7 @@ Cet article décrit comment faire évoluer les ressources de calcul et de stocka
 ## <a name="vcore-based-purchasing-model-change-storage-size"></a>Modèle d’achat vCore : modifier la taille de stockage
 
 - Le stockage peut être approvisionné jusqu’à la limite de taille maximale par incréments de 1 Go. Le stockage de données minimum configurable est de 5 Go 
-- Vous pouvez configurer du stockage pour une base de données unique en augmentant ou en diminuant sa taille maximale à l’aide du [portail Azure](https://portal.azure.com), de [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de [l’API REST](/rest/api/sql/databases/update).
+- Vous pouvez configurer du stockage pour une base de données unique en augmentant ou en diminuant sa taille maximale à l’aide du [portail Azure](https://portal.azure.com), de [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql?r#examples), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de [l’API REST](/rest/api/sql/databases/update).
 - SQL Database alloue automatiquement 30 % de stockage supplémentaire pour les fichiers journaux et 32 Go par vCore pour TempDB, dans une limite de 384 Go. TempDB se trouve sur un SSD attaché pour tous les niveaux de service.
 - Le prix du stockage pour une base de données unique est égal à la somme des volumes de stockage des données et de stockage des journaux multipliée par le prix unitaire du stockage pour le niveau de service. Le coût de TempDB est inclus dans le prix de vCore. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 

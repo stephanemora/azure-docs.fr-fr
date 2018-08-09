@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: d81a41a0012d4e0be4e812d48074e7af1e92213a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: c6c7b3f897e38fbd67098c9f881380bc073f13da
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391144"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432648"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Répondre aux événements avec les alertes Azure Monitor
 Des règles de recherche dans les journaux sont créées par Alertes Azure pour exécuter automatiquement des requêtes de journal spécifiées à intervalles réguliers.  Si les résultats de la requête de journal répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut alors exécuter automatiquement une ou plusieurs actions à l’aide de [groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](log-analytics-tutorial-dashboards.md).   
@@ -43,15 +43,15 @@ Les alertes sont créées par des règles d’alerte dans Azure Monitor et peuve
 Dans l’exemple suivant, vous créez une règle d’alerte de mesure de métrique basée sur la requête *Machines virtuelles Azure - Utilisation des processeurs* enregistrée dans le [tutoriel Visualiser les données](log-analytics-tutorial-dashboards.md). Une alerte est créée pour chaque machine virtuelle qui dépasse un seuil de 90 %.
 
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste des ressources, tapez **Moniteur**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Moniteur**.
-2. Dans le volet gauche, sélectionnez **Alertes** puis cliquez sur **Nouvelle règle d’alerte** en haut de la page pour créer une nouvelle alerte.
+1. Dans le volet gauche, sélectionnez **Alertes** puis cliquez sur **Nouvelle règle d’alerte** en haut de la page pour créer une nouvelle alerte.
 
     ![Créer une nouvelle règle d’alerte](./media/log-analytics-tutorial-response/alert-rule-02.png)
 
-3. Pour la première étape, dans la section **Créer une alerte**, sélectionnez votre espace de travail Log Analytics en tant que ressource, car il s’agit d’un signal d’alerte basé sur des journaux.  Si vous avez plusieurs résultats, filtrez-les en choisissant l’**abonnement** spécifique dans la liste déroulante, qui contient la machine virtuelle et l’espace de travail Log Analytics créés précédemment.  Filtrez le **Type de ressource** en sélectionnant **Log Analytics** dans la liste déroulante.  Enfin, sélectionnez la **ressource** **DefaultLAWorkspace** puis cliquez sur **Terminé**.
+1. Pour la première étape, dans la section **Créer une alerte**, sélectionnez votre espace de travail Log Analytics en tant que ressource, car il s’agit d’un signal d’alerte basé sur des journaux.  Si vous avez plusieurs résultats, filtrez-les en choisissant l’**abonnement** spécifique dans la liste déroulante, qui contient la machine virtuelle et l’espace de travail Log Analytics créés précédemment.  Filtrez le **Type de ressource** en sélectionnant **Log Analytics** dans la liste déroulante.  Enfin, sélectionnez la **ressource** **DefaultLAWorkspace** puis cliquez sur **Terminé**.
 
     ![Créer une tâche d’alerte étape 1](./media/log-analytics-tutorial-response/alert-rule-03.png)
 
-4. Dans la section **Critères d’alerte**, cliquez sur **Ajouter des critères** pour définir la requête puis la logique spécifiée que la règle d’alerte suit. À partir du volet **Configurer la logique de signal**, sélectionnez **Recherche de journal personnalisée** comme nom de signal et saisissez votre requête dans **Requête de recherche**.
+1. Dans la section **Critères d’alerte**, cliquez sur **Ajouter des critères** pour définir la requête puis la logique spécifiée que la règle d’alerte suit. À partir du volet **Configurer la logique de signal**, sélectionnez **Recherche de journal personnalisée** comme nom de signal et saisissez votre requête dans **Requête de recherche**.
 
     Par exemple : 
     ```
@@ -62,21 +62,21 @@ Dans l’exemple suivant, vous créez une règle d’alerte de mesure de métriq
 
     Le volet se met à jour pour présenter les paramètres de configuration de l’alerte.  En haut, il affiche les résultats pour les 30 dernières minutes du signal sélectionné.
 
-5. Configurez l’alerte avec les informations suivantes :  
+1. Configurez l’alerte avec les informations suivantes :  
    a. Dans la liste déroulante **Basé sur*, sélectionnez **Mesure des métriques**.  Une mesure des métriques créera une alerte pour chaque objet de la requête dont la valeur dépasse notre seuil spécifié.  
    b. Pour la **Condition**, sélectionnez **Supérieur à** et entrez **90** pour le **Seuil**.  
    c. Dans la section Déclencher l’alerte selon, sélectionnez **Violations consécutives** et dans la liste déroulante, sélectionnez **Supérieur à** et entrez la valeur 3.  
    d. Dans la section Évaluation selon, acceptez les valeurs par défaut. La règle s’exécute toutes les cinq minutes et renvoie les enregistrements qui ont été créés dans cette plage précédant son exécution.  
-6. Cliquez sur **Terminé** pour terminer la règle d’alerte.
+1. Cliquez sur **Terminé** pour terminer la règle d’alerte.
 
     ![Configurer un signal d’alerte](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)
 
-7. Passons maintenant à la deuxième étape. Donnez un nom à votre alerte dans le champ **Nom de la règle d’alerte**, tel que **Pourcentage d’UC supérieur à 90 %**.  Spécifiez une **Description** détaillant les spécificités de l’alerte, puis sélectionnez **Critique (gravité 0)** pour la valeur de **Gravité** parmi les options fournies.
+1. Passons maintenant à la deuxième étape. Donnez un nom à votre alerte dans le champ **Nom de la règle d’alerte**, tel que **Pourcentage d’UC supérieur à 90 %**.  Spécifiez une **Description** détaillant les spécificités de l’alerte, puis sélectionnez **Critique (gravité 0)** pour la valeur de **Gravité** parmi les options fournies.
 
     ![Configuration des détails de l’alerte](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)
 
-8. Pour activer immédiatement la règle d’alerte lors de la création, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.  
-9. Pour la troisième et dernière étape, vous spécifiez un **Groupe d’actions**, ce qui garantit que les mêmes actions soient entreprises chaque fois qu’une alerte est déclenchée et peuvent être utilisées pour chaque règle que vous définissez.  Configurez un nouveau groupe d’actions avec les informations suivantes :  
+1. Pour activer immédiatement la règle d’alerte lors de la création, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.  
+1. Pour la troisième et dernière étape, vous spécifiez un **Groupe d’actions**, ce qui garantit que les mêmes actions soient entreprises chaque fois qu’une alerte est déclenchée et peuvent être utilisées pour chaque règle que vous définissez.  Configurez un nouveau groupe d’actions avec les informations suivantes :  
    a. Sélectionnez **Nouveau groupe d’actions** et le volet **Ajouter un groupe action** s’affiche.  
    b. Pour le **Nom du groupe d’actions**, spécifiez un nom tel que **Opérations informatiques - Notifier** et un **Nom court** comme **itops-n**.  
    c. Vérifiez que les valeurs par défaut de l’**Abonnement** et du **Groupe de ressources** sont correctes. Si ce n’est pas le cas, sélectionnez la valeur correcte dans la liste déroulante.  
@@ -85,8 +85,8 @@ Dans l’exemple suivant, vous créez une règle d’alerte de mesure de métriq
    f. Cliquez sur **OK** pour enregistrer vos modifications.  
        ![Créer un nouveau groupe d’action](./media/log-analytics-tutorial-response/action-group-properties-01.png)
 
-10. Cliquez sur **OK** pour créer le groupe d’actions.
-11. Cliquez sur **Créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.
+1. Cliquez sur **OK** pour créer le groupe d’actions.
+1. Cliquez sur **Créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.
 
     ![Terminer la création d’une nouvelle règle d’alerte](./media/log-analytics-tutorial-response/alert-rule-01.png)
 

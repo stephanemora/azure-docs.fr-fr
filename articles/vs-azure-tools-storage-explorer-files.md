@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525755"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429785"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Utilisation de l’Explorateur de stockage avec le Stockage Fichier Azure
 
 Azure Stockage Fichier est un service qui propose des partages de fichiers dans le cloud en utilisant le protocole SMB standard. Les protocoles SMB 2.1 et SMB 3.0 sont pris en charge. Avec le stockage de fichiers Azure, vous pouvez migrer vers Azure des applications héritées qui s’appuient sur des partages de fichiers, rapidement et sans réécritures onéreuses. Vous pouvez utiliser Stockage Fichier pour exposer les données publiquement au monde ou pour le stockage privé de données d’applications. Dans cet article, vous allez apprendre à utiliser l’Explorateur Stockage pour travailler avec des fichiers et des partages de fichiers.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour pouvoir suivre les étapes de cet article, vous devrez :
 
@@ -42,17 +41,17 @@ Les étapes suivantes expliquent comment créer un partage de fichiers dans l’
 
 1. Ouvrez l’Explorateur de stockage.
 
-2. Dans le volet gauche, développez le compte de stockage dans lequel vous souhaitez créer le partage de fichiers.
+1. Dans le volet gauche, développez le compte de stockage dans lequel vous souhaitez créer le partage de fichiers.
 
-3. Cliquez avec le bouton droit sur **Partages de fichiers**, puis sélectionnez **Créer un partage de fichiers** dans le menu contextuel.
+1. Cliquez avec le bouton droit sur **Partages de fichiers**, puis sélectionnez **Créer un partage de fichiers** dans le menu contextuel.
 
     ![Créer un partage de fichiers](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. Une zone de texte apparaît sous le dossier **Partages de fichiers**. Entrez le nom de votre partage de fichiers. Consultez la section relative aux [règles d’affectation des noms de partages de fichiers](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) pour obtenir la liste des règles et restrictions applicables aux noms de partages de fichiers.
+1. Une zone de texte apparaît sous le dossier **Partages de fichiers**. Entrez le nom de votre partage de fichiers. Consultez la section relative aux [règles d’affectation des noms de partages de fichiers](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) pour obtenir la liste des règles et restrictions applicables aux noms de partages de fichiers.
 
     ![Affectation d’un nom au partage](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Appuyez ensuite sur **Entrée** pour créer le partage de fichiers, ou sur **ÉCHAP** pour annuler. Une fois le partage de fichiers créé, il apparaît sous le dossier **Partages de fichiers** correspondant au compte de stockage sélectionné.
+1. Appuyez ensuite sur **Entrée** pour créer le partage de fichiers, ou sur **ÉCHAP** pour annuler. Une fois le partage de fichiers créé, il apparaît sous le dossier **Partages de fichiers** correspondant au compte de stockage sélectionné.
 
     ![Nouveau partage](media/vs-azure-tools-storage-explorer-files/image3.png)
 
@@ -64,15 +63,15 @@ Les étapes suivantes expliquent comment afficher le contenu d’un partage de f
 
 1. Ouvrez l’Explorateur de stockage.
 
-2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez afficher.
+1. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez afficher.
 
-3. Développez le dossier **Partages de fichiers** du compte de stockage.
+1. Développez le dossier **Partages de fichiers** du compte de stockage.
 
-4. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez afficher puis, dans le menu contextuel, sélectionnez **Ouvrir**. Vous pouvez également double-cliquer sur le partage de fichiers que vous souhaitez afficher.
+1. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez afficher puis, dans le menu contextuel, sélectionnez **Ouvrir**. Vous pouvez également double-cliquer sur le partage de fichiers que vous souhaitez afficher.
 
     ![Ouvrir le partage](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. Le volet principal affiche le contenu du partage de fichiers.
+1. Le volet principal affiche le contenu du partage de fichiers.
     
     ![Contenu d’un partage de fichiers](media/vs-azure-tools-storage-explorer-files/image5.png)
 
@@ -84,15 +83,15 @@ Les étapes suivantes expliquent comment supprimer un partage de fichiers dans l
 
 1. Ouvrez l’Explorateur de stockage.
 
-2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez afficher.
+1. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez afficher.
 
-3. Développez le dossier **Partages de fichiers** du compte de stockage.
+1. Développez le dossier **Partages de fichiers** du compte de stockage.
 
-4. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez supprimer puis, dans le menu contextuel, sélectionnez **Supprimer**. Vous pouvez également appuyer sur **Supprimer** pour supprimer le partage de fichiers actuellement sélectionné.
+1. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez supprimer puis, dans le menu contextuel, sélectionnez **Supprimer**. Vous pouvez également appuyer sur **Supprimer** pour supprimer le partage de fichiers actuellement sélectionné.
 
     ![Supprimer](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
+1. Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
     
     ![Boîte de dialogue de confirmation](media/vs-azure-tools-storage-explorer-files/image7.png)
 
@@ -104,15 +103,15 @@ Les étapes suivantes expliquent comment copier un partage de fichiers d’un co
 
 1. Ouvrez l’Explorateur de stockage.
 
-2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez copier.
+1. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez copier.
 
-3. Développez le dossier **Partages de fichiers** du compte de stockage.
+1. Développez le dossier **Partages de fichiers** du compte de stockage.
 
-4. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez copier puis, dans le menu contextuel, sélectionnez **Copy File Share** (Copier le partage de fichiers).
+1. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez copier puis, dans le menu contextuel, sélectionnez **Copy File Share** (Copier le partage de fichiers).
 
     ![Copier le partage de fichiers](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Cliquez avec le bouton droit sur le compte de stockage cible dans lequel vous souhaitez coller le partage de fichiers puis, dans le menu contextuel, sélectionnez **Paste File Share** (Coller le partage de fichiers).
+1. Cliquez avec le bouton droit sur le compte de stockage cible dans lequel vous souhaitez coller le partage de fichiers puis, dans le menu contextuel, sélectionnez **Paste File Share** (Coller le partage de fichiers).
 
     ![Coller le partage de fichiers](media/vs-azure-tools-storage-explorer-files/image9.png)
 
@@ -124,25 +123,25 @@ Les étapes suivantes expliquent comment créer une signature d’accès partag�
 
 1. Ouvrez l’Explorateur de stockage.
 
-2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers pour lequel vous souhaitez obtenir une SAP.
+1. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers pour lequel vous souhaitez obtenir une SAP.
 
-3. Développez le dossier **Partages de fichiers** du compte de stockage.
+1. Développez le dossier **Partages de fichiers** du compte de stockage.
 
-4. Cliquez avec le bouton droit sur le partage de fichiers puis, dans le menu contextuel, sélectionnez **Get Shared Access Signature** (Obtenir une signature d’accès partagé).
+1. Cliquez avec le bouton droit sur le partage de fichiers puis, dans le menu contextuel, sélectionnez **Get Shared Access Signature** (Obtenir une signature d’accès partagé).
 
     ![Obtenir une signature d’accès partagé](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. Dans la boîte de dialogue **Signature d’accès partagé** , spécifiez la stratégie, les dates de début et d’expiration, le fuseau horaire et les niveaux d’accès de la ressource.
+1. Dans la boîte de dialogue **Signature d’accès partagé** , spécifiez la stratégie, les dates de début et d’expiration, le fuseau horaire et les niveaux d’accès de la ressource.
 
     ![Boîte de dialogue SAP](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. Une fois les options SAP spécifiées, sélectionnez **Créer**.
+1. Une fois les options SAP spécifiées, sélectionnez **Créer**.
 
-7. Vous accédez alors à une deuxième boîte de dialogue **Signature d’accès partagé** dans laquelle vous pouvez visualiser le partage de fichiers, ainsi que les URL et les chaînes de requête que vous pouvez utiliser pour accéder à la ressource de stockage. Sélectionnez **Copier** en regard de l’URL que vous souhaitez copier dans le Presse-papiers.
+1. Vous accédez alors à une deuxième boîte de dialogue **Signature d’accès partagé** dans laquelle vous pouvez visualiser le partage de fichiers, ainsi que les URL et les chaînes de requête que vous pouvez utiliser pour accéder à la ressource de stockage. Sélectionnez **Copier** en regard de l’URL que vous souhaitez copier dans le Presse-papiers.
     
     ![Deuxième boîte de dialogue SAP](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-8. Lorsque vous avez terminé, sélectionnez **Fermer**.
+1. Lorsque vous avez terminé, sélectionnez **Fermer**.
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Gérer les stratégies d’accès d’un partage de fichiers
 
@@ -150,19 +149,19 @@ Les étapes suivantes montrent comment gérer (ajouter et supprimer) les straté
 
 1. Ouvrez l’Explorateur de stockage.
 
-2. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers pour lequel vous souhaitez gérer les stratégies d’accès.
+1. Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers pour lequel vous souhaitez gérer les stratégies d’accès.
 
-3. Développez le dossier **Partages de fichiers** du compte de stockage.
+1. Développez le dossier **Partages de fichiers** du compte de stockage.
 
-4. Sélectionnez le partage de fichiers souhaité puis, dans le menu contextuel, sélectionnez **Manage Access Policies** (Gérer les stratégies d’accès).
+1. Sélectionnez le partage de fichiers souhaité puis, dans le menu contextuel, sélectionnez **Manage Access Policies** (Gérer les stratégies d’accès).
 
     ![Gérer les stratégies d’accès - Menu contextuel](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. La boîte de dialogue **Stratégies d’accès** répertorie les stratégies d’accès déjà créées pour le partage de fichiers sélectionné.
+1. La boîte de dialogue **Stratégies d’accès** répertorie les stratégies d’accès déjà créées pour le partage de fichiers sélectionné.
     
     ![Stratégies d’accès](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Suivez ces étapes en fonction de la tâche de gestion des stratégies d’accès :
+1. Suivez ces étapes en fonction de la tâche de gestion des stratégies d’accès :
     
     - **Ajouter une nouvelle stratégie d’accès** : sélectionnez **Ajouter**. Une fois la stratégie générée, la boîte de dialogue **Stratégies d’accès** affiche la stratégie d’accès que vous venez d’ajouter (avec les paramètres par défaut).
 
@@ -170,7 +169,7 @@ Les étapes suivantes montrent comment gérer (ajouter et supprimer) les straté
 
     - **Supprimer une stratégie d’accès** : sélectionnez **Supprimer** en regard de la stratégie d’accès à supprimer.
 
-7. Créez une URL de SAP à l’aide de la stratégie d’accès que vous avez élaborée précédemment :
+1. Créez une URL de SAP à l’aide de la stratégie d’accès que vous avez élaborée précédemment :
     
     ![Obtenir une SAP](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -184,19 +183,19 @@ Les étapes suivantes expliquent comment gérer les fichiers (et les dossiers) d
 
 1.  Ouvrez l’Explorateur de stockage.
 
-2.  Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez gérer.
+1.  Dans le volet gauche, développez le compte de stockage contenant le partage de fichiers que vous souhaitez gérer.
 
-3.  Développez le dossier **Partages de fichiers** du compte de stockage.
+1.  Développez le dossier **Partages de fichiers** du compte de stockage.
 
-4.  Double-cliquez sur le partage de fichiers que vous souhaitez afficher.
+1.  Double-cliquez sur le partage de fichiers que vous souhaitez afficher.
 
-5.  Le volet principal affiche le contenu du partage de fichiers.
+1.  Le volet principal affiche le contenu du partage de fichiers.
 
     ![Contenu d’un partage de fichiers](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  Le volet principal affiche le contenu du partage de fichiers.
+1.  Le volet principal affiche le contenu du partage de fichiers.
 
-7.  Suivez ces étapes en fonction de la tâche que vous souhaitez effectuer :
+1.  Suivez ces étapes en fonction de la tâche que vous souhaitez effectuer :
 
     - **Charger des fichiers dans un partage de fichiers**
 

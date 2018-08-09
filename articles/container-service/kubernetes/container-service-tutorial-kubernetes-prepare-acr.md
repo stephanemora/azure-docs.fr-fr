@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f58a8d76cc46ac25474c7b91e464974612876a06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f14a7aabbdf815992e0777eaf5335a69570ce2e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164950"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429248"
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
 
@@ -33,19 +33,19 @@ Dans les didacticiels suivants, cette instance ACR est intégrée à un cluster 
 
 Dans le [didacticiel précédent](./container-service-tutorial-kubernetes-prepare-app.md), une image conteneur a été créée pour une application Azure Vote. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md).
 
-Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="deploy-azure-container-registry"></a>Déployer Azure Container Registry
 
 Lorsque vous déployez un registre de conteneurs Azure, il vous faut tout d’abord un groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Dans cet exemple, un groupe de ressources nommé `myResourceGroup` est créé dans la région `westeurope`.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). Dans cet exemple, un groupe de ressources nommé `myResourceGroup` est créé dans la région `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Créez un registre de conteneurs Azure à l’aide de la commande [az acr create](/cli/azure/acr#az_acr_create). Le nom d’un registre de conteneurs **doit être unique**.
+Créez un registre de conteneurs Azure à l’aide de la commande [az acr create](/cli/azure/acr#az-acr-create). Le nom d’un registre de conteneurs **doit être unique**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -55,7 +55,7 @@ Dans le reste de ce didacticiel, nous utilisons `<acrname>` comme espace réserv
 
 ## <a name="container-registry-login"></a>Connexion au registre de conteneurs
 
-Utilisez la commande [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) pour vous connecter à l’instance ACR. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
+Utilisez la commande [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) pour vous connecter à l’instance ACR. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
 
 ```azurecli
 az acr login --name <acrName>
@@ -124,7 +124,7 @@ Quelques minutes sont nécessaires pour achever l’opération.
 
 ## <a name="list-images-in-registry"></a>Créer la liste des images du registre
 
-Pour retourner une liste d’images qui ont été déplacées dans le registre de conteneurs Azure, utilisez la commande [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Mettez à jour la commande avec le nom d’instance ACR.
+Pour retourner une liste d’images qui ont été déplacées dans le registre de conteneurs Azure, utilisez la commande [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list). Mettez à jour la commande avec le nom d’instance ACR.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -156,7 +156,7 @@ Au terme de ce didacticiel, l’image conteneur est stockée dans une instance p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, un registre de conteneurs Azure a été préparé pour une utilisation dans un cluster ACS Kubernetes. Les étapes suivantes ont été effectuées :
+Dans ce didacticiel, un registre de conteneurs Azure a été préparé pour une utilisation dans un cluster ACS Kubernetes. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
 > * Déploiement d’une instance Azure Container Registry

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 60991f2780de86f0b15f64def6b1776316f974d4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d140cbdb0548de869c7aab6ba5da281046a215f9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055621"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Didacticiel : Intégration d’Azure Active Directory à xMatters OnDemand
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de xMatters OnDemand à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-xmatters-ondemand-from-the-gallery"></a>Ajout de xMatters OnDemand à partir de la galerie
 Pour configurer l’intégration de xMatters OnDemand à Azure AD, vous devez ajouter xMatters OnDemand disponible dans la galerie, à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration de xMatters OnDemand à Azure AD, vous devez 
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **xMatters OnDemand**.
+1. Dans la zone de recherche, tapez **xMatters OnDemand**.
 
     ![Création d’un utilisateur de test Azure AD](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_search.png)
 
-5. Dans le volet de résultats, sélectionnez **xMatters OnDemand**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le volet de résultats, sélectionnez **xMatters OnDemand**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Dans xMatters OnDemand, affectez la valeur du **nom d’utilisateur** dans Azur
 Pour configurer et tester l’authentification unique Azure AD avec xMatters OnDemand, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test xMatters OnDemand](#creating-a-xmatters-ondemand-test-user)** pour avoir un équivalent de Britta Simon dans xMatters OnDemand lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test xMatters OnDemand](#creating-a-xmatters-ondemand-test-user)** pour avoir un équivalent de Britta Simon dans xMatters OnDemand lié à la représentation Azure AD de l’utilisateur.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **xMatters OnDemand**, cliquez sur **Authentification unique**.
 
-    ![Configurer l'authentification unique][4]
+    ![Configure Single Sign-On][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
-    ![Configurer l'authentification unique](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
+    ![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
 
-3. Dans la section **Domaine et URL xMatters OnDemand**, effectuez les étapes suivantes :
+1. Dans la section **Domaine et URL xMatters OnDemand**, effectuez les étapes suivantes :
 
-    ![Configurer l'authentification unique](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
+    ![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
     | |
@@ -132,28 +132,28 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[l’équipe de support technique de xMatters OnDemand](https://www.xmatters.com/company/contact-us/).
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat (Base64)**, puis enregistrez le fichier du certificat localement en tant que **c:\\XMatters OnDemand.cer**.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat (Base64)**, puis enregistrez le fichier du certificat localement en tant que **c:\\XMatters OnDemand.cer**.
 
-    ![Configurer l'authentification unique](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
+    ![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
 
     > [!IMPORTANT]
     > Vous devez transférer le certificat à l’[équipe de support technique de xMatters OnDemand](https://www.xmatters.com/company/contact-us/). L’équipe du support technique xMatters doit charger le certificat avant que vous ne puissiez finaliser la configuration de l’authentification unique. 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l'authentification unique](./media/xmatters-ondemand-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de xMatters OnDemand**, cliquez sur **Configurer xMatters OnDemand** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **Configuration de xMatters OnDemand**, cliquez sur **Configurer xMatters OnDemand** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configurer l'authentification unique](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_configure.png) 
+    ![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_configure.png) 
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise XMatters OnDemand en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise XMatters OnDemand en tant qu’administrateur.
 
-8. Dans la barre d’outils de la partie supérieure, cliquez sur **Admin**, puis sur **Company Details** dans la barre de navigation située à gauche.
+1. Dans la barre d’outils de la partie supérieure, cliquez sur **Admin**, puis sur **Company Details** dans la barre de navigation située à gauche.
 
     ![Administrateur](./media/xmatters-ondemand-tutorial/IC776795.png "Administrateur")
 
-9. Dans la page **SAML Configuration** , procédez comme suit :
+1. Dans la page **SAML Configuration** , procédez comme suit :
 
     ![Configuration SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configuration SAML")
 
@@ -180,15 +180,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Création d’un utilisateur de test Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
 
     ![Création d’un utilisateur de test Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Création d’un utilisateur de test Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
@@ -204,15 +204,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans xMatters OnDemand. xMatters OnDemand prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Des informations supplémentaires sur la configuration de l’attribution automatique d’utilisateurs sont disponibles [ici](xmatters-ondemand-provisioning-tutorial.md).
 
-**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
+**Si vous avez besoin de créer un utilisateur manuellement, effectuez les étapes suivantes :**
 
 1. Connectez-vous à votre client **xMatters OnDemand** .
 
-2.  Cliquez sur l’onglet **Utilisateurs**, puis sur **Ajouter un utilisateur**.
+1.  Cliquez sur l’onglet **Utilisateurs**, puis sur **Ajouter un utilisateur**.
 
     ![Utilisateurs](./media/xmatters-ondemand-tutorial/IC781048.png "Utilisateurs")
 
-3. Dans la section **Add a User** , procédez comme suit :
+1. Dans la section **Add a User** , procédez comme suit :
 
     ![Ajouter un utilisateur](./media/xmatters-ondemand-tutorial/IC781049.png "Ajouter un utilisateur")
 
@@ -240,23 +240,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **xMatters OnDemand**.
+1. Dans la liste des applications, sélectionnez **xMatters OnDemand**.
 
-    ![Configurer l'authentification unique](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_app.png) 
+    ![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

@@ -2,25 +2,20 @@
 title: Concevoir des tables scalables et performantes dans le stockage Table Azure. | Microsoft Docs
 description: Concevoir des tables scalables et performantes dans le stockage Table Azure.
 services: storage
-documentationcenter: na
 author: SnehaGunda
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: ba48283371ac099b162aeb3cbffd6127ccce1676
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 783522997a752c4eac575316983bc6ef853c3f43
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659730"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526910"
 ---
-# <a name="design-scalable-and-performant-tables"></a>Conception de tables scalables et performantes
+# <a name="design-scalable-and-performant-tables"></a>Conception de tables extensibles et performantes
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 

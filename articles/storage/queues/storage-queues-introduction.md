@@ -2,24 +2,19 @@
 title: Présentation du Stockage File d’attente Azure | Microsoft Docs
 description: Présentation du Stockage File d’attente Azure
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.openlocfilehash: 792e8c7efb2a627fbc1abde1389015949d5931e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: queues
+ms.openlocfilehash: d2d4a31097c4050ba9193fc9d6fa076fe9c6e27f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059584"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524829"
 ---
 # <a name="introduction-to-queues"></a>Présentation des files d’attente
 
@@ -39,11 +34,11 @@ Le service de file d’attente contient les composants suivants :
 ![Concepts de File d’attente](./media/storage-queues-introduction/queue1.png)
 
 * **Format d’URL :** les files d’attente sont adressables à l’aide du format d’URL suivant :   
-    http://`<storage account>`.queue.core.windows.net/`<queue>` 
+    https://`<storage account>`.queue.core.windows.net/`<queue>` 
   
     L'URL suivante désigne une file d'attente du schéma :  
   
-    `http://myaccount.queue.core.windows.net/images-to-download`
+    `https://myaccount.queue.core.windows.net/images-to-download`
 
 * **Compte de stockage :** tous les accès au Stockage Azure s’effectuent via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) .
 
@@ -53,5 +48,5 @@ Le service de file d’attente contient les composants suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer un compte de stockage](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [Créez un compte de stockage](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 * [Bien démarrer avec les files d’attente en utilisant .NET](storage-dotnet-how-to-use-queues.md)

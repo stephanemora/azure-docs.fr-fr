@@ -9,19 +9,19 @@ editor: daden
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 450c033fbce3544cdc17ddc6d47ff726b01a4d3e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832660"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450669"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prévision de charges de travail de serveur sur des téraoctets de données
 
@@ -49,9 +49,9 @@ Dans ce scénario, vous vous concentrez sur la prédiction de la charge de trava
 Cet exemple nécessite les prérequis suivants :
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
-* Une copie installée [d’Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Pour installer le programme et créer un espace de travail, consultez le [guide de démarrage rapide relatif à l’installation](../service/quickstart-installation.md). Si vous avez plusieurs abonnements, vous pouvez [définir l’abonnement souhaité comme abonnement actif actuel](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
+* Une copie installée [d’Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Pour installer le programme et créer un espace de travail, consultez le [guide de démarrage rapide relatif à l’installation](../service/quickstart-installation.md). Si vous avez plusieurs abonnements, vous pouvez [définir l’abonnement souhaité comme abonnement actif actuel](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 * Windows 10 (les instructions de cet exemple s’appliquent en général avec les systèmes macOS).
-* Une image DSVM (Data Science Virtual Machine) pour Linux (Ubuntu), de préférence dans la région États-Unis de l’Est où les données se trouvent. Vous pouvez approvisionner une machine virtuelle de science des données Ubuntu en suivant ces [instructions](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Vous pouvez aussi consulter ce [guide de démarrage rapide](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Nous recommandons d’utiliser une machine virtuelle avec au moins 8 cœurs et 32 Go de mémoire. 
+* Une image DSVM (Data Science Virtual Machine) pour Linux (Ubuntu), de préférence dans la région USA Est où les données se trouvent. Vous pouvez approvisionner une machine virtuelle de science des données Ubuntu en suivant ces [instructions](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Vous pouvez aussi consulter ce [guide de démarrage rapide](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Nous recommandons d’utiliser une machine virtuelle avec au moins 8 cœurs et 32 Go de mémoire. 
 
 Suivez les [instruction](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) pour activer l’accès à sudoer sans mot de passe sur la machine virtuelle pour AML Workbench.  Vous pouvez choisir d’utiliser [l’authentification basée sur la clé SSH pour la création et l’utilisation de la machine virtuelle dans AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Dans cet exemple, nous utilisons le mot de passe pour accéder à la machine virtuelle.  Enregistrez le tableau suivant qui contient les informations sur la machine virtuelle de science des données pour les étapes ultérieures :
 
@@ -64,7 +64,7 @@ Adresse IP de la machine virtuelle de science des données | xxx|
 
  Vous pouvez choisir d’utiliser une machine virtuelle avec le [moteur Docker](https://docs.docker.com/engine/) installé.
 
-* Un cluster HDInsight Spark avec Hortonworks Data Platform version 3.6 et Spark version 2.1.x, de préférence dans la région États-Unis de l’Est où les données se trouvent. Consultez [Créer un cluster Apache Spark dans Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) pour savoir comment créer des clusters HDInsight. Nous recommandons d’utiliser un cluster à trois Workers avec 16 cœurs et 112 Go de mémoire par Worker. Vous pouvez également sélectionner simplement le type de machine virtuelle « `D12 V2` » pour le nœud principal et « `D14 V2` » pour le nœud Worker. Le déploiement du cluster dure environ 20 minutes. Vous avez besoin du nom, du nom d’utilisateur SSH et du mot de passe du cluster pour exécuter cet exemple. Enregistrez le tableau suivant qui contient les informations sur le cluster Azure HDInsight pour les étapes ultérieures :
+* Un cluster HDInsight Spark avec Hortonworks Data Platform version 3.6 et Spark version 2.1.x, de préférence dans la région USA Est où les données se trouvent. Consultez [Créer un cluster Apache Spark dans Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) pour savoir comment créer des clusters HDInsight. Nous recommandons d’utiliser un cluster à trois Workers avec 16 cœurs et 112 Go de mémoire par Worker. Vous pouvez également sélectionner simplement le type de machine virtuelle « `D12 V2` » pour le nœud principal et « `D14 V2` » pour le nœud Worker. Le déploiement du cluster dure environ 20 minutes. Vous avez besoin du nom, du nom d’utilisateur SSH et du mot de passe du cluster pour exécuter cet exemple. Enregistrez le tableau suivant qui contient les informations sur le cluster Azure HDInsight pour les étapes ultérieures :
 
  Nom du champ| Valeur |  
  |------------|------|
@@ -97,7 +97,7 @@ Exécutez `git status` pour examiner l’état des fichiers de suivi de version.
 
 ## <a name="data-description"></a>Description des données
 
-Les données utilisées dans cet exemple sont des données de charge de travail d’un serveur synthétisé. Elles sont hébergées dans un compte Stockage Blob Azure, accessible publiquement dans la région États-Unis de l’Est. Vous trouverez les informations propres au compte de stockage dans le champ `dataFile` de [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) au format « wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path> ». Vous pouvez utiliser les données directement à partir du stockage Blob Azure. Si le stockage est utilisé simultanément par un grand nombre d’utilisateurs, vous pouvez utiliser [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) pour télécharger les données dans votre propre stockage, afin de bénéficier d’une meilleure expérience d’expérimentation. 
+Les données utilisées dans cet exemple sont des données de charge de travail d’un serveur synthétisé. Elles sont hébergées dans un compte Stockage Blob Azure, accessible publiquement dans la région USA Est. Vous trouverez les informations propres au compte de stockage dans le champ `dataFile` de [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) au format « wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path> ». Vous pouvez utiliser les données directement à partir du stockage Blob Azure. Si le stockage est utilisé simultanément par un grand nombre d’utilisateurs, vous pouvez utiliser [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) pour télécharger les données dans votre propre stockage, afin de bénéficier d’une meilleure expérience d’expérimentation. 
 
 La taille totale des données est d’environ 1 To. Chaque fichier a une taille d’environ 1 à 3 Go et est au format de fichier CSV sans en-tête. Chaque ligne de données représente la charge d’une transaction sur un serveur particulier. Les informations détaillées du schéma de données sont les suivantes :
 

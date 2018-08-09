@@ -1,24 +1,20 @@
 ---
 title: Exemples de stockage Azure avec Java| Microsoft Docs
-description: "Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez des exemples de mise en route d’objets blob, de files d’attente, de tables et de fichiers à l’aide des bibliothèques clientes de stockage Java."
+description: Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez des exemples de mise en route d’objets blob, de files d’attente, de tables et de fichiers à l’aide des bibliothèques clientes de stockage Java.
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: 
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: fd27e1ac9a773e7b0f5245aa74acdb0521cd098c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: bdc25a7aeff88d058eaf3fddf6cec023edff3b9e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529629"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemples de stockage Azure avec Java
 
@@ -195,7 +191,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 </table>
 <br/>
 
-## <a name="azure-code-samples-library"></a>Bibliothèque d’exemples de code Azure
+## <a name="azure-code-samples-library"></a>Bibliothèque Exemples de code Azure
 
 Pour voir la bibliothèque complète des exemples, consultez la bibliothèque d’[exemples de code Azure](https://azure.microsoft.com/resources/samples/?service=storage) pour trouver des exemples de stockage Azure que vous pouvez télécharger et exécuter localement. Les exemples de code fournis par la bibliothèque sont au format .zip. Vous pouvez également parcourir et cloner le dépôt GitHub pour chaque exemple.
 
@@ -205,14 +201,14 @@ Pour voir la bibliothèque complète des exemples, consultez la bibliothèque d�
 
 Consultez les guides suivants si vous recherchez des instructions sur l’installation et la prise en main des bibliothèques clientes de stockage Azure.
 
-* [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](../storage-java-how-to-use-queue-storage.md)
+* [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](../blobs/storage-quickstart-blobs-java.md)
+* [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](../queues/storage-java-how-to-use-queue-storage.md)
 * [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](../storage-java-how-to-use-file-storage.md)
+* [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](../files/storage-java-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les exemples pour d’autres langages :
 
-* .NET : [exemples de stockage Azure avec .NET](../storage-samples-dotnet.md)
-* Tous les autres langages : [exemples de stockage Azure](../storage-samples.md)
+* .NET : [exemples de stockage Azure avec .NET](storage-samples-dotnet.md)
+* Tous les autres langages : [exemples de stockage Azure](storage-samples.md)

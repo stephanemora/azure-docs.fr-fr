@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 1dfe8a903e19ff524a1c4a0228e6aefcbe9ff183
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117678"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449357"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gérer un plan App Service dans Azure
 
@@ -35,15 +35,15 @@ Vous pouvez créer un plan App Service vide ou en créer un dans le cadre de la 
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Nouveau** > **Web + Mobile**, puis sélectionnez **Application web** ou un autre genre d’application App Service.
 
-2. Sélectionnez un plan App Service existant ou créez-en un pour la nouvelle application.
+1. Sélectionnez un plan App Service existant ou créez-en un pour la nouvelle application.
 
-   ![Créez une application dans le portail Azure.][createWebApp]
+   ![Créer une application dans le portail Azure.][createWebApp]
 
    Pour créer un plan :
 
    a. Sélectionnez **[+] Créer nouveau**.
 
-      ![Créez un plan App Service.][createASP] 
+      ![Créer un plan App Service.][createASP] 
 
    b. Sous **Plan App Service**, entrez le nom du plan.
 
@@ -59,13 +59,13 @@ Vous pouvez déplacer une application vers un autre plan App Service tant que le
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à l’application à déplacer.
 
-2. Dans le menu, recherchez la section **Plan App Service**.
+1. Dans le menu, recherchez la section **Plan App Service**.
 
-3. Sélectionnez **Changer le plan App Service** pour ouvrir le sélecteur de **plan App Service**.
+1. Sélectionnez **Changer le plan App Service** pour ouvrir le sélecteur de **plan App Service**.
 
    ![Sélecteur de plan App Service.][change] 
 
-4. Dans le sélecteur de **plan App Service**, sélectionnez un plan existant vers lequel déplacer cette application.   
+1. Dans le sélecteur de **plan App Service**, sélectionnez un plan existant vers lequel déplacer cette application.   
 
 > [!IMPORTANT]
 > La page **Sélectionner un plan App Service** est filtrée selon les critères suivants : 
@@ -73,12 +73,12 @@ Vous pouvez déplacer une application vers un autre plan App Service tant que le
 > - Il existe dans la même région géographique 
 > - Il existe dans le même espace web  
 > 
-> Un _espace web_ est une construction logique dans App Service qui définit un regroupement de ressources du serveur. Une région géographique (par exemple, Ouest des États-Unis) contient plusieurs espaces web pour allouer des clients qui utilisent App Service. À l’heure actuelle, vous ne pouvez pas déplacer de ressources App Service entre des espaces web. 
+> Un _espace web_ est une construction logique dans App Service qui définit un regroupement de ressources du serveur. Une région géographique (par exemple, USA Ouest) contient plusieurs espaces web pour allouer des clients qui utilisent App Service. À l’heure actuelle, vous ne pouvez pas déplacer de ressources App Service entre des espaces web. 
 > 
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Chaque plan a son propre niveau tarifaire. Par exemple, quand vous passez du niveau **Gratuit** au niveau **Standard** d’un site, toutes les applications affectées peuvent utiliser les fonctionnalités et ressources du niveau **Standard**. Par contre, le déplacement d’une application d’un plan de niveau supérieur vers un plan de niveau inférieur vous prive de certaines fonctionnalités. Si votre application utilise une fonctionnalité qui n’est pas disponible dans le plan cible, vous obtenez une erreur qui indique quelle fonctionnalité en cours d’utilisation n’est pas disponible. 
+Chaque plan a son propre niveau de tarification. Par exemple, quand vous passez du niveau **Gratuit** au niveau **Standard** d’un site, toutes les applications affectées peuvent utiliser les fonctionnalités et ressources du niveau **Standard**. Par contre, le déplacement d’une application d’un plan de niveau supérieur vers un plan de niveau inférieur vous prive de certaines fonctionnalités. Si votre application utilise une fonctionnalité qui n’est pas disponible dans le plan cible, vous obtenez une erreur qui indique quelle fonctionnalité en cours d’utilisation n’est pas disponible. 
 
 Par exemple, si l’une de vos applications utilise des certificats SSL, ce message d’erreur peut s’afficher :
 

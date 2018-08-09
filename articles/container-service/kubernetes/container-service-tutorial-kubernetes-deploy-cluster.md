@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 29a5cc67ab4d515809d00e5f0b4277f95bfb08e6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100166"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434422"
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Déployer un cluster Kubernetes dans Azure Container Service
 
@@ -33,9 +33,9 @@ Dans les didacticiels suivants, l’application Azure Vote est déployée sur le
 
 Dans les didacticiels précédents, une image conteneur a été créée et chargée dans une instance Azure Container Registry. Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md).
 
-## <a name="create-kubernetes-cluster"></a>Créer un cluster Kubernetes
+## <a name="create-kubernetes-cluster"></a>Créer un cluster Kubernetes
 
-Pour créer un cluster Kubernetes dans Azure Container Service, utilisez la commande [az acs create](/cli/azure/acs#az_acs_create). 
+Pour créer un cluster Kubernetes dans Azure Container Service, utilisez la commande [az acs create](/cli/azure/acs#az-acs-create). 
 
 L’exemple suivant crée un cluster nommé `myK8sCluster` dans le groupe de ressources `myResourceGroup`. Vous avez créé le groupe de ressources au [tutoriel précédent](./container-service-tutorial-kubernetes-prepare-acr.md).
 
@@ -43,7 +43,7 @@ L’exemple suivant crée un cluster nommé `myK8sCluster` dans le groupe de res
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-Dans certains cas, par exemple avec une version d’évaluation limitée, un abonnement Azure dispose d’un accès limité aux ressources Azure. Si le déploiement échoue à cause d’une limitation du nombre de cœurs disponibles, réduisez le nombre d’agents par défaut en ajoutant `--agent-count 1` à la commande [az acs create](/cli/azure/acs#az_acs_create). 
+Dans certains cas, par exemple avec une version d’évaluation limitée, un abonnement Azure dispose d’un accès limité aux ressources Azure. Si le déploiement échoue à cause d’une limitation du nombre de cœurs disponibles, réduisez le nombre d’agents par défaut en ajoutant `--agent-count 1` à la commande [az acs create](/cli/azure/acs#az-acs-create). 
 
 Au bout de quelques minutes, le déploiement se termine et retourne des informations au format JSON concernant le déploiement ACS.
 
@@ -75,7 +75,7 @@ Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get
 kubectl get nodes
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
@@ -89,14 +89,14 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, un cluster Azure Container Service Kubernetes a été déployé. Les étapes suivantes ont été effectuées :
+Dans ce didacticiel, un cluster Azure Container Service Kubernetes a été déployé. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
 > * Déploiement d’un cluster ACS Kubernetes
 > * Installation de l’interface de ligne de commande Kubernetes (kubectl)
 > * Configuration de kubectl
 
-Passez au didacticiel suivant pour en savoir plus sur l’exécution de l’application sur le cluster.
+Passez au tutoriel suivant pour en savoir plus sur l’exécution de l’application sur le cluster.
 
 > [!div class="nextstepaction"]
 > [Déployer une application dans Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
