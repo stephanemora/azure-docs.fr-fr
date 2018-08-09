@@ -7,16 +7,16 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 40711c424d3d552253deba85110b0c4447f4ec62
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 18cf885cd71822c2c24791f3c6f55835c3204d35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831019"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295206"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Créer une machine DSVM et un cluster HDI Spark en tant que cibles de calcul
 
@@ -150,7 +150,7 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>Développer le disque de système d’exploitation DSVM
-La machine virtuelle DSVM Ubuntu est fournie avec un disque de système d’exploitation de 50 Go et un disque de données de 100 Go. Docker stocke ses images sur le disque de données, car il contient davantage d’espace. Lorsqu’il est utilisé comme cible de calcul pour Azure ML, ce disque peut être utilisé par le moteur Docker, qui extrait des images Docker et crée des couches conda par-dessus. Vous devrez peut-être développer le disque et accroître sa taille (par exemple, 200 Go) pour éviter une erreur du type « disque plein » au cours d’une exécution. Pour savoir comment y parvenir facilement depuis azure-cli, voir [Comment développer des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI](../../virtual-machines/linux/expand-disks.md). 
+La machine virtuelle DSVM Ubuntu est fournie avec un disque de système d’exploitation de 50 Go et un disque de données de 100 Go. Docker stocke ses images sur le disque de données, car il contient davantage d’espace. Lorsqu’il est utilisé comme cible de calcul pour Azure ML, ce disque peut être utilisé par le moteur Docker, qui extrait des images Docker et crée des couches conda par-dessus. Vous devrez peut-être développer le disque en augmentant sa taille (par exemple, 200 Go) pour éviter une erreur du type « disque plein » au cours d’une exécution. Pour savoir comment y parvenir facilement depuis azure-cli, voir [Comment développer des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI](../../virtual-machines/linux/expand-disks.md). 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Créer un cluster Apache Spark pour Azure HDInsight dans le portail Azure
 

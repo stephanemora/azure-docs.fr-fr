@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928730"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264713"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum aux questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Pourquoi ne puis-je pas accéder à l’extension Azure AD B2C sur le Portail Azure ?
-Si l’extension Azure AD ne fonctionne pas pour vous, il peut y avoir à cela deux raisons courantes.  Votre rôle utilisateur dans le répertoire doit être administrateur général pour Azure AD B2C.  Veuillez contacter votre administrateur si vous pensez que vous devriez y avoir accès.  Si vous disposez de privilèges Administrateur général, vérifiez que vous vous trouvez dans un annuaire Azure AD B2C et non un répertoire Azure Active Directory.  Vous trouverez [ici](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) des instructions pour créer un annuaire Azure AD B2C.
+Si l’extension Azure AD ne fonctionne pas pour vous, il peut y avoir deux raisons courantes à cela.  Votre rôle utilisateur dans le répertoire doit être administrateur général pour Azure AD B2C.  Veuillez contacter votre administrateur si vous pensez que vous devriez y avoir accès.  Si vous disposez de privilèges Administrateur général, vérifiez que vous vous trouvez dans un annuaire Azure AD B2C et non un répertoire Azure Active Directory.  Vous trouverez [ici](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) des instructions pour créer un annuaire Azure AD B2C.
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Puis-je utiliser les fonctionnalités d’Azure AD B2C dans mon client Azure AD existant, basé sur les employés ?
 Azure AD et Azure AD B2C sont deux offres de produits distinctes qui ne peuvent pas coexister dans le même locataire.  Un locataire Azure AD représente une organisation.  Un locataire Azure AD B2C représente une collection d’identités à utiliser avec des applications par partie de confiance.  Avec les stratégies personnalisées (en préversion publique), Azure AD B2C peut fédérer avec Azure AD, ce qui permet l’authentification des employés dans une organisation.

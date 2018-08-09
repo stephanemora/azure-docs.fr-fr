@@ -2,24 +2,18 @@
 title: Réparation d’un travail d’exportation Azure Import/Export - v1 | Microsoft Docs
 description: Apprenez à réparer un travail d’exportation qui a été créé et exécuté à l’aide du service Azure Import/Export.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 57ab58fa1fd8371d0b6f019f94bb162bcc1e0e43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: ef5a5f81c5eb3994f62469139c6e835bd802eaa9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059674"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522721"
 ---
 # <a name="repairing-an-export-job"></a>Réparation d’un travail d’exportation
 Une fois qu’un travail d’exportation est terminé, vous pouvez exécuter l’outil Microsoft Azure Import/Export local pour :  
@@ -38,14 +32,14 @@ Les paramètres suivants peuvent être spécifiés pour **RepairExport** :
   
 |Paramètre|Description|  
 |---------------|-----------------|  
-|**/r:&lt;RepairFile\>**|Obligatoire. Chemin d’accès au fichier de réparation, qui suit la progression de la réparation et vous permet de reprendre une réparation interrompue. Chaque lecteur ne doit avoir qu’un seul fichier de réparation. Lorsque vous démarrez une réparation pour un lecteur donné, vous transmettez le chemin d’accès à un fichier de réparation qui n’existe pas encore. Pour reprendre une réparation interrompue, vous devez transmettre le nom d’un fichier de réparation existant. Le fichier de réparation correspondant au lecteur cible doit toujours être spécifié.|  
+|**/r:&lt;RepairFile\>**|Requis. Chemin d’accès au fichier de réparation, qui suit la progression de la réparation et vous permet de reprendre une réparation interrompue. Chaque lecteur ne doit avoir qu’un seul fichier de réparation. Lorsque vous démarrez une réparation pour un lecteur donné, vous transmettez le chemin d’accès à un fichier de réparation qui n’existe pas encore. Pour reprendre une réparation interrompue, vous devez transmettre le nom d’un fichier de réparation existant. Le fichier de réparation correspondant au lecteur cible doit toujours être spécifié.|  
 |**/logdir:&lt;LogDirectory\>**|facultatif. Répertoire contenant les journaux. Les fichiers journaux détaillés seront écrits dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire en cours est utilisé comme répertoire de journaux.|  
-|**/d:&lt;TargetDirectory\>**|Obligatoire. Répertoire pour valider et réparer. Il s’agit généralement du répertoire racine du lecteur d’exportation, mais cela peut également être un partage de fichiers réseau contenant une copie des fichiers exportés.|  
+|**/d:&lt;TargetDirectory\>**|Requis. Répertoire pour valider et réparer. Il s’agit généralement du répertoire racine du lecteur d’exportation, mais cela peut également être un partage de fichiers réseau contenant une copie des fichiers exportés.|  
 |**/bk:&lt;BitLockerKey\>**|facultatif. Vous devez spécifier la clé BitLocker si vous souhaitez que l’outil déverrouille un lecteur chiffré dans lequel les fichiers d’origine sont disponibles.|  
-|**/sn:&lt;StorageAccountName\>**|Obligatoire. Nom du compte de stockage du travail d’exportation.|  
+|**/sn:&lt;StorageAccountName\>**|Requis. Nom du compte de stockage du travail d’exportation.|  
 |**/sk:&lt;StorageAccountKey\>**|**Obligatoire** si et seulement si une SAP de conteneur n’est pas spécifiée. Clé du compte de stockage du travail d’exportation.|  
 |**/csas:&lt;ContainerSas\>**|**Obligatoire** si et seulement si la clé du compte de stockage n’est pas spécifiée. SAP de conteneur pour accéder aux objets blob associés au travail d’exportation.|  
-|**/CopyLogFile:&lt;DriveCopyLogFile\>**|Obligatoire. Chemin du fichier journal de copie du disque. Le fichier est généré par le service Windows Azure Import/Export et peut être téléchargé à partir du stockage blob associé au travail. Le fichier journal de copie contient des informations sur les objets blob en échec ou les fichiers qui doivent être réparés.|  
+|**/CopyLogFile:&lt;DriveCopyLogFile\>**|Requis. Chemin du fichier journal de copie du disque. Le fichier est généré par le service Windows Azure Import/Export et peut être téléchargé à partir du stockage blob associé au travail. Le fichier journal de copie contient des informations sur les objets blob en échec ou les fichiers qui doivent être réparés.|  
 |**/ManifestFile:&lt;DriveManifestFile\>**|facultatif. Chemin du fichier de manifeste du lecteur d’exportation. Ce fichier est généré par le service Windows Azure Import/Export et stocké sur le lecteur d’exportation et éventuellement dans un objet blob dans le compte de stockage associé au travail.<br /><br /> Le contenu des fichiers sur le lecteur d’exportation sera vérifié avec les hachages MD5 contenus dans ce fichier. Tous les fichiers qui sont considérés comme étant endommagés seront téléchargés et réécrits dans les répertoires cibles.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Utilisation du mode RepairExport pour corriger les échecs d’exportation  

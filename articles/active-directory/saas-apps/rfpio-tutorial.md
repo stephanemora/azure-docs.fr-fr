@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 59b05814be0be9042e7507cc8d928b5f5feb80ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 04ba94e3263af03279b74b4832b8291ad6414274
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051759"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Didacticiel : Intégration d’Azure Active Directory à RFPIO
 
@@ -52,7 +52,7 @@ Pour tester la procédure de ce didacticiel, suivez les recommandations ci-desso
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de RFPIO depuis la galerie.
-2. Configuration et test de l’authentification unique Azure AD.
+1. Configuration et test de l’authentification unique Azure AD.
 
 ## <a name="add-rfpio-from-the-gallery"></a>Ajout de RFPIO depuis la galerie
 Pour configurer l’intégration de RFPIO avec Azure AD, vous devez ajouter RFPIO à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration de RFPIO avec Azure AD, vous devez ajouter RFP
 
     ![Active Directory][1]
 
-2. Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, saisissez **RFPIO**.
+1. Dans la zone de recherche, saisissez **RFPIO**.
 
     ![Création d’un utilisateur de test Azure AD](./media/rfpio-tutorial/tutorial_rfpio_search.png)
 
-5. Dans le panneau de résultats, sélectionnez **RFPIO**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le panneau de résultats, sélectionnez **RFPIO**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/rfpio-tutorial/tutorial_rfpio_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Dans RFPIO, affectez la valeur du **nom d’utilisateur** dans Azure AD comme v
 Pour configurer et tester l’authentification unique Azure AD avec RFPIO, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test RFPIO](#creating-a-rfpio-test-user)** pour avoir un équivalent de Britta Simon dans RFPIO lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#testing-single-sign-on)** pour vérifier que la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test RFPIO](#creating-a-rfpio-test-user)** pour avoir un équivalent de Britta Simon dans RFPIO lié à la représentation Azure AD de l’utilisateur.
+1. **[Affecter l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#testing-single-sign-on)** pour vérifier que la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -104,11 +104,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Configurer l'authentification unique](./media/rfpio-tutorial/tutorial_rfpio_samlbase.png)
 
-3. Dans la section **Domaines et URL RFPIO**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
+1. Dans la section **Domaines et URL RFPIO**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/tutorial_rfpio_url.png)
 
@@ -120,39 +120,39 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     c. Dans la zone de texte **État de relais**, entrez une valeur de chaîne. Contactez l’[équipe de support technique de RFPIO](https://www.rfpio.com/contact/) pour obtenir cette valeur. 
 
-4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** : 
+1. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** : 
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/tutorial_rfpio_url2.png)
 
     Dans la zone de texte **URL d’authentification**, saisissez l’URL : `https://www.app.rfpio.com`
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/rfpio-tutorial/tutorial_rfpio_certificate.png) 
+    ![Configure Single Sign-On](./media/rfpio-tutorial/tutorial_rfpio_certificate.png) 
 
-6. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/tutorial_general_400.png)
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous au site web **RFPIO** en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous au site web **RFPIO** en tant qu’administrateur.
 
-8. Cliquez sur la liste déroulante située en bas à gauche.
+1. Cliquez sur la liste déroulante située en bas à gauche.
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app1.png)
 
-9. Cliquez sur **Paramètres de l’organisation**. 
+1. Cliquez sur **Paramètres de l’organisation**. 
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app2.png)
 
-10. Cliquez sur **FONCTIONNALITÉS ET INTÉGRATION**.
+1. Cliquez sur **FONCTIONNALITÉS ET INTÉGRATION**.
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app4.png)
 
-11. Dans **Configuration SAML SSO**, cliquez sur **Modifier**.
+1. Dans **Configuration SAML SSO**, cliquez sur **Modifier**.
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app3.png)
 
-12. Dans cette section, procédez comme suit :
+1. Dans cette section, procédez comme suit :
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app5.png)
     
@@ -182,15 +182,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/rfpio-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/rfpio-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/rfpio-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/rfpio-tutorial/create_aaduser_04.png) 
 
@@ -211,23 +211,23 @@ Dans le cas de RFPIO, l’approvisionnement se fait manuellement.
 
 1. Connectez-vous à votre site d’entreprise RFPIO en tant qu’administrateur.
 
-2. Cliquez sur la liste déroulante située en bas à gauche.
+1. Cliquez sur la liste déroulante située en bas à gauche.
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app1.png)
 
-3. Cliquez sur **Paramètres de l’organisation**. 
+1. Cliquez sur **Paramètres de l’organisation**. 
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app2.png)
 
-4. Cliquez sur **MEMBRES DE L’ÉQUIPE**.
+1. Cliquez sur **MEMBRES DE L’ÉQUIPE**.
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app6.png)
 
-5. Cliquez sur **AJOUTER DES MEMBRES**.
+1. Cliquez sur **AJOUTER DES MEMBRES**.
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app7.png)
 
-6. Dans la section **Ajouter de nouveaux membres**. Procédez comme suit :
+1. Dans la section **Ajouter de nouveaux membres**. Procédez comme suit :
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/app8.png)
 
@@ -252,23 +252,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **RFPIO**.
+1. Dans la liste des applications, sélectionnez **RFPIO**.
 
     ![Configurer l'authentification unique](./media/rfpio-tutorial/tutorial_rfpio_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

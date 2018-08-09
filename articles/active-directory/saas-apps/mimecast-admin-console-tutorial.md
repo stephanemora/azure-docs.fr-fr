@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 27c9606357d9599fa56e4045606f8d9046722e7f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ce4142c5b4a20886a94c87699f262f7238fc2cb4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041719"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Didacticiel : Intégration d’Azure Active Directory à Mimecast Admin Console
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Mimecast Admin Console à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-mimecast-admin-console-from-the-gallery"></a>Ajout de Mimecast Admin Console à partir de la galerie
 Pour configurer l’intégration de Mimecast Admin Console à Azure AD, vous devez ajouter Mimecast Admin Console à partir de la galerie, à votre liste d’applications SaaS managées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de Mimecast Admin Console à Azure AD, vous dev
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Mimecast Admin Console**, sélectionnez **Mimecast Admin Console** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Mimecast Admin Console**, sélectionnez **Mimecast Admin Console** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Mimecast Admin Console dans la liste des résultats](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dans Mimecast Admin Console, affectez la valeur du **nom d’utilisateur** dans 
 Pour configurer et tester l’authentification unique Azure AD avec Mimecast Admin Console, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Mimecast Admin Console](#create-a-mimecast-admin-console-test-user)** pour obtenir un équivalent de Britta Simon dans Mimecast Admin Console lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test Mimecast Admin Console](#create-a-mimecast-admin-console-test-user)** pour obtenir un équivalent de Britta Simon dans Mimecast Admin Console lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +102,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_samlbase.png)
 
-3. Dans la section **Domaine et URL Mimecast Admin Console**, effectuez les étapes suivantes :
+1. Dans la section **Domaine et URL Mimecast Admin Console**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Mimecast Admin Console](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_url.png)
 
@@ -119,33 +119,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > L’URL d’ouverture de session est spécifique à la région.
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/mimecast-admin-console-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de Mimecast Admin Console**, cliquez sur **Configurer Mimecast Admin Console** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+1. Dans la section **Configuration de Mimecast Admin Console**, cliquez sur **Configurer Mimecast Admin Console** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**
 
     ![Configuration de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_configure.png) 
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Mimecast Admin Console en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Mimecast Admin Console en tant qu’administrateur.
 
-8. Accédez à **Services \> Application**.
+1. Accédez à **Services \> Application**.
 
     ![Services](./media/mimecast-admin-console-tutorial/ic794998.png "Services")
 
-9. Cliquez sur **Authentication Profiles**.
+1. Cliquez sur **Authentication Profiles**.
 
     ![Profils d’authentification](./media/mimecast-admin-console-tutorial/ic794999.png "Profils d’authentification")
     
-10. Cliquez sur **New Authentication Profile**.
+1. Cliquez sur **New Authentication Profile**.
 
     ![Nouveaux profils d’authentification](./media/mimecast-admin-console-tutorial/ic795000.png "Nouveaux profils d’authentification")
 
-11. Dans la section **Authentication Profile** , procédez comme suit :
+1. Dans la section **Authentication Profile** , procédez comme suit :
 
     ![Profil d’authentification](./media/mimecast-admin-console-tutorial/ic795015.png "Profil d’authentification")
     
@@ -185,15 +185,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/mimecast-admin-console-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/mimecast-admin-console-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/mimecast-admin-console-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/mimecast-admin-console-tutorial/create_aaduser_04.png)
 
@@ -214,16 +214,16 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mimecast Admin Conso
 **Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :**
 
 1. Connectez-vous à **Mimecast Admin Console** en tant qu’administrateur.
-2. Accédez à **Directories \> Internal**.
+1. Accédez à **Directories \> Internal**.
    
    ![Répertoires](./media/mimecast-admin-console-tutorial/ic795003.png "Répertoires")
-3. Cliquez sur **Register New Domain**.
+1. Cliquez sur **Register New Domain**.
    
    ![Enregistrer un nouveau domaine](./media/mimecast-admin-console-tutorial/ic795004.png "Enregistrer un nouveau domaine")
-4. Après avoir créé votre domaine, cliquez sur **New Address**.
+1. Après avoir créé votre domaine, cliquez sur **New Address**.
    
    ![Nouvelle adresse](./media/mimecast-admin-console-tutorial/ic795005.png "Nouvelle adresse")
-5. Dans la boîte de dialogue New Address, procédez comme suit :
+1. Dans la boîte de dialogue New Address, procédez comme suit :
    
    ![Enregistrer](./media/mimecast-admin-console-tutorial/ic795006.png "enregistrer")
    
@@ -246,23 +246,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Mimecast Admin Console**.
+1. Dans la liste des applications, sélectionnez **Mimecast Admin Console**.
 
     ![Lien Mimecast Admin Console dans la liste des applications](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

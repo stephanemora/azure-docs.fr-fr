@@ -5,6 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,32 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 275c1d1dad9030da776900c4e2b97152c8d2d581
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8cec2c2b72b88a27c4a6c15b197e859b879bef43
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839130"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308522"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Rôles et tâches du responsable de l’équipe Team Data Science Process
 
 Team Data Science Process (TDSP) est une infrastructure développée par Microsoft qui fournit une méthodologie structurée pour créer efficacement des solutions d’analyse prédictive et des applications intelligentes. Cet article présente les rôles du personnel clé et les tâches qui incombent à une équipe de science des données dans le cadre de ce processus. 
 
-Cette introduction référence des didacticiels qui fournissent des instructions sur la façon de configurer l’environnement TDSP pour tout le groupe de science des données, les équipes de science des données et les projets. Nous fournissons des conseils détaillés en utilisant Visual Studio Team Services (VSTS) dans les didacticiels comme notre plateforme d’hébergement de code et outil de planification agile permettant de gérer les tâches de l’équipe, de contrôler l’accès et de gérer les référentiels. 
+Cette introduction référence des didacticiels qui fournissent des instructions sur la façon de configurer l’environnement TDSP pour tout le groupe de science des données, les équipes de science des données et les projets. Elle offre une aide détaillée sur Visual Studio Team Services (VSTS) dans les tutoriels.  VSTS constitue une plateforme d’hébergement de code et un outil de planification agile permettant de gérer les tâches des équipes, de contrôler l’accès et de gérer les référentiels. 
 
-Vous pourrez également utiliser ces informations pour implémenter TDSP dans votre propre outil d’hébergement de code et de planification agile. 
+Vous pouvez utiliser ces informations pour implémenter TDSP dans votre propre outil d’hébergement de code et de planification agile. 
 
 ## <a name="structures-of-data-science-groups-and-teams"></a>Structures des groupes et équipes de science des données
+
 Les fonctions de science des données dans les entreprises sont souvent organisées dans la hiérarchie suivante :
 
 1. ***Groupe/s de sciences des données***
 
 2. ***Équipe/s de sciences des données/s dans le/s groupe/s***
 
-Ce type de structure nécessite des responsables de groupe et d’équipe. En règle générale, un projet de science des données est effectué par une équipe de science des données, qui peut être composée de responsables de projet (pour les tâches de gestion de projet et de gouvernance), de scientifiques des données ou d’ingénieurs (contributeurs individuels/personnel technique) qui s’occuperont des phases du projet consacrées à la science des données et à l’ingénierie. Avant l’exécution, la configuration et la gouvernance sont effectuées par les responsables de groupe, d’équipe ou de projet.
+Ce type de structure comporte des responsables de groupe et d’équipe. En règle générale, un projet de science des données est effectué par une équipe de science des données, qui peut être composée de responsables de projet (pour les tâches de gestion de projet et de gouvernance), de scientifiques des données ou d’ingénieurs (contributeurs individuels/personnel technique) qui s’occuperont des phases du projet consacrées à la science des données et à l’ingénierie. Avant l’exécution, la configuration et la gouvernance sont effectuées par les responsables de groupe, d’équipe ou de projet.
 
 ## <a name="definition-of-four-tdsp-roles"></a>Définition des quatre rôles TDSP
-Dans l’hypothèse ci-dessus, nous avons spécifié quatre rôles distincts pour le personnel de l’équipe :
+Dans l’hypothèse ci-dessus, le personnel de l’équipe est articulé autour de quatre rôles distincts :
 
 1. ***Responsable de groupe***. Le responsable de groupe est le responsable de l’ensemble de l’unité de science des données dans une entreprise. Une unité de science des données peut avoir plusieurs équipes, chacune travaillant sur plusieurs projets de science des données dans différents secteurs d’activité. Un responsable de groupe peut déléguer ses tâches à un remplaçant, mais les tâches associées au rôle ne changent pas.
 
@@ -50,7 +52,8 @@ Dans l’hypothèse ci-dessus, nous avons spécifié quatre rôles distincts pou
 4. ***Contributeur individuel de projet***. Scientifique des données, analyste d’entreprise, ingénieur, architecte, etc. Un contributeur individuel de projet exécute un projet de science des données. 
 
 
-**[AZURE.NOTE]** : selon la structure d’une entreprise, une même personne peut avoir plusieurs rôles, ou plusieurs personnes peuvent occuper un rôle. C’est souvent le cas dans les petites structures ou les entreprises dans lesquelles un petit nombre de personnes s’occupent de la science des données.
+> [!NOTE]
+> Selon la structure de l’entreprise, une même personne peut avoir plusieurs rôles OU plusieurs personnes peuvent occuper un même rôle. C’est souvent le cas dans les petites structures ou les entreprises dans lesquelles un petit nombre de personnes s’occupent de la science des données.
 
 ## <a name="tasks-to-be-completed-by-four-personnel"></a>Tâches à effectuer par quatre personnes
 
@@ -60,9 +63,10 @@ L’image suivante montre les tâches de niveau supérieur que doit effectuer le
 
 Ce schéma et la présentation suivante, plus détaillée, des tâches attribuées à chaque rôle dans le projet TDSP doivent vous aider à choisir le didacticiel approprié en fonction de vos responsabilités au sein de l’organisation.
 
->[AZURE.NOTE] Dans les instructions suivantes, nous montrons comment configurer un environnement TDSP et effectuer d’autres tâches de science des données dans Visual Studio Team Services (VSTS). Nous indiquons comment accomplir ces tâches avec VSTS, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. VSTS facilite la collaboration en intégrant la gestion des éléments qui effectuent le suivi des tâches et un service d’hébergement de code utilisé pour partager les utilitaires, organiser les versions et garantir une sécurité basée sur les rôles. Vous pouvez choisir d’autres plateformes pour implémenter les tâches présentées par le projet TDSP. Mais, selon votre plateforme, certaines fonctionnalités issues de VSTS peuvent ne pas être disponibles. 
+> [!NOTE]
+> Les instructions suivantes expliquent comment configurer un environnement TDSP et effectuer d’autres tâches de science des données dans Visual Studio Team Services (VSTS). Nous indiquons comment accomplir ces tâches avec VSTS, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. VSTS facilite la collaboration en intégrant la gestion des éléments qui effectuent le suivi des tâches et un service d’hébergement de code utilisé pour partager les utilitaires, organiser les versions et garantir une sécurité basée sur les rôles. Vous pouvez choisir d’autres plateformes pour implémenter les tâches présentées par le projet TDSP. Toutefois, toutes les fonctionnalités issues de VSTS ne sont pas forcément disponibles sur chaque plateforme. 
 >
->Nous utilisons également la [Machine virtuelle de science des données (DSVM)](http://aka.ms/dsvm) sur le cloud Azure comme bureau d’analyse avec plusieurs outils de science des données courants, préconfigurés et intégrés avec divers logiciels Microsoft et services Azure. Vous pouvez utiliser la machine DSVM ou tout autre environnement de développement pour implémenter TDSP. 
+>Les instructions présentées ici utilisent également la [machine virtuelle Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) sur le cloud Azure comme bureau d’analyse avec plusieurs outils de science des données courants, préconfigurés et compatibles avec différents logiciels Microsoft et services Azure. Vous pouvez utiliser la machine DSVM ou tout autre environnement de développement pour implémenter TDSP. 
 
 
 ## <a name="group-manager-tasks"></a>Tâches du responsable de groupe
@@ -70,8 +74,11 @@ Ce schéma et la présentation suivante, plus détaillée, des tâches attribué
 Les tâches suivantes sont effectuées par le Responsable de groupe (ou un administrateur du système TDSP désigné) afin d’adopter le projet TDSP :
 
 - Créer un **compte de groupe** sur une plateforme d’hébergement de code (par exemple, Github, Git, VSTS, entre autres)
-- Créer un **référentiel de modèle de projet** sur le compte de groupe et l’alimenter à l’aide du référentiel de modèle de projet développé par l’équipe TDSP de Microsoft. Le référentiel du modèle de projet TDSP de Microsoft offre une **structure de répertoires normalisée** incluant des répertoires pour les données, le code et les documents, et fournit un ensemble de **modèles de documents normalisés** pour optimiser le processus de science des données. 
-- Créer un **référentiel d’utilitaire** et l’alimenter à l’aide du référentiel d’utilitaire développé par l’équipe TDSP de Microsoft. Le référentiel d’utilitaire TDSP de Microsoft fournit un ensemble d’utilitaires qui optimisent le travail du spécialiste des données, y compris des utilitaires pour l’exploration interactive des données, l’analyse, la création de rapports, et la modélisation et la création de rapports de référence.
+- Créer un **référentiel de modèle de projet** sur le compte de groupe et l’alimenter à l’aide du référentiel de modèle de projet développé par l’équipe TDSP de Microsoft. Le référentiel de modèles de projet TDSP de Microsoft fournit : 
+    - une **structure de répertoires normalisée** pour les données, le code et les documents ; 
+    - un ensemble de **modèles de documents normalisés** pour aider à créer un processus de science des données efficace. 
+- Créer un **référentiel d’utilitaire** et l’alimenter à l’aide du référentiel d’utilitaire développé par l’équipe TDSP de Microsoft. Le référentiel de l’utilitaire TDSP de Microsoft fournit : 
+    - un ensemble d’utilitaires qui optimisent le travail du scientifique des données, notamment pour l’exploration interactive des données, l’analyse et la création de rapports, ainsi que la modélisation et la création de rapports de référence.
 - Configurer la **stratégie de contrôle de sécurité** de ces deux référentiels sur votre compte de groupe.  
 
 Pour obtenir des instructions détaillées, consultez [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md). 
@@ -132,9 +139,13 @@ Le flux de travail inclut des étapes qui peuvent être regroupées en trois act
 
 Pour obtenir des instructions détaillées sur le flux de travail d’exécution du projet, consultez [Réalisation de projets science des données](project-execution.md).
 
+## <a name="project-structure"></a>Structure de projet
+
+Utilisez ce [référentiel de modèles de projet](https://github.com/Azure/Azure-TDSP-ProjectTemplate) pour gérer la collaboration et l’exécution de projets efficaces. Il offre une structure de répertoires standardisée et des modèles de documents, que vous pouvez utiliser pour votre propre projet TDSP.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
+Voici des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
 
 - [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md)
 - [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md)

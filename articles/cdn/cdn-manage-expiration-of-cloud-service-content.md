@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: ec5470587454a35bc7606a3518d61bd3491d653b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc74d7fdd082cf497b7cabf30d96509ebe8b6b68
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765539"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426016"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gérer l’expiration du contenu web dans Azure CDN
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ La méthode recommandée pour définir l’en-tête `Cache-Control` d’un serve
 
 1. Dans le portail Azure, sélectionnez un profil CDN, puis sélectionnez un point de terminaison pour le serveur web.
 
-2. Dans le volet gauche, sous Paramètres, sélectionnez **Règles de mise en cache**.
+1. Dans le volet gauche, sous Paramètres, sélectionnez **Règles de mise en cache**.
 
    ![Bouton Règles de mise en cache CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
@@ -60,13 +60,13 @@ La méthode recommandée pour définir l’en-tête `Cache-Control` d’un serve
 
 1. Sous **Règles de mise en cache générales**, définissez **Comportement de mise en cache des chaînes de requête** sur **Ignorer les chaînes de requête**, puis définissez **Comportement de mise en cache** sur **Remplacer**.
       
-2. Pour **Durée d’expiration du cache**, entrez 3 600 dans la zone **Secondes** ou 1 dans la zone **Heures**. 
+1. Pour **Durée d’expiration du cache**, entrez 3 600 dans la zone **Secondes** ou 1 dans la zone **Heures**. 
 
    ![Exemple de règles de mise en cache générales CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    Cette règle de mise en cache générale définit une durée de mise en cache d’une heure et affecte toutes les requêtes au point de terminaison. Elle se substitue à tout en-tête HTTP `Cache-Control` ou `Expires` qui sont envoyés par le serveur d’origine spécifié par le point de terminaison.   
 
-3. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 **Pour définir les en-têtes Cache-Control d’un fichier de serveur web à l’aide de règles de mise en cache personnalisées :**
 
@@ -80,7 +80,7 @@ La méthode recommandée pour définir l’en-tête `Cache-Control` d’un serve
 
     La première règle de mise en cache personnalisée définit une durée de mise en cache de quatre heures pour tous les fichiers du dossier `/webfolder1` présent sur le serveur d’origine spécifié par votre point de terminaison. La deuxième règle remplace la première règle pour le fichier `file1.txt` uniquement, et définit une durée de mise en cache de deux heures pour celui-ci.
 
-2. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Définition d’en-têtes Cache-Control à l’aide de fichiers de configuration
@@ -113,10 +113,10 @@ Pour les applications ASP.NET, contrôlez par programme le comportement de mise 
 
 Pour mettre en cache par programmation le contenu d’application dans ASP.NET, suivez ces étapes :
    1. Vérifiez que le contenu est marqué comme pouvant être mis en cache en définissant `HttpCacheability` sur `Public`. 
-   2. Définissez un validateur de cache en appelant une des méthodes `HttpCachePolicy` suivantes :
+   1. Définissez un validateur de cache en appelant une des méthodes `HttpCachePolicy` suivantes :
       - Appelez `SetLastModified` pour définir une valeur d’horodatage pour l’en-tête `Last-Modified`.
       - Appelez `SetETag` pour définir une valeur pour l’en-tête `ETag`.
-   3. Si vous le souhaitez, spécifiez un délai d’expiration du cache en appelant `SetExpires` pour définir une valeur pour l’en-tête `Expires`. Sinon, l’approche de cache par défaut décrite précédemment dans ce document s’applique.
+   1. Si vous le souhaitez, spécifiez un délai d’expiration du cache en appelant `SetExpires` pour définir une valeur pour l’en-tête `Expires`. Sinon, l’approche de cache par défaut décrite précédemment dans ce document s’applique.
 
 Par exemple, pour mettre en cache du contenu pendant une heure, ajoutez le code C# suivant :  
 

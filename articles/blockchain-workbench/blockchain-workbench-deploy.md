@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1a0bc85063a80854ff6b970b0a57a991acfb3750
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224294"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593959"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Déployer Azure Blockchain Workbench
 
@@ -51,7 +51,7 @@ Azure Blockchain Workbench requiert plusieurs conditions préalables avant le d�
 Le déploiement de Blockchain Workbench nécessite l’inscription d’une application Azure AD. Vous avez besoin d’un locataire Azure Active Directory (Azure AD) pour inscrire l’application. Vous pouvez utiliser un locataire existant ou en créer un. Si vous utilisez un locataire Azure AD existant, vous avez besoin d’autorisations suffisantes pour inscrire les applications et accorder les autorisations API Graph au sein d’un locataire Azure AD. Si vous n’avez pas d’autorisations suffisantes dans un locataire Azure AD existant, créez un locataire. 
 
 > [!IMPORTANT]
-> La solution Workbench n’a pas besoin d’être déployée dans le même locataire que celui que vous utilisez pour inscrire une application Azure AD. Elle doit être déployée dans un locataire pour lequel vous disposez d’autorisations suffisantes pour déployer des ressources. Pour plus d’informations sur les locataires Azure AD, consultez [Obtention d’un client Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) et [Intégration d’applications dans Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+> La solution Workbench n’a pas besoin d’être déployée dans le même locataire que celui que vous utilisez pour inscrire une application Azure AD. Elle doit être déployée dans un locataire pour lequel vous disposez d’autorisations suffisantes pour déployer des ressources. Pour plus d’informations sur les locataires Azure AD, consultez [Obtention d’un client Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md) et [Intégration d’applications dans Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez votre compte en haut à droite, puis basculez vers le locataire Azure AD souhaité. Le locataire doit être locataire de l’administrateur de l’abonnement où Workbench est déployé et vous devez disposer d’autorisations suffisantes pour inscrire les applications.
@@ -73,7 +73,7 @@ Le déploiement de Blockchain Workbench nécessite l’inscription d’une appli
 
 ### <a name="modify-application-manifest"></a>Modifier le manifeste de l’application
 
-Ensuite, vous devez modifier le manifeste de l’application pour utiliser des rôles d’application dans Azure AD afin de spécifier les administrateurs Blockchain Workbench.  Pour plus d’informations sur les manifestes de l’application, consultez [Manifeste de l’application Azure Active Directory](../active-directory/develop/active-directory-application-manifest.md).
+Ensuite, vous devez modifier le manifeste de l’application pour utiliser des rôles d’application dans Azure AD afin de spécifier les administrateurs Blockchain Workbench.  Pour plus d’informations sur les manifestes de l’application, consultez [Manifeste de l’application Azure Active Directory](../active-directory/develop/reference-app-manifest.md).
 
 1. Pour l’application que vous avez inscrite, sélectionnez **Manifeste** dans le volet de détails de l’application inscrite.
 2. Générez un GUID. Vous pouvez générer un GUID à l’aide de la commande PowerShell [guid] :: NewGuid () ou de la cmdlet New-GUID. Une autre option consiste à utiliser un site web générateur de GUID.

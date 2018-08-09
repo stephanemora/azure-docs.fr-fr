@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 07/26/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 93dd609df90adac2c84ba8c62cf0d18f55a317bb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 260c58ad9099a4532c8a6558cfcf5c13f0fc8d52
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28919432"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282006"
 ---
-# <a name="border-connectivity"></a>Connectivité de la frontière 
+# <a name="border-connectivity"></a>Connectivité de la bordure 
 La planification de l’intégration au réseau est un prérequis important pour réussir le déploiement, l’exploitation et la gestion de systèmes intégrés Azure Stack. Pour commencer la planification de la connectivité de la frontière, vous devez décider si vous souhaitez utiliser ou non le routage dynamique avec le protocole BGP (Border Gateway Protocol). Pour cela, vous devez soit affecter un numéro de système autonome BGP 16 bits (public ou privé), soit utiliser un routage statique où une route statique par défaut est affectée aux appareils frontière.
 
 > [!IMPORTANT]
@@ -40,13 +40,15 @@ Pour garantir la récupération immédiate et transparente du trafic utilisateur
 ![Routage BGP](media/azure-stack-border-connectivity/bgp-routing.png)
 
 ## <a name="static-routing"></a>Routage statique
-L’utilisation de routes statiques ajoute une configuration plus fixe à la frontière et aux appareils TOR. Une analyse approfondie doit être effectuée avant tout changement. En fonction des changements apportés, les problèmes causés par une erreur de configuration peuvent accroître la durée de la restauration. Il ne s’agit pas de la méthode de routage recommandée, mais elle est prise en charge.
+Le routage statique nécessite une configuration supplémentaire pour les appareils qui se trouvent à la frontière. Il nécessite des interventions et une gestion plus importantes, ainsi qu’une analyse approfondie avant des modifications ; de même, les problèmes provoqués par une erreur de configuration peuvent nécessiter un temps de résolution plus long en fonction des modifications apportées. Il ne s’agit pas de la méthode de routage recommandée, mais elle est prise en charge.
 
-Pour intégrer Azure Stack dans votre environnement réseau à l’aide de cette méthode, l’appareil frontière doit être configuré avec des routes statiques pointant vers les appareils TOR pour le trafic destiné aux adresses IP virtuelles du réseau externe.
+Pour intégrer Azure Stack dans votre environnement réseau avec un routage statique, les quatre liens physiques entre la limite et l’appareil TOR doivent tous être connectés, et la haute disponibilité ne peut pas être garantie en raison du fonctionnement du routage statique.
 
-Les appareils TOR doivent être configurés avec une route statique par défaut qui envoie tout le trafic aux appareils frontière. La seule exception à cette règle concerne l’espace privé qui est bloqué à l’aide d’une liste ACL appliquée sur la connexion entre le TOR et la frontière.
+L’appareil situé à la limite doit être configuré avec des routes statiques pointant vers le P2P des appareils TOR pour le trafic destiné au réseau externe ou aux adresses IP virtuelles du réseau de l’infrastructure. Il nécessite des routes statiques vers le réseau BMC pour le déploiement. Les clients peuvent choisir de laisser des routes statiques à la frontière pour accéder à certaines ressources qui se trouvent sur le réseau du contrôleur BMC.  L’ajout de routes statiques aux réseaux de *l’infrastructure des commutateurs* et de la *gestion des commutateurs*  est facultatif.
 
-Le reste doit être identique à la première méthode. Le routage dynamique BGP est toujours utilisé dans le rack, car il s’agit d’un outil essentiel pour l’équilibreur SLB et d’autres composants. Il ne peut être ni désactivé ni supprimé.
+Les appareils TOR sont configurés à l’origine avec une route statique par défaut qui envoie tout le trafic aux appareils situés à la frontière. La seule exception à la règle par défaut concerne l’espace privé, qui est bloqué avec une liste ACL appliquée sur la connexion entre le TOR et la frontière.
+
+Le routage statique s’applique seulement aux liaisons montantes entre le TOR et les commutateurs situés à la frontière. Le routage dynamique BGP est utilisé dans le rack, car il s’agit d’un outil essentiel pour l’équilibreur SLB et pour d’autres composants. Il ne peut être ni désactivé ni supprimé.
 
 ![Routage statique](media/azure-stack-border-connectivity/static-routing.png)
 

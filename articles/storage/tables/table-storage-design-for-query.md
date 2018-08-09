@@ -2,23 +2,18 @@
 title: Concevoir des tables de stockage Azure pour les requêtes | Microsoft Docs
 description: Concevez des tables pour les requêtes dans le Stockage Table Azure.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: b8d2033b0b29caddf165f4b582c7d0578109480c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 8b4ae066edc1c62c25762b5c6feebce1ecfff5a2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659757"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521538"
 ---
 # <a name="design-for-querying"></a>Conception pour l'interrogation
 Les solutions de service de Table peuvent lire ou écrire de façon intensive, ou effectuer une combinaison des deux. Cet article décrit les éléments à prendre en compte quand vous concevez votre service de Table pour prendre en charge efficacement les opérations de lecture. En règle générale, une conception qui prend en charge les opérations de lecture de manière efficace le sera également pour des opérations d'écriture. Toutefois, vous devez prendre en compte d’autres éléments quand la conception a pour but de prendre en charge les opérations d’écriture. Ces éléments sont décrits dans l’article [Concevoir pour la modification de données](table-storage-design-for-modification.md).

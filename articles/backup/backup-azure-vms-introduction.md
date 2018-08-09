@@ -7,17 +7,21 @@ manager: carmonm
 keywords: sauvegarde de machines virtuelles
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/23/2018
+ms.date: 7/31/2018
 ms.author: markgal
-ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606084"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390753"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure
-Cet article formule des suggestions de performances et de ressources pour vous aider à planifier votre infrastructure de sauvegarde de machines virtuelles. Il définit également les principaux aspects du service Backup, qui peuvent être essentiels afin de vous aider à déterminer votre architecture, à planifier sa capacité et à définir des planifications. Si vous avez [préparé votre environnement](backup-azure-arm-vms-prepare.md), la planification est l’étape à suivre avant de passer à la [sauvegarde des machines virtuelles](backup-azure-arm-vms.md). Si vous avez besoin d’informations sur les machines virtuelles Azure, consultez la [Documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Cet article formule des suggestions de performances et de ressources pour vous aider à planifier votre infrastructure de sauvegarde de machines virtuelles. Il définit également les principaux aspects du service Backup, qui peuvent être essentiels afin de vous aider à déterminer votre architecture, à planifier sa capacité et à définir des planifications. Si vous avez [préparé votre environnement](backup-azure-arm-vms-prepare.md), la planification est l’étape à suivre avant de passer à la [sauvegarde des machines virtuelles](backup-azure-arm-vms.md). Si vous avez besoin d’informations sur les machines virtuelles Azure, consultez la [Documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/). 
+
+> [!NOTE]
+> Cet article peut être utilisé pour des disques managés et des disques non managés. Si vous utilisez des disques non managés, il existe certaines recommandations relatives aux comptes de stockage. Si vous utilisez [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), vous n’avez pas à vous soucier des problèmes de performances ou d’utilisation des ressources. Azure optimise l’utilisation du stockage pour vous.
+>
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Comment Azure sauvegarde-t-il des machines virtuelles Azure ?
 Lorsque le service Sauvegarde Azure lance un travail de sauvegarde à l’heure planifiée, il déclenche l’extension de sauvegarde pour prendre une capture instantanée jusqu`à une date et heure. Le service Azure Backup utilise l’extension _VMSnapshot_ dans Windows et l’extension _VMSnapshotLinux_ dans Linux. L’extension est installée lors de la première sauvegarde de machine virtuelle. Pour que l’extension soit installée, la machine virtuelle doit être en cours d’exécution. Si la machine virtuelle n’est pas en cours d’exécution, le service Sauvegarde prend un instantané du stockage sous-jacent (car aucune écriture de l’application n’a lieu pendant l’arrêt de la machine virtuelle).
@@ -32,8 +36,7 @@ Une fois le transfert de données terminé, l’instantané est supprimé et un 
 
 > [!NOTE]
 > 1. Pendant le processus de sauvegarde, le service Sauvegarde Azure n’inclut pas le disque temporaire attaché à la machine virtuelle. Pour plus d’informations, voir le blog relatif au [stockage temporaire](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
-> 2. Sauvegarde Azure prend une capture instantanée au niveau du stockage et la transfère vers le coffre, ne modifiez pas les clés du compte de stockage avant la fin du travail de sauvegarde.
-> 3. Pour les machines virtuelles premium, Sauvegarde Azure copie la capture instantanée sur le compte de stockage. L’objectif est de s’assurer que le service Sauvegarde dispose d’un nombre suffisant d’opérations d’E/S par seconde pour transférer des données vers le coffre. Cette copie supplémentaire du stockage est facturée en fonction de la taille allouée de machine virtuelle. 
+> 2. Le service Sauvegarde Azure prend un instantané au niveau du stockage et transfère cet instantané au coffre. Ne changez pas les clés de compte de stockage tant que la tâche de sauvegarde n’est pas terminée.
 >
 
 ### <a name="data-consistency"></a>Cohérence des données
@@ -64,22 +67,14 @@ Ce tableau décrit les types de compatibilité et les conditions dans lesquelles
 ## <a name="performance-and-resource-utilization"></a>Performance et utilisation des ressources
 Au même titre qu’un logiciel de sauvegarde déployé sur site, il est recommandé de planifier les besoins en capacité et en consommation de ressources lors d’une sauvegarde de machines virtuelles dans Azure. Les [limites d’Azure Storage](../azure-subscription-service-limits.md#storage-limits) définissent la structuration des déploiements de machine virtuelle pour obtenir des performances maximales avec un impact minimal sur l’exécution des charges de travail.
 
-Tenez compte des limites de stockage Azure indiquées ci-dessous lorsque vous planifiez vos performances de sauvegarde :
-
-* Nombre maximal de sorties par compte de stockage
-* Taux de requête total par compte de stockage
-
-### <a name="storage-account-limits"></a>Limites de compte de stockage
-Les données de sauvegarde copiées à partir d’un compte de stockage s’ajoutent aux opérations d’entrées/sorties par seconde (IOPS) et génèrent (ou débitent) des mesures du compte de stockage. Dans le même temps, les machines virtuelles consomment des IOPS et du débit. L’objectif est de garantir que le trafic de sauvegarde et de machine virtuelle ne dépassent pas les limites de votre compte de stockage.
-
 ### <a name="number-of-disks"></a>Nombre de disques
 Le processus de sauvegarde tente d’exécuter un travail de sauvegarde aussi rapidement que possible. Autrement dit, il consomme un maximum de ressources. Cependant, toutes les opérations d’E/S sont limitées par le *débit cible d’un seul objet Blob*, qui est limité à 60 Mo par seconde. Afin de tenter d’accélérer l’opération, le processus de sauvegarde tente de sauvegarder chacun des disques de la machine virtuelle *en parallèle*. Si une machine virtuelle comprend quatre disques, le service tente de sauvegarder les quatre disques simultanément. Le facteur le plus important pour déterminer le trafic de sauvegarde d’un compte de stockage client est le **nombre de disques** sauvegardés.
 
 ### <a name="backup-schedule"></a>Planification de sauvegarde
-Autre facteur ayant un impact sur les performances : la **planification de sauvegarde**. Configurer vos stratégies de manière à sauvegarder simultanément toutes les machines virtuelles revient à planifier un embouteillage. Le processus de sauvegarde tente de sauvegarder tous les disques en parallèle. Pour réduire le trafic de sauvegarde à partir d’un compte de stockage, sauvegardez les différentes machines virtuelles à différents moments de la journée en évitant tout chevauchement.
+Autre facteur ayant un impact sur les performances : la **planification de sauvegarde**. Configurer vos stratégies de manière à sauvegarder simultanément toutes les machines virtuelles revient à planifier un embouteillage. Le processus de sauvegarde tente de sauvegarder tous les disques en parallèle. Pour réduire le trafic de sauvegarde, sauvegardez chaque machine virtuelle à un moment différent de la journée, et évitez les sauvegardes simultanées.
 
 ## <a name="capacity-planning"></a>planification de la capacité
-En associant les facteurs précédents, vous devez planifier les besoins d’utilisation du compte de stockage. Téléchargez la [feuille de calcul Excel de planification des capacités des machines virtuelles](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) pour voir l’impact de vos choix en matière de planification de disques et de sauvegardes.
+Téléchargez la [feuille de calcul Excel de planification des capacités des machines virtuelles](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) pour voir l’impact de vos choix en matière de planification de disques et de sauvegardes.
 
 ### <a name="backup-throughput"></a>Débit de sauvegarde
 Pour chaque disque en cours de sauvegarde, Azure Backup lit les blocs sur le disque et stocke uniquement les données modifiées (sauvegarde incrémentielle). Le tableau suivant montre les valeurs moyennes de débit du service de sauvegarde. Utilisez les données suivantes pour estimer le temps nécessaire à la sauvegarde d’un disque d’une taille donnée.
@@ -94,28 +89,34 @@ La majeure partie du temps de sauvegarde est consacrée à la lecture et la copi
 
 * Délai nécessaire à l’ [installation ou à la mise à jour de l’extension de sauvegarde](backup-azure-arm-vms.md).
 * Heure de l'instantané, qui est la durée nécessaire au déclenchement d’un instantané. Les instantanés sont déclenchés peu avant l’heure de sauvegarde planifiée.
-* Délai d’attente de file d’attente. Comme le service Backup traite les sauvegardes de plusieurs clients, il se peut que la copie de données de sauvegarde de l’instantané vers l’archivage Backup ou Recovery Services ne démarre pas immédiatement. Lors des pics de charge, les temps d’attente peuvent durer jusqu’à huit heures en raison du nombre de sauvegardes à traiter. Toutefois, la durée de sauvegarde totale d’un ordinateur virtuel est inférieure à 24 heures pour des stratégies de sauvegarde quotidiennes. <br>
-**Cela est valide uniquement pour les sauvegardes incrémentielles et pas pour la première sauvegarde. L’heure de la première sauvegarde est proportionnelle et peut être supérieure à 24 heures selon la taille des données et l’heure à laquelle la sauvegarde est effectuée.**
+* Délai d’attente de file d’attente. Étant donné que le service de sauvegarde traite les tâches de plusieurs clients en même temps, les données d’instantané risquent de ne pas être immédiatement copiées dans le coffre Recovery Services. Lors des périodes de charge maximale, il peut s’écouler huit heures avant que le traitement des sauvegardes ne commence. Toutefois, la durée de sauvegarde totale d’un ordinateur virtuel est inférieure à 24 heures pour des stratégies de sauvegarde quotidiennes.
+Une durée totale de moins de 24 heures est possible pour les sauvegardes incrémentielles, mais pas pour les premières sauvegardes. La durée de la première sauvegarde est proportionnelle et peut dépasser 24 heures selon la taille des données et l’heure à laquelle la sauvegarde est effectuée.
 * Le temps de transfert de données, le temps nécessaire pour que le service de sauvegarde calcule les modifications incrémentielles à partir d’une sauvegarde précédente de calcul et de transfère ces modifications dans l’archivage.
 
-### <a name="why-am-i-observing-longer12-hours-backup-time"></a>Pourquoi les temps de sauvegarde semblent-ils plus longs (>12 heures) ?
-La sauvegarde consiste en deux phases : la prise d’instantané et le transfert de l’instantané vers l’archivage. Le service de sauvegarde optimise pour le stockage. Lorsque vous transférez des données d’instantané dans un coffre, le service transfère uniquement les modifications incrémentielles à partir de l’instantané précédent.  Pour déterminer les modifications incrémentielles, le service calcule la somme de contrôle des blocs. Si un bloc est modifié, le bloc est identifié comme un bloc à envoyer au coffre. Le service examine ensuite davantage chacun des blocs identifiés, à la recherche d’opportunités de réduire les données à transférer. Après avoir évalué tous les blocs modifiés, le service fusionne les modifications et les envoie au coffre. Dans certaines applications héritées, les écritures de petite taille et fragmentées ne sont pas optimales pour le stockage. Si l’instantané contient un grand nombre d’écritures de petite taille et fragmentées, le service consacre plus de temps à traiter les données écrites par les applications. La taille de bloc d’écriture d’application recommandée depuis Azure pour les applications exécutées dans la machine virtuelle est de 8 Ko au minimum. Si votre application utilise un bloc de moins de 8 Ko, les performances de sauvegarde sont affectées. Pour obtenir de l’aide concernant le réglage de votre application afin d’améliorer les performances de sauvegarde, voir [Paramétrage des applications pour optimiser les performances de Stockage Azure](../virtual-machines/windows/premium-storage-performance.md). Bien que l’article sur les performances de sauvegarde utilise des exemples de stockage Premium, il est aussi applicable aux disques de stockage Standard.
+### <a name="why-are-backup-times-longer-than-12-hours"></a>Pourquoi les durées de sauvegarde dépassent-elles 12 heures ?
+
+La sauvegarde consiste en deux phases : la prise d’instantané et le transfert de l’instantané vers l’archivage. Le service de sauvegarde optimise pour le stockage. Lorsque vous transférez des données d’instantané dans un coffre, le service transfère uniquement les modifications incrémentielles à partir de l’instantané précédent.  Pour déterminer les modifications incrémentielles, le service calcule la somme de contrôle des blocs. Si un bloc est modifié, le bloc est identifié comme un bloc à envoyer au coffre. Le service examine ensuite davantage chacun des blocs identifiés, à la recherche d’opportunités de réduire les données à transférer. Après avoir évalué tous les blocs modifiés, le service fusionne les modifications et les envoie au coffre. Dans certaines applications héritées, les écritures de petite taille et fragmentées ne sont pas optimales pour le stockage. Si l’instantané contient un grand nombre d’écritures de petite taille et fragmentées, le service consacre plus de temps à traiter les données écrites par les applications. Pour les applications exécutées dans la machine virtuelle, la taille du bloc d’écriture d’application recommandée est de 8 Ko minimum. Si votre application utilise un bloc de moins de 8 Ko, les performances de sauvegarde sont affectées. Pour obtenir de l’aide concernant le réglage de votre application afin d’améliorer les performances de sauvegarde, voir [Paramétrage des applications pour optimiser les performances de Stockage Azure](../virtual-machines/windows/premium-storage-performance.md). Bien que l’article sur les performances de sauvegarde utilise des exemples de stockage Premium, il est aussi applicable aux disques de stockage Standard.
 
 ## <a name="total-restore-time"></a>Temps de restauration total
-Une opération de restauration se compose de deux sous-tâches principales : copie de données depuis un coffre vers le compte de stockage choisi et création de la machine virtuelle. La copie de données depuis un coffre dépend de l’endroit où les sauvegardes sont stockées en interne dans Azure et de l’endroit où le compte de stockage client est stocké. Le temps nécessaire pour copier des données dépend des paramètres suivants :
+
+Une opération de restauration se compose de deux tâches principales : la copie des données d’un coffre vers le compte de stockage choisi, et la création de la machine virtuelle. Le temps nécessaire pour copier les données d’un coffre dépend de l’endroit où les sauvegardes sont stockées dans Azure, et de l’emplacement du compte de stockage client. Le temps nécessaire pour copier des données dépend des paramètres suivants :
 * Délai d’attente de la file : étant donné que le service traite des restaurations à partir de plusieurs clients en même temps, les demandes de restauration sont mises en file d’attente.
 * Heure de copie des données : les données sont copiées du coffre de sauvegarde vers le compte de stockage client. Le temps de restauration des IOPS et du débit que le service Sauvegarde Azure atteint sur le compte de stockage client sélectionné. Pour réduire le temps de copie pendant le processus de restauration, sélectionnez un compte de stockage non chargé avec d’autres lectures et écritures d’application.
 
 ## <a name="best-practices"></a>Meilleures pratiques
-Nous vous suggérons de suivre les meilleures pratiques ci-dessous lors de la configuration de sauvegardes de machines virtuelles :
+Nous vous suggérons de suivre les bonnes pratiques ci-dessous lorsque vous configurez des sauvegardes de machines virtuelles comportant des disques non managés :
+
+> [!Note]
+> Les bonnes pratiques suivantes qui recommandent de changer ou de gérer les comptes de stockage s’appliquent uniquement aux machines virtuelles comportant des disques non managés. Si vous utilisez des disques managés, Azure s’occupe de toutes les activités de gestion qui impliquent du stockage.
+> 
 
 * Ne planifiez pas la sauvegarde de plus de 10 machines virtuelles classiques à partir du même service cloud en même temps. Si vous souhaitez sauvegarder davantage de machines virtuelles d’un même service cloud, échelonnez les débuts de sauvegarde d’heure en heure.
-* Ne planifiez pas la sauvegarde simultanée de plus de 40 machines virtuelles simultanément.
+* Ne planifiez pas la sauvegarde simultanée de plus de 100 machines virtuelles à partir d’un même coffre. 
 * Planifiez les sauvegardes de machines virtuelles pendant les heures creuses. Ainsi, le service Sauvegarde utilise des IOPS pour transférer les données du compte de stockage client vers le coffre de sauvegarde.
 * Veillez à appliquer une stratégie aux machines virtuelles réparties entre les différents comptes de stockage. Nous vous suggérons de limiter à 20 le nombre total de disques d’un même compte de stockage protégés par la même planification de sauvegarde. Si votre compte de stockage contient plus de 20 disques, répartissez ces machines virtuelles entre plusieurs stratégies afin d’obtenir les IOPS requises pendant la phase de transfert du processus de sauvegarde.
 * Évitez de restaurer une machine virtuelle exécutée sur le stockage Premium vers le même compte de stockage. Si le processus de restauration coïncide avec l’opération de sauvegarde, cela réduira les IOPS disponibles pour la sauvegarde.
 * Pour la sauvegarde de machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, il est recommandé d’allouer seulement 50 % de l’espace total du compte de stockage, pour que le service Sauvegarde Azure puisse copier la capture instantanée sur le compte et transférer des données depuis cet emplacement copié du compte de stockage vers le coffre.
-* Assurez-vous que la version Python sur les machines virtuelles Linux activées pour la sauvegarde est 2.7
+* Vérifiez que Python version 2.7 (ou supérieure) est installé sur les machines virtuelles Linux activées pour la sauvegarde.
 
 ## <a name="data-encryption"></a>Chiffrement des données
 Azure Backup ne chiffre pas les données dans le cadre du processus de sauvegarde. Toutefois, vous pouvez chiffrer les données dans la machine virtuelle et sauvegarder les données protégées en toute transparence (pour en savoir plus, lire [sauvegarde des données chiffrées](backup-azure-vms-encryption.md)).
@@ -125,14 +126,14 @@ Les machines virtuelles Azure sauvegardées par le biais d’Azure Backup sont s
 
 La tarification pour la sauvegarde des machines virtuelles n’est pas basée sur la taille maximale prise en charge pour chaque disque de données joint à la machine virtuelle. La tarification est basée sur les données réelles stockées sur le disque de données. De même, la facture du stockage de sauvegarde est basée sur la quantité de données stockées sur le service Sauvegarde Azure, qui est la somme des données réelles de chaque point de récupération.
 
-Prenons l’exemple d’une machine virtuelle de taille standard A2 avec deux disques de données supplémentaires d’une taille maximale de 1 To. Le tableau suivant indique les données réelles stockées sur chacun de ces disques :
+Prenons l’exemple d’une machine virtuelle de taille standard A2 avec deux disques de données supplémentaires, d’une taille maximale de 4 To chacun. Le tableau suivant indique les données réelles stockées sur chacun de ces disques :
 
 | Type de disque | Taille maximale | Données réelles présentes |
 | --------- | -------- | ----------- |
-| Disque de système d’exploitation |1 023 Go |17 Go |
+| Disque de système d’exploitation |4095 Go |17 Go |
 | Disque local / disque temporaire |135 Go |5 Go (non inclus pour la sauvegarde) |
-| Disque de données 1 |1 023 Go |30 Go |
-| Disque de données 2 |1 023 Go |0 Go |
+| Disque de données 1 |4095 Go |30 Go |
+| Disque de données 2 |4095 Go |0 Go |
 
 La taille réelle de la machine virtuelle est dans ce cas 17 Go + 30 Go + 0 Go= 47 Go. Cette taille d’instance protégée (47 Go) devient la base de la facture mensuelle. La taille de l’instance protégée utilisée pour la facturation augmente à mesure qu’augmente le volume des données dans la machine virtuelle.
 

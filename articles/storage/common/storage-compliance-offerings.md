@@ -2,24 +2,18 @@
 title: Offres de conformité sur Stockage Azure | Microsoft Docs
 description: Récapitulatif des offres de conformité sur Stockage Azure
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/27/2018
 ms.author: fryu
-ms.openlocfilehash: ad09fd406cca1fe9c0abea6c31e7aebffb60868c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.component: common
+ms.openlocfilehash: 1a3a2e9e1f19ab2746156de7b07d1ae6146ba4c1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870687"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524244"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Offres de conformité sur Stockage Azure
 
@@ -40,7 +34,7 @@ Vous trouverez ci-dessous les offres de conformité qui permettent à votre serv
 * [ISO 9001](https://www.microsoft.com/en-us/trustcenter/compliance/iso-9001)
 * [WCAG 2.0](https://www.microsoft.com/en-us/trustcenter/compliance/accessibility#WCAG-2-0)
 
-## <a name="us-government"></a>État fédéral américain
+## <a name="us-government"></a>Gouvernement américain
 
 * [DoD DISA L2, L4, L5](https://www.microsoft.com/en-us/trustcenter/compliance/disa)
 * [DoE 10 CFR Part 810](https://aka.ms/AzureCompliance)

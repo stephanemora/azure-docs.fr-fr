@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b96483232a1da5ae21e6ba8cbe873d876d38ed11
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4322f1837c9b7fffba180f7106911d010a9ad8aa
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050299"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448534"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Charger des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 
@@ -47,20 +47,20 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 1. Dans le menu de gauche, sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory** : 
    
    ![Créer une fabrique de données](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
-2. Sur la page **Nouvelle fabrique de données**, fournissez les valeurs des champs qui apparaissent dans l’image suivante :
+1. Sur la page **Nouvelle fabrique de données**, fournissez les valeurs des champs qui apparaissent dans l’image suivante :
       
    ![Page Nouvelle fabrique de données](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
     * **Nom** : saisissez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données \"LoadSQLDWDemo\" n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Essayez à nouveau de créer la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
     * **Abonnement** : sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. 
-    * **Groupe de ressources** : sélectionnez un groupe de ressources existant dans la liste déroulante, ou sélectionnez l’option **Créer** et indiquez le nom d’un groupe de ressources. Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Groupe de ressources** : sélectionnez un groupe de ressources existant dans la liste déroulante, ou sélectionnez l’option **Créer** et indiquez le nom d’un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
     * Pour **Version** : sélectionnez **V2**.
     * **Emplacement** : sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. Ces magasins de données incluent Azure Data Lake Store, le Stockage Azure, Microsoft Azure SQL Database, etc.
 
-3. Sélectionnez **Créer**.
-4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante :
+1. Sélectionnez **Créer**.
+1. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante :
    
-   ![Page d'accueil Data Factory](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
+   ![Page d’accueil Data Factory](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 
    Sélectionnez la vignette **Créer et surveiller** pour lancer l’application d’intégration de données dans un onglet séparé.
 
@@ -69,11 +69,11 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 1. Dans la page **Prise en main**, sélectionnez la vignette **Copier les données** pour démarrer l’outil Copier les données :
 
    ![Vignette de l’outil Copier les données](./media/load-azure-sql-data-warehouse/copy-data-tool-tile.png)
-2. Dans la page **Propriétés**, spécifiez **CopyFromSQLToSQLDW** dans le champ **Nom de tâche**, puis cliquez sur **Suivant** :
+1. Dans la page **Propriétés**, spécifiez **CopyFromSQLToSQLDW** dans le champ **Nom de tâche**, puis cliquez sur **Suivant** :
 
     ![Page Propriétés](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
 
-3. Dans la page **Banque de données source**, effectuez les étapes suivantes :
+1. Dans la page **Banque de données source**, effectuez les étapes suivantes :
 
     a. Cliquez sur **+ Créer une connexion** :
 
@@ -91,11 +91,11 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
     ![Sélectionner un service lié source](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
 
-4. Dans la page **Sélectionner les tables à partir desquelles copier les données ou utiliser une requête personnalisée**, entrez **SalesLT** pour filtrer les tables. Activez la case **(Sélectionner tout)** pour utiliser toutes les tables pour la copie, puis cliquez sur **Suivant** : 
+1. Dans la page **Sélectionner les tables à partir desquelles copier les données ou utiliser une requête personnalisée**, entrez **SalesLT** pour filtrer les tables. Activez la case **(Sélectionner tout)** pour utiliser toutes les tables pour la copie, puis cliquez sur **Suivant** : 
 
     ![Sélectionner les tables source](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
-6. Dans la page **Banque de données de destination**, effectuez les étapes suivantes :
+1. Dans la page **Banque de données de destination**, effectuez les étapes suivantes :
 
     a. Cliquez sur **+ Créer une connexion** pour ajouter une connexion.
 
@@ -113,18 +113,18 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
     ![Sélectionner le service lié récepteur](./media/load-azure-sql-data-warehouse/select-sink-linked-service.png)
 
-6. Dans la page **Mappage de table**, passez en revue le contenu, puis cliquez sur **Suivant**. Un mappage de table intelligent s’affiche. Les tables source sont mappées sur les tables de destination en fonction des noms de tables. Si une table source n’existe pas dans la destination, Azure Data Factory crée une table de destination par défaut qui porte le même nom. Vous pouvez également mapper une table source sur une table de destination existante. 
+1. Dans la page **Mappage de table**, passez en revue le contenu, puis cliquez sur **Suivant**. Un mappage de table intelligent s’affiche. Les tables source sont mappées sur les tables de destination en fonction des noms de tables. Si une table source n’existe pas dans la destination, Azure Data Factory crée une table de destination par défaut qui porte le même nom. Vous pouvez également mapper une table source sur une table de destination existante. 
 
    > [!NOTE]
    > La création automatique de table pour le récepteur SQL Data Warehouse s’applique quand SQL Server ou Azure SQL Database est la source. Si vous copiez des données à partir d’un autre magasin de données source, vous devez précréer le schéma dans le récepteur Azure SQL Data Warehouse avant d’exécuter la copie des données.
 
    ![Page Mappage de table](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
-9. Dans la page **Mappage de table**, passez en revue le contenu, puis cliquez sur **Suivant**. Le mappage de table intelligent repose sur le nom de colonne. Lorsque vous autorisez Data Factory à créer automatiquement les tables, la conversion du type de données peut se produire en cas d’incompatibilités entre les magasins source et de destination. Si la conversion du type de données n’est pas prise en charge entre la colonne de destination source et de destination, un message d’erreur s’affiche en regard de la table correspondante.
+1. Dans la page **Mappage de table**, passez en revue le contenu, puis cliquez sur **Suivant**. Le mappage de table intelligent repose sur le nom de colonne. Lorsque vous autorisez Data Factory à créer automatiquement les tables, la conversion du type de données peut se produire en cas d’incompatibilités entre les magasins source et de destination. Si la conversion du type de données n’est pas prise en charge entre la colonne de destination source et de destination, un message d’erreur s’affiche en regard de la table correspondante.
 
     ![Page Mappage de schéma](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
-11. Dans la page **Paramètres**, effectuez les étapes suivantes :
+1. Dans la page **Paramètres**, effectuez les étapes suivantes :
 
     a. Dans **Paramètres de préproduction**, cliquez sur **+ Nouveau** pour créer un stockage de préproduction. Le stockage est utilisé pour les données en préproduction avant leur chargement dans SQL Data Warehouse avec PolyBase. Une fois la copie terminée, les données temporaires du stockage Azure sont nettoyées automatiquement. 
 
@@ -138,20 +138,20 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 
     ![Configurer PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 
-12. Dans la page **Résumé**, vérifiez les paramètres, puis cliquez sur **Suivant** :
+1. Dans la page **Résumé**, vérifiez les paramètres, puis cliquez sur **Suivant** :
 
     ![Page de résumé](./media/load-azure-sql-data-warehouse/summary-page.png)
-13. Dans la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche) :
+1. Dans la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche) :
 
     ![Page Déploiement](./media/load-azure-sql-data-warehouse/deployment-page.png)
-14. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. La colonne **Actions** comprend les liens permettant d’afficher les détails de l’exécution de l’activité et de réexécuter le pipeline : 
+1. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. La colonne **Actions** comprend les liens permettant d’afficher les détails de l’exécution de l’activité et de réexécuter le pipeline : 
 
     ![Surveiller des exécutions de pipelines](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)
-15. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Pour revenir à l’affichage des exécutions du pipeline, sélectionnez le lien **Pipelines** affiché en haut de la fenêtre. Sélectionnez **Actualiser** pour actualiser la liste. 
+1. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Pour revenir à l’affichage des exécutions du pipeline, sélectionnez le lien **Pipelines** affiché en haut de la fenêtre. Sélectionnez **Actualiser** pour actualiser la liste. 
 
     ![Surveiller des exécutions d’activités](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
-16. Pour surveiller l’exécution de chaque activité de copie, cliquez sur le lien **Détails** sous **Actions** dans la page de surveillance des activités. Vous pouvez suivre les informations détaillées comme le volume de données copiées à partir de la source dans le récepteur, le débit des données, les étapes d’exécution avec une durée correspondante et les configurations utilisées :
+1. Pour surveiller l’exécution de chaque activité de copie, cliquez sur le lien **Détails** sous **Actions** dans la page de surveillance des activités. Vous pouvez suivre les informations détaillées comme le volume de données copiées à partir de la source dans le récepteur, le débit des données, les étapes d’exécution avec une durée correspondante et les configurations utilisées :
 
     ![Détails du suivi de l'exécution des activités](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 

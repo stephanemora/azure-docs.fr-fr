@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: dafada5cecbc6345da46bc3a32fc3b91eb72313a
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8ac3bb2c95420eb4a608f003f3d937e3a47c272b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295509"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448228"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -26,7 +26,7 @@ Ce document vous guide tout au long des processus de création par programmation
 
 ![exemple de tableau de bord](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les tableaux de bord partagés dans Azure sont des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tout comme les machines virtuelles et les comptes de stockage.  Ainsi, vous pouvez les gérer par programmation via les [API REST Azure Resource Manager](/rest/api/), l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure), les [commandes Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) et de nombreuses fonctionnalités du [portail Azure](https://portal.azure.com) générées sur ces API pour faciliter la gestion des ressources.  
 
@@ -120,7 +120,7 @@ Vous devez également déclarer certaines métadonnées de modèle requises et l
 
 __Vous pouvez voir le modèle complet à la fin de ce document.__
 
-Une fois que vous avez créé votre modèle, vous pouvez le déployer à l’aide des [API REST](https://docs.microsoft.com/rest/api/resources/deployments), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) ou de la [page de déploiement de modèle du portail](https://portal.azure.com/#create/Microsoft.Template).
+Une fois que vous avez créé votre modèle, vous pouvez le déployer à l’aide des [API REST](https://docs.microsoft.com/rest/api/resources/deployments), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create) ou de la [page de déploiement de modèle du portail](https://portal.azure.com/#create/Microsoft.Template).
 
 Voici deux versions de notre exemple de document JSON de tableau de bord. La première est la version que nous avons exportée à partir du portail et qui était déjà liée à une ressource. La seconde est la version de modèle que vous pouvez lier par programmation à toute machine virtuelle et déployer à l’aide d’Azure Resource Manager.
 

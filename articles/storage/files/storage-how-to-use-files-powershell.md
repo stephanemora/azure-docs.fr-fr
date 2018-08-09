@@ -2,23 +2,18 @@
 title: Gestion des partages de fichiers Azure avec Azure PowerShell
 description: Découvrez comment gérer les partages de fichiers Azure avec Azure PowerShell.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 8fcc654b7f5068037ec0818e19d8dff09bc07537
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: a69e8946c050cc69411f843b07e907a119c6edea
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635086"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522927"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Gestion des partages de fichiers Azure avec Azure PowerShell 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Ce guide vous explique les bases de l’utilisation du partage de fichiers avec PowerShell. Dans cet article, vous apprendrez comment :
@@ -40,7 +35,7 @@ Si vous souhaitez installer et utiliser PowerShell en local, vous devez exécute
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Si vous n’avez pas déjà un groupe de ressources Azure, vous pouvez en créer un avec la cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-L’exemple suivant permet de créer un groupe de ressources nommé *myResourceGroup* dans la région Est des États-Unis :
+L’exemple suivant permet de créer un groupe de ressources nommé *myResourceGroup* dans la région USA Est :
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a17260770f0b2e0a73585ce4108bd5625ac22229
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "27778545"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436146"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](app-service-deploy-local-git.md) et le [déploiement FTP/S](app-service-deploy-ftp.md). Ils ne sont pas les mêmes que vos informations d’identification Azure Active Directory.
@@ -46,7 +46,7 @@ Pour configurer les informations d’identification au niveau de l’utilisateur
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur App Service > **&lt;une application>** > **Informations d’identification de déploiement**.
 
     > [!NOTE]
-    > Dans le portail, vous devez disposer d’au moins une application avant de pouvoir accéder à la page Informations d’identification de déploiement. Toutefois, avec l’[interface de ligne de commande Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), vous pouvez configurer les informations d’identification au niveau de l’utilisateur sans application existante.
+    > Dans le portail, vous devez disposer d’au moins une application avant de pouvoir accéder à la page Informations d’identification de déploiement. Toutefois, avec l’[interface de ligne de commande Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), vous pouvez configurer les informations d’identification au niveau de l’utilisateur sans application existante.
 
 2. Configurez le nom d’utilisateur et le mot de passe, puis cliquez sur **Enregistrer**.
 
@@ -91,6 +91,6 @@ Pour réinitialiser les informations d’identification au niveau de l’applica
 
     L’action de réinitialisation invalide les fichiers .PublishSettings précédemment téléchargés.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment utiliser ces informations d’identification pour déployer votre application à partir de [Git local](app-service-deploy-local-git.md) ou à l’aide de [FTP/S](app-service-deploy-ftp.md).

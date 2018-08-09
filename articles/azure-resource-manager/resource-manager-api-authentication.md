@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 58309977c93864d52a3217919ac8d7fa9152a968
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036844"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576900"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 ## <a name="introduction"></a>Introduction
@@ -106,14 +106,14 @@ La demande échoue, car l’utilisateur n’est pas encore connecté, mais vous 
 ## <a name="get-user--app-access-token"></a>Obtention du jeton de l’utilisateur et de l’application
 Votre application redirige l’utilisateur vers Azure AD avec une requête d’autorisation OAuth 2.0, afin d’authentifier les informations d’identification de l’utilisateur et d’obtenir un code d’autorisation. Votre application utilise ce code d’autorisation pour obtenir un jeton d’accès pour Resource Manager. La méthode [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) crée la demande d’autorisation.
 
-Cet article montre les demandes de l’API REST pour authentifier l’utilisateur. Vous pouvez également utiliser des bibliothèques d’assistance pour effectuer l’authentification dans votre code. Pour plus d’informations sur ces bibliothèques, consultez [Bibliothèques d’authentification d’Azure Active Directory](../active-directory/active-directory-authentication-libraries.md). Pour des conseils sur l’intégration de la gestion de l’identité dans une application, consultez le [Guide du développeur Azure Active Directory](../active-directory/active-directory-developers-guide.md).
+Cet article montre les demandes de l’API REST pour authentifier l’utilisateur. Vous pouvez également utiliser des bibliothèques d’assistance pour effectuer l’authentification dans votre code. Pour plus d’informations sur ces bibliothèques, consultez [Bibliothèques d’authentification d’Azure Active Directory](../active-directory/active-directory-authentication-libraries.md). Pour des conseils sur l’intégration de la gestion de l’identité dans une application, consultez le [Guide du développeur Azure Active Directory](../active-directory/develop/azure-ad-developers-guide.md).
 
 ### <a name="auth-request-oauth-20"></a>Demande d’autorisation (OAuth 2.0)
 Envoyez une demande d’autorisation Open ID Connect/OAuth2.0 au point de terminaison d’autorisation Azure AD :
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-Les paramètres de la chaîne de requête, qui sont disponibles pour cet exemple, sont décrits dans l’article [Demander un code d’autorisation](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code).
+Les paramètres de la chaîne de requête, qui sont disponibles pour cet exemple, sont décrits dans l’article [Demander un code d’autorisation](../active-directory/develop/v1-protocols-oauth-code.md#request-an-authorization-code).
 
 L’exemple suivant indique comment demander l’autorisation OAuth2.0 :
 
@@ -126,7 +126,7 @@ Azure AD authentifie l’utilisateur et, si nécessaire, lui demande d’autoris
 ### <a name="auth-request-open-id-connect"></a>Demande d’autorisation (Open ID Connect)
 Si vous souhaitez limiter l’accès à Azure Resource Manager pour le compte de l’utilisateur, mais autoriser ce dernier à se connecter à votre application à l’aide de son compte Azure AD, envoyez une demande d’autorisation Open ID Connect. Avec Open ID Connect, votre application reçoit également un paramètre id_token, envoyé par Azure AD, que votre application peut utiliser pour connecter l’utilisateur.
 
-Les paramètres de la chaîne de requête, qui sont disponibles pour cette demande, sont décrits dans l’article [Envoyer la requête de connexion](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request).
+Les paramètres de la chaîne de requête, qui sont disponibles pour cette demande, sont décrits dans l’article [Envoyer la requête de connexion](../active-directory/develop/v1-protocols-openid-connect-code.md#send-the-sign-in-request).
 
 Exemple de demande Open ID Connect :
 
@@ -143,7 +143,7 @@ Maintenant que votre application a reçu le code d’autorisation d’Azure AD, 
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Les paramètres de la chaîne de requête, qui sont disponibles pour cet exemple, sont décrits dans l’article [Utiliser le code d’autorisation](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+Les paramètres de la chaîne de requête, qui sont disponibles pour cet exemple, sont décrits dans l’article [Utiliser le code d’autorisation](../active-directory/develop/v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
 L’exemple suivant illustre une demande de jeton d’octroi de code avec les informations d’identification de mot de passe :
 
@@ -154,7 +154,7 @@ L’exemple suivant illustre une demande de jeton d’octroi de code avec les in
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Lorsque vous utilisez des informations d’identification de certificat, créez une clé d’authentification web JSON (JWT) et effectuez la signature (RSA SHA256) à l’aide de la clé privée des informations d’identification du certificat de votre application. Les types de revendication du jeton sont affichés dans [Demandes de jeton JWT](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims). Consultez également le [code Active Directory Authentication Library (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) pour la signature des jetons JWT d’assertion de client.
+Lorsque vous utilisez des informations d’identification de certificat, créez une clé d’authentification web JSON (JWT) et effectuez la signature (RSA SHA256) à l’aide de la clé privée des informations d’identification du certificat de votre application. Les types de revendication du jeton sont affichés dans [Demandes de jeton JWT](../active-directory/develop/v1-protocols-oauth-code.md#jwt-token-claims). Consultez également le [code Active Directory Authentication Library (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) pour la signature des jetons JWT d’assertion de client.
 
 Pour en savoir plus sur l’authentification du client, consultez les [spécifications d’Open ID Connect](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) .
 
@@ -178,7 +178,7 @@ Une réponse de jeton correcte contient le jeton d’accès (utilisateur et appl
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Les paramètres à utiliser avec la demande d’actualisation sont décrits dans la rubrique [Actualisation des jetons d’accès](../active-directory/develop/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
+Les paramètres à utiliser avec la demande d’actualisation sont décrits dans la rubrique [Actualisation des jetons d’accès](../active-directory/develop/v1-protocols-oauth-code.md#refreshing-the-access-tokens).
 
 L’exemple suivant indique comment utiliser le jeton d’actualisation :
 
@@ -235,7 +235,7 @@ Pour authentifier votre application et obtenir un jeton pour l’API Azure AD Gr
 
 La méthode [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) de l’exemple d’application MVC ASP.NET permet d’obtenir un jeton d’accès d’application uniquement pour l’API Graph, via la bibliothèque d’authentification Active Directory Authentication Library (ADAL) pour .NET.
 
-Les paramètres de la chaîne de requête, qui sont disponibles pour cette demande, sont décrits dans l’article [Demander un jeton d’accès](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token).
+Les paramètres de la chaîne de requête, qui sont disponibles pour cette demande, sont décrits dans l’article [Demander un jeton d’accès](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#request-an-access-token).
 
 Voici un exemple de demande de jeton d’octroi d’informations d’identification du client :
 
@@ -305,13 +305,13 @@ Voici les identifiants des rôles intégrés couramment utilisés :
 | --- | --- |
 | Lecteur |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | Contributeur |b24988ac-6180-42a0-ab88-20f7382dd24c |
-| Collaborateur de machine virtuelle |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+| Contributeur de machine virtuelle |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Collaborateur de réseau virtuel |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 | Collaborateur de compte de stockage |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
-| Collaborateur de site web |de139f84-1756-47ae-9be6-808fbbe84772 |
-| Collaborateur de plan web |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+| Contributeur de site web |de139f84-1756-47ae-9be6-808fbbe84772 |
+| Contributeur de plan web |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 | Collaborateur SQL Server |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
-| Collaborateur de base de données SQL |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
+| Contributeur de base de données SQL |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>Attribuer un rôle RBAC à l’application
 Vous avez à présent tout le nécessaire pour attribuer le rôle RBAC approprié au principal de service de votre application sur l’abonnement sélectionné, à l’aide de l’API [Créer une attribution de rôle Resource Manager](https://docs.microsoft.com/rest/api/authorization/roleassignments) .

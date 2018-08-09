@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 24a5c1a260cf86f0860e0292c2eb9527f976a363
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0d21a409669cc7d7fceeec9787efbe31d880597c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040508"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Didacticiel : Intégration d’Azure Active Directory à SignalFx
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de SignalFx à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-signalfx-from-the-gallery"></a>Ajout de SignalFx à partir de la galerie
 Pour configurer l’intégration de SignalFx à Azure AD, vous devez ajouter SignalFx à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de SignalFx à Azure AD, vous devez ajouter Sig
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **SignalFx**, sélectionnez **SignalFx** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **SignalFx**, sélectionnez **SignalFx** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![SignalFx dans la liste des résultats](./media/signalfx-tutorial/tutorial_signalfx_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l�
 Pour configurer et tester l’authentification unique Azure AD avec SignalFx, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer utilisateur de test SignalFx](#create-a-signalfx-test-user)** pour avoir un équivalent de Britta Simon dans SignalFx lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer utilisateur de test SignalFx](#create-a-signalfx-test-user)** pour avoir un équivalent de Britta Simon dans SignalFx lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -100,11 +100,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/signalfx-tutorial/tutorial_signalfx_samlbase.png)
 
-3. Dans la section **Domaine et URL SignalFx**, procédez comme suit :
+1. Dans la section **Domaine et URL SignalFx**, procédez comme suit :
 
     ![Informations d’authentification unique dans Domaine et URL SignalFx](./media/signalfx-tutorial/tutorial_signalfx_url.png)
 
@@ -115,11 +115,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > La valeur ci-dessus n’est pas une valeur réelle. Vous mettez à jour la valeur avec l’URL de réponse réelle. La procédure est expliquée plus loin dans le didacticiel.
 
-4. L’application SignalFx attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :   
+1. L’application SignalFx attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :   
 
     ![Configurer l'authentification unique](./media/signalfx-tutorial/tutorial_signalfx_attribute.png)
 
-5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
+1. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
     | Nom de l'attribut | Valeur de l’attribut |
     | ------------------- | -------------------- |    
@@ -142,7 +142,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     e. Cliquez sur **OK**.
  
-6. Dans la section **Certificat de signature SAML**, effectuez les étapes suivantes : 
+1. Dans la section **Certificat de signature SAML**, effectuez les étapes suivantes : 
 
     ![Lien Téléchargement de certificat](./media/signalfx-tutorial/tutorial_signalfx_certificate.png)
 
@@ -150,25 +150,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Cliquez sur **Certificat (en base64)**, puis enregistrez le fichier du certificat sur votre ordinateur.
 
-7. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/signalfx-tutorial/tutorial_general_400.png)
 
-8. Dans la section **Configuration de SignalFx**, cliquez sur **Configurer SignalFx** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** à partir de la **section Référence rapide**.
+1. Dans la section **Configuration de SignalFx**, cliquez sur **Configurer SignalFx** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** à partir de la **section Référence rapide**.
 
     ![Configuration de SignalFx](./media/signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-9. Connectez-vous à votre site d’entreprise SignalFx en tant qu’administrateur.
+1. Connectez-vous à votre site d’entreprise SignalFx en tant qu’administrateur.
 
-10. Dans SignalFx, en haut de l’écran, cliquez sur **Intégrations** pour ouvrir la page correspondante.
+1. Dans SignalFx, en haut de l’écran, cliquez sur **Intégrations** pour ouvrir la page correspondante.
 
     ![Intégration de SignalFx](./media/signalfx-tutorial/tutorial_signalfx_intg.png)
 
-11. Cliquez sur la vignette **Azure Active Directory** sous la section **Services de connexion**.
+1. Cliquez sur la vignette **Azure Active Directory** sous la section **Services de connexion**.
  
     ![SignalFx saml](./media/signalfx-tutorial/tutorial_signalfx_saml.png)
 
-12. Cliquez sur **NOUVELLE INTÉGRATION** puis, sous l’onglet **INSTALLER**, procédez comme suit :
+1. Cliquez sur **NOUVELLE INTÉGRATION** puis, sous l’onglet **INSTALLER**, procédez comme suit :
  
     ![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -196,15 +196,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/signalfx-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/signalfx-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/signalfx-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/signalfx-tutorial/create_aaduser_04.png)
 
@@ -237,23 +237,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **SignalFx**.
+1. Dans la liste des applications, sélectionnez **SignalFx**.
 
     ![Lien SignalFx dans la liste des applications](./media/signalfx-tutorial/tutorial_signalfx_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

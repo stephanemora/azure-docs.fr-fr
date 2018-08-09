@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441571"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282239"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources
 
-Lorsqu’un code doit accéder ou modifier des ressources, vous devez configurer une application Azure Active Directory (AD). Vous assignez les autorisations nécessaires à l’application AD. Cette approche est préférable à l’exécution de l’application avec vos propres informations d’identification, car vous pouvez assigner des autorisations à l’identité de l’application différentes de vos propres autorisations. En règle générale, ces autorisations sont strictement limitées à ce que l’application doit faire.
+Lorsqu’un code doit accéder ou modifier des ressources, vous devez configurer une application Azure Active Directory (AD). Vous pouvez alors attribuer les autorisations nécessaires à l’application AD. Cette approche est préférable à l’exécution de l’application avec vos propres informations d’identification, car vous pouvez assigner des autorisations à l’identité de l’application différentes de vos propres autorisations. En règle générale, ces autorisations sont strictement limitées à ce que l’application doit faire.
 
 Cet article explique comment effectuer ces étapes via le portail. Elle se concentre sur une application à locataire unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à locataire unique sont généralement utilisées pour les applications métier exécutées au sein de votre organisation.
 
@@ -156,7 +156,7 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
    ![sélectionner ajouter](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Sélectionnez le rôle que vous souhaitez affecter à l’application. L’image suivante montre le code **Lecteur**.
+1. Sélectionnez le rôle que vous souhaitez affecter à l’application. Pour que l’application puisse exécuter des actions telles que **redémarrer**, **démarrer** ou **arrêter** des instances, vous devez sélectionner le rôle **Contributeur**. L’image suivante montre le code **Lecteur**.
 
    ![sélectionner un rôle](./media/resource-group-create-service-principal-portal/select-role.png)
 

@@ -3,19 +3,18 @@ title: Apprendre à extraire, charger et transférer des opérations à l’aide
 description: Apprenez à extraire des données d’Azure Data Lake Storage Gen2 Préversion dans Azure Databricks, à les transformer, puis à les charger dans Azure SQL Data Warehouse.
 services: azure-databricks
 author: jamesbak
-manager: jahogg
 ms.component: data-lake-storage-gen2
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: dcc0cb6d761fde5af16dbc86c674e2fc00dad58a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344695"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522286"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 

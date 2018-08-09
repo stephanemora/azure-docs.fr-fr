@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: dd9bb4cb2622651c2d1979166ad838b3b337d583
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343182"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307991"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exemple : créer une compétence personnalisée à l’aide de l’API Traduire le texte
 
@@ -244,6 +244,13 @@ Lorsque vous êtes satisfait du comportement de la fonction, vous pouvez la publ
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez au groupe de ressources, puis recherchez la fonction de traduction que vous avez publiée. Dans la section **Gérer**, vous devriez voir Host Keys. Sélectionnez l’icône **Copier** pour la clé d’hôte *par défaut*.  
 
+## <a name="update-ssl-settings"></a>Mettre à jour les paramètres SSL
+
+Toutes les fonctions Azure créées après le 30 juin 2018 ont désactivé TLS 1.0, qui n’est à l’heure actuelle pas compatible avec les compétences personnalisées.
+
+1. Dans le [portail Azure](https://portal.azure.com), accédez au groupe de ressources, puis recherchez la fonction de traduction que vous avez publiée. SSL devrait figurer sous la section **Fonctionnalités de la plateforme**.
+
+1. Après avoir sélectionné SSL, choisissez la **Version minimale de TLS** 1.0. Les fonctions de TLS 1.2 ne sont pas encore prises en charge comme compétences personnalisées.
 
 ## <a name="test-the-function-in-azure"></a>Tester la fonction dans Azure
 
@@ -305,7 +312,7 @@ Cela devrait produire un résultat similaire à celui que vous avez obtenu préc
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Félicitations ! Vous avez créé votre premier enrichisseur personnalisé. Vous pouvez maintenant suivre le même schéma pour ajouter vos propres fonctionnalités personnalisées. 
+Félicitations ! Vous avez créé votre premier enrichisseur personnalisé. Vous pouvez maintenant suivre le même schéma pour ajouter vos propres fonctionnalités personnalisées. 
 
 + [Ajouter une compétence personnalisée à un pipeline de recherche cognitive](cognitive-search-custom-skill-interface.md)
 + [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)

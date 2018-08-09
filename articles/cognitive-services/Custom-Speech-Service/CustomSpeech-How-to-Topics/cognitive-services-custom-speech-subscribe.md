@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fcef86a19a77581ff82b64173e2ac68b26ae708a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3969114323f5675c5e14ab36990b124e84ead37
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368024"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427565"
 ---
 # <a name="obtain-subscription-keys"></a>Obtenir des clés d’abonnement
 Pour commencer à utiliser Custom Speech Service Azure, vous devez d’abord lier votre compte d’utilisateur à un abonnement Azure. Des abonnements de niveaux gratuits et payants sont disponibles. Pour plus d’informations sur les niveaux, veuillez consulter la [page de tarification](https://www.microsoft.com/cognitive-services/en-us/pricing).
@@ -31,7 +31,7 @@ Pour commencer à utiliser Custom Speech Service Azure, vous devez d’abord lie
         ![API Cognitive Services](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
     
-2. Renseignez les champs obligatoires suivants :
+1. Renseignez les champs obligatoires suivants :
 
       a. **Nom du compte**. Utilisez un nom qui vous convient. N’oubliez pas ce nom afin que vous puissiez trouver votre abonnement Cognitive Services dans la liste de ressources.
 
@@ -39,13 +39,13 @@ Pour commencer à utiliser Custom Speech Service Azure, vous devez d’abord lie
 
       c. **Type d’API**. Sélectionnez **Custom Speech Service (préversion)**.
 
-      d. **Emplacement**. C’est actuellement **Ouest des États-Unis**.
+      d. **Emplacement**. C’est actuellement **USA Ouest**.
 
       e. **Niveau tarifaire**. Sélectionnez le niveau qui vous convient. **F0** est le niveau gratuit. Les quotas autorisés sont expliqués dans la [page de tarification](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
       ![Création d’un compte Cognitive Services](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-blade.png)
 
-3. Vous devriez trouver une vue sur votre tableau de bord ou un service avec le nom de compte fourni dans votre liste de ressources. Lorsque vous la sélectionnez, une vue d’ensemble de votre service s’affiche. Dans la liste sur la gauche, sous **Gestion des ressources**, sélectionnez **Clés**. Copiez **CLÉ 1**.
+1. Vous devriez trouver une vue sur votre tableau de bord ou un service avec le nom de compte fourni dans votre liste de ressources. Lorsque vous la sélectionnez, une vue d’ensemble de votre service s’affiche. Dans la liste sur la gauche, sous **Gestion des ressources**, sélectionnez **Clés**. Copiez **CLÉ 1**.
 
       Cette clé d’abonnement est nécessaire pour les étapes suivantes.
 
@@ -57,7 +57,7 @@ Pour commencer à utiliser Custom Speech Service Azure, vous devez d’abord lie
 
       ![Vue d’ensemble de l’ID d'abonnement](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys.png)
 
-4. Pour entrer votre clé d’abonnement, sélectionnez votre compte d’utilisateur dans le ruban, dans le coin supérieur droit. Dans le menu déroulant, sélectionnez **Abonnements**.
+1. Pour entrer votre clé d’abonnement, sélectionnez votre compte d’utilisateur dans le ruban, dans le coin supérieur droit. Dans le menu déroulant, sélectionnez **Abonnements**.
 
       ![Élément de menu Abonnements](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-selection.png)
 
@@ -65,7 +65,7 @@ Pour commencer à utiliser Custom Speech Service Azure, vous devez d’abord lie
 
     ![Table d’abonnements](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
 
-5. Sélectionnez **Ajouter**. Entrez un nom pour l’abonnement et la clé d’abonnement. Cela peut être **CLÉ 1** (clé primaire) ou **CLÉ 2** (clé secondaire) dans votre abonnement.
+1. Sélectionnez **Ajouter**. Entrez un nom pour l’abonnement et la clé d’abonnement. Cela peut être **CLÉ 1** (clé primaire) ou **CLÉ 2** (clé secondaire) dans votre abonnement.
 
       ![Nom de la clé d’abonnement](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
 

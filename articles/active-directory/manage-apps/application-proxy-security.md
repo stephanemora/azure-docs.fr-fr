@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2621c4e3ef3425f5a44d78ed5ceb529110c18f4c
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365120"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618357"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -46,7 +46,7 @@ Si vous choisissez Passthrough comme méthode de préauthentification, vous ne b
 
 Appliquez des contrôles de stratégie plus riches avant que les connexions à votre réseau soient établies.
 
-Avec [l’accès conditionnel](../active-directory-conditional-access-azure-portal-get-started.md), vous pouvez définir les restrictions sur le trafic qui est autorisé à accéder à vos applications principales. Vous pouvez créer des stratégies qui limitent les connexions en fonction de l’emplacement, de la force de l’authentification et du profil de risque de l’utilisateur.
+Avec [l’accès conditionnel](../conditional-access/overview.md), vous pouvez définir les restrictions sur le trafic qui est autorisé à accéder à vos applications principales. Vous pouvez créer des stratégies qui limitent les connexions en fonction de l’emplacement, de la force de l’authentification et du profil de risque de l’utilisateur.
 
 Vous pouvez également utiliser l’accès conditionnel pour configurer des stratégies Multi-Factor Authentication, qui ajoutent une couche de sécurité supplémentaire aux authentifications des utilisateurs. 
 

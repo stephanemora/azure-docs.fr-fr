@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f5790f57b66f1d73ff98d5f84276ec9a44568432
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 142305cf371135e71424ca38885c40595398a74d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857924"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427835"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : exécution de votre premier travail Batch avec l’interface de ligne de commande Azure
 
@@ -25,11 +25,11 @@ L’interface de ligne de commande (CLI) Azure permet de créer et gérer des re
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite que vous exécutiez la version 2.0.20 minimum d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite que vous exécutiez la version 2.0.20 minimum d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus2*.
 
@@ -41,7 +41,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Vous pouvez lier un compte Stockage Azure à votre compte Batch. Bien que ce ne soit pas obligatoire pour ce démarrage rapide, le compte de stockage est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles. Créez un compte de stockage dans votre groupe de ressources avec la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Vous pouvez lier un compte Stockage Azure à votre compte Batch. Bien que ce ne soit pas obligatoire pour ce démarrage rapide, le compte de stockage est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles. Créez un compte de stockage dans votre groupe de ressources avec la commande [az storage account create](/cli/azure/storage/account#az-storage-account-create).
 
 ```azurecli-interactive
 az storage account create \
@@ -53,7 +53,7 @@ az storage account create \
 
 ## <a name="create-a-batch-account"></a>Création d’un compte Batch
 
-Créez un compte Batch avec la commande [az batch account create](/cli/azure/batch/account#az_batch_account_create). Vous avez besoin d’un compte pour créer des ressources de calcul (pools de nœuds de calcul) et des travaux Batch.
+Créez un compte Batch avec la commande [az batch account create](/cli/azure/batch/account#az-batch-account-create). Vous avez besoin d’un compte pour créer des ressources de calcul (pools de nœuds de calcul) et des travaux Batch.
 
 L’exemple suivant crée un compte Batch nommé *mybatchaccount* dans *myResourceGroup* et lie le compte de stockage que vous avez créé.  
 
@@ -65,7 +65,7 @@ az batch account create \
     --location eastus2
 ```
 
-Pour créer et gérer des pools de calcul et des travaux, vous devez vous authentifier avec Azure Batch. Connectez-vous au compte avec la commande [az batch account login](/cli/azure/batch/account#az_batch_account_login). Une fois que vous êtes connecté, vos commandes `az batch` utilisent ce contexte de compte.
+Pour créer et gérer des pools de calcul et des travaux, vous devez vous authentifier avec Azure Batch. Connectez-vous au compte avec la commande [az batch account login](/cli/azure/batch/account#az-batch-account-login). Une fois que vous êtes connecté, vos commandes `az batch` utilisent ce contexte de compte.
 
 ```azurecli-interactive 
 az batch account login \
@@ -76,7 +76,7 @@ az batch account login \
 
 ## <a name="create-a-pool-of-compute-nodes"></a>Création d’un pool de nœuds de calcul
 
-Maintenant que vous avez un compte Batch, créez un pool d’exemple de nœuds de calcul Linux à l’aide de la commande [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). L’exemple suivant crée un pool appelé *mypool* avec 2 nœuds de taille *Standard_A1_v2* exécutant Ubuntu 16.04 LTS. La taille de nœud suggérée offre un bon compromis entre performances et coûts pour cet exemple rapide.
+Maintenant que vous avez un compte Batch, créez un pool d’exemple de nœuds de calcul Linux à l’aide de la commande [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). L’exemple suivant crée un pool appelé *mypool* avec 2 nœuds de taille *Standard_A1_v2* exécutant Ubuntu 16.04 LTS. La taille de nœud suggérée offre un bon compromis entre performances et coûts pour cet exemple rapide.
  
 ```azurecli-interactive
 az batch pool create \
@@ -86,7 +86,7 @@ az batch pool create \
     --node-agent-sku-id "batch.node.ubuntu 16.04" 
 ```
 
-Azure Batch crée le pool immédiatement, mais prend quelques minutes pour allouer et démarrer les nœuds de calcul. Pendant ce temps, le pool est à l’état `resizing`. Pour afficher l’état du pool, exécutez la commande [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show). Cette commande affiche toutes les propriétés du pool, vous pouvez également rechercher des propriétés spécifiques. La commande suivante obtient l’état de l’allocation du pool :
+Azure Batch crée le pool immédiatement, mais prend quelques minutes pour allouer et démarrer les nœuds de calcul. Pendant ce temps, le pool est à l’état `resizing`. Pour afficher l’état du pool, exécutez la commande [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show). Cette commande affiche toutes les propriétés du pool, vous pouvez également rechercher des propriétés spécifiques. La commande suivante obtient l’état de l’allocation du pool :
 
 ```azurecli-interactive
 az batch pool show --pool-id mypool \
@@ -97,7 +97,7 @@ Continuez les étapes suivantes pour créer un travail et des tâches durant la 
 
 ## <a name="create-a-job"></a>Création d’un travail
 
-Maintenant que vous disposez d’un pool, créez un travail à exécuter sur celui-ci.  Un travail Batch est un groupe logique d’une ou de plusieurs tâches. Un travail inclut les paramètres communs aux tâches, tels que la priorité et le pool pour exécuter des tâches. Créez un travail Batch à l’aide de la commande [az batch job create](/cli/azure/batch/job#az_batch_job_create). L’exemple suivant crée un travail *myjob* sur le pool *mypool*. Dans un premier temps, le travail n’a aucune tâche.
+Maintenant que vous disposez d’un pool, créez un travail à exécuter sur celui-ci.  Un travail Batch est un groupe logique d’une ou de plusieurs tâches. Un travail inclut les paramètres communs aux tâches, tels que la priorité et le pool pour exécuter des tâches. Créez un travail Batch à l’aide de la commande [az batch job create](/cli/azure/batch/job#az-batch-job-create). L’exemple suivant crée un travail *myjob* sur le pool *mypool*. Dans un premier temps, le travail n’a aucune tâche.
 
 ```azurecli-interactive 
 az batch job create \
@@ -107,7 +107,7 @@ az batch job create \
 
 ## <a name="create-tasks"></a>Création de tâches
 
-Utilisez maintenant la commande [az batch task create](/cli/azure/batch/task#az_batch_task_create) pour créer des tâches à exécuter dans le travail. Dans cet exemple, vous créez quatre tâches identiques. Chaque tâche exécute une `command-line` pour afficher les variables d’environnement Azure Batch sur un nœud de calcul, puis attend 90 secondes. Lorsque vous utilisez Azure Batch, cette ligne de commande se trouve là où vous spécifiez votre application ou votre script. Azure Batch fournit plusieurs façons de déployer des applications et des scripts sur des nœuds de calcul.
+Utilisez maintenant la commande [az batch task create](/cli/azure/batch/task#az-batch-task-create) pour créer des tâches à exécuter dans le travail. Dans cet exemple, vous créez quatre tâches identiques. Chaque tâche exécute une `command-line` pour afficher les variables d’environnement Azure Batch sur un nœud de calcul, puis attend 90 secondes. Lorsque vous utilisez Azure Batch, cette ligne de commande se trouve là où vous spécifiez votre application ou votre script. Azure Batch fournit plusieurs façons de déployer des applications et des scripts sur des nœuds de calcul.
 
 Le script Bash suivant crée 4 tâches parallèles (*mytask1* à *mytask4*).
 
@@ -127,7 +127,7 @@ La sortie de commande affiche les paramètres pour chaque tâche. Azure Batch di
 
 Après avoir créé une tâche, Azure Batch la met en file d’attente pour l’exécuter sur le pool. Une fois qu’un nœud est disponible pour l’exécuter, la tâche s’exécute.
 
-Utilisez la commande [az batch task show](/cli/azure/batch/task#az_batch_task_show) pour afficher l’état des tâches Azure Batch. L’exemple suivant affiche des détails sur *mytask1* en cours d’exécution sur un des nœuds du pool.
+Utilisez la commande [az batch task show](/cli/azure/batch/task#az-batch-task-show) pour afficher l’état des tâches Azure Batch. L’exemple suivant affiche des détails sur *mytask1* en cours d’exécution sur un des nœuds du pool.
 
 ```azurecli-interactive 
 az batch task show \
@@ -139,7 +139,7 @@ La sortie de la commande inclut de nombreux détails, mais notez le `exitCode` d
 
 ## <a name="view-task-output"></a>Afficher les sorties des tâches
 
-Pour répertorier les fichiers créés par une tâche sur un nœud de calcul, utilisez la commande [az batch task file list](/cli/azure/batch/task#az_batch_task_file_list). La commande suivante répertorie les fichiers créés par *mytask1* : 
+Pour répertorier les fichiers créés par une tâche sur un nœud de calcul, utilisez la commande [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list). La commande suivante répertorie les fichiers créés par *mytask1* : 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -160,7 +160,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-Pour télécharger un des fichiers de sortie dans un répertoire local, utilisez la commande [az batch task file download](/cli/azure/batch/task#az_batch_task_file_download). Dans cet exemple, la sortie de la tâche est au format `stdout.txt`. 
+Pour télécharger un des fichiers de sortie dans un répertoire local, utilisez la commande [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download). Dans cet exemple, la sortie de la tâche est au format `stdout.txt`. 
 
 ```azurecli-interactive
 az batch task file download \
@@ -192,13 +192,13 @@ AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 Si vous souhaitez poursuivre les exemples et didacticiels Azure Batch, utilisez le compte Batch et le compte de stockage lié créés dans ce démarrage rapide. Il n’existe aucun frais pour le compte Batch proprement dit.
 
-Vous êtes facturé pour les pools pendant que les nœuds sont en cours d’exécution, même si aucun travail n’est planifié. Lorsque vous n’avez plus besoin d’un pool, supprimez-le avec la commande [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete). Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. 
+Vous êtes facturé pour les pools pendant que les nœuds sont en cours d’exécution, même si aucun travail n’est planifié. Lorsque vous n’avez plus besoin d’un pool, supprimez-le avec la commande [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete). Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. 
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool
 ```
 
-Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, le compte Batch, les pools et toutes les ressources associées. Supprimez les ressources comme suit :
+Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, le compte Batch, les pools et toutes les ressources associées. Supprimez les ressources comme suit :
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

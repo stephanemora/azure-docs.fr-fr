@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f1c2b028521983081ba5f276789af9701b568b7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972466"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619088"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -514,7 +514,7 @@ Toutes les différentes séries de machines virtuelles ne sont pas nécessaireme
 >
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Régions Azure
-Microsoft vous offre la possibilité de déployer des machines virtuelles dans les régions appelées *régions Azure*. Une région Azure peut correspondre à un ou plusieurs centres de données situés à proximité les uns des autres. Dans la plupart des régions géopolitiques du monde, Microsoft a au moins deux régions Azure. Par exemple, l’Europe contient les régions Azure *Europe du Nord* et *Europe de l’Ouest*. Une distance suffisamment importante sépare ces deux régions Azure dans une région géopolitique, afin que des catastrophes naturelles ou techniques n’affectent pas les deux régions Azure situées dans la même région géopolitique. Étant donné que Microsoft crée en permanence de nouvelles régions Azure dans les différentes régions géopolitiques du monde, le nombre de ces régions est en perpétuelle augmentation et, depuis décembre 2015, on compte 20 régions Azure en plus de celles déjà annoncées. En tant que client, vous pouvez déployer des systèmes SAP dans toutes ces régions, y compris dans les deux régions Azure présentes en Chine. Pour obtenir des informations actuelles sur les régions Azure, consultez ce site web : <https://azure.microsoft.com/regions/>
+Microsoft vous offre la possibilité de déployer des machines virtuelles dans les régions appelées *régions Azure*. Une région Azure peut correspondre à un ou plusieurs centres de données situés à proximité les uns des autres. Dans la plupart des régions géopolitiques du monde, Microsoft a au moins deux régions Azure. Par exemple, l’Europe contient les régions Azure *Europe Nord* et *Europe Ouest*. Une distance suffisamment importante sépare ces deux régions Azure dans une région géopolitique, afin que des catastrophes naturelles ou techniques n’affectent pas les deux régions Azure situées dans la même région géopolitique. Étant donné que Microsoft crée en permanence de nouvelles régions Azure dans les différentes régions géopolitiques du monde, le nombre de ces régions est en perpétuelle augmentation et, depuis décembre 2015, on compte 20 régions Azure en plus de celles déjà annoncées. En tant que client, vous pouvez déployer des systèmes SAP dans toutes ces régions, y compris dans les deux régions Azure présentes en Chine. Pour obtenir des informations actuelles sur les régions Azure, consultez ce site web : <https://azure.microsoft.com/regions/>
 
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Concept de la machine virtuelle Microsoft Azure
 Microsoft Azure propose une solution de type Infrastructure as a Service (IaaS) pour héberger les machines virtuelles, avec des fonctionnalités identiques à celles d’une solution de virtualisation locale. Vous êtes en mesure de créer des machines virtuelles depuis le portail Azure, PowerShell ou CLI, qui offrent également des fonctionnalités de gestion et de déploiement.
@@ -1017,7 +1017,7 @@ Pour charger une machine virtuelle ou un VHD existants à partir du réseau loca
 * Utilisez *sysprep* sur Windows ou *waagent -deprovision* sur Linux afin de généraliser votre machine virtuelle. Voir [Informations techniques de référence de Sysprep](https://technet.microsoft.com/library/cc766049.aspx) pour Windows ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][capture-image-linux-step-2-create-vm-image] pour Linux
 * Chargez le disque dur virtuel avec Powershell ou l’interface de ligne de commande Azure
 * (Facultatif) Créez une image de disque managé à partir du VHD avec Powershell, l’interface de ligne de commande Azure ou le portail Azure
-* Déployez la machine virtuelle avec un gabarit JSON en référençant le VHD image comme indiqué dans [cet exemple de gabarit JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json)ou en utilisant l’image de disque managé comme indiqué dans [cet exemple de gabarit JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
+* Déployez la machine virtuelle avec un gabarit JSON en référençant le VHD image comme indiqué dans [cet exemple de gabarit JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json)ou en utilisant l’image de disque managé comme indiqué dans [cet exemple de gabarit JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Téléchargement de VHD ou de disques managés au niveau local
 IaaS permet bien plus que le chargement de disques durs virtuels et de systèmes SAP. Vous pouvez également déplacer les systèmes SAP de nouveau en local à partir d’Azure.
@@ -1156,8 +1156,8 @@ Vous pouvez également copier des VHD entre des abonnements. Pour plus d’infor
 
 Le flux de base de la logique d’applet de commande PS ressemble à ceci :
 
-* Créez un contexte pour le compte de stockage **source** en entrant *New-AzureStorageContext* - consultez <https://msdn.microsoft.com/library/dn806380.aspx>
-* Créez un contexte pour le compte de stockage **cible** en entrant *New-AzureStorageContext* - consultez <https://msdn.microsoft.com/library/dn806380.aspx>
+* Créez un contexte pour le compte de stockage **source** en entrant *New-AzureStorageContext* - consultez <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* Créez un contexte pour le compte de stockage **cible** en entrant *New-AzureStorageContext* - consultez <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
 * Démarrer la copie avec
 
 ```powershell
@@ -1990,7 +1990,7 @@ Consultez les informations supplémentaires concernant le démarrage automatique
 Les aspects relatifs à la haute disponibilité des configurations SAP à 3 couches ont déjà été abordés dans les sections précédentes. Mais qu’en est-il des systèmes où la configuration requise du serveur du SGBD (système de gestion de base de données) est trop volumineuse pour se trouver dans Azure, alors que la couche d’application SAP pourrait y être déployée ?
 
 #### <a name="location-of-3-tier-sap-configurations"></a>Emplacement des configurations SAP à 3 couches
-Le fractionnement de la couche Application elle-même ou de la couche Application et SGBD (système de gestion de base de données) en local et dans Azure n’est pas pris en charge. Un système SAP est totalement déployé localement OU dans Azure. Il est également impossible que certains serveurs d’applications s’exécutent en local et d’autres dans Azure. Il s’agit du point de départ de la discussion. Le déploiement des composants du SGBD (système de gestion de base de données) d’un système SAP et de la couche du serveur d’applications SAP dans deux régions Azure différentes n’est pas non plus pris en charge. Par exemple, le SGBD (système de gestion de base de données) à l’Ouest des États-Unis et la couche d’application SAP au Centre des États-Unis. La non prise en charge de telles configurations s’explique par la sensibilité de latence de l’architecture de SAP NetWeaver.
+Le fractionnement de la couche Application elle-même ou de la couche Application et SGBD (système de gestion de base de données) en local et dans Azure n’est pas pris en charge. Un système SAP est totalement déployé localement OU dans Azure. Il est également impossible que certains serveurs d’applications s’exécutent en local et d’autres dans Azure. Il s’agit du point de départ de la discussion. Le déploiement des composants du SGBD (système de gestion de base de données) d’un système SAP et de la couche du serveur d’applications SAP dans deux régions Azure différentes n’est pas non plus pris en charge. Par exemple, le SGBD (système de gestion de base de données) dans la région USA Ouest et la couche d’application SAP dans la région USA Centre. La non prise en charge de telles configurations s’explique par la sensibilité de latence de l’architecture de SAP NetWeaver.
 
 Toutefois, au cours de l’année dernière, les partenaires des centres de données ont développé la colocalisation dans les régions Azure. Ces colocalisations sont souvent très proches des centres de données Azure physiques au sein d’une région Azure. La courte distance et la connexion des ressources au sein de la colocalisation via ExpressRoute dans Azure peuvent entraîner une latence inférieure à 2 ms. Dans ce cas, il est possible de rechercher la couche SGBD (système de gestion de base de données) (y compris le stockage SAN/NAS) dans une colocalisation de ce type, ainsi que la couche Application dans Azure. Depuis décembre 2015, nous n’assistons à aucun déploiement de ce type. Toutefois, divers clients effectuant des déploiements d’applications autres que SAP utilisent déjà de telles approches.
 

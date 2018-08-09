@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049515"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390151"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -36,6 +36,45 @@ Rubrique |  Détails
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118800"></a>1.1.880.0
+
+### <a name="release-status"></a>État de la version
+
+20/7/2018 : publié pour la mise à niveau automatique. La publication pour le téléchargement suivra prochainement.
+
+### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+
+- L’intégration de Ping Federate dans Azure AD Connect est maintenant en disponibilité générale. [En savoir plus sur la façon de fédérer Azure AD avec Ping Federate](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Azure AD Connect crée maintenant la sauvegarde de l’approbation Azure AD dans AD FS chaque fois qu’une mise à jour est effectuée et la stocke dans un fichier distinct pour la restaurer facilement, si nécessaire. [En savoir plus sur les nouvelles fonctionnalités et la gestion de la confiance Azure AD dans Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- De nouveaux outils de dépannage permettent de résoudre le problème de changement de l’adresse e-mail principale, et celui du masquage de compte à partir de la liste d’adresses globale
+- Azure AD Connect a été mis à jour pour inclure la toute dernière version de SQL Server 2012 Native Client
+- Lorsque vous passez de la connexion utilisateur à la synchronisation de hachage du mot de passe ou à l’authentification directe dans la tâche « Modifier la connexion utilisateur », la case à cocher Authentification unique fluide est activée par défaut.
+- Prise en charge ajoutée pour Windows Server Essentials 2019
+- L’agent Azure AD Connect Health a été mis à jour avec la dernière version 3.1.7.0
+- Pendant une mise à niveau, si le programme d’installation détecte des modifications apportées aux règles de synchronisation par défaut, l’administrateur reçoit un avertissement avant de remplacer les règles modifiées. L’utilisateur peut ainsi prendre des mesures correctives et poursuivre la mise à niveau plus tard. Ancien comportement : Si une règle prédéfinie était modifiée, une mise à niveau manuelle remplaçait alors ces règles sans en avertir l’utilisateur, et le planificateur de synchronisation était désactivé sans que l’utilisateur en soit informé. Nouveau comportement : L’utilisateur reçoit un avertissement avant le remplacement des règles de synchronisation prédéfinies modifiées. L’utilisateur a le choix d’arrêter le processus de mise à niveau et de le reprendre ultérieurement après avoir pris des mesures correctives.
+- Gère mieux les problème de conformité aux normes FIPS en fournissant un message d’erreur pour la génération du hachage MD5 dans un environnement conforme aux normes FIPS, et un lien vers la documentation qui propose une solution de contournement pour ce problème.
+- Mise à jour de l’interface utilisateur afin d’améliorer les tâches de fédération dans l’Assistant, qui se trouvent maintenant sous un sous-groupe distinct pour la fédération. 
+- Toutes les tâches supplémentaires de fédération sont à présent regroupées sous un seul sous-menu pour les utiliser plus facilement.
+- Un nouveau module Posh ADSyncConfig (AdSyncConfig.psm1) amélioré, avec de nouvelles fonctions d’autorisations Active Directory récupérées de l’ancien fichier ADSyncPrep.psm1 (qui sera peut être déprécié bientôt)
+
+### <a name="fixed-issues"></a>Problèmes résolus 
+
+- Correction d’un bogue dans lequel le serveur AAD Connect pouvait afficher une utilisation élevée du processeur après la mise à niveau vers .Net 4.7.2
+- Correction d’un bogue qui pouvait générer par intermittence un message d’erreur pour un problème d’interblocage SQL résolu automatiquement
+- Correction de plusieurs problèmes d’accessibilité pour l’éditeur de règles de synchronisation et Sync Service Manager  
+- Correction d’un bogue où Azure AD Connect ne peut pas obtenir d’informations sur les paramètres du Registre
+- Correction d’un bogue provoquant des problèmes lorsque l’utilisateur avance ou recule dans l’Assistant
+- Correction d’un bogue pour éviter une erreur se produisant en raison d’une remise multi-thread incorrecte dans l’Assistant
+- Quand la page de filtrage de la synchronisation de groupe rencontre une erreur LDAP pendant la résolution des groupes de sécurité, Azure AD Connect retourne désormais l’exception avec une parfaite régularité.  La cause principale de l’exception de référence est toujours inconnue et sera traitée par un autre bogue.
+-  Correction d’un bogue dans lequel les autorisations pour les clés STK et NGC (attribut msDS-KeyCredentialLink sur les objets User/Device pour WHfB) n’ont pas été définies correctement.     
+- Correction d’un bogue où 'Set-ADSyncRestrictedPermissions' n’a pas été appelé correctement
+-  Ajout de la prise en charge de l’octroi d’autorisations sur la réécriture de groupe dans l’Assistant d’installation d’AADConnect.
+- Lorsque vous changiez de méthode de connexion et que vous passiez de la synchronisation du hachage de mot de passe à AD FS, la synchronisation du hachage de mot de passe n’était pas désactivée.
+- Ajout d’une vérification pour les adresses IPv6 dans la configuration AD FS
+- Mise à jour du message de notification pour informer de l’existence d’une configuration existante.
+- La réécriture d’appareil ne parvient pas à détecter de conteneur dans une forêt non approuvée. Une mise à jour a été effectuée pour fournir un message d’erreur plus adapté et un lien vers la documentation appropriée
+- La désélection d’une unité d’organisation, puis la synchronisation/réécriture correspondant à cette unité d’organisation donne une erreur de synchronisation générique. Une modification a été apportée pour créer un message d’erreur plus compréhensible.
 
 ## <a name="118190"></a>1.1.819.0
 
@@ -243,7 +282,7 @@ Where
 >[!NOTE] 
 >$credential.UserName doit être au format nom_de_domaine_complet\nom_utilisateur. Exemple : contoso.com\admin. 
 
-##### <a name="example"></a>Exemple :
+##### <a name="example"></a>Exemple :
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 

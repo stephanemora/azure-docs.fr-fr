@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070377"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576965"
 ---
 # <a name="secure-your-key-vault"></a>Sécuriser votre coffre de clés
 Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement (tels que les certificats, les chaînes de connexion et les mots de passe) de vos applications cloud. Comme il s’agit de données sensibles et stratégiques, il est préférable de sécuriser l’accès à vos coffres de clés afin que seuls les applications et les utilisateurs autorisés puissent accéder à ces derniers. Cet article propose une vue d’ensemble du modèle d’accès à un coffre de clés, explique l’authentification et l’autorisation, et détaille la procédure de sécurisation de l’accès au coffre de clés pour vos applications cloud à l’aide d’un exemple.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 L’accès à un coffre de clés est contrôlé via deux interfaces distinctes : le plan de gestion et le plan de données. Pour ces deux plans, une autorisation et une authentification correctes sont nécessaires pour qu’un appelant (un utilisateur ou une application) puisse accéder au coffre de clés. L’authentification établit l’identité de l’appelant, tandis que l’autorisation détermine les opérations que ce dernier est autorisé à effectuer.
 
 Pour l’authentification, le plan de gestion et le plan de données font tous deux appel à Azure Active Directory. Pour l’autorisation, le plan de gestion utilise le contrôle d’accès en fonction du rôle (RBAC), tandis que le plan de données s’appuie sur la stratégie d’accès au coffre de clés.
@@ -47,7 +47,7 @@ Lorsque vous créez un coffre de clés dans un abonnement Azure, il est automati
 * **Accès de l’utilisateur et de l’application** : concerne généralement les applications qui accèdent au coffre de clés pour le compte d’un utilisateur connecté. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Il existe deux façons d’accorder l’accès à des utilisateurs : la première consiste à accorder l’accès à des utilisateurs de sorte qu’ils puissent accéder au coffre de clés depuis n’importe quelle application et la seconde consiste à accorder l’accès au coffre de clés à un utilisateur uniquement lorsque ce dernier utilise une application spécifique (ce que l’on désigne sous le nom d’identité composée). 
 * **Accès de l’application seule** : pour les applications qui exécutent des services démons, des tâches en arrière-plan, etc. L’identité de l’application se voit octroyer l’accès au coffre de clés.
 
-Dans les deux types d’applications, l’application s’authentifie auprès d’Azure Active Directory à l’aide de n’importe laquelle des [méthodes d’authentification prises en charge](../active-directory/active-directory-authentication-scenarios.md) et obtient un jeton. La méthode d’authentification utilisée dépend du type d’application. L’application utilise ce jeton, puis envoie une demande d’API REST au coffre de clés. En cas d’accès au plan de gestion, les demandes sont acheminées via le point de terminaison Azure Resource Manager. Si elle accède au plan de données, l’application s’adresse directement à un point de terminaison de coffre de clés. Consultez d’autres informations sur le [flux d’authentification intégral](../active-directory/active-directory-protocols-oauth-code.md). 
+Dans les deux types d’applications, l’application s’authentifie auprès d’Azure Active Directory à l’aide de n’importe laquelle des [méthodes d’authentification prises en charge](../active-directory/develop/authentication-scenarios.md) et obtient un jeton. La méthode d’authentification utilisée dépend du type d’application. L’application utilise ce jeton, puis envoie une demande d’API REST au coffre de clés. En cas d’accès au plan de gestion, les demandes sont acheminées via le point de terminaison Azure Resource Manager. Si elle accède au plan de données, l’application s’adresse directement à un point de terminaison de coffre de clés. Consultez d’autres informations sur le [flux d’authentification intégral](../active-directory/develop/v1-protocols-oauth-code.md). 
 
 Le nom de la ressource pour laquelle l’application demande un jeton est différent selon que l’application accède au plan de gestion ou au plan de données. Par conséquent, en fonction de l’environnement Azure, le nom de la ressource correspond soit à un point de terminaison du plan de gestion, soit à un point de terminaison du plan de données, tel que spécifié dans le tableau de la section suivante.
 
@@ -223,7 +223,7 @@ Cet exemple illustre un scénario simple. Les scénarios réels peuvent être pl
 * [Role-Based Access Control for Microsoft Azure from Ignite (Contrôle d’accès en fonction du rôle pour Microsoft Azure)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   Ce lien donne accès à une vidéo sur Channel 9 enregistrée à l’occasion de la conférence MS Ignite en 2015. Cette session traite des fonctionnalités de gestion d’accès et de création de rapports d’Azure et explore les bonnes pratiques en ce qui concerne la sécurisation de l’accès aux abonnements Azure à l’aide d’Azure Active Directory.
-* [Autoriser l’accès aux applications web à l’aide d’OAuth 2.0 et Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+* [Autoriser l’accès aux applications web à l’aide d’OAuth 2.0 et Azure Active Directory](../active-directory/develop/v1-protocols-oauth-code.md)
   
   Cet article décrit le flux OAuth 2.0 complet pour l’authentification auprès d’Azure Active Directory.
 * [API REST de gestion de coffre de clés](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -238,7 +238,7 @@ Cet exemple illustre un scénario simple. Les scénarios réels peuvent être pl
 * [Contrôle d’accès aux secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Lien vers la documentation de référence sur le contrôle d’accès aux clés.
-* [Définition](https://msdn.microsoft.com/library/mt603625.aspx) et [suppression](https://msdn.microsoft.com/library/mt619427.aspx) de la stratégie d’accès au coffre de clés à l’aide de PowerShell
+* [Définition](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) et [suppression](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) de la stratégie d’accès au coffre de clés à l’aide de PowerShell
   
   Liens vers la documentation de référence des applets de commande PowerShell permettant de gérer la stratégie d’accès au coffre de clés.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4cf04ceeb8650b2978389cefb561ae31e88bc853
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990113"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282434"
 ---
 # <a name="log-analytics-data-security"></a>Sécurité des données Log Analytics
 Ce document est destiné à fournir des informations propres à Azure Log Analytics en complément des informations disponibles sur le [Centre de confidentialité Azure](../security/security-microsoft-trust-center.md).  
@@ -176,7 +176,7 @@ Comme décrit ci-dessus, les données provenant d’agents du serveur d’admini
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Le service Log Analytics reçoit et traite les données
 Le service Log Analytics s’assure que les données entrantes proviennent d’une source approuvée en validant des certificats et l’intégrité des données à l’aide de la certification Azure. Les données brutes non traitées sont ensuite stockées dans un hub d’événements Azure de la région où les données finissent par être stockées au repos. Le type des données stockées dépend des types de solutions qui ont été importées et utilisées pour collecter des données. Ensuite, le service Log Analytics traite les données brutes et les ingère dans la base de données.
 
-La période de rétention des données collectées stockées dans la base de données varie selon le plan de tarification. Dans le cas du niveau *gratuit*, les données collectées restent disponibles pendant 7 jours. Dans le cas du niveau *payant*, les données collectées restent disponibles pendant 31 jours par défaut, mais cette durée peut être étendue à 720 jours. Les données sont chiffrées au repos dans le stockage Azure pour garantir leur confidentialité. Pendant les deux dernières semaines, les données sont également stockées dans le cache sur disque SSD, ce cache n’étant actuellement pas chiffré.  Nous prévoyons la prise en charge de ce type de chiffrement dans la deuxième moitié de 2018.  
+La période de rétention des données collectées stockées dans la base de données varie selon le plan de tarification. Dans le cas du niveau *gratuit*, les données collectées restent disponibles pendant 7 jours. Dans le cas du niveau *payant*, les données collectées restent disponibles pendant 31 jours par défaut, mais cette durée peut être étendue à 730 jours. Les données sont chiffrées au repos dans le stockage Azure pour garantir leur confidentialité. Pendant les deux dernières semaines, les données sont également stockées dans le cache sur disque SSD, ce cache n’étant actuellement pas chiffré.  Nous prévoyons la prise en charge de ce type de chiffrement dans la deuxième moitié de 2018.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utiliser Log Analytics pour accéder aux données
 Pour accéder à votre espace de travail Log Analytics, vous vous connectez au portail Azure à l’aide du compte professionnel ou d’un compte Microsoft que vous avez configuré précédemment. La totalité du trafic entre le portail et le service Log Analytics est envoyée par le biais d’un canal HTTPS sécurisé. Lorsque vous utilisez le portail, un ID de session est généré sur le client utilisateur (navigateur web), et les données sont stockées dans un cache local jusqu’à la fin de la session. Ensuite, le cache est supprimé. Les cookies côté client qui ne contiennent pas d’informations d’identification personnelle ne sont pas supprimés automatiquement. Les cookies de session sont marqués HTTPOnly et sécurisés. Après une période d’inactivité prédéfinie, la session du portail Azure prend fin.

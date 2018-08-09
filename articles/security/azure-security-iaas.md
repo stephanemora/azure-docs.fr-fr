@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: barclayn
-ms.openlocfilehash: 37620e70377e3f1fbeeeb73aaa294c5f54cf5b3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c28459aa04c67db8abda54d9f14eb417bd8ed60
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723771"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618595"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 
@@ -188,7 +188,7 @@ Comparez vos standards aux meilleures pratiques du secteur, personnalisez-les et
 
 Pour les environnements hébergés séparément de votre environnement de production, vous pouvez utiliser une extension anti-programme malveillant pour protéger vos machines virtuelles et services cloud. Elle s’intègre avec [Azure Security Center](../security-center/security-center-intro.md).
 
-Le [logiciel anti-programme malveillant Microsoft](azure-security-antimalware.md) inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, les rapports d’exemples, la collecte d’événements d’exclusion et la [prise en charge de PowerShell](https://msdn.microsoft.com/library/dn771715.aspx).
+Le [logiciel anti-programme malveillant Microsoft](azure-security-antimalware.md) inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, les rapports d’exemples, la collecte d’événements d’exclusion et la [prise en charge de PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension).
 
 ![Logiciel anti-programme malveillant Azure](./media/azure-security-iaas/azantimalware.png)
 

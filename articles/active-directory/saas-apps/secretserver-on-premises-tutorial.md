@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 37ae91743077a9cb9ef9b8f97747563a580fada9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 30a1498ab41f263c77656400c4200313048cc331
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051276"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Didacticiel : Intégration d’Azure Active Directory avec Secret Server (On-Premises)
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Secret Server (On-Premises) à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Ajout de Secret Server (On-Premises) à partir de la galerie
 Pour configurer l’intégration de Secret Server (On-Premises) avec Azure AD, vous devez l’ajouter à votre liste d’applications SaaS gérées à partir de la galerie.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de Secret Server (On-Premises) avec Azure AD, v
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Secret Server (On-Premises)**, sélectionnez **Secret Server (On-Premises)** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Secret Server (On-Premises)**, sélectionnez **Secret Server (On-Premises)** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Secret Server (On-Premises) dans la liste des résultats](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l�
 Pour configurer et tester l’authentification unique Azure AD avec Secret Server (On-Premises), vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test de Secret Server (On-Premises)](#create-a-secret-server-on-premises-test-user)** pour avoir un équivalent de Britta Simon dans Secret Server (On-Premises) lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test de Secret Server (On-Premises)](#create-a-secret-server-on-premises-test-user)** pour avoir un équivalent de Britta Simon dans Secret Server (On-Premises) lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -100,11 +100,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
     ![Boîte de dialogue Authentification unique](./media/secretserver-on-premises-tutorial/tutorial_secretserver_samlbase.png)
 
-3. Dans la section **Domaine et URL de Secret Server (On-Premises)**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
+1. Dans la section **Domaine et URL de Secret Server (On-Premises)**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
 
     ![Informations d’authentification unique dans Domaine et URL de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
@@ -115,7 +115,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > L’ID d’entité indiquée ci-dessus est seulement un exemple et vous êtes libre de choisir une valeur unique qui identifie votre instance Secret Server dans Azure AD. Vous devez envoyer cet ID d’entité à [l’équipe du support client Secret Server (On-Premises)](https://thycotic.force.com/support/s/) qui va la configurer de son côté. Pour plus de détails, veuillez lire [cet article](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
 
-4. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
 
@@ -124,23 +124,23 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez [l’équipe du support client Secret Server (On-Premises)](https://thycotic.force.com/support/s/).
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/secretserver-on-premises-tutorial/tutorial_secretserver_certificate.png)
 
-6. Cochez la case **Afficher les paramètres avancés de signature de certificat** et sélectionnez **Option de signature** pour **Signer la réponse et l’assertion SAML**.
+1. Cochez la case **Afficher les paramètres avancés de signature de certificat** et sélectionnez **Option de signature** pour **Signer la réponse et l’assertion SAML**.
 
     ![Options de signature](./media/secretserver-on-premises-tutorial/signing.png)
 
-7. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
     
-8. Dans la section **Configuration de Secret Server (On-Premises)**, cliquez sur **Configurer Secret Server (On-Premises)** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **Configuration de Secret Server (On-Premises)**, cliquez sur **Configurer Secret Server (On-Premises)** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configuration de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_configure.png)
 
-9. Pour configurer l’authentification unique côté **Secret Server (On-Premises)**, vous devez envoyer le **Certificat (Base64) téléchargé, l’URL de déconnexion, l’URL du service d’authentification unique SAML** et **l’ID d’entité SAML** à [l’équipe de support de Secret Server (On-Premises)](https://thycotic.force.com/support/s/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **Secret Server (On-Premises)**, vous devez envoyer le **Certificat (Base64) téléchargé, l’URL de déconnexion, l’URL du service d’authentification unique SAML** et **l’ID d’entité SAML** à [l’équipe de support de Secret Server (On-Premises)](https://thycotic.force.com/support/s/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -154,15 +154,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/secretserver-on-premises-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/secretserver-on-premises-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/secretserver-on-premises-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/secretserver-on-premises-tutorial/create_aaduser_04.png)
 
@@ -190,23 +190,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201]
 
-2. Dans la liste des applications, sélectionnez **Secret Server (On-Premises)**.
+1. Dans la liste des applications, sélectionnez **Secret Server (On-Premises)**.
 
     ![Le lien Secret Server (On-Premises) dans la liste des applications](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f35fbacd4eac39cd9931d4725ac9bb299986c934
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e73ca95c27e7c9ef0799107dadc58c17aea5a9ca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217246"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Didacticiel : Intégration d’Azure Active Directory à MOVEit Transfer - Azure AD integration
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de MOVEit Transfer - Azure AD integration à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-moveit-transfer---azure-ad-integration-from-the-gallery"></a>Ajout de MOVEit Transfer - Azure AD integration à partir de la galerie
 Pour configurer l’intégration de MOVEit Transfer - Azure AD integration avec Azure AD, vous devez ajouter MOVEit Transfer - Azure AD integration, disponible dans la galerie, à votre liste d’applications SaaS gérées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de MOVEit Transfer - Azure AD integration avec 
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **MOVEit Transfer - Azure AD integration**, sélectionnez **MOVEit Transfer - Azure AD integration** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **MOVEit Transfer - Azure AD integration**, sélectionnez **MOVEit Transfer - Azure AD integration** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![MOVEit Transfer - Azure AD integration dans la liste des résultats](./media/moveittransfer-tutorial/tutorial_moveittransfer_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dans MOVEit Transfer - Azure AD integration, affectez la valeur de **nom d’uti
 Pour configurer et tester l’authentification unique Azure AD avec MOVEit Transfer - Azure AD integration, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test MOVEit Transfer - Azure AD integration](#create-a-moveit-transfer---azure-ad-integration-test-user)** pour avoir un équivalent de Britta Simon dans MOVEit Transfer - Azure AD integration lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test MOVEit Transfer - Azure AD integration](#create-a-moveit-transfer---azure-ad-integration-test-user)** pour avoir un équivalent de Britta Simon dans MOVEit Transfer - Azure AD integration lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,13 +102,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/moveittransfer-tutorial/tutorial_moveittransfer_samlbase.png)
 
-3. Dans la section **Domaine et URL MOVEit Transfer - Azure AD integration**, procédez comme suit :
+1. Dans la section **Domaine et URL MOVEit Transfer - Azure AD integration**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/moveittransfer-tutorial/tutorial_moveittransfer_url.png)
+    ![Configurer l'authentification unique](./media/moveittransfer-tutorial/tutorial_moveittransfer_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://contoso.com`
 
@@ -119,25 +119,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Vous pouvez vous reporter à ces valeurs ultérieurement dans la section **URL de métadonnées du fournisseur de service**, ou contacter l’[équipe de support technique MOVEit Transfer - Azure AD integration](https://community.ipswitch.com/s/support) pour les obtenir.
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/moveittransfer-tutorial/tutorial_moveittransfer_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/moveittransfer-tutorial/tutorial_general_400.png)
     
-6. Connectez-vous à votre client MOVEit Transfer - Azure AD integration en tant qu’administrateur.
+1. Connectez-vous à votre client MOVEit Transfer - Azure AD integration en tant qu’administrateur.
 
-7. Dans le volet de navigation gauche, cliquez sur **Paramètres**.
+1. Dans le volet de navigation gauche, cliquez sur **Paramètres**.
 
     ![Section Paramètres côté application](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
-8. Cliquez sur le lien **Authentification unique** qui se trouve sous **Stratégies de sécurité -> Authentification des utilisateurs**.
+1. Cliquez sur le lien **Authentification unique** qui se trouve sous **Stratégies de sécurité -> Authentification des utilisateurs**.
 
     ![Stratégies de sécurité côté application](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
-9. Cliquez sur le lien URL de métadonnées pour télécharger le document de métadonnées.
+1. Cliquez sur le lien URL de métadonnées pour télécharger le document de métadonnées.
 
     ![URL de métadonnées du fournisseur de service](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
     
@@ -146,19 +146,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     ![Configurer l’authentification unique côté application](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
-10. Cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité) pour ajouter un nouveau fournisseur d’identité fédéré.
+1. Cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité) pour ajouter un nouveau fournisseur d’identité fédéré.
 
     ![Ajouter un fournisseur d’identité](./media/moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 
-11. Cliquez sur **Parcourir...** pour sélectionner le fichier de métadonnées que vous avez téléchargé à partir du portail Azure, puis cliquez sur **Ajouter un fournisseur d’identité** pour charger le fichier téléchargé.
+1. Cliquez sur **Parcourir...** pour sélectionner le fichier de métadonnées que vous avez téléchargé à partir du portail Azure, puis cliquez sur **Ajouter un fournisseur d’identité** pour charger le fichier téléchargé.
 
     ![Fournisseur d’identité SAML](./media/moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
-12. Sélectionnez **Oui** sous **Activé** dans la page **Edit Federated Identity Provider Settings** (Modifier les paramètres du fournisseur d’identité fédéré...), puis cliquez sur **Enregistrer**.
+1. Sélectionnez **Oui** sous **Activé** dans la page **Edit Federated Identity Provider Settings** (Modifier les paramètres du fournisseur d’identité fédéré...), puis cliquez sur **Enregistrer**.
 
     ![Paramètres de fournisseur d’identité fédérée](./media/moveittransfer-tutorial/tutorial_moveittransfer_005.png)
 
-13. Dans la page **Edit Federated Identity Provider User Settings** (Modifier les paramètres utilisateur du fournisseur d’identité fédérée), effectuez les actions suivantes :
+1. Dans la page **Edit Federated Identity Provider User Settings** (Modifier les paramètres utilisateur du fournisseur d’identité fédérée), effectuez les actions suivantes :
     
     ![Modifier les paramètres de fournisseur d’identité fédérée](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
     
@@ -187,15 +187,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/moveittransfer-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/moveittransfer-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/moveittransfer-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/moveittransfer-tutorial/create_aaduser_04.png)
 
@@ -226,23 +226,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **MOVEit Transfer - Azure AD integration**.
+1. Dans la liste des applications, sélectionnez **MOVEit Transfer - Azure AD integration**.
 
     ![Lien MOVEit Transfer - Azure AD integration dans la liste des applications](./media/moveittransfer-tutorial/tutorial_moveittransfer_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

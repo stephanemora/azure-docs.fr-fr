@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 56ad633807a59eaa7ae75dc334aa630fb3bf94a3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127589"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436724"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
 
@@ -44,9 +44,9 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | **Source connectée** | **Support** | **Description** |
 | --- | --- | --- |
-| [Agents Windows](log-analytics-windows-agent.md) | OUI | La solution collecte des informations DNS auprès d’agents Windows. |
+| [Agents Windows](log-analytics-windows-agent.md) | Oui | La solution collecte des informations DNS auprès d’agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  | La solution ne collecte aucune information DNS auprès d’agents Linux directs. |
-| [Groupe d’administration de Microsoft System Center Operations Manager](log-analytics-om-agents.md) | OUI | La solution collecte des informations DNS auprès d’agents dans un groupe d’administration d’Operations Manager connecté. Une connexion directe entre l’agent Operations Manager et Operations Management Suite n’est pas obligatoire. Les données sont transférées du groupe d’administration au référentiel Operations Management Suite. |
+| [Groupe d’administration de Microsoft System Center Operations Manager](log-analytics-om-agents.md) | Oui | La solution collecte des informations DNS auprès d’agents dans un groupe d’administration d’Operations Manager connecté. Une connexion directe entre l’agent Operations Manager et Operations Management Suite n’est pas obligatoire. Les données sont transférées du groupe d’administration au référentiel Operations Management Suite. |
 | [Compte Stockage Azure](log-analytics-azure-storage.md) | Non  | Le stockage Azure n’est pas utilisé par la solution. |
 
 ### <a name="data-collection-details"></a>Détails sur la collecte de données
@@ -133,11 +133,11 @@ Ces informations vous aident à identifier les éléments suivants :
 
 1. Recherchez dans la zone qui fait autorité le nom que le client essaie de mettre à jour.
 
-2. Utilisez la solution pour vérifier les informations d’inventaire de cette zone.
+1. Utilisez la solution pour vérifier les informations d’inventaire de cette zone.
 
-3. Vérifiez que la mise à jour dynamique de la zone est activée.
+1. Vérifiez que la mise à jour dynamique de la zone est activée.
 
-4. Vérifiez si la zone est configurée pour la mise à jour dynamique sécurisée ou non.
+1. Vérifiez si la zone est configurée pour la mise à jour dynamique sécurisée ou non.
 
     ![Panneau Inscriptions DNS dynamiques](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
 
@@ -177,7 +177,7 @@ Sur la page Recherche dans les journaux, vous pouvez créer une requête. Vous p
 
     c. Pour afficher les données du journal correspondant aux modifications de configuration, sélectionnez **ConfigurationChange** comme filtre **Sous-type** à partir du contrôle de facette sur la gauche. Un tableau qui répertorie tous les événements de modification de configuration pour la période sélectionnée s’affiche.
 
-2. Dans la **zone de requête de recherche**, tapez `DnsInventory` pour afficher toutes les données associées aux inventaires DNS pour les serveurs DNS gérés par la solution. Les résultats indiquent les données de journal pour les serveurs DNS, les zones DNS et les enregistrements de ressources.
+1. Dans la **zone de requête de recherche**, tapez `DnsInventory` pour afficher toutes les données associées aux inventaires DNS pour les serveurs DNS gérés par la solution. Les résultats indiquent les données de journal pour les serveurs DNS, les zones DNS et les enregistrements de ressources.
 
     ![Recherche dans les journaux des inventaires DNS](./media/log-analytics-dns/log-search-dnsinventory.png)
 

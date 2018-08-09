@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 931c6b2cc0230e4605089dfc1eb0764aa61ec7b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620460"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524428"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Mettre à jour des modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
 Cet article vient s’ajouter à l’article principal sur l’intégration Azure Data Factory - Azure Machine Learning : [Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning](transform-data-using-machine-learning.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans le cadre du processus de mise en place de modèles Azure Machine Learning, votre modèle est formé et enregistré. Vous l’utilisez ensuite pour créer un service web prédictif. Le service web peut ensuite être utilisé dans des sites web, des tableaux de bord et des applications mobiles.
 
 Les modèles que vous créez à l’aide de Machine Learning ne sont généralement pas statiques. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, il faut effectuer à nouveau l’apprentissage du modèle. Reportez-vous à [Reformer un modèle Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md) pour plus d’informations sur la façon dont vous pouvez reformer un modèle dans Azure Machine Learning. 
@@ -63,13 +63,13 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 
 | Propriété                      | Description                              | Obligatoire |
 | :---------------------------- | :--------------------------------------- | :------- |
-| Nom                          | Nom de l’activité dans le pipeline     | OUI      |
+| Nom                          | Nom de l’activité dans le pipeline     | Oui      |
 | description                   | Texte décrivant l’activité.  | Non        |
-| Type                          | Pour l’activité des ressources de mise à jour Azure Machine Learning, le type d’activité est **AzureMLUpdateResource**. | OUI      |
-| linkedServiceName             | Service lié Azure Machine Learning qui contient la propriété updateResourceEndpoint. | OUI      |
-| trainedModelName              | Nom du module de modèle formé dans l’expérience du service web à mettre à jour. | OUI      |
-| trainedModelLinkedServiceName | Nom du service lié de stockage Azure contenant le fichier ilearner chargé par l’opération de mise à jour. | OUI      |
-| trainedModelFilePath          | Chemin relatif du fichier dans trainedModelLinkedService pour représenter le fichier ilearner chargé par l’opération de mise à jour. | OUI      |
+| Type                          | Pour l’activité des ressources de mise à jour Azure Machine Learning, le type d’activité est **AzureMLUpdateResource**. | Oui      |
+| linkedServiceName             | Service lié Azure Machine Learning qui contient la propriété updateResourceEndpoint. | Oui      |
+| trainedModelName              | Nom du module de modèle formé dans l’expérience du service web à mettre à jour. | Oui      |
+| trainedModelLinkedServiceName | Nom du service lié de stockage Azure contenant le fichier ilearner chargé par l’opération de mise à jour. | Oui      |
+| trainedModelFilePath          | Chemin relatif du fichier dans trainedModelLinkedService pour représenter le fichier ilearner chargé par l’opération de mise à jour. | Oui      |
 
 
 ## <a name="end-to-end-workflow"></a>Workflow de bout en bout

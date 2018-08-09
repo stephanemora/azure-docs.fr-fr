@@ -3,17 +3,17 @@ title: Notes de publication de l’agent Azure File Sync | Microsoft Docs
 description: Notes de publication de l’agent Azure File Sync.
 services: storage
 author: wmgries
-manager: aungoo
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 7422300ffe315e0a12812c38f9b823a125eaf344
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.component: files
+ms.openlocfilehash: 69cd7774c92cf1c213f8522dffeb02be6c024acb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144786"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525135"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -211,7 +211,7 @@ Les éléments suivants ne se synchronisent pas, mais le reste du système conti
 - La suppression de nombres importants (plus de 10 000) de répertoires ne doit pas nécessairement être effectuée dans des lots avec v2 *.
  
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
-- Dans cette version, les nouveaux fichiers sont hiérarchisés dans un délai d’1 heure (contre 32 heures auparavant) sous réserve des paramètres de stratégie de hiérarchisation. Nous fournissons une applet de commande PowerShell pour hiérarchiser à la demande. Vous pouvez utiliser l’applet de commande pour évaluer la hiérarchisation plus efficacement sans attendre le processus d’arrière-plan.
+- Dans cette version, les nouveaux fichiers sont hiérarchisés dans un délai d’1 heure (contre 32 heures auparavant) sous réserve des paramètres de stratégie de hiérarchisation. Nous fournissons une cmdlet PowerShell pour hiérarchiser à la demande. Vous pouvez utiliser la cmdlet pour évaluer la hiérarchisation plus efficacement sans attendre le processus d’arrière-plan.
 - Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
 - Lorsque vous consultez les propriétés de fichier depuis un client SMB, l’attribut hors ligne peut sembler mal défini en raison de la mise en cache SMB des métadonnées du fichier.
 - Dans cette nouvelle version, les fichiers sont maintenant téléchargés en tant que fichiers hiérarchisés sur d’autres serveurs, dans la mesure où le fichier est nouveau ou a déjà été hiérarchisé.
@@ -258,6 +258,6 @@ Les éléments suivants ne se synchronisent pas, mais le reste du système conti
 - Ne stockez pas un système d’exploitation ni ou un fichier de pagination d’application qui se trouve au sein d’un point de terminaison de serveur.
  
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
-- Afin de garantir que les fichiers peuvent être rappelés correctement, il se peut que le système ne hiérarchise pas automatiquement les fichiers nouveaux ou modifiés avant 32 heures. Ce processus inclut la première hiérarchisation après avoir configuré un nouveau point de terminaison de serveur. Nous fournissons une applet de commande PowerShell pour hiérarchiser à la demande. Vous pouvez utiliser l’applet de commande pour évaluer la hiérarchisation plus efficacement sans attendre le processus d’arrière-plan.
+- Afin de garantir que les fichiers peuvent être rappelés correctement, il se peut que le système ne hiérarchise pas automatiquement les fichiers nouveaux ou modifiés avant 32 heures. Ce processus inclut la première hiérarchisation après avoir configuré un nouveau point de terminaison de serveur. Nous fournissons une cmdlet PowerShell pour hiérarchiser à la demande. Vous pouvez utiliser la cmdlet pour évaluer la hiérarchisation plus efficacement sans attendre le processus d’arrière-plan.
 - Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
 - Lorsque vous consultez les propriétés de fichier depuis un client SMB, l’attribut hors ligne peut sembler mal défini en raison de la mise en cache SMB des métadonnées du fichier.

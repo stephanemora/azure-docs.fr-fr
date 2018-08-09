@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 7a61fa9df5b5232c11f4a546ec5f050461c88e88
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72091d592475e41f254ef7c3882e3d3fee0c491b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211138"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389529"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Instructions et recommandations pour les collections fiables dans Azure Service Fabric
 Cette section fournit des instructions pour l’utilisation du gestionnaire d’état fiable et des collections fiables. L’objectif consiste à aider les utilisateurs à éviter les pièges courants.
@@ -49,6 +49,7 @@ Voici quelques points à retenir :
 * Les opérations de lecture sur le secondaire peuvent lire des versions qui ne sont pas validées dans le quorum.
   Cela signifie qu’une version des données lue à partir d’un seul secondaire peut présenter une progression erronée.
   Les lectures à partir du principal sont toujours stables : la progression n’est jamais erronée.
+* La sécurité et la confidentialité des données rendues persistantes par votre application dans une collection fiable dépendent de vous et font l’objet des protections fournies par votre gestion du stockage : par exemple, vous pouvez utiliser le chiffrement de disque de système d’exploitation pour protéger vos données au repos.  
 
 ### <a name="next-steps"></a>Étapes suivantes
 * [Utilisation des collections fiables](service-fabric-work-with-reliable-collections.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c125d5a741331d5c9476da23766057ac0c42cdbf
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075315"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493725"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conception d’un système de protection du contenu avec contrôle d’accès à l’aide d’Azure Media Services
 
@@ -225,7 +225,7 @@ Pour plus d’informations, consultez la page [JWT token authentication in Azure
 
 Pour plus d’informations sur Azure AD :
 
-* Vous pouvez trouver des informations pour les développeurs dans le [Guide du développeur Azure Active Directory](../../active-directory/active-directory-developers-guide.md).
+* Vous pouvez trouver des informations pour les développeurs dans le [Guide du développeur Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
 * Vous pouvez trouver des informations pour l’administrateur dans la rubrique [Administration de votre annuaire Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Problèmes de mise en œuvre
@@ -312,9 +312,9 @@ Que se passe-t-il si la substitution de la clé a lieu après qu’Azure AD a g�
 Une clé pouvant être substituée à tout moment, il y a toujours plusieurs clés publiques valides disponibles dans le document de métadonnées de la fédération. La distribution de licences Media Services peut utiliser n’importe quelle clé spécifiée dans le document. Puisqu’une clé peut être rapidement changée, une autre peut être utilisée en remplacement et ainsi de suite.
 
 ### <a name="where-is-the-access-token"></a>Où se trouve le jeton d’accès ?
-Si vous regardez comment une application web appelle une application API sous [Identité d’application avec octroi d’informations d’identification client OAuth 2.0](../../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), vous obtenez le flux d’authentification suivant :
+Si vous regardez comment une application web appelle une application API sous [Identité d’application avec octroi d’informations d’identification client OAuth 2.0](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), vous obtenez le flux d’authentification suivant :
 
-* Un utilisateur se connecte à Azure AD dans l’application web. Pour plus d’informations, voir la rubrique [Navigateur web vers application web](../../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application).
+* Un utilisateur se connecte à Azure AD dans l’application web. Pour plus d’informations, voir la rubrique [Navigateur web vers application web](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
 * Le point de terminaison d’autorisation Azure AD redirige l’agent utilisateur vers l’application cliente avec un code d’autorisation. L’agent utilisateur renvoie le code d’autorisation à l’URI de redirection de l’application cliente.
 * L’application web doit obtenir un jeton d’accès pour pouvoir s’authentifier auprès de l’API web et extraire la ressource souhaitée. Elle envoie une demande au point de terminaison du jeton Azure AD et fournit les informations d’identification, l’ID client et l’URI ID d’application de l’API web. Elle présente le code d’autorisation pour prouver que l’utilisateur a donné son consentement.
 * Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.

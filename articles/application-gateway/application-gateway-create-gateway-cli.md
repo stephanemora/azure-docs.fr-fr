@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: 791cc8bca95fc2264b485c23f30e24254067f513
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ebe22f72d25b8f181e75a263df63fd5a0b4a6a6f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201825"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436187"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Créer une passerelle d’application à l’aide d’Azure CLI
 
@@ -27,11 +27,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.4 minimum d’Azure CLI. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.4 minimum d’Azure CLI. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
+Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#az-group-create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroupAG* à l’emplacement *eastus*.
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Créer des ressources réseau 
 
-Créez le réseau virtuel et le sous-réseau à l’aide de la commande [az network vnet create](/cli/azure/vnet#az_vnet_create). Créez l’adresse IP publique à l’aide de la commande [az network public-ip create](/cli/azure/public-ip#az_public_ip_create).
+Créez le réseau virtuel et le sous-réseau à l’aide de la commande [az network vnet create](/cli/azure/vnet#az-vnet-create). Créez l’adresse IP publique à l’aide de la commande [az network public-ip create](/cli/azure/public-ip#az-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -67,7 +67,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
 ### <a name="create-two-virtual-machines"></a>Créer deux machines virtuelles
 
-Vous pouvez utiliser un fichier de configuration cloud-init pour installer NGINX et exécuter une application Node.js « Hello World » sur une machine virtuelle Linux. Dans l’interpréteur de commandes actuel, créez un fichier nommé cloud-init.txt et collez la configuration suivante dans l’interpréteur de commandes. Vérifiez que vous copiez bien l’intégralité du fichier cloud-init, en particulier la première ligne :
+Vous pouvez utiliser un fichier de configuration cloud-init pour installer NGINX et exécuter une application Node.js « Hello World » sur une machine virtuelle Linux. Dans l’interpréteur de commandes actuel, créez un fichier nommé cloud-init.txt et collez la configuration suivante dans l’interpréteur de commandes. Vérifiez que vous copiez bien l’intégralité du fichier cloud-init, en particulier la première ligne :
 
 ```yaml
 #cloud-config
@@ -111,7 +111,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Créez les interfaces réseau avec la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create). Créez les machines virtuelles avec la commande [az vm create](/cli/azure/vm#az_vm_create).
+Créez les interfaces réseau avec la commande [az network nic create](/cli/azure/network/nic#az-network-nic-create). Créez les machines virtuelles avec la commande [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Créez une passerelle d’application à l’aide de la commande [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create). Lorsque vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, notamment la capacité, la référence SKU et les paramètres HTTP. Les adresses IP privées des interfaces réseau sont ajoutées en tant que serveurs dans le pool principal de la passerelle d’application.
+Créez une passerelle d’application à l’aide de la commande [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create). Lorsque vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, notamment la capacité, la référence SKU et les paramètres HTTP. Les adresses IP privées des interfaces réseau sont ajoutées en tant que serveurs dans le pool principal de la passerelle d’application.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -161,7 +161,7 @@ La création de la passerelle d’application peut prendre plusieurs minutes. Un
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Pour obtenir l’adresse IP publique de la passerelle d’application, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
+Pour obtenir l’adresse IP publique de la passerelle d’application, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -173,9 +173,9 @@ az network public-ip show \
 
 ![Tester la passerelle d’application](./media/application-gateway-create-gateway-cli/application-gateway-nginxtest.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, la passerelle d’application et toutes les ressources associées.
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, la passerelle d’application et toutes les ressources associées.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG

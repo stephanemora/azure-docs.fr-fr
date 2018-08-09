@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 922c87f2d577aff86d51a1fde53f221ebd2fa82c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295947"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446688"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatiser le redimensionnement des images chargées à l’aide d’Event Grid
 
@@ -38,7 +38,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 Vous devez avoir suivi entièrement le didacticiel précédent sur Stockage Blob intitulé [Charger des données d’image dans le cloud avec Stockage Azure][previous-tutorial].
 
@@ -52,7 +52,7 @@ Si vous n’utilisez pas Cloud Shell, vous devez d’abord vous connecter à l�
 
 ## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
-Azure Functions nécessite un compte de stockage général. Créez un compte de stockage général distinct dans le groupe de ressources à l’aide de la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Azure Functions nécessite un compte de stockage général. Créez un compte de stockage général distinct dans le groupe de ressources à l’aide de la commande [az storage account create](/cli/azure/storage/account#az-storage-account-create).
 
 Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. 
 
@@ -66,7 +66,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction  
 
-Vous devez disposer d’une application de fonction pour héberger l’exécution de votre fonction. La Function App fournit un environnement d’exécution sans serveur de votre code de fonction. Créez une Function App à l’aide de la commande [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
+Vous devez disposer d’une application de fonction pour héberger l’exécution de votre fonction. La Function App fournit un environnement d’exécution sans serveur de votre code de fonction. Créez une Function App à l’aide de la commande [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
 Dans la commande suivante, indiquez le nom unique de votre application de fonction dans l’espace réservé `<function_app>`. Le nom de l’application de fonction est utilisé en tant que domaine DNS par défaut pour la Function App. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Pour `<general_storage_account>`, indiquez nom du compte de stockage général que vous avez créé.
 
@@ -177,7 +177,7 @@ Notez que, lorsque l’image chargée disparaît, une copie de l’image chargé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un compte de stockage Azure général

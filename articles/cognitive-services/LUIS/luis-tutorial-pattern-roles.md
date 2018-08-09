@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 80f2d482a660992011549fe8dc76a09740da6ab1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237823"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524142"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Tutoriel : Améliorer l’application avec des modèles de rôles
 
@@ -27,7 +27,7 @@ Dans ce tutoriel, utilisez une entité simple avec des rôles combinés à des m
 * Créer un modèle pour des énoncés à l’aide d’une entité simple avec des rôles
 * Vérifier l’amélioration des prédictions de modèle.
 
-Pour cet article, vous devez disposer d’un compte [LUIS](luis-reference-regions.md) gratuit afin de créer votre application LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous ne disposez pas de l’application Ressources humaines du tutoriel [modèle](luis-tutorial-pattern.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json).
@@ -125,23 +125,16 @@ Dans ces étapes, l’étiquetage des entités peut être simplifié si l’enti
     Si vous avez supprimé l’entité keyPhrase, replacez-la maintenant dans l’application.
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
-La nouvelle intention et les nouveaux énoncés nécessitent un apprentissage. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
-
-2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
-Pour obtenir une prédiction LUIS dans un chatbot ou une autre application, vous devez publier l’application. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Publier**. 
-
-2. Sélectionnez l’emplacement Production et le bouton **Publier**.
-
-3. La publication est terminée lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-without-pattern"></a>Interroger le point de terminaison sans modèle
-1. Dans la page **Publier**, sélectionnez le lien **Point de terminaison** en bas de la page. Cette action ouvre une autre fenêtre de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresses. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Move Wayne Berry from Miami to Mount Vernon`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
@@ -388,7 +381,8 @@ Tout comme les noms de personnes, les villes posent parfois problème car elles 
 Le score de l’intention est désormais beaucoup plus élevé, et les noms de rôles font partie de la réponse de l’entité.
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Pour cela, sélectionnez les points de suspension (***...*** ) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

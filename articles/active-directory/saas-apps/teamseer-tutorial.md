@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 6c13bb4c10adeeba59ff8d0f2c8d7120d6fae43a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5910689f34c511c6cf7d8a044ef4358d2e0570d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050644"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Didacticiel : Intégration d’Azure AD à TeamSeer
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de TeamSeer à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-teamseer-from-the-gallery"></a>Ajout de TeamSeer à partir de la galerie
 Pour configurer l’intégration de TeamSeer à Azure AD, vous devez ajouter TeamSeer à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration de TeamSeer à Azure AD, vous devez ajouter Te
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **TeamSeer**.
+1. Dans la zone de recherche, tapez **TeamSeer**.
 
     ![Création d’un utilisateur de test Azure AD](./media/teamseer-tutorial/tutorial_teamseer_search.png)
 
-5. Dans le panneau de résultats, sélectionnez **TeamSeer**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le panneau de résultats, sélectionnez **TeamSeer**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/teamseer-tutorial/tutorial_teamseer_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Dans TeamSeer, affectez la valeur du **nom d’utilisateur** dans Azure AD comm
 Pour configurer et tester l’authentification unique Azure AD avec TeamSeer, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test TeamSeer](#creating-a-teamseer-test-user)** pour avoir un équivalent de Britta Simon dans TeamSeer lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test TeamSeer](#creating-a-teamseer-test-user)** pour avoir un équivalent de Britta Simon dans TeamSeer lié à la représentation Azure AD de l’utilisateur.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -104,11 +104,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_samlbase.png)
 
-3. Dans la section **TeamSeer Domain and URLs** (Domaine et URL TeamSeer), procédez comme suit :
+1. Dans la section **TeamSeer Domain and URLs** (Domaine et URL TeamSeer), procédez comme suit :
 
     ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_url.png)
 
@@ -117,33 +117,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique TeamSeer](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html). 
  
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_certificate.png) 
+    ![Configure Single Sign-On](./media/teamseer-tutorial/tutorial_teamseer_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_general_400.png)
 
-6. Dans la section **TeamSeer Configuration** (Configuration de TeamSeer), cliquez sur **Configure TeamSeer** (Configurer TeamSeer) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **TeamSeer Configuration** (Configuration de TeamSeer), cliquez sur **Configure TeamSeer** (Configurer TeamSeer) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_configure.png)
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise TeamSeer en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise TeamSeer en tant qu’administrateur.
 
-8. Accédez à **HR Admin**.
+1. Accédez à **HR Admin**.
    
     ![Administrateur RH](./media/teamseer-tutorial/ic789634.png "Administrateur RH")
 
-9. Cliquez sur **Setup**.
+1. Cliquez sur **Setup**.
    
     ![Configuration](./media/teamseer-tutorial/ic789635.png "Configuration")
 
-10. Cliquez sur **Set up SAML provider details**.
+1. Cliquez sur **Set up SAML provider details**.
    
     ![Paramètres SAML](./media/teamseer-tutorial/ic789636.png "Paramètres SAML")
 
-11. Dans la section des détails sur le fournisseur SAML, procédez comme suit :
+1. Dans la section des détails sur le fournisseur SAML, procédez comme suit :
    
     ![Paramètres SAML](./media/teamseer-tutorial/ic789637.png "Paramètres SAML")   
 
@@ -151,7 +151,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
           
     b. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Public Certificate** (Certificat public de fournisseur d’identité).
 
-12. Pour configurer le fournisseur SAML, procédez comme suit :
+1. Pour configurer le fournisseur SAML, procédez comme suit :
     
     ![Paramètres SAML](./media/teamseer-tutorial/ic789638.png "Paramètres SAML") 
 
@@ -176,15 +176,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/teamseer-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/teamseer-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/teamseer-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/teamseer-tutorial/create_aaduser_04.png) 
 
@@ -204,7 +204,7 @@ Pour se connecter à TeamSeer, les utilisateurs d’Azure AD doivent être appro
 
 1. Connectez-vous au site d’entreprise **TeamSeer** en tant qu’administrateur.
 
-2. Procédez comme suit :
+1. Procédez comme suit :
    
     ![Administrateur RH](./media/teamseer-tutorial/ic789640.png "Administrateur RH")  
  
@@ -212,7 +212,7 @@ Pour se connecter à TeamSeer, les utilisateurs d’Azure AD doivent être appro
   
     b. Cliquez sur **Run the New User wizard**.
 
-3. Dans la section **User Details** , procédez comme suit :
+1. Dans la section **User Details** , procédez comme suit :
    
     ![Détails de l’utilisateur](./media/teamseer-tutorial/ic789641.png "Détails de l’utilisateur")
 
@@ -220,7 +220,7 @@ Pour se connecter à TeamSeer, les utilisateurs d’Azure AD doivent être appro
   
     b. Cliquez sur **Suivant**.
 
-4. Suivez les instructions à l’écran pour ajouter un nouvel utilisateur, puis cliquez sur **Terminer**.
+1. Suivez les instructions à l’écran pour ajouter un nouvel utilisateur, puis cliquez sur **Terminer**.
 
 >[!NOTE]
 >Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par TeamSeer, pour approvisionner des comptes utilisateur AAD. 
@@ -237,23 +237,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **TeamSeer**.
+1. Dans la liste des applications, sélectionnez **TeamSeer**.
 
     ![Configurer l'authentification unique](./media/teamseer-tutorial/tutorial_teamseer_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

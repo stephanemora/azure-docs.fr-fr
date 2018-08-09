@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 0d09338f71d71d07ab0e037d4736cfaa1f3cff85
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763932"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492238"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Permet d’obtenir et de définir la planification de chaos.
@@ -36,6 +36,12 @@ Obtenez la planification de chaos définissant quand et comment exécuter Chaos.
 
 Obtient la version de la planification de chaos en cours d’utilisation et la planification de chaos qui définit quand et comment exécuter Chaos.
 
+### <a name="arguments"></a>Arguments
+
+|Argument|Description|
+| --- | --- |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
@@ -43,7 +49,7 @@ Obtient la version de la planification de chaos en cours d’utilisation et la p
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
@@ -59,6 +65,7 @@ Définissez la planification de chaos actuellement en cours d’utilisation par 
 | --expiry-date-utc | La date et l’heure d’arrêt à l’aide de la planification pour planifier Chaos.  Valeur par défaut\: 9999-12-31T23\:59\:59.999Z. |
 | --jobs | Liste encodée JSON de ChaosScheduleJobs représentant quand exécuter Chaos et avec quels paramètres. |
 | --start-date-utc | La date et l’heure de démarrage à l’aide de la planification pour planifier Chaos.  Valeur par défaut\: 1601-01-01T00\:00\:00.000Z. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 | --version | Le numéro de version de la planification. |
 
 ### <a name="global-arguments"></a>Arguments globaux
@@ -68,7 +75,7 @@ Définissez la planification de chaos actuellement en cours d’utilisation par 
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ### <a name="examples"></a>Exemples

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161828"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308873"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Préversion : Déployer la protection de mot de passe Azure AD
 
@@ -56,7 +56,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 
 1. Choisissez un ou plusieurs serveurs pour héberger le service de proxy de protection de mot de passe Azure AD.
    * Chacun de ces services peut uniquement fournir des stratégies de mot de passe pour une seule forêt, et l’ordinateur hôte doit être joint à un domaine (la racine et l’enfant sont tous deux également pris en charge) dans cette forêt. Pour que le service de proxy de protection de mot de passe Azure AD fonctionne comme prévu, il doit exister une connectivité réseau entre au moins un contrôleur de domaine dans chaque domaine de la forêt et l’ordinateur hôte du proxy de protection de mot de passe Azure AD.
-   * Il est possible d’installer et d’exécuter le service de proxy de protection de mot de passe Azure AD sur un contrôleur de domaine à des fins de test, mais ensuite une connexion Internet est requise.
+   * Il est possible d’installer et d’exécuter le service proxy de protection par mot de passe Azure AD sur un contrôleur de domaine à des fins de test, mais, dans ce cas, le contrôleur de domaine exige une connexion Internet.
 
    > [!NOTE]
    > La préversion publique prend en charge un maximum de deux (2) serveurs proxy par forêt.
@@ -110,6 +110,9 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 
    > [!NOTE]
    > L’inscription de la forêt Active Directory est censée être une étape unique au cours de la durée de vie de la forêt. Les agents du contrôleur de domaine qui s’exécutent dans la forêt effectuent automatiquement toutes les autres tâches de maintenance nécessaires à partir de là. Une fois cette opération réussie pour une forêt donnée, des appels supplémentaires de `Register-AzureADPasswordProtectionForest` continuent de réussir, mais ne sont pas nécessaires.
+
+   > [!NOTE]
+   > Pour que `Register-AzureADPasswordProtectionForest` réussisse, il faut qu’au moins un contrôleur de domaine Windows Server 2012 (ou version ultérieure) soit disponible dans le domaine du serveur proxy. Il n’est cependant pas nécessaire que les logiciels d’agent de contrôleur de domaine soient installés sur des contrôleurs de domaine avant cette étape.
 
 6. Facultatif : configurez le service de proxy de protection de mot de passe Azure AD pour l’écoute sur un port spécifique.
    * RPC sur TCP est utilisé par le logiciel Agent DC de protection de mot de passe Azure AD sur les contrôleurs de domaine pour communiquer avec le service de proxy de protection de mot de passe Azure AD. Par défaut, le service Proxy de la stratégie de mot de passe de protection de mot de passe Azure AD est à l’écoute sur n’importe quel point de terminaison RPC dynamique disponible. Si nécessaire en raison de la topologie du réseau ou de la configuration du pare-feu, le service peut être configuré à la place pour écouter sur un port TCP spécifique.

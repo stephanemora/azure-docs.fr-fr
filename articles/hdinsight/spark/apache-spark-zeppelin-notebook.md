@@ -1,24 +1,20 @@
 ---
-title: Utiliser le blocs-notes Zeppelin avec un cluster Apache Spark sur HDInsight | Microsoft Docs
+title: Utiliser des blocs-notes Zeppelin avec un cluster Apache Spark sur HDInsight
 description: Instructions détaillées sur l’utilisation des blocs-notes Zeppelin avec les clusters Apache Spark sur Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: df489d70-7788-4efa-a089-e5e5006421e2
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: b2f47dce058af7a39366c06d0b33117a66ed116a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dfb2711dd7c61494a2fe097856fa344c740cf891
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521999"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618250"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Zeppelin avec un cluster Apache Spark sur HDInsight
 
@@ -42,15 +38,15 @@ Les clusters HDInsight Spark incluent des blocs-notes Zeppelin que vous pouvez u
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
    > 
    > 
-2. Créer un nouveau bloc-notes. Dans le volet d'en-tête, cliquez sur **Bloc-notes**, puis sur **Créer une note**.
+1. Créer un nouveau bloc-notes. Dans le volet d'en-tête, cliquez sur **Bloc-notes**, puis sur **Créer une note**.
    
     ![Créer un nouveau bloc-notes Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Créer un nouveau bloc-notes Zeppelin")
    
     Entrez un nom pour le bloc-notes, puis cliquez sur **Créer une note**.
-3. Vérifiez également que l’en-tête du bloc-notes indique un état connecté. Il est indiqué par un point vert dans le coin supérieur droit.
+1. Vérifiez également que l’en-tête du bloc-notes indique un état connecté. Il est indiqué par un point vert dans le coin supérieur droit.
    
     ![État du bloc-notes Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "État du bloc-notes Zeppelin")
-4. Chargez un exemple de données dans une table temporaire. Lorsque vous créez un cluster Spark dans HDInsight, l’exemple de fichier de données **hvac.csv** est copié vers le compte de stockage associé dans **\HdiSamples\SensorSampleData\hvac**.
+1. Chargez un exemple de données dans une table temporaire. Lorsque vous créez un cluster Spark dans HDInsight, l’exemple de fichier de données **hvac.csv** est copié vers le compte de stockage associé dans **\HdiSamples\SensorSampleData\hvac**.
    
     Collez l’extrait suivant dans le paragraphe vide créé par défaut dans le nouveau bloc-notes.
    
@@ -81,7 +77,7 @@ Les clusters HDInsight Spark incluent des blocs-notes Zeppelin que vous pouvez u
     ![Créer une table temporaire à partir de données brutes](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Créer une table temporaire à partir de données brutes")
    
     Vous pouvez également indiquer un titre pour chaque paragraphe. Dans le coin droit, cliquez sur l’icône **Settings**, puis sur **Show title**.
-5. Vous pouvez maintenant exécuter des instructions Spark SQL dans la table **hvac** . Collez la requête suivante dans un nouveau paragraphe. La requête récupère l’ID de bâtiment et la différence entre les températures cibles et réelles pour chaque bâtiment à une date donnée. Appuyez sur **MAJ + ENTRÉE**.
+1. Vous pouvez maintenant exécuter des instructions Spark SQL dans la table **hvac** . Collez la requête suivante dans un nouveau paragraphe. La requête récupère l’ID de bâtiment et la différence entre les températures cibles et réelles pour chaque bâtiment à une date donnée. Appuyez sur **MAJ + ENTRÉE**.
    
         %sql
         select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13" 
@@ -93,7 +89,7 @@ Les clusters HDInsight Spark incluent des blocs-notes Zeppelin que vous pouvez u
     ![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
    
      Cliquez sur les options d’affichage (mis en exergue dans un rectangle) pour basculer entre les différentes représentations du même résultat. Cliquez sur **Paramètres** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d'écran ci-dessus utilise la clé **buildingID** et la moyenne **temp_diff** comme valeur.
-6. Vous pouvez également exécuter des instructions Spark SQL à l’aide de variables dans la requête. L’extrait suivant montre comment définir la variable **Temp**dans la requête avec les valeurs possibles d’interrogation. Lors de la première exécution de la requête, une liste déroulante est automatiquement renseignée avec les valeurs que vous avez spécifiées pour la variable.
+1. Vous pouvez également exécuter des instructions Spark SQL à l’aide de variables dans la requête. L’extrait suivant montre comment définir la variable **Temp**dans la requête avec les valeurs possibles d’interrogation. Lors de la première exécution de la requête, une liste déroulante est automatiquement renseignée avec les valeurs que vous avez spécifiées pour la variable.
    
         %sql
         select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}" 
@@ -103,10 +99,10 @@ Les clusters HDInsight Spark incluent des blocs-notes Zeppelin que vous pouvez u
     ![Exécuter une instruction Spark SQL à l’aide du bloc-notes](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes")
    
     Pour les requêtes suivantes, vous pouvez sélectionner une nouvelle valeur dans la liste déroulante et réexécuter la requête. Cliquez sur **Paramètres** pour choisir ce qui constitue la clé et les valeurs dans le résultat. La capture d'écran ci-dessus utilise la clé **buildingID**, la moyenne **temp_diff** comme valeur, et le groupe **targettemp**.
-7. Redémarrez l’interpréteur Livy pour quitter l’application. Pour ce faire, ouvrez les paramètres de l’interpréteur en cliquant sur le nom d’utilisateur connecté dans le coin supérieur droit, puis cliquez sur **Interpreter** (Interpréteur).
+1. Redémarrez l’interpréteur Livy pour quitter l’application. Pour ce faire, ouvrez les paramètres de l’interpréteur en cliquant sur le nom d’utilisateur connecté dans le coin supérieur droit, puis cliquez sur **Interpreter** (Interpréteur).
    
     ![Lancer l’interpréteur](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Sortie Hive")
-8. Accédez aux paramètres d’interpréteur Livy, puis cliquez sur **Redémarrer**.
+1. Accédez aux paramètres d’interpréteur Livy, puis cliquez sur **Redémarrer**.
    
     ![Redémarrer l’interpréteur Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Redémarrer l’interpréteur Zeppelin")
 
@@ -118,15 +114,15 @@ Dans cet article, vous allez apprendre à utiliser le package [spark-csv](http:/
 1. Ouvrez les paramètres de l’interpréteur. Dans le coin supérieur droit, cliquez sur le nom d’utilisateur connecté, puis cliquez sur **Interpreter** (Interpréteur).
    
     ![Lancer l’interpréteur](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Sortie Hive")
-2. Accédez aux paramètres d’interpréteur Livy, puis cliquez sur **Modifier**.
+1. Accédez aux paramètres d’interpréteur Livy, puis cliquez sur **Modifier**.
    
     ![Modifier les paramètres de l’interpréteur](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Modifier les paramètres de l’interpréteur")
-3. Ajoutez une nouvelle clé, appelée **livy.spark.jars.packages** et définissez sa valeur au format `group:id:version`. Par conséquent, si vous souhaitez utiliser le package [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), vous devez définir la valeur de la clé sur `com.databricks:spark-csv_2.10:1.4.0`.
+1. Ajoutez une nouvelle clé, appelée **livy.spark.jars.packages** et définissez sa valeur au format `group:id:version`. Par conséquent, si vous souhaitez utiliser le package [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), vous devez définir la valeur de la clé sur `com.databricks:spark-csv_2.10:1.4.0`.
    
     ![Modifier les paramètres de l’interpréteur](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Modifier les paramètres de l’interpréteur")
    
     Cliquez sur **Enregistrer**, puis redémarrez l’interpréteur Livy.
-4. **Conseil** : si vous souhaitez savoir comment atteindre la valeur de la clé entrée ci-dessus, lisez ce qui suit.
+1. **Conseil** : si vous souhaitez savoir comment atteindre la valeur de la clé entrée ci-dessus, lisez ce qui suit.
    
     a. Recherchez le package dans le référentiel Maven. Dans ce didacticiel, nous avons utilisé [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
@@ -153,10 +149,10 @@ Dans ce cas, vous devez effectuer les étapes suivantes avant de commencer à ex
 1. Redémarrez l’interpréteur Livy à partir du bloc-notes Zeppelin. Pour ce faire, ouvrez les paramètres de l’interpréteur en cliquant sur le nom d’utilisateur connecté dans le coin supérieur droit, puis cliquez sur **Interpreter** (Interpréteur).
    
     ![Lancer l’interpréteur](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Sortie Hive")
-2. Accédez aux paramètres d’interpréteur Livy, puis cliquez sur **Redémarrer**.
+1. Accédez aux paramètres d’interpréteur Livy, puis cliquez sur **Redémarrer**.
    
     ![Redémarrer l’interpréteur Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Redémarrer l’interpréteur Zeppelin")
-3. Exécutez une cellule de code à partir d’un bloc-notes Zeppelin existant. Cela crée une session Livy dans le cluster HDInsight.
+1. Exécutez une cellule de code à partir d’un bloc-notes Zeppelin existant. Cela crée une session Livy dans le cluster HDInsight.
 
 ## <a name="seealso"></a>Voir aussi
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
@@ -164,7 +160,7 @@ Dans ce cas, vous devez effectuer les étapes suivantes avant de commencer à ex
 ### <a name="scenarios"></a>Scénarios
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Création et exécution d’applications

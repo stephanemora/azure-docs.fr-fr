@@ -2,26 +2,20 @@
 title: Création, gestion ou suppression d’un compte de stockage à l’aide du Portail Azure | Microsoft Docs
 description: Créez un compte de stockage, gérez vos clés d’accès au compte ou supprimez un compte de stockage dans le Portail Azure. En savoir plus sur les comptes de stockage standard et Premium.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 f1_keywords:
 - sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: ce561c61d25946a508df3e92c461f1c8e889a07e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: common
+ms.openlocfilehash: 980053adc89cc121f3218233d521c8db4f075eb7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776713"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523646"
 ---
 # <a name="about-azure-storage-accounts"></a>À propos des comptes de stockage Azure
 
@@ -29,7 +23,7 @@ ms.locfileid: "32776713"
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Un compte de stockage Azure fournit un espace de noms unique pour stocker vos objets de données Azure Storage et y accéder. Tous les objets d’un compte de stockage sont facturés ensemble en tant que groupe. Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte.
 
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]

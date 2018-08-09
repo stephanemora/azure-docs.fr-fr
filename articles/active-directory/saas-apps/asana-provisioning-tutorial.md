@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8c3224a392e7e130b62e36019a1d180c6826d0ed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9ab2b22840d162fc0194151c5eec02675aad92dc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332209"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427650"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Didacticiel : Configurer Asana pour l’approvisionnement automatique d’utilisateurs
 
@@ -61,15 +61,15 @@ Cette section explique pas à pas comment connecter Azure AD à l’API d’attr
 
 1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**.
 
-2. Si vous avez déjà configuré l’authentification unique sur Asana, recherchez votre instance Asana à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **Asana** dans la galerie d’applications. Sélectionnez **Asana** dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
+1. Si vous avez déjà configuré l’authentification unique sur Asana, recherchez votre instance Asana à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **Asana** dans la galerie d’applications. Sélectionnez **Asana** dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
 
-3. Sélectionnez votre instance Asana, puis sélectionnez l’onglet **Attribution**.
+1. Sélectionnez votre instance Asana, puis sélectionnez l’onglet **Attribution**.
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
+1. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Approvisionnement Asana](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-5. Dans la section **Informations d’identification d’administration**, suivez ces instructions pour générer le jeton et l’entrer dans **Jeton secret** :
+1. Dans la section **Informations d’identification d’administration**, suivez ces instructions pour générer le jeton et l’entrer dans **Jeton secret** :
 
     a. Connectez-vous à [Asana](https://app.asana.com) avec votre compte Administrateur.
 
@@ -81,19 +81,19 @@ Cette section explique pas à pas comment connecter Azure AD à l’API d’attr
 
     e. Mettez à jour **Nom** et **À propos de** ainsi que la photo de profil si besoin. Copiez le jeton dans **Jeton**, puis sélectionnez-le dans **Enregistrer les modifications**.
 
-6. Sur le Portail Azure, sélectionnez **Tester la connexion** pour vérifier qu’Azure AD parvient à se connecter à votre application Asana. Si la connexion échoue, vérifiez que votre compte Asana dispose des autorisations d’administration, puis recommencez l’étape **Tester la connexion**.
+1. Sur le Portail Azure, sélectionnez **Tester la connexion** pour vérifier qu’Azure AD parvient à se connecter à votre application Asana. Si la connexion échoue, vérifiez que votre compte Asana dispose des autorisations d’administration, puis recommencez l’étape **Tester la connexion**.
 
-7. Entrez l’adresse e-mail de la personne ou du groupe qui recevra les notifications d’erreur d’attribution dans **E-mail de notification**. Cochez la case située dessous.
+1. Entrez l’adresse e-mail de la personne ou du groupe qui recevra les notifications d’erreur d’attribution dans **E-mail de notification**. Cochez la case située dessous.
 
-8. Sélectionnez **Enregistrer**. 
+1. Sélectionnez **Enregistrer**. 
 
-9. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Asana**.
+1. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Asana**.
 
-10. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateurs à synchroniser d’Azure AD à Asana. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Asana pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications. Pour plus d’informations, consultez la section [Personnaliser les mappages d’attributs de l’attribution des utilisateurs](../active-directory-saas-customizing-attribute-mappings.md).
+1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateurs à synchroniser d’Azure AD à Asana. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Asana pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications. Pour plus d’informations, consultez la section [Personnaliser les mappages d’attributs de l’attribution des utilisateurs](../active-directory-saas-customizing-attribute-mappings.md).
 
-11. Pour activer le service d’attribution Azure AD pour Asana, définissez **État d’attribution** sur **Activé** dans la section **Paramètres**.
+1. Pour activer le service d’attribution Azure AD pour Asana, définissez **État d’attribution** sur **Activé** dans la section **Paramètres**.
 
-12. Sélectionnez **Enregistrer**. 
+1. Sélectionnez **Enregistrer**. 
 
 La synchronisation initiale commence pour les utilisateurs affectés à Asana dans la section **Utilisateurs**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Les journaux d’audit décrivent toutes les actions effectuées par le service de provisionnement dans votre application Asana.
 

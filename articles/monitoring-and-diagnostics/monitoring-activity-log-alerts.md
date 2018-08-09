@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/18/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 84bd82f479ce516152f50d5753e8d91940724c93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 120fd3552ad36b3d19179f39ca95ce2b3ee2c2e6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263522"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426616"
 ---
 # <a name="create-activity-log-alerts-classic"></a>Créer des alertes de journal d’activité (classique)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les alertes de journal d’activité s’activent lorsqu’un nouvel événement du journal d’activité correspond aux conditions spécifiées dans l’alerte. Il s’agit de ressources Azure, et peuvent donc être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Cet article décrit comment utiliser le portail Azure pour configurer une alerte sur les événements de journal d’activité.
 
 > [!NOTE]
@@ -58,31 +58,31 @@ Pour en savoir plus sur les notifications d’intégrité du service, consultez 
 1. Dans le [Portail](https://portal.azure.com), sélectionnez **Moniteur**.
 
     ![Le service « Moniteur »](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. Dans la section **Journal d’activité**, sélectionnez **Alertes (classique)**.
+1. Dans la section **Journal d’activité**, sélectionnez **Alertes (classique)**.
 
     ![L’onglet « Alertes »](./media/monitoring-activity-log-alerts/alerts-blades.png)
-3. Sélectionnez **Ajouter une alerte de journal d’activité**, puis renseignez les champs.
+1. Sélectionnez **Ajouter une alerte de journal d’activité**, puis renseignez les champs.
 
-4. Entrez un nom dans la boîte **Nom de l’alerte activité journal** et sélectionnez une **Description**.
+1. Entrez un nom dans la boîte **Nom de l’alerte activité journal** et sélectionnez une **Description**.
 
     ![La commande « Ajouter une alerte activité journal »](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-5. La boîte **Abonnement** est automatiquement renseignée avec votre abonnement actuel. Cet abonnement est celui dans lequel le groupe d’actions sera enregistré. La ressource d’alerte est déployée pour cet abonnement et surveille les événements du journal d’activité.
+1. La boîte **Abonnement** est automatiquement renseignée avec votre abonnement actuel. Cet abonnement est celui dans lequel le groupe d’actions sera enregistré. La ressource d’alerte est déployée pour cet abonnement et surveille les événements du journal d’activité.
 
     ![La boîte de dialogue « Ajouter une alerte activité journal »](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-6. Sélectionnez le **Groupe de ressources** dans lequel la ressource d’alerte est créée. Le groupe de ressources n’est pas surveillé par l’alerte. Au lieu de cela, il s’agit du groupe de ressources où se trouve la ressource d’alerte.
+1. Sélectionnez le **Groupe de ressources** dans lequel la ressource d’alerte est créée. Le groupe de ressources n’est pas surveillé par l’alerte. Au lieu de cela, il s’agit du groupe de ressources où se trouve la ressource d’alerte.
 
-7. Si vous le souhaitez, vous pouvez sélectionner une **Catégorie d’événement**, ce qui va modifier les filtres supplémentaires affichés. Pour les événements d’administration, les filtres incluent **Groupe de ressources**, **Ressource**, **Type de ressource**, **Nom de l’opération**, **Niveau**, **État**, et **Événement initié par**. Ces valeurs identifient les événements que cette alerte doit surveiller.
+1. Si vous le souhaitez, vous pouvez sélectionner une **Catégorie d’événement**, ce qui va modifier les filtres supplémentaires affichés. Pour les événements d’administration, les filtres incluent **Groupe de ressources**, **Ressource**, **Type de ressource**, **Nom de l’opération**, **Niveau**, **État**, et **Événement initié par**. Ces valeurs identifient les événements que cette alerte doit surveiller.
 
     >[!NOTE]
     >Vous devez spécifier au moins l’un des critères précédents dans votre alerte. L’alerte créée ne s’activera peut-être pas à chaque fois qu’un événement sera créé dans les journaux d’activité.
     >
     >
 
-8. Entrez un nom dans la boîte **Nom du groupe d’actions** et entrez un nom dans la boîte **Nom court**. Le nom court est utilisé à la place d’un nom de groupe d’actions complet lorsque les notifications sont envoyées à l’aide de ce groupe.
+1. Entrez un nom dans la boîte **Nom du groupe d’actions** et entrez un nom dans la boîte **Nom court**. Le nom court est utilisé à la place d’un nom de groupe d’actions complet lorsque les notifications sont envoyées à l’aide de ce groupe.
 
-9.  Définissez une liste d’actions en indiquant les éléments suivants :
+1.  Définissez une liste d’actions en indiquant les éléments suivants :
 
     a. **Nom** : entrez le nom, alias ou identificateur de l’action.
 
@@ -90,7 +90,7 @@ Pour en savoir plus sur les notifications d’intégrité du service, consultez 
 
     c. **Détails** : selon le type d’actions, entrez un numéro de téléphone, une adresse e-mail ou une URI Webhook.
 
-10. Sélectionnez **OK** pour créer l’alerte.
+1.  Sélectionnez **OK** pour créer l’alerte.
 
 L’alerte prend quelques minutes pour se propager entièrement et devenir active. Elle se déclenche lorsque de nouveaux événements correspondent aux critères de l’alerte.
 
@@ -104,9 +104,9 @@ Pour plus d’informations, consultez [Comprendre le schéma webhook utilisé da
 ## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Créer une alerte concernant un événement du journal d’activité pour un groupe d’actions existant dans le portail Azure
 1. Suivez les étapes 1 à 7 dans la section précédente pour créer votre alerte de journal d’activité.
 
-2. Sous **Notifier via**, sélectionnez le bouton du groupe d’actions **Existant**. Sélectionnez un groupe d’actions existant dans la liste.
+1. Sous **Notifier via**, sélectionnez le bouton du groupe d’actions **Existant**. Sélectionnez un groupe d’actions existant dans la liste.
 
-3. Sélectionnez **OK** pour créer l’alerte.
+1. Sélectionnez **OK** pour créer l’alerte.
 
 L’alerte prend quelques minutes pour se propager entièrement et devenir active. Elle se déclenche lorsque de nouveaux événements correspondent aux critères de l’alerte.
 

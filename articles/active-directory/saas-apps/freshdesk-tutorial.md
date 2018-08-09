@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 064f122deb6e53a33048d3159941a8b4dc5d0a9a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d0fbed347805a581fb66e0218290993817277214
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228888"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Didacticiel : Intégration d’Azure Active Directory à FreshDesk
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de FreshDesk depuis la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-freshdesk-from-the-gallery"></a>Ajout de FreshDesk depuis la galerie
 Pour configurer l’intégration de FreshDesk dans Azure AD, vous devez ajouter FreshDesk depuis la galerie dans votre liste d’applications SaaS gérées.
@@ -64,19 +64,19 @@ Pour configurer l’intégration de FreshDesk dans Azure AD, vous devez ajouter 
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
+1. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **FreshDesk**.
+1. Dans la zone de recherche, tapez **FreshDesk**.
 
     ![Création d’un utilisateur de test Azure AD](./media/freshdesk-tutorial/tutorial_freshdesk_search.png)
 
-5. Dans le panneau de résultats, sélectionnez **FreshDesk**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le panneau de résultats, sélectionnez **FreshDesk**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/freshdesk-tutorial/tutorial_freshdesk_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comme
 Pour configurer et tester l’authentification unique Azure AD avec FreshDesk, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test FreshDesk](#creating-a-freshdesk-test-user)** pour avoir un équivalent de Britta Simon dans FreshDesk, lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test FreshDesk](#creating-a-freshdesk-test-user)** pour avoir un équivalent de Britta Simon dans FreshDesk, lié à la représentation Azure AD associée.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -103,42 +103,42 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail de gestion Azure, sur la page d’intégration de l’application **FreshDesk**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_samlbase.png)
+    ![Configurer l'authentification unique](./media/freshdesk-tutorial/tutorial_freshdesk_samlbase.png)
 
-3. Dans la section **Domaine et URL FreshDesk**, entrez **l’URL de connexion** en tant que `https://<tenant-name>.freshdesk.com` ou toute autre valeur suggérée par Freshdesk.
+1. Dans la section **Domaine et URL FreshDesk**, entrez **l’URL de connexion** en tant que `https://<tenant-name>.freshdesk.com` ou toute autre valeur suggérée par Freshdesk.
 
-    ![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
+    ![Configurer l'authentification unique](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
 
     > [!NOTE] 
     > Notez qu’il ne s’agit pas de la valeur réelle. Vous devez mettre à jour la valeur avec l’URL de connexion réelle. Contactez [l’équipe de support FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) pour obtenir cette valeur.  
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat** puis enregistrez le certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat** puis enregistrez le certificat sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png) 
+    ![Configurer l'authentification unique](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/freshdesk-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de FreshDesk** , cliquez sur **Configurer FreshDesk** pour ouvrir la fenêtre Configurer l’authentification. Copiez l’URL du service d’authentification unique SAML et l’URL de déconnexion à partir de la section **Référence rapide**.
+1. Dans la section **Configuration de FreshDesk** , cliquez sur **Configurer FreshDesk** pour ouvrir la fenêtre Configurer l’authentification. Copiez l’URL du service d’authentification unique SAML et l’URL de déconnexion à partir de la section **Référence rapide**.
 
-    ![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
+    ![Configurer l'authentification unique](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Freshdesk en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Freshdesk en tant qu’administrateur.
 
-8. Dans le menu situé en haut, cliquez sur **Admin**.
+1. Dans le menu situé en haut, cliquez sur **Admin**.
    
    ![Administrateur](./media/freshdesk-tutorial/IC776768.png "Administrateur")
 
-9. Dans l’onglet **General Settings**, cliquez sur **Security**.
+1. Dans l’onglet **General Settings**, cliquez sur **Security**.
    
    ![Sécurité](./media/freshdesk-tutorial/IC776769.png "Sécurité")
 
-10. Dans la section **Security** , procédez comme suit :
+1. Dans la section **Security** , procédez comme suit :
    
     ![Single Sign On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
    
@@ -169,15 +169,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/freshdesk-tutorial/create_aaduser_01.png) 
 
-2. Accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs** pour afficher la liste des utilisateurs.
+1. Accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs** pour afficher la liste des utilisateurs.
     
     ![Création d’un utilisateur de test Azure AD](./media/freshdesk-tutorial/create_aaduser_02.png) 
 
-3. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
+1. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
  
     ![Création d’un utilisateur de test Azure AD](./media/freshdesk-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/freshdesk-tutorial/create_aaduser_04.png) 
 
@@ -197,19 +197,19 @@ Dans le cas de FreshDesk, l’approvisionnement est une tâche manuelle.
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre locataire **Freshdesk** .
-2. Dans le menu situé en haut, cliquez sur **Admin**.
+1. Dans le menu situé en haut, cliquez sur **Admin**.
    
    ![Administrateur](./media/freshdesk-tutorial/IC776772.png "Administrateur")
 
-3. Dans l’onglet **General Settings**, cliquez sur **Agents**.
+1. Dans l’onglet **General Settings**, cliquez sur **Agents**.
    
    ![Agents](./media/freshdesk-tutorial/IC776773.png "Agents")
 
-4. Cliquez sur **New Agent**.
+1. Cliquez sur **New Agent**.
    
     ![New Agent](./media/freshdesk-tutorial/IC776774.png "New Agent")
 
-5. Dans la boîte de dialogue Agent Information, procédez comme suit :
+1. Dans la boîte de dialogue Agent Information, procédez comme suit :
    
    ![Agent Information](./media/freshdesk-tutorial/IC776775.png "Agent Information")
    
@@ -242,23 +242,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **FreshDesk**.
+1. Dans la liste des applications, sélectionnez **FreshDesk**.
 
-    ![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_app.png) 
+    ![Configurer l'authentification unique](./media/freshdesk-tutorial/tutorial_freshdesk_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

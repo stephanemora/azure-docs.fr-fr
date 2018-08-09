@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358274"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492821"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Tutoriel : 3. Ajouter une entité d’expression régulière
 Dans ce tutoriel, vous créez une application qui montre comment extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
@@ -109,16 +109,9 @@ Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est 
 
     Dans la mesure où l’entité n’est pas une entité issue de l’apprentissage automatique, l’étiquette est appliquée aux énoncés et affichée sur le site web de LUIS dès sa création.
 
-## <a name="train-the-luis-app"></a>Effectuer l’apprentissage de l’application LUIS
-Une entité d’expression régulière ne nécessite pas de formation, mais la nouvelle intention et les nouveaux énoncés nécessitent un apprentissage. 
+## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
-
-    ![Image du bouton d’apprentissage](./media/luis-quickstart-intents-regex-entity/train-button.png)
-
-2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
-
-    ![Image de la barre de notification de réussite](./media/luis-quickstart-intents-regex-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
 
@@ -237,7 +230,8 @@ Votre chatbot a maintenant suffisamment d’informations pour déterminer l’ac
 LUIS en a fini avec cette requête. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les numéros de formulaire et rechercher une API tierce. LUIS n’effectue pas ce travail. LUIS détermine uniquement ce qu’est l’intention de l’utilisateur et extrait des données sur cette intention. 
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

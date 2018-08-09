@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: a0f9a0a76f001d6126e5b0924d0e5a3aaefa528b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5858300027d77b6057e059960f1c997b4bfc1e56
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041372"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Didacticiel : intégration d’Azure Active Directory à Humanity
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajouter Humanity à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-humanity-from-the-gallery"></a>Ajouter Humanity à partir de la galerie
 Pour configurer l’intégration de Humanity à Azure AD, vous devez ajouter Humanity, disponible à partir de la galerie, à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration de Humanity à Azure AD, vous devez ajouter Hu
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **Humanity**.
+1. Dans la zone de recherche, tapez **Humanity**.
 
     ![Création d’un utilisateur de test Azure AD](./media/shiftplanning-tutorial/tutorial_humanity_search.png)
 
-5. Dans le panneau de résultats, sélectionnez **Humanity**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le panneau de résultats, sélectionnez **Humanity**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/shiftplanning-tutorial/tutorial_humanity_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Dans Humanity, affectez la valeur du **nom d’utilisateur** dans Azure AD comm
 Pour configurer et tester l’authentification unique Azure AD avec Humanity, vous devez compléter les instructions des blocs de construction suivants :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Humanity](#creating-a-humanity-test-user)** pour avoir un équivalent de Britta Simon dans Humanity qui est lié à la représentation d’un utilisateur Azure AD.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test Humanity](#creating-a-humanity-test-user)** pour avoir un équivalent de Britta Simon dans Humanity qui est lié à la représentation d’un utilisateur Azure AD.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -104,11 +104,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_samlbase.png)
 
-3. Sur la section **Domaine et URL Humanity**, réalisez les étapes suivantes :
+1. Sur la section **Domaine et URL Humanity**, réalisez les étapes suivantes :
 
     ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_url.png)
 
@@ -119,29 +119,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support aux clients Humanity](https://www.humanity.com/support/). 
  
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_certificate.png) 
+    ![Configure Single Sign-On](./media/shiftplanning-tutorial/tutorial_humanity_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_general_400.png)
 
-6. Pour ouvrir la fenêtre **Configurer l’authentification**, sur la section **Configuration Humanity**, cliquez sur **Configurer Humanity**. Copiez l’**URL du service d’authentification unique SAML et l’URL de déconnexion** à partir de la section **Référence rapide**.
+1. Pour ouvrir la fenêtre **Configurer l’authentification**, sur la section **Configuration Humanity**, cliquez sur **Configurer Humanity**. Copiez l’**URL du service d’authentification unique SAML et l’URL de déconnexion** à partir de la section **Référence rapide**.
 
     ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_configure.png) 
 
-7. Dans une autre fenêtre de navigateur web, ouvrez une session sur votre site d’entreprise **Humanity** en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, ouvrez une session sur votre site d’entreprise **Humanity** en tant qu’administrateur.
 
-8. Dans le menu situé en haut, cliquez sur **Admin**.
+1. Dans le menu situé en haut, cliquez sur **Admin**.
    
     ![Administrateur](./media/shiftplanning-tutorial/iC786619.png "Administrateur")
 
-9. Sous **Integration**, cliquez sur **Single Sign-On**.
+1. Sous **Integration**, cliquez sur **Single Sign-On**.
    
     ![Authentification unique](./media/shiftplanning-tutorial/iC786620.png "Authentification unique")
 
-10. Dans la section **Single Sign-On** , procédez comme suit :
+1. Dans la section **Single Sign-On** , procédez comme suit :
    
     ![Authentification unique](./media/shiftplanning-tutorial/iC786905.png "Authentification unique")
    
@@ -155,7 +155,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
    
     e. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate** .
 
-11. Cliquez sur **Save Settings**.
+1. Cliquez sur **Save Settings**.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,15 +172,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/shiftplanning-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/shiftplanning-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/shiftplanning-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/shiftplanning-tutorial/create_aaduser_04.png) 
 
@@ -200,19 +200,19 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Humanity, vous deve
 
 1. Ouvrez une session en tant qu’administrateur sur votre site d’entreprise **Humanity**.
 
-2. Cliquez sur **Admin**.
+1. Cliquez sur **Admin**.
    
     ![Administrateur](./media/shiftplanning-tutorial/iC786619.png "Administrateur")
 
-3. Cliquez sur **Staff**.
+1. Cliquez sur **Staff**.
    
     ![Staff](./media/shiftplanning-tutorial/ic786623.png "Staff")
 
-4. Sous **Actions**, cliquez sur **Ajouter des employés**.
+1. Sous **Actions**, cliquez sur **Ajouter des employés**.
    
     ![Add Employees](./media/shiftplanning-tutorial/iC786624.png "Add Employees")
 
-5. Dans la section **Add employees** , procédez comme suit :
+1. Dans la section **Add employees** , procédez comme suit :
    
     ![Save Employees](./media/shiftplanning-tutorial/iC786625.png "Save Employees")
    
@@ -235,23 +235,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Humanity**.
+1. Dans la liste des applications, sélectionnez **Humanity**.
 
     ![Configurer l'authentification unique](./media/shiftplanning-tutorial/tutorial_humanity_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

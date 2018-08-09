@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036749"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265062"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Revendications facultatives dans Azure AD (préversion)
 
@@ -41,8 +41,8 @@ L’un des objectifs du point de terminaison [v2.0 Azure AD](active-directory-ap
 
 | Type de compte | Point de terminaison V1.0                      | Point de terminaison V2.0  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/A - Des tickets RPS sont utilisés à la place | Bientôt pris en charge |
-| AAD          | Prise en charge                          | Prise en charge      |
+| Compte Microsoft personnel  | N/A - Des tickets RPS sont utilisés à la place | Bientôt pris en charge |
+| Compte Azure AD          | Pris en charge                          | Prise en charge      |
 
 ## <a name="standard-optional-claims-set"></a>Ensemble de revendications facultatives standard
 L’ensemble de revendications facultatives disponible par défaut pour les applications est répertorié ci-dessous.  Pour ajouter des revendications personnalisées facultatives pour votre application, consultez [Extensions d’annuaire](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) ci-dessous. 
@@ -214,7 +214,7 @@ Plusieurs options sont disponibles pour mettre à jour les propriétés de confi
 3.  Sélectionnez **Extension Azure AD** dans le volet de navigation de gauche, puis cliquez sur **Inscriptions des applications**.
 4.  Recherchez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives, puis cliquez dessus.
 5.  Dans la page de l’application, cliquez sur **Manifeste** pour ouvrir l’éditeur de manifeste en ligne. 
-6.  Vous pouvez modifier directement le manifeste à l’aide de cet éditeur. Le manifeste respecte le schéma de l’[entité Application](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity) et met automatiquement en forme le manifeste une fois enregistré. Les nouveaux éléments seront ajoutés à la propriété `OptionalClaims`.
+6.  Vous pouvez modifier directement le manifeste à l’aide de cet éditeur. Le manifeste respecte le schéma de l’[entité Application](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity) et met automatiquement en forme le manifeste une fois enregistré. Les nouveaux éléments sont ajoutés à la propriété `OptionalClaims`.
 
       ```json
       "optionalClaims": 

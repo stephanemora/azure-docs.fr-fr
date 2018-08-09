@@ -1,25 +1,20 @@
 ---
-title: Utiliser Azure Kubernetes Service avec Kafka sur HDInsight | Microsoft Docs
+title: Utiliser Azure Kubernetes Service avec Kafka sur HDInsight
 description: Découvrez comment utiliser Kafka sur HDInsight à partir d’images de conteneur hébergées dans Azure Kubernetes Service (AKS).
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/07/2018
-ms.author: larryfr
-ms.openlocfilehash: f54039a0e702aa3c789363969120e000760f6ef5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 339213654341b76cf4245240989cd59c7c041b0f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885959"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621243"
 ---
 # <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>Utiliser Azure Kubernetes Service avec Kafka sur HDInsight
 
@@ -31,7 +26,6 @@ Découvrez comment utiliser Azure Kubernetes Service (AKS) avec Kafka sur un clu
 > Ce document se concentre sur les étapes à suivre pour permettre à Azure Kubernetes Service de communiquer avec Kafka sur HDInsight. Nous prenons pour exemple un simple client Kafka pour montrer que la configuration fonctionne.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Abonnement Azure

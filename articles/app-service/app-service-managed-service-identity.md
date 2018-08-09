@@ -1,6 +1,6 @@
 ---
-title: Managed Service Identity dans App Service et Azure Functions | Microsoft Docs
-description: Guide de référence conceptuel et d’installation pour la prise en charge de Managed Service Identity dans Azure App Service et Azure Functions
+title: Identité de service managée dans App Service et Azure Functions | Microsoft Docs
+description: Guide de référence conceptuel et d’installation pour la prise en charge de l’identité de service managée dans Azure App Service et Azure Functions
 services: app-service
 author: mattchenderson
 manager: cfowler
@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2e392a3a50cda3daacb5bc358baaea2627eeafc0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061435"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578828"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Guide pratique pour utiliser Managed Service Identity dans App Service et Azure Functions
 
@@ -56,7 +56,7 @@ Pour configurer une identité de service managée avec Azure CLI, vous devez uti
 
 Les étapes suivantes vous guident dans la création d’une application web à laquelle vous attribuez une identité en utilisant l’interface CLI :
 
-1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/reference-index#az_login). Utilisez un compte associé à l’abonnement Azure dans lequel vous souhaitez déployer l’application :
+1. Si vous utilisez l’interface de ligne de commande Azure dans une console locale, commencez par vous connecter à Azure avec [az login](/cli/azure/reference-index#az-login). Utilisez un compte associé à l’abonnement Azure dans lequel vous souhaitez déployer l’application :
 
     ```azurecli-interactive
     az login
@@ -202,7 +202,7 @@ Une réponse 200 OK correcte comprend un corps JSON avec les propriétés suivan
 > |token_type|Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
-Cette réponse est la même que la [réponse pour la demande de jeton d’accès de service à service AAD](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+Cette réponse est la même que la [réponse pour la demande de jeton d’accès de service à service AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
 > Les variables d’environnement sont configurées au premier démarrage du processus, ainsi après l’activation de Managed Service Identity pour votre application, vous devrez peut-être redémarrer votre application, ou redéployer son code avant que `MSI_ENDPOINT` et `MSI_SECRET` soient disponibles pour votre code.

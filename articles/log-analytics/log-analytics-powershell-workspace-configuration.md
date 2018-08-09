@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
 ms.component: na
-ms.openlocfilehash: 375ae9a82af4a1f8a86b529b597ed479388e66dc
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6dcf3a5b26dc3c7e69721b2abb8a7d58767866d6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129334"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579049"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gérer Log Analytics à l’aide de PowerShell
-Vous pouvez utiliser les [applets de commande PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) pour exécuter diverses fonctions dans Log Analytics à partir d’une ligne de commande ou via un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
+Vous pouvez utiliser les [applets de commande PowerShell Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) pour exécuter diverses fonctions dans Log Analytics à partir d’une ligne de commande ou via un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
 
 * Créer un espace de travail
 * Ajouter ou supprimer une solution
@@ -37,7 +37,7 @@ Vous pouvez utiliser les [applets de commande PowerShell Log Analytics](https://
 * Ajouter l’agent Log Analytics à une machine virtuelle Azure
 * Configurer Log Analytics pour indexer les données collectées à l’aide des diagnostics Azure
 
-Cet article fournit deux exemples de code qui illustrent quelques-unes des fonctions que vous pouvez effectuer à partir de PowerShell.  Pour obtenir des informations sur d’autres fonctions, consultez [Informations de référence sur les applets de commande PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) .
+Cet article fournit deux exemples de code qui illustrent quelques-unes des fonctions que vous pouvez effectuer à partir de PowerShell.  Pour obtenir des informations sur d’autres fonctions, consultez [Informations de référence sur les applets de commande PowerShell Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) .
 
 > [!NOTE]
 > Avant, Log Analytics s’appelait Operational Insights, ce qui explique pourquoi ce nom est présent dans les applets de commande.
@@ -193,24 +193,24 @@ Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les di
 
 | Type de ressource | Journaux | Mesures |
 | --- | --- | --- |
-| Passerelles d’application    | OUI | OUI |
-| Comptes Automation     | OUI | |
-| Comptes Batch          | OUI | OUI |
-| Data Lake analytics     | OUI | | 
-| Data Lake Store         | OUI | |
-| Pool élastique SQL        |     | OUI |
-| Espace de noms Event Hub     |     | OUI |
-| IoT Hubs                |     | OUI |
-| Key Vault               | OUI | |
-| Équilibreurs de charge          | OUI | |
-| Logic Apps              | OUI | OUI |
-| Network Security Group | OUI | |
-| Cache Redis             |     | OUI |
-| Services de recherche         | OUI | OUI |
-| Espace de noms Service Bus   |     | OUI |
-| SQL (v12)               |     | OUI |
-| Sites web               |     | OUI |
-| Batteries de serveurs web        |     | OUI |
+| Passerelles d’application    | Oui | Oui |
+| Comptes Automation     | Oui | |
+| Comptes Batch          | Oui | Oui |
+| Data Lake analytics     | Oui | | 
+| Data Lake Store         | Oui | |
+| Pool élastique SQL        |     | Oui |
+| Espace de noms Event Hub     |     | Oui |
+| IoT Hubs                |     | Oui |
+| Key Vault               | Oui | |
+| Équilibreurs de charge          | Oui | |
+| Logic Apps              | Oui | Oui |
+| Network Security Group | Oui | |
+| Cache Redis             |     | Oui |
+| Services de recherche         | Oui | Oui |
+| Espace de noms Service Bus   |     | Oui |
+| SQL (v12)               |     | Oui |
+| Sites web               |     | Oui |
+| Batteries de serveurs web        |     | Oui |
 
 Pour plus d’informations sur les métriques disponibles, voir [Mesures prises en charge avec Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -266,5 +266,5 @@ Vous pouvez également utiliser le script précédent pour collecter les journau
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Passez en revue les applets de commande PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) pour obtenir plus d’informations sur l’utilisation de PowerShell pour configurer Log Analytics.
+* [Passez en revue les applets de commande PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) pour obtenir plus d’informations sur l’utilisation de PowerShell pour configurer Log Analytics.
 

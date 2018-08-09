@@ -8,12 +8,12 @@ manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 7f3facbc1bca51061d49ca99778c60d58c525144
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 069c6df38f9caa73a30fbc25baafdf7efbd2f402
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391272"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429394"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Mettre à l’échelle vos déploiements Jenkins pour répondre à la demande avec des agents de machines virtuelles Azure
 
@@ -44,13 +44,13 @@ Ce didacticiel présente les procédures suivantes :
 > Si vous avez déployé Jenkins dans Azure en utilisant le [modèle de solution](install-jenkins-solution-template.md), le plug-in Azure VM Agents est déjà installé.
 
 1. Dans le tableau de bord Jenkins, sélectionnez **Manage Jenkins** (Gérer Jenkins), puis **Manage Plugins** (Gérer les plug-ins).
-2. Sélectionnez l’onglet **Available** (Disponible), puis recherchez **Azure VM Agents**. Cochez la case en regard de l’entrée correspondant au plug-in, puis sélectionnez **Install without restart** (Installer sans redémarrage) au bas du tableau de bord.
+1. Sélectionnez l’onglet **Available** (Disponible), puis recherchez **Azure VM Agents**. Cochez la case en regard de l’entrée correspondant au plug-in, puis sélectionnez **Install without restart** (Installer sans redémarrage) au bas du tableau de bord.
 
 ## <a name="configure-the-azure-vm-agents-plugin"></a>Configurer le plug-in Azure VM Agents
 
 1. Dans le tableau de bord Jenkins, sélectionnez **Manage Jenkins** (Gérer Jenkins), puis **Configure System** (Configurer le système).
-2. Faites défiler l’écran jusqu’au bas de la page et recherchez la section **Cloud** où figure la liste déroulante **Add new cloud** (Ajouter un nouveau cloud), puis choisissez **Microsoft Azure VM Agents** (Agents de machines virtuelles Microsoft Azure).
-3. Sélectionnez un principal de service existant dans la liste déroulante **Add** (Ajouter) de la section **Azure Credentials** (Informations d’identification Azure). Si aucun n’est répertorié, effectuez les étapes suivantes pour [créer un principal de service](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) pour votre compte Azure et l’ajouter à votre configuration Jenkins :   
+1. Faites défiler l’écran jusqu’au bas de la page et recherchez la section **Cloud** où figure la liste déroulante **Add new cloud** (Ajouter un nouveau cloud), puis choisissez **Microsoft Azure VM Agents** (Agents de machines virtuelles Microsoft Azure).
+1. Sélectionnez un principal de service existant dans la liste déroulante **Add** (Ajouter) de la section **Azure Credentials** (Informations d’identification Azure). Si aucun n’est répertorié, effectuez les étapes suivantes pour [créer un principal de service](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) pour votre compte Azure et l’ajouter à votre configuration Jenkins :   
 
     a. Sélectionnez **Add** (Ajouter) en regard de **Azure Credentials** (Informations d’identification Azure), puis choisissez **Jenkins**.   
     b. Dans la boîte de dialogue **Add Credentials** (Ajouter des informations d’identification), sélectionnez **Microsoft Azure Service Principal** (Principal du service Microsoft Azure) dans la liste déroulante **Kind** (Type).   
@@ -95,20 +95,20 @@ Ce didacticiel présente les procédures suivantes :
 
     
 
-4. Dans la section **Resource Group Name** (Nom du groupe de ressources), laissez **Create new** (Créer un nouveau) sélectionné, puis entrez `myJenkinsAgentGroup`.
-5. Sélectionnez **Verify configuration** (Vérifier la configuration) pour vous connecter à Azure et tester les paramètres du profil.
-6. Sélectionnez **Apply** (Appliquer) pour mettre à jour la configuration du plug-in.
+1. Dans la section **Resource Group Name** (Nom du groupe de ressources), laissez **Create new** (Créer un nouveau) sélectionné, puis entrez `myJenkinsAgentGroup`.
+1. Sélectionnez **Verify configuration** (Vérifier la configuration) pour vous connecter à Azure et tester les paramètres du profil.
+1. Sélectionnez **Apply** (Appliquer) pour mettre à jour la configuration du plug-in.
 
 ## <a name="configure-agent-resources"></a>Configurer les ressources d’agent
 
 Configurez un modèle qui servira à définir un agent de machine virtuelle Azure. Ce modèle définit les ressources de calcul dont dispose chaque agent au moment où il est créé.
 
 1. Sélectionnez **Add** (Ajouter) en regarde de **Add Azure Virtual Machine Template** (Ajouter un modèle de machine virtuelle Azure).
-2. Entrez `defaulttemplate` dans **Name** (Nom).
-3. Entrez `ubuntu` dans **Label** (Étiquette).
-4. Dans la zone de liste modifiable, sélectionnez la [région Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) souhaitée.
-5. Sélectionnez une [taille de machine virtuelle](/azure/virtual-machines/linux/sizes) dans la liste déroulante située en dessous de **Virtual Machine Size** (Taille de la machine virtuelle). Une taille à usage général `Standard_DS1_v2` convient pour ce didacticiel.   
-6. Conservez la valeur dans **Retention time** (Durée de rétention), à savoir `60`. Ce paramètre définit le délai d’attente de Jenkins (en minutes) au bout duquel il libère les agents inactifs. Spécifiez 0 si vous ne voulez pas que les agents inactifs soient retirés automatiquement.
+1. Entrez `defaulttemplate` dans **Name** (Nom).
+1. Entrez `ubuntu` dans **Label** (Étiquette).
+1. Dans la zone de liste modifiable, sélectionnez la [région Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) souhaitée.
+1. Sélectionnez une [taille de machine virtuelle](/azure/virtual-machines/linux/sizes) dans la liste déroulante située en dessous de **Virtual Machine Size** (Taille de la machine virtuelle). Une taille à usage général `Standard_DS1_v2` convient pour ce didacticiel.   
+1. Conservez la valeur dans **Retention time** (Durée de rétention), à savoir `60`. Ce paramètre définit le délai d’attente de Jenkins (en minutes) au bout duquel il libère les agents inactifs. Spécifiez 0 si vous ne voulez pas que les agents inactifs soient retirés automatiquement.
 
    ![Configuration générale des machines virtuelles](./media/jenkins-azure-vm-agents/general-config.png)
 
@@ -125,18 +125,18 @@ Sélectionnez **Verify Template** (Vérifier le modèle) pour vérifier la confi
 ## <a name="create-a-job-in-jenkins"></a>Créer un travail dans Jenkins
 
 1. Dans le tableau de bord Jenkins, cliquez sur **Nouvel élément**. 
-2. Entrez `demoproject1` en guise de nom et sélectionnez **Freestyle projet** (Projet libre), puis **OK**.
-3. Sous l’onglet **General** (Général), choisissez **Restrict where project can be run** (Restreindre les emplacements d’exécution du projet), puis tapez `ubuntu` dans le champ **Label Expression** (Expression d’étiquette). Vous obtenez un message confirmant que l’étiquette est prise en charge par la configuration cloud créée à l’étape précédente. 
+1. Entrez `demoproject1` en guise de nom et sélectionnez **Freestyle projet** (Projet libre), puis **OK**.
+1. Sous l’onglet **General** (Général), choisissez **Restrict where project can be run** (Restreindre les emplacements d’exécution du projet), puis tapez `ubuntu` dans le champ **Label Expression** (Expression d’étiquette). Vous obtenez un message confirmant que l’étiquette est prise en charge par la configuration cloud créée à l’étape précédente. 
    ![Configurer un travail](./media/jenkins-azure-vm-agents/job-config.png)
-4. Sous l’onglet **Source Code Management** (Gestion du code source), sélectionnez **Git**, puis entrez l’URL suivante dans le champ **Repository URL** (URL du référentiel) : `https://github.com/spring-projects/spring-petclinic.git`
-5. Sous l’onglet **Build** (Générer), sélectionnez **Add build step** (Ajouter une étape de génération), puis **Invoke top-level Maven targets** (Appeler des cibles Maven de niveau supérieur). Entrez `package` dans le champ **Goals** (Objectifs).
-6. Sélectionnez **Save** (Enregistrer) pour enregistrer la définition du travail.
+1. Sous l’onglet **Source Code Management** (Gestion du code source), sélectionnez **Git**, puis entrez l’URL suivante dans le champ **Repository URL** (URL du référentiel) : `https://github.com/spring-projects/spring-petclinic.git`
+1. Sous l’onglet **Build** (Générer), sélectionnez **Add build step** (Ajouter une étape de génération), puis **Invoke top-level Maven targets** (Appeler des cibles Maven de niveau supérieur). Entrez `package` dans le champ **Goals** (Objectifs).
+1. Sélectionnez **Save** (Enregistrer) pour enregistrer la définition du travail.
 
 ## <a name="build-the-new-job-on-an-azure-vm-agent"></a>Générer le nouveau travail sur un agent de machine virtuelle Azure
 
 1. Revenez au tableau de bord Jenkins.
-2. Sélectionnez le travail que vous avez créé à l'étape précédente, puis cliquez sur **Build now** (Générer maintenant). Une nouvelle build est mise en file d’attente, mais elle ne démarre pas tant qu’une machine virtuelle d’agent n’est pas créée dans votre abonnement Azure.
-3. Une fois la génération terminée, accédez à la **sortie de la console**. Vous constatez que la génération a été effectuée à distance sur un agent Azure.
+1. Sélectionnez le travail que vous avez créé à l'étape précédente, puis cliquez sur **Build now** (Générer maintenant). Une nouvelle build est mise en file d’attente, mais elle ne démarre pas tant qu’une machine virtuelle d’agent n’est pas créée dans votre abonnement Azure.
+1. Une fois la génération terminée, accédez à la **sortie de la console**. Vous constatez que la génération a été effectuée à distance sur un agent Azure.
 
 ![Sortie de la console](./media/jenkins-azure-vm-agents/console-output.png)
 

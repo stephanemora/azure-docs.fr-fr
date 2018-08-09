@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347281"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436690"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
 
@@ -58,17 +58,17 @@ Pour créer un ILB ASE :
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Web + Mobile** > **App Service Environment**.
 
-2. Sélectionnez votre abonnement.
+1. Sélectionnez votre abonnement.
 
-3. Sélectionnez ou créez un groupe de ressources.
+1. Sélectionnez ou créez un groupe de ressources.
 
-4. Sélectionnez ou créez un réseau virtuel.
+1. Sélectionnez ou créez un réseau virtuel.
 
-5. Si vous sélectionnez un réseau virtuel existant, vous devez créer un sous-réseau pour accueillir l’ASE. Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute croissance éventuelle à venir de votre environnement ASE. Nous recommandons la taille `/24`, qui comprend 256 adresses et qui peut gérer un ASE de taille maximale ainsi que les besoins de mise à l’échelle. 
+1. Si vous sélectionnez un réseau virtuel existant, vous devez créer un sous-réseau pour accueillir l’ASE. Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute croissance éventuelle à venir de votre environnement ASE. Nous recommandons la taille `/24`, qui comprend 256 adresses et qui peut gérer un ASE de taille maximale ainsi que les besoins de mise à l’échelle. 
 
-6. Sélectionnez **Réseau virtuel/Emplacement** > **Configuration du réseau virtuel**. Définissez le **Type d’adresse IP virtuelle** sur **Interne**.
+1. Sélectionnez **Réseau virtuel/Emplacement** > **Configuration du réseau virtuel**. Définissez le **Type d’adresse IP virtuelle** sur **Interne**.
 
-7. Entrez un nom de domaine. Ce domaine est celui utilisé pour les applications créées dans cet ASE. Quelques restrictions s’appliquent. Ce ne peut pas être :
+1. Entrez un nom de domaine. Ce domaine est celui utilisé pour les applications créées dans cet ASE. Quelques restrictions s’appliquent. Ce ne peut pas être :
 
     * net   
 
@@ -88,7 +88,7 @@ Pour créer un ILB ASE :
 
    Si vous connaissez les noms de domaine personnalisés de vos applications, choisissez pour l’ASE ILB un domaine qui n’est pas en conflit avec ces noms de domaine personnalisés. Dans cet exemple, vous pouvez utiliser quelque chose comme *contoso-internal.com* pour le domaine de votre ASE, car cela n’est pas en conflit avec les noms de domaines personnalisés qui se terminent par *. contoso.com*.
 
-8. Sélectionnez **OK**, puis **Créer**.
+1. Sélectionnez **OK**, puis **Créer**.
 
     ![Création d’un environnement App Service][1]
 
@@ -105,19 +105,19 @@ Pour créer une application dans un ASE ILB, procédez de la même façon que po
 
 1. Sur le Portail Azure, sélectionnez **Créer une ressource** > **Web + Mobile** > **Application web**.
 
-2. Entrez le nom de l’application.
+1. Entrez le nom de l’application.
 
-3. Sélectionnez l’abonnement.
+1. Sélectionnez l’abonnement.
 
-4. Sélectionnez ou créez un groupe de ressources.
+1. Sélectionnez ou créez un groupe de ressources.
 
-5. Sélectionnez votre OS. 
+1. Sélectionnez votre OS. 
 
     * Si vous souhaitez créer une application Linux à l’aide d’un conteneur Docker personnalisé, vous pouvez tout simplement utiliser votre propre conteneur en suivant les instructions [ici][linuxapp]. 
 
-6. Sélectionnez ou créez un plan App Service. Si vous souhaitez créer un plan App Service, sélectionnez votre ASE en tant qu’emplacement. Sélectionnez le pool de workers dans lequel vous souhaitez créer votre plan App Service. Lorsque vous créez le plan App Service, sélectionnez votre ASE en tant qu’emplacement et pool de workers. Lorsque vous spécifiez le nom de l’application, le domaine sous le nom de votre application est remplacé par celui de votre ASE.
+1. Sélectionnez ou créez un plan App Service. Si vous souhaitez créer un plan App Service, sélectionnez votre ASE en tant qu’emplacement. Sélectionnez le pool de workers dans lequel vous souhaitez créer votre plan App Service. Lorsque vous créez le plan App Service, sélectionnez votre ASE en tant qu’emplacement et pool de workers. Lorsque vous spécifiez le nom de l’application, le domaine sous le nom de votre application est remplacé par celui de votre ASE.
 
-7. Sélectionnez **Créer**. Si vous voulez que l’application apparaisse sur votre tableau de bord, activez la  case à cocher **Épingler au tableau de bord**.
+1. Sélectionnez **Créer**. Si vous voulez que l’application apparaisse sur votre tableau de bord, activez la  case à cocher **Épingler au tableau de bord**.
 
     ![Création de plan App Service][2]
 
@@ -156,27 +156,27 @@ Pour charger vos propres certificats et tester l’accès :
 
 1. Une fois l’ASE créé, accédez à son interface utilisateur. Sélectionnez **ASE** > **Paramètres** > **Certificat ILB**.
 
-2. Pour définir le Certificat ILB, sélectionnez le fichier .pfx du certificat, puis entrez le mot de passe. Cette étape prend un certain temps. Un message s’affiche, indiquant qu’une opération de chargement est en cours.
+1. Pour définir le Certificat ILB, sélectionnez le fichier .pfx du certificat, puis entrez le mot de passe. Cette étape prend un certain temps. Un message s’affiche, indiquant qu’une opération de chargement est en cours.
 
-3. Obtenez l’adresse de l’ILB pour votre ASE. Sélectionnez **ASE** > **Propriétés** > **Adresse IP virtuelle**.
+1. Obtenez l’adresse de l’ILB pour votre ASE. Sélectionnez **ASE** > **Propriétés** > **Adresse IP virtuelle**.
 
-4. Une fois l’ASE créé, créez une application web dans celui-ci.
+1. Une fois l’ASE créé, créez une application web dans celui-ci.
 
-5. Créez une machine virtuelle si vous n’en avez pas dans ce réseau virtuel.
+1. Créez une machine virtuelle si vous n’en avez pas dans ce réseau virtuel.
 
     > [!NOTE] 
     > N’essayez pas de créer cette machine virtuelle dans le même sous-réseau que l’ASE, car cela échouera ou provoquera des problèmes.
     >
 
-6. Définissez le service DNS pour le domaine de votre environnement ASE. Vous pouvez utiliser un caractère générique avec votre domaine dans votre DNS. Pour effectuer des tests simples, modifiez le fichier hosts sur votre machine virtuelle afin de définir le nom de l’application web sur l’adresse IP de l’adresse IP virtuelle :
+1. Définissez le service DNS pour le domaine de votre environnement ASE. Vous pouvez utiliser un caractère générique avec votre domaine dans votre DNS. Pour effectuer des tests simples, modifiez le fichier hosts sur votre machine virtuelle afin de définir le nom de l’application web sur l’adresse IP de l’adresse IP virtuelle :
 
     a. Si le nom de domaine de votre ASE est _.ilbase.com_ et que vous créez l’application web nommée _mytestapp_, l’adresse de celle-ci est _mytestapp.ilbase.com_. Définissez ensuite _mytestapp.ilbase.com_ pour résoudre cette adresse en adresse de l’ILB. (Sur Windows, le fichier hosts se situe sous _C:\Windows\System32\drivers\etc\_).
 
     b. Pour tester la publication du déploiement web ou l’accès à la console avancée, créez un enregistrement pour _mytestapp.scm.ilbase.com_.
 
-7. Utilisez un navigateur sur cette machine virtuelle et accédez à http://mytestapp.ilbase.com. (ou au nom quelconque de votre application web avec votre domaine).
+1. Utilisez un navigateur sur cette machine virtuelle et accédez à http://mytestapp.ilbase.com. (ou au nom quelconque de votre application web avec votre domaine).
 
-8. Utilisez un navigateur sur cette machine virtuelle et accédez à https://mytestapp.ilbase.com. Si vous utilisez un certificat auto-signé, acceptez le manque de sécurité.
+1. Utilisez un navigateur sur cette machine virtuelle et accédez à https://mytestapp.ilbase.com. Si vous utilisez un certificat auto-signé, acceptez le manque de sécurité.
 
     L’adresse IP de votre ILB est répertoriée sous **Adresses IP**. Cette section répertorie également les adresses IP utilisées par l’adresse IP virtuelle externe et pour le trafic de gestion entrant.
 

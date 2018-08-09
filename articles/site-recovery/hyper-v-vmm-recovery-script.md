@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0b2bb17c85f76498e11ea3f007d55d7488f249cf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917327"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426885"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Ajouter un script VMM à un plan de récupération
 
@@ -52,9 +52,9 @@ Vous pouvez utiliser des scripts PowerShell dans vos plans de récupération. Po
   
   1. Ouvrez l’Éditeur du Registre, puis accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  2. Remplacez la valeur de **ScriptLibraryPath** par **\\\libserver2.contoso.com\share\\**. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage. Il s’agit du nœud racine du partage. Pour rechercher le nœud racine, dans VMM, accédez au nœud racine dans la bibliothèque. Le chemin qui s’ouvre est la racine du chemin. C’est le chemin que vous devez utiliser dans la variable.
+  1. Remplacez la valeur de **ScriptLibraryPath** par **\\\libserver2.contoso.com\share\\**. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage. Il s’agit du nœud racine du partage. Pour rechercher le nœud racine, dans VMM, accédez au nœud racine dans la bibliothèque. Le chemin qui s’ouvre est la racine du chemin. C’est le chemin que vous devez utiliser dans la variable.
 
-  3. Testez le script en utilisant un compte d’utilisateur qui a le même niveau de droits d’utilisateur que le compte de service VMM. Le fait d’utiliser ces droits d’utilisateur confirme que les scripts testés et autonomes s’exécutent de la même façon que dans les plans de récupération. Sur le serveur VMM, définissez le mode de contournement suivant de la stratégie d’exécution :
+  1. Testez le script en utilisant un compte d’utilisateur qui a le même niveau de droits d’utilisateur que le compte de service VMM. Le fait d’utiliser ces droits d’utilisateur confirme que les scripts testés et autonomes s’exécutent de la même façon que dans les plans de récupération. Sur le serveur VMM, définissez le mode de contournement suivant de la stratégie d’exécution :
 
      a. Ouvrez la console **Windows PowerShell 64 bits** en tant qu’administrateur.
      
@@ -68,19 +68,19 @@ Vous pouvez utiliser des scripts PowerShell dans vos plans de récupération. Po
 Si vous avez un site source VMM, libre à vous de créer un script sur le serveur VMM. Il vous suffit ensuite d’inclure ce script dans votre plan de récupération.
 
 1. Dans le partage de bibliothèque, créez un dossier. Par exemple, \<Nom du serveur VMM> \MSSCVMMLibrary\RPScripts. Placez le dossier sur les serveurs VMM source et cible.
-2. Créez le script. Par exemple, nommez le script RPScript. Vérifiez le bon fonctionnement du script.
-3. Placez le script dans le dossier \<Nom du serveur VMM>\MSSCVMMLibrary sur les serveurs VMM source et cible.
+1. Créez le script. Par exemple, nommez le script RPScript. Vérifiez le bon fonctionnement du script.
+1. Placez le script dans le dossier \<Nom du serveur VMM>\MSSCVMMLibrary sur les serveurs VMM source et cible.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Ajouter le script à un plan de récupération
 
 Une fois les machines virtuelles ou les groupes de réplication ajoutés à un plan de récupération, et le plan créé, vous pouvez ajouter le script au groupe.
 
 1. Ouvrez le plan de récupération.
-2. Dans la liste **Étape**, sélectionnez un élément. Ensuite, sélectionnez **Script** ou **Action manuelle**.
-3. Indiquez s’il faut ajouter le script ou l’action avant ou après l’élément sélectionné. Pour faire monter ou descendre le script dans la liste, utilisez les boutons **Monter** et **Descendre**.
-4. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**. Dans **Chemin du script**, entrez le chemin relatif du partage. Par exemple, entrez **\RPScripts\RPScript.PS1**.
-5. Si vous ajoutez un runbook Azure Automation, spécifiez le compte Automation dans lequel se trouve le runbook. Ensuite, sélectionnez le script de runbook Azure que vous souhaitez utiliser.
-6. Afin de vous assurer du bon fonctionnement du script, effectuez un test de basculement du plan de récupération.
+1. Dans la liste **Étape**, sélectionnez un élément. Ensuite, sélectionnez **Script** ou **Action manuelle**.
+1. Indiquez s’il faut ajouter le script ou l’action avant ou après l’élément sélectionné. Pour faire monter ou descendre le script dans la liste, utilisez les boutons **Monter** et **Descendre**.
+1. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**. Dans **Chemin du script**, entrez le chemin relatif du partage. Par exemple, entrez **\RPScripts\RPScript.PS1**.
+1. Si vous ajoutez un runbook Azure Automation, spécifiez le compte Automation dans lequel se trouve le runbook. Ensuite, sélectionnez le script de runbook Azure que vous souhaitez utiliser.
+1. Afin de vous assurer du bon fonctionnement du script, effectuez un test de basculement du plan de récupération.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

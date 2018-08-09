@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: ddd669bb8ff8e520c5538457789d4f660a82255d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 269b216a94b1233c5f9f9a634fda3c05e46cac90
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051422"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Didacticiel : Intégration d’Azure Active Directory à OpenAthens
 
@@ -50,7 +50,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout d’OpenAthens à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-openathens-from-the-gallery"></a>Ajout d’OpenAthens à partir de la galerie
 Pour configurer l’intégration d’OpenAthens à Azure AD, vous devez ajouter OpenAthens à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -61,15 +61,15 @@ Pour configurer l’intégration d’OpenAthens à Azure AD, vous devez ajouter
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**, puis à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis à **Toutes les applications**.
 
     ![Volet Applications d’entreprise][2]
     
-3. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **OpenAthens**, sélectionnez **OpenAthens** dans le volet de résultats, puis cliquez sur le bouton **Ajouter**.
+1. Dans la zone de recherche, tapez **OpenAthens**, sélectionnez **OpenAthens** dans le volet de résultats, puis cliquez sur le bouton **Ajouter**.
 
     ![OpenAthens dans la liste des résultats](./media/openathens-tutorial/tutorial_openathens_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Dans OpenAthens, affectez la valeur du **nom d’utilisateur** dans Azure AD co
 Pour configurer et tester l’authentification unique Azure AD auprès d’OpenAthens, vous devez suivre les indications des sections suivantes :
 
 1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on) pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec Britta Simon.
-3. [Créer un utilisateur de test OpenAthens](#create-a-openathens-test-user) pour avoir un équivalent de Britta Simon dans OpenAthens lié à la représentation Azure AD associée.
-4. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. [Tester l’authentification unique](#test-single-sign-on) pour vérifier si la configuration fonctionne.
+1. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec Britta Simon.
+1. [Créer un utilisateur de test OpenAthens](#create-a-openathens-test-user) pour avoir un équivalent de Britta Simon dans OpenAthens lié à la représentation Azure AD associée.
+1. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. [Tester l’authentification unique](#test-single-sign-on) pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -99,37 +99,37 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Pour activer l’authentification unique, dans la boîte de dialogue **Authentification unique**, sélectionnez **Authentification basée sur SAML** en tant que **Mode**.
+1. Pour activer l’authentification unique, dans la boîte de dialogue **Authentification unique**, sélectionnez **Authentification basée sur SAML** en tant que **Mode**.
  
     ![Boîte de dialogue Authentification unique](./media/openathens-tutorial/tutorial_openathens_samlbase.png)
 
-3. Dans la section **Domaine et URL OpenAthens**, entrez la valeur `https://login.openathens.net/saml/2/metadata-sp` dans la zone de texte **Identificateur**.
+1. Dans la section **Domaine et URL OpenAthens**, entrez la valeur `https://login.openathens.net/saml/2/metadata-sp` dans la zone de texte **Identificateur**.
 
     ![Informations d’authentification unique dans Domaine et URL OpenAthens](./media/openathens-tutorial/tutorial_openathens_url.png)
 
-4. Dans la section **Certificat de signature SAML**, sélectionnez **Métadonnées XML**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, sélectionnez **Métadonnées XML**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien Téléchargement de certificat de signature SAML](./media/openathens-tutorial/tutorial_openathens_certificate.png) 
 
-5. Sélectionnez le bouton **Enregistrer**.
+1. Sélectionnez le bouton **Enregistrer**.
 
     ![Bouton Enregistrer de la page Authentification unique](./media/openathens-tutorial/tutorial_general_400.png)
 
-6. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise OpenAthens en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise OpenAthens en tant qu’administrateur.
 
-7. Sélectionnez **Connexions** dans la liste sous l’onglet **Gestion**. 
+1. Sélectionnez **Connexions** dans la liste sous l’onglet **Gestion**. 
 
     ![Configurer l’authentification unique](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-8. Sélectionnez **SAML 1.1/2.0**, puis le bouton **Configurer**.
+1. Sélectionnez **SAML 1.1/2.0**, puis le bouton **Configurer**.
 
     ![Configurer l’authentification unique](./media/openathens-tutorial/tutorial_openathens_application2.png)
     
-9. Pour ajouter la configuration, sélectionnez le bouton **Parcourir** pour charger le fichier .xml de métadonnées que vous avez téléchargé à partir du portail Azure, puis sélectionnez **Ajouter**.
+1. Pour ajouter la configuration, sélectionnez le bouton **Parcourir** pour charger le fichier .xml de métadonnées que vous avez téléchargé à partir du portail Azure, puis sélectionnez **Ajouter**.
 
     ![Configurer l’authentification unique](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-10. Effectuez les étapes suivantes sous l’onglet **Détails**.
+1. Effectuez les étapes suivantes sous l’onglet **Détails**.
 
     ![Configurer l’authentification unique](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
@@ -162,15 +162,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé « B
 
     ![Bouton Azure Active Directory](./media/openathens-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis sélectionnez **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/openathens-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, sélectionnez **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, sélectionnez **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/openathens-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/openathens-tutorial/create_aaduser_04.png)
 
@@ -198,23 +198,23 @@ Dans cette section, vous permettez à Britta Simon d’utiliser l’authentifica
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste **Applications**, sélectionnez **OpenAthens**.
+1. Dans la liste **Applications**, sélectionnez **OpenAthens**.
 
     ![Lien OpenAthens dans la liste des applications](./media/openathens-tutorial/tutorial_openathens_app.png)  
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+1. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Sélectionnez le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans le volet **Ajouter une attribution**.
+1. Sélectionnez le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans le volet **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la liste **Utilisateurs et groupes**, sélectionnez **Britta Simon**.
+1. Dans la liste **Utilisateurs et groupes**, sélectionnez **Britta Simon**.
 
-6. Dans la liste **Utilisateurs et groupes**, cliquez sur le bouton **Sélectionner**.
+1. Dans la liste **Utilisateurs et groupes**, cliquez sur le bouton **Sélectionner**.
 
-7. Dans le volet **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+1. Dans le volet **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

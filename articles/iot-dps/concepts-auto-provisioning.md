@@ -1,25 +1,25 @@
 ---
 title: Service Device Provisioning IoT Hub - Concepts de provisionnement automatique
 description: Cet article fournit une vue d’ensemble conceptuelle des phases de provisionnement automatique d’appareils à l’aide du service Device Provisioning IoT, d’IoT Hub et des kits SDK clients.
-author: BryanLa
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9a45f8269e0ca2bc4188016af0ace06831c762b6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736404"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521276"
 ---
 # <a name="auto-provisioning-concepts"></a>Concepts de provisionnement automatique
 
 Comme décrit dans la [Vue d’ensemble](about-iot-dps.md), le service Device Provisioning est un service d’assistance qui autorise le provisionnement juste-à-temps d’appareils dans un hub IoT sans nécessiter d’intervention humaine. Une fois le provisionnement réussi, les appareils se connectent directement avec leur hub IoT désigné. Ce processus porte le nom de provisionnement automatique et offre une expérience de configuration initiale et d’inscription prête à l’emploi pour les appareils.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le provisionnement automatique Azure IoT peut être divisé en trois phases :
 

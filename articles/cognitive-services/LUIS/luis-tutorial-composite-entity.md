@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9c84afc231ff4b086e76f50702870e30da7add6e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5f11409ff49830be97d9a13a0ab7f033d9cc1041
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364900"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494463"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>Tutoriel : 6. Ajouter une entité composite 
 Dans ce tutoriel, ajoutez une entité composite pour regrouper les données extraites dans une entité les contenant.
@@ -99,7 +99,6 @@ Les données extraites du point de terminaison doivent contenir ces informations
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Capture d’écran de LUIS sur « MoveEmployee » avec tous les énoncés étiquetés")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
-LUIS ne connaît pas la nouvelle entité composite jusqu'à ce que l’application soit formée. 
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 

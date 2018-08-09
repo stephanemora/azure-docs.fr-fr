@@ -3,7 +3,7 @@ title: Prise en main du Kit de développement logiciel (SDK) Azure WebJobs
 description: Introduction au Kit de développement logiciel (SDK) WebJobs pour le traitement en arrière-plan basé sur les événements. Découvrez comment accéder aux données des services Azure et des services tiers.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: app-service-web
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
-ms.openlocfilehash: 68377ffd53d5f2b99ddc08386529a40dda12e1b2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.author: glenga
+ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901549"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577303"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -63,9 +63,9 @@ Dans cet article, il est supposé que vous avez [un compte Azure](https://azure.
 
 1. Dans Visual Studio, sélectionnez **Fichier > Nouveau projet**.
 
-2. Sélectionnez **Bureau classique Windows > Application console (.NET Framework)**.
+1. Sélectionnez **Bureau classique Windows > Application console (.NET Framework)**.
 
-3. Nommez le projet *WebJobsSDKSample*, puis sélectionnez **OK**.
+1. Nommez le projet *WebJobsSDKSample*, puis sélectionnez **OK**.
 
    ![Boîte de dialogue Nouveau projet](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -121,13 +121,13 @@ Dans cette section, vous allez configurer la journalisation de console qui utili
    Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
    ``` 
 
-2. Dans *Program.cs*, ajoutez une instruction `using` :
+1. Dans *Program.cs*, ajoutez une instruction `using` :
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
 
-3. Dans la méthode `Main`, ajoutez le code pour mettre à jour l’objet `JobHostConfiguration` avant de créer l’objet `JobHost` :
+1. Dans la méthode `Main`, ajoutez le code pour mettre à jour l’objet `JobHostConfiguration` avant de créer l’objet `JobHost` :
  
    ```
    config.DashboardConnectionString = "";
@@ -190,9 +190,9 @@ L’émulateur de stockage Azure exécuté localement ne possède pas toutes les
 
    ![Menu Créer un compte de stockage](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
-2. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom unique pour le compte de stockage.
+1. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom unique pour le compte de stockage.
 
-3. Choisissez la **région** dans laquelle vous avez créé votre application App Service ou une région qui se trouve à proximité.
+1. Choisissez la **région** dans laquelle vous avez créé votre application App Service ou une région qui se trouve à proximité.
 
 1. Sélectionnez **Créer**.
 
@@ -202,7 +202,7 @@ L’émulateur de stockage Azure exécuté localement ne possède pas toutes les
 
    ![Points de suspension du champ Chaîne de connexion](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
-2. Copiez la chaîne de connexion et enregistrez cette valeur là où vous pouvez la copier à nouveau facilement.
+1. Copiez la chaîne de connexion et enregistrez cette valeur là où vous pouvez la copier à nouveau facilement.
 
    ![Copier la chaîne de connexion](./media/webjobs-sdk-get-started/copy-key.png)
 
@@ -218,7 +218,7 @@ Le Kit de développement logiciel (SDK) WebJobs recherche la chaîne de connexio
    </connectionStrings>
    ```
 
-2. Remplacez *{chaîne de connexion de stockage}* par la chaîne de connexion que vous avez copiée précédemment.
+1. Remplacez *{chaîne de connexion de stockage}* par la chaîne de connexion que vous avez copiée précédemment.
 
    Plus tard, vous utiliserez à nouveau cette chaîne de connexion lors de la configuration de l’application App Service dans Azure.
 
@@ -243,27 +243,27 @@ Dans cette section, vous allez générer et exécuter le projet localement et d�
 
    Vous pouvez voir un message d’avertissement sur un paramètre `ServicePointManager`. Pour effectuer le test avec ce projet, vous pouvez ignorer cet avertissement. Pour plus d’informations sur l’avertissement, consultez [How to use the WebJobs SDK](webjobs-sdk-how-to.md#jobhost-servicepointmanager-settings) (Utilisation du Kit de développement logiciel (SDK) WebJobs).
 
-2. Fermez la fenêtre de console.
+1. Fermez la fenêtre de console.
 
 1. Dans **l’Explorateur de serveurs**, développez le nœud correspondant au nouveau compte de stockage, puis cliquez avec le bouton droit sur **Files d’attente**. 
 
-2. Sélectionnez **Créer une file d’attente**. 
+1. Sélectionnez **Créer une file d’attente**. 
 
-3. Entrez *file d’attente* comme nom de la file d’attente, puis sélectionnez **OK**.
+1. Entrez *file d’attente* comme nom de la file d’attente, puis sélectionnez **OK**.
 
    ![Créer la file d’attente](./media/webjobs-sdk-get-started/create-queue.png)
 
-4. Cliquez avec le bouton droit sur le nœud de la nouvelle file d’attente, puis sélectionnez **Afficher la file d’attente**.
+1. Cliquez avec le bouton droit sur le nœud de la nouvelle file d’attente, puis sélectionnez **Afficher la file d’attente**.
 
-5. Sélectionnez l’icône **Ajouter un message**.
+1. Sélectionnez l’icône **Ajouter un message**.
 
    ![Créer la file d’attente](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-6. Dans la boîte de dialogue **Ajouter un message**, entrez *Hello World!* en tant que **Texte du message**, puis sélectionnez **OK**.
+1. Dans la boîte de dialogue **Ajouter un message**, entrez *Hello World!* en tant que **Texte du message**, puis sélectionnez **OK**.
 
    ![Créer la file d’attente](./media/webjobs-sdk-get-started/hello-world-text.png)
 
-7. Réexécutez le projet.
+1. Réexécutez le projet.
 
    Comme vous avez utilisé l’attribut `QueueTrigger` dans la fonction `ProcessQueueMessage`, le runtime du Kit de développement logiciel (SDK) WeJobs écoute les messages en file d’attente lors du démarrage. Il recherche un nouveau message dans la file d’attente nommée *file d’attente* et appelle la fonction.
 
@@ -288,7 +288,7 @@ Dans cette section, vous allez générer et exécuter le projet localement et d�
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=ebcb275d-0d7c-4293-a1af-93e0804b9e49)
    ```
 
-8. Fermez la fenêtre de console.
+1. Fermez la fenêtre de console.
 
 ## <a name="add-application-insights-logging"></a>Ajouter la journalisation dans Application Insights
 
@@ -304,9 +304,9 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
 
 1. Si vous ne disposez pas déjà d’une application App Service que vous pouvez utiliser, [créez-en une](app-service-web-get-started-dotnet-framework.md).
 
-2. Si vous ne disposez pas déjà d’une ressource Application Insights que vous pouvez utiliser, [créez-en une](../application-insights/app-insights-create-new-resource.md). Définissez l’option **Type d’application** sur **Général** et ignorez les sections qui suivent **Copier la clé d’instrumentation**.
+1. Si vous ne disposez pas déjà d’une ressource Application Insights que vous pouvez utiliser, [créez-en une](../application-insights/app-insights-create-new-resource.md). Définissez l’option **Type d’application** sur **Général** et ignorez les sections qui suivent **Copier la clé d’instrumentation**.
 
-3. Si vous disposez déjà d’une ressource Application Insights que vous souhaitez utiliser, [copiez la clé d’instrumentation](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. Si vous disposez déjà d’une ressource Application Insights que vous souhaitez utiliser, [copiez la clé d’instrumentation](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Configuration des paramètres d’application 
 
@@ -314,23 +314,23 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
 
 1. Développez le groupe de ressources dans lequel figure votre application App Service, puis cliquez avec le bouton droit sur votre application App Service.
 
-3. Sélectionnez **Afficher les paramètres**.
+1. Sélectionnez **Afficher les paramètres**.
 
-4. Dans la zone **Chaînes de connexion**, ajoutez l’entrée suivante.
+1. Dans la zone **Chaînes de connexion**, ajoutez l’entrée suivante.
 
    |NOM  |Chaîne de connexion  |Type de base de données|
    |---------|---------|------|
    |AzureWebJobsStorage | {chaîne de connexion de stockage que vous avez copiée précédemment}|Personnalisée|
    
-6. Si la zone **Paramètres de l’application** est dépourvue de clé d’instrumentation Application Insights, ajoutez celle que vous avez copiée précédemment. (La clé d’instrumentation figure peut-être déjà dans la zone selon la façon dont vous avez créé l’application App Service.)
+1. Si la zone **Paramètres de l’application** est dépourvue de clé d’instrumentation Application Insights, ajoutez celle que vous avez copiée précédemment. (La clé d’instrumentation figure peut-être déjà dans la zone selon la façon dont vous avez créé l’application App Service.)
 
    |NOM  |Valeur  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {clé d’instrumentation} |
 
-2. Remplacez *{clé d’instrumentation}* par la clé d’instrumentation de la ressource Application Insights que vous utilisez.
+1. Remplacez *{clé d’instrumentation}* par la clé d’instrumentation de la ressource Application Insights que vous utilisez.
 
-2. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 1. Ajoutez le code XML suivant au fichier *App.config* immédiatement après la collection des chaînes de connexion.
 
@@ -340,11 +340,11 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
    </appSettings>
    ```
 
-2. Remplacez *{clé d’instrumentation}* par la clé d’instrumentation de la ressource Application Insights que vous utilisez.
+1. Remplacez *{clé d’instrumentation}* par la clé d’instrumentation de la ressource Application Insights que vous utilisez.
 
    Ajouter ces données au fichier *App.config* vous permet de tester la connexion d’Application Insights lorsque vous exécutez le projet localement. 
 
-3. Enregistrez vos modifications.
+1. Enregistrez vos modifications.
 
 ### <a name="add-application-insights-logging-provider"></a>Ajouter le fournisseur de journalisation Application Insights
 
@@ -364,13 +364,13 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
    Install-Package System.Configuration.ConfigurationManager -version 4.4.1
    ``` 
 
-2. Ouvrez *Program.cs* et ajoutez une instruction `using` pour le Gestionnaire de configuration :
+1. Ouvrez *Program.cs* et ajoutez une instruction `using` pour le Gestionnaire de configuration :
 
    ```csharp
    using System.Configuration;
    ```
 
-2. Remplacez le code de la méthode `Main` par le code suivant :
+1. Remplacez le code de la méthode `Main` par le code suivant :
 
    ```csharp
    using (var loggerFactory = new LoggerFactory())
@@ -406,7 +406,7 @@ Dans cette section, vous allez effectuer une nouvelle exécution locale pour vé
 
 1. Ouvrez le [portail Azure](https://portal.azure.com/), puis accédez à la ressource Application Insights.
 
-2. Sélectionnez **Recherche**.
+1. Sélectionnez **Recherche**.
 
    ![Sélectionner Recherche](./media/webjobs-sdk-get-started/select-search.png)
 
@@ -414,7 +414,7 @@ Dans cette section, vous allez effectuer une nouvelle exécution locale pour vé
 
    ![Journaux dans Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
-3. Fermez la fenêtre de console.
+1. Fermez la fenêtre de console.
 
 ## <a name="deploy-as-a-webjob"></a>Déployer le projet en tant que tâche web
 
@@ -444,7 +444,7 @@ Dans cette section, vous allez déployer le projet en tant que tâche web. Vous 
 
 1. Utilisez **l’Explorateur de serveurs** pour créer un message en file d’attente, comme vous l’avez fait [précédemment](#trigger-the-function), mais entrez *Hello Azure !*.
 
-7. Actualisez la page **File d’attente** dans Visual Studio ; le nouveau message a disparu, car la fonction exécutée dans Azure App Service l’a traité.
+1. Actualisez la page **File d’attente** dans Visual Studio ; le nouveau message a disparu, car la fonction exécutée dans Azure App Service l’a traité.
 
    > [!TIP]
    > Si vous procédez au test dans Azure, utilisez le [mode de développement](webjobs-sdk-how-to.md#jobhost-development-settings) pour vous assurer qu’une fonction de déclenchement de file d’attente est appelée immédiatement et éviter les retards dus à la [temporisation exponentielle de l’interrogation de la file d’attente](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
@@ -453,7 +453,7 @@ Dans cette section, vous allez déployer le projet en tant que tâche web. Vous 
 
 1. Ouvrez le [portail Azure](https://portal.azure.com/), puis accédez à la ressource Application Insights.
 
-2. Sélectionnez **Recherche**.
+1. Sélectionnez **Recherche**.
 
 1. Si le message *Hello Azure !* ne s’affiche pas, sélectionnez **Actualiser** à plusieurs reprises pendant plusieurs minutes.
 
@@ -477,19 +477,19 @@ Les liaisons d’entrée simplifient le code qui lit les données. Pour cet exem
 
    Dans ce code, `queueTrigger` est une [expression de liaison](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns), ce qui signifie qu’elle est résolue en une valeur différente lors de l’exécution.  Lors de l’exécution, son contenu est celui du message en file d’attente.
 
-2. Ajoutez un paramètre `using` :
+1. Ajoutez un paramètre `using` :
 
    ```cs
    using System.IO;
    ```
 
-3. Créez un conteneur d’objets blob dans votre compte de stockage.
+1. Créez un conteneur d’objets blob dans votre compte de stockage.
 
    a. Dans **l’Explorateur de serveurs**, développez le nœud de votre compte de stockage, cliquez avec le bouton droit sur **Objets blob**, puis sélectionnez **Créer un conteneur d’objets blob**.
 
    b. Dans la boîte de dialogue **Créer un conteneur d’objets blob**, entrez *conteneur* comme nom du conteneur, puis cliquez sur **OK**.
 
-4. Chargez le fichier *Program.cs* dans le conteneur d’objets blob. (Ce fichier est utilisé ici à titre d’exemple. Vous pouvez charger un fichier texte et créer un message en file d’attente portant le nom du fichier.)
+1. Chargez le fichier *Program.cs* dans le conteneur d’objets blob. (Ce fichier est utilisé ici à titre d’exemple. Vous pouvez charger un fichier texte et créer un message en file d’attente portant le nom du fichier.)
 
    a. Dans **l’Explorateur de serveurs**, double-cliquez sur le nœud correspondant au conteneur que vous venez de créer.
 
@@ -499,11 +499,11 @@ Les liaisons d’entrée simplifient le code qui lit les données. Pour cet exem
 
    c. Recherchez et sélectionnez *Program.cs*, puis sélectionnez **OK**.
 
-5. Créez un message en file d’attente dans la file d’attente que vous avez créée précédemment, avec *Program.cs* comme texte du message.
+1. Créez un message en file d’attente dans la file d’attente que vous avez créée précédemment, avec *Program.cs* comme texte du message.
 
    ![Message en file d’attente Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-6. Exécutez le projet.
+1. Exécutez le projet.
 
    Le message en file d’attente déclenche la fonction, qui lit l’objet blob et consigne sa longueur. La sortie de console se présente ainsi :
 
@@ -535,9 +535,9 @@ Les liaisons de sortie simplifient le code qui écrit les données. Cet exemple 
    }
    ```
 
-5. Créez un autre message en file d’attente avec *Program.cs* comme texte du message.
+1. Créez un autre message en file d’attente avec *Program.cs* comme texte du message.
 
-6. Exécutez le projet.
+1. Exécutez le projet.
 
    Le message en file d’attente déclenche la fonction, qui lit l’objet blob, consigne sa longueur et crée un objet blob. La sortie de la console est identique, mais lorsque vous accédez à la fenêtre Conteneur d’objets blob et sélectionnez **Actualiser**, vous pouvez observer un nouvel objet blob nommé *copy-Program.cs*.
 

@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d5b92681b9677db085b3c271c37490154d781d84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282736"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494308"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Tutoriel : 8. Ajouter une entité keyPhrase 
 Dans ce tutoriel, vous allez utiliser une application montrant comment extraire les données principales des énoncés.
@@ -71,15 +71,8 @@ Ajoutez une entité prédéfinie keyPhrase pour extraire le thème des énoncés
     [ ![Capture d’écran de l’intention Utilities.Confirm avec keyPhrases étiquetées dans les énoncés](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
-La nouvelle version `keyphrase` de l’application doit être entraînée.  
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
-
-    ![Effectuer l’apprentissage de l’application](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
-
-2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
-
-    ![Apprentissage réussi](./media/luis-quickstart-intent-and-key-phrase/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Publier l’application vers un point de terminaison
 
@@ -189,8 +182,9 @@ Cette application, avec la détection d’entité keyPhrase, a identifié une in
 ## <a name="where-is-this-luis-data-used"></a>Où ces données LUIS sont-elles utilisées ? 
 LUIS en a fini avec cette demande. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les données de l’entité keyPhrase de l’énoncé pour passer à l’étape suivante. LUIS n’effectue pas ce travail de programmation pour le robot ou l’application d’appel. LUIS détermine uniquement l’intention de l’utilisateur. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

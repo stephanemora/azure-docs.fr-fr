@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: f3dd1c0043a4516bfba0801d403f4b475fa2817a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 794e3f6fe568d76f0687caa36709185f2a538270
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041923"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Didacticiel : Intégration d’Azure Active Directory avec Pingboard
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Pingboard à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-pingboard-from-the-gallery"></a>Ajout de Pingboard à partir de la galerie
 Pour configurer l’intégration de Pingboard avec Azure AD, vous devez ajouter Pingboard, disponible dans la galerie, à votre liste d’applications SaaS gérées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de Pingboard avec Azure AD, vous devez ajouter 
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Applications d’entreprise][2]
 
-3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
+1. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Pingboard**, sélectionnez **Pingboard** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Pingboard**, sélectionnez **Pingboard** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Pingboard dans la liste des résultats](./media/pingboard-tutorial/tutorial_pingboard_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comm
 Pour configurer et tester l’authentification unique Azure AD avec Pingboard, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Pingboard](#create-a-pingboard-test-user)** - pour avoir un équivalent de Britta Simon dans Pingboard lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test Pingboard](#create-a-pingboard-test-user)** - pour avoir un équivalent de Britta Simon dans Pingboard lié à la représentation Azure AD de l’utilisateur.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +102,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2.  Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1.  Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
     ![Boîte de dialogue Authentification unique](./media/pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
-3. Dans la section **Domaines et URL Pingboard**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP**:
+1. Dans la section **Domaines et URL Pingboard**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP**:
 
     ![DIP d’informations d’authentification unique dans Domaine et URL Pingboard](./media/pingboard-tutorial/tutorial_pingboard_url.png)
 
@@ -114,7 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<entity-id>.pingboard.com/auth/saml/consume`
 
-4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
+1. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service** :
 
     ![Fournisseurs de service d’informations d’authentification unique dans Domaine et URL Pingboard](./media/pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
@@ -123,33 +123,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > Notez que ces valeurs ne sont pas réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe de support technique Pingboard](https://support.pingboard.com/).
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
     ![Métadonnées XML de Pingboard](./media/pingboard-tutorial/tutorial_pingboard_certificate.png)
 
-6. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/pingboard-tutorial/tutorial_general_400.png)
 
-7. Pour configurer l’authentification unique côté Pingboard, ouvrez une nouvelle fenêtre de navigateur et connectez-vous à votre compte Pingboard. Pour configurer l’authentification unique, vous devez être un administrateur Pingboard.
+1. Pour configurer l’authentification unique côté Pingboard, ouvrez une nouvelle fenêtre de navigateur et connectez-vous à votre compte Pingboard. Pour configurer l’authentification unique, vous devez être un administrateur Pingboard.
 
-8. Dans le menu supérieur, sélectionnez **Applications > Intégrations**
+1. Dans le menu supérieur, sélectionnez **Applications > Intégrations**
 
     ![Configurer l'authentification unique](./media/pingboard-tutorial/Pingboard_integration.png)
 
-9. Sur la page **Intégrations**, recherchez la mosaïque **« Azure Active Directory »**, puis cliquez dessus.
+1. Sur la page **Intégrations**, recherchez la mosaïque **« Azure Active Directory »**, puis cliquez dessus.
 
     ![Intégration de l’authentification unique Pingboard](./media/pingboard-tutorial/Pingboard_aad.png)
 
-10. Dans la fenêtre modale qui suit, cliquez sur **« Configurer »**
+1. Dans la fenêtre modale qui suit, cliquez sur **« Configurer »**
 
     ![Bouton de configuration Pingboard](./media/pingboard-tutorial/Pingboard_configure.png)
 
-11. Sur la page suivante, vous remarquez que « l’intégration Azure SSO est activée ». Ouvrez le fichier XML de métadonnées téléchargé dans un bloc-notes puis collez le contenu dans **IDP Metadata** (métadonnées du fournisseur d’identité).
+1. Sur la page suivante, vous remarquez que « l’intégration Azure SSO est activée ». Ouvrez le fichier XML de métadonnées téléchargé dans un bloc-notes puis collez le contenu dans **IDP Metadata** (métadonnées du fournisseur d’identité).
 
     ![Écran de configuration SSO de Pingboard](./media/pingboard-tutorial/Pingboard_sso_configure.png)
 
-12. Le fichier est validé et, si tout est correct, l’authentification unique est alors activée.
+1. Le fichier est validé et, si tout est correct, l’authentification unique est alors activée.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -163,15 +163,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/pingboard-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/pingboard-tutorial/create_aaduser_02.png)
 
-3. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
+1. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
 
     ![Bouton Ajouter](./media/pingboard-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/pingboard-tutorial/create_aaduser_04.png)
 
@@ -191,11 +191,11 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 1. Connectez-vous au site d’entreprise Pingboard en tant qu’administrateur.
 
-2. Cliquez sur le bouton **« Ajouter un employé »** sur la page **Annuaire**.
+1. Cliquez sur le bouton **« Ajouter un employé »** sur la page **Annuaire**.
 
     ![Ajouter un employé](./media/pingboard-tutorial/create_testuser_add.png)
 
-3. Dans la boîte de dialogue **Ajouter un employé** , procédez comme suit :
+1. Dans la boîte de dialogue **Ajouter un employé** , procédez comme suit :
 
     ![Inviter des personnes](./media/pingboard-tutorial/create_testuser_name.png)
 
@@ -209,7 +209,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     e. Cliquez sur **Add**.
 
-4. Un écran de confirmation s’affiche pour confirmer l’ajout de l’utilisateur.
+1. Un écran de confirmation s’affiche pour confirmer l’ajout de l’utilisateur.
 
     ![Confirmer](./media/pingboard-tutorial/create_testuser_confirm.png)
 
@@ -228,23 +228,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Pingboard**.
+1. Dans la liste des applications, sélectionnez **Pingboard**.
 
     ![Lien correspondant à Pingboard dans la liste Applications](./media/pingboard-tutorial/tutorial_pingboard_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

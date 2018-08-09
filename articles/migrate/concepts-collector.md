@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble de l’appliance Collecteur et indique
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/27/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951037"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308457"
 ---
 # <a name="collector-appliance"></a>Appliance Collecteur
 
@@ -20,7 +20,7 @@ ms.locfileid: "37951037"
 
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Migrate Collector est une appliance légère qui peut être utilisée pour découvrir votre environnement vCenter local. Cette appliance découvre les machines VMware locales et envoie les métadonnées les concernant au service Azure Migrate.
 
@@ -188,7 +188,7 @@ Nous vous recommandons également de suivre les étapes ci-dessous pour sécuris
 
 Vous pouvez mettre à niveau le collecteur vers la version la plus récente sans télécharger à nouveau le fichier OVA.
 
-1. Téléchargez la dernière version [du package de mise à niveau](https://aka.ms/migrate/col/upgrade_9_11) (version 1.0.9.11).
+1. Téléchargez la dernière version du [package de mise à niveau](https://aka.ms/migrate/col/upgrade_9_13) (1.0.9.13).
 2. Pour vous assurer que le correctif logiciel téléchargé est sécurisé, ouvrez la fenêtre de commande d’administrateur et exécutez la commande suivante pour générer le hachage du fichier ZIP. Le hachage généré doit correspondre au hachage mentionné pour la version spécifique :
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -199,6 +199,16 @@ Vous pouvez mettre à niveau le collecteur vers la version la plus récente sans
 5. Cliquez avec le bouton droit sur Setup.ps1 et sélectionnez Exécuter avec PowerShell et suivez les instructions à l’écran pour installer la mise à jour.
 
 ### <a name="list-of-updates"></a>Liste des mises à jour
+
+#### <a name="upgrade-to-version-10913"></a>Mise à niveau vers la version 1.0.9.13
+
+Valeurs de hachage pour le [package de mise à niveau 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+
+**Algorithme** | **Valeur de hachage**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### <a name="upgrade-to-version-10911"></a>Mise à niveau vers la version 1.0.9.11
 

@@ -1,6 +1,6 @@
 - name: Documentation des services Azure SignalR
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "À propos du service Azure\_SignalR"
       href: signalr-overview.md
@@ -23,7 +23,7 @@
     - name: Feuille de route SignalR
       href: 'https://github.com/aspnet/Home/wiki/Roadmap'
     - name: Tarifs
-      href: 'https://azure.microsoft.com'
+      href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: vidéos
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'
     - name: Forums ASP.NET

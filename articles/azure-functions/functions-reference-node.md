@@ -3,7 +3,7 @@ title: Information de référence pour les développeurs JavaScript sur Azure Fu
 description: Découvrez comment développer des fonctions à l’aide de JavaScript.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
-ms.author: tdykstra
-ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: glenga
+ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936624"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391178"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -271,7 +271,7 @@ Le tableau suivant montre la version de Node.js qui est utilisée par chaque ver
 | Version de Functions | Version de Node.js | 
 |---|---|
 | 1.x | 6.11.2 (verrouillée par le runtime) |
-| 2.x  |> = 8.4.0 (version LTS 8.9.4 recommandée) Définissez la version à l’aide du [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION.|
+| 2.x  | Versions de Node.js _Active LTS_ et _Current_ (8.11.1 et 10.6.0 sont recommandées). Définissez la version à l’aide du [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION.|
 
 Vous pouvez afficher la version que le runtime utilise en imprimant `process.version` à partir de n’importe quelle fonction.
 
@@ -335,7 +335,7 @@ Comme il n’existe encore aucune prise en charge directe pour l’auto-compilat
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
+* [Bonnes pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
-* [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
+* [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
 

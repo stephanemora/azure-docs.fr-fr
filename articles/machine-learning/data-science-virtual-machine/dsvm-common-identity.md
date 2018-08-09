@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: d6235f3a425481a13e627d683bb4c3943b473b40
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311073"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436299"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configurer une identité commune sur la Data Science Virtual Machine
 
@@ -60,12 +60,12 @@ Azure AD DS facilite la gestion des identités en fournissant un service entièr
     
    h. Distribuez de manière sécurisée le mot de passe généré au nouvel utilisateur afin qu’il puisse se connecter.
 
-2. Créez une instance Azure AD DS. Suivez les instructions de l’article [Activer Azure Active Directory Domain Services à l’aide du portail Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (Tâches 1 à 5). Il est important de mettre à jour les mots de passe existants de l’utilisateur dans Active Directory afin que le mot de passe dans Azure AD DS soit synchronisé. Il est également important d’ajouter le service DNS à Azure AD DS, comme indiqué dans la tâche n°4 de l’article. 
+1. Créez une instance Azure AD DS. Suivez les instructions de l’article [Activer Azure Active Directory Domain Services à l’aide du portail Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (Tâches 1 à 5). Il est important de mettre à jour les mots de passe existants de l’utilisateur dans Active Directory afin que le mot de passe dans Azure AD DS soit synchronisé. Il est également important d’ajouter le service DNS à Azure AD DS, comme indiqué dans la tâche n°4 de l’article. 
 
-3. Créez un sous-réseau DSVM distinct dans le réseau virtuel créé lors de la tâche n°2 de l’étape précédente.
-4. Créez une ou plusieurs instances de Data Science VM dans le sous-réseau DSVM. 
-5. Suivez les [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) pour ajouter DSVM à Active Directory. 
-6. Montez un partage Azure Files pour héberger votre répertoire de base ou de blocs-notes afin de pouvoir monter votre espace de travail sur n’importe quelle machine. (Si vous avez besoin d’autorisations limitées au niveau des fichiers, vous avez besoin d’un système NFS s’exécutant sur une ou plusieurs machines virtuelles.)
+1. Créez un sous-réseau DSVM distinct dans le réseau virtuel créé lors de la tâche n°2 de l’étape précédente.
+1. Créez une ou plusieurs instances de Data Science VM dans le sous-réseau DSVM. 
+1. Suivez les [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) pour ajouter DSVM à Active Directory. 
+1. Montez un partage Azure Files pour héberger votre répertoire de base ou de blocs-notes afin de pouvoir monter votre espace de travail sur n’importe quelle machine. (Si vous avez besoin d’autorisations limitées au niveau des fichiers, vous avez besoin d’un système NFS s’exécutant sur une ou plusieurs machines virtuelles.)
 
    a. [Créez un partage Azure Files](../../storage/files/storage-how-to-create-file-share.md).
     
@@ -74,8 +74,8 @@ Azure AD DS facilite la gestion des identités en fournissant un service entièr
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
-7. Supposons que vous avez monté votre partage Azure Files dans /data/workspace, par exemple. Créez maintenant les répertoires pour chacun de vos utilisateurs dans le partage : /data/workspace/user1, /data/workspace/user2 et ainsi de suite. Créez un répertoire `notebooks` dans l’espace de travail de chaque utilisateur. 
-8. Créez des liens symboliques pour `notebooks` dans `$HOME/userx/notebooks/remote`.   
+1. Supposons que vous avez monté votre partage Azure Files dans /data/workspace, par exemple. Créez maintenant les répertoires pour chacun de vos utilisateurs dans le partage : /data/workspace/user1, /data/workspace/user2 et ainsi de suite. Créez un répertoire `notebooks` dans l’espace de travail de chaque utilisateur. 
+1. Créez des liens symboliques pour `notebooks` dans `$HOME/userx/notebooks/remote`.   
 
 Maintenant, les utilisateurs de votre instance Active Directory sont hébergés dans Azure. En utilisant les informations d’identification Active Directory, les utilisateurs peuvent se connecter à n’importe quelle DSVM (SSH ou JupyterHub) qui est jointe à Azure AD DS. Étant donné que l’espace de travail utilisateur se trouve dans le partage Azure Files, les utilisateurs ont accès à leurs blocs-notes et aux autres travaux à partir de n’importe quelle DSVM lorsqu’ils utilisent JupyterHub. 
 

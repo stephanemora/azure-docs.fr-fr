@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092693"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264808"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gérer l’inscription des locataires dans Azure Stack
 
@@ -35,6 +35,13 @@ Vous pouvez aussi utiliser cette opération si vous voulez modifier l’abonneme
 
 Remarque : un seul abonnement Azure peut être associé à un locataire. Si vous essayez d’ajouter un deuxième abonnement à un locataire existant, le premier abonnement est remplacé. 
 
+### <a name="use-api-profiles"></a>Utiliser des profils d’API
+
+Les applets de commande de cet article nécessitent la spécification d’un profil d’API lors de l’exécution de PowerShell. Les profils d’API représentent un ensemble de fournisseurs de ressources Azure et leurs versions d’API. Ils vous aident à utiliser la version appropriée de l’API lors de l’interaction avec plusieurs clouds Azure, par exemple quand vous travaillez avec Azure global et avec Azure Stack. Les profils sont spécifiés par un nom qui correspond à leur date de publication. Avec cet article, vous devez utiliser le profil **2017-09-03**.
+
+Pour plus d’informations sur Azure Stack et les profils d’API, consultez [Gérer les profils de version des API dans Azure Stack](user/azure-stack-version-profiles.md). Pour obtenir des instructions sur l’utilisation et l’exécution avec le profil d’API avec PowerShell, consultez [Utiliser des profils de version des API pour PowerShell dans Azure Stack](user/azure-stack-version-profiles-powershell.md).
+
+### <a name="parameters"></a>parameters
 
 | Paramètre                  | Description |
 |---                         | --- |
@@ -48,7 +55,7 @@ Remarque : un seul abonnement Azure peut être associé à un locataire. Si vous
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez la cmdlet New-AzureRmResource pour mettre à jour la ressource de l’inscription. Connectez-vous à Azure (`Add-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
+Utilisez l’applet de commande New-AzureRmResource pour mettre à jour la ressource de l’inscription. Connectez-vous à Azure (`Add-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -79,7 +86,7 @@ Obtenez une liste de tous les locataires qui ont été ajoutés à une inscripti
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez la cmdlet Get-AzureRmResource pour répertorier tous les locataires inscrits. Connectez-vous à Azure (`Add-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
+Utilisez l’applet de commande Get-AzureRmResource pour répertorier tous les locataires inscrits. Connectez-vous à Azure (`Add-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9a773d5ae8ba07dc73cd2587039e2029ce50152d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 46b19866ec3f276c8337cf9501b779701377d0a5
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444993"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620414"
 ---
 # <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Gérer les alertes de sécurité pour les ressources Azure à l’aide de Privileged Identity Management
 Privileged Identity Management (PIM) pour les ressources Azure génère des alertes en cas d’activité suspecte ou non sécurisée dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur la page Alertes. 
@@ -32,14 +32,14 @@ Sélectionnez une alerte pour obtenir un rapport qui répertorie les utilisateur
 ![Rapport d’alerte](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alertes
-| Alerte | Niveau de gravité | Déclencheur | Recommandation |
+| Alerte | Severity | Déclencheur | Recommandation |
 | --- | --- | --- | --- |
 | **Trop de propriétaires affectés à une ressource** |Moyenne |Un trop grand nombre d’utilisateurs possèdent le rôle de propriétaire. |Passez en revue les utilisateurs de la liste et réaffectez-en certains à des rôles moins privilégiés. |
 | **Trop de propriétaires permanents affectés à une ressource** |Moyenne |Trop d’utilisateurs sont affectés de façon permanente à un rôle. |Passez en revue les utilisateurs sur la liste et réaffectez-en certains pour demander une activation pour l’utilisation du rôle. |
 | **Rôle dupliqué créé** |Moyenne |Plusieurs rôles ont les mêmes critères. |Utilisez un seul de ces rôles. |
 
 
-### <a name="severity"></a>Niveau de gravité
+### <a name="severity"></a>Severity
 * **Élevé** : nécessite une action immédiate, car il s’agit d’une violation de stratégie. 
 * **Moyen** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
 * **Faible** : ne nécessite pas d’action immédiate, mais suggère une modification de la stratégie.

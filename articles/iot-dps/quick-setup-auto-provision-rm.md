@@ -1,20 +1,20 @@
 ---
 title: Configurer Device Provisioning à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
 description: 'Démarrage rapide d’Azure : Configurer le service Azure IoT Hub Device Provisioning à l’aide d’un modèle'
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6bd1073012a68149d194e21e745604a43dfe92c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219694"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523442"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
 
@@ -58,7 +58,7 @@ Vous connecter à votre compte Azure et sélectionner votre abonnement.
     ```
 
     > [!TIP]
-    > L’exemple précédent crée le groupe de ressources dans l’emplacement États-Unis de l'Ouest. Vous pouvez afficher une liste des emplacements disponibles en exécutant la commande `az account list-locations -o table`.
+    > L’exemple précédent crée le groupe de ressources dans l’emplacement USA Ouest. Vous pouvez afficher une liste des emplacements disponibles en exécutant la commande `az account list-locations -o table`.
     >
     >
 
@@ -301,7 +301,7 @@ Le modèle que vous avez défini à la dernière étape utilise des paramètres 
 
 Utilisez les commandes Azure CLI suivantes pour déployer vos modèles et vérifier le déploiement.
 
-1. Pour déployer votre modèle, exécutez la [commande suivante pour démarrer un déploiement](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) :
+1. Pour déployer votre modèle, exécutez la [commande suivante pour démarrer un déploiement](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) :
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,14 +312,14 @@ Utilisez les commandes Azure CLI suivantes pour déployer vos modèles et vérif
    ![Sortie de l’approvisionnement](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Pour vérifier votre déploiement, exécutez la [commande suivante pour répertorier les ressources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) et recherchez le nouveau service d’approvisionnement et l’IoT Hub dans la sortie :
+2. Pour vérifier votre déploiement, exécutez la [commande suivante pour répertorier les ressources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) et recherchez le nouveau service d’approvisionnement et l’IoT Hub dans la sortie :
 
     ```azurecli
      az resource list -g {your resource group name}
     ```
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées lors de ce démarrage rapide. Si vous ne pensez pas continuer, vous pouvez utiliser l’interface Azure CLI pour [supprimer une ressource][lnk-az-resource-command], par exemple un IoT Hub ou un service d’approvisionnement ou bien un groupe de ressources et l’ensemble de ses ressources.
 

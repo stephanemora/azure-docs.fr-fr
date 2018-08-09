@@ -3,18 +3,17 @@ title: Aide pour les clients Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Azure Data Lake Storage Gen2 Preview offre, en plus du système de fichiers compatible Hadoop disponible dans Data Lake Storage Gen1, des fonctionnalités de stockage d’objets blob natives comme la hiérarchisation des données, la gestion du cycle de vie et une sécurité réseau améliorée.
 services: storage
 author: roygara
-manager: twooley
 ms.topic: article
 ms.author: rogarana
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 786abbc10f21b137c328f10c5cbd20dce7653957
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d247c2e96a45f0f6fceb64d4f3f274549c83ea66
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035103"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522422"
 ---
 # <a name="guidance-for-azure-data-lake-storage-gen1-customers"></a>Aide pour les clients Azure Data Lake Storage Gen1
 

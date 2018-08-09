@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866856"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436707"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI 2.0 dans Azure Stack
 
@@ -38,7 +38,7 @@ Vous devriez voir la version d’Azure CLI et d’autres bibliothèques dépenda
 
 1. Récupérez le certificat racine d’autorité de certification Azure Stack auprès de [votre opérateur Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) et approuvez-le. Pour approuver le certificat racine d’autorité de certification Azure Stack, ajoutez-le au certificat Python existant.
 
-2. Trouvez l’emplacement du certificat sur votre machine. L’emplacement peut varier en fonction de l’endroit où vous avez installé Python. [pip](https://pip.pypa.io) et le module [certifi](https://pypi.org/project/certifi/) doivent être installés. Vous pouvez utiliser la commande Python suivante depuis l’invite de commandes bash :
+1. Trouvez l’emplacement du certificat sur votre machine. L’emplacement peut varier en fonction de l’endroit où vous avez installé Python. [pip](https://pip.pypa.io) et le module [certifi](https://pypi.org/project/certifi/) doivent être installés. Vous pouvez utiliser la commande Python suivante depuis l’invite de commandes bash :
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
@@ -60,9 +60,9 @@ Si vous exécutez l’interface CLI sur une machine **à l’extérieur** de l�
 
 1. Vous devez configurer la [connectivité VPN à Azure Stack](azure-stack-connect-azure-stack.md).
 
-2. Copiez le certificat PEM que vous avez obtenu auprès de l’opérateur Azure Stack, et notez l’emplacement du fichier (PATH_TO_PEM_FILE).
+1. Copiez le certificat PEM que vous avez obtenu auprès de l’opérateur Azure Stack, et notez l’emplacement du fichier (PATH_TO_PEM_FILE).
 
-3. Exécutez les commandes suivantes, selon la date de fin du système d’exploitation de votre station de travail de développement.
+1. Exécutez les commandes suivantes, selon la date de fin du système d’exploitation de votre station de travail de développement.
 
 #### <a name="linux"></a>Linux
 
@@ -140,7 +140,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. Définissez l’environnement actif avec les commandes suivantes.
+1. Définissez l’environnement actif avec les commandes suivantes.
 
    a. Pour l’environnement *administrateur de cloud*, utilisez :
 
@@ -156,14 +156,14 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
         -n AzureStackUser
       ```
 
-3. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack. Pour mettre à jour la configuration, exécutez la commande suivante :
+1. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack. Pour mettre à jour la configuration, exécutez la commande suivante :
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+1. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Connexion en tant *qu’utilisateur* : vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login` ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 07/31/2018
 ms.author: tamram
-ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 931b711d67db2b20c653fe6515735fdedc358b48
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322911"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364357"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
@@ -38,16 +38,11 @@ ms.locfileid: "30322911"
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Comptes de stockage**, puis le nom du compte de stockage pour ouvrir le tableau de bord du compte.
 1. Sélectionnez **Diagnostics** dans la section **SURVEILLANCE** du panneau du menu.
 
-    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
 1. Sélectionnez le **type** de données de métrique pour chaque **service** à surveiller et la **stratégie de rétention** pour les données. Vous pouvez également désactiver la surveillance en définissant **l’état** sur **Off**.
 
-    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-01.png)
-
-   Il existe deux types de métriques que vous pouvez activer pour chaque service. Les deux sont activés par défaut pour les nouveaux comptes de stockage :
-
-   * **Agréger** : collecte des métriques telles que l'entrée/la sortie, la disponibilité, la latence et les pourcentages de réussite. Ces métriques sont agrégées pour les services Blob, File d’attente, Table et Fichier.
-   * **Par API** : outre les métriques agrégées, collecte le même ensemble de métriques pour chaque opération de stockage de l’API du service Stockage Azure.
+    ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-01.png)
 
    Pour définir la stratégie de rétention de données, déplacez le curseur **Rétention (en jours)** ou entrez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). La valeur par défaut pour les nouveaux comptes de stockage est de sept jours. Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance.
 
@@ -75,19 +70,17 @@ La procédure suivante permet de choisir les métriques de stockage à afficher 
 
    ![Sélection de graphique dans le portail Azure](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
 
-1. Ensuite, cliquez n’importe où dans le graphique pour ouvrir le panneau **Métrique**. Sélectionnez **Modifier le graphique** pour ouvrir le panneau **Modifier le graphique**.
+1. Cliquez n’importe où dans le graphique pour le modifier.
 
-   ![Bouton Modifier le graphique sur le panneau du graphique](./media/storage-monitor-storage-account/stg-customize-chart-01.png)
+1. Ensuite, sélectionnez la **Plage de temps** des métriques à afficher dans le graphique et le **service** (Blob, File d’attente, Table, Fichier) dont vous voulez afficher les métriques. Ici, nous avons choisi d’afficher les métriques de la semaine précédente pour le service Blob :
 
-1. Dans le panneau **Modifier le graphique**, sélectionnez la **période** des métriques à afficher dans le graphique et le **service** (blob, file d’attente, table, fichier) dont vous souhaitez afficher les métriques. Ici, nous avons choisi d’afficher les métriques de la semaine précédente pour le service blob :
+   ![Sélection de la période et du service dans le panneau Modifier le graphique](./media/storage-monitor-storage-account/storage-edit-metric-time-range.png)
 
-   ![Sélection de la période et du service dans le panneau Modifier le graphique](./media/storage-monitor-storage-account/stg-customize-chart-02.png)
+1. Sélectionnez la **métrique** individuelle à afficher dans le graphique, puis cliquez sur **OK**.
 
-1. Sélectionnez la **métrique** individuelle à afficher dans le graphique, puis cliquez sur **OK**. Par exemple, ici, nous avons choisi d’afficher les métriques *ContainerCount* et *ObjectCount* :
+   ![Sélection de métrique individuelle dans le panneau Modifier le graphique](./media/storage-monitor-storage-account/storage-edit-metric-selections.png)
 
-   ![Sélection de métrique individuelle dans le panneau Modifier le graphique](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
-
-Les paramètres de votre graphique n’ont aucune incidence sur la collecte, l’agrégation ou le stockage de données de surveillance dans le compte de stockage, uniquement sur l’affichage des données de métrique.
+Les paramètres de votre graphique n’ont aucune incidence sur la collecte, l’agrégation ou le stockage des données de surveillance dans le compte de stockage.
 
 ### <a name="metrics-availability-in-charts"></a>Disponibilité des métriques dans les graphiques
 
@@ -97,7 +90,7 @@ La liste des métriques disponibles change selon le service que vous avez choisi
 
 ### <a name="metrics-resolution"></a>Résolution des métriques
 
-Les métriques que vous avez sélectionnées dans Diagnostics déterminent la résolution des métriques qui sont disponibles pour votre compte :
+Les métriques que vous avez sélectionnées dans **Diagnostics** déterminent la résolution des métriques qui sont disponibles pour votre compte :
 
 * La surveillance **Agréger** fournit des métriques telles que l’entrée/la sortie, la disponibilité, la latence et les pourcentages de réussite. Ces métriques sont agrégées à partir des services Blob, File d’attente, Table et Fichier.
 * **Par API** offre une résolution plus pointue, avec les métriques disponibles pour les opérations de stockage individuelles, en plus des agrégats au niveau du service.
@@ -106,14 +99,14 @@ Les métriques que vous avez sélectionnées dans Diagnostics déterminent la r�
 
 Vous pouvez créer des alertes pour vous avertir lorsque les seuils sont atteints pour les métriques des ressources de stockage.
 
-1. Pour ouvrir le **panneau Règles d’alerte**, faites défiler jusqu'à la section **SURVEILLANCE** du **panneau de menu** et sélectionnez **Règles d’alerte**.
-1. Sélectionnez **Ajouter une alerte** pour ouvrir le panneau **Ajouter une règle d’alerte**
-1. Sélectionnez une **ressource** (blob, fichier, file d’attente, table) dans la liste déroulante, puis entrez un **nom** et une **Description** pour votre nouvelle règle d’alerte.
-1. Sélectionnez la **métrique** pour laquelle vous souhaitez ajouter une alerte, une **condition** d’alerte et un **seuil**. Le type d’unité de seuil change en fonction de la métrique choisie. Par exemple, « count » est le type d’unité pour *ContainerCount*, tandis que l’unité pour la métrique *PercentNetworkError* est un pourcentage.
-1. Sélectionnez la **Période**. Les métriques qui atteignent ou dépassent le seuil durant la période déclenchent une alerte.
-1. (Facultatif) Configurez des notifications **E-mail** et **Webhook**. Pour plus d’informations sur webhooks, consultez [Configurer un webhook sur une alerte de métrique Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Si vous ne configurez pas de notifications e-mail ou webhook, les alertes s’affichent uniquement dans le portail Azure.
+1. Pour ouvrir le **panneau Règles d’alerte**, faites défiler jusqu’à la section **SURVEILLANCE** du **panneau Menu** et sélectionnez **Alertes (classiques)**.
+2. Sélectionnez **Ajouter une alerte métrique (classique)** pour ouvrir le panneau **Ajouter une règle d’alerte**
+3. Entrez un **Nom** et une **Description** pour votre nouvelle règle d’alerte.
+4. Sélectionnez la **métrique** pour laquelle vous souhaitez ajouter une alerte, une **condition** d’alerte et un **seuil**. Le type d’unité de seuil change en fonction de la métrique choisie. Par exemple, « count » est le type d’unité pour *ContainerCount*, tandis que l’unité pour la métrique *PercentNetworkError* est un pourcentage.
+5. Sélectionnez la **Période**. Les métriques qui atteignent ou dépassent le seuil durant la période déclenchent une alerte.
+6. (Facultatif) Configurez des notifications **E-mail** et **Webhook**. Pour plus d’informations sur webhooks, consultez [Configurer un webhook sur une alerte de métrique Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Si vous ne configurez pas de notifications e-mail ou webhook, les alertes s’affichent uniquement dans le portail Azure.
 
-![Panneau « Ajouter une règle d’alerte » dans le portail Azure](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
+![Panneau « Ajouter une règle d’alerte » dans le portail Azure](./media/storage-monitor-storage-account/add-alert-rule.png)
 
 ## <a name="add-metrics-charts-to-the-portal-dashboard"></a>Ajouter des graphiques de métriques au tableau de bord du portail
 
@@ -126,7 +119,7 @@ Vous pouvez ajouter des graphiques de métriques Stockage Azure pour l’un de v
 1. Sélectionnez **Catégories** > **Surveillance**.
 1. Glissez-déplacez la vignette du graphique sur votre tableau de bord pour la métrique à afficher. Répétez cette opération pour toutes les métriques à afficher sur le tableau de bord. Dans l’image suivante, le graphique « Objets Blob - Nombre total de requêtes » est mis en surbrillance comme exemple, mais tous les graphiques peuvent être placés sur votre tableau de bord.
 
-   ![Galerie de vignettes dans le portail Azure](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
+   ![Galerie de vignettes dans le portail Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Sélectionnez **Personnalisation terminée** en haut du tableau de bord lorsque vous avez terminé d’ajouter des graphiques.
 
 Une fois que vous avez ajouté des graphiques à votre tableau de bord, vous pouvez les personnaliser davantage comme décrit dans [Personnaliser les graphiques de métrique](#how-to-customize-metrics-charts).
@@ -142,14 +135,14 @@ Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnosti
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Comptes de stockage**, puis le nom du compte de stockage pour ouvrir le panneau du compte de stockage.
 1. Sélectionnez **Diagnostics** dans la section **SURVEILLANCE** du panneau du menu.
 
-    ![Élément de menu Diagnostics sous SURVEILLANCE dans le portail Azure.](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    ![Élément de menu Diagnostics sous SURVEILLANCE dans le portail Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
     
 1. Vérifiez que **l’état** est défini sur **On**, puis sélectionnez les **services** pour lesquels vous souhaitez activer la journalisation.
 
-    ![Configurez la journalisation dans le portail Azure.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
+    ![Configurez la journalisation dans le portail Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Cliquez sur **Enregistrer**.
 
-Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé $logs dans votre compte de stockage. Vous pouvez afficher les données du journal à l’aide d’un explorateur de stockage, comme [Microsoft Storage Explorer](http://storageexplorer.com) ou par programme à l’aide de la bibliothèque cliente de stockage ou de PowerShell.
+Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé *$logs* dans votre compte de stockage. Vous pouvez afficher les données du journal à l’aide d’un explorateur de stockage, comme [Microsoft Storage Explorer](http://storageexplorer.com) ou par programme à l’aide de la bibliothèque cliente de stockage ou de PowerShell.
 
 Pour plus d’informations sur l’accès au conteneur $logs, consultez [Activation de la journalisation du stockage et accès aux données des journaux](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 

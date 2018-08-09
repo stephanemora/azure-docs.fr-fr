@@ -1,116 +1,163 @@
 ---
-title: Gestion des erreurs et des exceptions pour Logic Apps dans Azure | Microsoft Docs
-description: Modèles de gestion des erreurs et des exceptions dans Logic Apps.
+title: Gestion des erreurs et des exceptions - Azure Logic Apps | Microsoft Docs
+description: Découvrez les modèles de gestion des erreurs et des exceptions dans Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: dereklee
-manager: jeconnoc
-editor: ''
-ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+author: dereklee
+ms.author: deli
+manager: jeconnoc
 ms.date: 01/31/2018
-ms.author: deli; LADocs
-ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300060"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263750"
 ---
-# <a name="handle-errors-and-exceptions-in-logic-apps"></a>Gérer les erreurs et les exceptions dans Logic Apps
+# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
-Une gestion de manière appropriée des temps d’arrêt ou des problèmes de systèmes dépendants peut s’avérer être un défi pour toute architecture d’intégration. Pour créer des intégrations fiables qui sont résilientes aux problèmes et aux échecs, Logic Apps offre une expérience de qualité pour la gestion des erreurs et des exceptions. 
+Le mode de gestion approprié des temps d’arrêt ou des problèmes dus à des dépendances de systèmes peut se révéler être un défi dans une architecture d’intégration. Pour vous aider à créer des intégrations fiables et résilientes qui gèrent correctement les problèmes et les défaillances, Logic Apps fournit une expérience de qualité pour la gestion des erreurs et des exceptions. 
+
+<a name="retry-policies"></a>
 
 ## <a name="retry-policies"></a>Stratégies de nouvelle tentative
 
-Pour le type de gestion des erreurs et des exceptions le plus simple, vous pouvez utiliser la stratégie de nouvelle tentative. Cette stratégie définit si et comment l’action fait l’objet d’une nouvelle tentative en cas d’expiration ou d’échec de la requête initiale, à savoir toute requête ayant entraîné une réponse 429 ou 5xx. 
+Pour bénéficier de la gestion des erreurs et des exceptions la plus simple, vous pouvez utiliser une *stratégie de nouvelle tentative* dans toute action ou déclencheur prenant en charge cette fonctionnalité. Une stratégie de nouvelle tentative spécifie si et comment l’action ou le déclencheur réessaie d’effectuer une requête quand la requête d’origine expire ou échoue, c’est-à-dire toute requête entraînant une réponse 408, 429 ou 5xx. Si aucune autre stratégie de nouvelle tentative n’est utilisée, la stratégie par défaut est utilisée. 
 
-Il existe quatre types de stratégies de nouvelle tentative : par défaut, aucune, intervalle fixe et intervalle exponentiel. Si votre définition de flux de travail ne comporte pas de stratégie de nouvelle tentative, la stratégie par défaut telle que définie par le service est utilisée à la place.
+Voici les types de stratégie de nouvelle tentative : 
 
-Pour configurer des stratégies de nouvelle tentative, le cas échéant, ouvrez le Concepteur d’application logique pour votre application logique, puis accédez à **Paramètres** pour une action spécifique dans votre application logique. Vous pouvez également définir des stratégies de nouvelle tentative dans la section **inputs** d’une action spécifique ou d’un déclencheur, si elle est peut faire l’objet d’une nouvelle tentative, dans votre définition de flux de travail. Voici la syntaxe générale :
+| type | Description | 
+|------|-------------| 
+| [**Par défaut**](#default-retry) | Cette stratégie envoie jusqu’à quatre nouvelles tentatives à intervalles [*exponentiellement croissants*](#exponential-retry), mis à l’échelle toutes les 7,5 secondes, mais limités à une valeur comprise entre 5 et 45 secondes. | 
+| [**Intervalle exponentiel**](#exponential-retry)  | Cette stratégie attend un intervalle aléatoire sélectionné parmi une plage à croissance exponentielle avant d’envoyer la requête suivante. | 
+| [**Intervalle fixe**](#fixed-retry)  | Cette stratégie attend l’intervalle spécifié avant d’envoyer la requête suivante. | 
+| [**Aucune**](#no-retry)  | Ne renvoie pas la requête. | 
+||| 
+
+Pour plus d’informations sur les limitations de la stratégie de nouvelle tentative, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
+
+### <a name="change-retry-policy"></a>Changer la stratégie de nouvelle tentative
+
+Pour sélectionner une autre stratégie de nouvelle tentative, effectuez les étapes suivantes : 
+
+1. Ouvrez votre application logique dans le Concepteur d’applications logiques. 
+
+2. Ouvrez les **Paramètres** d’une action ou d’un déclencheur.
+
+3. Si l’action ou le déclencheur prend en charge les stratégies de nouvelle tentative, sous **Stratégie de nouvelle tentative**, sélectionnez le type souhaité. 
+
+Vous pouvez aussi spécifier manuellement la stratégie de nouvelle tentative dans la section `inputs` pour une action ou un déclencheur qui prend en charge les stratégies de nouvelle tentative. Si vous ne spécifiez pas de stratégie de nouvelle tentative, l’action utilise la stratégie par défaut.
 
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"<action-name>": {
+   "type": "<action-type>", 
+   "inputs": {
+      "<action-specific-inputs>",
+      "retryPolicy": {
+         "type": "<retry-policy-type>",
+         "interval": "<retry-interval>",
+         "count": <retry-attempts>,
+         "minimumInterval": "<minimum-interval>",
+         "maximumInterval": "<maximun-interval>"
+      },
+      "<other-action-specific-inputs>"
+   },
+   "runAfter": {}
 }
 ```
 
-Pour plus d’informations sur la syntaxe et la section **inputs**, consultez la [section relative aux stratégies de nouvelle tentative sous Déclencheurs et actions pour les flux de travail][retryPolicyMSDN]. Pour plus d’informations sur les limitations de la stratégie de nouvelle tentative, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md). 
+*Obligatoire*
+
+| Valeur | type | Description |
+|-------|------|-------------|
+| <*retry-policy-type*> | Chaîne | Type de stratégie de nouvelle tentative à utiliser : « default », « none », « fixed » ou « exponential » | 
+| <*retry-interval*> | Chaîne | Intervalle de nouvelle tentative, où la valeur doit être au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L’intervalle minimal par défaut est `PT5S` et l’intervalle maximal est `PT1D`. Quand vous utilisez la stratégie d’intervalle exponentiel, vous pouvez spécifier différentes valeurs minimales et maximales. | 
+| <*retry-attempts*> | Entier  | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90 | 
+||||
+
+*Facultatif*
+
+| Valeur | type | Description |
+|-------|------|-------------|
+| <*minimum-interval*> | Chaîne | Pour la stratégie à intervalle exponentiel, il s’agit du plus petit intervalle pour l’intervalle sélectionné de manière aléatoire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | Chaîne | Pour la stratégie à intervalle exponentiel, il s’agit du plus grand intervalle pour l’intervalle sélectionné de manière aléatoire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+|||| 
+
+Voici quelques informations supplémentaires sur les différents types de stratégies.
+
+<a name="default-retry"></a>
 
 ### <a name="default"></a>Default
 
-Lorsque vous ne définissez pas de stratégie de nouvelle tentative dans la section **retryPolicy**, votre application logique utilise la stratégie par défaut, qui est une [stratégie d’intervalle exponentielle](#exponential-interval) qui envoie jusqu’à quatre nouvelles tentatives à des intervalles à croissance exponentielle mis à l’échelle tous les 7,5 secondes. L’intervalle est limité entre 5 et 45 secondes. Cette stratégie est équivalente à la stratégie dans cet exemple de définition de flux de travail HTTP :
+Si vous ne spécifiez pas de stratégie de nouvelle tentative, l’action utilise la stratégie par défaut, qui est en fait une [stratégie d’intervalle exponentiel](#exponential-interval) qui envoie jusqu’à quatre nouvelles tentatives à des intervalles à croissance exponentielle mis à l’échelle toutes les 7,5 secondes. L’intervalle est limité entre 5 et 45 secondes. 
+
+Bien que cela ne soit pas défini explicitement dans votre action ou déclencheur, voici comment se comporte la stratégie par défaut dans un exemple d’action HTTP :
 
 ```json
 "HTTP": {
-    "type": "Http",
-    "inputs": {
-        "method": "GET",
-        "uri": "http://myAPIendpoint/api/action",
-        "retryPolicy" : {
-            "type": "exponential",
-            "count": 4,
-            "interval": "PT7S",
-            "minimumInterval": "PT5S",
-            "maximumInterval": "PT1H"
-        }
-    },
-    "runAfter": {}
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://myAPIendpoint/api/action",
+      "retryPolicy" : {
+         "type": "exponential",
+         "interval": "PT7S",
+         "count": 4,
+         "minimumInterval": "PT5S",
+         "maximumInterval": "PT1H"
+      }
+   },
+   "runAfter": {}
 }
 ```
 
-### <a name="none"></a>Aucun
+### <a name="none"></a>Aucune
 
-Si vous définissez **retryPolicy** sur **none**, cette stratégie ne réessaie pas les requêtes ayant échoué.
-
-| Nom de l'élément | Obligatoire | type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| Type | OUI | Chaîne | **Aucune** | 
-||||| 
+Pour spécifier que l’action ou le déclencheur n’effectue pas de nouvelle tentative en cas d’échec de requête, affectez la valeur `none` à <*retry-policy-type*>.
 
 ### <a name="fixed-interval"></a>Intervalle fixe
 
-Si vous définissez **retryPolicy** sur **fixed**, cette stratégie réessaie une requête ayant échoué en attendant l’intervalle de temps spécifié avant d’envoyer la requête suivante.
+Pour spécifier que l’action ou le déclencheur attend l’intervalle spécifié avant d’envoyer la requête suivante, affectez la valeur `fixed` à <*retry-policy-type*>.
 
-| Nom de l'élément | Obligatoire | type | Description |
-| ------------ | -------- | ---- | ----------- |
-| Type | OUI | Chaîne | **fixed** |
-| count | OUI | Entier  | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90 | 
-| interval | OUI | Chaîne | Intervalle avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), qui doit être compris entre PT5S et PT1D | 
-||||| 
+*Exemple*
+
+Cette stratégie de nouvelle tentative tente d’obtenir les dernières actualités deux fois de plus après l’échec de la première requête, avec un délai de 30 secondes entre chaque tentative :
+
+```json
+"Get_latest_news": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "https://mynews.example.com/latest",
+      "retryPolicy": {
+         "type": "fixed",
+         "interval": "PT30S",
+         "count": 2
+      }
+   }
+}
+```
 
 <a name="exponential-interval"></a>
 
 ### <a name="exponential-interval"></a>Intervalle exponentiel
 
-Si vous définissez **retryPolicy** sur **exponential**, cette stratégie réessaie une requête ayant échoué après un intervalle de temps aléatoire à partir d’une plage à croissance exponentielle. La stratégie garantit également l’envoi de chaque nouvelle tentative à un intervalle aléatoire supérieur à **minimumInterval** et inférieur à **maximumInterval**. Les stratégies exponentielles nécessitent des valeurs **count** et **interval**, tandis que les valeurs **minimumInterval** and **maximumInterval** sont facultatives. Si vous souhaitez remplacer les valeurs par défaut PT5S et PT1D respectivement, vous pouvez ajouter ces valeurs.
-
-| Nom de l'élément | Obligatoire | type | Description |
-| ------------ | -------- | ---- | ----------- |
-| Type | OUI | Chaîne | **exponential** |
-| count | OUI | Entier  | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90  |
-| interval | OUI | Chaîne | Intervalle avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), qui doit être compris entre PT5S et PT1D. |
-| minimumInterval | Non  | Chaîne | Intervalle minimal avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), qui doit être compris entre PT5S et **interval** |
-| maximumInterval | Non  | Chaîne | Intervalle minimal avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), qui doit être compris entre **interval** et PT1D | 
-||||| 
-
-Ce tableau montre comment une variable aléatoire uniforme dans la plage indiquée est générée pour chaque nouvelle tentative jusqu’à **count** compris :
+Pour spécifier que l’action ou le déclencheur attend un intervalle aléatoire avant d’envoyer la requête suivante, affectez la valeur `exponential` à <*retry-policy-type*>. L’intervalle aléatoire est sélectionné parmi une plage à croissance exponentielle. Si vous le souhaitez, vous pouvez également substituer les intervalles minimaux et maximaux par défaut en spécifiant vos propres intervalles minimaux et maximaux.
 
 **Plage des variables aléatoires**
 
+Ce tableau montre comment Logic Apps génère une variable aléatoire uniforme dans la plage spécifiée pour chaque nouvelle tentative jusque et y compris le nombre de tentatives :
+
 | Nombre de nouvelles tentatives | Intervalle minimal | Intervalle maximal |
-| ------------ | ---------------- | ---------------- |
-| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
-| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
-| 3 | Max(2 * interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
-| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
-| .... | | | 
+|--------------|------------------|------------------|
+| 1 | max(0, <*intervalle-minimal*>) | min(interval, <*intervalle-maximal*>) |
+| 2 | max(interval, <*intervalle-minimal*>) | min(2 * interval, <*intervalle-maximal*>) |
+| 3 | max(2 * interval, <*intervalle-minimal*>) | min(4 * interval, <*intervalle-maximal*>) |
+| 4 | max(4 * interval, <*intervalle-minimal*>) | min(8 * interval, <*intervalle-maximal*>) |
+| .... | .... | .... | 
 |||| 
 
 ## <a name="catch-and-handle-failures-with-the-runafter-property"></a>Intercepter et gérer les échecs avec la propriété RunAfter
@@ -174,103 +221,105 @@ Pour les limites sur les étendues, consultez [Limites et configuration](../logi
 
 ### <a name="get-context-and-results-for-failures"></a>Obtenir le contexte et les résultats des échecs
 
-Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés. La fonction de workflow **@result()** fournit le contexte dans le résultat de toutes les actions au sein d’une étendue.
+Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés. L’expression « @result() » fournit le contexte concernant le résultat de toutes les actions au sein d’une étendue.
 
-La fonction **@result()** accepte un paramètre unique (le nom de l’étendue), et retourne un tableau de tous les résultats d’action dans cette étendue. Ces objets d’action incluent les mêmes attributs que l’objet  **@actions()**, tels que l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action. Vous pouvez facilement associer une fonction **@result()** à une propriété **runAfter** pour envoyer le contexte de toutes les actions qui ont échoué dans une étendue.
+L’expression « @result() » accepte un paramètre unique (le nom de l’étendue), et retourne un tableau de tous les résultats d’action dans cette étendue. Ces objets d’action incluent les mêmes attributs que l’objet  **@actions()**, tels que l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action. Vous pouvez facilement associer une fonction **@result()** à une propriété **runAfter** pour envoyer le contexte de toutes les actions qui ont échoué dans une étendue.
 
-Pour exécuter une action *pour chaque* action dans une étendue marquée comme **Failed** et filtrer les résultats sur les actions ayant échoué, vous pouvez associer **@result()** à une action **[Filter Array](../connectors/connectors-native-query.md)** et une boucle **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)**. Vous pouvez prendre le tableau des résultats filtrés et effectuer une action pour chaque échec à l’aide de la boucle **ForEach** . 
+Pour exécuter une action pour chaque action d’une étendue dont le résultat est **Failed**, et filtrer le tableau de résultats sur les actions ayant échoué, vous pouvez associer **@result()** à une action **[Filter Array](../connectors/connectors-native-query.md)** et à une boucle [**For each**](../logic-apps/logic-apps-control-flow-loops.md). Vous pouvez prendre le tableau des résultats filtrés et effectuer une action pour chaque échec à l’aide de la boucle **For each**. 
 
-Cet exemple, suivi d’une explication détaillée, envoie une requête HTTP POST avec le corps de réponse de toutes les actions qui ont échoué dans l’étendue « My_Scope » :
+Cet exemple, suivi d’une explication détaillée, envoie une requête HTTP POST avec le corps de réponse pour toutes les actions qui ont échoué dans l’étendue « My_Scope » :
 
 ```json
 "Filter_array": {
-    "inputs": {
-        "from": "@result('My_Scope')",
-        "where": "@equals(item()['status'], 'Failed')"
-    },
-    "runAfter": {
-        "My_Scope": [
-            "Failed"
-        ]
-    },
-    "type": "Query"
+   "type": "Query",
+   "inputs": {
+      "from": "@result('My_Scope')",
+      "where": "@equals(item()['status'], 'Failed')"
+   },
+   "runAfter": {
+      "My_Scope": [
+         "Failed"
+      ]
+    }
 },
 "For_each": {
-    "actions": {
-        "Log_Exception": {
-            "inputs": {
-                "body": "@item()['outputs']['body']",
-                "method": "POST",
-                "headers": {
-                    "x-failed-action-name": "@item()['name']",
-                    "x-failed-tracking-id": "@item()['clientTrackingId']"
-                },
-                "uri": "http://requestb.in/"
+   "type": "foreach",
+   "actions": {
+      "Log_exception": {
+         "type": "Http",
+         "inputs": {
+            "method": "POST",
+            "body": "@item()['outputs']['body']",
+            "headers": {
+               "x-failed-action-name": "@item()['name']",
+               "x-failed-tracking-id": "@item()['clientTrackingId']"
             },
-            "runAfter": {},
-            "type": "Http"
-        }
-    },
-    "foreach": "@body('Filter_array')",
-    "runAfter": {
-        "Filter_array": [
-            "Succeeded"
-        ]
-    },
-    "type": "Foreach"
+            "uri": "http://requestb.in/"
+         },
+         "runAfter": {}
+      }
+   },
+   "foreach": "@body('Filter_array')",
+   "runAfter": {
+      "Filter_array": [
+         "Succeeded"
+      ]
+   }
 }
 ```
 
 Voici la procédure détaillée pour décrire ce qui se produit dans cet exemple :
 
-1. Pour obtenir le résultat de toutes les actions au sein de « My_Scope », l’action **Filter Array** permet de filtrer **@result('My_Scope')**.
+1. Pour obtenir le résultat de toutes les actions à l’intérieur de « My_Scope », l’action **Filter Array** utilise cette expression de filtre : « @result('My_Scope') ».
 
-2. La condition de l’action **Filter Array** est tout élément **@result()** dont l’état est égal à **Failed**. Cette condition filtre le tableau de tous les résultats d’action de « My_Scope » selon un tableau contenant uniquement les résultats d’action ayant échoué.
+2. La condition de l’action **Filter Array** est tout élément « @result() » dont l’état est égal à **Failed**. Cette condition filtre le tableau ayant tous les résultats d’action de « My_Scope » afin d’obtenir un tableau contenant uniquement les résultats d’action ayant échoué.
 
-3. Exécution d’une action en boucle **For Each** sur les résultats du *tableau filtré*. Cette étape exécute une action *pour chaque* résultat d’action ayant échoué filtré précédemment.
+3. Exécution d’une action en boucle **For each** sur les résultats du *tableau filtré*. Cette étape exécute une action pour chaque résultat d’action ayant échoué filtré précédemment.
 
-   Si une action unique dans l’étendue a échoué, les actions de **foreach** s’exécutent une seule fois. 
+   Si une seule action dans l’étendue a échoué, les actions de **For each** s’exécutent une seule fois. 
    Plusieurs actions ayant échoué peuvent provoquer une action par échec.
 
-4. Envoi d’une requête HTTP POST sur le corps de réponse de l’élément **foreach**, qui est **@item()['outputs']['body']**. La forme de l’élément **@result()** est identique à la forme **@actions()** et peut être analysée de la même façon.
+4. Envoi d’une requête HTTP POST sur le corps de réponse de l’élément **For each**, qui est l’expression « @item()['outputs']['body'] ». 
 
-5. Deux en-têtes personnalisés avec le nom de l’action qui a échoué **@item()['name']** sont également inclus, ainsi que l’ID de suivi du client d’exécution qui a échoué **@item()['clientTrackingId']**.
+   La forme de l’élément « @result() » est identique à la forme « @actions() » et peut être analysée de la même façon.
 
-Pour référence, voici un exemple d’un seul élément **@result()**, montrant les propriétés **name**, **body** et **clientTrackingId** analysées dans l’exemple précédent. En dehors d’une action **foreach**, **@result()** retourne un tableau de ces objets.
+5. Deux en-têtes personnalisés avec le nom de l’action qui a échoué (« @item()['name'] » sont également inclus, ainsi que l’ID de suivi du client d’exécution qui a échoué (« @item()['clientTrackingId'] »).
+
+Pour référence, voici un exemple d’un seul élément « @result() », montrant les propriétés **name**, **body** et **clientTrackingId** analysées dans l’exemple précédent. En dehors d’une action **For each**, « @result() » retourne un tableau de ces objets.
 
 ```json
 {
-    "name": "Example_Action_That_Failed",
-    "inputs": {
-        "uri": "https://myfailedaction.azurewebsites.net",
-        "method": "POST"
-    },
-    "outputs": {
-        "statusCode": 404,
-        "headers": {
-            "Date": "Thu, 11 Aug 2016 03:18:18 GMT",
-            "Server": "Microsoft-IIS/8.0",
-            "X-Powered-By": "ASP.NET",
-            "Content-Length": "68",
-            "Content-Type": "application/json"
-        },
-        "body": {
-            "code": "ResourceNotFound",
-            "message": "/docs/folder-name/resource-name does not exist"
-        }
-    },
-    "startTime": "2016-08-11T03:18:19.7755341Z",
-    "endTime": "2016-08-11T03:18:20.2598835Z",
-    "trackingId": "bdd82e28-ba2c-4160-a700-e3a8f1a38e22",
-    "clientTrackingId": "08587307213861835591296330354",
-    "code": "NotFound",
-    "status": "Failed"
+   "name": "Example_Action_That_Failed",
+   "inputs": {
+      "uri": "https://myfailedaction.azurewebsites.net",
+      "method": "POST"
+   },
+   "outputs": {
+      "statusCode": 404,
+      "headers": {
+         "Date": "Thu, 11 Aug 2016 03:18:18 GMT",
+         "Server": "Microsoft-IIS/8.0",
+         "X-Powered-By": "ASP.NET",
+         "Content-Length": "68",
+         "Content-Type": "application/json"
+      },
+      "body": {
+         "code": "ResourceNotFound",
+         "message": "/docs/folder-name/resource-name does not exist"
+      }
+   },
+   "startTime": "2016-08-11T03:18:19.7755341Z",
+   "endTime": "2016-08-11T03:18:20.2598835Z",
+   "trackingId": "bdd82e28-ba2c-4160-a700-e3a8f1a38e22",
+   "clientTrackingId": "08587307213861835591296330354",
+   "code": "NotFound",
+   "status": "Failed"
 }
 ```
 
-Vous pouvez utiliser les expressions décrites plus haut dans cet article pour exécuter différents modèles de gestion des exceptions. Vous pouvez choisir d’exécuter une seule action de gestion en dehors de l’étendue qui accepte l’intégralité du tableau filtré d’échecs et de supprimer l’action **foreach**. Vous pouvez également inclure d’autres propriétés utiles à partir de la réponse **@result()** comme décrit précédemment.
+Vous pouvez utiliser les expressions décrites plus haut dans cet article pour exécuter différents modèles de gestion des exceptions. Vous pouvez choisir d’exécuter une seule action de gestion en dehors de l’étendue qui accepte l’intégralité du tableau filtré d’échecs, et de supprimer l’action **For each**. Vous pouvez également inclure d’autres propriétés utiles à partir de la réponse **@result()** comme décrit précédemment.
 
-## <a name="azure-diagnostics-and-telemetry"></a>Azure Diagnostics et télémétrie
+## <a name="azure-diagnostics-and-metrics"></a>Métriques et diagnostics Azure
 
 Les précédents modèles sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. 
 [Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de flux de travail, y compris tous les états d’exécution et d’action, à un compte de stockage Azure ou un hub d’événements créé avec Azure Event Hubs. 

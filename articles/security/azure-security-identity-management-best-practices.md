@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e3fe033de05ed42d221795159461048790e1cec8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059201"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493300"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -133,7 +133,7 @@ Veillez à enregistrer toute application qui sous-traite l’authentification à
 
 Les organisations qui n’appliquent pas le contrôle d’identité pour accéder aux applications et n’indiquent pas aux développeurs comment intégrer de manière sécurisée des applications à leur système de gestion des identités peuvent être plus vulnérables face au vol d’informations d’identification, tel que [l’authentification et la gestion de session faibles décrites dans Open Web Application Security Project (OWASP) Top 10](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet).
 
-Pour en savoir plus sur les scénarios d’authentification pour les applications SaaS, lisez l’article [Scénarios d’authentification pour Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+Pour en savoir plus sur les scénarios d’authentification pour les applications SaaS, lisez l’article [Scénarios d’authentification pour Azure AD](../active-directory/develop/authentication-scenarios.md).
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>Surveillance active des activités suspectes
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: alleonar
-ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b25d3d7bd5348d4e4ae5dc33362a9d0a2504236e
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27927972"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578600"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
 
@@ -104,7 +104,7 @@ L’*ID de ressource* dans la sortie fait référence à l’ID de ressource d�
 Pour récupérer un coffre de clés, vous devez spécifier le nom du coffre de clés, le groupe de ressources et l’emplacement. Notez l’emplacement et le groupe de ressources du coffre de clés supprimé, car vous en aurez besoin pour le processus de récupération de coffre de clés.
 
 ```azurecli
-az keyvault recover --location westus --name ContosoVault
+az keyvault recover --location westus --resource-group ContosoRG --name ContosoVault
 ```
 
 Quand un coffre de clés est récupéré, le résultat est une ressource avec l’ID de ressource d’origine du coffre de clés Si le groupe de ressources dans lequel existait le coffre de clés a été supprimé, vous devez créer un groupe de ressources du même nom pour que le coffre de clés puisse être récupéré.

@@ -6,18 +6,18 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072073"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390651"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Utiliser Azure Container Instances en tant qu’agent de build Jenkins
 
-Le service Azure Container Instances (ACI) offre un environnement à la demande, modulable et isolé pour l’exécution de charges de travail en conteneur. En raison de ces attributs, ACI constitue une plateforme idéale pour l’exécution des travaux de build Jenkins à grande échelle. Cet article décrit les procédures complètes de déploiement et d’utilisation d’un serveur Jenkins préconfiguré avec ACI en tant que cible de build.
+Le service Azure Container Instances (ACI) offre un environnement à la demande, modulable et isolé pour l’exécution de charges de travail conteneurisées. En raison de ces attributs, ACI constitue une plateforme idéale pour l’exécution des travaux de build Jenkins à grande échelle. Cet article décrit les procédures complètes de déploiement et d’utilisation d’un serveur Jenkins préconfiguré avec ACI en tant que cible de build.
 
 Pour plus d’informations sur Azure Container Instances, consultez l’article [À propos d’Azure Container Instances][about-aci].
 
@@ -127,6 +127,10 @@ Pour tester le travail de build et observer Azure Container Instances en tant qu
 4. Lorsque tous les travaux de build sont terminés, les instances de conteneur sont supprimées.
 
    ![Groupe de ressources avec instances de conteneur supprimées](./media/container-instances-jenkins/jenkins-aci-none.png)
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Dépannage du plug-in Jenkins
+
+Si vous constatez des bogues dans les plug-ins Jenkins, signalez le problème dans le [Jenkins JIRA](https://issues.jenkins-ci.org/) du composant en question.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

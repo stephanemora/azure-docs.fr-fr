@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c41156383791fb7d72ac02dae919a25a0d15c84
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179569"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621060"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Pipeline CI/CD complet pour déployer une application à conteneurs multiples sur Azure Container Service avec le moteur ACS et le mode Docker Swarm à l’aide de Visual Studio Team Services
 
@@ -46,13 +46,12 @@ Voici une brève explication de ces étapes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Avant de commencer ce didacticiel, vous devez effectuer les tâches suivantes :
 
 - [Création d’un cluster du Mode Swarm dans Azure Container Service avec le moteur ACS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
 - [Connexion avec le cluster Swarm dans Azure Container Service](../container-service-connect.md)
 - [Utilisation d’un Registre de conteneurs Azure](../../container-registry/container-registry-get-started-portal.md)
-- [Création d’un compte et d’un projet d’équipe Visual Studio Team Services](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+- [Création d’un compte et d’un projet d’équipe Visual Studio Team Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [Bifurcation du référentiel GitHub sur votre compte GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]

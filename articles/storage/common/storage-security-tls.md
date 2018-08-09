@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 232af6ec08152d18db86a7b6373da0d281a74a91
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866523"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262515"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Activer le protocole TLS sécurisé pour le client du stockage Azure
 
-Quand vous devez auditer vos services par rapport à leur utilisation du stockage Azure selon les dernières exigences en matière de conformité et de sécurité, SSL 1.0, 2.0, 3.0 et TLS 1.0 sont reconnus comme des protocoles de communication non conformes.
-
-SSL 1.0, 2.0 et 3.0 ont été déclarés comme étant vulnérables. Ils ont été interdits par un document RFC. TLS 1.0 est non sécurisé en raison de l’utilisation du chiffrement par blocs (DES CBC et RC2 CBC) et du chiffrement en continu (RC4) non sécurisés. Le conseil des normes de sécurité PCI a également suggéré la migration vers des versions ultérieures de TLS. Pour plus de détails, consultez [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+TLS (Transport Layer Security) et SSL (Secure Sockets Layer) sont des protocoles de chiffrement qui permettent la sécurité des communications sur un réseau d’ordinateurs. SSL 1.0, 2.0 et 3.0 ont été déclarés comme étant vulnérables. Ils ont été interdits par un document RFC. TLS 1.0 est non sécurisé en raison de l’utilisation du chiffrement par blocs (DES CBC et RC2 CBC) et du chiffrement en continu (RC4) non sécurisés. Le conseil des normes de sécurité PCI a également suggéré la migration vers des versions ultérieures de TLS. Pour plus de détails, consultez [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
 
 Le stockage Azure a arrêté SSL 3.0 depuis 2015 et utilise TLS 1.2 sur les points de terminaison HTTP publics, mais TLS 1.0 et TLS 1.1 sont toujours pris en charge à des fins de compatibilité descendante.
 
-Afin de garantir une connexion sécurisée et conforme au stockage Azure, vous devez activer TLS 1.2 côté client avant d’envoyer des demandes pour activer le service de stockage Azure.
+Afin de garantir une connexion sécurisée et conforme à Stockage Azure, vous devez activer TLS 1.2 ou ultérieur côté client avant d’envoyer des demandes pour utiliser le service Stockage Azure.
 
 ## <a name="enable-tls-12-in-net-client"></a>Activer TLS 1.2 dans le client .NET
 
@@ -86,4 +84,5 @@ La capture d’écran suivante est un exemple de la vérification.
 ## <a name="see-also"></a>Voir aussi
 
 * [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [Conformité PCI sur TLS](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)
 * [Activer TLS dans le client Java](https://www.java.com/en/configure_crypto.html)

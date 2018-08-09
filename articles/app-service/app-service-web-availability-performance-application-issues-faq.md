@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159288"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307906"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQ sur les performances des applications web Azure dans Azure
 
@@ -158,7 +158,7 @@ Notez également qu’un environnement 64 bits nécessite un plan de service De 
 
 Pour plus d’informations, consultez [Configurer des applications web dans App Service](web-sites-configure.md).
 
-## <a name="why-does-my-request-time-out-after-240-seconds"></a>Pourquoi ma demande expire-t-elle après 240 secondes ?
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>Pourquoi ma demande expire-t-elle au bout de 230 secondes ?
 
 L’équilibrage de charge Azure comporte un paramètre de délai d’inactivité par défaut de quatre minutes. Il s’agit généralement d’un délai de réponse raisonnable pour une demande web. Si votre application web requiert un traitement en arrière-plan, nous vous recommandons d’utiliser des tâches Azure WebJob. L’application web Azure peut appeler des tâches WebJob et être avertie lorsque le traitement en arrière-plan est terminé. Vous pouvez choisir parmi plusieurs méthodes pour utiliser des tâches WebJob, y compris des files d’attente et des déclencheurs.
 

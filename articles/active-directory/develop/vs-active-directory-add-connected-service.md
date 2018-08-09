@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 42ec8aa6119dbf01297743cd509285145c7bea29
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1dc00e62a297b55d05c5bf96081974fd95bae3a3
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34594075"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493776"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Ajout d’un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio
 
@@ -74,5 +74,5 @@ Quand vous ajoutez le service connecté à l’Assistant, Visual Studio ajoute A
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Scénarios d’authentification pour Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Ajouter la connexion avec Microsoft à une application web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Scénarios d’authentification pour Azure Active Directory](authentication-scenarios.md)
+- [Ajouter la connexion avec Microsoft à une application web ASP.NET](quickstart-v1-aspnet-webapp.md)

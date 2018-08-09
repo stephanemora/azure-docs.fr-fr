@@ -1,26 +1,19 @@
 ---
-title: Déployer sur Azure App Service à l’aide du plug-in Jenkins | Microsoft Docs
+title: Déployer sur Azure App Service à l’aide du plug-in Jenkins
 description: Découvrez comment utiliser le plug-in Azure App Service Jenkins pour déployer une application web Java sur Azure dans Jenkins
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 7/24/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418414"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391484"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
 
@@ -91,7 +84,7 @@ Avant de configurer le travail dans Jenkins, vous avez besoin d’un plan Azure 
 ### <a name="set-up-the-jenkins-job"></a>Configurer la tâche Jenkins
 
 1. Créez un nouveau projet **freestyle** dans le tableau de bord Jenkins.
-2. Configurez le champ **Gestion du code source** de sorte à utiliser votre duplication (fork) locale de [l’application web Java simple pour Azure](https://github.com/azure-devops/javawebappsample). Renseignez la valeur **URL du référentiel**. Par exemple : http://github.com/ &lt;your_ID > / javawebappsample.
+2. Configurez le champ **Gestion du code source** de sorte à utiliser votre duplication (fork) locale de [l’application web Java simple pour Azure](https://github.com/azure-devops/javawebappsample). Renseignez la valeur **URL du référentiel**. Par exemple : http://github.com/&lt;votre_ID > / javawebappsample.
 3. Ajoutez une étape pour générer le projet à l’aide de Maven en ajoutant la commande **Execute shell**. Pour cet exemple, nous avons besoin d’une commande supplémentaire pour renommer le fichier \*.war dans le dossier cible et lui attribuer le nom **ROOT.war** :   
     ```bash
     mvn clean package
@@ -144,7 +137,7 @@ Avant de configurer le travail dans Jenkins, vous avez besoin d’une applicatio
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Configurer le travail Jenkins pour Docker
 
 1. Créez un nouveau projet **freestyle** dans le tableau de bord Jenkins.
-2. Configurez le champ **Gestion du code source** de sorte à utiliser votre duplication (fork) locale de [l’application web Java simple pour Azure](https://github.com/azure-devops/javawebappsample). Renseignez la valeur **URL du référentiel**. Par exemple : http://github.com/&lt;your_ID > / javawebappsample.
+2. Configurez le champ **Gestion du code source** de sorte à utiliser votre duplication (fork) locale de [l’application web Java simple pour Azure](https://github.com/azure-devops/javawebappsample). Renseignez la valeur **URL du référentiel**. Par exemple : http://github.com/&lt;votre_ID > / javawebappsample.
 3. Ajoutez une étape pour générer le projet à l’aide de Maven en ajoutant une commande **Execute shell**. Incluez la ligne suivante dans la commande :
     ```bash
     mvn clean package
@@ -228,6 +221,10 @@ Pour la valeur **URL de Registre Docker**, entrez l’URL à l’aide du format 
 
 3. Accédez à http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Remplacez &lt;x> et &lt;y> par n’importe quels chiffres pour obtenir la somme de x + y.
     
+## <a name="troubleshooting-the-jenkins-plugin"></a>Dépannage du plug-in Jenkins
+
+Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème dans le [Jenkins JIRA](https://issues.jenkins-ci.org/) du composant en question.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé le plug-in Jenkins Azure App Service pour effectuer le déploiement sur Azure.

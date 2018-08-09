@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8d633a1d3d56f33aad24ca15aea08b5180a6be32
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595750"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368537"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données de Windows
 
@@ -64,9 +64,9 @@ Voici à quoi ressemble la configuration de l'environnement personnalisé dans V
 
 ![Installation PTVS](./media/vm-do-ten-things/PTVSSetup.png)
 
-Consultez la page [Documentation de PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) pour plus d’informations sur la création d’environnements Python.
+Consultez la page [Documentation de PTVS](http://aka.ms/ptvsdocs) pour plus d’informations sur la création d’environnements Python.
 
-Vous êtes maintenant prêt à créer un nouveau projet Python. Accédez à **Fichier** -> **Nouveau** -> **Projet** -> **Python** et sélectionnez le type d’application Python que vous créez. Vous pouvez définir l’environnement Python pour le projet actuel sur la version souhaitée (Anaconda 2.7 ou 3.6) en cliquant avec le bouton droit sur l’**environnement Python**, puis en sélectionnant **Ajouter/supprimer des environnements Python** et l’environnement souhaité. Vous trouverez plus d’informations sur l’utilisation de PTVS sur la page de [documentation](https://github.com/Microsoft/PTVS/wiki) produit.
+Vous êtes maintenant prêt à créer un nouveau projet Python. Accédez à **Fichier** -> **Nouveau** -> **Projet** -> **Python** et sélectionnez le type d’application Python que vous créez. Vous pouvez définir l’environnement Python pour le projet actuel sur la version souhaitée (Anaconda 2.7 ou 3.6) en cliquant avec le bouton droit sur l’**environnement Python**, puis en sélectionnant **Ajouter/supprimer des environnements Python** et l’environnement souhaité. Vous trouverez plus d’informations sur l’utilisation de PTVS dans la [documentation](http://aka.ms/ptvsdocs) produit.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Utiliser un Notebook Jupyter pour explorer et modéliser vos données avec Python ou R
 Le Notebook Jupyter est un environnement puissant qui fournit un « IDE » de modélisation et d'exploration de données sur navigateur. Vous pouvez utiliser Python 2, Python 3 ou R (Open Source et Microsoft R Server) dans le notebook Jupyter.
@@ -251,7 +251,7 @@ Dans Visual Studio, vous pouvez effectuer la même opération de clonage. La cap
 
 ![Git dans Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
 
-Vous trouverez plus d’informations sur l’utilisation de Git pour travailler avec votre dépôt GitHub dans plusieurs ressources disponibles sur github.com. L’ [aide-mémoire](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) constitue une référence utile.
+Vous trouverez plus d’informations sur l’utilisation de Git pour travailler avec votre dépôt GitHub dans plusieurs ressources disponibles sur github.com. L’ [aide-mémoire](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) constitue une référence utile.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Accéder à divers services de données et d'analyse Azure
 ### <a name="azure-blob"></a>Objets blob Azure
@@ -350,12 +350,12 @@ Puis entrez les informations d'identification de votre compte d'objets blob Azur
     df1.columns = ['medallion','hack_license','vendor_id','rate_code','store_and_fwd_flag','pickup_datetime','dropoff_datetime','passenger_count','trip_time_in_secs','trip_distance','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude']
     print 'the size of the data is: %d rows and  %d columns' % df1.shape
 
-Les données sont lues comme une trame de données :
+Les données sont lues en tant que trame de données :
 
 ![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
-Azure Data Lake Storage est un référentiel hyperscale pour les charges de travail d’analyse des Big Data, compatible avec le système de fichiers HDFS (Hadoop Distributed File System). Il fonctionne avec Hadoop et Azure Data Lake Analytics. Dans cette section, vous apprendrez comment déplacer des données dans Azure Data Lake Store et exécuter l’analyse à l’aide d’Azure Data Lake Analytics.
+Azure Data Lake Storage est un référentiel hyperscale pour les charges de travail d’analyse des Big Data, compatible avec le système de fichiers HDFS (Hadoop Distributed File System). Il fonctionne avec Hadoop et Azure Data Lake Analytics. Dans cette section, vous apprendrez à déplacer des données dans Azure Data Lake Store et à exécuter l’analyse à l’aide d’Azure Data Lake Analytics.
 
 **Configuration requise**
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/09/2017
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 1274143c2ae64574202b45969af43290e532fbfb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7bae891bd16ecd3fbbad88022fbbffd32ff41eae
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366111"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577547"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gérer des certificats pour l’authentification unique fédérée sur Azure Active Directory
 Cet article répond aux questions relatives aux certificats créés par Azure Active Directory (Azure AD) pour établir une authentification unique fédérée vers vos applications SaaS. Ajoutez des applications à partir de la galerie d’applications Azure AD ou à l’aide de modèle d’applications ne figurant pas dans la galerie. Configurez l’application à l’aide de l’option d’authentification unique fédérée.
@@ -88,4 +88,4 @@ Les étapes de renouvellement suivantes ne devraient pas entraîner de temps d�
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](../active-directory-apps-index.md)
 * [Accès aux applications et authentification unique avec Azure Active Directory](what-is-single-sign-on.md)
-* [Dépannage de l’authentification unique basée sur SAML](../develop/active-directory-saml-debugging.md)
+* [Dépannage de l’authentification unique basée sur SAML](../develop/howto-v1-debug-saml-sso-issues.md)

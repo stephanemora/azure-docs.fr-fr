@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: bee65fbdc65807ac33ae425ed9d87dbf0c246d9d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7db48b03a6f34655917c82702c12dbc9bc4c987a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625285"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494175"
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Authentification auprès de Data Lake Store à l’aide d’Azure Active Directory
 
@@ -45,7 +45,7 @@ Le tableau suivant illustre comment les mécanismes d’authentification de l’
 <i>* Cliquez sur le symbole <b>✔\*</b>. Il s’agit d’un lien.</i><br>
 <i>** MFA signifie Multi-Factor Authentication (authentification multifacteur)</i>
 
-Pour plus d’informations sur la façon d’utiliser Azure Active Directory pour l’authentification, consultez [Scénarios d’authentification Azure Active Directory](../active-directory/develop/active-directory-authentication-scenarios.md).
+Pour plus d’informations sur la façon d’utiliser Azure Active Directory pour l’authentification, consultez [Scénarios d’authentification Azure Active Directory](../active-directory/develop/authentication-scenarios.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

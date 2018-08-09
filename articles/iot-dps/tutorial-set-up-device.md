@@ -1,20 +1,20 @@
 ---
 title: Configurer un appareil pour le service Azure IoT Hub Device Provisioning Service
 description: Configurer un appareil à provisionner par le biais du service IoT Hub Device Provisioning pendant le processus de fabrication de l’appareil
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d589c0ece2b36970a31884aa72ee7ab87941a656
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 6e90d20053a8ccfcafc7648d81c61e9313ec57ab
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146433"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523357"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
 
@@ -55,7 +55,7 @@ Le Kit de développement logiciel (SDK) Device Provisioning Service Client vous 
 
     Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
 
-2. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
+1. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -63,7 +63,7 @@ Le Kit de développement logiciel (SDK) Device Provisioning Service Client vous 
     Pour le moment, ce référentiel a une taille d’environ 220 Mo. Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
 
-3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
+1. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -71,7 +71,7 @@ Le Kit de développement logiciel (SDK) Device Provisioning Service Client vous 
     cd cmake
     ```
 
-4. Générez le kit de développement logiciel (SDK) pour votre plateforme de développement basée sur les mécanismes d’attestation que vous allez utiliser. Utilisez l’une des commandes suivantes (notez également les deux points à la fin de chaque commande). Une fois l’opération terminée, CMake génère le sous-répertoire `/cmake` avec du contenu spécifique à votre appareil :
+1. Générez le kit de développement logiciel (SDK) pour votre plateforme de développement basée sur les mécanismes d’attestation que vous allez utiliser. Utilisez l’une des commandes suivantes (notez également les deux points à la fin de chaque commande). Une fois l’opération terminée, CMake génère le sous-répertoire `/cmake` avec du contenu spécifique à votre appareil :
  
     - Pour les appareils qui utilisent le simulateur TPM pour l’attestation :
 
@@ -103,7 +103,7 @@ Selon que vous générez le kit de développement logiciel (SDK) pour utiliser l
 - Pour un appareil X.509, vous devez obtenir les certificats délivrés à votre appareil. Le service de provisionnement expose deux types d’entrées d’inscription qui contrôlent l’accès aux appareils qui recourent au mécanisme d’attestation X.509. Les certificats requis varient selon les types d’inscription que vous allez utiliser.
 
     1. Inscriptions individuelles : inscription pour un appareil spécifique unique. Ce type d’entrée d’inscription requiert des [certificats « feuille » et « d’entité finale »](concepts-security.md#end-entity-leaf-certificate).
-    2. Groupes d’inscription : ce type d’entrée d’inscription requiert des certificats racines ou intermédiaires. Pour plus d’informations, consultez [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    1. Groupes d’inscription : ce type d’entrée d’inscription requiert des certificats racines ou intermédiaires. Pour plus d’informations, consultez [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Simulations d’appareils
 
@@ -122,21 +122,21 @@ Selon que vous générez le kit de développement logiciel (SDK) pour utiliser l
       > [!NOTE]
       > Si vous utilisez l’invite de commandes Git Bash pour cette étape, vous devrez modifier les barres obliques inverses en barres obliques, par exemple : `./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe`.
 
-   2. À l’aide de Visual Studio, ouvrez la solution générée dans le dossier *cmake* nommée `azure_iot_sdks.sln` et générez-la à l’aide de la commande « Build solution » dans le menu « Générer ».
+   1. À l’aide de Visual Studio, ouvrez la solution générée dans le dossier *cmake* nommée `azure_iot_sdks.sln` et générez-la à l’aide de la commande « Build solution » dans le menu « Générer ».
 
-   3. Dans le volet *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Outils**. Cliquez avec le bouton droit sur le projet **tpm_device_provision** et sélectionnez **Définir comme projet de démarrage**. 
+   1. Dans le volet *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Outils**. Cliquez avec le bouton droit sur le projet **tpm_device_provision** et sélectionnez **Définir comme projet de démarrage**. 
 
-   4. Exécutez la solution à l’aide des commandes « Start » dans le menu « Déboguer ». La fenêtre de sortie affiche **_l’ID d’inscription_** et la **_paire de clés de type EK_** du simulateur TPM nécessaires à l’inscription et à l’enregistrement de l’appareil. Copiez ces valeurs pour une utilisation ultérieure. Vous pouvez fermer cette fenêtre (avec l’ID d’inscription et la paire de clés de type EK), mais laissez s’exécuter la fenêtre du simulateur TPM que vous avez démarré à l’étape 1.
+   1. Exécutez la solution à l’aide des commandes « Start » dans le menu « Déboguer ». La fenêtre de sortie affiche **_l’ID d’inscription_** et la **_paire de clés de type EK_** du simulateur TPM nécessaires à l’inscription et à l’enregistrement de l’appareil. Copiez ces valeurs pour une utilisation ultérieure. Vous pouvez fermer cette fenêtre (avec l’ID d’inscription et la paire de clés de type EK), mais laissez s’exécuter la fenêtre du simulateur TPM que vous avez démarré à l’étape 1.
 
 - Pour un appareil X.509 simulé :
 
   1. À l’aide de Visual Studio, ouvrez la solution générée dans le dossier *cmake* nommée `azure_iot_sdks.sln` et générez-la à l’aide de la commande « Build solution » dans le menu « Générer ».
 
-  2. Dans le volet *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Outils**. Cliquez avec le bouton droit sur le projet**dice\_device\_enrollment** et sélectionnez **Définir comme projet de démarrage**. 
+  1. Dans le volet *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Outils**. Cliquez avec le bouton droit sur le projet**dice\_device\_enrollment** et sélectionnez **Définir comme projet de démarrage**. 
   
-  3. Exécutez la solution à l’aide des commandes « Start » dans le menu « Déboguer ». Dans la fenêtre Sortie, entrez **i** pour l’inscription individuelle lorsque vous y êtes invité. La fenêtre Sortie affiche un certificat X.509 généré localement pour votre appareil simulé. Copiez dans le Presse-papiers la sortie débutant par *-----BEGIN CERTIFICATE-----* et se terminant par *-----END CERTIFICATE-----*, en faisant bien attention à inclure également ces deux lignes. Vous n’avez besoin que du premier certificat dans la fenêtre Sortie.
+  1. Exécutez la solution à l’aide des commandes « Start » dans le menu « Déboguer ». Dans la fenêtre Sortie, entrez **i** pour l’inscription individuelle lorsque vous y êtes invité. La fenêtre Sortie affiche un certificat X.509 généré localement pour votre appareil simulé. Copiez dans le Presse-papiers la sortie débutant par *-----BEGIN CERTIFICATE-----* et se terminant par *-----END CERTIFICATE-----*, en faisant bien attention à inclure également ces deux lignes. Vous n’avez besoin que du premier certificat dans la fenêtre Sortie.
  
-  4. Créez un fichier nommé **_X509testcert.pem_**, ouvrez-le dans l’éditeur de texte de votre choix et copiez le contenu du Presse-papiers dans ce fichier. Enregistrez le fichier car vous allez l’utiliser pour l’inscription d’appareil. Lorsque votre logiciel d’inscription s’exécute, il utilise le même certificat au cours de l’approvisionnement automatique.    
+  1. Créez un fichier nommé **_X509testcert.pem_**, ouvrez-le dans l’éditeur de texte de votre choix et copiez le contenu du Presse-papiers dans ce fichier. Enregistrez le fichier car vous allez l’utiliser pour l’inscription d’appareil. Lorsque votre logiciel d’inscription s’exécute, il utilise le même certificat au cours de l’approvisionnement automatique.    
 
 Ces artefacts de sécurité sont obligatoires pour l’inscription de votre appareil auprès du service d’approvisionnement des appareils. Le service d’approvisionnement attend que l’appareil démarre et s’y connecte plus tard. Au premier démarrage de votre appareil, la logique du Kit de développement logiciel (SDK) client interagit avec votre processeur (ou simulateur) pour extraire les artefacts de sécurité de l’appareil et vérifie l’inscription auprès du service Device Provisioning Service. 
 
@@ -151,9 +151,9 @@ La dernière étape consiste à écrire une application d’inscription qui util
 
     ![Extraire des informations du point de terminaison DPS à partir du panneau du portail](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
-2. Dans *l’Explorateur de solutions* de Visual Studio sur votre machine, accédez au dossier **Provision\_Exemples**. Sélectionnez l’exemple de projet nommé **prov\_dev\_client\_sample** et ouvrez le fichier source **prov\_dev\_client\_sample.c**.
+1. Dans *l’Explorateur de solutions* de Visual Studio sur votre machine, accédez au dossier **Provision\_Exemples**. Sélectionnez l’exemple de projet nommé **prov\_dev\_client\_sample** et ouvrez le fichier source **prov\_dev\_client\_sample.c**.
 
-3. Affectez la valeur _Étendue de l’ID_ obtenue à l’étape 1, à la variable `id_scope` (suppression des crochets de gauche /`[` et de droite /`]`) : 
+1. Affectez la valeur _Étendue de l’ID_ obtenue à l’étape 1, à la variable `id_scope` (suppression des crochets de gauche /`[` et de droite /`]`) : 
 
     ```c
     static const char* global_prov_uri = "global.azure-devices-provisioning.net";
@@ -162,16 +162,16 @@ La dernière étape consiste à écrire une application d’inscription qui util
 
     Pour référence, la variable `global_prov_uri`, qui permet à l’API d’inscription du client IoT Hub `IoTHubClient_LL_CreateFromDeviceAuth` de se connecter à l’instance Device Provisioning Service indiquée.
 
-4. Dans la fonction **main()** du même fichier, commentez/supprimez les commentaires de la variable `hsm_type` qui correspond au mécanisme d’attestation utilisé par le logiciel d’inscription de votre appareil (TPM ou X.509) : 
+1. Dans la fonction **main()** du même fichier, commentez/supprimez les commentaires de la variable `hsm_type` qui correspond au mécanisme d’attestation utilisé par le logiciel d’inscription de votre appareil (TPM ou X.509) : 
 
     ```c
     hsm_type = SECURE_DEVICE_TYPE_TPM;
     //hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-5. Enregistrez vos modifications et régénérez l’exemple **prov\_dev\_client\_sample** en sélectionnant la commande « Build solution » à partir du menu « Générer ». 
+1. Enregistrez vos modifications et régénérez l’exemple **prov\_dev\_client\_sample** en sélectionnant la commande « Build solution » à partir du menu « Générer ». 
 
-6. Cliquez avec le bouton droit sur le projet **prov\_dev\_client\_sample** sous le dossier **Provision\_Samples**, et sélectionnez **Définir comme projet de démarrage**. N’EXÉCUTEZ PAS l’exemple d’application pour le moment.
+1. Cliquez avec le bouton droit sur le projet **prov\_dev\_client\_sample** sous le dossier **Provision\_Samples**, et sélectionnez **Définir comme projet de démarrage**. N’EXÉCUTEZ PAS l’exemple d’application pour le moment.
 
 > [!IMPORTANT]
 > N’exécutez pas/ne démarrez pas l’appareil pour le moment ! D’abord, vous devez terminer le processus en inscrivant l’appareil auprès du service d’approvisionnement des appareils avant de démarrer l’appareil. La section Étapes suivantes ci-dessous vous guide vers l’article suivant.
@@ -204,7 +204,7 @@ Vous pouvez également estimer qu’un affinement de votre application d’enreg
 À ce stade, vous pouvez avoir les services IoT Hub et Device Provisioning Service qui s’exécutent dans le portail. Si vous souhaitez abandonner la configuration de l’approvisionnement d’appareils et/ou retarder la fin de cette série de didacticiels, nous vous recommandons d’arrêter ces services pour éviter des coûts inutiles.
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre service Device Provisioning. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
-2. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
+1. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce tutoriel, vous avez appris à :

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 99699161e8047932d27b4b124255701d13a4ec41
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1acaf5e530f5d5563901d8d498901ecc1bffecdb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225862"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Didacticiel : Intégration d’Azure AD avec Sugar CRM
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Sugar CRM à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-sugar-crm-from-the-gallery"></a>Ajout de Sugar CRM à partir de la galerie
 Pour configurer l’intégration de Sugar CRM à Azure AD, vous devez ajouter Sugar CRM à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration de Sugar CRM à Azure AD, vous devez ajouter Su
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, entrez **Sugar CRM**.
+1. Dans la zone de recherche, entrez **Sugar CRM**.
 
     ![Création d’un utilisateur de test Azure AD](./media/sugarcrm-tutorial/tutorial_sugarcrm_search.png)
 
-5. Dans le volet de résultats, sélectionnez **Sugar CRM**, puis cliquez sur **Ajouter** pour ajouter l’application.
+1. Dans le volet de résultats, sélectionnez **Sugar CRM**, puis cliquez sur **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/sugarcrm-tutorial/tutorial_sugarcrm_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Dans Sugar CRM, affectez la valeur du **nom d’utilisateur** dans Azure AD com
 Pour configurer et tester l’authentification unique Azure AD avec Sugar CRM, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Sugar CRM](#creating-a-sugar-crm-test-user)** pour avoir un équivalent de Britta Simon dans Sugar CRM, lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test Sugar CRM](#creating-a-sugar-crm-test-user)** pour avoir un équivalent de Britta Simon dans Sugar CRM, lié à la représentation Azure AD associée.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Sugar CRM**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/sugarcrm-tutorial/tutorial_sugarcrm_samlbase.png)
+    ![Configurer l'authentification unique](./media/sugarcrm-tutorial/tutorial_sugarcrm_samlbase.png)
 
-3. Dans la section **Domaine et URL Sugar CRM**, procédez comme suit :
+1. Dans la section **Domaine et URL Sugar CRM**, procédez comme suit :
 
-    ![Configure Single Sign-On](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
+    ![Configurer l'authentification unique](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
     | |
@@ -121,33 +121,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique Sugar CRM](https://support.sugarcrm.com/). 
  
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Configure Single Sign-On](./media/sugarcrm-tutorial/tutorial_sugarcrm_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/sugarcrm-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/sugarcrm-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de Sugar CRM**, cliquez sur **Configurer Sugar CRM** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+1. Dans la section **Configuration de Sugar CRM**, cliquez sur **Configurer Sugar CRM** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/sugarcrm-tutorial/tutorial_sugarcrm_configure.png) 
+    ![Configurer l'authentification unique](./media/sugarcrm-tutorial/tutorial_sugarcrm_configure.png) 
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Sugar CRM en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Sugar CRM en tant qu’administrateur.
 
-8. Accédez à **Admin**.
+1. Accédez à **Admin**.
    
     ![Administrateur](./media/sugarcrm-tutorial/ic795888.png "Administrateur")
 
-9. Dans la section **Administration**, cliquez sur **Password Management (Gestion des mots de passe)**.
+1. Dans la section **Administration**, cliquez sur **Password Management (Gestion des mots de passe)**.
    
     ![Administration](./media/sugarcrm-tutorial/ic795889.png "Administration")
 
-10. Sélectionnez **Enable SAML Authentication**.
+1. Sélectionnez **Enable SAML Authentication**.
    
     ![Administration](./media/sugarcrm-tutorial/ic795890.png "Administration")
 
-11. Dans la section **SAML Authentication** , procédez comme suit :
+1. Dans la section **SAML Authentication** , procédez comme suit :
    
     ![Authentification SAML](./media/sugarcrm-tutorial/ic795891.png "Authentification SAML")  
  
@@ -174,15 +174,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/sugarcrm-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/sugarcrm-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/sugarcrm-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/sugarcrm-tutorial/create_aaduser_04.png) 
 
@@ -204,27 +204,27 @@ Dans le cas de Sugar CRM, l’approvisionnement est une tâche manuelle.
 
 1. Connectez-vous à votre site d’entreprise **Sugar CRM** en tant qu’administrateur.
 
-2. Accédez à **Admin**.
+1. Accédez à **Admin**.
    
     ![Administrateur](./media/sugarcrm-tutorial/ic795888.png "Administrateur")
 
-3. Dans la section **Administration**, cliquez sur **User Management (Gestion des utilisateurs)**.
+1. Dans la section **Administration**, cliquez sur **User Management (Gestion des utilisateurs)**.
    
     ![Administration](./media/sugarcrm-tutorial/ic795893.png "Administration")
 
-4. Accédez à **Users (Utilisateurs) \> Create New User (Créer un utilisateur)**.
+1. Accédez à **Users (Utilisateurs) \> Create New User (Créer un utilisateur)**.
    
     ![Créer un nouvel utilisateur](./media/sugarcrm-tutorial/ic795894.png "Créer un nouvel utilisateur")
 
-5. Dans l’onglet **User Profile** , procédez comme suit :
+1. Dans l’onglet **User Profile** , procédez comme suit :
    
     ![Nouvel utilisateur](./media/sugarcrm-tutorial/ic795895.png "Nouvel utilisateur")
 
     a. Indiquez le **prénom**, le **nom** et l’**adresse de messagerie** du compte Azure AD valide que vous souhaitez approvisionner, dans les zones de texte correspondantes.
   
-6. Dans **Status**, sélectionnez **Active**.
+1. Dans **Status**, sélectionnez **Active**.
 
-7. Dans l’onglet Password, procédez comme suit :
+1. Dans l’onglet Password, procédez comme suit :
    
     ![Nouvel utilisateur](./media/sugarcrm-tutorial/ic795896.png "Nouvel utilisateur")
 
@@ -248,23 +248,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Sugar CRM**.
+1. Dans la liste des applications, sélectionnez **Sugar CRM**.
 
-    ![Configure Single Sign-On](./media/sugarcrm-tutorial/tutorial_sugarcrm_app.png) 
+    ![Configurer l'authentification unique](./media/sugarcrm-tutorial/tutorial_sugarcrm_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

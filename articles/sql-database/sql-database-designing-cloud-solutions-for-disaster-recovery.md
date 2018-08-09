@@ -1,5 +1,5 @@
 ---
-title: Concevoir des services hautement disponibles à l’aide d’Azure SQL Database | Microsoft Docs
+title: Concevoir des services disponibles à l’échelle mondiale à l’aide d’Azure SQL Database | Microsoft Docs
 description: Découvrez comment concevoir des applications pour des services hautement disponibles à l’aide d’Azure SQL Database.
 keywords: récupération d’urgence cloud, solutions de récupération d’urgence, sauvegarde de données d’application, géo-réplication, planification de la continuité des activités
 services: sql-database
@@ -8,22 +8,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f1c228802bd0a2e65321a3abe47b87845f5f86a0
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092611"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264652"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>Conception de services hautement disponibles à l’aide d’Azure SQL Database
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Conception de services disponibles à l’échelle mondiale à l’aide d’Azure SQL Database
 
-Pour créer et déployer des services hautement disponibles sur Azure SQL Database, vous devez utiliser des [groupes de basculement et une géoréplication active](sql-database-geo-replication-overview.md) en vue de fournir une tolérance aux défaillances régionales et aux défaillances graves. Les groupes de basculement et la géoréplication active permettent également une récupération rapide des bases de données secondaires. Cet article aborde les modèles d’application courants et présente les avantages et inconvénients de chacun d’eux. Pour plus d’informations sur la géoréplication active avec des pools élastiques, voir [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Pour créer et déployer des services cloud avec Azure SQL Database, utilisez des [groupes de basculement et une géoréplication active](sql-database-geo-replication-overview.md) pour fournir une tolérance aux pannes régionales et aux défaillances graves. La même fonctionnalité vous permet de créer des applications distribuées mondialement et optimisées pour l’accès local aux données. Cet article aborde les modèles d’application courants et présente les avantages et inconvénients de chacun d’eux. 
 
 > [!NOTE]
-> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone. Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).  
+> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone. Consultez [Bases de données redondantes dans une zone](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scénario 1 : Utilisation de deux régions Azure pour la continuité d’activité avec temps d’arrêt minimal
 Dans ce scénario, les applications ont les caractéristiques suivantes : 
@@ -109,31 +109,31 @@ Dans ce scénario, l’application a les caractéristiques suivantes :
 
 Afin de remplir ces conditions, vous devez faire en sorte que l’appareil de l’utilisateur se connecte **toujours** à l’application déployée dans la même zone géographique pour les opérations en lecture seule, telles que l’exploration de données, l’analytique etc. Quant aux opérations OLTP, elles sont traitées dans la même zone géographique **la plupart du temps**. Par exemple, durant la journée, les opérations OLTP sont traitées dans la même zone géographique, mais pendant les heures creuses, elles peuvent être traitées dans une zone géographique différente. Si l’activité de l’utilisateur final a lieu principalement pendant les heures de travail, vous pouvez garantir des performances optimales pour la majorité des utilisateurs presque tout le temps. Le diagramme qui suit montre cette topologie : 
  
-Les ressources de l’application doivent être déployées dans chaque zone géographique pour laquelle vous avez une demande importante. Par exemple, si votre application est activement utilisée en Amérique du Nord, en Europe et en Asie du Sud-Est, l’application doit être déployée sur l’ensemble de ces zones géographiques. La base de données primaire doit être basculée dynamiquement d’une zone géographique à la suivante à la fin des heures de travail. Cette méthode est appelée « follow the sun » (suivre le soleil). La charge de travail OLTP se connecte toujours à la base de données via l’écouteur en lecture-écriture **&lt;nom-groupe-basculement&gt;.database.windows.net** (1). La charge de travail en lecture seule se connecte directement à la base de données locale à l’aide du point de terminaison de serveur de bases de données **&lt;nom-serveur&gt;.database.windows.net** (2). Traffic Manager est configuré avec la [méthode de routage de performances](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Ainsi, l’utilisateur final est connecté au service web de la région la plus proche. La surveillance des points de terminaison doit être activée dans Traffic Manager pour chaque point de terminaison de service web (3).
+Les ressources de l’application doivent être déployées dans chaque zone géographique pour laquelle vous avez une demande importante. Par exemple, si votre application est activement utilisée aux États-Unis, en Europe et en Asie du Sud-Est, l’application doit être déployée sur l’ensemble de ces zones géographiques. La base de données primaire doit être basculée dynamiquement d’une zone géographique à la suivante à la fin des heures de travail. Cette méthode est appelée « follow the sun » (suivre le soleil). La charge de travail OLTP se connecte toujours à la base de données via l’écouteur en lecture-écriture **&lt;nom-groupe-basculement&gt;.database.windows.net** (1). La charge de travail en lecture seule se connecte directement à la base de données locale à l’aide du point de terminaison de serveur de bases de données **&lt;nom-serveur&gt;.database.windows.net** (2). Traffic Manager est configuré avec la [méthode de routage de performances](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Ainsi, l’utilisateur final est connecté au service web de la région la plus proche. La surveillance des points de terminaison doit être activée dans Traffic Manager pour chaque point de terminaison de service web (3).
 
 > [!NOTE]
 > La configuration du groupe de basculement définit la région qui est utilisée pour le basculement. Étant donné que la nouvelle base de données primaire se trouve dans une zone géographique différente, le basculement entraîne une latence plus longue pour les charges de travail OLTP et les charges en lecture seule, jusqu’à ce que la région impactée soit de nouveau en ligne.
 >
 
-![Scénario 3 Configuration de la base de données primaire pour la région Est des États-Unis.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
+![Scénario 3 Configuration de la base de données primaire pour la région USA Est.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-À la fin de la journée (par exemple à 23 h 00, heure locale), les bases de données actives doivent être basculées vers la région suivante (Europe du Nord). Cette tâche peut être entièrement automatisée à l’aide du [service de planification Azure](../scheduler/scheduler-intro.md).  Cette tâche implique les étapes suivantes :
-* Basculer le serveur principal du groupe de basculement vers la région Europe du Nord à l’aide d’un basculement convivial (1)
-* Supprimer le groupe de basculement situé entre la région Est des États-Unis et la région Europe du Nord
-* Créer un nouveau groupe de basculement portant le même nom, mais entre la région Europe du Nord et la région Asie de l’Est (2) 
-* Ajouter la base de données primaire de la région Europe du Nord et la base de données secondaire de la région Asie de l’Est à ce groupe de basculement (3)
+À la fin de la journée (par exemple à 23 h 00, heure locale), les bases de données actives doivent être basculées vers la région suivante (Europe Nord). Cette tâche peut être entièrement automatisée à l’aide du [service de planification Azure](../scheduler/scheduler-intro.md).  Cette tâche implique les étapes suivantes :
+* Basculer le serveur principal du groupe de basculement vers la région Europe Nord à l’aide d’un basculement convivial (1)
+* Supprimer le groupe de basculement situé entre la région USA Est et la région Europe Nord
+* Créer un nouveau groupe de basculement portant le même nom, mais entre la région Europe Nord et la région Asie Est (2) 
+* Ajouter la base de données primaire de la région Europe Nord et la base de données secondaire de la région Asie Est à ce groupe de basculement (3)
 
 
 Le diagramme suivant illustre la nouvelle configuration après le basculement planifié :
 
-![Scénario 3 Transition de la base de données primaire vers la région Europe du Nord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
+![Scénario 3 Transition de la base de données primaire vers la région Europe Nord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Si une panne se produit en Europe du Nord, par exemple, le basculement automatique de la base de données est démarré par le groupe de basculement, ce qui entraîne le déplacement de l’application vers la région suivante en avance (1).  Dans ce cas, la région Est des États-Unis est la seule région secondaire restante jusqu’à ce que l’Europe du Nord soit de nouveau en ligne. Les deux zones restantes servent les clients des trois régions géographiques en échangeant leur rôle. Azure Scheduler doit être réglé en conséquence. Étant donné que les zones restantes reçoivent du trafic utilisateur supplémentaire provenant de la région Europe, les performances de l’application sont impactées non seulement par une latence supplémentaire, mais également par un plus grand nombre de connexions utilisateur. Une fois la panne résolue dans la région Europe du Nord, la base de données secondaire est immédiatement synchronisée avec l’actuelle base de données primaire. Le diagramme suivant illustre une panne dans la région Europe du Nord :
+Si une panne se produit en Europe Nord, par exemple, le basculement automatique de la base de données est démarré par le groupe de basculement, ce qui entraîne le déplacement de l’application vers la région suivante en avance (1).  Dans ce cas, la région USA Est est la seule région secondaire restante jusqu’à ce que la région Europe Nord soit de nouveau en ligne. Les deux zones restantes servent les clients des trois régions géographiques en échangeant leur rôle. Azure Scheduler doit être réglé en conséquence. Étant donné que les zones restantes reçoivent du trafic utilisateur supplémentaire provenant de la région Europe, les performances de l’application sont impactées non seulement par une latence supplémentaire, mais également par un plus grand nombre de connexions utilisateur. Une fois la panne résolue dans la région Europe Nord, la base de données secondaire est immédiatement synchronisée avec l’actuelle base de données primaire. Le diagramme suivant illustre une panne dans la région Europe Nord :
 
-![Scénario 3 Panne dans la région Europe du Nord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+![Scénario 3 Panne dans la région Europe Nord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
 > [!NOTE]
-> Vous pouvez réduire le temps pendant lequel l’expérience des utilisateurs de la région en Europe est détériorée par la longue latence. Pour ce faire, vous devez déployer proactivement une copie de l’application et créer la ou les bases de données secondaires dans une autre région locale (Europe de l’Ouest) en remplacement de l’instance d’application hors connexion de la région Europe du Nord. Lorsque celle-ci est de nouveau en ligne, vous pouvez décider si vous souhaitez continuer à utiliser la région Europe de l’Ouest, ou supprimer la copie de l’application qui s’y trouve et recommencer à utiliser la région Europe du Nord.
+> Vous pouvez réduire le temps pendant lequel l’expérience des utilisateurs de la région en Europe est détériorée par la longue latence. Pour ce faire, vous devez déployer proactivement une copie de l’application et créer la ou les bases de données secondaires dans une autre région locale (Europe Ouest) en remplacement de l’instance d’application hors connexion de la région Europe Nord. Lorsque celle-ci est de nouveau en ligne, vous pouvez décider si vous souhaitez continuer à utiliser la région Europe Ouest, ou supprimer la copie de l’application qui s’y trouve et recommencer à utiliser la région Europe Nord.
 >
 
 Cette conception présente plusieurs **avantages** :

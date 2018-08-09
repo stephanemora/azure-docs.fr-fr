@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 094958911435b899773ef4ee11176f538a4c8fe0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399122"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577325"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Développez votre activité sur la place de marché 
 Une fois que vous avez publié votre offre sur AppSource ou sur la Place de marché Azure, vous pouvez utiliser votre annonce comme une plateforme de lancement pour des activités de commercialisation (GTM) en partenariat avec Microsoft. Diriger le trafic vers votre offre sur la place de marché et renforcer votre relation avec les prospects de la place de marché, par exemple, sont des méthodes efficaces permettant d’accélérer le développement de votre activité. 
@@ -33,7 +33,7 @@ Les tableaux dans les sections suivantes fournissent des suggestions pour la cr�
 ### <a name="storefront-offer-details"></a>Détails des offres de la vitrine
 | Organisation de la vitrine | Bonne pratique |
 |:--- |:--- |  
-| Nom de l’offre | Spécifiez un titre fort :<br>Le nom de votre application doit refléter la valeur principale dont bénéficieront les clients. Le fait d’inclure des mots clés dans le titre de votre application peut également améliorer le référencement de votre offre dans les résultats de moteurs de recherche.<br><br>Suivez un ensemble de formats de titre pour consulter les listes de service :<br>[Nom de l’offre] : [Durée] [Type d’offre] (par exemple, *Contoso : implémentation de 2 semaines*)<br><br>Respectez les directives des marques :<br>Lorsque vous faites référence aux marques Microsoft ainsi qu’aux noms des logiciels, produits et services Microsoft, suivez les [Directives relatives aux marques et aux marques déposées Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx), ainsi que d’autres directives pertinentes et propres aux produits. |
+| Nom de l’offre | Spécifiez un titre fort :<br>Le nom de votre application doit refléter la valeur principale dont bénéficieront les clients. Le fait d’inclure des mots clés dans le titre de votre application peut également améliorer le référencement de votre offre dans les résultats de moteurs de recherche.<br><br>Suivez un ensemble de formats de titre pour consulter les listes de service :<br>[Nom de l’offre] : [Durée] [Type d’offre] (par exemple, *Contoso : implémentation de 2 semaines*)<br><br>Respectez les directives des marques :<br>Lorsque vous faites référence aux marques Microsoft ainsi qu’aux noms des logiciels, produits et services Microsoft, suivez les [Directives relatives aux marques et aux marques déposées Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx), ainsi que d’autres directives pertinentes et propres aux produits. |
 | Description de l’offre | Rédigez une description claire pour votre offre :<br>Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description. Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche. Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application peut apporter aux clients. Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.<br><br>Votre proposition de valeur doit comprendre les composants suivants :<ul><li>Description du produit</li><li>Type d’utilisateur qui tire parti du produit</li><li>Besoin ou problèmes du client auxquels le produit répond</li></ul> |
 
 ### <a name="storefront-listing-details"></a>Détails de l’annonce en vitrine
@@ -196,7 +196,7 @@ Utilisez les pratiques suivantes pour vos prospects :
 * Évaluez les prospects et utilisez différents chemins de renforcement de relation pour diverses actions dans la place de marché. Un client qui teste votre application n’en est pas à la même étape du processus qu’une personne qui initie un achat, par exemple.
 * Traitez fréquemment les données des prospects. La nouveauté de l’engagement avec les clients est un facteur clé de réussite. 
 * Renforcez votre relation avec vos prospects par e-mail ou préventes/ventes internes pour garantir la qualification appropriée avant qu’ils n’accèdent à votre pipeline de ventes.
-* Alignez vos efforts sur la stratégie globale de votre campagne marketing.
+* Aligner vos efforts sur la stratégie globale de votre campagne marketing.
 Pour plus d’informations sur la façon d’accéder au programme de co-vente, consultez la page [Promouvoir votre entreprise avec Microsoft](https://docs.microsoft.com/azure/marketplace/promote-your-business-with-microsoft).
 
 ## <a name="gtm-benefits-in-the-marketplace"></a>Avantages GTM sur la place de marché

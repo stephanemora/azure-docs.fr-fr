@@ -3,17 +3,17 @@ title: Exécuter les commandes Azure CLI ou PowerShell sous une identité Azure�
 description: Azure CLI et PowerShell prennent en charge la connexion avec une identité Azure AD pour l’exécution de commandes sur des conteneurs et des files d’attente Stockage Azure, ainsi que sur leurs données. Un jeton d’accès est fourni pour la session et utilisé pour autoriser les opérations d’appel. Les autorisations dépendent du rôle attribué à l’identité Azure AD.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: tamram
-ms.openlocfilehash: 98af46707485d1ab49e7d8c6fb1729e6edc6b2ff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: common
+ms.openlocfilehash: 253edccef064e729e96bceac619458cf4c585ae4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235863"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522483"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Utiliser une identité Azure AD pour accéder à Stockage Azure avec CLI ou PowerShell (préversion)
 
@@ -22,7 +22,7 @@ Stockage Azure fournit des extensions en préversion pour Azure CLI et PowerShel
 Lorsque vous vous connectez à Azure CLI ou PowerShell avec une identité Azure AD, un jeton d’accès est retourné pour accéder à Stockage Azure sous cette identité. Ce jeton est ensuite utilisé automatiquement par CLI ou PowerShell pour autoriser les opérations dans Stockage Azure. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
 > [!IMPORTANT]
-> Cette préversion est destinée à une utilisation hors production uniquement. Les contrats de niveau de service de production (SLA) seront disponibles quand l’intégration d’Azure AD pour Stockage Azure sera en disponibilité générale. Si l’intégration d’Azure AD n’est pas encore prise en charge pour votre scénario, continuez d’utiliser l’autorisation de clé partagée ou les jetons SAP dans vos applications. Pour plus d’informations sur la préversion, consultez [Authentifier l’accès à Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
+> Cette préversion est destinée à une utilisation hors production uniquement. Les contrats SLA (contrats de niveau de service) de production ne sont pas disponibles tant que l’intégration d’Azure AD pour le Stockage Azure n’est pas officiellement disponible de manière générale. Si l’intégration d’Azure AD n’est pas encore prise en charge pour votre scénario, continuez à utiliser l’autorisation basée sur une clé partagée ou les jetons SAP dans vos applications. Pour plus d’informations sur la préversion, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
 >
 > Pendant la préversion, la propagation des attributions de rôles RBAC peut prendre jusqu’à cinq minutes.
 >
@@ -94,7 +94,7 @@ Get-AzureStorageBlob -Container $sample-container -Context $ctx
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les rôles RBAC dans Stockage Azure, consultez [Gérer les droits d’accès aux données de Stockage Azure avec RBAC (préversion)](storage-auth-aad-rbac.md).
+- Pour en savoir plus sur les rôles RBAC relatifs au stockage Azure, consultez [Gérer les droits d’accès aux données de stockage avec RBAC (préversion)](storage-auth-aad-rbac.md).
 - Pour plus d’informations sur l’utilisation de Managed Service Identity avec Stockage Azure, consultez [S’authentifier avec Azure AD à partir d’une identité de service managée Azure (préversion)](storage-auth-aad-msi.md).
 - Pour savoir comment autoriser l’accès aux conteneurs et aux files d’attente depuis vos applications de stockage, consultez [Utiliser Azure AD avec les applications de stockage](storage-auth-aad-app.md).
 - Pour plus d’informations sur l’intégration d’Azure AD pour les objets blob et les files d’attente Azure, consultez le billet de blog de l’équipe Stockage Azure intitulé [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

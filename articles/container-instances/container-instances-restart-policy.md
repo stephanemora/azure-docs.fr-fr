@@ -1,21 +1,21 @@
 ---
-title: Exécuter des tâches en conteneur dans Azure Container Instances
+title: Exécuter des tâches conteneurisées dans Azure Container Instances avec des stratégies de redémarrage
 description: Découvrez comment utiliser Azure Container Instances pour exécuter des tâches jusqu’à complétion, telles que des tâches de génération, de test ou de rendu d’image.
 services: container-instances
 author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 07/26/2018
 ms.author: marsma
-ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd411ff38411c71cce2a8a63cc453c34e665a385
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167127"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262733"
 ---
-# <a name="run-a-containerized-task-in-azure-container-instances"></a>Exécuter une tâche en conteneur dans Azure Container Instances
+# <a name="run-containerized-tasks-with-restart-policies"></a>Exécuter des tâches conteneurisées avec des stratégies de redémarrage
 
 La facilité et la vitesse de déploiement des conteneurs d’Azure Container Instances en font une plateforme incontournable pour les tâches à exécution unique, comme les tâches de génération, de test et de rendu d’image, dans une instance de conteneur.
 
@@ -92,7 +92,7 @@ Output:
  ('HAMLET', 386)]
 ```
 
-Cet exemple montre la sortie du script envoyé à STDOUT. Toutefois, il est possible que vos tâches en conteneur écrivent leur sortie dans un stockage persistant, en vue d’une récupération ultérieure. Par exemple, vers un [partage de fichiers Azure](container-instances-mounting-azure-files-volume.md).
+Cet exemple montre la sortie du script envoyé à STDOUT. Toutefois, il est possible que vos tâches conteneurisées écrivent leur sortie dans un stockage persistant, en vue d’une récupération ultérieure. Par exemple, vers un [partage de fichiers Azure](container-instances-mounting-azure-files-volume.md).
 
 ## <a name="configure-containers-at-runtime"></a>Configurer des conteneurs au moment de l’exécution
 
@@ -157,7 +157,7 @@ Là encore, lorsque l’état du conteneur est *Terminé*, affichez les journaux
 az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
-Output:
+Sortie :
 
 ```bash
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]

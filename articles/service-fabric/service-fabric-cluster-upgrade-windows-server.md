@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 20526c1ddd55671f815dc39b3e03c4f9b2f91788
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9c2534644a0627bac9765621691cbba6ffccfe35
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208649"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391309"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Mettre à niveau un cluster Azure Service Fabric autonome sur Windows Server 
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Quand l’avertissement concernant l’intégrité du cluster s’affiche, effec
     La sortie est normalement de ce type :
 
     ![Obtenir les versions de Service Fabric prises en charge][getfabversions]
-3. Démarrez une mise à niveau du cluster vers une version disponible avec la commande Windows PowerShell [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+3. Démarrez une mise à niveau du cluster vers une version disponible avec la commande Windows PowerShell [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     ```Powershell
 
@@ -101,9 +101,9 @@ Quand l’avertissement concernant l’intégrité du cluster s’affiche, effec
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Si les stratégies d’intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Pour spécifier des stratégies d’intégrité personnalisées pour la commande ServiceFabricClusterUpgrade, consultez la documentation de [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    Si les stratégies d’intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Pour spécifier des stratégies d’intégrité personnalisées pour la commande ServiceFabricClusterUpgrade, consultez la documentation de [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-Après avoir corrigé les problèmes ayant entraîné la restauration, relancez la mise à niveau, en suivant les étapes décrites précédemment.
+    Après avoir corrigé les problèmes ayant entraîné la restauration, relancez la mise à niveau, en suivant les étapes décrites précédemment.
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Mettre à niveau les clusters *ne disposant pas d’une connectivité* suffisante pour télécharger le code et la configuration les plus récents
 Si vos nœuds de cluster disposent d’une connectivité Internet au [Centre de téléchargement Microsoft](http://download.microsoft.com), suivez les étapes ci-après pour mettre à niveau votre cluster vers une version prise en charge.
@@ -121,7 +121,7 @@ Modifiez la configuration du cluster pour affecter la valeur *false* à la propr
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Pour plus de détails, consultez la [commande PowerShell Start-ServiceFabricClusterConfigurationUpgrade](https://msdn.microsoft.com/library/mt788302.aspx). Veillez à mettre à jour « clusterConfigurationVersion » dans votre code JSON avant de commencer la mise à niveau de la configuration.
+Pour plus d’informations sur l’utilisation, reportez-vous à la commande PowerShell [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Veillez à mettre à jour « clusterConfigurationVersion » dans votre code JSON avant de commencer la mise à niveau de la configuration.
 
 ```powershell
 
@@ -131,7 +131,7 @@ Pour plus de détails, consultez la [commande PowerShell Start-ServiceFabricClus
 
 #### <a name="cluster-upgrade-workflow"></a>Flux de travail de mise à niveau de cluster
 
-1. Exécutez Get-ServiceFabricClusterUpgrade à partir de l’un des nœuds du cluster et notez la valeur de TargetCodeVersion.
+1. Exécutez [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) à partir de l’un des nœuds du cluster et notez la valeur de *TargetCodeVersion*.
 
 2. Exécutez la commande suivante à partir d’un ordinateur connecté à Internet pour répertorier toutes les versions de mise à niveau compatibles avec la version actuelle et téléchargez le package correspondant à l’aide des liens de téléchargement associés :
 
@@ -182,9 +182,9 @@ Pour plus de détails, consultez la [commande PowerShell Start-ServiceFabricClus
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Si les stratégies d’intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Pour spécifier des stratégies d’intégrité personnalisées pour la commande ServiceFabricClusterUpgrade, consultez la documentation de [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    Si les stratégies d’intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Pour spécifier des stratégies d’intégrité personnalisées pour la commande ServiceFabricClusterUpgrade, consultez la documentation de [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-Après avoir corrigé les problèmes ayant entraîné la restauration, relancez la mise à niveau, en suivant les étapes décrites précédemment.
+    Après avoir corrigé les problèmes ayant entraîné la restauration, relancez la mise à niveau, en suivant les étapes décrites précédemment.
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>Mettre à niveau la configuration du cluster
@@ -205,7 +205,7 @@ Ou utilisez ce script :
 
 Certaines configurations ne peuvent pas être mises à niveau, notamment les points de terminaison, le nom du cluster, l’IP du nœud, etc. Cette opération teste le nouveau modèle JSON de configuration de cluster en le comparant à l’ancien modèle, et consigne les erreurs dans la fenêtre PowerShell en cas de problème.
 
-Pour mettre à niveau la configuration du cluster, exécutez Start-ServiceFabricClusterConfigurationUpgrade. La mise à niveau de la configuration est traitée par domaine de mise à niveau.
+Pour mettre à niveau la configuration du cluster, exécutez [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). La mise à niveau de la configuration est traitée par domaine de mise à niveau.
 
 ```powershell
 

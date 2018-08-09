@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d76ee059720baa1f91dd157c093b476e4cfaf035
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2a477d8e10b9be4aa90cc80341c787facaabc520
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040702"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Didacticiel : Intégration d’Azure Active Directory à Tangoe Command Premium Mobile
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajouter Tangoe Command Premium Mobile à partir de la galerie
-2. Configurer et tester l’authentification unique Azure AD
+1. Configurer et tester l’authentification unique Azure AD
 
 ## <a name="add-tangoe-command-premium-mobile-from-the-gallery"></a>Ajouter Tangoe Command Premium Mobile à partir de la galerie
 Pour configurer l’intégration de Tangoe Command Premium Mobile à Azure AD, vous devez ajouter Tangoe Command Premium Mobile à votre liste d’applications SaaS gérées à partir de la galerie.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de Tangoe Command Premium Mobile à Azure AD, 
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **Tangoe Command Premium Mobile**, sélectionnez **Tangoe Command Premium Mobile** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Tangoe Command Premium Mobile**, sélectionnez **Tangoe Command Premium Mobile** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Ajouter Tangoe Command Premium Mobile à partir de la galerie ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Dans Tangoe Command Premium Mobile, affectez la valeur du **nom d’utilisateur*
 Pour configurer et tester l’authentification unique Azure AD avec Tangoe Command Premium Mobile, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Tangoe Command Premium Mobile](#create-a-tangoe-command-premium-mobile-test-user)** pour avoir un équivalent de Britta Simon dans Tangoe Command Premium Mobile lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test Tangoe Command Premium Mobile](#create-a-tangoe-command-premium-mobile-test-user)** pour avoir un équivalent de Britta Simon dans Tangoe Command Premium Mobile lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -101,11 +101,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Authentification basée sur SAML](./media/tangoe-tutorial/tutorial_tangoe_samlbase.png)
 
-3. Dans la section **Domaine et URL Tangoe Command Premium Mobile**, procédez comme suit :
+1. Dans la section **Domaine et URL Tangoe Command Premium Mobile**, procédez comme suit :
 
     ![Domaine et URL Tangoe Command Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_url.png)
 
@@ -116,19 +116,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Contact l’[équipe de support technique Tangoe Command Premium Mobile](https://www.tangoe.com/contact-us/) pour obtenir ces valeurs. 
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Section Certificat de signature SAML](./media/tangoe-tutorial/tutorial_tangoe_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer](./media/tangoe-tutorial/tutorial_general_400.png)
     
-6. Dans la section **Configuration de Tangoe Command Premium Mobile**, cliquez sur **Configurer Tangoe Command Premium Mobile** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **Configuration de Tangoe Command Premium Mobile**, cliquez sur **Configurer Tangoe Command Premium Mobile** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Section Configuration de Tangoe Command Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. Pour configurer l’authentification unique pour votre application, contactez l’[équipe de support Tangoe Command Premium Mobile](https://www.tangoe.com/contact-us/) en lui fournissant les éléments suivants :
+1. Pour configurer l’authentification unique pour votre application, contactez l’[équipe de support Tangoe Command Premium Mobile](https://www.tangoe.com/contact-us/) en lui fournissant les éléments suivants :
 
    - le fichier de métadonnées téléchargé ;
    - L’**ID d’entité SAML**
@@ -150,15 +150,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/tangoe-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Utilisateurs et groupes -> Tous les utilisateurs](./media/tangoe-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Ajouter un utilisateur](./media/tangoe-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Boîte de dialogue utilisateur](./media/tangoe-tutorial/create_aaduser_04.png) 
 
@@ -188,23 +188,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Tangoe Command Premium Mobile**.
+1. Dans la liste des applications, sélectionnez **Tangoe Command Premium Mobile**.
 
     ![Tangoe Command Premium Mobile dans la liste des applications](./media/tangoe-tutorial/tutorial_tangoe_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

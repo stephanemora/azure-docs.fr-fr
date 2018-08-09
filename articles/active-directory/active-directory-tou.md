@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136653"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398952"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main la fonctionnalité Conditions d’utilisation d’Azure Active Directory.
@@ -138,6 +138,42 @@ Vous pouvez consulter et vérifier les conditions d’utilisation qu’ils ont a
 
 1. C’est là que vous pouvez consulter les conditions d’utilisation que vous avez acceptées. 
 
+## <a name="edit-terms-of-use-details"></a>Modifier les détails des conditions d’utilisation
+Vous pouvez modifier certains détails des conditions d’utilisation, mais il n’est pas possible de modifier un document existant. La procédure suivante explique comment modifier les détails.
+
+1. Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Sélectionnez les conditions d’utilisation à modifier.
+
+1. Cliquez sur **Modifier les conditions**.
+
+1. Dans le volet Modifier les conditions d’utilisation, modifiez le nom, le nom d’affichage ou demandez aux utilisateurs de développer les valeurs.
+
+    ![Ajouter des conditions d’utilisation](media/active-directory-tou/edit-tou.png)
+
+1. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
+
+    Une fois les modifications enregistrées, les utilisateurs devront accepter les nouvelles conditions.
+
+## <a name="add-a-terms-of-use-language"></a>Ajouter une langue aux conditions d'utilisation
+La procédure suivante explique comment ajouter une langue aux conditions d’utilisation.
+
+1. Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Sélectionnez les conditions d’utilisation à modifier.
+
+1. Dans le volet d’informations, cliquez sur l’onglet **Langues**.
+
+    ![Ajouter des conditions d’utilisation](media/active-directory-tou/languages-tou.png)
+
+1. Cliquez sur **Ajouter une langue**.
+
+1. Dans le volet Ajouter une langue aux conditions d’utilisation, chargez votre PDF localisé et sélectionnez la langue.
+
+    ![Ajouter des conditions d’utilisation](media/active-directory-tou/language-add-tou.png)
+
+1. Cliquez sur **Ajouter** pour ajouter la langue.
+
 ## <a name="delete-terms-of-use"></a>Supprimer des conditions d’utilisation
 Pour supprimer d’anciennes conditions d’utilisation, effectuez les étapes suivantes :
 
@@ -175,8 +211,11 @@ R : Le nombre d’utilisateurs ayant accepté et refusé les conditions d’util
 **Q : Pourquoi le nombre de consentements est-il différent dans le rapport des conditions d’utilisation et dans les journaux d’audit Azure AD ?**</br>
 R : Le rapport des conditions d’utilisation est stocké pendant toute la durée de vie de celles-ci, alors que les journaux d’audit Azure AD sont stockés pendant 30 jours. En outre, le rapport des conditions d’utilisation affiche uniquement l’état actuel du consentement utilisateur. Par exemple, si un utilisateur refuse, puis accepte les conditions d’utilisation, le rapport affichera uniquement son acceptation. Si vous avez besoin de consulter l’historique, vous pouvez utiliser les journaux d’audit Azure AD.
 
-**Q : Si les conditions d’utilisation sont modifiées, les utilisateurs doivent-ils les accepter à nouveau ?**</br>
-R : Oui. Si un administrateur change les conditions d’utilisation, les utilisateurs doivent les accepter à nouveau.
+**Q : Si je modifie les détails des conditions d’utilisation, les utilisateurs doivent-ils les accepter à nouveau ?**</br>
+R : Oui. Si un administrateur modifie les détails des conditions d’utilisation, les utilisateurs doivent accepter à nouveau les conditions.
+
+**Q : Puis-je mettre à jour un document de conditions d’utilisation existant ?**</br>
+A : Il n’est pas possible à l’heure actuelle de mettre à jour un document de conditions d’utilisation existant. Il vous faudra pour cela créer une nouvelle instance de conditions d’utilisation.
 
 **Q :Si des liens hypertexte se trouvent dans les conditions d’utilisation d’un document PDF, les utilisateurs finaux pourront-ils cliquer dessus ?**</br>
 R : Par défaut, le fichier PDF est affiché au format JPEG, par conséquent, il n’est pas possible de cliquer sur les liens hypertexte. Les utilisateurs ont la possibilité de sélectionner **Des problèmes d’affichage ? Cliquez ici**, pour afficher le fichier PDF en mode natif, qui prend en charge les liens hypertexte.

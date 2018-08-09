@@ -2,19 +2,20 @@
 title: Surveiller et améliorer les performances - Azure SQL Database | Microsoft Docs
 description: La base de données SQL Azure fournit des outils de performances pour vous aider à identifier les zones susceptibles d’améliorer les performances actuelles des requêtes.
 services: sql-database
-author: stevestein
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: 7d1fa8d05de11ed68bedbc91fbe22aa64b25372e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 8a458af27bd517be7c3ce0b5ad30c6d575d494c0
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650381"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522439"
 ---
 # <a name="monitor-and-improve-performance"></a>Surveiller et améliorer les performances
 Azure SQL Database identifie les problèmes potentiels de votre base de données et recommande les actions susceptibles d’améliorer les performances de votre charge de travail en fournissant des recommandations et des actions de réglage intelligent.

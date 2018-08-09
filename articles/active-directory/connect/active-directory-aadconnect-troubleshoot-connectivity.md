@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 793a65347552782c4a3482b29d10e4c94ef85663
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295394"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263229"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité liés à Azure AD Connect
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
@@ -52,7 +52,7 @@ Parmi ces URL, le tableau suivant indique celles qui représentent le strict min
 | \*.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
 
 ## <a name="errors-in-the-wizard"></a>Erreurs dans l’Assistant
-L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). S’il existe un problème, il apparaît probablement déjà au niveau de la page **Connexion à Azure AD** page de l’Assistant car la configuration du proxy est globale.
+L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). S’il existe un problème, il apparaît probablement déjà au niveau de la page **Connexion à Azure AD** page de l’Assistant car la configuration du proxy est globale.
 
 Voici les erreurs les plus courantes de l’Assistant Installation.
 
@@ -161,28 +161,28 @@ Problèmes de configuration du réseau ou du proxy. Impossible d’accéder au r
 ### <a name="user-password-expired"></a>Mot de passe utilisateur expiré
 Vos informations d’identification ont expiré. Modifiez votre mot de passe.
 
-### <a name="authorizationfailure"></a>AuthorizationFailure
-Problème inconnu.
+### <a name="authorization-failure"></a>Échec de l’autorisation
+L’autorisation d’effectuer une action dans Azure AD n’a pas pu être accordée à l’utilisateur.
 
 ### <a name="authentication-cancelled"></a>Authentification annulée
 Le test d’authentification multifacteur (MFA) a été annulé.
 
-### <a name="connecttomsonline"></a>ConnectToMSOnline
+### <a name="connect-to-ms-online-failed"></a>Connect To MS Online Failed (Échec de la connexion à MS Online)
 L’authentification a réussi, mais Azure AD PowerShell a un problème d’authentification.
 
-### <a name="azurerolemissing"></a>AzureRoleMissing
-L’authentification a réussi. Vous n’êtes pas administrateur global.
+### <a name="azure-ad-global-admin-role-needed"></a>(Azure AD Global Admin Role Needed) Rôle d’administrateur général Azure AD nécessaire
+L’utilisateur s’est authentifié correctement. Toutefois, le rôle d’administrateur général n’est pas attribué à l’utilisateur. Voici [comment vous pouvez attribuer le rôle d’administrateur général](../users-groups-roles/directory-assign-admin-roles.md) à l’utilisateur. 
 
-### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
+### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management Enabled (Technologie Privileged Identity Management activée)
 L’authentification a réussi. Privileged Identity Management a été activé et vous n’êtes actuellement pas administrateur global. Pour plus d’informations, consultez [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
+### <a name="company-information-unavailable"></a>Company Information Unavailable (Informations sur la société non disponibles)
 L’authentification a réussi. Impossible de récupérer les informations de société à partir d’Azure AD.
 
-### <a name="retrievedomains"></a>RetrieveDomains
+### <a name="domain-information-unavailable"></a>Domain Information Unavailable (Informations de domaine non disponibles)
 L’authentification a réussi. Impossible de récupérer les informations de domaine à partir d’Azure AD.
 
-### <a name="unexpected-exception"></a>Exception inattendue
+### <a name="unspecified-authentication-failure"></a>Unspecified Authentication Failure (Échec d’authentification non spécifié)
 Apparaît comme une erreur inattendue dans l’Assistant Installation. Peut se produire si vous tentez d’utiliser un **compte Microsoft** au lieu d’un compte **scolaire ou d’organisation**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Étapes de dépannage pour les versions précédentes.

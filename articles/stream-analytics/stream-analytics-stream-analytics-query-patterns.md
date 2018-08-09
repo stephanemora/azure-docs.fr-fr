@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971779"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364163"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 
@@ -24,6 +24,12 @@ Les requêtes dans Azure Stream Analytics sont exprimées dans un langage de req
 La conception des requêtes peut exprimer une logique directe simple pour déplacer les données d’événement d’un flux d’entrée vers une autre banque de données de sortie. Elle peut également effectuer une analyse enrichie temporelle et des critères spéciaux afin de calculer les agrégats sur différentes fenêtres de temps comme dans l’exemple TollApp. Vous pouvez joindre des données provenant de plusieurs entrées pour combiner des événements de diffusion en continu et effectuer des recherches sur les données de référence statiques pour enrichir les valeurs des événements. Vous pouvez également écrire des données vers plusieurs sorties.
 
 Cet article décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et mis à jour avec de nouveaux modèles de manière continue.
+
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Utiliser des types de données complexes dans JavaScript Object Notation et AVRO 
+Azure Stream Analytics prend en charge le traitement des événements dans les formats de données CSV, JSON et Avro.
+JSON et Avro peuvent contenir des types complexes, comme des objets imbriqués (enregistrements) ou des tableaux. Pour utiliser ces types de données complexes, reportez-vous à la [page MSDN expliquant comment utiliser des types de données complexes dans JSON et AVRO](
+https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+
 
 ## <a name="query-example-convert-data-types"></a>Exemple de requête : Convertir des types de données
 **Description** : Définir les types des propriétés sur le flux d’entrée.

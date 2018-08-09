@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b841210121cb2091b4c4130d3353a3ab85467d4b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a685b5702aa9f74f3e0abf2a06774a30ac0d996f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211381"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Didacticiel : Intégration d’Azure AD à Thoughtworks Mingle
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Thoughtworks Mingle à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-thoughtworks-mingle-from-the-gallery"></a>Ajout de Thoughtworks Mingle à partir de la galerie
 Pour configurer l’intégration de Thoughtworks Mingle à Azure AD, vous devez ajouter Thoughtworks Mingle depuis la galerie à votre liste d’applications SaaS gérées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de Thoughtworks Mingle à Azure AD, vous devez 
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Thoughtworks Mingle**, sélectionnez **Thoughtworks Mingle** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Thoughtworks Mingle**, sélectionnez **Thoughtworks Mingle** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Thoughtworks Mingle dans la liste des résultats](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Dans Thoughtworks Mingle, affectez la valeur du **nom d’utilisateur** dans Azu
 Pour configurer et tester l’authentification unique Azure AD avec Thoughtworks Mingle, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Thoughtworks Mingle](#create-a-thoughtworks-mingle-test-user)** pour avoir un équivalent de Britta Simon dans Thoughtworks Mingle lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test Thoughtworks Mingle](#create-a-thoughtworks-mingle-test-user)** pour avoir un équivalent de Britta Simon dans Thoughtworks Mingle lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -99,13 +99,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Thoughtworks Mingle**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_samlbase.png)
 
-3. Dans la section **Domaine et URL Thoughtworks Mingle**, procédez comme suit :
+1. Dans la section **Domaine et URL Thoughtworks Mingle**, procédez comme suit :
 
     ![Informations d’authentification unique dans Domaine et URL Thoughtworks Mingle](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_url.png)
 
@@ -114,21 +114,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique Thoughtworks Mingle](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support). 
  
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/thoughtworks-mingle-tutorial/tutorial_general_400.png)
 
-6. Connectez-vous à votre site d’entreprise **Thoughtworks Mingle** en tant qu’administrateur.
+1. Connectez-vous à votre site d’entreprise **Thoughtworks Mingle** en tant qu’administrateur.
 
-7. Cliquez sur l’onglet **Admin**, puis sur **SSO Config (Configuration SSO)**.
+1. Cliquez sur l’onglet **Admin**, puis sur **SSO Config (Configuration SSO)**.
    
     ![Onglet Admin](./media/thoughtworks-mingle-tutorial/ic785157.png "Configuration SSO")
 
-8. Dans la section **SSO Config** , procédez comme suit :
+1. Dans la section **SSO Config** , procédez comme suit :
    
     ![Configuration de l’authentification unique](./media/thoughtworks-mingle-tutorial/ic785158.png "Configuration de l’authentification unique")
     
@@ -151,15 +151,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/thoughtworks-mingle-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/thoughtworks-mingle-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Bouton Ajouter](./media/thoughtworks-mingle-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Boîte de dialogue Utilisateur](./media/thoughtworks-mingle-tutorial/create_aaduser_04.png) 
 
@@ -179,19 +179,19 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être appr
 
 1. Connectez-vous à votre site d’entreprise Thoughtworks Mingle en tant qu’administrateur.
 
-2. Cliquez sur **Profile**.
+1. Cliquez sur **Profile**.
    
     ![Votre premier projet](./media/thoughtworks-mingle-tutorial/ic785160.png "Votre premier projet")
 
-3. Cliquez sur l’onglet **Admin**, puis sur **Users (Utilisateurs)**.
+1. Cliquez sur l’onglet **Admin**, puis sur **Users (Utilisateurs)**.
    
     ![Utilisateurs](./media/thoughtworks-mingle-tutorial/ic785161.png "Utilisateurs")
 
-4. Cliquez sur **New User**.
+1. Cliquez sur **New User**.
    
     ![Nouvel utilisateur](./media/thoughtworks-mingle-tutorial/ic785162.png "Nouvel utilisateur")
 
-5. Dans la boîte de dialogue **New User** , procédez comme suit :
+1. Dans la boîte de dialogue **New User** , procédez comme suit :
    
     ![Boîte de dialogue Nouvel utilisateur](./media/thoughtworks-mingle-tutorial/ic785163.png "Nouvel utilisateur")  
  
@@ -217,23 +217,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Thoughtworks Mingle**.
+1. Dans la liste des applications, sélectionnez **Thoughtworks Mingle**.
 
     ![Lien Thoughtworks Mingle dans la liste des applications](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

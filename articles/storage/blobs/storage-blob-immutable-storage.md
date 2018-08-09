@@ -1,420 +1,372 @@
 ---
-title: Fonctionnalité de stockage immuable de stockage Blob Azure (préversion) | Microsoft Docs
-description: Le stockage Azure offre dorénavant la prise en charge WORM pour le stockage d’objets Blob, vous permettant de stocker des données dans un état non modifiable et non supprimable pendant un intervalle de temps spécifié par l’utilisateur. Cette fonctionnalité permet à des organisations de nombreux secteurs, particulièrement les courtiers/revendeurs, de stocker des données conformément à SEC 17a-4(f) et d’autres législations.
+title: Stockage non modifiable pour le Stockage Blob Azure (préversion) | Microsoft Docs
+description: Le Stockage Azure assure la prise en charge des disques optiques non réinscriptibles (WORM) pour le Stockage (d’objets) Blob, qui permettent aux utilisateurs de stocker des données dans un état non modifiable et non effaçable sur une période donnée.
 services: storage
 author: sangsinh
-manager: twooley
-ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
+ms.topic: article
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: blobs
+ms.openlocfilehash: cfc25906e926e8dd6687eeccd311a38653772c4d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070006"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398996"
 ---
-# <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Fonctionnalité de stockage immuable de stockage Blob Azure (préversion)
+# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>Stocker des données critiques pour l’entreprise dans le Stockage Blob Azure (préversion)
 
-La fonctionnalité de stockage immuable pour les objets Blob Azure permet aux utilisateurs de stocker des données commerciales sensibles dans un stockage d’objets Blob Azure dans un état WORM (non réinscriptible). Cet état rend ces données non supprimables et non modifiables pendant un intervalle de temps spécifié par l’utilisateur. Les objets Blob peuvent être créés et lus, mais ne peuvent être modifiés ni supprimés pendant la durée de l’intervalle de rétention.
+Le stockage non modifiable pour le Stockage (d’objets) Blob Azure permet aux utilisateurs de stocker des données critiques pour l’entreprise dans un état WORM (disque optique non réinscriptible). Cet état les rend non effaçables et non modifiables pour une durée spécifiée par l’utilisateur. Au cours de cette période de rétention, il est possible de créer et de lire des objets blob, mais non de les modifier ou de les supprimer.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Cette fonctionnalité permet à des organisations de nombreux secteurs, particulièrement les courtiers/revendeurs, de stocker des données conformément à SEC 17a-4(f) et d’autres législations.
+Le stockage non modifiable permet aux institutions financières et aux secteurs associés, en particulier les organisations de courtage, de stocker des données en toute sécurité.
 
 Les applications typiques incluent :
 
-- **Conformité aux normes** : la fonctionnalité de stockage immuable pour les objets Blob Azure est conçue pour aider les institutions financières et autres secteurs similaires à répondre aux normes SEC 17a-4(f), CFTC 1.31©-(d), FINRA etc.
+- **Conformité réglementaire** : le stockage non modifiable pour le Stockage Blob Azure permet aux organisations de respecter entre autres les réglementations SEC 17a-4(f), CFTC 1.31(d) et FINRA.
 
-- **Rétention des documents sécurisée** : les utilisateurs profitent d’une protection des données maximale. Le service de stockage d’objets Blob s’assure que les données ne puissent être modifiées ni supprimées par un utilisateur, y compris un utilisateur disposant de droits d’administrateur.
+- **Rétention sécurisée des documents** : avec le Stockage Blob, les données ne sont ni modifiables ni supprimables par les utilisateurs, même s’ils disposent d’un compte avec privilèges administratifs.
 
-- **Conservation à des fins juridiques** : le stockage immuable pour les objets Blob Azure permet aux utilisateurs de stocker des informations sensibles dans une enquête de litige ou pénale dans un état de protection inviolable pour la durée désirée.
+- **Conservation à des fins juridiques** : le stockage non modifiable pour le Stockage Blob Azure permet aux utilisateurs de stocker dans un état de protection inviolable des informations sensibles critiques dans le cadre d’une enquête criminelle ou portant sur un litige, pour la durée souhaitée.
 
-Cette fonctionnalité offre :
+Le stockage non modifiable permet les prises en charge suivantes :
 
-- **Prise en charge de stratégie de rétention basée sur le temps :** les utilisateurs définissent des stratégies pour stocker les données pendant un intervalle de temps spécifique.
+- **Prise en charge de la stratégie de rétention à durée définie** : les utilisateurs définissent des stratégies pour stocker les données pendant une période donnée.
 
-- **Prise en charge de stratégie de conservation à des fins juridiques :** lorsque l’intervalle de rétention est inconnu, les utilisateurs peuvent définir des stratégies de conservation à des fins juridiques pour stocker des données de façon immuable jusqu’à ce quelles soient levées.  Lorsqu’une conservation juridique est définie, des objets Blob peuvent être créés et lus, mais ils ne peuvent pas être modifiés ni supprimés. Chaque conservation juridique est associée à une balise alphanumérique définie par l’utilisateur, utilisée comme chaîne d’identificateur (comme pour l’ID d’un cas).
+- **Prise en charge de la stratégie de conservation à des fins juridiques** : lorsque la période de rétention est inconnue, les utilisateurs peuvent définir des stratégies de conservation à des fins juridiques pour stocker les données de telle sorte qu’elles ne soient pas modifiables tant que les stratégies n’ont pas été levées.  Lorsqu’une conservation juridique est définie, des objets Blob peuvent être créés et lus, mais ils ne peuvent pas être modifiés ni supprimés. Chaque stratégie de conservation à des fins juridiques est associée à une balise alphanumérique définie par l’utilisateur et servant de chaîne d’identificateur (comme un ID de cas).
 
-- **Prise en charge de tous les niveaux d’objets Blob :** les stratégies WORM sont indépendantes du niveau de stockage d’objets Blob Azure en vigueur et s’appliquent à tous les niveaux : chaud, froid et archive. Cela permet aux clients de stocker des données dans le niveau au coût le plus adapté à leurs charges de travail tant en conservant l’immuabilité des données.
+- **Prise en charge de tous les niveaux d’objets blob** : les stratégies WORM sont indépendantes du niveau de Stockage Blob Azure et s’appliquent à tous les niveaux (chaud, froid et archive). Les clients peuvent stocker les données dans le niveau dont le coût est optimisé pour leurs charges de travail tout en empêchant toute modification des données.
 
-- **Configuration du niveau du conteneur :** la fonctionnalité de stockage immuable permet aux utilisateurs de configurer des stratégies de rétention basée sur le temps et des balises de conservations juridiques au niveau du conteneur.  Ils peuvent créer et verrouiller des stratégies de rétention basée sur le temps, étendre des intervalles de rétention, définir et supprimer des conservations juridiques, etc, via des paramètres simples au niveau du conteneur.  Ces stratégies s’appliquent à tous les objets Blob du conteneur, qu’ils soient existants ou nouveaux.
+- **Configuration du niveau du conteneur** : les utilisateurs peuvent configurer des stratégies de rétention à durée définie et des balises de conservation à des fins juridiques au niveau du conteneur. Grâce à de simples paramètres au niveau du conteneur, ils ont la possibilité de créer et verrouiller des stratégies de rétention à durée définie, d’étendre les périodes de rétention, de définir et supprimer des stratégies de conservation à des fins juridiques, etc. Ces stratégies s’appliquent à tous les objets blob du conteneur, anciens ou nouveaux.
 
-- **Prise en charge du journal d'audit :** chaque conteneur contient un journal d'audit affichant jusqu’à cinq commandes de rétention basée sur le temps pour des stratégies de rétention basée sur le temps, avec un maximum de trois journaux pour des extensions d’intervalle de rétention.  Pour une rétention basée sur le temps, le journal contient un ID d’utilisateur, un type de commande, des timestamps et l’intervalle de rétention. Pour une conservation juridique, le journal contient un ID d’utilisateur, un type de commande, des timestamps et les balises de conservation juridique. Ce journal est conservé pendant la durée de vie du conteneur, selon la norme SEC 17a-4(f). Un journal plus complet de toutes les activités du panneau de configuration peut être consulté dans le [journal d'activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Il est de la responsabilité de l’utilisateur de stocker ces journaux de manière récurrente. Ils peuvent être nécessaires à des fins réglementaires ou autres.
+- **Prise en charge des enregistrements d’audit** : chaque conteneur comprend un journal d’audit. Il présente jusqu’à cinq commandes pour les stratégies de rétention à durée définie verrouillées, avec un maximum de trois journaux pour les extensions de la période de rétention. Dans le cas de la rétention à durée définie, il contient l’identifiant utilisateur, le type de commande, les timestamps et la période de rétention. En ce qui concerne les stratégies de conservation à des fins juridiques, il comporte l’identifiant utilisateur, le type de commande, les timestamps et les balises de conservation à des fins juridiques. Ce journal est conservé pendant toute la durée de vie du conteneur, conformément aux instructions réglementaires SEC 17a-4(f). Le [Journal d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) est un journal plus complet de toutes les activités du plan de contrôle. Il est de la responsabilité de l’utilisateur de stocker ces journaux de manière permanente, si les obligations réglementaires ou autres l’imposent.
 
- La fonctionnalité est activée dans toutes les régions Azure publiques.
+Le stockage non modifiable est activé dans toutes les régions publiques Azure.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Le stockage immuable pour des objets Blob prend en charge deux types de stratégies WORM ou immuables : la rétention basée sur le temps et la conservation juridique. Consultez la section [Prise en main](#Getting-started) pour plus de détails sur la création de ces stratégies immuables.
-Lorsqu’une stratégie de rétention basée sur le temps ou une conservation juridique est appliquée sur un conteneur, tous les objets Blob existants seront déplacés à l’état immuable (non modifiable et non supprimable). Tous les nouveaux objets Blob chargés dans le conteneur seront aussi déplacés à cet état.
+Le stockage non modifiable du Stockage Blob Azure prend en charge deux types de stratégies WORM ou non modifiables : la rétention à durée définie et la conservation à des fins juridiques. Pour plus d’informations sur la création de ces stratégies non modifiables, voir la section [Bien démarrer](#Getting-started).
+
+Lorsqu’une stratégie de rétention à durée définie ou de conservation à des fins juridiques est appliquée sur un conteneur, tous les objets blob existants prennent l’état non modifiable (protégé contre l’écriture et la suppression). Tous les nouveaux objets blob chargés dans le conteneur auront également cet état.
 
 > [!IMPORTANT]
-> Une stratégie de rétention basée sur le temps doit être *verrouillée* pour que l’objet Blob soit dans l’état immuable (non modifiable et non supprimable), selon la norme SEC 17a-4(f) et autres règlementations. Il est recommandé de verrouiller la stratégie pour une durée raisonnable, en général 24 heures. Nous recommandons de ne pas utiliser l’état *verrouillé* pour d’autres raisons que des essais de fonctionnalité à court terme.
+> Une stratégie de rétention à durée définie doit être *verrouillée* pour que l’objet blob ait un état non modifiable (protégé contre l’écriture et la suppression) conformément entre autres à la réglementation SEC 17a-4(f). Il est recommandé de verrouiller la stratégie au bout d’un délai raisonnable, en général dans les 24 heures. Nous conseillons de ne pas utiliser l’état *déverrouillé* pour d’autres raisons que des évaluations de fonctionnalités à court terme.
 
- Lorsqu’une stratégie de rétention basée sur le temps est appliquée à un conteneur, tous les objets Blob de ce conteneur conserveront l’état immuable pour la durée *effective* de la rétention. La durée de rétention effective pour les objets Blob existants est égale à la différence entre le temps de création de l’objet Blob et l’intervalle de rétention spécifié par l’utilisateur. Pour les nouveaux objets Blob, la durée de rétention effective est égale à l’intervalle de rétention spécifié par l’utilisateur. Comme les utilisateurs peuvent modifier l’intervalle de rétention, la valeur la plus récente de l’intervalle de rétention spécifiée par l’utilisateur sera utilisée pour le calcul de la durée de rétention effective.
+Lorsqu’une stratégie de rétention à durée définie est appliquée à un conteneur, tous les objets blob de ce conteneur conserveront l’état non modifiable pendant la période de rétention *effective*. La durée de rétention effective pour les objets Blob existants est égale à la différence entre le temps de création de l’objet Blob et l’intervalle de rétention spécifié par l’utilisateur. 
+
+Pour les nouveaux objets Blob, la durée de rétention effective est égale à l’intervalle de rétention spécifié par l’utilisateur. Dans la mesure où les utilisateurs peuvent modifier la période de rétention, le stockage non modifiable utilise la valeur la plus récente de la période de rétention spécifiée par l’utilisateur pour calculer la durée de rétention effective.
 
 > [!TIP]
-> Exemple : un utilisateur crée une stratégie de rétention basée sur le temps avec un intervalle de rétention de cinq ans.
-> Il y a un objet blob existant, testblob1, dans ce conteneur, créé un an plus tôt. La période de rétention de l’objet testblob1 sera de quatre ans.
-> Un nouvel objet blob, testblob2, est maintenant chargé dans le conteneur. La période de rétention de ce nouvel objet Blob sera de cinq ans.
+> Exemple :
+> 
+> Un utilisateur crée une stratégie de rétention à durée définie avec une période de rétention de cinq ans.
+>
+> L’objet blob qui se trouve dans ce conteneur, testblob1, a été créé un an plus tôt. La période de rétention effective de testblob1 est de quatre ans.
+>
+> Un nouvel objet blob, testblob2, est maintenant chargé dans le conteneur. La période de rétention effective de ce nouvel objet blob est de cinq ans.
 
 ### <a name="legal-holds"></a>Conservation juridique
 
-En cas de conservation juridique, tous les objets Blob (existants et nouveaux) demeureront dans l’état immuable jusqu’à ce que la conservation soit levée.
-Pour savoir comment définir et lever une conservation juridique, consultez la section [Prise en main](#Getting-started) pour plus de détails.
+En cas de définition d’une stratégie de conservation à des fins juridiques, tous les objets blob (anciens et nouveaux) conservent l’état non modifiable jusqu’à ce qu’elle soit levée. Pour savoir comment définir et lever une stratégie de conservation à des fins juridiques, voir la section [Bien démarrer](#Getting-started).
 
-Un conteneur peut disposer d’une conservation juridique et d’une stratégie de rétention basée sur le temps. Tous les objets Blob de ce conteneur demeureront dans l’état immuable jusqu’à ce que toutes les conservations juridiques aient été levées, même si leur période de rétention a expiré. À l’inverse, un objet Blob demeure dans un état immuable jusqu’à expiration de la période de rétention effective, même si toutes les conservations juridiques ont été levées.
-Le tableau suivant montre les types d’opérations d’objets Blob qui seront désactivées dans chaque scénario immuable.
-Reportez-vous à la documentation [API du Service Blob Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) pour en savoir plus sur l’API REST d’objets Blob.
+Un conteneur peut avoir à la fois une stratégie de conservation à des fins juridiques et une stratégie de rétention à durée définie. Tous les objets blob de ce conteneur conservent l’état non modifiable jusqu’à ce que toutes les stratégies de conservation à des fins juridiques aient été levées, même si leur période de rétention effective est écoulée. À l’inverse, un objet blob demeure dans un état non modifiable jusqu’à expiration de la période de rétention effective, même si toutes les stratégies de conservation à des fins juridiques ont été levées.
 
-|Scénario  |État d'objets blob  |Opérations d’objets Blob non autorisées  |
+Le tableau suivant montre les types d’opérations blob désactivées dans chaque scénario non modifiable. Pour plus d’informations, voir la documentation [API du service BLOB Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
+
+|Scénario  |État des objets blob  |Opérations blob non autorisées  |
 |---------|---------|---------|
 |L’intervalle de rétention effective sur l’objet Blob n’a pas encore expiré et/ou une conservation juridique est définie     |Immuable : non modifiable et non supprimable         |Delete Container, Delete Blob, Put Blob1, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
 |L’intervalle de rétention effective sur l’objet Blob a expiré     |Non modifiable seulement (suppressions autorisées)         |Put Blob, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
-|Conservations juridiques levées, et aucune stratégie de rétention basée sur le temps définie sur le conteneur     |Mutable         |Aucun         |
-|Aucune stratégie WORM créée (rétention basée sur le temps ou conservation juridique)     |Mutable         |Aucun         |
+|Stratégies de conservation à des fins juridiques levées ; aucune stratégie de rétention à durée définie dans le conteneur     |Mutable         |Aucun         |
+|Aucune stratégie WORM créée (rétention à durée définie ou conservation à des fins juridiques)     |Mutable         |Aucun         |
 
 > [!NOTE]
-> Les premières opérations Put Blob, Put Block List et Put Block nécessaires pour créer un objet Blob sont autorisées dans les deux premiers scénarios du tableau ci-dessus. Toutes les autres opérations ne sont pas autorisées.
-> La fonctionnalité de stockage immuable n’est disponible que dans des comptes GPv2 et de stockage d’objets Blob, et elle doit être créée via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> Les premières opérations Put Blob, Put Block List et Put Block nécessaires pour créer un objet blob sont autorisées dans les deux premiers scénarios du tableau précédent. Les opérations suivantes ne sont pas autorisées.
+>
+> Le stockage non modifiable n’est disponible que dans les comptes de Stockage Blob et GPv2. Il doit être créé avec [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Tarifs
 
-Il n’y a pas de frais supplémentaire pour utiliser cette fonctionnalité, et le coût des données immuables est évalué de la même manière que pour les données normales et mutables. Reportez-vous à la [page des tarifications du Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) pour connaître les détails des coûts.
+L’utilisation de cette fonctionnalité n’entraîne aucun coût supplémentaire. Les données non modifiables sont facturées au même tarif que les données modifiables classiques. Pour plus d’informations sur la tarification, voir la [page Prix du Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### <a name="restrictions"></a>Restrictions
 
 Les exigences suivantes s’appliquent dans la préversion publique :
 
-- **Ne pas stocker de données de production ou de données commerciales sensibles**
-- Toutes exigences et accord de confidentialité de la préversion s’appliquent
+- *Ne stockez pas de données de production ou de données critiques pour l’entreprise.*
+- Toutes les restrictions liées à l’accord de confidentialité et à la préversion s’appliquent.
 
 ## <a name="getting-started"></a>Prise en main
 
-Le stockage Azure immuable pour les objets Blob Azure est pris en charge sur les versions les plus récentes du [portail Azure](http://portal.azure.com), d’Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et d’Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018).
+Les dernières versions du [Portail Azure](http://portal.azure.com), [d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et [d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) prennent en charge le stockage non modifiable pour le Stockage Blob Azure.
 
 ### <a name="azure-portal"></a>Portail Azure
 
 1. Créez un nouveau conteneur ou sélectionnez un conteneur existant pour stocker des objets Blob qui doivent demeurer dans l’état immuable.
  Le conteneur doit se trouver dans un compte de stockage GPv2.
-2. Cliquez sur Stratégie d'accès dans les paramètres du conteneur, puis cliquez sur **+Ajouter stratégie** sous la stratégie de **Stockage d’objets Blob immuable**, comme montré ci-dessous.
+2. Sélectionnez **Stratégie d’accès** dans les paramètres du conteneur. Ensuite, sélectionnez **+ Ajouter une stratégie** sous **Stockage Blob non modifiable**.
 
-    ![Portail](media/storage-blob-immutable-storage/portal-image-1.png)
+    ![Paramètres du conteneur sur le portail](media/storage-blob-immutable-storage/portal-image-1.png)
 
-3. Pour activer la rétention basée sur le temps, choisissez Rétention basée sur le temps dans le menu déroulant.
+3. Pour activer la rétention à durée définie, sélectionnez **Rétention à durée définie** dans le menu déroulant.
 
-    ![Rétention](media/storage-blob-immutable-storage/portal-image-2.png)
+    ![Sélection de « Rétention à durée définie » sous « Type de stratégie »](media/storage-blob-immutable-storage/portal-image-2.png)
 
-4. Saisissez l’intervalle de rétention désiré en jour (un jour minimum)
+4. Entrez la période de rétention en jours (un jour minimum).
 
-    ![Intervalle de rétention](media/storage-blob-immutable-storage/portal-image-5-retention-interval.png)
+    ![Zone « Mettre à jour la période de rétention »](media/storage-blob-immutable-storage/portal-image-5-retention-interval.png)
 
-    Comme vous le voyez ci-dessus, l’état initial de la stratégie est déverrouillé. Cela vous permet de tester la fonctionnalité avec un intervalle de rétention plus petit, et d’effectuer les modifications à la stratégie avant de la verrouiller. Le verrouillage est essentiel selon la norme SEC 17a-4.
+    Comme on le voit sur la capture d’écran, l’état initial de la stratégie est déverrouillé. Vous pouvez tester la fonctionnalité avec une période de rétention plus courte, et apporter des modifications à la stratégie avant de la verrouiller. Le verrouillage est essentiel pour la conformité à la réglementation SEC 17a-4 notamment.
 
-5. Verrouillez la stratégie en cliquant avec le bouton droit sur les ..., et le menu suivant s’affiche :
+5. Verrouillez la stratégie. Cliquez avec le bouton droit sur les points de suspension (**…**) ; le menu suivant s’affiche :
 
-    ![Verrouiller une stratégie](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
+    ![« Verrouiller la stratégie » dans le menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    Cliquez sur Verrouiller une stratégie et l’état de la stratégie affichera Verrouillée. Une fois verrouillée, la stratégie ne peut plus être supprimée et seules les extensions de l’intervalle de rétention seront autorisées.
+    Sélectionnez **Verrouiller la stratégie** ; l’état de la stratégie devient Verrouillé. Une fois la stratégie verrouillée, sa suppression n’est plus possible ; seules les extensions de la période de rétention seront autorisées.
 
-6. Pour activer les conservations juridiques, cliquez sur +Ajouter une stratégie et choisissez Conservation juridique dans le menu déroulant.
+6. Pour activer la conservation à des fins juridiques, sélectionnez **+ Ajouter une stratégie**. Sélectionnez **Conservation à des fins juridiques** dans le menu déroulant.
 
-    ![Conservation juridique](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
+    ![« Conservation à des fins juridiques » dans le menu sous « Type de stratégie »](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. Créer une conservation juridique avec une ou plusieurs balises
+7. Créez une stratégie de conservation à des fins juridiques avec une ou plusieurs balises.
 
-    ![Définir les balises d’une conservation juridique](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
+    ![Zone « Nom de balise » sous le type de stratégie](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Installer l’[extension CLI](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) avec `az extension add -n storage-preview`
+Installez [l’extension Azure CLI](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) avec `az extension add -n storage-preview`.
 
-Si vous avez déjà installé l’extension, exécutez la commande suivante pour activer la fonctionnalité de stockage immuable : `az extension update -n storage-preview`
+Si vous avez déjà installé l’extension, exécutez la commande suivante pour activer le stockage non modifiable : `az extension update -n storage-preview`.
 
-La fonctionnalité est incluse dans les groupes de commandes suivants (exécutez « h » sur ces groupes pour voir les commandes) : `az storage container immutability-policy` et `az storage container legal-hold`.
+La fonctionnalité est incluse dans les groupes de commandes suivants : `az storage container immutability-policy` et `az storage container legal-hold`. Exécutez `-h` sur ces groupes pour afficher les commandes.
 
 ### <a name="powershell"></a>PowerShell
 
-La fonctionnalité de stockage immuable est prise en charge sur la [version 4.4.0 de PowerShell (en préversion)](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180).
-Pour activer la fonctionnalité, procédez comme suit :
+[PowerShell version 4.4.0-preview](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180) prend en charge le stockage non modifiable.
+Pour activer cette fonctionnalité, suivez les étapes ci-dessous :
 
-1. Vérifiez que la dernière version de PowerShellGet est installée à l’aide de `Install-Module PowerShellGet –Repository PSGallery –Force`
-2. Supprimez les installations précédentes d’Azure PowerShell
-3. Installez AzureRM (Azure peut être installé de façon similaire sur ce référentiel) `Install-Module AzureRM –Repository PSGallery –AllowClobber`
-4. Installez la préversion des cmdlets de la gestion de stockage (préversion)`Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`
+1. Vérifiez que la dernière version de PowerShellGet est installée : `Install-Module PowerShellGet –Repository PSGallery –Force`.
+2. Supprimez les installations précédentes d’Azure PowerShell.
+3. Installez AzureRM : `Install-Module AzureRM –Repository PSGallery –AllowClobber`. Il est possible d’installer Azure de la même façon sur ce référentiel.
+4. Installez la préversion des cmdlets du plan de gestion du stockage : `Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`.
 
-Un exemple de code PowerShell illustrant l’utilisation de la fonctionnalité est fourni ci-dessous.
+La section [Exemple de code PowerShell](#sample-powershell-code) plus loin dans cet article illustre l’utilisation de cette fonctionnalité.
 
 ## <a name="client-libraries"></a>Bibliothèques clientes
 
-Le stockage immuable pour les objets Blob Azure est pris en charge dans les versions de bibliothèques de client suivantes
+Les bibliothèques de client suivantes prennent en charge le stockage non modifiable pour le Stockage Blob Azure :
 
-- [Bibliothèque de client .net (version 7.2.0-preview et versions ultérieures](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
-- [Bibliothèque de client node.js (version 4.0.0 et ultérieures)](https://www.npmjs.com/package/azure-arm-storage)
-- [Bibliothèque de client Python (version 2.0.0 Release Candidate 2 et versions ultérieures)](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
+- [Bibliothèque de client .NET version 7.2.0-preview et versions ultérieures](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
+- [Bibliothèque de client Node.js version 4.0.0 et versions ultérieures](https://www.npmjs.com/package/azure-arm-storage)
+- [Bibliothèque de client Python version 2.0.0 Release Candidate 2 et versions ultérieures](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
 
 ## <a name="supported-values"></a>Valeurs prises en charge
 
-- L’intervalle de rétention minimum est d’un jour, et le maximum est de 400 ans
-- Pour un compte de stockage donné, le nombre de conteneurs maximum par compte de stockage avec stratégies immuables verrouillées est de 1000
-- Pour un compte de stockage donné, le nombre de conteneurs maximum par compte de stockage avec le paramètre de conservation juridique est de 1000
-- Pour un conteneur donné, le nombre de balises de conservation juridique maximum est de 10
-- La longueur maximale d’une balise de conservation juridique est de 23 caractères alphanumériques, et la longueur minimale est de trois caractères.
-- Pour un conteneur donné, le nombre maximum d’extensions d’intervalle de rétention autorisées pour des stratégies immuables verrouillées est de trois
-- Pour un conteneur donné avec une stratégie immuable verrouillée, il y a un maximum de cinq journaux de stratégie de rétention basée sur le temps et de 10 journaux de conservation juridique conservés pour la durée du conteneur.
+- La période de rétention minimale est d’un jour. Le maximum est de 400 ans.
+- Le nombre maximal par compte de stockage de conteneurs avec stratégies non modifiables verrouillées est de 1 000.
+- Le nombre maximal par compte de stockage de conteneurs avec paramètre de conservation à des fins juridiques est de 1 000.
+- Le nombre maximal par conteneur de balises de conservation à des fins juridiques est de 10.
+- La longueur maximale d’une balise de conservation à des fins juridiques est de 23 caractères alphanumériques. La longueur minimale est de trois caractères.
+- Le nombre maximal par conteneur d’extensions autorisées de la période de rétention de stratégies non modifiables verrouillées est de trois.
+- Pour un conteneur avec stratégie non modifiable verrouillée, cinq journaux de stratégie de rétention à durée définie et 10 journaux de stratégie de conservation à des fins juridiques au maximum sont conservés pour la durée du conteneur.
 
 ## <a name="faq"></a>Forum Aux Questions
 
 **Cette fonctionnalité s’applique-t-elle uniquement aux objets blob de blocs, ou aussi aux objets blob de page et d’ajout ?**
 
-La fonctionnalité de stockage immuable pour les objets blob peut être utilisée avec n’importe quel type d’objet blob.  Toutefois, il est recommandé d’utiliser cette fonctionnalité avec des objets blob de blocs principalement. Contrairement aux objets blob de blocs, les objets blob de page et d’ajout doivent être créés hors d’un conteneur WORM, avant d’y être copiés.  Une fois copiés dans un conteneur WORM, il n’est plus possible de faire des *ajouts* à un objet blob d’ajout ni de modifier un objet blob de pages.
+Le stockage non modifiable peut être utilisé avec n’importe quel type d’objet blob,  mais il est recommandé de s’en servir principalement pour les objets blob de blocs. Contrairement aux objets blob de blocs, les objets blob de page et d’ajout doivent être créés hors d’un conteneur WORM, avant d’y être copiés. Une fois la copie faite, il n’est plus possible de faire des *ajouts* à un objet blob d’ajout ni de modifier un objet blob de pages.
 
 **Dois-je toujours créer un compte de stockage pour utiliser cette fonctionnalité ?**
 
-Vous pouvez utiliser la fonctionnalité de stockage immuable avec tout compte GPv2 existant ou tout nouveau compte de stockage si le type est de compte est GPv2. Cette fonctionnalité est uniquement disponible avec le stockage d’objets blob.
+Vous pouvez utiliser le stockage non modifiable avec des comptes GPv2 existants ou sur de nouveaux comptes de stockage de type GPv2. Cette fonctionnalité n’est disponible qu’avec le Stockage Blob.
 
 **Que se passe-t-il si j’essaie de supprimer un conteneur avec une stratégie de rétention basée sur le temps *verrouillée* ou une conservation juridique ?**
 
-L’opération Supprimer le conteneur échoue s’il s’agit d’un objet blob disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation légale. Cela est le cas si les données font l’objet d’une [suppression réversible](storage-blob-soft-delete.md). L’opération Supprimer le conteneur aboutit si aucun objet blob ne dispose d’un intervalle de rétention actif ou d’une conservation légale. Vous devez d’abord supprimer les objets blob avant de pouvoir supprimer le conteneur. 
+L’opération Supprimer le conteneur échoue s’il s’agit d’au moins un objet blob assorti d’une stratégie de rétention à durée définie verrouillée ou d’une stratégie de conservation à des fins juridiques. Cette règle est vraie même si les données ont fait l’objet d’une [suppression réversible](storage-blob-soft-delete.md). L’opération Delete Container réussit si aucun objet blob ne dispose d’un intervalle de rétention actif ou d’une conservation juridique. Il est nécessaire de supprimer les objets blob pour pouvoir supprimer le conteneur. 
 
 **Que se passe-t-il si j’essaie de supprimer un compte de stockage avec un conteneur WORM disposant d’une stratégie de rétention basée sur le temps *verrouillée* ou d’une conservation juridique ?**
 
-La suppression du compte de stockage échoue s’il s’agit d’un conteneur WORM disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation juridique.  Tous les conteneurs WORM doivent être supprimés avant de pouvoir supprimer le compte de stockage.  Pour en savoir plus sur la suppression des conteneurs, reportez-vous à la question précédente.
+La suppression du compte de stockage échoue s’il s’agit d’un conteneur WORM disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation juridique.  Il est nécessaire de supprimer tous les conteneurs WORM pour pouvoir supprimer le compte de stockage. Pour plus d’informations sur la suppression des conteneurs, voir la question précédente.
 
 **Puis-je déplacer les données sur différents niveaux d’objets blob (chaud, froid, archive) lorsque l’objet blob est dans l’état immuable ?**
 
-Oui, vous pouvez utiliser la commande Set Blob Tier pour déplacer des données sur d’autres niveaux d’objets blob tant en conservant leur état immuable. La fonctionnalité de stockage immuable est prise en charge sur les niveaux d’objets blob chaud, froid et archive.
+Oui, vous pouvez utiliser la commande Set Blob Tier pour déplacer des données sur d’autres niveaux d’objets blob tant en conservant leur état immuable. Le stockage non modifiable est pris en charge sur les niveaux d’objets blob chaud, froid et archive.
 
 **Que se passe-t-il si je ne paie pas et que mon intervalle de rétention n’a pas expiré ?**
 
-En cas d’absence de paiement, les stratégies de rétention des données normales s’appliquent, comme mentionné dans les conditions générales de votre contrat avec Microsoft.
+En cas de défaut de paiement, les stratégies de conservation des données normales s’appliquent, comme le stipulent les conditions générales de votre contrat avec Microsoft.
 
 **Proposez-vous une période d’essai ou de grâce pour essayer la fonctionnalité ?**
 
-Oui, lorsqu’une stratégie de rétention basée sur le temps est créée, elle sera dans l’état *déverrouillée*. Dans cet état, vous pouvez effectuer les changements que vous voulez à l’intervalle de rétention, comme augmenter ou diminuer la stratégie, et même la supprimer. Une fois la stratégie verrouillée, elle le reste pour toujours afin d’en empêcher la suppression. De plus, l’intervalle de rétention ne peut plus être diminué si la stratégie est verrouillée. Nous vous recommandons fortement d’utiliser l’état *déverrouillé* uniquement à des fins d’essai et de verrouiller la stratégie pour une période de 24 heures, afin d’assurer toute conformité à la norme SEC 17a-4(f) et autres normes.
+Oui. Lors de la définition initiale d’une stratégie de rétention à durée définie, celle-ci a pour état *déverrouillé*. Dans cet état, vous pouvez apporter les modifications souhaitées à la période de rétention, par exemple, l’augmenter, la diminuer ou même supprimer la stratégie. Une fois la stratégie verrouillée, elle le reste pour toujours afin d’en empêcher la suppression. De plus, l’intervalle de rétention ne peut plus être diminué si la stratégie est verrouillée. Il est vivement recommandé de n’utiliser l’état *déverrouillé* qu’à des fins d’évaluation et de verrouiller la stratégie dans les 24 heures. Ces pratiques permettent de respecter entre autres la réglementation SEC 17a-4(f).
 
 **Cette fonctionnalité est-elle disponible dans les clouds nationaux et gouvernementaux ?**
 
-La fonctionnalité de stockage immuable n’est actuellement disponible que dans les régions publiques Azure. Contactez azurestoragefeedback@microsoft.com pour toute demande relative à un cloud national spécifique.
+Le stockage non modifiable n’est à l’heure actuelle disponible que dans les régions publiques Azure. Si un cloud national vous intéresse en particulier, envoyez un e-mail à azurestoragefeedback@microsoft.com.
 
-## <a name="sample-code"></a>Exemple de code
+## <a name="sample-powershell-code"></a>Exemple de code PowerShell
 
-Un exemple de script PowerShell est donné ci-dessous pour référence.
-Ce script crée un compte de stockage et un conteneur et vous montre comment définir et lever des conservations juridiques, créer et verrouiller une stratégie de rétention basée sur le temps (ou stratégie d’immuabilité), étendre l’intervalle de rétention, etc.
+L’exemple de script PowerShell suivant est fourni à titre de référence. Il crée un compte de stockage et un conteneur. Ensuite, il montre comment définir et lever des stratégies de conservation à des fins juridiques, créer et verrouiller une stratégie de rétention à durée définie (ou stratégie d’immuabilité) et étendre la période de rétention.
 
 ```powershell
-\$ResourceGroup = "\<Enter your resource group\>”
+$ResourceGroup = "<Enter your resource group>”
+$StorageAccount = "<Enter your storage account name>"
+$container = "<Enter your container name>"
+$container2 = "<Enter another container name>”
+$location = "<Enter the storage account location>"
 
-\$StorageAccount = "\<Enter your storage account name\>"
-
-\$container = "\<Enter your container name\>"
-
-\$container2 = "\<Enter another container name\>”
-
-\$location = "\<Enter the storage account location\>"
-
-\# Login to the Azure Resource Manager Account
-
+# Log in to the Azure Resource Manager account
 Login-AzureRMAccount
-
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Storage"
 
-\# Create your Azure Resource Group
+# Create your Azure resource group
+New-AzureRmResourceGroup -Name $ResourceGroup -Location $location
 
-New-AzureRmResourceGroup -Name \$ResourceGroup -Location \$location
+# Create your Azure storage account
+New-AzureRmStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
+    $StorageAccount -SkuName Standard_LRS -Location $location -Kind Storage
 
-\# Create your Azure storage account
+# Create a new container
+New-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+    -StorageAccountName $StorageAccount -Name $container
 
-New-AzureRmStorageAccount -ResourceGroupName \$ResourceGroup -StorageAccountName
-\$StorageAccount -SkuName Standard_LRS -Location \$location -Kind Storage
+# Create Container 2 with a storage account object
+$accountObject = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroup `
+    -StorageAccountName $StorageAccount
+New-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 
-\# Create a new container
+# Get a container
+Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+    -StorageAccountName $StorageAccount -Name $container
 
-New-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container
+# Get a container with an account object
+$containerObject = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container
 
-\# Create Container 2 with Storage Account object
+# List containers
+Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+    -StorageAccountName $StorageAccount
 
-\$accountObject = Get-AzureRmStorageAccount -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount
+# Remove a container (add -Force to dismiss the prompt)
+Remove-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+    -StorageAccountName $StorageAccount -Name $container2
 
-New-AzureRmStorageContainer -StorageAccount \$accountObject -Name \$container2
+# Remove a container with an account object
+Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 
-\# Get container
+# Remove a container with a container object
+$containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzureRmStorageContainer -InputObject $containerObject2
 
-Get-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container
+# Set a legal hold
+Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+    -StorageAccountName $StorageAccount -Name $container -Tag tag1,tag2
 
-\# Get Container with Account object
+# Set a legal hold with an account object
+Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3
 
-\$containerObject = Get-AzureRmStorageContainer -StorageAccount \$accountObject
--Name \$container
+# Set a legal hold with a container object
+Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4,tag5
 
-\#list container
+# Clear a legal hold
+Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+    -StorageAccountName $StorageAccount -Name $container -Tag tag2
 
-Get-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount
+# Clear a legal hold with an account object
+Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3,tag5
 
-\#remove container (Add -Force to dismiss prompt)
+# Clear a legal hold with a container object
+Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4
 
-Remove-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container2
+# Create or update an immutability policy
+## with an account name or container name
 
-\#with Account object
+Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+    -StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
-Remove-AzureRmStorageContainer -StorageAccount \$accountObject -Name
-\$container2
+## with an account object
+Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+    -ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
-\#with Container object
+## with a container object
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+    $containerObject -ImmutabilityPeriod 7
 
-\$containerObject2 = Get-AzureRmStorageContainer -StorageAccount \$accountObject
--Name \$container2
+## with an immutability policy object
+Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
 
-Remove-AzureRmStorageContainer -InputObject \$containerObject2
+# Get an immutability policy
+Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+    -StorageAccountName $StorageAccount -ContainerName $container
 
-\#Set LegalHold
+# Get an immutability policy with an account object
+Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+    -ContainerName $container
 
-Add-AzureRmStorageContainerLegalHold -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container -Tag tag1,tag2
+# Get an immutability policy with a container object
+Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
 
-\#with Account object
+# Lock an immutability policy (add -Force to dismiss the prompt)
+## with an immutability policy object
 
-Add-AzureRmStorageContainerLegalHold -StorageAccount \$accountObject -Name
-\$container -Tag tag3
+$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
+$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
-\#with Container object
+## with an account name or container name
+$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
+    -Etag $policy.Etag
 
-Add-AzureRmStorageContainerLegalHold -Container \$containerObject -Tag tag4,tag5
-
-\#Clear LegalHold
-
-Remove-AzureRmStorageContainerLegalHold -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container -Tag tag2
-
-\#with Account object
-
-Remove-AzureRmStorageContainerLegalHold -StorageAccount \$accountObject -Name
-\$container -Tag tag3,tag5
-
-\#with Container object
-
-Remove-AzureRmStorageContainerLegalHold -Container \$containerObject -Tag tag4
-
-\# create/update ImmutabilityPolicy
-
-\#\# with account/container name
-
-Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -ContainerName \$container
--ImmutabilityPeriod 10
-
-\#with Account object
-
-Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount \$accountObject
--ContainerName \$container -ImmutabilityPeriod 1 -Etag \$policy.Etag
-
-\#with Container object
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container
-\$containerObject -ImmutabilityPeriod 7
-
-\#\# with ImmutabilityPolicy object
-
-Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy \$policy
--ImmutabilityPeriod 5
-
-\#get ImmutabilityPolicy
-
-Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -ContainerName \$container
-
-\#with Account object
-
-Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount \$accountObject
--ContainerName \$container
-
-\#with Container object
-
-Get-AzureRmStorageContainerImmutabilityPolicy -Container \$containerObject
-
-\#Lock ImmutabilityPolicy (Add -Force to dismiss prompt)
-
-\#\# with ImmutabilityPolicy object
-
-\$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
-
-\$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy
-\$policy -force
-
-\#\# with account/container name
-
-\$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
--Etag \$policy.Etag
-
-\#with Account object
-
-\$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount
-\$accountObject -ContainerName \$container -Etag \$policy.Etag
-
-\#with Container object
-
-\$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container
-\$containerObject -Etag \$policy.Etag -force
-
-\#Extend ImmutabilityPolicy
-
-\#\# with ImmutabilityPolicy object
-
-\$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy
-\$policy -ImmutabilityPeriod 11 -ExtendPolicy
-
-\#\# with account/container name
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
--ImmutabilityPeriod 11 -Etag \$policy.Etag -ExtendPolicy
-
-\#with Account object
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount
-\$accountObject -ContainerName \$container -ImmutabilityPeriod 12 -Etag
-\$policy.Etag -ExtendPolicy
-
-\#with Container object
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container
-\$containerObject -ImmutabilityPeriod 13 -Etag \$policy.Etag -ExtendPolicy
-
-\#Remove ImmutabilityPolicy (Add -Force to dismiss prompt)
-
-\#\# with ImmutabilityPolicy object
-
-\$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
-
-Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy \$policy
-
-\#\# with account/container name
-
-Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
--Etag \$policy.Etag
-
-\#with Account object
-
-Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount \$accountObject
--ContainerName \$container -Etag \$policy.Etag
-
-\#with Container object
-
-Remove-AzureRmStorageContainerImmutabilityPolicy -Container \$containerObject
--Etag \$policy.Etag
+## with an account object
+$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+    $accountObject -ContainerName $container -Etag $policy.Etag
+
+## with a container object
+$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
+    $containerObject -Etag $policy.Etag -force
+
+# Extend an immutability policy
+## with an immutability policy object
+
+$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
+
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
+    $policy -ImmutabilityPeriod 11 -ExtendPolicy
+
+## with an account name or container name
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
+    -ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
+
+## with an account object
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+    $accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
+    $policy.Etag -ExtendPolicy
+
+## with a container object
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+    $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
+
+# Remove an immutability policy (add -Force to dismiss the prompt)
+## with an immutability policy object
+$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
+Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+
+## with an account name or container name
+Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
+    -Etag $policy.Etag
+
+## with an account object
+Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+    -ContainerName $container -Etag $policy.Etag
+
+## with a container object
+Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
+    -Etag $policy.Etag
+    
 ```

@@ -1,29 +1,25 @@
 ---
-title: Schéma du langage de définition du flux de travail - Azure Logic Apps | Microsoft Docs
+title: Référence de schéma du langage de définition de workflow - Azure Logic Apps | Microsoft Docs
 description: Écrivez des définitions de flux de travail personnalisées pour Azure Logic Apps avec le langage de définition de flux de travail
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
-ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0ac191f1191357ecc7292d51b298567f7f4e4786
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059231"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391222"
 ---
-# <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Définitions de flux de travail Logic Apps avec le langage de définition de flux de travail
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence de schéma du langage de définition de workflow dans Azure Logic Apps
 
-Quand vous créez un flux de travail d’application logique avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md), la définition sous-jacente de votre flux de travail décrit la logique réelle qui s’exécute pour votre application logique. Cette description suit une structure définie et validée par le schéma de langage de définition de flux de travail, qui utilise le format [JavaScript Objet Notation (JSON)](https://www.json.org/). 
+Quand vous créez un flux de travail d’application logique avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md), la définition sous-jacente de votre flux de travail décrit la logique réelle qui s’exécute pour votre application logique. Cette description suit une structure définie et validée par le schéma de langage de définition de workflow, qui utilise [JSON (JavaScript Objet Notation)](https://www.json.org/). 
   
 ## <a name="workflow-definition-structure"></a>Structure d’une définition de flux de travail
 
@@ -111,7 +107,7 @@ Voici la structure générale d’une définition de sortie :
 | value | Oui | Identique à `type` | Valeur renvoyée pour la sortie |  
 ||||| 
 
-Pour obtenir la sortie d’une exécution de flux de travail, examinez l’historique et les détails des exécutions de l’application logique dans le portail Azure ou utilisez l’[API REST de flux de travail](https://docs.microsoft.com/rest/api/logic/workflows). Vous pouvez également transmettre la sortie à des systèmes externes, notamment à Power BI pour pouvoir créer des tableaux de bord. 
+Pour obtenir la sortie d’une exécution de flux de travail, examinez l’historique et les détails des exécutions de l’application logique dans le portail Azure ou utilisez l’[API REST de flux de travail](https://docs.microsoft.com/rest/api/logic/workflows). Vous pouvez également transmettre la sortie à des systèmes externes, par exemple Power BI, afin de créer des tableaux de bord. 
 
 <a name="expressions"></a>
 
@@ -226,7 +222,7 @@ Vous pouvez également continuer à découvrir les fonctions et leur usage gén�
 Voici quelques exemples de tâches que vous pouvez accomplir avec les fonctions : 
 
 | Tâche | Syntaxe de la fonction | Résultat | 
-| ---- | --------------- | -------------- | 
+| ---- | --------------- | ------ | 
 | Retourne une chaîne en minuscules. | toLower('<*text*>') <p>Par exemple : toLower('Hello') | "hello" | 
 | Renvoyer un identificateur global unique (GUID). | guid() |« c2ecc88d-88c8-4096-912c-d6f2e2b138ce » | 
 |||| 

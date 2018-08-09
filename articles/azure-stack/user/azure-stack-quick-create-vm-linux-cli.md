@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 90b36183ba32e75e06d434098d26cb10f3736373
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6f2860b1ae1e88495e2dad3916a0216bf5d0726
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32156689"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428789"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Démarrage rapide : créer une machine virtuelle serveur Linux à l’aide d’Azure CLI dans Azure Stack
 
@@ -34,10 +34,9 @@ Vous pouvez créer une machine virtuelle sous Ubuntu Server 16.04 LTS à l’aid
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * **Une image Linux dans la Place de Marché Azure Stack**
 
-   La Place de Marché Azure Stack ne contient pas d’image Linux par défaut. Obtenez de l’opérateur de Azure Stack qu’il vous fournisse l’image **Ubuntu Server 16.04 LTS** dont vous avez besoin. L’opérateur peut utiliser la procédure décrite dans l’article [Télécharger des éléments de la Place de Marché à partir d’Azure dans Azure Stack](../azure-stack-download-azure-marketplace-item.md).
+   La Place de Marché Azure Stack ne contient pas d’image Linux par défaut. Obtenez de l’opérateur d’Azure Stack qu’il vous fournisse l’image **Ubuntu Server 16.04 LTS** dont vous avez besoin. L’opérateur peut utiliser la procédure décrite dans l’article [Télécharger des éléments de la Place de Marché à partir d’Azure dans Azure Stack](../azure-stack-download-azure-marketplace-item.md).
 
 * Azure Stack nécessite une version spécifique d’Azure CLI pour créer et gérer les ressources. Si Azure CLI n’est pas configurée pour Azure Stack, connectez-vous au [kit de développement](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou à un client externe basé sur Windows si vous êtes [connectés via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) et suivez les étapes pour [installer et configurer Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
@@ -45,7 +44,7 @@ Vous pouvez créer une machine virtuelle sous Ubuntu Server 16.04 LTS à l’aid
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel vous pouvez déployer et gérer des ressources Azure Stack. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez la commande [az group create](/cli/azure/group#az_group_create) pour créer un groupe de ressources.
+Un groupe de ressources est un conteneur logique dans lequel vous pouvez déployer et gérer des ressources Azure Stack. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez la commande [az group create](/cli/azure/group#az-group-create) pour créer un groupe de ressources.
 
 >[!NOTE]
  Des valeurs sont attribuées pour toutes les variables dans les exemples de code. Toutefois, vous pouvez attribuer de nouvelles valeurs si vous le souhaitez.
@@ -58,7 +57,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-Création d’une machine virtuelle en utilisant la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée myVM. Cet exemple utilise Demouser comme nom d’utilisateur administratif et Demouser@123 comme mot de passe utilisateur. Remplacez ces valeurs par quelque chose d’approprié pour votre environnement.
+Création d’une machine virtuelle en utilisant la commande [az vm create](/cli/azure/vm#az-vm-create). L’exemple suivant crée une machine virtuelle nommée myVM. Cet exemple utilise Demouser comme nom d’utilisateur administratif et Demouser@123 comme mot de passe utilisateur. Remplacez ces valeurs par quelque chose d’approprié pour votre environnement.
 
 ```cli
 az vm create \
@@ -109,9 +108,9 @@ Avec NGINX installé et le port 80 ouvert sur votre machine virtuelle, vous pouv
 
 ![Page d’accueil du serveur web NGINX](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Nettoyez les ressources dont vous n’avez plus besoin. Vous pouvez utiliser la commande [az groupe delete](/cli/azure/group#az_group_delete) pour supprimer ces ressources. Pour supprimer le groupe de ressources et toutes ses ressources, exécutez la commande suivante :
+Nettoyez les ressources dont vous n’avez plus besoin. Vous pouvez utiliser la commande [az groupe delete](/cli/azure/group#az-group-delete) pour supprimer ces ressources. Pour supprimer le groupe de ressources et toutes ses ressources, exécutez la commande suivante :
 
 ```cli
 az group delete --name myResourceGroup

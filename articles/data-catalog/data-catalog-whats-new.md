@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860001"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577060"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Nouveautés d'Azure Data Catalog
 Des mises à jour **d’Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, toutes les versions ne contiennent pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente les nouvelles fonctionnalités orientées utilisateur ajoutées au service Azure Data Catalog.
@@ -27,7 +27,7 @@ Des mises à jour **d’Azure Data Catalog** sont publiées régulièrement. Com
 Depuis novembre 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
 
 * Prise en charge de la liaison directement aux termes du glossaire métier spécifique dans le portail Data Catalog. Les utilisateurs peuvent copier des liens à partir du glossaire métier et les incorporer dans des documents, des e-mails, des rapports ou d'autres emplacements à lier directement à la définition du terme de glossaire.
-* Prise en charge des principaux du service Azure Active Directory. Les administrateurs de Data Catalog peuvent utiliser des principaux de service pour autoriser les applications clientes à accéder au catalogue, et accorder des autorisations spécifiques à ces applications, comme ils le feraient pour des utilisateurs et des groupes de sécurité. Pour plus d'informations, consultez [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Prise en charge des principaux du service Azure Active Directory. Les administrateurs de Data Catalog peuvent utiliser des principaux de service pour autoriser les applications clientes à accéder au catalogue, et accorder des autorisations spécifiques à ces applications, comme ils le feraient pour des utilisateurs et des groupes de sécurité. Pour plus d'informations, consultez [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 * Prise en charge de l’authentification Azure Active Directory lors de la connexion aux sources de données Azure SQL Database et Azure SQL Data Warehouse à l’aide de l’outil d'inscription des sources de données Data Catalog. Pour plus d’informations, consultez [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database ou de SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
 
@@ -84,7 +84,7 @@ Depuis avril 2017, les fonctionnalités suivantes ont été ajoutées à Azure D
 ## <a name="whats-new-for-march-2017"></a>Nouveautés de mars 2017 
 Depuis mars 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
 *   Prise en charge de l’utilisation des groupes de sécurité AAD pour les administrateurs de Data Catalog.
-*   Azure Data Catalog est maintenant disponible dans une nouvelle région Azure. Les clients peuvent approvisionner Azure Data Catalog dans la région centre ouest des États-Unis, en plus de l’est des États-Unis, l’ouest des États-Unis, l’Europe de l’ouest et l’est de l’Australie, l’Europe du nord et l’Asie du sud-est. Pour plus d’informations, consultez l’article [Régions Azure](https://azure.microsoft.com/regions/).
+*   Azure Data Catalog est maintenant disponible dans une nouvelle région Azure. Les clients peuvent approvisionner Azure Data Catalog dans la région USA Centre-Ouest, en plus des régions USA Est, USA Ouest, Europe Ouest et Australie Est, Europe Nord et Asie Sud-Est. Pour plus d’informations, consultez l’article [Régions Azure](https://azure.microsoft.com/regions/).
 
 ## <a name="whats-new-for-february-2017"></a>Nouveautés de février 2017 
 Depuis février 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
@@ -178,7 +178,7 @@ Depuis janvier 2016, les fonctionnalités suivantes ont été ajoutées à Azure
 * Possibilité d’épingler et de désépingler des ressources de données dans le portail Azure Data Catalog. Vous pouvez choisir d’épingler des ressources de données pour faciliter leur redécouverte et leur réutilisation.
 * Une page d’accueil revue récemment dans le portail Azure Data Catalog. Cette nouvelle page d’accueil fournit des informations sur l’activité actuelle des utilisateurs, notamment les ressources publiées, les ressources épinglées et les recherches enregistrées dernièrement, ainsi que des informations sur l’activité à l’échelle de Catalog.
 * Prise en charge des paramètres utilisateur persistants dans le portail Azure Data Catalog. Les paramètres d’expérience utilisateur, notamment la vue grille ou mosaïque, le nombre de résultats par page, l’activation ou la désactivation de la mise en surbrillance des correspondances, sont conservés entre les sessions utilisateur.
-* Azure Data Catalog est maintenant disponible dans deux nouvelles régions Azure. Les clients peuvent approvisionner Azure Data Catalog dans les régions Europe du Nord et Sud-Est asiatique, outre l’Est des États-Unis, l’Ouest des États-Unis, l’Europe de l’Ouest et l’Est de l’Australie. Pour plus d’informations, consultez l’article [Régions Azure](https://azure.microsoft.com/regions/).
+* Azure Data Catalog est maintenant disponible dans deux nouvelles régions Azure. Les clients peuvent approvisionner Azure Data Catalog dans les régions Europe Nord et Asie Sud-Est, outre les régions USA Est, USA Ouest, Europe Ouest et Australie Est. Pour plus d’informations, consultez l’article [Régions Azure](https://azure.microsoft.com/regions/).
 
 > [!NOTE]
 > L’installation de la fonction « Ouvrir dans SQL Server Data Tools » requiert Visual Studio 2013 avec Update 4 et les outils SQL Server. Pour installer la dernière version de SQL Server Data Tools, visitez [Télécharger SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).

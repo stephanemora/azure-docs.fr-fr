@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295526"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399140"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -92,6 +92,8 @@ Par exemple, si Application Gateway est défini sur trois instances et aucune ad
 **Q. Application Gateway prend-il en charge les en-têtes x-forwarded-for ?**
 
 Oui, Application Gateway insère les en-têtes x-forwarded-for, x-forwarded-proto et x-forwarded-port dans la demande transmise au backend. Le format d’en-tête x-forwarded-for est une liste séparée par des virgules d’éléments IP:Port. Les valeurs valides pour x-forwarded-proto sont http ou https. X-forwarded-port spécifie le port atteint par la demande au niveau d’Application Gateway.
+
+Application Gateway insère également l’en-tête X-Original-Host qui contient l’en-tête Host d’origine avec lequel la requête est parvenue. Cet en-tête est utile dans des scénarios comme l’intégration de sites web Azure, dans lesquels l’en-tête de l’hôte entrant est modifié avant que le trafic ne soit acheminé vers le serveur principal.
 
 **Q. Combien de temps faut-il pour déployer une Application Gateway ? Mon Application Gateway continue-t-elle de fonctionner après une mise à jour  ?**
 
@@ -204,7 +206,7 @@ Le tableau suivant présente un débit moyen de performances pour chaque instanc
 | Taille moyenne de la réponse de la page principale | Petite | Moyenne | grand |
 | --- | --- | --- | --- |
 | 6 Ko |7,5 Mbits/s |13 Mbits/s |50 Mbits/s |
-| 100 Ko |35 Mbits/s |100 Mbits/s |200 Mbits/s |
+| 100 Ko |35 Mbits/s |100 Mbits/s |200 Mbits/s |
 
 > [!NOTE]
 > Ces valeurs sont des valeurs approximatives pour un débit de passerelle d’application. Le débit réel dépend de divers détails d’environnement, tels que la taille de page moyenne, l’emplacement des instances de serveur principal et le temps de traitement d’une page par le serveur. Pour des calculs de performance exacts, vous devez exécuter vos propres tests. Ces valeurs sont fournies uniquement pour vous donner des conseils de planification de la capacité.

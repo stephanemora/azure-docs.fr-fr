@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c685e03e5b7532f50d1eee1590eebedfba2b7c2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212902"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445687"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’approvisionnement automatique d’utilisateurs
 
@@ -71,18 +71,18 @@ Cette section vous guide tout au long du processus de connexion d’Azure AD à 
    
     ![Sélectionnez Sécurité.][10]
 
-2. Dans la page **Sécurité**, sélectionnez **Informations de référence sur l’API**.
+1. Dans la page **Sécurité**, sélectionnez **Informations de référence sur l’API**.
    
     ![Sélectionnez Informations de référence sur l’API.][15]
 
-3. Sélectionnez **Activer l'accès à l'API**.
+1. Sélectionnez **Activer l'accès à l'API**.
    
     ![Sélectionnez Informations de référence sur l’API.][16]
 
     > [!IMPORTANT]
     > Le nom d’utilisateur Azure Active Directory de chaque utilisateur que vous souhaitez approvisionner dans G Suite *doit* être associé à un domaine personnalisé. Par exemple, les noms d’utilisateur qui ressemblent à bob@contoso.onmicrosoft.com ne sont pas acceptés par G Suite. En revanche, bob@contoso.com est accepté. Vous pouvez modifier le domaine d’un utilisateur existant en modifiant ses propriétés dans Azure AD. Les étapes suivantes montrent comment définir un domaine personnalisé pour Azure Active Directory et G Suite.
       
-4. Si vous n’avez pas encore ajouté de nom de domaine personnalisé à Azure Active Directory, effectuez les étapes suivantes :
+1. Si vous n’avez pas encore ajouté de nom de domaine personnalisé à Azure Active Directory, effectuez les étapes suivantes :
   
     a. Dans le panneau de navigation gauche du [portail Azure](https://portal.azure.com), sélectionnez **Active Directory**. Dans la liste Annuaire, sélectionnez votre annuaire. 
 
@@ -108,7 +108,7 @@ Cette section vous guide tout au long du processus de connexion d’Azure AD à 
     Pour l’attribution d’utilisateurs, le domaine personnalisé doit correspondre au nom de domaine de l’annuaire Azure AD source. S’ils ne correspondent pas, vous pouvez peut-être résoudre le problème en mettant en œuvre une personnalisation du mappage des attributs.
 
 
-5. Maintenant que vous avez vérifié tous vos domaines avec Azure AD, vous devez les revérifier avec Google Apps. Pour chaque domaine qui n’est pas encore inscrit auprès de Google, effectuez les étapes suivantes :
+1. Maintenant que vous avez vérifié tous vos domaines avec Azure AD, vous devez les revérifier avec Google Apps. Pour chaque domaine qui n’est pas encore inscrit auprès de Google, effectuez les étapes suivantes :
    
     a. Dans la [Console d’administration de Google Apps](http://admin.google.com/), sélectionnez **Domaines**.
      
@@ -129,46 +129,46 @@ Cette section vous guide tout au long du processus de connexion d’Azure AD à 
      > [!WARNING]
      > Si vous modifiez le domaine principal pour votre locataire G Suite tout en ayant déjà configuré l’authentification unique avec Azure AD, vous devez répéter l’étape 3 sous [Étape 2 : Activer l’authentification unique](#step-two-enable-single-sign-on).
        
-6. Dans la [Console d’administration de Google Apps](http://admin.google.com/), sélectionnez **Rôles d’administrateur**.
+1. Dans la [Console d’administration de Google Apps](http://admin.google.com/), sélectionnez **Rôles d’administrateur**.
    
      ![Sélectionner Google Apps][26]
 
-7. Déterminez le compte d’administrateur à utiliser pour gérer l’approvisionnement des utilisateurs. Pour le **Rôle d’administrateur** de ce compte, modifiez les **Privilèges** pour ce rôle. Veillez à activer tous les **Privilèges d’administrateur d’API** pour que ce compte puisse être utilisé pour l’approvisionnement.
+1. Déterminez le compte d’administrateur à utiliser pour gérer l’approvisionnement des utilisateurs. Pour le **Rôle d’administrateur** de ce compte, modifiez les **Privilèges** pour ce rôle. Veillez à activer tous les **Privilèges d’administrateur d’API** pour que ce compte puisse être utilisé pour l’approvisionnement.
    
      ![Sélectionner Google Apps][27]
    
     > [!NOTE]
     > Si vous configurez un environnement de production, la meilleure pratique est de créer un compte d’administrateur dans G Suite spécialement pour cette étape. Ce compte doit avoir un rôle d’administrateur associé qui dispose des privilèges d’API nécessaires.
      
-8. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**.
+1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**.
 
-9. Si vous avez déjà configuré G Suite pour l’authentification unique, recherchez votre instance de G Suite à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **G Suite** ou **Google Apps** dans la galerie d’applications. Dans les résultats de la recherche, sélectionnez votre application, puis ajoutez-la à votre liste d’applications.
+1. Si vous avez déjà configuré G Suite pour l’authentification unique, recherchez votre instance de G Suite à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **G Suite** ou **Google Apps** dans la galerie d’applications. Dans les résultats de la recherche, sélectionnez votre application, puis ajoutez-la à votre liste d’applications.
 
-10. Sélectionnez votre instance G Suite, puis sélectionnez l’onglet **Attribution**.
+1. Sélectionnez votre instance G Suite, puis sélectionnez l’onglet **Attribution**.
 
-11. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
+1. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
 
      ![Approvisionnement](./media/google-apps-provisioning-tutorial/provisioning.png)
 
-12. Sous la section **Informations d’identification de l’administrateur**, sélectionnez **Autoriser**. Une boîte de dialogue d’autorisation Google s’ouvre dans une nouvelle fenêtre de navigateur.
+1. Sous la section **Informations d’identification de l’administrateur**, sélectionnez **Autoriser**. Une boîte de dialogue d’autorisation Google s’ouvre dans une nouvelle fenêtre de navigateur.
 
-13. Confirmez que vous souhaitez autoriser Azure Active Directory à apporter des modifications à votre locataire G Suite. Sélectionnez **Accepter**.
+1. Confirmez que vous souhaitez autoriser Azure Active Directory à apporter des modifications à votre locataire G Suite. Sélectionnez **Accepter**.
     
      ![Confirmez les autorisations.][28]
 
-14. Sur le Portail Azure, sélectionnez **Tester la connexion** pour vérifier qu’Azure AD parvient à se connecter à votre application. Si la connexion échoue, vérifiez que votre compte G Suite dispose des autorisations Administrateur d’équipe. Ensuite, réessayez d’effectuer l’étape **Autoriser**.
+1. Sur le Portail Azure, sélectionnez **Tester la connexion** pour vérifier qu’Azure AD parvient à se connecter à votre application. Si la connexion échoue, vérifiez que votre compte G Suite dispose des autorisations Administrateur d’équipe. Ensuite, réessayez d’effectuer l’étape **Autoriser**.
 
-15. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**. Ensuite, cochez la case.
+1. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**. Ensuite, cochez la case.
 
-16. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
-17. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Google Apps**.
+1. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Google Apps**.
 
-18. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés d’Azure AD vers G Suite. Les attributs qui sont des propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans G Suite pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
+1. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés d’Azure AD vers G Suite. Les attributs qui sont des propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans G Suite pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
 
-19. Pour activer le service d’approvisionnement Azure AD pour G Suite, affectez la valeur **Activé** au paramètre **État de l’approvisionnement** dans les **Paramètres**.
+1. Pour activer le service d’approvisionnement Azure AD pour G Suite, affectez la valeur **Activé** au paramètre **État de l’approvisionnement** dans les **Paramètres**.
 
-20. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 Ce processus démarre la synchronisation initiale des utilisateurs ou des groupes affectés à G Suite dans la section Utilisateurs et groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ pendant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Ces journaux décrivent toutes les actions effectuées par le service de provisionnement dans votre application.
 

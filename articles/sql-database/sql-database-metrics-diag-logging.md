@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346023"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309059"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
 Azure SQL Database peut émettre des journaux de métriques et de diagnostics pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
@@ -267,6 +267,8 @@ Découvrez comment [télécharger les journaux de métriques et de diagnostics �
 |Pool élastique|Pourcentage DTU, eDTU utilisé, Limite eDTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Limite de stockage, Pourcentage de stockage XTP |
 |||
 
+### <a name="logs"></a>Journaux
+
 ### <a name="query-store-runtime-statistics"></a>Statistiques d’exécution du magasin des requêtes
 
 |Propriété|Description|
@@ -460,6 +462,57 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |resource_owner_type_s|Propriétaire du verrou.|
 |blocked_process_filtered_s|XML de rapport de processus bloqué.|
 |duration_d|Durée du verrou en microsecondes.|
+
+### <a name="deadlocks-dataset"></a>Jeu de données Deadlocks
+
+|Propriété|Description|
+|---|---|
+|TenantId|Votre ID de client.|
+|SourceSystem|Toujours : Azure|
+|TimeGenerated [UTC] |Horodatage du moment où le journal a été enregistré.|
+|Type|Toujours : AzureDiagnostics|
+|ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
+|Category|Nom de la catégorie. Toujours : Deadlocks|
+|OperationName|Nom de l’opération. Toujours : DeadlockEvent|
+|Ressource|Nom de la ressource.|
+|ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES|
+|SubscriptionId|Identificateur global unique auquel la base de données appartient.|
+|ResourceGroup|Nom du groupe de ressources auquel la base de données appartient.|
+|LogicalServerName_s|Nom du serveur auquel la base de données appartient.|
+|ElasticPoolName_s|Nom du pool élastique auquel la base de données appartient, le cas échéant.|
+|DatabaseName_s|Nom de la base de données. |
+|ResourceId|URI de ressource.|
+|deadlock_xml_s|Rapport de blocage XML.|
+
+### <a name="automatic-tuning-dataset"></a>Jeu de données AutomaticTuning
+
+|Propriété|Description|
+|---|---|
+|TenantId|Votre ID de client.|
+|SourceSystem|Toujours : Azure|
+|TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
+|Type|Toujours : AzureDiagnostics|
+|ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
+|Category|Nom de la catégorie. Toujours : AutomaticTuning|
+|Ressource|Nom de la ressource.|
+|ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES|
+|SubscriptionId|Identificateur global unique auquel la base de données appartient.|
+|ResourceGroup|Nom du groupe de ressources auquel la base de données appartient.|
+|LogicalServerName_s|Nom du serveur auquel la base de données appartient.|
+|LogicalDatabaseName_s|Nom de la base de données.|
+|ElasticPoolName_s|Nom du pool élastique auquel la base de données appartient, le cas échéant.|
+|DatabaseName_s|Nom de la base de données.|
+|ResourceId|URI de ressource.|
+|RecommendationHash_s|Hachage unique de la recommandation de réglage automatique.|
+|OptionName_s|Opération de réglage automatique.|
+|Schema_s|Schéma de la base de données.|
+|Table_s|Table concernée.|
+|IndexName_s|Nom de l’index.|
+|IndexColumns_s|Nom de la colonne.|
+|IncludedColumns_s|Colonnes incluses.|
+|EstimatedImpact_s|Impact estimé de la recommandation de réglage automatique JSON.|
+|Event_s|Type d’événement de réglage automatique.|
+|Timestamp_t|Timestamp de la dernière mise à jour.|
 
 ### <a name="intelligent-insights-dataset"></a>Jeu de données Intelligent Insights
 Apprenez-en davantage sur le [format de journal Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).

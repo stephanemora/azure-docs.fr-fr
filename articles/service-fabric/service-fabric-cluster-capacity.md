@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126049"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494206"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -62,7 +62,7 @@ Les services système Service Fabric (par exemple, le service Cluster Manager ou
 * La **taille minimale des machines virtuelles** pour le type de nœud principal est déterminée par le **niveau de durabilité** que vous choisissez. Le niveau de durabilité par défaut est Bronze. Pour plus d’informations, consultez [Caractéristiques de durabilité du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).  
 * Le **nombre minimal de machines virtuelles** pour le type de nœud principal est déterminé par le **niveau de fiabilité** que vous choisissez. Le niveau de fiabilité par défaut est Silver. Pour plus d’informations, consultez [Caractéristiques de fiabilité du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster).  
 
-À partir du modèle Azure Resource Manager, le type de nœud principal est configuré avec l’attribut `isPrimary` sous la [définition du type de nœud](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
+À partir du modèle Azure Resource Manager, le type de nœud principal est configuré avec l’attribut `isPrimary` sous la [définition du type de nœud](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
 
 ### <a name="non-primary-node-type"></a>Type de nœud non principal
 
@@ -110,10 +110,6 @@ Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds
 - Adoptez des méthodes plus sûres pour modifier les références SKU de machine virtuelle (montée/descente en puissance) : la modification de la référence SKU de machine virtuelle pour un groupe de machines virtuelles identiques est une opération risquée et doit donc être évitée si possible. Voici la procédure à suivre pour éviter les problèmes les plus courants.
     - **Pour les types de nœuds non principaux :** il est recommandé de créer un groupe de machines virtuelles identiques, de modifier la contrainte de positionnement de service pour inclure le nouveau groupe de machines virtuelles identiques/type de nœud, puis de réduire le nombre d’instances du groupe de machines virtuelles identiques à 0, un nœud à la fois pour être certain que la suppression des nœuds n’affecte pas la fiabilité du cluster.
     - **Pour le type de nœud principal :** notre recommandation est de ne pas modifier la référence SKU de machine virtuelle du type de nœud principal. La modification de la référence (SKU) du type de nœud principal n’est pas prise en charge. Si le motif d’adoption d’une nouvelle référence (SKU) est la capacité, nous vous recommandons d’ajouter des instances. Si cela n’est pas possible, créez un cluster et [restaurez l’état des applications](service-fabric-reliable-services-backup-restore.md) (le cas échéant) de votre ancien cluster. Vous n’avez pas besoin de restaurer l’état des services système ; ceux-ci sont recréés pendant le déploiement de vos applications sur le nouveau cluster. Si les applications que vous exécutiez sur votre cluster étaient sans état, tout ce que vous avez à faire, c’est déployer vos applications sur le nouveau cluster, sans rien avoir à restaurer. Si vous décidez de suivre la méthode non prise en charge et que vous voulez modifier la référence (SKU) des machines virtuelles, modifiez la définition du modèle de groupe de machines virtuelles identiques en fonction de la nouvelle référence. Si votre cluster n’a qu’un seul type de nœud, assurez-vous que toutes les applications avec état répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-lifecycle.md) (par exemple, le blocage de la création d’un réplica) en temps opportun, et que la durée de recréation du réplica de service est inférieure à cinq minutes (pour le niveau de durabilité Silver). 
-
-    > [!WARNING]
-    > Il est déconseillé de modifier la taille de référence (SKU) des machines virtuelles pour les groupes de machines virtuelles identiques qui n’exécutent pas au moins le niveau de durabilité Silver. Modifier la taille de référence (SKU) des machines virtuelles est une opération d’infrastructure sur place destructrice de données. Faute de pouvoir ne serait-ce que retarder ou surveiller cette modification, il est possible que l’opération occasionne une perte de données pour les services avec état ou provoque d’autres problèmes opérationnels imprévus, même pour les charges de travail sans état. 
-    > 
     
 - Conservez au minimum cinq nœuds pour tout groupe de machines virtuelles identiques sur lequel le niveau de durabilité Gold ou Silver est activé.
 - Chaque groupe de machines virtuelles identiques avec le niveau de durabilité Silver or Gold doit être mappé à son propre type de nœud dans le cluster Service Fabric. Le mappage de plusieurs groupes de machines virtuelles identiques à un type de nœud unique empêche le fonctionnement correct de la coordination entre le cluster Service Fabric et l’infrastructure Azure.

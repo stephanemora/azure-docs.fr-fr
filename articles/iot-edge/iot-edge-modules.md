@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029088"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576319"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Présentation des modules Azure IoT Edge
 
@@ -51,13 +51,13 @@ Chaque instance de module a aussi un jumeau de module correspondant que vous pou
 Un jumeau de module est un document JSON qui stocke des propriétés de configuration et des informations sur un module. Ce concept s’apparente au concept de [jumeau d’appareil][lnk-device-twin] dans IoT Hub. La structure d’un jumeau de module est exactement identique à celle d’un jumeau d’appareil. Les API utilisées pour interagir avec les deux types de jumeaux sont identiques. La seule différence entre les deux est l’identité utilisée pour instancier le SDK client. 
 
 ```csharp
-// Create a DeviceClient object. This DeviceClient will act on behalf of a 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 
-DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
 await client.OpenAsync(); 
  
-// Get the model twin 
+// Get the module twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
 

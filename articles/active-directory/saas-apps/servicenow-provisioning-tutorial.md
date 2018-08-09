@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d76a8996f7ccc6a7b6df2f8e1fe52568dbd725db
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210796"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426902"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Didacticiel : configurer ServiceNow pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory
 
@@ -68,15 +68,15 @@ Cette section vous guide à travers la connexion de votre Azure AD au compte d�
 
 1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
-2. Si vous avez déjà configuré ServiceNow pour l’authentification unique, recherchez votre instance de ServiceNow à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et effectuer une recherche pour **ServiceNow** dans la galerie d’applications. Dans les résultats de la recherche, sélectionnez ServiceNow, puis ajoutez-le à votre liste d’applications.
+1. Si vous avez déjà configuré ServiceNow pour l’authentification unique, recherchez votre instance de ServiceNow à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et effectuer une recherche pour **ServiceNow** dans la galerie d’applications. Dans les résultats de la recherche, sélectionnez ServiceNow, puis ajoutez-le à votre liste d’applications.
 
-3. Sélectionnez votre instance de ServiceNow, puis sélectionnez l’onglet **Approvisionnement**.
+1. Sélectionnez votre instance de ServiceNow, puis sélectionnez l’onglet **Approvisionnement**.
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
+1. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
 
     ![approvisionnement](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-5. Dans la section Informations d’identification de l’administrateur, effectuez les étapes suivantes :
+1. Dans la section Informations d’identification de l’administrateur, effectuez les étapes suivantes :
    
     a. Dans la zone de texte **Nom de l'Instance ServiceNow** , tapez le nom d'instance ServiceNow.
 
@@ -84,19 +84,19 @@ Cette section vous guide à travers la connexion de votre Azure AD au compte d�
 
     c. Dans la zone de texte **Mot de passe de l’admin ServiceNow** , tapez le mot de passe de l’administrateur.
 
-6. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application ServiceNow. Si la connexion échoue, vérifiez que votre compte ServiceNow dispose des autorisations d’administrateur d’équipe, puis revenez à l’étape **Informations d’identification de l’administrateur**.
+1. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application ServiceNow. Si la connexion échoue, vérifiez que votre compte ServiceNow dispose des autorisations d’administrateur d’équipe, puis revenez à l’étape **Informations d’identification de l’administrateur**.
 
-7. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case.
+1. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case.
 
-8. Cliquez sur **Enregistrer.**
+1. Cliquez sur **Enregistrer.**
 
-9. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec ServiceNow**.
+1. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec ServiceNow**.
 
-10. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers ServiceNow. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans ServiceNow pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
+1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers ServiceNow. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans ServiceNow pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
-11. Pour activer le service d’approvisionnement Azure AD pour ServiceNow, modifiez le paramètre **État d’approvisionnement** sur **Activé** dans la section Paramètres.
+1. Pour activer le service d’approvisionnement Azure AD pour ServiceNow, modifiez le paramètre **État d’approvisionnement** sur **Activé** dans la section Paramètres.
 
-12. Cliquez sur **Enregistrer.**
+1. Cliquez sur **Enregistrer.**
 
 Cette commande démarre la synchronisation initiale des utilisateurs et/ou des groupes affectés à ServiceNow dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement dans votre application ServiceNow.
 

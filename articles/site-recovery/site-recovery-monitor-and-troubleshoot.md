@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 747189c7cab2c76c6695bdb8e13f77532adc46d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216071"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578583"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Surveiller et résoudre les problèmes liés à Site Recovery
 
@@ -88,7 +88,7 @@ La section **Vue d’infrastructure** affiche les composants d’infrastructure 
 - Une ligne rouge sur laquelle est superposée une icône d’erreur indique l’existence d’une ou de plusieurs erreurs qui affectent la connectivité.
 -  Placez le pointeur de la souris sur l’icône d’erreur pour afficher l’erreur et le nombre d’entités concernées. Cliquez sur l’icône pour afficher une liste filtrée des entités concernées.
 
-    ![Site Recovery infrastructure view (vault)]Re(./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+    ![Vue d’infrastructure de Site Recovery (coffre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## <a name="tips-for-monitoring-the-infrastructure"></a>Conseils relatifs à la surveillance de l’infrastructure
 

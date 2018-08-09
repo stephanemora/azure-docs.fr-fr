@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 87d97b078927800e4e90c39a70e2acc7163a4c84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308967"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493045"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutoriel : 7. Ajouter une entité simple et une liste d’expressions
 Dans ce tutoriel, vous allez créer une application qui montre comment extraire les données issues de l’apprentissage automatique à partir d’un énoncé utilisant l’entité **Simple**.
@@ -126,15 +126,8 @@ Cette application LUIS comporte des noms de poste dans plusieurs intentions. En 
     Il existe d’autres énoncés exemple mais ils ne contiennent pas de mots de poste.
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
-LUIS ne connaît pas les modifications apportées aux intentions et aux entités (modèle) tant que son apprentissage n’a pas été effectué. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
-
-    ![Sélectionner le bouton Effectuer l’apprentissage](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
-
-2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
-
-    ![Notification de réussite de l’apprentissage](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
 
@@ -366,8 +359,9 @@ Votre chatbot possède maintenant suffisamment d’informations pour déterminer
 ## <a name="where-is-this-luis-data-used"></a>Où ces données LUIS sont-elles utilisées ? 
 LUIS en a fini avec cette requête. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les données de l’entité pour utiliser l’API tierce pour envoyer le message concernant le poste au représentant des Ressources Humaines. S’il existe d’autres options de programmation pour le robot ou l’application d’appel, LUIS n’effectue pas ce travail. LUIS détermine uniquement l’intention de l’utilisateur. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez **Mes applications** dans le menu en haut à gauche. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

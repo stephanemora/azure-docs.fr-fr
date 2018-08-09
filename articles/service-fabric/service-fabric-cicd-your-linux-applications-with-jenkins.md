@@ -4,22 +4,20 @@ description: Génération et intégration en continu pour votre application Linu
 services: service-fabric
 documentationcenter: java
 author: sayantancs
-manager: timlt
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
+manager: jpconnock
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/9/2018
+ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0de62b6fa05ccad1977e7d98a614e8d601409f5b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972246"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390175"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Utiliser Jenkins pour générer et déployer vos applications Linux
 Jenkins est un outil populaire pour l’intégration et le déploiement en continu de vos applications. Voici comment générer et déployer votre application Azure Service Fabric à l’aide de Jenkins.
@@ -325,6 +323,10 @@ Pour les environnements de développement et de test, vous pouvez configurer des
 11. Sous **Configuration de l’application**, configurez les champs **Nom de l’application**, **Type d’application** et **Path to Application Manifest** (Chemin d’accès au manifeste d’application) (relatif).
     ![Action post-génération Service Fabric Jenkins, configurer les informations d’identification Azure](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 12. Cliquez sur **Verify configuration**. Lorsque la vérification réussit, cliquez sur **Enregistrer**. Le pipeline de votre travail Jenkins est maintenant entièrement configuré. Passez à [Étapes suivantes](#next-steps) pour tester votre déploiement.
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Dépannage du plug-in Jenkins
+
+Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème dans le [Jenkins JIRA](https://issues.jenkins-ci.org/) du composant en question.
 
 ## <a name="next-steps"></a>Étapes suivantes
 GitHub et Jenkins sont maintenant configurés. Envisagez de modifier certains exemples du projet `reliable-services-actor-sample/Actors/ActorCounter` dans votre duplication du référentiel, https://github.com/Azure-Samples/service-fabric-java-getting-started. Envoyez vos modifications à la branche `master` distante (ou à n’importe quelle branche configurée pour être compatible). Cela déclenche le travail Jenkins, `MyJob`, que vous avez configuré. Il extrait les modifications de GitHub, les génère et déploie l’application sur le cluster spécifié dans les actions post-génération.  

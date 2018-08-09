@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917470"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428528"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery 
 
@@ -39,7 +39,7 @@ Vous pouvez afficher le coût mensuel ou annuel. En savoir plus sur les [région
 **Coût de stockage Azure par mois/année** : le coût de stockage total engagé pour le stockage Standard et Premium, pour la réplication et le test de récupération d’urgence.
 
 ## <a name="detailed-cost-analysis"></a>Analyse du coût détaillée
-Les prix Azure pour le calcul, le stockage et le réseau varient selon les régions Azure. Vous pouvez générer un rapport d’estimation des coûts avec les prix Azure les plus récents selon votre abonnement, l’offre associée à votre abonnement et la région cible Azure dans la devise indiquée. Par défaut, l’outil utilise la région Azure Ouest des États-Unis 2 et la devise dollar américain (USD). Si vous avez utilisé une autre région et une autre devise, la prochaine fois que vous générerez un rapport sans ID d’abonnement, ID d’offre, région cible et devise, l’outil utilisera les prix de la dernière région cible utilisée et la dernière devise utilisée pour l’estimation des coûts.
+Les prix Azure pour le calcul, le stockage et le réseau varient selon les régions Azure. Vous pouvez générer un rapport d’estimation des coûts avec les prix Azure les plus récents selon votre abonnement, l’offre associée à votre abonnement et la région cible Azure dans la devise indiquée. Par défaut, l’outil utilise la région Azure USA Ouest 2 et la devise dollar américain (USD). Si vous avez utilisé une autre région et une autre devise, la prochaine fois que vous générerez un rapport sans ID d’abonnement, ID d’offre, région cible et devise, l’outil utilisera les prix de la dernière région cible utilisée et la dernière devise utilisée pour l’estimation des coûts.
 
 Cette section montre l’ID d’abonnement et l’ID d’offre que vous avez utilisés pour la génération de rapports. Si vous n’en avez pas utilisé, elle est vide.
 
@@ -105,7 +105,7 @@ Pour ajouter manuellement des machines virtuelles :
 
 1. Sélectionnez **Insérer une ligne** pour insérer une nouvelle ligne entre les lignes **Début** et **Fin**.
 
-2. Remplissez les colonnes suivantes en fonction de la taille approximative de la machine virtuelle et du nombre de machines virtuelles correspondant à cette configuration : 
+1. Remplissez les colonnes suivantes en fonction de la taille approximative de la machine virtuelle et du nombre de machines virtuelles correspondant à cette configuration : 
 
     a. **Nombre de machines virtuelles**
 
@@ -125,9 +125,9 @@ Pour ajouter manuellement des machines virtuelles :
 
     i. **Azure Hybrid Use Benefit**
 
-3. Vous pouvez appliquer la même valeur à toutes les machines virtuelles du tableau en cliquant sur le bouton **Apply to all** (Appliquer à tous) pour le **nombre de tests de récupération d’urgence en un an**, la **durée de chaque test de récupération d’urgence (en jours)**, la **redondance des données** et **Azure Hybrid Use Benefit**.
+1. Vous pouvez appliquer la même valeur à toutes les machines virtuelles du tableau en cliquant sur le bouton **Apply to all** (Appliquer à tous) pour le **nombre de tests de récupération d’urgence en un an**, la **durée de chaque test de récupération d’urgence (en jours)**, la **redondance des données** et **Azure Hybrid Use Benefit**.
 
-4. Cliquez sur **Re-calculate cost** (Recalculer le coût) pour mettre à jour le coût.
+1. Cliquez sur **Re-calculate cost** (Recalculer le coût) pour mettre à jour le coût.
 
 **VMName** : nom de la machine virtuelle.
 

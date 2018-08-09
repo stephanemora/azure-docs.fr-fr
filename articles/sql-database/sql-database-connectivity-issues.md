@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
-ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113492"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398935"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Diagnostiquer, résoudre et empêcher les erreurs de connexion SQL et les erreurs temporaires de Base de données SQL
 Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Base de données SQL Azure. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
@@ -181,17 +181,21 @@ Pour obtenir des informations générales sur la configuration des ports et des 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-461"></a>Connexion : ADO.NET 4.6.1
-Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à SQL Database, nous vous recommandons d’utiliser .NET Framework version 4.6.1 ou ultérieure.
+### <a name="connection-adonet-462-or-later"></a>Connexion : ADO.NET 4.6.2 (ou version ultérieure)
+Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.SqlConnection** pour se connecter à SQL Database, nous vous recommandons d’utiliser .NET Framework version 4.6.2 ou ultérieure.
 
-ADO.NET 4.6.1 :
+À compter d’ADO.NET 4.6.2 :
+
+- Une nouvelle tentative d’ouverture de connexion est effectuée immédiatement pour les bases de données SQL Azure, ce qui améliore les performances des applications compatibles avec le cloud.
+
+À compter d’ADO.NET 4.6.1 :
 
 * Pour SQL Database, l’ouverture d’une connexion à l’aide de la méthode **SqlConnection.Open** en améliore la fiabilité. La méthode **Open** intègre désormais de meilleurs mécanismes de nouvelle tentative en réponse à des défaillances temporaires, pour certaines erreurs se produisant avant le délai d’expiration de la connexion.
 * Le regroupement de connexions est pris en charge, ce qui contribue à garantir que l’objet de connexion qu’il donne à votre programme fonctionne.
 
-Lorsque vous utilisez un objet de connexion à partir d’un pool de connexions, nous conseillons de faire en sorte que votre programme interrompe temporairement la connexion lorsque vous ne l’utilisez pas immédiatement. Il n’est pas coûteux de rouvrir une connexion, ce qui n’est pas le cas de la création d’une connexion.
+Si vous utilisez un objet de connexion provenant d’un pool de connexions, nous vous recommandons de faire en sorte que votre programme interrompe temporairement la connexion lorsque vous ne l’utilisez pas immédiatement. Il n’est pas coûteux de rouvrir une connexion, ce qui n’est pas le cas de la création d’une connexion.
 
-Si vous utilisez ADO.NET 4.0 ou version antérieure, nous vous recommandons d’effectuer une mise à niveau vers la dernière version d’ADO.NET. Depuis novembre 2015, [ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)est disponible au téléchargement.
+Si vous utilisez ADO.NET 4.0 ou version antérieure, nous vous recommandons d’effectuer une mise à niveau vers la dernière version d’ADO.NET. Depuis août 2018, [ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/) est disponible au téléchargement.
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

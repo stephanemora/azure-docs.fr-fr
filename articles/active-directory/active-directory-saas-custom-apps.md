@@ -15,16 +15,16 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 640df9659dfa65d0eb2a65066085dd7dff7031ca
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a2b1816a7f972e698d3872e6c252c09a4d5292ef
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365551"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578726"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurer l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory
 
-Cet article concerne une fonctionnalité permettant aux administrateurs de configurer l’authentification unique pour les applications qui ne figurent pas dans la galerie d’applications Azure Active Directory, *sans écrire de code*. Cette fonctionnalité a été publiée à partir de la version d’évaluation technique le 18 novembre 2015 et est incluse dans [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Si vous recherchez plutôt des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD grâce au code, consultez [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
+Cet article concerne une fonctionnalité permettant aux administrateurs de configurer l’authentification unique pour les applications qui ne figurent pas dans la galerie d’applications Azure Active Directory, *sans écrire de code*. Cette fonctionnalité a été publiée à partir de la version d’évaluation technique le 18 novembre 2015 et est incluse dans [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Si vous recherchez plutôt des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD grâce au code, consultez [Scénarios d’authentification pour Azure AD](develop/authentication-scenarios.md).
 
 La galerie d'applications Azure Active Directory contient une liste d'applications qui prennent en charge une forme d'authentification unique avec Azure Active Directory, conformément à la description dans [cet article](manage-apps/what-is-single-sign-on.md). Une fois que vous (spécialiste informatique ou intégrateur système de votre organisation) avez trouvé l’application que vous voulez connecter, vous pouvez commencer par suivre les instructions détaillées présentées dans le portail Azure pour activer l’authentification unique.
 
@@ -148,7 +148,7 @@ L’affectation d’un utilisateur permettra à Azure AD d’émettre un jeton p
 
 ### <a name="test-the-saml-application"></a>Tester l’application SAML
 
-Pour pouvoir tester l’application SAML, vous devez configurer l’application avec Azure AD et y affecter des utilisateurs ou des groupes. Pour tester l’application SAML, consultez [Guide pratique pour déboguer l’authentification unique SAML pour les applications dans Azure Active Directory](develop/active-directory-saml-debugging.md).
+Pour pouvoir tester l’application SAML, vous devez configurer l’application avec Azure AD et y affecter des utilisateurs ou des groupes. Pour tester l’application SAML, consultez [Guide pratique pour déboguer l’authentification unique SAML pour les applications dans Azure Active Directory](develop/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="password-single-sign-on"></a>Authentification unique avec mot de passe
 

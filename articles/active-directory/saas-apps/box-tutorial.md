@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: c15894f8cd559a08a1d75e2ac29cc0da0fc9e963
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f5aa724e9848c9794eef093aef15b0aaed9cae97
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226576"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435758"
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>Intégrer Azure Active Directory dans Box
 
@@ -55,7 +55,7 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Box à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="add-box-from-the-gallery"></a>Ajouter Box à partir de la galerie
 Pour configurer l’intégration d’Azure AD dans Box, ajoutez Box à partir de la galerie à votre liste d’applications SaaS gérées en procédant comme suit :
@@ -64,15 +64,15 @@ Pour configurer l’intégration d’Azure AD dans Box, ajoutez Box à partir d
 
     ![Bouton Azure Active Directory][1]
 
-2. Sélectionnez **Applications d’entreprise** > **Toutes les applications**.
+1. Sélectionnez **Applications d’entreprise** > **Toutes les applications**.
 
     ![Fenêtre « Applications d’entreprise »][2]
     
-3. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la fenêtre.
+1. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la fenêtre.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Box**, sélectionnez **Box** dans la liste des résultats, puis sélectionnez **Ajouter**.
+1. Dans la zone de recherche, tapez **Box**, sélectionnez **Box** dans la liste des résultats, puis sélectionnez **Ajouter**.
 
     ![Box dans la liste des résultats](./media/box-tutorial/tutorial_box_search.png)
 ### <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
@@ -93,11 +93,11 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
 
     ![Lien « Authentification unique »][4]
 
-2. Dans la zone **Mode d’authentification unique** de la fenêtre **Authentification unique**, sélectionnez **Authentification SAML**.
+1. Dans la zone **Mode d’authentification unique** de la fenêtre **Authentification unique**, sélectionnez **Authentification SAML**.
  
     ![Fenêtre « Authentification unique »](./media/box-tutorial/tutorial_box_samlbase.png)
 
-3. Sous **Domaine et URL Box**, effectuez les actions suivantes :
+1. Sous **Domaine et URL Box**, effectuez les actions suivantes :
 
     ![Informations d’authentification unique dans « Domaine et URL Box »](./media/box-tutorial/url3.png)
 
@@ -108,15 +108,15 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
     > [!NOTE] 
     > Les valeurs ci-dessus ne sont pas réelles. Mettez-les à jour avec l’URL de connexion et l’identificateur réels. Pour obtenir les valeurs, contactez l’[équipe de support client Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
 
-4. Sous **Certificat de signature SAML**, sélectionnez **XML de métadonnées**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Sous **Certificat de signature SAML**, sélectionnez **XML de métadonnées**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/box-tutorial/tutorial_box_certificate.png) 
 
-5. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/box-tutorial/tutorial_general_400.png)
     
-6. Pour configurer l’authentification unique pour votre application, suivez la procédure décrite dans [Configurer vous-même l’authentification unique](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
+1. Pour configurer l’authentification unique pour votre application, suivez la procédure décrite dans [Configurer vous-même l’authentification unique](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
 
 > [!NOTE] 
 > Si vous ne pouvez pas activer les paramètres d’authentification unique pour votre compte Box, vous pouvez avoir besoin de contacter l’[équipe de support client Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) et de lui fournir le fichier XML téléchargé.
@@ -135,17 +135,17 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
     ![Lien Azure Active Directory](./media/box-tutorial/create_aaduser_01.png)
 
-2. Pour afficher une liste des utilisateurs actuels, sélectionnez **Utilisateurs et groupes** > **Tous les utilisateurs**.
+1. Pour afficher une liste des utilisateurs actuels, sélectionnez **Utilisateurs et groupes** > **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/box-tutorial/create_aaduser_02.png)
 
-3. En haut de la fenêtre **Tous les utilisateurs**, sélectionnez **Ajouter**.
+1. En haut de la fenêtre **Tous les utilisateurs**, sélectionnez **Ajouter**.
 
     ![Bouton Ajouter](./media/box-tutorial/create_aaduser_03.png)
 
     La fenêtre **Utilisateur** s’ouvre.
 
-4. Dans la fenêtre **Utilisateur**, suivez les étapes ci-dessous :
+1. Dans la fenêtre **Utilisateur**, suivez les étapes ci-dessous :
 
     ![Fenêtre Utilisateur](./media/box-tutorial/create_aaduser_04.png)
 
@@ -171,23 +171,23 @@ Dans cette section, vous allez autoriser l’utilisatrice Britta Simon à utilis
 
     ![Liens « Applications d’entreprise » et « Toutes les applications »][201] 
 
-2. Dans la liste **Applications**, sélectionnez **Box**.
+1. Dans la liste **Applications**, sélectionnez **Box**.
 
     ![Le lien de Box](./media/box-tutorial/tutorial_box_app.png)  
 
-3. Dans le volet gauche, sélectionnez **Utilisateurs et groupes**.
+1. Dans le volet gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Sélectionnez **Ajouter** puis, dans le volet **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter** puis, dans le volet **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la liste **Utilisateurs** de la fenêtre **Utilisateurs et groupes**, sélectionnez **Britta Simon**.
+1. Dans la liste **Utilisateurs** de la fenêtre **Utilisateurs et groupes**, sélectionnez **Britta Simon**.
 
-6. Cliquez sur le bouton **Sélectionner**.
+1. Cliquez sur le bouton **Sélectionner**.
 
-7. Dans la fenêtre **Ajouter une affectation**, sélectionnez **Affecter**.
+1. Dans la fenêtre **Ajouter une affectation**, sélectionnez **Affecter**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

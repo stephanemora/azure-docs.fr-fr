@@ -44,30 +44,24 @@
       href: key-vault-ovw-throttling.md
 - name: Procédures
   items:
-    - name: gérer
-      items:
-        - name: Journalisation d’Azure Key Vault
-          href: key-vault-logging.md
-        - name: Accès derrière des pare-feu
-          href: key-vault-access-behind-firewall.md
-        - name: Disponibilité et redondance
-          href: key-vault-disaster-recovery-guidance.md
-        - name: Modifier l’ID de locataire
-          href: key-vault-subscription-move-fix.md
-        - name: Création et gestion à l’aide de l’interface de ligne de commande Azure
-          href: key-vault-manage-with-cli2.md
-        - name: Utiliser la suppression réversible Key Vault avec l’interface CLI
-          href: key-vault-soft-delete-cli.md
-        - name: Utiliser la suppression réversible Key Vault avec Azure PowerShell
-          href: key-vault-soft-delete-powershell.md
-        - name: Utiliser des groupes pour accorder l’accès
-          href: key-vault-group-permissions-for-apps.md
-        - name: Sécuriser votre coffre de clés
-          href: key-vault-secure-your-key-vault.md
-    - name: Automatisation
-      items:
-        - name: Azure Automation
-          href: automation-manage-key-vault.md
+    - name: Journalisation d’Azure Key Vault
+      href: key-vault-logging.md
+    - name: Accès derrière des pare-feu
+      href: key-vault-access-behind-firewall.md
+    - name: Disponibilité et redondance
+      href: key-vault-disaster-recovery-guidance.md
+    - name: Modifier l’ID de locataire
+      href: key-vault-subscription-move-fix.md
+    - name: Création et gestion à l’aide de l’interface de ligne de commande Azure
+      href: key-vault-manage-with-cli2.md
+    - name: Utiliser la suppression réversible Key Vault avec l’interface CLI
+      href: key-vault-soft-delete-cli.md
+    - name: Utiliser la suppression réversible Key Vault avec Azure PowerShell
+      href: key-vault-soft-delete-powershell.md
+    - name: Utiliser des groupes pour accorder l’accès
+      href: key-vault-group-permissions-for-apps.md
+    - name: Sécuriser votre coffre de clés
+      href: key-vault-secure-your-key-vault.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355302"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446848"
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
 
-## <a name="overview"></a>Vue d'ensemble ##
+## <a name="overview"></a>Vue d’ensemble ##
 
 Azure App Service Environment est un déploiement d’Azure App Service dans un sous-réseau dans le réseau virtuel Azure d’un client. Elle comprend :
 
@@ -51,26 +51,26 @@ Pour créer une application web dans un environnement ASE :
 
 1. Sélectionnez **Créer une ressource** > **Web + Mobile** > **Application web**.
 
-2. Entrez le nom de l’application web. Si vous avez déjà sélectionné un plan App Service dans un environnement ASE, le nom de domaine pour l’application reflète le nom de domaine de l’environnement ASE.
+1. Entrez le nom de l’application web. Si vous avez déjà sélectionné un plan App Service dans un environnement ASE, le nom de domaine pour l’application reflète le nom de domaine de l’environnement ASE.
 
     ![Sélection du nom de l’application web][1]
 
-3. Sélectionnez un abonnement.
+1. Sélectionnez un abonnement.
 
-4. Entrez un nom pour un nouveau groupe de ressources ou sélectionnez **Use existing** (Utiliser existant) et choisissez-en un dans la liste déroulante.
+1. Entrez un nom pour un nouveau groupe de ressources ou sélectionnez **Use existing** (Utiliser existant) et choisissez-en un dans la liste déroulante.
 
-5. Sélectionnez votre OS. 
+1. Sélectionnez votre OS. 
 
     * Étant donné que l’hébergement d’une application Linux dans un environnement ASE est une nouvelle fonctionnalité préliminaire, nous vous suggérons de ne pas ajouter d’applications Linux dans un environnement ASE qui est en train d’exécuter des charges de travail de production. 
     * L’ajout d’une application Linux dans un environnement ASE signifie que l’environnement ASE est également en préversion. 
 
-5. Sélectionnez un plan App Service existant dans votre environnement ASE ou créez-en un en procédant comme suit :
+1. Sélectionnez un plan App Service existant dans votre environnement ASE ou créez-en un en procédant comme suit :
 
     a. Sélectionnez **Créer**.
 
     b. Entrez le nom de votre plan App Service.
 
-    c. Sélectionnez votre environnement ASE dans la liste déroulante **Emplacement**. L’hébergement d’applications Linux dans un environnement ASE est activé uniquement dans 6 régions, à savoir pour le moment : **Ouest des États-Unis, Est des États-Unis, Europe de l’Ouest, Europe du Nord, Est de l’Australie, Asie du Sud-Est.** 
+    c. Sélectionnez votre environnement ASE dans la liste déroulante **Emplacement**. L’hébergement d’applications Linux dans un environnement ASE est activé uniquement dans 6 régions, à savoir pour le moment : **USA Ouest, USA Est, Europe Ouest, Europe Nord, Australie Est, Asie Sud-Est.** 
 
     d. Sélectionnez un niveau tarifaire **Isolé**. Sélectionnez **Sélectionner**.
 
@@ -82,7 +82,7 @@ Pour créer une application web dans un environnement ASE :
     > Les applications web Linux et les applications web Windows ne peuvent pas se trouver dans le même plan App Service, mais elles peuvent être dans le même environnement ASE. 
     >
 
-6. Sélectionnez **Créer**.
+1. Sélectionnez **Créer**.
 
 ## <a name="how-scale-works"></a>Fonctionnement de la mise à l’échelle ##
 
@@ -160,7 +160,7 @@ Pour supprimer un environnement ASE :
 
 1. Utilisez **Supprimer** en haut du panneau **Environnement App Service**. 
 
-2. Entrez le nom de votre environnement ASE pour confirmer que vous souhaitez le supprimer. Lorsque vous supprimez un environnement ASE, vous supprimez également l’ensemble de son contenu. 
+1. Entrez le nom de votre environnement ASE pour confirmer que vous souhaitez le supprimer. Lorsque vous supprimez un environnement ASE, vous supprimez également l’ensemble de son contenu. 
 
     ![Suppression de ASE][3]
 

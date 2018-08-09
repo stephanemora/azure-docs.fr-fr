@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092288"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263144"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -29,11 +29,11 @@ La base de données SQL fournit plusieurs fonctionnalités de continuité d’ac
 
 Le tableau suivant compare le temps de récupération estimé et l’objectif de point de récupération de chaque niveau de service, pour les trois scénarios les plus courants.
 
-| Fonctionnalité | De base | Standard | Premium  | Usage général | Critique pour l’entreprise
+| Fonctionnalité | De base | standard | Premium  | Usage général | Critique pour l’entreprise
 | --- | --- | --- | --- |--- |--- |
 | Limite de restauration dans le temps à partir de la sauvegarde |Tout point de restauration dans un délai de 7 jours |Tout point de restauration dans un délai de 35 jours |Tout point de restauration dans un délai de 35 jours |N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|
 | Géo-restauration à partir de sauvegardes répliquées géographiquement |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
-| Restauration à partir d’Azure Backup Vault |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem.|ERT < 12 h, RPO < 1 sem.|
+| Restauration à partir d’une conservation SQL à long terme |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem.|ERT < 12 h, RPO < 1 sem.|
 | Géo-réplication active |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Utiliser une limite de restauration dans le temps pour récupérer une base de données
@@ -102,7 +102,7 @@ Pour plus d’informations et obtenir la procédure détaillée de restauration 
 
 ### <a name="restore-backups-from-long-term-retention"></a>Restaurer des sauvegardes à partir d’une rétention à long terme
 
-Si la perte de données s’est produite en dehors de la période de rétention actuelle pour des sauvegardes automatisées, et si votre base de données est configurée pour une rétention à long terme, vous pouvez effectuer une restauration complète à partir du stockage LTR vers une nouvelle base de données. À ce stade, vous pouvez remplacer la base de données d’origine par la base de données restaurée ou copier les données nécessaires à partir de la base de données restaurée vers la base de données d’origine. Si vous avez besoin de récupérer une version de votre base de données qui soit antérieure à une importante mise à niveau d’application, ou de répondre à une demande dans le cadre d’un audit ou d’un ordre légal, vous pouvez créer une base de données à l’aide d’une sauvegarde complète enregistrée dans Azure Backup Vault.  Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
+Si la perte de données s’est produite en dehors de la période de conservation actuelle pour des sauvegardes automatisées, et si votre base de données est configurée pour une conservation à long terme avec Stockage Blob Azure, vous pouvez restaurer à partir d’une sauvegarde complète dans Stockage Blob Azure vers une nouvelle base de données. À ce stade, vous pouvez remplacer la base de données d’origine par la base de données restaurée ou copier les données nécessaires à partir de la base de données restaurée vers la base de données d’origine. Si vous avez besoin de récupérer une version de votre base de données qui est antérieure à une mise à niveau d’application majeure, ou de répondre à une demande dans le cadre d’un audit ou d’un ordre lié à la réglementation, vous pouvez créer une base de données en utilisant une sauvegarde complète enregistrée dans Stockage Blob Azure.  Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Récupérer une base de données vers une autre région suite à une panne du centre de données régional Azure
 <!-- Explain this scenario -->

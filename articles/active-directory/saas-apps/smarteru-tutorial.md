@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 32feac32af01e518ad6cede43cc4b4f00c097d3b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e07ed8f131697d6340b899ef76c988aed215556b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041277"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Didacticiel : Intégration d’Azure Active Directory à SmarterU
 
@@ -116,7 +116,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/smarteru-tutorial/tutorial_smarteru_certificate.png) 
+    ![Configure Single Sign-On](./media/smarteru-tutorial/tutorial_smarteru_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -126,11 +126,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Dans la barre d’outils située en haut, cliquez sur **Account Settings**.
    
-    ![Paramètres de compte](./media/smarteru-tutorial/IC777326.png "Paramètres de compte")
+    ![Account Settings](./media/smarteru-tutorial/accountsettings.png)
 
 8. Dans la page de configuration du compte, procédez comme suit :
    
-    ![Autorisation externe](./media/smarteru-tutorial/IC777327.png "Autorisation externe") 
+    ![External Authorization](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. Sélectionnez **Enable External Authorization**.
   
@@ -138,11 +138,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
   
       c. Dans la section **User Default Login**, cliquez sur l’onglet **SmarterU**.
   
-      d. Sélectionnez **Enable Okta**.
+      d. Sélectionnez **Enable SAML**.
   
-      e. Copiez le contenu du fichier de métadonnées téléchargé et collez-le dans la zone de texte **Okta Metadata** .
+      e. Copiez le contenu du fichier de métadonnées téléchargé et collez-le dans la zone de texte **IdP Metadata** (Métadonnées IdP).
+      
+      f. Sélectionnez un élément **Identifier Attribute/Claim** (Attribut d’identificateur/Revendication).
   
-      f. Cliquez sur **Enregistrer**.
+      g. Cliquez sur **Enregistrer**.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -193,7 +195,7 @@ Pour SmarterU, l’approvisionnement est une tâche manuelle.
 
 3. Dans la section Users, procédez comme suit :
    
-    ![Nouvel utilisateur](./media/smarteru-tutorial/IC777329.png "Nouvel utilisateur")  
+    ![Nouvel utilisateur](./media/smarteru-tutorial/adduser.png)  
 
     a. Cliquez sur **+User**.
     

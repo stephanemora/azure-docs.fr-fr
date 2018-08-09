@@ -15,17 +15,17 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e57a2e72479d36908ef1e9f537506bb67ae311fe
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d6d6282c3e997a41a27fb65ed7c06fd1bc7916f2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048405"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444658"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Didacticiel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
-> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -56,11 +56,11 @@ Pour créer une fabrique de données, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory**.
+1. Sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory**.
 
    ![Panneau Créer](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-3. Dans le panneau **Nouvelle fabrique de données**, entrez **GetStartedDF** dans le champ **Nom**.
+1. Dans le panneau **Nouvelle fabrique de données**, entrez **GetStartedDF** dans le champ **Nom**.
 
    ![Panneau Nouvelle fabrique de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
@@ -70,25 +70,25 @@ Pour créer une fabrique de données, procédez comme suit :
    > Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
    >
    >
-4. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données.
+1. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données.
 
-5. Sélectionnez un groupe de ressources existant ou créez-en un. Pour les besoins de ce didacticiel, créez un groupe de ressources nommé **ADFGetStartedRG**.
+1. Sélectionnez un groupe de ressources existant ou créez-en un. Pour les besoins de ce didacticiel, créez un groupe de ressources nommé **ADFGetStartedRG**.
 
-6. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seules les régions prises en charge par le service Data Factory sont affichées dans la liste déroulante.
+1. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seules les régions prises en charge par le service Data Factory sont affichées dans la liste déroulante.
 
-7. Cochez la case **Épingler au tableau de bord**.
+1. Cochez la case **Épingler au tableau de bord**.
 
-8. Sélectionnez **Créer**.
+1. Sélectionnez **Créer**.
 
    > [!IMPORTANT]
    > Pour créer des instances Data Factory, vous devez avoir un rôle de [contributeur de fabrique de données](../../role-based-access-control/built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
    >
    >
-9. Sur le tableau de bord, vous voyez la vignette suivante avec l’état **Déploiement de Data Factory** :    
+1. Sur le tableau de bord, vous voyez la vignette suivante avec l’état **Déploiement de Data Factory** :    
 
    ![État Déploiement de Data Factory](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. Une fois la fabrique de données créée, la page **Fabrique de données** correspondante s’affiche avec son contenu.     
+1. Une fois la fabrique de données créée, la page **Fabrique de données** correspondante s’affiche avec son contenu.     
 
     ![Panneau Data Factory](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -104,17 +104,17 @@ Dans cette étape, vous liez votre compte de stockage à votre fabrique de donn�
 
    ![Vignette Créer et déployer](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 
-2. Sélectionnez **Nouveau magasin de données** et choisissez **Stockage Azure**.
+1. Sélectionnez **Nouveau magasin de données** et choisissez **Stockage Azure**.
 
    ![Panneau Nouveau magasin de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
 
-3. Le script JSON de création d’un service lié Stockage apparaît dans l’éditeur.
+1. Le script JSON de création d’un service lié Stockage apparaît dans l’éditeur.
 
    ![Service lié Stockage](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Remplacez **nom de compte** par le nom de votre compte de stockage. Remplacez **clé de compte** par la clé d’accès du compte de stockage. Pour savoir comment obtenir votre clé d’accès de stockage, reportez-vous aux informations sur l’affichage, la copie et la régénération de clés d’accès de stockage dans [Gérer votre compte de stockage](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Remplacez **nom de compte** par le nom de votre compte de stockage. Remplacez **clé de compte** par la clé d’accès du compte de stockage. Pour savoir comment obtenir votre clé d’accès de stockage, reportez-vous aux informations sur l’affichage, la copie et la régénération de clés d’accès de stockage dans [Gérer votre compte de stockage](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Sélectionnez **Déployer** dans la barre de commandes pour déployer le service lié.
+1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le service lié.
 
     ![Bouton déployer](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
@@ -129,7 +129,7 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
 
     ![Nouveau calcul](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
-2. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. L’extrait de code JSON décrit les propriétés permettant de créer le cluster HDInsight à la demande.
+1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. L’extrait de code JSON décrit les propriétés permettant de créer le cluster HDInsight à la demande.
 
     ```JSON
     {
@@ -167,11 +167,11 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
 
      Pour plus d’informations, voir [Service lié HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-3. Sélectionnez **Déployer** dans la barre de commandes pour déployer le service lié.
+1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le service lié.
 
     ![Option Déployer](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
 
-4. Confirmez que vous voyez s’afficher à la fois **AzureStorageLinkedService** et **HDInsightOnDemandLinkedService** dans l’arborescence à gauche de l’écran.
+1. Confirmez que vous voyez s’afficher à la fois **AzureStorageLinkedService** et **HDInsightOnDemandLinkedService** dans l’arborescence à gauche de l’écran.
 
     ![Arborescence avec les services liés](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
@@ -183,7 +183,7 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
 
     ![Nouveau jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-2. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobInput** qui représente les données d’entrée pour une activité dans le pipeline. En outre, vous spécifiez que les données d’entrée se trouvent dans le conteneur d’objets blob nommé **adfgetstarted** et dans le dossier nommé **inputdata**.
+1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobInput** qui représente les données d’entrée pour une activité dans le pipeline. En outre, vous spécifiez que les données d’entrée se trouvent dans le conteneur d’objets blob nommé **adfgetstarted** et dans le dossier nommé **inputdata**.
 
     ```JSON
     {
@@ -223,14 +223,14 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
 
     Pour plus d’informations sur ces propriétés JSON, voir [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
-3. Sélectionnez **Déployer** dans la barre de commandes pour déployer le jeu de données que vous venez de créer. Le jeu de données apparaît dans l’arborescence sur la gauche.
+1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le jeu de données que vous venez de créer. Le jeu de données apparaît dans l’arborescence sur la gauche.
 
 ### <a name="create-the-output-dataset"></a>Créer le jeu de données de sortie
 Vous allez maintenant créer le jeu de données de sortie pour représenter les données de sortie stockées dans le stockage d’objets blob.
 
 1. Dans Data Factory Editor, sélectionnez **Plus** > **Nouveau jeu de données** > **Stockage Blob Azure**.
 
-2. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput**et spécifiez la structure des données produites par le script Hive. Vous indiquez aussi que les résultats sont stockés dans le conteneur d’objets blob appelé **adfgetstarted** et dans le dossier appelé **partitioneddata**. La section **availability** indique que le jeu de données de sortie est produit tous les mois.
+1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput**et spécifiez la structure des données produites par le script Hive. Vous indiquez aussi que les résultats sont stockés dans le conteneur d’objets blob appelé **adfgetstarted** et dans le dossier appelé **partitioneddata**. La section **availability** indique que le jeu de données de sortie est produit tous les mois.
 
     ```JSON
     {
@@ -254,9 +254,9 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
     ```
     Consultez la section Créer le jeu de données d’entrée pour obtenir une description de ces propriétés. Vous ne définissez pas la propriété externe sur un jeu de données de sortie, car le jeu de données est produit par le service Data Factory.
 
-3. Sélectionnez **Déployer** dans la barre de commandes pour déployer le jeu de données que vous venez de créer.
+1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le jeu de données que vous venez de créer.
 
-4. Vérifiez que le jeu de données a été correctement créé.
+1. Vérifiez que le jeu de données a été correctement créé.
 
     ![Arborescence avec les services liés](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
@@ -267,7 +267,7 @@ Dans cette étape, vous créez votre premier pipeline avec une activité HDInsig
 
     ![Option Nouveau pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
-2. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1.
+1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1.
 
    > [!IMPORTANT]
    > Dans l’extrait de code JSON, remplacez **storageaccountname** par le nom de votre compte de stockage.
@@ -333,7 +333,7 @@ Dans cette étape, vous créez votre premier pipeline avec une activité HDInsig
    > Pour en savoir plus sur les propriétés JSON utilisées dans l’exemple, consultez la section « Pipeline JSON » de l’article [Pipelines et activités dans Azure Data Factory](data-factory-create-pipelines.md).
    >
    >
-3. Vérifiez les éléments suivants :
+1. Vérifiez les éléments suivants :
 
    a. Le fichier **input.log** existe dans le dossier **inputdata** du conteneur **adfgetstarted** dans le stockage d’objets blob.
 
@@ -341,9 +341,9 @@ Dans cette étape, vous créez votre premier pipeline avec une activité HDInsig
 
    c. Dans le pipeline JSON, vérifiez que vous avez bien remplacé **storageaccountname** par le nom de votre compte de stockage.
 
-4. Sélectionnez **Déployer** dans la barre de commandes pour déployer le pipeline. Étant donné que les valeurs **start** et **end** spécifiées sont antérieures au moment actuel, et que **isPaused** est défini sur **false**, le pipeline (l’activité dans le pipeline) s’exécute immédiatement après son déploiement.
+1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le pipeline. Étant donné que les valeurs **start** et **end** spécifiées sont antérieures au moment actuel, et que **isPaused** est défini sur **false**, le pipeline (l’activité dans le pipeline) s’exécute immédiatement après son déploiement.
 
-5. Vérifiez que le pipeline apparaît dans l’arborescence.
+1. Vérifiez que le pipeline apparaît dans l’arborescence.
 
     ![Arborescence avec pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 
@@ -355,31 +355,31 @@ Dans cette étape, vous créez votre premier pipeline avec une activité HDInsig
 
     ![Vignette de diagramme](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 
-2. La vue **Diagramme** contient une vue d’ensemble des pipelines et des jeux de données utilisés dans ce didacticiel.
+1. La vue **Diagramme** contient une vue d’ensemble des pipelines et des jeux de données utilisés dans ce didacticiel.
 
     ![Vue schématique](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
 
-3. Pour afficher toutes les activités du pipeline, cliquez avec le bouton droit sur le pipeline dans le diagramme, puis sélectionnez **Ouvrir un pipeline**.
+1. Pour afficher toutes les activités du pipeline, cliquez avec le bouton droit sur le pipeline dans le diagramme, puis sélectionnez **Ouvrir un pipeline**.
 
     ![Menu Ouvrir un pipeline](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
 
-4. Vérifiez que **l’activité Hive** apparaît dans le pipeline.
+1. Vérifiez que **l’activité Hive** apparaît dans le pipeline.
 
     ![Vue Ouvrir un pipeline](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
     Pour revenir à la vue précédente, sélectionnez **Fabrique de données** dans le menu supérieur.
 
-5. Dans la vue **Diagramme**, double-cliquez sur le jeu de données **AzureBlobInput**. Vérifiez que l’état de la tranche est **Prêt**. Plusieurs minutes peuvent être nécessaires avant que la tranche n’apparaisse avec l’état **Prêt**. Si rien ne se produit au bout d’un moment, vérifiez que le fichier d’entrée (**input.log**) est placé dans le conteneur (**adfgetstarted**) et le dossier (**inputdata**) appropriés.
+1. Dans la vue **Diagramme**, double-cliquez sur le jeu de données **AzureBlobInput**. Vérifiez que l’état de la tranche est **Prêt**. Plusieurs minutes peuvent être nécessaires avant que la tranche n’apparaisse avec l’état **Prêt**. Si rien ne se produit au bout d’un moment, vérifiez que le fichier d’entrée (**input.log**) est placé dans le conteneur (**adfgetstarted**) et le dossier (**inputdata**) appropriés.
 
    ![Tranche d’entrée dans l’état Prêt](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
-6. Fermez le panneau **AzureBlobInput**.
+1. Fermez le panneau **AzureBlobInput**.
 
-7. Dans la vue **Diagramme**, double-cliquez sur le jeu de données **AzureBlobOutput**. Vous pouvez voir que la tranche est en cours de traitement.
+1. Dans la vue **Diagramme**, double-cliquez sur le jeu de données **AzureBlobOutput**. Vous pouvez voir que la tranche est en cours de traitement.
 
    ![Jeu de données en cours de traitement](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 
-8. Une fois le traitement terminé, la tranche apparaît à l’état **Prêt**.
+1. Une fois le traitement terminé, la tranche apparaît à l’état **Prêt**.
 
    ![Jeu de données dans l’état Prêt](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
@@ -388,15 +388,15 @@ Dans cette étape, vous créez votre premier pipeline avec une activité HDInsig
    >
    >
 
-9. Quand l’état de la tranche est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.  
+1. Quand l’état de la tranche est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.  
 
    ![Données de sortie](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
-10. Sélectionnez la tranche pour en afficher les détails dans le panneau **Tranche de données**.
+1. Sélectionnez la tranche pour en afficher les détails dans le panneau **Tranche de données**.
 
     ![Détails de la tranche de données](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
 
-11. Dans la liste **Exécutions d’activités**, sélectionnez une exécution d’activité pour en afficher les détails. (Dans ce scénario, il s’agit d’une activité Hive.) Les informations s’affichent dans un panneau **Détails de l’exécution d’activité**.   
+1. Dans la liste **Exécutions d’activités**, sélectionnez une exécution d’activité pour en afficher les détails. (Dans ce scénario, il s’agit d’une activité Hive.) Les informations s’affichent dans un panneau **Détails de l’exécution d’activité**.   
 
     ![Fenêtre Détails de l’exécution d’activité](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -415,11 +415,11 @@ Vous pouvez également utiliser l’application Surveiller et gérer pour survei
 
     ![Vignette Surveiller et gérer](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-2. Dans l’application Surveiller et gérer, modifiez les valeurs **Heure de début** et **Heure de fin** pour qu’elles correspondent aux heures de début et de fin de votre pipeline. Sélectionnez **Appliquer**.
+1. Dans l’application Surveiller et gérer, modifiez les valeurs **Heure de début** et **Heure de fin** pour qu’elles correspondent aux heures de début et de fin de votre pipeline. Sélectionnez **Appliquer**.
 
     ![Application Surveiller et gérer](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 
-3. Sélectionnez une fenêtre d’activité dans la liste des **fenêtres d’activité** pour en afficher les détails.
+1. Sélectionnez une fenêtre d’activité dans la liste des **fenêtres d’activité** pour en afficher les détails.
 
     ![Liste des fenêtres d’activité](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 

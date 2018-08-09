@@ -16,12 +16,12 @@ ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 9329cb0dbfa24cf239b820573ef7f642cdca9103
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248157"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425361"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Didacticiel : mettre des machines virtuelles à la disposition de vos utilisateurs Azure Stack
 
@@ -50,23 +50,23 @@ Les offres sont des groupes d’un ou plusieurs plans que les fournisseurs propo
 
    ![Nouvelle offre](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-2. Dans **Nouvelle offre**, renseignez le **Nom d’affichage** et le **Nom de la ressource**, puis sélectionnez un **Groupe de ressources** nouveau ou existant. Le nom d’affichage correspond au nom convivial de l’offre. Seul l’opérateur cloud peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer l’offre en tant que ressource Azure Resource Manager.
+1. Dans **Nouvelle offre**, renseignez le **Nom d’affichage** et le **Nom de la ressource**, puis sélectionnez un **Groupe de ressources** nouveau ou existant. Le nom d’affichage correspond au nom convivial de l’offre. Seul l’opérateur cloud peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer l’offre en tant que ressource Azure Resource Manager.
 
    ![Nom complet](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-3. Sélectionnez **Plans de base**, puis dans la section **Plan**, sélectionnez **Ajouter** pour ajouter un nouveau plan à l’offre.
+1. Sélectionnez **Plans de base**, puis dans la section **Plan**, sélectionnez **Ajouter** pour ajouter un nouveau plan à l’offre.
 
    ![Ajouter un plan](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-4. Dans la section **Nouveau plan**, renseignez le **Nom d’affichage** et le **Nom de la ressource**. Le nom d’affichage correspond au nom convivial du plan, que les locataires voient. Seul l’opérateur cloud peut voir le nom de la ressource. Il s’agit du nom que les opérateurs cloud utilisent pour gérer le plan comme une ressource Azure Resource Manager.
+1. Dans la section **Nouveau plan**, renseignez le **Nom d’affichage** et le **Nom de la ressource**. Le nom d’affichage correspond au nom convivial du plan, que les locataires voient. Seul l’opérateur cloud peut voir le nom de la ressource. Il s’agit du nom que les opérateurs cloud utilisent pour gérer le plan comme une ressource Azure Resource Manager.
 
    ![Nom d’affichage du plan](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-5. Sélectionnez **Services**. Dans la liste des services, sélectionnez **Microsoft.Compute**, **Microsoft.Network** et **Microsoft.Storage**. Cliquez sur **Sélectionner** pour ajouter ces services au plan.
+1. Sélectionnez **Services**. Dans la liste des services, sélectionnez **Microsoft.Compute**, **Microsoft.Network** et **Microsoft.Storage**. Cliquez sur **Sélectionner** pour ajouter ces services au plan.
 
    ![Services du plan](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-6. Cliquez sur **Quotas**, puis sélectionnez le premier service pour lequel vous voulez créer un quota. Pour un quota IaaS, utilisez l’exemple suivant comme guide pour configurer des quotas pour les services Calcul, Réseau et Stockage.
+1. Cliquez sur **Quotas**, puis sélectionnez le premier service pour lequel vous voulez créer un quota. Pour un quota IaaS, utilisez l’exemple suivant comme guide pour configurer des quotas pour les services Calcul, Réseau et Stockage.
 
    - Commencez par créer un quota pour le service Calcul. Dans la liste d’espaces de noms, sélectionnez **Microsoft.Compute**, puis **Créer un quota**.
 
@@ -82,15 +82,15 @@ Les offres sont des groupes d’un ou plusieurs plans que les fournisseurs propo
 
       Répétez ces étapes pour les services Réseau et Stockage. Lorsque vous avez terminé, sélectionnez **OK** dans **Quotas** pour enregistrer tous les quotas.
 
-7. Sous **Nouveau plan**, sélectionnez **OK**.
+1. Sous **Nouveau plan**, sélectionnez **OK**.
 
-8. Sous **Plan**, sélectionnez le nouveau plan, puis **Sélectionner**.
+1. Sous **Plan**, sélectionnez le nouveau plan, puis **Sélectionner**.
 
-9. Sous **Nouvelle offre**, sélectionnez **Créer**. Une fois l’offre créée, une notification s’affiche.
+1. Sous **Nouvelle offre**, sélectionnez **Créer**. Une fois l’offre créée, une notification s’affiche.
 
-10. Dans le menu du tableau de bord, sélectionnez **Offres**, puis cliquez sur l’offre que vous avez créée.
+1. Dans le menu du tableau de bord, sélectionnez **Offres**, puis cliquez sur l’offre que vous avez créée.
 
-11. Sélectionnez **Changer l’état**, puis **Public**.
+1. Sélectionnez **Changer l’état**, puis **Public**.
 
     ![État Public](media/azure-stack-tutorial-tenant-vm/image09.png)
 
@@ -123,7 +123,7 @@ Maintenant que vous avez créé une offre, vous pouvez le tester. Vous allez vou
    >[!NOTE]
    >Une fois que vous êtes abonné à une offre, vous devrez peut-être actualiser le portail pour voir les services qui font partie du nouvel abonnement.
 
-2. **Approvisionner une machine virtuelle**
+1. **Approvisionner une machine virtuelle**
 
    À partir du portail utilisateur, vous pouvez approvisionner une machine virtuelle à l’aide du nouvel abonnement.
 

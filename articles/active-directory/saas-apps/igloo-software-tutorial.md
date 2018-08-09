@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: acec9379661226dc53607aa9fd12197a193166e0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d49a08c6f57f5248f17539cd9d0467d132f7a63d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042393"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout d’Igloo Software à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-igloo-software-from-the-gallery"></a>Ajout d’Igloo Software à partir de la galerie
 Pour configurer l’intégration d’Igloo Software à Azure AD, vous devez ajouter Igloo Software à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration d’Igloo Software à Azure AD, vous devez ajou
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **Igloo Software**.
+1. Dans la zone de recherche, tapez **Igloo Software**.
 
     ![Création d’un utilisateur de test Azure AD](./media/igloo-software-tutorial/tutorial_igloosoftware_search.png)
 
-5. Dans le panneau de résultats, sélectionnez **Igloo Software**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le panneau de résultats, sélectionnez **Igloo Software**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/igloo-software-tutorial/tutorial_igloosoftware_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Dans Igloo Software, affectez la valeur du **nom d’utilisateur** dans Azure A
 Pour configurer et tester l’authentification unique Azure AD avec Igloo Software, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Igloo Software](#creating-an-igloo-software-test-user)** pour avoir un équivalent de Britta Simon dans Igloo Software lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test Igloo Software](#creating-an-igloo-software-test-user)** pour avoir un équivalent de Britta Simon dans Igloo Software lié à la représentation Azure AD de l’utilisateur.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -104,11 +104,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_samlbase.png)
 
-3. Dans la section **Igloo Software Domain and URLs** (Domaine et URL Igloo Software), procédez comme suit :
+1. Dans la section **Igloo Software Domain and URLs** (Domaine et URL Igloo Software), procédez comme suit :
 
     ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_url.png)
     
@@ -121,33 +121,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Igloo Software](https://www.igloosoftware.com/services/support). 
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_certificate.png) 
+    ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_general_400.png)
     
-6. Dans la section **Igloo Software Configuration** (Configuration d’Igloo Software), cliquez sur **Configure Igloo Software** (Configurer Igloo Software) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+1. Dans la section **Igloo Software Configuration** (Configuration d’Igloo Software), cliquez sur **Configure Igloo Software** (Configurer Igloo Software) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
     ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_configure.png) 
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Igloo Software en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Igloo Software en tant qu’administrateur.
 
-8. Accédez à **Control panel**.
+1. Accédez à **Control panel**.
    
      ![Control Panel (Panneau de configuration)](./media/igloo-software-tutorial/ic799949.png "Control Panel (Panneau de configuration)")
 
-9. Sous l’onglet **Membership** (Appartenance), cliquez sur **Paramètres de connexion**.
+1. Sous l’onglet **Membership** (Appartenance), cliquez sur **Paramètres de connexion**.
    
     ![Sign in Settings (Paramètres de connexion)](./media/igloo-software-tutorial/ic783968.png "Sign in Settings (Paramètres de connexion)")
 
-10. Dans la section SAML Configuration, cliquez sur **Configure SAML Authentication**.
+1. Dans la section SAML Configuration, cliquez sur **Configure SAML Authentication**.
    
     ![Configuration SAML](./media/igloo-software-tutorial/ic783969.png "Configuration SAML")
    
-11. Dans la section **General Configuration** , procédez comme suit :
+1. Dans la section **General Configuration** , procédez comme suit :
    
     ![General Configuration (Configuration générale)](./media/igloo-software-tutorial/ic783970.png "General Configuration (Configuration générale)")
 
@@ -161,7 +161,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     e. Ouvrez dans le Bloc-notes votre certificat codé en **base 64** téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat public**.
     
-12. Dans **Response and Authentication Configuration**, procédez comme suit :
+1. Dans **Response and Authentication Configuration**, procédez comme suit :
     
     ![Response and Authentication Configuration (Configuration de la réponse et de l’authentification)](./media/igloo-software-tutorial/IC783971.png "Response and Authentication Configuration (Configuration de la réponse et de l’authentification)")
   
@@ -175,7 +175,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
       e. Dans la zone de texte **Attribut de nom**, saisissez **surname**.
 
-13. Pour terminer la configuration, procédez comme suit :
+1. Pour terminer la configuration, procédez comme suit :
     
     ![Création d’utilisateurs à l’authentification](./media/igloo-software-tutorial/IC783972.png "Création d’utilisateurs à l’authentification") 
 
@@ -199,15 +199,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/igloo-software-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/igloo-software-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/igloo-software-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/igloo-software-tutorial/create_aaduser_04.png) 
 
@@ -237,23 +237,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Igloo Software**.
+1. Dans la liste des applications, sélectionnez **Igloo Software**.
 
     ![Configurer l'authentification unique](./media/igloo-software-tutorial/tutorial_igloosoftware_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

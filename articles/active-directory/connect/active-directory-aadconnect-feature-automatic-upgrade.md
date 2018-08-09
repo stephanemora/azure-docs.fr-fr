@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089959"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263944"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à niveau automatique
 Cette fonctionnalité date de la build [1.1.105.0 (publiée en février 2016)](active-directory-aadconnect-version-history.md#111050).  Cette fonctionnalité a été mise à jour dans la [build 1.1.561](active-directory-aadconnect-version-history.md#115610) et prend désormais en charge des scénarios supplémentaires.
@@ -95,8 +95,8 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeNotSupportedInvalidPersistedState |L’installation n’est pas une configuration rapide ou une mise à niveau DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Vous avez plus de 100 000 objets dans le métaverse. |
 | UpgradeNotSupportedMultiForestSetup |Vous vous connectez à plusieurs forêts. L’installation rapide se connecte à une seule forêt. |
-| UpgradeNotSupportedNonLocalDbInstall |Vous n’utilisez pas une base de données LocalDB SQL Server Express. |
-| UpgradeNotSupportedNonMsolAccount |Le [compte de connecteur AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) n’est plus le compte MSOL_ par défaut. |
+| UpgradeNotSupportedNonLocalDbInstall |Vous n’utilisez pas une base de données LocalDB SQL Server Express. |d
+| UpgradeNotSupportedNonMsolAccount |Le [compte de connecteur AD DS](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) n’est plus le compte MSOL_ par défaut. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | Lorsque vous configurez AAD Connect, vous avez choisi *Ne pas configurer* lors de la sélection de la méthode d’authentification unique. | 
 | UpgradeNotSupportedPtaSignInMethod | Vous avez sélectionné Authentification directe comme mode d’authentification. |
 | UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode). |

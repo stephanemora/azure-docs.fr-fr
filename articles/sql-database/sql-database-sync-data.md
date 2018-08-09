@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069378"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283622"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -117,7 +117,9 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 
 -   Une table ne peut pas avoir une colonne d’identité qui n’est pas la clé primaire.
 
--   Une clé primaire ne peut pas contenir des données de type datetime.
+-   Une clé primaire ne peut pas avoir les types de données suivants : sql_variant, binary, varbinary, image et xml. 
+
+-   Si vous utilisez les types de données suivants comme clé primaire, n’oubliez pas que la précision n’est prise en charge qu’à la seconde près : time, datetime, datetime2 et datetimeoffset.
 
 -   Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
 
@@ -131,7 +133,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 
 -   XMLSchemaCollection (prise en charge de XML)
 
--   Curseur, horodateur, hierarchyid
+-   Cursor, RowVersion, Timestamp, Hierarchyid
 
 #### <a name="unsupported-column-types"></a>Types de colonne non pris en charge
 

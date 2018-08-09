@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 46dd8b84202e6f534456afa4c92a8decced895e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6c28a64830afeb19c6a9264888b296c3b99990d1
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836985"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262563"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Configuration d’environnements de science des données à utiliser dans le processus TDSP (Team Data Science Process)
 Le processus TDSP (Team Data Science Process) utilise différents environnements de science de données pour le stockage, le traitement et l’analyse de données. Il peut s’agir par exemple de Stockage Blob Azure, de plusieurs types de machines virtuelles Azure, de clusters HDInsight (Hadoop) et d’espaces de travail Azure Machine Learning. Le choix de l’environnement à utiliser dépend du type et de la quantité des données à modéliser, ainsi que de la destination cible de ces données dans le cloud. 
@@ -34,3 +34,9 @@ Ce menu pointe vers des rubriques qui décrivent comment configurer les différe
 
 La **machine virtuelle pour la science des données de Microsoft (DSVM)** est également disponible sous forme d’image de machine virtuelle Azure. Cette machine virtuelle est préinstallée et configurée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. La machine virtuelle DSVM est disponible sur Windows et Linux. Pour plus d’informations, consultez [Présentation de la machine virtuelle Science des données basée sur le cloud pour Linux et Windows](../data-science-virtual-machine/overview.md).
 
+Découvrez comment créer :
+
+- [Machine virtuelle DSVM Windows](../data-science-virtual-machine/provision-vm.md)
+- [Machine virtuelle DSVM Ubuntu](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
+- [Machine virtuelle DSVM CentOS](../data-science-virtual-machine/linux-dsvm-intro.md)
+- [Machine virtuelle d’apprentissage profond](../data-science-virtual-machine/provision-deep-learning-dsvm.md)

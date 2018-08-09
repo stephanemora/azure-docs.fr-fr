@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 025bcd0cde8d73cfdd4d79a77256a1705950f90a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 14d0cdc0bde1081f1a020c7039596a5b6880070f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444644"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619746"
 ---
 # <a name="approvals"></a>Approbations
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Grâce aux approbations Privileged Identity Management, vous pouvez configurer des rôles afin de demander une approbation d’activation, et choisir un ou plusieurs utilisateurs ou groupes comme approbateurs délégués. Poursuivez pour découvrir comment configurer des rôles et sélectionner des approbateurs.
 

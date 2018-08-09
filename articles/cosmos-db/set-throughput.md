@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444259"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399088"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Définir et obtenir le débit des conteneurs Azure Cosmos DB et de base de données
 
@@ -153,7 +153,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Définir le débit pour un ensemble de conteneurs ou au niveau de la base de données
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Définir le débit d’un ensemble de conteneurs au niveau de la base de données
 
 L’extrait de code suivant permet de provisionner 100 000 unités de requête par seconde sur un ensemble de conteneurs à l’aide du SDK .NET de l’API SQL :
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Obtenir le débit en utilisant la commande GetLastRequestStatistics des API MongoDB
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtenir le débit à l’aide de mesures du portail de l’API MongoDB
+
+La méthode la plus simple pour obtenir une estimation correcte des frais d’unité de requête pour votre base de données de l’API MongoDB consiste à utiliser les mesures du [Portail Azure](https://portal.azure.com). Grâce aux graphiques *Nombre de requêtes* et *Frais de requête*, vous pouvez obtenir une estimation du nombre d’unités de requête consommées par chaque opération et par les opérations les unes par rapport aux autres.
+
+![Mesures du portail de l’API MongoDB][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API MongoDB
+Les applications qui dépassent le débit provisionné pour un conteneur ou un ensemble de conteneurs sont limitées jusqu’à ce que le taux de consommation tombe au-dessous du taux de débit provisionné. En cas de limitation, le serveur principal interrompra la requête avec un code d’erreur `16500`-`Too Many Requests`. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur `Too Many Requests`. Si vous recevez de nombreux codes d’erreur`Too Many Requests`, vous pouvez considérer l’ajout d’une logique de nouvelle tentative dans vos routines de gestion des erreurs ou [augmenter le débit approvisionné pour le conteneur](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>Obtenir les frais de requête avec la commande GetLastRequestStatistics de l’API MongoDB
 
 L’API MongoDB prend en charge une commande personnalisée, *getLastRequestStatistics*, pour récupérer les frais de requête d’une opération donnée.
 
@@ -254,14 +263,19 @@ Une méthode permettant d’estimer la quantité de débit réservé requis par 
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtenir le débit à l’aide de mesures du portail de l’API MongoDB
+## <a id="RequestchargeGraphAPI"></a>Obtenir les frais de requête des comptes d’API Gremlin 
 
-La méthode la plus simple pour obtenir une estimation correcte des frais d’unité de requête pour votre base de données de l’API MongoDB consiste à utiliser les mesures du [Portail Azure](https://portal.azure.com). Grâce aux graphiques *Nombre de requêtes* et *Frais de requête*, vous pouvez obtenir une estimation du nombre d’unités de requête consommées par chaque opération et par les opérations les unes par rapport aux autres.
+Voici un exemple montrant comment obtenir les frais de requête pour des comptes d’API Gremlin avec la bibliothèque Gremlin.Net. 
 
-![Mesures du portail de l’API MongoDB][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API MongoDB
-Les applications qui dépassent le débit provisionné pour un conteneur ou un ensemble de conteneurs sont limitées jusqu’à ce que le taux de consommation tombe au-dessous du taux de débit provisionné. En cas de limitation, le serveur principal interrompra la requête avec un code d’erreur `16500`-`Too Many Requests`. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur `Too Many Requests`. Si vous recevez de nombreux codes d’erreur`Too Many Requests`, vous pouvez considérer l’ajout d’une logique de nouvelle tentative dans vos routines de gestion des erreurs ou [augmenter le débit approvisionné pour le conteneur](set-throughput.md).
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+Il existe une autre méthode, qui consiste à utiliser les en-têtes « x-ms-total-request-charge » pour les calculs d’unités de requête.
+
 
 ## <a name="throughput-faq"></a>Forum Aux Questions sur le débit
 

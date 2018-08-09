@@ -3,16 +3,17 @@ title: Fonctionnalités uniques des objets blob de pages Azure | Microsoft Docs
 description: Une vue d’ensemble des objets blobs de pages Azure et de leurs avantages, comportant des cas d’utilisation avec des exemples de scripts.
 services: storage
 author: anasouma
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.component: blobs
+ms.openlocfilehash: a215771b0126e9048b7d9da4ed1d6073c8e960a4
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39266941"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Fonctionnalités uniques des objets blob de pages Azure
 
@@ -26,14 +27,14 @@ Les principales fonctionnalités des objets blob de pages Azure résident dans s
 
 Étudions quelques cas d’utilisation des objets blob de pages avec des disques IaaS Azure. Les objets blob de pages Azure constituent la base de la plateforme de disques virtuels pour IaaS Azure. Le système d’exploitation Azure et les disques de données sont implémentés en tant que disques virtuels dans lesquels les données sont conservées durablement dans la plateforme Stockage Azure, puis remises aux machines virtuelles pour des performances optimales. Les disques Azure sont conservés au [format VHD](https://technet.microsoft.com/library/dd979539.aspx) Hyper-V et stockés en tant qu’[objet blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) dans Stockage Azure. En plus des disques virtuels pour machines virtuelles IaaS Azure, les objets blob de pages permettent également des scénarios PaaS et DBaaS tels que le service Azure SQL DB qui utilise actuellement des objets blob de pages pour stocker des données SQL, permettant ainsi des opérations de lecture/écriture aléatoires rapides pour la base de données. Dans un autre exemple, si vous disposez d’un service PaaS pour accéder aux fichiers multimédias partagés d’applications collaboratives d’édition vidéo, les objets blob de pages permettent un accès rapide à des emplacements aléatoires dans le média. Cela permet également à plusieurs utilisateurs de modifier et de fusionner rapidement et efficacement un même média. 
 
-Des services Microsoft internes tels qu’Azure Site Recovery, Azure Backup, ainsi que de nombreux développeurs tiers, ont implémenté des innovations de pointe à l’aide de l’interface REST de l’objet blob de pages. Voici quelques-uns des scénarios uniques implémentés sur Azure : 
-* Gestion des captures instantanées incrémentielle orientée application : les applications peuvent exploiter les instantanés d’objet blob de pages et les API REST pour enregistrer les points de contrôle d’application sans duplication coûteuse de données. Le stockage Azure prend en charge les instantanés locaux pour les objets blob de pages, qui ne nécessitent pas la copie de l’intégralité de l’objet blob. Ces API d’instantané publiques permettent également d’accéder à et de copier des deltas entre deux instantanés.
+Des services Microsoft internes comme Azure Site Recovery et Azure Backup, ainsi que de nombreux développeurs tiers, ont implémenté des innovations de pointe à l’aide de l’interface REST des objets blob de pages. Voici quelques-uns des scénarios uniques implémentés sur Azure : 
+* Gestion des captures instantanées incrémentielle orientée application : les applications peuvent exploiter les instantanés d’objet blob de pages et les API REST pour enregistrer les points de contrôle d’application sans duplication coûteuse de données. Stockage Azure prend en charge les instantanés locaux pour les objets blob de pages, qui ne nécessitent pas la copie de l’intégralité de l’objet blob. Ces API d’instantané publiques permettent également d’accéder à et de copier des deltas entre deux instantanés.
 * Migration dynamique d’application et de données locales vers le cloud : copiez les données locales et utilisez les API REST pour écrire directement dans l’objet blob de pages Azure pendant l’exécution de la machine virtuelle locale. Lorsque la cible est interceptée, vous pouvez basculer rapidement vers la machine virtuelle Azure à l’aide de ces données. De cette façon, vous pouvez migrer vos machines virtuelles et disques virtuels locaux vers le cloud avec un temps d’arrêt minime, car la migration des données se produit en arrière-plan pendant que vous utilisez la machine virtuelle. Le temps d’arrêt nécessaire pour le basculement est donc relativement court (quelques minutes).
 * Accès partagé [basé sur SAS](../common/storage-dotnet-shared-access-signature-part-1.md), qui permet des scénarios tels que plusieurs lecteurs et un auteur unique avec prise en charge du contrôle d’accès concurrentiel.
 
 ## <a name="page-blob-features"></a>Fonctionnalités d’objet blob de pages
 
-### <a name="rest-api"></a>de l’API REST
+### <a name="rest-api"></a>API REST
 Consultez le document suivant pour commencer à [développer à l’aide d’objets blob de pages](storage-dotnet-how-to-use-blobs.md). Par exemple, vous pouvez voir comment accéder aux objets blob de pages à l’aide de la bibliothèque de client de stockage pour .NET. 
 
 Le diagramme suivant décrit les relations globales entre le compte, les conteneurs et les objets blob de pages.
@@ -129,7 +130,7 @@ Une autre option consiste à utiliser les objets blob de pages directement via l
 Les stockages Standard et Premium constituent un stockage durable où les données d’objet blob de pages sont toujours répliquées pour garantir la durabilité et la haute disponibilité. Pour plus d’informations sur la redondance du Stockage Azure, consultez cette [documentation](../common/storage-redundancy.md). Azure a fourni de façon cohérente une durabilité de classe Entreprise pour les disques IaaS et les objets blob de pages, avec un [taux de défaillance annuel](https://en.wikipedia.org/wiki/Annualized_failure_rate) inégalé dans le secteur de zéro %. Cela signifie qu’Azure n’a jamais perdu de données d’objet blob de pages d’un client. 
 
 ### <a name="seamless-migration-to-azure"></a>Migration parfaite vers Azure
-Pour les clients et développeurs qui souhaitent implémenter leur propre solution de sauvegarde personnalisée, Azure propose également des instantanés incrémentiels ne contenant que les deltas. Cette fonctionnalité permet d’éviter le coût de la copie initiale complète, ce qui réduit considérablement le coût de sauvegarde. Avec la possibilité de lire et de copier efficacement des données différentielles, il s’agit d’une autre fonctionnalité puissante qui permet encore plus d’innovations plus les développeurs, offrant ainsi la meilleure expérience de sauvegarde et de récupération d’urgence sur Azure. Vous pouvez configurer votre propre solution de sauvegarde ou de reprise après sinistre pour vos machines virtuelles sur Azure à l’aide d’un [instantané d’objet blob](/rest/api/storageservices/snapshot-blob), de l’API [Get Page Ranges](/rest/api/storageservices/get-page-ranges) et de l’API [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob), que vous pouvez utiliser pour copier facilement les données incrémentielles pour la reprise après sinistre. 
+Pour les clients et développeurs qui souhaitent implémenter leur propre solution de sauvegarde personnalisée, Azure propose également des instantanés incrémentiels ne contenant que les deltas. Cette fonctionnalité permet d’éviter le coût de la copie initiale complète, ce qui réduit considérablement le coût de sauvegarde. Avec la possibilité de lire et de copier efficacement des données différentielles, il s’agit d’une autre fonctionnalité puissante qui permet encore plus d’innovations plus les développeurs, offrant ainsi la meilleure expérience de sauvegarde et de reprise après sinistre sur Azure. Vous pouvez configurer votre propre solution de sauvegarde ou de reprise après sinistre pour vos machines virtuelles sur Azure à l’aide d’un [instantané d’objet blob](/rest/api/storageservices/snapshot-blob), de l’API [Get Page Ranges](/rest/api/storageservices/get-page-ranges) et de l’API [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob), que vous pouvez utiliser pour copier facilement les données incrémentielles pour la reprise après sinistre. 
 
 Nombre d’entreprises disposent en outre des charges de travail critiques déjà en cours d’exécution dans les centres de données locaux. Pour migrer la charge de travail vers le cloud, un des principales préoccupations serait liée au temps d’arrêt nécessaire pour copier les données et au risque de problèmes imprévus après le basculement. Dans de nombreux cas, le temps d’arrêt peut être un frein à la migration vers le cloud. Grâce à l’API REST des objets blob de pages, Azure résout ce problème en permettant une migration vers le cloud avec une interruption minimale des charges de travail critiques. 
 

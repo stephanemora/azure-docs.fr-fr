@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092067"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308811"
 ---
 # <a name="sql-database-faq"></a>Forum Aux Questions de base de données SQL
 
@@ -90,7 +90,7 @@ Oui, vous pouvez sélectionner de façon indépendante le niveau de calcul de vo
 Vous pouvez configurer la rétention des sauvegardes pour la limite de restauration dans le temps entre 7 et 35 jours. Le stockage de sauvegarde sera facturé séparément, en fonction de la consommation de stockage réelle si elle dépasse la quantité de stockage égale à la taille maximum des données. Dans la préversion, la période de rétention de la limite de restauration dans le temps est définie sur 7 jours par défaut. Dans de nombreux cas, la taille maximum des données est suffisante pour stocker 7 jours de sauvegardes.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>Pourquoi offrez-vous la possibilité de choisir la génération de matériel pour le calcul ?
-Notre objectif est de permettre une flexibilité maximum, afin que vous puissiez choisir une configuration de performances qui correspond au mieux aux besoins de l’application. Le tableau ci-dessus montre les différences entre les générations Gen4 et Gen5. Le matériel Gen4 offre notamment davantage de mémoire par vCore. Toutefois, le matériel Gen5 vous permet de monter en puissance les ressources de calcul de façon plus importante. Nous voulons que ces différences soient transparentes pour vous, afin que vous puissiez obtenir le ratio prix/performances optimal pour votre application.
+Notre objectif est de permettre une flexibilité maximum, afin que vous puissiez choisir une configuration de performances qui correspond au mieux aux besoins de l’application. Le matériel Gen4 offre bien plus de mémoire par vCore. Toutefois, le matériel Gen5 vous permet de monter en puissance les ressources de calcul de façon plus importante. Pour plus d’informations, voir [Modèle d’achat vCore](sql-database-service-tiers-vcore.md)
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Dois-je mettre mon application hors ligne pour convertir une base de données basée sur des unités DTU en un niveau de service basé sur des vCores ? 
 Les nouveaux niveaux de service offrent une méthode de conversion en ligne simple qui est similaire au processus actuel de mise à niveau des bases de données du niveau de service Standard au niveau Premium et inversement. Cette conversion peut être lancée à l’aide du portail Azure, de PowerShell, d’Azure CLI ou des API REST. Consultez [Gérer les ressources pour une base de données unique dans Azure SQL Database](sql-database-single-database-scale.md) et [Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Microsoft Azure SQL](sql-database-elastic-pool.md).

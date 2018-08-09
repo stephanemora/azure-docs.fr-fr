@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: f5662a4082487137dfd642cc3264a90f8ab19054
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30928034"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576992"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
 Ce guide montre comment configurer votre instance de Gestion des API pour protéger une API à l’aide du protocole OAuth 2.0 avec Azure Active Directory (Azure AD). 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour suivre les étapes décrites dans cet article, vous devez avoir :
 * Une instance Gestion des API
 * Une API publiée qui utilise l’instance Gestion des API
 * un locataire Azure AD ;
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Voici un petit aperçu des étapes :
 
@@ -194,10 +193,10 @@ Vous pouvez utiliser la stratégie [Validate JWT](api-management-access-restrict
 
 ## <a name="build-an-application-to-call-the-api"></a>Générer une application pour appeler l’API
 
-Dans ce guide, vous avez utilisé la console de développeur dans Gestion des API comme exemple d’application cliente pour appeler le `Echo API` protégé par OAuth 2.0. Pour en savoir plus sur la façon de générer une application et d’implémenter OAuth 2.0, consultez [exemples de code Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+Dans ce guide, vous avez utilisé la console de développeur dans Gestion des API comme exemple d’application cliente pour appeler le `Echo API` protégé par OAuth 2.0. Pour en savoir plus sur la façon de générer une application et d’implémenter OAuth 2.0, consultez [exemples de code Azure Active Directory](../active-directory/develop/sample-v1-code.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur [Azure Active Directory et OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md).
+* En savoir plus sur [Azure Active Directory et OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 * Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.
 * Pour les autres méthodes permettant de sécuriser votre service principal, consultez [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md).
 

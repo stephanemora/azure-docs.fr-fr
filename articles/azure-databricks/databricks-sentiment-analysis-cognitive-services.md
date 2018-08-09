@@ -1,27 +1,21 @@
 ---
-title: 'Didacticiel : Analyse d’opinions sur les données de streaming à l’aide d’Azure Databricks | Microsoft Docs'
+title: 'Didacticiel : Analyse d’opinions sur les données de streaming à l’aide d’Azure Databricks'
 description: Découvrez comment utiliser Azure Databricks avec les API Event Hubs et Cognitive Services pour exécuter des analyses d’opinions sur des données de diffusion en continu en temps quasi-réel.
 services: azure-databricks
-documentationcenter: ''
 author: lenadroid
 manager: cgronlun
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 06/21/2018
+ms.date: 08/06/2018
 ms.author: alehall
-ms.openlocfilehash: 1d6087477a7d99314ced19f5fe29fe81b5acaef4
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: edd78b9b54e39a25aa3349f6ad27e61991ea91d2
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308089"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577811"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d’opinions sur les données de streaming à l’aide d’Azure Databricks
 
@@ -33,7 +27,7 @@ L’illustration suivante montre le flux d’application :
 
 ![Azure Databricks avec Event Hubs et Cognitive Services](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Azure Databricks avec Event Hubs et Cognitive Services")
 
-Ce didacticiel décrit les tâches suivantes :
+Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Créer un espace de travail Azure Databricks
@@ -81,7 +75,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     |**Nom de l’espace de travail**     | Renseignez un nom pour votre espace de travail Databricks.        |
     |**Abonnement**     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
     |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md). |
-    |**Lieu**     | Sélectionnez **Est des États-Unis 2**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
+    |**Lieu**     | Sélectionnez **USA Est**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
     |**Niveau tarifaire**     |  Choisissez entre **Standard** ou **Premium**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
@@ -544,7 +538,7 @@ Ajoutez une nouvelle cellule de code et collez l’extrait de code fourni ci-des
       val docsWithLanguage = SentimentDetector.getLanguage(inputDocs)
       val docsWithSentiment = SentimentDetector.getSentiment(docsWithLanguage)
       if (docsWithLanguage.documents.isEmpty) {
-        // Placeholder value to display for no score returned by the sentiment API
+        // Placeholder value to display when unable to perform sentiment request for text in unknown language
         (-1).toDouble
       } else {
         docsWithSentiment.documents.get(0).sentiment.toDouble
@@ -578,9 +572,9 @@ Une valeur plus proche de **1** dans la colonne **Opinion** suggère une excelle
 
 Et voilà ! À l’aide d’Azure Databricks, vous avez réussi à diffuser en continu des données dans Azure Event Hubs, à consommer les données diffusées avec le connecteur Event Hubs et à exécuter des analyses d’opinions sur des données de diffusion en continu en temps quasi-réel.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Une fois le didacticiel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
+Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
 
 ![Arrêter un cluster Databricks](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Arrêter un cluster Databricks")
 

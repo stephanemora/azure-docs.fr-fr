@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364543"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448439"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Intégration et déploiement continus dans Azure Data Factory
 
@@ -53,15 +53,15 @@ Voici le cycle de vie complet d’intégration et de déploiement continus que v
 
 1.  Configurez une fabrique de données de développement avec VSTS dans laquelle tous les développeurs peuvent créer des ressources Data Factory, telles que des pipelines, des jeux de données et ainsi de suite.
 
-2.  Ensuite, les développeurs peuvent modifier des ressources, par exemple des pipelines. À mesure qu’ils apportent leurs modifications, ils peuvent sélectionner **Déboguer** pour voir comment le pipeline s’exécute avec les modifications les plus récentes.
+1.  Ensuite, les développeurs peuvent modifier des ressources, par exemple des pipelines. À mesure qu’ils apportent leurs modifications, ils peuvent sélectionner **Déboguer** pour voir comment le pipeline s’exécute avec les modifications les plus récentes.
 
-3.  Une fois les développeurs satisfaits de leurs modifications, ils peuvent créer une demande de tirage (pull request) à partir de leur branche vers la branche maître (ou de la branche de collaboration) pour que leurs modifications soient examinées par leurs pairs.
+1.  Une fois les développeurs satisfaits de leurs modifications, ils peuvent créer une demande de tirage (pull request) à partir de leur branche vers la branche maître (ou de la branche de collaboration) pour que leurs modifications soient examinées par leurs pairs.
 
-4.  Une fois les modifications apportées dans la branche principale, ils peuvent les publier vers la fabrique de développement en sélectionnant **Publier**.
+1.  Une fois les modifications apportées dans la branche principale, ils peuvent les publier vers la fabrique de développement en sélectionnant **Publier**.
 
-5.  Lorsque l’équipe est prête à promouvoir les modifications dans la fabrique de test et la fabrique de production, elle peut exporter le modèle Resource Manager à partir de la branche principale ou à partir de n’importe quelle autre branche si la branche principale stocke la fabrique de données de développement dynamique.
+1.  Lorsque l’équipe est prête à promouvoir les modifications dans la fabrique de test et la fabrique de production, elle peut exporter le modèle Resource Manager à partir de la branche principale ou à partir de n’importe quelle autre branche si la branche principale stocke la fabrique de données de développement dynamique.
 
-6.  Le modèle Resource Manager exporté peut être déployé avec différents fichiers de paramètres vers la fabrique de test et la fabrique de production.
+1.  Le modèle Resource Manager exporté peut être déployé avec différents fichiers de paramètres vers la fabrique de test et la fabrique de production.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatiser l’intégration continue avec les versions VSTS
 
@@ -81,19 +81,19 @@ Les étapes suivantes de configuration d’une version VSTS vous permettront d�
 
 1.  Accédez à votre page VSTS dans le même projet que celui configuré avec la fabrique de données.
 
-2.  Cliquez sur le menu supérieur **Build et mise en production** &gt; **Versions** &gt; **Créer une définition de mise en production**.
+1.  Cliquez sur le menu supérieur **Build et mise en production** &gt; **Versions** &gt; **Créer une définition de mise en production**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Sélectionnez le modèle **Processus vide**.
+1.  Sélectionnez le modèle **Processus vide**.
 
-4.  Entrez le nom de votre environnement.
+1.  Entrez le nom de votre environnement.
 
-5.  Ajoutez un artefact Git et sélectionnez le même référentiel que celui configuré avec la fabrique de données. Choisissez `adf_publish` comme branche par défaut avec la dernière version par défaut.
+1.  Ajoutez un artefact Git et sélectionnez le même référentiel que celui configuré avec la fabrique de données. Choisissez `adf_publish` comme branche par défaut avec la dernière version par défaut.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Ajoutez une tâche de déploiement Azure Resource Manager :
+1.  Ajoutez une tâche de déploiement Azure Resource Manager :
 
     a.  Créez une tâche, recherchez **Déploiement d’Azure Resource Group** et ajoutez-le.
 
@@ -109,9 +109,9 @@ Les étapes suivantes de configuration d’une version VSTS vous permettront d�
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Enregistrez la définition de version.
+1.  Enregistrez la définition de version.
 
-9.  Créez une nouvelle version de cette définition de mise en production.
+1.  Créez une nouvelle version de cette définition de mise en production.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -144,7 +144,7 @@ Il existe deux moyens de gérer les secrets :
 
     -   Le fichier de paramètres doit également être dans la branche de publication.
 
-2.  Ajoutez une [tâche Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) avant le déploiement Azure Resource Manager décrit dans la section précédente :
+1.  Ajoutez une [tâche Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) avant le déploiement Azure Resource Manager décrit dans la section précédente :
 
     -   Sélectionnez l’onglet **Tâches**, créez une tâche, recherchez **Azure Key Vault** et ajoutez-le.
 
@@ -160,9 +160,9 @@ Le déploiement peut échouer si vous tentez de mettre à jour les déclencheurs
 
 1.  Dans l’onglet Tâches de la version VSTS, recherchez **Azure Powershell** et ajoutez-le.
 
-2.  Choisissez **Azure Resource Manager** en tant que type de connexion et sélectionnez votre abonnement.
+1.  Choisissez **Azure Resource Manager** en tant que type de connexion et sélectionnez votre abonnement.
 
-3.  Choisissez **Script inline** comme type de script, puis indiquez votre code. L’exemple suivant arrête les déclencheurs :
+1.  Choisissez **Script inline** comme type de script, puis indiquez votre code. L’exemple suivant arrête les déclencheurs :
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

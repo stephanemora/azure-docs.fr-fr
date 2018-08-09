@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960166"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445741"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 
@@ -69,29 +69,29 @@ Un coffre Recovery Services est une entité qui stocke les sauvegardes et les po
 Pour créer un archivage de Recovery Services :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Dans le menu **Hub**, sélectionnez **Parcourir**, puis tapez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste des ressources est filtrée. Sélectionnez **Coffres Recovery Services**.
+1. Dans le menu **Hub**, sélectionnez **Parcourir**, puis tapez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste des ressources est filtrée. Sélectionnez **Coffres Recovery Services**.
 
     ![Saisie dans la zone et sélection de « Coffres Recovery Services » dans les résultats](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
     La liste des archivages de Recovery Services s’affiche.
-3. Dans le menu **Coffres Recovery Services**, sélectionnez **Ajouter**.
+1. Dans le menu **Coffres Recovery Services**, sélectionnez **Ajouter**.
 
     ![Créer un coffre Recovery Services - Étape 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
     Le volet **Coffres Recovery Services** s’ouvre. Il vous invite à renseigner les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
 
     ![Volet « Coffres Recovery Services »](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
-5. Sélectionnez **Abonnement** pour afficher la liste des abonnements disponibles. Si vous ne savez pas quel abonnement utiliser, utilisez l’abonnement par défaut (ou suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel ou scolaire est associé à plusieurs abonnements Azure.
-6. Sélectionnez **Groupe de ressources** pour afficher la liste des groupes de ressources disponibles, ou **Nouveau** pour en créer un. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-7. Sélectionnez **Emplacement** pour sélectionner la région géographique du coffre. Le coffre *doit* se trouver dans la même région que les machines virtuelles que vous souhaitez protéger.
+1. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
+1. Sélectionnez **Abonnement** pour afficher la liste des abonnements disponibles. Si vous ne savez pas quel abonnement utiliser, utilisez l’abonnement par défaut (ou suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel ou scolaire est associé à plusieurs abonnements Azure.
+1. Sélectionnez **Groupe de ressources** pour afficher la liste des groupes de ressources disponibles, ou **Nouveau** pour en créer un. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+1. Sélectionnez **Emplacement** pour sélectionner la région géographique du coffre. Le coffre *doit* se trouver dans la même région que les machines virtuelles que vous souhaitez protéger.
 
    > [!IMPORTANT]
    > Si vous ne savez pas où se trouve votre machine virtuelle, fermez la boîte de dialogue de création de coffres et accédez à la liste des machines virtuelles dans le portail. Si vous avez des machines virtuelles dans plusieurs régions, vous devez créer un coffre Recovery Services dans chaque région. Créez l’archivage dans le premier emplacement avant de passer à l'emplacement suivant. Il est inutile de spécifier des comptes de stockage dans lesquels héberger les données de sauvegarde. Le coffre Recovery Services et le service Azure Backup gèrent cela automatiquement.
    >
    >
 
-8. Sélectionnez **Créer**. La création de l’archivage de Recovery Services peut prendre un certain temps. Surveillez les notifications d’état dans l’angle supérieur droit du portail. Une fois votre coffre créé, il apparaît dans la liste des coffres Recovery Services. Si vous ne voyez pas votre coffre, sélectionnez **Actualiser**.
+1. Sélectionnez **Créer**. La création de l’archivage de Recovery Services peut prendre un certain temps. Surveillez les notifications d’état dans l’angle supérieur droit du portail. Une fois votre coffre créé, il apparaît dans la liste des coffres Recovery Services. Si vous ne voyez pas votre coffre, sélectionnez **Actualiser**.
 
     ![Liste des archivages de sauvegarde](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -107,13 +107,13 @@ Pour modifier le paramètre de réplication du stockage :
 
    ![Choisir votre coffre dans la liste des coffres de sauvegarde](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. Dans le volet **Paramètres**, utilisez le curseur vertical pour faire défiler l’écran jusqu’à la section **Gérer**, puis sélectionnez **Infrastructure de sauvegarde**. Dans la section **Général**, sélectionnez **Configuration de la sauvegarde**. Dans le volet **Configuration de la sauvegarde**, choisissez l’option de réplication du stockage à appliquer à votre coffre. Par défaut, votre archivage utilise un stockage géo-redondant.
+1. Dans le volet **Paramètres**, utilisez le curseur vertical pour faire défiler l’écran jusqu’à la section **Gérer**, puis sélectionnez **Infrastructure de sauvegarde**. Dans la section **Général**, sélectionnez **Configuration de la sauvegarde**. Dans le volet **Configuration de la sauvegarde**, choisissez l’option de réplication du stockage à appliquer à votre coffre. Par défaut, votre archivage utilise un stockage géo-redondant.
 
    ![Liste des archivages de sauvegarde](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
    Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, continuez d’utiliser le stockage géoredondant. Si vous utilisez Azure comme point de terminaison du stockage de sauvegarde non principal, choisissez le stockage localement redondant. Pour en savoir plus sur les options de stockage, consultez [Réplication Stockage Azure](../storage/common/storage-redundancy.md).
 
-3. Si vous avez modifié le type de réplication du stockage, sélectionnez **Enregistrer**.
+1. Si vous avez modifié le type de réplication du stockage, sélectionnez **Enregistrer**.
     
 Après avoir choisi l’option de stockage pour votre coffre, vous pouvez associer la machine virtuelle au coffre. Pour commencer l’association, vous devez découvrir et enregistrer les machines virtuelles Azure.
 
@@ -135,20 +135,20 @@ Avant d’inscrire une machine virtuelle auprès d’un coffre Recovery Services
       Le volet **Paramètres** et le tableau de bord du coffre choisi s’ouvrent.
 
       ![Volet Paramètres et tableau de bord du coffre](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. Dans le menu du tableau de bord du coffre, sélectionnez **Sauvegarder**.
+1. Dans le menu du tableau de bord du coffre, sélectionnez **Sauvegarder**.
 
    ![Bouton de sauvegarde](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
    Les volets **Sauvegarde** et **Objectif de sauvegarde** s’ouvrent.
 
-3. Dans le volet **Objectif de sauvegarde**, définissez **Où s’exécute votre charge de travail ?** sur la valeur **Azure** et **Que souhaitez-vous sauvegarder ?** sur la valeur **Machine virtuelle**. Sélectionnez ensuite **OK**.
+1. Dans le volet **Objectif de sauvegarde**, définissez **Où s’exécute votre charge de travail ?** sur la valeur **Azure** et **Que souhaitez-vous sauvegarder ?** sur la valeur **Machine virtuelle**. Sélectionnez ensuite **OK**.
 
    ![Volets Sauvegarde et Objectif de sauvegarde](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
    Cette étape inscrit l’extension de machine virtuelle auprès du coffre. Le volet **Objectif de sauvegarde** se ferme et le volet **Stratégie de sauvegarde** s’ouvre.
 
    ![Volets Sauvegarde et Stratégie de sauvegarde](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. Dans le volet **Stratégie de sauvegarde**, sélectionnez la stratégie de sauvegarde à appliquer au coffre.
+1. Dans le volet **Stratégie de sauvegarde**, sélectionnez la stratégie de sauvegarde à appliquer au coffre.
 
    ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
@@ -156,13 +156,13 @@ Avant d’inscrire une machine virtuelle auprès d’un coffre Recovery Services
     Sélectionnez **OK** pour associer la stratégie de sauvegarde au coffre.
 
    Le volet **Stratégie de sauvegarde** se ferme et le volet **Sélectionner les machines virtuelles** s’ouvre.
-5. Dans le volet **Sélectionner les machines virtuelles**, choisissez les machines virtuelles à associer à la stratégie spécifiée, puis sélectionnez **OK**.
+1. Dans le volet **Sélectionner les machines virtuelles**, choisissez les machines virtuelles à associer à la stratégie spécifiée, puis sélectionnez **OK**.
 
    ![Volet Sélectionner les machines virtuelles](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
    La machine virtuelle sélectionnée est validée. Si vous ne voyez pas les machines virtuelles que vous attendiez, vérifiez qu’elles se trouvent dans la même région Azure que le coffre Recovery Services. Si vous ne voyez toujours pas les machines virtuelles, vérifiez qu’elles ne sont pas déjà protégées par un autre coffre. Le tableau de bord du coffre indique la région dans laquelle le coffre Recovery Services se trouve.
 
-6. Maintenant que vous avez défini tous les paramètres du coffre, sélectionnez **Activer la sauvegarde** dans le volet **Sauvegarde**. Cette étape déploie la stratégie sur le coffre et les machines virtuelles. Elle ne crée pas le point de récupération initial pour la machine virtuelle.
+1. Maintenant que vous avez défini tous les paramètres du coffre, sélectionnez **Activer la sauvegarde** dans le volet **Sauvegarde**. Cette étape déploie la stratégie sur le coffre et les machines virtuelles. Elle ne crée pas le point de récupération initial pour la machine virtuelle.
 
    ![Bouton Activer la sauvegarde](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
@@ -241,15 +241,15 @@ Pour utiliser un proxy HTTP pour communiquer avec le réseau Internet public, ef
 Cette procédure définit la configuration du serveur proxy pour le compte système local.
 
 1. Téléchargez [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
-2. Ouvrez Internet Explorer en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :
+1. Ouvrez Internet Explorer en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges :
 
     ```
     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
     ```
 
-3. Dans Internet Explorer, accédez à **Outils** > **Options Internet** > **Connexions** > **Paramètres réseau**.
-4. Vérifiez les paramètres de proxy pour le compte système. Définissez l’adresse IP et le port de proxy.
-5. Fermez Internet Explorer.
+1. Dans Internet Explorer, accédez à **Outils** > **Options Internet** > **Connexions** > **Paramètres réseau**.
+1. Vérifiez les paramètres de proxy pour le compte système. Définissez l’adresse IP et le port de proxy.
+1. Fermez Internet Explorer.
 
 Le script suivant définit une configuration de proxy au niveau de l’ordinateur et l’utilise pour le trafic HTTP ou HTTPS sortant. Si vous avez configuré un serveur proxy sur un compte d’utilisateur actuel (pas un compte système local), utilisez ce script pour les appliquer à SYSTEMACCOUNT.
 
@@ -283,10 +283,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Étape 2 : Autoriser les connexions entrantes sur le serveur proxy
 1. Ouvrez le Pare-feu Windows sur le serveur proxy. Pour accéder au pare-feu, le plus simple consiste à rechercher **Pare-feu Windows avec fonctions avancées de sécurité**.
-2. Dans la boîte de dialogue **Pare-feu Windows avec fonctions avancées de sécurité**, cliquez avec le bouton droit sur **Règles de trafic entrant** et sélectionnez **Nouvelle règle**.
-3. Dans l’Assistant Nouvelle règle de trafic entrant, sélectionnez l’option **personnalisée** dans la page **Type de règle**, puis **Suivant**.
-4. Dans la page servant à sélectionner le **programme**, sélectionnez **Tous les programmes**, puis **Suivant**.
-5. Dans la page **Protocole et ports**, entrez les informations suivantes, puis sélectionnez **Suivant** :
+1. Dans la boîte de dialogue **Pare-feu Windows avec fonctions avancées de sécurité**, cliquez avec le bouton droit sur **Règles de trafic entrant** et sélectionnez **Nouvelle règle**.
+1. Dans l’Assistant Nouvelle règle de trafic entrant, sélectionnez l’option **personnalisée** dans la page **Type de règle**, puis **Suivant**.
+1. Dans la page servant à sélectionner le **programme**, sélectionnez **Tous les programmes**, puis **Suivant**.
+1. Dans la page **Protocole et ports**, entrez les informations suivantes, puis sélectionnez **Suivant** :
    * Pour **Type de protocole**, sélectionnez **TCP**.
    * Pour **Port local**, sélectionnez **Ports spécifiques**. Dans la zone suivante, spécifiez le numéro du port proxy qui a été configuré.
    * Pour **Port distant**, sélectionnez **Tous les ports**.

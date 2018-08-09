@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917691"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578763"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
 Cet article décrit comment Azure Site Recovery s’intègre avec Azure Automation pour vous aider à étendre vos plans de récupération. Des plans de récupération peuvent orchestrer la récupération de machines virtuelles protégées par Site Recovery. Les plans de récupération fonctionnent aussi bien pour la réplication sur un cloud secondaire que pour la réplication sur Azure. Ils aident également à rendre la récupération **toujours précise**, **répétable** et **automatisée**. Si vous basculez de vos machines virtuelles vers Azure, l’intégration avec Azure Automation étend vos plans de récupération. Vous pouvez l’utiliser pour exécuter des runbooks qui offrent des tâches d’automatisation puissantes.
@@ -196,7 +196,7 @@ Pour chaque plan de récupération, créez des variables indépendantes afin de 
 
 Imaginez un scénario dans le cadre duquel vous souhaitez disposer d’un script unique pour activer une adresse IP publique sur des machines virtuelles spécifiques. Dans un autre scénario, vous pourriez vouloir appliquer différents groupes de sécurité réseau à différentes machines virtuelles (au lieu de toutes). Vous pouvez créer un script réutilisable pour tout plan de récupération. Chaque plan de récupération peut avoir un nombre variable de machines virtuelles. Par exemple, une récupération SharePoint a deux serveurs frontaux. Une application métier n’a qu’un seul serveur frontal. Vous ne pouvez pas créer des variables distinctes pour chaque plan de récupération.
 
-Dans l’exemple suivant, nous utilisons une nouvelle technique et créons une [variable complexe](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) dans les ressources du compte Azure Automation. Pour ce faire, spécifiez plusieurs valeurs. Vous devez utiliser Azure PowerShell pour suivre les étapes suivantes :
+Dans l’exemple suivant, nous utilisons une nouvelle technique et créons une [variable complexe](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) dans les ressources du compte Azure Automation. Pour ce faire, spécifiez plusieurs valeurs. Vous devez utiliser Azure PowerShell pour suivre les étapes suivantes :
 
 1. Dans PowerShell, connectez-vous à votre abonnement Azure :
 

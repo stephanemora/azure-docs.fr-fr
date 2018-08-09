@@ -1,5 +1,5 @@
 ---
-title: Créer un espace de noms Azure Event Hubs prenant en charge Kafka | Microsoft Docs
+title: Créer un espace de noms Azure Event Hubs prenant en charge Apache Kafka | Microsoft Docs
 description: Créer un espace de noms Azure Event Hubs prenant en charge Kafka avec le portail Azure
 services: event-hubs
 documentationcenter: .net
@@ -10,18 +10,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: shvija
-ms.openlocfilehash: 7a05a89fdf99efb6470ee9c8695f349cf22b8ebb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 79b6b879bd2332c044ce871e2c9a938c6b9c900c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442125"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285075"
 ---
-# <a name="create-kafka-enabled-event-hubs"></a>Créer des hubs d’événements prenant en charge Kafka
+# <a name="create-apache-kafka-enabled-event-hubs"></a>Créer un espace de noms Azure Event Hubs prenant en charge Apache Kafka
 
 Azure Event Hubs est une plateforme PaaS (Platform as a Service) de streaming de Big Data qui ingère des millions d’événements par seconde et fournit un haut débit ainsi qu’une faible latence pour une analytique et une visualisation en temps réel.
 
-Azure Event Hubs pour les écosystèmes Kafka vous offre un point de terminaison. Ce point de terminaison permet à votre espace de noms Event Hubs de comprendre de manière native le protocole de message et les API [Apache Kafka](https://kafka.apache.org/intro). Cette fonctionnalité vous permet de communiquer avec vos hubs d’événements comme avec les rubriques Kafka sans changer vos clients de protocole ni exécuter vos propres clusters. Event Hubs pour les écosystèmes Kafka prend en charge [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) et ultérieures.
+Azure Event Hubs offre un point de terminaison Kafka. Ce point de terminaison permet à votre espace de noms Event Hubs de comprendre de manière native le protocole de message et les API [Apache Kafka](https://kafka.apache.org/intro). Cette fonctionnalité vous permet de communiquer avec vos hubs d’événements comme avec les rubriques Kafka sans changer vos clients de protocole ni exécuter vos propres clusters. Event Hubs prend en charge [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) et ultérieures.
 
 Cet article explique comment créer un espace de noms Event Hubs et obtenir la chaîne de connexion requise pour connecter des applications Kafka à des hubs d’événements prenant en charge Kafka.
 
@@ -58,7 +58,7 @@ Vous pouvez désormais diffuser des événements à partir de vos applications q
 Pour en savoir plus les hubs d’événements, consultez ces liens :
 
 * [Diffuser dans Event Hubs à partir de vos applications Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [En savoir plus sur Event Hubs pour écosystème Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [En savoir plus sur Event Hubs pour Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [En savoir plus sur Event Hubs](event-hubs-what-is-event-hubs.md)
 
 

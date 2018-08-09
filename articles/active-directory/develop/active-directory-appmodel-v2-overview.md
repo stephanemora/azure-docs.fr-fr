@@ -17,12 +17,12 @@ ms.date: 05/01/2017
 ms.author: celested
 ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1c91c1ed8358f58ab7a4d9a697ec2d7933c4f137
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8cf592ddd2c4a68e15856d968b77813604713b78
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316736"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592038"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Utilisateurs de compte de connexion Microsoft et Azure Active Directory dans une application unique
 Auparavant, les développeurs d’application qui souhaitaient prendre en charge à la fois les comptes Microsoft personnels et les comptes professionnels d’Azure Active Directory devait opérer une intégration à deux systèmes distincts. Le point de terminaison Azure Active Directory (Azure AD) v2.0 introduit une nouvelle version d’API d’authentification qui simplifie ce processus. Le point de terminaison Azure AD v2.0 permet une connexion à partir de ces deux types de compte à l’aide d’une intégration unique. Les applications qui utilisent le point de terminaison Azure AD v2.0 peuvent également consommer les API REST à partir de [l’API Microsoft Graph](https://graph.microsoft.io) à l’aide d’un des deux types de compte.
@@ -36,7 +36,7 @@ Choisissez votre plateforme préférée dans la liste ci-dessous pour créer une
 ## <a name="learn-more-about-the-azure-ad-v20-endpoint"></a>Découvrir plus en détail le point de terminaison Azure AD v2.0
 Découvrez ce que vous pouvez faire avec le point de terminaison Azure AD v2.0 :
 
-* Découvrez les [types d’applications que vous pouvez générer avec le point de terminaison Azure AD v2.0](active-directory-v2-flows.md).
+* Découvrez les [types d’applications que vous pouvez générer avec le point de terminaison Azure AD v2.0](v2-app-types.md).
 * Familiarisez-vous avec les [limites, restrictions et contraintes](active-directory-v2-limitations.md) du point de terminaison Azure AD v2.0.
 * Regardez cette vidéo pour avoir une vue d’ensemble du point de terminaison Azure AD v2.0 :
 
@@ -46,12 +46,12 @@ Découvrez ce que vous pouvez faire avec le point de terminaison Azure AD v2.0 :
 Explorez des informations détaillées sur la plateforme du point de terminaison Azure AD v2.0 :
 
 * [Informations de référence sur les protocoles Azure AD v2.0](active-directory-v2-protocols.md)
-* [Informations de référence sur les jetons Azure AD v2.0](active-directory-v2-tokens.md)
-* [Informations de référence sur les bibliothèques d’authentification Azure AD v2.0](active-directory-v2-libraries.md)
-* [Étendues et consentement dans le point de terminaison Azure AD v2.0](active-directory-v2-scopes.md)
+* [Informations de référence sur les jetons Azure AD v2.0](v2-id-and-access-tokens.md)
+* [Informations de référence sur les bibliothèques d’authentification Azure AD v2.0](reference-v2-libraries.md)
+* [Étendues et consentement dans le point de terminaison Azure AD v2.0](v2-permissions-and-consent.md)
 * [API Microsoft Graph](https://graph.microsoft.io)
 
 > [!NOTE]
-> Si vous ne devez connecter que des comptes professionnels et scolaires à partir d’Azure Active Directory, commencez par le [Guide du développeur Azure AD](active-directory-developers-guide.md). Le point de terminaison Azure AD v2.0 est destiné aux développeurs qui doivent explicitement connecter des comptes personnels Microsoft.
+> Si vous ne devez connecter que des comptes professionnels et scolaires à partir d’Azure Active Directory, commencez par le [Guide du développeur Azure AD](azure-ad-developers-guide.md). Le point de terminaison Azure AD v2.0 est destiné aux développeurs qui doivent explicitement connecter des comptes personnels Microsoft.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

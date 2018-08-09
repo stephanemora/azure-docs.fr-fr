@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 72a9cc905adda5146cf943d8f0ed2789c3088422
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189389"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447388"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid
 
@@ -34,7 +34,6 @@ L’exemple que vous créez suppose que la rubrique Service Bus a deux abonnemen
 Dans l’exemple, vous envoyez des messages à la rubrique Service Bus et vérifiez que l’événement a été généré pour cet abonnement Service Bus. L’application logique ou la fonction reçoit les messages de l’abonnement Service Bus, puis le renseigne.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer, assurez-vous que vous avez effectué les étapes décrites dans les deux sections suivantes.
 
 ### <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
@@ -47,13 +46,13 @@ Vous pouvez utiliser la méthode de votre choix pour envoyer un message à votre
 
 1. Clonez [le référentiel azure-service-bus GitHub](https://github.com/Azure/azure-service-bus/).
 
-2. Dans Visual Studio, accédez au dossier *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration*, puis ouvrez le fichier *SBEventGridIntegration.sln*.
+1. Dans Visual Studio, accédez au dossier *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration*, puis ouvrez le fichier *SBEventGridIntegration.sln*.
 
-3. Accédez au projet **MessageSender**, puis sélectionnez **Program.cs**.
+1. Accédez au projet **MessageSender**, puis sélectionnez **Program.cs**.
 
    ![8][]
 
-4. Entrez le nom de la rubrique et la chaîne de connexion, puis exécutez le code de l’application de console suivant :
+1. Entrez le nom de la rubrique et la chaîne de connexion, puis exécutez le code de l’application de console suivant :
 
     ```CSharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
@@ -66,7 +65,7 @@ Avant d’étudier le scénario dans son intégralité, configurez au moins une 
 
 1. Dans le portail Azure, créez une application Azure Functions. Pour apprendre les notions de base d’Azure Functions, consultez la [documentation Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 
-2. Dans la fonction que vous venez de créer, sélectionnez le signe plus (+) pour ajouter une fonction de déclencheur HTTP :
+1. Dans la fonction que vous venez de créer, sélectionnez le signe plus (+) pour ajouter une fonction de déclencheur HTTP :
 
     ![2][]
     
@@ -74,9 +73,9 @@ Avant d’étudier le scénario dans son intégralité, configurez au moins une 
 
     ![3][]
 
-3. Sélectionnez le bouton **Webhook + API**, puis **CSharp**, et enfin **Créer cette fonction**.
+1. Sélectionnez le bouton **Webhook + API**, puis **CSharp**, et enfin **Créer cette fonction**.
  
-4. Dans la fonction, collez le code suivant :
+1. Dans la fonction, collez le code suivant :
 
     ```CSharp
     #r "Newtonsoft.Json"
@@ -122,7 +121,7 @@ Avant d’étudier le scénario dans son intégralité, configurez au moins une 
     }
     ```
 
-5. Sélectionnez **Enregistrer et exécuter**.
+1. Sélectionnez **Enregistrer et exécuter**.
 
 ## <a name="connect-the-function-and-namespace-via-event-grid"></a>Connecter la fonction et l’espace de noms via Event Grid
 
@@ -134,16 +133,16 @@ Pour créer un abonnement Azure Event Grid, procédez comme suit :
 
     ![20][]
 
-2. Sélectionnez **Abonnement aux événements**.  
+1. Sélectionnez **Abonnement aux événements**.  
     La fenêtre **Abonnement aux événements** s’ouvre. L’image suivante affiche un formulaire pour s’abonner à une fonction Azure ou à un webhook sans appliquer de filtres.
 
     ![21][]
 
-3. Remplissez le formulaire comme indiqué et, dans la zone **Filtre de suffixe**, veillez à entrer le filtre approprié.
+1. Remplissez le formulaire comme indiqué et, dans la zone **Filtre de suffixe**, veillez à entrer le filtre approprié.
 
-4. Sélectionnez **Créer**.
+1. Sélectionnez **Créer**.
 
-5. Envoyez un message à votre rubrique Service Bus, comme indiqué dans la section sur les conditions préalables, et vérifiez que les événements sont transmis via la fonctionnalité de surveillance d’Azure Functions.
+1. Envoyez un message à votre rubrique Service Bus, comme indiqué dans la section sur les conditions préalables, et vérifiez que les événements sont transmis via la fonctionnalité de surveillance d’Azure Functions.
 
 L’étape suivante consiste à relier la fonction et l’espace de noms Service Bus. Pour cet exemple, utilisez le portail Azure. Pour comprendre comment utiliser PowerShell ou Azure CLI pour effectuer cette procédure, consultez [Vue d’ensemble de l’intégration d’Azure Service Bus et Event Grid](service-bus-to-event-grid-integration-concept.md).
 
@@ -161,26 +160,26 @@ Vous allez ajouter une fonction Azure comme indiqué dans l’exemple suivant, c
 
     ![10][]
 
-2. Entrez votre chaîne de connexion dans le code suivant :
+1. Entrez votre chaîne de connexion dans le code suivant :
 
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
 
-3. Dans le portail Azure, téléchargez le profil de publication pour la fonction Azure que vous avez créée dans la section « Configurer une fonction de test ».
+1. Dans le portail Azure, téléchargez le profil de publication pour la fonction Azure que vous avez créée dans la section « Configurer une fonction de test ».
 
     ![11][]
 
-4. Dans Visual Studio, cliquez avec le bouton droit sur **SBEventGridIntegration** et sélectionnez **Publier**. 
+1. Dans Visual Studio, cliquez avec le bouton droit sur **SBEventGridIntegration** et sélectionnez **Publier**. 
 
-5. Dans le volet **Publier** du profil de publication que vous avez téléchargé précédemment, sélectionnez **Importer le profil**, puis sélectionnez **Publier**.
+1. Dans le volet **Publier** du profil de publication que vous avez téléchargé précédemment, sélectionnez **Importer le profil**, puis sélectionnez **Publier**.
 
     ![12][]
 
-6. Une fois la nouvelle fonction Azure publiée, créez un abonnement Azure Event Grid pointant vers celle-ci.  
+1. Une fois la nouvelle fonction Azure publiée, créez un abonnement Azure Event Grid pointant vers celle-ci.  
     Dans la zone **Se termine par**, assurez-vous que vous appliquez le filtre approprié, normalement le nom de votre abonnement Service Bus.
 
-7. Envoyez un message à la rubrique Azure Service Bus créée au préalable, puis vérifiez dans le journal Azure Functions sur le portail Azure que les événements sont transmis et que les messages sont reçus.
+1. Envoyez un message à la rubrique Azure Service Bus créée au préalable, puis vérifiez dans le journal Azure Functions sur le portail Azure que les événements sont transmis et que les messages sont reçus.
 
     ![12-1][]
 
@@ -196,22 +195,22 @@ Connectez une application logique avec Azure Service Bus et Azure Event Grid en 
 
     ![14][]
 
-2. Ajoutez vos informations en procédant comme suit :
+1. Ajoutez vos informations en procédant comme suit :
 
     a. Dans la zone **Nom de la ressource**, entrez votre propre nom d’espace de noms. 
 
     b. Sous **Options avancées**, dans la zone **Filtre de suffixe**, entrez le filtre de votre abonnement.
 
-3. Aoutez une action de réception Service Bus pour recevoir des messages d’un abonnement à la rubrique.  
+1. Aoutez une action de réception Service Bus pour recevoir des messages d’un abonnement à la rubrique.  
     L’action finale est indiquée dans l’image suivante :
 
     ![15][]
 
-4. Ajoutez un événement terminé, comme indiqué dans l’image suivante :
+1. Ajoutez un événement terminé, comme indiqué dans l’image suivante :
 
     ![16][]
 
-5. Enregistrez l’application logique et envoyez un message à votre rubrique Service Bus, comme indiqué dans la section sur les conditions préalables.  
+1. Enregistrez l’application logique et envoyez un message à votre rubrique Service Bus, comme indiqué dans la section sur les conditions préalables.  
     Observez l’exécution de l’application logique. Pour afficher plus de données pour l’exécution, sélectionnez **Vue d’ensemble**, puis affichez les données sous **Historique des exécutions**.
 
     ![17][]

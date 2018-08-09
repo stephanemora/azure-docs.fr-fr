@@ -2,24 +2,18 @@
 title: Gérer les partages de fichiers Azure à l’aide de l’Explorateur Stockage Azure
 description: Découvrez comment utiliser l’Explorateur Stockage Azure pour gérer Azure Files.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: e8989cadd331021a3e35fc559421bbdd08f0b4fb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308495"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521192"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gérer les partages de fichiers Azure avec l’Explorateur Stockage Azure 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Cet article vous explique les bases de l’utilisation des partages de fichiers Azure à l’aide de l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/). L’Explorateur Stockage est un outil client populaire qui est disponible pour Windows, macOS et Linux. Vous pouvez utiliser l’Explorateur Stockage pour gérer les partages de fichiers Azure et d’autres ressources de stockage.

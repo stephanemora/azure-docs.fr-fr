@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: f4253d4259d66b0c5746ef61cfc3cf4f4f2caad3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319086"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448901"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
@@ -60,7 +60,7 @@ La période de rétention de sauvegarde détermine jusqu’à quelle date une re
 ## <a name="server-point-in-time-restore"></a>Limite de restauration dans le temps
 Vous pouvez restaurer le serveur à une version antérieure. Les données restaurées sont copiées dans un nouveau serveur et le serveur existant est conservé tel quel. Par exemple, si une table est accidentellement supprimée à midi aujourd’hui, vous pouvez restaurer le serveur à l’état qu’il présentait juste avant midi. Vous pouvez ensuite récupérer la table et les données manquantes à partir de la copie restaurée du serveur. 
 
-Pour restaurer le serveur, utilisez la commande [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) de l’interface Azure CLI.
+Pour restaurer le serveur, utilisez la commande [az mysql server restore](/cli/azure/mysql/server#az-mysql-server-restore) de l’interface Azure CLI.
 
 ### <a name="run-the-restore-command"></a>Exécuter la commande de restauration
 
@@ -98,7 +98,7 @@ Pour géo-restaurer le serveur, à l’invite de commande de l’interface de li
 ```azurecli-interactive
 az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
 ```
-Cette commande crée un nouveau serveur appelé *mydemoserver-georestored* dans l’Est des États-Unis appartenant à *myresourcegroup*. Il s’agit d’un serveur à usage général, de 4e génération avec 8 vCores. Le serveur est créé à partir de la sauvegarde géo-redondante *mydemoserver*, qui est également dans le groupe de ressources *myresourcegroup*
+Cette commande crée un nouveau serveur appelé *mydemoserver-georestored* dans la région USA Est appartenant à *myresourcegroup*. Il s’agit d’un serveur à usage général, de 4e génération avec 8 vCores. Le serveur est créé à partir de la sauvegarde géo-redondante *mydemoserver*, qui est également dans le groupe de ressources *myresourcegroup*
 
 Si vous souhaitez créer le nouveau serveur dans un autre groupe de ressources du serveur existant, dans le paramètre `--source-server`, vous devez qualifier le nom du serveur comme dans l’exemple suivant :
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 08/01/2018
 ms.author: sethm
-ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 30df312e349bd6f6ebd1f38141075382be2522a2
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874650"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397982"
 ---
 # <a name="managed-service-identity-preview"></a>Managed Service Identity (préversion)
 
@@ -53,7 +53,7 @@ Une fois la fonctionnalité activée, une identité de service est créée dans 
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Créer un espace de noms Service Bus Messaging
 
-Ensuite, [créez un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md) dans l’une des régions Azure qui prend en charge la préversion du contrôle d’accès en fonction du rôle : **Est des États-Unis**, **Est des États-Unis 2** ou **Europe de l'Ouest**. 
+Ensuite, [créez un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md) dans l’une des régions Azure qui prend en charge la préversion du contrôle d’accès en fonction du rôle : **USA Est**, **USA Est 2** ou **Europe Ouest**. 
 
 Accédez à la page **Contrôle d’accès (IAM)** de l’espace de nom sur le portail, puis cliquez sur **Ajouter** pour ajouter l’identité de service administré au rôle **Propriétaire**. Pour ce faire, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
 
@@ -63,7 +63,7 @@ L’identité de service administré de l’application web a désormais accès 
 
 ### <a name="run-the-app"></a>Exécution de l'application
 
-À présent, modifiez la page par défaut de l’application ASP.NET que vous avez créée. Vous pouvez également utiliser le code d’application web à partir de [ce référentiel GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
+À présent, modifiez la page par défaut de l’application ASP.NET que vous avez créée. Vous pouvez utiliser le code de l’application web qui se trouve sur [ce référentiel GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 La page Default.aspx est votre page d’accueil. Le code se trouve dans le fichier Default.aspx.cs. Le résultat est une application web minimale avec quelques champs d’entrée et les boutons **send** (envoyer) et **receive** (recevoir) qui permettent de se connecter à Service Bus pour envoyer ou recevoir des messages.
 
@@ -74,8 +74,12 @@ Une fois que vous avez apporté ces modifications, publiez et exécutez l’appl
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
 Pour envoyer ou recevoir des messages, saisissez le nom de l’espace de noms et le nom de l’entité que vous avez créée, puis cliquez sur **send** (envoyer) ou **receive** (recevoir).
- 
-Notez que l’identité de service administré fonctionne uniquement à l’intérieur de l’environnement Azure et seulement dans le déploiement App Service dans lequel vous l’avez configurée. Notez également que les identités de service administré ne fonctionnent pas avec les emplacements de déploiement App Service pour l’instant.
+
+
+> [!NOTE]
+> - L’identité du service administré ne fonctionne qu’au sein de l’environnement Azure, d’App Services, des machines virtuelles Azure et des groupes identiques. Pour les applications .NET, la bibliothèque Microsoft.Azure.Services.AppAuthentication, utilisée par le package NuGet Service Bus, représente une abstraction sur ce protocole et prend en charge une expérience de développement local. Elle vous permet également de tester votre code localement sur votre ordinateur de développement, avec votre compte d’utilisateur issu de Visual Studio, d’Azure CLI 2.0 ou de l’authentification intégrée Azure Active Directory. Pour plus d’informations sur les options de développement local avec cette bibliothèque, voir [Authentification de service à service à Azure Key Vault avec .NET](../key-vault/service-to-service-authentication.md).  
+> 
+> - À l’heure actuelle, les identités du service administré ne fonctionnent pas avec les emplacements de déploiement App Service.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

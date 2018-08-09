@@ -1,19 +1,19 @@
 ---
 title: Gérer les inscriptions d’appareils avec le portail Azure | Microsoft Docs
 description: Guide pratique pour gérer les inscriptions d’appareil avec votre service Device Provisioning dans le portail Azure
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: b13f74e0c3df5090d1b1b2e0c48e3dc612821250
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5282ee0858c1226b2b743f42203e7b4af9eac6e6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628434"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524123"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Guide pratique pour gérer les inscriptions d’appareils avec le portail Azure
 
@@ -29,8 +29,8 @@ Il existe deux façons de procéder à l’inscription de vos appareils auprès 
     Vous pouvez créer un groupe d’inscriptions dans le portail pour un groupe d’appareils en effectuant les étapes suivantes :
 
     1. Connectez-vous au portail Azure et cliquez dans le menu de gauche sur **Toutes les ressources**.  
-    2. Dans la liste des ressources, cliquez sur le service Device Provisioning auquel vous souhaitez inscrire votre appareil.  
-    3. Dans votre service d’approvisionnement :  
+    1. Dans la liste des ressources, cliquez sur le service Device Provisioning auquel vous souhaitez inscrire votre appareil.  
+    1. Dans votre service d’approvisionnement :  
        a. Cliquez sur **Gérer les inscriptions** et sélectionnez l’onglet **Groupes d’inscriptions**.  
        b. Cliquez sur le bouton **Ajouter** en haut.  
        c. Lorsque le panneau « Ajouter un groupe d’inscription » s’affiche, saisissez les informations pour l’entrée de liste d’inscription.  Le **nom de groupe** est obligatoire. Sélectionnez également « CA or Intermediate » comme **type de certificat**et télécharger le **certificat principal** racine pour le groupe d’appareils.  
@@ -44,8 +44,8 @@ Il existe deux façons de procéder à l’inscription de vos appareils auprès 
     Vous pouvez créer une inscription individuelle dans le portail en suivant les étapes décrites ici :
 
     1. Connectez-vous au portail Azure et cliquez dans le menu de gauche sur **Toutes les ressources**.
-    2. Dans la liste des ressources, cliquez sur le service Device Provisioning auquel vous souhaitez inscrire votre appareil.
-    3. Dans votre service d’approvisionnement :  
+    1. Dans la liste des ressources, cliquez sur le service Device Provisioning auquel vous souhaitez inscrire votre appareil.
+    1. Dans votre service d’approvisionnement :  
        a. Cliquez sur **Gérer les inscriptions**, puis sélectionnez l’onglet **Inscriptions individuelles**.  
        b. Cliquez sur le bouton **Ajouter** en haut.   
        c. Lorsque le panneau « Ajouter une inscription » s’affiche, saisissez les informations pour l’entrée de liste d’inscription. Sélectionnez d’abord le **mécanisme** d’attestation pour l’appareil (X.509 ou un module de plateforme sécurisée). L’attestation de X.509 vous demande de télécharger le **certificat principal** feuille pour l’appareil. Le module de plateforme sécurisée vous demande de saisir la **clé d’attestation** et **l’ID d’inscription** du périphérique.  
@@ -57,9 +57,9 @@ Il existe deux façons de procéder à l’inscription de vos appareils auprès 
 Vous pouvez mettre à jour une entrée d’inscription existante dans le portail en effectuant les étapes suivantes :
 
 1. Ouvrez votre service Device Provisioning dans le portail Azure et cliquez sur **Gérer les inscriptions**. 
-2. Accédez à l’entrée d’inscription que vous souhaitez modifier. Cliquez sur l’entrée pour afficher des informations récapitulatives sur votre inscription d’appareil. 
-3. Dans cette page, vous pouvez modifier d’autres éléments que le type de sécurité ou les informations d’identification, par exemple le hub IoT auquel l’appareil doit être lié ainsi que l’ID de l’appareil. Vous pouvez également modifier l’état initial du jumeau d’appareil. 
-4. Lorsque vous avez terminé, cliquez sur **Enregistrer** pour mettre à jour votre inscription d’appareil. 
+1. Accédez à l’entrée d’inscription que vous souhaitez modifier. Cliquez sur l’entrée pour afficher des informations récapitulatives sur votre inscription d’appareil. 
+1. Dans cette page, vous pouvez modifier d’autres éléments que le type de sécurité ou les informations d’identification, par exemple le hub IoT auquel l’appareil doit être lié ainsi que l’ID de l’appareil. Vous pouvez également modifier l’état initial du jumeau d’appareil. 
+1. Lorsque vous avez terminé, cliquez sur **Enregistrer** pour mettre à jour votre inscription d’appareil. 
 
     ![Mise à jour d’une inscription dans le portail](./media/how-to-manage-enrollments/update-enrollment.png)
 
@@ -67,9 +67,9 @@ Vous pouvez mettre à jour une entrée d’inscription existante dans le portail
 Si votre ou vos appareils n’ont pas besoin d’être provisionnés sur un hub IoT, vous pouvez supprimer l’entrée d’inscription correspondante dans le portail en effectuant les étapes suivantes :
 
 1. Ouvrez votre service Device Provisioning dans le portail Azure et cliquez sur **Gérer les inscriptions**. 
-2. Accédez à l’entrée d’inscription que vous souhaitez supprimer et sélectionnez-la. 
-3. Cliquez sur le bouton **Supprimer** tout en haut et sélectionnez **Oui** lorsque vous êtes invité à confirmer l’action. 
-5. Lorsque l’opération est terminée, votre entrée a été supprimée de la liste des inscriptions d’appareil. 
+1. Accédez à l’entrée d’inscription que vous souhaitez supprimer et sélectionnez-la. 
+1. Cliquez sur le bouton **Supprimer** tout en haut et sélectionnez **Oui** lorsque vous êtes invité à confirmer l’action. 
+1. Lorsque l’opération est terminée, votre entrée a été supprimée de la liste des inscriptions d’appareil. 
  
     ![Supprimer une inscription dans le portail](./media/how-to-manage-enrollments/remove-enrollment.png)
 

@@ -3,18 +3,18 @@ title: Démarrage rapide Azure - Créer un compte de stockage | Microsoft Docs
 description: Apprenez rapidement à créer un compte de stockage à l’aide du portail Azure, d’Azure PowerShell ou d’Azure CLI.
 services: storage
 author: tamram
-manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.component: common
+ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856526"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524018"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -54,7 +54,7 @@ Ce bouton lance un interpréteur de commandes interactif que vous pouvez utilise
 
 ### <a name="install-the-cli-locally"></a>Installer la CLI localement
 
-Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ---
 

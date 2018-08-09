@@ -1,19 +1,19 @@
 ---
 title: Points de terminaison de sécurité du service de provisionnement d’appareils IoT | Microsoft Docs
 description: Concepts - Comment contrôler l’accès au service de provisionnement d’appareils IoT pour les applications backend. Inclut des informations sur les jetons de sécurité.
-author: dsk-2015
+author: wesmc7777
 manager: timlt
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: dkshir
-ms.openlocfilehash: e33f6b61f757c9d7f6a773141ad0deea363be2b7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: wesmc
+ms.openlocfilehash: b4776ef3589d994fff692e450d252c491c20f7b2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629386"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522864"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
 
@@ -75,7 +75,7 @@ Voici les valeurs attendues :
 | --- | --- |
 | {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256.|
 | {expiry} |Chaînes UTF8 pour le nombre de secondes depuis l’époque 00:00:00 UTC 1er janvier 1970. |
-| {URL-encoded-resourceURI} | Encodage de l’URL en minuscules à partir de l’URI de ressource en minuscules. Préfixe URI (par segment) des points de terminaison accessibles avec ce jeton, en commençant par le nom d’hôte du service de provisionnement d’appareils IoT (sans protocole). Par exemple : `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Encodage de l’URL en minuscules à partir de l’URI de ressource en minuscules. Préfixe URI (par segment) des points de terminaison accessibles avec ce jeton, en commençant par le nom d’hôte du service de provisionnement d’appareils IoT (sans protocole). Par exemple : `mydps.azure-devices-provisioning.net`. |
 | {policyName} |Le nom de la stratégie d’accès partagé à laquelle ce jeton fait référence. |
 
 **Remarque sur le préfixe**: le préfixe URI est calculé par segment et non par caractère. Par exemple `/a/b` est un préfixe de `/a/b/c`, mais pas de `/a/bc`.
