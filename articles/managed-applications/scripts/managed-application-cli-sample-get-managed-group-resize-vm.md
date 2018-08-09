@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9c4032191738703b71319c05bce4f6bbbc61b44b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 85d58538e15881308ee1f645f7ddd12ec27c94de
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847197"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423410"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obtenir des ressources dans un groupe de ressources managé et redimensionner des machines virtuelles avec Azure CLI
 
@@ -39,9 +39,9 @@ Ce script utilise les commandes suivantes pour déployer l’application managé
 
 | Commande | Notes |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | Répertorier les applications managées. Fournir des valeurs de requête pour affiner les résultats. |
-| [az resource list](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | Répertoriez les ressources. Fournir un groupe de ressources et des valeurs de requête pour affiner le résultat. |
-| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az_vm_resize) | Mettre à jour la taille d’une machine virtuelle. |
+| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | Répertorier les applications managées. Fournir des valeurs de requête pour affiner les résultats. |
+| [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | Répertoriez les ressources. Fournir un groupe de ressources et des valeurs de requête pour affiner le résultat. |
+| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | Mettre à jour la taille d’une machine virtuelle. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

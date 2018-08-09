@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 292540100096b26a652094cb0ea8d8f585961a22
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473747"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422431"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -50,7 +50,7 @@ Chaque serveur principal Node.js pour Azure Mobile Apps démarre en tant qu’ap
 1. Dans une commande ou une fenêtre PowerShell, créez un répertoire pour votre projet :
 
         mkdir basicapp
-2. Exécutez `npm init` pour initialiser la structure du package :
+1. Exécutez `npm init` pour initialiser la structure du package :
 
         cd basicapp
         npm init
@@ -58,10 +58,10 @@ Chaque serveur principal Node.js pour Azure Mobile Apps démarre en tant qu’ap
    La commande `npm init` pose une série de questions pour initialiser le projet. Consultez l’exemple pour voir le résultat obtenu :
 
    ![La sortie npm init][0]
-3. Installez les bibliothèques `express` et `azure-mobile-apps` à partir du référentiel npm :
+1. Installez les bibliothèques `express` et `azure-mobile-apps` à partir du référentiel npm :
 
         npm install --save express azure-mobile-apps
-4. Créez un fichier app.js pour implémenter le serveur mobile de base :
+1. Créez un fichier app.js pour implémenter le serveur mobile de base :
 
         var express = require('express'),
             azureMobileApps = require('azure-mobile-apps');
@@ -94,18 +94,18 @@ Vous trouverez le code pour cette application de base dans l’ [exemple basicap
 Visual Studio 2015 requiert une extension pour développer les applications Node.js dans l’IDE. Pour commencer, installez le fichier [Node.js Tools 1.1 pour Visual Studio]. Lorsque vous avez terminé l’installation, créez une application Express 4.x :
 
 1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet**).
-2. Développez **Modèles** > **JavaScript** > **Node.js**.
-3. Sélectionnez **Basic Azure Node.js Express 4 Application**.
-4. Renseignez le nom du projet. Sélectionnez **OK**.
+1. Développez **Modèles** > **JavaScript** > **Node.js**.
+1. Sélectionnez **Basic Azure Node.js Express 4 Application**.
+1. Renseignez le nom du projet. Sélectionnez **OK**.
 
    ![Visual Studio 2015 Nouveau projet][1]
-5. Cliquez avec le bouton droit de la souris sur le nœud **npm** et sélectionnez **Installer de nouveaux packages npm**.
-6. Vous devrez peut-être actualiser le catalogue npm après la création de votre première application Node.js. Sélectionnez **Actualiser** si nécessaire.
-7. Dans la zone de recherche, entrez **azure-mobile-apps** . Sélectionnez le package **azure-mobile-apps 2.0.0**, puis sélectionnez **Installer le package**.
+1. Cliquez avec le bouton droit de la souris sur le nœud **npm** et sélectionnez **Installer de nouveaux packages npm**.
+1. Vous devrez peut-être actualiser le catalogue npm après la création de votre première application Node.js. Sélectionnez **Actualiser** si nécessaire.
+1. Dans la zone de recherche, entrez **azure-mobile-apps** . Sélectionnez le package **azure-mobile-apps 2.0.0**, puis sélectionnez **Installer le package**.
 
    ![Installer de nouveaux packages npm][2]
-8. Sélectionnez **Fermer**.
-9. Ouvrez le fichier app.js pour ajouter la prise en charge du Kit de développement logiciel (SDK) Mobile Apps. À la ligne 6 des instructions `require` de la bibliothèque, ajoutez le code suivant :
+1. Sélectionnez **Fermer**.
+1. Ouvrez le fichier app.js pour ajouter la prise en charge du Kit de développement logiciel (SDK) Mobile Apps. À la ligne 6 des instructions `require` de la bibliothèque, ajoutez le code suivant :
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -120,7 +120,7 @@ Visual Studio 2015 requiert une extension pour développer les applications No
         app.use(mobile);
 
    Enregistrez le fichier .
-10. Exécutez l’application localement (l’API est disponible sur http://localhost:3000)) ou publiez-la sur Azure.
+1. Exécutez l’application localement (l’API est disponible sur http://localhost:3000)) ou publiez-la sur Azure.
 
 ### <a name="create-node-backend-portal"></a>Créer un serveur principal Node.js à l’aide du portail Azure
 Vous pouvez créer un serveur principal Mobile Apps dans le [portail Azure]. Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md). Ce didacticiel contient une version simplifiée de ces instructions et convient mieux aux projets de preuve de concept.
@@ -136,13 +136,13 @@ Lorsque vous créez un serveur principal Node.js pour Mobile Apps à l’aide du
 La procédure suivante utilise un référentiel Git pour télécharger le code de projet de démarrage rapide :
 
 1. Si vous ne l’avez pas déjà fait, installez Git. La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) (Installation de Git) pour accéder aux distributions et consignes d’installation propres aux différents systèmes d’exploitation.
-2. Pour activer le dépôt Git pour votre site principal, voir [Préparer votre dépôt](../app-service/app-service-deploy-local-git.md#prepare-your-repository). Notez le nom d’utilisateur et le mot de passe associés au déploiement.
-3. Dans le volet de votre serveur principal Mobile Apps, prenez note du paramètre **URL de clone Git**.
-4. Exécutez la commande `git clone` à l’aide de l’URL de clone Git. Entrez votre mot de passe lorsque vous y êtes invité, comme dans l’exemple suivant :
+1. Pour activer le dépôt Git pour votre site principal, voir [Préparer votre dépôt](../app-service/app-service-deploy-local-git.md#prepare-your-repository). Notez le nom d’utilisateur et le mot de passe associés au déploiement.
+1. Dans le volet de votre serveur principal Mobile Apps, prenez note du paramètre **URL de clone Git**.
+1. Exécutez la commande `git clone` à l’aide de l’URL de clone Git. Entrez votre mot de passe lorsque vous y êtes invité, comme dans l’exemple suivant :
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
-5. Accédez au répertoire local (`/todolist` dans l’exemple précédent). Vous remarquerez que les fichiers de projet ont été téléchargés. Recherchez le fichier todoitem.json dans le répertoire `/tables`. Ce fichier définit les autorisations sur la table. Recherchez également le fichier todoitem.js dans le même répertoire. Il définit les scripts d’opération CRUD pour la table.
-6. Après avoir apporté vos modifications aux fichiers de projet, exécutez les commandes suivantes pour ajouter, valider, puis charger les modifications sur le site :
+1. Accédez au répertoire local (`/todolist` dans l’exemple précédent). Vous remarquerez que les fichiers de projet ont été téléchargés. Recherchez le fichier todoitem.json dans le répertoire `/tables`. Ce fichier définit les autorisations sur la table. Recherchez également le fichier todoitem.js dans le même répertoire. Il définit les scripts d’opération CRUD pour la table.
+1. Après avoir apporté vos modifications aux fichiers de projet, exécutez les commandes suivantes pour ajouter, valider, puis charger les modifications sur le site :
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -252,7 +252,7 @@ Le Kit de développement logiciel (SDK) Node.js pour Mobile Apps utilise le [pac
 >
 
 1. Téléchargez et installez [Microsoft SQL Server 2014 Express]. Veillez à bien installer SQL Server 2014 Express avec l’édition Tools. À moins que vous ayez explicitement besoin d’une prise en charge 64 bits, la version 32 bits consomme moins de mémoire lors de son exécution.
-2. Exécutez le Gestionnaire de configuration de SQL Server 2014 :
+1. Exécutez le Gestionnaire de configuration de SQL Server 2014 :
 
    a. Développez le nœud **Configuration du réseau SQL Server** dans le menu de l’arborescence.
 
@@ -275,25 +275,25 @@ Le Kit de développement logiciel (SDK) Node.js pour Mobile Apps utilise le [pac
    i. Cliquez avec le bouton droit sur **SQL Server (SQLEXPRESS)**, puis sélectionnez **Redémarrer**.
 
    j. Fermez le Gestionnaire de configuration de SQL Server 2014.
-3. Exécutez l’instance SQL Server 2014 Management Studio et connectez-vous à votre instance locale de SQL Server Express :
+1. Exécutez l’instance SQL Server 2014 Management Studio et connectez-vous à votre instance locale de SQL Server Express :
 
    1. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur votre instance et sélectionnez **Propriétés**.
-   2. Sélectionnez la page **Security** .
-   3. Assurez-vous que le **mode d’authentification SQL Server et Windows** est bien sélectionné.
-   4. Sélectionnez **OK**.
+   1. Sélectionnez la page **Security** .
+   1. Assurez-vous que le **mode d’authentification SQL Server et Windows** est bien sélectionné.
+   1. Sélectionnez **OK**.
 
       ![Configurer l’authentification SQL Server Express][4]
-   5. Développez **Sécurité** > **Connexions** dans l’Explorateur d’objets.
-   6. Cliquez avec le bouton droit sur **Connexions** et sélectionnez **Nouvelle connexion**.
-   7. Entrez un nom de connexion. Sélectionnez **Authentification SQL Server**. Entrez un mot de passe, puis saisissez le même mot de passe dans le champ **Confirmer le mot de passe**. Le mot de passe doit répondre aux exigences de complexité de Windows.
-   8. Sélectionnez **OK**.
+   1. Développez **Sécurité** > **Connexions** dans l’Explorateur d’objets.
+   1. Cliquez avec le bouton droit sur **Connexions** et sélectionnez **Nouvelle connexion**.
+   1. Entrez un nom de connexion. Sélectionnez **Authentification SQL Server**. Entrez un mot de passe, puis saisissez le même mot de passe dans le champ **Confirmer le mot de passe**. Le mot de passe doit répondre aux exigences de complexité de Windows.
+   1. Sélectionnez **OK**.
 
       ![Ajouter un utilisateur à SQL Server Express][5]
-   9. Cliquez avec le bouton droit sur votre nouveau compte de connexion et sélectionnez **Propriétés**.
-   10. Sélectionnez la page **Rôles de serveurs**.
-   11. Sélectionnez la case à cocher pour le rôle serveur **dbcreator**.
-   12. Sélectionnez **OK**.
-   13. Fermez SQL Server 2015 Management Studio.
+   1. Cliquez avec le bouton droit sur votre nouveau compte de connexion et sélectionnez **Propriétés**.
+   1. Sélectionnez la page **Rôles de serveurs**.
+   1. Sélectionnez la case à cocher pour le rôle serveur **dbcreator**.
+   1. Sélectionnez **OK**.
+   1. Fermez SQL Server 2015 Management Studio.
 
 Veillez à enregistrer les nom d’utilisateur et mot de passe que vous avez sélectionnés. Vous devrez peut-être affecter des rôles serveur ou autorisations supplémentaires selon les besoins de votre base de données.
 
@@ -347,14 +347,14 @@ La plupart des paramètres du fichier azureMobile.js ont un paramètre équivale
 
 Pour définir un paramètre d’application :
 
-1. Connectez-vous au [portail Azure].
-2. Sélectionnez **Toutes les ressources** ou **App Services**, puis sélectionnez le nom de votre application mobile.
-3. Le volet **Paramètres** s’ouvre par défaut. Si ce n’est pas le cas, sélectionnez **Paramètres**.
-4. Dans le menu **GÉNÉRAL**, sélectionnez **Paramètres de l’application**.
-5. Accédez à la section **Paramètres de l’application**.
-6. Si votre paramètre d’application existe déjà, sélectionnez la valeur correspondante pour la modifier.
+1. Connectez-vous au [Portail Azure].
+1. Sélectionnez **Toutes les ressources** ou **App Services**, puis sélectionnez le nom de votre application mobile.
+1. Le volet **Paramètres** s’ouvre par défaut. Si ce n’est pas le cas, sélectionnez **Paramètres**.
+1. Dans le menu **GÉNÉRAL**, sélectionnez **Paramètres de l’application**.
+1. Accédez à la section **Paramètres de l’application**.
+1. Si votre paramètre d’application existe déjà, sélectionnez la valeur correspondante pour la modifier.
    Si votre paramètre d’application n’existe pas, saisissez-le dans la zone **Clé** et inscrivez la valeur dans la zone **Valeur**.
-8. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 La modification de la plupart des paramètres requiert le redémarrage du service.
 
@@ -363,10 +363,10 @@ La modification de la plupart des paramètres requiert le redémarrage du servic
 
 L’utilisation de la base de données SQL Azure en tant que datastore est identique pour tous les types d’applications Azure App Service. Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer un serveur principal Mobile Apps :
 
-1. Connectez-vous au [portail Azure].
-2. Dans le coin supérieur gauche de la fenêtre, sélectionnez le bouton **+ NOUVEAU** > **Web + Mobile**>**Application mobile**, puis indiquez un nom pour votre serveur principal Mobile Apps.
-3. Dans la zone **Groupe de ressources** , entrez le même nom que votre application.
-4. Le plan App Service par défaut est sélectionné. Si vous souhaitez modifier votre plan App Service :
+1. Connectez-vous au [Portail Azure].
+1. Dans le coin supérieur gauche de la fenêtre, sélectionnez le bouton **+ NOUVEAU** > **Web + Mobile**>**Application mobile**, puis indiquez un nom pour votre serveur principal Mobile Apps.
+1. Dans la zone **Groupe de ressources** , entrez le même nom que votre application.
+1. Le plan App Service par défaut est sélectionné. Si vous souhaitez modifier votre plan App Service :
 
    a. Sélectionnez **Plan App Service** > **+Créer**. 
    
@@ -377,7 +377,7 @@ L’utilisation de la base de données SQL Azure en tant que datastore est ident
    d. Cliquez sur le bouton **Sélectionner**. 
    
    e. Retournez dans le volet **Plan App Service**, puis sélectionnez **OK**.
-5. Sélectionnez **Créer**. 
+1. Sélectionnez **Créer**. 
 
 La configuration d’un serveur principal Mobile Apps peut prendre quelques minutes. Une fois le serveur principal Mobile Apps configuré, le portail ouvre le volet **Paramètres** correspondant au serveur principal Mobile Apps.
 
@@ -389,13 +389,13 @@ Vous pouvez choisir de connecter une base de données SQL existante à votre ser
 >
 
 1. Dans le nouveau serveur principal Mobile Apps, sélectionnez **Paramètres** > **Application mobile** > **Données** > **+Ajouter**.
-2. Dans le volet **Ajouter une connexion de données**, sélectionnez **Base de données SQL - Configurer les paramètres requis** > **Créer une base de données**. Entrez le nom de la nouvelle base de données dans le champ **Nom**.
-3. Sélectionnez **Serveur**. Dans le volet **Nouveau serveur**, entrez un nom de serveur unique dans le champ **Nom du serveur**, et indiquez un nom de connexion d’administration serveur et un mot de passe appropriés. Vérifiez que l’option **Autoriser les services Azure à accéder au serveur** est sélectionnée. Sélectionnez **OK**.
+1. Dans le volet **Ajouter une connexion de données**, sélectionnez **Base de données SQL - Configurer les paramètres requis** > **Créer une base de données**. Entrez le nom de la nouvelle base de données dans le champ **Nom**.
+1. Sélectionnez **Serveur**. Dans le volet **Nouveau serveur**, entrez un nom de serveur unique dans le champ **Nom du serveur**, et indiquez un nom de connexion d’administration serveur et un mot de passe appropriés. Vérifiez que l’option **Autoriser les services Azure à accéder au serveur** est sélectionnée. Sélectionnez **OK**.
 
    ![Création d’une base de données SQL Azure][6]
-4. Dans le volet **Nouvelle base de données**, sélectionnez **OK**.
-5. Dans le volet **Ajouter une connexion de données**, sélectionnez **Chaîne de connexion**, entrez le nom de connexion et le mot de passe que vous avez indiqués lors de la création de la base de données. Si vous utilisez une base de données existante, indiquez les informations d’identification de connexion à celle-ci. Sélectionnez **OK**.
-6. Dans le volet **Ajouter une connexion de données**, sélectionnez **OK** pour créer la base de données.
+1. Dans le volet **Nouvelle base de données**, sélectionnez **OK**.
+1. Dans le volet **Ajouter une connexion de données**, sélectionnez **Chaîne de connexion**, entrez le nom de connexion et le mot de passe que vous avez indiqués lors de la création de la base de données. Si vous utilisez une base de données existante, indiquez les informations d’identification de connexion à celle-ci. Sélectionnez **OK**.
+1. Dans le volet **Ajouter une connexion de données**, sélectionnez **OK** pour créer la base de données.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
@@ -693,8 +693,8 @@ Si vous souhaitez utiliser l’authentification App Service avec une API personn
 La définition des API personnalisées est largement similaire à celle des API de tables :
 
 1. Créez un répertoire `api`.
-2. Créez un fichier JavaScript de définition d’API dans le répertoire `api`.
-3. Utilisez la méthode import pour importer le répertoire `api`.
+1. Créez un fichier JavaScript de définition d’API dans le répertoire `api`.
+1. Utilisez la méthode import pour importer le répertoire `api`.
 
 Voici le prototype de définition d’API dérivé de l’exemple d’application de base utilisé précédemment :
 
@@ -857,7 +857,7 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 1. Dans le volet de votre serveur principal Mobile Apps, sélectionnez **All settings** (Tous les paramètres) > **Tables faciles** ou **API faciles**. Sélectionnez une table ou une API, puis **Modifier le script**. Le fichier de script s’ouvre dans l’éditeur App Service.
 
    ![Éditeur App Service](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-2. Apportez vos modifications au fichier de code dans l’éditeur en ligne. Les modifications sont enregistrées automatiquement au fil de la saisie.
+1. Apportez vos modifications au fichier de code dans l’éditeur en ligne. Les modifications sont enregistrées automatiquement au fil de la saisie.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: c1b29cb7d09bcaa25457cf6f99731beae30fa7b2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 224120f01cf6e1a32c85d1f50c6e3a30f50d243a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046139"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Didacticiel : Intégration d’Azure Active Directory à Pega Systems
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Pega Systems à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-pega-systems-from-the-gallery"></a>Ajout de Pega Systems à partir de la galerie
 Pour configurer l’intégration de Pega Systems à Azure AD, vous devez ajouter Pega Systems à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de Pega Systems à Azure AD, vous devez ajouter
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Pega Systems**, sélectionnez **Pega Systems** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Pega Systems**, sélectionnez **Pega Systems** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Pega Systems dans la liste des résultats](./media/pegasystems-tutorial/tutorial_pegasystems_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dans Pega Systems, affectez la valeur du **nom d’utilisateur** dans Azure AD c
 Pour configurer et tester l’authentification unique Azure AD avec Pega Systems, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Pega Systems](#create-a-pega-systems-test-user)** pour avoir un équivalent de Britta Simon dans Pega Systems lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test Pega Systems](#create-a-pega-systems-test-user)** pour avoir un équivalent de Britta Simon dans Pega Systems lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +102,11 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/pegasystems-tutorial/tutorial_pegasystems_samlbase.png)
 
-3. Dans la section **Domaine et URL Pega Systems**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
+1. Dans la section **Domaine et URL Pega Systems**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
 
     ![Informations d’authentification unique dans Domaine et URL Pega Systems](./media/pegasystems-tutorial/tutorial_pegasystems_url.png)
 
@@ -114,7 +114,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
-4. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Pega Systems](./media/pegasystems-tutorial/tutorial_pegasystems_url1.png)
 
@@ -123,11 +123,11 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’état du relais exacts. Vous pouvez trouver les valeurs de l’identificateur et de l’URL de réponse dans l’application Pega (la procédure est expliquée plus loin dans ce didacticiel). Pour connaître la valeur de l’état du relais, contactez [l’équipe de support technique de Pega Systems](https://www.pega.com/contact-us). 
 
-5. L’application Pega Systems attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. Ces revendications sont spécifiques au client et varient en fonction de vos besoins. Les revendications facultatives suivantes sont des exemples que vous pouvez configurer pour votre application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. 
+1. L’application Pega Systems attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. Ces revendications sont spécifiques au client et varient en fonction de vos besoins. Les revendications facultatives suivantes sont des exemples que vous pouvez configurer pour votre application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. 
 
     ![Configurer l'authentification unique](./media/pegasystems-tutorial/tutorial_attribute.png)
 
-6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
+1. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut du jeton SAML comme sur l’image précédente, puis procédez comme suit :
     
     | Nom de l'attribut | Valeur de l’attribut |
     | ------------------- | -------------------- |    
@@ -146,9 +146,9 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configurer l'authentification unique](./media/pegasystems-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/pegasystems-tutorial/tutorial_attribute_04.png)
 
-    ![Configurer l'authentification unique](./media/pegasystems-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/pegasystems-tutorial/tutorial_attribute_05.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -156,20 +156,20 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     
     d. Cliquez sur **OK**.
 
-7. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/pegasystems-tutorial/tutorial_pegasystems_certificate.png) 
-8. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/pegasystems-tutorial/tutorial_general_400.png)
     
-9. Pour configurer l’authentification unique du côté de **Pega Systems**, ouvrez le **portail Pega** avec un compte administrateur dans une autre fenêtre de navigateur.
+1. Pour configurer l’authentification unique du côté de **Pega Systems**, ouvrez le **portail Pega** avec un compte administrateur dans une autre fenêtre de navigateur.
 
-10. Sélectionnez **Créer** -> **SysAdmin** -> **Service d’authentification**.
+1. Sélectionnez **Créer** -> **SysAdmin** -> **Service d’authentification**.
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-11. Effectuez les actions ci-après dans l’écran **Créer un service d’authentification** :
+1. Effectuez les actions ci-après dans l’écran **Créer un service d’authentification** :
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
@@ -181,15 +181,15 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     d. Cliquez sur **Créer et ouvrir** 
     
-12. Dans la section **Identity Provider (IdP) information** (Informations sur le fournisseur d’identité (IdP)), cliquez sur **Import IdP metadata** (Importer les métadonnées Idp) et explorez le fichier de métadonnées que vous avez téléchargé depuis le portail Azure. Cliquez sur **Envoyer** pour charger les métadonnées.
+1. Dans la section **Identity Provider (IdP) information** (Informations sur le fournisseur d’identité (IdP)), cliquez sur **Import IdP metadata** (Importer les métadonnées Idp) et explorez le fichier de métadonnées que vous avez téléchargé depuis le portail Azure. Cliquez sur **Envoyer** pour charger les métadonnées.
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
     
-13. Vous renseignerez ainsi les données IdP comme illustré ci-dessous.
+1. Vous renseignerez ainsi les données IdP comme illustré ci-dessous.
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/pegasystems-tutorial/tutorial_pegasystems_admin3.png)
     
-14. Effectuez les actions ci-après dans la section **Service Provider (SP) settings** (Paramètres du fournisseur de services) :
+1. Effectuez les actions ci-après dans la section **Service Provider (SP) settings** (Paramètres du fournisseur de services) :
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
@@ -199,7 +199,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     c. Sélectionnez **Disable request signing** (Désactiver la signature de requête).
 
-15. Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
     
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -216,15 +216,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/pegasystems-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/pegasystems-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/pegasystems-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/pegasystems-tutorial/create_aaduser_04.png)
 
@@ -253,23 +253,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Pega Systems**.
+1. Dans la liste des applications, sélectionnez **Pega Systems**.
 
     ![Lien Pega Systems dans la liste des applications](./media/pegasystems-tutorial/tutorial_pegasystems_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

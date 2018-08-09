@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/23/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 381c1c37b0675d97adc058979a5d9b5c4fd2cc8b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4d062b937eb005b8c30a6f7f59b00f80095a7924
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32155154"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422288"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Démarrage rapide : créer une machine virtuelle Windows Server à l’aide d’Azure CLI dans Azure Stack
 
@@ -30,10 +30,9 @@ Vous pouvez créer une machine virtuelle Windows Server 2016 par le biais d’Az
 
 * Se connecter à la machine virtuelle avec un client distant.
 * Installer le serveur web IIS et afficher la page d’accueil par défaut.
-* Nettoyer vos ressources.
+* Nettoyer des ressources.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Vérifiez que votre opérateur Azure Stack a ajouté l’image **Windows Server 2016**  à la Place de Marché Azure Stack.
 
@@ -41,7 +40,7 @@ Vous pouvez créer une machine virtuelle Windows Server 2016 par le biais d’Az
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel vous pouvez déployer et gérer des ressources Azure Stack. À partir de votre environnement Azure Stack, exécutez la commande [az group create](/cli/azure/group#az_group_create) pour créer un groupe de ressources.
+Un groupe de ressources est un conteneur logique dans lequel vous pouvez déployer et gérer des ressources Azure Stack. À partir de votre environnement Azure Stack, exécutez la commande [az group create](/cli/azure/group#az-group-create) pour créer un groupe de ressources.
 
 >[!NOTE]
  Des valeurs sont attribuées pour toutes les variables dans les exemples de code. Toutefois, vous pouvez attribuer de nouvelles valeurs si vous le souhaitez.
@@ -54,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-Créez une machine virtuelle en utilisant la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle nommée myVM. Cet exemple utilise Demouser comme nom d’utilisateur administratif et Demouser@123 comme mot de passe utilisateur. Remplacez ces valeurs par quelque chose d’approprié pour votre environnement.
+Créez une machine virtuelle en utilisant la commande [az vm create](/cli/azure/vm#az-vm-create). L’exemple suivant crée une machine virtuelle nommée myVM. Cet exemple utilise Demouser comme nom d’utilisateur administratif et Demouser@123 comme mot de passe utilisateur. Remplacez ces valeurs par quelque chose d’approprié pour votre environnement.
 
 ```cli
 az vm create \
@@ -101,9 +100,9 @@ Vous pouvez utiliser un navigateur web de votre choix pour visualiser la page d�
 
 ![Site IIS par défaut](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Nettoyez les ressources dont vous n’avez plus besoin. Vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, la machine virtuelle, ainsi que toutes les ressources associées.
+Nettoyez les ressources dont vous n’avez plus besoin. Vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, la machine virtuelle, ainsi que toutes les ressources associées.
 
 ```cli
 az group delete --name myResourceGroup

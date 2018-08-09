@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: dc001f8ba6ae8585d0f04e4254c319a188f9d4a0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8df9bc7c332a83e9761ea71dddfbfbfaa3ae5154
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506479"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622151"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Comment configurer les alertes de sécurité dans Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Alertes de sécurité
@@ -26,7 +26,7 @@ Azure Privileged Identity Management (PIM) génère des alertes en cas d’activ
 
 ![Alertes de sécurité du tableau de bord PIM - capture d’écran](./media/pim-how-to-configure-security-alerts/PIM_security_dash.png)
 
-| Alerte | Niveau de gravité | Déclencheur | Recommandation |
+| Alerte | Severity | Déclencheur | Recommandation |
 | --- | --- | --- | --- |
 | **Les rôles sont affectés en dehors de PIM** |Élevé |Un administrateur a été définitivement affecté à un rôle privilégié en dehors de l’interface PIM. |Passez en revue les utilisateurs de la liste et supprimez le rôle privilégié qui leur a été attribué en dehors de PIM. |
 | **Les rôles sont activés trop fréquemment.** |Moyenne |Un trop grand nombre de réactivations du même rôle ont eu lieu par rapport à la durée autorisée dans les paramètres. |Contactez l’utilisateur pour savoir pourquoi il a activé le rôle autant de fois. Le délai est peut-être trop court pour lui permettre de finaliser les tâches en cours, ou il utilise peut-être des scripts pour activer automatiquement un rôle. Vérifiez que la durée d’activation de leur rôle est suffisante pour qu’ils puissent effectuer leurs tâches. |
@@ -34,7 +34,7 @@ Azure Privileged Identity Management (PIM) génère des alertes en cas d’activ
 | **Les utilisateurs n’utilisent par leurs rôles privilégiés** |Faible |Certains administrateurs éligibles n’ont pas activé leurs rôles récemment. |Démarrez une vérification d’accès pour identifier les utilisateurs qui n’ont plus besoin d’un accès. |
 | **Trop d'administrateurs généraux** |Faible |Le nombre d’administrateurs généraux est supérieur au nombre recommandé. |Si vous avez un grand nombre d’administrateurs généraux, il est probable que les utilisateurs reçoivent plus d’autorisations que nécessaire. Affectez aux utilisateurs des rôles moins privilégiés, ou rendez certains d’entre eux éligibles au rôle au lieu de leur affecter le rôle de façon permanente. |
 
-### <a name="severity"></a>Niveau de gravité
+### <a name="severity"></a>Severity
 * **Élevé** : nécessite une action immédiate, car il s’agit d’une violation de stratégie. 
 * **Moyen** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
 * **Faible** : ne nécessite pas d’action immédiate, mais suggère une modification de la stratégie.

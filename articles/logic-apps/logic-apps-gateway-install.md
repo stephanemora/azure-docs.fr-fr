@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 09e3879ed91a0e9c6d27940cae53f3e3f0397d7b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145204"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503646"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installer la passerelle de données locale pour Azure Logic Apps
 
@@ -84,7 +84,7 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
   > [!TIP]
   > Si vous avez souscrit à une offre Office 365 sans fournir votre véritable adresse e-mail professionnelle, il est possible que votre adresse de connexion ressemble à ceci : `username@domain.onmicrosoft.com` 
   >
-  > Si vous souhaitez utiliser un compte Microsoft qui possède un abonnement standard à [Visual Studio](https://visualstudio.microsoft.com/vs/pricing/), commencez par [créer un répertoire (client) dans Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md), ou utilisez le répertoire par défaut avec votre compte Microsoft personnel. 
+  > Si vous souhaitez utiliser un compte Microsoft qui possède un abonnement standard à [Visual Studio](https://visualstudio.microsoft.com/vs/pricing/), commencez par [créer un répertoire (client) dans Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md), ou utilisez le répertoire par défaut avec votre compte Microsoft personnel. 
   > Ajoutez un utilisateur avec un mot de passe au répertoire, puis donnez-lui accès à votre abonnement. 
   > Vous pourrez alors vous connecter au cours de l’installation de la passerelle avec ce nom d’utilisateur et ce mot de passe.
 

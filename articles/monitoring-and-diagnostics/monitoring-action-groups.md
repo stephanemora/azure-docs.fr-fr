@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/1/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 63216d56fb3acbb954086fbf026441e69073621e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 091a097fc9fafd5bdc6a2521f4fa2a1b6b77ba4c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263063"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422551"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
-## <a name="overview"></a>Vue d'ensemble ##
+## <a name="overview"></a>Vue d’ensemble ##
 Un groupe d’actions est une collection de préférences de notification définies par l’utilisateur. Les alertes Azure Monitor et Service Health sont configurées pour utiliser un groupe d’actions spécifique lorsque l’alerte est déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur.
 
 Cet article vous montre comment créer et gérer des groupes d’actions dans le portail Azure.
@@ -33,21 +33,21 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 1. Sur le [Portail](https://portal.azure.com), sélectionnez **Moniteur**. Le panneau **Moniteur** consolide tous vos paramètres et données de monitorage sur un même affichage.
 
     ![Le service « Moniteur »](./media/monitoring-action-groups/home-monitor.png)
-2. Dans la section **Paramètres**, sélectionnez **Groupes d’actions**.
+1. Dans la section **Paramètres**, sélectionnez **Groupes d’actions**.
 
     ![L’onglet « Groupes d’actions »](./media/monitoring-action-groups/action-groups-blade.png)
-3. Sélectionnez **Ajouter un groupe d’actions** et renseignez les champs.
+1. Sélectionnez **Ajouter un groupe d’actions** et renseignez les champs.
 
     ![La commande « Ajouter un groupe d’actions »](./media/monitoring-action-groups/add-action-group.png)
-4. Entrez un nom dans la zone **Nom du groupe d’actions** et un autre dans la zone **Nom court**. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
+1. Entrez un nom dans la zone **Nom du groupe d’actions** et un autre dans la zone **Nom court**. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
 
       ![La boîte de dialogue « Ajouter un groupe d’actions »](./media/monitoring-action-groups/action-group-define.png)
 
-5. La zone **Abonnement** est automatiquement renseignée avec votre abonnement actuel. Cet abonnement est celui dans lequel est enregistré le groupe d’actions.
+1. La zone **Abonnement** est automatiquement renseignée avec votre abonnement actuel. Cet abonnement est celui dans lequel est enregistré le groupe d’actions.
 
-6. Sélectionnez le **Groupe de ressources** dans lequel le groupe d’actions est enregistré.
+1. Sélectionnez le **Groupe de ressources** dans lequel le groupe d’actions est enregistré.
 
-7. Définissez une liste d’actions en indiquant les éléments suivants pour chaque action :
+1. Définissez une liste d’actions en indiquant les éléments suivants pour chaque action :
 
     a. **Nom** : entrez un identificateur unique pour cette action.
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
     c. **Détails** : selon le type d’action, saisissez un numéro de téléphone, une adresse e-mail, un URI de webhook, une application Azure, une connexion ITSM ou un runbook Automation. Pour ITSM Action, spécifiez l’**élément de travail** et les autres champs nécessaires à votre outil ITSM.
 
-8. Sélectionnez **OK** pour créer le groupe d’actions.
+1. Sélectionnez **OK** pour créer le groupe d’actions.
 
 ## <a name="action-specific-information"></a>Informations spécifiques sur l’action
 <dl>

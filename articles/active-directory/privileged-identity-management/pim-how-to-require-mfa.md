@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 15330a0518c216a847b234d80b706fbe21c128d2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8e1c0fa212b31c05fcc4559f9f8d42b627f0da0e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723391"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622845"
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Comment exiger l’authentification MFA dans Azure AD Privileged Identity Management
 Il est vivement recommandé d’exiger l’application de la solution Multi-Factor Authentication (MFA) pour tous vos administrateurs. Cela réduit le risque d'attaque en raison d'un mot de passe compromis.

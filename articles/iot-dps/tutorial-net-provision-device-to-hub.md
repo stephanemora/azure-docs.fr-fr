@@ -1,8 +1,8 @@
 ---
 title: Approvisionner un appareil avec le service IoT Hub Device Provisioning (.NET) | Microsoft Docs
 description: Approvisionner votre appareil sur un seul hub IoT avec le service IoT Hub Device Provisioning (.NET)
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: e31c06268245946bd80e1328f4d7176f1e9a660f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629879"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520664"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Inscrire l’appareil à un hub IoT avec le client du service IoT Hub Provisioning (.NET)
 
@@ -241,7 +241,7 @@ Une fois que votre appareil démarre, les actions suivantes doivent se produire.
     ![Connexion réussie au hub dans le portail](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Inscrire l’appareil

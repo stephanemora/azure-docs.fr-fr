@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 9eb99ecea8efbbce322e61ac281cd534a112728b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950664"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424022"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Activer Application Insights Profiler pour des machines virtuelles Azure, Service Fabric et Azure Cloud Services
 
@@ -27,7 +27,7 @@ Cet article montre comment activer Azure Application Insights Profiler sur une a
 Les exemples dans cet article incluent la prise en charge de Machines virtuelles Azure, de groupes de machines virtuelles identiques, d’Azure Service Fabric et d’Azure Cloud Services. Les exemples s’appuient sur des modèles qui prennent en charge le modèle de déploiement [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’image suivante illustre le fonctionnement d’Application Insights Profiler avec les applications qui sont hébergées sur les ressources Azure Cloud Services. Les ressources Azure Cloud Services incluent les machines virtuelles, les groupes de machines virtuelles identiques, les services cloud et les clusters Service Fabric. L’image utilise une machine virtuelle Azure comme exemple.  
 
@@ -44,11 +44,11 @@ Pour activer entièrement Profiler, vous devez changer la configuration dans tro
 
 1. [Créez une ressource Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource) ou sélectionnez-en une existante. 
 
-2. Accédez à votre ressource Application Insights et copiez la clé d’instrumentation.
+1. Accédez à votre ressource Application Insights et copiez la clé d’instrumentation.
 
    ![Emplacement de la clé d’instrumentation](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Pour terminer la configuration de l’instance Application Insights pour Profiler, effectuez la procédure décrite dans [Activer Profiler. Vous n’avez pas besoin de lier les applications web, car les étapes sont spécifiques à la ressource de services d’application. Vérifiez simplement que Profiler est activé dans le volet **Configurer le profileur**.
+1. Pour terminer la configuration de l’instance Application Insights pour Profiler, effectuez la procédure décrite dans [Activer Profiler. Vous n’avez pas besoin de lier les applications web, car les étapes sont spécifiques à la ressource de services d’application. Vérifiez simplement que Profiler est activé dans le volet **Configurer le profileur**.
 
 
 ## <a name="set-up-the-application-source-code"></a>Configurer le code source de l’application
@@ -74,7 +74,7 @@ En plus d’effectuer l’étape précédente, si votre application *n’est pas
         ```
       Pour plus d’informations sur cette configuration de clé d’instrumentation générale, consultez [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md) (Utiliser Service Fabric avec Application Insights).  
 
-  2. Pour tout bloc de code que vous souhaitez instrumenter, encadrez-le d’une instruction **USING** `StartOperation<RequestTelemetry>`, comme indiqué dans l’exemple suivant :
+  1. Pour tout bloc de code que vous souhaitez instrumenter, encadrez-le d’une instruction **USING** `StartOperation<RequestTelemetry>`, comme indiqué dans l’exemple suivant :
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -143,7 +143,7 @@ Pour des exemples complets, consultez :
 Pour configurer votre environnement, procédez comme suit :
 1. Pour vérifier que vous utilisez [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou version ultérieure, il suffit de confirmer que le système d’exploitation déployé est `Windows Server 2012 R2` ou version ultérieure.
 
-2. Recherchez l’extension [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dans le fichier de modèle de déploiement, puis ajoutez la section `SinksConfig` suivante comme élément enfant de `WadCfg`. Remplacez la valeur de propriété `ApplicationInsightsProfiler` par votre propre clé d’instrumentation Application Insights :  
+1. Recherchez l’extension [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dans le fichier de modèle de déploiement, puis ajoutez la section `SinksConfig` suivante comme élément enfant de `WadCfg`. Remplacez la valeur de propriété `ApplicationInsightsProfiler` par votre propre clé d’instrumentation Application Insights :  
 
       ```json
       "SinksConfig": {
@@ -165,13 +165,13 @@ Pour configurer votre environnement, procédez comme suit :
 
 1. Pour vérifier que vous utilisez [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou version ultérieure, il suffit de confirmer que les fichiers *ServiceConfiguration.\*.cscfg* ont une valeur `osFamily` au moins égale à « 5 ».
 
-2. Recherchez le fichier *diagnostics.wadcfgx* [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) pour votre rôle d’application, comme indiqué ici :  
+1. Recherchez le fichier *diagnostics.wadcfgx* [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) pour votre rôle d’application, comme indiqué ici :  
 
    ![Recherche du fichier config de diagnostics](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
 
    Pour savoir comment activer l’extension Diagnostics dans votre projet Azure Cloud Services si vous ne trouvez pas le fichier, consultez [Configurer les diagnostics pour les services cloud et les machines virtuelles Azure](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
-3. Ajoutez la section `SinksConfig` suivante comme élément enfant de `WadCfg` :  
+1. Ajoutez la section `SinksConfig` suivante comme élément enfant de `WadCfg` :  
 
       ```xml
       <WadCfg>
@@ -212,7 +212,7 @@ Pour configurer votre environnement, procédez comme suit :
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-2. Si l’application souhaitée s’exécute avec [IIS](https://www.microsoft.com/web/downloads/platform.aspx), activez la fonctionnalité Windows `IIS Http Tracing` en procédant comme suit :  
+1. Si l’application souhaitée s’exécute avec [IIS](https://www.microsoft.com/web/downloads/platform.aspx), activez la fonctionnalité Windows `IIS Http Tracing` en procédant comme suit :  
 
    a. Établissez l’accès à distance à l’environnement, puis utilisez la fenêtre [Ajouter des fonctionnalités Windows]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) ou exécutez la commande suivante dans PowerShell (en tant qu’administrateur) :  
 

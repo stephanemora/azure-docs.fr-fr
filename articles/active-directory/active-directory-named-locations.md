@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f739917b201d5255716d22930d7c4bd9e6602f37
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 62a55672a4326df585fc84699dfd72424be362dc
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224515"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627489"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Configurer des emplacements nommés dans Azure Active Directory
 
 Les emplacements nommés vous permettent d’étiqueter des plages d’adresses IP approuvées dans votre entreprise. Azure Active Directory utilise des emplacements nommés dans le contexte suivant :
 
-- La détection [d’événements à risque](active-directory-reporting-risk-events.md) pour réduire le nombre de faux positifs reportés.  
+- La détection [d’événements à risque](reports-monitoring/concept-risk-events.md) pour réduire le nombre de faux positifs reportés.  
 
-- [Accès conditionnel en fonction des emplacements](active-directory-conditional-access-locations.md).
+- [Accès conditionnel en fonction des emplacements](conditional-access/location-condition.md).
 
 
 Cet article explique comment configurer des emplacements nommés dans votre environnement.
@@ -97,8 +97,8 @@ Pour plus d'informations, consultez les pages suivantes :
 
 - [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- [Conditions d’emplacement dans l’accès conditionnel Azure Active Directory](active-directory-conditional-access-locations.md)
+- [Conditions d’emplacement dans l’accès conditionnel Azure Active Directory](conditional-access/location-condition.md)
 
-- [Événements à risque dans Azure Active Directory](active-directory-reporting-risk-events.md).
+- [Événements à risque dans Azure Active Directory](reports-monitoring/concept-risk-events.md).
 
-- [Rapports sur les connexions risquées dans le portail Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  
+- [Rapports sur les connexions risquées dans le portail Azure Active Directory](reports-monitoring/concept-risky-sign-ins.md).  

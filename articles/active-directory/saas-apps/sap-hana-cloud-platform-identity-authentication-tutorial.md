@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 97e77fdbb352e1fcf66044f48e17cb19a8aa2e1d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 266c9523f45294899e3cddbe782cbc54846eb119
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042144"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422305"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Didacticiel : Intégration d’Azure Active Directory à SAP Cloud Platform Identity Authentication
 
@@ -53,7 +53,7 @@ Pour tester la procédure de ce didacticiel, suivez les recommandations ci-desso
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de SAP Cloud Platform Identity Authentication à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 Avant de rentrer dans les détails techniques, il est essentiel de comprendre les concepts que vous allez voir. SAP Cloud Platform Identity Authentication et les services de fédération Active Directory (AD FS) vous permettent d’implémenter l’authentification unique entre les applications ou les services protégés par Azure AD (comme IdP) et les applications et services SAP protégés par SAP Cloud Platform Identity Authentication.
 
@@ -84,17 +84,17 @@ Pour configurer l’intégration de SAP Cloud Platform Identity Authentication d
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter la nouvelle application, sélectionnez le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter la nouvelle application, sélectionnez le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **SAP Cloud Platform Identity Authentication**. 
+1. Dans la zone de recherche, tapez **SAP Cloud Platform Identity Authentication**. 
 
-5. Sélectionnez **SAP Cloud Platform Identity Authentication** dans le panneau de résultats, puis sélectionnez le bouton **Ajouter**.
+1. Sélectionnez **SAP Cloud Platform Identity Authentication** dans le panneau de résultats, puis sélectionnez le bouton **Ajouter**.
 
     ![SAP Cloud Platform Identity Authentication dans la liste de résultats](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_addfromgallery.png)
 
@@ -109,10 +109,10 @@ Dans SAP Cloud Platform Identity Authentication, affectez à **Username** la mê
 Pour configurer et tester l’authentification unique Azure AD avec SAP Cloud Platform Identity Authentication, vous devez effectuer les tâches suivantes :
 
 1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on) pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec Britta Simon.
-3. [Créer un utilisateur de test SAP Cloud Platform Identity Authentication](#create-an-sap-cloud-platform-identity-authentication-test-user) pour avoir un équivalent de Britta Simon dans SAP Cloud Platform Identity Authentication qui soit associé à la représentation de l’utilisateur Azure AD.
-4. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. [Tester l’authentification unique](#test-single-sign-on) pour vérifier que la configuration fonctionne.
+1. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec Britta Simon.
+1. [Créer un utilisateur de test SAP Cloud Platform Identity Authentication](#create-an-sap-cloud-platform-identity-authentication-test-user) pour avoir un équivalent de Britta Simon dans SAP Cloud Platform Identity Authentication qui soit associé à la représentation de l’utilisateur Azure AD.
+1. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. [Tester l’authentification unique](#test-single-sign-on) pour vérifier que la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -124,11 +124,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, sous **Authentification basée sur SAML**, sélectionnez **Mode** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, sous **Authentification basée sur SAML**, sélectionnez **Mode** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Si vous souhaitez configurer l’application en mode initié par **IDP**, dans la section **Domaine et URL SAP Cloud Platform Identity Authentication**, procédez comme suit :  
+1. Si vous souhaitez configurer l’application en mode initié par **IDP**, dans la section **Domaine et URL SAP Cloud Platform Identity Authentication**, procédez comme suit :  
 
     ![Informations d’authentification unique pour Domaine et URL SAP Cloud Platform Identity Authentication](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url.png)
 
@@ -139,7 +139,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique de SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html). Si vous ne comprenez pas la valeur d’identificateur, lisez la documentation SAP Cloud Platform Identity Authentication relative à la [configuration du locataire SAML 2.0](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
 
-4. Si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service**, sélectionnez **Afficher les paramètres d’URL avancés**.
+1. Si vous souhaitez configurer l’application en mode lancé par le **fournisseur de service**, sélectionnez **Afficher les paramètres d’URL avancés**.
 
     ![Informations d’authentification unique pour Domaine et URL SAP Cloud Platform Identity Authentication](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url1.png)
 
@@ -148,15 +148,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez-la à jour avec l’URL de connexion réelle. Utilisez l’URL de connexion spécifique de votre application métier. En cas de doute, contactez [l’équipe du support technique de SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html).
 
-5. Dans la section **Certificat de signature SAML**, sélectionnez **XML des métadonnées**. Ensuite, enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, sélectionnez **XML des métadonnées**. Ensuite, enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_certificate.png)
 
-6. L’application SAP Cloud Platform Identity Authentication attend les assertions SAML dans un format précis. Gérez les valeurs de ces attributs à partir de la section **Attributs utilisateur** de la page d’intégration des applications. La capture d’écran suivante présente un exemple du format. 
+1. L’application SAP Cloud Platform Identity Authentication attend les assertions SAML dans un format précis. Gérez les valeurs de ces attributs à partir de la section **Attributs utilisateur** de la page d’intégration des applications. La capture d’écran suivante présente un exemple du format. 
 
     ![Configurer l’authentification unique](./media/sap-hana-cloud-platform-identity-authentication-tutorial/attribute.png)
 
-7. Si votre application SAP attend un attribut tel que **firstName**, ajoutez l’attribut **firstName** dans la section **Attributs utilisateur**. Cette option est disponible dans la boîte de dialogue **Authentification unique** de la boîte de dialogue **Attributs du jeton SAML**.
+1. Si votre application SAP attend un attribut tel que **firstName**, ajoutez l’attribut **firstName** dans la section **Attributs utilisateur**. Cette option est disponible dans la boîte de dialogue **Authentification unique** de la boîte de dialogue **Attributs du jeton SAML**.
 
     a. Pour ouvrir la boîte de dialogue **Ajouter un attribut**, cliquez sur **Ajouter un attribut**. 
     
@@ -170,25 +170,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     d. Sélectionnez **OK**.
 
-8. Sélectionnez le bouton **Enregistrer**.
+1. Sélectionnez le bouton **Enregistrer**.
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_400.png)
 
-9. Dans la section **Configuration de SAP Cloud Platform Identity Authentication**, sélectionnez **Configurer SAP Cloud Platform Identity Authentication** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **Configuration de SAP Cloud Platform Identity Authentication**, sélectionnez **Configurer SAP Cloud Platform Identity Authentication** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configuration de SAP Cloud Platform Identity Authentication](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_configure.png) 
 
-10. Pour configurer l’authentification unique sur votre application, accédez à la console d’administration de SAP Cloud Platform Identity Authentication. L’URL suit le modèle suivant : `https://<tenant-id>.accounts.ondemand.com/admin`. Lisez ensuite la documentation relative à SAP Cloud Platform Identity Authentication à l’adresse [Integration with Microsoft Azure AD (Intégration à Microsoft Azure AD)](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
+1. Pour configurer l’authentification unique sur votre application, accédez à la console d’administration de SAP Cloud Platform Identity Authentication. L’URL suit le modèle suivant : `https://<tenant-id>.accounts.ondemand.com/admin`. Lisez ensuite la documentation relative à SAP Cloud Platform Identity Authentication à l’adresse [Integration with Microsoft Azure AD (Intégration à Microsoft Azure AD)](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
 
-11. Dans le portail Azure, sélectionnez le bouton **Enregistrer**.
+1. Dans le portail Azure, sélectionnez le bouton **Enregistrer**.
 
-12. Effectuez les étapes suivantes uniquement si vous souhaitez ajouter et activer l’authentification unique pour une autre application SAP. Répétez les étapes décrites dans la section **Ajout de SAP Cloud Platform Identity Authentication à partir de la galerie**.
+1. Effectuez les étapes suivantes uniquement si vous souhaitez ajouter et activer l’authentification unique pour une autre application SAP. Répétez les étapes décrites dans la section **Ajout de SAP Cloud Platform Identity Authentication à partir de la galerie**.
 
-13. Dans le portail Azure, dans la page d’intégration des applications **SAP Cloud Platform Identity Authentication**, sélectionnez **Authentification liée**.
+1. Dans le portail Azure, dans la page d’intégration des applications **SAP Cloud Platform Identity Authentication**, sélectionnez **Authentification liée**.
 
     ![Configurer l’authentification liée](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
 
-14. Enregistrez la configuration.
+1. Enregistrez la configuration.
 
 >[!NOTE] 
 >La nouvelle application utilise la configuration de l’authentification unique de l’application SAP précédente. Veillez à utiliser les mêmes fournisseurs d’identité d’entreprise dans la console d’administration de SAP Cloud Platform Identity Authentication.
@@ -209,15 +209,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis sélectionnez **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, sélectionnez **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, sélectionnez **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, effectuez les étapes suivantes :
+1. Dans la boîte de dialogue **Utilisateur**, effectuez les étapes suivantes :
 
     ![Boîte de dialogue Utilisateur](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_04.png)
 
@@ -251,23 +251,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **SAP Cloud Platform Identity Authentication**.
+1. Dans la liste des applications, sélectionnez **SAP Cloud Platform Identity Authentication**.
 
     ![Lien SAP Cloud Platform Identity Authentication dans la liste Applications](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_app.png)  
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+1. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Sélectionnez le bouton **Ajouter**. Ensuite, dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez le bouton **Ajouter**. Ensuite, dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste d’utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste d’utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Attribuer** dans la boîte de dialogue **Ajouter une attribution**.
+1. Cliquez sur le bouton **Attribuer** dans la boîte de dialogue **Ajouter une attribution**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

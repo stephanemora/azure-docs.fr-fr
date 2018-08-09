@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 18004d7b7f40d8461346f7f529f54ef5f982d8de
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 97fd54b9da537ae57fe59bfb4091da5fd252c722
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213625"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443430"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Didacticiel : configurer DocuSign pour l’approvisionnement automatique d’utilisateurs
 
@@ -63,33 +63,33 @@ L’objectif de cette section est d’expliquer comment activer l’approvisionn
 
 1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
-2. Si vous avez déjà configuré DocuSign pour l’authentification unique, recherchez votre instance de DocuSign à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **DocuSign** dans la galerie d’applications. Sélectionnez DocuSign dans les résultats de recherche et ajoutez-la à votre liste d’applications.
+1. Si vous avez déjà configuré DocuSign pour l’authentification unique, recherchez votre instance de DocuSign à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et recherchez **DocuSign** dans la galerie d’applications. Sélectionnez DocuSign dans les résultats de recherche et ajoutez-la à votre liste d’applications.
 
-3. Sélectionnez votre instance de DocuSign, puis sélectionnez l’onglet **Approvisionnement**.
+1. Sélectionnez votre instance de DocuSign, puis sélectionnez l’onglet **Approvisionnement**.
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
+1. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
 
     ![approvisionnement](./media/docusign-provisioning-tutorial/provisioning.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
+1. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
    
     a. Dans la zone de texte **Nom d’utilisateur Admin**, tapez le nom d’un compte DocuSign auquel le profil **System Administrator** (Administrateur système) est affecté dans DocuSign.com.
    
     b. Dans la zone de texte **Mot de passe d’administrateur**, entrez le mot de passe de ce compte.
 
-6. Sur le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application DocuSign.
+1. Sur le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application DocuSign.
 
-7. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
+1. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
 
-8. Cliquez sur **Enregistrer.**
+1. Cliquez sur **Enregistrer.**
 
-9. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec DocuSign**.
+1. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec DocuSign**.
 
-10. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers DocuSign. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans DocuSign pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
+1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers DocuSign. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans DocuSign pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
-11. Pour activer le service d’approvisionnement Azure AD pour DocuSign, affectez au paramètre **Statut d’approvisionnement** la valeur **Activé** dans la section Paramètres.
+1. Pour activer le service d’approvisionnement Azure AD pour DocuSign, affectez au paramètre **Statut d’approvisionnement** la valeur **Activé** dans la section Paramètres.
 
-12. Cliquez sur **Enregistrer.**
+1. Cliquez sur **Enregistrer.**
 
 Cette commande démarre la synchronisation initiale des utilisateurs affectés à DocuSign dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement dans votre application DocuSign.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841691"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441525"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure
 Configurez un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) dans Azure, contenant un nœud principal qui exécute Windows Server et plusieurs nœuds de calcul qui exécutent une distribution Linux. Explorez les différentes options vous permettant de déplacer les données entre les nœuds Linux et le nœud principal Windows du cluster. Découvrez comment soumettre des travaux Linux HPC au cluster.
@@ -42,7 +42,6 @@ Cet article présente deux possibilités de déploiement d’un cluster HPC Pack
 Pour plus d’informations sur les options de déploiement d’un cluster HPC Pack dans Azure, voir les [Options pour créer et gérer un cluster HPC (High Performance Computing) dans Azure avec Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="prerequisites"></a>Prérequis
-
 * **Abonnement Azure** : vous pouvez utiliser un abonnement dans le service Azure Global ou Azure Chine. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 * **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Pour augmenter un quota, ouvrez une demande de service clientèle en ligne gratuitement.
 * **Distributions Linux** : actuellement, HPC Pack prend en charge les distributions Linux suivantes pour les nœuds de calcul. Vous pouvez utiliser les versions Marketplace de ces distributions dans la mesure où elles sont disponibles, ou fournissez la vôtre.
@@ -65,24 +64,24 @@ Autres conditions préalables à respecter pour un déploiement du cluster à l�
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Option de déploiement 1. Utiliser un modèle Resource Manager
 1. Accédez au modèle [Cluster HPC Pack pour charges de travail Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) dans Azure Marketplace, puis cliquez sur **Déployer**.
-2. Dans le portail Azure, passez en revue les informations, puis cliquez sur **Créer**.
+1. Dans le portail Azure, passez en revue les informations, puis cliquez sur **Créer**.
    
     ![Création de portail][portal]
-3. Dans le panneau **Informations de base** , attribuez un nom au cluster, qui est aussi le nom de la machine virtuelle du nœud principal. Vous pouvez choisir un groupe de ressources existant ou créer un groupe pour le déploiement dans un emplacement auquel vous avez accès. L’emplacement a une incidence sur la disponibilité de certaines tailles de machine virtuelle et d’autres services Azure (voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/)).
-4. Pour un premier déploiement, vous pouvez généralement accepter les paramètres par défaut du panneau **Head node settings** (Paramètres du nœud principal). 
+1. Dans le panneau **Informations de base** , attribuez un nom au cluster, qui est aussi le nom de la machine virtuelle du nœud principal. Vous pouvez choisir un groupe de ressources existant ou créer un groupe pour le déploiement dans un emplacement auquel vous avez accès. L’emplacement a une incidence sur la disponibilité de certaines tailles de machine virtuelle et d’autres services Azure (voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/)).
+1. Pour un premier déploiement, vous pouvez généralement accepter les paramètres par défaut du panneau **Head node settings** (Paramètres du nœud principal). 
    
    > [!NOTE]
    > Le paramètre facultatif **Post-configuration script URL** (URL du script de post-configuration) permet de spécifier le script Windows PowerShell accessible au public que vous voulez exécuter sur la machine virtuelle du nœud principal une fois qu’il est en cours d’exécution. 
    > 
    > 
-5. Dans le panneau **Compute node settings** (Paramètres du nœud de calcul), sélectionnez un modèle d’affectation de noms pour les nœuds, le nombre et la taille des nœuds, ainsi que la distribution Linux à déployer.
-6. Dans le panneau **Infrastructure settings** (Paramètres d’infrastructure), entrez les noms du réseau virtuel et du domaine Active Directory, les informations d’identification d’administrateur de domaine et de machine virtuelle, ainsi qu’un modèle d’affectation de noms pour les comptes de stockage.
+1. Dans le panneau **Compute node settings** (Paramètres du nœud de calcul), sélectionnez un modèle d’affectation de noms pour les nœuds, le nombre et la taille des nœuds, ainsi que la distribution Linux à déployer.
+1. Dans le panneau **Infrastructure settings** (Paramètres d’infrastructure), entrez les noms du réseau virtuel et du domaine Active Directory, les informations d’identification d’administrateur de domaine et de machine virtuelle, ainsi qu’un modèle d’affectation de noms pour les comptes de stockage.
    
    > [!NOTE]
    > HPC Pack utilise le domaine Active Directory pour authentifier les utilisateurs du cluster. 
    > 
    > 
-7. Après avoir exécuté les tests de validation et passé en revue les conditions d’utilisation, cliquez sur **Acheter**.
+1. Après avoir exécuté les tests de validation et passé en revue les conditions d’utilisation, cliquez sur **Acheter**.
 
 ### <a name="deployment-option-2-use-the-iaas-deployment-script"></a>Option de déploiement 2. Utilisation du script de déploiement IaaS
 Voici les autres conditions préalables à respecter pour un déploiement du cluster à l’aide du script de déploiement HPC Pack IaaS :
@@ -136,12 +135,12 @@ Modifiez le fichier en fonction des besoins de votre environnement et de la conf
 **Pour exécuter le script de déploiement HPC Pack IaaS**
 
 1. Ouvrez Windows PowerShell sur l’ordinateur client en tant qu’administrateur.
-2. Accédez au dossier d’installation du script (E:\IaaSClusterScript dans cet exemple).
+1. Accédez au dossier d’installation du script (E:\IaaSClusterScript dans cet exemple).
    
     ```powershell
     cd E:\IaaSClusterScript
     ```
-3. Exécutez la commande suivante pour déployer le cluster HPC Pack. Cet exemple part du principe que le fichier de configuration se trouve dans E:\HPCDemoConfig.xml
+1. Exécutez la commande suivante pour déployer le cluster HPC Pack. Cet exemple part du principe que le fichier de configuration se trouve dans E:\HPCDemoConfig.xml
    
     ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -224,7 +223,7 @@ Il est également possible de monter un dossier partagé du nœud principal sur 
     ![Autorisations des partages de fichiers][fileshareperms]
    
     ![Partage de fichiers][filesharing]
-2. Ouvrez une fenêtre Windows PowerShell, puis exécutez les commandes suivantes :
+1. Ouvrez une fenêtre Windows PowerShell, puis exécutez les commandes suivantes :
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -253,7 +252,7 @@ Le service NFS vous permet de partager et de migrer des fichiers entre des ordin
     ![Autorisations NTFS NFS][nfsperm]
    
     ![Propriétés de la gestion NFS][nfsmanage]
-2. Ouvrez une fenêtre Windows PowerShell, puis exécutez les commandes suivantes :
+1. Ouvrez une fenêtre Windows PowerShell, puis exécutez les commandes suivantes :
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
@@ -268,7 +267,7 @@ Il existe plusieurs façons de soumettre des travaux au cluster HPC Pack.
 
 * Gestionnaire de cluster HPC ou interface graphique utilisateur du Gestionnaire de travaux HPC
 * Portail web HPC
-* de l’API REST
+* API REST
 
 La soumission de travaux au cluster via les outils de l’interface graphique utilisateur HPC Pack et via le portail web HPC est la même que pour les nœuds de calcul Windows. Consultez [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) (Gestionnaire de travaux HPC Pack) et [Envoyer des travaux HPC à partir d’un ordinateur local vers un cluster HPC Pack déployé dans Azure](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

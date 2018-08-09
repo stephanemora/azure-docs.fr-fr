@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 749b554b8cf99ce849e0e3ab7b3a9478d8705e54
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833582"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422992"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Intégrer votre environnement App Service ILB à l’aide de la passerelle d’application Azure #
 
@@ -40,7 +40,6 @@ Lors de cette procédure pas à pas, vous allez :
 * Modifier le nom d’hôte DNS public qui pointe vers votre passerelle d’application
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour intégrer votre passerelle d’application à votre environnement App Service ILB, les éléments suivants sont nécessaires :
 
@@ -65,7 +64,7 @@ Vous ne pouvez pas non plus placer la passerelle dans le sous-réseau que votre 
 
 1. Dans le portail Azure, accédez à **Nouveau** > **Réseau** > **Passerelle d’application**.
 
-2. Dans la zone **Bases** :
+1. Dans la zone **Bases** :
 
    a. Sous **Nom**, entrez le nom de la passerelle d’application.
 
@@ -79,7 +78,7 @@ Vous ne pouvez pas non plus placer la passerelle dans le sous-réseau que votre 
 
    ![Informations de base indispensables à la création d’une passerelle d’application][2]
 
-3. Dans la zone **Paramètres** :
+1. Dans la zone **Paramètres** :
 
    a. Sous **Réseau virtuel**, sélectionnez le réseau virtuel de l’environnement App Service.
 
@@ -95,25 +94,25 @@ Vous ne pouvez pas non plus placer la passerelle dans le sous-réseau que votre 
 
    ![Paramètres de création d’une passerelle d’application][3]
     
-4. Dans la section **Résumé**, vérifiez les paramètres, puis cliquez sur **OK**. L’installation de votre passerelle d’application peut prendre une trentaine de minutes.  
+1. Dans la section **Résumé**, vérifiez les paramètres, puis cliquez sur **OK**. L’installation de votre passerelle d’application peut prendre une trentaine de minutes.  
 
-5. Lorsque l’installation est terminée, accédez au portail de votre passerelle d’application. Sélectionnez **Pool principal**. Ajoutez l’adresse ILB de votre environnement App Service ILB.
+1. Lorsque l’installation est terminée, accédez au portail de votre passerelle d’application. Sélectionnez **Pool principal**. Ajoutez l’adresse ILB de votre environnement App Service ILB.
 
    ![Configuration du pool principal][4]
 
-6. Une fois l’opération de configuration de votre pool principal terminée, sélectionnez **Sondes d’intégrité**. Créez une sonde d’intégrité pour le nom de domaine que vous souhaitez destiner à votre application. 
+1. Une fois l’opération de configuration de votre pool principal terminée, sélectionnez **Sondes d’intégrité**. Créez une sonde d’intégrité pour le nom de domaine que vous souhaitez destiner à votre application. 
 
    ![Configurer les sondes d’intégrité][5]
     
-7. Une fois l’opération de configuration de vos sondes d’intégrité terminée, sélectionnez **Paramètres HTTP**. Modifiez les paramètres existants, sélectionnez **Utiliser la sonde personnalisée** et choisissez la sonde que vous avez configurée.
+1. Une fois l’opération de configuration de vos sondes d’intégrité terminée, sélectionnez **Paramètres HTTP**. Modifiez les paramètres existants, sélectionnez **Utiliser la sonde personnalisée** et choisissez la sonde que vous avez configurée.
 
    ![Configuration des paramètres HTTP][6]
     
-8. Accédez à la section **Vue d’ensemble** de la passerelle d’application et copiez l’adresse IP publique utilisée par la passerelle d’application. Définissez cette adresse IP en tant qu’enregistrement A pour le nom de domaine de votre application, ou utilisez le nom DNS pour cette adresse dans un enregistrement CNAME. Il est plus facile de sélectionner l’adresse IP publique et de la copier à partir de l’interface utilisateur de l’adresse IP publique que de la copier à partir du lien présent dans la section **Vue d’ensemble** de la passerelle d’application. 
+1. Accédez à la section **Vue d’ensemble** de la passerelle d’application et copiez l’adresse IP publique utilisée par la passerelle d’application. Définissez cette adresse IP en tant qu’enregistrement A pour le nom de domaine de votre application, ou utilisez le nom DNS pour cette adresse dans un enregistrement CNAME. Il est plus facile de sélectionner l’adresse IP publique et de la copier à partir de l’interface utilisateur de l’adresse IP publique que de la copier à partir du lien présent dans la section **Vue d’ensemble** de la passerelle d’application. 
 
    ![Portail Application Gateway][7]
 
-9. Définissez le nom de domaine personnalisé pour votre application dans l’environnement App Service ILB. Accédez à votre application dans le portail et, sous **Paramètres**, sélectionnez **Domaines personnalisés**.
+1. Définissez le nom de domaine personnalisé pour votre application dans l’environnement App Service ILB. Accédez à votre application dans le portail et, sous **Paramètres**, sélectionnez **Domaines personnalisés**.
 
    ![Définition d’un nom de domaine personnalisé sur l’application][8]
 

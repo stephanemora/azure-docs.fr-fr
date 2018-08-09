@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecb0919b68516fdb886ea745d963349ff29f83b4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867322"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627387"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -146,13 +146,13 @@ Vous pouvez utiliser un script PowerShell pour vérifier si les utilisateurs dis
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Utiliser les journaux d’audit pour surveiller l’activité de gestion des licences par groupe
 
-Vous pouvez utiliser les [Journaux d’audit AD Azure](./../active-directory-reporting-activity-audit-logs.md#audit-logs) pour voir toutes les activités relatives à la gestion des licences par groupe, à savoir :
+Vous pouvez utiliser les [Journaux d’audit AD Azure](../reports-monitoring/concept-audit-logs.md#audit-logs) pour voir toutes les activités relatives à la gestion des licences par groupe, à savoir :
 - qui a modifié les licences attribuées aux groupes ;
 - quand le système a démarré le traitement d’une modification de licence de groupe et quand il a terminé ;
 - quelles modifications de licence ont été apportées à un utilisateur à la suite d’une attribution de licence de groupe.
 
 >[!NOTE]
-> Des journaux d’audit sont disponibles sur la plupart des panneaux dans la section Azure Active Directory du portail. Selon l’emplacement où vous accédez à ceux-ci, des filtres peuvent être préappliqués pour afficher uniquement l’activité pertinente dans le contexte du panneau. Si vous ne voyez pas les résultats attendus, examinez les [options de filtrage](./../active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) ou accédez aux journaux d’audit non filtrés sous [**Azure Active Directory > Activité > Journaux d’audit**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+> Des journaux d’audit sont disponibles sur la plupart des panneaux dans la section Azure Active Directory du portail. Selon l’emplacement où vous accédez à ceux-ci, des filtres peuvent être préappliqués pour afficher uniquement l’activité pertinente dans le contexte du panneau. Si vous ne voyez pas les résultats attendus, examinez les [options de filtrage](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) ou accédez aux journaux d’audit non filtrés sous [**Azure Active Directory > Activité > Journaux d’audit**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
 ### <a name="find-out-who-modified-a-group-license"></a>Déterminer qui a modifié une licence de groupe
 

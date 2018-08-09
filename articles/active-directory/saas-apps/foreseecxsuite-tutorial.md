@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c126b3bf08174886b3668cd54c76b72d113ba76
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b288bcbe14050c0f764f348d5e20186570e32866
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047108"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite
 
@@ -54,7 +54,7 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajouter ForeSee CX Suite à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-foresee-cx-suite-from-the-gallery"></a>Ajouter ForeSee CX Suite à partir de la galerie
 Pour configurer l’intégration de ForeSee CX Suite à Azure AD, vous devez ajouter ForeSee CX Suite à votre liste d’applications SaaS gérées à partir de la galerie.
@@ -65,15 +65,15 @@ Pour configurer l’intégration de ForeSee CX Suite à Azure AD, vous devez ajo
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **ForeSee CX Suite**, sélectionnez **ForeSee CX Suite** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **ForeSee CX Suite**, sélectionnez **ForeSee CX Suite** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![ForeSee CX Suite dans la liste des résultats](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Pour que l’authentification unique fonctionne, Azure AD a besoin de savoir que
 Pour configurer et tester l’authentification unique Azure AD avec ForeSee CX Suite, suivez les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test ForeSee CX Suite](#create-a-foresee-cx-suite-test-user)** pour avoir un équivalent de Britta Simon dans ForeSee CX Suite, lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test ForeSee CX Suite](#create-a-foresee-cx-suite-test-user)** pour avoir un équivalent de Britta Simon dans ForeSee CX Suite, lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -101,11 +101,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
     ![Boîte de dialogue Authentification unique](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_samlbase.png)
 
-3. Dans la section **Domaine et URL ForeSee CX Suite**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
+1. Dans la section **Domaine et URL ForeSee CX Suite**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
 
     ![Informations d’authentification unique dans Domaine et URL ForeSee CX Suite](./media/foreseecxsuite-tutorial/upload.png)
 
@@ -119,7 +119,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
     ![Informations d’authentification unique dans Domaine et URL ForeSee CX Suite](./media/foreseecxsuite-tutorial/urlupload.png)
 
-4. Si vous n’avez pas de **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
+1. Si vous n’avez pas de **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
 
     ![Informations d’authentification unique dans Domaine et URL ForeSee CX Suite](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 
@@ -130,15 +130,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
     > [!NOTE]
     > La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Pour obtenir cette valeur, contactez [l’équipe de support client de ForeSee CX Suite](mailto:support@foresee.com).
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_certificate.png)
 
-6. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/foreseecxsuite-tutorial/tutorial_general_400.png)
 
-7. Pour configurer l’authentification unique côté **ForeSee CX Suite**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support de ForeSee CX Suite](mailto:support@foresee.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **ForeSee CX Suite**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support de ForeSee CX Suite](mailto:support@foresee.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -152,15 +152,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/foreseecxsuite-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/foreseecxsuite-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/foreseecxsuite-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/foreseecxsuite-tutorial/create_aaduser_04.png)
 
@@ -188,23 +188,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201]
 
-2. Dans la liste des applications, sélectionnez **ForeSee CX Suite**.
+1. Dans la liste des applications, sélectionnez **ForeSee CX Suite**.
 
     ![Lien ForeSee CX Suite dans la liste Applications](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_app.png)
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

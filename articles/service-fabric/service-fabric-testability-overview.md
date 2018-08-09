@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 807e4588e23ea01c5ce435282d7af59bb108e6c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a4ddfc17a81a6816bc797bab4c3b5a8b2fc4334e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209682"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425236"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduction au service d’analyse des erreurs
 Le service d’analyse des erreurs est conçu pour tester les services qui s’appuient sur Microsoft Azure Service Fabric. Avec le service d’analyse des erreurs, vous pouvez provoquer des erreurs significatives et exécuter des scénarios de test complets sur vos applications. Ces erreurs et scénarios exercent et valident les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, le tout de manière contrôlée, sécurisée et cohérente.
@@ -47,8 +47,8 @@ Quand une action d’erreur ou un scénario de test est déclenché, une command
 Service Fabric simplifie considérablement les tâches d’écriture et de gestion des applications évolutives distribuées. De même, le service d’analyse des erreurs facilite le test d’une application distribuée. Trois problématiques liées au test doivent être résolues :
 
 1. Simulation/Génération de défaillances réalistes : Service Fabric permet notamment aux applications distribuées de récupérer de diverses défaillances. Toutefois, pour évaluer la capacité de l’application à récupérer de la sorte, nous devons recourir à un mécanisme de simulation/de génération de ces défaillances réalistes au sein d’un environnement de test contrôlé.
-2. La capacité à générer des défaillances liées : les défaillances de base du système, comme les défaillances réseau et les défaillances de machines, sont faciles à générer de manière isolée. Les interactions entre les défaillances isolées peuvent entraîner un nombre incalculable de scénarios de dysfonctionnement. La génération de ces contextes revêt une importance toute particulière.
-3. Expérience unifiée au sein de divers niveaux de développement et de déploiement : de nombreux systèmes d’injection d’erreurs peuvent générer différents types de défaillances. Toutefois, cette expérience unifiée est pauvre en transposant les scénarios de test de développement au sein des grands environnements de test, puis en production.
+1. La capacité à générer des défaillances liées : les défaillances de base du système, comme les défaillances réseau et les défaillances de machines, sont faciles à générer de manière isolée. Les interactions entre les défaillances isolées peuvent entraîner un nombre incalculable de scénarios de dysfonctionnement. La génération de ces contextes revêt une importance toute particulière.
+1. Expérience unifiée au sein de divers niveaux de développement et de déploiement : de nombreux systèmes d’injection d’erreurs peuvent générer différents types de défaillances. Toutefois, cette expérience unifiée est pauvre en transposant les scénarios de test de développement au sein des grands environnements de test, puis en production.
 
 Il existe de nombreux mécanismes permettant de résoudre ces problèmes, mais il manque un élément : un système qui joue le même rôle avec les garanties requises, de l’environnement de test des développeurs aux clusters de production. Le service d’analyse des erreurs permet aux développeurs d’applications de se concentrer sur le test de leur logique métier. Le service d’analyse des erreurs fournit toutes les capacités requises pour tester l’interaction du service avec le système distribué sous-jacent.
 
@@ -56,7 +56,7 @@ Il existe de nombreux mécanismes permettant de résoudre ces problèmes, mais i
 Pour éprouver la solidité d’un système distribué contre les défaillances, nous recourons à un mécanisme de génération d’erreurs. En théorie, il semble facile de générer une défaillance comme un arrêt de nœud. Néanmoins, cette opération soulève des problématiques de cohérence identiques à celles que Service Fabric tente de résoudre. Par exemple, si vous voulez arrêter un nœud, le flux de travail suivant est requis :
 
 1. À partir du client, émettez une requête d’arrêt du nœud.
-2. Envoyez la requête au nœud approprié.
+1. Envoyez la requête au nœud approprié.
    
     a. Si le nœud est introuvable, elle doit être mise en échec.
    
@@ -68,8 +68,8 @@ Pour vérifier la défaillance dans le cadre d’un test, celui-ci doit savoir q
 Tandis que la simulation des défaillances réalistes peut s’avérer difficile, la génération des défaillances liées est encore plus compliquée. Par exemple, une perte de données se produit dans un service persistant avec état quand les événements suivants se produisent :
 
 1. Seul un quorum d’écriture est traité par la réplication. L’ensemble des réplicas secondaires sont derrière le réplica primaire.
-2. L’arrêt des réplicas provoque l’arrêt du quorum d’écriture (en raison de l’arrêt du package de code ou du nœud).
-3. Le quorum d’écriture ne peut pas réapparaître en raison de la perte des données associées aux réplicas (causée par la corruption des disques ou la réinitialisation de la machine).
+1. L’arrêt des réplicas provoque l’arrêt du quorum d’écriture (en raison de l’arrêt du package de code ou du nœud).
+1. Le quorum d’écriture ne peut pas réapparaître en raison de la perte des données associées aux réplicas (causée par la corruption des disques ou la réinitialisation de la machine).
 
 Ces défaillances liées se produisent vraiment, mais pas aussi souvent que les défaillances isolées. Il est primordial de pouvoir tester ces scénarios avant qu’ils ne se produisent en environnement de production. La capacité à simuler ces scénarios avec des charges de travail de production dans des circonstances contrôlées (en plein milieu de la journée avec tous les ingénieurs sur le pont) est encore plus importante. De telles circonstances sont bien plus efficaces qu’un premier test en production à 2h00 du matin.
 
@@ -77,13 +77,13 @@ Ces défaillances liées se produisent vraiment, mais pas aussi souvent que les 
 Traditionnellement, l’idée est de développer trois différents ensembles d’expériences, un pour l’environnement de développement, un pour les tests et un autre pour la production. Le modèle se présentait ainsi :
 
 1. Dans l’environnement de développement, produisez des transitions d’état prenant en charge des tests d’unités de méthodes individuelles.
-2. Dans l’environnement de test, produisez des erreurs dans le cadre de tests de bout en bout illustrant différents scénarios de défaillances.
-3. Conservez l’environnement de production intact pour empêcher tout risque de défaillance non naturelle et garantir une réponse humaine extrêmement rapide aux défaillances.
+1. Dans l’environnement de test, produisez des erreurs dans le cadre de tests de bout en bout illustrant différents scénarios de défaillances.
+1. Conservez l’environnement de production intact pour empêcher tout risque de défaillance non naturelle et garantir une réponse humaine extrêmement rapide aux défaillances.
 
 Dans Service Fabric, par le biais du service d’analyse des erreurs, nous proposons de bouleverser cette définition en appliquant une méthodologie unique de l’environnement de développement à la production. Il existe deux moyens de parvenir à cet objectif :
 
 1. Pour provoquer des défaillances contrôlées, utilisez les API de service d’analyse des erreurs d’un environnement à boîtier unique sur l’ensemble du processus, jusqu’aux clusters de production.
-2. Pour instaurer dans le cluster une atmosphère provoquant l’introduction automatique de défaillance, recourez au service d’analyse des erreurs afin de générer des erreurs automatiques. En configurant le taux de défaillances, vous êtes à même de tester un même service dans divers environnements.
+1. Pour instaurer dans le cluster une atmosphère provoquant l’introduction automatique de défaillance, recourez au service d’analyse des erreurs afin de générer des erreurs automatiques. En configurant le taux de défaillances, vous êtes à même de tester un même service dans divers environnements.
 
 Avec Service Fabric, la mise à l’échelle des défaillances ne serait pas la même au sein des différents environnements. En revanche, les mécanismes réels seraient identiques. Cela permet de diffuser un code plus rapide vers le pipeline de déploiement et de tester les services sous des charges de travail réelles.
 

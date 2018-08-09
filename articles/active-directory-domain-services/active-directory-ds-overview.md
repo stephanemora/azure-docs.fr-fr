@@ -12,18 +12,18 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 9c22ed1cca49e3e8789c3da5b7bd59d9aeb3ce42
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4467c193b5ff70a304b4ec5f632276ca14551b08
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218453"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501989"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Services de domaine Azure Active Directory (AD)
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Infrastructure Services permet de déployer une large gamme de solutions informatiques de manière agile. Azure Virtual Machines permet un déploiement quasi instantané, et un paiement à la minute. Grâce à la prise en charge de Windows, Linux, SQL Server, Oracle, IBM, SAP et BizTalk, vous pouvez déployer n’importe quelle charge de travail et toutes les langues sur quasiment tous les systèmes d’exploitation. Ces avantages permettent de migrer des applications héritées déployées sur site vers Azure, tout en faisant des économies sur les dépenses d’exploitation.
 
 Un aspect clé de la migration d’applications sur site vers Azure consiste à gérer les aspects liés à l’identité de ces applications. Les applications orientées répertoire peuvent s’appuyer sur le protocole LDAP pour obtenir un accès en lecture ou en écriture à l’annuaire d’entreprise, ou sur l’authentification intégrée Windows (authentification Kerberos ou NTLM) pour authentifier les utilisateurs finaux. Les applications métier (Line-of-business, LOB) s’exécutant sous Windows Server sont généralement déployées sur les ordinateurs appartenant au domaine, et peuvent être gérées en toute sécurité grâce à la stratégie de groupe. Pour « transférer » les applications de site vers le cloud, les dépendances par rapport à l’infrastructure d’identité doivent être résolues.

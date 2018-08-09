@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046460"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440624"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -58,38 +58,38 @@ Voici les étapes classiques pour créer un pipeline de fabrique de données ave
 ### <a name="prerequisites"></a>Prérequis
 1. Créez un compte de stockage à usage général en suivant les instructions fournies dans [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-2. Créez un cluster Spark dans HDInsight en suivant les instructions fournies dans le didacticiel [Créer un cluster Spark dans HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associez le compte de stockage que vous avez créé à l’étape 1 à ce cluster.
+1. Créez un cluster Spark dans HDInsight en suivant les instructions fournies dans le didacticiel [Créer un cluster Spark dans HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associez le compte de stockage que vous avez créé à l’étape 1 à ce cluster.
 
-3. Téléchargez et passez en revue le fichier de script Python **test.py** se trouvant à l’emplacement [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+1. Téléchargez et passez en revue le fichier de script Python **test.py** se trouvant à l’emplacement [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
-4. Chargez le fichier **test.py** dans le dossier **pyFiles** du conteneur **adfspark** figurant dans votre stockage Blob. Créez le conteneur et le dossier s’ils n’existent pas.
+1. Chargez le fichier **test.py** dans le dossier **pyFiles** du conteneur **adfspark** figurant dans votre stockage Blob. Créez le conteneur et le dossier s’ils n’existent pas.
 
 ### <a name="create-a-data-factory"></a>Créer une fabrique de données
 Pour créer une fabrique de données, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory**.
+1. Sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory**.
 
-3. Dans le panneau **Nouvelle fabrique de données**, entrez **SparkDF** dans le champ **Nom**.
+1. Dans le panneau **Nouvelle fabrique de données**, entrez **SparkDF** dans le champ **Nom**.
 
    > [!IMPORTANT]
    > Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur « Data factory name SparkDF is not available » (Le nom de fabrique de données SparkDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomSparkDF et recréez la fabrique de données. Pour plus d’informations sur les règles d’affectation des noms, consultez [Data Factory : Règles d’affectation des noms](data-factory-naming-rules.md).
 
-4. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données.
+1. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données.
 
-5. Sélectionnez un groupe de ressources Azure existant ou créez-en un.
+1. Sélectionnez un groupe de ressources Azure existant ou créez-en un.
 
-6. Cochez la case **Épingler au tableau de bord**.
+1. Cochez la case **Épingler au tableau de bord**.
 
-7. Sélectionnez **Créer**.
+1. Sélectionnez **Créer**.
 
    > [!IMPORTANT]
    > Pour créer des instances Data Factory, vous devez avoir un rôle de [contributeur de fabrique de données](../../role-based-access-control/built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
 
-8. La fabrique de données apparaît comme en cours de création dans le tableau de bord du portail Azure.
+1. La fabrique de données apparaît comme en cours de création dans le tableau de bord du portail Azure.
 
-9. Une fois la fabrique de données créée, la page **Fabrique de données** correspondante s’affiche avec son contenu. Si vous ne voyez pas la page **Fabrique de données**, sélectionnez la vignette de votre fabrique de données sur le tableau de bord.
+1. Une fois la fabrique de données créée, la page **Fabrique de données** correspondante s’affiche avec son contenu. Si vous ne voyez pas la page **Fabrique de données**, sélectionnez la vignette de votre fabrique de données sur le tableau de bord.
 
     ![Panneau Data Factory](./media/data-factory-spark/data-factory-blade.png)
 
@@ -101,17 +101,17 @@ Dans cette étape, vous liez votre compte de stockage à votre fabrique de donn�
 
 1. Dans le panneau **Fabrique de données**, sélectionnez **Créer et déployer**. Le Data Factory Editor apparaît.
 
-2. Sélectionnez **Nouveau magasin de données** et choisissez **Stockage Azure**.
+1. Sélectionnez **Nouveau magasin de données** et choisissez **Stockage Azure**.
 
    ![Nouveau magasin de données](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
-3. Le script JSON que vous utilisez pour créer un service lié Stockage dans l’éditeur apparaît.
+1. Le script JSON que vous utilisez pour créer un service lié Stockage dans l’éditeur apparaît.
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Remplacez **account name** et **account key** par le nom et la clé d’accès de votre compte de stockage. Pour savoir comment obtenir votre clé d’accès de stockage, reportez-vous aux informations sur l’affichage, la copie et la régénération de clés d’accès de stockage dans [Gérer votre compte de stockage](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Remplacez **account name** et **account key** par le nom et la clé d’accès de votre compte de stockage. Pour savoir comment obtenir votre clé d’accès de stockage, reportez-vous aux informations sur l’affichage, la copie et la régénération de clés d’accès de stockage dans [Gérer votre compte de stockage](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Pour déployer le service lié, sélectionnez **Déployer** dans la barre de commandes. Une fois le service lié déployé, la fenêtre Draft-1 disparaît. **AzureStorageLinkedService** apparaît dans l’arborescence à gauche.
+1. Pour déployer le service lié, sélectionnez **Déployer** dans la barre de commandes. Une fois le service lié déployé, la fenêtre Draft-1 disparaît. **AzureStorageLinkedService** apparaît dans l’arborescence à gauche.
 
 #### <a name="create-an-hdinsight-linked-service"></a>Créer un service lié HDInsight
 Dans cette étape, vous créez un service lié HDInsight pour lier à la fabrique de données votre cluster Spark HDInsight. Le service lié HDInsight est utilisé pour exécuter le programme Spark spécifié dans l’activité Spark du pipeline de cet exemple. 
@@ -120,7 +120,7 @@ Dans cette étape, vous créez un service lié HDInsight pour lier à la fabriqu
 
     ![Créer un service lié Azure HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
 
-2. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. Dans l’éditeur JSON, procédez comme suit :
+1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. Dans l’éditeur JSON, procédez comme suit :
 
     a. Spécifier l’URI du cluster Spark HDInsight. Par exemple : `https://<sparkclustername>.azurehdinsight.net/`.
 
@@ -151,14 +151,14 @@ Dans cette étape, vous créez un service lié HDInsight pour lier à la fabriqu
 
     Pour plus d’informations sur le service lié HDInsight, consultez la page consacrée au [service lié HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
-3. Pour déployer le service lié, sélectionnez **Déployer** dans la barre de commandes. 
+1. Pour déployer le service lié, sélectionnez **Déployer** dans la barre de commandes. 
 
 ### <a name="create-the-output-dataset"></a>Créer le jeu de données de sortie
 Le jeu de données de sortie pilote la planification (horaire, quotidienne). Par conséquent, vous devez spécifier un jeu de données de sortie pour l’activité Spark du pipeline, même si l’activité ne produit pas de sortie. Vous n’êtes pas obligé de spécifier un jeu de données d’entrée pour l’activité.
 
 1. Dans Data Factory Editor, sélectionnez **Plus** > **Nouveau jeu de données** > **Stockage Blob Azure**.
 
-2. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. L’extrait de code JSON définit un jeu de données appelé **OutputDataset**. En outre, vous indiquez que les résultats sont stockés dans le conteneur d’objets blob nommé **adfspark** et dans le dossier nommé **pyFiles/output**. Comme mentionné précédemment, ce jeu de données est un jeu de données factice. Le programme Spark, dans cet exemple, ne produit pas de sortie. La section **availability** spécifie que le jeu de données de sortie est produit tous les jours. 
+1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. L’extrait de code JSON définit un jeu de données appelé **OutputDataset**. En outre, vous indiquez que les résultats sont stockés dans le conteneur d’objets blob nommé **adfspark** et dans le dossier nommé **pyFiles/output**. Comme mentionné précédemment, ce jeu de données est un jeu de données factice. Le programme Spark, dans cet exemple, ne produit pas de sortie. La section **availability** spécifie que le jeu de données de sortie est produit tous les jours. 
 
     ```json
     {
@@ -181,7 +181,7 @@ Le jeu de données de sortie pilote la planification (horaire, quotidienne). Par
         }
     }
     ```
-3. Pour déployer le jeu de données, sélectionnez **Déployer** dans la barre de commandes.
+1. Pour déployer le jeu de données, sélectionnez **Déployer** dans la barre de commandes.
 
 
 ### <a name="create-a-pipeline"></a>Créer un pipeline
@@ -189,7 +189,7 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 
 1. Dans Data Factory Editor, sélectionnez **Plus** > **Nouveau pipeline**.
 
-2. Remplacez le script de la fenêtre Draft-1 par le script suivant :
+1. Remplacez le script de la fenêtre Draft-1 par le script suivant :
 
     ```json
     {
@@ -234,37 +234,37 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 
     Pour plus d’informations sur les propriétés prises en charge par l’activité Spark, consultez la section [Propriétés de l’activité Spark](#spark-activity-properties).
 
-3. Pour déployer le pipeline, sélectionnez **Déployer** dans la barre de commandes.
+1. Pour déployer le pipeline, sélectionnez **Déployer** dans la barre de commandes.
 
 ### <a name="monitor-a-pipeline"></a>Surveiller un pipeline
 1. Dans le panneau **Fabrique de données**, sélectionnez **Surveiller et gérer** pour démarrer l’application de surveillance dans un autre onglet.
 
     ![Vignette Surveiller et gérer](media/data-factory-spark/monitor-and-manage-tile.png)
 
-2. Modifiez le filtre de **début** en haut de la page sur **2/1/2017**, puis sélectionnez **Appliquer**.
+1. Modifiez le filtre de **début** en haut de la page sur **2/1/2017**, puis sélectionnez **Appliquer**.
 
-3. Une seule fenêtre d’activité apparaît puisqu’il n’y a qu’un seul jour entre le début (2017-02-01) et la fin (2017-02-02) du pipeline. Vérifiez que la tranche de données est à l’état **Prêt**.
+1. Une seule fenêtre d’activité apparaît puisqu’il n’y a qu’un seul jour entre le début (2017-02-01) et la fin (2017-02-02) du pipeline. Vérifiez que la tranche de données est à l’état **Prêt**.
 
     ![Surveiller le pipeline](media/data-factory-spark/monitor-and-manage-app.png)
 
-4. Dans la liste des **fenêtres d’activité**, sélectionnez une exécution d’activité pour en afficher les détails. S’il y a une erreur, vous pouvez en afficher les détails dans le volet droit.
+1. Dans la liste des **fenêtres d’activité**, sélectionnez une exécution d’activité pour en afficher les détails. S’il y a une erreur, vous pouvez en afficher les détails dans le volet droit.
 
 ### <a name="verify-the-results"></a>Vérifier les résultats
 
 1. Ouvrez le bloc-notes Jupyter de votre cluster Spark HDInsight en accédant à [ce site web](https://CLUSTERNAME.azurehdinsight.net/jupyter). Vous pouvez également ouvrir un tableau de bord de votre cluster Spark HDInsight, puis ouvrir le bloc-notes Jupyter.
 
-2. Sélectionnez **Nouveau** > **PySpark** pour ouvrir un nouveau bloc-notes.
+1. Sélectionnez **Nouveau** > **PySpark** pour ouvrir un nouveau bloc-notes.
 
     ![Nouveau bloc-notes Jupyter](media/data-factory-spark/jupyter-new-book.png)
 
-3. Exécutez la commande suivante en copiant et en collant le texte et en appuyant sur les touches Maj + Entrée à la fin de la deuxième instruction :
+1. Exécutez la commande suivante en copiant et en collant le texte et en appuyant sur les touches Maj + Entrée à la fin de la deuxième instruction :
 
     ```sql
     %%sql
 
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-4. Vérifiez que les données figurent dans la table hvac. 
+1. Vérifiez que les données figurent dans la table hvac. 
 
     ![Résultats de la requête Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
@@ -280,11 +280,11 @@ Pour résoudre des problèmes, procédez comme suit :
 
     ![Application d’interface utilisateur YARN](media/data-factory-spark/yarnui-application.png)
 
-2. Sélectionnez **Journaux** pour l’une des tentatives d’exécution.
+1. Sélectionnez **Journaux** pour l’une des tentatives d’exécution.
 
     ![Page d’application](media/data-factory-spark/yarn-applications.png)
 
-3. Vous voyez d’autres informations d’erreur sur la page du journal :
+1. Vous voyez d’autres informations d’erreur sur la page du journal :
 
     ![Erreur du journal](media/data-factory-spark/yarnui-application-error.png)
 
@@ -329,12 +329,12 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Nom | Nom de l'activité dans le pipeline. | OUI |
+| Nom | Nom de l'activité dans le pipeline. | Oui |
 | description | Texte qui décrit l’activité. | Non  |
-| Type | Cette propriété doit être définie sur HDInsightSpark. | OUI |
-| linkedServiceName | Nom d’un service lié HDInsight sur lequel s’exécute le programme Spark. | OUI |
-| rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | OUI |
-| entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | OUI |
+| Type | Cette propriété doit être définie sur HDInsightSpark. | Oui |
+| linkedServiceName | Nom d’un service lié HDInsight sur lequel s’exécute le programme Spark. | Oui |
+| rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | Oui |
+| entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | Oui |
 | className | Classe principale Java/Spark de l’application. | Non  |
 | arguments | Liste d’arguments de ligne de commande du programme Spark. | Non  |
 | proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non  |
@@ -349,8 +349,8 @@ Créez la structure de dossiers suivante dans le stockage Blob référencé par 
 
 | path | Description | Obligatoire | type |
 | ---- | ----------- | -------- | ---- |
-| . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | OUI | Dossier |
-| &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | OUI | Fichier |
+| . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | Oui | Dossier |
+| &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | Oui | Fichier |
 | ./jars | Tous les fichiers dans ce dossier sont chargés et placés dans le classpath Java du cluster. | Non  | Dossier |
 | ./pyFiles | Tous les fichiers dans ce dossier sont chargés et placés dans le PYTHONPATH du cluster. | Non  | Dossier |
 | ./files | Tous les fichiers dans ce dossier sont chargés et placés dans le répertoire de travail de l’exécuteur. | Non  | Dossier |

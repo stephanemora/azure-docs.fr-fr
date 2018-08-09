@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 58a283f1ce5bd2fd78c4fa2038c3998aea1598c9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070349"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505711"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Prise en main du coffre de clés Azure
 Cet article vous aide à prendre en main Azure Key Vault avec PowerShell et vous explique en détail :
@@ -103,7 +103,7 @@ Utilisez l’applet de commande [New-AzureRmKeyVault](/powershell/module/azurerm
 Par exemple, si vous utilisez :
 - Le nom de coffre **ContosoKeyVault**.
 - Le nom de groupe de ressources **ContosoResourceGroup**.
-- L’emplacement **Est des États-Unis**.
+- L’emplacement **USA Est**.
 
 Vous devez taper :
 
@@ -206,7 +206,7 @@ Pour afficher sous forme de texte brut la valeur contenue dans le secret :
 À présent, votre coffre de clés et la clé/le secret sont prêts à être utilisés par les applications qui doivent recevoir les autorisations adéquates.  
 
 ## <a id="register"></a>Inscription d’une application auprès d’Azure Active Directory
-Cette étape est généralement effectuée par un développeur et sur un ordinateur distinct. Elle n’est pas propre à Azure Key Vault. Pour obtenir des instructions détaillées sur l’inscription d’une application auprès d’Azure Active Directory, consultez l’article [Intégration d’applications dans Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) ou [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Cette étape est généralement effectuée par un développeur et sur un ordinateur distinct. Elle n’est pas propre à Azure Key Vault. Pour obtenir des instructions détaillées sur l’inscription d’une application auprès d’Azure Active Directory, consultez l’article [Intégration d’applications dans Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ou [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 > [!IMPORTANT]
 > Pour suivre le didacticiel, le compte, le coffre et l’application que vous inscrivez dans cette étape doivent tous se trouver dans le même répertoire Azure.
@@ -233,7 +233,7 @@ Vous devez sélectionner le répertoire qui contient l’abonnement Azure avec l
     >[!WARNING]
     Assurez-vous que vous avez sélectionné **APPLICATION WEB ET/OU API WEB**. Si ce n’est pas le cas, l’option **Clés** n’apparaîtra pas dans les paramètres.
 
-5. Cliquez sur le bouton **Créer** .
+5. Cliquez sur le bouton **Créer**.
 6. Une fois l’inscription de l’application terminée, la liste des applications inscrites s’affiche. Recherchez l’application que vous venez d’inscrire et cliquez dessus.
 7. Cliquez sur le panneau **Application inscrite** et copiez **l’ID de l’application**
 8. Cliquez sur **Tous les paramètres**.

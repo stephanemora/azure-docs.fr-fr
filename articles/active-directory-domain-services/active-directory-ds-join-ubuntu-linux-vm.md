@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d9f4dc0883ced599dd13d0c5d52ff865e03b73ed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 645e1eaedf3832b384a174d9f9ede5ea835047cd
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332909"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502965"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Joindre une machine virtuelle Ubuntu dans Azure à un domaine géré
 Cet article indique comment joindre une machine virtuelle Linux Ubuntu à un domaine géré par les services de domaine Azure AD.
@@ -38,7 +38,7 @@ Pour exécuter les tâches indiquées dans cet article, vous avez besoin des él
 
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Approvisionner une machine virtuelle Linux Ubuntu
 Approvisionnez une machine virtuelle Linux Ubuntu dans Azure, en utilisant l’une des méthodes suivantes :
-* [Portail Azure](../virtual-machines/linux/quick-create-portal.md)
+* [portail Azure](../virtual-machines/linux/quick-create-portal.md)
 * [interface de ligne de commande Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

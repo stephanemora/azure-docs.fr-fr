@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: c92b50ee78c100a531a2973181251444b3810967
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293768"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424549"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatiser les processus Azure Application Insights avec le connecteur pour Microsoft Flow
 
@@ -35,19 +35,19 @@ Dans ce didacticiel, vous allez apprendre à créer un flux qui utilise l’algo
 
 ### <a name="step-1-create-a-flow"></a>Étape 1 : Créer un flux
 1. Connectez-vous à [Microsoft Flow](http://flow.microsoft.com), puis sélectionnez **Mes flux**.
-2. Cliquez sur **Créer un flux à partir de rien**.
+1. Cliquez sur **Créer un flux à partir de rien**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Étape 2 : Créer un déclencheur pour votre flux
 1. Sélectionnez **Planifier**, puis **Planification - Récurrence**.
-2. Dans la zone **Fréquence**, sélectionnez **Jour** et, dans la zone **Intervalle**, entrez **1**.
+1. Dans la zone **Fréquence**, sélectionnez **Jour** et, dans la zone **Intervalle**, entrez **1**.
 
     ![Boîte de dialogue du déclencheur de flux Microsoft Flow](./media/app-insights-automate-with-flow/flow1.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>Étape 3 : Ajouter une action Application Insights
 1. Cliquez sur **Nouvelle étape**, puis sur **Ajouter une action**.
-2. Recherchez **Azure Application Insights**.
-3. Cliquez sur **Azure Application Insights – Visualize Analytics query Preview** (Azure Application Insights – Visualiser la requête Analytics Préversion).
+1. Recherchez **Azure Application Insights**.
+1. Cliquez sur **Azure Application Insights – Visualize Analytics query Preview** (Azure Application Insights – Visualiser la requête Analytics Préversion).
 
     ![Fenêtre d’exécution de la requête Analytics](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -84,12 +84,12 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
 ### <a name="step-6-configure-the-flow-to-send-email"></a>Étape 6 : Configurer le flux pour envoyer un courrier électronique
 
 1. Cliquez sur **Nouvelle étape**, puis sur **Ajouter une action**.
-2. Recherchez **Office 365 Outlook**.
-3. Cliquez sur **Office 365 Outlook – Envoyer un message électronique**.
+1. Recherchez **Office 365 Outlook**.
+1. Cliquez sur **Office 365 Outlook – Envoyer un message électronique**.
 
     ![Fenêtre de sélection d’Office 365 Outlook](./media/app-insights-automate-with-flow/flow2b.png)
 
-4. Dans la fenêtre **Envoyer un message électronique**, effectuez les étapes suivantes :
+1. Dans la fenêtre **Envoyer un message électronique**, effectuez les étapes suivantes :
 
    a. Tapez l’adresse e-mail du destinataire.
 
@@ -101,7 +101,7 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
 
     ![Configuration d’Office 365 Outlook](./media/app-insights-automate-with-flow/flow5.png)
 
-5. Dans le menu de contenu dynamique, effectuez les étapes suivantes :
+1. Dans le menu de contenu dynamique, effectuez les étapes suivantes :
 
     a. Sélectionnez **Nom de la pièce jointe**.
 

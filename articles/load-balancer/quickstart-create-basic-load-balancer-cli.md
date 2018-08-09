@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7cca2475228155de6dc1f5c00a0d306e3a40c11a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304917"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441984"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Démarrage rapide : créer un équilibreur de charge public pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI 2.0
 
@@ -30,7 +30,7 @@ Ce démarrage rapide vous montre comment créer un équilibreur de charge Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.28 ou ultérieure pour poursuivre la procédure décrite dans ce tutoriel. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.28 ou ultérieure pour poursuivre la procédure décrite dans ce tutoriel. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -54,7 +54,7 @@ Pour accéder à votre application web sur Internet, vous avez besoin d’une ad
 
 ## <a name="create-azure-load-balancer"></a>Créer un équilibreur de charge Azure
 
-Cette section explique en détail comment créer et configurer les composants suivants de l’équilibreur de charge :
+Cette section explique en détail comment vous pouvez créer et configurer les composants suivants de l’équilibreur de charge :
   - Un pool IP frontal qui reçoit le trafic réseau entrant sur l’équilibreur de charge.
   - Un pool d’IP principal où le pool frontal envoie le trafic réseau dont la charge a été équilibrée.
   - Une sonde d’intégrité qui détermine l’intégrité des instances de machine virtuelle principales.
@@ -147,7 +147,7 @@ Créez une règle de groupe de sécurité réseau pour autoriser les connexions 
 ```
 ### <a name="create-nics"></a>Créer des cartes réseau
 
-Créez trois interfaces réseau à l’aide de la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create) et associez-les à l’adresse IP publique et au groupe de sécurité réseau. 
+Créez trois interfaces réseau à l’aide de la commande [az network nic create](/cli/azure/network/nic#az-network-nic-create) et associez-les à l’adresse IP publique et au groupe de sécurité réseau. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -169,7 +169,7 @@ Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que 
 
 ### <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 
-Créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/network/nic#az_network_availabilityset_create)
+Créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -179,7 +179,7 @@ Créer un groupe à haute disponibilité à l’aide de la commande [az vm avail
 
 ### <a name="create-two-virtual-machines"></a>Créer deux machines virtuelles
 
-Vous pouvez utiliser un fichier de configuration cloud-init pour installer NGINX et exécuter une application Node.js « Hello World » sur une machine virtuelle Linux. Dans l’interpréteur de commandes actuel, créez un fichier nommé cloud-init.txt et collez la configuration suivante dans l’interpréteur de commandes. Vérifiez que vous copiez bien l’intégralité du fichier cloud-init, en particulier la première ligne :
+Vous pouvez utiliser un fichier de configuration cloud-init pour installer NGINX et exécuter une application Node.js « Hello World » sur une machine virtuelle Linux. Dans l’interpréteur de commandes actuel, créez un fichier nommé cloud-init.txt et collez la configuration suivante dans l’interpréteur de commandes. Vérifiez que vous copiez bien l’intégralité du fichier cloud-init, en particulier la première ligne :
 
 ```yaml
 #cloud-config
@@ -223,7 +223,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Créez les machines virtuelles avec la commande [az vm create](/cli/azure/vm#az_vm_create).
+Créez les machines virtuelles avec la commande [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -242,7 +242,7 @@ Le déploiement des machines virtuelles peut nécessiter quelques minutes.
 
 ## <a name="test-the-load-balancer"></a>Tester l’équilibreur de charge
 
-Pour obtenir l’adresse IP publique de l’équilibreur de charge, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
+Pour obtenir l’adresse IP publique de l’équilibreur de charge, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
 
 ```azurecli-interactive
   az network public-ip show \
@@ -255,7 +255,7 @@ Pour obtenir l’adresse IP publique de l’équilibreur de charge, utilisez la 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, l’équilibreur de charge et toutes les ressources associées.
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, l’équilibreur de charge et toutes les ressources associées.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupLB

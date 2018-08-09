@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9981db7e2994b9a4f20f99f4997a89b0368d343c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226558"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423672"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planificateur de déploiement Site Recovery de Hyper-V vers Azure
 
@@ -96,7 +96,7 @@ L’outil comprend trois phases principales pour Hyper-V : obtention de la list
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
-2.  Chaque hôte Hyper-V à profiler doit comporter :
+1.  Chaque hôte Hyper-V à profiler doit comporter :
 
     a. La machine virtuelle sur laquelle l’outil sera exécuté dans sa liste des hôtes approuvés. Exécutez la commande suivante à partir d’une session PowerShell avec élévation de privilèges sur l’hôte Hyper-V.
 
@@ -111,10 +111,10 @@ L’outil comprend trois phases principales pour Hyper-V : obtention de la list
 1.  Téléchargez la dernière version [d’Azure Site Recovery deployment planner](https://aka.ms/asr-deployment-planner).
 L’outil se présente dans un dossier .zip. Il prend en charge les scénarios de récupération d’urgence de VMware vers Azure et de Hyper-V vers Azure. Vous pouvez également utiliser cet outil pour le scénario de récupération d’urgence de Hyper-V vers un site secondaire, mais ignorez la recommandation de l’infrastructure Azure dans le rapport.
 
-2.  Copiez le dossier .zip sur le Windows Serveur sur lequel vous voulez exécuter l’outil. Vous pouvez exécuter l’outil sur un Windows Server 2012 R2 ou Windows Server 2016. Le serveur doit disposer d’un accès réseau pour se connecter au cluster Hyper-V ou à l’hôte Hyper-V contenant les machines virtuelles à profiler. Nous vous recommandons d’avoir la même configuration matérielle de machine virtuelle, sur laquelle l’outil sera exécuté, que celle du serveur Hyper-V que vous voulez protéger. Cette configuration garantit que le débit atteint rapporté par l’outil corresponde au débit qu’Azure Site Recovery peut atteindre lors de la réplication. Le calcul du débit dépend de la bande passante réseau disponible sur le serveur et de la configuration matérielle (processeur, stockage, etc.) du serveur. Le débit est calculé à partir du serveur sur lequel l’outil est exécuté vers Azure. Si la configuration matérielle du serveur est différente de celle du serveur Hyper-V, le débit atteint rapporté par l’outil sera inexact.
+1.  Copiez le dossier .zip sur le Windows Serveur sur lequel vous voulez exécuter l’outil. Vous pouvez exécuter l’outil sur un Windows Server 2012 R2 ou Windows Server 2016. Le serveur doit disposer d’un accès réseau pour se connecter au cluster Hyper-V ou à l’hôte Hyper-V contenant les machines virtuelles à profiler. Nous vous recommandons d’avoir la même configuration matérielle de machine virtuelle, sur laquelle l’outil sera exécuté, que celle du serveur Hyper-V que vous voulez protéger. Cette configuration garantit que le débit atteint rapporté par l’outil corresponde au débit qu’Azure Site Recovery peut atteindre lors de la réplication. Le calcul du débit dépend de la bande passante réseau disponible sur le serveur et de la configuration matérielle (processeur, stockage, etc.) du serveur. Le débit est calculé à partir du serveur sur lequel l’outil est exécuté vers Azure. Si la configuration matérielle du serveur est différente de celle du serveur Hyper-V, le débit atteint rapporté par l’outil sera inexact.
 Configuration recommandée de la machine virtuelle : 8 processeurs virtuels, 16 Go de RAM, disque dur de 300 Go.
 
-3.  Extrayez le dossier .zip.
+1.  Extrayez le dossier .zip.
 Le dossier contient plusieurs fichiers et sous-dossiers. Le fichier exécutable s’appelle ASRDeploymentPlanner.exe dans le dossier parent.
 
 Exemple : copiez le fichier .zip sur le lecteur E:\ et extrayez-le. E:\ASR Deployment Planner_v2.2.zip

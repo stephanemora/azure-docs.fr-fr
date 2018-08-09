@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036521"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627455"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Sources de données d’analyse dans Azure
 Cet article décrit les données disponibles pour surveiller l’intégrité et les performances de vos ressources Azure, et des applications s’exécutant sur celles-ci.  Collectez et analysez ces données avec les outils décrits dans [Collecte de données de surveillance dans Azure](monitoring-data-collection.md)
@@ -35,14 +35,14 @@ La télémétrie liée à l’intégrité et au fonctionnement d’Azure inclut 
 ### <a name="azure-service-health"></a>Azure Service Health
 [Azure Service Health](../monitoring-and-diagnostics/monitoring-service-notifications.md) fournit des informations sur l’intégrité des services Azure compris dans votre abonnement, dont dépendent votre application et vos ressources. Vous pouvez créer des alertes pour être informé des problèmes critiques actuels et prévus susceptibles d’affecter votre application. Les enregistrements de Service Health étant stockés dans le [journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), vous pouvez les afficher dans l’Explorateur du journal d’activité et les copier dans Log Analytics.
 
-### <a name="azure-activity-log"></a>Journal d’activité Azure
+### <a name="azure-activity-log"></a>Journaux d’activité
 Le [journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) comprend des enregistrements relatifs à l’intégrité du service ainsi qu’aux changements de configuration apportés à vos ressources Azure. Le journal d’activité est disponible pour toutes les ressources Azure et représente leur affichage _externe_. Les types d’enregistrements spécifiques dans le journal d’activité sont décrits dans [Schéma d’événement du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
-Vous pouvez afficher le journal d'activité d’une ressource particulière dans sa page sur le portail Azure, ou les journaux de plusieurs ressources dans l’Explorateur du journal d’activité. Il est particulièrement utile de copier les entrées de journal vers Log Analytics pour les combiner avec d’autres données de surveillance. Vous pouvez également les envoyer à d’autres emplacements à l’aide d’[Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
+Vous pouvez afficher le journal d'activité d’une ressource particulière dans sa page sur le portail Azure, ou les journaux de plusieurs ressources dans [l’Explorateur du journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Il est particulièrement utile de copier les entrées de journal vers Log Analytics pour les combiner avec d’autres données de surveillance. Vous pouvez également les envoyer à d’autres emplacements à l’aide d’[Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Journaux d’audit d’Azure Active Directory
-Les [rapports Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md) contiennent l’historique des connexions et la piste d’audit des modifications apportées à un client particulier. Il est actuellement impossible de combiner des données d’audit d’Azure Active Directory avec d’autres données de surveillance, car elles sont accessibles uniquement via Azure Active Directory et l’[API de création de rapports Azure Active Directory](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+Les [rapports Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md) contiennent l’historique des connexions et la piste d’audit des modifications apportées à un client particulier. Il est actuellement impossible de combiner des données d’audit d’Azure Active Directory avec d’autres données de surveillance, car elles sont accessibles uniquement via Azure Active Directory et l’[API de création de rapports Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 
 ## <a name="azure-services"></a>Services Azure
@@ -51,7 +51,7 @@ Les journaux de diagnostic au niveau métriques et ressources fournissent des in
 ![Collection de ressources Azure](media/monitoring-data-sources/azure-resource-collection.png)
 
 
-### <a name="metrics"></a>Métriques
+### <a name="metrics"></a>Mesures
 La plupart des services Azure génèrent des métriques reflétant leurs performances et leur fonctionnement. Les [métriques spécifiques varient pour chaque type de ressource](../monitoring-and-diagnostics/monitoring-supported-metrics.md).  Elles sont accessibles à partir de Metrics Explorer, et peuvent être copiées vers Log Analytics à des fins d’observation de tendances et d’autres analyses.
 
 

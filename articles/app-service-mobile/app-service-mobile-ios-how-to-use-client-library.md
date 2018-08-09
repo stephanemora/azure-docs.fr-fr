@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
-ms.openlocfilehash: 63dd283605553297a7dc8feab90c8bcbd716d5de
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 683261ce9ecaa15f5849142cd25aa9b7c77a6867
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
-ms.locfileid: "26660139"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505795"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -547,10 +547,10 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 3. À l’aide du Terminal, exécutez `pod install` à partir du répertoire contenant votre projet, puis ouvrez l’espace de travail Xcode généré (et non le projet).
 4. Ajoutez le code suivant à votre application, en fonction du langage utilisé. Vérifiez à chaque fois ces remplacements :
 
-   * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Le format doit être https://login.microsoftonline.com/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [portail Azure].
+   * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Le format doit être https://login.microsoftonline.com/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [Portail Azure].
    * Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir l’ID client sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
    * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
-   * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être semblable à *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done*.
 
 **Objective-C**:
 
@@ -689,7 +689,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS p
 Vous pouvez utiliser Twitter Fabric pour iOS pour identifier les utilisateurs sur votre application utilisant Twitter. L’authentification par flux client est souvent préférable à l’utilisation de la méthode `loginWithProvider:completion:` , car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
 1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion Twitter, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) .
-2. Ajoutez Fabric à votre projet en suivant la documentation [Fabric pour iOS : prise en main] (en anglais) et en configurant TwitterKit.
+2. Ajoutez Fabric à votre projet en suivant la documentation [Fabric pour iOS : prise en main] (en anglais) et en configurant TwitterKit.
 
    > [!NOTE]
    > Par défaut, Fabric crée une application Twitter pour vous. Vous pouvez éviter de créer une application en enregistrant la clé et la clé secrète du client que vous avez créées plus tôt avec les extraits de code suivants.    Vous pouvez également remplacer les valeurs de clé et de clé secrète du client que vous fournissez à App Service avec les valeurs que vous voyez dans le [Tableau de bord de Fabric]. Si vous choisissez cette option, veillez à définir l’URL de rappel sur une valeur d’espace réservé, par exemple `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
@@ -869,7 +869,7 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Tableau de bord de Fabric]: https://www.fabric.io/home
-[Fabric pour iOS : prise en main]: https://docs.fabric.io/ios/fabric/getting-started.html
+[Fabric pour iOS : prise en main]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
 [2]: http://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
@@ -877,6 +877,6 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[8]: ../active-directory/active-directory-devquickstarts-ios.md
+[8]:../active-directory/develop/quickstart-v1-ios.md
 [9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started

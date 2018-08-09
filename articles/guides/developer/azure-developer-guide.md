@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f4dfc376e49ac26f0c054282994a29d9a7d2b54b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442169"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424226"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -162,7 +162,7 @@ Il est essentiel non seulement de savoir qui utilise vos applications, mais auss
 
     >**Quand l’utiliser** : lorsque vous souhaitez fournir une expérience SSO, travailler avec des données basées sur Graph ou authentifier les utilisateurs de domaine.
 
-    >**Démarrer** : pour en savoir plus, consultez le [Guide du développeur Azure Active Directory](../../active-directory/develop/active-directory-developers-guide.md).
+    >**Démarrer** : pour en savoir plus, consultez le [Guide du développeur Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
 
 -   **Authentification App Service** : lorsque vous choisissez App Service pour héberger votre application, vous bénéficiez également de la prise en charge de l’authentification intégrée pour Azure AD, ainsi que des fournisseurs d’identité sociale, notamment Facebook, Google, Microsoft et Twitter.
 

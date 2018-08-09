@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 377cb9df8ce09581a5fd5d9d7a7d55368daf44ca
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: a1054d7632c8323990ca7430d2d5203f0ad10ee4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082442"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422114"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données SQL Azure
 Dans ce tutoriel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
@@ -44,10 +44,10 @@ Voici les étapes importantes à suivre pour créer cette solution :
 1. **Sélectionner la colonne de limite**.
     Sélectionnez une colonne pour chaque table du magasin de données sources, qui peut servir à identifier les enregistrements nouveaux ou mis à jour pour chaque exécution. Normalement, les données contenues dans cette colonne sélectionnée (par exemple, last_modify_time ou ID) continuent de croître à mesure que des lignes sont créées ou mises à jour. La valeur maximale de cette colonne est utilisée comme limite.
 
-2. **Préparer un magasin de données pour stocker la valeur de limite**.   
+1. **Préparer un magasin de données pour stocker la valeur de limite**.   
     Dans ce tutoriel, la valeur de filigrane est stockée dans une base de données SQL.
 
-3. **Créer un pipeline avec les activités suivantes** : 
+1. **Créer un pipeline avec les activités suivantes** : 
     
     a. Créez une activité ForEach qui effectue une itération dans une liste de noms de table source qui est transmise en tant que paramètre au pipeline. Pour chaque table source, elle appelle les activités suivantes pour effectuer le chargement delta pour cette table.
 
@@ -72,9 +72,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 1. Ouvrez SQL Server Management Studio, puis connectez-vous à votre base de données SQL Server locale.
 
-2. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur la base de données et choisissez **Nouvelle requête**.
+1. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur la base de données et choisissez **Nouvelle requête**.
 
-3. Exécutez la commande SQL suivante sur votre base de données pour créer des tables nommées `customer_table` et `project_table` :
+1. Exécutez la commande SQL suivante sur votre base de données pour créer des tables nommées `customer_table` et `project_table` :
 
     ```sql
     create table customer_table
@@ -111,9 +111,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Créer des tables de destination dans votre base de données SQL Azure
 1. Ouvrez SQL Server Management Studio, puis connectez-vous à votre base de données SQL Server.
 
-2. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur la base de données et choisissez **Nouvelle requête**.
+1. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur la base de données et choisissez **Nouvelle requête**.
 
-3. Exécutez la commande SQL suivante sur votre base de données SQL pour créer des tables nommées `customer_table` et `project_table` :  
+1. Exécutez la commande SQL suivante sur votre base de données SQL pour créer des tables nommées `customer_table` et `project_table` :  
     
     ```sql
     create table customer_table
@@ -142,7 +142,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
         WatermarkValue datetime,
     );
     ```
-2. Insérer des valeurs de limite supérieure initiale pour les deux tables source dans la table de limite supérieure.
+1. Insérer des valeurs de limite supérieure initiale pour les deux tables source dans la table de limite supérieure.
 
     ```sql
 
@@ -234,19 +234,19 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 
     Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Attribuez une valeur différente à la variable `$resourceGroupName`, puis réexécutez la commande.
 
-2. Définissez une variable pour l’emplacement de la fabrique de données. 
+1. Définissez une variable pour l’emplacement de la fabrique de données. 
 
     ```powershell
     $location = "East US"
     ```
-3. Pour créer le groupe de ressources Azure, exécutez la commande suivante : 
+1. Pour créer le groupe de ressources Azure, exécutez la commande suivante : 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
     Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Attribuez une valeur différente à la variable `$resourceGroupName`, puis réexécutez la commande.
 
-4. Définissez une variable pour le nom de la fabrique de données. 
+1. Définissez une variable pour le nom de la fabrique de données. 
 
     > [!IMPORTANT]
     >  Mettez à jour le nom de la fabrique de données pour le rendre globalement unique. Par exemple, ADFIncMultiCopyTutorialFactorySP1127. 
@@ -254,7 +254,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-5. Pour créer la fabrique de données, exécutez l’applet de commande **Set-AzureRmDataFactoryV2** suivante : 
+1. Pour créer la fabrique de données, exécutez l’applet de commande **Set-AzureRmDataFactoryV2** suivante : 
     
     ```powershell       
     Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
@@ -336,15 +336,15 @@ Dans cette étape, vous liez votre base de données SQL Server locale à la fabr
     > - Remplacez &lt;servername>, &lt;databasename>, &lt;username> et &lt;password> par les valeurs de votre base de données SQL Server avant d’enregistrer le fichier.
     > - Si vous avez besoin d’utiliser une barre oblique (`\`) dans votre nom de serveur ou de compte d’utilisateur, utilisez le caractère d’échappement (`\`). Par exemple `mydomain\\myuser`.
 
-2. Dans PowerShell, basculez vers le dossier C:\ADFTutorials\IncCopyMultiTableTutorial.
+1. Dans PowerShell, basculez vers le dossier C:\ADFTutorials\IncCopyMultiTableTutorial.
 
-3. Exécutez la cmdlet **Set-AzureRmDataFactoryV2LinkedService** pour créer le service lié AzureStorageLinkedService. Dans l’exemple suivant, vous transmettez les valeurs des paramètres *ResourceGroupName* et *DataFactoryName* : 
+1. Exécutez la cmdlet **Set-AzureRmDataFactoryV2LinkedService** pour créer le service lié AzureStorageLinkedService. Dans l’exemple suivant, vous transmettez les valeurs des paramètres *ResourceGroupName* et *DataFactoryName* : 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
     ```
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```json
     LinkedServiceName : SqlServerLinkedService
@@ -370,7 +370,7 @@ Dans cette étape, vous liez votre base de données SQL Server locale à la fabr
         }
     }
     ```
-2. Dans PowerShell, exécutez la cmdlet **Set-AzureRmDataFactoryV2LinkedService** pour créer le service lié AzureSQLDatabaseLinkedService. 
+1. Dans PowerShell, exécutez la cmdlet **Set-AzureRmDataFactoryV2LinkedService** pour créer le service lié AzureSQLDatabaseLinkedService. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -411,7 +411,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 
     Le nom de table est factice. L’activité de copie dans le pipeline utilise une requête SQL pour charger les données plutôt que de charger l’ensemble de la table.
 
-2. Exécutez la cmdlet **Set-AzureRmDataFactoryV2Dataset** pour créer le jeu de données SourceDataset.
+1. Exécutez la cmdlet **Set-AzureRmDataFactoryV2Dataset** pour créer le jeu de données SourceDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -455,7 +455,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
     }
     ```
 
-2. Exécutez la cmdlet **Set-AzureRmDataFactoryV2Dataset** pour créer le jeu de données SinkDataset.
+1. Exécutez la cmdlet **Set-AzureRmDataFactoryV2Dataset** pour créer le jeu de données SinkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -491,7 +491,7 @@ Dans cette étape, vous allez créer un jeu de données pour stocker une valeur 
         }
     }    
     ```
-2. Exécutez la cmdlet **Set-AzureRmDataFactoryV2Dataset** pour créer le jeu de données WatermarkDataset.
+1. Exécutez la cmdlet **Set-AzureRmDataFactoryV2Dataset** pour créer le jeu de données WatermarkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -512,11 +512,11 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
 
 1. Utilisez l’activité de recherche pour récupérer l’ancienne valeur de filigrane (valeur initiale ou valeur utilisée dans la dernière itération).
 
-2. Utilisez l’activité de recherche pour récupérer la nouvelle valeur de filigrane (valeur maximale de la colonne de filigrane de la table source).
+1. Utilisez l’activité de recherche pour récupérer la nouvelle valeur de filigrane (valeur maximale de la colonne de filigrane de la table source).
 
-3. Utilisez l’activité de copie pour copier des données entre ces deux valeurs de filigrane depuis la base de données source vers la base de données de destination.
+1. Utilisez l’activité de copie pour copier des données entre ces deux valeurs de filigrane depuis la base de données source vers la base de données de destination.
 
-4. Utilisez l’activité StoredProcedure pour mettre à jour l’ancienne valeur de filigrane à utiliser au cours de la première étape de l’itération suivante. 
+1. Utilisez l’activité StoredProcedure pour mettre à jour l’ancienne valeur de filigrane à utiliser au cours de la première étape de l’itération suivante. 
 
 ### <a name="create-the-pipeline"></a>Créer le pipeline
 1. Créez un fichier JSON sous le nom IncrementalCopyPipeline.json dans le même dossier avec le contenu suivant : 
@@ -653,7 +653,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
         }
     }
     ```
-2. Exécutez la cmdlet **Set-AzureRmDataFactoryV2Pipeline** pour créer le pipeline IncrementalCopyPipeline.
+1. Exécutez la cmdlet **Set-AzureRmDataFactoryV2Pipeline** pour créer le pipeline IncrementalCopyPipeline.
     
    ```powershell
    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -692,7 +692,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
         ]
     }
     ```
-2. Exécutez le pipeline IncrementalCopyPipeline en utilisant la cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Remplacez les espaces réservés par les noms de votre groupe de ressources et de votre fabrique de données.
+1. Exécutez le pipeline IncrementalCopyPipeline en utilisant la cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Remplacez les espaces réservés par les noms de votre groupe de ressources et de votre fabrique de données.
 
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
@@ -702,26 +702,26 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Sélectionnez **Tous les services**, effectuez une recherche avec le mot clé *Fabriques de données*, puis sélectionnez **Fabriques de données**. 
+1. Sélectionnez **Tous les services**, effectuez une recherche avec le mot clé *Fabriques de données*, puis sélectionnez **Fabriques de données**. 
 
     ![Menu Fabriques de données](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
 
-3. Recherchez votre fabrique de données dans la liste des fabriques de données, puis sélectionnez-la pour ouvrir la page **Fabrique de données**. 
+1. Recherchez votre fabrique de données dans la liste des fabriques de données, puis sélectionnez-la pour ouvrir la page **Fabrique de données**. 
 
     ![Rechercher votre fabrique de données](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
 
-4. Dans la page **Fabrique de données**, sélectionnez **Surveiller et gérer**. 
+1. Dans la page **Fabrique de données**, sélectionnez **Surveiller et gérer**. 
 
     ![Vignette Surveiller et gérer](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
 
-5. L’**application d’intégration de données** s’ouvre dans un onglet distinct. Vous pouvez voir toutes les exécutions de pipeline et leurs états. Notez que dans l’exemple suivant, l’état d’exécution de pipeline est **Réussite**. Pour vérifier les paramètres transmis au pipeline, sélectionnez le lien dans la colonne **Paramètres**. Si une erreur s’est produite, un lien figure dans la colonne **Erreur**. Sélectionnez le lien dans la colonne **Actions**. 
+1. L’**application d’intégration de données** s’ouvre dans un onglet distinct. Vous pouvez voir toutes les exécutions de pipeline et leurs états. Notez que dans l’exemple suivant, l’état d’exécution de pipeline est **Réussite**. Pour vérifier les paramètres transmis au pipeline, sélectionnez le lien dans la colonne **Paramètres**. Si une erreur s’est produite, un lien figure dans la colonne **Erreur**. Sélectionnez le lien dans la colonne **Actions**. 
 
     ![Exécutions de pipeline](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
-6. Si vous sélectionnez le lien dans la colonne **Actions**, la page suivante affiche toutes les exécutions d’activité du pipeline : 
+1. Si vous sélectionnez le lien dans la colonne **Actions**, la page suivante affiche toutes les exécutions d’activité du pipeline : 
 
     ![Exécutions d’activité](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
 
-7. Pour revenir à la vue **Exécutions de pipeline**, sélectionnez **Pipelines** comme illustré sur l’image. 
+1. Pour revenir à la vue **Exécutions de pipeline**, sélectionnez **Pipelines** comme illustré sur l’image. 
 
 ## <a name="review-the-results"></a>Passer en revue les résultats.
 Dans SQL Server Management Studio, exécutez les requêtes suivantes sur la base de données SQL cible pour vérifier que les données ont été copiées à partir des tables source vers les tables de destination : 
@@ -799,15 +799,15 @@ VALUES
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. Analysez les exécutions du pipeline en suivant les instructions indiquées dans la section [Surveiller le pipeline](#monitor-the-pipeline). Comme l’état du pipeline est **En cours**, un autre lien d’action s’affiche sous **Actions** pour annuler l’exécution du pipeline. 
+1. Analysez les exécutions du pipeline en suivant les instructions indiquées dans la section [Surveiller le pipeline](#monitor-the-pipeline). Comme l’état du pipeline est **En cours**, un autre lien d’action s’affiche sous **Actions** pour annuler l’exécution du pipeline. 
 
     ![Exécutions du pipeline en cours](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
 
-3. Sélectionnez **Actualiser** pour actualiser la liste jusqu’à ce que l’exécution du pipeline réussisse. 
+1. Sélectionnez **Actualiser** pour actualiser la liste jusqu’à ce que l’exécution du pipeline réussisse. 
 
     ![Actualiser les exécutions du pipeline](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
 
-4. Sélectionnez éventuellement le lien **Afficher les exécutions du pipeline** sous **Actions** pour voir toutes les exécutions d’activité associées à l’exécution de ce pipeline. 
+1. Sélectionnez éventuellement le lien **Afficher les exécutions du pipeline** sous **Actions** pour voir toutes les exécutions d’activité associées à l’exécution de ce pipeline. 
 
 ## <a name="review-the-final-results"></a>Passer en revue les résultats finaux
 Dans SQL Server Management Studio, exécutez les requêtes suivantes sur la base de données cible pour vérifier que les données nouvelles/mises à jour ont été copiées à partir des tables sources vers les tables de destination. 

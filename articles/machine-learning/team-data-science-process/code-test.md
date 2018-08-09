@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970857"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439495"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Tester les codes de science des données avec le jeu de données de prédiction UCI Adult Income
 Cet article donne des recommandations préliminaires pour tester les codes dans un flux de travail de science des données. Ce type de test permet aux chercheurs de données de vérifier leur code systématiquement et efficacement pour en garantir la qualité et le résultat. Nous nous basons sur un projet TDSP (Team Data Science Process) [qui utilise le jeu de données UCI Adult Income](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que nous avons publié précédemment afin de montrer comment tester les codes. 
@@ -60,11 +60,11 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
     ![Explorateur de solutions](./media/code-test/solution_explorer_in_vs.PNG)
 
-3. Insérez le code de votre projet dans le référentiel de code de projet VSTS : 
+1. Insérez le code de votre projet dans le référentiel de code de projet VSTS : 
 
     ![Référentiel de code de projet](./media/code-test/create_repo.PNG)
 
-4. Imaginons que vous avez effectué un travail de préparation des données : ingestion des données, ingénierie des fonctionnalités et création des colonnes d’étiquettes. Vous souhaitez vous assurer que votre code va générer les résultats escomptés. Voici un code que vous pouvez utiliser pour tester si le code de traitement des données fonctionne correctement :
+1. Imaginons que vous avez effectué un travail de préparation des données : ingestion des données, ingénierie des fonctionnalités et création des colonnes d’étiquettes. Vous souhaitez vous assurer que votre code va générer les résultats escomptés. Voici un code que vous pouvez utiliser pour tester si le code de traitement des données fonctionne correctement :
 
     * Vérifiez que les noms de colonne sont exacts :
     
@@ -83,7 +83,7 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
       ![Code pour le taux de réponses manquantes](./media/code-test/check_missing_rate.PNG)
 
 
-5. Une fois que vous avez terminé le traitement des données et le travail d’ingénierie des fonctionnalités et que vous avez conçu un modèle adapté, assurez-vous que celui-ci peut évaluer correctement les nouveaux jeux de données. Vous pouvez utiliser les deux tests suivants pour vérifier les niveaux de prédiction et la distribution des valeurs d’étiquette :
+1. Une fois que vous avez terminé le traitement des données et le travail d’ingénierie des fonctionnalités et que vous avez conçu un modèle adapté, assurez-vous que celui-ci peut évaluer correctement les nouveaux jeux de données. Vous pouvez utiliser les deux tests suivants pour vérifier les niveaux de prédiction et la distribution des valeurs d’étiquette :
 
     * Vérifiez les niveaux de prédiction :
     
@@ -93,58 +93,58 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
       ![Code pour la vérification des valeurs de prédiction](./media/code-test/check_prediction_values.PNG)
 
-6. Placez toutes les fonctions de test dans un script Python nommé **test_funcs.py** :
+1. Placez toutes les fonctions de test dans un script Python nommé **test_funcs.py** :
 
     ![Script Python pour les fonctions de test](./media/code-test/create_file_test_func.PNG)
 
 
-7. Dès que les codes de test sont prêts, vous pouvez configurer l’environnement de test dans Visual Studio.
+1. Dès que les codes de test sont prêts, vous pouvez configurer l’environnement de test dans Visual Studio.
 
    Créez un fichier Python appelé **test1.py**. Dans ce fichier, créez une classe qui inclut tous les tests à effectuer. L’exemple suivant montre la préparation de six tests :
     
     ![Fichier Python contenant une liste de tests dans une classe](./media/code-test/create_file_test1_class.PNG)
 
-8. Ces tests peuvent être détectés automatiquement si vous placez **codetest.testCase** après le nom de la classe. Ouvrez l’Explorateur de tests dans le volet de droite, puis sélectionnez **Run All** (Tout exécuter). L’exécution des tests s’effectue de manière séquentielle et un message vous indique s’ils ont ou non abouti.
+1. Ces tests peuvent être détectés automatiquement si vous placez **codetest.testCase** après le nom de la classe. Ouvrez l’Explorateur de tests dans le volet de droite, puis sélectionnez **Run All** (Tout exécuter). L’exécution des tests s’effectue de manière séquentielle et un message vous indique s’ils ont ou non abouti.
 
     ![Exécution des tests](./media/code-test/run_tests.PNG)
 
-9. Archivez votre code dans le référentiel de projet à l’aide des commandes Git. Votre travail le plus récent apparaîtra sous peu dans VSTS.
+1. Archivez votre code dans le référentiel de projet à l’aide des commandes Git. Votre travail le plus récent apparaîtra sous peu dans VSTS.
 
     ![Commandes Git pour archiver le code](./media/code-test/git_check_in.PNG)
 
     ![Travail le plus récent dans VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
 
-10. Configurez la build automatique et le test dans VSTS :
+1. Configurez la build automatique et le test dans VSTS :
 
     a. Dans le référentiel du projet, sélectionnez **Build and Release** (Générer et libérer), puis **+New** (+Nouveau) pour créer un nouveau processus de build.
 
-       ![Sélections pour démarrer un nouveau processus de build](./media/code-test/create_new_build.PNG)
+       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 
     b. Suivez les invites pour sélectionner l’emplacement du code source, le nom du projet, le référentiel et les informations de branche.
     
-       ![Source, nom, référentiel et informations de branche](./media/code-test/fill_in_build_info.PNG)
+       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
 
     c. Sélectionnez un modèle. Étant donné qu’il n’existe aucun modèle de projet Python, commencez par sélectionner **Processus vide**. 
 
-       ![Liste des modèles et bouton Processus vide](./media/code-test/start_empty_process_template.PNG)
+       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
     d. Donnez un nom à la build et sélectionnez l’agent. Vous pouvez choisir ici la valeur par défaut si vous souhaitez utiliser une machine DSVM et terminer le processus de génération. Pour plus d’informations sur la configuration des agents, voir [Créer et libérer des agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
     
-       ![Sélections de la build et de l’agent](./media/code-test/select_agent.PNG)
+       ![Build and agent selections](./media/code-test/select_agent.PNG)
 
     e. Sélectionnez **+** dans le volet de gauche afin d’ajouter une tâche pour cette phase de génération. Étant donné que nous allons exécuter le script Python **test1.py** pour terminer toutes les vérifications, cette tâche utilise une commande PowerShell qui exécute le code Python.
     
-       ![Volet permettant d’ajouter des tâches avec PowerShell sélectionné](./media/code-test/add_task_powershell.PNG)
+       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
     f. Dans les détails de PowerShell, renseignez les informations requises, notamment le nom et la version de PowerShell. Choisissez **Script Inline** comme type. 
     
-       Dans la zone sous **Script Inline**, saisissez **python test1.py**. Assurez-vous que la variable d’environnement est correctement configurée pour Python. Si vous avez besoin d’un noyau ou d’une version différente de Python, vous pouvez spécifier explicitement le chemin d’accès, comme indiqué dans l’illustration : 
+       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
     
-       ![Détails de PowerShell](./media/code-test/powershell_scripts.PNG)
+       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
     g. Sélectionnez **Save & Queue** (Enregistrer et mettre en file d’attente) pour terminer le processus de définition de la build.
 
-       ![Bouton Save & queue (Enregistrer et mettre en file d’attente)](./media/code-test/save_and_queue_build_definition.PNG)
+       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Désormais, à chaque fois qu’une nouvelle validation sera transmise au référentiel du code, le processus de génération démarrera automatiquement. (Nous utilisons ici le référentiel de référence, mais vous pouvez définir n’importe quelle branche.) Le processus exécute le fichier **test1.py** sur l’ordinateur agent, l’objectif étant de s’assurer que tous les éléments définis dans le code s’exécutent correctement. 
 

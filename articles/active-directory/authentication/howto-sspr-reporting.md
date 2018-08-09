@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258794"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627523"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -40,7 +40,7 @@ Les questions suivantes peuvent trouver réponse dans les rapports qui existent 
 
 ## <a name="power-bi-content-pack"></a>Pack de contenu Power BI
 
-Si vous utilisez Power BI, il existe un pack de contenu pour Azure AD qui permet de générer facilement des rapports pour SSPR. Pour plus d’informations sur l’utilisation et le déploiement du pack de contenu, consultez [Utilisation du pack de contenu Power BI Azure Active Directory](../active-directory-reporting-power-bi-content-pack-how-to.md). Avec le pack de contenu, vous pouvez créer vos propres tableaux de bord et les partager avec d’autres membres de votre organisation.
+Si vous utilisez Power BI, il existe un pack de contenu pour Azure AD qui permet de générer facilement des rapports pour SSPR. Pour plus d’informations sur l’utilisation et le déploiement du pack de contenu, consultez [Utilisation du pack de contenu Power BI Azure Active Directory](../reports-monitoring/howto-power-bi-content-pack.md). Avec le pack de contenu, vous pouvez créer vos propres tableaux de bord et les partager avec d’autres membres de votre organisation.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Comment visualiser les rapports de gestion des mots de passe dans le portail Azure
 

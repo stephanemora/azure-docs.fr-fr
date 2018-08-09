@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8fcebae21d73db75e19bd1091faa8f389f0ba40
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165507"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579518"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 
@@ -26,7 +26,7 @@ Azure Container Registry ne prend pas en charge les opérations Docker non authe
 
 ## <a name="individual-login-with-azure-ad"></a>Connexion individuelle avec Azure AD
 
-Si vous utilisez directement votre registre, par exemple si vous extrayez des images et en envoyez depuis et vers votre station de travail de développement, authentifiez-vous à l’aide de la commande [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) dans [Azure CLI](/cli/azure/install-azure-cli) :
+Si vous utilisez directement votre registre, par exemple si vous extrayez des images et en envoyez depuis et vers votre station de travail de développement, authentifiez-vous à l’aide de la commande [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) dans [Azure CLI](/cli/azure/install-azure-cli) :
 
 ```azurecli
 az acr login --name <acrName>
@@ -36,7 +36,7 @@ Si vous vous connectez avec `az acr login`, l’interface CLI utilise le jeton c
 
 ## <a name="service-principal"></a>Principal du service
 
-Vous pouvez affecter un [principal du service](../active-directory/develop/active-directory-application-objects.md) à votre registre, et votre application ou service peut l’utiliser pour une authentification sans périphérique de contrôle. Les principaux du service autorisent les [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) à un registre, et vous pouvez affecter plusieurs principaux du service à un registre. Plusieurs principaux du service vous permettent de définir différents accès pour plusieurs applications.
+Vous pouvez affecter un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) à votre registre, et votre application ou service peut l’utiliser pour une authentification sans périphérique de contrôle. Les principaux du service autorisent les [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) à un registre, et vous pouvez affecter plusieurs principaux du service à un registre. Plusieurs principaux du service vous permettent de définir différents accès pour plusieurs applications.
 
 Rôles disponibles :
 
@@ -51,7 +51,7 @@ Les principaux du service activent une connectivité sans périphérique de cont
   * *Contributeur* : solutions d’intégration et de déploiement en continu, comme Visual Studio Team Services (VSTS) ou Jenkins, qui créent des images de conteneur et les envoient vers un registre.
 
 > [!TIP]
-> Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials).
+> Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
 >
 
 Vous pouvez également vous connecter directement avec un principal du service. Fournissez le mot de passe et l’ID d’application du principal du service pour la commande `docker login` :
@@ -82,7 +82,7 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 
 Là encore, Docker recommande d’utiliser le paramètre `--password-stdin` au lieu de le fournir sur la ligne de commande pour renforcer la sécurité. Vous pouvez également spécifier uniquement votre nom d’utilisateur, sans `-p`, puis entrer votre mot de passe à l’invite.
 
-Pour activer l’utilisateur administrateur pour un registre existant, vous pouvez utiliser le paramètre `--admin-enabled` de la commande [az acr update](/cli/azure/acr?view=azure-cli-latest#az_acr_update) dans Azure CLI :
+Pour activer l’utilisateur administrateur pour un registre existant, vous pouvez utiliser le paramètre `--admin-enabled` de la commande [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) dans Azure CLI :
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

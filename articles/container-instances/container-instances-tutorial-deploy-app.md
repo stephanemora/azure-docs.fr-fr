@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1268ed0f5c46e0f65e1bf5381f2baca95fa0b915
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a68baa0c04dd90236e99cf010c96b1876fb4638
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610597"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425708"
 ---
 # <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Didacticiel : Déployer un conteneur sur Azure Container Instances
 
 Il s’agit du didacticiel final d’une série en trois parties. Dans les deux premières parties, [nous avons créé une image conteneur](container-instances-tutorial-prepare-app.md) et [nous l’avons envoyée à Azure Container Registry](container-instances-tutorial-prepare-acr.md). Cet article termine la série en déployant le conteneur sur Azure Container Instances.
 
-Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Déployer le conteneur à partir d’Azure Container Registry vers Azure Container Instances
@@ -104,7 +104,7 @@ listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous n’avez plus besoin des ressources que vous avez créées dans cette série de didacticiels, vous pouvez exécuter la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Cette commande supprime le registre de conteneurs que vous avez créé, ainsi que le conteneur en cours d’exécution et toutes les ressources associées.
 
@@ -114,7 +114,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez terminé le processus de déploiement de votre conteneur sur Azure Container Instances. Les étapes suivantes ont été effectuées :
+Dans ce didacticiel, vous avez terminé le processus de déploiement de votre conteneur sur Azure Container Instances. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
 > * Déployer le conteneur à partir d’Azure Container Registry à l’aide d’Azure CLI
@@ -138,8 +138,8 @@ Maintenant que vous avez les bases, continuez pour en savoir plus sur Azure Cont
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-show]: /cli/azure/container#az_container_show
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [prepare-app]: ./container-instances-tutorial-prepare-app.md

@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d76371935fddbfe94c6dc45e27971487e7fa4277
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 581e2b361cf7133df369e7c8c3062c19fbe77d5c
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333579"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504877"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Linux CentOS à un domaine managé
 Cet article indique comment joindre une machine virtuelle Linux CentOS dans Azure à un domaine managé par Azure AD Domain Services.
@@ -38,7 +38,7 @@ Pour exécuter les tâches indiquées dans cet article, vous avez besoin des él
 
 ## <a name="provision-a-centos-linux-virtual-machine"></a>Provisionner une machine virtuelle Linux CentOS
 Provisionnez une machine virtuelle CentOS dans Azure, en utilisant l’une des méthodes suivantes :
-* [Portail Azure](../virtual-machines/linux/quick-create-portal.md)
+* [portail Azure](../virtual-machines/linux/quick-create-portal.md)
 * [interface de ligne de commande Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

@@ -10,12 +10,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645359"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423541"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -56,7 +56,7 @@ Choisissez vos noms maintenant et notez-les.
 
    <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-2. Entrez les valeurs des paramètres obligatoires dans le modèle.
+1. Entrez les valeurs des paramètres obligatoires dans le modèle.
 
     > [!IMPORTANT]
     > Certaines authentifications et pare-feu de serveur sont volontairement non sécurisés à des fins de démonstration. Nous vous recommandons de créer un groupe de ressources. N’utilisez pas de groupes de ressources, serveurs ou pools existants. N’utilisez pas cette application, les scripts ou des ressources déployées pour la production. Supprimez ce groupe de ressources lorsque vous en avez terminé avec l’application pour interrompre la facturation associée.
@@ -65,13 +65,13 @@ Choisissez vos noms maintenant et notez-les.
     - **Emplacement** : sélectionnez un emplacement dans la liste déroulante.
     - **Utilisateur** : utilisez la valeur du nom d’utilisateur que vous avez choisi précédemment.
 
-3. Déployez l’application.
+1. Déployez l’application.
 
     a. Sélectionnez pour accepter les conditions générales.
 
     b. Sélectionnez **Achat**.
 
-4. Pour surveiller l’état du déploiement, sélectionnez **Notifications** (l’icône représentant une cloche à droite de la zone de recherche). Le déploiement de l’application Wingtip Tickets SaaS dure environ cinq minutes.
+1. Pour surveiller l’état du déploiement, sélectionnez **Notifications** (l’icône représentant une cloche à droite de la zone de recherche). Le déploiement de l’application Wingtip Tickets SaaS dure environ cinq minutes.
 
    ![Déploiement réussi](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
@@ -83,11 +83,11 @@ Lors du déploiement de l’application, téléchargez le code source et les scr
 > Le contenu exécutable (scripts et DLL) peut être bloqué par Windows lors du téléchargement et de l’extraction de fichiers .zip à partir d’une source externe. Suivez les étapes pour débloquer le fichier .zip avant d’extraire les scripts. Le déblocage garantit que les scripts sont autorisés à s’exécuter.
 
 1. Accédez au [dépôt GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
-2. Sélectionnez **Cloner ou télécharger**.
-3. Sélectionnez **Télécharger ZIP**, puis enregistrez le fichier.
-4. Cliquez avec le bouton droit sur le fichier **WingtipTicketsSaaS-DbPerTenant-master.zip**, puis sélectionnez **Propriétés**.
-5. Sous l’onglet **Général**, sélectionnez **Débloquer** > **Appliquer**.
-6. Sélectionnez **OK** et extrayez les fichiers
+1. Sélectionnez **Cloner ou télécharger**.
+1. Sélectionnez **Télécharger ZIP**, puis enregistrez le fichier.
+1. Cliquez avec le bouton droit sur le fichier **WingtipTicketsSaaS-DbPerTenant-master.zip**, puis sélectionnez **Propriétés**.
+1. Sous l’onglet **Général**, sélectionnez **Débloquer** > **Appliquer**.
+1. Sélectionnez **OK** et extrayez les fichiers
 
 Les scripts se trouvent dans le dossier ...\\WingtipTicketsSaaS-DbPerTenant-master\\Learning Modules.
 
@@ -96,8 +96,8 @@ Les scripts se trouvent dans le dossier ...\\WingtipTicketsSaaS-DbPerTenant-mast
 Avant d’exécuter des scripts, mettez à jour les valeurs de groupe de ressources et d’utilisateur dans le fichier User Config. Pour ces variables, utilisez les valeurs que vous avez définies pendant le déploiement.
 
 1. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\**UserConfig.psm1** 
-2. Mettez à jour **ResourceGroupName** et **Name** avec les valeurs spécifiques à votre déploiement (lignes 10 et 11 uniquement).
-3. Enregistrez les modifications.
+1. Mettez à jour **ResourceGroupName** et **Name** avec les valeurs spécifiques à votre déploiement (lignes 10 et 11 uniquement).
+1. Enregistrez les modifications.
 
 Ces valeurs sont référencées dans la quasi-totalité des scripts.
 
@@ -107,13 +107,13 @@ L’application présente les lieux qui hébergent des événements. Les types d
 
 En interne dans l’application, chaque locataire obtient une base de données SQL déployée sur un pool élastique SQL.
 
-Une page **Hub d’événements** centrale fournit une liste de liens vers les locataires de votre déploiement.
+Une page **Events Hub** centrale fournit une liste de liens vers les locataires de votre déploiement.
 
 1. Utilisez l’URL pour ouvrir la page Hub d’événements dans votre navigateur web : http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net. Remplacez &lt;user&gt; par la valeur utilisateur de votre déploiement.
 
-    ![Hub d’événements](media/saas-dbpertenant-get-started-deploy/events-hub.png)
+    ![Concentrateur d’événements](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Sélectionnez **Fabrikam Jazz Club** dans le hub d’événements.
+1. Sélectionnez **Fabrikam Jazz Club** dans l’Events Hub.
 
     ![Événements](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -148,8 +148,8 @@ Maintenant que l’application est déployée, nous allons l’exécuter.
 Le script PowerShell *Demo-LoadGenerator* démarre une charge de travail qui s’exécute sur toutes les bases de données de locataires. La charge réelle sur de nombreuses applications SaaS est sporadique et imprévisible. Pour simuler ce type de charge, le générateur produit une charge avec des pics aléatoires ou des pics d’activité sur chaque locataire. Les pics se produisent à intervalles aléatoires. Plusieurs minutes sont nécessaires pour que le modèle de charge émerge. Laissez le générateur s’exécuter pendant au moins trois ou quatre minutes avant de surveiller la charge.
 
 1. Dans PowerShell ISE, ouvrez le script ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1*.
-2. Appuyez sur F5 pour exécuter le script et démarrer le générateur de charge. Laissez les valeurs de paramètre par défaut pour le moment.
-3. Connectez-vous à votre compte Azure et sélectionnez l’abonnement vous souhaitez utiliser si nécessaire.
+1. Appuyez sur F5 pour exécuter le script et démarrer le générateur de charge. Laissez les valeurs de paramètre par défaut pour le moment.
+1. Connectez-vous à votre compte Azure et sélectionnez l’abonnement vous souhaitez utiliser si nécessaire.
 
 Le script de génération de charge démarre une tâche en arrière-plan pour chaque base de données dans le catalogue, puis s’arrête. Si vous exécutez à nouveau le script de génération de charge, il arrête toutes les tâches en arrière-plan qui sont en cours d’exécution avant de démarrer les nouvelles.
 
@@ -169,16 +169,16 @@ Si vous souhaitez contrôler et surveiller les tâches en arrière-plan, utilise
 
     - Les deux fichiers .ps1 sont stockés dans les dossiers Learning Modules\\Utilities\\.
 
-2. *LoadGenerator.ps1* effectue une boucle sur toutes les bases de données locataires enregistrées dans le catalogue.
+1. *LoadGenerator.ps1* effectue une boucle sur toutes les bases de données locataires enregistrées dans le catalogue.
 
-3. *LoadGenerator.ps1* démarre une tâche PowerShell en arrière-plan pour chaque base de données client :
+1. *LoadGenerator.ps1* démarre une tâche PowerShell en arrière-plan pour chaque base de données client :
 
     - Par défaut, les tâches en arrière-plan s’exécutent pendant 120 minutes.
     - Chaque travail cause une charge UC sur une base de données client en exécutant *sp_CpuLoadGenerator*. L’intensité et la durée de la charge varient en fonction de `$DemoScenario`. 
     - *sp_CpuLoadGenerator* effectue une boucle sur une instruction SQL SELECT qui cause une charge UC élevée. L’intervalle de temps entre les problèmes de l’instruction SELECT varie en fonction des valeurs du paramètre pour créer une charge processeur contrôlable. Les niveaux de charge et les intervalles sont aléatoires pour simuler des charges plus réalistes.
     - Ce fichier .sql est stocké sous *WingtipTenantDB\\dbo\\StoredProcedures\\*.
 
-4. Si `$OneTime = $false`, le générateur de charge démarre les tâches en arrière-plan et continue de s’exécuter. Toutes les 10 secondes, il contrôle les nouveaux locataires qui sont approvisionnés. Si vous définissez `$OneTime = $true`, le générateur de charge démarre les tâches en arrière-plan, puis arrête son exécution au premier plan. Pour ce didacticiel, laissez `$OneTime = $false`.
+1. Si `$OneTime = $false`, le générateur de charge démarre les tâches en arrière-plan et continue de s’exécuter. Toutes les 10 secondes, il contrôle les nouveaux locataires qui sont approvisionnés. Si vous définissez `$OneTime = $true`, le générateur de charge démarre les tâches en arrière-plan, puis arrête son exécution au premier plan. Pour ce didacticiel, laissez `$OneTime = $false`.
 
   Utilisez Ctrl-C ou Ctrl-Pause pour arrêter l’opération si vous souhaitez arrêter ou redémarrer le générateur de charge. 
 
@@ -193,8 +193,8 @@ Avant de passer à la section suivante, laissez le générateur de charge en cou
 Le déploiement initial crée trois exemples de locataire. Maintenant, vous créez un autre locataire pour voir son impact sur l’application déployée. Dans l’application Wingtip, le flux de travail permettant de provisionner les nouveaux locataires est expliqué dans le [didacticiel sur le provisionnement et l’inscription dans le catalogue](saas-dbpertenant-provision-and-catalog.md). Au cours de cette phase, vous créez un locataire, ce qui prend moins d’une minute.
 
 1. Ouvrez une nouvelle instance de PowerShell ISE.
-2. Ouvrez ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
-3. Pour exécuter le script, appuyez sur la touche F5. Laissez les valeurs par défaut pour le moment.
+1. Ouvrez ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
+1. Pour exécuter le script, appuyez sur la touche F5. Laissez les valeurs par défaut pour le moment.
 
    > [!NOTE]
    > De nombreux scripts Wingtip SaaS utilisent *$PSScriptRoot* pour parcourir les dossiers afin d’appeler les fonctions d’autres scripts. Cette variable est évaluée uniquement lorsque le script entier est exécuté en appuyant sur F5. La mise en surbrillance et l’exécution d’une sélection avec la touche F8 peut engendrer des erreurs. Pour exécuter les scripts, appuyez sur la touche F5.
@@ -220,11 +220,11 @@ Maintenant que vous avez démarré une charge dans le regroupement de locataires
 
    ![Bases de données](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
-2. Revenez à votre liste de serveurs SQL.
+1. Revenez à votre liste de serveurs SQL.
 
-3. Ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;** qui contient les bases de données locataires.
+1. Ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;** qui contient les bases de données locataires.
 
-4. Observez les points suivants :
+1. Observez les points suivants :
 
     - Chaque base de données de locataires est une base de données **élastique standard** dans un pool standard de 50 eDTU.
     - La base de données Red Maple Racing est la base de données de locataires que vous avez approvisionnée précédemment.

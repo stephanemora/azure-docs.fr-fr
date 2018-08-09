@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 8603716d30e1061ca9d600f2c053e90ff50c2433
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785878"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423537"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurer des stratégies de protection du contenu à l’aide du portail Azure
  Avec Azure Media Services, vous pouvez sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à la remise, en passant par le stockage et le traitement. Vous pouvez utiliser Media Services pour délivrer du contenu chiffré de manière dynamique avec la norme AES (Advanced Encryption Standard) à l’aide de clés de chiffrement 128 bits. Vous pouvez aussi l’utiliser avec le chiffrement commun (CENC) à l’aide de la gestion des droits numériques (DRM) PlayReady et/ou Widevine et Apple FairPlay. 
@@ -33,7 +33,7 @@ Pour utiliser le portail pour configurer la protection globale du contenu à l�
 
 1. Dans le [portail](https://portal.azure.com/), sélectionnez votre compte Media Services.
 
-2. Sélectionnez **Paramètres** > **Protection du contenu**.
+1. Sélectionnez **Paramètres** > **Protection du contenu**.
 
     ![Protection du contenu](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -110,11 +110,11 @@ Le chiffrement de clé en clair AES est activé sur tous les protocoles de strea
     
     e. **FairPlay uniquement avec HLS** : chiffre dynamiquement votre flux HLS avec FairPlay.
 
-2. Pour activer le chiffrement FairPlay, dans le panneau **Paramètres globaux de protection du contenu**, sélectionnez **Configuration FairPlay**. Ensuite, sélectionnez le **Certificat d’application** et entrez la **Clé secrète d’application**.
+1. Pour activer le chiffrement FairPlay, dans le panneau **Paramètres globaux de protection du contenu**, sélectionnez **Configuration FairPlay**. Ensuite, sélectionnez le **Certificat d’application** et entrez la **Clé secrète d’application**.
 
     ![Type de chiffrement](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-3. Une fois le chiffrement sélectionné, sélectionnez **Appliquer**.
+1. Une fois le chiffrement sélectionné, sélectionnez **Appliquer**.
 
 >[!NOTE] 
 >Si vous envisagez de lire un flux HLS chiffré par AES dans Safari, consultez le billet de blog [HLS chiffré dans Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).

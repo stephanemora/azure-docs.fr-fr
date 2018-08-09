@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: 5a3a67a41525d30b73bb203eeeacbdf49bb35193
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 4dc5b006be8599177fb908fe022a3a821b137e12
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901848"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422941"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 
@@ -35,11 +35,11 @@ Si le coffre Recovery Services est déjà ouvert, passez à la deuxième étape.
 
    ![choisir le coffre à partir de la liste](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
-2. Dans la liste, sélectionnez le coffre à supprimer. Lorsque vous sélectionnez le coffre, son tableau de bord s’affiche.
+1. Dans la liste, sélectionnez le coffre à supprimer. Lorsque vous sélectionnez le coffre, son tableau de bord s’affiche.
 
     ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-3. Pour supprimer un coffre, dans son tableau de bord, cliquez sur **Supprimer**. Vous devez confirmer la suppression du coffre.
+1. Pour supprimer un coffre, dans son tableau de bord, cliquez sur **Supprimer**. Vous devez confirmer la suppression du coffre.
 
     ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
 
@@ -71,26 +71,26 @@ Pour supprimer un coffre Recovery Services :
     Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
    ```
 
-2. Ouvrez une fenêtre PowerShell avec des privilèges d’administrateur.
+1. Ouvrez une fenêtre PowerShell avec des privilèges d’administrateur.
 
-3. Utilisez `Set-ExecutionPolicy Unrestricted` pour supprimer toutes les restrictions.
+1. Utilisez `Set-ExecutionPolicy Unrestricted` pour supprimer toutes les restrictions.
 
-4. Exécutez la commande suivante pour télécharger le package client Azure Resource Manager à partir de chocolately.org.
+1. Exécutez la commande suivante pour télécharger le package client Azure Resource Manager à partir de chocolately.org.
 
     `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-5. Utilisez la commande suivante pour installer le client API Azure Resource Manager.
+1. Utilisez la commande suivante pour installer le client API Azure Resource Manager.
 
    `choco.exe install armclient`
 
-6. Dans le portail Azure, rassemblez l’ID d’abonnement et le nom du groupe de ressources associé pour le coffre Recovery Services à supprimer.
+1. Dans le portail Azure, rassemblez l’ID d’abonnement et le nom du groupe de ressources associé pour le coffre Recovery Services à supprimer.
 
-7. Dans PowerShell, exécutez la commande suivante à l’aide de votre ID d’abonnement, du nom du groupe de ressources et du nom du coffre Recovery Services. Lorsque vous exécutez la commande, celle-ci supprime le coffre et toutes les dépendances.
+1. Dans PowerShell, exécutez la commande suivante à l’aide de votre ID d’abonnement, du nom du groupe de ressources et du nom du coffre Recovery Services. Lorsque vous exécutez la commande, celle-ci supprime le coffre et toutes les dépendances.
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-8. Connectez-vous à votre abonnement sur le portail Azure et vérifiez que le coffre est supprimé.
+1. Connectez-vous à votre abonnement sur le portail Azure et vérifiez que le coffre est supprimé.
 
 
 ## <a name="remove-vault-dependencies-and-delete-vault"></a>Supprimer les dépendances du coffre et supprimer le coffre
@@ -113,17 +113,17 @@ Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
 
     ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/selected-backup-items.png)
 
-2. Sélectionnez un type de sauvegarde pour afficher tous les éléments de ce type.
+1. Sélectionnez un type de sauvegarde pour afficher tous les éléments de ce type.
 
     ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
-3. Pour tous les éléments dans la liste, cliquez dessus avec le bouton droit, puis à partir du menu contextuel, sélectionnez **Arrêter la sauvegarde**.
+1. Pour tous les éléments dans la liste, cliquez dessus avec le bouton droit, puis à partir du menu contextuel, sélectionnez **Arrêter la sauvegarde**.
 
     ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/stop-backup-item.png) 
 
     Le menu Arrêter la sauvegarde s’ouvre.
 
-4. Dans la section **Choisir une option** du menu **Arrêter la sauvegarde**, sélectionnez **Supprimer les données de sauvegarde**, tapez le nom de l’élément et cliquez sur **Arrêter la sauvegarde**.
+1. Dans la section **Choisir une option** du menu **Arrêter la sauvegarde**, sélectionnez **Supprimer les données de sauvegarde**, tapez le nom de l’élément et cliquez sur **Arrêter la sauvegarde**.
 
     Tapez le nom de l’élément pour confirmer que vous souhaitez le supprimer. Le bouton **Arrêter la sauvegarde** s’active après avoir vérifié l’élément. Si vous conservez les données, vous ne pourrez pas supprimer le coffre.
 
@@ -132,17 +132,17 @@ Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
     Si vous le souhaitez, indiquez une raison expliquant pourquoi vous supprimez les données, et ajoutez des commentaires. Pour vérifier que la tâche est terminée, vérifiez les messages Azure ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
     Une fois la tâche terminée, le service envoie un message : *le processus de sauvegarde a été arrêté et les données de sauvegarde ont été supprimées*.
 
-5. Après la suppression d’un élément de la liste, dans le menu **Éléments de sauvegarde**, cliquez sur **Actualiser** pour voir les éléments dans le coffre.
+1. Après la suppression d’un élément de la liste, dans le menu **Éléments de sauvegarde**, cliquez sur **Actualiser** pour voir les éléments dans le coffre.
 
       ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Lorsque la liste ne comporte aucun élément, accédez au volet **Essentials** dans le panneau du coffre Recovery Services. Il ne doit pas contenir **d’Éléments de sauvegarde**, de **Serveurs de gestion des sauvegardes** ou **d’Éléments répliqués** répertoriés. Si des éléments apparaissent toujours dans le coffre, retournez à l’étape trois et choisissez une autre liste Type d’élément.  
 
-6. Une fois que la barre d’outils du coffre est vide, cliquez sur **Supprimer**.
+1. Une fois que la barre d’outils du coffre est vide, cliquez sur **Supprimer**.
 
     ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-7. Pour confirmer la suppression du coffre, cliquez sur **Oui**.
+1. Pour confirmer la suppression du coffre, cliquez sur **Oui**.
 
     Le coffre est supprimé et le portail revient au menu de service **Nouveau** .
 
@@ -150,17 +150,17 @@ Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
 
 1. Dans le menu du tableau de bord du coffre, faites défiler jusqu’à la section Gérer, puis cliquez sur **Infrastructure de sauvegarde**. 
 
-2. Dans le sous-menu, cliquez sur **Gérer les serveurs de sauvegarde** pour afficher les serveurs de sauvegarde Azure et le serveur System Center DPM. Vous pouvez arrêter et supprimer des serveurs Azure Files, des serveurs SQL Server dans une machine virtuelle Azure et des machines virtuelles Azure. 
+1. Dans le sous-menu, cliquez sur **Gérer les serveurs de sauvegarde** pour afficher les serveurs de sauvegarde Azure et le serveur System Center DPM. Vous pouvez arrêter et supprimer des serveurs Azure Files, des serveurs SQL Server dans une machine virtuelle Azure et des machines virtuelles Azure. 
 
     ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-3. Cliquez avec le bouton droit sur l’élément à supprimer, puis dans le sous-menu, sélectionnez **Supprimer**.
+1. Cliquez avec le bouton droit sur l’élément à supprimer, puis dans le sous-menu, sélectionnez **Supprimer**.
 
     ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
     Le menu Arrêter la sauvegarde s’ouvre.
 
-4. Dans la section **Choisir une option** du menu **Arrêter la sauvegarde**, sélectionnez **Supprimer les données de sauvegarde**, tapez le nom de l’élément et cliquez sur **Arrêter la sauvegarde**.
+1. Dans la section **Choisir une option** du menu **Arrêter la sauvegarde**, sélectionnez **Supprimer les données de sauvegarde**, tapez le nom de l’élément et cliquez sur **Arrêter la sauvegarde**.
 
     Pour confirmer que vous souhaitez supprimer, tapez le nom. Le bouton **Arrêter la sauvegarde** s’active après avoir vérifié l’élément. Si vous conservez les données, vous ne pouvez pas supprimer le coffre.
 
@@ -169,16 +169,16 @@ Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
     Si vous le souhaitez, vous pouvez indiquer une raison expliquant pourquoi vous supprimez les données, et ajouter des commentaires. Pour vérifier que la tâche est terminée, vérifiez les messages Azure ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
     Une fois la tâche terminée, le service enverra un message : le processus de sauvegarde a été arrêté et les données de sauvegarde ont été supprimées.
 
-5. Après la suppression d’un élément de la liste, dans le menu **Éléments de sauvegarde**, cliquez sur **Actualiser** pour voir les éléments restants dans le coffre.
+1. Après la suppression d’un élément de la liste, dans le menu **Éléments de sauvegarde**, cliquez sur **Actualiser** pour voir les éléments restants dans le coffre.
 
       ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Lorsque la liste ne comporte aucun élément, accédez au volet **Essentials** dans le panneau du coffre Recovery Services. Il ne doit pas contenir **d’Éléments de sauvegarde**, de **Serveurs de gestion des sauvegardes** ou **d’Éléments répliqués** répertoriés. Si des éléments apparaissent toujours dans le coffre, retournez à l’étape trois et choisissez une autre liste Type d’élément.  
-6. Lorsqu’il n’y a plus d’éléments dans le coffre, dans le tableau de bord de celui-ci, cliquez sur **Supprimer**.
+1. Lorsqu’il n’y a plus d’éléments dans le coffre, dans le tableau de bord de celui-ci, cliquez sur **Supprimer**.
 
     ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-7. Pour confirmer la suppression du coffre, cliquez sur **Oui**.
+1. Pour confirmer la suppression du coffre, cliquez sur **Oui**.
 
     Le coffre est supprimé et le portail revient au menu de service **Nouveau** .
 
@@ -187,11 +187,11 @@ Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
 
 1. Dans le menu du tableau de bord du coffre, faites défiler jusqu’à la section Gérer, puis cliquez sur **Infrastructure de sauvegarde**.
 
-2. Dans le sous-menu, cliquez sur **Serveurs protégés** pour afficher la liste des types de serveurs protégés, y compris l’agent Sauvegarde Azure.
+1. Dans le sous-menu, cliquez sur **Serveurs protégés** pour afficher la liste des types de serveurs protégés, y compris l’agent Sauvegarde Azure.
 
     ![sélectionnez votre coffre pour afficher son tableau de bord](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-3. Dans la liste **Serveurs protégés**, cliquez sur l’agent Sauvegarde Azure.
+1. Dans la liste **Serveurs protégés**, cliquez sur l’agent Sauvegarde Azure.
 
     ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
 
@@ -199,15 +199,15 @@ Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
 
     ![sélectionner le serveur protégé spécifique](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
 
-4. Dans la liste des serveurs, cliquez sur l’un d’eux pour ouvrir son menu.
+1. Dans la liste des serveurs, cliquez sur l’un d’eux pour ouvrir son menu.
 
     ![afficher le tableau de bord du serveur sélectionné](./media/backup-azure-delete-vault/selected-protected-server.png)
 
-5. Dans le menu du tableau de bord du serveur sélectionné, cliquez sur **Supprimer**.
+1. Dans le menu du tableau de bord du serveur sélectionné, cliquez sur **Supprimer**.
 
     ![supprimer le serveur sélectionné](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. Dans le menu **Supprimer**, tapez le nom de l’élément, puis cliquez sur **Supprimer**.
+1. Dans le menu **Supprimer**, tapez le nom de l’élément, puis cliquez sur **Supprimer**.
 
     Tapez le nom de l’élément pour confirmer que vous souhaitez le supprimer. Le bouton **Supprimer** s’active une fois que vous avez vérifié l’élément.
 
@@ -216,16 +216,16 @@ Utilisez le men **Infrastructure de sauvegarde** (voir l’image) pour :
     Si vous le souhaitez, vous pouvez indiquer une raison expliquant pourquoi vous supprimez les données, et ajouter des commentaires. Pour vérifier que la tâche est terminée, vérifiez les messages Azure ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
     Une fois la tâche terminée, le service enverra un message : le processus de sauvegarde a été arrêté et les données de sauvegarde ont été supprimées.
 
-7. Après la suppression d’un élément de la liste, dans le menu **Éléments de sauvegarde**, cliquez sur **Actualiser** pour voir les éléments restants dans le coffre.
+1. Après la suppression d’un élément de la liste, dans le menu **Éléments de sauvegarde**, cliquez sur **Actualiser** pour voir les éléments restants dans le coffre.
 
       ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Lorsque la liste ne comporte aucun élément, accédez au volet **Essentials** dans le panneau du coffre Recovery Services. Il ne doit pas contenir **d’Éléments de sauvegarde**, de **Serveurs de gestion des sauvegardes** ou **d’Éléments répliqués** répertoriés. Si des éléments apparaissent toujours dans le coffre, retournez à l’étape trois et choisissez une autre liste Type d’élément.  
-8. Lorsqu’il n’y a plus d’éléments dans le coffre, dans le tableau de bord de celui-ci, cliquez sur **Supprimer**.
+1. Lorsqu’il n’y a plus d’éléments dans le coffre, dans le tableau de bord de celui-ci, cliquez sur **Supprimer**.
 
     ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-9. Pour confirmer la suppression du coffre, cliquez sur **Oui**.
+1. Pour confirmer la suppression du coffre, cliquez sur **Oui**.
 
     Le coffre est supprimé et le portail revient au menu de service **Nouveau** .
 
@@ -238,7 +238,7 @@ Si vous arrêtez le processus de sauvegarde, mais que vous *conservez* accidente
     ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
 
     Le menu **Supprimer les données de sauvegarde** s’ouvre.
-2. Dans le menu **Supprimer les données de sauvegarde**, tapez le nom de l’élément, puis cliquez sur **Supprimer**.
+1. Dans le menu **Supprimer les données de sauvegarde**, tapez le nom de l’élément, puis cliquez sur **Supprimer**.
 
     ![Supprimer les données de sauvegarde](./media/backup-azure-delete-vault/delete-retained-vault.png)
 

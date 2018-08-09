@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 94080fb124478a4b8e196e341c335ca32321ecdf
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: caa2d74ecafe0b0e2508bd97eb4dc21a18e58f51
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011873"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626418"
 ---
 # <a name="authentication-requests-and-responses"></a>Authentification, requêtes et réponses
 
 Azure Key Vault prend en charge les requêtes et les réponses au format JSON. Les requêtes effectuées auprès d’Azure Key Vault sont dirigées vers une URL Azure Key Vault valide par le biais de la technologie HTTPS, avec des paramètres d’URL et des corps de requête et de réponse encodés au format JSON.
 
-Cette rubrique traite des caractéristiques du service Azure Key Vault. Pour obtenir des informations générales sur l’utilisation des interfaces REST Azure, y compris l’authentification/autorisation et l’acquisition de jetons d’accès, consultez les [informations de référence sur l’API REST Azure](https://docs.microsoft.com/rest/api/).
+Cette rubrique traite des caractéristiques du service Azure Key Vault. Pour obtenir des informations générales sur l’utilisation des interfaces REST Azure, y compris l’authentification/autorisation et l’acquisition de jetons d’accès, consultez les [informations de référence sur l’API REST Azure](https://docs.microsoft.com/rest/api/azure).
 
 ## <a name="request-url"></a>URL de la demande  
  Les opérations de gestion des clés utilisent HTTP DELETE, GET, PATCH, PUT et HTTP POST, tandis que les opérations de chiffrement sur les objets clés existants utilisent HTTP POST. Les clients qui ne prennent pas en charge certains verbes HTTP peuvent également utiliser HTTP POST à l’aide de l’en-tête X-HTTP-REQUEST pour spécifier le verbe souhaité. Les requêtes ne nécessitant généralement pas de corps doivent inclure un corps vide lors de l’utilisation de HTTP POST, par exemple lors de l’utilisation de POST au lieu de DELETE.  
@@ -95,7 +95,7 @@ Cette rubrique traite des caractéristiques du service Azure Key Vault. Pour obt
 ## <a name="authentication"></a>Authentification  
  Toutes les requêtes auprès d’Azure Key Vault DOIVENT être authentifiées. Azure Key Vault prend en charge les jetons d’accès Azure Active Directory qui peuvent être obtenus à l’aide d’OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
  
- Pour plus d’informations sur l’enregistrement de votre application et l’authentification permettant d’utiliser Azure Key Vault, consultez [Register your client application with Azure AD (Inscrire votre application cliente avec Azure AD)](https://docs.microsoft.com/rest/api/index#register-your-client-application-with-azure-ad).
+ Pour plus d’informations sur l’enregistrement de votre application et l’authentification permettant d’utiliser Azure Key Vault, consultez [Register your client application with Azure AD (Inscrire votre application cliente avec Azure AD)](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
  Les jetons d’accès doivent être envoyés au service avec l’en-tête d’autorisation HTTP :  
 
