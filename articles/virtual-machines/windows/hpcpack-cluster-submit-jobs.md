@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036487"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421132"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Envoyer des travaux HPC à partir d'un ordinateur local vers un cluster HPC Pack déployé dans Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -30,6 +30,7 @@ Configurez un ordinateur client local pour envoyer des travaux vers un cluster [
 ![Envoyer un travail vers un cluster dans Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Prérequis
+
 * **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : nous vous recommandons d’utiliser des outils automatisés, tels qu’un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour déployer le nœud principal et le cluster. Vous avez besoin du nom DNS du nœud principal et des informations d’identification d’un administrateur de cluster pour effectuer les étapes décrites dans cet article.
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows ou Windows Server qui peut exécuter des utilitaires clients HPC Pack (voir [Configuration requise](https://technet.microsoft.com/library/dn535781.aspx)). Si vous souhaitez uniquement utiliser le portail web de HPC Pack ou l’API REST pour envoyer des travaux, vous pouvez utiliser l’ordinateur client de votre choix.
 * **Support d’installation du HPC Pack** : pour installer les utilitaires du client HPC Pack, le package d’installation gratuit de la dernière version du HPC Pack est disponible dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=56360). Veillez à télécharger la même version du HPC Pack qui est installée sur la machine virtuelle du nœud principal.
@@ -47,34 +48,34 @@ Pour obtenir des procédures détaillées, consultez [Installer les composants w
 **Pour installer les composants web**
 
 1. Connectez-vous à la machine virtuelle du nœud principal en utilisant les informations d’identification d’un administrateur de cluster.
-2. À partir du dossier d’installation de HPC Pack, exécutez HpcWebComponents.msi sur le nœud principal.
-3. Suivez les étapes de l’assistant pour installer les composants web
+1. À partir du dossier d’installation de HPC Pack, exécutez HpcWebComponents.msi sur le nœud principal.
+1. Suivez les étapes de l’assistant pour installer les composants web
 
 **Pour configurer les composants web**
 
 1. Sur le nœud principal, démarrez HPC PowerShell en tant qu’administrateur.
-2. Pour modifier le répertoire et choisir l’emplacement du script de configuration, tapez la commande suivante :
+1. Pour modifier le répertoire et choisir l’emplacement du script de configuration, tapez la commande suivante :
    
     ```powershell
     cd $env:CCP_HOME\bin
     ```
-3. Pour configurer l’interface REST et démarrer le service web HPC, tapez la commande suivante :
+1. Pour configurer l’interface REST et démarrer le service web HPC, tapez la commande suivante :
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
-4. Lorsque vous êtes invité à sélectionner un certificat, choisissez le certificat qui correspond au nom DNS public du nœud principal. Par exemple, si vous déployer la machine virtuelle de nœud principal à l’aide du modèle de déploiement classique, le nom du certificat est au format CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Si vous utilisez le modèle de déploiement Resource Manager, le nom du certificat est au format CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com.
+1. Lorsque vous êtes invité à sélectionner un certificat, choisissez le certificat qui correspond au nom DNS public du nœud principal. Par exemple, si vous déployer la machine virtuelle de nœud principal à l’aide du modèle de déploiement classique, le nom du certificat est au format CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Si vous utilisez le modèle de déploiement Resource Manager, le nom du certificat est au format CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com.
    
    > [!NOTE]
    > Vous devez sélectionner ce certificat plus tard pour envoyer des au nœud principal à partir d’un ordinateur local. Ne sélectionnez pas ou ne configurez pas un certificat qui correspond au nom d’ordinateur du nœud principal dans le domaine Active Directory (par exemple, CN=*MyHPCHeadNode.HpcAzure.local*).
    > 
    > 
-5. Pour configurer le portail web de soumission de travaux, tapez la commande suivante :
+1. Pour configurer le portail web de soumission de travaux, tapez la commande suivante :
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. Une fois le script terminé, arrêtez et redémarrez le service de planification de travaux HPC en tapant les commandes suivantes :
+1. Une fois le script terminé, arrêtez et redémarrez le service de planification de travaux HPC en tapant les commandes suivantes :
    
     ```powershell
     net stop hpcscheduler
@@ -89,18 +90,18 @@ Pour utiliser les outils clients du HPC Pack pour envoyer des travaux à la mach
 **Pour exporter le certificat à partir du nœud principal**
 
 1. Sur le nœud principal, ajoutez le composant logiciel enfichable Certificats à une Console de gestion Microsoft pour le compte de l’ordinateur local. Pour savoir comment ajouter le composant logiciel enfichable, consultez [Ajouter le composant logiciel enfichable Certificats à une console MMC](https://technet.microsoft.com/library/cc754431.aspx).
-2. Dans l’arborescence de la console, développez **Certificats – Ordinateur Local** > **Personnel**, et cliquez sur **Certificats**.
-3. Localisez le certificat que vous avez configuré pour les composants web HPC Pack à [l’Étape 1 : Installer et configurer les composants web sur le nœud principal](#step-1-install-and-configure-the-web-components-on-the-head-node) (par exemple, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
-4. Cliquez avec le bouton droit sur le certificat et sélectionnez **Toutes les tâches** > **Exporter**.
-5. Dans l’Assistant Exportation de certificat, cliquez sur **Suivant**, puis assurez-vous que l’option **Non, ne pas exporter la clé privée** est cochée.
-6. Suivez les étapes restantes de l’Assistant pour exporter le certificat au format binaire codé DER X.509 (.CER).
+1. Dans l’arborescence de la console, développez **Certificats – Ordinateur Local** > **Personnel**, et cliquez sur **Certificats**.
+1. Localisez le certificat que vous avez configuré pour les composants web HPC Pack à [l’Étape 1 : Installer et configurer les composants web sur le nœud principal](#step-1-install-and-configure-the-web-components-on-the-head-node) (par exemple, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+1. Cliquez avec le bouton droit sur le certificat et sélectionnez **Toutes les tâches** > **Exporter**.
+1. Dans l’Assistant Exportation de certificat, cliquez sur **Suivant**, puis assurez-vous que l’option **Non, ne pas exporter la clé privée** est cochée.
+1. Suivez les étapes restantes de l’Assistant pour exporter le certificat au format binaire codé DER X.509 (.CER).
 
 **Pour importer le certificat sur l’ordinateur client**
 
 1. Copiez le certificat que vous avez exporté à partir du nœud principal dans un dossier de l’ordinateur client.
-2. Sur l’ordinateur client, exécutez certmgr.msc.
-3. Dans le Gestionnaire de certificats, développez **Certificats – Utilisateur actuel** > **Autorités de certification racines de confiance**, cliquez avec le bouton droit sur **Certificats**, cliquez sur **Toutes les tâches** > **Importer**.
-4. Dans l’Assistant Importation de certificat, cliquez sur **Suivant** et suivez les étapes pour importer le certificat que vous avez exporté à partir du nœud principal vers le magasin racine des autorités de certification approuvées.
+1. Sur l’ordinateur client, exécutez certmgr.msc.
+1. Dans le Gestionnaire de certificats, développez **Certificats – Utilisateur actuel** > **Autorités de certification racines de confiance**, cliquez avec le bouton droit sur **Certificats**, cliquez sur **Toutes les tâches** > **Importer**.
+1. Dans l’Assistant Importation de certificat, cliquez sur **Suivant** et suivez les étapes pour importer le certificat que vous avez exporté à partir du nœud principal vers le magasin racine des autorités de certification approuvées.
 
 > [!TIP]
 > Un avertissement de sécurité peut s’afficher lorsque l’autorité de certification sur le nœud principal n’est pas reconnue par l’ordinateur client. À des fins de test, vous pouvez ignorer cet avertissement et terminer l’importation du certificat.
@@ -113,7 +114,7 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
 **Pour exécuter des commandes d’envoi de travail sur l’ordinateur client**
 
 1. Sur un ordinateur client où sont installés les utilitaires du client HPC Pack, démarrez une invite de commandes.
-2. Tapez un exemple de commande. Par exemple, pour répertorier tous les travaux sur le cluster, tapez une commande semblable à l'une des options suivantes, selon le nom DNS complet du nœud principal :
+1. Tapez un exemple de commande. Par exemple, pour répertorier tous les travaux sur le cluster, tapez une commande semblable à l'une des options suivantes, selon le nom DNS complet du nœud principal :
    
     ```command
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
@@ -129,7 +130,7 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
    > Utilisez le nom DNS complet du nœud principal, et non l’adresse IP, dans l’URL du planificateur. Si vous spécifiez l’adresse IP, une erreur apparaît, du type : « Le certificat de serveur doit utiliser une chaîne de confiance valide ou être placé dans le magasin racine de confiance ».
    > 
    > 
-3. Quand vous y êtes invité, tapez le nom d'utilisateur (au format &lt;NomDomaine&gt;\\&lt;NomUtilisateur&gt;) et le mot de passe de l'administrateur de cluster HPC ou d'un autre utilisateur de cluster que vous avez configuré. Vous pouvez choisir de stocker les informations d’identification localement pour effectuer d’autres opérations.
+1. Quand vous y êtes invité, tapez le nom d'utilisateur (au format &lt;NomDomaine&gt;\\&lt;NomUtilisateur&gt;) et le mot de passe de l'administrateur de cluster HPC ou d'un autre utilisateur de cluster que vous avez configuré. Vous pouvez choisir de stocker les informations d’identification localement pour effectuer d’autres opérations.
    
     Une liste de travaux s’affiche.
 
@@ -142,8 +143,8 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
     b. Cliquez sur **Informations d’identification Windows** > **Ajouter des informations d’identification génériques**.
    
     c. Spécifiez l’adresse Internet (par exemple, https://&lt;NomDNSNoeudPrincipal&gt;.cloudapp.net/HpcScheduler ou https://&lt;NomDNSNoeudPrincipal&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler) et le nom d’utilisateur (&lt;NomDomaine&gt;\\&lt;NomUtilisateur&gt;) et le mot de passe de l’administrateur de cluster ou d’un autre utilisateur de cluster que vous avez configuré.
-2. Sur l’ordinateur client, démarrez le Gestionnaire de travaux HPC.
-3. Dans la boîte de dialogue **Sélectionner un nœud principal**, saisissez l’URL vers le nœud principal dans Azure (par exemple, https://&lt;NomDNSNoeudPrincipal&gt;. cloudapp.net ou https://&lt;NomDNSNoeudPrincipal&gt;.&lt;region&gt;. cloudapp.azure.com).
+1. Sur l’ordinateur client, démarrez le Gestionnaire de travaux HPC.
+1. Dans la boîte de dialogue **Sélectionner un nœud principal**, saisissez l’URL vers le nœud principal dans Azure (par exemple, https://&lt;NomDNSNoeudPrincipal&gt;. cloudapp.net ou https://&lt;NomDNSNoeudPrincipal&gt;.&lt;region&gt;. cloudapp.azure.com).
    
     Le Gestionnaire de travaux HPC s’ouvre et affiche une liste de travaux sur le nœud principal.
 
@@ -160,13 +161,13 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
     ```
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. Dans la boîte de dialogue de sécurité qui s’affiche, tapez les informations d’identification de domaine de l’administrateur de cluster HPC. (Vous pouvez également ajouter d’autres utilisateurs de cluster dans des rôles différents. Consultez [Gestion des utilisateurs du cluster](https://technet.microsoft.com/library/ff919335.aspx).)
+1. Dans la boîte de dialogue de sécurité qui s’affiche, tapez les informations d’identification de domaine de l’administrateur de cluster HPC. (Vous pouvez également ajouter d’autres utilisateurs de cluster dans des rôles différents. Consultez [Gestion des utilisateurs du cluster](https://technet.microsoft.com/library/ff919335.aspx).)
    
     Le portail web s’ouvre sur l’affichage de liste de travaux.
-3. Pour envoyer un exemple de travail qui retourne la chaîne « Hello World » à partir du cluster, cliquez sur **Nouveau travail** dans le cadre de gauche.
-4. Dans la page **Nouveau travail**, sous **À partir des pages d’envoi**, cliquez sur **HelloWorld**. La page d’envoi de travail s’affiche.
-5. Cliquez sur **Envoyer**. Si vous y êtes invité, fournissez les informations d’identification de domaine de l’administrateur de cluster HPC. Le travail est envoyé et l’ID du travail s’affiche dans la page **Mes travaux** .
-6. Pour afficher les résultats du travail que vous avez envoyé, cliquez sur l’ID du travail, puis sur **Afficher les tâches** pour afficher la sortie de commande (sous **Sortie**).
+1. Pour envoyer un exemple de travail qui retourne la chaîne « Hello World » à partir du cluster, cliquez sur **Nouveau travail** dans le cadre de gauche.
+1. Dans la page **Nouveau travail**, sous **À partir des pages d’envoi**, cliquez sur **HelloWorld**. La page d’envoi de travail s’affiche.
+1. Cliquez sur **Envoyer**. Si vous y êtes invité, fournissez les informations d’identification de domaine de l’administrateur de cluster HPC. Le travail est envoyé et l’ID du travail s’affiche dans la page **Mes travaux** .
+1. Pour afficher les résultats du travail que vous avez envoyé, cliquez sur l’ID du travail, puis sur **Afficher les tâches** pour afficher la sortie de commande (sous **Sortie**).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez également envoyer des travaux au cluster Azure avec l’ [API REST du HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).

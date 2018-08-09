@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 11edcfe1075d2afc6c62db5e125d2d150e8c7bfc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b0aaa27164c84a06c6fad92d5036a00ca5a319f8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227854"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Didacticiel : Intégration d’Azure Active Directory à Tableau Online
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Tableau Online à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-tableau-online-from-the-gallery"></a>Ajout de Tableau Online à partir de la galerie
 Pour configurer l’intégration de Tableau Online à Azure AD, vous devez ajouter Tableau Online à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration de Tableau Online à Azure AD, vous devez ajout
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **Tableau Online**.
+1. Dans la zone de recherche, tapez **Tableau Online**.
 
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_search.png)
 
-5. Dans le panneau de résultats, sélectionnez **Tableau Online**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le panneau de résultats, sélectionnez **Tableau Online**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Dans Tableau Online, affectez la valeur du **nom d’utilisateur** dans Azure A
 Pour configurer et tester l’authentification unique Azure AD avec Tableau Online, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Tableau Online](#creating-a-tableau-online-test-user)** pour avoir un équivalent de Britta Simon dans Tableau Online lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test Tableau Online](#creating-a-tableau-online-test-user)** pour avoir un équivalent de Britta Simon dans Tableau Online lié à la représentation Azure AD de l’utilisateur.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -102,47 +102,47 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **Tableau Online**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_samlbase.png)
+    ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_tableauonline_samlbase.png)
 
-3. Dans la section **Tableau Online Domain and URLs** (Domaine et URL Tableau Online), procédez comme suit :
+1. Dans la section **Tableau Online Domain and URLs** (Domaine et URL Tableau Online), procédez comme suit :
 
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_url.png)
+    ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_tableauonline_url.png)
     
     a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://sso.online.tableau.com`
 
     b. Dans la zone de texte **Identificateur**, tapez l’URL : `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_general_400.png)
 
-6. Dans une autre fenêtre du navigateur, connectez-vous à votre application Tableau Online. Cliquez sur **Settings** (Paramètres), puis sur **Authentication** (Authentification).
+1. Dans une autre fenêtre du navigateur, connectez-vous à votre application Tableau Online. Cliquez sur **Settings** (Paramètres), puis sur **Authentication** (Authentification).
    
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
+    ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
     
-7. Pour activer SAML, dans la section **Types d’authentification**, cochez la case **Single sign-on with SAML** (Authentification unique avec SAML).
+1. Pour activer SAML, dans la section **Types d’authentification**, cochez la case **Single sign-on with SAML** (Authentification unique avec SAML).
    
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
+    ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
-8. Faites défiler la page jusqu’à la section **Import metadata file into Tableau Online (Importer le fichier de métadonnées dans Tableau Online)** .  Cliquez sur Browse (Parcourir) et importez le fichier de métadonnées que vous avez téléchargé à partir d’Azure AD. Cliquez alors sur **Apply (Appliquer)**.
+1. Faites défiler la page jusqu’à la section **Import metadata file into Tableau Online (Importer le fichier de métadonnées dans Tableau Online)** .  Cliquez sur Browse (Parcourir) et importez le fichier de métadonnées que vous avez téléchargé à partir d’Azure AD. Cliquez alors sur **Apply (Appliquer)**.
    
-   ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
+   ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 
-9. Dans la section **Match assertions** (Faire correspondre les assertions), insérez les noms d’assertion du fournisseur d’identité correspondants pour **l’adresse e-mail**, le **prénom** et le **nom**. Pour obtenir ces informations à partir d’Azure AD : 
+1. Dans la section **Match assertions** (Faire correspondre les assertions), insérez les noms d’assertion du fournisseur d’identité correspondants pour **l’adresse e-mail**, le **prénom** et le **nom**. Pour obtenir ces informations à partir d’Azure AD : 
   
     a. Dans le portail Azure, accédez à la page d’intégration de l’application **Tableau Online**.
     
     b. Dans la section des attributs, cochez la case **« Afficher et modifier tous les autres attributs utilisateur »**. 
     
-   ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection.png)
+   ![Configurer l'authentification unique](./media/tableauonline-tutorial/attributesection.png)
       
     c. Copiez la valeur de l’espace de noms de ces attributs : prénom, adresse e-mail et nom de famille en procédant comme suit :
 
@@ -152,7 +152,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     e. Copiez la valeur à partir de la zone de texte **espace de noms**.
 
-   ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection2.png)
+   ![Configurer l'authentification unique](./media/tableauonline-tutorial/attributesection2.png)
 
     f. Pour copier les valeurs d’espace de noms pour l’adresse e-mail et le nom de famille, suivez les étapes précédentes.
 
@@ -161,7 +161,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
      * First name (Prénom) : **givenName**
      * Last name (Nom) : **surname**
    
-   ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+   ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -174,15 +174,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/create_aaduser_04.png) 
 
@@ -201,10 +201,10 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans T
 1. Dans **Tableau Online**, cliquez sur **Paramètres**, puis sur la section **Authentification**. Faites défiler la page jusqu’à la section **Select Users (Sélectionner des utilisateurs)** . Cliquez sur **Ajouter des utilisateurs**, puis sur **Entrer les adresses de messagerie**.
    
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
-2. Sélectionnez **Add users for single sign-on (SSO) authentication (Ajouter des utilisateurs pour l’authentification unique (SSO))**. Dans la zone de texte **Enter Email Addresses** (Entrez les adresses de messagerie), ajoutez britta.simon@contoso.com
+1. Sélectionnez **Add users for single sign-on (SSO) authentication (Ajouter des utilisateurs pour l’authentification unique (SSO))**. Dans la zone de texte **Enter Email Addresses** (Entrez les adresses de messagerie), ajoutez britta.simon@contoso.com
    
     ![Création d’un utilisateur de test Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
-3. Cliquez sur **Créer**.
+1. Cliquez sur **Créer**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -218,23 +218,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Tableau Online**.
+1. Dans la liste des applications, sélectionnez **Tableau Online**.
 
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_app.png) 
+    ![Configurer l'authentification unique](./media/tableauonline-tutorial/tutorial_tableauonline_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e7cc2779661f4359c3c30fe76a387740f5f044f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 12fb8e5b2b940c48de766a48f59ed0cc342b5356
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055574"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Didacticiel : Intégration de Azure Active Directory à XaitPorter
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de XaitPorter depuis la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-xaitporter-from-the-gallery"></a>Ajout de XaitPorter depuis la galerie
 Pour configurer l’intégration de XaitPorter avec Azure AD, vous devez ajouter XaitPorter, disponible dans la galerie, à votre liste d’applications SaaS gérées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de XaitPorter avec Azure AD, vous devez ajouter
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **XaitPorter**, sélectionnez **XaitPorter** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **XaitPorter**, sélectionnez **XaitPorter** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![XaitPorter dans la liste des résultats](./media/xaitporter-tutorial/tutorial_xaitporter_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dans XaitPorter, affectez la valeur de **nom d’utilisateur** dans Azure AD co
 Pour configurer et tester l’authentification unique Azure AD avec XaitPorter, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer utilisateur de test XaitPorter](#create-a-xaitporter-test-user)** pour avoir un équivalent de Britta Simon dans XaitPorter lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer utilisateur de test XaitPorter](#create-a-xaitporter-test-user)** pour avoir un équivalent de Britta Simon dans XaitPorter lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +102,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/xaitporter-tutorial/tutorial_xaitporter_samlbase.png)
 
-3. Dans la section **Domaine et URL XaitPorter**, effectuez les étapes suivantes :
+1. Dans la section **Domaine et URL XaitPorter**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL XaitPorter](./media/xaitporter-tutorial/tutorial_xaitporter_url.png)
 
@@ -117,27 +117,27 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique XaitPorter](https://www.xait.com/support/).
      
-4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes. 
+1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes. 
 
     ![Lien Téléchargement de certificat](./media/xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/xaitporter-tutorial/tutorial_general_400.png)
 
-6. Fournissez **l’adresse IP** ou **l’URL des métadonnées de fédération de l’application** à [l’équipe de support SmartRecruiters ](https://www.smartrecruiters.com/about-us/contact-us/), de sorte que XaitPorter puisse assurer l’accessibilité de l’adresse IP à partir de votre instance XaitPorter, en établissant une liste verte de leur côté. 
+1. Fournissez **l’adresse IP** ou **l’URL des métadonnées de fédération de l’application** à [l’équipe de support SmartRecruiters ](https://www.smartrecruiters.com/about-us/contact-us/), de sorte que XaitPorter puisse assurer l’accessibilité de l’adresse IP à partir de votre instance XaitPorter, en établissant une liste verte de leur côté. 
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise XaitPorter en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise XaitPorter en tant qu’administrateur.
 
-8. Cliquez sur le titre **Admin**.
+1. Cliquez sur le titre **Admin**.
 
     ![Configurer l'authentification unique](./media/xaitporter-tutorial/user1.png)
 
-9. Sélectionnez **Gérer l’authentification unique** à partir de la liste déroulante **Configuration système**.
+1. Sélectionnez **Gérer l’authentification unique** à partir de la liste déroulante **Configuration système**.
 
     ![Configurer l'authentification unique](./media/xaitporter-tutorial/user2.png)
 
-10. Dans la section **GÉRER L’AUTHENTIFICATION UNIQUE**, procédez comme suit :
+1. Dans la section **GÉRER L’AUTHENTIFICATION UNIQUE**, procédez comme suit :
 
     ![Configurer l'authentification unique](./media/xaitporter-tutorial/user3.png)
 
@@ -161,15 +161,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/xaitporter-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/xaitporter-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/xaitporter-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/xaitporter-tutorial/create_aaduser_04.png)
 
@@ -197,23 +197,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **XaitPorter**.
+1. Dans la liste des applications, sélectionnez **XaitPorter**.
 
     ![Lien XaitPorter dans la liste des applications](./media/xaitporter-tutorial/tutorial_xaitporter_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

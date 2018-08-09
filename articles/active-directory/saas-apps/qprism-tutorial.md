@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 9b37c6d1c1c2e7ec002ac1b4ea5768c8972dd9e8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39039985"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Didacticiel : Intégration d’Azure Active Directory à QPrism
 
@@ -50,7 +50,7 @@ Pour tester la procédure de ce didacticiel, suivez les recommandations ci-desso
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de QPrism à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="add-qprism-from-the-gallery"></a>Ajouter QPrism à partir de la galerie
 Pour configurer l’intégration de QPrism avec Azure AD, vous devez ajouter QPrism disponible dans la galerie, à votre liste d’applications SaaS gérées.
@@ -61,15 +61,15 @@ Pour configurer l’intégration de QPrism avec Azure AD, vous devez ajouter QP
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise** > **Toutes les applications**.
+1. Accédez à **Applications d’entreprise** > **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter une application, en haut de la boîte de dialogue, sélectionnez **Nouvelle application**.
+1. Pour ajouter une application, en haut de la boîte de dialogue, sélectionnez **Nouvelle application**.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **QPrism**, puis sélectionnez **QPrism** dans le volet de résultats. Ensuite, pour ajouter l’application, cliquez sur **Ajouter**.
+1. Dans la zone de recherche, tapez **QPrism**, puis sélectionnez **QPrism** dans le volet de résultats. Ensuite, pour ajouter l’application, cliquez sur **Ajouter**.
 
     ![QPrism dans la liste des résultats](./media/qprism-tutorial/tutorial_qprism_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Pour établir cette relation, dans QPrism, affectez la valeur du **nom d’utili
 Pour configurer et tester l’authentification unique Azure AD avec QPrism, suivez les indications des sections suivantes :
 
 1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on) pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec Britta Simon.
-3. [Créer un utilisateur de test QPrism](#create-a-qprism-test-user) pour avoir dans QPrism un équivalent de Britta Simon lié à la représentation Azure AD associée.
-4. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. [Tester l’authentification unique](#test-single-sign-on) pour vérifier si la configuration fonctionne.
+1. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec Britta Simon.
+1. [Créer un utilisateur de test QPrism](#create-a-qprism-test-user) pour avoir dans QPrism un équivalent de Britta Simon lié à la représentation Azure AD associée.
+1. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. [Tester l’authentification unique](#test-single-sign-on) pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -97,11 +97,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Pour activer l’authentification unique, dans la boîte de dialogue **Authentification unique**, configurez **Mode** sur **Authentification basée sur SAML**.
+1. Pour activer l’authentification unique, dans la boîte de dialogue **Authentification unique**, configurez **Mode** sur **Authentification basée sur SAML**.
  
     ![Boîte de dialogue Authentification unique](./media/qprism-tutorial/tutorial_qprism_samlbase.png)
 
-3. Dans la section **Domaine et URL Absorb QPrism**, effectuez les étapes suivantes :
+1. Dans la section **Domaine et URL Absorb QPrism**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL QPrism](./media/qprism-tutorial/tutorial_qprism_url.png)
 
@@ -112,15 +112,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support QPrism](mailto:qsupport-ce@quatrro.com). 
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+1. Dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
 
      ![Lien Téléchargement de certificat](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
-5. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/qprism-tutorial/tutorial_general_400.png)
     
-6. Pour configurer l’authentification unique côté **QPrism**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe de support QPrism](mailto:qsupport-ce@quatrro.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **QPrism**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe de support QPrism](mailto:qsupport-ce@quatrro.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -134,15 +134,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/qprism-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/qprism-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, sélectionnez **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, sélectionnez **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/qprism-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/qprism-tutorial/create_aaduser_04.png)
 
@@ -170,23 +170,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **QPrism**.
+1. Dans la liste des applications, sélectionnez **QPrism**.
 
     ![Lien QPrism dans la liste des applications](./media/qprism-tutorial/tutorial_qprism_app.png)  
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+1. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Sélectionnez **Ajouter**. Sous **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter**. Sous **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste **Utilisateurs**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste **Utilisateurs**.
 
-6. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Sélectionner**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Sélectionner**.
 
-7. Sous **Ajouter une attribution**, sélectionnez **Attribuer**.
+1. Sous **Ajouter une attribution**, sélectionnez **Attribuer**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

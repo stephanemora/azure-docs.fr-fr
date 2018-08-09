@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 4a592a20d009b269f1e8f7079311caa4c33cf613
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113104"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421931"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Déployer le cluster Docker CE
 
@@ -24,11 +24,11 @@ Docker CE est en version préliminaire sur Azure Container Service et **ne doit 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées.
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *westus2*.
 
@@ -36,7 +36,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location westus2
 ```
 
-Sortie :
+Output:
 
 ```json
 {
@@ -53,7 +53,7 @@ Sortie :
 
 ## <a name="create-docker-swarm-cluster"></a>Créer le cluster Docker Swarm
 
-Pour créer un cluster Docker CE dans Azure Container Service, utilisez la commande [az acs create](/cli/azure/acs#az_acs_create). Pour plus d’informations sur la disponibilité de Docker CE selon les régions, consultez [Régions ACS pour Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Pour créer un cluster Docker CE dans Azure Container Service, utilisez la commande [az acs create](/cli/azure/acs#az-acs-create). Pour plus d’informations sur la disponibilité de Docker CE selon les régions, consultez [Régions ACS pour Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 L’exemple ci-après permet de créer un cluster nommé *mySwarmCluster*, qui inclut un nœud maître Linux et trois nœuds agents Linux.
 
@@ -61,7 +61,7 @@ L’exemple ci-après permet de créer un cluster nommé *mySwarmCluster*, qui i
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-Dans certains cas, par exemple avec une version d’évaluation limitée, un abonnement Azure dispose d’un accès limité aux ressources Azure. Si le déploiement échoue à cause d’une limitation du nombre de cœurs disponibles, réduisez le nombre d’agents par défaut en ajoutant `--agent-count 1` à la commande [az acs create](/cli/azure/acs#az_acs_create). 
+Dans certains cas, par exemple avec une version d’évaluation limitée, un abonnement Azure dispose d’un accès limité aux ressources Azure. Si le déploiement échoue à cause d’une limitation du nombre de cœurs disponibles, réduisez le nombre d’agents par défaut en ajoutant `--agent-count 1` à la commande [az acs create](/cli/azure/acs#az-acs-create). 
 
 Au bout de quelques minutes, la commande se termine et retourne des informations formatées JSON sur le cluster.
 
@@ -97,7 +97,7 @@ export DOCKER_HOST=localhost:2374
 Vous êtes maintenant prêt à exécuter les services Docker sur le Docker Swarm.
 
 
-## <a name="run-the-application"></a>Exécution de l’application
+## <a name="run-the-application"></a>Exécution de l'application
 
 Créez un fichier nommé `azure-vote.yaml`, puis copiez-y le contenu suivant.
 
@@ -153,7 +153,7 @@ Naviguez dans le nom de domaine complet du pool d’agents Swarm pour tester l�
 ![Image de la navigation vers Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Supprimer un cluster
-Lorsque vous n’avez plus besoin du cluster, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, le service de conteneur et toutes les ressources associées.
+Lorsque vous n’avez plus besoin du cluster, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, le service de conteneur et toutes les ressources associées.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

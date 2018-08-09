@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004844"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283089"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager
 
-Le [portail Azure ](http://go.microsoft.com/fwlink/p/?LinkID=525040) vous permet de [créer et d’ajouter facilement une machine virtuelle à un laboratoire](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Cela fonctionne bien pour la création d’une machine virtuelle à la fois. Toutefois, si l’environnement contient plusieurs machines virtuelles, chaque machine virtuelle doit être créée individuellement. Pour des scénarios comme une application web à plusieurs niveaux ou une batterie de serveurs SharePoint, un mécanisme est nécessaire pour permettre la création de plusieurs machines virtuelles en une seule étape. Les modèles Azure Resource Manager, vous permettent désormais de définir l’infrastructure et la configuration de votre solution Azure et de déployer de manière répétée plusieurs machines virtuelles dans un état cohérent. Cette fonctionnalité permet de bénéficier des avantages suivants :
+Le [portail Azure ](http://go.microsoft.com/fwlink/p/?LinkID=525040) vous permet [d’ajouter facilement une machine virtuelle à la fois à un laboratoire](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Toutefois, si l’environnement contient plusieurs machines virtuelles, chaque machine virtuelle doit être créée individuellement. Pour des scénarios comme une application web à plusieurs niveaux ou une batterie de serveurs SharePoint, un mécanisme est nécessaire pour permettre la création de plusieurs machines virtuelles en une seule étape. Les modèles Azure Resource Manager, vous permettent désormais de définir l’infrastructure et la configuration de votre solution Azure et de déployer de manière répétée plusieurs machines virtuelles dans un état cohérent. Cette fonctionnalité permet de bénéficier des avantages suivants :
 
 - Les modèles Azure Resource Manager sont chargés directement à partir de votre dépôt de contrôle de code source (GitHub ou Team Services Git).
 - Suite à la configuration, vos utilisateurs peuvent créer un environnement en choisissant un modèle Azure Resource Manager à partir du portail Azure, comme avec les autres types de [bases de machines virtuelles](./devtest-lab-comparing-vm-base-image-types.md).
@@ -43,6 +43,8 @@ Découvrez les nombreux [avantages de l’utilisation des modèles Resource Mana
 
 Dans le cadre des bonnes pratiques liées à l’Infrastructure as Code et à la Configuration as Code, des modèles d’environnement doivent être gérés dans le contrôle de code source. Azure DevTest Labs suit cette pratique et charge tous les modèles Azure Resource Manager directement à partir de vos dépôts GitHub ou VSTS Git. Par conséquent, les modèles Resource Manager peuvent être utilisés tout le long du cycle de publication, de l’environnement de test jusqu’à l’environnement de production.
 
+Découvrez les modèles créés par l’équipe DevTest Labs dans le [dépôt GitHub public](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Dans ce dépôt public, vous pouvez afficher les modèles partagés par d’autres utilisateurs et vous pouvez les utiliser directement ou les personnaliser en fonction de vos besoins. Après avoir créé votre modèle, stockez-le dans ce dépôt pour le partager avec d’autres utilisateurs. Vous pouvez également configurer votre propre dépôt Git avec des modèles pouvant être utilisés pour configurer des environnements dans le cloud. 
+
 Quelques règles sont à prendre en compte pour organiser vos modèles Azure Resource Manager dans un dépôt :
 
 - Le fichier de modèle principal doit être nommé `azuredeploy.json`. 
@@ -53,15 +55,15 @@ Quelques règles sont à prendre en compte pour organiser vos modèles Azure Res
 - Vous pouvez utiliser les paramètres `_artifactsLocation` et `_artifactsLocationSasToken` pour créer la valeur de l’URI parametersLink et permettre à DevTest Labs de gérer automatiquement les modèles imbriqués. Pour plus d’informations, consultez [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
 - Les métadonnées peuvent être définies pour spécifier le nom d’affichage et la description du modèle. Ces métadonnées doivent être dans un fichier nommé `metadata.json`. Le fichier de métadonnées d’exemple suivant montre comment spécifier le nom d’affichage et la description : 
 
-```json
-{
+    ```json
+    {
  
-"itemDisplayName": "<your template name>",
+        "itemDisplayName": "<your template name>",
  
-"description": "<description of the template>"
+        "description": "<description of the template>"
  
-}
-```
+    }
+    ```
 
 Les étapes suivantes vous guident pour ajouter un dépôt dans votre laboratoire à l’aide du portail Azure. 
 
@@ -150,7 +152,7 @@ Prenez en compte les limitations suivantes lors de l’utilisation d’un modèl
 
 - La plupart des stratégies ne sont pas évaluées lorsque vous déployez des modèles Resource Manager.
 
-   Par exemple, vous pouvez disposer d’une stratégie de laboratoire qui spécifie qu’un utilisateur peut uniquement créer cinq machines virtuelles. Toutefois, si l’utilisateur déploie un modèle Resource Manager qui crée des dizaines de machines virtuelles, ceci est autorisé. Les stratégies qui ne sont pas évaluées incluent :
+   Par exemple, vous pouvez disposer d’une stratégie de laboratoire qui spécifie qu’un utilisateur peut uniquement créer cinq machines virtuelles. Toutefois, un utilisateur peut déployer un modèle Resource Manager qui crée des dizaines de machines virtuelles. Les stratégies qui ne sont pas évaluées incluent :
 
    - Nombre de machines virtuelles par utilisateur
    - Nombre de machines virtuelles Premium par utilisateur de laboratoire

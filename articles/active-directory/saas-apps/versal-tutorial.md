@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 0f8621ec55ee58e818a60dc74ea5c4f111909b8a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a6e1f73218efb11da475f3e67188863c3b99de97
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210273"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Didacticiel : Intégration d’Azure Active Directory à Versal
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajouter Versal à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-versal-from-the-gallery"></a>Ajouter Versal à partir de la galerie
 Pour configurer l’intégration de Versal à Azure AD, vous devez ajouter Versal à votre liste d’applications SaaS gérées à partir de la galerie.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de Versal à Azure AD, vous devez ajouter Vers
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Versal**, sélectionnez **Versal** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Versal**, sélectionnez **Versal** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Versal dans la liste des résultats](./media/versal-tutorial/tutorial_versal_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dans Versal, affectez la valeur du **nom d’utilisateur** dans Azure AD comme 
 Pour configurer et tester l’authentification unique Azure AD avec Versal, vous devez suivre les blocs de construction suivants :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Versal](#create-a-versal-test-user)** pour avoir un équivalent de Britta Simon dans Versal lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test Versal](#create-a-versal-test-user)** pour avoir un équivalent de Britta Simon dans Versal lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +102,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/versal-tutorial/tutorial_versal_samlbase.png)
 
-3. Dans la section **Domaine et URL Versal**, suivez les étapes ci-dessous :
+1. Dans la section **Domaine et URL Versal**, suivez les étapes ci-dessous :
 
     ![Informations d’authentification unique Domaine et URL Versal](./media/versal-tutorial/tutorial_versal_url.png)
 
@@ -117,19 +117,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
     > [!NOTE] 
     > La valeur de l’URL de réponse n’est pas réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez [l’équipe de support Versal](https://support.versal.com/hc/) pour obtenir cette valeur.
     
-4. Votre application s’attend à recevoir les assertions SAML dans un certain format, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de votre jeton SAML. La capture d’écran suivante montre un exemple : La valeur par défaut **d’Identificateur d’utilisateur** est **user.userprincipalname**, mais **Versal** s’attend à ce qu’elle soit mappée avec l’adresse e-mail de l’utilisateur. Pour cela, vous pouvez utiliser l’attribut **user.mail** dans la liste ou utiliser la valeur d’attribut appropriée en fonction de la configuration de votre organisation.
+1. Votre application s’attend à recevoir les assertions SAML dans un certain format, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de votre jeton SAML. La capture d’écran suivante montre un exemple : La valeur par défaut **d’Identificateur d’utilisateur** est **user.userprincipalname**, mais **Versal** s’attend à ce qu’elle soit mappée avec l’adresse e-mail de l’utilisateur. Pour cela, vous pouvez utiliser l’attribut **user.mail** dans la liste ou utiliser la valeur d’attribut appropriée en fonction de la configuration de votre organisation.
     
     ![Menu déroulant Identificateur d’utilisateur](./media/versal-tutorial/tutorial_versal_attribute.png)
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/versal-tutorial/tutorial_versal_certificate.png) 
 
-6. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/versal-tutorial/tutorial_general_400.png)
     
-7. Pour configurer l’authentification unique côté **Versal**, vous devez envoyer le **XML de métadonnées** téléchargé et le **Certificat de signature SAML** à [l’équipe de support Versal](https://support.versal.com/hc/). Elle configurera votre organisation Versal afin que la connexion SSO SAML soit correctement mise en place des deux côtés.
+1. Pour configurer l’authentification unique côté **Versal**, vous devez envoyer le **XML de métadonnées** téléchargé et le **Certificat de signature SAML** à [l’équipe de support Versal](https://support.versal.com/hc/). Elle configurera votre organisation Versal afin que la connexion SSO SAML soit correctement mise en place des deux côtés.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -146,15 +146,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/versal-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/versal-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/versal-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/versal-tutorial/create_aaduser_04.png)
 
@@ -182,23 +182,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Versal**.
+1. Dans la liste des applications, sélectionnez **Versal**.
 
     ![Lien Versal dans la liste des applications](./media/versal-tutorial/tutorial_versal_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 4a6e0924492c26c9bad4ed0af207ad9764c3cc5c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3659572f46ae82d39a6c53246db2b6a536be32c8
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831895"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282938"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Allant plus loin dans la mise en évidence des erreurs de synchronisation, Azure Active Directory (Azure AD) Connect Health permet la correction en libre-service des erreurs. Il résout les erreurs de synchronisation d’attribut en double et corrige les objets qui sont orphelins à partir d’Azure AD.
 La fonctionnalité de diagnostic présente les avantages suivants :
 - Elle fournit une procédure de diagnostic qui limite les erreurs de synchronisation d’attribut en double. Elle fournit également des correctifs spécifiques.
@@ -127,23 +127,29 @@ En fonction des réponses aux questions précédentes, le bouton **Appliquer un 
 
 Une fois les étapes précédentes effectuées, l’utilisateur peut accéder à la ressource d’origine, qui est un lien vers un objet existant. La valeur **État de diagnostic** dans la liste est mise à jour pour devenir **En attente de synchronisation**. L’erreur de synchronisation sera résolue après la synchronisation suivante. Connect Health n’affiche plus l’erreur de synchronisation résolue dans la liste.
 
+## <a name="failures-and-error-messages"></a>Échecs et messages d’erreur
+**Un utilisateur avec un attribut en conflit est supprimé temporairement d’Azure Active Directory. Vérifiez que l’utilisateur est définitivement supprimé avant de réessayer.**  
+Un utilisateur avec un attribut en conflit dans Azure AD doit être effacé avant d’appliquer le correctif. Découvrez [comment supprimer définitivement un utilisateur dans Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) avant de réappliquer le correctif. Par ailleurs, l’utilisateur est automatiquement supprimé définitivement 30 jours après avoir été supprimé temporairement. 
+
+**La mise à jour de l'ancre source vers un utilisateur basé sur le cloud n'est pas prise en charge dans votre client.**  
+Un utilisateur basé sur le cloud dans Azure AD ne doit pas avoir d’ancre source. Dans ce cas, la mise à jour de l’ancre source n’est pas prise en charge. Une correction manuelle doit être effectuée localement. 
 
 ## <a name="faq"></a>Forum Aux Questions
 **Q.** Que se passe-t-il en cas d’échec de l’**application du correctif** ?  
-**R.** Si l’exécution échoue, il est possible qu’Azure AD Connect fasse l’objet d’une erreur d’exportation. Actualisez la page du portail et recommencez après la synchronisation suivante. Le cycle de synchronisation par défaut est de 30 minutes. 
+**A.** Si l’exécution échoue, il est possible qu’Azure AD Connect fasse l’objet d’une erreur d’exportation. Actualisez la page du portail et recommencez après la synchronisation suivante. Le cycle de synchronisation par défaut est de 30 minutes. 
 
 
 **Q.** Que se passe-t-il si l’**objet existant** est l’objet à supprimer ?  
-**R.** Si **l’objet existant** doit être supprimé, le processus n’implique pas de changement de **l’ancre source**. En général, vous pouvez résoudre ce problème à partir d’Active Directory local. 
+**A.** Si **l’objet existant** doit être supprimé, le processus n’implique pas de changement de **l’ancre source**. En général, vous pouvez résoudre ce problème à partir d’Active Directory local. 
 
 
 **Q.** De quelle autorisation un utilisateur a-t-il besoin pour appliquer le correctif ?  
-**R.** L’**administrateur global** ou le **contributeur** dans les paramètres RBAC est autorisé à accéder au processus de diagnostic et de dépannage.
+**A.** L’**administrateur global** ou le **contributeur** dans les paramètres RBAC est autorisé à accéder au processus de diagnostic et de dépannage.
 
 
 **Q.** Dois-je configurer Azure AD Connect ou mettre à jour l’agent Azure AD Connect Health pour cette fonctionnalité ?  
-**R.** Non, le processus de diagnostic est une fonctionnalité entièrement basée sur le cloud.
+**A.** Non, le processus de diagnostic est une fonctionnalité entièrement basée sur le cloud.
 
 
 **Q.** Si l’objet existant est supprimé de manière réversible, est-ce que le processus de diagnostic rendra à l’objet son état actif ?  
-**R.** Non, le correctif ne mettra pas à jour d’autres attributs d’objet qu’**Ancre source**.
+**A.** Non, le correctif ne mettra pas à jour d’autres attributs d’objet qu’**Ancre source**.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 36f5a5aff63bf9de57c8475733861edd5e368a9a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 79826da8f3159c8b032a695b6bc732ca5adbb0c6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055538"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Didacticiel : Intégration d’Azure Active Directory à Workstars
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Workstars à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-workstars-from-the-gallery"></a>Ajout de Workstars à partir de la galerie
 Pour configurer l’intégration de Workstars à Azure AD, vous devez ajouter Workstars à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de Workstars à Azure AD, vous devez ajouter W
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Workstars**, sélectionnez **Workstars** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **Workstars**, sélectionnez **Workstars** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Workstars dans la liste des résultats](./media/workstars-tutorial/tutorial_workstars_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dans Workstars, affectez la valeur du **nom d’utilisateur** dans Azure AD com
 Pour configurer et tester l’authentification unique Azure AD avec Workstars, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Workstars](#create-a-workstars-test-user)** pour avoir un équivalent de Britta Simon dans Workstars lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test Workstars](#create-a-workstars-test-user)** pour avoir un équivalent de Britta Simon dans Workstars lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +102,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/workstars-tutorial/tutorial_workstars_samlbase.png)
 
-3. Dans la section **Domaine et URL Workstars**, procédez comme suit :
+1. Dans la section **Domaine et URL Workstars**, procédez comme suit :
 
     ![Informations d’authentification unique dans Domaine et URL Workstars](./media/workstars-tutorial/tutorial_workstars_url.png)
 
@@ -117,31 +117,31 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir la valeur, contactez [l’équipe de support technique Workstars](https://support.workstars.com).
  
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/workstars-tutorial/tutorial_workstars_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/workstars-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de Workstars**, cliquez sur **Configurer Workstars** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **Configuration de Workstars**, cliquez sur **Configurer Workstars** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configuration de Workstars](./media/workstars-tutorial/tutorial_workstars_configure.png) 
 
-7. Dans une autre fenêtre de navigateur, connectez-vous à votre site d’entreprise Workstars en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur, connectez-vous à votre site d’entreprise Workstars en tant qu’administrateur.
 
-8. Dans la barre d’outils principale, cliquez sur **Paramètres**.
+1. Dans la barre d’outils principale, cliquez sur **Paramètres**.
 
     ![Paramètres Workstars](./media/workstars-tutorial/tutorial_workstars_sett.png)
 
-9. Accédez à **Se connecter** > **Paramètres**.
+1. Accédez à **Se connecter** > **Paramètres**.
 
     ![Connexion à Workstars](./media/workstars-tutorial/tutorial_workstars_signon.png)
 
     ![Paramètres Workstars](./media/workstars-tutorial/tutorial_workstars_settings.png)
 
-10. Dans la page **Paramètres d’authentification unique (SAML)**, procédez comme suit :
+1. Dans la page **Paramètres d’authentification unique (SAML)**, procédez comme suit :
     
     ![Workstars saml](./media/workstars-tutorial/tutorial_workstars_saml.png)
 
@@ -174,15 +174,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/workstars-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/workstars-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/workstars-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/workstars-tutorial/create_aaduser_04.png)
 
@@ -210,23 +210,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Workstars**.
+1. Dans la liste des applications, sélectionnez **Workstars**.
 
     ![Lien Workstars dans la liste des applications](./media/workstars-tutorial/tutorial_workstars_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

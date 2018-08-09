@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: abe79185b817a4581c7df3f73c1d48ece6058643
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 98f1179dd6dff4cd8b0125266899374d80893d26
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698006"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420418"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Activer et télécharger les journaux de requête serveur lents d’un serveur Azure Database pour MySQL à l’aide d’Azure CLI
 Cet exemple de script CLI montre comment activer et télécharger les journaux de serveur lents d’un seul serveur Azure Database pour MySQL.
@@ -38,13 +38,13 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 
 | **Commande** | **Remarques** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Crée un serveur MySQL qui héberge les bases de données. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) | Répertoriez les valeurs de configuration pour un serveur. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) | Mettez à jour la configuration d’un serveur. |
-| [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) | Répertoriez les fichiers journaux pour un serveur. |
-| [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) | Téléchargez les fichiers journaux. |
-| [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az mysql server create](/cli/azure/mysql/server#az-msql-server-create) | Crée un serveur MySQL qui héberge les bases de données. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) | Répertoriez les valeurs de configuration pour un serveur. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) | Mettez à jour la configuration d’un serveur. |
+| [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) | Répertoriez les fichiers journaux pour un serveur. |
+| [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download) | Téléchargez les fichiers journaux. |
+| [az group delete](/cli/azure/group#az-group-delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure)

@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 504f025edef79b310249c29665198438a326881a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f7dd560a40eda2439e88d66771e2e22c90442bfd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051999"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421513"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données à partir du Stockage Blob Azure vers une base de données SQL en utilisant l’outil Copier les données
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](tutorial-copy-data-tool.md)
 
 Dans ce didacticiel, vous utilisez le portail Azure pour créer une fabrique de données. Vous utilisez ensuite l’outil Copier les données pour créer un pipeline qui copie des données depuis Stockage Blob Azure vers une base de données SQL. 
@@ -28,7 +28,7 @@ Dans ce didacticiel, vous utilisez le portail Azure pour créer une fabrique de 
 > [!NOTE]
 > Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
 
-Dans ce didacticiel, vous effectuerez les étapes suivantes :
+Dans ce tutoriel, vous effectuerez les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.
@@ -54,7 +54,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
     Jane|Doe
     ```
 
-2. Créez un conteneur nommé **adfv2tutorial** et chargez le fichier inputEmp.txt dedans. Vous pouvez utiliser différents outils pour effectuer ces tâches, comme l’[Explorateur Stockage Azure](http://storageexplorer.com/).
+1. Créez un conteneur nommé **adfv2tutorial** et chargez le fichier inputEmp.txt dedans. Vous pouvez utiliser différents outils pour effectuer ces tâches, comme l’[Explorateur Stockage Azure](http://storageexplorer.com/).
 
 #### <a name="create-a-sink-sql-table"></a>Créer une table SQL de récepteur
 
@@ -72,7 +72,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour votre serveur exécutant SQL Server. Ce paramètre permet à Data Factory d’écrire des données dans votre instance de SQL server. Pour vérifier et activer ce paramètre, procédez comme suit :
+1. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour votre serveur exécutant SQL Server. Ce paramètre permet à Data Factory d’écrire des données dans votre instance de SQL server. Pour vérifier et activer ce paramètre, procédez comme suit :
 
     a. Sur la gauche, sélectionnez **Plus de services**, puis choisissez **Serveurs SQL**.
 
@@ -85,7 +85,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 1. Dans le menu sur la gauche, sélectionnez **+ Nouveau** > **Données + Analytique** > **Data Factory** : 
    
    ![Création de la nouvelle fabrique de données](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
-2. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**. 
+1. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**. 
       
      ![Nouvelle fabrique de données](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
  
@@ -94,8 +94,8 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
    ![Message d’erreur de nouvelle fabrique de données](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
    Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, consultez la rubrique [Data Factory - Règles d'affectation des noms](naming-rules.md).
-3. Sélectionnez l’**abonnement** Azure dans lequel vous créez la nouvelle fabrique de données. 
-4. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
+1. Sélectionnez l’**abonnement** Azure dans lequel vous créez la nouvelle fabrique de données. 
+1. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
      
     a. Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante.
 
@@ -103,29 +103,29 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
          
     Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
 
-5. Sous **Version**, sélectionnez **V2** pour la version.
-6. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
-7. Sélectionnez **Épingler au tableau de bord**. 
-8. Sélectionnez **Créer**.
-9. Sur le tableau de bord, la vignette **Déploiement de Data Factory** affiche l’état du processus.
+1. Sous **Version**, sélectionnez **V2** pour la version.
+1. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
+1. Sélectionnez **Épingler au tableau de bord**. 
+1. Sélectionnez **Créer**.
+1. Sur le tableau de bord, la vignette **Déploiement de Data Factory** affiche l’état du processus.
 
     ![Vignette Déploiement de Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)
-10. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
+1. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
    
-    ![Page d'accueil Data Factory](./media/tutorial-copy-data-tool/data-factory-home-page.png)
-11. Pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé, cliquez sur la vignette **Créer et surveiller**. 
+    ![Page d’accueil Data Factory](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+1. Pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé, cliquez sur la vignette **Créer et surveiller**. 
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utiliser l’outil Copier les données pour créer un pipeline
 
 1. Sur la page **Prise en main**, sélectionnez la vignette **Copier des données** pour démarrer l’outil Copier des données. 
 
    ![Vignette de l’outil Copier les données](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
-2. Sur la page **Propriétés**, sous **Nom de la tâche**, saisissez **CopyFromBlobToSqlPipeline**. Sélectionnez ensuite **Suivant**. L’interface utilisateur de Data Factory crée un pipeline avec le nom spécifié. 
+1. Sur la page **Propriétés**, sous **Nom de la tâche**, saisissez **CopyFromBlobToSqlPipeline**. Sélectionnez ensuite **Suivant**. L’interface utilisateur de Data Factory crée un pipeline avec le nom spécifié. 
 
     ![Page Propriétés](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
-3. Sur la page **Banque de données source**, procédez comme suit :
+1. Sur la page **Banque de données source**, procédez comme suit :
 
-    a. Cliquez sur **+ Créer une connexion** pour ajouter une connexion
+    a. Cliquez sur **+ Créer une connexion** pour ajouter une connexion.
 
     ![Nouveau service lié source](./media/tutorial-copy-data-tool/new-source-linked-service.png)
 
@@ -141,7 +141,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 
     ![Sélectionner un service lié source](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
-4. Sur la page **Choisir le fichier ou le dossier de sortie**, procédez comme suit :
+1. Sur la page **Choisir le fichier ou le dossier de sortie**, procédez comme suit :
     
     a. Cliquez sur **Parcourir** pour accéder au dossier **adfv2tutorial/input**, sélectionnez le fichier **inputEmp.txt**, puis cliquez sur **Choisir**.
 
@@ -149,54 +149,54 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 
     b. Cliquez sur **Suivant** pour passer à l’étape suivante.
 
-5. Sur la page **Paramètres de format de fichier**, notez que l’outil détecte automatiquement les séparateurs de ligne et de colonne. Sélectionnez **Suivant**. Vous pouvez également afficher un aperçu des données et un schéma des données d’entrée sur cette page. 
+1. Sur la page **Paramètres de format de fichier**, notez que l’outil détecte automatiquement les séparateurs de ligne et de colonne. Sélectionnez **Suivant**. Vous pouvez également afficher un aperçu des données et un schéma des données d’entrée sur cette page. 
 
     ![Paramètres de format de fichier](./media/tutorial-copy-data-tool/file-format-settings-page.png)
-6. Sur la page **Banque de données de destination**, procédez comme suit :
+1. Sur la page **Banque de données de destination**, procédez comme suit :
 
-    a. Cliquez sur **+ Créer une connexion** pour ajouter une connexion
+    a. Cliquez sur **+ Créer une connexion** pour ajouter une connexion.
 
     ![Nouveau service lié récepteur](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
     b. Sélectionnez **Stockage Blob Azure** à partir de la galerie, puis sélectionnez **Suivant**.
 
-    ![Sélectionner la base de données SQL Azure](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
+    ![Sélectionner Azure SQL DB](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
     c. Sur la page **Nouveau service lié**, sélectionnez votre nom de serveur et votre nom de base de données dans la liste déroulante, spécifiez le nom d’utilisateur et le mot de passe, puis sélectionnez **Terminer**.    
 
-    ![Configurer la base de données SQL Azure](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
+    ![Configurer Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
-    d. Sélectionnez le service lié récemment créé comme récepteur, puis cliquez sur **Suivant**.
+    d. Sélectionnez le service lié nouvellement créé comme récepteur, puis cliquez sur **Suivant**.
 
     ![Sélectionner le service lié récepteur](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
 
-7. Sur la page **Mappage de table**, sélectionnez la table **[dbo].[emp]**, puis sélectionnez **Suivant**. 
+1. Sur la page **Mappage de table**, sélectionnez la table **[dbo].[emp]**, puis sélectionnez **Suivant**. 
 
     ![Mappage de table](./media/tutorial-copy-data-tool/table-mapping.png)
-8. Sur la page **Mappage de schéma**, notez que les deux premières colonnes dans le fichier d’entrée sont mappées aux colonnes **FirstName** et **LastName** de la table **emp**. Sélectionnez **Suivant**.
+1. Sur la page **Mappage de schéma**, notez que les deux premières colonnes dans le fichier d’entrée sont mappées aux colonnes **FirstName** et **LastName** de la table **emp**. Sélectionnez **Suivant**.
 
     ![Page Mappage de schéma](./media/tutorial-copy-data-tool/schema-mapping.png)
-9. Sur la page **Paramètres**, cliquez sur **Suivant**. 
-10. Sur la page **Résumé**, vérifiez les paramètres, puis sélectionnez **Suivant**.
+1. Sur la page **Paramètres**, cliquez sur **Suivant**. 
+1. Sur la page **Résumé**, vérifiez les paramètres, puis sélectionnez **Suivant**.
 
     ![Page de résumé](./media/tutorial-copy-data-tool/summary-page.png)
-11. Sur la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche).
+1. Sur la page **Déploiement**, sélectionnez **Surveiller** pour surveiller le pipeline (tâche).
 
     ![Page Déploiement](./media/tutorial-copy-data-tool/deployment-page.png)
-12. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. La colonne **Actions** comprend les liens permettant d’afficher les détails de l’exécution d’activité et de réexécuter le pipeline. Sélectionnez **Actualiser** pour actualiser la liste. 
+1. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. La colonne **Actions** comprend les liens permettant d’afficher les détails de l’exécution d’activité et de réexécuter le pipeline. Sélectionnez **Actualiser** pour actualiser la liste. 
 
     ![Surveiller des exécutions de pipelines](./media/tutorial-copy-data-tool/pipeline-monitoring.png)
-13. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**. Pour revenir à l’affichage des **exécutions du pipeline**, sélectionnez le lien **Pipelines** en haut. Sélectionnez **Actualiser** pour actualiser l’affichage. 
+1. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**. Pour revenir à l’affichage des **exécutions du pipeline**, sélectionnez le lien **Pipelines** en haut. Sélectionnez **Actualiser** pour actualiser l’affichage. 
 
     ![Surveiller des exécutions d’activités](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
     ![Copier les détails de l’activité](./media/tutorial-copy-data-tool/copy-execution-details.png)
 
-14. Vérifiez que les données sont insérées dans la table **emp** dans votre base de données SQL.
+1. Vérifiez que les données sont insérées dans la table **emp** dans votre base de données SQL.
 
     ![Vérifier la sortie SQL](./media/tutorial-copy-data-tool/verify-sql-output.png)
 
-15. Sélectionnez l’onglet **Auteur** sur la gauche pour basculer en mode éditeur. Vous pouvez mettre à jour les services, jeux de données et pipelines liés créés par l’outil à l’aide de l’éditeur. Pour plus de détails sur la modification de ces entités dans l’interface utilisateur de Data Factory, consultez [la version du portail Azure de ce didacticiel](tutorial-copy-data-portal.md).
+1. Sélectionnez l’onglet **Auteur** sur la gauche pour basculer en mode éditeur. Vous pouvez mettre à jour les services, jeux de données et pipelines liés créés par l’outil à l’aide de l’éditeur. Pour plus de détails sur la modification de ces entités dans l’interface utilisateur de Data Factory, consultez [la version du portail Azure de ce didacticiel](tutorial-copy-data-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Le pipeline dans cet exemple copie des données d’un stockage d’objets blob vers une base de données SQL. Vous avez appris à effectuer les actions suivantes : 

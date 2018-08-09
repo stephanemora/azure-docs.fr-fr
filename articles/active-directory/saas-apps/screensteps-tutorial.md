@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 40aa948547587b224a81ac97a3554345d8ca783d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 105ec895635a882d562de48203222702a2c6bfed
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051364"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Didacticiel : Intégration d’Azure AD à ScreenSteps
 
@@ -53,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de ScreenSteps à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-screensteps-from-the-gallery"></a>Ajout de ScreenSteps à partir de la galerie
 Pour configurer l’intégration de ScreenSteps à Azure AD, vous devez ajouter ScreenSteps à partir de la galerie à votre liste d’applications SaaS managées.
@@ -64,15 +64,15 @@ Pour configurer l’intégration de ScreenSteps à Azure AD, vous devez ajouter 
 
     ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **ScreenSteps**, sélectionnez **ScreenSteps** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, tapez **ScreenSteps**, sélectionnez **ScreenSteps** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![ScreenSteps dans la liste des résultats](./media/screensteps-tutorial/tutorial_screensteps_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Dans ScreenSteps, attribuez la valeur du **nom d’utilisateur** dans Azure AD c
 Pour configurer et tester l’authentification unique Azure AD avec ScreenSteps, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test ScreenSteps](#create-a-screensteps-test-user)** pour avoir un équivalent de Britta Simon dans ScreenSteps lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Créer un utilisateur de test ScreenSteps](#create-a-screensteps-test-user)** pour avoir un équivalent de Britta Simon dans ScreenSteps lié à la représentation Azure AD associée.
+1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +102,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Boîte de dialogue Authentification unique](./media/screensteps-tutorial/tutorial_screensteps_samlbase.png)
 
-3. Dans la section **Domaine et URL ScreenSteps**, effectuez les étapes suivantes :
+1. Dans la section **Domaine et URL ScreenSteps**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL ScreenSteps](./media/screensteps-tutorial/tutorial_screensteps_url.png)
 
@@ -115,33 +115,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Vous devez remplacer cette valeur par l’URL de connexion réelle. La procédure est expliquée plus loin dans le didacticiel. 
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/screensteps-tutorial/tutorial_screensteps_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/screensteps-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de ScreenSteps**, cliquez sur **Configurer ScreenSteps** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+1. Dans la section **Configuration de ScreenSteps**, cliquez sur **Configurer ScreenSteps** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
     ![Configuration de ScreenSteps](./media/screensteps-tutorial/tutorial_screensteps_configure.png) 
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise ScreenSteps en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise ScreenSteps en tant qu’administrateur.
 
-8. Cliquez sur **Account Settings** (Paramètres du compte).
+1. Cliquez sur **Account Settings** (Paramètres du compte).
 
     ![Account management](./media/screensteps-tutorial/ic778523.png "Account management")
 
-9. Cliquez sur **Single Sign-on**.
+1. Cliquez sur **Single Sign-on**.
 
     ![Remote authentication](./media/screensteps-tutorial/ic778524.png "Remote authentication")
 
-10. Cliquez sur **Créer un point de terminaison d’authentification unique**.
+1. Cliquez sur **Créer un point de terminaison d’authentification unique**.
 
     ![Remote authentication](./media/screensteps-tutorial/ic778525.png "Remote authentication")
 
-11. Dans la section **Créer un point de terminaison d’authentification unique**, procédez comme suit :
+1. Dans la section **Créer un point de terminaison d’authentification unique**, procédez comme suit :
 
     ![Create an authentication endpoint](./media/screensteps-tutorial/ic778526.png "Create an authentication endpoint")
     
@@ -151,11 +151,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     c. Cliquez sur **Créer**.
 
-12. Cliquez sur **Edit** (Modifier) pour modifier le nouveau point de terminaison.
+1. Cliquez sur **Edit** (Modifier) pour modifier le nouveau point de terminaison.
 
     ![Modifier un point de terminaison](./media/screensteps-tutorial/ic778528.png "Modifier un point de terminaison")
 
-13. Dans la section **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)**, procédez comme suit :
+1. Dans la section **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)**, procédez comme suit :
 
     ![Remote authentication endpoint](./media/screensteps-tutorial/ic778527.png "Remote authentication endpoint")
 
@@ -191,15 +191,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/screensteps-tutorial/create_aaduser_01.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/screensteps-tutorial/create_aaduser_02.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/screensteps-tutorial/create_aaduser_03.png)
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/screensteps-tutorial/create_aaduser_04.png)
 
@@ -227,23 +227,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **ScreenSteps**.
+1. Dans la liste des applications, sélectionnez **ScreenSteps**.
 
     ![Lien ScreenSteps dans la liste des applications](./media/screensteps-tutorial/tutorial_screensteps_app.png)  
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 38adf3dd2be0770dd815644ece452a82bc98baf9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3ca2f811ff0ac81ea70ec0b22d7429cdc5604171
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645315"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420180"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurer et utiliser Log Analytics avec une application SaaS SQL Database multilocataire
 
@@ -46,13 +46,13 @@ Les espaces de travail et les solutions d’analyse de Log Analytics s’ouvrent
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Créer des données de diagnostic des performances en simulant une charge de travail sur vos locataires 
 
 1. Dans PowerShell ISE, ouvrez *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*. Gardez ce script ouvert, car vous souhaiterez peut-être exécuter plusieurs des scénarios de génération de charge au cours de ce didacticiel.
-2. Si ce n’est déjà fait, approvisionnez un lot de locataires pour bénéficier d’un contexte de surveillance plus intéressant. Ce processus prend quelques minutes.
+1. Si ce n’est déjà fait, approvisionnez un lot de locataires pour bénéficier d’un contexte de surveillance plus intéressant. Ce processus prend quelques minutes.
 
    a. Définissez **$DemoScenario = 1**, _Approvisionner un lot de locataires_.
 
    b. Pour exécuter le script et déployer 17 locataires supplémentaires, appuyez sur F5.
 
-3. Démarrez le Générateur de charge pour exécuter une charge simulée sur tous les locataires.
+1. Démarrez le Générateur de charge pour exécuter une charge simulée sur tous les locataires.
 
     a. Définissez **$DemoScenario = 2**, _Generate normal intensity load (Générer une charge d’intensité normale) (environ 30 DTU)_.
 
@@ -67,7 +67,7 @@ Les scripts et le code de l’application de base de données mutualisée SaaS W
 Log Analytics est un service distinct qui doit être configuré. Log Analytics collecte des données de journaux, de télémétrie et les métriques dans un espace de travail Log Analytics. Tout comme les autres ressources dans Azure, un espace de travail Log Analytics doit être créé. L’espace de travail ne doit pas être créé dans le même groupe de ressources que les applications qu’il surveille, même si cela est souvent l’option la plus logique. Pour l’application Wingtip Tickets, utilisez un groupe de ressources unique pour vous assurer que l’espace de travail est supprimé avec l’application.
 
 1. Dans PowerShell ISE, ouvrez *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
-2. Pour exécuter le script, appuyez sur la touche F5.
+1. Pour exécuter le script, appuyez sur la touche F5.
 
 Vous pouvez maintenant ouvrir Log Analytics dans le portail Azure ou le portail Operations Management Suite. Il faut compter quelques minutes pour que les données de télémétrie soient collectées dans l’espace de travail Log Analytics et deviennent visibles. Plus vous laisserez de temps au système pour rassembler des données de diagnostic, plus l’expérience sera intéressante. 
 
@@ -80,38 +80,38 @@ Dans cet exercice, ouvrez Log Analytics et le portail Operations Management Suit
 
    ![Ouvrir Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-2. Sélectionnez l’espace de travail nommé _wtploganalytics-&lt;user&gt;_.
+1. Sélectionnez l’espace de travail nommé _wtploganalytics-&lt;user&gt;_.
 
-3. Sélectionnez **Vue d’ensemble** pour ouvrir la solution Log Analytics dans le portail Azure.
+1. Sélectionnez **Vue d’ensemble** pour ouvrir la solution Log Analytics dans le portail Azure.
 
    ![Vue d'ensemble](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > L’activation de la solution peut prendre quelques minutes. 
 
-4. Sélectionnez la vignette **Azure SQL Analytics** pour l’ouvrir.
+1. Sélectionnez la vignette **Azure SQL Analytics** pour l’ouvrir.
 
     ![Vignette d’aperçu](media/saas-dbpertenant-log-analytics/overview.png)
 
-5. Vous pouvez faire défiler horizontalement les vues dans la solution à l’aide de leur propre barre de défilement située en bas. Actualisez la page, si nécessaire.
+1. Vous pouvez faire défiler horizontalement les vues dans la solution à l’aide de leur propre barre de défilement située en bas. Actualisez la page, si nécessaire.
 
-6. Pour explorer la page de résumé, sélectionnez les vignettes ou les bases de données individuelles pour ouvrir un explorateur détaillé.
+1. Pour explorer la page de résumé, sélectionnez les vignettes ou les bases de données individuelles pour ouvrir un explorateur détaillé.
 
     ![Tableau de bord Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-7. Modifiez le paramètre de filtre pour changer l’intervalle de temps. Pour ce didacticiel, choisissez **Dernière heure**.
+1. Modifiez le paramètre de filtre pour changer l’intervalle de temps. Pour ce didacticiel, choisissez **Dernière heure**.
 
     ![Filtre de temps](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-8. Sélectionnez une seule base de données pour explorer l’utilisation des requêtes et les métriques pour cette base de données.
+1. Sélectionnez une seule base de données pour explorer l’utilisation des requêtes et les métriques pour cette base de données.
 
     ![Analyse de base de données](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-9. Pour afficher l’utilisation des métriques, faites défiler la page de l’analyse vers la droite.
+1. Pour afficher l’utilisation des métriques, faites défiler la page de l’analyse vers la droite.
  
      ![Métriques de base de données](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-10. Faites défiler la page de l’analyse vers la gauche, puis sélectionnez la vignette du serveur dans la liste **Informations sur les ressources**.  
+1. Faites défiler la page de l’analyse vers la gauche, puis sélectionnez la vignette du serveur dans la liste **Informations sur les ressources**.  
 
     ![Liste Informations sur les ressources](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
@@ -119,12 +119,12 @@ Dans cet exercice, ouvrez Log Analytics et le portail Operations Management Suit
 
     ![Serveur avec pools et bases de données](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-11. Sélectionnez un pool. Sur la page du pool qui s’ouvre, faites défiler vers la droite pour afficher les métriques du pool. 
+1. Sélectionnez un pool. Sur la page du pool qui s’ouvre, faites défiler vers la droite pour afficher les métriques du pool. 
 
     ![Métriques du pool](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-12. Revenez dans l’espace de travail Log Analytics, sélectionnez **Portail OMS** pour ouvrir l’espace de travail à cet endroit.
+1. Revenez dans l’espace de travail Log Analytics, sélectionnez **Portail OMS** pour ouvrir l’espace de travail à cet endroit.
 
     ![Vignette du portail Operations Management Suite](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 

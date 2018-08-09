@@ -1,26 +1,22 @@
 ---
-title: Étendre HDInsight avec un réseau virtuel - Azure | Microsoft Docs
+title: Étendre HDInsight avec un réseau virtuel - Azure
 description: Apprenez à utiliser Azure Virtual Network pour connecter HDInsight à d'autres ressources de cloud ou à des ressources de votre centre de données
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
-ms.author: larryfr
-ms.openlocfilehash: 842746561b74860e674fbaa298c78bb0ac58bd68
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/26/2018
+ms.openlocfilehash: bcfbe3b8ff198f9905fe6f36b18a9474cf987bba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112131"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284633"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -276,32 +272,33 @@ Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis 
 
     | Pays | Région | Adresses IP autorisées | Port autorisé | Direction |
     | ---- | ---- | ---- | ---- | ----- |
-    | Asie | Est de l'Asie | 23.102.235.122</br>52.175.38.134 | 443 | Trafic entrant |
-    | &nbsp; | Asie du Sud-Est | 13.76.245.160</br>13.76.136.249 | 443 | Trafic entrant |
-    | Australie | Est de l’Australie | 104.210.84.115</br>13.75.152.195 | 443 | Trafic entrant |
-    | &nbsp; | Sud-est de l’Australie | 13.77.2.56</br>13.77.2.94 | 443 | Trafic entrant |
-    | Brésil | Sud du Brésil | 191.235.84.104</br>191.235.87.113 | 443 | Trafic entrant |
+    | Asie | Asie Est | 23.102.235.122</br>52.175.38.134 | 443 | Trafic entrant |
+    | &nbsp; | Asie Sud-Est | 13.76.245.160</br>13.76.136.249 | 443 | Trafic entrant |
+    | Australie | Australie Est | 104.210.84.115</br>13.75.152.195 | 443 | Trafic entrant |
+    | &nbsp; | Australie Sud-Est | 13.77.2.56</br>13.77.2.94 | 443 | Trafic entrant |
+    | Brésil | Brésil Sud | 191.235.84.104</br>191.235.87.113 | 443 | Trafic entrant |
     | Canada | Est du Canada | 52.229.127.96</br>52.229.123.172 | 443 | Trafic entrant |
     | &nbsp; | Centre du Canada | 52.228.37.66</br>52.228.45.222 | 443 | Trafic entrant |
     | Chine | Chine du Nord | 42.159.96.170</br>139.217.2.219 | 443 | Trafic entrant |
     | &nbsp; | Chine orientale | 42.159.198.178</br>42.159.234.157 | 443 | Trafic entrant |
-    | Europe | Europe du Nord | 52.164.210.96</br>13.74.153.132 | 443 | Trafic entrant |
-    | &nbsp; | Europe de l'Ouest| 52.166.243.90</br>52.174.36.244 | 443 | Trafic entrant |
+    | Europe | Europe Nord | 52.164.210.96</br>13.74.153.132 | 443 | Trafic entrant |
+    | &nbsp; | Europe Ouest| 52.166.243.90</br>52.174.36.244 | 443 | Trafic entrant |
     | Allemagne | Centre de l’Allemagne | 51.4.146.68</br>51.4.146.80 | 443 | Trafic entrant |
     | &nbsp; | Nord-Est de l’Allemagne | 51.5.150.132</br>51.5.144.101 | 443 | Trafic entrant |
-    | Inde | Inde centrale | 52.172.153.209</br>52.172.152.49 | 443 | Trafic entrant |
-    | Japon | Est du Japon | 13.78.125.90</br>13.78.89.60 | 443 | Trafic entrant |
-    | &nbsp; | Ouest du Japon | 40.74.125.69</br>138.91.29.150 | 443 | Trafic entrant |
+    | Inde | Inde Centre | 52.172.153.209</br>52.172.152.49 | 443 | Trafic entrant |
+    | &nbsp; | Inde Sud | 104.211.223.67<br/>104.211.216.210 | 443 | Trafic entrant |
+    | Japon | Japon Est | 13.78.125.90</br>13.78.89.60 | 443 | Trafic entrant |
+    | &nbsp; | Japon Ouest | 40.74.125.69</br>138.91.29.150 | 443 | Trafic entrant |
     | Corée du Sud | Centre de la Corée | 52.231.39.142</br>52.231.36.209 | 433 | Trafic entrant |
     | &nbsp; | Corée du Sud | 52.231.203.16</br>52.231.205.214 | 443 | Trafic entrant
     | Royaume-Uni | Ouest du Royaume-Uni | 51.141.13.110</br>51.141.7.20 | 443 | Trafic entrant |
     | &nbsp; | Sud du Royaume-Uni | 51.140.47.39</br>51.140.52.16 | 443 | Trafic entrant |
-    | États-Unis | Centre des États-Unis | 13.67.223.215</br>40.86.83.253 | 443 | Trafic entrant |
-    | &nbsp; | Est des États-Unis | 13.82.225.233</br>40.71.175.99 | 443 | Trafic entrant |
-    | &nbsp; | Centre-Nord des États-Unis | 157.56.8.38</br>157.55.213.99 | 443 | Trafic entrant |
-    | &nbsp; | Centre-Ouest des États-Unis | 52.161.23.15</br>52.161.10.167 | 443 | Trafic entrant |
-    | &nbsp; | États-Unis de l’Ouest | 13.64.254.98</br>23.101.196.19 | 443 | Trafic entrant |
-    | &nbsp; | Ouest des États-Unis 2 | 52.175.211.210</br>52.175.222.222 | 443 | Trafic entrant |
+    | États-Unis | USA Centre | 13.67.223.215</br>40.86.83.253 | 443 | Trafic entrant |
+    | &nbsp; | USA Est | 13.82.225.233</br>40.71.175.99 | 443 | Trafic entrant |
+    | &nbsp; | USA Centre Nord | 157.56.8.38</br>157.55.213.99 | 443 | Trafic entrant |
+    | &nbsp; | USA Centre-Ouest | 52.161.23.15</br>52.161.10.167 | 443 | Trafic entrant |
+    | &nbsp; | USA Ouest | 13.64.254.98</br>23.101.196.19 | 443 | Trafic entrant |
+    | &nbsp; | USA Ouest 2 | 52.175.211.210</br>52.175.222.222 | 443 | Trafic entrant |
 
     Pour plus d’informations sur les adresses IP à utiliser pour Azure Government, voir le document [Intelligence et analyse Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).
 
@@ -338,7 +335,7 @@ Le modèle de gestion des ressources suivant crée un réseau virtuel qui restre
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Utilisez le script PowerShell suivant pour créer un réseau virtuel qui restreint le trafic entrant et autorise le trafic en provenance des adresses IP de la région Europe du Nord.
+Utilisez le script PowerShell suivant pour créer un réseau virtuel qui restreint le trafic entrant et autorise le trafic en provenance des adresses IP de la région Europe Nord.
 
 > [!IMPORTANT]
 > Modifiez les adresses IP utilisées dans cet exemple pour les faire correspondre à la région Azure que vous utilisez. Pour trouver ces informations, voir la section [HDInsight avec des groupes de sécurité réseau et des itinéraires définis par l’utilisateur](#hdinsight-ip).
@@ -579,7 +576,7 @@ Sur le serveur DNS personnalisé dans le réseau virtuel :
     
     * Remplacez la valeur `192.168.0.1` par l’adresse IP de votre serveur DNS local. Cette entrée a pour effet de router toutes les autres demandes DNS vers le serveur DNS local.
 
-3. Pour utiliser la configuration, redémarrez Bind. Par exemple : `sudo service bind9 restart`.
+3. Pour utiliser la configuration, redémarrez Bind. Par exemple : `sudo service bind9 restart`.
 
 4. Ajouter un redirecteur conditionnel au serveur DNS local. Configurez le redirecteur conditionnel de façon envoyer des demandes du suffixe DNS de l’étape 1 au serveur DNS personnalisé.
 

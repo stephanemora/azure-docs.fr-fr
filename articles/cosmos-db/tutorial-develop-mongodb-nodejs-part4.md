@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: john.papa
 ms.custom: mvc
-ms.openlocfilehash: f9464b2a839d1305057670ee7efe206e3bed771c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e561701aa8d54889797db08131c97d6c4108539f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248983"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420112"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB - Partie 4 : Créer un compte Azure Cosmos DB à l’aide de la CLI Azure
 
@@ -50,7 +50,7 @@ Dans cette section du didacticiel, vous pouvez utiliser Azure Cloud Shell (dans 
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Création d’un compte Azure Cosmos DB
 
-Créez un compte Azure Cosmos DB en exécutant la commande [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create).
+Créez un compte Azure Cosmos DB en exécutant la commande [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create).
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -68,7 +68,7 @@ Après avoir créé le compte Azure Cosmos DB :
 
     ![Nouveau compte Azure Cosmos DB dans le portail Azure](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png)
 
-4. Faites défiler vers le bas dans la barre de navigation située à gauche, puis cliquez sur l’onglet **Répliquer les données mondialement** pour afficher un mappage indiquant les différentes zones dans lesquelles vous pouvez répliquer des données. Par exemple, vous pouvez cliquer sur Sud-Est de l’Australie ou Est de l’Australie pour répliquer vos données en Australie. Pour en savoir plus sur la réplication mondiale, consultez [Distribution mondiale des données avec Azure Cosmos DB](distribute-data-globally.md). Pour le moment, conservons cette instance et lorsque nous voudrons répliquer, nous saurons comment procéder.
+4. Faites défiler vers le bas dans la barre de navigation située à gauche, puis cliquez sur l’onglet **Répliquer les données mondialement** pour afficher un mappage indiquant les différentes zones dans lesquelles vous pouvez répliquer des données. Par exemple, vous pouvez cliquer sur Australie Sud-Est ou Australie Est pour répliquer vos données en Australie. Pour en savoir plus sur la réplication mondiale, consultez [Distribution mondiale des données avec Azure Cosmos DB](distribute-data-globally.md). Pour le moment, conservons cette instance et lorsque nous voudrons répliquer, nous saurons comment procéder.
 
     ![Nouveau compte Azure Cosmos DB dans le portail Azure](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: areddish
 ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
+ms.lasthandoff: 08/06/2018
 ms.locfileid: "36301078"
 ---
 # <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Utiliser l’API Vision personnalisée pour créer un projet de détection d’objet en C&#35; 
@@ -31,7 +31,7 @@ Vous pouvez télécharger les images avec les [exemples en C#](https://github.co
 
 ## <a name="get-the-training-and-prediction-keys"></a>Obtenir les clés d’apprentissage et de prédiction
 
-Pour obtenir les clés utilisées dans cet exemple, visitez la page web de [Custom Vision](https://customvision.ai) et sélectionnez l’__icône d’engrenage__ en haut à droite. Dans la section __Comptes__, copiez les valeurs des champs __Training Key__ (Clé d’apprentissage) et __Prediction Key__ (Clé de prédiction).
+Pour obtenir les clés utilisées dans cet exemple, visitez la [page web Custom Vision](https://customvision.ai) et sélectionnez l’__icône d’engrenage__ dans le coin supérieur droit. Dans la section __Accounts__ (Comptes), copiez les valeurs des champs __Training Key__ (Clé de formation) et __Prediction Key__ (Clé de prédiction).
 
 ![Image de l’interface utilisateur des clés](./media/csharp-tutorial/training-prediction-keys.png)
 
@@ -234,4 +234,4 @@ Vous êtes maintenant prêt à utiliser le modèle pour la prédiction :
 
 ## <a name="step-7-run-the-example"></a>Étape 7 : exécuter l’exemple
 
-Générez et exécutez la solution. Les résultats de prédiction s’affichent sur la console.
+Créez et exécutez la solution. Les résultats de prédiction s’affichent sur la console.

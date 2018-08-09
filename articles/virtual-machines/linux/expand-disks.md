@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 8b3a4d7feccc3af55415f54473ae1a2588ad5672
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936885"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421186"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Comment développer des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
 La taille par défaut de disque virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, mais vous pouvez également développer un disque de données existant. Cet article vous explique comment développer les disques gérés pour une machine virtuelle Linux à l’aide de l’interface CLI Azure 2.0. 
@@ -43,7 +43,7 @@ Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos
     > [!NOTE]
     > La machine virtuelle doit être libérée pour développer le disque dur virtuel. `az vm stop` ne publie pas les ressources de calcul. Pour publier les ressources de calcul, utilisez `az vm deallocate`.
 
-2. Affichez la liste des disques gérés dans un groupe de ressources avec la commande [az disk list](/cli/azure/disk#az_disk_list). L’exemple suivant affiche la liste des disques managés dans le groupe de ressources nommé *myResourceGroup* :
+1. Affichez la liste des disques gérés dans un groupe de ressources avec la commande [az disk list](/cli/azure/disk#az_disk_list). L’exemple suivant affiche la liste des disques managés dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az disk list \
@@ -64,7 +64,7 @@ Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos
     > [!NOTE]
     > Lorsque vous développez un disque géré, la taille mise à jour est mappée à la taille de disque géré la plus proche. Pour obtenir un tableau des tailles et des niveaux de disques gérés disponibles, consultez [Vue d’ensemble des disques gérés Azure - Tarification et facturation](../windows/managed-disks-overview.md#pricing-and-billing).
 
-3. Démarrez votre machine virtuelle avec [az vm start](/cli/azure/vm#az_vm_start). L’exemple suivant démarre la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
+1. Démarrez votre machine virtuelle avec [az vm start](/cli/azure/vm#az_vm_start). L’exemple suivant démarre la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -80,7 +80,7 @@ Pour utiliser le disque étendu, vous devez développer la partition et le syst�
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-2. Pour utiliser le disque étendu, vous devez développer la partition et le système de fichiers sous-jacents.
+1. Pour utiliser le disque étendu, vous devez développer la partition et le système de fichiers sous-jacents.
 
     a. Si le disque est déjà monté, démontez-le :
 
@@ -121,25 +121,25 @@ Pour utiliser le disque étendu, vous devez développer la partition et le syst�
 
     d. Pour quitter l’outil, saisissez `quit`.
 
-3. Une fois la partition redimensionnée, vérifiez la cohérence de la partition avec `e2fsck` :
+1. Une fois la partition redimensionnée, vérifiez la cohérence de la partition avec `e2fsck` :
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-4. Redimensionnez ensuite le système de fichiers avec `resize2fs` :
+1. Redimensionnez ensuite le système de fichiers avec `resize2fs` :
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-5. Montez la partition à l’emplacement souhaité, tel que `/datadrive` :
+1. Montez la partition à l’emplacement souhaité, tel que `/datadrive` :
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-6. Pour vérifier que le disque du système d’exploitation a été redimensionné, utilisez `df -h`. L’exemple de sortie suivant indique que le disque de données */dev/sdc1* fait désormais 200 Go :
+1. Pour vérifier que le disque du système d’exploitation a été redimensionné, utilisez `df -h`. L’exemple de sortie suivant indique que le disque de données */dev/sdc1* fait désormais 200 Go :
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
