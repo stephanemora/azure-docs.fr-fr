@@ -3,23 +3,20 @@ title: Configuration du cluster pour Hadoop, Spark, Kafka, HBase ou R Server - A
 description: Configurez Hadoop, Kafka, Spark, HBase, R Server ou les clusters Storm pour HDInsight à partir d’un navigateur, le CLI d’Azure, Azure PowerShell, REST ou le kit de développement logiciel.
 keywords: configuration de cluster Hadoop, configuration de cluster kafka, configuration de cluster spark, définition d’un cluster dans hadoop
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: e0816e8609ba1ab0ef1b4f685731339378fee844
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136636"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525584"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Démarrage rapide : Configurer des clusters dans HDInsight
 
@@ -36,7 +33,7 @@ Data Lake Storage est utilisé comme couche données dans ce guide de démarrage
 
 La table suivante présente les différentes méthodes que vous pouvez utiliser pour configurer un cluster HDInsight.
 
-| Clusters créés avec | un navigateur Web | Ligne de commande | de l’API REST | Foundation | 
+| Clusters créés avec | un navigateur Web | Ligne de commande | API REST | Foundation | 
 | --- |:---:|:---:|:---:|:---:|
 | [portail Azure](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](../../hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -59,7 +56,7 @@ Suivez les instructions à l’écran pour effectuer une configuration de cluste
 * [Lieu](#location)
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, reportez-vous à la rubrique [Déclassement de HDInsight 3.3](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, reportez-vous à la rubrique [Déclassement de HDInsight 3.3](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="resource-group-name"></a>Nom de groupe ressources
 
@@ -89,7 +86,7 @@ Choisissez la version de HDInsight pour ce cluster. Pour plus d’informations, 
 
 ### <a name="enterprise-security-package"></a>Package de sécurité d’entreprise
 
-Pour les types de cluster Hadoop, Spark et Interactive Query, vous pouvez choisir d’activer le **package de sécurité d’entreprise**. Vous pouvez utiliser ce package pour sécuriser une installation de cluster en utilisant Apache Ranger et en opérant une intégration à Azure Active Directory. Pour plus d’informations, consultez [Package de sécurité d’entreprise dans Azure HDInsight](../../hdinsight/domain-joined/apache-domain-joined-introduction.md).
+Pour les types de cluster Hadoop, Spark et Interactive Query, vous pouvez choisir d’activer le **package de sécurité d’entreprise**. Vous pouvez utiliser ce package pour sécuriser une installation de cluster en utilisant Apache Ranger et en opérant une intégration à Azure Active Directory. Pour plus d’informations, consultez [Pack Sécurité Entreprise dans Azure HDInsight](../../hdinsight/domain-joined/apache-domain-joined-introduction.md).
 
 ![hdinsight options de création choisir le package de sécurité d’entreprise](./media/quickstart-create-connect-hdi-cluster/hdinsight-creation-enterprise-security-package.png)
 
