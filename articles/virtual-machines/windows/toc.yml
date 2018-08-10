@@ -216,9 +216,9 @@
           href: nested-virtualization.md
     - name: Gérer les coûts
       items:
-        - name: Prépayer les machines virtuelles - instances réservées
+        - name: Prépayer pour des machines virtuelles - Réservations Azure
           href: prepay-reserved-vm-instances.md
-        - name: Que sont les instances réservées ?
+        - name: "Qu’est-ce qu’une réservation Azure\_?"
           href: ../../billing/billing-save-compute-costs-reservations.md
         - name: Flexibilité de taille d'instance des machines virtuelles
           href: reserved-vm-instance-size-flexibility.md

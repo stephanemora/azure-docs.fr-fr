@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: b04cb7ca3e8e7b292efaed66096c206b268a034a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285846"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626180"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentation sur la facturation et la gestion des coûts Azure
 
@@ -101,8 +101,8 @@ Apprenez à comprendre votre facturation Azure, à analyser l’utilisation et l
                         <p>
                         <a href="/azure/billing/billing-manage-access">Accorder l’accès à la facturation</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">Payer par facture</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Gérer les instances réservées</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Utilisation des instance réservées</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Gérer les réservations Azure</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Utilisation des réservations Azure</a>
                         </p>
                     </div>
                 </div>
@@ -131,11 +131,12 @@ Apprenez à comprendre votre facturation Azure, à analyser l’utilisation et l
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Faites des économies grâce aux instances de machines virtuelles réservées</h3>
+                        <h3>Enregistrer avec les réservations Azure</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">Que sont les instances réservées ?</a> <br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Acheter une instance réservée</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Application de la remise</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Qu’est-ce qu’une réservation Azure ?</a> <br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Acheter une instance de machine virtuelle réservée</a><br/>
+                        <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">Acheter une capacité de réserve SQL Database</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Application de la remise sur les machines virtuelles</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Coûts des logiciels non inclus</a>
                         </p>
                     </div>

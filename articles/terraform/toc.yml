@@ -1,6 +1,6 @@
 - name: Terraform sur la Documentation Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Terraform sur Azure
       href: terraform-overview.md
@@ -43,3 +43,9 @@
       href: 'https://registry.terraform.io/modules/Azure'
     - name: Référence de Terraform
       href: 'http://aka.ms/terraform'
+- name: Ressources
+  items:
+    - name: Azure et Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
