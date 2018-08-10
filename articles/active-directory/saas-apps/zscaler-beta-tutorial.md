@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: f3212e55eab7ce74a44da9948cad8a0599580f42
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 29637f8a733e9f92f37144491bef4ab4ba5aae07
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050543"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Didacticiel : Intégration d’Active Directory à Zscaler Beta
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajouter Zscaler Beta à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-zscaler-beta-from-the-gallery"></a>Ajouter Zscaler Beta à partir de la galerie
 Pour configurer l’intégration de Zscaler Beta à Azure AD, vous devez ajouter Zscaler Beta, disponible dans la galerie, à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration de Zscaler Beta à Azure AD, vous devez ajouter
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, tapez **Zscaler Beta**.
+1. Dans la zone de recherche, tapez **Zscaler Beta**.
 
     ![Création d’un utilisateur de test Azure AD](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_search.png)
 
-5. Dans le panneau de résultats, sélectionnez **Zscaler Beta**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le panneau de résultats, sélectionnez **Zscaler Beta**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_addfromgallery.png)
 
@@ -89,11 +89,11 @@ Dans Zscaler Beta, assignez la valeur de **nom d’utilisateur** dans Azure AD c
 Pour configurer et tester l’authentification unique Azure AD avec Zscaler Beta, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configuration des paramètres de proxy](#configuring-proxy-settings)** pour configurer les paramètres de proxy dans Internet Explorer
-3. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test Zscaler Beta](#creating-a-zscaler-beta-test-user)** pour avoir un équivalent de Britta Simon dans Zscaler Beta qui est lié à la représentation de l’utilisateur Azure AD.
-5. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-6. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configuration des paramètres de proxy](#configuring-proxy-settings)** pour configurer les paramètres de proxy dans Internet Explorer
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test Zscaler Beta](#creating-a-zscaler-beta-test-user)** pour avoir un équivalent de Britta Simon dans Zscaler Beta qui est lié à la représentation de l’utilisateur Azure AD.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -105,11 +105,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_samlbase.png)
 
-3. Dans la section **Domaine et URL Zscaler Beta**, effectuez les étapes suivantes :
+1. Dans la section **Domaine et URL Zscaler Beta**, effectuez les étapes suivantes :
 
     ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_url.png)
 
@@ -118,29 +118,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Vous devez mettre à jour cette valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe de support technique de Zscaler Beta](https://www.zscaler.com/company/contact). 
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_certificate.png) 
+    ![Configure Single Sign-On](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_general_400.png)
 
-6. Pour ouvrir la fenêtre **Configurer l’authentification**, dans la section **Configuration de Zscaler Beta**, cliquez sur **Configurer Zscaler Beta**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Pour ouvrir la fenêtre **Configurer l’authentification**, dans la section **Configuration de Zscaler Beta**, cliquez sur **Configurer Zscaler Beta**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_configure.png) 
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Beta en tant qu’administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Beta en tant qu’administrateur.
 
-8. Dans le menu situé dans la partie supérieure, cliquez sur **Administration**.
+1. Dans le menu situé dans la partie supérieure, cliquez sur **Administration**.
    
     ![Administration](./media/zscaler-beta-tutorial/ic800206.png "Administration")
 
-9. Sous **Manage Administrators & Roles**, cliquez sur **Manage Users & Authentication**.   
+1. Sous **Manage Administrators & Roles**, cliquez sur **Manage Users & Authentication**.   
             
     ![Gérer les utilisateurs et l’authentification](./media/zscaler-beta-tutorial/ic800207.png "Gérer les utilisateurs et l’authentification")
 
-10. Dans la section **Choose Authentication Options for your Organization** , procédez comme suit :   
+1. Dans la section **Choose Authentication Options for your Organization** , procédez comme suit :   
                 
     ![Authentication](./media/zscaler-beta-tutorial/ic800208.png "Authentication")
    
@@ -148,7 +148,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Cliquez sur **Configure SAML Single Sign-On Parameters**.
 
-11. Sur la page de dialogue **Configurer les paramètres d’authentification unique SAML**, procédez comme suit, puis cliquez sur **Terminé**
+1. Sur la page de dialogue **Configurer les paramètres d’authentification unique SAML**, procédez comme suit, puis cliquez sur **Terminé**
 
     ![Authentification unique](./media/zscaler-beta-tutorial/ic800209.png "Authentification unique")
     
@@ -160,7 +160,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     d. Sélectionnez **Enable SAML Auto-Provisioning**.
 
-12. Dans la page **Configure User Authentication** , procédez comme suit :
+1. Dans la page **Configure User Authentication** , procédez comme suit :
 
     ![Administration](./media/zscaler-beta-tutorial/ic800210.png "Administration")
     
@@ -173,17 +173,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Démarrez **Internet Explorer**.
 
-2. Pour ouvrir la boîte de dialogue **Options Internet**, sélectionnez **Options Internet** dans le menu **Outils**.   
+1. Pour ouvrir la boîte de dialogue **Options Internet**, sélectionnez **Options Internet** dans le menu **Outils**.   
     
      ![Options Internet](./media/zscaler-beta-tutorial/ic769492.png "Options Internet")
 
-3. Cliquez sur l’onglet **Connexions** .   
+1. Cliquez sur l’onglet **Connexions** .   
   
      ![Connexions](./media/zscaler-beta-tutorial/ic769493.png "Connexions")
 
-4. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
+1. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 
-5. Dans la section Serveur proxy, procédez comme suit :   
+1. Dans la section Serveur proxy, procédez comme suit :   
    
     ![Serveur proxy](./media/zscaler-beta-tutorial/ic769494.png "Serveur proxy")
 
@@ -197,7 +197,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres du réseau local**.
 
-6. Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
+1. Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -214,15 +214,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/zscaler-beta-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/zscaler-beta-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/zscaler-beta-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/zscaler-beta-tutorial/create_aaduser_04.png) 
 
@@ -242,19 +242,19 @@ Pour pouvoir se connecter à Zscaler Beta, les utilisateurs d’Azure AD doiven
 
 1. Connectez-vous au locataire **Zscaler Beta** .
 
-2. Cliquez sur **Administration**.   
+1. Cliquez sur **Administration**.   
    
     ![Administration](./media/zscaler-beta-tutorial/ic781035.png "Administration")
 
-3. Cliquez sur **User Management**.   
+1. Cliquez sur **User Management**.   
         
      ![Ajouter](./media/zscaler-beta-tutorial/ic781036.png "Ajouter")
 
-4. Sous l’onglet **Utilisateurs**, cliquez sur **Ajouter**.
+1. Sous l’onglet **Utilisateurs**, cliquez sur **Ajouter**.
       
     ![Ajouter](./media/zscaler-beta-tutorial/ic781037.png "Ajouter")
 
-5. Dans la section Add User, procédez comme suit :
+1. Dans la section Add User, procédez comme suit :
         
     ![Ajouter un utilisateur](./media/zscaler-beta-tutorial/ic781038.png "Ajouter un utilisateur")
    
@@ -277,23 +277,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Zscaler Beta**.
+1. Dans la liste des applications, sélectionnez **Zscaler Beta**.
 
     ![Configurer l'authentification unique](./media/zscaler-beta-tutorial/tutorial_zscalerbeta_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

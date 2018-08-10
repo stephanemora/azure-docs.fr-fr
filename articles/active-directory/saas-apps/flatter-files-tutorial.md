@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 4ae5c9834352bd2413075e87c79e27a9a3c354b9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b0660e14b858cc77026ea008fcf122c79e656c13
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047641"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Didacticiel : Intégration d’Azure Active Directory à Flatter Files
 
@@ -52,7 +52,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Flatter Files à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-flatter-files-from-the-gallery"></a>Ajout de Flatter Files à partir de la galerie
 Pour configurer l’intégration de Flatter Files avec Azure AD, vous devez ajouter Flatter Files à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -63,19 +63,19 @@ Pour configurer l’intégration de Flatter Files avec Azure AD, vous devez ajo
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![APPLICATIONS][2]
     
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![APPLICATIONS][3]
 
-4. Dans la zone de recherche, entrez **Flatter Files**.
+1. Dans la zone de recherche, entrez **Flatter Files**.
 
     ![Création d’un utilisateur de test Azure AD](./media/flatter-files-tutorial/tutorial_flatterfiles_search.png)
 
-5. Dans le volet de résultats, sélectionnez **Flatter Files**, puis cliquez sur **Ajouter** pour ajouter l’application.
+1. Dans le volet de résultats, sélectionnez **Flatter Files**, puis cliquez sur **Ajouter** pour ajouter l’application.
 
     ![Création d’un utilisateur de test Azure AD](./media/flatter-files-tutorial/tutorial_flatterfiles_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Dans Flatter Files, affectez la valeur de **nom d’utilisateur** dans Azure AD
 Pour configurer et tester l’authentification unique Azure AD avec Flatter Files, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Flatter Files](#creating-a-flatter-files-test-user)** pour avoir un équivalent de Britta Simon dans Flatter Files lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Création d’un utilisateur de test Flatter Files](#creating-a-flatter-files-test-user)** pour avoir un équivalent de Britta Simon dans Flatter Files lié à la représentation Azure AD associée.
+1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
@@ -104,33 +104,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_samlbase.png)
 
-3. Dans la section **Domaine et URL Flatter Files**, l’utilisateur n’aura pas à effectuer les étapes que l’application a déjà intégrées préalablement avec Azure.
+1. Dans la section **Domaine et URL Flatter Files**, l’utilisateur n’aura pas à effectuer les étapes que l’application a déjà intégrées préalablement avec Azure.
 
     ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_url.png)
  
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_certificate.png) 
+    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatterfiles_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Configuration de Flatter Files**, cliquez sur **Configurer Flatter Files** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+1. Dans la section **Configuration de Flatter Files**, cliquez sur **Configurer Flatter Files** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l **’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_configure.png) 
 
-7. Connectez-vous à votre application Flatter Files en tant qu’administrateur.
+1. Connectez-vous à votre application Flatter Files en tant qu’administrateur.
 
-8. Cliquez sur **TABLEAU DE BORD**. 
+1. Cliquez sur **TABLEAU DE BORD**. 
    
     ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
-9. Cliquez sur **Settings**, puis procédez comme suit dans l’onglet **Company** : 
+1. Cliquez sur **Settings**, puis procédez comme suit dans l’onglet **Company** : 
    
     ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
@@ -138,7 +138,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     b. Cliquez sur **Configure SAML**.
 
-8. Dans la boîte de dialogue **SAML Configuration** , procédez comme suit : 
+1. Dans la boîte de dialogue **SAML Configuration** , procédez comme suit : 
    
     ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
@@ -168,15 +168,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/flatter-files-tutorial/create_aaduser_01.png) 
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/flatter-files-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/flatter-files-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/flatter-files-tutorial/create_aaduser_04.png) 
 
@@ -196,13 +196,13 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 1. Connectez-vous à votre site d’entreprise **Flatter Files** en tant qu’administrateur.
 
-2. Dans le volet de navigation situé à gauche, cliquez sur **Paramètres**, puis sur l’onglet **Utilisateurs**.
+1. Dans le volet de navigation situé à gauche, cliquez sur **Paramètres**, puis sur l’onglet **Utilisateurs**.
    
     ![Créer un utilisateur Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
-3. Cliquez sur **Add User**. 
+1. Cliquez sur **Add User**. 
 
-4. Dans la boîte de dialogue **Ajouter un utilisateur**, procédez comme suit :
+1. Dans la boîte de dialogue **Ajouter un utilisateur**, procédez comme suit :
    
     ![Créer un utilisateur Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
 
@@ -227,23 +227,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Flatter Files**.
+1. Dans la liste des applications, sélectionnez **Flatter Files**.
 
     ![Configurer l'authentification unique](./media/flatter-files-tutorial/tutorial_flatterfiles_app.png) 
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 

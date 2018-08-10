@@ -3,18 +3,17 @@ title: Gérer le cycle de vie du stockage Azure
 description: Découvrez comment créer des règles de stratégie du cycle de vie pour faire passer les données vieillissantes du niveau de stockage chaud à froid et aux niveaux d’archivage.
 services: storage
 author: yzheng-msft
-manager: jwillis
 ms.service: storage
-ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413125"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528441"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gérer le cycle de vie du stockage d'objets blob Azure (préversion)
 
@@ -59,11 +58,11 @@ Si la fonctionnalité est approuvée et correctement inscrite, vous devriez rece
 
 Pour soumettre une requête : 
 ```cli
-az feature register –-namespace Microsoft.Storage –-name DLM
+az feature register --namespace Microsoft.Storage --name DLM
 ```
 Vous pouvez vérifier l’état de l'approbation de l’inscription à l’aide de la commande suivante :
 ```cli
--az feature show –-namespace Microsoft.Storage –-name DLM
+az feature show --namespace Microsoft.Storage --name DLM
 ```
 Si la fonctionnalité est approuvée et correctement inscrite, vous devriez recevoir l’état « Inscrit ». 
 
