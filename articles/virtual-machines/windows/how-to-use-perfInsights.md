@@ -140,7 +140,7 @@ Exécute un moteur basé sur des règles en arrière-plan afin de collecter des 
 > [!NOTE] 
 > Actuellement, les versions Windows incluant .NET Framework 3.5 ou versions ultérieures sont prises en charge.
 
-### <a name="performance-counter-trace-"></a>Suivi du compteur de performances (**)
+### <a name="performance-counter-trace-"></a>Suivi du compteur de performances (\*\*)
 
 Collecte les compteurs de performances suivants :
 

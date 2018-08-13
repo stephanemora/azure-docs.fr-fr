@@ -33,7 +33,7 @@ Ce didacticiel requiert l’exécution du robot de réinitialisation de mot de p
 
 ### <a name="open-the-demo"></a>Ouvrir la démonstration
 
-Dans la liste des modèles de l’interface utilisateur web, cliquez sur Tutorial Demo Password Reset. 
+Dans la liste des modèles de l’interface utilisateur web, cliquez sur Tutorial Demo Password Reset (Tutoriel de démonstration de réinitialisation de mot de passe). 
 
 ### <a name="actions"></a>Actions
 
@@ -43,33 +43,33 @@ Nous avons créé un ensemble d’actions où l’utilisateur recherche de l’a
 
 ### <a name="training-dialogs"></a>Dialogues d’apprentissage
 
-Il existe un certain nombre de dialogues d’apprentissage. Il existe également des démonstrations d’une procédure de classe hors domaine--par exemple, des demandes d’utilisateurs telles que « itinéraire » sont hors domaine ; le robot a reçu des exemples de quelques demandes hors domaine et peut répondre avec « Je ne peux pas vous aider pour cette demande ».
+Il existe un certain nombre de dialogues d’apprentissage. Il existe également des démonstrations d’une procédure de classe hors domaine--par exemple, des demandes d’utilisateurs telles que « itinéraire » sont hors domaine ; le robot a reçu des exemples de quelques demandes hors domaine et peut répondre avec « I can't help with that » (Je ne peux pas vous aider pour cette demande).
 
 ![](../media/tutorial_pw_reset_entities.PNG)
 
 À titre d’exemple, nous allons tester une session d’apprentissage.
 
-1. Cliquez sur Dialogues d’apprentissage, puis sur Nouveau dialogue d’apprentissage.
-1. Entrez « J’ai perdu mon mot de passe ».
-2. Cliquez sur Action de score.
-3. Cliquez pour sélectionner « Est-ce que cela concerne votre compte local ou votre compte Microsoft ? ».
-4. Entrez « compte local ».
-5. Cliquez sur Actions de score.
-3. Cliquez pour sélectionner « Quelle version de Windows avez-vous ? ».
+1. Cliquez sur Train Dialogs (Dialogues d’apprentissage), puis sur New Train Dialog (Nouveau dialogue d’apprentissage).
+1. Entrez « I lost my password » (J’ai perdu mon mot de passe).
+2. Cliquez sur Score Action (Action de score).
+3. Cliquez pour sélectionner « Is that for your local account or Microsoft account » (Est-ce que cela concerne votre compte local ou votre compte Microsoft ?).
+4. Entrez « Local account » (Compte local).
+5. Cliquez sur Score Actions (Actions de score).
+3. Cliquez pour sélectionner « Which version of Windows do you have? » (Quelle version de Windows avez-vous ?).
 4. Entrez « Windows 8 ».
-5. Cliquez sur Actions de score.
-6. Sélectionnez « SOLUTION : comment réinitialiser le mot de passe sur Windows 8 ».
-4. Cliquez sur Apprentissage terminé.
+5. Cliquez sur Score Actions (Actions de score).
+6. Sélectionnez « SOLUTION: how to reset password on Windows 8 » (SOLUTION : comment réinitialiser le mot de passe sur Windows 8).
+4. Cliquez sur Done Teaching (Apprentissage terminé).
 
 Essayons de voir comment le robot peut apprendre une classe hors domaine.
 
-1. Cliquez sur Dialogues d’apprentissage, puis sur Nouveau dialogue d’apprentissage.
-1. Entrez « recherche web ».
+1. Cliquez sur Train Dialogs (Dialogues d’apprentissage), puis sur New Train Dialog (Nouveau dialogue d’apprentissage).
+1. Entrez « web search » (recherche web).
     - Il s’agit d’un exemple de classe hors domaine. 
-2. Cliquez sur Action de score.
-3. Cliquez pour sélectionner « Je ne peux pas vous aider pour cette demande ».
+2. Cliquez sur Score Action (Action de score).
+3. Cliquez pour sélectionner « I can't help with that » (Je ne peux pas vous aider pour cette demande).
     - Notez que le score pour cette option est actuellement faible. Mais avec un peu plus d’apprentissage, le score sera plus élevé.
-4. Cliquez sur Apprentissage terminé.
+4. Cliquez sur Done Teaching (Apprentissage terminé).
 
 Vous savez maintenant comment créer une démonstration de support technique de base, et vous avez appris de quelle façon elle peut apprendre à fournir des solutions et également gérer des requêtes différentes des exemples.
 
