@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fff29f6cfed4989386ca5bbd12184dce525add76
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3d406d6d8f6432b3555e34876854147c4945f7a8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
-ms.locfileid: "27580369"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39632228"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Résoudre les problèmes de déploiement lors de la création d’une machine virtuelle Windows dans Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -54,7 +54,7 @@ Pour résoudre les problèmes, commencez par collecter les journaux d’activit�
 
 **Résolution :**
 
-Pour corriger ces deux erreurs, utilisez [Add-AzureRmVhd pour télécharger le disque dur virtuel d’origine](https://msdn.microsoft.com/library/mt603554.aspx), disponible en mode local, avec le même paramétrage que pour le système d’exploitation (généralisé/spécialisé). Pour effectuer un téléchargement de type généralisé, n’oubliez pas d’exécuter d’abord sysprep.
+Pour corriger ces deux erreurs, utilisez [Add-AzureRmVhd pour télécharger le disque dur virtuel d’origine](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd), disponible en mode local, avec le même paramétrage que pour le système d’exploitation (généralisé/spécialisé). Pour effectuer un téléchargement de type généralisé, n’oubliez pas d’exécuter d’abord sysprep.
 
 **Erreurs de capture :**
 
@@ -89,6 +89,6 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
   * Créez une machine virtuelle dans un autre groupe à haute disponibilité (dans la même région).
   * Ajoutez la nouvelle machine virtuelle au même réseau virtuel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si vous rencontrez des problèmes lorsque vous démarrez une machine virtuelle Windows arrêtée ou que vous redimensionnez Windows une machine virtuelle existante dans Azure, consultez [Résoudre les problèmes de déploiement Resource Manager liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

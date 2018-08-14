@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389607"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628169"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -50,11 +50,11 @@ Consultez également le [Forum aux questions (FAQ) sur Azure Event Hubs](../even
 
 ## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance des locataires Azure pour qu’elles soient diffusées vers un hub d’événements ?
 
-Les données de surveillance des locataires Azure ne sont actuellement disponibles que pour Azure Active Directory. Vous pouvez utiliser les données des [rapports Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md), qui contiennent l’historique des connexions et la piste d’audit des modifications apportées à un locataire particulier.
+Les données de surveillance des locataires Azure ne sont actuellement disponibles que pour Azure Active Directory. Vous pouvez utiliser les données des [rapports Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md), qui contiennent l’historique des connexions et la piste d’audit des modifications apportées à un locataire particulier.
 
 ### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Diffuser les données Azure Active Directory vers un hub d’événements
 
-Pour envoyer des données à partir du journal Azure Active Directory dans un espace de noms Event Hubs, vous configurer un paramètre de diagnostic de locataire sur votre locataire AAD. [Suivez ce guide](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) pour configurer un paramètre de diagnostic de locataire.
+Pour envoyer des données à partir du journal Azure Active Directory dans un espace de noms Event Hubs, vous configurer un paramètre de diagnostic de locataire sur votre locataire AAD. [Suivez ce guide](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) pour configurer un paramètre de diagnostic de locataire.
 
 ## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance d’abonnement Azure pour qu’elles soient diffusées vers un hub d’événements ?
 

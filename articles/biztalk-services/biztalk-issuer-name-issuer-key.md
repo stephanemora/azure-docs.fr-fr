@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24103427"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628645"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur dans BizTalk Services
 
@@ -27,7 +27,7 @@ ms.locfileid: "24103427"
 
 Azure BizTalk Services utilise le nom et la clé de l'émetteur Service Bus, ainsi que le nom et la clé de l'émetteur Access Control. Plus précisément :
 
-| Task | Nom et clé de l'émetteur |
+| Tâche | Nom et clé de l'émetteur |
 | --- | --- |
 | Déploiement de votre application à partir de Visual Studio |Nom et clé de l'émetteur Access Control |
 | Configuration du portail Azure BizTalk Services |Nom et clé de l'émetteur Access Control |
@@ -71,13 +71,13 @@ Pour résumer :
 Nom de l’émetteur = SharedSecretIssuer  
 Clé de l’émetteur = SharedSecretKey
 
-Informations complémentaires sur l’applet de commande [New-AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx). 
+Informations complémentaires sur l’applet de commande [New-AzureSBNamespace](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace). 
 
 ## <a name="service-bus-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur Service Bus
 Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter Services. Dans votre projet BizTalk Services dans Visual Studio, vous utilisez les services d'adaptateur BizTalk pour vous connecter à un système métier local. Pour vous connecter, vous créez le relais métier et entrez les détails relatifs à votre système métier. À cette occasion, vous entrez également le nom et la clé de l'émetteur Service Bus.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Pour récupérer le nom et la clé de l'émetteur Service Bus
-1. Connectez-vous au [portail Azure](http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](http://portal.azure.com).
 2. Recherchez **Service Bus**, puis sélectionnez votre espace de noms. 
 3. Ouvrez les propriétés **Stratégies d’accès partagé**, sélectionnez votre stratégie et affichez la **Chaîne de connexion** pour le nom et les valeurs de clé.  
 

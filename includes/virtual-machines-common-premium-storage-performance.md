@@ -26,7 +26,7 @@ Le nombre d’E/S par seconde représente le nombre de demandes que votre applic
 
 Lorsque vous attachez un disque de stockage Premium à votre machine virtuelle à grande échelle, Azure met à disposition un nombre garanti d’E/S par seconde, conformément à la spécification de disque. Par exemple, un disque P50 configure 7500 E/S par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique d’E/S par seconde qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a une limite de 80 000 E/S par seconde.
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>Débit
 Le débit ou la bande passante est la quantité de données que votre application envoie aux disques de stockage dans un intervalle spécifié. Si votre application effectue des opérations d’entrée/sortie avec des tailles d’unité d’E/S importantes, elle aura besoin d’un débit élevé. Les applications d’entrepôt de données ont tendance à émettre des opérations d’analyse intensives qui accèdent simultanément à de grandes quantités de données et exécutent généralement des opérations en bloc. En d’autres termes, ces applications nécessitent un débit plus élevé. Si vous possédez une telle application, vous devez concevoir votre infrastructure de manière à en optimiser le débit. Dans la section suivante, nous décrirons en détail les facteurs que vous devrez ajuster pour y parvenir.
 
 Lorsque vous attachez un disque de stockage premium à une machine virtuelle à grande échelle, Azure met à disposition un débit conforme à la spécification de ce disque. Par exemple, un disque P50 configure un débit de disque de 250 Mo par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique de débit qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a un débit maximal de 2 000 Mo par seconde. 
@@ -37,7 +37,7 @@ La formule ci-dessous illustre la relation entre le débit et le nombre d’E/S 
 
 Par conséquent, il est important de déterminer les valeurs optimales de débit et d’E/S par seconde dont a besoin votre application. Lorsque vous essayez d’optimiser une de ces valeurs, l’autre est également affectée. Dans la section *Optimisation des performances applicatives*, nous aborderons plus en détail la question de l’optimisation des E/S par seconde et du débit.
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latence
 La latence est le temps nécessaire à une application pour recevoir une demande unique, l’envoyer aux disques de stockage et transmettre la réponse au client. Il s’agit d’une mesure critique des performances d’une application, qui s’ajoute à celle des E/S par seconde et du débit. La latence d’un disque de stockage premium correspond au temps nécessaire pour récupérer les informations d’une demande et les retourner à votre application. Premium Storage offre de faibles latences. Si vous activez une mise en cache de l’hôte en lecture seule sur des disques de stockage premium, vous pourrez obtenir une latence de lecture bien plus faible. Nous aborderons la mise en cache du disque plus en détail dans la section *Optimisation des performances applicatives*.
 
 Lorsque vous optimisez votre application pour augmenter le nombre d’E/S par seconde et le débit, la latence de votre application s’en trouve affectée. Après avoir ajusté les performances de votre application, pensez toujours à évaluer la latence de l’application afin d’éviter un comportement de latence élevée inattendu.
@@ -60,8 +60,8 @@ Ensuite, vous devrez mesurer les exigences de performances maximales de votre ap
 | % d’opérations séquentielles | | | |
 | Taille de la demande d’E/S | | | |
 | Débit moyen | | | |
-| Bande passante Throughput | | | |
-| min. Latency | | | |
+| Bande passante Débit | | | |
+| min. Latence | | | |
 | Latence moyenne | | | |
 | Bande passante UC | | | |
 | Utilisation moyenne de l’UC | | | |
@@ -253,7 +253,7 @@ Voici les paramètres de cache de disque recommandés pour les disques de donné
 En configurant une mise en cache en lecture seule sur des disques de données Premium Storage, vous pouvez obtenir une faible latence de lecture et obtenir de très hautes performances d’E/S et de débit en lecture pour votre application. Cela est dû à deux raisons :
 
 1. Les lectures effectuées à partir du cache, qui se trouvent sur la mémoire virtuelle et sur le SSD local, sont beaucoup plus rapides que les lectures effectuées à partir du disque de données, qui réside sur Azure Blob Storage.  
-2. Premium Storage ne tient pas compte des lectures traitées à partir du cache pour le calcul du nombre d’E/S par seconde et du débit du disque. Par conséquent, votre application est en mesure de délivrer de meilleures performances totales en termes d’E/S par seconde et de débit.
+1. Premium Storage ne tient pas compte des lectures traitées à partir du cache pour le calcul du nombre d’E/S par seconde et du débit du disque. Par conséquent, votre application est en mesure de délivrer de meilleures performances totales en termes d’E/S par seconde et de débit.
 
 *Lecture/écriture*  
 Par défaut, le cache en lecture/écriture est activé sur les disques du système d’exploitation. Nous avons récemment ajouté la prise en charge de la mise en cache en lecture/écriture sur les données des disques. Si vous utilisez la mise en cache en lecture/écriture, vous devez disposer d’un moyen approprié d’écrire les données du cache sur des disques persistants. Par exemple, SQL Server gère lui-même l’écriture de données mises en cache sur les disques de stockage persistants. L’utilisation d’un cache en lecture/écriture avec une application qui ne gère pas la persistance des données requises peut entraîner des pertes de données en cas de panne de la machine virtuelle.
@@ -263,7 +263,7 @@ Par exemple, vous pouvez appliquer ces instructions à une instance SQL Server 
 1. Configurez le cache en lecture seule sur les disques de stockage Premium qui hébergent des fichiers de données.  
    a.  Les lectures rapides du cache réduisent le temps de requête de SQL Server puisque les pages de données sont récupérées à partir du cache bien plus rapidement que lorsque l’opération s’effectue directement à partir des disques de données.  
    b.  Le traitement des lectures à partir du cache signifie que les disques de données premium délivrent un débit supplémentaire. SQL Server peut utiliser ce débit supplémentaire pour la récupération d’un plus grand nombre de pages de données et d’autres opérations telles que la sauvegarde/restauration, les charges de traitement par lots et les reconstructions d’index.  
-2. Choisissez l’option « Aucun » pour le cache sur les disques de stockage Premium qui hébergent des fichiers journaux.  
+1. Choisissez l’option « Aucun » pour le cache sur les disques de stockage Premium qui hébergent des fichiers journaux.  
    a.  Les fichiers journaux ont principalement des opérations d’écriture intensives. Ils ne bénéficient donc pas du cache en lecture seule.
 
 ## <a name="disk-striping"></a>Entrelacement de disques
@@ -381,12 +381,12 @@ Procédez comme suit pour préparer le cache
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 Mo |100 |0 |
    | RandomReads\_1MB |1 Mo |100 |100 |
-2. Exécutez le test Iometer pour initialiser le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
+1. Exécutez le test Iometer pour initialiser le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
 
    | Scénario | Volume cible | NOM | Duration |
    | --- | --- | --- | --- |
    | Initialisation du disque de cache |CacheReads |RandomWrites\_1MB |2 heures |
-3. Exécutez le test Iometer pour préchauffer le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
+1. Exécutez le test Iometer pour préchauffer le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée d’exécution du test sur 2 heures sous l’onglet « Test Setup ».
 
    | Scénario | Volume cible | NOM | Durée |
    | --- | --- | --- | --- |

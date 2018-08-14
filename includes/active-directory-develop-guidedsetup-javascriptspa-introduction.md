@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: cfbf4dc08ccea95f99216f6cc82c1ee56d65768a
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f70e0bcb68f059618f9b398a00e23498a10df23e
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943349"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39582926"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Appeler l’API Microsoft Graph à partir d’une application à page unique (SPA) JavaScript
 
@@ -47,6 +47,6 @@ Ce guide utilise la bibliothèque suivante :
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Bibliothèque d’authentification Microsoft pour JavaScript Preview|
 
 > [!NOTE]
-> *msal.js* cible le *point de terminaison Azure Active Directory v2*, ce qui permet aux comptes personnels, scolaires et professionnels de se connecter et d’acquérir des jetons. Le *point de terminaison Azure Active Directory v2* a [certaines limitations](..\articles\active-directory\develop\active-directory-v2-limitations.md). Si vous êtes uniquement intéressé par les comptes scolaires et professionnels, utilisez *adal.js* et le *point de terminaison v1*. Pour comprendre les différences entre les points de terminaison v1 et v2, lisez la [comparaison v1-v2](..\articles\active-directory\develop\active-directory-v2-compare.md).
+> *msal.js* cible le *point de terminaison Azure Active Directory v2*, ce qui permet aux comptes personnels, scolaires et professionnels de se connecter et d’acquérir des jetons. Le *point de terminaison Azure Active Directory v2* a [certaines limitations](..\articles\active-directory\develop\active-directory-v2-limitations.md). Si vous êtes uniquement intéressé par les comptes scolaires et professionnels, utilisez *adal.js* et le *point de terminaison v1*. Pour comprendre les différences entre les points de terminaison v1 et v2, lisez la [comparaison v1-v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

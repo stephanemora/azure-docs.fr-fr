@@ -4,19 +4,19 @@ description: Cet article décrit comment utiliser l’Explorateur Azure Time Ser
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: kfile
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d3b8973e8798e5b1f32d9e882db8a06ad7486ed8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295336"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629138"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 Cet article explore les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights. Vous pouvez utiliser l’explorateur Time Series Insights dans votre navigateur web pour créer des visualisations de vos données.

@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 625894738b6cbf680baef0a1eeeea518586e4506
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 52ae7da666acaf234920a7f03afe3766f29a1e85
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870789"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629121"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 Cet article décrit deux façons de prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré dans Azure Active Directory. Quand un utilisateur en libre-service s’inscrit à un service cloud qui utilise Azure AD, il est ajouté à un annuaire Azure AD non géré en fonction de son domaine de messagerie. Pour plus d’informations sur l’inscription en libre-service ou « virale » pour un service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
@@ -104,7 +104,7 @@ La prise de contrôle par administrateur externe n’est prise en charge par auc
 
 #### <a name="more-information-about-rms-for-individuals"></a>En savoir plus sur RMS pour les particuliers
 
-Pour [RMS pour les particuliers](/information-protection/understand-explore/rms-for-individuals), où le client non géré se trouve dans la même région que le client que vous détenez, la [clé de locataire Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) et les [modèles de protection par défaut](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) sont également déplacés avec le nom de domaine. 
+Pour [RMS pour les particuliers](/azure/information-protection/rms-for-individuals), où le client non géré se trouve dans la même région que le client que vous détenez, la [clé de locataire Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) et les [modèles de protection par défaut](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) sont également déplacés avec le nom de domaine. 
 
 La clé et les modèles ne sont pas déplacés lorsque le client non géré se trouve dans une région différente. Par exemple, le client non géré est en Europe et le client que vous détenez se trouve en Amérique du Nord. 
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224328"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630754"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ sur l’itinérance des paramètres et des données
 Cet article répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
@@ -99,7 +99,7 @@ Enterprise State Roaming stocke toutes les données synchronisées dans le cloud
 ## <a name="who-owns-the-data-thats-being-roamed"></a>À qui appartiennent les données en itinérance ?
 Les données en itinérance via Enterprise State Roaming sont détenues par les entreprises. Les données sont stockées dans un centre de données Azure. Toutes les données utilisateur sont chiffrées à l’aide du service Azure Rights Management d’Azure Information Protection lorsqu’elles sont en transit et lorsqu’elles sont au repos dans le cloud. Il s’agit d’une amélioration par rapport à la synchronisation des paramètres de compte Microsoft, qui chiffre seulement certaines données sensibles telles que les informations d’identification utilisateur avant de quitter l’appareil.
 
-Microsoft s’engage à protéger les données client. Les données de paramètres d’un utilisateur de l’entreprise sont automatiquement chiffrées par le service Azure Rights Management avant de quitter un appareil Windows 10, pour ne pas qu’elles puissent être lues par les autres utilisateurs. Si votre organisation dispose d’un abonnement payant au service Azure Rights Management, vous pouvez utiliser d’autres fonctionnalités de protection, telles que le suivi et la révocation de documents, la protection automatique des e-mails contenant des informations sensibles, et la gestion de vos propres clés (solution BYOK). Pour plus d’informations sur ces fonctionnalités et sur le fonctionnement de ce service de protection, consultez [En quoi consiste Azure Rights Management ?](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+Microsoft s’engage à protéger les données client. Les données de paramètres d’un utilisateur de l’entreprise sont automatiquement chiffrées par le service Azure Rights Management avant de quitter un appareil Windows 10, pour ne pas qu’elles puissent être lues par les autres utilisateurs. Si votre organisation dispose d’un abonnement payant au service Azure Rights Management, vous pouvez utiliser d’autres fonctionnalités de protection, telles que le suivi et la révocation de documents, la protection automatique des e-mails contenant des informations sensibles, et la gestion de vos propres clés (solution BYOK). Pour plus d’informations sur ces fonctionnalités et sur le fonctionnement de ce service de protection, consultez [En quoi consiste Azure Rights Management ?](/azure/information-protection/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Puis-je gérer la synchronisation d’un paramètre ou d’une application spécifique ?
 Dans Windows 10, il n’existe aucun paramètre de MDM ou de stratégie de groupe permettant de désactiver l’itinérance pour une application en particulier. Les administrateurs client peuvent désactiver la synchronisation des données d’application pour toutes les applications sur un appareil géré, mais il n’existe aucun contrôle plus précis au niveau ou au sein de l’application.

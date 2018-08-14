@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6c96cf220e34f1509375e5314e0b54e175575834
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c5909c1f511d3a7816ebafc3ea8b326edb7f14e3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114206"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629495"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -160,7 +160,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** i
 } 
 ```
 
-Notez les points suivants :
+Notez les points suivants :
 
 * Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
 * L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**.
@@ -218,7 +218,7 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsigh
 }
 ```
 
-Notez les points suivants : 
+Notez les points suivants : 
 
 * Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive**.
 * Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **AzureStorageLinkedService**) et dans le dossier **script** du conteneur **adfgetstarted**.
@@ -3317,7 +3317,7 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |Vérifiez que la propriété type est définie sur **OnPremisesFileServer**. |Oui |
-| host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples. |Oui |
+| host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples. |OUI |
 | userId |Spécifiez l’ID de l’utilisateur qui a accès au serveur. |Non (si vous choisissez encryptedcredential) |
 | password |Spécifiez le mot de passe de l’utilisateur (userid). |Non (si vous choisissez encryptedcredential) |
 | Encryptedcredential |Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant l’applet de commande New-AzureRmDataFactoryEncryptValue. |Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut) |
@@ -3728,12 +3728,12 @@ Pour définir un service lié HDFS, définissez le **type** du service lié sur 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Type |La propriété de type doit être définie sur **Hdfs** |Oui |
-| Url |URL vers le système HDFS |Oui |
-| authenticationType |Anonyme ou Windows. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |Oui |
+| Url |URL vers le système HDFS |OUI |
+| authenticationType |Anonyme ou Windows. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |OUI |
 | userName |Nom d’utilisateur de l’authentification Windows |Oui (pour l’authentification Windows) |
 | password |Mot de passe de l’authentification Windows |Oui (pour l’authentification Windows) |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au système HDFS. |Oui |
-| Encryptedcredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) des informations d’accès. |Non  |
+| Encryptedcredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) des informations d’accès. |Non  |
 
 #### <a name="example-using-anonymous-authentication"></a>Exemple : utilisation de l’authentification anonyme
 
@@ -3863,7 +3863,7 @@ Pour définir un service lié SFTP, définissez le **type** du service lié sur 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- | --- |
-| host | Nom ou adresse IP du serveur SFTP. |Oui |
+| host | Nom ou adresse IP du serveur SFTP. |OUI |
 | port |Port sur lequel le serveur SFTP écoute. La valeur par défaut est 21 |Non  |
 | authenticationType |Spécification du type d’authentification. Valeurs autorisées : **De base** et **SshPublicKey**. <br><br> Reportez-vous aux sections [Utilisation de l’authentification par clé publique SSH](#using-basic-authentication) et [Utilisation de l’authentification par clé publique SSH](#using-ssh-public-key-authentication) portant respectivement sur des propriétés supplémentaires et des exemples JSON. |Oui |
 | skipHostKeyValidation | Spécifiez s’il faut ignorer la validation de la clé hôte. | Non. valeur par défaut : false |
@@ -3877,7 +3877,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- | --- |
-| username | Utilisateur ayant accès au serveur SFTP. |Oui |
+| username | Utilisateur ayant accès au serveur SFTP. |OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). | Oui |
 
 ```json
@@ -3926,7 +3926,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- | --- |
-| username |Utilisateur ayant accès au serveur SFTP |Oui |
+| username |Utilisateur ayant accès au serveur SFTP |OUI |
 | privateKeyPath | Spécifiez le chemin absolu au fichier de clé privée auquel la passerelle peut accéder. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. <br><br> S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 | privateKeyContent | Une chaîne sérialisée du contenu de la clé privée. L’Assistant de copie peut lire le fichier de clé privée et extraire le contenu de clé privée automatiquement. Si vous utilisez tout autre outil/SDK, utilisez plutôt la propriété privateKeyPath. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. |
 | passPhrase | Spécifiez la phrase secrète/le mot de passe pour déchiffrer la clé privée si le fichier de clé est protégé par une phrase secrète. | Oui, si le fichier de clé privée est protégé par une phrase secrète. |
@@ -4463,7 +4463,7 @@ Pour définir un service lié ODBC, définissez le **type** du service lié sur 
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Exemple : utilisation de l’authentification de base avec des informations d’identification chiffrées
-Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (version 1.0 d’Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (version 0.9 ou antérieure d’Azure PowerShell).  
+Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (version 1.0 d’Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (version 0.9 ou antérieure d’Azure PowerShell).  
 
 ```json
 {
@@ -5383,7 +5383,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
     }
 }
 ```
-Notez les points suivants : 
+Notez les points suivants : 
 
 - La propriété **type** est définie sur **HDInsightSpark**.
 - **rootPath** est définie sur **adfspark\\pyFiles**, où adfspark est le conteneur d’objets Blob Azure contenant le dossier pyFiles. Dans cet exemple, le stockage Blob Azure est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre stockage Azure. Si vous procédez ainsi, créez un service lié de stockage Azure pour lier ce compte de stockage à la fabrique de données. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService**. Consultez les [propriétés de l’activité Spark](#spark-activity-properties) pour plus d’informations sur cette propriété et d’autres propriétés prises en charge par l’activité Spark.

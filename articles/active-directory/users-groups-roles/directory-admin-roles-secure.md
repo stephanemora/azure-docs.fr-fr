@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 1d08518a23dfe4a9cc63bf3f35ee69ea1815595f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239949"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627931"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -380,7 +380,7 @@ Déterminez si vous devez [transférer la propriété d’un abonnement Azure à
 
 4. Obtenez de l’aide de Microsoft en [ouvrant une demande de support Azure](../../azure-supportability/how-to-create-azure-support-request.md).
 
-5. Examinez les [rapports de connexion Azure AD](../active-directory-reporting-azure-portal.md). Il peut y avoir un décalage entre l’occurrence d’un événement et le moment où il est inclus dans le rapport.
+5. Examinez les [rapports de connexion Azure AD](../reports-monitoring/overview-reports.md). Il peut y avoir un décalage entre l’occurrence d’un événement et le moment où il est inclus dans le rapport.
 
 6. Pour les environnements hybrides, s’ils sont fédérés et que votre serveur AD FS n’est pas disponible, vous devrez peut-être basculer temporairement de l’authentification fédérée vers l’utilisation de la synchronisation du code de hachage du mot de passe. Cela permet de passer de la fédération de domaine à l’authentification managée jusqu’à ce que le serveur AD FS soit disponible.
 

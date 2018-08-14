@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 27068c1154a4cc5776bbcc74922ca31c4f28ced6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399915"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629648"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Guide pratique pour planifier l’implémentation de la jointure Azure Active Directory hybride
 
@@ -96,6 +96,13 @@ En cas de dépendance vis-à-vis de l’Outil de préparation du système (Syspr
 Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle n’a pas été configurée pour la jointure Azure AD hybride.
 
 L’inscription des appareils Windows de bas niveau n’est pas prise en charge pour les appareils ayant pour configuration l’itinérance du profil utilisateur ou des informations d’identification. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
+
+- L’inscription d’appareils de bas niveau Windows **est** prise en charge dans les environnements non fédérés via l’authentification unique transparente [Authentification unique transparente d’Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+ 
+- L’inscription d’appareils de bas niveau Windows **n’est pas** prise en charge lors de l’utilisation de l’authentification directe Azure AD sans authentification unique transparente.
+
+- L’inscription des appareils Windows de bas niveau **n’est pas** prise en charge pour les appareils utilisant des profils d’itinérance. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
+
 
 L’inscription de Windows Server avec le rôle de contrôleur de domaine n’est pas prise en charge.
 

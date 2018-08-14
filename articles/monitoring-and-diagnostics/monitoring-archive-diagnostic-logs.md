@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249153"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629682"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivage des journaux de diagnostic Azure
 
@@ -163,5 +163,5 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 
 * [Télécharger des objets blob pour analyse](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Diffuser en continu les journaux de diagnostic sur un espace de noms Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Archive Azure Active Directory logs with Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md) (Archivage des journaux Azure Active Directory avec Azure Monitor)
+* [Archive Azure Active Directory logs with Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) (Archivage des journaux Azure Active Directory avec Azure Monitor)
 * [En savoir plus sur les journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md)

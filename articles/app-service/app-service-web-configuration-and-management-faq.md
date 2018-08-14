@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: e773435d89a511e6f1f369cc3fd5dc6f06507e45
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 7aa5b00d1497e384377ba4423431eac57c1aa4c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808755"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630401"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -106,7 +106,7 @@ Pour plus d’informations, voir [FAQ sur les certificats App Service et les dom
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Pourquoi le message « Partiellement réussie » s’affiche-t-il quand j’essaie de sauvegarder mon application web ?
 
-Une cause courante de l’échec de la sauvegarde est que l’application utilise certains fichiers. Les fichiers en cours d’utilisation sont verrouillés durant la sauvegarde. Cela empêche la sauvegarde de ces fichiers et peut aboutir à l’état « Partiellement réussie ». Vous pouvez empêcher cela en excluant des fichiers du processus de sauvegarde. Vous pouvez choisir de sauvegarder uniquement ce qui est nécessaire. Pour plus d’informations, voir [Sauvegarder uniquement les parties importantes de votre site avec Azure Web Apps](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
+Une cause courante de l’échec de la sauvegarde est que l’application utilise certains fichiers. Les fichiers en cours d’utilisation sont verrouillés durant la sauvegarde. Cela empêche la sauvegarde de ces fichiers et peut aboutir à l’état « Partiellement réussie ». Vous pouvez empêcher cela en excluant des fichiers du processus de sauvegarde. Vous pouvez choisir de sauvegarder uniquement ce qui est nécessaire. Pour plus d’informations, voir [Sauvegarder uniquement les parties importantes de votre site avec Azure Web Apps](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Comment supprimer un en-tête de la réponse HTTP ?
 
@@ -288,7 +288,7 @@ Pour obtenir des informations détaillée concernant l’authentification et l�
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Comment rediriger le domaine *.azurewebsites.net par défaut vers le domaine personnalisé de mon application web Azure ?
 
-Lorsque vous créez un site web à l’aide de Web Apps dans Azure, un domaine *nomdusite*.azurewebsites.net par défaut est attribué à votre site. Si vous ajoutez un nom d’hôte personnalisé à votre site et ne souhaitez pas que les utilisateurs puissent accéder au domaine *.azurewebsites.net par défaut, vous pouvez rediriger l’URL par défaut. Pour savoir comment rediriger tout le trafic du domaine par défaut de votre site web vers votre domaine personnalisé, voir [Rediriger le domaine par défaut vers votre domaine personnalisé dans Azure Web Apps](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/).
+Lorsque vous créez un site web à l’aide de Web Apps dans Azure, un domaine *nomdusite*.azurewebsites.net par défaut est attribué à votre site. Si vous ajoutez un nom d’hôte personnalisé à votre site et ne souhaitez pas que les utilisateurs puissent accéder au domaine *.azurewebsites.net par défaut, vous pouvez rediriger l’URL par défaut. Pour savoir comment rediriger tout le trafic du domaine par défaut de votre site web vers votre domaine personnalisé, voir [Rediriger le domaine par défaut vers votre domaine personnalisé dans Azure Web Apps](http://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Comment déterminer la version de .NET installée dans App Service ?
 

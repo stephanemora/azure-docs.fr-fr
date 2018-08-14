@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour configurer des appareils hybrides joints à Azure Active Directory | Microsoft Docs
+title: Comment configurer des appareils hybrides joints à Azure Active Directory | Microsoft Docs
 description: Découvrez comment configurer des appareils hybrides joints à Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,22 +16,22 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 1aa5c0f259fdb5fce449bc86f9cf293801b4770a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cc6d08de74097ba7566037664fd33d9be85ac390
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368667"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628986"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutoriel : Configurer une jonction Azure Active Directory hybride pour les domaines fédérés
 
-À l’instar d’un utilisateur, un appareil devient une autre identité que vous souhaitez protéger et aussi utiliser pour protéger vos ressources à tout moment et en tout lieu. Vous pouvez atteindre cet objectif en apportant les identités de vos appareils à Azure AD par l’intermédiaire de l’une des méthodes suivantes :
+À l’instar d’un utilisateur, un appareil devient une autre identité que vous souhaitez protéger et aussi utiliser pour protéger vos ressources à tout moment et en tout lieu. Vous pouvez atteindre cet objectif en intégrant les identités de vos appareils à Azure AD suivant l’une des méthodes ci-dessous :
 
-- Jonction Azure AD
-- Jonction Azure AD hybride
-- Inscription Azure AD
+- jointure Azure AD ;
+- jointure Azure AD hybride ;
+- inscription Azure AD.
 
-En apportant vos appareils à Azure AD, vous optimisez la productivité de vos utilisateurs via l’authentification unique (SSO) dans vos ressources cloud et locales. En même temps, vous pouvez sécuriser l’accès à vos ressources cloud et locales avec l’[accès conditionnel](../active-directory-conditional-access-azure-portal.md).
+En mettant vos appareils sur Azure AD, vous optimisez la productivité de vos utilisateurs par le biais de l’authentification unique (SSO) sur vos ressources cloud et locales. En même temps, vous pouvez sécuriser l’accès à vos ressources cloud et locales avec l’[accès conditionnel](../active-directory-conditional-access-azure-portal.md).
 
 Dans ce tutoriel, vous apprenez à configurer une jonction Azure AD hybride pour les appareils qui ont fédéré avec ADFS.
 
@@ -50,6 +50,7 @@ Ce tutoriel part du principe que vous connaissez :
 
 -  [Comment planifier l’implémentation de la jointure hybride Azure Active Directory](hybrid-azuread-join-plan.md)
 
+-  [Comment contrôler la jointure hybride Azure Active Directory pour vos appareils](hybrid-azuread-join-control.md)
 
 
 Pour configurer le scénario décrit dans ce tutoriel, vous avez besoin de ce qui suit :
@@ -95,11 +96,11 @@ Pour configurer une jonction Azure AD hybride avec Azure AD Connect, vous avez b
 
 **Pour configurer une jonction Azure AD hybride à l’aide d’Azure AD Connect :**
 
-1. Lancez Azure AD Connect, puis cliquez sur **Configurer**.
+1. Lancez Azure AD Connect et cliquez sur **Configurer**.
 
     ![Bienvenue](./media/hybrid-azuread-join-federated-domains/11.png)
 
-2. Dans la page **Tâches supplémentaires**, sélectionnez **Configurer les options de l’appareil**, puis cliquez sur **Suivant**. 
+2. Dans la page **Tâches supplémentaires**, sélectionnez **Configurer les options de l’appareil** et cliquez sur **Suivant**. 
 
     ![Tâches supplémentaires](./media/hybrid-azuread-join-federated-domains/12.png)
 
@@ -111,7 +112,7 @@ Pour configurer une jonction Azure AD hybride avec Azure AD Connect, vous avez b
 
     ![Se connecter à Azure AD](./media/hybrid-azuread-join-federated-domains/14.png)
 
-5. Dans la page **Options de l’appareil**, sélectionnez **Configurer joindre Hybrid Azure AD**, puis cliquez sur **Suivant**. 
+5. Dans la page **Options de l’appareil**, sélectionnez **Configurer joindre Hybrid Azure AD** et cliquez sur **Suivant**. 
 
     ![Options de l’appareil](./media/hybrid-azuread-join-federated-domains/15.png)
 
@@ -187,7 +188,7 @@ Vous devez également activer **Autoriser les mises à jour de la barre d’éta
 
 Pour vérifier l’état de l’inscription d’un appareil dans votre locataire Azure, vous pouvez utiliser l’applet de commande **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** dans le **[module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
-Lorsque vous utilisez la cmdlet **Get-MSolDevice** pour vérifier les détails du service :
+Lorsque vous utilisez l’applet de commande **Get-MSolDevice** pour vérifier les détails du service :
 
 - Un objet dont l’**id d’appareil** correspond à l’ID présent sur le client Windows doit exister.
 - La valeur de **DeviceTrustType** doit être **Domain Joined**. C’est l’équivalent de l’état **Joint à une version hybride d’Azure AD** dans la page Appareils du portail Azure AD.
@@ -210,10 +211,10 @@ Lorsque vous utilisez la cmdlet **Get-MSolDevice** pour vérifier les détails d
 
 ## <a name="troubleshoot-your-implementation"></a>Résoudre les problèmes liés à votre implémentation
 
-Si vous rencontrez des problèmes pour effectuer une jonction Azure AD hybride pour des appareils Windows joints à un domaine, consultez :
+Si vous rencontrez des problèmes pour effectuer une jonction Azure AD hybride avec des appareils Windows joints à un domaine, consultez :
 
-- [Résolution des problèmes de jonction Azure AD hybride pour les appareils Windows actuels](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Résolution des problèmes de jonction Azure AD hybride pour les appareils Windows de bas niveau](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Résolution des problèmes de jonction Azure AD hybride pour les appareils Windows actuels](troubleshoot-hybrid-join-windows-current.md)
+- [Résolution des problèmes de jonction Azure AD hybride pour les appareils Windows de bas niveau](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
@@ -221,7 +222,7 @@ Si vous rencontrez des problèmes pour effectuer une jonction Azure AD hybride p
 
 > [!div class="nextstepaction"]
 > [Configurer une jonction Azure Active Directory hybride pour les domaines managés](hybrid-azuread-join-managed-domains.md)
-> [Configurer manuellement une jonction Azure Active Directory hybride](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [Configurer manuellement une jonction Azure Active Directory hybride](hybrid-azuread-join-manual-steps.md)
 
 
 

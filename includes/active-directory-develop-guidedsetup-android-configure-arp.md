@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Ajouter les informations d’inscription de l’application à votre application
 
 Dans cette étape, vous devez ajouter l’ID client à votre projet.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 03db1bf84e200d8b66f0395cbd96813e2248eefe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806364"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39485848"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Sauvegarde et récupération d’urgence pour les disques IaaS Azure
 
@@ -112,7 +112,7 @@ Pour les [disques non managés](../articles/virtual-machines/windows/about-disks
 | Scénario | Réplication automatique | Solution de récupération d’urgence |
 | --- | --- | --- |
 | Disques SSD Premium | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
-| Disques managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
+| Disques gérés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
 | Disques de stockage localement redondants non managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
 | Disques de stockage géoredondants non managés | Inter-région ([stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
 | Disques de stockage géoredondants avec accès en lecture non managés | Inter-région ([stockage géoredondant avec accès en lecture](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
@@ -121,7 +121,7 @@ Pour obtenir une haute disponibilité, il est conseillé d’utiliser des disque
 
 Vos choix pour la haute disponibilité, la sauvegarde et la récupération d’urgence aux niveaux Application et Infrastructure peuvent être représentés comme suit :
 
-| Niveau |   Haute disponibilité   | Sauvegarde ou récupération d’urgence |
+| Level |   Haute disponibilité   | Sauvegarde ou récupération d’urgence |
 | --- | --- | --- |
 | Application | SQL Server AlwaysOn | Sauvegarde Azure |
 | Infrastructure    | Groupe à haute disponibilité  | Stockage géoredondant avec captures instantanées cohérentes |
@@ -146,17 +146,17 @@ Utilisez les étapes suivantes pour activer les sauvegardes de vos machines virt
 
     a. Dans le [portail Azure](https://portal.azure.com/), parcourez **toutes les ressources** et recherchez **Coffres Recovery Services**.
 
-    b. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter** et suivez les étapes pour créer un coffre dans la même région que la machine virtuelle. Par exemple, si votre machine virtuelle est située dans la région Ouest des États-Unis, vous pouvez choisir Ouest des États-Unis pour le coffre.
+    b. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter** et suivez les étapes pour créer un coffre dans la même région que la machine virtuelle. Par exemple, si votre machine virtuelle est située dans la région USA Ouest, vous pouvez choisir USA Ouest pour le coffre.
 
-2.  Vérifiez la réplication du stockage pour le nouveau coffre. Accédez au coffre sous **Coffres Recovery Services** puis sélectionnez **Paramètres** > **Configuration de la sauvegarde**. Vérifiez que l’option de **stockage géoredondant** est sélectionnée par défaut. Cette option garantit que votre coffre est automatiquement répliqué vers un centre de données secondaire. Par exemple, votre coffre de la région Ouest des États-Unis est automatiquement répliqué vers la région Est des États-Unis.
+1.  Vérifiez la réplication du stockage pour le nouveau coffre. Accédez au coffre sous **Coffres Recovery Services** puis sélectionnez **Paramètres** > **Configuration de la sauvegarde**. Vérifiez que l’option de **stockage géoredondant** est sélectionnée par défaut. Cette option garantit que votre coffre est automatiquement répliqué vers un centre de données secondaire. Par exemple, votre coffre de la région USA Ouest est automatiquement répliqué vers la région USA Est.
 
-3.  Configurez la stratégie de sauvegarde et sélectionnez la machine virtuelle à partir de la même interface utilisateur.
+1.  Configurez la stratégie de sauvegarde et sélectionnez la machine virtuelle à partir de la même interface utilisateur.
 
-4.  Vérifiez que l’agent de sauvegarde est installé sur la machine virtuelle. Si votre machine virtuelle est créée à l’aide d’une image de la galerie Azure, l’agent de sauvegarde est déjà installé. Sinon (autrement dit, si vous utilisez une image personnalisée), utilisez les instructions de la page [Installer l’agent de machine virtuelle sur une machine virtuelle](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Vérifiez que l’agent de sauvegarde est installé sur la machine virtuelle. Si votre machine virtuelle est créée à l’aide d’une image de la galerie Azure, l’agent de sauvegarde est déjà installé. Sinon (autrement dit, si vous utilisez une image personnalisée), utilisez les instructions de la page [Installer l’agent de machine virtuelle sur une machine virtuelle](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Vérifiez que la machine virtuelle autorise la connectivité réseau pour que le service de sauvegarde fonctionne. Suivez les instructions relatives à la [connectivité réseau](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+1.  Vérifiez que la machine virtuelle autorise la connectivité réseau pour que le service de sauvegarde fonctionne. Suivez les instructions relatives à la [connectivité réseau](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
-6.  Une fois les étapes précédentes terminées, la sauvegarde s’exécute à intervalles réguliers, comme spécifié dans la stratégie de sauvegarde. Si nécessaire, vous pouvez déclencher la première sauvegarde manuellement à partir du tableau de bord du coffre sur le portail Azure.
+1.  Une fois les étapes précédentes terminées, la sauvegarde s’exécute à intervalles réguliers, comme spécifié dans la stratégie de sauvegarde. Si nécessaire, vous pouvez déclencher la première sauvegarde manuellement à partir du tableau de bord du coffre sur le portail Azure.
 
 Pour automatiser l’utilisation de scripts par Sauvegarde Azure, reportez-vous à [Applets de commande PowerShell pour la sauvegarde de machines virtuelles](../articles/backup/backup-azure-vms-automation.md).
 
@@ -188,9 +188,9 @@ Pour éviter cette situation, le processus de sauvegarde doit implémenter les �
 
 1.  Figez tous les disques.
 
-2.  Videz toutes les écritures en attente.
+1.  Videz toutes les écritures en attente.
 
-3.  [Créez une capture instantanée d’objets blob](../articles/storage/blobs/storage-blob-snapshots.md) pour tous les disques.
+1.  [Créez une capture instantanée d’objets blob](../articles/storage/blobs/storage-blob-snapshots.md) pour tous les disques.
 
 Certaines applications Windows telles que SQL Server fournissent un mécanisme de sauvegarde coordonné via le service VSS (Volume Shadow Service) pour créer des sauvegardes cohérentes entre les applications. Sur Linux, vous pouvez utiliser un outil comme *fsfreeze* pour coordonner les disques. Cet outil fournit des sauvegardes cohérentes au niveau des fichiers, mais aucune capture instantanée cohérente au niveau des applications. Ce processus étant compliqué, envisagez d’utiliser le service [Sauvegarde Azure](../articles/backup/backup-azure-vms-introduction.md) ou une solution de sauvegarde tierce qui implémente déjà cette procédure.
 
@@ -202,11 +202,11 @@ Une autre option pour créer des sauvegardes cohérentes consiste à arrêter la
 
 1. Arrêtez la machine virtuelle.
 
-2. Créez une capture instantanée de chaque objet blob de disque dur virtuel. Cette opération ne prend que quelques secondes.
+1. Créez une capture instantanée de chaque objet blob de disque dur virtuel. Cette opération ne prend que quelques secondes.
 
     Pour créer une capture instantanée, vous pouvez utiliser [PowerShell](../articles/storage/common/storage-powershell-guide-full.md), l’[API REST Stockage Azure](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/) ou l’une des bibliothèques clientes Stockage Azure comme [la bibliothèque cliente Stockage pour .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-3. Démarrez la machine virtuelle, ce qui met fin au temps d’arrêt. En général, l’ensemble du processus se termine en quelques minutes.
+1. Démarrez la machine virtuelle, ce qui met fin au temps d’arrêt. En général, l’ensemble du processus se termine en quelques minutes.
 
 Ce processus génère une collection de captures instantanées cohérentes pour tous les disques, en fournissant un point de restauration de sauvegarde pour la machine virtuelle.
 
@@ -254,7 +254,7 @@ Pour les comptes de stockage dans Azure, il existe trois types de redondance de 
 
 Le stockage localement redondant conserve trois copies des données dans le même centre de données. Lorsque la machine virtuelle écrit les données, les trois copies sont mises à jour avant qu’un message de réussite ne soit retourné à l’appelant. Vous savez donc qu’elles sont identiques. Votre disque est protégé contre les défaillances locales car il est peu probable que les trois copies soient affectées en même temps. Dans le cas du stockage localement redondant, il n’y a pas de géoredondance. Par conséquent, le disque n’est pas protégé contre les défaillances graves qui peuvent avoir un impact sur une unité de stockage ou un centre de données entier.
 
-Avec un stockage géoredondant avec accès en lecture et le stockage géoredondant, trois copies de vos données sont conservées dans la région principale est sélectionnée par vous. Trois autres copies de vos données sont conservées dans une région secondaire correspondante, définie par Azure. Par exemple, si vous stockez des données dans la région Ouest des États-Unis, celles-ci sont répliquées dans la région Est des États-Unis. La rétention de copie est effectuée en mode asynchrone et il existe un léger délai entre les mises à jour vers les régions primaires et secondaires. Les réplicas des disques sur le site secondaire sont cohérents par disque (avec le délai), mais les réplicas de plusieurs disques actifs peuvent ne pas être synchronisés entre eux. Pour avoir des réplicas cohérents sur plusieurs disques, les captures instantanées cohérentes sont nécessaires.
+Avec un stockage géoredondant avec accès en lecture et le stockage géoredondant, trois copies de vos données sont conservées dans la région principale est sélectionnée par vous. Trois autres copies de vos données sont conservées dans une région secondaire correspondante, définie par Azure. Par exemple, si vous stockez des données dans la région USA Ouest, celles-ci sont répliquées dans la région USA Est. La rétention de copie est effectuée en mode asynchrone et il existe un léger délai entre les mises à jour vers les régions primaires et secondaires. Les réplicas des disques sur le site secondaire sont cohérents par disque (avec le délai), mais les réplicas de plusieurs disques actifs peuvent ne pas être synchronisés entre eux. Pour avoir des réplicas cohérents sur plusieurs disques, les captures instantanées cohérentes sont nécessaires.
 
 La principale différence entre le stockage géoredondant et un stockage géoredondant avec accès en lecture est que, avec un stockage géoredondant avec accès en lecture, vous pouvez lire la copie secondaire à tout moment. S’il existe un problème à cause duquel les données de la région primaire sont inaccessibles, l’équipe Azure s’efforce de rétablir l’accès. Quand la région primaire est en panne, si vous avez activé le stockage géoredondant avec accès en lecture, vous pouvez accéder aux données dans le centre de données secondaire. Par conséquent, si vous envisagez de lire à partir du réplica alors que la région primaire n’est pas accessible, le stockage géoredondant avec accès en lecture doit être envisagé.
 
