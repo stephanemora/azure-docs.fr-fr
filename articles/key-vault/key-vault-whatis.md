@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: barclayn
-ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 08331a399044eba17060d15f24af1863df38caf5
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282994"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480251"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -33,6 +33,8 @@ Azure Key Vault est un outil permettant de stocker les secrets et d’y accéder
 Ci-dessous, vous trouverez quelques mots-clés :
 - **Locataire** : un locataire est l’organisation qui possède et gère une instance spécifique de services de cloud Microsoft. Il fait souvent référence à l’ensemble des services Azure et Office 365 pour une organisation.
 - **Propriétaire du coffre** : il peut créer un accès et un contrôle complets au coffre de clés. Le propriétaire du coffre peut également configurer l’audit pour consigner qui accèdent aux secrets et aux clés. Les administrateurs peuvent contrôler le cycle de vie de la clé. Ils peuvent déployer une nouvelle version de la clé, la sauvegarder, etc.
+- **Ressource** : un élément gérable disponible via Azure. Les ressources telles que les machines virtuelles, les comptes de stockage, les applications web, les bases de données et les réseaux virtuels sont courantes, mais il en existe beaucoup d’autres.
+- **Groupe de ressources** : un conteneur réunissant les ressources associées d’une solution Azure. Le groupe de ressources peut inclure toutes les ressources de la solution, ou uniquement celles que vous souhaitez gérer en tant que groupe. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation. Voir Groupes de ressources.
 - **Consommateur du coffre** : il peut effectuer des actions sur les ressources à l’intérieur du coffre de clés lorsque le propriétaire du coffre lui accorde l’accès. L’accès dépend des autorisations octroyées.
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)**  est le service Azure AD pour un locataire donné. Chaque répertoire contient au moins un domaine personnalisé. Un répertoire peut avoir plusieurs abonnements associés, mais qu’un seul locataire. 
 - **ID de locataire Azure** : il s’agit d’un moyen unique d’identification d’Azure Active Directory au sein d’un abonnement Azure. 

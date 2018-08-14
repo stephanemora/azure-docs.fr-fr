@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide Azure - Créer un coffre de clés Azure Key Vault à l’aide de l’interface de ligne de commande | Microsoft Docs
-description: Démarrage rapide indiquant comment créer un coffre de clés Azure Key Vault à l’aide de l’interface de ligne de commande
+title: Démarrage rapide Azure - Définir et récupérer un secret depuis Key Vault à l’aide d’Azure CLI | Microsoft Docs
+description: Démarrage rapide montrant comment définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: ae8957e5bf87fc190076db87d4eaca0e7a757c5e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: dc69d472e38bcc39de35204c26068a98e0549601
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067654"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480916"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>Démarrage rapide : créer un coffre de clés Azure Key Vault à l’aide de l’interface de ligne de commande
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI
 
 Azure Key Vault est un service cloud qui fonctionne comme un magasin des secrets sécurisé. Vous pouvez stocker des clés, des mots de passe, des certificats et d’autres secrets en toute sécurité. Pour plus d’informations sur Key Vault, consultez la [présentation](key-vault-overview.md). Azure CLI vous permet de créer et gérer des ressources Azure à l’aide de commandes ou de scripts. Dans ce démarrage rapide, vous allez créer un coffre de clés. Ensuite, vous y stockerez un secret.
 
@@ -53,7 +53,7 @@ Ensuite, vous allez créer un coffre de clés dans le groupe de ressources cré�
 
 - Pour ce démarrage rapide, nous utilisons **Contoso-vault2**. Vous devez fournir un nom unique dans votre test.
 - Nom du groupe de ressources **ContosoResourceGroup**.
-- Emplacement **eastus**.
+- Emplacement **USA Est**.
 
 ```azurecli
 az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGroup' --location eastus
@@ -86,7 +86,7 @@ az keyvault secret show --name 'ExamplePassword' --vault-name 'Contoso-Vault2'
 
 Vous venez de créer un coffre de clés, d’y stocker un secret et de récupérer ce dernier.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, ainsi que toutes les ressources associées. Vous pouvez supprimer les ressources comme suit :

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 729bd9f83c288cc5a326ddef8fff553c6d7700fb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ed34dcfb2aa488f4e7e34294b46de68624811afd
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711611"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39609036"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel - Autoriser une application web à effectuer l’authentification avec des comptes à l’aide d’Azure Active Directory B2C
 
@@ -37,13 +37,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="register-web-app"></a>Inscrire une API web
 
-Les applications doivent être [inscrites](../active-directory/develop/active-directory-dev-glossary.md#application-registration) dans votre locataire avant qu’elles ne puissent recevoir des [jetons d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token) de la part de Azure Active Directory. L’inscription d’une application crée un [id d’application](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) pour celle-ci dans votre client. 
+Les applications doivent être [inscrites](../active-directory/develop/developer-glossary.md#application-registration) dans votre locataire avant qu’elles ne puissent recevoir des [jetons d’accès](../active-directory/develop/developer-glossary.md#access-token) de la part de Azure Active Directory. L’inscription d’une application crée un [id d’application](../active-directory/develop/developer-glossary.md#application-id-client-id) pour celle-ci dans votre client. 
 
 Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre client Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Sélectionnez **Azure AD B2C** dans la liste des services du portail Azure. 
+1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**. Vous devriez désormais utiliser le locataire que vous avez créé dans le tutoriel précédent. 
 
 2. Dans les paramètres B2C, cliquez sur **Applications**, puis sur **Ajouter**. 
 
@@ -54,8 +54,8 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | Mon exemple d’application web | Entrez un **nom** décrivant votre application aux consommateurs. | 
-    | **Inclure une application/API web** | OUI | Sélectionnez **Oui** pour une application web. |
-    | **Autoriser le flux implicite** | OUI | Sélectionnez **Oui** puisque l’application utilise la [connexion OpenID Connect](active-directory-b2c-reference-oidc.md). |
+    | **Inclure une application/API web** | Oui | Sélectionnez **Oui** pour une application web. |
+    | **Autoriser le flux implicite** | Oui | Sélectionnez **Oui** puisque l’application utilise la [connexion OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de réponse** | `https://localhost:44316` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C retourne les jetons demandés par votre application. Dans ce didacticiel, l’exemple s’exécute localement (localhost) et écoute sur le port 44316. |
     | **Inclure le client natif** | Non  | Dans la mesure où il s’agit d’une application web et pas d’un client natif, sélectionnez Non. |
     
@@ -65,11 +65,11 @@ Les applications inscrites sont indiquées dans la liste des applications du cli
 
 ![Propriétés de l’application web](./media/active-directory-b2c-tutorials-web-app/b2c-web-app-properties.png)
 
-Notez **l’ID du client d’application**. Cet ID identifie l’application de manière unique. Il est nécessaire pour configurer l’application ultérieurement dans le didacticiel.
+Notez l’**ID d’application**. Cet ID identifie l’application de manière unique. Il est nécessaire pour configurer l’application ultérieurement dans le didacticiel.
 
 ### <a name="create-a-client-password"></a>Créer un mot de passe client
 
-Azure AD B2C utilise l’autorisation OAuth2 pour [les applications clientes](../active-directory/develop/active-directory-dev-glossary.md#client-application). Les applications web sont des [clients confidentiels](../active-directory/develop/active-directory-dev-glossary.md#web-client) et nécessitent un ID client ou ID d’application et une clé secrète client, un mot de passe client ou une clé d’application.
+Azure AD B2C utilise l’autorisation OAuth2 pour [les applications clientes](../active-directory/develop/developer-glossary.md#client-application). Les applications web sont des [clients confidentiels](../active-directory/develop/developer-glossary.md#web-client) et nécessitent un ID client ou ID d’application et une clé secrète client, un mot de passe client ou une clé d’application.
 
 1. Sélectionnez la page Clés de l’application web inscrit et cliquez sur **Générer une clé**.
 
@@ -98,7 +98,7 @@ Pour inscrire des utilisateurs puis les connecter à l’application web, créez
     | **Name** | SiUpIn | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SiUpIn** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Inscription par e-mail | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Attributs de l’inscription** | Nom d’affichage et Code Postal | Sélectionnez les attributs à collecter auprès de l'utilisateur pendant l'inscription. |
-    | **Revendications de l’application** | Nom d’affichage, Code Postal, L’utilisateur est nouveau, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/active-directory-dev-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Revendications de l’application** | Nom d’affichage, Code Postal, L’utilisateur est nouveau, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Cliquez sur **Créer** pour créer votre stratégie. 
 
@@ -115,7 +115,7 @@ Pour permettre aux utilisateurs de réinitialiser eux-mêmes les informations de
     | **Name** | SiPe | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SiPe** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Local Account SignIn | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Attributs de profil** | Nom d’affichage et Code Postal | Sélectionnez les attributs que les utilisateurs peuvent modifier durant la modification du profil. |
-    | **Revendications de l’application** | Nom d’affichage, Code postal, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/active-directory-dev-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token) après une modification de profil réussie. |
+    | **Revendications de l’application** | Nom d’affichage, Code postal, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une modification de profil réussie. |
 
 2. Cliquez sur **Créer** pour créer votre stratégie. 
 
@@ -131,7 +131,7 @@ Pour activer la réinitialisation du mot de passe sur votre application, vous de
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | SSPR | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SSPR** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Réinitialiser le mot de passe à l’aide d’une adresse e-mail | Il s’agit du fournisseur d’identité utilisé pour identifier l’utilisateur. |
-    | **Revendications de l’application** | ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/active-directory-dev-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/active-directory-dev-glossary.md#access-token) après une réinitialisation réussie du mot de passe. |
+    | **Revendications de l’application** | ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une réinitialisation réussie du mot de passe. |
 
 2. Cliquez sur **Créer** pour créer votre stratégie. 
 
@@ -139,7 +139,7 @@ Pour activer la réinitialisation du mot de passe sur votre application, vous de
 
 Maintenant que vous avez une application web inscrite et des stratégies créées, vous devez configurer votre application pour utiliser votre locataire Azure AD B2C. Dans ce didacticiel, vous configurez un exemple d’application web que vous pouvez télécharger à partir de GitHub. 
 
-[Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
+[Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub. Assurez-vous que vous extrayez l’exemple de fichier dans un dossier où la longueur totale du chemin d’accès est inférieure à 260 caractères.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -153,26 +153,13 @@ L’exemple de solution contient deux projets :
 
 **Exemple d’application d’API web (TaskService) :** API web qui prend en charge les fonctionnalités de la liste des tâches de création, de lecture, de mise à jour et de suppression. L’API web est protégée par Azure AD B2C et appelée par l’application web.
 
-Vous devez modifier l’application pour utiliser l’inscription de l’application de votre locataire, ce qui inclut l’ID de client ou l’ID d’application et la clé d’application ou le mot de passe client. Vous devez également configurer les stratégies créées. L’exemple d’application web définit les valeurs de configuration en tant que paramètres d’application dans le fichier Web.config. Pour modifier les paramètres d’application :
+Vous devez modifier l’application pour utiliser l’inscription d’application à votre locataire, ce qui inclut l’ID d’application et la clé enregistrés précédemment. Vous devez également configurer les stratégies créées. L’exemple d’application web définit les valeurs de configuration en tant que paramètres d’application dans le fichier Web.config. Pour modifier les paramètres d’application :
 
 1. Ouvrez la solution **B2C-WebAPI-DotNet** dans Visual Studio.
 
-2. Dans le projet d’application web **TaskWebApp**, ouvrez le fichier **Web.config** et apportez les mises à jour suivantes aux clés existantes :
+2. Dans le projet d’application web **TaskWebApp**, ouvrez le fichier **Web.config**. Remplacez la valeur pour `ida:Tenant` avec le nom du locataire que vous avez créé. Remplacez la valeur pour `ida:ClientId` avec l’ID d’application que vous avez enregistré. Remplacez la valeur de `ida:ClientSecret` avec la clé que vous avez enregistrée.
 
-    ```C#
-    <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
-    
-    <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
-    
-    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
-    ```
-3. Mettez à jour les clés existantes avec les valeurs des noms de stratégie que vous avez créés lors d’une étape précédente. N’oubliez pas d’inclure le préfixe *b2c_1_*.
-
-    ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
-    <add key="ida:EditProfilePolicyId" value="b2c_1_SiPe" />
-    <add key="ida:ResetPasswordPolicyId" value="b2c_1_SSPR" />
-    ```
+3. Dans le fichier **Web.config**, remplacez la valeur pour `ida:SignUpSignInPolicyId` avec `b2c_1_SiUpIn`. Remplacez la valeur pour `ida:EditProfilePolicyId` avec `b2c_1_SiPe`. Remplacez la valeur pour `ida:ResetPasswordPolicyId` avec `b2c_1_SSPR`.
 
 ## <a name="run-the-sample-web-app"></a>Exécuter l’exemple d’application web
 
@@ -198,7 +185,7 @@ L’exemple d’application prend en charge l’inscription et la connexion des 
 
 Maintenant l’utilisateur peut utiliser son adresse e-mail pour vous connecter et utiliser l’application web.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 

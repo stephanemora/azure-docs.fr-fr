@@ -11,20 +11,20 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: douge
-ms.openlocfilehash: d0cb1c113724af5d07abf75e6d3a45b54e5202dc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 02b15295cce1a1a018b0532948f9ba113c2f8c14
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950768"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522969"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Guide de démarrage rapide : créer un espace de développement Kubernetes avec Azure Dev Spaces (Node.js)
 
 Dans ce guide, vous allez apprendre à :
 
-- Configurez Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
+- Configurer Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
 - Développer du code de façon itérative dans des conteneurs en utilisant VS Code et la ligne de commande.
-- Déboguez le code exécuté dans votre cluster.
+- Déboguer le code exécuté dans votre cluster.
 
 > [!Note]
 > **Si vous êtes bloqué**, consultez la section [Résolution des problèmes](troubleshooting.md) ou postez un commentaire sur cette page. Vous pouvez aussi essayer ce [didacticiel](get-started-nodejs.md) plus détaillé.
@@ -39,6 +39,10 @@ Dans ce guide, vous allez apprendre à :
 - Visual Studio Code, que vous pouvez télécharger [ici](https://code.visualstudio.com/download).
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurer Azure Dev Spaces
+
+Il est possible d’installer l’interface de ligne de commande Azure et l’extension Azure Dev Spaces puis de les exécuter sur des ordinateurs Windows, Mac ou Linux. Pour Linux, les distributions suivantes sont prises en charge : Ubuntu (18.04, 16.04 et 14.04), Debian 8 et 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 et SLES 12.
+
+Pour configurer Azure Dev Spaces, procédez comme suit :
 
 1. Installez [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 ou ultérieure).
 1. Configurez Dev Spaces sur votre cluster AKS : `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`

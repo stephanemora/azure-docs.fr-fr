@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358944"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480881"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -166,7 +166,7 @@ Utilisez les informations du tableau suivant pour configurer les **Paramètres**
    |Groupe de ressources     |**Existant** : Test-FW-RG |
    |Lieu     |Sélectionnez le même emplacement que celui utilisé précédemment|
    |Choisir un réseau virtuel     |**Existant** : Test-FW-VN|
-   |Adresse IP publique     |Création|
+   |Adresse IP publique     |**Créer un nouveau**. L’adresse IP publique doit être le type de référence (SKU) Standard.|
 
 2. Cliquez sur **Revoir + créer**.
 3. Passez en revue le résumé, puis cliquez sur **Créer** pour créer le pare-feu.
@@ -175,10 +175,6 @@ Utilisez les informations du tableau suivant pour configurer les **Paramètres**
 4. Une fois le déploiement terminé, accédez au groupe de ressources **Test-FW-RG**, puis cliquez sur le pare-feu **Test-FW01**.
 6. Notez l’adresse IP privée. Vous l’utiliserez plus tard lors de la création de l’itinéraire par défaut.
 
-> [!NOTE]
-> L’adresse IP publique doit être le type de référence (SKU) Standard.
-
-[//]: # (N’oubliez pas de noter l’adresse IP privée pour le pare-feu.)
 
 ## <a name="create-a-default-route"></a>Créer un itinéraire par défaut
 
@@ -279,7 +275,7 @@ Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources **Test-FW-RG** pour supprimer toutes les ressources associées au pare-feu.
+Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **Test-FW-RG** pour supprimer toutes les ressources associées au pare-feu.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

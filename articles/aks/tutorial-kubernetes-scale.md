@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 22f7f9aee791d315300ffdc4dc9f708a80a5baf7
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 61654ae972965800909544554cc93dae511e1ff1
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127404"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480270"
 ---
 # <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>Didacticiel : mettre à l’échelle une application dans Azure Kubernetes Service (AKS)
 
@@ -35,34 +35,6 @@ Dans les didacticiels précédents, une application a été empaquetée dans une
 
 Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Tutoriel 1 – Créer des images conteneur][aks-tutorial-prepare-app].
 
-## <a name="scale-aks-nodes"></a>Mettre à l’échelle nœuds ACS
-
-Si vous avez créé votre cluster Kubernetes à l’aide des commandes dans le didacticiel précédent, le cluster comporte un nœud. Vous pouvez ajuster le nombre de nœuds manuellement si vous prévoyez davantage ou moins de charges de travail de conteneur sur votre cluster.
-
-L’exemple suivant permet d’augmenter le nombre de nœuds à trois dans le cluster Kubernetes nommé *myAKSCluster*. Quelques minutes sont nécessaires pour exécuter la commande.
-
-```azurecli
-az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
-```
-
-Le résultat ressemble à ce qui suit :
-
-```
-"agentPoolProfiles": [
-  {
-    "count": 3,
-    "dnsPrefix": null,
-    "fqdn": null,
-    "name": "myAKSCluster",
-    "osDiskSizeGb": null,
-    "osType": "Linux",
-    "ports": null,
-    "storageProfile": "ManagedDisks",
-    "vmSize": "Standard_D2_v2",
-    "vnetSubnetId": null
-  }
-```
-
 ## <a name="manually-scale-pods"></a>Mettre à l’échelle des pods manuellement
 
 Jusqu’à maintenant, le front-end Azure Vote et l’instance de Redis ont été déployés, chacun avec un réplica unique. À des fins de vérification, exécutez la commande [kubectl get][kubectl-get].
@@ -71,7 +43,7 @@ Jusqu’à maintenant, le front-end Azure Vote et l’instance de Redis ont ét�
 kubectl get pods
 ```
 
-Sortie :
+Output:
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -91,7 +63,7 @@ Exécutez [kubectl get pods][kubectl-get] pour vérifier que Kubernetes crée le
 kubectl get pods
 ```
 
-Sortie :
+Output:
 
 ```
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -134,7 +106,7 @@ Pour voir l’état de la mise à l’échelle automatique, exécutez la command
 kubectl get hpa
 ```
 
-Sortie :
+Output:
 
 ```
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
@@ -142,6 +114,34 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 ```
 
 Au bout de quelques minutes, avec une charge minimale sur l’application Azure Vote, le nombre de réplicas de pods descend automatiquement à 3.
+
+## <a name="manually-scale-aks-nodes"></a>Mettre manuellement à l’échelle les nœuds AKS
+
+Si vous avez créé votre cluster Kubernetes à l’aide des commandes dans le didacticiel précédent, le cluster comporte un nœud. Vous pouvez ajuster le nombre de nœuds manuellement si vous prévoyez davantage ou moins de charges de travail de conteneur sur votre cluster.
+
+L’exemple suivant permet d’augmenter le nombre de nœuds à trois dans le cluster Kubernetes nommé *myAKSCluster*. Quelques minutes sont nécessaires pour exécuter la commande.
+
+```azurecli
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
+```
+
+Le résultat ressemble à ce qui suit :
+
+```
+"agentPoolProfiles": [
+  {
+    "count": 3,
+    "dnsPrefix": null,
+    "fqdn": null,
+    "name": "myAKSCluster",
+    "osDiskSizeGb": null,
+    "osType": "Linux",
+    "ports": null,
+    "storageProfile": "ManagedDisks",
+    "vmSize": "Standard_D2_v2",
+    "vnetSubnetId": null
+  }
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

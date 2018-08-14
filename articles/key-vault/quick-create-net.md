@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide Azure - Configurer une application web Azure pour lire un secret de coffre de clés (Key Vault) | Microsoft Docs
-description: Un guide de démarrage rapide qui vous explique comment configurer une application ASP.NET Core pour lire un secret de coffre de clés (Key Vault)
+title: Démarrage rapide Azure - Configurer une application web Azure pour définir et récupérer un secret depuis Key Vault | Microsoft Docs
+description: Ce guide de démarrage rapide vous explique comment configurer une application ASP.NET Core pour définir et récupérer un secret depuis Key Vault.
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 07a7bc5713f093e34a775aacab27094780ac6c7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247823"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480200"
 ---
-# <a name="quickstart-set-and-read-a-secret-from-key-vault-in-a-net-web-app"></a>Démarrage rapide : Définir et lire un secret de coffre de clés (Key Vault) dans une application web .NET
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET
 
 Dans ce guide de démarrage rapide, vous allez passer en revue les étapes nécessaires pour qu’une application web Azure puisse lire les informations d’un coffre de clés Key Vault à l’aide d’identités de service administrées (MSI). Vous allez apprendre à effectuer les actions suivantes :
 
@@ -56,7 +56,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
 Sélectionnez un nom de groupe de ressources et renseignez l’espace réservé.
 L’exemple suivant crée un groupe de ressources nommé *<YourResourceGroupName>* à l’emplacement *eastus*.

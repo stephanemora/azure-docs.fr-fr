@@ -2,24 +2,19 @@
 title: Développement pour Azure Files avec .NET | Microsoft Docs
 description: Découvrez comment développer des services et applications .NET qui utilisent Azure Files pour stocker les données de fichiers.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 95f890ccbe03fc734b54ac8c5edee2ec7b56d9c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: d9ec9929de6b21aeddf35faf72cf1b2f1bb4c88a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737627"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39561944"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET
 
@@ -220,7 +215,7 @@ if (share.Exists())
 
     // Create a new CloudFile object from the SAS, and write some text to the file.
     CloudFile fileSas = new CloudFile(fileSasUri);
-    fileSas.UploadText("This write operation is authenticated via SAS.");
+    fileSas.UploadText("This write operation is authorized via SAS.");
     Console.WriteLine(fileSas.DownloadText());
 }
 ```
@@ -233,7 +228,7 @@ Depuis la version 5.x de la bibliothèque cliente Azure Storage, vous pouvez co
 Vous pouvez également utiliser AzCopy pour copier un fichier dans un autre ou pour copier un objet blob dans un fichier ou vice versa. Consultez l’article [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
-> Si vous copiez un objet blob dans un fichier ou un fichier dans un objet blob, vous devez utiliser une signature d’accès partagé (SAP) pour authentifier l’objet source, même si vous effectuez la copie dans le même compte de stockage.
+> Si vous copiez un objet blob dans un fichier ou un fichier dans un objet blob, vous devez utiliser une signature d’accès partagé (SAP) pour autoriser l’accès à l’objet source, même si vous effectuez la copie dans le même compte de stockage.
 > 
 > 
 
@@ -281,7 +276,7 @@ if (share.Exists())
 }
 ```
 
-**Copier un fichier vers un blob** L’exemple ci-dessous crée un fichier et le copie dans un blob au sein du même compte de stockage. L’exemple crée une SAP pour le fichier source, que le service utilise pour authentifier l’accès au fichier source pendant l’opération de copie.
+**Copier un fichier vers un blob** L’exemple ci-dessous crée un fichier et le copie dans un blob au sein du même compte de stockage. L’exemple crée une SAP pour le fichier source, que le service utilise pour autoriser l’accès au fichier source pendant l’opération de copie.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -307,7 +302,7 @@ CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
 
 // Create a SAS for the file that's valid for 24 hours.
 // Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
-// to authenticate access to the source object, even if you are copying within the same
+// to authorize access to the source object, even if you are copying within the same
 // storage account.
 string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
 {

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3e4520df5c1ca8477abf5a9c4b4e7e124bb38282
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005755"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038266"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gérer Azure Cloud Services dans le portail Azure
 Dans la zone **Services cloud** du portail Azure, vous pouvez :
@@ -83,7 +83,7 @@ Il existe deux conditions préalables principales pour qu’un échange de dépl
 
 - Si vous souhaitez utiliser une adresse IP statique pour votre emplacement de production, vous devez en réserver une pour votre emplacement intermédiaire également. Sinon, l’échange échoue.
 
-- Toutes les instances de vos rôles doivent être en cours d’exécution pour que vous puissiez effectuer l’échange. Vous pouvez vérifier l’état de vos instances sur le panneau **Aperçu** du portail Azure. Vous pouvez également utiliser la commande [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) dans Windows PowerShell.
+- Toutes les instances de vos rôles doivent être en cours d’exécution pour que vous puissiez effectuer l’échange. Vous pouvez vérifier l’état de vos instances sur le panneau **Aperçu** du portail Azure. Vous pouvez également utiliser la commande [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) dans Windows PowerShell.
 
 Notez que les mises à jour du système d’exploitation invité et les opérations de réparation de service peuvent également entraîner l’échec du déploiement. Pour plus d’informations, consultez [Résoudre les problèmes de déploiement de service cloud](cloud-services-troubleshoot-deployment-problems.md).
 

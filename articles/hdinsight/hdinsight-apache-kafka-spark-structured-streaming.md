@@ -1,23 +1,20 @@
 ---
-title: 'Didacticiel : Apache Spark Structured Streaming avec Kafka - Azure HDInsight | Microsoft Docs'
+title: 'Didacticiel : Apache Spark Structured Streaming avec Kafka - Azure HDInsight '
 description: Découvrez comment utiliser la diffusion en continu Apache Spark pour échanger des flux de données avec Apache Kafka. Dans ce didacticiel, vous diffusez des données avec un bloc-notes Jupyter à partir de Spark sur HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: larryfr
-ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: jasonh
+ms.openlocfilehash: 47879350c56b9e8b943e1bff61359727746b697d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939246"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598300"
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Didacticiel : utiliser Spark Structured Streaming avec Kafka sur HDInsight
 
@@ -32,12 +29,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer des clusters Kafka et Spark
 > * Charger le bloc-notes vers Spark
 > * Utiliser le bloc-notes
-> * Supprimer des ressources
+> * Supprimer les ressources
 
 Lorsque vous avez terminé les étapes décrites dans ce document, n’oubliez pas de supprimer les clusters pour éviter les frais supplémentaires.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Connaissances sur l’utilisation des blocs-notes Jupyter Notebook avec Spark sur HDInsight. Pour plus d’informations, consultez le document [Load data and run queries with Spark on HDInsight (Charger des données et exécuter des requêtes interactives avec Spark dans HDInsight)](spark/apache-spark-load-data-run-query.md).
 
@@ -192,7 +188,7 @@ Pour télécharger le bloc-notes à partir du projet pour votre cluster Spark su
 
 Une fois que les fichiers ont été chargés, sélectionnez l’entrée __spark-structured-streaming-kafka.ipynb__ pour ouvrir le bloc-notes. Pour savoir comment utiliser le flux structuré Spark avec Kafka sur HDInsight, suivez les instructions dans le bloc-notes.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Pour supprimer les ressources créées par ce didacticiel, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
 

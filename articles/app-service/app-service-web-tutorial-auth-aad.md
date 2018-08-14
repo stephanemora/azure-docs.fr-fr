@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 4bdb182d93b842bf94e75672b1d7b4cf4f6da253
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589150"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599617"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
-[Azure App Service](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. En outre, App Service prend, de base, en charge [l’authentification et l’autorisation des utilisateurs](app-service-authentication-overview.md). Ce didacticiel montre comment sécuriser vos applications avec l’authentification et l’autorisation App Service. Il utilise une application ASP.NET Core avec un serveur frontal Angular.js, mais c’est uniquement pour notre exemple. L’authentification et l’autorisation App Service prennent en charge tous les runtimes de langage, et vous pouvez apprendre comment les appliquer à votre langage préféré en suivant le didacticiel.
+[Azure App Service](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. En outre, App Service prend, de base, en charge [l’authentification et l’autorisation des utilisateurs](app-service-authentication-overview.md). Ce tutoriel montre comment sécuriser vos applications avec l’authentification et l’autorisation App Service. Il utilise une application ASP.NET Core avec un serveur frontal Angular.js, mais c’est uniquement pour notre exemple. L’authentification et l’autorisation App Service prennent en charge tous les runtimes de langage, et vous pouvez apprendre comment les appliquer à votre langage préféré en suivant le tutoriel.
 
-Ce didacticiel utilise l’exemple d’application pour vous montrer comment sécuriser une application autonome (dans [Activer l’authentification et l’autorisation pour l’application principale](#enable-authentication-and-authorization-for-back-end-app)).
+Ce tutoriel utilise l’exemple d’application pour vous montrer comment sécuriser une application autonome (dans [Activer l’authentification et l’autorisation pour l’application principale](#enable-authentication-and-authorization-for-back-end-app)).
 
 ![Authentification et autorisation simples](./media/app-service-web-tutorial-auth-aad/simple-auth.png)
 
@@ -35,7 +35,7 @@ Il vous montre également comment sécuriser une application multiniveau, en acc
 
 Il s’agit uniquement de quelques scénarios d’authentification et d’autorisation possibles dans App Service. 
 
-Voici une liste plus complète de ce que vous allez apprendre dans ce didacticiel :
+Voici une liste plus complète de ce que vous allez apprendre dans ce tutoriel :
 
 > [!div class="checklist"]
 > * Activer l’authentification et l’autorisation intégrées
@@ -46,14 +46,14 @@ Voici une liste plus complète de ce que vous allez apprendre dans ce didacticie
 > * Utiliser des jetons d’accès à partir du code du serveur
 > * Utiliser des jetons d’accès à partir du code du client (navigateur)
 
-Vous pouvez suivre les étapes de ce didacticiel sur macOS, Linux, Windows.
+Vous pouvez suivre les étapes de ce tutoriel sur macOS, Linux, Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 * [Installer Git](https://git-scm.com/).
 * [Installer .NET CoreNET](https://www.microsoft.com/net/core/).
@@ -242,7 +242,7 @@ Sur la page de gestion de l’application AD, copiez **l’ID d’application** 
 
 Suivez les mêmes étapes que pour l’application principale, mais ignorez la dernière étape. Vous n’avez pas besoin de **l’ID d’application** pour l’application frontale. Laissez la page **Paramètres Azure Active Directory** ouverte.
 
-Si vous le souhaitez, rendez-vous à l’adresse `http://<front_end_app_name>.azurewebsites.net`. Vous devez être redirigé vers une page de connexion. Après vous être connecté, vous ne pouvez toujours pas accéder aux données de l’application principale, car trois choses restent à faire :
+Si vous le souhaitez, rendez-vous à l’adresse `http://<front_end_app_name>.azurewebsites.net`. Vous êtes à présent redirigé vers une page de connexion sécurisée. Après vous être connecté, vous ne pouvez toujours pas accéder aux données de l’application principale, car trois choses restent à faire :
 
 - Accorder l’accès du serveur frontal au serveur principal
 - Configurer App Service pour renvoyer un jeton utilisable
@@ -323,7 +323,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-Connectez-vous à `http://<front_end_app_name>.azurewebsites.net` une nouvelle fois. Sur la page de contrat d’utilisation des données utilisateur, cliquez sur **Accepter**.
+Connectez-vous à `https://<front_end_app_name>.azurewebsites.net` une nouvelle fois. Sur la page de contrat d’utilisation des données utilisateur, cliquez sur **Accepter**.
 
 Vous devez maintenant être en mesure de créer, lire, mettre à jour et supprimer des données à partir de l’application principale comme avant. Désormais, la seule différence est que les deux applications sont protégées par l’authentification et l’autorisation App Service, y compris les appels entre les services.
 
@@ -341,7 +341,7 @@ Alors que le code du serveur a accès aux en-têtes de requête, le code du clie
 
 ### <a name="configure-cors"></a>Configuration de CORS
 
-Dans Cloud Shell, activez CORS pour votre URL de client à l’aide de la commande [`az resource update`](/cli/azure/resource#az_resource_update). Remplacez les espaces réservés _\<back\_end\_app\_name>_ et _\<front\_end\_app\_name>_.
+Dans Cloud Shell, activez CORS pour votre URL de client à l’aide de la commande [`az resource update`](/cli/azure/resource#az-resource-update). Remplacez les espaces réservés _\<back\_end\_app\_name>_ et _\<front\_end\_app\_name>_.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
@@ -353,7 +353,7 @@ Cette étape n’est pas liée à l’authentification et à l’autorisation. T
 
 Dans le référentiel local, ouvrez _wwwroot/index.html_.
 
-À la ligne 51, définissez la variable `apiEndpoint` sur l’URL de votre application principale (`http://<back_end_app_name>.azurewebsites.net`). Remplacez _\<back\_end\_app\_name>_ par le nom de votre application dans App Service.
+À la ligne 51, définissez la variable `apiEndpoint` sur l’URL de votre application principale (`https://<back_end_app_name>.azurewebsites.net`). Remplacez _\<back\_end\_app\_name>_ par le nom de votre application dans App Service.
 
 Dans le référentiel local, ouvrez _wwwroot/app/scripts/todoListSvc.js_ ; vous pouvez constater que `apiEndpoint` est ajouté à tous les appels d’API. Votre application Angular.js appelle maintenant les API de serveur principal. 
 
@@ -407,11 +407,15 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-Accédez à nouveau à `http://<front_end_app_name>.azurewebsites.net`. Vous devez maintenant être en mesure de créer, lire, mettre à jour et supprimer des données à partir de l’application principale, et ce, directement dans l’application Angular.js.
+Accédez à nouveau à `https://<front_end_app_name>.azurewebsites.net`. Vous devez maintenant être en mesure de créer, lire, mettre à jour et supprimer des données à partir de l’application principale, et ce, directement dans l’application Angular.js.
 
 Félicitations ! Votre code du client accède maintenant aux données de serveur principal pour le compte de l’utilisateur authentifié.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="when-access-tokens-expire"></a>Date d’expiration des jetons d’accès
+
+Votre jeton d’accès expire après un certain laps de temps. Pour plus d’informations sur la façon d’actualiser vos jetons d’accès sans obliger les utilisateurs à se réauthentifier avec votre application, consultez [Actualiser les jetons d’accès](app-service-authentication-how-to.md#refresh-access-tokens).
+
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources en exécutant la commande suivante dans Cloud Shell :
 
@@ -435,7 +439,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Utiliser des jetons d’accès à partir du code du serveur
 > * Utiliser des jetons d’accès à partir du code du client (navigateur)
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
+Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)

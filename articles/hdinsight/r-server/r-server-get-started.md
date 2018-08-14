@@ -1,26 +1,20 @@
 ---
-title: Prise en main de ML Services sur HDInsight - Azure | Microsoft Docs
+title: Prise en main de ML Services sur HDInsight - Azure
 description: Apprenez à créer un Apache Spark sur un cluster HDInsight incluant ML Services, puis à envoyer un script R sur le cluster.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: efc7ada12f722b0447712594de496e933bde3d36
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7965a91efe58102268f4d54275e7fa3fc4ff74d3
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053430"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617783"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Démarrer avec ML Services sur Azure HDInsight
 
@@ -42,11 +36,11 @@ Azure HDInsight vous permet de créer un cluster ML Services. Cette option perme
 3. À partir du panneau **Informations de base**, entrez les informations suivantes :
 
     * **Nom du cluster** : nom du cluster HDInsight.
-    * **Abonnement** : sélectionnez l'abonnement souhaité.
-    * **Nom d’utilisateur de connexion du cluster** et **Mot de passe de connexion du cluster** : les informations de connexion lors de l’accès au cluster sur HTTPS. Vous utilisez ces informations d’identification pour accéder aux services tels que l’interface utilisateur Ambari Web ou l’API REST.
-    * **Nom d’utilisateur Secure Shell (SSH)**  : information de connexion utilisée lors de l’accès au cluster sur SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster.
-    * **Groupe de ressources** : groupe de ressources dans lequel créer le cluster.
-    * **Emplacement** : la région Azure dans laquelle créer le cluster.
+    * **Abonnement** : sélectionnez l'abonnement souhaité.
+    * **Nom d’utilisateur de connexion du cluster** et **Mot de passe de connexion du cluster** : les informations de connexion lors de l’accès au cluster sur HTTPS. Vous utilisez ces informations d’identification pour accéder aux services tels que l’interface utilisateur Ambari Web ou l’API REST.
+    * **Nom d’utilisateur Secure Shell (SSH)** : information de connexion utilisée lors de l’accès au cluster sur SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster.
+    * **Groupe de ressources** : groupe de ressources dans lequel créer le cluster.
+    * **Emplacement** : la région Azure dans laquelle créer le cluster.
 
         ![Détails de base du cluster](./media/r-server-get-started/clustername.png)
 
@@ -54,7 +48,7 @@ Azure HDInsight vous permet de créer un cluster ML Services. Cette option perme
 
     * **Type de cluster** : ML Services
 
-    * **Système d’exploitation** : Linux
+    * **Système d’exploitation** : Linux
 
     * **Version** : ML Server 9.3 (HDI 3.6). Les notes de publication de ML Server9.3 sont disponibles sur [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server).
 
@@ -73,7 +67,7 @@ Azure HDInsight vous permet de créer un cluster ML Services. Cette option perme
     ![Définir les paramètres de compte de stockage pour HDInsight](./media/r-server-get-started/clustersummary.png)
 
     > [!NOTE]
-    > La création du cluster peut prendre jusqu’à 20 minutes.
+    > La création du cluster peut prendre jusqu’à 20 minutes.
 
 <a name="connect-to-rstudio-server"></a>
 ## <a name="connect-to-rstudio-server"></a>Se connecter à RStudio Server
@@ -221,7 +215,7 @@ Vous pouvez automatiser la création d’un cluster ML Services pour HDInsight �
 * Pour créer un cluster ML Services à l’aide du Kit de développement logiciel (SDK) .NET, consultez [Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 * Pour créer un cluster ML Services à l’aide de PowerShell, consultez l’article [Créer des clusters HDInsight à l’aide d’Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
-## <a name="delete-the-cluster"></a>Suppression du cluster
+## <a name="delete-the-cluster"></a>Supprimer le cluster
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -234,7 +228,7 @@ Si vous rencontrez des problèmes lors de la création de clusters HDInsight, re
 Dans cet article, vous avez appris à créer un cluster ML Services sur Azure HDInsight et les principes fondamentaux de l’utilisation de la console R à partir d’une session SSH. Les articles suivants expliquent les autres méthodes de gestion et d’utilisation de ML Services sur HDInsight :
 
 * [Envoyer des travaux depuis Outils R pour Visual Studio](r-server-submit-jobs-r-tools-vs.md)
-* [Gérer un cluster ML Services sur HDInsight](r-server-hdinsight-manage.md)
+* [Gérer un cluster ML Services sur HDInsight](r-server-hdinsight-manage.md)
 * [Rendre opérationnel un cluster ML Services sur HDInsight](r-server-operationalize.md)
 * [Options de contexte de calcul pour un cluster ML Services sur HDInsight](r-server-compute-contexts.md)
-* [Options de stockage Azure pour un cluster ML Services sur HDInsight](r-server-storage.md)
+* [Options de stockage Azure pour un cluster ML Services sur HDInsight](r-server-storage.md)

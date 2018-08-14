@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: jaredro
-ms.openlocfilehash: e5cb701295854c6908af04b5de5aec2ca5bd978c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 122a227429dace3ee4a85565d47366d31b6c3ddf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285157"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576829"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -62,7 +62,8 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- |
 | **Cloud du gouvernement des États-Unis** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginie, US DoD Centre, US DoD Est  |Chicago, Dallas, New York, Seattle, Phoenix, San Antonio, Silicon Valley, Washington DC |
-| **Chine** |Chine du Nord, Chine orientale |Beijing, Shanghai |
+| **Chine Est** |Chine Est, Chine Est2 |Shanghai |
+| **Chine Nord** |Chine Nord, Chine Nord2 |Beijing |
 | **Allemagne** |Allemagne centrale, Allemagne de l’est |Berlin, Francfort |
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
@@ -139,7 +140,7 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 ### <a name="germany"></a>Allemagne
 | **Emplacement** | **Fournisseurs de services** |
 | --- | --- |
-| **Berlin** |Colt+, e-shelter, Megaport+, T-Systems |
+| **Berlin** |e-shelter, Megaport+, T-Systems |
 | **Francfort** |Colt, Equinix, Interxion |
 
 ## <a name="c1partners"></a>Connectivité via des fournisseurs Exchange

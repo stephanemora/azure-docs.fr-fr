@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 41f74ff00e4fad751d4a2b7ae96ebb048bbcdfcd
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345356"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492696"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Tutoriel : 5. Ajouter une entité hiérarchique
 Dans ce tutoriel, vous allez créer une application qui montre comment rechercher les ensembles de données en fonction du contexte. 
@@ -119,15 +119,8 @@ Ajoutez l’entité de nombre prédéfinie dans l’application.
     ![Capture d’écran de la sélection du nombre dans la boîte de dialogue des entités prédéfinies](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
-LUIS ne connaît pas les modifications apportées aux intentions et aux entités (modèle) tant que son apprentissage n’a pas été effectué. 
 
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
-
-    ![Effectuer l’apprentissage de l’application](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
-
-2. L’apprentissage est terminé lorsque la barre d’état verte s’affiche en haut du site web, confirmant ainsi sa réussite.
-
-    ![Apprentissage réussi](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
 
@@ -242,6 +235,10 @@ Oui, créez l’expression régulière avec les rôles d’origine et de destina
 
 Dans cet exemple, les emplacements tels que `a-1234`, suivent un format spécifiques : une ou deux lettres, suivies d’un tiret puis d’une série de 4 à 5 chiffres. Ces données peuvent être décrites comme une entité à expression régulière avec un rôle pour chaque emplacement. Les rôles sont disponibles pour les modèles. Vous pouvez créer des modèles basés sur ces énoncés, puis créer une expression régulière pour le format de l’emplacement et l’ajouter aux modèles. <!-- Go to this tutorial to see how that is done -->
 
+## <a name="patterns-with-roles"></a>Modèles avec rôles
+
+[!include[LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
+
 ## <a name="what-has-this-luis-app-accomplished"></a>Quel est l’accomplissement de cette application LUIS ?
 Cette application, comptant seulement quelques intentions et une entité hiérarchique, a identifié une intention de requête en langage naturel et retourné les données extraites. 
 
@@ -250,8 +247,9 @@ Votre chatbot a maintenant suffisamment d’informations pour déterminer l’ac
 ## <a name="where-is-this-luis-data-used"></a>Où ces données LUIS sont-elles utilisées ? 
 LUIS en a fini avec cette requête. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les données de l’entité pour passer à l’étape suivante. LUIS n’effectue pas ce travail de programmation pour le robot ou l’application d’appel. LUIS détermine uniquement l’intention de l’utilisateur. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-Lorsque vous n’en avez plus besoin, supprimez l’application LUIS. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 

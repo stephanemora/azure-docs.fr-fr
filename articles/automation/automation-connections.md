@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5b31529c9ccfdc5d7871ec860a97d964ece69f8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435687"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038176"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ressources de connexion dans Azure Automation
 
@@ -42,7 +42,7 @@ Les activités du tableau suivant sont utilisées pour accéder aux connexions d
 
 |Activités|Description|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtient une connexion à utiliser. Renvoie une table de hachage avec les propriétés de la connexion.|
+|[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtient une connexion à utiliser. Renvoie une table de hachage avec les propriétés de la connexion.|
 
 >[!NOTE] 
 >Évitez d’utiliser des variables dans le paramètre –Name de **Get- AutomationConnection**, car cela complique la découverte des dépendances entre les runbooks ou les configurations DSC et les ressources de connexion au moment de la conception.

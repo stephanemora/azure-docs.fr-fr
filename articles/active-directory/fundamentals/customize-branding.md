@@ -14,12 +14,12 @@ ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 7804d6b0d4a100997fb545e678458424dac6ceed
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227270"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528324"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Démarrage rapide : Ajouter la marque de votre société à votre page de connexion dans Azure AD
 Pour éviter toute confusion, de nombreuses entreprises veulent que tous les sites Web et services qu’elles gèrent aient un aspect similaire. Azure Active Directory (AD) offre cette possibilité en vous permettant de personnaliser l’apparence la page de connexion pour qu’elle affiche le logo de votre société et sa palette de couleurs personnalisée. La page de connexion s’affiche lorsque vous vous connectez à Office 365 ou à d’autres applications web qui utilisent Azure AD comme fournisseur d’identité. Vous interagissez avec cette page pour saisir vos informations d’identification.
@@ -71,7 +71,7 @@ Cette couleur est utilisée à la place de l’image d’arrière-plan sur les c
 ### <a name="square-logo-image"></a>Logo carré
 Description | Contraintes | Recommandations
 ------- | ------- | ----------
-Cette image s’affiche durant la configuration des nouveaux PC Windows 10 Entreprise. Elle fournit aux employés le contexte, durant la configuration de leur nouveau PC de travail. L’image s’affiche pour les clients utilisant [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) pour le déploiement de leurs appareils de travail, et sur les pages de saisie du mot de passe pour les autres utilisateurs Windows 10. | PNG (format préféré) ou JPG transparent<br>Dimensions de l’image : 240 x 240 px<br>Taille de fichier : &lt; 10 Ko | Utilisez le logo de votre organisation ici.<br> Utilisez une image transparente.<br>Ne partez pas du principe que l’arrière-plan est blanc.<br>N’ajoutez pas de marge intérieure autour de votre logo dans l’image, sinon le logo s’affichera disproportionnellement petit.
+Cette image s’affiche durant la configuration des nouveaux PC Windows 10 Entreprise. Elle fournit aux employés le contexte, durant la configuration de leur nouveau PC de travail. L’image s’affiche pour les clients utilisant [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) pour le déploiement de leurs appareils de travail, et sur les pages de saisie du mot de passe pour les autres utilisateurs Windows 10.<br>Le logo carré est utilisé exclusivement dans l’authentification Windows. Le thème foncé est déconseillé et n’est plus utilisé. | PNG (format préféré) ou JPG transparent<br>Dimensions de l’image : 240 x 240 px<br>Taille de fichier : &lt; 10 Ko | Utilisez le logo de votre organisation ici.<br> Utilisez une image transparente.<br>Ne partez pas du principe que l’arrière-plan est blanc.<br>N’ajoutez pas de marge intérieure autour de votre logo dans l’image, sinon le logo s’affichera disproportionnellement petit.
 
 ### <a name="show-option-to-remain-signed-in"></a>Afficher l’option permettant de rester connecté
 Description | Contraintes | Recommandations

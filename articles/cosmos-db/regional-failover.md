@@ -2,20 +2,20 @@
 title: Basculement régional dans Azure Cosmos DB | Microsoft Docs
 description: Découvrez le fonctionnement du basculement manuel et automatique avec Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: sngun
+ms.author: govindk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 947ecb2e6cd122ad98429db93e43b2b5c57744b7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 697be3a1eb07b2f2650f3dd94fd835b9431aec6b
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613997"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038267"
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Basculement régional automatique pour la continuité des activités dans Azure Cosmos DB
 Azure Cosmos DB simplifie la distribution globale de données en gérant complètement les [comptes de bases de données multirégions](distribute-data-globally.md) qui fournissent des compromis clairs entre cohérence, disponibilité et performance, le tout avec les garanties correspondantes. Les comptes Cosmos DB offrent des capacités de haute disponibilité, des latences inférieures à 10 millisecondes, des [niveaux de cohérence bien définis](consistency-levels.md), un basculement régional transparent avec des API multihébergement et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible. 
@@ -37,9 +37,9 @@ Avant de nous plonger dans les modes de basculement, nous allons examiner commen
 * Tout d’abord, déployez votre application multi-régions
 * Pour garantir un accès à faible latence à partir de chaque région de votre application, configurez la [liste des régions préférées](https://msdn.microsoft.com/library/microsoft.azure.documents.client.connectionpolicy.preferredlocations.aspx#P:Microsoft.Azure.Documents.Client.ConnectionPolicy.PreferredLocations) pour chaque région par le biais de l'un des kits de développement logiciel (SDK) pris en charge.
 
-L’extrait de code suivant montre comment initialiser une application multi-régions. Ici, le compte Azure Cosmos DB `contoso.documents.azure.com` est configuré avec deux régions : États-Unis de l’Ouest et Europe du Nord. 
+L’extrait de code suivant montre comment initialiser une application multi-régions. Ici, le compte Azure Cosmos DB `contoso.documents.azure.com` est configuré avec deux régions : USA Ouest et Europe Nord. 
 
-* L’application est déployée dans la région États-Unis de l'Ouest (par exemple, à l’aide d'Azure App Service) 
+* L’application est déployée dans la région USA Ouest (par exemple, à l’aide d'Azure App Service) 
 * Configuré avec `West US` en tant que première région préférée pour des lectures à faible latence
 * Configuré avec `North Europe` comme deuxième région préférée (pour une haute disponibilité durant les défaillances régionales)
 
@@ -61,7 +61,7 @@ DocumentClient usClient = new DocumentClient(
     usConnectionPolicy);
 ```
 
-L’application est également déployée dans la région Europe du Nord, dans l’ordre inversé des régions préférées. Autrement dit, la région Europe du Nord est spécifiée en premier pour les lectures à faible latence. La région États-Unis de l'Ouest est ensuite spécifiée comme deuxième région préférée pour une haute disponibilité durant les défaillances régionales.
+L’application est également déployée dans la région Europe Nord, dans l’ordre inversé des régions préférées. Autrement dit, la région Europe Nord est spécifiée en premier pour les lectures à faible latence. La région USA Ouest est ensuite spécifiée comme deuxième région préférée pour une haute disponibilité durant les défaillances régionales.
 
 Le schéma d’architecture suivant montre un déploiement d’application multirégion où Cosmos DB et l’application sont configurés de manière à être disponibles dans quatre régions géographiques Azure.  
 

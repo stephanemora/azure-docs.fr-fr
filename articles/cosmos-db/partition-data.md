@@ -2,20 +2,20 @@
 title: Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB | Microsoft Docs
 description: Découvrez comment le partitionnement fonctionne dans Azure Cosmos DB, comment configurer le partitionnement et les clés de partition, et comment choisir la clé de partition appropriée pour votre application.
 services: cosmos-db
-author: rimman
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.author: rimman
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cb668dba661ce05d6393aec2707b65918f0c2ac
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c9c1379cd457dcba37246985058b01e85633f968
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344128"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038188"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionner et mettre à l’échelle dans Azure Cosmos DB
 

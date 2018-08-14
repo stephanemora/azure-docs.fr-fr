@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2ceae5b530d1967ccca2b33c05c183302684be41
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8bfe2fb7274fb8c6dcf977e8bd72af525d8ce8a5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116765"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528168"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Utilisation du chiffrement dynamique DRM et du service de remise des licences
 
@@ -65,6 +65,7 @@ L’exemple décrit dans cet article génère le résultat suivant :
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Consultez l’article [Présentation de la protection du contenu](content-protection-overview.md).
+* Lisez la section intitulée [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](design-multi-drm-system-with-access-control.md).
 * Installer Visual Studio Code ou Visual Studio
 * Créez un nouveau compte Azure Media Services, comme décrit dans [ce démarrage rapide](create-account-cli-quickstart.md).
 * Obtenir les informations d’identification nécessaires pour utiliser les API Media Services en respectant l’[accès aux API](access-api-cli-how-to.md)
@@ -72,7 +73,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 
 ## <a name="download-code"></a>Télécharger le code
 
-Clonez un référentiel GitHub qui contient l’exemple .NET complet abordé dans cet article sur votre machine avec la commande suivante :
+Clonez un dépôt GitHub qui contient l’exemple .NET complet abordé dans cet article sur votre machine avec la commande suivante :
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -141,8 +142,8 @@ Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé 
 
 Une fois l’encodage terminé, et la stratégie de clé de contenu configurée, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans la ressource de sortie pour qu’ils puissent la lire. Vous pouvez réaliser cela en deux étapes : 
 
-1. Créer un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
-2. Générez les URL de diffusion que les clients peuvent utiliser. 
+1. Créez un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators).
+2. Générez les URL de streaming que les clients peuvent utiliser. 
 
 Le processus de création de l’élément **StreamingLocator** est appelé publication. Par défaut, l’élément **StreamingLocator** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
 

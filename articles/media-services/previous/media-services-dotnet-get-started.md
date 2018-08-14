@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: a685043f0bc9841d2cc86f2c49469e8287a03b78
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 12a6f731dfb1c106c28d18caa95710751736629c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952261"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434582"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Prendre en main la diffusion de contenus à la demande à l’aide du Kit de développement logiciel (SDK) .NET
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -45,7 +45,7 @@ Ce didacticiel comprend les tâches suivantes :
 4. Publier l'élément multimédia et obtenir les URL de diffusion et de téléchargement progressif.  
 5. Lire votre contenu.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel vous présente les étapes d'implémentation d'une application de diffusion de contenu vidéo à la demande (VoD) avec le Kit de développement logiciel (SDK) Azure Media Services (AMS) pour .NET.
 
 Il présente le workflow Media Services de base et les objets et tâches de programmation les plus courants requis pour le développement Media Services. À la fin de ce didacticiel, vous pourrez lire en continu ou télécharger de façon progressive un exemple de fichier multimédia que vous aurez chargé, encodé et téléchargé.
@@ -155,7 +155,7 @@ Dans Media Services, vous téléchargez (ou réceptionnez) vos fichiers numériq
 
 La méthode **UploadFile** définie ci-dessous appelle **CreateFromFile** (défini dans les extensions du Kit de développement logiciel (SDK) .NET). **CreateFromFile** crée un nouvel élément multimédia dans lequel le fichier source spécifié est téléchargé.
 
-La méthode **CreateFromFile** prend \*\*AssetCreationOptions, ce qui vous permet de spécifier les options de création d’éléments multimédias suivantes :
+La méthode **CreateFromFile** prend **AssetCreationOptions**, ce qui vous permet de spécifier une des options de création de ressource suivantes :
 
 * **None** : aucun chiffrement. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n'est pas protégé pendant le transit ou le repos dans le stockage.
   Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option.

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903473"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627200"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Qu’est-ce que Batch AI dans Azure ?
 Batch AI est un service géré qui permet aux scientifiques des données et aux chercheurs en IA d’effectuer l’apprentissage de l’IA et d’autres modèles de Machine Learning sur des clusters de machines virtuelles Azure, y compris les machines virtuelles prenant en charge les GPU. Vous décrivez les exigences de votre travail, où trouver les entrées et stocker les sorties, et Batch AI gère le reste.  
@@ -40,7 +40,7 @@ Batch AI assure la gestion des ressources et la planification des travaux spéci
 * Mise à l’échelle automatique ou manuelle des clusters de machines virtuelles utilisant des GPU ou des UC 
 * Configuration de la communication SSH entre les machines virtuelles et pour l’accès à distance 
 * Prise en charge de toutes les infrastructures d’apprentissage profond ou de Machine Learning, avec une configuration optimisée pour les outils courants tels que [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), [TensorFlow](https://www.tensorflow.org/) et [Chainer](https://chainer.org/) 
-* File d’attente des travaux axée sur les priorités pour partager des clusters et tirer parti des machines virtuelles à basse priorité ainsi que des instances réservées  
+* File d’attente des travaux axée sur les priorités pour partager des clusters et tirer parti des machines virtuelles à basse priorité ainsi que des réservations Azure  
 * Options de stockage flexibles incluant les fichiers Azure et un serveur NFS géré 
 * Montage des partages de fichiers distants dans la machine virtuelle et le conteneur facultatif 
 * Renseignement sur l’état du travail et redémarrage en cas de défaillance de la machine virtuelle 

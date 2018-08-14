@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: d1315753baf08cc80fda5811bd43bf59609781b7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: fe41728b6f08ba767dbcb40d0595b9f7cdc79615
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216021"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420197"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
 > * Envoyer un lien d’inscription aux étudiants
 
 ## <a name="prerequisites"></a>Prérequis
-Pour configurer un laboratoire de classe dans un compte de laboratoire, vous devez être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer un compte de laboratoire est automatiquement ajouté à ce rôle. Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle Créateur de laboratoire à l’aide des étapes fournies dans l’article suivant : [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Pour configurer un laboratoire de classe dans un compte de laboratoire, vous devez être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer un compte de laboratoire est ajouté automatiquement à ce rôle. Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle Créateur de laboratoire à l’aide des étapes fournies dans l’article suivant : [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe
@@ -47,6 +47,9 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     7. Sélectionnez **Enregistrer**.
 
         ![Créer un laboratoire de classe](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+1. Une fois le laboratoire créé, sélectionnez **Accéder à mon laboratoire**. 
+
+    ![Accéder à mon laboratoire](../media/tutorial-setup-classroom-lab/go-to-my-lab.png)
 1. Le **tableau de bord** du laboratoire s’affiche. 
     
     ![Tableau de bord de laboratoire de classe](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)

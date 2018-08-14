@@ -7,11 +7,11 @@ Tout d’abord, la dernière version [d’Azure PowerShell](http://msdn.microsof
 > 
 > 
 
-Exécutez l’applet de commande [**Connect-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) pour faire apparaître un écran de connexion dans lequel vous pouvez entrer vos informations d’identification. Utilisez les informations d’identification dont vous disposez pour vous connecter au portail Azure.
+Exécutez l’applet de commande [**Connect-AzureRmAccount**](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) pour faire apparaître un écran de connexion dans lequel vous pouvez entrer vos informations d’identification. Utilisez les informations d’identification dont vous disposez pour vous connecter au portail Azure.
 
     Connect-AzureRmAccount
 
-Si vous possédez plusieurs abonnements, utilisez l’applet de commande [**Set-AzureRmContext**](http://msdn.microsoft.com/library/mt619263.aspx) pour sélectionner l’abonnement que votre session PowerShell doit utiliser. Pour savoir quel abonnement la session PowerShell en cours utilise, exécutez l’applet de commande [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx). Pour voir tous vos abonnements, exécutez l’applet de commande [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx).
+Si vous possédez plusieurs abonnements, utilisez l’applet de commande [**Set-AzureRmContext**](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext) pour sélectionner l’abonnement que votre session PowerShell doit utiliser. Pour savoir quel abonnement la session PowerShell en cours utilise, exécutez l’applet de commande [**Get-AzureRmContext**](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermcontext). Pour voir tous vos abonnements, exécutez l’applet de commande [**Get-AzureRmSubscription**](https://docs.microsoft.com/powershell/module/servicemanagement/azurerm.profile/get-azurermsubscription).
 
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 

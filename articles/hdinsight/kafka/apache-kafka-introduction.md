@@ -1,26 +1,20 @@
 ---
-title: Présentation d’Apache Kafka sur HDInsight - Azure | Microsoft Docs
+title: Une présentation d’Apache Kafka sur HDInsight - Azure
 description: 'Découvrez Apache Kafka sur HDInsight : Présentation, fonctionnalités et exemples et informations de prise en main.'
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: f284b6e3-5f3b-4a50-b455-917e77588069
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/11/2018
-ms.author: larryfr
-ms.openlocfilehash: 51b4e4dea0f0c4da739f9e40beb74931060dd22b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c25413f126cb3273f38168d2425c7406479fda4f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770869"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622862"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>Présentation d’Apache Kafka sur HDInsight
 
@@ -56,7 +50,7 @@ Le diagramme suivant illustre une configuration Kafka type qui utilise des group
 
 Apache ZooKeeper gère l’état du cluster Kafka. ZooKeeper est conçu pour des transactions simultanées, résilientes et à faible latence. 
 
-Kafka stocke les enregistrements (données) dans des **rubriques**. Les enregistrements sont produits par des **producteurs**, et utilisés par des **consommateurs**. Les producteurs envoient les enregistrements aux **répartiteurs** Kafka. Chaque nœud Worker dans votre cluster HDInsight est un répartiteur Kafka. 
+Kafka stocke les enregistrements (données) dans des **rubriques**. Les enregistrements sont produits par des **producteurs** et utilisés par des **consommateurs**. Les producteurs envoient les enregistrements aux **répartiteurs** Kafka. Chaque nœud Worker dans votre cluster HDInsight est un répartiteur Kafka. 
 
 Les rubriques partitionnent les enregistrements entre les répartiteurs. Au cours de l’utilisation des enregistrements, il est possible d’utiliser jusqu’à un consommateur par partition pour effectuer un traitement parallèle des données.
 

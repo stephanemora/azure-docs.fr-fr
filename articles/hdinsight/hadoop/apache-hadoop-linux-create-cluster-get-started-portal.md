@@ -1,25 +1,21 @@
 ---
-title: 'Démarrage rapide : bien commencer avec Hadoop et Hive dans Azure HDInsight à l’aide du portail Azure | Microsoft Docs'
+title: 'Démarrage rapide : prise en main d’Hadoop et Hive dans Azure HDInsight à l’aide du portail Azure '
 description: Découvrez comment créer des clusters HDInsight à l’aide du portail Azure et interroger des données avec Hive.
 keywords: prise en main de hadoop,hadoop sur linux,démarrage rapide de hadoop,prise en main de hive,démarrage rapide de hive
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: nitinme
-ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 67fa5debac4039bf3ae9c3ef62418f033e2fa9c2
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097894"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598967"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Démarrage rapide : bien commencer avec Hadoop et Hive dans Azure HDInsight à l’aide du portail Azure
 
@@ -115,7 +111,7 @@ Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’ai
 
 2. Entrez le nom d’utilisateur Hadoop et le mot de passe que vous avez spécifiés lors de la création du cluster. Le nom d’utilisateur par défaut est **admin**.
 
-3. Ouvrez l’ **affichage Hive** comme illustré dans la capture d’écran suivante.
+3. Ouvrez l’**affichage Hive** comme illustré dans la capture d’écran suivante :
    
     ![Sélection des vues Ambari](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "Menu Affichage Hive dans HDInsight")
 

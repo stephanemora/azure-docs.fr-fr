@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: d339ad79eb632f1e6fa91b1fca56488c3ae67d86
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c5cec92094a2e76d02487adff43abf040aedfe0e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435345"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425807"
 ---
 # <a name="what-is-azure-event-hubs"></a>Nouveautés des concentrateurs d'événements Azure ?
 
@@ -38,25 +38,13 @@ Les données ne sont importantes que lorsqu’il y a une manière facile de les 
 
 Event Hubs représente la « porte d’entrée » pour un pipeline d’événements, parfois qualifié de service de *réception d’événements* dans des architectures de solution. Un service de réception d'événements est un composant ou service qui se trouve entre les éditeurs d'événements et les consommateurs d'événements pour dissocier la production d'un flux d'événements de leur consommation. Event Hubs fournit une plateforme de diffusion en continu unifiée, avec mise en mémoire tampon avec durée de rétention, en séparant les producteurs d’événements des consommateurs d'événements. 
 
-## <a name="key-features"></a>Fonctionnalités clés
-
-Cette solution fournit une fonctionnalité de gestion du flux de messages mais présente des caractéristiques différentes de la messagerie d’entreprise traditionnelle. Ses fonctionnalités reposent sur des scénarios de traitement des événements et un débit élevé. Les concentrateurs d’événements incluent les [éléments clés suivants](event-hubs-features.md) :
-
-- **Producteurs d’événements** : entité qui envoie des données à un concentrateur d’événements. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 et plus récent).
-- **Partition** : chaque consommateur lit uniquement un sous-ensemble spécifique (partition) du flux de messages.
-- **Groupes de consommateurs** : une vue (état, position ou décalage) d’un concentrateur d’événements dans sa totalité. Les groupes de consommateurs permettent à plusieurs applications consommatrices d'avoir chacune une vue distincte du flux d'événements et de lire le flux indépendamment à leur propre rythme et avec leurs propres décalages.
-- **Unités de débit** : unités de capacité qui contrôlent la capacité de débit d’Event Hubs, achetées préalablement.
-- **Récepteurs d’événements** : entité qui lit des données d’événement à partir d’un concentrateur d’événements. Tous les consommateurs Azure Event Hubs se connectent par le biais de la session AMQP 1.0 ; les événements sont remis par le biais de cette session dès qu’ils sont disponibles.
-
-La figure suivante montre l’architecture de traitement de flux Event Hubs :
-
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+Les sections suivantes décrivent les fonctionnalités clés du service Azure Event Hubs : 
 
 ## <a name="fully-managed-paas"></a>PaaS intégralement gérée 
 
 Event Hubs est un service géré avec peu de configuration ou de gestion. Vous pouvez ainsi vous concentrer sur vos solutions d’entreprise. [Event Hubs pour les écosystèmes d’Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) vous offre l’expérience de PaaS Kafka sans avoir à gérer, configurer ou exécuter vos clusters.
 
-## <a name="real-time-and-batching"></a>Temps réel et traitement par lot
+## <a name="support-for-real-time-and-batch-processing"></a>Prise en charge d’un traitement par lots et en temps réel
 
 Ingérez, mettez en mémoire tampon, stockez et traitez votre flux en temps réel pour obtenir des insights actionnables. Event Hubs utilise un [modèle de consommateur partitionné](event-hubs-features.md#partitions), qui permet à plusieurs applications de traiter le flux de données en même temps, ce qui vous laisse ainsi le contrôle sur la vélocité du traitement.
 
@@ -73,6 +61,21 @@ Avec Event Hubs, vous pouvez commencer avec des flux de données en mégaoctets 
 [Event Hubs pour les écosystèmes d’Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permet aux clients et applications [Apache Kafka (1.0 et versions ultérieures)](https://kafka.apache.org/) de communiquer avec Event Hubs sans avoir à gérer tous les clusters.
  
 Avec un vaste écosystème disponible dans différents [langages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), vous pouvez facilement lancer le traitement de vos flux en provenance d’Event Hubs. Tous les langages client pris en charge fournissent une intégration de faible niveau.
+
+## <a name="key-architecture-components"></a>Composants clés de l’architecture
+
+Cette solution fournit une fonctionnalité de gestion du flux de messages mais présente des caractéristiques différentes de la messagerie d’entreprise traditionnelle. Ses fonctionnalités reposent sur des scénarios de traitement des événements et un débit élevé. Les concentrateurs d’événements incluent les [éléments clés suivants](event-hubs-features.md) :
+
+- **Producteurs d’événements** : entité qui envoie des données à un concentrateur d’événements. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 et plus récent).
+- **Partition** : chaque consommateur lit uniquement un sous-ensemble spécifique (partition) du flux de messages.
+- **Groupes de consommateurs** : une vue (état, position ou décalage) d’un concentrateur d’événements dans sa totalité. Les groupes de consommateurs permettent à plusieurs applications consommatrices d'avoir chacune une vue distincte du flux d'événements et de lire le flux indépendamment à leur propre rythme et avec leurs propres décalages.
+- **Unités de débit** : unités de capacité qui contrôlent la capacité de débit d’Event Hubs, achetées préalablement.
+- **Récepteurs d’événements** : entité qui lit des données d’événement à partir d’un concentrateur d’événements. Tous les consommateurs Azure Event Hubs se connectent par le biais de la session AMQP 1.0 ; les événements sont remis par le biais de cette session dès qu’ils sont disponibles.
+
+La figure suivante montre l’architecture de traitement de flux Event Hubs :
+
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

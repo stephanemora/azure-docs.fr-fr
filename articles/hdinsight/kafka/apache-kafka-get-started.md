@@ -1,25 +1,19 @@
 ---
-title: Démarrer avec Apache Kafka – Démarrage rapide Azure HDInsight | Microsoft Docs
+title: Démarrer avec Apache Kafka - Démarrage rapide Azure HDInsight
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster Apache Kafka sur Azure HDInsight à l’aide du Portail Azure. Vous découvrirez également les rubriques, les abonnés et les consommateurs Kafka.
 services: hdinsight
-documentationcenter: ''
-author: dhgoelmsft
-manager: jhubbard
-ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 776705281a1909cbeee657f7915d4c83ec8bbabe
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c8ec39c6962c4044810d0ae65d2736043bdd4d72
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342151"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620210"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Démarrage rapide : Créer un cluster Kafka sur HDInsight
 
@@ -100,7 +94,7 @@ Pour créer un Kafka sur un cluster HDInsight, procédez comme suit :
 
     Utilisez le bouton __Suivant__ pour terminer la configuration de base.
 
-5. À partir du panneau **Stockage**, sélectionnez ou créez un compte de stockage. Concernant les étapes de ce document, laissez les autres champs sur leurs valeurs par défaut. Utilisez le bouton __Suivant__ pour enregistrer la configuration de stockage. Pour plus d’informations sur l’utilisation de Data Lake Storage Gen2, consultez [Démarrage rapide : configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+5. À partir du panneau **Stockage**, sélectionnez ou créez un compte de stockage. Concernant les étapes de ce document, laissez les autres champs sur leurs valeurs par défaut. Utilisez le bouton __Suivant__ pour enregistrer la configuration de stockage. Pour plus d’informations sur l’utilisation de Data Lake Storage Gen2, consultez [Démarrage rapide : configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Définir les paramètres de compte de stockage pour HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 
@@ -123,7 +117,7 @@ Pour créer un Kafka sur un cluster HDInsight, procédez comme suit :
     ![Résumé de la configuration du cluster](./media/apache-kafka-get-started/kafka-configuration-summary.png)
    
     > [!NOTE]
-    > La création du cluster peut prendre jusqu’à 20 minutes.
+    > La création du cluster peut prendre jusqu’à 20 minutes.
 
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 

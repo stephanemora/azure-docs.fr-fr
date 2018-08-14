@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c74631515301498aedcb035fae32b0a451e308
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cae95cfd01f8d6fbd6ddb4a11e9af290042ffa
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424775"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Didacticiel : intégration d’Azure Active Directory à Intralinks
 
@@ -115,7 +115,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     Dans la zone de texte **URL d’authentification**, tapez une URL en utilisant le modèle suivant : `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Contactez [l’équipe de support client Intralinks](https://www.intralinks.com/contact-1) pour obtenir cette valeur. 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Contactez [l’équipe de support client Intralinks](https://www.intralinks.com/contact) pour obtenir cette valeur. 
  
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -125,7 +125,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_general_400.png)
 
-1. Pour configurer l’authentification unique du côté de **Intralinks**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support d’Intralinks](https://www.intralinks.com/contact-1). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique du côté de **Intralinks**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support d’Intralinks](https://www.intralinks.com/contact). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,7 +163,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-an-intralinks-test-user"></a>Création d’un utilisateur de test Intralinks
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Intralinks. Collaborez avec [l’équipe du support technique Intralinks](https://www.intralinks.com/contact-1) pour ajouter des utilisateurs sur la plateforme Intralinks.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Intralinks. Collaborez avec [l’équipe du support technique Intralinks](https://www.intralinks.com/contact) pour ajouter des utilisateurs sur la plateforme Intralinks.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -237,7 +237,7 @@ Après cela, vous pouvez suivre la procédure ci-dessous pour ajouter une autre 
  
     ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-1. Récupérez l’URL d’authentification unique initiée par le fournisseur de services depuis [l’équipe Intralinks](https://www.intralinks.com/contact-1) pour l’autre application Intralinks. Entrez l’URL ainsi obtenue dans **Configurer l’URL d’authentification** comme indiqué ci-dessous. 
+1. Récupérez l’URL d’authentification unique initiée par le fournisseur de services depuis [l’équipe Intralinks](https://www.intralinks.com/contact) pour l’autre application Intralinks. Entrez l’URL ainsi obtenue dans **Configurer l’URL d’authentification** comme indiqué ci-dessous. 
     
      ![Configurer l'authentification unique](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

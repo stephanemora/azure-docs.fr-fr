@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 28b963922b423bb776aa97e9b76392bc484ddcd6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413071"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627805"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
 
@@ -46,9 +46,10 @@ Un appareil Azure IoT Edge :
 Ressources cloud :
 
 * Un niveau standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure. 
+* Un compte Azure Machine Learning. Suivez les instructions de la page [Créer des comptes Azure Machine Learning et installer Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Vous n’avez pas besoin d’installer l’application Workbench dans le cadre de ce didacticiel. 
 
 Ressources de développement :
-* Un compte Azure Machine Learning. Suivez les instructions de la page [Créer des comptes Azure Machine Learning et installer Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Vous n’avez pas besoin d’installer l’application Workbench dans le cadre de ce didacticiel. 
+
 * Gestion des modèles pour Azure ML. Pour configurer votre environnement et créer un compte, suivez les instructions de la page [Configuration de la gestion des modèles](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Pendant l’installation du déploiement, il est recommandé de choisir les étapes locales au lieu du cluster, si possible.
 
 ### <a name="disable-process-identification"></a>Désactiver l’identification du processus
@@ -187,7 +188,7 @@ Si vous exécutez ces commandes sur un appareil Linux, vous devez peut-être uti
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Afficher les données reçues par votre hub IoT
 
-Vous pouvez afficher les messages appareil-à-cloud reçus par votre hub IoT à l’aide de [l’explorateur IoT Hub](https://github.com/azure/iothub-explorer) ou de [l’extension du kit IoT Azure pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+Vous pouvez afficher les messages appareil-cloud reçus par votre hub IoT à l’aide de [l’extension du kit de ressources Azure IoT pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 Les étapes suivantes montrent comment configurer Visual Studio Code pour surveiller les messages appareil-à-cloud reçus par votre hub IoT. 
 
@@ -220,7 +221,7 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 Pour supprimer l’IoT Hub uniquement, exécutez la commande suivante en utilisant le nom de votre hub et le nom du groupe de ressources :
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

@@ -7,15 +7,15 @@ manager: carmonm
 keywords: sauvegarde et restauration ; services de restauration ; solutions de sauvegarde
 ms.service: backup
 ms.topic: overview
-ms.date: 3/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0a5b9e6cdb5329705cb3c6d4676dfc8d987119e4
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607097"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480971"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
@@ -116,11 +116,11 @@ Les sections suivantes comportent des tableaux qui résument la disponibilité o
 ### <a name="storage"></a>Stockage
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
-| Coffre Recovery Services |![OUI][green] |![OUI][green] |![OUI][green] |![OUI][green] |
-| Stockage sur disque | |![OUI][green] |![OUI][green] | |
-| Stockage sur bande | |![OUI][green] | | |
-| Compression <br/>(dans un coffre Recovery Services) |![OUI][green] |![OUI][green] |![OUI][green] | |
-| Sauvegarde incrémentielle |![OUI][green] |![OUI][green] |![OUI][green] |![OUI][green] |
+| Coffre Recovery Services |![Oui][green] |![OUI][green] |![OUI][green] |![Oui][green] |
+| Stockage sur disque | |![Oui][green] |![Oui][green] | |
+| Stockage sur bande | |![Oui][green] | | |
+| Compression <br/>(dans un coffre Recovery Services) |![Oui][green] |![OUI][green] |![Oui][green] | |
+| Sauvegarde incrémentielle |![Oui][green] |![OUI][green] |![OUI][green] |![Oui][green] |
 | Déduplication de disque | |![Partiellement][yellow] |![Partiellement][yellow] | | |
 
 ![clé de table](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -157,8 +157,8 @@ La **sauvegarde incrémentielle** permet d’obtenir une efficacité élevée en
 ### <a name="security"></a>Sécurité
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
-| Sécurité du réseau<br/> (vers Azure) |![OUI][green] |![OUI][green] |![OUI][green] |![Partiellement][yellow] |
-| Sécurité des données<br/> (dans Azure) |![OUI][green] |![OUI][green] |![OUI][green] |![Partiellement][yellow] |
+| Sécurité du réseau<br/> (vers Azure) |![Oui][green] |![OUI][green] |![OUI][green] |![Oui][green] |
+| Sécurité des données<br/> (dans Azure) |![Oui][green] |![OUI][green] |![OUI][green] |![Oui][green] |
 
 ![clé de table](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -171,13 +171,13 @@ L’ensemble du trafic de sauvegarde entre vos serveurs et le coffre Recovery S
 >
 
 #### <a name="data-security"></a>Sécurité des données
-La sauvegarde des machines virtuelles Azure exige la configuration du chiffrement *dans* la machine virtuelle. Utilisez BitLocker sur les machines virtuelles Windows et **dm-crypt** sur les machines virtuelles Linux. Azure Backup ne chiffre pas automatiquement les données de sauvegarde en provenance de ce chemin d’accès.
+La sauvegarde des machines virtuelles Azure exige la configuration du chiffrement *dans* la machine virtuelle. La sauvegarde Azure prend en charge Azure Disk Encryption, qui utilise BitLocker sur les machines virtuelles Windows et **dm-crypt** sur les machines virtuelles Linux. Sur le back end, la sauvegarde Azure utilise le [Chiffrement du service de stockage Azure](../storage/common/storage-service-encryption.md), ce qui protège les données au repos.
 
 ### <a name="network"></a>Réseau
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
-| Compression réseau <br/>(vers le **serveur de sauvegarde**) | |![OUI][green] |![OUI][green] | |
-| Compression réseau <br/>(vers le **coffre Recovery Services**) |![OUI][green] |![OUI][green] |![OUI][green] | |
+| Compression réseau <br/>(vers le **serveur de sauvegarde**) | |![Oui][green] |![Oui][green] | |
+| Compression réseau <br/>(vers le **coffre Recovery Services**) |![Oui][green] |![OUI][green] |![Oui][green] | |
 | Protocole réseau <br/>(vers le **serveur de sauvegarde**) | |TCP |TCP | |
 | Protocole réseau <br/>(vers le **coffre Recovery Services**) |HTTPS |HTTPS |HTTPS |HTTPS |
 

@@ -11,18 +11,18 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: douge
-ms.openlocfilehash: 3bb190570cbdf795668dd6e9f9d36630b6f3201b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2a13a326aee29d002be18a3f40c4be9b4f2da4f1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949864"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523333"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Guide de démarrage rapide : créer un espace de développement Kubernetes avec Azure Dev Spaces (.NET Core et Visual Studio Code)
 
 Dans ce guide, vous allez apprendre à :
 
-- Configurez Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
+- Configurer Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
 - Développer du code de façon itérative dans des conteneurs en utilisant VS Code et la ligne de commande.
 - Déboguer le code dans votre espace de développement à partir de VS Code
 
@@ -39,6 +39,10 @@ Dans ce guide, vous allez apprendre à :
 - [Visual Studio Code](https://code.visualstudio.com/download).
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurer Azure Dev Spaces
+
+Il est possible d’installer l’interface de ligne de commande Azure et l’extension Azure Dev Spaces puis de les exécuter sur des ordinateurs Windows, Mac ou Linux. Pour Linux, les distributions suivantes sont prises en charge : Ubuntu (18.04, 16.04 et 14.04), Debian 8 et 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 et SLES 12.
+
+Pour configurer Azure Dev Spaces, procédez comme suit :
 
 1. Installez [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 ou ultérieure).
 1. Configurez Dev Spaces sur votre cluster AKS : `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`

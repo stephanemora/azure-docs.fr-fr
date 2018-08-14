@@ -1,6 +1,6 @@
 ---
-title: Collecter des données à partir d’ordinateurs Linux locaux avec Azure Log Analytics | Microsoft Docs
-description: Découvrez comment déployer l’agent Log Analytics pour Linux et activez la collecte de données à partir de ce système d’exploitation avec Log Analytics.
+title: Configurer l’agent Azure Log Analytics pour les ordinateurs Linux hybrides | Microsoft Docs
+description: Découvrez comment déployer l’agent Log Analytics pour Linux qui s’exécute sur des ordinateurs situés en dehors d’Azure, mais aussi activer la collecte de données avec Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: aca8ee7305f919068733dfa3cb636a0f9bad7b05
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f1e363351cb214a80652aaef599a1306ad270e3f
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127167"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480807"
 ---
-# <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Collecter des données à partir d’un ordinateur Linux hébergé dans votre environnement
-[Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de votre ordinateur Linux physique ou virtuel et d’autres ressources de votre environnement dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Linux en quelques étapes simples.  Pour les machines virtuelles Linux Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
+# <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurer l’agent Log Analytics pour les ordinateurs Linux dans un environnement hybride
+[Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de votre ordinateur Linux physique ou virtuel lequel se situe dans votre centre de données ou un autre environnement cloud, puis de les enregistrer dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Linux en quelques étapes simples.  Pour les machines virtuelles Linux Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
 
 Pour comprendre la configuration prise en charge, consultez la page [Prise en charge des systèmes d’exploitation Linux](log-analytics-concept-hybrid.md#supported-linux-operating-systems) et [Configuration du pare-feu réseau](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
-1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br><br> ![Portail Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br><br> ![portail Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
   * Attribuez un nom au nouvel **Espace de travail OMS**, en l’occurrence *DefaultLAWorkspace*. 
@@ -114,7 +114,7 @@ Log Analytics est capable de collecter les événements de Syslog Linux ainsi qu
 1. Dans le portail Azure, accédez à Log Analytics et sélectionnez l’espace de travail créé précédemment.
 2. Cliquez sur la vignette **Recherche dans les journaux**. Ensuite, dans le volet Recherche dans les journaux, dans le champ de requête, tapez `Perf`, puis appuyez sur Entrée ou cliquez sur le bouton de recherche à droite du champ de requête.<br><br> ![Exemple de requête de recherche dans les journaux Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> Par exemple, la requête présentée dans l’image suivante a retourné 735 enregistrements de performances.<br><br> ![Résultat de la recherche dans les journaux Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Lorsque vous n’en avez plus besoin, vous pouvez supprimer l’agent de l’ordinateur Linux ainsi que l’espace de travail Log Analytics.  
 
 Pour supprimer l’agent, exécutez la commande suivante sur l’ordinateur Linux.  L’argument *--purge* supprime complètement l’agent et sa configuration.

@@ -1,29 +1,24 @@
 ---
-title: 'Démarrage rapide : démarrer avec Apache Kafka - Azure HDInsight | Microsoft Docs'
+title: Démarrer avec Apache Kafka – Démarrage rapide Azure HDInsight
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster Apache Kafka sur Azure HDInsight à l’aide d’Azure PowerShell. Vous découvrez également les rubriques, les abonnés et les consommateurs de Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: a9853bb8a298daab265b70b99db68de276c77048
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 25064873b830a8f323a8ee2287a3d69cf9c4013f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018070"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621512"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guide de démarrage rapide : Créer un cluster Kafka sur HDInsight
+# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Démarrage rapide : Créer un cluster Kafka sur HDInsight
 
-Kafka est une plateforme open source et distribuée de diffusion en continu. Elle est souvent utilisée comme répartiteur de messages, car elle fournit des fonctionnalités similaires à une file d’attente de messages de publication/d’abonnement. 
+Kafka est une plateforme de streaming open source distribuée. Elle est souvent utilisée comme répartiteur de messages, car elle fournit des fonctionnalités similaires à une file d’attente de messages de publication/d’abonnement. 
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [Apache Kafka](https://kafka.apache.org) à l’aide d’Azure PowerShell. Vous apprendrez également à utiliser les utilitaires inclus pour envoyer et recevoir des messages à l’aide de Kafka.
 
@@ -42,7 +37,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 
 * Un client SSH. Les étapes décrites dans ce document utilisent le protocole SSH pour se connecter au cluster.
 
-    La commande `ssh` est fournie par défaut sur les systèmes Linux, Unix et macOS. Sous Windows 10, utilisez l’une des méthodes suivantes pour installer la commande `ssh` :
+    La commande `ssh` est fournie par défaut sur les systèmes Linux, Unix et macOS. Dans Windows 10, utilisez l’une des méthodes suivantes pour installer la commande `ssh` :
 
     * Utilisez [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Il fournit la commande `ssh` et peut être configuré pour utiliser Bash ou PowerShell comme environnement shell.
 
@@ -143,7 +138,7 @@ New-AzureRmHDInsightCluster `
 > [!TIP]
 > Le paramètre `-DisksPerWorkerNode` configure l’évolutivité de Kafka sur HDInsight. Kafka sur HDInsight utilise le disque local des machines virtuelles dans le cluster pour stocker les données. En raison de son utilisation intensive des E/S, Kafka utilise [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud. 
 >
-> Le type de disque géré peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (répartiteurs Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard. Vous pouvez définir le type de machine virtuelle à l’aide du paramètre `-WorkerNodeSize`. Pour plus d’informations sur les paramètres, consultez la documentation [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+> Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (brokers Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard. Vous pouvez définir le type de machine virtuelle à l’aide du paramètre `-WorkerNodeSize`. Pour plus d’informations sur les paramètres, consultez la documentation [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 
 > [!IMPORTANT]
@@ -187,9 +182,9 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Obtention des informations sur Zookeeper et l’hôte du répartiteur
+## <a id="getkafkainfo"></a>Obtenir des informations sur les hôtes Zookeeper et Broker
 
-Si vous utilisez Kafka, vous devez connaître les hôtes *ZooKeeper* et *répartiteur*. Ces hôtes sont utilisés avec l’API Kafka et la plupart des utilitaires fournis avec Kafka.
+Si vous utilisez Kafka, vous devez connaître les hôtes *ZooKeeper* et *Broker*. Ces hôtes sont utilisés avec l’API Kafka et la plupart des utilitaires fournis avec Kafka.
 
 Dans cette section, vous allez récupérer les informations sur l’hôte grâce à l’API REST Ambari sur le cluster.
 
@@ -224,11 +219,11 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
      echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     ```
 
-    Cette commande renvoie des informations semblables au texte suivant :
+    Cette commande retourne des informations semblables au texte suivant :
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-5. Pour définir une variable d’environnement avec les informations d’hôte de répartiteur Kafka, utilisez la commande suivante :
+5. Pour définir une variable d’environnement avec les informations de l’hôte broker Kafka, utilisez la commande suivante :
 
     ```bash
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
@@ -242,7 +237,7 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
-    Cette commande renvoie des informations semblables au texte suivant :
+    Cette commande retourne des informations semblables au texte suivant :
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
@@ -307,7 +302,7 @@ Pour plus d’informations sur les commandes disponibles avec l’utilitaire `ka
 
 ## <a name="produce-and-consume-records"></a>Produire et consommer des enregistrements
 
-Kafka stocke les *enregistrements* dans des rubriques. Les enregistrements sont produits par des *producteurs*, et utilisés par des *consommateurs*. Les producteurs et les consommateurs communiquent avec le service *répartiteur Kafka*. Chacun des nœuds de travail de votre cluster HDInsight est un hôte de type répartiteur Kafka.
+Kafka stocke les *enregistrements* dans des rubriques. Les enregistrements sont produits par des *producteurs* et utilisés par des *consommateurs*. Les producteurs et les consommateurs communiquent avec le service *broker Kafka*. Chacun des nœuds de travail de votre cluster HDInsight est un hôte broker Kafka.
 
 Pour stocker les enregistrements dans la rubrique test créée précédemment, puis les lire à l’aide d’un consommateur, procédez comme suit :
 
@@ -336,7 +331,7 @@ Pour stocker les enregistrements dans la rubrique test créée précédemment, p
 
 Vous pouvez également créer les producteurs et consommateurs par programme. Pour obtenir un exemple d’utilisation de cette API, consultez le document [Kafka Producer and Consumer API with HDInsight (API Kafka Producer and Consumer avec HDInsight)](apache-kafka-producer-consumer-api.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources, HDInsight et toutes les ressources associées.
 

@@ -3,20 +3,20 @@ title: Niveaux de cohérence dans Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos DB offre cinq niveaux de cohérence qui permettent de faire des compromis avisés entre cohérence éventuelle, disponibilité et latence.
 keywords: cohérence éventuelle, azure cosmos db, azure, Microsoft Azure
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: sngun
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20edcd5e8e3ec3a9d3d294f7a81a2e97b4958f50
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e9503759b776bb045c4dc0357b1ab88be1294013
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857182"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038254"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence des données paramétrables dans Azure Cosmos DB
 Azure Cosmos DB a été conçu dès le départ pour être distribué à l’échelle mondiale. Il offre des garanties de latence faible prévisible et plusieurs modèles de cohérence souples bien définis. Pour le moment, Azure Cosmos DB prend en charge cinq niveaux de cohérence : Fort, Obsolescence limitée, Session, Préfixe cohérent et Éventuel. Les termes « obsolescence limitée », « session », « préfixe cohérent » et « éventuelle » font référence à des modèles de « cohérence souple », qui fournissent un niveau de cohérence inférieur à celui de la cohérence forte (qui constitue le niveau de cohérence le plus élevé). 

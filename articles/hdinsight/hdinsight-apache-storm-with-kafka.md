@@ -1,25 +1,20 @@
 ---
-title: 'Didacticiel : Apache Kafka avec Storm sur HDInsight - Azure | Microsoft Docs'
+title: 'Didacticiel : Apache Kafka avec Storm sur HDInsight - Azure '
 description: Découvrez comment créer un pipeline de diffusion en continu à l’aide d’Apache Storm et Apache Kafka sur HDInsight. Dans ce didacticiel, vous utilisez les composants KafkaBolt et KafkaSpout pour transmettre des données à partir de Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/21/2018
-ms.author: larryfr
-ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: jasonh
+ms.openlocfilehash: a20cf616b119d208c9b2baa0f2cf608aa44c21ad
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626288"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595159"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Didacticiel : utiliser Apache Storm avec Kafka sur HDInsight
 
@@ -36,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer la rubrique Kafka
 > * Lancer les topologies
 > * Arrêt des topologies
-> * Supprimer des ressources
+> * Supprimer les ressources
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -540,7 +535,7 @@ Kafka stocke les données dans une _rubrique_. Vous devez créer la rubrique ava
 
     À l'invite, saisissez le mot de passe que vous avez utilisé lors de la création du cluster.
    
-    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Pour créer la rubrique Kafka, utilisez la commande suivante. Remplacez `$KAFKAZKHOSTS` par les informations d’hôte ZooKeeper que vous avez utilisées lors de la configuration de la topologie :
 
@@ -560,7 +555,7 @@ Kafka stocke les données dans une _rubrique_. Vous devez créer la rubrique ava
 
     À l'invite, saisissez le mot de passe que vous avez utilisé lors de la création du cluster.
    
-    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Dans la connexion SSH sur le cluster Storm, utilisez la commande suivante pour démarrer la topologie d’enregistreur :
 
@@ -592,7 +587,7 @@ Kafka stocke les données dans une _rubrique_. Vous devez créer la rubrique ava
     hdfs dfs -ls /stormdata
     ```
 
-    Le résultat ressemble au texte suivant :
+    Le résultat ressemble au texte suivant :
 
         Found 173 items
         -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
@@ -625,7 +620,7 @@ Dans une session SSH sur le cluster Storm, utilisez la commande suivante pour ar
   storm kill kafka-reader
   ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Pour supprimer les ressources créées par ce didacticiel, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
 

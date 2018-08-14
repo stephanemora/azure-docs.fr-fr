@@ -1,25 +1,20 @@
 ---
-title: 'Didacticiel : analyser les données d’Apache Spark à l’aide de Power BI dans Azure HDInsight | Microsoft Docs'
+title: 'Didacticiel : analyser les données d’Apache Spark à l’aide de Power BI dans Azure HDInsight '
 description: Utiliser Microsoft Power BI pour visualiser les données Spark stockées les clusters HDInsight
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: ece0132573f25f4d288309d2e7bb6710f8fd9519
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b8024d8e5f239ff1bae2fe09f8cbe0a1b03a416
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771165"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618724"
 ---
 # <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Didacticiel : analyser les données Spark à l’aide de Power BI dans HDInsight 
 
@@ -32,7 +27,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * **Consultez l’article [Didacticiel : charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI** : [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) et [abonnement d’évaluation à Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (facultatif).
@@ -218,7 +212,7 @@ Votre visuel est épinglé au tableau de bord ; vous pouvez ajouter d’autres v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 - Visualiser les données Spark à l’aide de Power BI.
 
