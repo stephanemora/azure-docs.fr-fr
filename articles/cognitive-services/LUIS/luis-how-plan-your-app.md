@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: diberry
-ms.openlocfilehash: 8cafe2be190988cbcbe8da616fe17c9a35c722f3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226021"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505526"
 ---
 # <a name="plan-your-luis-app"></a>Planifier votre application LUIS
 
@@ -65,7 +65,7 @@ LUIS fournit des [entités prédéfinies](luis-prebuilt-entities.md) pour les ty
 
 ![Entité prédéfinie Number (nombre)](./media/luis-plan-your-app/number-entity.png)
 
-Pour en savoir plus sur l’extraction d’entités d’expression régulière de la réponse à la requête JSON du point de terminaison, voir [Extraction de données](luis-concept-data-extraction.md#prebuilt-entity-data). 
+Pour plus d’informations sur l’extraction de l’entité prédéfinie à partir de la réponse à la requête JSON du point de terminaison, voir [Extraction de données](luis-concept-data-extraction.md#prebuilt-entity-data). 
 
 ### <a name="list-entity"></a>Entité de liste 
 Une entité de liste est une liste de valeurs spécifiée explicitement. Chaque valeur se compose d’un ou plusieurs synonymes. Dans une application de voyage, vous pouvez créer une entité de liste pour représenter les noms des aéroports.

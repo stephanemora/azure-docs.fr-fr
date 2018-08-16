@@ -1,21 +1,21 @@
 ---
-title: Authentification avec Azure AD à partir d’une application de stockage (préversion) | Microsoft Docs
-description: Authentification avec Azure AD à partir d’une application de stockage (préversion).
+title: Authentifier avec Azure Active Directory pour accéder aux données des objets blob et des files d’attente à partir de vos applications (préversion) | Microsoft Docs
+description: Utilisez Azure Active Directory pour authentifier à partir d’une application, puis pour autoriser les demandes adressées aux ressources de stockage Azure (préversion).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/12/2018
 ms.author: tamram
-ms.openlocfilehash: 1bf4a8bba3b93c16f67d46f65292709ef2a1bba2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659694"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577702"
 ---
-# <a name="authenticate-with-azure-ad-from-an-azure-storage-application-preview"></a>Authentification avec Azure AD à partir d’une application de stockage (préversion)
+# <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Authentifier avec Azure Active Directory à partir d’une application Stockage Azure (préversion)
 
 Le principal avantage d’utiliser Azure Active Directory (Azure AD) avec le Stockage Azure est que vos informations d’identification n’ont plus besoin d’être stockées dans votre code. À la place, vous pouvez demander un jeton d’accès OAuth 2.0 à Azure AD. Azure AD gère l’authentification du principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne le jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers le Stockage Azure.
 
@@ -23,10 +23,10 @@ Cet article décrit comment configurer votre application pour l’authentificati
 
 Pour pouvoir authentifier un principal de sécurité à partir de votre application de Stockage Azure, configurez les paramètres du contrôle d’accès basé sur un rôle (RBAC) pour ce principal de sécurité. Le Stockage Azure définit des rôles RBAC qui englobent les autorisations pour les conteneurs et les files d’attente. Quand le rôle RBAC est attribué à un principal de sécurité, ce dernier obtient l’accès à cette ressource. Pour plus d’informations, consultez [Gérer les droits d’accès aux données de stockage avec RBAC (préversion)](storage-auth-aad-rbac.md).
 
-Pour avoir une vue d’ensemble du flux d’octroi de code OAuth 2.0, consultez [Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0](../../active-directory/develop/active-directory-protocols-oauth-code.md).
+Pour avoir une vue d’ensemble du flux d’octroi de code OAuth 2.0, consultez [Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 > [!IMPORTANT]
-> Cette préversion est destinée à une utilisation hors production uniquement. Les contrats de niveau de service de production (SLA) seront disponibles quand l’intégration d’Azure AD pour le Stockage Azure sera en disponibilité générale. Si l’intégration d’Azure AD n’est pas encore prise en charge pour votre scénario, continuez à utiliser l’autorisation de clé partagée ou les jetons SAP dans vos applications. Pour plus d’informations sur la préversion, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
+> Cette préversion est destinée à une utilisation hors production uniquement. Les contrats SLA (contrats de niveau de service) de production ne sont pas disponibles tant que l’intégration d’Azure AD pour le Stockage Azure n’est pas officiellement disponible de manière générale. Si l’intégration d’Azure AD n’est pas encore prise en charge pour votre scénario, continuez à utiliser l’autorisation basée sur une clé partagée ou les jetons SAP dans vos applications. Pour plus d’informations sur la préversion, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
 >
 > Pendant la préversion, la propagation des attributions de rôles RBAC peut prendre jusqu’à cinq minutes.
 
@@ -34,9 +34,9 @@ Pour avoir une vue d’ensemble du flux d’octroi de code OAuth 2.0, consultez 
 
 La première étape d’utilisation d’Azure AD pour autoriser l’accès aux ressources de stockage est d’inscrire votre application cliente dans un locataire Azure AD. L’inscription de votre application vous permet d’appeler la [Bibliothèque d’authentification Active Directory](../../active-directory/active-directory-authentication-libraries.md) (ADAL) Azure à partir de votre code. La bibliothèque ADAL fournit une API pour l’authentification avec Azure AD à partir de votre application. L’inscription de votre application vous permet aussi d’autoriser les appels de cette application aux API de Stockage Azure avec un jeton d’accès.
 
-Lorsque vous inscrivez votre application, vous fournissez des informations sur votre application à Azure AD. Azure AD fournit ensuite un ID de client (appelé aussi *ID d’application*) que vous utilisez pour associer votre application à Azure AD au moment de l’exécution. Pour en savoir plus sur l’ID de client, consultez [Objets application et principal du service dans Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md).
+Lorsque vous inscrivez votre application, vous fournissez des informations sur votre application à Azure AD. Azure AD fournit ensuite un ID de client (appelé aussi *ID d’application*) que vous utilisez pour associer votre application à Azure AD au moment de l’exécution. Pour en savoir plus sur l’ID de client, consultez [Objets application et principal du service dans Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Pour inscrire votre application de Stockage Azure, suivez les étapes de la section [Ajout d’une application](../../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) dans [Intégration d’applications dans Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Si vous inscrivez votre application comme une application native, vous pouvez spécifier n’importe quel URI valide pour **l’URI de redirection**. La valeur ne doit pas forcément être un point de terminaison réel.
+Pour inscrire votre application de Stockage Azure, suivez les étapes de la section [Ajout d’une application](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) dans [Intégration d’applications dans Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Si vous inscrivez votre application comme une application native, vous pouvez spécifier n’importe quel URI valide pour **l’URI de redirection**. La valeur ne doit pas forcément être un point de terminaison réel.
 
 ![Capture d’écran montrant comment inscrire votre application de stockage dans Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -44,7 +44,7 @@ Une fois votre application inscrite, l’ID d’application (ou ID de client) se
 
 ![Capture d’écran montrant l’ID de client](./media/storage-auth-aad-app/app-registration-client-id.png)
 
-Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md). 
+Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). 
 
 ## <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Accorder à votre application inscrite des autorisations sur le Stockage Azure
 
@@ -59,7 +59,7 @@ Ensuite, vous devez accorder à votre application l’autorisation d’appeler l
     ![Capture d’écran montrant les autorisations pour le stockage](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
 6. Sous **Sélectionner des autorisations**, cochez la case à côté de **Accéder au Stockage Azure**, puis cliquez sur **Sélectionner**.
-7. Cliquez sur **Terminé**.
+7. Cliquez sur **Done**.
 
 La fenêtre **Autorisations nécessaires** indique à présent que votre application Azure AD a accès à Azure Active Directory et au Stockage Azure. Les autorisations sont accordées à Azure AD automatiquement quand vous inscrivez votre application pour la première fois dans Azure AD.
 
@@ -104,15 +104,22 @@ Pour obtenir l’ID client, procédez comme suit :
 
 ### <a name="add-references-and-using-statements"></a>Ajouter des références et des instructions using  
 
-Dans Visual Studio, installez la préversion de la bibliothèque cliente du Stockage Azure. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Console du gestionnaire de package**. Tapez la commande suivante dans la console :
+Dans Visual Studio, installez la préversion de la bibliothèque de client du Stockage Azure. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Console du gestionnaire de package**. Tapez la commande suivante dans la console pour installer la dernière version de la bibliothèque cliente pour .NET :
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
+Install-Package WindowsAzure.Storage
+```
+
+Installez également la dernière version d’ADAL :
+
+```
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
 Ensuite, ajoutez les instructions using suivantes dans votre code :
 
 ```dotnet
+using System.Globalization;
 using Microsoft.IdentityModel.Clients.ActiveDirectory; //ADAL client library for getting the access token
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -120,13 +127,17 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 ### <a name="get-an-oauth-token-from-azure-ad"></a>Obtenir un jeton OAuth d’Azure AD
 
-Ensuite, ajoutez une méthode qui demande un jeton à Azure AD. Pour demander le jeton, appelez la méthode [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync).
+Ensuite, ajoutez une méthode qui demande un jeton à Azure AD. Pour demander le jeton, appelez la méthode [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync). Veillez à avoir les valeurs suivantes provenant des étapes suivies précédemment :
+
+- ID de locataire (annuaire)
+- ID de client (application)
+- URI de redirection du client
 
 ```dotnet
 static string GetUserOAuthToken()
 {
-    const string ResourceId = "https://storage.azure.com/"; // Storage resource endpoint
-    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token"; // Azure AD OAuth endpoint
+    const string ResourceId = "https://storage.azure.com/";
+    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token";
     const string TenantId = "<tenant-id>"; // Tenant or directory ID
 
     // Construct the authority string from the Azure AD OAuth endpoint and the tenant ID. 
@@ -160,14 +171,14 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 ```
 
 > [!NOTE]
-> L’intégration d’Azure AD au Stockage Azure nécessite d’utiliser HTTPS pour les opérations de Stockage Azure.
+> L’intégration d’Azure AD au Stockage Azure nécessite l’utilisation du protocole HTTPS pour les opérations relatives au Stockage Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les rôles RBAC pour le Stockage Azure, consultez [Gérer les droits d’accès aux données de stockage avec RBAC (préversion)](storage-auth-aad-rbac.md).
+- Pour en savoir plus sur les rôles RBAC relatifs au stockage Azure, consultez [Gérer les droits d’accès aux données de stockage avec RBAC (préversion)](storage-auth-aad-rbac.md).
 - Pour en savoir plus sur l’utilisation de Managed Service Identity avec le Stockage Azure, consultez [Authentification avec Azure AD à partir d’Azure Managed Service Identity (préversion)](storage-auth-aad-msi.md).
 - Pour savoir comment se connecter à Azure CLI et PowerShell avec une identité Azure AD, consultez [Utiliser une identité Azure AD pour accéder au Stockage Azure avec une interface CLI ou PowerShell (préversion)](storage-auth-aad-script.md).
-- Pour plus d’informations sur l’intégration d’Azure AD pour les objets blob et les files d’attente Azure, consultez le billet de blog de l’équipe du Stockage Azure : [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/) (Annonce de la préversion de l’authentification Azure AD pour le Stockage Azure).
+- Pour plus d’informations sur l’intégration d’Azure AD aux objets blob et files d’attente Azure, consultez le billet de blog de l’équipe Stockage Azure, [Annonce de la préversion d’Azure AD Authentication pour le Stockage Azure](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
 
 
 

@@ -2,28 +2,24 @@
 title: Activation des métriques de stockage dans le portail Azure | Microsoft Docs
 description: Activation des métriques de stockage pour les services d’objet Blob, de File d’attente, de Table et de Fichier
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 0caa4eff80877ad4bf8d501a276e82922b1a84c7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529679"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Activation des métriques Azure Storage et affichage des données associées
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Storage Metrics est activé par défaut lorsque vous créez un compte de stockage. Vous pouvez configurer la surveillance par le biais du [Portail Azure](https://portal.azure.com) ou de Windows PowerShell, ou par programme au moyen d’une des bibliothèques clientes de stockage.
 
 Vous pouvez choisir une période de rétention des données : cette période détermine combien de temps le service de stockage conserve les métriques et la durée pendant laquelle l’espace requis pour les stocker vous est facturé. En règle générale, il est recommandé d’utiliser une période de rétention plus courte pour les métriques par minute que pour les métriques par heure, en raison de l’espace supplémentaire requis. La période de rétention que vous définissez doit être suffisamment longue pour vous donner le temps d’analyser les données et de télécharger les métriques à conserver à des fins d’analyse ou de création de rapports hors connexion. N’oubliez pas que le téléchargement des données de métriques depuis votre compte de stockage est aussi facturé.
@@ -115,8 +111,8 @@ Pour obtenir la liste des outils disponibles, consultez [Outils clients Azure St
 
 > [!NOTE]
 > À compter de la version 0.8.0 de [Microsoft Azure Storage Explorer](http://storageexplorer.com/), vous pourrez désormais afficher et télécharger les tables de métriques Analytics.
-> 
-> 
+>
+>
 
 Pour accéder par programmation aux tables Analytics, notez qu’elles n’apparaissent pas si vous répertoriez toutes les tables dans votre compte de stockage. Vous pouvez y accéder directement par nom ou utiliser l [’API CloudAnalyticsClient](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) dans la bibliothèque cliente .NET pour interroger les noms de tables.
 
@@ -130,7 +126,7 @@ Pour accéder par programmation aux tables Analytics, notez qu’elles n’appar
 * $MetricsMinutePrimaryTransactionsTable
 * $MetricsMinutePrimaryTransactionsQueue
 
-### <a name="capacity"></a>Capacity
+### <a name="capacity"></a>Capacité
 * $MetricsCapacityBlob
 
 Vous trouverez des informations complètes sur les schémas de ces tables dans [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx). Les exemples de lignes ci-dessous montrent uniquement un sous-ensemble des colonnes disponibles, mais ils illustrent les différentes façons dont Storage Metrics enregistre ces métriques :
@@ -140,7 +136,7 @@ Vous trouverez des informations complètes sur les schémas de ces tables dans [
 | 20140522T1100 |user;All |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
 | 20140522T1100 |user;QueryEntities |2014-05-22T11:01:16.7640250Z |5. |5. |2694 |45951 |100 |143.8 |7.8 |100 |
 | 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
-| 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9. |6. |100 |
+| 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6. |100 |
 
 Dans cet exemple de données de métriques par minute, la clé de partition (PartitionKey) utilise une résolution d’une minute. La clé de ligne identifie le type d’informations stockées dans la ligne. La clé de ligne est composée de deux éléments d’informations, le type d’accès et le type de demande :
 
@@ -148,6 +144,8 @@ Dans cet exemple de données de métriques par minute, la clé de partition (Par
 * Le type de demande peut avoir la valeur all, auquel cas il s’agit d’une ligne de résumé, ou il identifie l’API spécifique comme QueryEntity ou UpdateEntity.
 
 Les exemples de données ci-dessus montrent tous les enregistrements pour une seule minute (à partir de 11h00). Ainsi, la somme des demandes QueryEntities, QueryEntity et UpdateEntity est égale à sept, ce qui correspond bien au total indiqué sur la ligne user:All. De même, vous pouvez déduire la latence de bout en bout moyenne (104,4286) sur la ligne user:All en effectuant le calcul suivant : ((143,8 * 5) + 3 + 9)/7.
+
+Veuillez noter que les **paramètres de métriques horaires d’objets Blob** sont appliqués à la fois à la **métrique de capacité d’objet Blob** ($MetricsCapacityBlob) et aux **métriques horaires de transaction d’objet Blob** ($ MetricsHourPrimaryTransactionsBlob). Ces deux éléments sont activés ou désactivés ensemble et utilisent la même stratégie de rétention.
 
 ## <a name="metrics-alerts"></a>Alertes liées aux métriques
 Il peut être intéressant de définir des alertes dans le [Portail Azure](https://portal.azure.com), afin que Storage Metrics puisse vous avertir automatiquement de tout changement important de comportement de vos services de stockage. Si vous utilisez un outil Explorateur de stockage pour télécharger ces données dans un format délimité, vous pouvez utiliser Microsoft Excel pour les analyser. Pour obtenir la liste des outils d’exploration du stockage disponibles, consultez [Outils clients Azure Storage](storage-explorers.md) . Vous pouvez configurer des alertes dans le volet **Règles d’alerte**, accessible sous **Surveillance** dans le volet du menu Compte de stockage.

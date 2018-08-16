@@ -14,15 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8907619b802d93cee4463a80155f38ce9030948f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 682e2969725b6ade39f639c7a9fff95ec64703a2
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129669"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492943"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health : historique de publication des versions
 L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect Health avec de nouvelles fonctions et fonctionnalités. Cet article répertorie les versions et les fonctionnalités qui ont été publiées.
+Azure AD Connect Health pour la synchronisation est intégré à l’installation d’Azure AD Connect. En savoir plus sur [l’historique de publication d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+
+
+## <a name="august-2018"></a>Août 2018 
+*  Agent Azure AD Connect Health pour la synchronisation (version 3.1.7.0) fourni avec Azure AD Connect version 1.1.880.0    
+   1. Correctif logiciel pour le [problème de l’agent de surveillance concernant une utilisation intensive de l’UC avec les versions de la Base de connaissances .NET Framework](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
 
 ## <a name="june-2018"></a>Juin 2018 
 **Nouvelles fonctionnalités préliminaires :** 
@@ -30,10 +36,10 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 
 **Mise à jour de l’agent :** 
 *  Agent Azure AD Connect Health pour AD DS (version 3.1.7.0)    
-   1. Correctif logiciel pour le problème de l’agent de surveillance concernant une utilisation intensive de l’UC avec les versions de la Base de connaissances .NET Framework
-
+   1. Correctif logiciel pour le [problème de l’agent de surveillance concernant une utilisation intensive de l’UC avec les versions de la Base de connaissances .NET Framework](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
+   
 *   Agent Azure AD Connect Health pour AD FS (version 3.1.7.0)  
-   1. Correctif logiciel pour le problème de l’agent de surveillance concernant une utilisation intensive de l’UC avec les versions de la Base de connaissances .NET Framework  
+   1. Correctif logiciel pour le [problème de l’agent de surveillance concernant une utilisation intensive de l’UC avec les versions de la Base de connaissances .NET Framework](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
    2. Correctifs de résultats de tests sur le serveur secondaire ADFS Server 2016
    
 *   Agent Azure AD Connect Health pour AD FS (version 3.1.2.0)  
@@ -51,7 +57,7 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
  2. Amélioration de la confidentialité de l’agent  
  3. Résolutions de bogues et améliorations générales
 
-* Agent Azure AD Connect Health pour la synchronisation (version 3.0.164.0) fourni avec Azure AD Connect version 1.1.819.0
+* Agent Azure AD Connect Health pour la synchronisation (version 3.0.164.0) fourni avec Azure AD Connect version 1.1.819.0 
  1. Amélioration de la confidentialité de l’agent  
  2. Résolutions de bogues et améliorations générales
 
@@ -68,7 +74,7 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 *   Agent Azure AD Connect Health pour AD FS (version 3.0.176.0)
   1. Améliorations de la disponibilité de l’agent 
   2. Résolutions de bogues et améliorations générales
-* Agent Azure AD Connect Health pour Sync (version 3.0.176.0)
+* Agent Azure AD Connect Health pour la synchronisation (version 3.0.129.0) fourni avec Azure AD Connect version 1.1.750.0  
   1. Améliorations de la disponibilité de l’agent 
   2. Résolutions de bogues et améliorations générales
 

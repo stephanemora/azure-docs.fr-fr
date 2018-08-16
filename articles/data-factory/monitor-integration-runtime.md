@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259100"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505359"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :
@@ -33,13 +33,13 @@ Pour obtenir l’état d’une instance de runtime d’intégration (IR), exécu
 Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
-Cette applet de commande retourne des informations différentes en fonction du type de runtime d’intégration. Cet article explique les propriétés et les états de chacun des types de runtime d’intégration.  
+Cette cmdlet renvoie des informations différentes en fonction du type de runtime d’intégration. Cet article explique les propriétés et les états de chacun des types de runtime d’intégration.  
 
 ## <a name="azure-integration-runtime"></a>Runtime d’intégration Azure
 La ressource de calcul d’un runtime d’intégration Azure est entièrement gérée dans Azure, en toute flexibilité. Le tableau suivant fournit des descriptions des propriétés renvoyées par la commande **Get-AzureRmDataFactoryV2IntegrationRuntime** :
 
 ### <a name="properties"></a>properties
-Le tableau suivant fournit des descriptions des propriétés renvoyées par l’applet de commande pour un runtime d’intégration Azure :
+Le tableau suivant fournit des descriptions des propriétés renvoyées par la cmdlet pour un runtime d’intégration Azure :
 
 | Propriété | Description |
 -------- | ------------- | 

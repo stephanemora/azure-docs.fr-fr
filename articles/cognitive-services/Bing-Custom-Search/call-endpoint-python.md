@@ -9,18 +9,18 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35370744"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504965"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Appeler le point de terminaison Recherche personnalisée Bing (Python)
 
 Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Python pour appeler le point de terminaison Recherche personnalisée Bing. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 - Une instance de recherche personnalisée. Consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
@@ -34,13 +34,18 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 Pour appeler le point de terminaison Recherche personnalisée Bing, effectuez les étapes suivantes :
 
 1. Créez un dossier pour votre code.
+
 2. À partir d’un terminal ou d’une invite de commandes en mode administrateur, accédez au dossier que vous venez de créer.
+
 3. Installez le module Python **requests** :
+
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
+    
 7. Créez le fichier BingCustomSearch.py et copiez-y le code ci-dessous.
+
 8. Remplacez **YOUR-SUBSCRIPTION-KEY** et **YOUR-CUSTOM-CONFIG-ID** par votre clé et votre ID de configuration (voir l’étape 1).
 
     ``` Python

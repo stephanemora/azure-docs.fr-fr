@@ -1,33 +1,35 @@
 ---
 title: Azure Storage Service Encryption pour les données au repos | Microsoft Docs
-description: La fonctionnalité Azure Storage Service Encryption permet de chiffrer le stockage Blob Azure côté service lors du stockage des données et de le déchiffrer lorsque vous récupérez les données.
+description: La fonctionnalité Azure Storage Service Encryption permet de chiffrer Azure Managed Disks, Stockage Blob Azure, Azure Files, Stockage File d’attente Azure et Stockage Table Azure du côté du service lors du stockage des données, et de les déchiffrer quand vous récupérez les données.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: f35697139a4be49be8a645cfd4d451ad8e3c8094
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412353"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520722"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
-Azure Storage Service Encryption pour les données au repos vous permet de protéger vos données pour garantir le respect des engagements de votre organisation en matière de sécurité et de conformité. Avec cette fonctionnalité, la plateforme de stockage Azure chiffre automatiquement vos données avant de les rendre persistantes dans Stockage Blob Azure, Azure Files ou Stockage File d’attente Azure, puis déchiffre ces données avant la récupération. La gestion du chiffrement, le chiffrement au repos, le déchiffrement et la gestion des clés dans Storage Service Encryption se font de façon transparente pour les utilisateurs. Toutes les données écrites dans la plateforme de stockage Azure sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, l’un des plus puissants chiffrements par blocs disponibles.
+Azure Storage Service Encryption pour les données au repos vous permet de protéger vos données pour garantir le respect des engagements de votre organisation en matière de sécurité et de conformité. Avec cette fonctionnalité, la plateforme de stockage Azure chiffre automatiquement vos données avant de les rendre persistantes dans Azure Managed Disks, Stockage Blob Azure, Azure Files ou Stockage File d’attente Azure, et déchiffre ces données avant la récupération. La gestion du chiffrement, le chiffrement au repos, le déchiffrement et la gestion des clés dans Storage Service Encryption se font de façon transparente pour les utilisateurs. Toutes les données écrites dans la plateforme de stockage Azure sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, l’un des plus puissants chiffrements par blocs disponibles.
 
 Storage Service Encryption est activé pour tous les comptes de stockage nouveaux et existants et ne peut pas être désactivé. Étant donné que vos données sont sécurisées par défaut, vous n’avez pas besoin de modifier votre code ou vos applications pour tirer parti de Storage Service Encryption.
 
 La fonctionnalité chiffre automatiquement les données dans :
 
-- Stockage Blob Azure, Azure Files, Stockage File d’attente Azure, Stockage Table Azure.  
+- Services de stockage Azure :
+    - Azure Managed Disks
+    - Stockage d'objets blob Azure
+    - Azure Files
+    - Stockage File d’attente Azure
+    - Stockage Table Azure  
 - Les deux niveaux de performances (Standard et Premium).
 - Deux modèles de déploiement : Azure Resource Manager et classique.
-
-> [!Note]  
-> Storage Service Encryption n’est pas disponible pour [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Nous vous recommandons d’utiliser le chiffrement au niveau du système d’exploitation, comme [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), qui utilise les fonctionnalités standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) sur Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sur Linux pour fournir un chiffrement intégré à KeyVault.
 
 Storage Service Encryption n’affecte pas les performances des services de stockage Azure.
 
@@ -55,15 +57,12 @@ Le chiffrement est activé par défaut, et aucune disposition ne prévoit de dé
 Aucun coût supplémentaire n’est facturé.
 
 **Puis-je utiliser mes propres clés de chiffrement ?**  
-Oui, vous pouvez utiliser vos propres clés de chiffrement. Pour plus d’informations, consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Pour Stockage Blob Azure et Azure Files, oui, vous pouvez utiliser vos propres clés de chiffrement. Les clés gérées par le client ne sont actuellement pas prises en charge par Azure Managed Disks. Pour plus d’informations, consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **Est-il possible de révoquer l’accès aux clés de chiffrement ?**  
 Oui, si vous [utilisez vos propres clés de chiffrement](storage-service-encryption-customer-managed-keys.md) dans Azure Key Vault.
 
-**Storage Service Encryption est-il disponible sur Azure Managed Disks ?**  
-Non, Storage Service Encryption n’est pas disponible pour [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Nous vous recommandons d’utiliser le chiffrement au niveau du système d’exploitation, comme [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), qui utilise les fonctionnalités standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) sur Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sur Linux pour fournir un chiffrement intégré à KeyVault.
-
-**En quoi Storage Service Encryption diffère-t-il d’Azure Disk Encryption ?**  
+**En quoi Storage Service Encryption est-il différent d’Azure Disk Encryption ?**  
 Azure Disk Encryption fournit une intégration entre les solutions basées sur le système d’exploitation, telles que BitLocker et DM-Crypt, et Azure Key Vault. Storage Service Encryption assure un chiffrement en mode natif dans la couche de plateforme de stockage Azure, sous la machine virtuelle.
 
 **Je dispose d’un compte de stockage classique. Puis-je y activer Storage Service Encryption ?**  

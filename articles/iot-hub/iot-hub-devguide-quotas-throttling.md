@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004769"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525550"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -43,7 +43,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 | Lectures de jumeaux (appareil et module)<sup>1</sup> | 10/s | Plus de 10/s ou 1/s/unité | 50/s/unité |
 | Mises à jour de jumeaux (appareil et module)<sup>1</sup> | 10/s | Plus de 10/s ou 1/s/unité | 50/s/unité |
 | Opérations de travaux<sup>1</sup> <br/> (créer, mettre à jour, répertorier, supprimer) | 1.67/s/unité (100/min/unité) | 1.67/s/unité (100/min/unité) | 83.33/s/unité (5 000/min/unité) |
-| Débit d’opérations de travaux par appareil<sup>1</sup> | 10/s | Plus de 10/s ou 1/s/unité | 50/s/unité |
+| Opérations de l’appareil de travaux<sup>1</sup> <br/> (mettre à jour le jumeau, appeler la méthode directe) | 10/s | Plus de 10/s ou 1/s/unité | 50/s/unité |
 | Configurations et déploiements de périphérie<sup>1</sup> <br/> (créer, mettre à jour, répertorier, supprimer) | 0,33/s/unité (20/min/unité) | 0,33/s/unité (20/min/unité) | 0,33/s/unité (20/min/unité) |
 
 
@@ -82,7 +82,7 @@ IoT Hub impose d’autres limites opérationnelles :
 > [!NOTE]
 > Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un IoT Hub unique est 500 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latence
 IoT Hub s’efforce de fournir une faible latence pour toutes les opérations. Toutefois, en raison des conditions réseau et d’autres facteurs imprévisibles, il ne peut pas garantir une latence maximale. Lorsque vous concevez votre solution, vous devez :
 
 * Éviter de faire d’hypothèses concernant la latence maximale de toute opération IoT Hub.

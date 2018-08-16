@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/6/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902161"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522303"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+
+## <a name="july-guest-os"></a>SE invité juillet
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| Éd. 18/07 | [4338814] |Sécurité de Windows 10 |5.21 |10 juillet 2018 |
+| Éd. 18/07 | [4338823] |Sécurité Windows uniquement |2.76 |10 juillet 2018 |
+| Éd. 18/07 | [4338820] |Sécurité Windows uniquement |3.63 |10 juillet 2018 |
+| Éd. 18/07 | [4338824] |Sécurité Windows uniquement |4.56 |10 juillet 2018 |
+| Éd. 18/07 | [4345459] |Actualisation du cumul de sécurité |2.76 |10 juillet 2018 |
+| Éd. 18/07 | [4345425] |Actualisation du cumul de sécurité |3.63 |10 juillet 2018 |
+| Éd. 18/07 | [4345424] |Actualisation du cumul de sécurité |4.56 |10 juillet 2018 |
+| Éd. 18/07 | [4345418] |Actualisation du cumul de sécurité |5.21 |10 juillet 2018 |
+| Éd. 18/07 | [4338612], [4338602] |.NET 3.5, 4.x Security |2.76 |10 juillet 2018 |
+| Éd. 18/07 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5x Security |3.63 |10 juillet 2018 |
+| Éd. 18/07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5x Security |4.56|10 juillet 2018 |
+| Éd. 18/07 | [4338832] |Clignote |3.63, 4.76, 5.21 |10 juillet 2018 |
+| Éd. 18/07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |10 juillet 2018 |
+| N/A | [4284826] |Correctif cumulatif non relatif à la sécurité de juin |2.76 |12 juin 2018 |
+| N/A | [4284855] |Correctif cumulatif non relatif à la sécurité de juin |3.63 |12 juin 2018 |
+| N/A | [4284815] |Correctif cumulatif non relatif à la sécurité de juin |4.56 |12 juin 2018 |
 
 ## <a name="june-guest-os"></a>SE invité juin
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -674,6 +695,28 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[2999802] |Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2896881] |Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
 
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867

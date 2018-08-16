@@ -3,7 +3,7 @@ title: Passer au niveau tarifaire Standard de Security Center pour une sécurit�
 description: Cet article fournit des informations sur la tarification d’Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
-ms.author: terrylan
-ms.openlocfilehash: 0a8fb526602692db6737842c24649b686bea5dad
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.date: 08/06/2018
+ms.author: rkarlin
+ms.openlocfilehash: 824362c5dab9f226aff84e75b6620221d3a9147f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23473931"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528475"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyberattaques en constante évolution.
@@ -35,7 +35,7 @@ Pour plus d’informations, consultez la [page de tarification](https://azure.mi
 ## <a name="try-standard-free-for-60-days"></a>Essayer gratuitement le niveau Standard pendant 60 jours
 Le niveau Standard est gratuit les 60 premiers jours. Une fois ces 60 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
 
-Vous pouvez mettre à niveau un abonnement Azure vers le niveau Standard, qui est hérité par toutes les ressources dans l’abonnement, ou vous pouvez définir une stratégie unique pour mettre à niveau un groupe de ressources spécifique uniquement.
+Vous pouvez mettre à niveau un abonnement Azure entier vers le niveau Standard, qui est hérité par toutes les ressources dans l’abonnement.
 
 Pour obtenir le niveau Standard :
 

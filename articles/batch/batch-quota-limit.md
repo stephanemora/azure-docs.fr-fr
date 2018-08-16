@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304020"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423740"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -46,6 +46,7 @@ Si vous envisagez d’exécuter des charges de travail de production dans Batch,
 Si vous avez créé un compte Batch avec le mode d’allocation de pool défini sur **abonnement utilisateur**, les quotas sont appliqués de manière différente. Dans ce mode, les machines virtuelles Batch et les autres ressources sont créées directement dans votre abonnement quand un pool est créé. Les quotas de cœurs Azure Batch ne s’appliquent pas à un compte créé dans ce mode. Seuls s’appliquent les quotas de votre abonnement imposés aux cœurs de calcul régionaux et aux autres ressources. Pour en savoir plus sur ces quotas, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Autres limites
+
 | **Ressource** | **Limite maximale** |
 | --- | --- |
 | [Tâches simultanées](batch-parallel-node-tasks.md) par nœud de calcul |4 x nombre de cœurs de nœud |
@@ -56,26 +57,27 @@ Si vous avez créé un compte Batch avec le mode d’allocation de pool défini 
 
 <sup>1</sup> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de sept jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
 
-
 ## <a name="view-batch-quotas"></a>Afficher les quotas Batch
+
 Affichez vos quotas de compte Batch dans le [portail Azure][portal].
 
 1. Sélectionnez **Comptes Batch** dans le portail, puis sélectionnez le compte Batch qui vous intéresse.
-2. Sélectionnez **Quotas** dans le menu du compte Batch.
-3. Afficher les quotas actuellement appliqués au compte Batch
+1. Sélectionnez **Quotas** dans le menu du compte Batch.
+1. Afficher les quotas actuellement appliqués au compte Batch
    
     ![Quotas de compte Batch][account_quotas]
 
 
 
 ## <a name="increase-a-quota"></a>Augmenter un quota
+
 Suivez ces étapes pour demander une augmentation de quota pour votre compte Batch ou votre abonnement à l’aide du [portail Azure][portal]. Le type d’augmentation de quota varie selon le mode d’allocation de pool de votre compte Batch.
 
 ### <a name="increase-a-batch-cores-quota"></a>Augmenter un quota de cœurs Batch 
 
 1. Sélectionnez la mosaïque **Aide + Support** dans le tableau de bord du portail, ou le point d’interrogation (**?**) dans le coin supérieur droit du portail.
-2. Sélectionnez **Nouvelle demande de support** > **De base**.
-3. Dans **De base** :
+1. Sélectionnez **Nouvelle demande de support** > **De base**.
+1. Dans **De base** :
    
     a. **Type de problème** > **Quota**
    
@@ -86,14 +88,14 @@ Suivez ces étapes pour demander une augmentation de quota pour votre compte Bat
     d. **Plan de support** > **Support quota - Inclus**
    
     Cliquez sur **Suivant**.
-4. Dans **Problème** :
+1. Dans **Problème** :
    
     a. Sélectionnez un **niveau de gravité** en fonction de [l’impact sur votre activité][support_sev].
    
     b. Dans **Détails**, spécifiez chaque quota que vous souhaitez modifier, le nom du compte Batch et la nouvelle limite.
    
     Cliquez sur **Suivant**.
-5. Dans **Informations de contact** :
+1. Dans **Informations de contact** :
    
     a. Sélectionnez une **méthode de contact préférée**.
    
@@ -102,6 +104,16 @@ Suivez ces étapes pour demander une augmentation de quota pour votre compte Bat
     Cliquez sur **Créer** pour envoyer la demande de support.
 
 Une fois que vous avez envoyé votre demande de support, le support Azure vous contactera. Notez que le traitement de la demande peut prendre jusqu’à 2 jours ouvrés.
+
+## <a name="related-quotas-for-vm-pools"></a>Quotas associés pour les pools de machines virtuelles
+
+Les pools Batch dans la configuration de machine virtuelle déployés dans un réseau virtuel Azure allouent automatiquement des ressources de mise en réseau Azure supplémentaires. Les ressources suivantes sont nécessaires pour chacun des 50 nœuds de pools dans un réseau virtuel :
+
+* 1 [groupe de sécurité réseau](../virtual-network/security-overview.md#network-security-groups)
+* 1 [adresse IP publique](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 1 [équilibreur de charge](../load-balancer/load-balancer-overview.md)
+
+Ces ressources sont allouées dans l’abonnement contenant le réseau virtuel fourni lors de la création du pool Batch. Ces ressources sont limitées par les [quotas de ressources](../azure-subscription-service-limits.md) de l’abonnement. Si vous planifiez des déploiements de pools de grande taille dans un réseau virtuel, vérifiez les quotas de l’abonnement pour ces ressources. Si nécessaire, demandez une augmentation sur le portail Azure en sélectionnant **Aide et support**.
 
 
 ## <a name="related-topics"></a>Rubriques connexes

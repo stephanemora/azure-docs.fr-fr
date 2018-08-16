@@ -1,32 +1,27 @@
 ---
-title: Accéder aux journaux des applications Hadoop YARN dans HDInsight sous Linux | Microsoft Docs
+title: Accéder aux journaux des applications Hadoop YARN dans HDInsight basé sur Linux - Azure
 description: Découvrez comment accéder aux journaux des applications YARN sur un cluster HDInsight sous Linux (Hadoop) à l’aide de la ligne de commande et d’un navigateur web.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
-ms.openlocfilehash: 67732b3a4c63408d8fc6ab5ed75b40a0eb043167
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 0aa8d76ca97789844482d2b8ad7212c2f61a8ab8
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392236"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591801"
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Accéder aux journaux des applications YARN dans HDInsight sous Linux
 
 Découvrez comment accéder aux journaux des applications YARN (Yet Another Resource Negotiator) sur un cluster Hadoop dans Azure HDInsight.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
@@ -58,7 +53,7 @@ Les journaux agrégés ne sont pas lisibles directement, car ils sont écrits da
 
 ## <a name="yarn-cli-tools"></a>Outils de l’interface de ligne de commande YARN
 
-Pour utiliser les outils de l’interface de ligne de commande YARN, vous devez d’abord vous connecter au cluster HDInsight en utilisant le protocole SSH. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+Pour utiliser les outils de l’interface de ligne de commande YARN, vous devez d’abord vous connecter au cluster HDInsight en utilisant le protocole SSH. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Vous pouvez afficher ces journaux en texte brut en exécutant l’une des commandes suivantes :
 

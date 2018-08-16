@@ -4,7 +4,7 @@ description: Découvrez les langages qui sont pris en charge (Disponibilité gé
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.service: functions
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 00f291e903948bf43bc997816b6072186cf1f889
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 2de2ebdea41ca35e853b37ab804e516eb7f4df9f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343081"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494446"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Langages pris en charge dans Azure Functions
 
@@ -43,11 +43,11 @@ Il existe trois niveaux de prise en charge :
 
 Les langages expérimentaux dans la version 1.x ne sont pas très propices à la mise à l’échelle et ne prennent pas en charge toutes les liaisons. Par exemple, Python est lent car le runtime Functions exécute *python.exe* à chaque appel de fonction. Et bien que Python prenne en charge les liaisons HTTP, il ne peut pas accéder à l’objet de requête.
 
-La prise en charge expérimentale pour PowerShell est limitée à la version 4.0, car c’est ce qui est installé sur les machines virtuelles sur lesquelles les applications Function s’exécutent. Si vous souhaitez exécuter des scripts PowerShell, utilisez [Azure Automation](https://azure.microsoft.com/services/automation/).
-
-Le runtime 2.x ne prend pas en charge les langages expérimentaux. Dans la version 2.x, nous ajouterons la prise en charge d’un langage uniquement quand il est évolutif et prend en charge des déclencheurs avancés.
+La prise en charge expérimentale pour PowerShell est limitée à la version 5.1, car c’est ce qui est installé par défaut sur les machines virtuelles sur lesquelles les applications de fonction s’exécutent. Si vous souhaitez exécuter des scripts PowerShell, utilisez [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 Si vous souhaitez utiliser l’un des langages disponibles uniquement dans la version 1.x, conservez le runtime 1.x. Mais, n’utilisez pas de langages expérimentaux pour tout ce qui est essentiel, car il n’existe aucune prise en charge officielle pour eux. Vous pouvez demander de l’aide en [créant des problèmes GitHub](https://github.com/Azure/azure-webjobs-sdk-script/issues), mais les cas de support technique ne doivent pas être ouverts pour des problèmes liés aux langages expérimentaux. 
+
+Le runtime en version 2.x ne prend pas en charge les langages expérimentaux. La prise en charge de nouveaux langages est ajoutée uniquement lorsque le langage peut être pris en charge dans les environnements de production. 
 
 ### <a name="language-extensibility"></a>Extensibilité de langage
 

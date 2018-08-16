@@ -7,14 +7,14 @@ manager: carmonm
 keywords: sauvegarde et récupération d’urgence ; service de sauvegarde
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412949"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493866"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Questions sur le service de sauvegarde Azure
 Cet article répond aux questions courantes sur les composants de la Sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez poser des questions sur la sauvegarde Microsoft Azure en cliquant sur **Commentaires** (à droite). Les commentaires sont regroupés à la fin de cet article. Un compte Livefyre est nécessaire pour pouvoir déposer un commentaire. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,6 +29,9 @@ Oui. Vous pouvez créer jusqu’à 500 coffres Recovery Services par région de 
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Le nombre de serveurs/ordinateurs pouvant être inscrits dans chaque coffre est-il limité ? <br/>
 Vous pouvez inscrire jusqu’à 1000 machines virtuelles Azure par coffre. Si vous utilisez l’agent MAB, vous pouvez inscrire jusqu’à 50 agents MAB par coffre. Et vous pouvez inscrire 50 serveurs MAB/DPM dans un coffre.
+
+### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>Puis-je utiliser une API REST pour demander la taille des éléments protégés dans un coffre ? <br/>
+Oui. L’article [Usages - List by Vaults](https://t.co/2lgIrIaF0J) (Utilisations - liste par coffres) répertorie les informations qui peuvent être obtenues à partir du coffre Recovery Services.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Si mon organisation possède un coffre, comment isoler les données d’un serveur de celles d’un autre serveur lors de la restauration des données ?<br/>
 Tous les serveurs inscrits dans le même coffre sont en mesure de récupérer les données sauvegardées par d’autres serveurs *qui utilisent la même phrase secrète*. Si vous avez des serveurs dont vous souhaitez isoler les données de sauvegarde des autres serveurs de votre organisation, utilisez une phrase secrète désignée pour ces serveurs. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
@@ -57,6 +60,8 @@ Liste détaillée des questions présentes dans le [Forum aux questions sur la s
 
 Oui. Vous pouvez utiliser Azure Backup Server pour sauvegarder VMware vCenter et ESXi dans Azure. Pour en savoir plus sur la version de VMware prise en charge, consultez l’article [Matrice de protection d’Azure Backup Server](backup-mabs-protection-matrix.md). Pour un guide pas à pas, consultez [Utiliser Azure Backup Server pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md).
 
+### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>Ai-je besoin d’une licence distincte pour récupérer un cluster VMware/Hyper-V entièrement local à partir de DPM ou du serveur de sauvegarde Azure ?<br/>
+Vous n’avez pas besoin de licence distincte pour la protection VMware/Hyper-V. Si vous êtes client System Center, utilisez DPM pour protéger les machines virtuelles VMware. Si vous n’êtes pas client System Center, vous pouvez utiliser le serveur de sauvegarde Azure (paiement à l’utilisation) pour protéger les machines virtuelles VMware.
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Microsoft Azure Backup et System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Puis-je utiliser Azure Backup Server pour créer une sauvegarde de la récupération complète (BMR) pour un serveur physique ? <br/>
@@ -90,6 +95,9 @@ Oui. Vous pouvez exécuter les opérations de sauvegarde sur Windows Server ou d
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Pourquoi la taille des données transférées dans le coffre Recovery Services est-elle plus réduite que celle des données que j’ai sauvegardées ?<br/>
  Toutes les données sauvegardées à partir de l’agent Azure Backup, de SCDPM ou d’Azure Backup Server sont compressées et chiffrées avant d’être transférées. Une fois la compression et le chiffrement appliqués, les données du coffre Recovery Services sont réduites de 30 à 40 %.
+
+### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vaultbr"></a>Puis-je supprimer des fichiers individuels à partir d’un point de récupération dans le coffre ?<br/>
+Non. La Sauvegarde Azure ne prend pas en charge la suppression ou le vidage des éléments individuels à partir de sauvegardes stockées.
 
 ## <a name="what-can-i-back-up"></a>Que puis-je sauvegarder ?
 ### <a name="which-operating-systems-does-azure-backup-support-br"></a>Quels systèmes d’exploitation Sauvegarde Azure prend-il en charge ? <br/>

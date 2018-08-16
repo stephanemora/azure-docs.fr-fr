@@ -1,25 +1,20 @@
 ---
-title: Python UDF avec Apache Hive et Pig Azure HDInsight | Microsoft Docs
+title: Python UDF avec Apache Hive et Pig - Azure HDInsight
 description: Découvrez comment utiliser des fonctions définies par l’utilisateur Python à partir de Hive et Pig dans HDInsight, la pile de technologies Hadoop sur Azure.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
-ms.devlang: python
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: c508ffcdd5cccaad5c7b0717d33e2ea1449ab522
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bb8546ccf15788317370ccfe654fddbd0fb0cf9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405491"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592348"
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Hive et Pig dans HDInsight
 
@@ -109,7 +104,7 @@ Le script effectue les opérations suivantes :
 1. Une ligne de données de STDIN est lue.
 2. Le caractère de saut de ligne de fin est supprimé à l’aide de `string.strip(line, "\n ")`.
 3. Lors du traitement par flux, une seule ligne contient toutes les valeurs séparées par un caractère de tabulation. `string.split(line, "\t")` peut donc être utilisé pour fractionner l’entrée à chaque tabulation et retourner uniquement les champs.
-4. Une fois le traitement terminé, la sortie doit être écrite dans STDOUT sur une seule ligne, chaque champ étant séparé par une tabulation. Par exemple : `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4. Une fois le traitement terminé, la sortie doit être écrite dans STDOUT sur une seule ligne, chaque champ étant séparé par une tabulation. Par exemple : `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. La boucle `while` se répète jusqu’à ce que plus aucun élément `line` ne soit lu.
 
 La sortie du script est une concaténation des valeurs d’entrée pour `devicemake` et `devicemodel`, ainsi qu’un code de hachage de la valeur concaténée.

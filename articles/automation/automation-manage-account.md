@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be1b35d2e7dc3d3e2efab825f318983e2943b0d2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5fbdccf4e14ce1201b21f0490e9c890c77c3e2f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194357"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577753"
 ---
 # <a name="manage-azure-automation-account"></a>Gestion d’un compte Azure Automation
 Avant que votre compte Azure Automation n’expire, vous devez renouveler le certificat. Si vous pensez que le compte d’identification a été compromis, vous pouvez le supprimer et le recréer. Cette section décrit comment effectuer ces opérations.
 
-## <a name="self-signed-certificate-renewal"></a>Renouvellement de certificat auto-signé
+## <a name="cert-renewal"></a>Renouvellement de certificat auto-signé
 Le certificat auto-signé que vous avez créé pour le compte d’identification expire 1 an après la date de création. Vous pouvez le renouveler à tout moment avant qu’il n’expire. Lorsque vous le renouvelez, le certificat valide en cours est conservé afin de garantir que les Runbooks en file d’attente ou en cours d’exécution, qui s’authentifient avec le compte d’identification, ne sont pas affectés. Le certificat reste valide jusqu’à sa date d’expiration.
 
 > [!NOTE]
@@ -77,6 +77,6 @@ Lorsque vous sélectionnez le compte d’identification, le volet **Propriétés
 Vous pouvez rapidement résoudre ces problèmes liés au compte d’identification en supprimant et en recréant le compte.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur les principaux de service, consultez l’article [Objets Principal du service et Application](../active-directory/active-directory-application-objects.md).
+* Pour plus d’informations sur les principaux de service, consultez l’article [Objets Principal du service et Application](../active-directory/develop/app-objects-and-service-principals.md).
 * Pour plus d’informations sur le contrôle d’accès en fonction du rôle dans Azure Automation, reportez-vous à l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
 * Pour plus d’informations sur les certificats et les services Azure, consultez la page [Vue d’ensemble des certificats pour Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

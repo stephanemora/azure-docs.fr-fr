@@ -2,23 +2,18 @@
 title: Vue d’ensemble de l’analyse de l’intégrité pour Azure Application Gateway
 description: En savoir plus sur les capacités d’analyse dans Azure Application Gateway
 services: application-gateway
-documentationcenter: na
 author: vhorne
 manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/30/2018
+ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30310903"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529680"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Vue d’ensemble de l’analyse d’intégrité Application Gateway
 
@@ -27,9 +22,6 @@ Azure Application Gateway analyse par défaut l’intégrité de toutes les ress
 ![exemple de sonde application gateway][1]
 
 En plus d’utiliser la surveillance par sonde d’intégrité par défaut, vous pouvez aussi personnaliser la sonde d’intégrité pour répondre aux exigences de votre application. Dans cet article, nous nous intéressons aux sondes d’intégrité par défaut et personnalisées.
-
-> [!NOTE]
-> Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau, les plages de ports 65503-65534 doivent être ouvertes sur ce sous-réseau pour permettre l’arrivée du trafic entrant. Ces ports sont requis pour permettre à l’API relative à l’intégrité du serveur principal de fonctionner correctement.
 
 ## <a name="default-health-probe"></a>Sonde d’intégrité par défaut
 
@@ -46,7 +38,7 @@ Par défaut, une réponse HTTP(S) avec le code d’état 200 est considérée co
 Les éléments suivants sont des critères de correspondance : 
 
 - **Correspondance de code d’état de la réponse HTTP** : le critère de correspondance de la sonde pour l’acceptation du code de réponse http spécifié par l’utilisateur ou des plages de codes de réponse. Les codes d’état de réponse séparées par des virgules individuelles ou une plage de codes d’état sont pris en charge.
-- **Correspondance du corps de la réponse HTTP** : le critère de correspondance de la sonde qui examine le corps de la réponse HTTP et correspond à une chaîne spécifiée par l’utilisateur. Notez que la correspondance ne tient compte que de la présence d’une chaîne spécifiée par l’utilisateur dans le corps de la réponse et n’est pas une correspondance d’expression régulière complète.
+- **Correspondance du corps de la réponse HTTP** : critère de correspondance de la sonde qui examine le corps de la réponse HTTP et correspond à une chaîne spécifiée par l’utilisateur. La correspondance ne tient compte que de la présence d’une chaîne spécifiée par l’utilisateur dans le corps de la réponse et n’est pas une correspondance d’expression régulière complète.
 
 Les critères de correspondance peuvent être spécifiés à l’aide de la cmdlet `New-AzureRmApplicationGatewayProbeHealthResponseMatch`.
 
@@ -63,14 +55,20 @@ Une fois les critères de correspondance spécifiés, ils peuvent être joints �
 | Propriétés de la sonde | Valeur | Description |
 | --- | --- | --- |
 | URL de sonde |http://127.0.0.1:\<port\>/ |Chemin d'accès de l'URL |
-| Intervalle |30 |Intervalle d’analyse en secondes |
-| Délai d’attente |30 |Délai d’expiration de l’analyse en secondes |
-| Seuil de défaillance sur le plan de l’intégrité |3 |Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
+| Intervalle |30 |Durée de l’attente, en secondes, avant l’envoi de la sonde d’intégrité suivante.|
+| Délai d’attente |30 |Durée de l’attente, en secondes, de la passerelle d’application pour une réponse de la sonde avant que la sonde ne soit déclarée comme défectueuse. Si une sonde renvoie un état intègre, le serveur principal correspondant est immédiatement marqué comme étant intègre.|
+| Seuil de défaillance sur le plan de l’intégrité |3 |Détermine le nombre de sondes à envoyer en cas d’échec de la sonde d’intégrité standard. Ces sondes d’intégrité supplémentaires sont envoyées de façon rapprochée pour déterminer rapidement l’intégrité du serveur principal et ne tiennent pas compte de l’intervalle d’analyse. Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
 
 > [!NOTE]
 > Le port est le même que celui utilisé par les paramètres HTTP du serveur principal.
 
-La sonde par défaut examine uniquement le http://127.0.0.1:\<port\> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées comme décrit dans les étapes suivantes :
+La sonde par défaut examine uniquement le http://127.0.0.1:\<port\> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées.
+
+### <a name="probe-intervals"></a>Intervalles d'analyse
+
+Toutes les instances d’Application Gateway sondent le serveur principal indépendamment des autres. La même configuration de sonde s’applique à chaque instance d’Application Gateway. Par exemple, si la configuration de sonde consiste à envoyer des sondes d’intégrité toutes les 30 secondes, et si Application Gateway a deux instances, les deux instances envoient la sonde d’intégrité toutes les 30 secondes.
+
+S’il existe plusieurs processus d’écoute, chacun d’entre eux analyse le serveur principal indépendamment des autres. Par exemple, s’il existe deux processus d’écoute pointant vers le même pool principal sur deux ports distincts (configurés par deux paramètres HTTP du serveur principal), chaque processus d’écoute analyse le même serveur principal indépendamment. Dans ce cas, il existe deux sondes provenant de chaque instance d’Application Gateway pour les deux processus d’écoute. S’il existe deux instances d’Application Gateway dans ce scénario, la machine virtuelle principale voit quatre sondes par intervalle d’analyse configuré.
 
 ## <a name="custom-health-probe"></a>Sonde d’intégrité personnalisée
 
@@ -93,6 +91,12 @@ Le tableau suivant fournit des définitions pour les propriétés d’une sonde 
 > [!IMPORTANT]
 > Si Application Gateway est configuré pour un seul site, le nom d’hôte par défaut doit être spécifié sous la forme « 127.0.0.1 », sauf s’il est configuré d’une autre manière dans la sonde personnalisée.
 > Pour référence, une sonde personnalisée est envoyée à \<protocole\>://\<hôte\>:\<port\>\<chemin d’accès\>. Le port utilisé est identique à celui défini dans les paramètres HTTP du serveur principal.
+
+## <a name="nsg-considerations"></a>Considérations pour un groupe de sécurité réseau
+
+Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau (NSG), vous devez ouvrir la plage de ports 65503-65534 sur ce sous-réseau pour permettre l’arrivée du trafic entrant. Ces ports sont requis pour permettre à l’API relative à l’intégrité du serveur principal de fonctionner correctement.
+
+En outre, la connectivité Internet sortante ne peut pas être bloquée, et le trafic provenant de la balise AzureLoadBalancer doit être autorisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après vous être familiarisé avec l’analyse d’intégrité Application Gateway, vous pouvez configurer une [sonde d’intégrité personnalisée](application-gateway-create-probe-portal.md) dans le portail Azure ou une [sonde d’intégrité personnalisée](application-gateway-create-probe-ps.md) à l’aide de PowerShell et du modèle de déploiement Azure Resource Manager.

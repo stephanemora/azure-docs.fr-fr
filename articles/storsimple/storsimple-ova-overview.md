@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651203"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480952"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Présentation de StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un groupe virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. Le groupe virtuel est un serveur de fichiers ou une solution de serveur iSCSI efficace, abordable et facile à gérer qui élimine la plupart des problèmes et des frais liés à la protection des données et du stockage d’entreprise. Le groupe virtuel est particulièrement bien adapté pour le stockage des données d’archivage rarement utilisées.
 
@@ -74,10 +74,10 @@ Le tableau suivant décrit certains des principaux avantages offerts par la solu
 
 Voici un tableau résumant les charges de travail StorSimple prises en charge.
 
-|Scénario     |Charge de travail     |Prise en charge      |Restrictions               |
+|Scénario     |Charge de travail     |Pris en charge      |Restrictions               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |Partage de fichiers     |OUI      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
-|Archivage cloud  |Partage de fichiers d’archivage     |OUI      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
+|Bureau à distance/Succusale  |Partage de fichiers     |Oui      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
+|Archivage cloud  |Partage de fichiers d’archivage     |Oui      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
 
 Le groupe virtuel StorSimple Virtual Array est particulièrement bien adapté pour les données rarement utilisées. Le groupe virtuel a un cache local pour optimiser les performances, mais les utilisateurs doivent prendre en compte que l’appareil traite les fichiers au niveau inférieur du stockage (le cloud). Chaque groupe virtuel peut écrire et lire des données dans le stockage Azure à une vitesse d’environ 100 Mbits/s. Ce lien est partagé entre toutes les demandes entrantes sur l’appareil et peut devenir un goulot d’étranglement comme illustré dans le diagramme ci-dessous.
 

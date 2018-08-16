@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 08/06/2018
 ms.author: magoedte
-ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366094"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521929"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Surveiller l’intégrité des conteneurs Azure Kubernetes Service (AKS) (préversion)
 
@@ -356,6 +356,12 @@ Le graphique de performances affiche quatre métriques de performance :
 - **Node count** (Nombre de nœuds) : nombre et état des nœuds fournis par Kubernetes. L’état des nœuds de cluster représentés sont *All* (Tous), *Ready* (Prêts) et *Not Ready* (Non prêts). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique. 
 - **Activity pod count** (Nombre de pods d’activité) : nombre et état des pods fournis par Kubernetes. L’état des pods représentés sont *All* (Tous), *Pending* (En attente), *Running* (En cours d’exécution) et *Unknown* (Inconnus). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique. 
 
+Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), le volet des propriétés s’affiche automatiquement à droite de la page.  Il présente les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes.  Cliquez sur le lien **>>** dans le volet pour afficher ou masquer le volet.  
+
+![Exemple du volet de propriétés des perspectives Kubernetes](./media/monitoring-container-health/perspectives-preview-pane-01.png)
+
+Quand vous développez les objets dans la hiérarchie, le volet des propriétés est mis à jour en fonction de l’objet sélectionné. Dans le volet, vous pouvez également afficher les événements Kubernetes avec des recherches dans les journaux prédéfinies en cliquant sur le lien **View Kubernetes event logs** (Afficher les journaux des événements Kubernetes) en haut du volet. Pour plus d’informations sur l’affichage des données des journaux Kubernetes, consultez [Rechercher dans les journaux pour analyser les données](#search-logs-to-analyze-data).
+
 Sous l’onglet **Nodes** (Nœuds), la hiérarchie de ligne suit le modèle d’objet Kubernetes commençant par un nœud dans votre cluster. Développez le nœud pour voir les pods qui y sont actuellement exécutés. Si plusieurs conteneurs sont regroupés dans un pod, ils sont affichés comme la dernière ligne de la hiérarchie. Vous pouvez également voir le nombre de charges de travail non associées à un pod qui sont actuellement exécutées sur l’ordinateur hôte si le processeur ou la mémoire de l’hôte sont très sollicités.
 
 ![Exemple de hiérarchie de nœud Kubernetes dans l’affichage des performances](./media/monitoring-container-health/container-health-nodes-view.png)
@@ -481,9 +487,9 @@ Le tableau suivant présente des exemples d’enregistrements collectés par le 
 ## <a name="search-logs-to-analyze-data"></a>Rechercher des journaux pour analyser les données
 Log Analytics peut vous aider à rechercher des tendances, à diagnostiquer les goulets d’étranglement, à effectuer des prévisions, ou à mettre en corrélation des données afin de déterminer si la configuration actuelle du cluster garantit des performances optimales. Les recherches prédéfinies dans les journaux peuvent être utilisées immédiatement. Elles peuvent également être personnalisées afin de retourner les informations comme vous le souhaitez. 
 
-Vous pouvez effectuer une analyse interactive des données dans l’espace de travail en sélectionnant l’option **Afficher le journal**, qui est située à droite lorsque vous développez un contrôleur ou un conteneur. La page **Recherche dans les journaux** s’affiche au-dessus de la page du portail Azure.
+Vous pouvez effectuer une analyse interactive des données dans l’espace de travail en sélectionnant l’option **View Kubernetes event logs** (Afficher les journaux des événements Kubernetes) ou **View container logs** (Afficher les journaux de conteneur) dans le volet de visualisation. La page **Recherche dans les journaux** s’affiche à droite de la page du portail Azure.
 
-![Analyser des données dans Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
+![Analyser des données dans Log Analytics](./media/monitoring-container-health/container-health-log-search-example.png)   
 
 Les sorties de journaux de conteneur transmises à Log Analytics sont STDOUT et STDERR. Étant donné que le contrôle d’intégrité des conteneurs surveille un système Azure Kubernetes (AKS) géré, le système Kube n’est pas collecté aujourd’hui en raison de l’important volume de données générées. 
 

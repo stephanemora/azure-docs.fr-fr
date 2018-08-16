@@ -9,18 +9,21 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: sethm
-ms.openlocfilehash: 517c1376415466f5ce0e3c854f6c91f60cdab9f8
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d27cb7a870a1a03e89ea35aa3ebe3a777483cf67
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247621"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579457"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métriques Azure Service Bus dans Azure Monitor (préversion)
 
 Les métriques de Service Bus vous donnent l’état des ressources dans votre abonnement Azure. Avec un ensemble complet de données de métriques, vous pouvez évaluer l’intégrité globale des ressources de Service Bus, non seulement au niveau de l’espace de noms, mais également au niveau de l’entité. Ces statistiques peuvent être importantes, car elles vous aident à surveiller l’état de Service Bus. Les métriques peuvent également vous aider à résoudre les problèmes constituant des causes premières sans avoir à contacter le support technique Azure.
 
 Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance entre divers services Azure. Pour plus d’informations, consultez [Analyse dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) et [Récupérer des métriques Azure Monitor avec .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sur GitHub.
+
+> [!IMPORTANT]
+> Quand il n’y a plus eu d’interaction avec une entité pendant 2 heures, les métriques commencent à afficher « 0 » en tant que valeur jusqu’à ce que l’entité ne soit plus inactive.
 
 ## <a name="access-metrics"></a>Accéder aux mesures
 

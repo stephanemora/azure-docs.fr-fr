@@ -1,25 +1,20 @@
 ---
-title: Créer des applications .NET d’authentification non interactives dans Azure HDInsight | Microsoft Docs
+title: Créer des applications .NET d’authentification non interactives dans Azure HDInsight
 description: Découvrez comment créer des applications .NET d’authentification non interactives dans Azure HDInsight.
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 497c67132b6d5ebc1301f56fde72031ca3e7b976
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: f5f1aae62d8f2959f26a361f3c1187037cafcca5
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199698"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591517"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Créer une application .NET HDInsight d’authentification non interactive
 Vous pouvez exécuter votre application Microsoft .NET Azure HDInsight sous l’identité de l’application (non interactive) ou sous l’identité de l’utilisateur connecté à l’application (interactive). Cet article vous présente la création d’une application .NET d’authentification non interactive pour se connecter à Azure et gérer HDInsight. Pour voir un exemple d’application interactive, consultez [Se connecter à Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -31,7 +26,6 @@ Vous pouvez exécuter votre application Microsoft .NET Azure HDInsight sous l’
 * La clé secrète de l’application Azure AD. Voir la rubrique sur [l’obtention de la clé d’authentification de l’application](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Un cluster HDInsight. Voir le [didacticiel de prise en main](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Affecter un rôle à l’application Azure AD

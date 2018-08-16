@@ -1,25 +1,19 @@
 ---
 title: Configuration d’une chaîne de connexion pour le stockage Azure | Microsoft Docs
-description: Configurez une chaîne de connexion pour un compte de stockage Azure. Une chaîne de connexion inclut les informations nécessaires pour authentifier l’accès à un compte de stockage à partir de votre application, pendant l’exécution.
+description: Configurez une chaîne de connexion pour un compte de stockage Azure. Une chaîne de connexion inclut les informations nécessaires pour autoriser l’accès à un compte de stockage à partir de votre application pendant l’exécution.
 services: storage
-documentationcenter: ''
 author: craigshoemaker
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: dee0fd68ccaf80ff6e44ee10fa24bb19e220d0d5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 1c6ba727bf9c19b5da0d0d0313377d5d4ad1e2ac
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240827"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529703"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuration des chaînes de connexion Stockage Azure
 
@@ -32,7 +26,7 @@ Une chaîne de connexion inclut les informations d’authentification nécessair
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## <a name="storing-your-connection-string"></a>Récupération de votre chaîne de connexion
-Votre application doit accéder à la chaîne de connexion pendant l’exécution pour authentifier les requêtes transmises au stockage Azure. Plusieurs options vous permettant de stocker votre chaîne de connexion s’offrent à vous :
+Votre application doit accéder à la chaîne de connexion pendant l’exécution pour autoriser les requêtes transmises au stockage Azure. Plusieurs options vous permettant de stocker votre chaîne de connexion s’offrent à vous :
 
 * Une application s’exécutant sur le bureau ou sur un appareil peut stocker la chaîne de connexion dans un fichier **app.config** ou **web.config**. Ajoutez la chaîne de connexion dans la section **AppSettings** de ces fichiers.
 * Une application s’exécutant dans un service cloud Azure peut stocker la chaîne de connexion dans le [schéma de configuration du service Azure (fichier .cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Ajoutez la chaîne de connexion à la section **ConfigurationSettings** du fichier de configuration du service.

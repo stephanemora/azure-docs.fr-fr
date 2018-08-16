@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3303a0fb1ca4c4a8f6695c2e4338c1b0a0fc9f40
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: a6df90a1ae1dddbf7f76a7ef6c7e13d9e645dd9c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358630"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528423"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Connectez-vous avec votre téléphone, et non votre mot de passe
 
@@ -70,7 +70,7 @@ Les nouveaux comptes étant automatiquement activés, vous pouvez commencer à u
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Pour utiliser la connexion par téléphone pour se connecter à un compte personnel
 
-1.  Accédez à la page de connexion de votre compte Microsoft personnel, puis, au lieu de saisir votre mot de passe, cliquez sur le lien **Utiliser une application à la place**.
+1.  Accédez à la page de connexion de votre compte Microsoft personnel, puis, au lieu de taper votre mot de passe, sélectionnez le lien **Utiliser l’application Microsoft Authenticator à la place**.
 
     Microsoft envoie une notification à votre téléphone. 
 
@@ -91,7 +91,7 @@ Les nouveaux comptes étant automatiquement activés, vous pouvez commencer à u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   Si vous avez des questions plus générales concernant l’application, consultez le [Forum aux questions sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md).
+-   Si vous avez des questions plus générales concernant l’application, consultez le [Forum aux questions sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
 -   Pour plus d’informations sur la vérification en deux étapes, consultez [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
 

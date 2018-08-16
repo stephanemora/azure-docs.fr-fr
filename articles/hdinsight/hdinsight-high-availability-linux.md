@@ -1,26 +1,21 @@
 ---
-title: Haute disponibilité pour Hadoop - Azure HDInsight | Documents Microsoft
+title: Haute disponibilité pour Hadoop - Azure HDInsight
 description: Découvrez comment les clusters HDInsight améliorent la fiabilité et la disponibilité en utilisant un nœud principal supplémentaire. Découvrez dans quelle mesure les services Hadoop tels qu’Ambari et Hive sont concernés, et comment se connecter à chaque nœud principal via SSH.
 services: hdinsight
-editor: cgronlun
-manager: cgronlun
-author: Blackmist
-documentationcenter: ''
-tags: azure-portal
+editor: jasonwhowell
+author: jasonwhowell
 keywords: haute disponibilité hadoop
-ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
-ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.author: jasonh
+ms.openlocfilehash: ad42c1acd795d15bbbe951d90ec9b6b09695cd0a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046677"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592581"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Hadoop dans HDInsight
 
@@ -29,7 +24,7 @@ Les clusters HDInsight fournissent deux nœuds principaux afin d’augmenter la 
 Hadoop garantit de hauts niveaux de disponibilité et de fiabilité en répliquant des services et données sur plusieurs nœuds d’un cluster. Toutefois, les distributions standard de Hadoop ne comportent généralement qu’un seul nœud principal. Toute défaillance du nœud principal unique peut entraîner un arrêt de fonctionnement du cluster. HDInsight fournit deux nœuds principaux pour améliorer la disponibilité et la fiabilité de Hadoop.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="availability-and-reliability-of-nodes"></a>Disponibilité et fiabilité des nœuds
 
@@ -188,7 +183,7 @@ Chaque nœud principal peut contenir des entrées de journal uniques. Vous devez
 
 Vous pouvez également vous connecter au nœud principal à l’aide du protocole FTP SSH, ou protocole FTP sécurisé (SFTP), et télécharger directement les fichiers journaux.
 
-Comme lors de l’utilisation d’un client SSH, lorsque vous vous connectez au cluster, vous devez fournir le nom du compte d’utilisateur SSH et l’adresse SSH du cluster. Par exemple, `sftp username@mycluster-ssh.azurehdinsight.net`. Lorsque vous y êtes invité, fournissez le mot de passe du compte ou une clé publique à l’aide du paramètre `-i`.
+Comme lors de l’utilisation d’un client SSH, lorsque vous vous connectez au cluster, vous devez fournir le nom du compte d’utilisateur SSH et l’adresse SSH du cluster. Par exemple : `sftp username@mycluster-ssh.azurehdinsight.net`. Lorsque vous y êtes invité, fournissez le mot de passe du compte ou une clé publique à l’aide du paramètre `-i`.
 
 Une fois connecté, vous voyez apparaître une invite `sftp>` . À partir de cette invite, vous pouvez changer de répertoire, ainsi que charger et télécharger des fichiers. Par exemple, les commandes ci-après activent le répertoire **/var/log/hadoop/hdfs** , puis téléchargent tous les fichiers dans ce répertoire.
 

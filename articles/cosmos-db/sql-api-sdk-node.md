@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d60325fa53668628ddefa68e8ce313c4fa75c6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797843"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594350"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Node.js Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -34,31 +34,24 @@ ms.locfileid: "34797843"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**Documentation de l’API**</td><td>[Documentation de référence de l’API Node.js](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**Instructions d’installation du Kit de développement logiciel (SDK)**</td><td>[Instructions d’installation](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**Exemples**</td><td>[Exemples de code Node.js](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**Didacticiel de prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Node.js](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**Didacticiel d’application web**</td><td>[Générer une application web Node.js à l’aide d’Azure Cosmos DB](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**Plateforme actuellement prise en charge**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|Ressource  |Lien  |
+|---------|---------|
+|Télécharger le SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|Documentation de l’API  |  [Documentation de référence sur le SDK JavaScript](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|Instructions d’installation du SDK  |  [Instructions d’installation](https://github.com/Azure/azure-cosmos-js#installation)
+|Contribuer au SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| Exemples | [Exemples de code Node.js](sql-api-nodejs-samples-preview.md)
+| Tutoriel pour bien démarrer | [Bien démarrer avec le SDK JavaScript](sql-api-nodejs-get-started-preview.md)
+| Tutoriel basé sur une application web | [Générer une application web Node.js à l’aide d’Azure Cosmos DB](sql-api-nodejs-application-preview.md)
+| Plateforme actuellement prise en charge | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) : obligatoire pour le SDK version 2.0.0 et ultérieure.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* RC1 de la version 2.0.0 du SDK JavaScript pour la préversion publique.
+* Nouveau modèle d’objet, avec le CosmosClient de niveau supérieur et les méthodes réparties entre les classes Database, Container et Item appropriées. 
+* Prise en charge des [promesses](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
+* SDK converti en TypeScript.
 
 ### <a name="1.14.4"/>1.14.4</a>
 * Documentation npm mise à jour.
@@ -201,6 +194,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.0.0-3 (RC)](#2.0.0-3) |2 août 2018 |--- |
 | [1.14.4](#1.14.4) |3 mai 2018 |--- |
 | [1.14.3](#1.14.3) |3 mai 2018 |--- |
 | [1.14.2](#1.14.2) |21 décembre 2017 |--- |

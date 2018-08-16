@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126344"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480990"
 ---
 > [!div class="op_single_selector"]
 > * [Java asynchrone](performance-tips-async-java.md)
@@ -95,7 +95,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 1. **Installation du kit de développement logiciel (SDK) le plus récent**
 
     Les SDK Azure Cosmos DB sont constamment améliorés pour fournir des performances optimales. Consultez les pages du [SDK Azure Cosmos DB](documentdb-sdk-dotnet.md) pour déterminer quel est le SDK le plus récent et passer en revue les améliorations.
-2. **Utilisation d’un client Azure Cosmos DB singleton pour la durée de vie de votre application**
+2. **Utiliser un client Azure Cosmos DB singleton pour la durée de vie de votre application**
 
     Chaque instance de DocumentClient est thread-safe et effectue une gestion des connexions efficace et une mise en cache d’adresses quand le mode direct est sélectionné. Pour permettre une gestion des connexions efficace et améliorer les performances par DocumentClient, nous vous recommandons d’utiliser une seule instance de DocumentClient par AppDomain pour la durée de vie de l’application.
 
@@ -132,9 +132,10 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     Si vous effectuez des tests à des niveaux de débit élevé (> 50 000 RU/s), l’application cliente peut devenir un goulet d’étranglement en raison du plafonnement sur l’utilisation du processeur ou du réseau. Si vous atteignez ce point, vous pouvez continuer à augmenter le compte Azure Cosmos DB en augmentant la taille des instances de vos applications clientes sur plusieurs serveurs.
 8. **Mise en cache d’URI de document pour une latence de lecture plus faible**
 
-    Effectuez une mise en cache des URI de document dès que possible pour garantir la meilleure lecture.
+    Effectuez une mise en cache des URI de document dès que possible pour garantir la meilleure lecture. Vous devez définir la logique pour mettre en cache l’ID de ressource lorsque vous créez la ressource. Les recherches par ID de ressource sont plus rapides que les recherches par nom. La mise en cache de ces valeurs améliore donc les performances. 
+
    <a id="tune-page-size"></a>
-9. **Réglage de la taille de la page des flux de lecture/requêtes pour de meilleures performances**
+1. **Réglage de la taille de la page des flux de lecture/requêtes pour de meilleures performances**
 
     Lors d’une lecture groupée de documents à l’aide de la fonctionnalité de flux de lecture (ReadDocumentFeedAsync) ou lors de l’émission d’une requête SQL, les résultats sont retournés de façon segmentée si le jeu de résultats est trop grand. Par défaut, les résultats sont retournés dans des segments de 100 éléments ou de 1 Mo, selon la limite atteinte en premier.
 
@@ -159,7 +160,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     - Pour les applications web ASP.NET déployées sur Azure, cette opération peut être effectuée en choisissant la **plate-forme 64 bits** dans les **paramètres de l’application** sur le portail Azure.
 
-## <a name="indexing-policy"></a>Stratégie d'indexation
+## <a name="indexing-policy"></a>Stratégie d’indexation
  
 1. **Exclusion des chemins d’accès inutilisés de l’indexation pour des écritures plus rapides**
 
@@ -179,9 +180,9 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
 1. **Mesure et réglage pour réduire l’utilisation d’unités de requête par seconde**
 
-    Azure Cosmos DB propose un riche ensemble d’opérations de base de données, dont les requêtes hiérarchiques et relationnelles avec les fonctions définies par l’utilisateur, les procédures stockées et les déclencheurs, qui fonctionnent toutes au niveau des documents d’une collection de base de données. Le coût associé à chacune de ces opérations varie en fonction du processeur, des E/S et de la mémoire nécessaires à l’exécution de l’opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de demande comme une mesure unique des ressources nécessaires à l'exécution des opérations de base de données et à la réponse à la demande de l'application.
+    Azure Cosmos DB propose un riche ensemble d’opérations de base de données, dont les requêtes hiérarchiques et relationnelles avec les fonctions définies par l’utilisateur, les procédures stockées et les déclencheurs, qui fonctionnent toutes au niveau des documents d’une collection de base de données. Le coût associé à chacune de ces opérations varie en fonction du processeur, des E/S et de la mémoire nécessaires à l’exécution de l’opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de demande comme une mesure unique des ressources nécessaires à l’exécution des opérations de base de données et à la réponse à la requête de l’application.
 
-    Le débit est provisionné en fonction du nombre [d’unités de requête](request-units.md) défini pour chaque conteneur. La consommation d'unités de demande est évaluée en fonction d'un taux par seconde. Les applications qui dépassent le taux d’unités de requête configuré pour le conteneur associé sont limitées jusqu’à ce que le taux soit inférieur au niveau configuré pour le conteneur. Si votre application requiert un niveau de débit plus élevé, vous pouvez augmenter le débit en provisionnant des unités de requête supplémentaires. 
+    Le débit est provisionné en fonction du nombre [d’unités de requête](request-units.md) défini pour chaque conteneur. La consommation d’unités de requête est évaluée en fonction d’un taux par seconde. Les applications qui dépassent le taux d’unités de requête configuré pour le conteneur associé sont limitées jusqu’à ce que le taux soit inférieur au niveau configuré pour le conteneur. Si votre application requiert un niveau de débit plus élevé, vous pouvez augmenter le débit en provisionnant des unités de requête supplémentaires. 
 
     La complexité d’une requête a un impact sur le nombre d’unités de requête consommées pour une opération. Le nombre de prédicats, la nature des prédicats, le nombre de fonctions définies par l’utilisateur et la taille du jeu de données sources ont tous une influence sur le coût des opérations de requête.
 

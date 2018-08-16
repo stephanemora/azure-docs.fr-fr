@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036766"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493670"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architecture de connectivité Azure SQL Database 
 
@@ -51,7 +51,7 @@ Si vous vous connectez en dehors d’Azure, vos connexions disposent d’une str
 ![Présentation de l’architecture](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Lorsque vous utilisez des points de terminaison de service avec Azure SQL Database, votre stratégie par défaut est **Rediriger**. Par conséquent, pour activer la connectivité à partir de l’intérieur de votre réseau virtuel, vous devez autoriser le trafic sortant vers toutes les adresses IP d’Azure SQL Database, et pas seulement les adresses IP de passerelle. Cela peut être fait à l’aide de balises de service NSG (Groupe de sécurité réseau). Si vous souhaitez autoriser le trafic sortant uniquement vers les adresses IP, modifiez votre paramètre en définissant **Proxy**.
+> Lorsque vous utilisez des points de terminaison de service avec Azure SQL Database, votre stratégie par défaut est **Proxy**. Pour activer la connectivité depuis l’intérieur de votre réseau virtuel, autorisez les connexions sortantes vers les adresses IP de passerelle Azure SQL Database spécifiées dans la liste ci-dessous. Si vous utilisez des points de terminaison de service, nous vous recommandons vivement de modifier votre stratégie de connexion et d’adopter une stratégie **Rediriger** afin de bénéficier de meilleures performances. La modification de votre stratégie de connexion pour adopter une stratégie **Rediriger** ne sera pas suffisante pour autoriser le trafic sortant de votre Groupe de sécurité réseau vers les adresses IP de passerelle Azure SQLDB répertoriées ci-dessous. Vous devez autoriser le trafic sortant vers toutes les adresses IP Azure SQLDB. Pour ce faire, vous pouvez vous aider des balises de service du Groupe de sécurité réseau. Pour plus d'informations, consultez la rubrique [Balises de service](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Adresses IP de la passerelle Azure SQL Database
 
@@ -61,37 +61,39 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 
 | Nom de la région | Adresse IP principale | Adresse IP secondaire |
 | --- | --- |--- |
-| Est de l’Australie | 191.238.66.109 | 13.75.149.87 |
+| Australie Est | 191.238.66.109 | 13.75.149.87 |
 | Sud-Est de l’Australie | 191.239.192.109 | 13.73.109.251 |
-| Sud du Brésil | 104.41.11.5 | |
-| Canada Centre | 40.85.224.249 | |
-| Canada Est | 40.86.226.166 | |
+| Brésil Sud | 104.41.11.5 | |
+| Centre du Canada | 40.85.224.249 | |
+| Est du Canada | 40.86.226.166 | |
 | USA Centre | 23.99.160.139 | 13.67.215.62 |
-| Est de l'Asie | 191.234.2.139 | 52.175.33.150 |
-| Est des États-Unis 1 | 191.238.6.43 | 40.121.158.30 |
-| Est des États-Unis 2 | 191.239.224.107 | 40.79.84.180 * |
-| Inde-Centre | 104.211.96.159  | |
+| Asie Est | 191.234.2.139 | 52.175.33.150 |
+| USA Est 1 | 191.238.6.43 | 40.121.158.30 |
+| USA Est 2 | 191.239.224.107 | 40.79.84.180 * |
+| Inde Centre | 104.211.96.159  | |
 | Sud de l’Inde | 104.211.224.146  | |
-| Inde-Ouest | 104.211.160.80 | |
-| Est du Japon | 191.237.240.43 | 13.78.61.196 |
-| Ouest du Japon | 191.238.68.11 | 104.214.148.156 |
+| Inde Ouest | 104.211.160.80 | |
+| Japon Est | 191.237.240.43 | 13.78.61.196 |
+| Japon Ouest | 191.238.68.11 | 104.214.148.156 |
 | Centre de la Corée | 52.231.32.42 | |
 | Corée du Sud | 52.231.200.86 |  |
-| Centre-Nord des États-Unis | 23.98.55.75 | 23.96.178.199 |
+| USA Centre Nord | 23.98.55.75 | 23.96.178.199 |
 | Europe Nord | 191.235.193.75 | 40.113.93.91 |
-| Centre-Sud des États-Unis | 23.98.162.75 | 13.66.62.124 |
-| Asie du Sud-Est | 23.100.117.95 | 104.43.15.0 |
+| USA Centre Sud | 23.98.162.75 | 13.66.62.124 |
+| Asie Sud-Est | 23.100.117.95 | 104.43.15.0 |
 | Nord du Royaume-Uni | 13.87.97.210 | |
 | Sud du Royaume-Uni 1 | 51.140.184.11 | |
 | Sud du Royaume-Uni 2 | 13.87.34.7 | |
 | Ouest du Royaume-Uni | 51.141.8.11  | |
-| Centre-Ouest des États-Unis | 13.78.145.25 | |
+| USA Centre-Ouest | 13.78.145.25 | |
 | Europe Ouest | 191.237.232.75 | 40.68.37.158 |
-| Ouest des États-Unis 1 | 23.99.34.75 | 104.42.238.205 |
+| USA Ouest 1 | 23.99.34.75 | 104.42.238.205 |
 | USA Ouest 2 | 13.66.226.202  | |
 ||||
 
-\***REMARQUE :** *Est des États-Unis 2* a également l’adresse IP tertiaire `52.167.104.0`.
+
+  \*
+  **REMARQUE :***USA Est* a également l’adresse IP tertiaire `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modifier la stratégie de connexion Azure SQL Database
 

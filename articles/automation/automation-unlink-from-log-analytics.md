@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2018
+ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f51103045f6a0cac1b1ed4f32200eaf7bef9cf24
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1328ce8c306188c32bce5385f58f118a63c08deb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193874"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426531"
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Comment supprimer le lien de votre compte Automation dans un espace de travail Log Analytics
 
@@ -24,7 +24,7 @@ Azure Automation s’intègre dans Log Analytics non seulement pour assurer une 
 * [Suivi des modifications](../log-analytics/log-analytics-change-tracking.md)
 * [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 
-Si vous ne souhaitez plus intégrer votre compte Automation dans Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure.  Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez la rubrique relative à la solution que vous avez importée pour comprendre sa procédure de suppression.
+Si vous ne souhaitez plus intégrer votre compte Automation dans Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure.  Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
 
 Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
 
@@ -33,9 +33,7 @@ Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivante
 
 ## <a name="unlink-workspace"></a>Supprimer le lien de votre espace de travail
 
-1. Dans le portail Azure, ouvrez votre compte Automation puis, dans le panneau de ce dernier, sélectionnez **Dissocier l'espace de travail** dans la section **Ressources associées** sur la gauche.
-
-   ![Option Dissocier l’espace de travail](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+1. Dans le portail Azure, ouvrez votre compte Automation puis, dans la page de ce dernier, sélectionnez **Espace de travail lié** dans la section **Ressources associées** sur la gauche.
 
 1. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
 
@@ -47,9 +45,9 @@ Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivante
 
 Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 
-* Planifications de mise à jour.  Chacune aura un nom correspondant aux déploiements de mise à jour que vous avez créés.
+* Planifications de mise à jour : chacune aura un nom correspondant aux déploiements de mise à jour que vous avez créés.
 
-* Groupes de travail hybrides créés pour la solution.  Chacun a un nom similaire à machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
+* Groupes de travail hybrides créés pour la solution : chacun a un nom similaire à machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
 
 Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pendant les heures creuses, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 

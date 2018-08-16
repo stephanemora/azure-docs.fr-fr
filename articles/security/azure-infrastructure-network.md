@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a6800b18d1bb588c747d4e9ef7049ac4cbb82f60
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213467"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505382"
 ---
 # <a name="azure-network-architecture"></a>Architecture réseau Azure
 L’architecture réseau Azure suit une version modifiée du modèle standard cœur/distribution/accès, avec des couches matérielles distinctes. Les couches sont les suivantes :
@@ -38,7 +38,7 @@ L’architecture réseau d’un cluster Azure dans un centre de données se comp
 - Digi CM
 - Unités de distribution de l’alimentation
 
-Azure propose deux architectures distinctes. Certains clients Azure et services partagés existants se trouvent dans l’architecture LAN par défaut (DLA) tandis que les nouvelles régions et les nouveaux clients virtuels sont situés dans l’architecture Quantum 10 (Q10). L’architecture DLA est une conception d’arborescence traditionnelle avec des routeurs d’accès actifs-passifs et des listes de contrôle d’accès (ACL) de sécurité appliquées aux routeurs d’accès. L’architecture Quantum 10 est une conception Clos/maillée de routeurs où les listes ACL ne sont pas appliquées aux routeurs, mais sous le routage via des réseaux VLAN à équilibrage de charge logicielle (SLB) ou définis par les logiciels.
+Azure propose deux architectures distinctes. Certains clients Azure et services partagés existants se trouvent dans l’architecture LAN par défaut (DLA) tandis que les nouvelles régions et les nouveaux clients virtuels sont situés dans l’architecture Quantum 10 (Q10). L’architecture DLA est une conception d’arborescence traditionnelle avec des routeurs d’accès actifs-passifs et des listes de contrôle d’accès (ACL) de sécurité appliquées aux routeurs d’accès. L’architecture Quantum 10 est une conception Close/Mesh de routeurs, où les listes ACL ne sont pas appliquées aux routeurs, mais sous le routage via des réseaux VLAN à équilibrage de charge logicielle (SLB) ou définis par les logiciels.
 
 Le diagramme suivant donne une vue d’ensemble détaillée de l’architecture réseau dans un cluster Azure :
 
@@ -113,7 +113,7 @@ Pour en savoir plus sur ce que Microsoft fait pour sécuriser l’infrastructure
 - [Opérations de production et administration Azure](azure-infrastructure-operations.md)
 - [Surveillance de l’infrastructure Azure](azure-infrastructure-monitoring.md)
 - [Intégrité de l’infrastructure Azure](azure-infrastructure-integrity.md)
-- [Protection des données des clients dans Azure](azure-protection-of-customer-data.md)
+- [Protection des données client Azure](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-infrastructure-network/network-arch.png

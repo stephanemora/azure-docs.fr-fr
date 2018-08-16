@@ -1,25 +1,20 @@
 ---
-title: Gérer des clusters Hadoop Windows dans HDInsight au moyen du portail Azure | Microsoft Docs
+title: Gérer des clusters Hadoop Windows dans HDInsight au moyen du portail Azure
 description: Découvrez la façon d'administrer le service HDInsight. Créez un cluster HDInsight, ouvrez la console JavaScript interactive et ouvrez la console de commandes Hadoop.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78541feda8c82be143f91fdde88eac179cf0b1a5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4cbc0c14d0f6c505b391becf33c56dd95bfc251
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405362"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592218"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Hadoop Windows dans HDInsight à l'aide du portail Azure
 
@@ -28,11 +23,10 @@ Le [portail Azure][azure-portal] vous permet de créer des clusters Hadoop Windo
 Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight basés sur Windows. Pour plus d’informations sur la gestion des clusters basés sur Linux, voir [Gérer des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -84,11 +78,12 @@ L’installation de logiciels personnalisés sur le cluster à l’aide d’une 
 
    * Pour personnaliser le menu, cliquez avec le bouton droit sur le menu, puis sur **Personnaliser**.
    * **Paramètres** et **Tous les paramètres** : affichent le panneau **Paramètres** du cluster, ce qui vous permet d’accéder aux informations de configuration détaillées du cluster.
-   * **Tableau de bord**, **Tableau de bord du cluster** et **URL : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est une interface Ambari Web pour les clusters basés sur Linux. -** Secure Shell** : affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
+   * **Tableau de bord**, **Tableau de bord du cluster** et **URL** : il s’agit de toutes les façons d’accéder au tableau de bord de cluster, qui est une interface Ambari Web pour les clusters basés sur Linux.
+   * **Secure Shell**: affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
    * **Mise à l’échelle du cluster**: permet de modifier le nombre de nœuds de travail pour ce cluster.
    * **Supprimer**: supprime le cluster.
    * **Démarrage rapide** : affiche des informations qui vous aideront à prendre en main HDInsight.
-   * **Utilisateurs : permet de définir des autorisations pour la *gestion via le portail* de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
+   * **Utilisateurs** : permet de définir des autorisations pour la *gestion via le portail* de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
 
      > [!IMPORTANT]
      > Ce paramètre affecte *uniquement* les autorisations d’accès à ce cluster dans le portail Azure et n’a aucun effet sur les personnes autorisées à se connecter ou à soumettre des tâches au cluster HDInsight.
@@ -278,7 +273,7 @@ La console de la requête HDInsight inclut les fonctionnalités suivantes :
 
     ![historique de travail de portail HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Cliquez sur **Nom de la requête** pour afficher les détails, notamment les propriétés du travail, la **requête du travail** et le \*\*résultat du travail. Vous pouvez également télécharger la requête et la sortie sur votre station de travail.
+    Cliquez sur **Nom de la requête** pour afficher les détails, notamment les propriétés du travail, la **requête du travail** et le **résultat du travail. Vous pouvez également télécharger la requête et la sortie sur votre station de travail.
 * **Explorateur de fichiers**: accédez au compte de stockage par défaut et aux comptes de stockage liés.
 
     ![parcourir l’explorateur de fichier de portail HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)

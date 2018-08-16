@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: a7f20c22b39458134d3dcd42b7e13860c03bad58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 08b7f50c3051c174158cff0b4c591a2b22fb4ab4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785908"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502700"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accéder à l’API Azure Media Services avec l’authentification Azure AD
  
 L’API Azure Media Services est une API RESTful. Vous pouvez l’utiliser pour effectuer des opérations sur les ressources médias à l’aide d’une API REST ou à l’aide de Kits de développement logiciel (SDK) clients disponibles. Azure Media Services propose un Kit de développement logiciel (SDK) client Media Services pour Microsoft .NET. Pour être autorisé à accéder aux ressources Media Services et à l’API Media Services, vous devez tout d’abord être authentifié. 
 
-Media Services prend en charge l’[authentification avec Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md). Le service REST Media Azure nécessite que l’utilisateur ou l’application effectuant les requêtes de l’API REST ait le rôle **Collaborateur** ou **Propriétaire** pour accéder aux ressources. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../../role-based-access-control/overview.md).  
+Media Services prend en charge l’[authentification avec Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Le service REST Media Azure nécessite que l’utilisateur ou l’application effectuant les requêtes de l’API REST ait le rôle **Collaborateur** ou **Propriétaire** pour accéder aux ressources. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
 > À l’heure actuelle, Media Services prend en charge le modèle d’authentification du service Azure Access Control. Toutefois, l’autorisation Access Control sera déconseillée à compter du 1er juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible.
@@ -100,7 +100,7 @@ Les applications qui utilisent généralement cette méthode d’authentificatio
 
 Lorsque vous utilisez la méthode d’authentification du principal de service pour créer des scénarios de clients, l’authentification est généralement gérée au niveau intermédiaire (par le biais d’une API) et non directement dans une application mobile ou une application de bureau. 
 
-Pour utiliser cette méthode, créez une application Azure AD et un principal de service dans son propre locataire. Après avoir créé l’application, assignez à l’application le rôle Collaborateur ou Propriétaire pour accéder au compte Media Services. Vous pouvez le faire dans le portail Azure, à l’aide d’Azure CLI ou d’un script PowerShell. Vous pouvez aussi utiliser une application Azure AD existante. Vous pouvez inscrire et gérer votre application Azure AD et votre principal de service [dans le portail Azure](media-services-portal-get-started-with-aad.md). Vous pouvez également le faire à l’aide d’[Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) ou de [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
+Pour utiliser cette méthode, créez une application Azure AD et un principal de service dans son propre locataire. Après avoir créé l’application, assignez à l’application le rôle Collaborateur ou Propriétaire pour accéder au compte Media Services. Vous pouvez le faire dans le portail Azure, à l’aide d’Azure CLI ou d’un script PowerShell. Vous pouvez aussi utiliser une application Azure AD existante. Vous pouvez inscrire et gérer votre application Azure AD et votre principal de service [dans le portail Azure](media-services-portal-get-started-with-aad.md). Vous pouvez également le faire à l’aide d’[Azure CLI](media-services-use-aad-auth-to-access-ams-api.md) ou de [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
 
 ![Applications de niveau intermédiaire](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
@@ -146,8 +146,8 @@ Solution : pour que la requête Azure Media REST réussisse, l’utilisateur ap
 
 Les articles suivants sont des vues d’ensemble des concepts d’authentification Azure AD : 
 
-- [Scénarios d’authentification pour Azure AD](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [Add, update, or remove an application in Azure AD](../../active-directory/develop/active-directory-integrating-applications.md) (Ajouter, mettre à jour ou supprimer une application dans Azure AD)
+- [Scénarios d’authentification pour Azure AD](../../active-directory/develop/authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [Add, update, or remove an application in Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) (Ajouter, mettre à jour ou supprimer une application dans Azure AD)
 - [Configure and manage Role-Based Access Control by using PowerShell](../../role-based-access-control/role-assignments-powershell.md) (Configurer et gérer le contrôle d’accès en fonction du rôle à l’aide de PowerShell)
 
 ## <a name="next-steps"></a>Étapes suivantes

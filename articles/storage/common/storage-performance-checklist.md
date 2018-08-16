@@ -2,27 +2,21 @@
 title: Liste de contrôle des performances et de l’extensibilité d’Azure Storage | Microsoft Docs
 description: Une liste des pratiques éprouvées à utiliser avec Azure Storage dans le développement d’applications performantes.
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246217"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529698"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Depuis la publication des services Microsoft Azure Storage, Microsoft a élaboré une série de pratiques éprouvées pour les utiliser de manière performante. Cet article se propose d’énumérer les méthodes les plus importantes sous la forme d’une liste de contrôle. L’objectif de cet article est double : aider les développeurs d’applications à s’assurer qu’ils utilisent des pratiques éprouvées avec Azure Storage et les aider à en identifier d’autres en vue de les adopter. Cet article n’a pas pour but d’aborder toutes les questions relatives à l’optimisation de l’extensibilité et des performances. Sont exclues les pratiques dont l’impact est minime ou celles qui ne sont pas applicables à grande échelle. Dans la mesure où le comportement de l’application peut être prévu au cours de la conception, il convient de tenir compte de ces pratiques suffisamment tôt afin d’éviter les problèmes de performances ultérieurs.  
 
 Chaque développeur d’applications qui utilise Azure Storage doit prendre le temps de lire cet article et s’assurer que son application respecte chacune des pratiques éprouvées répertoriées ci-dessous.  
@@ -136,7 +130,7 @@ Comme c’est le cas pour toute utilisation du réseau, veuillez tenir compte du
 Pour plus d’informations sur les tailles de machines virtuelles et la bande passante allouée, consultez la rubrique [Tailles des machines virtuelles](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tailles des machines virtuelles Linux](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 #### <a name="subheading4"></a>Emplacement
-Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, dans le cas d’un site web qui utilise Azure Storage, tous deux doivent se trouver dans la même région (Ouest des États-Unis ou Asie du Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts. Au moment de la rédaction du présent document, l’utilisation de la bande passante dans une seule région était gratuite.  
+Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, dans le cas d’un site web qui utilise Azure Storage, tous deux doivent se trouver dans la même région (USA Ouest ou Asie Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts. Au moment de la rédaction du présent document, l’utilisation de la bande passante dans une seule région était gratuite.  
 
 Si votre application cliente n’est pas hébergée dans Azure (c’est le cas, par exemple, des applications pour appareil mobile ou des services d’entreprise locaux), le fait de placer le compte de stockage dans une région proche des appareils qui y accéderont se traduit généralement par une latence plus faible. En cas de distribution à grande échelle de vos clients (par exemple, certains se trouvent en Amérique du Nord et d’autres en Europe), l’utilisation de plusieurs comptes de stockage peut s’avérer judicieuse : un dans une région de l’Amérique du Nord et l’autre dans une région d’Europe. Cela contribue à réduire la latence pour les utilisateurs des deux régions. En règle générale, cette méthode est plus facile à mettre en œuvre si les données stockées par l’application sont spécifiques de certains utilisateurs et elle ne nécessite pas de réplication des données entre divers comptes de stockage.  Pour une distribution du contenu à grande échelle, un CDN est recommandé. Pour plus d’informations à ce sujet, voir la section suivante.  
 
@@ -146,7 +140,7 @@ Il arrive qu’une application doive diffuser le même contenu vers plusieurs ut
 Pour plus d’informations sur le CDN Azure, voir la page [CDN Azure](https://azure.microsoft.com/services/cdn/).  
 
 ### <a name="subheading6"></a>Utilisation de SAP et de CORS
-Lorsque vous devez autoriser du code, tel que JavaScript, dans le navigateur Web d’un utilisateur ou une application pour téléphone mobile afin d’accéder à des données dans le stockage Azure, une méthode consiste à utiliser une application dans un rôle Web en tant que proxy : l’appareil de l’utilisateur s’authentifie avec le rôle Web, qui à son tour s’authentifie avec le service de stockage. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cela place une surcharge importante sur le rôle web, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le service de stockage doivent transiter par ce rôle. Vous pouvez éviter d’utiliser un rôle web comme proxy pour le service de stockage en utilisant des signatures d’accès partagé (SAP), combinées parfois à des en-têtes CORS (Partage des ressources cross-origin). Grâce au modèle SAP, vous pouvez autoriser l’appareil de votre utilisateur à adresser directement des demandes à un service de stockage par le biais d’un jeton à accès limité. Par exemple, si un utilisateur souhaite télécharger une photo vers votre application, votre rôle web peut générer et envoyer à l’appareil de cet utilisateur un jeton SAP qui accordera des autorisations en écriture sur un conteneur ou un objet blob spécifique au cours des 30 prochaines minutes (au terme desquelles le jeton SAP expirera).
+Lorsque vous devez autoriser du code, tel que JavaScript, dans le navigateur web d’un utilisateur ou une application pour téléphone mobile afin d’accéder à des données dans le stockage Azure, une méthode consiste à utiliser une application dans un rôle web en tant que proxy : l’appareil de l’utilisateur s’authentifie avec le rôle web, qui à son tour autorise l’accès aux ressources de stockage. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cela place une surcharge importante sur le rôle web, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le service de stockage doivent transiter par ce rôle. Vous pouvez éviter d’utiliser un rôle web comme proxy pour le service de stockage en utilisant des signatures d’accès partagé (SAP), combinées parfois à des en-têtes CORS (Partage des ressources cross-origin). Grâce au modèle SAP, vous pouvez autoriser l’appareil de votre utilisateur à adresser directement des demandes à un service de stockage par le biais d’un jeton à accès limité. Par exemple, si un utilisateur souhaite télécharger une photo vers votre application, votre rôle web peut générer et envoyer à l’appareil de cet utilisateur un jeton SAP qui accordera des autorisations en écriture sur un conteneur ou un objet blob spécifique au cours des 30 prochaines minutes (au terme desquelles le jeton SAP expirera).
 
 En règle générale, un navigateur n’autorise pas le code JavaScript d’une page hébergée par un site web sur un domaine à effectuer des opérations spécifiques telles que « PUT » sur un autre domaine. Par exemple, si vous hébergez un rôle web à l’adresse « contosomarketing.cloudapp.net » et que vous souhaitez utiliser du code JavaScript côté client pour télécharger un objet blob vers votre compte de stockage à l’adresse « contosoproducts.blob.core.windows.net », la stratégie « same origin policy » du navigateur interdit cette opération. CORS est une fonctionnalité de navigateur qui autorise le domaine cible (dans ce cas, le compte de stockage) à indiquer au navigateur qu’il fait confiance aux demandes en provenance du domaine source (dans ce cas, le rôle web).  
 

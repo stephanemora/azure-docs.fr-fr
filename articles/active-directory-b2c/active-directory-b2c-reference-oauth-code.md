@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9fb2d2ccabf79a95a108d4ecf39a4957fc9ffff4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2452389605db0654fb9d8dc06d89a8195f9ae372
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113672"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480842"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C : flux de code d’autorisation OAuth 2.0
 Vous pouvez utiliser l’octroi de code d’autorisation OAuth 2.0 dans les applications qui sont installées sur un appareil pour accéder à des ressources protégées, comme des API web. Grâce à l’implémentation Azure Active Directory B2C (Azure AD B2C) d’OAuth 2.0, vous pouvez ajouter l’inscription, la connexion et d’autres tâches de gestion d’identité à vos applications mobiles et applications de bureau. Cet article est indépendant du langage. Il décrit comment envoyer et recevoir des messages HTTP sans utiliser de bibliothèque open source.
 
 <!-- TODO: Need link to libraries -->
 
-Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des spécifications OAuth 2.0](http://tools.ietf.org/html/rfc6749). Vous pouvez l’utiliser pour les activités d’authentification et d’autorisation avec la plupart des types d’applications, notamment les [applications web](active-directory-b2c-apps.md) et les applications installées de façon native. Vous pouvez utiliser le flux de code d’autorisation OAuth 2.0 pour acquérir de manière sécurisée des jetons d’accès pour vos applications, en vue d’accéder à des ressources sécurisées par un [serveur d’autorisation](active-directory-b2c-reference-protocols.md).
+Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des spécifications OAuth 2.0](http://tools.ietf.org/html/rfc6749). Vous pouvez l’utiliser pour les activités d’authentification et d’autorisation avec la plupart des types d’applications, notamment les [applications web](active-directory-b2c-apps.md) et les applications installées de façon native. Vous pouvez utiliser le flux de code d’autorisation OAuth 2.0 pour acquérir de manière sécurisée des jetons d’accès et des jetons d’actualisation pour vos applications, en vue d’accéder à des ressources sécurisées par un [serveur d’autorisation](active-directory-b2c-reference-protocols.md).  Le jeton d’actualisation permet au client d’acquérir de nouveaux jetons d’accès (et d’actualisation) après l’expiration du jeton d’accès, soit généralement au bout d’une heure.
 
 Cet article est axé sur le flux de code d’autorisation OAuth 2.0 pour les **clients publics**. Un client public est une application cliente qui ne peut pas être approuvée pour maintenir de façon sécurisée l'intégrité d’un mot de passe secret. Cela comprend les applications mobiles, les applications de bureau et quasiment toutes les applications qui s’exécutent sur un appareil et qui ont besoin d’obtenir des jetons d’accès. 
 

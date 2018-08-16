@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 39ecf568c5c41c0007b358670af755be1dd5d99e
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2f2da5b38ab39e3636ff0ac09ac2c5515e02b0c1
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763236"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492333"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Effectue des opérations élémentaires au niveau des fichiers dans le magasin d’images de cluster.
@@ -35,7 +35,7 @@ Effectue des opérations élémentaires au niveau des fichiers dans le magasin d
 ## <a name="sfctl-store-delete"></a>sfctl store delete
 Supprime le contenu du magasin d’images.
 
-Supprime le contenu du magasin d’images trouvé dans le chemin d’accès relatif du magasin d’images donné. Cette commande permet de supprimer les packages d’application chargés une fois qu’ils ont été approvisionnés.
+Supprime le contenu du magasin d’images trouvé dans le chemin d’accès relatif du magasin d’images donné. Permet de supprimer les packages d’application chargés une fois qu’ils ont été approvisionnés.
 
 ### <a name="arguments"></a>Arguments
 
@@ -96,6 +96,7 @@ Retourne les informations sur le contenu du magasin d’images dans le chemin d�
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.

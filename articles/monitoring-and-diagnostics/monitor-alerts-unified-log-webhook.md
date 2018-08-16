@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264253"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426691"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 Quand une [alerte est créée dans Azure](monitor-alerts-unified-usage.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](monitoring-action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
@@ -39,7 +39,7 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 | Paramètre | Variable | Description |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nom de la règle d’alerte. |
-| Niveau de gravité |#severity |Gravité définie pour l’alerte de journal déclenchée. |
+| Severity |#severity |Gravité définie pour l’alerte de journal déclenchée. |
 | AlertThresholdOperator |#thresholdoperator |Opérateur de seuil de la règle d’alerte.  *Supérieur à* ou *Inférieur à*. |
 | AlertThresholdValue |#thresholdvalue |Valeur de seuil de la règle d’alerte. |
 | LinkToSearchResults |#linktosearchresults |Lien vers le portail Analytics qui retourne les enregistrements de la requête ayant créé l’alerte. |
@@ -53,6 +53,8 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 | ID de l'application |#applicationid |ID de votre application Application Insights. |
 | Identifiant d’abonnement |#subscriptionid |ID de l’abonnement Azure utilisé avec Application Insights. 
 
+> [!NOTE]
+> LinkToSearchResults passe des paramètres comme SearchQuery, Search Interval StartTime et Search Interval End Time dans l’URL au portail Azure pour les afficher dans la section Analytics. Le portail Azure limite la taille des URI à environ 2 000 caractères et s’ouvre si les valeurs des paramètres dépassent ladite limite. Les utilisateurs peuvent entrer manuellement des détails pour afficher les résultats dans le portail Analytics ou utiliser [l’API REST Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou [l’API REST Log Analytics](https://dev.loganalytics.io/reference) pour récupérer les résultats par programmation. 
 
 Par exemple, vous pouvez spécifier la charge utile personnalisée suivante qui inclut un paramètre unique appelé *text*.  Le service appelé par ce webhook s’attendrait à recevoir ce paramètre.
 

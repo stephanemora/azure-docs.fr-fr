@@ -3,7 +3,7 @@ title: Gestion des recommandations de sécurité dans Azure Security Center | Mi
 description: Ce document vous montre comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure et à rester en conformité avec les stratégies de sécurité.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367104"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522235"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gestion des recommandations de sécurité dans le Centre de sécurité Azure
 Ce document explique comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure.
@@ -50,6 +50,8 @@ Après la définition d’une stratégie de sécurité, le Centre de sécurité 
 Pour afficher les détails de chaque recommandation, sélectionnez la vignette **Recommandations** sous **Vue d’ensemble**. **Recommandations** s’ouvre.
 
 ![Filtrer les recommandations][2]
+
+Vous pouvez filtrer les recommandations. Pour filtrer les recommandations, sélectionnez **Filtrer** sur le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
 
 Les recommandations sont affichées dans un tableau où chaque ligne correspond à une recommandation. Les colonnes du tableau sont les suivantes :
 
@@ -124,13 +126,6 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leur
 | Supprimer les comptes externes disposant d’autorisations de type propriétaire de votre abonnement | Recommande de supprimer les comptes externes avec des autorisations de propriétaire de votre abonnement afin d’empêcher tout accès non contrôlé. |
 | Supprimer les comptes déconseillés de votre abonnement | Recommande de supprimer les comptes déconseillés de vos abonnements. |
 | Supprimer les comptes déconseillés disposant d’autorisations de type propriétaire de votre abonnement | Recommande de supprimer les comptes déconseillés avec des autorisations de type propriétaire de vos abonnements. |
-Vous pouvez filtrer et ignorer les recommandations.
-
-1. Sélectionnez **Filtrer** dans le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
-
-2. Si vous déterminez qu’une recommandation n’est pas applicable, vous pouvez l’ignorer pour la faire disparaître. Il existe deux façons d’ignorer une recommandation. L’une consiste à cliquer avec le bouton droit de la souris sur un élément, puis à sélectionner **Ignorer**. L’autre consiste à pointer sur un élément, à cliquer sur les trois points qui apparaissent à droite, puis à sélectionner **Ignorer**. Vous pouvez afficher les recommandations ignorées en cliquant sur **Filtrer**, puis en sélectionnant **Rejeté**.
-
-    ![Ignorer une recommandation][3]
 
 ### <a name="apply-recommendations"></a>Appliquer les recommandations
 Après avoir examiné toutes les recommandations, vous pouvez décider d’en appliquer une en priorité. Les recommandations à appliquer en priorité sont celles dont le niveau de gravité est le plus élevé.
@@ -150,4 +145,3 @@ Ce document vous a présenté les recommandations de sécurité du Centre de sé
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

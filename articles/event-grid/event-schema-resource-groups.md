@@ -6,20 +6,28 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 242a0cee6e76250288f51f75dd695b608fd4d914
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173174"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495320"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Schéma d’événements Azure Event Grid pour les groupes de ressources
 
 Cet article fournit les propriétés et les schémas des événements de groupe de ressources. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
 
-Les abonnements Azure et les groupes de ressources émettent les mêmes types d’événements. Les types d’événements sont liés aux modifications des ressources. La principale différence est que les groupes de ressources émettent des événements pour les ressources appartenant au groupe de ressources, alors que les abonnements Azure émettent des événements pour les ressources de l’abonnement. 
+Les abonnements Azure et les groupes de ressources émettent les mêmes types d’événements. Les types d’événements sont liés aux modifications des ressources. La principale différence est que les groupes de ressources émettent des événements pour les ressources appartenant au groupe de ressources, alors que les abonnements Azure émettent des événements pour les ressources de l’abonnement.
+
+Les événements de ressource sont créés pour les opérations PUT, PATCH et DELETE envoyées à `management.azure.com`. Les opérations POST et GET ne créent pas d’événements. Les opérations envoyées au plan de données (comme `myaccount.blob.core.windows.net`) ne créent pas d’événements.
+
+Quand vous vous abonnez aux événements d’un groupe de ressources, votre point de terminaison reçoit tous les événements pour ce groupe de ressources. Les événements peuvent inclure des événements que vous souhaitez visualiser, comme la mise à jour d’une machine virtuelle, mais également des événements qui ne sont peut-être pas importants pour vous, comme l’écriture d’une nouvelle entrée dans l’historique de déploiement. Vous pouvez recevoir tous les événements à votre point de terminaison et écrire du code qui traite les événements que vous souhaitez gérer ou définir un filtre lors de la création de l’abonnement aux événements.
+
+Pour gérer les événements par programmation, vous pouvez les trier selon la valeur `operationName`. Par exemple, votre point de terminaison d’événement peut traiter uniquement les événements pour les opérations correspondant à `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
+
+L’objet de l’événement est l’ID de la ressource cible de l’opération. Pour filtrer les événements pour une ressource, fournissez cet ID de ressource lors de la création de l’abonnement aux événements. Pour obtenir des exemples de scripts, consultez [S’abonner et filtrer pour un groupe de ressources avec PowerShell](scripts/event-grid-powershell-resource-group-filter.md) ou [S’abonner et filtrer pour un groupe de ressources avec Azure CLI](scripts/event-grid-cli-resource-group-filter.md). Pour filtrer selon un type de ressource, utilisez une valeur au format suivant : `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 ## <a name="available-event-types"></a>Types d’événement disponibles
 
@@ -36,7 +44,7 @@ Les groupes de ressources émettent des événements de gestion à partir d’Az
 
 ## <a name="example-event"></a>Exemple d’événement
 
-L’exemple suivant montre le schéma d’un d’événement de création de ressource : 
+L’exemple suivant montre le schéma d’un événement **ResourceWriteSuccess**. Le même schéma est utilisé pour les événements **ResourceWriteFailure** et **ResourceWriteCancel** avec différentes valeurs pour `eventType`.
 
 ```json
 [{
@@ -96,7 +104,7 @@ L’exemple suivant montre le schéma d’un d’événement de création de res
 }]
 ```
 
-Le schéma de l’événement de suppression d’une ressource est similaire :
+L’exemple suivant montre le schéma d’un événement **ResourceDeleteSuccess**. Le même schéma est utilisé pour les événements **ResourceDeleteFailure** et **ResourceDeleteCancel** avec différentes valeurs pour `eventType`.
 
 ```json
 [{
@@ -184,7 +192,7 @@ L’objet de données comporte les propriétés suivantes :
 | autorisation | objet | Autorisation demandée pour l’opération. |
 | réclamations | objet | Propriétés des revendications. Pour en savoir plus, consultez la [Spécification JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | chaîne | ID d’opération pour le dépannage. |
-| httpRequest | objet | Détails de l’opération. |
+| httpRequest | objet | Détails de l’opération. Cet objet est inclus uniquement lors de la mise à jour ou de la suppression d’une ressource existante. |
 | resourceProvider | chaîne | Fournisseur de ressources qui effectue l’opération. |
 | resourceUri | chaîne | URI de la ressource dans l’opération. |
 | operationName | chaîne | Opération effectuée. |

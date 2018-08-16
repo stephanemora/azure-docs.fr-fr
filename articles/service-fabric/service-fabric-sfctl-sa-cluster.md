@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: ffdbff7edc5af187071615c8b1e61790b3a38429
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763936"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494354"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Permet de gérer les clusters Service Fabric autonomes.
@@ -35,7 +35,7 @@ Permet de gérer les clusters Service Fabric autonomes.
 ## <a name="sfctl-sa-cluster-config"></a>sfctl sa-cluster config
 Permet d’obtenir la configuration du cluster autonome Service Fabric.
 
-Permet d’obtenir la configuration du cluster autonome Service Fabric. La configuration du cluster contient les propriétés du cluster qui incluent des types de nœud différents sur le cluster, les configurations de sécurité, l’erreur et les topologies des domaines de mise à niveau, etc.
+La configuration du cluster contient les propriétés du cluster qui incluent des types de nœud différents sur le cluster, les configurations de sécurité, l’erreur et les topologies des domaines de mise à niveau, etc.
 
 ### <a name="arguments"></a>Arguments
 
@@ -51,7 +51,7 @@ Permet d’obtenir la configuration du cluster autonome Service Fabric. La confi
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-sa-cluster-config-upgrade"></a>sfctl sa-cluster config-upgrade
@@ -63,7 +63,8 @@ Valide les paramètres de mise à niveau de la configuration fournis et démarre
 
 |Argument|Description|
 | --- | --- |
-| --cluster-config [requis] | Configuration du cluster. |
+| --cluster-config [requis] | La configuration de cluster qui sera appliquée au cluster. |
+| --application-health-policies | Dictionnaire au format JSON comprenant des paires Nom de type d’application/Pourcentage maximal de non intégrité avant déclenchement d’une erreur. |
 | --delta-unhealthy-nodes | Pourcentage maximal autorisé de dégradation de l’intégrité des nœuds delta pendant la mise à niveau. Les valeurs autorisées sont les valeurs entières comprises entre zéro et 100. |
 | --health-check-retry | Délai séparant les tentatives d’exécution des contrôles d’intégrité si l’application ou le cluster n’est pas intègre.  Valeur par défaut \: PT0H0M0S. |
 | --health-check-stable | Durée pendant laquelle l’application ou le cluster doivent rester intègres.  Valeur par défaut \: PT0H0M0S. |
@@ -82,8 +83,12 @@ Valide les paramètres de mise à niveau de la configuration fournis et démarre
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
+### <a name="examples"></a>Exemples
+
+Démarrer une mise à jour de configuration de cluster sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
 Permet d’obtenir l’état de mise à niveau de la configuration d’un cluster autonome Service Fabric.
@@ -103,8 +108,9 @@ Permet d’obtenir les détails de l’état de mise à niveau de la configurati
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.

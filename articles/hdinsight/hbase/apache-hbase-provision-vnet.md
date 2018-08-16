@@ -1,25 +1,21 @@
 ---
-title: Création de clusters HBase sur un réseau virtuel - Azure | Microsoft Docs
+title: Créer des clusters HBase dans un réseau virtuel - Azure
 description: Prise en main de HBase dans Azure HDInsight Découvrez comment créer des clusters HDInsight HBase sur Azure Virtual Network.
 keywords: ''
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8de8e446-f818-4e61-8fad-e9d38421e80d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-ms.openlocfilehash: edcfa47eee0f085bad415be0d9b112bbc33c3eca
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 33aba330735c53499a472f7e90d350c4edd54c41
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521603"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592905"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Création de clusters HBase sur HDInsight dans un réseau virtuel Microsoft Azure
 Découvrez comment créer des clusters Azure HDInsight sur [Azure Virtual Network][1].
@@ -31,7 +27,6 @@ Avec l’intégration du réseau virtuel, les clusters HBase peuvent être dépl
 * Capacité de traitement des informations critiques de façon plus sécurisée sans exposer de points de terminaison publics.
 
 ### <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -43,7 +38,8 @@ Dans cette section, vous allez créer un cluster HBase basé sur Linux avec un c
 > [!NOTE]
 > Certaines propriétés sont codées en dur dans le modèle. Par exemple : 
 >
-> * **Emplacement** : Est des États-Unis 2
+> * 
+  **Emplacement** : USA Est 2
 > * **Version du cluster** : 3.6
 > * **Nombre de nœuds de travail du cluster** : 2
 > * **Compte de stockage par défaut** : une chaîne unique

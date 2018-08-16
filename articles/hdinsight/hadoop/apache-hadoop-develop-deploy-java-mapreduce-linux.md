@@ -1,25 +1,20 @@
 ---
-title: Créer une application MapReduce Java pour Hadoop - Azure HDInsight | Documents Microsoft
+title: Créer une application MapReduce Java pour Hadoop - Azure HDInsight
 description: Découvrez comment utiliser Apache Maven pour créer une application MapReduce basée sur Java, puis l’exécuter avec Hadoop sur Azure HDInsight.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: Blackmist
-documentationcenter: ''
-tags: azure-portal
-ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: Java
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: c245b30a48be73f189dcf48502134cf36e93ba20
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 586c316a90c54de2179efd02d4c1e07d8040204a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169538"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593340"
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Développer des programmes MapReduce Java pour Hadoop sur HDInsight
 
@@ -233,7 +228,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 3. Enregistrez le fichier .
 
-## <a name="build-the-application"></a>Création de l'application
+## <a name="build-the-application"></a>Créer l’application
 
 1. Remplacez le répertoire par `wordcountjava`, si cela n’a pas déjà été fait.
 

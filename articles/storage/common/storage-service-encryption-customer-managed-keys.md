@@ -1,19 +1,19 @@
 ---
 title: Chiffrement du service de stockage Azure à l’aide de clés gérées par le client dans Azure Key Vault | Microsoft Docs
-description: La fonctionnalité Azure Storage Service Encryption permet de chiffrer votre stockage d’objets blob Azure, Azure Files, votre stockage File d’attente et votre stockage de tables Azure côté service lors du stockage des données et de les déchiffrer lorsque vous récupérez les données à l’aide de clés gérées par le client.
+description: La fonctionnalité Azure Storage Service Encryption permet de chiffrer Stockage Blob Azure et Azure Files côté service lors du stockage des données, et de le déchiffrer quand vous récupérez les données à l’aide de clés gérées par le client.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: b92a486ea8dfc148cd10b905f90a0e871602cc61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415702"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527084"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault
 Microsoft Azure s’engage à vous aider à protéger et préserver vos données pour répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Une manière de protéger vos données avec la plateforme de stockage Azure consiste à utiliser Storage Service Encryption (SSE), qui chiffre automatiquement vos données lors de leur écriture dans le stockage et les déchiffre lors de leur récupération. Le chiffrement et le déchiffrement sont automatiques et transparents ; ils utilisent la technologie de [chiffrement AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, l’un des chiffrements par bloc les plus sécurisés qui soient.
@@ -23,7 +23,7 @@ Vous pouvez utiliser des clés de chiffrement gérées par Microsoft avec SSE ou
 SSE pour le stockage d’objets blob et Azure Files est intégré à Azure Key Vault afin que vous puissiez utiliser un coffre de clés pour gérer vos clés de chiffrement. Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Azure Key Vault vous permet de gérer et de contrôler vos clés, ainsi que d’auditer votre utilisation des clés.
 
 > [!Note]  
-> Storage Service Encryption n’est pas disponible pour [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Nous vous recommandons d’utiliser le chiffrement au niveau du système d’exploitation, tel que [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), qui utilise [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) standard sur Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sur Linux pour fournir un chiffrement intégré avec KeyVault.
+> Storage Service Encryption avec des clés gérées par le client n’est pas disponible pour [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md) utilise les fonctionnalités standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) sur Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sur Linux pour fournir une solution de chiffrement intégrée à KeyVault.
 
 Pourquoi créer vos propres clés ? Les clés personnalisées vous permettent de gagner en flexibilité : vous pouvez créer, changer, désactiver et définir des contrôles d’accès. Les clés personnalisées vous permettent également d’effectuer un audit des clés de chiffrement utilisées pour protéger vos données.
 
@@ -121,10 +121,10 @@ Oui.
 Un coût spécifique est associé à l’utilisation d’Azure Key Vault. Pour plus d’informations, consultez [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). SSE est activé pour tous les comptes de stockage et ne génère aucun coût supplémentaire.
 
 **Storage Service Encryption est-il disponible sur Azure Managed Disks ?**  
-Non, Storage Service Encryption n’est pas disponible pour [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Nous vous recommandons d’utiliser le chiffrement au niveau du système d’exploitation, tel que [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), qui utilise [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) standard sur Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sur Linux pour fournir un chiffrement intégré avec KeyVault.
+Storage Service Encryption est disponible pour Azure Managed Disks avec des clés gérées par Microsoft, mais pas avec des clés gérées par le client. À la place de Managed Disks prenant en charge SSE avec des clés gérées par le client, nous recommandons [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), qui utilise les fonctionnalités standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) sur Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sur Linux pour fournir un chiffrement intégré à KeyVault.
 
 **En quoi Storage Service Encryption est-il différent d’Azure Disk Encryption ?**  
-Azure Disk Encryption fournit une intégration entre les solutions basées sur le système d’exploitation telles que BitLocker et DM-Crypt, et Azure Key Vault. Storage Service Encryption fournit un chiffrement en mode natif dans la couche de plateforme de stockage Azure, sous la machine virtuelle.
+Azure Disk Encryption fournit une intégration entre les solutions basées sur le système d’exploitation, telles que BitLocker et DM-Crypt, et Azure Key Vault. Storage Service Encryption fournit un chiffrement en mode natif dans la couche de plateforme de stockage Azure, sous la machine virtuelle.
 
 **Est-il possible de révoquer l’accès aux clés de chiffrement ?**
 Oui, vous pouvez révoquer l’accès à tout moment. Il existe plusieurs façons de révoquer l’accès à vos clés. Reportez-vous aux pages [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) et [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) pour plus d’informations. La révocation de l’accès bloque efficacement l’accès à tous les objets blob dans le compte de stockage, car la clé de chiffrement du compte n’est pas accessible au stockage Azure.

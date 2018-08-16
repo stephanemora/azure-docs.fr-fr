@@ -1,25 +1,20 @@
 ---
-title: Surveiller et gérer des clusters Azure HDInsight à l’aide de l’interface utilisateur Web d’Ambari | Microsoft Docs
+title: Surveiller et gérer des clusters Azure HDInsight à l’aide de l’interface utilisateur Web d’Ambari
 description: Découvrez comment utiliser Ambari pour gérer et surveiller des clusters HDInsight Linux. Dans ce document, vous apprenez à utiliser l’interface utilisateur web d’Ambari incluse avec les clusters HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8c58607e191d58d1cb6706569b909a4d709b14b3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: e0efab2caa4f214d407cf8c4f09bfa5f4f619e8d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405264"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591835"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari
 
@@ -36,7 +31,7 @@ Dans ce document, vous apprenez à utiliser l’interface utilisateur web d’Am
 L’interface utilisateur Web d’Ambari est fournie par défaut avec les clusters HDInsight utilisant le système d’exploitation Linux.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## <a name="connectivity"></a>Connectivité
 
@@ -233,7 +228,6 @@ Pour configurer un service, procédez comme suit :
 
 Les affichages Ambari permettent aux développeurs d’incorporer des éléments d’interface utilisateur dans l’interface utilisateur web Ambari à l’aide de l’ [infrastructure des affichages Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight propose les affichages suivants avec les types de clusters Hadoop :
 
-* Gestionnaire de files d’attente Yarn : le gestionnaire de files d’attente fournit une interface utilisateur simple pour afficher et modifier les files d’attente Yarn.
 
 * Affichage Hive : l’affichage Hive vous permet d’exécuter des requêtes Hive directement à partir du navigateur web. Vous pouvez enregistrer des requêtes, afficher les résultats, enregistrer les résultats dans le stockage de cluster ou les télécharger sur votre système local. Pour plus d’informations sur l’utilisation des affichages Hive, consultez [Utiliser des affichages Hive avec HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

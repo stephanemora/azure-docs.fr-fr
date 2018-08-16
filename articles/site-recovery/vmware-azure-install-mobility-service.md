@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37919085"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526995"
 ---
 # <a name="install-the-mobility-service"></a>Installer le service Mobilité 
 
@@ -26,7 +26,8 @@ Le service Mobilité d’Azure Site Recovery est installé sur les machines virt
 
 
 >[!IMPORTANT]
-> À compter de la version 9.7.0.0, sur les machines virtuelles Windows, le programme d’installation du service Mobilité installe également [l’agent de machine virtuelle Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) le plus récent. Lorsqu’un ordinateur bascule vers Azure, l’ordinateur répond aux conditions requises d’installation de l’agent pour l’utilisation de n’importe quelle extension de machine virtuelle.
+> À compter de la version 9.7.0.0, **sur les machines virtuelles Windows**, le programme d’installation du service Mobilité installe également [l’agent de machine virtuelle Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) le plus récent. Lorsqu’un ordinateur bascule vers Azure, l’ordinateur répond aux conditions requises d’installation de l’agent pour l’utilisation de n’importe quelle extension de machine virtuelle.
+> </br>Sur les **machines virtuelles Linux**, WALinuxAgent doit être installé manuellement.
 
 ## <a name="prerequisites"></a>Prérequis
 Effectuez ces étapes préalables avant d’installer manuellement le service Mobilité sur votre serveur :
@@ -42,11 +43,14 @@ Effectuez ces étapes préalables avant d’installer manuellement le service Mo
 
 ### <a name="mobility-service-installer-to-operating-system-mapping"></a>Correspondance entre le programme d’installation du service Mobilité et le système d’exploitation
 
+Pour obtenir une liste des versions du système d’exploitation avec un package du service Mobilité compatible, reportez-vous à la liste des [systèmes d’exploitation pris en charge pour les machines virtuelles VMware et les serveurs physiques](vmware-physical-azure-support-matrix.md#replicated-machines).
+
 | Nom du modèle de fichier de programme d’installation| Système d’exploitation |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bits) </br> Windows Server 2012 (64 bits) </br> Windows Server 2012 R2 (64 bits) </br> Windows Server 2016 (64 bits) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64 bits uniquement) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64 bits uniquement) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (64 bits uniquement) </br> CentOS 7.0, 7.1, 7.2, 7.3 (64 bits uniquement) |
+|Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* (64 bits uniquement) </br> CentOS 6.* (64 bits uniquement) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* (64 bits uniquement) </br> CentOS 7.* (64 bits uniquement) |
+|Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3 (64 bits uniquement)|
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64 bits uniquement)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (64 bits uniquement)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64 bits uniquement)|
@@ -54,7 +58,6 @@ Effectuez ces étapes préalables avant d’installer manuellement le service Mo
 |Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Serveur Ubuntu Linux 16.04 LTS (64 bits uniquement)|
 |Microsoft-ASR_UA\*DEBIAN7 64\*release.tar.gz | Debian 7 (64 bits uniquement)|
 |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (64 bits uniquement)|
-
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Installer le service Mobilité manuellement à l’aide de l’interface utilisateur
 

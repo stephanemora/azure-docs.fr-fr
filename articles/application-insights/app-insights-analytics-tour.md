@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 470779f80e998c3908cf28328cfb415d98c5e06c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335279"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579253"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Visite guidée d’Analytics dans Application Insights
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
@@ -226,7 +226,7 @@ Utiliser [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular
 
 ### <a name="convert-to-local-time"></a>Convertir en heure locale
 
-Les timestamps sont toujours exprimés en UTC. Par conséquent, si vous vous trouvez sur la côte Pacifique des États-Unis et que c’est l’hiver, ceci pourrait vous intéresser :
+Les timestamps sont toujours exprimés en UTC. Par conséquent, si vous vous trouvez sur la côte Pacifique des États-Unis et que c’est l’hiver, l’heure locale est UTC-8 heures, et ceci pourrait vous intéresser :
 
 ```AIQL
 
@@ -238,7 +238,7 @@ Les timestamps sont toujours exprimés en UTC. Par conséquent, si vous vous tro
 ## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): agréger des groupes de lignes
 `Summarize` applique une *fonction d’agrégation* spécifiée sur des groupes de lignes.
 
-Par exemple, le temps que met votre application web à répondre à une requête est reporté dans le champ `duration`. Observons le temps de réponse moyen pour toutes les demandes :
+Par exemple, le temps que met votre application web à répondre à une requête est reporté dans le champ `duration`. Observons le temps de réponse moyen à toutes les demandes :
 
 ![](./media/app-insights-analytics-tour/410.png)
 
@@ -461,7 +461,7 @@ Pour obtenir une répartition distincte pour chaque pays, il suffit simplement d
 ## <a name="join"></a>Join
 Nous avons accès à plusieurs tables, y compris les demandes et les exceptions.
 
-Pour rechercher les exceptions liées à une requête qui a renvoyé une réponse d’échec, nous pouvons joindre les tables sur `session_Id`:
+Pour rechercher les exceptions liées à une requête qui a renvoyé une réponse d’échec, nous pouvons joindre les tables sur `operation_Id`:
 
 ```AIQL
 

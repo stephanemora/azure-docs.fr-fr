@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 8/6/2018
 ms.author: saurse
-ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247276"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576183"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows à l’aide du modèle de déploiement Resource Manager
 
@@ -51,6 +51,8 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 4. Sur le volet **Sélectionnez le mode de récupération**, choisissez **Fichiers et dossiers individuels**, puis cliquez sur **Suivant**.
 
     ![Parcourir les fichiers](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> L’option de restauration *Individual Files and Folders* (Fichiers et dossiers individuels) requiert .NET Framework version 4.5.2 ou supérieure. Si vous ne voyez pas l’option *Individual Files and Folders* (Fichiers et dossiers individuels), vous devez mettre à niveau .NET Framework vers la version 4.5.2 ou une version supérieure, puis réessayer.
 
 5. Sur le volet **Sélectionner le volume et la date**, sélectionnez le volume qui contient les fichiers et/ou les dossiers à restaurer.
 

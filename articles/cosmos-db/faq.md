@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: b792798c64ed0a2eb12a16d868d8a17302466fea
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 053e72ce81f69b267c72ded572e8912a1a09d2e6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215354"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579695"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Notions fondamentales concernant Cosmos DB Azure
@@ -96,7 +96,7 @@ Les souscriptions à l’offre Essayez gratuitement Azure Cosmos DB obéissent 
 * Un conteneur par abonnement pour les comptes SQL, Gremlin (API Graph) et Table.
 * Jusqu’à 3 collections par abonnement pour les comptes MongoDB.
 * 10 Go de capacité de stockage.
-* La réplication globale est disponible dans les [régions Azure](https://azure.microsoft.com/regions/) suivantes : Centre des États-Unis, Europe du Nord et Asie du Sud-Est.
+* La réplication globale est disponible dans les [régions Azure](https://azure.microsoft.com/regions/) suivantes : USA Centre, Europe Nord et Asie Sud-Est.
 * Débit maximal de 5 000 RU/s.
 * Les souscriptions expirent dans un délai de 24 heures et peuvent être prolongées pour une durée totale maximale de 48 heures.
 * Il n’est pas possible de créer des tickets de support Azure pour les comptes d’évaluation d’Azure Cosmos DB ; cependant, les abonnés titulaires de plans de support actifs peuvent bénéficier du support. 
@@ -448,7 +448,7 @@ Azure Cosmos DB est un système basé sur un contrat de niveau de service (SLA) 
 
 ## <a name="develop-against-the-graph-api"></a>Développer par rapport à l’API Graph
 ### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Comment puis-je appliquer les fonctionnalités de l’API Graph à Azure Cosmos DB ?
-Pour appliquer les fonctionnalités de l’API Graph, vous pouvez utiliser une bibliothèque d’extension. Cette bibliothèque nommée Microsoft Azure AD Graph est disponible sur NuGet. 
+Pour appliquer les fonctionnalités de l’API Graph, vous pouvez utiliser une bibliothèque d’extension. Cette bibliothèque nommée Microsoft Azure AD Graph est disponible sur [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Il semble que vous prenez en charge le langage de traversée de graphique Gremlin. Prévoyez-vous d’ajouter d’autres formes de requête ?
 Oui, nous prévoyons d’ajouter d’autres mécanismes de requête à l’avenir. 

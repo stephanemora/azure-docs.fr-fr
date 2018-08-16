@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: acade3d828c785af9468baa30086d3b79542f9b7
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f24d273afa47466fe53b93d9c9c22bbcb1fc6959
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763931"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493517"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Stocke et interroge des propriétés avec des noms Service Fabric.
@@ -44,7 +44,7 @@ Supprime la propriété Service Fabric spécifiée sous un nom donné. Une propr
 | --- | --- |
 | --name-id       [Requis] | Nom Service Fabric, sans le schéma d’URI 'fabric\:'. |
 | --property-name [Requis] | Spécifie le nom de la propriété à obtenir. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -52,8 +52,8 @@ Supprime la propriété Service Fabric spécifiée sous un nom donné. Une propr
 | --- | --- |
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
-| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-property-get"></a>sfctl property get
@@ -67,7 +67,7 @@ Obtient la propriété Service Fabric spécifiée sous un nom donné. Retourne t
 | --- | --- |
 | --name-id       [Requis] | Nom Service Fabric, sans le schéma d’URI 'fabric\:'. |
 | --property-name [Requis] | Spécifie le nom de la propriété à obtenir. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -75,8 +75,8 @@ Obtient la propriété Service Fabric spécifiée sous un nom donné. Retourne t
 | --- | --- |
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
-| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-property-list"></a>sfctl property list
@@ -89,9 +89,9 @@ Un nom Service Fabric peut avoir une ou plusieurs propriétés nommées qui stoc
 |Argument|Description|
 | --- | --- |
 | --name-id [Requis] | Nom Service Fabric, sans le schéma d’URI 'fabric\:'. |
-| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --include-values | Permet de spécifier s’il faut inclure les valeurs des propriétés retournées. True si les valeurs doivent être retournées avec les métadonnées ; False pour retourner uniquement les métadonnées de propriété. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -99,8 +99,8 @@ Un nom Service Fabric peut avoir une ou plusieurs propriétés nommées qui stoc
 | --- | --- |
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
-| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-property-put"></a>sfctl property put
@@ -116,7 +116,7 @@ Crée ou met à jour la propriété Service Fabric spécifiée sous un nom donn�
 | --property-name [Requis] | Nom de la propriété Service Fabric. |
 | --value         [Requis] | Décrit une valeur de propriété Service Fabric. Il s’agit d’une chaîne JSON. <br><br> La chaîne json a deux champs, le type ('kind') de données et la valeur ('value') des données. La valeur 'Kind' doit être le premier élément à afficher dans la chaîne JSON et peut être les valeurs 'Binary', 'Int64', 'Double', 'String' ou 'Guid'. La valeur doit pouvoir être sérialisée pour les types donnés. Les valeurs 'Kind' et 'Data' doivent être fournies sous forme de chaînes. |
 | --custom-id-type | ID du type personnalisé de la propriété. Avec cette propriété, l’utilisateur peut marquer le type de la valeur de la propriété. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -124,9 +124,10 @@ Crée ou met à jour la propriété Service Fabric spécifiée sous un nom donn�
 | --- | --- |
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
-| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour plus d’informations et d’exemples, consultez http\://jmespath.org/. |
+| --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.

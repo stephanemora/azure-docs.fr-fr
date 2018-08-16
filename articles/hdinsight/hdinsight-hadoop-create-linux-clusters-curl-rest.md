@@ -1,25 +1,20 @@
 ---
-title: Créer des clusters Hadoop avec Azure REST API - Azure | Documents Microsoft
+title: Créer des clusters Hadoop à l’aide de l’API REST Azure - Azure
 description: Découvrez comment créer des clusters HDInsight en soumettant des modèles Azure Resource Manager à l’API REST Azure.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
-ms.author: larryfr
-ms.openlocfilehash: 9c2779c692e944bed62d7ae9b76bb8929e62e5f3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: jasonh
+ms.openlocfilehash: 06aa88dec705288edfbe6fecdd92ca31807ed015
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775851"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593415"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Créer des clusters Hadoop à l’aide de l’API REST Azure
 
@@ -30,7 +25,7 @@ Découvrez comment créer des clusters HDInsight l’aide d’un modèle Azure R
 L’API REST Azure vous permet d’effectuer des opérations de gestion sur les services hébergés sur la plateforme Azure, y compris la création de nouvelles ressources, telles que des clusters HDInsight.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]
 > Les étapes décrites dans ce document se servent de l’utilitaire [curl (https://curl.haxx.se/)](https://curl.haxx.se/) pour communiquer avec l’API REST Azure.
@@ -301,7 +296,7 @@ Procédez comme suit pour créer un groupe de ressources.
 
 * Définissez `$SUBSCRIPTIONID` sur l’ID d’abonnement reçu lors de la création du principal du service.
 * Définissez `$ACCESSTOKEN` sur le jeton d’accès reçu à l’étape précédente.
-* Remplacez `DATACENTERLOCATION` par le centre de données dans lequel vous voulez créer le groupe de ressources et les ressources. Par exemple, « South Central US ».
+* Remplacez `DATACENTERLOCATION` par le centre de données dans lequel vous voulez créer le groupe de ressources et les ressources. Par exemple, « USA Centre Sud ».
 * Définissez `$RESOURCEGROUPNAME` sur le nom que vous souhaitez utiliser pour ce groupe :
 
 ```bash

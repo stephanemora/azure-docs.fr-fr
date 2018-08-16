@@ -1,25 +1,20 @@
 ---
-title: Requête Hive via le pilote JDBC - Azure HDInsight | Documents Microsoft
+title: Requête Hive par le biais du pilote JDBC - Azure HDInsight
 description: Utilisez le pilote JDBC depuis une application Java pour soumettre des requêtes Hive à Hadoop sur HDInsight. Se connecter à partir du client SQL SQuirrel et par programme.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 928f8d2a-684d-48cb-894c-11c59a5599ae
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: larryfr
-ms.openlocfilehash: 9700408dad36591fc26aa159524f33965b9d1324
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 9c7881d0cc4f0c2c13f34fa8909d15dec1bf121a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399413"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591667"
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Requête Hive via le pilote JDBC dans HDInsight
 
@@ -31,11 +26,10 @@ Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDB
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Un cluster Hadoop sur HDInsight.
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, reportez-vous à la rubrique [Déclassement de HDInsight 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, reportez-vous à la rubrique [Déclassement de HDInsight 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL est une application cliente JDBC.
 
@@ -65,7 +59,7 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêtes Hive avec votre cluster HDInsight. Les étapes suivantes supposent que vous avez déjà installé SQuirreL SQL.
 
-1. Créez un répertoire contenant les fichiers. Par exemple : `mkdir hivedriver`.
+1. Créez un répertoire contenant les fichiers. Par exemple : `mkdir hivedriver`.
 
 2. À partir d’une ligne de commande, utilisez les commandes suivantes pour copier les fichiers à partir du cluster HDInsight :
 

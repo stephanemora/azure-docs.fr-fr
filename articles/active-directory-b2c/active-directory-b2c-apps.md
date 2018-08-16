@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f4b45c743c0efa1c9df665018b28a8b4ffb76f73
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238401"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480510"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Azure Active Directory B2C
 
@@ -60,7 +60,13 @@ Pour plus d’informations sur les différents types de jetons et de revendicati
 
 Dans les applications web, chaque exécution d’une [stratégie](active-directory-b2c-reference-policies.md) suit cette procédure générale :
 
-![Images de couloirs d’application Web](./media/active-directory-b2c-apps/webapp.png)
+1. L’utilisateur accède à l’application web.
+2. L’application web redirige l’utilisateur vers Azure AD B2C en indiquant la stratégie à exécuter.
+3. L’utilisateur exécute la stratégie.
+4. Azure AD B2C retourne un `id_token` au navigateur.
+5. Le `id_token` est publié dans l’URI de redirection.
+6. Le `id_token` est validé et un cookie de session est défini.
+7. Une page sécurisée est retournée à l’utilisateur.
 
 La validation de l’élément `id_token` à l’aide d’une clé de signature publique provenant d’Azure AD est suffisante pour vérifier l’identité de l’utilisateur. Cela définit également un cookie de session qui peut être utilisé pour identifier l’utilisateur sur les demandes de page suivantes.
 
@@ -89,7 +95,15 @@ L’API web peut ensuite utiliser le jeton pour vérifier l’identité de l’a
 
 Une API web peut recevoir des jetons de tous types de clients, notamment des applications web, des applications de bureau et mobiles, des applications monopages, des démons côté serveur, et même d’autres API web. Voici un exemple de flux complet d’une application web appelant une API web :
 
-![Images de couloirs d’API Web d’application Web](./media/active-directory-b2c-apps/webapi.png)
+1. L’application web exécute une stratégie et l’utilisateur termine l’expérience utilisateur.
+2. Azure AD B2C retourne un `access_token` et un code d’autorisation au navigateur.
+3. Le navigateur publie le `access_token` et le code d’autorisation à l’URI de redirection.
+4. Le serveur web valide le `access token` et définit un cookie de session.
+5. Le `access_token` est fourni à Azure AD B2C avec le code d’autorisation, l’ID client de l’application et les informations d’identification.
+6. Le `access_token` et le `refresh_token` sont retournés au serveur web.
+7. L’API web est appelée avec le `access_token` dans un en-tête d’autorisation.
+8. L’API web valide le jeton.
+9. Les données sécurisées sont retournées au serveur web.
 
 Pour plus d’informations sur les codes d’autorisation, les jetons d’actualisation et les étapes d’obtention des jetons, voir l’article concernant le [protocole OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 
@@ -105,8 +119,6 @@ Dans ce flux, l’application exécute des [stratégies](active-directory-b2c-re
 > Azure AD B2C prend uniquement en charge les jetons qui sont utilisés pour accéder au service web backend de l’application. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API web backend. Cette architecture est entièrement prise en charge. Vous ne pouvez pas autoriser votre application iOS à accéder à une API web partenaire à l’aide de jetons d’accès OAuth 2.0. Tous les composants de votre application doivent partager un même ID d’application.
 >
 >
-
-![Images de couloirs d’application native](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Limitations actuelles
 

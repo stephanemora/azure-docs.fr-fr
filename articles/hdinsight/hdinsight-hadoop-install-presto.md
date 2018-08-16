@@ -1,30 +1,27 @@
 ---
-title: Installer Presto sur des clusters Azure HDInsight Linux | Documents Microsoft
+title: Installer Presto sur des clusters Azure HDInsight Linux
 description: Apprenez à installer Presto et Airpal sur des clusters Hadoop HDInsight sous Linux, à l’aide des actions de script.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 32b7925b7414f00dfdd7d5c8a45b3601bf58942e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: ea777b13348b84aaeb7cb7628a4d0aac9f5705bd
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401812"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591419"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Installer et utiliser Presto sur des clusters Hadoop HDInsight
 
 Dans cet document, vous allez apprendre à installer Presto sur des clusters Hadoop HDInsight à l’aide des actions de script. Vous allez également apprendre à installer Airpal sur un cluster HDInsight Presto existant.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un **cluster Hadoop HDInsight version 3.5** qui utilise Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez la page [Versions de HDInsight](hdinsight-component-versioning.md).
+> Les étapes décrites dans ce document nécessitent un **cluster Hadoop HDInsight version 3.5** qui utilise Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez la page [Versions de HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>Qu’est-ce que Presto ?
 [Presto](https://prestodb.io/overview.html) est un moteur de requête SQL rapide distribué pour les Big Data. Presto convient à l’exécution interactive de requêtes de pétaoctets de données. Pour plus d’informations sur les composants de Presto et leur manière de fonctionner ensemble, consultez la page [Concepts Presto](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
@@ -32,7 +29,7 @@ Dans cet document, vous allez apprendre à installer Presto sur des clusters Had
 > [!WARNING]
 > Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aidera à identifier et à résoudre les problèmes liés à ces composants.
 > 
-> Les composants personnalisés, tels que Presto, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème de manière plus approfondie. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org). Par exemple: [Hadoop](http://hadoop.apache.org/).
+> Les composants personnalisés, tels que Presto, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème de manière plus approfondie. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple [Hadoop](http://hadoop.apache.org/).
 > 
 > 
 
@@ -43,7 +40,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 
 1. Commencez à approvisionner un cluster en suivant la procédure décrite sur la page [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md) (Approvisionner des clusters HDInsight sous Linux). Veillez à créer le cluster à l’aide du flux de création de cluster **personnalisé**. Le cluster doit répondre aux exigences suivantes.
 
-    * Ce doit être un cluster Hadoop créé avec la version 3.5 de HDInsight.
+    * Il doit s’agir d’un cluster Hadoop créé avec HDInsight version 3.6.
 
     * Il doit utiliser Stockage Azure comme banque de données. Il n’est pas encore possible d’utiliser Presto sur un cluster qui utilise Azure Data Lake Store comme option de stockage. 
 
@@ -72,7 +69,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 
 Pour travailler avec Presto dans un cluster HDInsight, procédez comme suit :
 
-1. Connectez-vous au cluster HDInsight à l’aide de SSH :
+1. Connectez-vous au cluster HDInsight à l’aide de SSH :
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    

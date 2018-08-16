@@ -14,24 +14,27 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399938"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505509"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Attribution de rôles d’administrateur dans Azure Active Directory
 
 À l’aide d’Azure Active Directory (Azure AD), vous pouvez affecter des administrateurs distincts à différentes fonctions. Les administrateurs peuvent être désignés dans le portail Azure AD pour effectuer des tâches comme l’ajout ou le changement d’utilisateurs, l’attribution de rôles d’administrateur, la réinitialisation des mots de passe utilisateur, la gestion des licences utilisateur et la gestion des noms de domaine.
 
 ## <a name="details-about-the-global-administrator-role"></a>Informations sur le rôle d’administrateur général
+
 L’administrateur général a accès à toutes les fonctionnalités d’administration. Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Attribution ou suppression de rôles d’administrateur
+
 Pour découvrir comment attribuer des rôles d’administration à un utilisateur dans Azure Active Directory, consultez l’article [Attribution de rôles d’administrateur à un utilisateur d’Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Rôles disponibles
+
 Les rôles d’administrateur disponibles sont les suivants :
 
 * **[Administrateur d’application](#application-administrator)** : les utilisateurs dotés de ce rôle peuvent créer et gérer tous les aspects des applications d’entreprise, des inscriptions d’applications et des paramètres de proxy d’application. Ce rôle permet également de donner son consentement pour des autorisations déléguées et des autorisations d’application, sauf pour Microsoft Graph et Azure AD Graph. Les membres de ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
@@ -48,13 +51,13 @@ Les rôles d’administrateur disponibles sont les suivants :
   > [!NOTE]
   > Pour pouvoir déployer la stratégie d’accès conditionnel Exchange ActiveSync dans Azure, l’utilisateur doit également être administrateur général.
   
-* **[Administrateurs d’appareil](#device-administrators)** : les utilisateurs dotés de ce rôle deviennent administrateurs d’ordinateur local sur tous les appareils Windows 10 qui sont joints à Azure Active Directory. Ils ne peuvent pas gérer des objets d’appareil dans Azure Active Directory.
+* **[Administrateurs d’appareils](#device-administrators)**  : ce rôle est disponible pour attribution uniquement en tant qu’administrateur local supplémentaire dans [Paramètres de l’appareil](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Les utilisateurs dotés de ce rôle deviennent des administrateurs de l'ordinateur local pour tous les appareils Windows 10 qui sont joints à Azure Active Directory. Ils ne peuvent pas gérer des objets appareil dans Azure Active Directory. 
 
-* **[Lecteurs d’annuaire](#directory-readers)** : il s’agit d’un rôle hérité qui doit être affecté aux applications ne prenant pas en charge le [framework de consentement](../develop/active-directory-integrating-applications.md). Vous ne devez pas l’affecter à tous les utilisateurs.
+* **[Lecteurs d’annuaire](#directory-readers)** : il s’agit d’un rôle hérité qui doit être affecté aux applications ne prenant pas en charge le [framework de consentement](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Vous ne devez pas l’affecter à tous les utilisateurs.
 
 * **[Comptes de synchronisation d’annuaires](#directory-synchronization-accounts)** : ne pas utiliser. Ce rôle est automatiquement attribué au service Azure AD Connect et n’est pas prévu ni pris en charge pour une autre utilisation.
 
-* **[Enregistreurs d’annuaire](#directory-writers)** : il s’agit d’un rôle hérité qui doit être affecté aux applications ne prenant pas en charge le [framework de consentement](../develop/active-directory-integrating-applications.md). Vous ne devez pas l’affecter à tous les utilisateurs.
+* **[Enregistreurs d’annuaire](#directory-writers)** : il s’agit d’un rôle hérité qui doit être affecté aux applications ne prenant pas en charge le [framework de consentement](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Vous ne devez pas l’affecter à tous les utilisateurs.
 
 * **[Administrateur de service Dynamics 365/Administrateur de service CRM](#dynamics-365-service-administrator)** : les utilisateurs dotés de ce rôle ont des autorisations globales dans Microsoft Dynamics 365 Online, quand le service est présent. Ils peuvent également gérer les tickets de support et analyser l’intégrité du service. Pour plus d’informations, consultez la page [Utiliser le rôle d’administrateur de service pour gérer votre locataire](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
@@ -90,7 +93,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **[Administrateur de rôle privilégié](#privileged-role-administrator)** : les utilisateurs dotés de ce rôle peuvent gérer les attributions de rôles dans Azure Active Directory, ainsi que dans Azure AD Privileged Identity Management. En outre, ce rôle permet de gérer tous les aspects de Privileged Identity Management.
 
-* **[Lecteur de rapports](#reports-reader)** : les utilisateurs dotés de ce rôle peuvent afficher les données des rapports d’utilisation et le tableau de bord des rapports dans le Centre d’administration Office 365, ainsi que le pack du contexte d’adoption dans Power BI. En outre, ce rôle donne accès aux rapports de connexion et aux activités dans Azure AD, ainsi qu’aux données renvoyées par l’API de création de rapports Microsoft Graph. Un utilisateur disposant du rôle Lecteur de rapports peut uniquement accéder au métriques d’utilisation et d’adoption pertinentes. Il n’a pas les autorisations administrateur permettant de configurer les paramètres ou d’accéder aux centres d’administration propres au produit comme Exchange. 
+* **[Lecteur de rapports](#reports-reader)** : les utilisateurs dotés de ce rôle peuvent afficher les données des rapports d’utilisation et le tableau de bord des rapports dans le Centre d’administration Office 365, ainsi que le pack du contexte d’adoption dans Power BI. En outre, ce rôle donne accès aux rapports de connexion et aux activités dans Azure AD, ainsi qu’aux données renvoyées par l’API de création de rapports Microsoft Graph. Un utilisateur disposant du rôle Lecteur de rapports peut uniquement accéder aux métriques d’utilisation et d’adoption pertinentes. Il n’a pas les autorisations administrateur permettant de configurer les paramètres ou d’accéder aux centres d’administration propres au produit comme Exchange. 
 
 * **[Administrateur de sécurité](#security-administrator)** : les utilisateurs dotés de ce rôle ont toutes les autorisations en lecture seule du rôle Lecteur de sécurité, plus la possibilité de gérer la configuration des services liés à la sécurité : Azure Active Directory Identity Protection, Azure Information Protection, Privileged Identity Management, ainsi que le Centre de sécurité et conformité Office 365. Pour plus d’informations sur les autorisations Office 365, consultez [Autorisations dans le Centre de sécurité et conformité Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -353,15 +356,13 @@ Peut gérer les fonctionnalités d’accès conditionnel.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Mettez à jour la propriété ConditionalAccessPolicys.Owners dans Azure Active Directory. |
 
 ### <a name="device-administrators"></a>Administrateurs d’appareils
-Les membres dotés de ce rôle sont ajoutés au groupe d’administrateurs locaux sur des appareils joints à AD Azure.
+
+Les utilisateurs dotés de ce rôle deviennent des administrateurs de l'ordinateur local pour tous les appareils Windows 10 qui sont joints à Azure Active Directory. Ils ne peuvent pas gérer des objets d’appareil dans Azure Active Directory.
 
   > [!NOTE]
   > Ce rôle hérite d’autorisations supplémentaires du [rôle utilisateur](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
   >
   >
-
-| **Actions** | **Description** |
-| --- | --- |
 
 ### <a name="directory-readers"></a>Lecteurs de répertoires
 Peut lire les informations d’annuaire de base. Pour accorder l’accès aux applications.

@@ -3,7 +3,7 @@ title: Accès Juste à temps à la machine virtuelle dans Azure Security Center�
 description: Ce document montre comment l’accès Juste à temps à la machine virtuelle dans Azure Security Center peut vous aider à contrôler l’accès à vos machines virtuelles Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 18c05444c151a87048db71b039845e26796126b8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990576"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525941"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès Juste à temps à la machine virtuelle
 
@@ -168,10 +168,9 @@ Vous pouvez télécharger les informations du journal en sélectionnant **Clique
 
 Modifiez les filtres et sélectionnez **Appliquer** pour créer une recherche et un journal.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Utilisation de l’accès Juste à temps à la machine virtuelle par le biais de PowerShell
+## <a name="using-just-in-time-vm-access-via-rest-apis"></a>Utilisation de l’accès aux machines virtuelles juste-à-temps via des API REST
 
-Pour utiliser la solution Juste à temps par le biais de PowerShell, assurez-vous de disposer de la [dernière](/powershell/azure/install-azurerm-ps) version d’Azure PowerShell.
-Une fois cette vérification effectuée, vous devez installer la [dernière](https://aka.ms/asc-psgallery) version d’Azure Security Center à partir de la galerie PowerShell.
+La fonctionnalité d’accès aux machines virtuelles juste-à-temps peut être utilisée via l’API Azure Security Center. Vous pouvez obtenir des informations sur les machines virtuelles configurées, en ajouter de nouvelles, demander l’accès à une machine virtuelle ou effectuer d’autres actions via cette API. Pour plus d’informations sur l’API REST Juste-à-temps, consultez [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configuration d’une stratégie Juste à temps pour une machine virtuelle
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b15fff6e868bfac973f9d2a7277f0fac1e29d845
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939837"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505607"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -78,7 +78,7 @@ En savoir plus sur le fonctionnement de la [synchronisation de hachage du mot de
 
 ### <a name="implement-ad-fs-extranet-lockout"></a>Mettre en œuvre le verrouillage extranet AD FS
 
-Les organisations qui configurent des applications pour s’authentifier directement auprès d’Azure AD bénéficient du [verrouillage intelligent Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Si vous utilisez AD FS, implémentez le [verrouillage extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection) AD FS. Le verrouillage extranet protège contre les attaques par force brute qui ciblent AD FS tout en empêchant Active Directory de ne plus être accessible pour les utilisateurs.
+Les organisations qui configurent des applications pour s’authentifier directement auprès d’Azure AD bénéficient du [verrouillage intelligent Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Si vous utilisez AD FS dans Windows Server 2012 R2, implémentez la [protection par verrouillage extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) AD FS. Si vous utilisez AD FS sur Windows Server 2016, implémentez le [verrouillage extranet intelligent](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Le verrouillage extranet intelligent d’AD FS protège contre les attaques par force brute qui ciblent AD FS tout en empêchant le verrouillage des utilisateurs dans Active Directory.
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>Tirer parti d’informations d’identification intrinsèquement sécurisées et plus faciles à utiliser
 

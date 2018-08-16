@@ -1,25 +1,20 @@
 ---
-title: Utiliser Hadoop Pig avec SSH sur un cluster HDInsight - Azure | Documents Microsoft
+title: Utiliser Hadoop Pig avec SSH sur un cluster HDInsight - Azure
 description: Découvrez comment se connecter à un cluster Hadoop Linux avec SSH, avant d’utiliser la commande Pig pour exécuter interactivement des instructions Pig Latin ou avec le traitement par lots.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: c296e01096480b85aea52ace69f25aff39e3bd2d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: c521f5781c1fb8bae1e036649ee31744d0742796
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401147"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590294"
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Exécution de tâches Pig sur un cluster Linux avec la commande Pig (SSH)
 
@@ -28,7 +23,7 @@ ms.locfileid: "31401147"
 Découvrez comment exécuter interactivement des tâches Pig à partir d’une connexion SSH sur votre cluster HDInsight. Le langage de programmation Pig Latin permet de décrire les transformations appliquées aux données d’entrée pour produire le résultat souhaité.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="ssh"></a>Connexion avec SSH
 

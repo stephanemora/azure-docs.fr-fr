@@ -2,30 +2,24 @@
 title: Préparation des disques durs pour un travail d’importation Azure Import/Export | Microsoft Docs
 description: Découvrez comment préparer des disques durs à l’aide de l’outil WAImportExport afin de créer une tâche d’importation pour le service Azure Import/Export.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.openlocfilehash: 2854822907e818297c8d2f74cab48b0afa0d646c
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.component: common
+ms.openlocfilehash: 9d8509e97ad83dd636f0a1b1892a2fa67c69e0b7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
-ms.locfileid: "23469238"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521793"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Préparation des disques durs pour un travail d’importation
 
 L’outil WAImportExport est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le [service Microsoft Azure Import/Export](../storage-import-export-service.md). Il permet de copier les données sur des disques durs que vous allez envoyer à un centre de données Azure. Lorsqu’un travail d’importation est terminé, vous pouvez utiliser cet outil pour réparer les objets blob endommagés, manquants ou en conflit avec d’autres objets blob. Lorsque vous recevez les disques d’un travail d’exportation, vous pouvez utiliser cet outil pour réparer tous les fichiers endommagés ou manquants sur les disques. Dans cet article, nous passerons en revue l’utilisation de cet outil.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="requirements-for-waimportexportexe"></a>Configuration requise pour WAImportExport.exe
 
@@ -85,7 +79,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | Champ | Description |
 | --- | --- |
 | Chemin de base | **[Obligatoire]**<br/>La valeur de ce paramètre représente la source où se trouvent les données à importer. L’outil copie de manière récurrente toutes les données situées sous ce chemin d’accès.<br><br/>**Valeurs autorisées** : ce chemin d’accès (partagé ou non) doit être valide sur l’ordinateur local et accessible par l’utilisateur. Le chemin d’accès du répertoire doit être un chemin d’accès absolu (et non relatif). Si le chemin d’accès finit par « \\ », il représente un répertoire, tandis qu’un chemin d’accès qui finit sans « \\ » représente un fichier.<br/>Aucune expression régulière n’est autorisée dans ce champ. Si le chemin d’accès contient des espaces, placez-les entre guillemets droits (" ").<br><br/>**Exemple** : "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
-| DstBlobPathOrPrefix | **[Obligatoire]**<br/> Chemin d’accès au répertoire virtuel cible dans votre compte de stockage Azure. Le répertoire virtuel peut déjà exister ou non. S’il n’existe pas, le service Import/Export le crée.<br/><br/>Veillez à utiliser des noms de conteneur valides quand vous spécifiez des répertoires virtuels de destination ou des objets blob. N’oubliez pas que les noms de conteneur doivent être en minuscules. Pour connaître les règles d’affectation de noms aux conteneurs, consultez [Naming and Referencing Containers, Blobs, and Metadata (Affectation de noms et références aux conteneurs, blobs et métadonnées)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). S’il n’est spécifié que la racine, la structure de répertoire de la source est répliquée dans le conteneur d’objets blob de destination. Si vous souhaitez une structure de répertoire différente de la source, plusieurs lignes de mappage dans le fichier CSV<br/><br/>Vous pouvez spécifier un conteneur ou un préfixe d’objet blob comme music/70s/. Le répertoire cible doit commencer par le nom du conteneur, suivi d’une barre oblique « / » et peut spécifier un répertoire virtuel d’objets blob se terminant par « / ».<br/><br/>Lorsque le conteneur cible est le conteneur racine, vous devez spécifier explicitement le conteneur racine et la barre oblique (exemple : $root/). Comme les objets blob du conteneur racine ne peuvent pas inclure « / » dans leur nom, les sous-répertoires du répertoire source ne seront pas copiés si le répertoire cible est le conteneur racine.<br/><br/>**Exemple**<br/>Si le chemin d’accès à l’objet blob cible est https://mystorageaccount.blob.core.windows.net/video, la valeur de ce champ peut être video/.  |
+| DstBlobPathOrPrefix | **[Obligatoire]**<br/> Chemin d’accès au répertoire virtuel cible dans votre compte de stockage Azure. Le répertoire virtuel peut déjà exister ou non. S’il n’existe pas, le service Import/Export le crée.<br/><br/>Veillez à utiliser des noms de conteneur valides quand vous spécifiez des répertoires virtuels de destination ou des objets blob. N’oubliez pas que les noms de conteneur doivent être en minuscules. Pour connaître les règles d’affectation de noms aux conteneurs, consultez [Naming and Referencing Containers, Blobs, and Metadata (Affectation de noms et références aux conteneurs, blobs et métadonnées)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). S’il n’est spécifié que la racine, la structure de répertoire de la source est répliquée dans le conteneur d’objets blob de destination. Si vous souhaitez une structure de répertoire différente de la source, plusieurs lignes de mappage dans le fichier CSV<br/><br/>Vous pouvez spécifier un conteneur ou un préfixe d’objet blob comme music/70s/. Le répertoire cible doit commencer par le nom du conteneur, suivi d’une barre oblique « / » et peut spécifier un répertoire virtuel d’objets blob se terminant par « / ».<br/><br/>Lorsque le conteneur cible est le conteneur racine, vous devez spécifier explicitement le conteneur racine et la barre oblique (exemple : $root/). Comme les objets blob du conteneur racine ne peuvent pas inclure « / » dans leur nom, les sous-répertoires du répertoire source ne seront pas copiés si le répertoire cible est le conteneur racine.<br/><br/>**Exemple**<br/>Si le chemin des objets blob de destination est https://mystorageaccount.blob.core.windows.net/video, la valeur de ce champ peut être video/  |
 | /BlobType | **[Facultatif]**  block &amp;#124; page<br/>Pour l’instant, le service Import/Export prend en charge 2 types d’objet blob. les objets blob de pages et les objets blob de blocs. Par défaut, tous les fichiers sont importés comme des objets blob de blocs. Les fichiers \*.vhd et \*.vhdx sont importés comme des objets blob de pages. La taille des objets blob de pages et de blocs est limitée. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité d’Azure Storage](storage-scalability-targets.md).  |
 | Disposition | **[Facultatif]** rename &amp;#124; no-overwrite &amp;#124; overwrite <br/> Ce champ spécifie le comportement de copie lors de l’importation, quand des données sont chargées sur le compte de stockage depuis le disque. Options disponibles : rename&#124;overwite&#124;no-overwrite. Réglé par défaut sur "rename" si rien n’est spécifié. <br/><br/>**Rename** : si un objet portant le même nom est présent, l’outil crée une copie dans la destination.<br/>Overwrite : remplace le fichier par sa version plus récente. Le fichier modifié en dernier est conservé.<br/>**No-overwrite** : ne remplace pas le fichier existant.|
 | MetadataFile | **[Facultatif]** <br/>Ce champ indique le fichier de métadonnées qui peut être spécifié si vous devez conserver les métadonnées des objets ou fournir des métadonnées personnalisées. Chemin d’accès au fichier des métadonnées des objets blob cibles. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](../storage-import-export-file-format-metadata-and-properties.md) |
@@ -133,7 +127,7 @@ Première session de copie d’un ou de plusieurs répertoires sur un ou plusieu
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
 ```
 
-**Exemple :**
+**Exemple :**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*\*\*\*\*\*\*\* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
@@ -141,13 +135,13 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*
 
 ### <a name="add-data-in-subsequent-session"></a>Ajouter des données dans la session suivante
 
-Dans les sessions de copie suivantes, il est inutile de spécifier les paramètres initiaux. Vous devez utiliser le même fichier journal pour que l’outil sache où il s’est arrêté dans la session précédente. L’état de la session de copie est consigné dans le fichier journal. Voici la syntaxe à utiliser pour qu’une session suivante copie des répertoires et/ou des fichiers supplémentaires :
+Dans les sessions de copie suivantes, il est inutile de spécifier les paramètres initiaux. Vous devez utiliser le même fichier journal pour que l’outil sache où il s’est arrêté dans la session précédente. L’état de cette session de copie est consigné dans le fichier journal. Voici la syntaxe à utiliser pour qu’une session suivante copie des répertoires et/ou des fichiers supplémentaires :
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId>  [DataSet:<differentdataset.csv>]
 ```
 
-**Exemple :**
+**Exemple :**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
@@ -164,7 +158,7 @@ Si les données ne tiennent pas sur les disques spécifiés dans le fichier Init
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
 ```
 
-**Exemple :**
+**Exemple :**
 
 ```
 WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2  /AdditionalDriveSet:driveset-2.csv
@@ -178,7 +172,7 @@ Si une session de copie est interrompue et qu’il n’est pas possible de la re
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AbortSession
 ```
 
-**Exemple :**
+**Exemple :**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
@@ -194,7 +188,7 @@ Si une session de copie est interrompue pour une raison quelconque, vous pouvez 
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /ResumeSession
 ```
 
-**Exemple :**
+**Exemple :**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
@@ -208,7 +202,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 | parameters | Description |
 | --- | --- |
 |     /j:&lt;Fichier_journal&gt;  | **Obligatoire**<br/> Chemin d’accès au fichier journal. Un fichier journal suit un ensemble de disques et enregistre la progression de leur préparation. Ce paramètre doit toujours être spécifié.  |
-|     /LogDir:&lt;Répertoire_journaux&gt;  | **Facultatif**. Répertoire contenant les journaux.<br/> Les fichiers journaux détaillés, ainsi que certains fichiers temporaires, sont écrits dans ce répertoire. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux. Le répertoire de journaux ne peut être spécifié qu’une fois pour le même fichier journal.  |
+|     /LogDir:&lt;Répertoire_journaux&gt;  | **Facultative**. Répertoire contenant les journaux.<br/> Les fichiers journaux détaillés, ainsi que certains fichiers temporaires, sont écrits dans ce répertoire. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux. Le répertoire de journaux ne peut être spécifié qu’une fois pour le même fichier journal.  |
 |     /id:&lt;ID_session&gt;  | **Obligatoire**<br/> L’ID de session permet d’identifier une session de copie. Il est utilisé pour assurer la précision de la récupération d’une session de copie interrompue.  |
 |     /ResumeSession  | facultatif. Si la dernière session de copie s’est arrêtée anormalement, ce paramètre permet de la reprendre.   |
 |     /AbortSession  | facultatif. Si la dernière session de copie s’est arrêtée anormalement, ce paramètre permet de l’annuler.  |
@@ -220,11 +214,11 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /d:&lt;Répertoires_cibles&gt; | **Requis**. Applicable uniquement à RepairImport et RepairExport. Pour RepairImport, un ou plusieurs répertoires à réparer, séparés par des points-virgules ; pour RepairExport, un répertoire à réparer (par exemple, le répertoire racine du disque).  |
 |     /CopyLogFile:&lt;Fichier_journal_copie_disque&gt; | **Obligatoire** Applicable uniquement à RepairImport et RepairExport. Chemin d’accès au fichier journal de copie du disque (détaillé ou erreur).  |
 |     /ManifestFile:&lt;Fichier_manifeste_disque&gt; | **Obligatoire** Applicable uniquement à RepairExport.<br/> Chemin d’accès au fichier manifeste du disque.  |
-|     /PathMapFile:&lt;Fichier_mappage_chemin_disque&gt; | **Facultatif**. Applicable uniquement à RepairImport.<br/> Chemin d’accès au fichier contenant les mappages des chemins d’accès relatifs à la racine du disque pour les emplacements des fichiers (séparés par des tabulations). Spécifié pour la première fois, il indique des chemins d’accès avec des cibles vides, ce qui signifie qu’ils sont introuvables dans les répertoires cibles, que leur accès est refusé, que leur nom est incorrect ou qu’ils existent dans plusieurs répertoires. Vous pouvez corriger manuellement les chemins d’accès dans ce fichier de mappages afin que l’outil fonctionne correctement.  |
+|     /PathMapFile:&lt;Fichier_mappage_chemin_disque&gt; | **Facultative**. Applicable uniquement à RepairImport.<br/> Chemin d’accès au fichier contenant les mappages des chemins d’accès relatifs à la racine du disque pour les emplacements des fichiers (séparés par des tabulations). Spécifié pour la première fois, il indique des chemins d’accès avec des cibles vides, ce qui signifie qu’ils sont introuvables dans les répertoires cibles, que leur accès est refusé, que leur nom est incorrect ou qu’ils existent dans plusieurs répertoires. Vous pouvez corriger manuellement les chemins d’accès dans ce fichier de mappages afin que l’outil fonctionne correctement.  |
 |     /ExportBlobListFile:&lt;Fichier_liste_blobs_à_exporter&gt; | **Requis**. Applicable uniquement à PreviewExport.<br/> Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Le format du fichier est le même que celui de la liste des objets blob dans l’opération Put Job de l’API REST du service Import/Export.  |
 |     /DriveSize:&lt;Taille_disque&gt; | **Requis**. Applicable uniquement à PreviewExport.<br/>  Taille des disques à utiliser pour l’exportation. Par exemple, 500 Go, 1,5 To. Remarque : 1 Go = 1 000 000 000 octets ; 1 To = 1 000 000 000 000 octets  |
 |     /DataSet:&lt;dataset.csv&gt; | **Obligatoire**<br/> Un fichier CSV contenant une liste de répertoires et/ou de fichiers à copier sur des disques cibles.  |
-|     /silentmode  | **Facultatif**.<br/> Si cet argument n’est pas spécifié, l’outil demande de spécifier des disques et de confirmer chaque opération.  |
+|     /silentmode  | **Facultative**.<br/> Si cet argument n’est pas spécifié, l’outil demande de spécifier des disques et de confirmer chaque opération.  |
 
 ## <a name="tool-output"></a>Sortie de l’outil
 
@@ -315,7 +309,7 @@ Si le volume des données dépasse la capacité du disque, l’outil WAImportExp
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>Où puis-je trouver la version précédente de l’outil WAImportExport ?
 
-L’outil WAImportExport propose toutes les fonctionnalités de l’outil WAImportExport V1. Il permet aux utilisateurs de spécifier plusieurs sources et d’écrire des données sur plusieurs disques. De plus, vous pouvez gérer facilement plusieurs emplacements sources à partir desquels copier des données dans un fichier CSV. Toutefois, si vous devez prendre en charge SAP ou si vous souhaitez copier une seule source sur un seul disque, vous pouvez [télécharger l’outil WAImportExport V1] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) et consulter [Using the Azure Import/Export Tool (v1) (Utilisation de l’outil Azure Import/Export (v1))](storage-import-export-tool-how-to-v1.md).
+L’outil WAImportExport propose toutes les fonctionnalités de l’outil WAImportExport V1. Il permet aux utilisateurs de spécifier plusieurs sources et d’écrire des données sur plusieurs disques. De plus, vous pouvez gérer facilement plusieurs emplacements sources à partir desquels copier des données dans un fichier CSV. Cependant, si vous devez prendre en charge SAS ou si vous voulez copier une seule source sur un seul disque, vous pouvez [télécharger l’outil WAImportExport V1] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) et consulter [Informations de référence sur WAImportExport V1](storage-import-export-tool-how-to-v1.md) pour de l’aide sur l’utilisation de WAImportExport V1.
 
 #### <a name="what-is-a-session-id"></a>Qu’est-ce qu’un ID de session ?
 
@@ -339,7 +333,7 @@ Pour chaque disque dur que vous préparez avec l’outil Azure Import/Export, ce
 
 Le répertoire de journaux désigne le répertoire à utiliser pour stocker les journaux détaillés et les fichiers manifestes temporaires. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux. Les journaux sont détaillés.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 
 #### <a name="what-are-the-specifications-of-my-disk"></a>Quelles sont les caractéristiques de mon disque ?
 

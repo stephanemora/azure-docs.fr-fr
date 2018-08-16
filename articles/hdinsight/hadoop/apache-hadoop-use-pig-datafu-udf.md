@@ -1,26 +1,20 @@
 ---
-title: Utiliser Apache DataFu avec Pig sur HDInsight - Azure | Microsoft Docs
+title: Utiliser Apache DataFu avec Pig sur HDInsight - Azure
 description: Apache DataFu Pig est un ensemble de bibliothèques utilisables avec Pig sur Hadoop. Découvrez comment vous pouvez utiliser DataFu avec Pig sur votre cluster HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 0016721a-82be-4773-88ad-91e6b2c21cbb
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 51949e763b77aede6df8a8ff6affa3892adbed21
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.author: jasonh
+ms.openlocfilehash: fb0ef63562bfcc98fbfb960ec4869110d38a7700
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090212"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593483"
 ---
 # <a name="use-apache-datafu-pig-with-pig-on-hdinsight"></a>Utiliser Apache DataFu Pig avec Pig sur HDInsight
 
@@ -36,7 +30,7 @@ Pour plus d’informations sur DataFu Pig, consultez [https://datafu.apache.org/
 * Un cluster Azure HDInsight (Linux ou Windows)
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Des connaissances élémentaire de [l'utilisation de Pig dans HDInsight](hdinsight-use-pig.md)
 

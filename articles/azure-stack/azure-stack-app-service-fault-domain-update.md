@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: ce57e153dcab6a386150ebefe1ecb4a018514247
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130368"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440149"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Comment redistribuer Azure App Service sur Azure Stack dans les domaines d’erreur
 
@@ -45,15 +45,15 @@ Pour redistribuer les groupes identiques déployés pour le fournisseur de resso
 >[!NOTE]
 > Si aucune instance n’est déployée dans vos groupes identiques de niveau worker, il n’est pas utile de rééquilibrer ces groupes. Les groupes identiques seront correctement équilibrés lorsque vous effectuerez une montée en charge (scale out).
 
-To scale out the scale sets, follow these steps:
+Pour augmenter la taille des instances des groupes identiques, procédez comme suit :
 
-1. Sign in to the Azure Stack Administrator Portal.
-2. Sélectionnez **Plus de services**.
-3. Under COMPUTE, select <bpt id="p1">**</bpt>Virtual machine scale sets<ept id="p1">**</ept>. Les groupes identiques existants déployés dans le cadre du déploiement d’App Service sont listés avec leur nombre d’instances. The following screen capture shows an example of scale sets.
+1. Connectez-vous au portail d’administration d’Azure Stack.
+1. Sélectionnez **Plus de services**.
+1. Sous COMPUTE, sélectionnez **Groupes de machines virtuelles identiques**. Les groupes identiques existants déployés dans le cadre du déploiement d’App Service sont listés avec leur nombre d’instances. La capture d’écran suivante présente un exemple de groupes identiques.
 
       ![Groupes identiques Azure App Service listés dans l’interface utilisateur de Virtual Machine Scale Sets][1]
 
-4. Scale out each set. For example, if you have three existing instances in the scale set you must scale out to 6 so the three new instances are deployed across fault domains. The following PowerShell example shows out to scale out the scale set.
+1. Augmentez la taille des instances pour chaque groupe. Par exemple, si le groupe identique comprend trois instances, vous devez augmenter la taille des instances pour atteindre 6 instances. Ainsi, les trois nouvelles instances sont déployées sur des domaines d’erreur. Les exemples PowerShell suivants montrent comment augmenter la taille des instances du groupe identique.
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
@@ -67,15 +67,15 @@ To scale out the scale sets, follow these steps:
    ```
 
    >[!NOTE]
-   >This step can take several of hours to finish, depending on the type of role and the number of instances.
+   >L’exécution de cette étape peut prendre plusieurs heures en fonction du type de rôle et du nombre d’instances.
 
-5. In <bpt id="p1">**</bpt>App Service Administration Roles<ept id="p1">**</ept>, monitor the status of the new role instances. To check the status of a role instance, select the role type in the list
+1. Sous **Rôles du portail Administration App Service**, surveillez l’état des nouvelles instances de rôle. Pour vérifier l’état d’une instance de rôle, sélectionnez le type de rôle dans la liste.
 
     ![Rôles d’Azure App Service sur Azure Stack][2]
 
-6. When the status of the new role instances is <bpt id="p1">**</bpt>Ready<ept id="p1">**</ept>, go back to <bpt id="p2">**</bpt>Virtual Machine Scale Set<ept id="p2">**</ept> and <bpt id="p3">**</bpt>delete<ept id="p3">**</ept> the old role instances.
+1. Lorsque l’état des nouvelles instances de rôle est **Prêt**, revenez à **Groupe de machines virtuelles identiques** et **supprimez** les anciennes instances de rôle.
 
-7. Répétez ces étapes pour **chacun** des groupes de machines virtuelles identiques.
+1. Répétez ces étapes pour **chacun** des groupes de machines virtuelles identiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

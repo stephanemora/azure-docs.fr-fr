@@ -1,32 +1,27 @@
 ---
-title: Installer et utiliser Giraph sur des clusters Hadoop dans HDInsight - Azure | Documents Microsoft
+title: Installer et utiliser Giraph sur des clusters Hadoop dans HDInsight - Azure
 description: Découvrez comment personnaliser un cluster HDInsight avec Giraph et comment utiliser Giraph.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 77a1d0e0-55de-4e61-98a0-060914fb7ca0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: c4cd643d4bdd95493f63bb5b1c1f855bc95bf226
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 18469b5e2294a689df166f04b99bf83be122ff2f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271359"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594285"
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Installer et utiliser Giraph sur les clusters HDInsight Windows
 
 Découvrez comment personnaliser un cluster HDInsight basé sur Windows avec Giraph à l’aide d’une action de script, et comment utiliser Giraph pour traiter des graphiques à grande échelle. Pour plus d’informations sur l’utilisation de Giraph avec un cluster Linux, consultez [Installation de Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’installation de Giraph sur un cluster HDInsight Linux, consultez [Installer Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
+> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’installation de Giraph sur un cluster HDInsight Linux, consultez [Installer Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 
 Vous pouvez installer Giraph sur n’importe quel type de cluster (Hadoop, Storm, HBase, Spark) sur Azure HDInsight à l’aide d’une *action de script*. Un exemple de script d’installation de Giraph sur un cluster HDInsight est disponible depuis un objet blob en lecture seule du stockage Azure à l’adresse [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). L'exemple de script fonctionne uniquement avec un cluster HDInsight version 3.1. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](hdinsight-component-versioning.md).

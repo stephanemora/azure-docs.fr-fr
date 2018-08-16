@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265044"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494979"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -28,7 +28,7 @@ Cet article vous fournit les informations nécessaires pour synchroniser vos mot
 ## <a name="what-is-password-hash-synchronization"></a>Qu’est-ce que la synchronisation de hachage de mot de passe ?
 La probabilité que vous soyez bloqué dans votre travail en raison d’un mot de passe oublié est liée au nombre de mots de passe différents que vous devez vous rappeler. Plus vous avez de mots de passe à mémoriser, plus vous risquez d’en oublier. Les questions et les appels pour des réinitialisations de mot de passe et d’autres problèmes de mot de passe sont ceux qui demandent le plus de ressources au support technique.
 
-La synchronisation de hachage de mot de passe est une fonctionnalité permettant de synchroniser des mots de passe utilisateur entre une instance Active Directory locale et une instance cloud Azure AD.
+La synchronisation de hachage de mot de passe est une fonctionnalité permettant de synchroniser le hachage du mot de passe utilisateur entre une instance Active Directory locale et une instance Azure AD basée sur le cloud.
 Utilisez cette fonctionnalité pour vous connecter à des services Azure AD comme Office 365, Microsoft Intune, CRM Online et Azure Active Directory Domain Services (Azure AD DS). Vous vous connectez au service à l’aide du mot de passe que vous utilisez pour vous connecter à votre instance locale d’Active Directory.
 
 ![Qu’est-ce qu’Azure AD Connect ?](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)

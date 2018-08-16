@@ -7,19 +7,17 @@ manager: shreeshd
 keywords: sauvegarde et récupération d’urgence ; service de sauvegarde
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/25/2018
-ms.author: trinadhk
-ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 8/6/2018
+ms.author: saurse;trinadhk
+ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016485"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577879"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Questions sur le service de sauvegarde Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de l’agent de sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="configure-backup"></a>Configurer une sauvegarde
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Où puis-je télécharger le dernier agent Azure Backup ? <br/>
@@ -66,6 +64,10 @@ Les données de sauvegarde sont envoyées au centre de données du coffre dans l
 ### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>L’agent de sauvegarde Azure fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ? <br/>
 Oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
 
+## <a name="prerequisites-and-dependencies"></a>Prérequis et dépendances
+### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Quelles sont les fonctionnalités de l’agent MARS (Microsoft Azure Recovery Services) qui nécessitent le .NET Framework 4.5.2 ou ultérieur ?
+La fonctionnalité [Restauration instantanée](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine), qui permet de restaurer des fichiers et des dossiers individuels à partir de l’Assistant *Récupérer des données*, nécessite le .NET Framework 4.5.2 ou ultérieur.
+
 ## <a name="backup"></a>Sauvegarde
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Comment puis-je modifier l’emplacement du cache spécifié pour l’agent Azure Backup ?<br/>
 Utilisez la liste suivante pour modifier l’emplacement du cache.
@@ -92,8 +94,8 @@ Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de 
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Où dois-je placer le dossier du cache de l’agent Azure Backup pour que ce dernier fonctionne comme prévu ?<br/>
 Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
 
-* Partage réseau ou un média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde à l’aide de la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles (tels que les lecteurs USB) ne sont pas pris en charge.
-* Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent Azure Backup.
+* Partage réseau ou un média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde à l’aide de la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles comme les lecteurs USB ne sont pas pris en charge.
+* Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent Azure Backup
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Existe-t-il des attributs du dossier du cache qui ne sont pas pris en charge ?<br/>
 Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le dossier du cache :
@@ -111,8 +113,7 @@ Le dossier du cache et les métadonnées du disque dur virtuel ne possèdent les
 
 ## <a name="manage-backups"></a>Gestion des sauvegardes
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?<br/>
-Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configurées sont arrêtées.
-Enregistrez le nouveau nom du serveur avec le coffre de sauvegarde. Lorsque vous enregistrez le nouveau nom avec le coffre, la première opération de sauvegarde est une sauvegarde *complète*. Si vous devez récupérer des données sauvegardées dans le coffre avec le nom de l’ancien serveur, utilisez l’option [**Un autre serveur**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) de l’assistant **Récupérer des données**.
+Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configurées sont arrêtées. Enregistrez le nouveau nom du serveur avec le coffre de sauvegarde. Lorsque vous enregistrez le nouveau nom avec le coffre, la première opération de sauvegarde est une sauvegarde *complète*. Si vous devez récupérer des données sauvegardées dans le coffre avec le nom de l’ancien serveur, utilisez l’option [**Un autre serveur**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) de l’assistant **Récupérer des données**.
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Quelle est la longueur maximale du chemin d’accès de fichier pouvant être spécifiée dans la stratégie de sauvegarde avec l’agent de sauvegarde Azure ? <br/>
 L’agent Azure Backup utilise le format NTFS. La [spécification de longueur de chemin d’accès est limitée par l’API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Si les fichiers que vous souhaitez protéger présentent une longueur de chemin d’accès supérieure à la limite autorisée par l’API Windows, sauvegardez le dossier parent ou le lecteur de disque.  

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: cc3d3e35ce3dd457d981dfe9420be765cf9fc45a
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3ce0b63c579412d9d8d35b835803becab09f7ef4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763406"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494150"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Permet de créer, de supprimer et de gérer les applications Docker Compose.
@@ -151,7 +151,7 @@ Permet de valider les paramètres de mise à niveau fournis et de commencer la m
 | --unhealthy-app | Pourcentage maximal autorisé d’applications non saines avant signalement d’une erreur. <br><br> Par exemple, pour autoriser 10 % des applications pouvant être défectueuses, cette valeur serait de 10. Il s’agit du pourcentage maximum toléré d’applications pouvant être défectueuses avant que l’intégrité du cluster ne soit considérée comme étant à l’état Error. Si le pourcentage est respecté mais qu’il existe au moins une application pouvant être défectueuse, l’état d’intégrité est Warning. Ce pourcentage est calculé en divisant le nombre d’applications pouvant être défectueuses par le nombre total d’instances d’application du cluster. |
 | --upgrade-domain-timeout | Délai d’expiration du domaine de mise à niveau, en millisecondes. |
 | --upgrade-kind | Valeur par défaut \: Rolling. |
-| --upgrade-mode | Les valeurs possibles sont \: « Invalid », « UnmonitoredAuto », « UnmonitoredManual », « Monitored ».  Valeur par défaut \: UnmonitoredAuto. |
+| --upgrade-mode | Les valeurs possibles sont \: « Invalid », « UnmonitoredAuto », « UnmonitoredManual », « Monitored ».  Valeur par défaut \: UnmonitoredAuto. |
 | --upgrade-timeout | Délai d’expiration de la mise à niveau, en millisecondes. |
 | --user | Nom d’utilisateur pour se connecter au Registre du conteneur. |
 | --warning-as-error | Les avertissements sont traités avec le même niveau de gravité que les erreurs. |
@@ -187,7 +187,6 @@ Renvoie les informations concernant l’état de la mise à niveau du déploieme
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes

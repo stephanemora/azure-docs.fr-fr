@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342400"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493968"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-data-movement-security-considerations.md)
+> * [Version 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Version actuelle](data-movement-security-considerations.md)
 
 Cet article décrit l’infrastructure de sécurité de base qu’utilisent les services de déplacement des données dans Azure Data Factory pour vous aider à sécuriser vos données. Les ressources de gestion Data Factory reposent sur l’infrastructure de sécurité Azure et utilisent toutes les mesures de sécurité possibles proposées par Azure.
@@ -54,10 +54,13 @@ Cet article présente les principes de sécurité à prendre en compte dans les 
 - **Stocker les informations d’identification dans Azure Key Vault**. Vous pouvez également stocker les informations d’identification de la banque de données dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory récupère les informations d’identification lors de l’exécution d’une activité. Pour plus d’informations, consultez [Store credential in Azure Key Vault](store-credentials-in-key-vault.md) (Stocker les informations d’identification dans Azure Key Vault).
 
 ### <a name="data-encryption-in-transit"></a>Chiffrement des données en transit
-Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent via un canal HTTPS ou TLS sécurisé, si la banque de données cloud prend en charge HTTPS ou TLS.
+Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent par le biais d’un canal HTTPS ou TLS sécurisé si la banque de données cloud prend en charge HTTPS ou TLS.
 
 > [!NOTE]
 > Toutes les connexions à Azure SQL Database et à Azure SQL Data Warehouse doivent être chiffrées (via SSL/TLS) lorsque les données sont en transit depuis et vers la base de données. Lorsque vous créez un pipeline à l’aide de JSON, ajoutez la propriété de chiffrement et définissez sa valeur sur **true** dans la chaîne de connexion. Pour le stockage Azure, vous pouvez utiliser **HTTPS** dans la chaîne de connexion.
+
+> [!NOTE]
+> La version du protocole TLS utilisée est 1.2.
 
 ### <a name="data-encryption-at-rest"></a>Chiffrement des données au repos
 Certaines banques de données prennent en charge le chiffrement des données au repos. Nous vous recommandons d’activer le mécanisme de chiffrement des données pour ces banques de données. 

@@ -6,15 +6,15 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/26/2018
+ms.date: 8/06/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 977413b700dace3e38874d7a41cbc1e16ae0bec4
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 1d8e2d3e6a303009f5718a86772cdc3db8ed332a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018809"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523850"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Utilisez les applets de commande AzureRM.RecoveryServices.Backup pour sauvegarder des machines virtuelles
 
@@ -365,7 +365,7 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
   PS C:\> $properties = $details.properties
   PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
   PS C:\> $containerName = $properties["Config Blob Container Name"]
-  PS C:\> $blobName = $properties["Config Blob Name"]
+  PS C:\> $configBlobName = $properties["Config Blob Name"]
   ```
 
 2. Définissez le contexte de stockage Azure et restaurez le fichier de configuration JSON.
@@ -373,7 +373,7 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
     ```
     PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
     PS C:\> $destination_path = "C:\vmconfig.json"
-    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
+    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $configBlobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
@@ -404,18 +404,28 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
-    PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
+    PS C:\> $dekUrl = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+    ```
+    
+ Lors de la définition du disque du système d’exploitation, vérifiez que le type de système d’exploitation approprié est mentionné.   
+    ```
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows/Linux
     PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
     PS C:\> foreach($dd in $obj.'properties.storageProfile'.dataDisks)
      {
      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
      }
     ```
+    
+Le chiffrement des disques de données doit être activé manuellement à l’aide de la commande suivante.
 
-    #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>Machines virtuelles non managées et chiffrées (BEK et KEK)
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -VolumeType Data
+    ```
+    
+   #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>Machines virtuelles non managées et chiffrées (BEK et KEK)
 
-    Pour les machines virtuelles non managées et chiffrées (à l’aide de BEK et de KEK), vous devez restaurer la clé et le secret dans le coffre de clés avant d’attacher des disques. Pour plus d’informations, consultez l’article [Restaurer une machine virtuelle chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). L’exemple suivant montre comment attacher des disques de système d’exploitation et de données pour les machines virtuelles chiffrées.
+   Pour les machines virtuelles non managées et chiffrées (à l’aide de BEK et de KEK), vous devez restaurer la clé et le secret dans le coffre de clés avant d’attacher des disques. Pour plus d’informations, consultez l’article [Restaurer une machine virtuelle chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). L’exemple suivant montre comment attacher des disques de système d’exploitation et de données pour les machines virtuelles chiffrées.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -429,9 +439,15 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
      }
     ```
 
-    #### <a name="managed-non-encrypted-vms"></a>Machines virtuelles gérées et non chiffrées
+Le chiffrement des disques de données doit être activé manuellement à l’aide de la commande suivante.
 
-    Pour les machines virtuelles gérées et non chiffrées, vous devez créer des disques managés à partir de Stockage Blob, puis attacher les disques. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md). L’exemple de code suivant montre comment attacher les disques de données pour des machines virtuelles non chiffrées et gérées.
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+    ```
+    
+   #### <a name="managed-non-encrypted-vms"></a>Machines virtuelles gérées et non chiffrées
+
+   Pour les machines virtuelles gérées et non chiffrées, vous devez créer des disques managés à partir de Stockage Blob, puis attacher les disques. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md). L’exemple de code suivant montre comment attacher les disques de données pour des machines virtuelles non chiffrées et gérées.
 
     ```
     PS C:\> $storageType = "StandardLRS"
@@ -450,9 +466,9 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
     }
     ```
 
-    #### <a name="managed-encrypted-vms-bek-only"></a>Machines virtuelles managées et chiffrées (BEK uniquement)
+   #### <a name="managed-encrypted-vms-bek-only"></a>Machines virtuelles managées et chiffrées (BEK uniquement)
 
-    Pour les machines virtuelles managées et chiffrées (à l’aide de BEK uniquement), vous devez créer des disques managés à partir de Stockage Blob, puis attacher les disques. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md). L’exemple de code suivant montre comment attacher les disques de données pour des machines virtuelles chiffrées et gérées.
+   Pour les machines virtuelles managées et chiffrées (à l’aide de BEK uniquement), vous devez créer des disques managés à partir de Stockage Blob, puis attacher les disques. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md). L’exemple de code suivant montre comment attacher les disques de données pour des machines virtuelles chiffrées et gérées.
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -473,9 +489,15 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
      }
     ```
 
-    #### <a name="managed-encrypted-vms-bek-and-kek"></a>Machines virtuelles managées et chiffrées (BEK et KEK)
+Le chiffrement des disques de données doit être activé manuellement à l’aide de la commande suivante.
 
-    Pour les machines virtuelles managées et chiffrées (à l’aide de BEK et de KEK), vous devez créer des disques managés depuis Stockage Blob, puis attacher les disques. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md). L’exemple de code suivant montre comment attacher les disques de données pour des machines virtuelles chiffrées et gérées.
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
+    ```
+    
+   #### <a name="managed-encrypted-vms-bek-and-kek"></a>Machines virtuelles managées et chiffrées (BEK et KEK)
+
+   Pour les machines virtuelles managées et chiffrées (à l’aide de BEK et de KEK), vous devez créer des disques managés depuis Stockage Blob, puis attacher les disques. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md). L’exemple de code suivant montre comment attacher les disques de données pour des machines virtuelles chiffrées et gérées.
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -496,12 +518,19 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
      Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
      }
     ```
+Le chiffrement des disques de données doit être activé manuellement à l’aide de la commande suivante.
 
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+    ```
+    
 5. Définissez les paramètres réseau.
 
     ```
     PS C:\> $nicName="p1234"
     PS C:\> $pip = New-AzureRmPublicIpAddress -Name $nicName -ResourceGroupName "test" -Location "WestUS" -AllocationMethod Dynamic
+    PS C:\> $virtualNetwork = New-AzureRmVirtualNetwork -ResourceGroupName "test" -Location "WestUS" -Name "testvNET" -AddressPrefix 10.0.0.0/16
+    PS C:\> $virtualNetwork | Set-AzureRmVirtualNetwork
     PS C:\> $vnet = Get-AzureRmVirtualNetwork -Name "testvNET" -ResourceGroupName "test"
     PS C:\> $subnetindex=0
     PS C:\> $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id

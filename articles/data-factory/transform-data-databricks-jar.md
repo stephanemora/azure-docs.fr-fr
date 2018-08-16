@@ -13,16 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 8a7e409bc664fd56fbb9b80678832a626f301e5b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a47d0130cd06a936da456ec6d78bde99907072f2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075303"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526298"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformer des données en exécutant une activité Jar dans Azure Databricks
 
 L’activité Azure Databricks Jar dans un [pipeline Data Factory](concepts-pipelines-activities.md) exécute un fichier Spark Jar dans votre cluster Azure Databricks. Cet article s'appuie sur l'article [Activités de transformation des données](transform-data.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge. Azure Databricks est une plateforme gérée pour exécuter Apache Spark.
+
+Pour une présentation de onze minutes et la démonstration de cette fonctionnalité, regardez la vidéo suivante :
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
 ## <a name="databricks-jar-activity-definition"></a>Définition de l’activité Databricks Jar
 
@@ -107,10 +111,11 @@ Pour plus d’informations, consultez la [documentation Databricks](https://docs
 
 Pour obtenir le chemin dbfs de la bibliothèque ajoutée par le biais de l’interface utilisateur, vous pouvez utiliser [CLI Databricks (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-En général, les bibliothèques Jar sont stockées sous dbfs:/FileStore/jars lors de l’utilisation de l’interface utilisateur. Vous pouvez toutes les répertorier à l’aide de CLI : *databricks fs ls dbfs:/FileStore/jars* 
+En général, les bibliothèques Jar sont stockées sous dbfs:/FileStore/jars lors de l’utilisation de l’interface utilisateur. Vous pouvez répertorier toutes les répertorier à l’aide de l’interface CLI : *databricks fs ls dbfs:/FileStore/job-jars* 
 
 
 
 #### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Copier une bibliothèque avec CLI Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+Utilisez l’interface CLI Databricks [(étapes d’installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Exemple : *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*
+Exemple - Copie de JAR dans dbfs: *dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar*

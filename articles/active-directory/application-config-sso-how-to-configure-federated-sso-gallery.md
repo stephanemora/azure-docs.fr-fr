@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: e79aff1a9bf7a7d151b4973381d0ee9010c2255e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 70e0bce54cdfc3af6e5336a8188724acd11b6a04
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363850"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503221"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application de la galerie Azure AD
 
@@ -167,7 +167,7 @@ Pour télécharger les métadonnées ou le certificat de l’application à part
 
 8.  Accédez à la section **Certificat de signature SAML**, puis cliquez sur la valeur de colonne **Télécharger**. En fonction de ce que l’application nécessite pour configurer l’authentification unique, vous voyez soit l’option de téléchargement des métadonnées XML, soit le certificat.
 
-Azure AD fournit également une URL permettant d’obtenir les métadonnées. Suivez ce modèle pour récupérer l’URL de métadonnées propre à l’application : https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
+Azure AD fournit également une URL permettant d’obtenir les métadonnées. Suivez ce modèle pour obtenir l’URL des métadonnées spécifique de l’application : `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 ## <a name="assign-users-to-the-application"></a>Affecter des utilisateurs à l’application
 

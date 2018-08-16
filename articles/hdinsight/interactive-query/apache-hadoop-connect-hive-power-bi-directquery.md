@@ -1,25 +1,21 @@
 ---
-title: Visualiser des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight | Microsoft Docs
+title: Visualiser des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight
 description: Découvrez comment utiliser Microsoft Power BI pour visualiser des données Interactive Query Hive traitées par Azure HDInsight.
 keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,directquery
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive,
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
+ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.author: jgao
-ms.openlocfilehash: b8da1f17b9e477caf9031cf94ee14f3a181e247e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4dcfcb5e70b9eb6626be1f3528781a8c5b1bd5c4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407960"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593024"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualiser des données Interactive Query Hive avec Microsoft Power BI à l’aide de la requête directe dans Azure HDInsight
 
@@ -30,7 +26,6 @@ Découvrez comment connecter Microsoft Power BI aux clusters Azure HDInsight Int
 Vous pouvez tirer parti du [pilote ODBC Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md) pour importer effectivement via le connecteur ODBC générique dans Power BI Desktop. Il n’est toutefois pas recommandé pour les charges de travail décisionnelles en raison de la nature non interactive du moteur de requête Hive. Le [connecteur de requêtes interactives HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) et le [connecteur HDInsight Spark](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) sont des choix plus judicieux du fait de leurs performances.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants :
 
 * Un **cluster HDInsight**. Cela peut être un cluster HDInsight avec Hive ou un cluster du nouveau type Interactive Query. Pour plus d’informations sur la création de clusters, consultez [Créer un cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).

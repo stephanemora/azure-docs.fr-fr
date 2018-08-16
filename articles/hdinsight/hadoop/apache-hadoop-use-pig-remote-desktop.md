@@ -1,25 +1,20 @@
 ---
-title: Utiliser Hadoop Pig avec le Bureau à distance dans HDInsight - Azure | Documents Microsoft
+title: Utiliser Hadoop Pig et le Bureau à distance dans HDInsight - Azure
 description: Apprenez à utiliser la commande Pig pour exécuter les instructions Pig Latin à partir d'une connexion Bureau à distance vers un cluster Windows Hadoop sur HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f293aab67fb5e952dc32e20a6370d45cded682b5
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5aec07a5ebbbb56abcbaebbddc5579cf4d076b4d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "35761995"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590664"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Exécution de tâches Pig depuis une connexion Bureau à distance
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -27,7 +22,7 @@ ms.locfileid: "35761995"
 Ce document fournit une procédure pas à pas de l'utilisation de la commande Pig pour exécuter les instructions Pig Latin à partir d'une connexion Bureau à distance vers un cluster HDInsight Windows. Pig Latin permet de créer des applications MapReduce en décrivant les transformations de données, plutôt que de mapper et de réduire les fonctions.
 
 > [!IMPORTANT]
-> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Pour HDInsight 3.4 ou les versions ultérieures, consultez l’article [Utiliser Pig avec HDInsight et SSH](apache-hadoop-use-pig-ssh.md) pour plus d’informations sur l’exécution interactive de travaux Pig directement sur le cluster à partir d’une ligne de commande.
 

@@ -2,19 +2,18 @@
 title: Configurer un cluster HDInsight joint à un domaine avec Azure Active Directory Domain Services (Azure AD DS)
 description: Découvrir comment configurer un cluster HDInsight joint à un domaine avec Azure Active Directory Domain Services
 services: hdinsight
+ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-manager: jhubbard
-editor: cgronlun
-ms.service: hdinsight
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.openlocfilehash: 45cb9590e6dd0d8260f6e63b80caeca894f0fd44
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0d44812c92fd14bf87aac9a942241f8de55f2eec
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126032"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590579"
 ---
 # <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Configurer un cluster HDInsight joint à un domaine avec Azure Active Directory Domain Services
 
@@ -31,7 +30,7 @@ L’activation d’Azure AD-DS est un prérequis avant de pouvoir créer un clus
 
 Après avoir provisionné l’instance Azure AD DS, créez un compte de service dans Azure Active Directory (Azure AD) avec les autorisations appropriées. Si ce compte de service existe déjà, réinitialisez son mot de passe et attendez qu’il se synchronise avec Azure AD DS. Cette réinitialisation entraîne la création du hachage de mot de passe Kerberos, et peut prendre jusqu’à 30 minutes pour se synchroniser avec Azure AD DS. 
 
-Le compte de service doit pouvoir effectuer ce qui suit :
+Le compte de service doit pouvoir effectuer ce qui suit :
 
 - Joindre des machines au domaine et placer les principaux de machine dans l’unité d’organisation que vous spécifiez lors de la création du cluster
 - Créer des principaux de service au sein de l’unité d’organisation que vous spécifiez lors de la création du cluster.
@@ -52,9 +51,12 @@ Il est plus facile de placer l’instance Azure AD DS et le cluster HDInsight da
 Lorsque vous créez un cluster HDInsight joint à un domaine, vous devez fournir les paramètres suivants :
 
 - **Nom de domaine** : nom de domaine associé à l’instance d’Azure AD DS. contoso.onmicrosoft.com est un exemple.
+
 - **Nom d’utilisateur de domaine** : compte de service dans le domaine managé du contrôleur de domaine Azure AD DS que vous avez créé à la section précédente. Par exemple hdiadmin@contoso.onmicrosoft.com. Cet utilisateur de domaine devient l’administrateur de ce cluster HDInsight.
+
 - **Mot de passe du domaine** : mot de passe du compte de service.
-- **Unité d’organisation** : nom unique de l’unité d’organisation à utiliser avec le cluster HDInsight. UO=HDInsightOU,CD=contoso,CD=onmicrosoft,CD=com en est un exemple. Si cette unité d’organisation n’existe pas, le cluster HDInsight tente de créer l’unité d’organisation en utilisant les privilèges dont dispose le compte de service. Par exemple, si le compte de service est dans le groupe Administrateurs Azure AD DS, il détient les autorisations appropriées pour créer une unité d’organisation. Sinon, vous devrez peut-être créer d’abord l’unité d’organisation pour donner le contrôle total au compte de service sur cette unité d’organisation. Pour plus d’informations, consultez [Créer une unité d’organisation sur un domaine managé Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
+
+- **Unité d’organisation** : nom unique de l’unité d’organisation à utiliser avec le cluster HDInsight. UO=HDInsightOU,CD=contoso,CD=onmicrosoft,CD=com en est un exemple. Si cette unité d’organisation n’existe pas, le cluster HDInsight tente de créer l’unité d’organisation en utilisant les privilèges dont dispose le compte de service. Par exemple, si le compte de service est dans le groupe Administrateurs Azure AD DS, il détient les autorisations appropriées pour créer une unité d’organisation. Sinon, vous devez créer d’abord l’unité d’organisation pour donner le contrôle total au compte de service sur cette unité d’organisation. Pour plus d’informations, consultez [Créer une unité d’organisation sur un domaine managé Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
     > [!IMPORTANT]
     > Incluez tous les contrôleurs de domaine, séparés par une virgule, après l’unité d’organisation (par exemple, OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com).
@@ -64,11 +66,11 @@ Lorsque vous créez un cluster HDInsight joint à un domaine, vous devez fournir
     > [!IMPORTANT]
     > Indiquez l’URL complète, y compris « ldaps:// » et le numéro de port (:636).
 
-- **Accès au groupe d’utilisateurs** : groupes de sécurité dont vous souhaitez synchroniser les utilisateurs avec le cluster. Par exemple, HiveUsers. Si vous souhaitez spécifier plusieurs groupes d’utilisateurs, séparez-les par des points-virgules (« ; »).
- 
+- **Accès au groupe d’utilisateurs** : groupes de sécurité dont vous souhaitez synchroniser les utilisateurs avec le cluster. Par exemple, HiveUsers. Si vous souhaitez spécifier plusieurs groupes d’utilisateurs, séparez-les par des points-virgules (« ; »). Le ou les groupes doivent exister dans le répertoire avant le provisionnement. Pour plus d’informations, consultez [Créer un groupe et ajouter des membres dans Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Si le groupe n’existe pas, une erreur se produit : « Groupe HiveUsers introuvable dans Active Directory ».
+
 La capture d’écran suivante montre les configurations dans le portail Azure :
 
-![Configuration d’un cluster HDInsight joint à un domaine avec Active Directory Domain Services](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+   ![Configuration d’un cluster HDInsight joint à un domaine avec Active Directory Domain Services](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

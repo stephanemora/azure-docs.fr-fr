@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
 ms.author: mikhegn
-ms.openlocfilehash: 437c38a8e674fcdf06e26a7191ceecef9d901470
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 180bd3709cc9ffefb17f78e337e6f6995024fdcf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968318"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523425"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Guide pratique pour déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2017
 
@@ -34,20 +34,20 @@ Avec Visual Studio 2017 Update 7 (15.7), vous pouvez déboguer des applications
 
 1. Vérifiez que le Docker pour le service Windows est en cours d’exécution avant de procéder à l’étape suivante.
 
-1. Pour prendre en charge la résolution DNS entre les conteneurs, vous devez configurer votre cluster de développement local avec le nom de la machine.
+1. Pour prendre en charge la résolution DNS entre les conteneurs, vous devez configurer votre cluster de développement local avec le nom de la machine. Ces étapes sont également nécessaires si vous voulez adresser des services via le proxy inverse.
     1. Ouvrez PowerShell en tant qu’administrateur
-    1. Accédez au dossier d’installation Cluster du kit SDK, en général `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`
-    1. Exécutez le script `DevClusterSetup.ps1` avec le paramètre `-UseMachineName`
+    2. Accédez au dossier d’installation Cluster du SDK, qui est en général `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+    3. Exécutez le script `DevClusterSetup.ps1` avec le paramètre `-UseMachineName`
 
-    ``` PowerShell
-      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
-    ```
+       ``` PowerShell
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+       ```
 
     > [!NOTE]
     > Vous pouvez utiliser `-CreateOneNodeCluster` pour configurer un cluster à un nœud. La configuration par défaut crée un cluster local à cinq nœuds.
     >
 
-    Pour en savoir plus sur le service DNS dans Service Fabric, consultez [Service DNS dans Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice).
+    Pour en savoir plus sur le service DNS dans Service Fabric, consultez [Service DNS dans Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Pour plus d’informations sur l’utilisation du proxy inverse Service Fabric à partir de services s’exécutant dans un conteneur, consultez [Gestion spéciale du proxy inverse pour les services s’exécutant dans des conteneurs](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitations connues lors du débogage de conteneurs dans Service Fabric
 

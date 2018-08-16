@@ -1,25 +1,20 @@
 ---
-title: 'Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur - Azure | Microsoft Docs'
+title: 'Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur - Azure '
 description: Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération.
 services: hdinsight
-tags: azure-portal
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 author: ashishthaps
-documentationcenter: ''
-ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 8952e1381d81d153a170f35dd3cfd3f60cd4f73a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00d09619db11ea0026f5386048f1c10a8f831948
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404754"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592779"
 ---
 # <a name="analyze-hadoop-logs"></a>Analyser les journaux Hadoop
 
@@ -59,7 +54,7 @@ Ces tables contiennent les champs suivants :
 ### <a name="tools-for-accessing-the-logs"></a>Outils permettant d’accéder aux journaux
 Il existe de nombreux outils permettant d’accéder aux données de ces tables :
 
-* Visual Studio
+* Visual Studio
 * Azure Storage Explorer
 * Power Query pour Excel
 
@@ -83,7 +78,7 @@ Power Query peut être installé à partir de [Microsoft Power Query pour Excel]
 7. Cliquez sur **OK** pour importer les données.
 8. Sélectionnez les colonnes **TraceLevel**, Rôle et **ComponentName**, puis cliquez sur la commande **Regroupement** dans le ruban.
 9. Cliquez sur **OK** dans la boîte de dialogue Regroupement.
-10. Cliquez sur **Appliquer et fermer**.
+10. Cliquez sur** Appliquer et fermer**.
 
 Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos besoins. Vous pouvez vouloir inclure d’autres colonnes (comme Message) afin d’approfondir les problèmes lorsqu’ils se produisent, mais le fait de sélectionner et de regrouper les colonnes décrites ci-dessus fournit un aperçu correct de ce qui se passe avec les services Hadoop. La même idée peut être appliquée aux tables setuplog et hadoopinstalllog.
 
@@ -142,7 +137,8 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
 * **Description**: impossible de créer un cluster dans la région *nom_région*. Utilisez une région HDInsight valide et relancez la requête.
-* **Atténuation**: créez le cluster dans une région qui les prend actuellement en charge : Asie du Sud-Est, Europe de l’Ouest, Europe du Nord, Est des États-Unis ou Ouest des États-Unis.  
+* 
+  **Atténuation**: créez le cluster dans une région qui les prend actuellement en charge : Asie Sud-Est, Europe Ouest, Europe Nord, USA Est ou USA Ouest.  
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
 * **Description**: le serveur n’a pas pu trouver l’enregistrement de cluster demandé.  
@@ -278,7 +274,7 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ### <a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable
 * **Description** : capacité de région non disponible pour la région *nom_région* et l’ID d’abonnement *ID_abonnement*.  
-* **Atténuation**: spécifiez une région qui prend en charge les clusters HDInsight. Les régions publiquement prises en charge sont les suivantes : Asie du Sud-Est, Europe du Nord, Europe de l’Ouest, Est des États-Unis ou Ouest des États-Unis.
+* **Atténuation**: spécifiez une région qui prend en charge les clusters HDInsight. Les régions publiquement prises en charge sont les suivantes : Asie Sud-Est, Europe Nord, Europe Ouest, USA Est ou USA Ouest.
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 * **Description** : le compte de stockage *nom_compte_stockage* se trouve dans la région *nom_région_actuelle*. La région doit être la même que celle du cluster *nom_région_cluster*.  

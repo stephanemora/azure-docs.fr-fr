@@ -2,27 +2,22 @@
 title: Utilisation d’Hudson avec le stockage Blob | Microsoft Azure
 description: Description de l'utilisation de la solution Hudson avec le stockage d'objets blob Azure comme référentiel pour des artefacts de build.
 services: storage
-documentationcenter: java
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.openlocfilehash: e54bedff5f744004288e132efbed8c3e7981f8a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: c076ae96f8aba648196dc5222db3da3da68673ff
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23060124"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528389"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilisation d’Azure Storage avec une solution d’intégration continue Hudson
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les informations suivantes expliquent comment utiliser Blob Storage comme dépôt pour les artefacts de build créés par une solution d’intégration continue (CI) Hudson ou comme source de fichiers téléchargeables dans un processus de génération. Cela peut s'avérer utile dans plusieurs scénarios, notamment lorsque vous codez dans un environnement de développement agile (avec Java ou d'autres langages), que les builds s'exécutent sur la base d'une intégration continue et que vous avez besoin d'un référentiel pour vos artefacts de build, de manière, par exemple, à pouvoir les partager avec d'autres membres de l'organisation, vos clients, ou conserver une archive.  Il existe un autre scénario dans lequel votre tâche de build proprement dite requiert d'autres fichiers, comme des dépendances à télécharger dans le cadre de l'entrée de génération.
 
 Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Hudson CI mis à disposition par Microsoft.
@@ -40,14 +35,14 @@ L'utilisation du service BLOB pour héberger vos artefacts de build dans un envi
 * Performances lorsque vos clients et partenaires téléchargent vos artefacts de build.
 * Contrôle sur les stratégies d'accès utilisateur, avec choix entre accès anonyme, accès par signature d'accès partagé basé sur l'expiration, accès privé, etc.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin des éléments suivants :
 
 * Une solution d'intégration continue Hudson.
   
     Si vous ne disposez pas d’une solution Hudson CI, vous pouvez en exécuter une à l’aide de la technique suivante :
   
-  1. Sur un ordinateur compatible Java, téléchargez le WAR Hudson à partir de <http://hudson-ci.org/>.
+  1. Sur une machine compatible Java, téléchargez le WAR Hudson à partir de <http://hudson-ci.org/>.
   2. Accédez au dossier contenant le WAR Hudson et exécutez ce dernier à l’aide d’une invite de commandes. Par exemple, si vous avez téléchargé la version 3.1.2 :
      
       `java -jar hudson-3.1.2.war`
@@ -57,7 +52,7 @@ Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin de
   5. Une fois l’installation initiale effectuée, annulez l’instance en cours d’exécution du WAR Hudson, redémarrez-le, puis rouvrez le tableau de bord Hudson, `http://localhost:8080/`, que vous allez utiliser pour installer et configurer le plug-in Azure Storage.
      
       Une solution Hudson CI type serait configurée pour s’exécuter en tant que service, mais l’exécution du WAR Hudson depuis la ligne de commande est suffisante pour les besoins de ce didacticiel.
-* Un compte Azure. Pour créer un compte Azure, consultez la page <http://www.azure.com>.
+* Un compte Azure. Vous pouvez vous inscrire pour un compte Azure sur <http://www.azure.com>.
 * Un compte de stockage Azure. Si vous ne disposez pas déjà d’un compte de stockage, vous pouvez en créer un en suivant la procédure décrite dans la section [Créer un compte de stockage](../common/storage-create-storage-account.md#create-a-storage-account).
 * Une bonne connaissance de la solution Hudson CI est recommandée, mais pas obligatoire, car le contenu suivant emploiera un exemple élémentaire pour décrire la procédure requise lorsque vous utilisez le service BLOB comme référentiel pour les artefacts de build Hudson CI.
 
@@ -115,13 +110,13 @@ Pour les besoins de la formation, nous devons d’abord créer une tâche qui cr
     Sous la section **Command** (Commande) où vous avez entré un script pour **Execute Windows batch command** (Exécuter la commande batch Windows), un lien permet d’accéder aux variables d’environnement reconnues par Hudson. Cliquez sur ce lien pour découvrir les noms des variables d’environnement avec leurs descriptions. Notez que les variables d’environnement qui contiennent des caractères spéciaux, comme la variable d’environnement **BUILD_URL**, ne sont pas autorisées comme nom de conteneur ou chemin virtuel commun.
 8. Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n'entre pas dans le cadre de cet article. Pour en savoir plus sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](../storage-dotnet-shared-access-signature-part-1.md).)
 9. [Facultatif] Cliquez sur **Nettoyer le conteneur avant le téléchargement** si vous souhaitez que le contenu du conteneur soit effacé avant le téléchargement des artefacts de build (ne sélectionnez pas cette option si vous ne souhaitez pas effacer le contenu du conteneur).
-10. Dans **List of Artifacts to upload** (Liste des artefacts à télécharger), entrez **text/*.txt**.
+10. Dans **List of Artifacts to upload** (Liste des artefacts à charger), entrez **text/*.txt**.
 11. Dans **Common virtual path for uploaded artifacts** (Chemin virtuel commun des artefacts téléchargés), entrez **${BUILD\_ID}/${BUILD\_NUMBER}**.
 12. Cliquez sur **Save** pour enregistrer vos paramètres.
 13. Dans le tableau de bord Hudson, cliquez sur **Build Now** (Générer maintenant) pour exécuter **MyJob**. Examinez l'état dans la sortie de la console. Les messages d'état du stockage Azure sont inclus dans la sortie de la console lorsque l'action post-build commence à télécharger les artefacts de build.
 14. Une fois la tâche terminée correctement, vous pouvez examiner les artefacts de build en ouvrant l’objet blob public.
     
-    a. Connectez-vous au [portail Azure](https://portal.azure.com).
+    a. Connectez-vous au [Portail Azure](https://portal.azure.com).
     
     b. Cliquez sur **Stockage**.
     
@@ -167,6 +162,6 @@ La section suivante présente les composants du service BLOB.
 * [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
 * [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog de l’équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
 Pour plus d’informations, consultez [Azure pour les développeurs Java](/java/azure).

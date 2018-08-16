@@ -4,25 +4,23 @@ description: Utilisez le Portail Azure et Azure Resource Manager pour déployer 
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c16d584f17aa2c209c9c0ec94d35f6fe78ba1907
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603722"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494078"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure
 
-Cette rubrique montre comment utiliser le [portail Azure](https://portal.azure.com) avec [Azure Resource Manager](resource-group-overview.md) pour déployer vos ressources Azure. Pour en savoir plus sur la gestion de vos ressources, consultez [Gérer des ressources Azure avec le portail](resource-group-portal.md).
+Cet article montre comment utiliser le [Portail Azure](https://portal.azure.com) avec [Azure Resource Manager](resource-group-overview.md) pour déployer vos ressources Azure. Pour en savoir plus sur la gestion de vos ressources, consultez [Gérer des ressources Azure avec le portail](resource-group-portal.md).
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
@@ -56,7 +54,7 @@ Une fois votre groupe de ressources créé, vous pouvez y déployer des ressourc
 
    ![sélectionner le type de ressource](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. Si vous ne voyez pas la solution que vous souhaitez déployer, vous pouvez lancer une recherche sur le Marketplace. Par exemple, pour rechercher une solution Wordpress, commencez à entrer **Wordpress** et sélectionnez l’option de votre choix.
+1. Si vous ne voyez pas la solution que vous souhaitez déployer, vous pouvez lancer une recherche sur la Place de marché. Par exemple, pour rechercher une solution Wordpress, commencez à entrer **Wordpress** et sélectionnez l’option de votre choix.
 
    ![Rechercher sur le marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
@@ -79,6 +77,9 @@ Une fois votre groupe de ressources créé, vous pouvez y déployer des ressourc
 ## <a name="deploy-resources-from-custom-template"></a>Déployer des ressources à partir d’un modèle personnalisé
 
 Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de Marketplace, vous pouvez créer un modèle personnalisé qui définit l’infrastructure de votre solution. Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
+
+> [!NOTE]
+> L’interface du portail ne prend pas en charge le référencement à un [secret d’un coffre de clés](resource-manager-keyvault-parameter.md). Utilisez plutôt [PowerShell](resource-group-template-deploy.md) ou [Azure CLI](resource-group-template-deploy-cli.md) pour déployer votre modèle localement ou à partir d’un URI externe.
 
 1. Pour déployer un modèle personnalisé grâce au portail, sélectionnez **Créer une ressource**, puis recherchez le **Déploiement de modèle** jusqu’à ce que vous puissiez le sélectionner dans les options.
 

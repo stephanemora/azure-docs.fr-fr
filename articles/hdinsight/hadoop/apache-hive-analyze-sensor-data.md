@@ -1,32 +1,27 @@
 ---
-title: Analyse des données de capteur au moyen de Hive et de Hadoop - HDInsight | Microsoft Docs
+title: Analyser des données de capteur au moyen de Hive et de Hadoop - Azure HDInsight
 description: Découvrez comment analyser des données de capteur au moyen de la console de requête Hive avec HDInsight (Hadoop), puis visualiser les données dans Microsoft Excel avec Power View.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: a8ac160c-1cef-45d9-bf36-7beb5a439105
 ms.service: hdinsight
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: eb3dc93d7cb741a8a3099abe13d00f40c9639705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 412942aa41e7884c6315d921b0b272b033386d17
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31398961"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590243"
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analyse des données de capteur à l’aide de la console de requête Hive sur Hadoop dans HDInsight
 
 Découvrez comment analyser des données de capteur au moyen de la console de requête Hive avec HDInsight (Hadoop), puis visualiser les données dans Microsoft Excel à l’aide de Power View.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 Dans cet exemple, vous utilisez Hive pour traiter les données historiques et identifier les problèmes relatifs aux systèmes de chauffage et de climatisation. Plus précisément, vous identifiez les systèmes qui ne sont pas en mesure de maintenir de façon fiable une température donnée en effectuant les tâches suivantes :
@@ -39,7 +34,6 @@ Dans cet exemple, vous utilisez Hive pour traiter les données historiques et id
 ![A diagram of the solution architecture](./media/apache-hive-analyze-sensor-data/hvac-architecture.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un cluster HDInsight (Hadoop) : consultez la rubrique [Créer des clusters Hadoop dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) pour des informations sur la création d’un cluster.
 * Microsoft Excel 2013

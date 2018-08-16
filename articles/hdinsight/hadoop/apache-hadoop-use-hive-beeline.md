@@ -1,26 +1,21 @@
 ---
-title: Utilisez Beeline avec Apache Hive - Azure HDInsight | Documents Microsoft
+title: Utiliser Beeline avec Apache Hive - Azure HDInsight
 description: Découvrez comment utiliser le client Beeline pour exécuter des requêtes Hive avec Hadoop sur HDInsight. Beeline est un utilitaire qui permet d’utiliser HiveServer2 sur JDBC.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 keywords: beeline hive,hive beeline
-ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
-ms.author: larryfr
-ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: jasonh
+ms.openlocfilehash: 057c57316a291952b959f1e61b4286e87c074088
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795192"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592359"
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Utiliser le client Beeline avec Apache Hive
 
@@ -46,7 +41,7 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 * Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un client SSH ou un client Beeline local. La plupart des étapes décrites dans ce document supposent que vous utilisez Beeline à partir d’une session SSH sur le cluster. Pour plus d’informations sur l’exécution de Beeline à partir de l’extérieur du cluster, voir la section [Utiliser Beeline à distance](#remote).
 

@@ -8,22 +8,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f8cbb5b436930f89ece1a18d4e1e54a88b02650
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: e24008a2208d8dcfbb7f86c66bb7de39f3c75790
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39286170"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528185"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
 
 Avez-vous commencé à explorer les fonctionnalités du service Speech ? Implémentez-vous une nouvelle fonctionnalité à votre application ? Voici quelques conseils sur les endroits où vous pouvez obtenir de l’aide en tant que développeur.
 
 > [!div class="checklist"]
+> * Restez informé des nouveaux développements dans *Microsoft Cognitive Services* ou recherchez les dernières actualités relatives au *service Speech*.
 > * Effectuez une recherche pour voir si votre question ou votre problème n’a pas déjà été traité par la Communauté, ou si une documentation existante pour la fonctionnalité que vous essayez d’implémenter est disponible.
 > * Si vous ne trouvez pas la solution à votre problème, vous avez la possibilité de poser une question sur *Stack Overflow*.
 > * Si vous rencontrez des difficultés avec un des exemples trouvés sur GitHub, soulevez un problème *GitHub*.
 > * Recherchez une solution dans le *Forum des utilisateurs*.
+
+## <a name="stay-informed"></a>Restez informé
+
+Les actualités sur Microsoft Cognitive Services sont rassemblées dans le [blog Cognitive Services](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Pour obtenir les dernières informations sur le service Speech, suivez le [blog du service Speech](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
 
 ## <a name="search"></a>Recherche
 

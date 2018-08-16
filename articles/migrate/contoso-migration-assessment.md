@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
-ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50d1b8fca8e5377c35810e08258a0ecc3770ae75
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399071"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422322"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migration de Contoso : évaluer facilement vos charges de travail locales en vue d’une migration vers Azure
 
@@ -99,7 +99,7 @@ Dans ce scénario, Contoso télécharge et exécute l’Assistant Migration de d
 - Contoso est un nom fictif représentant une entreprise classique.
 - Contoso dispose d’un centre de données local (**contoso-datacenter**), et de contrôleurs de domaine locaux (**CONTOSODC1**, **CONTOSODC2**).
 - Les machines virtuelles VMware sont situées sur des hôtes VMware ESXi exécutant la version 6.5 (**contosohost1**, **contosohost2**).
-- L’environnement VMware est géré par vCenter Server 6.5 (**vcenter**, exécuté sur une machine virtuelle).
+- L’environnement VMware est géré par vCenter Server 6.5 (**vcenter.contoso.com** s’exécutant sur une machine virtuelle).
 - L’application de voyage SmartHotel présente les caractéristiques suivantes :
     - L’application est répartie entre deux machines virtuelles VMware (**WEBVM** et **SQLVM**).
     - Les machines virtuelles sont situées sur un hôte VMware ESXi, **contosohost1.contoso.com**.
@@ -111,9 +111,9 @@ Dans ce scénario, Contoso télécharge et exécute l’Assistant Migration de d
     - **OSTICKETWEB** exécute Apache 2 et PHP 7.0.
     - **OSTICKETMYSQL** exécute MySQL 5.7.22.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-Contoso et les autres utilisateurs doivent respecter les prérequis suivants pour cette évaluation :
+Contoso et les autres utilisateurs doivent respecter les conditions préalables suivantes pour cette évaluation :
 
 - Des autorisations Propriétaire ou Contributeur pour l’abonnement Azure ou pour un groupe de ressources de l’abonnement Azure.
 - Une instance locale de vCenter Server qui exécute la version 6.5, 6.0 ou 5.5
@@ -123,12 +123,10 @@ Contoso et les autres utilisateurs doivent respecter les prérequis suivants pou
 - Au moins deux machines virtuelles VMware locales, dont l’une exécutant une base de données SQL Server.
 - Les autorisations nécessaires pour installer des agents Azure Migrate sur chaque machine virtuelle.
 - Les machines virtuelles doivent avoir une connectivité Internet directe.  
-        
-- Vous pouvez limiter l’accès Internet aux [URL requises](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-
-- Si vos machines virtuelles ne sont pas connectées à Internet, vous devez y installer la [Passerelle OMS](../log-analytics/log-analytics-oms-gateway.md) Azure Log Analytics.
+        - Vous pouvez limiter l’accès Internet aux [URL requises](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+        Si vos machines virtuelles ne sont pas connectées à Internet, la [Passerelle OMS](../log-analytics/log-analytics-oms-gateway.md) Azure Log Analytics doit être installée sur celles-ci et le trafic de l’agent y transiter.
 - Le nom de domaine complet de la machine virtuelle qui exécute l’instance SQL Server, pour l’évaluation de la base de données.
-- Le Pare-feu Windows exécuté sur la machine virtuelle SQL Server doit autoriser les connexions externes via le port TCP 1433 (par défaut). Le programme d’installation permet à l’Assistant Migration de données de se connecter.
+- Le Pare-feu Windows exécuté sur la machine virtuelle SQL Server doit autoriser les connexions externes via le port TCP 1433 (par défaut). Cette installation permet à l’Assistant Migration de données de se connecter.
 
 ## <a name="assessment-overview"></a>Vue d’ensemble de l’évaluation
 
@@ -297,7 +295,7 @@ Avant de déployer la machine virtuelle, Contoso vérifie que le fichier .OVA es
 
 ### <a name="create-the-collector-appliance"></a>Créer l’appliance de collecteur
 
-Contoso peut maintenant importer le fichier téléchargé dans l’instance vCenter Server et provisionner la machine virtuelle du serveur de configuration :
+Contoso peut maintenant importer le fichier téléchargé dans l’instance vCenter Server et approvisionner la machine virtuelle d’appliance collecteur :
 
 1. Dans la console du client vSphere, Contoso sélectionne **File** (Fichier) > **Deploy OVF Template** (Déployer le modèle OVF).
 
@@ -318,7 +316,7 @@ Ensuite, Contoso exécute le collecteur pour découvrir les machines virtuelles.
 
     ![Console du client vSphere - Raccourci du collecteur](./media/contoso-migration-assessment/collector-shortcut.png)
 
-3. Dans Azure Migrate Collector, ouvrez **Configurer les prérequis**. Contoso accepte les termes de licence et lit les informations relatives aux tiers.
+3. Dans Azure Migrate Collector, sélectionnez **Conditions préalables à l’installation**. Contoso accepte les termes de licence et lit les informations relatives aux tiers.
 4. Le collecteur vérifie que la machine virtuelle a accès à Internet, que l’heure est synchronisée et que le service du collecteur est en cours d’exécution (le collecteur est installé par défaut sur la machine virtuelle). Contoso installe également VMware PowerCLI.
 
     > [!NOTE]
@@ -353,7 +351,7 @@ Une fois la collecte terminée, Contoso vérifie que les machines virtuelles app
 
 ## <a name="step-5-prepare-for-dependency-analysis"></a>Étape 5 : préparer l’analyse des dépendances
 
-Pour voir les dépendances qui existent entre les machines virtuelles auxquelles elle veut accéder, Contoso télécharge et installe des agents sur les machines virtuelles de l’application. Contoso installe les agents sur toutes les machines virtuelles pour ses applications (Windows et Linux).
+Pour voir les dépendances qui existent entre les machines virtuelles à évaluer, Contoso télécharge et installe des agents sur les machines virtuelles de l’application. Contoso installe les agents sur toutes les machines virtuelles pour ses applications (Windows et Linux).
 
 ### <a name="take-a-snapshot"></a>Prendre un instantané
 

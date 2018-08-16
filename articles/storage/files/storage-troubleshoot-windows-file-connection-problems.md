@@ -2,24 +2,19 @@
 title: Résoudre les problèmes liés à Azure Files sous Windows | Microsoft Docs
 description: Résoudre les problèmes liés à Azure Files sous Windows
 services: storage
-documentationcenter: ''
-author: wmgries
-manager: aungoo
-editor: tamram
+author: jeffpatt24
 tags: storage
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: wgries
-ms.openlocfilehash: 18f594586aa95afaa01bfda712dfc23c8aad3a36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: jeffpatt
+ms.component: files
+ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738545"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529685"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -37,7 +32,7 @@ Lorsque vous essayez de monter un partage de fichiers depuis un centre de donné
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Cause 1 : Canal de communication non chiffrée
 
-Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Le chiffrement du canal de communication n’est fourni que si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
+Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Le chiffrement du canal de communication n’est fourni que si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
 
 Windows 8, Windows Server 2012 et les versions ultérieures de chaque demande de négociation système incluant SMB 3.0, prenant en charge le chiffrement.
 
@@ -83,7 +78,7 @@ Rétablissez la valeur **LmCompatibilityLevel** à la valeur par défaut 3 dans
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
 <a id="error1816"></a>
-## <a name="error-1816-not-enough-quota-is-available-to-process-this-command-when-you-copy-to-an-azure-file-share"></a>Le message Erreur 1816 « Quota disponible insuffisant pour effectuer cette commande » s’affiche lorsque vous copiez vers un partage de fichiers Azure
+## <a name="error-1816-not-enough-quota-is-available-to-process-this-command-when-you-copy-to-an-azure-file-share"></a>Le message Erreur 1816 « Quota disponible insuffisant pour effectuer cette commande » s’affiche lorsque vous copiez vers un partage de fichiers Azure.
 
 ### <a name="cause"></a>Cause :
 
@@ -98,7 +93,7 @@ Réduisez le nombre de handles ouverts simultanément en fermant certains d’en
 
 Les performances peuvent être ralenties lorsque vous essayez de transférer des fichiers vers le service Azure File.
 
-- Si vous n’avez pas d’exigence de taille d’E/S minimum spécifique, nous vous recommandons d’utiliser une taille d’E/S de 1 Mo pour des performances optimales.
+- Si vous n’avez pas d’exigence de taille d’E/S minimum spécifique, nous vous recommandons d’utiliser une taille d’E/S de 1 Mio pour des performances optimales.
 -   Si vous connaissez la taille finale d’un fichier que vous étendez avec des écritures, et si votre logiciel ne présente aucun problème de compatibilité lorsque la fin non écrite du fichier contient des zéros, définissez la taille du fichier à l’avance au lieu que chaque écriture soit une écriture d’extension.
 -   Utilisez la méthode de copie appropriée :
     -   Utilisez [AZCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) pour les transferts entre deux partages de fichiers.

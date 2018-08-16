@@ -1,26 +1,21 @@
 ---
-title: Apache Sqoop avec Hadoop - Azure HDInsight | Documents Microsoft
+title: Apache Sqoop avec Hadoop - Azure HDInsight
 description: Découvrez comment utiliser Apache Sqoop pour échanger des données entre Hadoop sur HDInsight et Azure SQL Database.
-editor: cgronlun
-manager: jhubbard
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-tags: azure-portal
 keywords: hadoop sqoop, sqoop
-ms.assetid: 303649a5-4be5-4933-bf1d-4b232083c354
+services: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: larryfr
-ms.openlocfilehash: 38b1c57b9ac666bc908df69b29f72fbd5aea0495
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6c2cce2f5b2f6be07b1477681534be3987b0e699
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403907"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591776"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Utiliser Apache Sqoop pour échanger des données entre Hadoop sur HDInsight et SQL Database
 
@@ -29,7 +24,7 @@ ms.locfileid: "31403907"
 Découvrez comment utiliser Apache Sqoop pour échanger des données entre un cluster Hadoop dans Azure HDInsight et une base de données Azure SQL Database ou Microsoft SQL Server. Les étapes décrites dans ce document utilisent la commande `sqoop` directement à partir du nœud principal du cluster Hadoop. Vous utilisez SSH pour vous connecter au nœud principal et exécutez les commandes décrites dans ce document.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight sur Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight sur Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!WARNING]
 > Les étapes de ce document partent du principe que vous avez déjà créé une base de données SQL Azure nommée `sqooptest`.

@@ -1,25 +1,20 @@
 ---
-title: Vue d’ensemble du Machine Learning - Azure HDInsight | Microsoft Docs
+title: Vue d’ensemble du Machine Learning - Azure HDInsight
 description: Décrit les options de Machine Learning de HDInsight.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: nitinme
-ms.openlocfilehash: 6ccdb1fff5ecdcb61beedf1b12904d3785d4921d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.author: jasonh
+ms.openlocfilehash: 79c50935d36070b9f6b7cd6dd0af2d09c4a30f68
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048498"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590379"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning sur HDInsight
 
@@ -60,7 +55,7 @@ Dans le cadre de son travail sur l’apprentissage profond, Microsoft a dévelop
 ### <a name="scenarios"></a>Scénarios
 
 * [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température des bâtiments à l’aide des données des systèmes HVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Génération de recommandations sur des vidéos avec Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Hive et Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
 * [Hive et Azure Machine Learning de bout en bout](../machine-learning/team-data-science-process/hive-walkthrough.md)

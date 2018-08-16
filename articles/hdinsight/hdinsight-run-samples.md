@@ -1,25 +1,20 @@
 ---
-title: Exécuter les exemples Hadoop dans HDInsight - Azure | Microsoft Docs
+title: Exécuter des exemples Hadoop dans HDInsight - Azure
 description: Prise en main du service Azure HDInsight avec les exemples fournis. Utilisez des scripts PowerShell qui exécutent des programmes MapReduce sur des clusters de données.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bf76d452-abb4-4210-87bd-a2067778c6ed
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1262e0eda5cf490eb6c3ef81bc05de3954059f4c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ef88e1d3e165e3ae21b235a33b295b51b574ff67
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418707"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593282"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]

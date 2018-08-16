@@ -1,24 +1,20 @@
 ---
-title: Fonction définie par l’utilisateur (UDF) de Java avec Hive dans HDInsight - Azure | Documents Microsoft
+title: Fonction définie par l’utilisateur (UDF) de Java avec Hive dans HDInsight - Azure
 description: Découvrez comment créer une fonction définie par l’utilisateur basée sur Java qui fonctionne avec Hive. Cet exemple UDF convertit un tableau de chaînes de texte en minuscules.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: eb98b5e4ef2251ad44cbb4b737141fea79adc743
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200756"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590362"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utiliser une fonction UDF Java avec Hive dans HDInsight
 
@@ -29,7 +25,7 @@ Découvrez comment créer une fonction définie par l’utilisateur basée sur J
 * Un cluster HDInsight 
 
     > [!IMPORTANT]
-    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
     La plupart des étapes de ce document fonctionnent sur les deux clusters basés sur Windows et Linux. Toutefois, les étapes utilisées pour télécharger la fonction définie par l’utilisateur compilée dans le cluster et l’exécuter sont propres aux clusters basés sur Linux. Vous trouverez des liens vers des informations qui peuvent être utilisées avec les clusters Windows.
 
@@ -51,7 +47,7 @@ Découvrez comment créer une fonction définie par l’utilisateur basée sur J
     ```
 
    > [!NOTE]
-   > Si vous utilisez PowerShell, vous devez placer les paramètres entre guillemets. Par exemple : `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+   > Si vous utilisez PowerShell, vous devez placer les paramètres entre guillemets. Par exemple : `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
 
     Cette commande crée un répertoire nommé **exampleudf**, qui contient le projet Maven.
 

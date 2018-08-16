@@ -1,25 +1,20 @@
 ---
-title: Installer une application publiée - Datameer - Azure HDInsight | Microsoft Docs
+title: Installer une application publiée - Datameer - Azure HDInsight
 description: Installez et utilisez l’application Hadoop tierce Datameer.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9eef1760b7cee3bbdf33122514669b38b0b4d9db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a8961da0a62815ce60a6ee694d57f3172b81718b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400841"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592174"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>Installer une application publiée : CDAP (Cask Data Application Platform)
 

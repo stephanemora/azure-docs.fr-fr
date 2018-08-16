@@ -1,6 +1,6 @@
 ---
-title: Inscription convergée pour la SSPR et la MFA Azure AD
-description: Authentification multifacteur et inscription à la réinitialisation de mot de passe en libre-service Azure AD
+title: Inscription convergée pour la SSPR et la MFA Azure AD (préversion publique)
+description: Authentification multifacteur et inscription à la réinitialisation de mot de passe en libre-service Azure AD (préversion publique)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415652"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492890"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>Inscription convergée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Inscription convergée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion publique)
 
 Jusqu’à présent, les utilisateurs devaient inscrire des méthodes d’authentification pour l’authentification multifacteur (MFA) et la réinitialisation de mot de passe en libre-service (SSPR) Azure dans deux portails différents. De nombreux utilisateurs ont été troublés par le fait que des méthodes similaires étaient utilisées pour l’authentification MFA et la réinitialisation SSPR Azure et n’ont pas pu s’inscrire dans les deux portails. Cette disparité a entraîné l’impossibilité d’utiliser l’authentification MFA ou la réinitialisation SSPR Azure lorsque nécessaire pour certains utilisateurs, conduisant à des appels au support technique, ainsi qu’à l’énervement des utilisateurs. Désormais, il suffit aux utilisateurs de s’inscrire une seule fois pour bénéficier des avantages de l’authentification MFA et la réinitialisation SSPR Azure, supprimant la nécessité d’inscrire leurs méthodes d’authentification à deux reprises pour ces fonctionnalités.  
 
@@ -71,10 +71,12 @@ Les journaux d’audit de cette nouvelle expérience existent sous la catégorie
 ## <a name="known-issues"></a>Problèmes connus
 
 **La méthode MFA par défaut est définie sur « Appel téléphonique » lorsque l’utilisateur a inscrit le téléphone à l’aide d’un SMS**
-   * Certains utilisateurs peuvent remarquer que leur méthode MFA par défaut est définie sur « Appel téléphonique » une fois qu’ils ont inscrit leur numéro de téléphone à l’aide d’un SMS. Les utilisateurs peuvent résoudre ce problème en modifiant leur méthode par défaut en suivant ces instructions. 
+
+   * Certains utilisateurs peuvent remarquer que leur méthode MFA par défaut est définie sur « Appel téléphonique » une fois qu’ils ont inscrit leur numéro de téléphone à l’aide d’un SMS. Les utilisateurs peuvent résoudre ce problème en modifiant leur méthode par défaut. Pour cela, ils peuvent suivre les instructions figurant dans l’article [Gérer vos informations de sécurité (préversion)](../user-help/security-info-manage-settings.md#change-your-info).
 
 **Un utilisateur ne peut pas accéder à la nouvelle expérience d’inscription après la désactivation de sa méthode par défaut par l’administrateur**
-   * Certains utilisateurs ne peuvent pas accéder à la nouvelle expérience d’inscription si leur méthode MFA par défaut précédemment inscrite a été désactivée par leur administrateur. Voici un exemple de scénario : 
+
+   * Certains utilisateurs ne peuvent pas accéder à la nouvelle expérience d’inscription si leur méthode MFA par défaut précédemment inscrite a été désactivée par leur administrateur. Voici un exemple de scénario :
       1. L’utilisateur a précédemment inscrit son numéro de téléphone et configuré sa méthode par défaut sur « Appel téléphonique ».
       2. L’administrateur désactive la méthode MFA «Appel téléphonique » pour le locataire.
       3. L’utilisateur est invité à s’inscrire lors de la connexion, car il doit inscrire une méthode supplémentaire pour respecter la stratégie SSPR du locataire.
