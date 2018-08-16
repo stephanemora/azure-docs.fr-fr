@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283221"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627472"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : questions fréquentes
 
@@ -40,19 +40,20 @@ Non. L’authentification unique transparente est uniquement disponible dans l�
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quelles sont les applications qui tirent parti des paramètres `domain_hint` et `login_hint` de l’authentification unique transparente ?
 
-Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient ces paramètres à Azure AD et permettent donc aux utilisateurs de se connecter de manière silencieuse à l’aide de l’authentification unique transparente (par ex. les utilisateurs n’ont pas besoin d’entrer leur nom d’utilisateur) :
+Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient ces paramètres à Azure AD et permettent donc aux utilisateurs de se connecter de manière silencieuse à l’aide de l’authentification unique transparente (par ex. les utilisateurs n’ont pas besoin d’entrer leur nom d’utilisateur ou mot de passe) :
 
 | Nom de l’application | URL d’application à utiliser |
 | -- | -- |
-| Panneau d’accès | myapps.microsoft.com/contoso.com |
-| Outlook sur le Web | outlook.office365.com/contoso.com |
+| Panneau d’accès | https://myapps.microsoft.com/contoso.com |
+| Outlook sur le Web | https://outlook.office365.com/contoso.com |
+| Portail Office 365 | https://portal.office.com?domain_hint=contoso.com |
 
 En outre, les utilisateurs obtiennent également une expérience de connexion silencieuse si une application envoie des requêtes aux points de terminaison desquels Azure AD est abonné, c'est-à-dire, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..>, au lieu du point de terminaison commun d’Azure AD, c'est-à-dire, https://login.microsoftonline.com/common/<...>. Vous trouverez ci-dessous une liste non exhaustive d’applications qui rendent ces types de requêtes de connexion.
 
 | Nom de l’application | URL d’application à utiliser |
 | -- | -- |
-| SharePoint Online | contoso.sharepoint.com |
-| Portail Azure | portal.azure.com/contoso.com |
+| SharePoint Online | https://contoso.sharepoint.com |
+| Portail Azure | https://portal.azure.com/contoso.com |
 
 Dans les tables ci-dessus, remplacez « contoso.com » par votre nom de domaine pour obtenir les URL d’application de votre abonné.
 

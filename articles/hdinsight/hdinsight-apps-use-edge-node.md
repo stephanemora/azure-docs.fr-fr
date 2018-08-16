@@ -1,25 +1,20 @@
 ---
-title: Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight - Azure | Microsoft Docs
+title: Utiliser des nœuds de périphérie vides sur des clusters Hadoop dans HDInsight - Azure
 description: Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight, qui peut être utilisé en tant que client, et comment tester / héberger vos applications HDInsight.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: mumian
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jgao
-ms.openlocfilehash: 95ffc033a442fcf6074998398104ccb01e7a01a7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 225b08e2d83bfb8bdd102924ecf85c89aa48c217
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170269"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598195"
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight
 
@@ -137,7 +132,7 @@ Le nœud de périmètre apparaît comme une application sur le portail Azure.  L
 
 **Pour utiliser Hive sur le nœud de périmètre**
 
-1. Utilisez SSH pour vous connecter au nœud de périmètre. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Utilisez SSH pour vous connecter au nœud de périmètre. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Après vous être connecté au nœud de périmètre à l’aide de SSH, utilisez la commande suivante pour ouvrir la console Hive :
    

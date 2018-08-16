@@ -1,25 +1,20 @@
 ---
-title: Installer une application publiée - Datameer - Azure HDInsight | Microsoft Docs
+title: Installer une application publiée - Datameer - Azure HDInsight
 description: Installez et utilisez l’application Hadoop tierce Datameer.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7b75170349f41b0fa611d5e748353484c7fea2e0
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401307"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598586"
 ---
 # <a name="install-published-application---datameer"></a>Installer une application publiée - Datameer
 
@@ -107,7 +102,7 @@ Les étapes suivantes présentent une démonstration « Hello World ».
 
     ![Infographie](./media/hdinsight-apps-install-datameer/infographic-age.png)
 
-Félicitations ! Vous avez créé une visualisation de vos données sans écrire de code. Vous pouvez maintenant explorer les variations et des visualisations supplémentaires.
+Félicitations ! Vous avez créé une visualisation de vos données sans écrire de code. Vous pouvez maintenant explorer les variations et des visualisations supplémentaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

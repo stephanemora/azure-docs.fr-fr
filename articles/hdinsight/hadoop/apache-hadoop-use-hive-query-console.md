@@ -1,25 +1,20 @@
 ---
-title: Utiliser Hadoop Hive sur la console de requêtes dans HDInsight - Azure | Documents Microsoft
+title: Utiliser Hadoop Hive sur la console de requêtes dans HDInsight - Azure
 description: Découvrez comment utiliser la console de requêtes Web pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04a6ad67fec4145d8f9164743b08f9e105778091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 130952cfc0151ce16077117a7b61fc4729e2088d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405943"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597364"
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Exécution de requêtes Hive à l'aide de la console de requêtes
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -27,7 +22,7 @@ ms.locfileid: "31405943"
 Dans cet article, vous découvrirez comment utiliser la console de requêtes HDInsight pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 
 > [!IMPORTANT]
-> La console de requêtes HDInsight n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> La console de requêtes HDInsight n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Pour HDInsight 3.4 ou version supérieure, consultez [Run Hive queries in Ambari Hive View (Exécution de requêtes Hive dans la vue Hive d’Ambari)](apache-hadoop-use-hive-ambari-view.md) pour plus d’informations sur l’exécution de requêtes Hive à partir d’un navigateur web.
 

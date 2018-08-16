@@ -1,25 +1,20 @@
 ---
-title: Architecture de cluster Azure HDInsight joint à un domaine | Microsoft Docs
+title: Architecture de cluster Azure HDInsight joint à un domaine
 description: Découvrez comment planifier les clusters HDInsight joints à un domaine.
 services: hdinsight
-documentationcenter: ''
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: omidm
-ms.openlocfilehash: 1f51a1fbb38bc27d15b7a45ca4783508d863fee5
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1744a824e3b3fef848ad0513c95b1c6bb21f9fc9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112625"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597573"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planifier des clusters Hadoop Azure joints à un domaine dans HDInsight
 
@@ -44,9 +39,9 @@ Pour résumer, vous devez configurer un environnement avec :
 - LDAP sécurisé (LDAPS) activé dans Azure AD DS.
 - Une connectivité réseau appropriée, du réseau virtuel HDInsight au réseau virtuel Azure AD DS, si vous choisissez des réseaux virtuels distincts pour ces services. Une machine virtuelle à l’intérieur du réseau virtuel HDInsight doit avoir une visibilité directe sur Azure AD DS via le peering de réseau virtuel. Si HDInsight et Azure AD DS sont déployés dans le même réseau virtuel, la connectivité est automatiquement fournie et aucune action supplémentaire n’est nécessaire.
 - Une unité d’organisation [créée sur Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
-- Un compte de service qui dispose des autorisations pour :
+- un compte de service qui dispose des autorisations pour :
     - créer des principaux de service dans l’unité d’organisation ;
-    - joindre des machines au domaine et créer des principaux de machine dans l’unité d’organisation.
+    - Joindre des machines au domaine et créer des principaux de machine dans l’unité d’organisation.
 
 La capture d’écran suivante montre une unité d’organisation créée dans contoso.com. Il montre également quelques principaux de service et principaux de machine.
 

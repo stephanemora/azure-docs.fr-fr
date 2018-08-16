@@ -1,27 +1,20 @@
 ---
-title: Utiliser Hadoop Pig avec REST dans HDInsight - Azure | Documents Microsoft
+title: Utiliser Hadoop Pig avec REST dans HDInsight - Azure
 description: Découvrez comment utiliser REST pour exécuter des tâches Pig Latin sur un cluster Hadoop dans HDInsight Azure.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ed5e10d1-4f47-459c-a0d6-7ff967b468c4
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: 4883794261116abf4925e7e4e9a8df14626c7a71
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 6804e4661948c444db0ec3ecc241abc8ba6e00eb
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403506"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599103"
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Exécution de tâches Pig avec Hadoop sur HDInsight à l’aide de REST
 
@@ -37,7 +30,7 @@ Découvrez comment exécuter des tâches Pig Latin en effectuant des demandes RE
 * Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Curl](http://curl.haxx.se/)
 
@@ -67,7 +60,7 @@ Découvrez comment exécuter des tâches Pig Latin en effectuant des demandes RE
     * **-u**: le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande
     * **-G** : indique que la requête correspond à une requête GET.
 
-     Le début de l’URL (**https://CLUSTERNAME.azurehdinsight.net/templeton/v1**) est le même pour toutes les requêtes. Le chemin d’accès, **/status**, indique que la demande doit retourner le statut de WebHCat (également appelé Templeton) au serveur.
+     Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, est le même pour toutes les requêtes. Le chemin d’accès, **/status**, indique que la demande doit retourner le statut de WebHCat (également appelé Templeton) au serveur.
 
 2. Utilisez le code suivant pour soumettre une tâche Pig Latin au cluster :
 

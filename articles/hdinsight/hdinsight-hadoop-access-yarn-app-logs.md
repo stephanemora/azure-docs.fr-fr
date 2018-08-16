@@ -1,36 +1,30 @@
 ---
-title: Accéder aux journaux des applications Hadoop YARN par programme - Azure | Microsoft Docs
+title: Accéder aux journaux des applications Hadoop YARN par programmation - Azure
 description: Accéder aux journaux des applications par programmation sur un cluster Hadoop dans HDInsight.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: aab7865548c034cb550874c31977b05936dc45b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 42484f2a93ab5effdcafca0f0769c3fb4cdbb926
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403932"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600181"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Accéder aux journaux des applications YARN dans HDInsight sous Windows
 Ce document explique comment accéder aux journaux des applications YARN terminées sur un cluster Hadoop Windows dans Azure HDInsight
 
 > [!IMPORTANT]
-> Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d'informations sur l'accès aux journaux YARN sur les clusters HDInsight sous Linux, consultez [Accès aux journaux d'application YARN basés sur Hadoop Linux sous HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d'informations sur l'accès aux journaux YARN sur les clusters HDInsight sous Linux, consultez [Accès aux journaux d'application YARN basés sur Hadoop Linux sous HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
 ### <a name="prerequisites"></a>Prérequis
-
 * Un cluster HDInsight Windows  Voir [Création de clusters Hadoop basés sur Windows dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server

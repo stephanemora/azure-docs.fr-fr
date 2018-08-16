@@ -1,24 +1,19 @@
 ---
-title: Configurer la planification de la mise à jour corrective du système d’exploitation pour les clusters HDInsight Linux - Azure | Microsoft Docs
+title: Configurer la planification de la mise à jour corrective du système d’exploitation pour les clusters HDInsight basés sur Linux - Azure
 description: Découvrez comment configurer la planification de la mise à jour corrective du système d’exploitation pour les clusters HDInsight sous Linux.
 services: hdinsight
-documentationcenter: ''
-author: bprakash
-manager: asadk
-editor: bprakash
-ms.assetid: ''
+author: omidm1
+ms.author: omidm
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2017
-ms.author: bhanupr
-ms.openlocfilehash: 42771b9ff0f177b6b31f626d1dd2d07046a53965
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409753"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599212"
 ---
 # <a name="os-patching-for-hdinsight"></a>Mise à jour corrective du système d’exploitation pour HDInsight 
 En tant que service géré Hadoop, HDInsight assure la mise à jour corrective du système d’exploitation des machines virtuelles sous-jacentes utilisées par les clusters HDInsight. Depuis le 1er août 2016, nous avons modifié la stratégie de gestion des mises à jour correctives du système d’exploitation invité pour les clusters HDInsight sous Linux (version 3.4 ou supérieure). L’objectif de la nouvelle stratégie est de réduire considérablement le nombre de redémarrages dus à la mise à jour corrective. La nouvelle stratégie exécutera les correctifs sur des machines virtuelles dans des clusters Linux chaque lundi ou un jeudi à partir de minuit (UTC) de manière échelonnée sur les nœuds dans tout cluster donné. Toutefois, toute machine virtuelle donnée ne redémarrera qu’une fois tous les 30 jours au maximum en raison de la mise à jour corrective du système d’exploitation invité. En outre, le premier redémarrage d’un cluster nouvellement créé aura lieu au plus tôt 30 jours après la date de création du cluster. Les correctifs seront appliqués une fois les machines virtuelles redémarrées.

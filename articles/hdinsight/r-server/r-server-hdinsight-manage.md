@@ -1,23 +1,20 @@
 ---
-title: Gérer un cluster ML Services sur HDInsight - Azure | Microsoft Docs
+title: Gérer un cluster ML Services sur HDInsight - Azure
 description: Découvrez comment gérer un cluster ML Services dans Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: bb3af3b1614c8afc98d2dcf12ecb53fb80b6037a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b927c1d3bef3382680552a0b25e49bd7c10b6baa
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049742"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620244"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gérer un cluster ML Services dans Azure HDInsight
 
@@ -27,7 +24,7 @@ Dans cet article, vous allez apprendre à gérer un cluster ML Services existan
 
 * **Un cluster ML Services sur HDInsight** : pour connaître la marche à suivre, consultez [Bien commencer avec ML Services sur HDInsight](r-server-get-started.md).
 
-* **Un client SSH (Secure Shell)**  : le client SSH permet de se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Client Secure Shell (SSH)** : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Autoriser plusieurs utilisateurs simultanés
@@ -50,7 +47,7 @@ Actuellement, on ne peut créer qu’un seul compte d’utilisateur SSH lors de
 Comme RStudio s’exécute sur le nœud de périphérie du cluster, il y a plusieurs étapes à suivre ici :
 
 1. Utiliser l’utilisateur SSH existant pour se connecter au nœud de périphérie
-2. Ajouter d’autres utilisateurs Linux dans le nœud de périphérie
+2. Ajouter d’autres utilisateurs Linux dans le nœud de périmètre
 3. Utiliser la version RStudio Community avec l’utilisateur créé
 
 ### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Étape n° 1 : Utiliser l’utilisateur SSH créé pour se connecter au nœud de périphérie
@@ -339,6 +336,6 @@ Pour installer des packages R sur les nœuds Worker du cluster, vous devez utili
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Rendre opérationnel un cluster ML Services sur HDInsight](r-server-operationalize.md)
+* [Rendre opérationnel un cluster ML Services sur HDInsight](r-server-operationalize.md)
 * [Options de contexte de calcul pour un cluster ML Services sur HDInsight](r-server-compute-contexts.md)
 * [Options de stockage Azure pour un cluster ML Services sur HDInsight](r-server-storage.md)

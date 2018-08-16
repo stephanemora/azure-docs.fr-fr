@@ -8,19 +8,23 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971718"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440427"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertes de journal dans Azure Monitor - Alertes 
-Cet article fournit des détails sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les nouvelles [Alertes Azure](monitoring-overview-unified-alerts.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes. Pour plus d’informations sur les Alertes Métrique à l’aide des Journaux, reportez-vous à la rubrique [Alertes Métrique en quasi temps réel](monitoring-near-real-time-metric-alerts.md)
+Cet article fournit des détails sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les nouvelles [Alertes Azure](monitoring-overview-unified-alerts.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes.
 
 
-Une alerte de journal consiste en des règles de recherche dans les journaux créées pour [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
+Une alerte de journal consiste en des règles de recherche dans les journaux créées pour [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Les détails de la tarification des Alertes de journal sont disponibles sur la page [Tarification d’Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/). Dans les factures d’Azure, les Alertes de journal sont représentées comme étant de type `microsoft.insights/scheduledqueryrules` avec :
+- Alertes de journal sur Application Insights, affichées avec le nom exact de l’alerte, ainsi que le groupe de ressources et les propriétés de l’alerte
+- Alertes de journal sur Log Analytics, affichées avec le nom de l’alerte sous la forme `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`, ainsi que le groupe de ressources et les propriétés de l’alerte
 
+    > [!NOTE]
+    > Le nom de l’ensemble des recherches enregistrées, des planifications et des actions créées avec l’API Log Analytics doit être en minuscules. En cas d’utilisation de caractères non valide tels que `<, >, %, &, \, ?, /`, ceux-ci sont remplacés par `_` sur la facture.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Règle d’alerte de recherche dans les journaux - Définition et types
 
@@ -86,7 +90,7 @@ Prenons le scénario suivant : vous souhaitez créer une alerte si le taux d’
 - **Requête :** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
 - **Période :** 30 minutes<br>
 - **Fréquence des alertes :** 5 minutes<br>
-- **Valeur d’agrégation :** supérieure à 90<br>
+- **Valeur agrégée :** supérieure à 90<br>
 - **Déclencheur d’alerte basé sur :** nombre total de violations supérieur à 2<br>
 
 La requête créerait une valeur moyenne pour chaque ordinateur à intervalles de 5 minutes.  Cette requête serait exécutée toutes les 5 minutes pour les données collectées au cours des 30 minutes précédentes.  Des exemples de données sont indiqués ci-dessous pour trois ordinateurs.
@@ -104,7 +108,7 @@ Une alerte de journal, ainsi que sa règle d’alerte de recherche dans les jour
 - Modèles Azure Resource Manager
 
 ### <a name="azure-portal"></a>Portail Azure
-Depuis l’introduction des [nouvelles alertes Azure](monitoring-overview-unified-alerts.md), les utilisateurs peuvent gérer tous les types d’alertes dans le portail Azure à partir d’un emplacement unique et en suivant des étapes similaires. Pour en savoir plus, voir [utilisation des nouvelles alertes Azure](monitor-alerts-unified-usage.md).
+Depuis l’introduction des [nouvelles alertes Azure](monitoring-overview-unified-alerts.md), les utilisateurs peuvent gérer tous les types d’alertes dans le portail Azure à partir d’un emplacement unique, et avec des étapes similaires pour l’utilisation. Pour en savoir plus, voir [utilisation des nouvelles alertes Azure](monitor-alerts-unified-usage.md).
 
 Les utilisateurs peuvent également perfectionner leurs requêtes dans la plateforme Analytics de leur choix dans Azure, puis les *importer pour les utiliser dans Alertes en enregistrant la requête*. Procédure à suivre :
 - *Pour Application Insights* : accédez au portail Analytics, puis validez la requête et ses résultats. Enregistrez-la ensuite sous un nom unique dans *Requêtes partagées*.
@@ -131,7 +135,7 @@ Pour plus de détails, ainsi que des exemples d’utilisation des modèles Resou
  
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Comprendre les [alertes de journal dans Azure](monitor-alerts-unified-log-webhook.md).
+* Comprendre les [webhooks dans les alertes de journal dans Azure](monitor-alerts-unified-log-webhook.md).
 * Découvrir les nouvelles [Alertes Azure](monitoring-overview-unified-alerts.md).
 * En savoir plus sur [Application Insights](../application-insights/app-insights-analytics.md).
 * En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md).    

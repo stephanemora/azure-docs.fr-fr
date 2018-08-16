@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fdde8cbec7fc249eecfcc0c1682bb5eed94c1585
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050487"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Didacticiel : Intégration d’Azure Active Directory à Ziflow
 
@@ -34,7 +34,7 @@ L’intégration de Ziflow dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD dans Ziflow, vous avez besoin des éléments suivants :
 
@@ -101,20 +101,20 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Boîte de dialogue Authentification unique](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
 
 3. Dans la section **Domaine et URL Ziflow**, procédez comme suit :
 
     ![Informations d’authentification unique dans Domaine et URL Ziflow](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `urn:auth0:ziflow-production:<Unique ID>`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `urn:auth0:ziflow-production:<UniqueID>`
 
-    > [!NOTE] 
-    > Les valeurs ci-dessus ne sont pas réelles. Vous allez remplacer l’ID unique dans Identificateur et URL de connexion par la valeur réelle. La procédure est expliquée plus loin dans le didacticiel. Contactez l’[équipe de support technique de Ziflow](mailto:support@ziflow.com) pour obtenir la valeur du sous-domaine dans l’URL de connexion.
-    
+    > [!NOTE]
+    > Les valeurs ci-dessus ne sont pas réelles. Vous allez remplacer l’ID unique dans Identificateur et URL de connexion par la valeur réelle. La procédure est expliquée plus loin dans le didacticiel.
+
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
@@ -128,7 +128,6 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Configuration de Ziflow](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
 
 7. Ouvrez une autre fenêtre de navigateur web, puis connectez-vous à Ziflow en tant qu’administrateur de la sécurité.
-
 
 8. Dans l’angle supérieur droit, cliquez sur Avatar, puis cliquez sur **Gérer le compte**.
 
@@ -144,7 +143,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Sélectionnez **Type** dans **SAML2.0**.
 
-    b. Dans la zone de texte **URL de connexion**, collez la valeur de **URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+    b. Dans la zone de texte **URL de connexion**, collez la valeur d’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
     c. Téléchargez le certificat codé en base 64 que vous avez téléchargé à partir du portail Azure, dans le **Certificat de signature X509**.
 

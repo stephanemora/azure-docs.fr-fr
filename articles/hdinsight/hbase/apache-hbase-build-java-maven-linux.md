@@ -1,24 +1,20 @@
 ---
-title: Client Java HBase - Azure HDInsight | Microsoft Docs
+title: Client Java HBase - Azure HDInsight
 description: Découvrez comment utiliser Apache Maven pour créer une application Apache HBase basées sur Java, puis la déployer vers HBase sur Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: ''
-ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 564bfb9c80fe835bd5defb4321607e0970c9f0aa
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: jasonh
+ms.openlocfilehash: 4700a25cdeb9bf9800d01f09691b0f16df3f6637
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311486"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597750"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Créer des applications Java pour Apache HBase
 
@@ -30,7 +26,7 @@ La procédure décrite dans ce document utilise [Maven](http://maven.apache.org/
 > Les étapes décrites dans ce document ont été testées pour la dernière fois avec HDInsight 3.6.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Configuration requise
 

@@ -1,23 +1,20 @@
 ---
-title: Utiliser Grafana sur Azure HDInsight | Microsoft Docs
-description: Découvrez comment accéder à Grafana dans Azure HDInsight
+title: Utiliser Grafana sur Azure HDInsight
+description: Découvrez comment accéder à Grafana dans Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: jgao
-ms.openlocfilehash: c452cb1264dceff8cb791588fa7c58f73631d422
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ae8e676e9a6d6590398d6ccbb759aa29d33e108e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305619"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598141"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Accéder à Grafana dans Azure HDInsight
 
@@ -90,7 +87,7 @@ Dans cette section, vous allez créer un cluster Interactive Query dans HDInsigh
 
     ![Tableau de bord Grafana HDInsight](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "Tableau de bord Grafana HDInsight")
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 Après avoir terminé ce tutoriel, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. 
 
 > [!NOTE]
@@ -116,7 +113,7 @@ Dans cet article, vous avez appris à créer un cluster HDInsight Linux à l’a
 
 Si vous êtes prêt à utiliser vos propres données et que vous avez besoin d’en savoir plus sur la façon dont HDInsight stocke les données ou sur l’ajout de données dans HDInsight, consultez les articles suivants :
 
-* Pour plus d’informations sur la façon dont HDInsight utilise le stockage Azure, consultez la page [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md) (Utilisation du stockage Azure avec HDInsight).
+* Pour plus d’informations sur la façon dont HDInsight utilise Stockage Azure, consultez la page [Utilisation de Stockage Azure avec HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 * Pour plus d’informations sur le téléchargement de données dans HDInsight, consultez la page [Téléchargement de données dans HDInsight](../hdinsight-upload-data.md).
 
 Pour en savoir plus sur l’analyse des données avec HDInsight, consultez les articles suivants :

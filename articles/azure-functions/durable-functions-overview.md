@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a760e66d40d7af7178ec9a2d5fc14afec2a55b10
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115395"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627404"
 ---
 # <a name="durable-functions-overview"></a>Vue d’ensemble de Fonctions durables
 
@@ -44,7 +44,7 @@ Le principal cas d’usage principal pour Fonctions durables est la simplificati
 
 Fonctions durables vous permet d’implémenter ce modèle de manière concise dans le code.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -62,6 +62,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> Il existe des différences subtiles d’écriture d’une fonction durable précompilée en C# par rapport à l’exemple de script C# présenté précédemment. Une fonction précompilée C# requiert que les paramètres durables soient décorés avec leurs attributs respectifs. Un exemple est l’attribut `[OrchestrationTrigger]` pour le paramètre `DurableOrchestrationContext`. Si les paramètres ne sont pas correctement décorés, le runtime ne peut pas injecter les variables dans la fonction et génère une erreur. Pour plus d’exemples, visitez l’[exemple](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
 
@@ -88,7 +90,7 @@ Le paramètre `ctx` ([DurableOrchestrationContext](https://azure.github.io/azure
 
 Avec des fonctions normales, le processus fan-out peut être effectué en configuration la fonction afin qu’elle envoie plusieurs messages vers une file d’attente. Mais le processus fan-in est beaucoup plus difficile. Vous devez écrire du code pour effectuer le suivi lorsque les fonctions déclenchées en file d’attente se terminent, puis stocker les sorties des fonctions. L’extension Fonctions durables gère ce modèle avec un code relativement simple.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -203,7 +205,7 @@ L’inversion du scénario d’API HTTP asynchrone en est un exemple. Au lieu d�
 
 Grâce aux fonctions durables, plusieurs moniteurs qui observent des points de terminaison arbitraires peuvent être créés en quelques lignes de code. L’exécution des moniteurs peut se terminer quand une condition est respectée, ou être terminée par [DurableOrchestrationClient](durable-functions-instance-management.md), et leur délai d’attente peut être changé en fonction de certaines conditions (par exemple, une interruption exponentielle). Le code suivant implémente un moniteur de base.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -271,7 +273,7 @@ Un processus d’approbation est un exemple de processus d’entreprise impliqua
 
 Ce modèle peut être implémenté à l’aide d’une fonction d’orchestrateur. L’orchestrateur utilise un [minuteur durable](durable-functions-timers.md) pour demander l’approbation et la faire remonter en cas de délai d’expiration. Il attend un [événement externe](durable-functions-external-events.md), soit la notification générée par une intervention humaine.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751702"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617113"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Sauvegarder des fichiers sur Azure Stack
 Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichiers et applications sur Azure Stack. Pour sauvegarder des fichiers et applications, installez un serveur Sauvegarde Microsoft Azure en tant que machine virtuelle s’exécutant sur Azure Stack. Vous pouvez protéger les fichiers sur n’importe quel serveur Azure Stack du même réseau virtuel. Après avoir installé un serveur de sauvegarde Azure, ajoutez des disques Azure pour augmenter le stockage local disponible pour les données de sauvegarde à court terme. Un serveur de sauvegarde Azure utilise un stockage Azure pour la rétention à long terme.
@@ -90,15 +90,13 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les fichiers da
 
 13. Sous **Résumé**, vérifiez vos paramètres. Lorsque vous cliquez sur **Créer un groupe**, la réplication initiale des données se produit. Une fois la réplication des données terminée, dans la page **État**, l’état du groupe de protection est **OK**. Le travail de sauvegarde initiale a lieu conformément aux paramètres du groupe de protection.
 
-Vous devez répondre à certaines questions : comment développer le stockage sur disque pour le stockage sur disque à court terme Azure Stack. Quelles sont les recommandations en matière de stockage sur disque à court terme ?
-
 ## <a name="recover-file-data"></a>Récupérer des données de fichier
 
 Utilisez la console du serveur de sauvegarde Azure pour récupérer des données sur votre machine virtuelle.
 
 1. Dans la barre de navigation de la console du serveur de sauvegarde Azure, cliquez sur **Récupération** et recherchez les données que vous souhaitez récupérer. Dans le volet de résultats, sélectionnez les données.
 
-2. Dans le calendrier de la section des points de récupération, les dates en gras indiquent les points de récupération disponibles. Sélectionnez la date à laquelle récupérer un point de récupération.
+2. Dans le calendrier de la section des points de récupération, les dates en gras indiquent les points de récupération disponibles. Sélectionnez la date pour la récupération.
 
 3. Dans le volet **Recoverable item** (Élément récupérable), sélectionnez l’élément que vous souhaitez récupérer.
 

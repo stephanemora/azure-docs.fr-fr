@@ -1,25 +1,20 @@
 ---
-title: Utilisation d’Apache Hive en tant qu’outil ETL - Azure HDInsight | Microsoft Docs
+title: Utiliser Apache Hive comme outil ETL - Azure HDInsight
 description: Utilisez Apache Hive pour extraire, transformer et charger (ETL) des données dans Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 11/14/2017
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: 06e06d87abd66c80deb2c8731f68bb8171da574b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 11/14/2017
+ms.openlocfilehash: d4f07896e835821612971f1558ca5a030a59d154
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399584"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597437"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Utiliser Apache Hive comme un outil d’extraction, de transformation et de chargement (ETL)
 
@@ -96,5 +91,5 @@ Si vous avez besoin d’exécuter plusieurs opérations sur les données dans le
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [ETL à grande échelle](apache-hadoop-etl-at-scale.md)
-* [Opérationnaliser un pipeline de données](../hdinsight-operationalize-data-pipeline.md)
+* [Rendre un pipeline de données opérationnel](../hdinsight-operationalize-data-pipeline.md)
 <!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

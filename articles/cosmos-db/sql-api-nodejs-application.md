@@ -11,17 +11,18 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: d18e6dd9464ef103157a8532215fa797ab282437
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cdf3edf5bfd8d13f71c25b8bf0bbf0ea3d992a5d
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543851"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628152"
 ---
 # <a name="_Toc395783175"></a>Création d’une application web Node.js avec Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.JS](sql-api-nodejs-application.md)
+> * [Node.js - préversion v2.0](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -62,15 +63,21 @@ Voyons maintenant comment créer un projet Node.js « Hello World » de base �
 1. Ouvrez votre terminal préféré, par exemple l’invite de commande Node.js.
 2. Accédez au répertoire dans lequel vous souhaitez stocker la nouvelle application.
 3. Utilisez le générateur Express pour générer une nouvelle application appelée **todo**.
-   
-        express todo
+
+   ```bash
+   express todo
+   ```
 4. Ouvrez votre nouveau répertoire **todo** et installez les dépendances.
-   
-        cd todo
-        npm install
+
+   ```bash
+    cd todo
+    npm install
+   ```
 5. Exécutez votre nouvelle application.
-   
-        npm start
+
+   ```bash
+   npm start
+   ```
 6. Vous pouvez afficher votre nouvelle application en accédant à l’adresse [http://localhost:3000](http://localhost:3000) dans votre navigateur.
    
     ![Découverte de Node.js - Capture d’écran de l’application Hello World dans une fenêtre de navigateur](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
@@ -81,11 +88,15 @@ Voyons maintenant comment créer un projet Node.js « Hello World » de base �
 Le fichier **package.json** est l'un des fichiers créés à la racine du projet. Il contient une liste de modules supplémentaires qui sont nécessaires pour les applications Node.js. Ensuite, lorsque vous déployez cette application sur des sites web Azure, ce fichier permet de déterminer quels modules doivent être installés sur Azure pour la prise en charge de votre application. Nous avons besoin d'installer deux autres packages pour ce didacticiel.
 
 1. De retour dans le terminal, installez le module **async** via npm.
-   
-        npm install async --save
+
+   ```bash
+   npm install async --save
+   ```
 2. Installez le module **documentdb** via npm. C’est dans ce module que se produit toute la magie d’Azure Cosmos DB.
-   
-        npm install documentdb --save
+
+   ```bash
+   npm install documentdb --save
+   ```
 
 ## <a name="_Toc395783180"></a>Étape 4 : utilisation du service Azure Cosmos DB dans une application Node
 Ceci concerne l’ensemble de l’installation et de la configuration initiales. Venons-en à présent à la raison de notre présence ici, à savoir écrire du code avec Azure Cosmos DB.
@@ -377,7 +388,7 @@ Ceci concerne l’ensemble de l’installation et de la configuration initiales.
     var DocumentDBClient = require('documentdb').DocumentClient;
     var config = require('./config');
     var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/taskModel');
+    var TaskModel = require('./models/task-model');
     ```
 3. Ce code définit le fichier de configuration à utiliser et procède à la lecture des valeurs de ce fichier dans des variables que nous utiliserons prochainement.
 4. Remplacez les deux lignes suivantes dans le fichier **app.js** :
@@ -509,7 +520,7 @@ Ceci devrait être suffisant pour que notre application puisse fonctionner.
         git push azure master
 4. En quelques secondes, git achève la publication de votre application web et lance un navigateur, dans lequel vous pouvez voir votre réalisation exécutée dans Azure.
 
-    Félicitations ! Vous venez de créer votre première application web Express Node.js avec Azure Cosmos DB et de la publier sur les sites web Azure.
+    Félicitations ! Vous venez de créer votre première application web Express Node.js avec Azure Cosmos DB et de la publier sur les sites web Azure.
 
     Si vous souhaitez télécharger ou vous référer à l’application de référence complète de ce didacticiel, vous pouvez la télécharger à partir de [GitHub][GitHub].
 

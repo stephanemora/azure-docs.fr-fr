@@ -1,25 +1,20 @@
 ---
-title: Gestion des clusters Hadoop à l’aide de l’interface CLI Azure - Azure HDInsight | Microsoft Docs
+title: Gérer des clusters Hadoop à l’aide de l’interface de ligne de commande Azure - Azure HDInsight
 description: Découvrez comment utiliser l’interface de ligne de commande Azure pour gérer des clusters Hadoop dans Azure HDInsight. Azure CLI fonctionne sur Windows, Mac et Linux.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: mumian
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 18901c3e99b1c67d01c091918a6abdd2f298defa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: dea0f004c4283bf594e46097092a52dedabb9f4b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200977"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599018"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Gestion des clusters Hadoop dans HDInsight à l'aide du portail Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -29,7 +24,6 @@ Apprenez à utiliser [l'interface de ligne de commande Azure](../cli-install-nod
 Cet article aborde uniquement l’utilisation de l’interface de ligne de commande Azure dans HDInsight. Pour une aide générale sur l’utilisation de l’interface Azure CLI, consultez la rubrique [Installer et configurer l’interface Azure CLI][azure-command-line-tools].
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

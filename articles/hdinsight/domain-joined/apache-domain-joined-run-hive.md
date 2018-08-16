@@ -1,29 +1,25 @@
 ---
 title: Configurer les stratégies Hive dans HDInsight joint à un domaine - Azure
-description: Découvrir...
+description: Apprenez à configurer des stratégies Apache Ranger pour Hive dans un service Azure HDInsight joint au domaine.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: omidm
-ms.openlocfilehash: bd99e5fda80663b37c60d972742b16c27b92cf55
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8579c3c13ace1f97d2400a4fc6e2e9a63c2c4d26
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592673"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599688"
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurer les stratégies Hive dans HDInsight joint à un domaine
 Découvrez comment configurer des stratégies Apache Ranger pour Hive. Dans cet article, vous créez deux stratégies Ranger pour restreindre l’accès à hivesampletable. hivesampletable dispose de clusters HDInsight. Après avoir configuré les stratégies, vous utilisez Excel et le pilote ODBC pour vous connecter à des tables Hive dans HDInsight.
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Un cluster HDInsight joint à un domaine. Consultez [Configuration de cluster HDInsight joints à un domaine](apache-domain-joined-configure.md).
 * Une station de travail avec Office 2016, Office 2013 ProPlus, Office 365 Pro Plus, l’édition autonome d’Excel 2013 ou Office Professionnel Plus 2010.
 

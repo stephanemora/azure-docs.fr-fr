@@ -1,19 +1,18 @@
 ---
-title: Concepts d’Azure Event Grid
+title: Concept d’Azure Event Grid
 description: Détaille Azure Event Grid et ses concepts. Définit plusieurs composants clés de Event Grid.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: abc1302f0317c8d5ecdc7ddaf8ca6d3a9e82b582
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626033"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621199"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -72,6 +71,10 @@ Event Grid assure la sécurité lors de l’abonnement et de la publication de r
 ## <a name="event-delivery"></a>Remise d’événement
 
 Si Event Grid ne peut pas confirmer qu’un événement a été reçu par le point de terminaison de l’abonné, il procède à une nouvelle distribution de l’événement. Pour plus d’informations, consultez la page [Distribution et nouvelle tentative de distribution de messages avec Event Grid](delivery-and-retry.md).
+
+## <a name="batching"></a>Traitement par lot
+
+Quand vous utilisez une rubrique personnalisée, les événements doivent toujours être publiés dans un tableau. Il peut s’agir d’un lot de un pour les scénarios à faible débit. Toutefois, pour les cas d’utilisation à volume élevé, il est recommandé de regrouper dans un lot plusieurs événements par publication pour améliorer l’efficacité. La taille maximale d’un lot est de 1 Mo. Chaque événement ne doit pas dépasser 64 Ko.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

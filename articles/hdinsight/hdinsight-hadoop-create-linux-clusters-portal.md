@@ -1,25 +1,20 @@
 ---
-title: Créer des clusters Hadoop à l’aide d’un navigateur web - Azure HDInsight | Microsoft Docs
+title: Créer des clusters Hadoop à l’aide d’un navigateur web - Azure HDInsight
 description: Découvrez comment créer des clusters Hadoop, HBase, Storm ou Spark sur Linux pour HDInsight avec un navigateur web et le portail Azure en préversion.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 697278cf-0032-4f7c-b9b2-a84c4347659e
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 5a6fa3f2bb6ab76bf323fe3ca829797878f5e774
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 210ece6825393917f77e213939770c4ee867fd20
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100502"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600844"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -144,7 +139,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec le modèle 
 ## <a name="delete-the-cluster"></a>Supprimer le cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Résoudre les problèmes
+## <a name="troubleshoot"></a>Résolution des problèmes
 
 Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
 

@@ -1,36 +1,32 @@
 ---
-title: Apache Storm avec composants Python - Azure HDInsight | Documents Microsoft
+title: Apache Storm avec composants Python - Azure HDInsight
 description: Découvrez comment créer une topologie Apache Storm qui utilise des composants Python.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 keywords: apache storm python
-ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 9137e509ff352bdcb7a74b652b5c7c7edef2d7ea
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: jasonh
+ms.openlocfilehash: 8c26bfc85c70addebd5e68fad7769faa63e07bea
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131158"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39623015"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Développer des topologies Storm Apache à l’aide de Python sur HDInsight
 
 Découvrez comment créer une topologie Apache Storm qui utilise des composants Python. Apache Storm prend en charge plusieurs langages et vous permet de combiner des composants de plusieurs langages dans une même topologie. L’infrastructure de Flux (introduite avec Storm 0.10.0) permet de créer facilement des solutions qui utilisent des composants Python.
 
 > [!IMPORTANT]
-> Les informations contenues dans ce document ont été testées avec Storm sur HDInsight 3.6. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les informations contenues dans ce document ont été testées avec Storm sur HDInsight 3.6. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Le code de ce projet est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Python 2.7 ou ultérieure
 

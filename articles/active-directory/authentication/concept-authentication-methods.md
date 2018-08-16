@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414522"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622250"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
@@ -132,7 +132,7 @@ L’application Microsoft Authenticator est disponible pour [Android](https://go
 L’application Microsoft Authenticator peut aider à empêcher tout accès non autorisé aux comptes et à arrêter les transactions frauduleuses en envoyant une notification à votre smartphone ou tablette. Les utilisateurs voient la notification et, si elle est légitime, sélectionnent Vérifier. Sinon, ils peuvent sélectionner Refuser.
 
 > [!WARNING]
-> Lorsque qu’une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option disponible pour les utilisateurs.
+> Quand une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option à la disposition des utilisateurs **pour garantir le niveau de sécurité le plus élevé**.
 >
 > Lorsque deux méthodes sont requises, les utilisateurs seront en mesure d’effectuer la réinitialisation avec **SOIT** une notification, **SOIT** un code de vérification en plus de n’importe quelle autre méthode activée.
 >
@@ -142,7 +142,7 @@ L’application Microsoft Authenticator peut aider à empêcher tout accès non 
 L'application Microsoft Authenticator ou une autre application tierce peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Après avoir saisi votre nom d’utilisateur et votre mot de passe, vous entrez le code fourni par l’application dans l’écran de connexion. Le code de vérification fournit un deuxième formulaire d’authentification.
 
 > [!WARNING]
-> Lorsque qu’une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option disponible pour les utilisateurs.
+> Quand une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option à la disposition des utilisateurs **pour garantir le niveau de sécurité le plus élevé**.
 >
 
 ## <a name="mobile-phone"></a>Téléphone mobile
@@ -198,5 +198,7 @@ Si votre organisation est fédérée (SSO) avec Azure AD et si vous vous apprê
 [Activer la réinitialisation du mot de passe en libre-service pour votre organisation](quickstart-sspr.md)
 
 [Activer Azure Multi-Factor Authentication pour votre organisation](howto-mfa-getstarted.md)
+
+[Activer l’inscription convergée pour l’authentification multifacteur Azure et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
 
 [Documentation relative à la configuration de la méthode d’authentification de l’utilisateur final](https://aka.ms/securityinfoguide)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 28f5ac882051250903fc2f45def95eb65d1b1ce3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3640f5bb2c2e9457e269bd189cbec3b627ee7349
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635536"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626870"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -45,10 +45,11 @@ Plus d’informations sur les différentes fonctionnalités de prise en charge p
  
 ## <a name="supported-regions"></a>Régions prises en charge
 NPM permet d’analyser la connectivité entre les réseaux et les applications dans n’importe quelle partie du monde, à partir d’un espace de travail hébergé dans une des régions suivantes :
-* Europe de l'Ouest
-* Centre-Ouest des États-Unis
-* Est des États-Unis
-* Asie du Sud-Est
+* Europe Ouest
+* USA Centre-Ouest
+* USA Est
+* Japon Est
+* Asie Sud-Est
 * Australie du Sud-Est
 * Sud du Royaume-Uni
 * Virginie du gouvernement des États-Unis

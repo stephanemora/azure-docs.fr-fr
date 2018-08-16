@@ -1,25 +1,21 @@
 ---
-title: Visualiser des Big Data à l’aide de Power BI dans Azure HDInsight | Microsoft Docs
+title: Visualiser des Big Data à l’aide de Power BI dans Azure HDInsight
 description: Découvrez comment utiliser Microsoft Power BI pour visualiser des données Hive traitées par Azure HDInsight.
 keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,odbc
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 6f4efdebd6fc2833747b4cb72496447e0be03a58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: d3459a9905719be8849b9f6bb79f500121ca8d8d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199994"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597318"
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualiser des données Hive à l’aide de Microsoft Power BI et ODBC dans Azure HDInsight
 
@@ -37,7 +33,6 @@ Les informations s’appliquent également au nouveau type de cluster [Interacti
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants :
 
 * Un **cluster HDInsight**. Cela peut être un cluster HDInsight avec Hive ou un cluster du nouveau type Interactive Query. Pour plus d’informations sur la création de clusters, consultez [Créer un cluster](apache-hadoop-linux-tutorial-get-started.md#create-cluster).

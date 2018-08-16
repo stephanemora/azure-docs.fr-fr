@@ -2,19 +2,20 @@
 title: Azure SQL Database - Réglage automatique | Microsoft Docs
 description: Azure SQL Database analyse la requête SQL et s’adapte automatiquement aux charges de travail utilisateur.
 services: sql-database
-author: jovanpop-msft
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: jovanpop
-ms.openlocfilehash: bef8d01bd4c220fac595177089088ff64ee3bc3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: dd6e8f5f46e9fdf6887cc2a0b0c7b15bbd00fabd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646641"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626197"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
@@ -76,6 +77,6 @@ Une méthode recommandée consiste à configurer les options de réglage automat
 
 - Pour activer le réglage automatique dans Azure SQL Database afin de gérer votre charge de travail, consultez [Activer le réglage automatique](sql-database-automatic-tuning-enable.md).
 - Pour consulter et appliquer manuellement des recommandations de réglage d’automatique, consultez [Rechercher et appliquer des recommandations en matière de performances](sql-database-advisor-portal.md).
-- Pour en savoir plus sur la création de notifications par e-mail pour les recommandations de réglage automatique, consultez [Notifications par e-mail pour le réglage automatique](sql-database-automatic-tuning-email-notifications.md)
+- Pour en savoir plus sur la création de notifications par e-mail pour les suggestions de réglage automatique, voir [Notifications par e-mail pour le réglage automatique](sql-database-automatic-tuning-email-notifications.md).
 - Pour en savoir plus sur l’intelligence intégrée utilisée dans le réglage automatique, consultez [Artificial Intelligence tunes Azure SQL Databases (L’intelligence artificielle règle les bases de données SQL Azure)](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Pour en savoir plus sur le fonctionnement du réglage automatique dans Azure SQL Database et SQL Server 2017, consultez [Réglage automatique dans SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

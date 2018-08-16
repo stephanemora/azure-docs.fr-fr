@@ -1,39 +1,41 @@
 ---
-title: Recherche cognitive pour l’extraction des données et le traitement en langage naturel dans Recherche Azure | Microsoft Docs
-description: Extraction de données, traitement en langage naturel et traitement d’images pour créer du contenu pouvant être recherché dans l’indexation Recherche Azure à l’aide de compétences cognitives.
+title: Recherche cognitive pour l’extraction des données et le traitement de l’IA en langage naturel dans Recherche Azure | Microsoft Docs
+description: Extraction de contenu, traitement en langage naturel et traitement d’images pour créer du contenu pouvant être recherché dans l’indexation Recherche Azure à l’aide de compétences cognitives et d’algorithmes d’IA.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304280"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617956"
 ---
 # <a name="what-is-cognitive-search"></a>Qu’est-ce que la recherche cognitive ?
 
-La recherche cognitive est une fonctionnalité en préversion de [Recherche Azure](search-what-is-azure-search.md), disponible quel que soit le niveau dans les régions Sud-Centre des États-Unis et Europe de l’Ouest, qui ajoute AI aux charges de travail d’indexation. L’extraction de données, le traitement en langage naturel et le traitement d’images pendant l’indexation trouvent les informations latentes dans du contenu non structuré et ne pouvant être recherché pour le transformer en contenu pouvant être cherché dans Recherche Azure.
+La recherche cognitive crée des informations consultables à partir de contenu sans possibilité de recherche en attachant des algorithmes d’intelligence artificielle à un pipeline d’indexation. L’intégration IA se fait via des *compétences cognitives* qui enrichissent les documents sources dans l’itinéraire d’un index de recherche. 
 
-L’intégration AI se fait via les *compétences cognitives* qui enrichissent les documents sources à l’aide de processus séquentiels dans l’itinéraire d’un index de recherche. 
+Les compétences de **traitement en langage naturel** incluent la [reconnaissance d’entité](cognitive-search-skill-named-entity-recognition.md), la détection de la langue, l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), la manipulation de texte et la détection de sentiments. Avec ces compétences, un texte non structuré devient structuré, mappé avec des champs interrogeables et filtrés dans un index.
+
+Le **traitement d’image** inclut la [reconnaissance optique de caractères (OCR)](cognitive-search-skill-ocr.md) et l’identification des [caractéristiques visuelles](cognitive-search-skill-image-analysis.md), telles que la détection des visages, l’interprétation des images, la reconnaissance des images (monuments et personnes célèbres) ou des attributs tels que les couleurs ou l’orientation des images. Vous pouvez créer des représentations textuelles pour le contenu des images, dans lesquelles effectuer des recherches à l’aide de toutes les fonctionnalités de requête de la Recherche Azure.
 
 ![Schéma du pipeline de la recherche cognitive](./media/cognitive-search-intro/cogsearch-architecture.png "Vue d’ensemble du pipeline de la recherche cognitive")
 
-Les compétences utilisées lors de l’indexation peuvent être prédéfinies ou personnalisées :
+Les compétences cognitives de la Recherche Azure reposent sur les algorithmes d’IA utilisés dans les API Cognitive Services : [API de reconnaissance d’entité nommée](cognitive-search-skill-named-entity-recognition.md), [API d’extraction de phrases clés](cognitive-search-skill-keyphrases.md) et [API OCR](cognitive-search-skill-ocr.md), pour n’en citer que quelques-unes. 
 
-+ Les [compétences prédéfinies](cognitive-search-predefined-skills.md) se basent sur les algorithmes d’IA utilisés dans les API Cognitive Services : [Reconnaissance d’entité nommée](cognitive-search-skill-named-entity-recognition.md), [Extraction de phrases clés](cognitive-search-skill-keyphrases.md) et [OCR](cognitive-search-skill-ocr.md), pour n’en citer que quelques-unes. 
-
-+ Les [compétences personnalisées](cognitive-search-create-custom-skill-example.md) peuvent être développées par vous pour tout traitement spécialisé dont vous avez besoin. Un module d’entité ou un classifieur de documents ciblant un domaine spécifique comme la finance, les publications scientifiques ou la médecine sont des exemples de compétences personnalisées.
+Le traitement en langage naturel et le traitement d’image sont appliqués pendant la phase d’ingestion des données, et les résultats sont intégrés à la composition d’un document sous la forme d’un index consultable dans la Recherche Azure. Les données sont fournies en tant que jeu de données Azure, puis transmises via un pipeline d’indexation à l’aide des [compétences intégrées](cognitive-search-predefined-skills.md) dont vous avez besoin. L’architecture est extensible. Par conséquent, si les compétences intégrées ne sont pas suffisantes, vous pouvez créer et attacher des [compétences personnalisées](cognitive-search-create-custom-skill-example.md) pour intégrer un traitement personnalisé. Par exemple, il peut s’agir d’un module d’entité ou d’un classifieur de documents ciblant un domaine spécifique comme la finance, les publications scientifiques ou la médecine.
 
 > [!NOTE]
-> La recherche cognitive est en préversion publique et l’exécution de compétences est proposée gratuitement à l’heure actuelle. Le prix de cette fonctionnalité sera annoncé à une date ultérieure.
+> La recherche cognitive est en préversion publique et l’exécution de compétences est proposée gratuitement à l’heure actuelle. Le prix de cette fonctionnalité sera annoncé à une date ultérieure. 
 
 ## <a name="components-of-cognitive-search"></a>Composants de la recherche cognitive
+
+La recherche cognitive est une fonctionnalité en préversion de la [Recherche Azure](search-what-is-azure-search.md), disponible quel que soit le niveau dans les régions USA Centre Sud et Europe Ouest. 
 
 Le pipeline de la recherche cognitive repose sur des *indexeurs* [Recherche Azure](search-indexer-overview.md) qui analysent les sources de données et traitent les index du début à la fin. Les compétences sont désormais jointes aux indexeurs, ce qui permet d’intercepter et d’enrichir les documents en fonction de l’ensemble de compétences que vous définissez. Une fois l’indexation terminée, vous pouvez accéder au contenu via des requêtes de recherche par le biais de tous les [types de requête pris en charge par Recherche Azure](search-query-overview.md).  Si vous ne connaissez pas les indexeurs, cette section vous guide tout au long des étapes.
 
@@ -88,8 +90,8 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 
 **Étape 1 : Créer un service de recherche dans une région qui fournit les API** 
 
-+ États-Unis - partie centrale méridionale
-+ Europe de l'Ouest
++ USA Centre Sud
++ Europe Ouest
 
 **Étape 2 : Exercice pratique pour maîtriser le flux de travail**
 
@@ -101,7 +103,7 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 
 Actuellement, seules les API REST sont fournies. Utilisez `api-version=2017-11-11-Preview` pour toutes les requêtes. Utilisez les API suivantes pour créer une solution de recherche cognitive. Seules deux API sont ajoutées ou étendues pour la recherche cognitive. D’autres API ont la même syntaxe que les versions généralement disponibles.
 
-| de l’API REST | Description |
+| API REST | Description |
 |-----|-------------|
 | [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Une ressource identifiant une source de données externes fournissant des données sources utilisées pour créer des documents enrichis.  |
 | [Créer un ensemble de compétences (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Une ressource coordonnant l’utilisation de [compétences prédéfinies](cognitive-search-predefined-skills.md) et de [compétences cognitives personnalisées](cognitive-search-custom-skill-interface.md) utilisées dans un pipeline d’enrichissement lors de l’indexation. |

@@ -1,33 +1,27 @@
 ---
-title: Utilisation d’un bac à sable Hadoop – Émulateur – Azure HDInsight | Microsoft Docs
+title: Apprendre à utiliser un bac à sable Hadoop - Émulateur - Azure HDInsight
 description: 'Pour en savoir plus sur l’utilisation de l’écosystème Hadoop, vous pouvez configurer un bac à sable (sandbox) Hadoop à partir de Hortonworks sur une machine virtuelle Azure. '
 keywords: émulateur Hadoop, bac à sable (sandbox) hadoop
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-author: nitinme
-documentationcenter: ''
-tags: azure-portal
-ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 6a2a81f89e86a75dd56283526713b88cdfd21569
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401130"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598710"
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Prise en main avec un bac à sable Hadoop, un émulateur sur une machine virtuelle
 
 Apprenez à installer le bac à sable (sandbox) Hadoop de Hortonworks sur une machine virtuelle pour vous familiariser avec l’écosystème Hadoop. Le bac à sable fournit un environnement de développement local pour se familiariser avec Hadoop, Hadoop Distributed File System (HDFS) et la soumission de tâches. Une fois que vous êtes familiarisé avec Hadoop, vous pouvez commencer à l’utiliser sur Azure en créant un cluster HDInsight. Pour plus d’informations sur la prise en main, consultez [Prise en main de Hadoop sur HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 * [Oracle VirtualBox](https://www.virtualbox.org/) Téléchargez et installez l’application à partir d’[ici](https://www.virtualbox.org/wiki/Downloads).
 
 

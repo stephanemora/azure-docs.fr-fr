@@ -1,25 +1,20 @@
 ---
-title: Créer un pipeline d’apprentissage automatique Apache Spark - Azure HDInsight | Microsoft Docs
+title: Créer un pipeline d’apprentissage automatique Apache Spark - Azure HDInsight
 description: Utilisez la bibliothèque d’apprentissage automatique Apache Spark pour créer des pipelines de données.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+author: maxluk
 ms.author: maxluk
-ms.openlocfilehash: c3ff29404858a768737536e7d31c3c6858eea7d2
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/19/2018
+ms.openlocfilehash: eb7959255a0b3c1597592eaae41d83dabd333d05
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164548"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617052"
 ---
 # <a name="create-a-spark-machine-learning-pipeline"></a>Créer un pipeline Machine Learning Spark
 

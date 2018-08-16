@@ -1,24 +1,20 @@
 ---
-title: Data Lake Tools pour Visual Studio avec Hortonworks Sandbox - Azure HDInsight | Microsoft Docs
+title: Data Lake Tools pour Visual Studio avec Hortonworks Sandbox - Azure HDInsight
 description: Apprenez à utiliser Data Lake Tools pour Visual Studio avec le bac à sable Hortonworks s’exécutant sur une machine virtuelle locale. Ces outils vous permettent de créer et d’exécuter des travaux Hive et Pig sur le bac à sable, ainsi que d’en afficher le résultat et l’historique.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: larryfr
-ms.openlocfilehash: a4c1f5a8100d5d4017e56ef129aa4f4826746868
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: jasonh
+ms.openlocfilehash: 53bd629bcdf272e97c03dfb60c2693158698b837
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886729"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597368"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
 
@@ -27,7 +23,6 @@ Azure Data Lake inclut des outils permettant de travailler avec des clusters Had
 Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre environnement de développement. Après avoir développé une solution, lorsque vous souhaitez la déployer à grande échelle, vous pouvez passer à un cluster HDInsight.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Le Bac à sable (sandbox) Hortonworks s’exécutant sur une machine virtuelle dans votre environnement de développement. Ce document a été écrit et testé avec le bac à sable s’exécutant sur Oracle VirtualBox. Pour plus d’informations sur le paramétrage du bac à sable, consultez [Get started with the Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md) (Prise en main du bac à sable Hortonworks) document.
 

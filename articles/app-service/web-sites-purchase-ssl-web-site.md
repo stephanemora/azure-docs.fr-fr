@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807456"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627142"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acheter et configurer un certificat SSL pour votre service Azure App Service
 
 Ce didacticiel vous montre comment sécuriser votre application web en achetant un certificat SSL pour votre **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, en le stockant dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) de manière sécurisée et en l’associant à un domaine personnalisé.
 
-## <a name="step-1---log-in-to-azure"></a>Étape 1 : Se connecter à Azure
+## <a name="step-1---sign-in-to-azure"></a>Étape 1 : se connecter à Azure
 
-Connectez-vous au portail Azure à l’adresse suivante : http://portal.azure.com
+Connectez-vous au portail Azure sur http://portal.azure.com
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>Étape 2 : Passer une commande de certificat SSL
 
@@ -38,7 +38,7 @@ Vous pouvez passer une commande de certificat SSL en créant un [Certificat App 
 Entrez un **nom** convivial pour votre certificat SSL et entrez le **nom de domaine**.
 
 > [!NOTE]
-> Cette étape est l’un des points les plus cruciaux du processus d’achat. Veillez à entrer un nom d’hôte correct (domaine personnalisé) que vous voulez protéger avec ce certificat. **PAS** le nom d’hôte avec WWW. 
+> Cette étape est l’un des points les plus cruciaux du processus d’achat. Veillez à entrer un nom d’hôte correct (domaine personnalisé) que vous voulez protéger avec ce certificat. N’**AJOUTEZ PAS** le nom d’hôte devant avec WWW. 
 >
 
 Sélectionnez votre **abonnement**, **groupe de ressources** et **référence (SKU) de certificat**
@@ -78,7 +78,7 @@ Dans la même page **Configuration du certificat** utilisée à l’étape 3, c
 
 Choisissez la méthode de vérification de domaine par défaut. 
 
-Il existe quatre types de vérification de domaine pris en charge par App Service Certificates : la vérification App Service, la vérification de domaine, la vérification par e-mail et la vérification manuelle. Ces types de vérification sont décrits plus en détail dans la [section Avancé](#advanced).
+Il existe quatre types de vérification de domaine pris en charge par App Service Certificates : la vérification App Service, la vérification de domaine et la vérification manuelle. Ces types de vérification sont décrits plus en détail dans la [section Avancé](#advanced).
 
 > [!NOTE]
 > La **Vérification App Service** est l’option la plus pratique lorsque le domaine à vérifier est déjà mappé à une application App Service dans le même abonnement. Elle profite du fait que l’application App Service a déjà vérifié la propriété du domaine.
@@ -135,16 +135,7 @@ Cliquez sur **Ajouter une liaison** pour enregistrer les modifications et active
 
 ### <a name="verifying-domain-ownership"></a>Vérifier la propriété du domaine
 
-Il existe 2 autres types de vérification du domaine pris en charge par les certificats App Service : e-mail et manuelle.
-
-#### <a name="mail-verification"></a>Vérification par e-mail
-
-Un e-mail de vérification a déjà été envoyé aux adresses e-mail associées à ce domaine personnalisé.
-Pour terminer l’étape de vérification par e-mail, ouvrez l’e-mail, puis cliquez sur le lien de vérification.
-
-![insérer une image de vérification par e-mail](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-Si vous avez besoin de renvoyer l’e-mail de vérification, cliquez sur le bouton **Renvoyer le message**.
+Il existe deux autres types de vérification de domaine pris en charge par App Service Certificates : la vérification de domaine et la vérification manuelle.
 
 #### <a name="domain-verification"></a>Vérification de domaine
 
@@ -199,11 +190,11 @@ Le renouvellement de la clé de votre certificat remplace le certificat par un n
 
 ## <a name="renew-the-certificate"></a>Renouveler le certificat
 
-Pour activer le renouvellement automatique de votre certificat à tout moment, cliquez sur **Paramètres de renouvellement automatique** dans la page de gestion des certificats. Sélectionnez **Activé** et cliquez sur **Enregistrer**.
+Pour activer le renouvellement automatique de votre certificat à tout moment, cliquez sur **Paramètres de renouvellement automatique** dans la page de gestion des certificats. Sélectionnez **Activé** et cliquez sur **Enregistrer**. Les certificats peuvent démarrer automatiquement le renouvellement 90 jours avant l’expiration si vous avez activé le renouvellement automatique.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-Pour renouveler manuellement le certificat, cliquez sur **Renouvellement manuel**.
+Pour renouveler manuellement le certificat, cliquez sur **Renouvellement manuel**. Vous pouvez demander le renouvellement manuellement de votre certificat 60 jours avant expiration.
 
 > [!NOTE]
 > Le certificat renouvelé n’est pas automatiquement lié à votre application, qu’il ait été renouvelé manuellement ou automatiquement. Pour lier le certificat à votre application, consultez l’article [Renouveler les certificats](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 

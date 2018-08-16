@@ -1,33 +1,27 @@
 ---
-title: Développement d’une action de script avec HDInsight basé sur Linux - Azure | Documents Microsoft
+title: Développement d’une action de script avec HDInsight basé sur Linux - Azure
 description: Découvrez comment utiliser des scripts Bash pour personnaliser des clusters HDInsight basés sur Linux. La fonctionnalité d’action de script de HDInsights vous permet d’exécuter des scripts pendant ou après la création de cluster. Vous pouvez utiliser des scripts pour modifier les paramètres de configuration d’un cluster ou installer un logiciel supplémentaire.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: cf4c89cd-f7da-4a10-857f-838004965d3e
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: 5f6609018f2582ebfc6e2ecbe48bde6a6f2d0f5d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 35d54970e41a7e1533f3d5adc09fc60dc1bbd68d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098258"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600487"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
 Découvrez comment personnaliser votre cluster HDInsight à l’aide de scripts bash. Les actions de script sont un moyen de personnaliser HDInsight pendant ou après la création du cluster.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Définition des actions de script
 
@@ -287,7 +281,7 @@ Les scripts utilisés pour personnaliser un cluster doivent être stockés dans 
 * Un compte __Azure Data Lake Store__ est associé à un groupe de ressources Azure. Pour plus d’informations sur l’utilisation d’Azure Data Lake Store avec HDInsight, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]
-    > Le principal de service que HDInsight utilise pour accéder au Data Lake Store doit avoir accès en lecture au script.
+    > Le principal du service que HDInsight utilise pour accéder à Data Lake Store doit avoir accès en lecture au script.
 
 Les ressources utilisées par le script doivent également être disponibles publiquement.
 

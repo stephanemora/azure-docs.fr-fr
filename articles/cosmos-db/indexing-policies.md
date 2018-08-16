@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: ae2c6b6a53c6a195bbc79a5776161aab07e42f3d
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215262"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618765"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
 
@@ -323,9 +323,9 @@ Dans Azure Cosmos DB, vous pouvez apporter des modifications à la stratégie d�
 
 ![Mécanismes de l’indexation – Transformations d’index en ligne Azure Cosmos DB](./media/indexing-policies/index-transformations.png)
 
-Les transformations d’index s’effectuent en ligne. Cela signifie que les documents indexés par l’ancienne stratégie sont transformés efficacement par la nouvelle stratégie, *sans affecter la disponibilité de l’écriture ou le débit provisionné* de la collection. La cohérence des opérations de lecture et d’écriture effectuées à l’aide de l’API REST, des SDK ou à partir des déclencheurs et des procédures stockées n’est pas affectée au cours de la transformation de l’index. Aucune dégradation de performances, ou interruption de vos applications, ne se produit quand vous modifiez une stratégie d’indexation.
+Les transformations d’index s’effectuent en ligne. Cela signifie que les documents indexés par l’ancienne stratégie sont transformés efficacement par la nouvelle stratégie, *sans affecter la disponibilité de l’écriture ou le débit provisionné* de la collection. La cohérence des opérations de lecture et d’écriture effectuées à l’aide de l’API REST, des SDK ou à partir des déclencheurs et des procédures stockées n’est pas affectée au cours de la transformation de l’index. 
 
-Toutefois, lors de la transformation de l'index, les requêtes sont cohérentes, et ce, quelle que soit la configuration du mode d'indexation (mode Cohérent ou Différé). Cela s’applique également aux requêtes effectuées à l’aide de n’importe quelle interface : API REST, SDK ou à partir de déclencheurs et de procédures stockées. Tout comme avec l’indexation différée, la transformation de l’index est exécutée de façon asynchrone en arrière-plan sur les réplicas à l’aide de ressources d’échange disponibles pour un réplica spécifique. 
+La modification de la stratégie d’indexation est un processus asynchrone. Le temps nécessaire à la réalisation de cette opération varie selon le nombre de documents et d’unités de requête approvisionnées et la taille des documents. Lorsque la réindexation est en cours, votre requête peut ne pas retourner tous les résultats correspondants si elle utilise l’index en cours de modification. Les requêtes ne retourneront aucun échec/erreur. Lorsque la réindexation est en cours, les requêtes sont cohérentes, et ce, quelle que soit la configuration du mode d’indexation (mode Cohérent ou Différé). Après la transformation de l’index, vous continuerez à voir des résultats cohérents. Cela s’applique également aux requêtes effectuées à l’aide de n’importe quelle interface : API REST, SDK ou à partir de déclencheurs et de procédures stockées. Tout comme avec l’indexation différée, la transformation de l’index est exécutée de façon asynchrone en arrière-plan sur les réplicas à l’aide de ressources d’échange disponibles pour un réplica spécifique. 
 
 Les transformations d’index s’effectuent également sur place. Azure Cosmos DB ne conserve pas deux copies de l’index, et ne remplace pas l’ancien index par le nouveau. Cela signifie qu’aucun espace disque supplémentaire n’est nécessaire ou utilisé dans vos collections pendant que les transformations d’index ont lieu.
 

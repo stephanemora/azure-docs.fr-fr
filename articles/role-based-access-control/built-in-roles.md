@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136840"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619047"
 ---
 # <a name="built-in-roles-in-azure"></a>Rôles intégrés dans Azure
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs, groupes et principaux de service. Les attributions de rôles vous permettent de contrôler l’accès aux ressources dans Azure. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés](custom-roles.md).
@@ -63,6 +63,8 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Contributeur de machine virtuelle classique](#classic-virtual-machine-contributor) | Permet de gérer des machines virtuelles classiques, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. |
 | [Contributeur de base de données ClearDB MySQL](#cleardb-mysql-db-contributor) | Permet de gérer des bases de données ClearDB MySQL, mais pas d’y accéder. |
 | [Rôle de lecteur de compte Cosmos DB](#cosmos-db-account-reader-role) | Lire les données de comptes Azure Cosmos DB. Consultez [Contributeur de compte DocumentDB](#documentdb-account-contributor) pour en savoir plus sur la gestion des comptes Azure Cosmos DB. |
+| [Contributeur Data Box](#data-box-contributor) | Permet de gérer toutes les opérations sous le service Data Box à l’exception de l’octroi d’accès à d’autres personnes. |
+| [Opérateur Data Box](#data-box-operator) | Permet de gérer le service Data Box, mais ne permet pas de créer une commande, de modifier les détails d’une commande ou d’octroyer l’accès à d’autres personnes. |
 | [Contributeurs de fabrique de données](#data-factory-contributor) | Vous permet de gérer des fabriques de données, mais pas d'y accéder. |
 | [Développeur Data Lake Analytics](#data-lake-analytics-developer) | Permet d’envoyer, de surveiller et de gérer vos propres travaux, mais pas de créer ni de supprimer des comptes Data Lake Analytics. |
 | [Videur de données](#data-purger) | Peut vider les données d’analytique |
@@ -76,9 +78,10 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 | [Lecteur Log Analytics](#log-analytics-reader) | Peut afficher et rechercher toutes les données de surveillance, ainsi qu’afficher les paramètres de surveillance, notamment la configuration des diagnostics Azure sur toutes les ressources Azure. |
 | [Contributeur d’application logique](#logic-app-contributor) | Permet de gérer l’application logique, mais pas d’y accéder. |
 | [Opérateur d’application logique](#logic-app-operator) | Permet de lire, d’activer et de désactiver l’application logique. |
+| [Rôle opérateur d’application managée](#managed-application-operator-role) | Permet de lire les ressources d’application managée et d’effectuer des actions sur ces ressources. |
 | [Contributeur d’identités gérées](#managed-identity-contributor) | Peut créer, lire, mettre à jour et supprimer une identité attribuée à l’utilisateur. |
 | [Opérateur d’identités gérées](#managed-identity-operator) | Peut lire et assigner une identité attribuée à l’utilisateur. |
-| [Contributeur du groupe d’administration](#management-group-contributor) | Rôle de Contributeur du groupe d’administration |
+| [Collaborateur du groupe d’administration](#management-group-contributor) | Rôle de collaborateur du groupe d’administration |
 | [Lecteur du groupe d’administration](#management-group-reader) | Rôle de lecteur du groupe d’administration |
 | [Contributeur de surveillance](#monitoring-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. Consultez aussi [Bien démarrer avec les rôles, les autorisations et la sécurité dans Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Lecteur de surveillance](#monitoring-reader) | Peut lire toutes les données de surveillance (métriques, journaux, etc.) Consultez aussi [Bien démarrer avec les rôles, les autorisations et la sécurité dans Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
@@ -347,33 +350,34 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.Network/virtualNetworks/read | Obtenir la définition de réseau virtuel. |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp est une opération interne utilisée par le service. |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Gérer les résultats des opérations de gestion des sauvegardes |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Créer et gérer des conteneurs de sauvegarde dans les structures de sauvegarde du coffre Recovery Services |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Créer et gérer des travaux de sauvegarde |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Travaux d’exportation |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Renvoie le résultat de l’opération de travail d’exportation. |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Créer et gérer des métadonnées associées à la gestion des sauvegardes |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Créer et gérer les résultats des opérations de gestion des sauvegardes |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Créer et gérer des stratégies de sauvegarde |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Créer et gérer les éléments qui peuvent être sauvegardés |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Créer et gérer les éléments sauvegardés |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Créer et gérer les conteneurs contenant les éléments de sauvegarde |
+> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Renvoie des résumés pour les éléments protégés et les serveurs protégés d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/certificates/* | Créer et gérer des certificats associés à la sauvegarde dans le coffre Recovery Services |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Créer et gérer des informations étendues associées au coffre |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obtient les alertes pour le coffre Recovery Services. |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | L’opération d’obtention de coffre obtient un objet représentant la ressource Azure de type « coffre ». |
 > | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gérer les opérations de découverte pour récupérer les conteneurs récemment créés |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Créer et gérer les identités inscrites |
+> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Créer et gérer l’utilisation du coffre Recovery Services |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Renvoie des résumés pour les éléments protégés et les serveurs protégés d’un coffre Recovery Services. |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp est une opération interne utilisée par le service. |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obtient les alertes pour le coffre Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Renvoie le résultat de l’opération de travail d’exportation. |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
 ## <a name="backup-operator"></a>Opérateur de sauvegarde
@@ -658,6 +662,32 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
+## <a name="data-box-contributor"></a>Contributeur Data Box
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Permet de gérer toutes les opérations sous le service Data Box à l’exception de l’octroi d’accès à d’autres personnes. |
+> | **Id** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
+> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Databox/* |  |
+
+## <a name="data-box-operator"></a>Opérateur Data Box
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Permet de gérer le service Data Box, mais ne permet pas de créer une commande, de modifier les détails d’une commande ou d’octroyer l’accès à d’autres personnes. |
+> | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
+> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Databox/jobs/listsecrets/action | Répertorier les secrets non chiffrés liés à la commande |
+
 ## <a name="data-factory-contributor"></a>Contributeurs de fabrique de données
 > [!div class="mx-tableFixed"]
 > | | |
@@ -828,7 +858,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Crée un lab dans un compte lab. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtenir des informations de disponibilité régionale pour chaque catégorie de taille sous un compte Lab |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtenir des informations de disponibilité régionale pour chaque catégorie de taille configurée sous un compte Lab |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
@@ -919,6 +949,15 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Web/customApis/*/read | Lit l’API personnalisée. |
 > | Microsoft.Web/serverFarms/read | Récupère les propriétés d’un plan App Service. |
 
+## <a name="managed-application-operator-role"></a>Rôle opérateur d’application managée
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Permet de lire les ressources d’application managée et d’effectuer des actions sur ces ressources. |
+> | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | **Actions** |  |
+> | Microsoft.Solutions/applications/read | Récupère une liste d’applications. |
+
 ## <a name="managed-identity-contributor"></a>Contributeur d’identités gérées
 > [!div class="mx-tableFixed"]
 > | | |
@@ -950,11 +989,11 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 
-## <a name="management-group-contributor"></a>Contributeur du groupe d’administration
+## <a name="management-group-contributor"></a>Collaborateur du groupe d’administration
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Rôle de Contributeur du groupe d’administration |
+> | **Description** | Rôle de collaborateur du groupe d’administration |
 > | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
 > | **Actions** |  |
 > | Microsoft.Management/managementGroups/delete | Supprime un groupe d’administration. |
@@ -1125,6 +1164,7 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Authorization/policyDefinitions/* | Créer et gérer des définitions de stratégies |
 > | Microsoft.Authorization/policySetDefinitions/* | Créer et gérer des ensembles de stratégies |
 > | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
+> | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
 > | Microsoft.operationalInsights/workspaces/*/read | Afficher les données Log Analytics |
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
@@ -1134,8 +1174,9 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | Microsoft.Security/locations/tasks/activate/action | Activer une recommandation de sécurité. |
 > | Microsoft.Security/locations/tasks/dismiss/action | Ignorer une recommandation de sécurité. |
 > | Microsoft.Security/policies/write | Met à jour la stratégie de sécurité. |
+> | Microsoft.Security/securityContacts/write | Met à jour le contact de sécurité |
+> | Microsoft.Security/securityContacts/delete | Supprime le contact de sécurité |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
-> | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
 
 ## <a name="security-manager"></a>Gestionnaire de sécurité
 > [!div class="mx-tableFixed"]

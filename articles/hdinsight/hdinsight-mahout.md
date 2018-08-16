@@ -1,25 +1,20 @@
 ---
-title: Génération de recommandations à l’aide de Mahout HDInsight à partir de PowerShell - Azure | Microsoft Docs
+title: Génération de recommandations à l’aide de Mahout HDInsight à partir de PowerShell - Azure
 description: Apprenez à utiliser la bibliothèque à apprentissage automatique Apache Mahout pour générer des recommandations de films avec HDInsight (Hadoop) à partir d’un script PowerShell exécuté sur votre client.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 49a092ee23b79c483aa7bbd8b3d5150e909b6884
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 587ea8d9082a696853d8e25a36d9536c762d0582
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177350"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599987"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Génération de recommandations de films à l’aide d’Apache Mahout avec Hadoop dans HDInsight (PowerShell)
 
@@ -29,11 +24,10 @@ Apprenez à utiliser la bibliothèque à apprentissage automatique [Apache Mahou
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Un cluster HDInsight sous Linux Pour plus d’informations sur la création de ce dernier, consultez [Prise en main de Hadoop sous Linux dans HDInsight][getstarted].
 
     > [!IMPORTANT]
-    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Azure PowerShell](/powershell/azure/overview)
 
@@ -105,7 +99,7 @@ Utilisez la commande suivante pour afficher les recommandations dans un format c
 .\show-recommendation.ps1 -userId 4 -userDataFile .\user-ratings.txt -movieFile .\moviedb.txt -recommendationFile .\output.txt
 ```
 
-Le résultat ressemble au texte suivant :
+Le résultat ressemble au texte suivant :
 
     Reading movies descriptions
     Reading rated movies

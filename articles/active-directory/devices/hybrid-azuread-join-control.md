@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368677"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622168"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Guide pratique pour contrôler la jonction Azure Active Directory hybride de vos appareils
 
@@ -44,7 +44,7 @@ Cet article suppose de connaître :
 
 ## <a name="control-windows-current-devices"></a>Contrôler les appareils Windows actuels
 
-Pour les appareils qui fonctionnent avec le système d’exploitation d’ordinateur Windows, la version prise en charge est la Mise à jour anniversaire Windows 10 (version 1607) ou une version ultérieure. En tant que bonne pratique, mettez à niveau vers la dernière version de Windows 10.
+Pour les appareils qui fonctionnent avec le système d’exploitation d’ordinateur Windows, la version prise en charge est la Mise à jour anniversaire Windows 10 (version 1607) ou une version ultérieure. La meilleure pratique consiste à effectuer une mise à niveau vers la dernière version de Windows 10.
 
 Tous les appareils Windows actuels s’inscrivent automatiquement auprès d’Azure AD lorsqu’ils sont démarrés ou que l’utilisateur se connecte. Vous pouvez contrôler ce comportement au moyen d’un objet de stratégie de groupe (GPO) ou par le biais de System Center Configuration Manager.
 
@@ -110,6 +110,9 @@ Vous pouvez contrôler le comportement d’inscription pour vos appareils actuel
     
 
 Vous devez lier ce paramètre client à l’emplacement de votre choix. Par exemple, pour configurer ce paramètre client pour tous les appareils Windows actuels dans votre organisation, liez le paramètre client au domaine. Pour effectuer un déploiement contrôlé, vous pouvez configurer le paramètre client pour les appareils Windows actuels joints au domaine qui appartiennent à une unité d’organisation ou à un groupe de sécurité.
+
+> [!Important]
+> Bien que la configuration ci-dessus prenne en charge les appareils Windows 10 joints à un domaine existant, il est possible que les appareils récemment joints à un domaine tentent encore d’effectuer une jonction Azure AD hybride complète, et ce en raison du délai pouvant exister dans l’application réelle de la stratégie de groupe ou des paramètres Configuration Manager sur l’appareil Windows 10 récemment joint à un domaine. Pour éviter ce problème, il est recommandé de créer une image sysprep (utilisée comme exemple pour une méthode de provisionnement) à partir d’un appareil n’ayant jamais fait l’objet d’une jonction Azure AD hybride et sur lequel le paramètre de stratégie de groupe ci-dessus ou le paramètre du client Configuration Manager est déjà appliqué. Vous devez également utiliser la nouvelle image pour le provisionnement des nouveaux ordinateurs qui joignent le domaine de votre organisation. 
 
 ## <a name="control-windows-down-level-devices"></a>Contrôler des appareils Windows de bas niveau
 

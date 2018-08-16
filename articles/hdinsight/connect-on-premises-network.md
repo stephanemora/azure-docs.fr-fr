@@ -1,22 +1,19 @@
 ---
-title: Connecter HDInsight à votre réseau local - Azure HDInsight | Microsoft Docs
+title: Connecter HDInsight à votre réseau local - Azure HDInsight
 description: Découvrez comment créer un cluster HDInsight dans un réseau virtuel Azure, puis le connecter à votre réseau local. Découvrez comment configurer une résolution de noms entre HDInsight et votre réseau local à l’aide d’un serveur DNS personnalisé.
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: larryfr
-ms.openlocfilehash: bfb6515ba9b7f36e90783444fc474dc575b32f37
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: jasonh
+ms.openlocfilehash: c7186298c95667f1f29febca8c85d6799710deab
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113620"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597505"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connecter HDInsight à votre réseau local
 
@@ -77,7 +74,7 @@ Pour créer une machine virtuelle Linux utilisant le logiciel DNS [Bind](https:/
 
     ![Créer une machine virtuelle Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Dans la section __De base__, entrez les informations suivantes :
+2. Dans la section __De base__, entrez les informations suivantes :
 
     * __Nom__ : nom convivial identifiant cette machine virtuelle. Par exemple, __DNSProxy__.
     * __Nom d’utilisateur__ : nom du compte SSH.

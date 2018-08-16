@@ -1,25 +1,20 @@
 ---
-title: Créer des clusters Hadoop avec des modèles – Azure HDInsight | Microsoft Docs
+title: Créer des clusters Hadoop avec des modèles – Azure HDInsight
 description: Apprenez à créer des clusters pour HDInsight avec des modèles Resource Manager.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00a80dea-011f-44f0-92a4-25d09db9d996
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: ae5085eb52210844b364113a436fa033da9daac7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: aea620fcbce4906646c9a52ab042a86c421e32bf
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202343"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600669"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Créer des clusters Hadoop dans HDInsight avec des modèles Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +22,6 @@ ms.locfileid: "34202343"
 Vous trouverez dans cet article différentes façons de créer des clusters Azure HDInsight à l’aide de modèles Azure Resource Manager. Pour plus d’informations, consultez la page [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Pour découvrir d’autres outils et fonctions de création de clusters, cliquez sur le sélecteur d’onglets situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
 
 ## <a name="prerequisites"></a>Prérequis
-
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Pour suivre les instructions de cet article, il vous faut :

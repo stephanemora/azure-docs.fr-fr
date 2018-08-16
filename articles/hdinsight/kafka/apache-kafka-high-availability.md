@@ -1,25 +1,20 @@
 ---
-title: Haute disponibilité avec Apache Kafka - Azure HDInsight | Microsoft Docs
+title: Haute disponibilité avec Apache Kafka - Azure HDInsight
 description: Découvrez comment garantir une haute disponibilité avec Apache Kafka sur Azure HDInsight. Apprenez à rééquilibrer les réplicas de partition dans Kafka afin qu’ils soient répartis sur différents domaines d’erreur dans la région Azure qui contient HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-editor: cgronlun
-manager: jhubbard
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 13b57957bac728befd9c79e7aff262c538b02b54
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d33fa7a137c44be6040107c6e5d19b7883217f61
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772447"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622940"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Haute disponibilité de vos données avec Apache Kafka sur HDInsight
 
@@ -27,7 +22,7 @@ Découvrez comment configurer des réplicas de partition pour les rubriques Kafk
 
 ## <a name="fault-and-update-domains-with-kafka"></a>Domaines d’erreur et de mise à jour avec Kafka
 
-Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans un datacenter Azure. Chaque domaine d’erreur partage une source d’alimentation et un commutateur réseau communs. Les ordinateurs virtuels et les disques gérés mettant en œuvre les nœuds au sein d’un cluster HDInsight sont répartis dans ces domaines d’erreur. Cette architecture limite l’impact potentiel des défaillances de matériel physique.
+Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans un datacenter Azure. Chaque domaine d’erreur partage une source d’alimentation et un commutateur réseau communs. Les machines virtuelles et les disques managés mettant en œuvre les nœuds au sein d’un cluster HDInsight sont répartis dans ces domaines d’erreur. Cette architecture limite l’impact potentiel des défaillances de matériel physique.
 
 Chaque région Azure possède un certain nombre de domaines d’erreur. Pour obtenir la liste des domaines et le nombre de domaines d’erreur qu’ils contiennent, consultez la documentation [Groupes à haute disponibilité](../../virtual-machines/windows/regions-and-availability.md#availability-sets).
 

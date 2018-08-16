@@ -1,25 +1,20 @@
 ---
-title: Utiliser Hadoop Hive avec Curl dans HDInsight - Azure | Microsoft Docs
+title: Utiliser Hadoop Hive avec Curl dans HDInsight - Azure
 description: Découvrez comment transmettre à distance des tâches Pig vers HDInsight à l'aide de Curl.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: f602cf45165625ec252f2e29cb9b0e5ed878f3a8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: ff1805a68186120049da7ae49d38a0cc4a1a0c16
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170252"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598924"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Exécuter des requêtes Hive avec Hadoop dans HDInsight à l’aide de REST
 
@@ -29,11 +24,10 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hi
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Client REST. Ce document utilise des exemples Windows PowerShell et [Curl](http://curl.haxx.se/).
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: f44f47129a1d989422d25b7f0c5c55c1d229c07e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1cf67b61d330363690aea1da706e8cce4700ddcd
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129004"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618680"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solution Wire Data 2.0 (préversion) dans Log Analytics
 
@@ -56,22 +56,20 @@ Toutefois, comme il s’agit de métadonnées, elles ne sont pas nécessairement
 
 ## <a name="connected-sources"></a>Sources connectées
 
-Wire Data obtient ses données auprès de l’agent de dépendances Microsoft. Celui-ci dépend de l’agent OMS pour ses connexions à Log Analytics. Cela signifie que l’agent OMS doit être installé et configuré sur le serveur pour que l’agent de dépendances puisse être installé. Le tableau suivant décrit les sources connectées prises en charge par la solution Wire Data.
+Wire Data obtient ses données auprès de l’agent de dépendances Microsoft. Celui-ci dépend de l’agent Log Analytics pour ses connexions à Log Analytics. Cela signifie que l’agent Log Analytics doit être installé et configuré avec l’agent de dépendances sur le serveur. Le tableau suivant décrit les sources connectées prises en charge par la solution Wire Data.
 
 | **Source connectée** | **Pris en charge** | **Description** |
 | --- | --- | --- |
-| Agents Windows | OUI | Wire Data analyse et collecte des données provenant d’ordinateurs agents Windows. <br><br> Outre [l’agent OMS](log-analytics-windows-agent.md), les agents Windows nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
-| Agents Linux | OUI | Wire Data analyse et collecte des données provenant d’ordinateurs agents Linux.<br><br> Outre [l’agent OMS](log-analytics-quick-collect-linux-computer.md), les agents Linux nécessitent l’agent de dépendances Microsoft. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
-| Groupe d’administration Microsoft System Center Operations Manager | OUI | Wire Data analyse et collecte des données provenant des agents Windows et Linux dans un [groupe d’administration System Center Operations Manager](log-analytics-om-agents.md) connecté. <br><br> Une connexion directe entre l’ordinateur agent System Center Operations Manager et Log Analytics est requise. Les données sont transférées du groupe d’administration à Log Analytics. |
+| Agents Windows | Oui | Wire Data analyse et collecte des données provenant d’ordinateurs agents Windows. <br><br> Outre [l’agent Log Analytics pour Windows](log-analytics-windows-agent.md), les agents Windows nécessitent Microsoft Dependency Agent. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems). |
+| Agents Linux | Oui | Wire Data analyse et collecte des données provenant d’ordinateurs agents Linux.<br><br> Outre [l’agent Log Analytics pour Linux](log-analytics-quick-collect-linux-computer.md), les agents Linux nécessitent Microsoft Dependency Agent. Pour obtenir la liste complète des versions des systèmes d’exploitation, consultez la page [Systèmes d’exploitation pris en charge](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems). |
+| Groupe d’administration Microsoft System Center Operations Manager | Oui | Wire Data analyse et collecte des données provenant des agents Windows et Linux dans un [groupe d’administration System Center Operations Manager](log-analytics-om-agents.md) connecté. <br><br> Une connexion directe entre l’ordinateur agent System Center Operations Manager et Log Analytics est requise. |
 | Compte Azure Storage | Non  | Wire Data collecte des données provenant des ordinateurs agents. Aucune donnée n’est donc recueillie à partir du Stockage Azure. |
 
 Sous Windows, Microsoft Monitoring Agent (MMA) est utilisé à la fois par System Center Operations Manager et par Log Analytics pour collecter et envoyer des données. En fonction du contexte, l’agent est nommé Agent System Center Operations Manager, Agent OMS, Agent Log Analytics, MMA ou Agent direct. System Center Operations Manager et Log Analytics fournissent des versions légèrement différentes de MMA. Les deux versions peuvent envoyer leurs rapports à System Center Operations Manager, à Log Analytics ou aux deux.
 
-Sous Linux, l’agent OMS pour Linux collecte et envoie les données à Log Analytics. Vous pouvez utiliser Wire Data sur des serveurs équipés d’agents directs OMS ou sur des serveurs rattachés à Log Analytics au moyen de groupes d’administration System Center Operations Manager.
+Sous Linux, l’agent Log Analytics pour Linux collecte et envoie les données à Log Analytics. Vous pouvez utiliser Wire Data sur des serveurs équipés d’agents directement connectés à Log Analytics ou sur des serveurs se connectant à Log Analytics au moyen de groupes d’administration System Center Operations Manager.
 
-Dans cet article, les références à tous les agents (Linux ou Windows, connectés à un groupe d’administration System Center Operations Manager ou directement à Log Analytics) sont regroupées sous le terme _d’agents OMS_. Nous n’utiliserons le nom de déploiement propre à l’agent que si le contexte l’impose.
-
-L’agent de dépendances ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports. Les données de Wire Data sont toujours transmises par l’agent OMS à Log Analytics, directement ou par le biais de la passerelle OMS.
+L’agent de dépendances ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports. Les données de Wire Data sont toujours transmises par l’agent Log Analytics à Log Analytics, directement ou par le biais de la passerelle OMS.
 
 ![diagramme de l’agent](./media/log-analytics-wire-data/agents.png)
 
@@ -80,7 +78,7 @@ Si vous êtes un utilisateur de System Center Operations Manager avec un groupe 
 - Aucune configuration supplémentaire n’est requise si vos agents System Center Operations Manager peuvent accéder à Internet pour se connecter à Log Analytics.
 - Vous devez configurer la passerelle OMS de sorte qu’elle fonctionne avec System Center Operations Manager si vos agents System Center Operations Manager ne peuvent pas accéder à Log Analytics par Internet.
 
-Si vous utilisez l’agent direct, vous devez configurer l’agent OMS proprement dit pour qu’il se connecte à Log Analytics ou à votre passerelle OMS. Vous pouvez télécharger la passerelle OMS sur le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
+Si vos ordinateurs Windows ou Linux ne peuvent pas se connecter directement au service, vous devez configurer l’agent Log Analytics pour qu’il se connecte à Log Analytics à l’aide de la passerelle OMS. Vous pouvez télécharger la passerelle OMS sur le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -430,7 +428,7 @@ Un enregistrement de type _WireData_ est créé pour chaque type de données d�
 | IPVersion | Version de l’adresse IP |
 | Direction | Entrant ou sortant |
 | MaliciousIP | Adresse IP d’une source malveillante connue |
-| Niveau de gravité | Niveau de gravité suspecté |
+| Severity | Niveau de gravité suspecté |
 | RemoteIPCountry | Pays de l’adresse IP distante |
 | ManagementGroupName | Nom du groupe d’administration Operations Manager |
 | SourceSystem | Source où les données ont été recueillies |

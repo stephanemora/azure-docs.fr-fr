@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4082189d451f670c1ae3f76b8ec785d8bd0518b3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 83f199c49209210ec577017534f93e36d05bd70a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034917"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620363"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Déployer des modules Azure IoT Edge à partir du portail Azure
 
@@ -44,17 +44,17 @@ Le portail Azure comprend un Assistant qui vous guide à travers la création du
 
 1. Dans la section **Paramètres de Registre** de la page, fournissez les informations d’identification permettant d’accéder à n’importe quels registres de conteneurs privés qui contiennent des images de module. 
 2. Dans la section **Modules de déploiement** de la page, sélectionnez **Ajouter**. 
-3. Dans la liste déroulante, sélectionnez le type de module : 
+3. Examinez les types de modules dans la liste déroulante : 
    * **Module IoT Edge** : option par défaut.
    * **Module Azure Stream Analytics** : uniquement les modules générés à partir d’une charge de travail Azure Stream Analytics. 
-
-4. Fournissez un nom pour le module, puis spécifiez l’image conteneur. Par exemple :  
+4. Sélectionnez le **Module IoT Edge**.
+5. Fournissez un nom pour le module, puis spécifiez l’image conteneur. Par exemple :  
    * **Nom** : tempSensor
    * **URI d’image** : mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-5. Renseignez les champs facultatifs si nécessaire. Pour plus d’informations sur les options de création de conteneur, la stratégie de redémarrage et l’état souhaité, consultez [Propriétés souhaitées pour EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Pour plus d’informations sur le jumeau de module, consultez [Définir ou mettre à jour les propriétés souhaitées](module-composition.md#define-or-update-desired-properties).
-6. Sélectionnez **Enregistrer**.
-7. Répétez les étapes 2 à 6 pour ajouter des modules à votre déploiement. 
-8. Sélectionnez **Suivant** pour passer à la section des itinéraires.
+6. Renseignez les champs facultatifs si nécessaire. Pour plus d’informations sur les options de création de conteneur, la stratégie de redémarrage et l’état souhaité, consultez [Propriétés souhaitées pour EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Pour plus d’informations sur le jumeau de module, consultez [Définir ou mettre à jour les propriétés souhaitées](module-composition.md#define-or-update-desired-properties).
+7. Sélectionnez **Enregistrer**.
+8. Répétez les étapes 2 à 6 pour ajouter des modules à votre déploiement. 
+9. Sélectionnez **Suivant** pour passer à la section des itinéraires.
 
 ### <a name="specify-routes"></a>Spécifier des routes
 
@@ -74,4 +74,4 @@ Une fois les modules déployés sur votre appareil, vous pouvez les voir tous da
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [déployer et surveiller des modules IoT Edge à l’échelle](how-to-deploy-monitor.md).
+Découvrez comment [déployer et surveiller des modules IoT Edge à grande échelle](how-to-deploy-monitor.md).

@@ -1,31 +1,27 @@
 ---
-title: Déploiement et gestion de topologies Apache Storm sur HDInsight basé sur Linux | Microsoft Docs
+title: Déploiement et gestion des topologies Apache Storm sur Azure HDInsight
 description: Apprenez à déployer, surveiller et gérer des topologies Apache Storm à l’aide du tableau de bord Storm sur HDInsight basé sur Linux. Utilisez les outils Hadoop pour Visual Studio.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: larryfr
-ms.openlocfilehash: 53433e6a677a2576a11209075f397bb5f246b875
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: cf3de9899cdefd5761bb31f64bcb537b12eb4df3
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129283"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619462"
 ---
-# <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur HDInsight
+# <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur Azure HDInsight 
 
 Ce document présente les principes fondamentaux de la gestion et de la surveillance des topologies Storm qui s’exécutent sur des clusters Storm sur HDInsight.
 
 > [!IMPORTANT]
-> Les étapes décrites dans cet article nécessitent un cluster Storm Linux sur HDInsight. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
+> Les étapes décrites dans cet article nécessitent un cluster Storm Linux sur HDInsight. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 >
 > Pour plus d’informations sur le déploiement et la surveillance des topologies sur HDInsight Windows, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Windows](apache-storm-deploy-monitor-topology.md)
 
@@ -81,7 +77,7 @@ Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à vo
 
     Pour plus d’informations sur l’utilisation de SSH pour se connecter à votre cluster HDInsight, voir [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Utilisez la commande suivante pour démarrer un exemple de topologie :
+2. Utilisez la commande suivante pour démarrer un exemple de topologie :
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
@@ -134,7 +130,7 @@ Utilisez la commande suivante pour répertorier toutes les topologies en cours d
 
     storm list
 
-Cette commande renvoie des informations semblables au texte suivant :
+Cette commande retourne des informations semblables au texte suivant :
 
     Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
     -------------------------------------------------------------------

@@ -3,8 +3,8 @@ title: Présentation du cache local d’Azure App Service | Microsoft Docs
 description: Cet article décrit comment activer et redimensionner le cache local d’Azure App Service, puis comment interroger l’état de cette fonctionnalité.
 services: app-service
 documentationcenter: app-service
-author: SyntaxC4
-manager: yochayk
+author: cephalin
+manager: jpconnock
 editor: ''
 tags: optional
 keywords: ''
@@ -15,15 +15,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
-ms.author: cfowler
-ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cephalin
+ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22985944"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597728"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
+
+> [!NOTE]
+> Le cache local n’est pas pris en charge dans les applications App Service en conteneur, comme sur [App Service sur Linux](containers/app-service-linux-intro.md).
+
 Le contenu des applications web Azure est stocké sur Azure Storage et est exposé de manière durable en tant que partage de contenu. Destinée à fonctionner avec de nombreuses applications, cette conception présente les caractéristiques suivantes :  
 
 * Le contenu est partagé entre plusieurs instances de machine virtuelle de l’application web.
@@ -41,11 +45,11 @@ La fonctionnalité de cache local d’Azure App Service fournit une vue de rôle
 
 ## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Impact du cache local sur le comportement d’App Service
 * Le cache local est une copie des dossiers /site et /siteextensions de l’application web. Il est créé sur l’instance de machine virtuelle locale au démarrage de l’application web. La taille du cache local par application web est limitée à 300 Mo par défaut, mais vous pouvez augmenter cette taille jusqu’à 2 Go.
-* Le cache local est en lecture-écriture. Toutefois, les modifications sont ignorées quand l’application web change de machines virtuelles ou est redémarrée. N’utilisez pas le cache local pour des applications qui stockent des données stratégiques dans le magasin de contenu.
+* Le cache local est en lecture-écriture. Toutefois, toute modification est ignorée quand l’application web change de machines virtuelles ou est redémarrée. N’utilisez pas le cache local pour des applications qui stockent des données stratégiques dans le magasin de contenu.
 * Les applications web peuvent continuer à écrire des fichiers journaux et des données de diagnostic comme elles le font habituellement. Toutefois, les fichiers journaux et les données sont stockés localement sur la machine virtuelle. Ils sont ensuite régulièrement copiés dans le magasin de contenu partagé. Malgré la copie dans le magasin de contenu partagé, les écritures différées risquent d’être perdues en cas d’arrêt soudain d’une instance de machine virtuelle.
 * La structure des dossiers LogFiles et Data est modifiée pour les applications web qui utilisent le cache local. Ces dossiers de stockage contiennent désormais des sous-dossiers dont le nom est formé d’un identificateur unique et d’un horodatage. Chaque sous-dossier correspond à une instance de machine virtuelle sur laquelle l’application web est en cours d’exécution ou s’est exécutée.  
-* La publication des modifications apportées à l’application web s’effectue dans le magasin de contenu partagé, quel que soit le mécanisme de publication utilisé. Cette conception garantit la durabilité du contenu publié. Pour actualiser le cache local de l’application web, vous devez redémarrer l’application. Si cette étape vous semble de trop, vous pouvez rendre le cycle de vie transparent. vous pouvez rendre le cycle de vie transparent. Pour plus d’informations, consultez la suite de cet article.
-* D:\Home pointe vers le cache local. D:\Local continue de pointer vers le stockage propre à la machine virtuelle temporaire.
+* La publication de changements sur l’application web s’effectue dans le magasin de contenu partagé durable, quel que soit le mécanisme de publication utilisé. Pour actualiser le cache local de l’application web, vous devez redémarrer l’application. vous pouvez rendre le cycle de vie transparent. Pour plus d’informations, consultez la suite de cet article.
+* D:\Home pointe vers le cache local. D:\local continue de pointer vers le stockage propre à la machine virtuelle temporaire.
 * L’affichage de contenu par défaut du site SCM continue à être celui du magasin de contenu partagé.
 
 ## <a name="enable-local-cache-in-app-service"></a>Activer le cache local dans App Service
@@ -104,7 +108,7 @@ Utilisez la fonctionnalité de cache local si votre application web a besoin d�
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Comment savoir si mon site a basculé pour utiliser le cache local ?
 Si vous utilisez la fonctionnalité de cache local avec des environnements de préproduction, l’opération d’échange prend fin seulement après l’initialisation du cache local. Pour vérifier si votre site s’exécute sur le cache local, examinez la variable d’environnement de processus de travail `WEBSITE_LOCALCACHE_READY`. Suivez les instructions fournies dans la page de la [variable d’environnement de processus de travail](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) pour accéder à cette variable sur plusieurs instances.  
 
-### <a name="i-just-published-new-changes-but-my-web-app-does-not-seem-to-have-them-why"></a>Je viens de publier de nouvelles modifications, mais mon application web ne semble pas les avoir intégrées. Pourquoi ?
+### <a name="i-just-published-new-changes-but-my-web-app-does-not-seem-to-have-them-why"></a>Je viens de publier de nouvelles modifications, mais mon application web ne semble pas les avoir intégrées. Pourquoi ?
 Si votre application web utilise le cache local, vous devez redémarrer votre site pour voir les dernières modifications. Si vous ne voulez pas publier les modifications sur un site de production, consultez les options d’emplacement décrites dans la section sur les bonnes pratiques, plus haut dans cet article.
 
 ### <a name="where-are-my-logs"></a>Où sont mes journaux ?

@@ -1,24 +1,20 @@
 ---
-title: 'Tutoriel : Traiter des données à partir d’Azure Event Hubs avec Apache Spark dans Azure HDInsight | Microsoft Docs'
+title: 'Tutoriel : Traiter des données à partir d’Azure Event Hubs avec Apache Spark dans Azure HDInsight '
 description: Connectez Apache Spark dans Azure HDInsight à Azure Event Hubs et traitez les données de streaming.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: 9b59f5d58234aaf8f8385f722d6659548e066933
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/14/2018
+ms.openlocfilehash: 27c8a51ee3f0274489041f4dafbbf73d906e2fa4
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781408"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617636"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Tutoriel : Traiter les tweets à l’aide d’Azure Event Hubs et de Spark dans HDInsight
 
@@ -33,8 +29,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-* **Consultez l’article [Tutoriel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Consultez l’article [Didacticiel : charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 
 ## <a name="create-a-twitter-application"></a>Création d'une application Twitter
 
@@ -209,7 +204,7 @@ Vous devez créer un autre bloc-notes Jupyter et le nommer **ReadTweetsFromEvent
     val eventHubNSConnStr = "<Event hub namespace connection string>"
     val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
     
-    val customEventhubParameters = EventHubsConf(connectionString).setMaxEventsPerTrigger(5)
+    val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
     //incomingStream.printSchema    
     
@@ -225,7 +220,7 @@ Vous devez créer un autre bloc-notes Jupyter et le nommer **ReadTweetsFromEvent
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Avec HDInsight, vos données étant stockées dans Stockage Azure ou Azure Data Lake Store, vous pouvez supprimer un cluster de manière sécurisée s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
 
@@ -237,7 +232,7 @@ Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 * Lire un message à partir d’un hub d’événements.
 Passez à l’article suivant pour voir comment créer une application d’apprentissage automatique. 

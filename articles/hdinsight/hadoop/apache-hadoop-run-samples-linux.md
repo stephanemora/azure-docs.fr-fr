@@ -1,26 +1,21 @@
 ---
-title: Exécuter des exemples MapReduce Hadoop dans HDInsight - Azure | Documents Microsoft
+title: Exécuter des exemples MapReduce Hadoop dans HDInsight - Azure
 description: Bien démarrer avec des exemples MapReduce dans des fichiers jar inclus dans HDInsight. Utilisez le protocole SSH pour vous connecter au cluster, puis utilisez la commande Hadoop pour exécuter des exemples de travaux.
 keywords: exemple de fichier jar Hadoop, exemples de fichiers jar hadoop, exemples mapreduce hadoop, exemples mapreduce
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 14f860d64c482ac7ef74512aea4850821d30132c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: b29fb56f6ce244811aef924bb947a8b8ee8e4da4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202303"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597301"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Exécuter les exemples MapReduce inclus dans HDInsight
 
@@ -30,11 +25,10 @@ Découvrez comment exécuter les exemples MapReduce inclus à Hadoop dans HDInsi
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * **Un cluster HDInsight** : consultez la rubrique [Bien démarrer avec Hadoop avec Hive dans HDInsight sur Linux](apache-hadoop-linux-tutorial-get-started.md)
 
     > [!IMPORTANT]
-    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Client SSH** : pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS XH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -110,7 +104,7 @@ Découvrez comment exécuter les exemples MapReduce inclus à Hadoop dans HDInsi
     hdfs dfs -cat /example/data/davinciwordcount/*
     ```
 
-    Cette commande concatène tous les fichiers de sortie générés par le travail. Elle affiche la sortie dans la console. Le résultat ressemble au texte suivant :
+    Cette commande concatène tous les fichiers de sortie générés par le travail. Elle affiche la sortie dans la console. Le résultat ressemble au texte suivant :
 
         zum     1
         zur     1

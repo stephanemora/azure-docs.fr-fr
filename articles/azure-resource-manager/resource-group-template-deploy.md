@@ -1,4 +1,4 @@
-﻿---
+---
 title: Déployer des ressources avec le modèle et PowerShell | Microsoft Docs
 description: Utilisez Azure Resource Manager et Azure PowerShell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 services: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 714f5f2d4aa1635da8aa62139be5c80e7761ae27
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5d01fcbccb341db7e06a40c882f77d428fa06637
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38486738"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626241"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
@@ -161,15 +161,6 @@ Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected charac
   ". Path 'variables', line 31, position 3.
 ```
 
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-Pour utiliser le mode complet, utilisez le paramètre `Mode` :
-
-```powershell
-New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
-  -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json 
-```
-
 ## <a name="sample-template"></a>Exemple de modèle
 
 Le modèle suivant est utilisé pour les exemples de cet article. Copiez et enregistrez-le dans un fichier nommé storage.json. Pour comprendre comment ce modèle est créé, consultez [Créer votre premier modèle Azure Resource Manager](resource-manager-create-first-template.md).  
@@ -221,7 +212,7 @@ Le modèle suivant est utilisé pour les exemples de cet article. Copiez et enre
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Les exemples de cet article permettent de déployer des ressources dans un groupe de ressources pour votre abonnement par défaut. Pour utiliser un autre abonnement, consultez [Gérer plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
-* Pour accéder à un exemple de script complet qui déploie un modèle, consultez la page [Déploiement d’un modèle Azure Resource Manager](resource-manager-samples-powershell-deploy.md).
+* Pour spécifier comment gérer une ressource existant dans le groupe de ressources mais non définie dans le modèle, voir [modes de déploiement d’Azure Resource Manager](deployment-modes.md).
 * Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](resource-manager-powershell-sas-token.md).

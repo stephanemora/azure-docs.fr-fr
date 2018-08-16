@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/14/2017
 ms.author: sngun
-ms.openlocfilehash: 6a98d3b477a3cb06c1454a79b77dffa685853a35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8eba0f70141fe28a478e842523023a22c2db50fe
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668122"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628747"
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Didacticiel Node.js : utilisez l’API SQL dans Azure Cosmos DB pour créer une application de console Node.js
 
@@ -26,6 +26,7 @@ ms.locfileid: "38668122"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js pour MongoDB](mongodb-samples.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
+> * [Node.js - préversion v2.0](sql-api-nodejs-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 
 
@@ -259,7 +260,7 @@ Copiez et collez le code suivant où vous avez défini la fonction **getDatabase
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande : ```node app.js```
 
-Félicitations ! Vous avez créé une base de données Azure Cosmos DB.
+Félicitations ! Vous avez créé une base de données Azure Cosmos DB.
 
 ## <a id="CreateColl"></a>Étape 6 : Création d’une collection
 
@@ -313,7 +314,7 @@ Copiez et collez le code sous l’appel à **getDatabase** pour exécuter la fon
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande : ```node app.js```
 
-Félicitations ! Vous avez créé une collection Azure Cosmos DB.
+Félicitations ! Vous avez créé une collection Azure Cosmos DB.
 
 ## <a id="CreateDoc"></a>Étape 7 : Création d’un document
 
@@ -366,7 +367,7 @@ Copiez et collez le code situé sous l’appel à **getCollection** pour exécut
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande : ```node app.js```
 
-Félicitations ! Vous avez créé un document Azure Cosmos DB.
+Félicitations ! Vous avez créé un document Azure Cosmos DB.
 
 ![Didacticiel Node.js : diagramme illustrant la relation hiérarchique existant entre le compte, la base de données, la collection et les documents - Base de données de nœud](./media/sql-api-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
@@ -424,7 +425,7 @@ Copiez et collez le code sous l’appel à **getFamilyDocument** pour exécuter 
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande : ```node app.js```
 
-Félicitations ! Vous avez interrogé des documents Azure Cosmos DB.
+Félicitations ! Vous avez interrogé des documents Azure Cosmos DB.
 
 ## <a id="ReplaceDocument"></a>Étape 9 : Remplacement d’un document
 Azure Cosmos DB prend en charge le remplacement des documents JSON.
@@ -470,7 +471,7 @@ Copiez et collez le code sous l’appel à **queryCollection** pour exécuter la
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande : ```node app.js```
 
-Félicitations ! Vous avez remplacé un document Azure Cosmos DB.
+Félicitations ! Vous avez remplacé un document Azure Cosmos DB.
 
 ## <a id="DeleteDocument"></a>Étape 10 : Suppression d’un document
 
@@ -514,7 +515,7 @@ Copiez et collez le code sous l’appel à la deuxième fonction **queryCollecti
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande : ```node app.js```
 
-Félicitations ! Vous avez supprimé un document Azure Cosmos DB.
+Félicitations ! Vous avez supprimé un document Azure Cosmos DB.
 
 ## <a id="DeleteDatabase"></a>Étape 11 : Suppression de la base de données de nœud
 
@@ -602,7 +603,7 @@ La sortie de votre application de prise en main doit s’afficher. La sortie doi
     Completed successfully
     Press any key to exit
 
-Félicitations ! Vous avez créé et terminé le didacticiel Node.js et disposez à présent de votre première application de console Azure Cosmos DB !
+Félicitations ! Vous avez créé et terminé le didacticiel Node.js et disposez à présent de votre première application de console Azure Cosmos DB !
 
 ## <a id="GetSolution"></a>Obtenir la solution complète du didacticiel Node.js
 

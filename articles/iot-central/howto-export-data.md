@@ -8,37 +8,37 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 6d35e3cfefcefef0b4ff40364cbdab92d486b769
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 3ca2bc56c03e5bbabbd9b2f17edc621bdd94b02f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011457"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622481"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exporter vos données dans Azure IoT Central
 
-Utilisez l’exportation de données continue pour exporter régulièrement des données dans votre compte Stockage Blob Azure. Choisissez d’exporter des **mesures**, des **appareils** et des **modèles d’appareil** dans des fichiers au format [Apache AVRO](https://avro.apache.org/docs/current/index.html). Utilisez les données exportées pour l’analytique des chemins à froid, comme les modèles d’apprentissage dans Azure Machine Learning ou l’analyse de tendances à long terme dans Power BI.
+Cet article décrit comment utiliser la fonctionnalité d’exportation continue des données dans Azure IoT Central pour exporter régulièrement des données vers votre compte Stockage Blob Azure. Vous pouvez exporter des **mesures**, des **appareils** et des **modèles d’appareil** dans des fichiers au format [Apache AVRO](https://avro.apache.org/docs/current/index.html). Utilisez les données exportées pour l’analytique des chemins à froid, comme les modèles d’apprentissage dans Azure Machine Learning ou l’analyse de tendances à long terme dans Microsoft Power BI.
 
 > [!Note]
-> Quand vous activez l’exportation de données continue, vous obtenez seulement les données qui entrent à partir de ce moment. Il n’existe actuellement aucun moyen de récupérer des données à partir du moment où l’exportation de données continue a été désactivée. Activez l’exportation de données continue tôt dans le processus de façon à conserver un historique des données plus étendu !
+> Quand vous activez l’exportation de données continue, vous obtenez seulement les données à partir de ce moment. Pour le moment, vous ne pouvez pas récupérer les données d’une période pendant laquelle l’exportation de données continue est désactivée. Pour conserver un historique des données plus étendu, activez l’exportation de données continue tôt dans le processus.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Une application d’essai de 30 jours étendue ou une application payante
-- Un compte Azure avec un abonnement Azure
-- Le même compte Azure est un administrateur dans votre application IoT Central
-- Le même compte Azure dispose des autorisations pour créer un compte de stockage ou pour accéder à un compte de stockage existant dans le même abonnement Azure
+- Essai étendu de30 jours de l’application IoT Central ou application payante.
+- Compte Azure avec abonnement Azure.
+- Le même compte Azure est un administrateur dans votre application IoT Central.
+- Le même compte Azure dispose des autorisations pour créer un compte de stockage ou pour accéder à un compte de stockage existant dans le même abonnement Azure.
 
 ## <a name="types-of-data-to-export"></a>Types de données à exporter
 
 ### <a name="measurements"></a>Mesures
 
-Les mesures envoyées par les appareils sont exportées dans votre compte de stockage. Les données des mesures sont exportées environ une fois par minute ; elles contiennent tous les nouveaux messages qui ont été reçus par IoT Central en provenance de tous les appareils pendant cette fenêtre de temps. Les fichiers AVRO exportés sont au même format que les fichiers de messages exportés par [le routage des messages IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) vers le stockage Blob.
+Les mesures envoyées par les appareils sont exportées dans votre compte de stockage chaque minute. Les données contiennent tous les nouveaux messages reçus par IoT Central en provenance de tous les appareils pendant cette période. Les fichiers AVRO exportés utilisent le même format que les fichiers de messages exportés par [le routage des messages IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) vers Stockage Blob.
 
 > [!NOTE]
-> Les appareils qui ont envoyé les mesures sont représentés par leur ID d’appareil (voir ci-dessous). Pour obtenir les noms des appareils, vous devez également exporter les instantanés des appareils. Vous pouvez associer chaque enregistrement de message avec le connectionDeviceId qui correspond à l’ID de l’appareil.
+> Les appareils qui envoient les mesures sont représentés par leur ID d’appareil (voir les sections suivantes). Pour obtenir les noms des appareils, exportez les instantanés d’appareil. Associez chaque enregistrement avec le **connectionDeviceId** qui correspond à l’ID de l’appareil.
 
-Voici un exemple d’enregistrement dans le fichier AVRO décodé.
+L’exemple suivant montre un enregistrement dans un fichier AVRO décodé :
 
 ```json
 {
@@ -56,23 +56,22 @@ Voici un exemple d’enregistrement dans le fichier AVRO décodé.
 
 ### <a name="devices"></a>Appareils
 
-Quand vous activez l’exportation de données continue pour la première fois, un instantané unique contenant tous les appareils est exporté. Ceci inclut :
-- ID des appareils
-- Noms des appareils
-- ID des modèles d’appareil
-- Valeurs des propriétés
-- Valeurs des paramètres
+Quand l’exportation de données continue est activée pour la première fois, un instantané unique avec tous les appareils est exporté. L’instantané inclut les éléments suivants :
+- ID des appareils.
+- Noms des appareils.
+- ID des modèles d’appareil.
+- Valeurs de propriétés.
+- Valeurs de paramètres.
 
-Environ une fois par minute, un nouvel instantané est écrit, qui contient :
+Un nouvel instantané est écrit chaque minute. L’instantané inclut les éléments suivants :
 
-- Les nouveaux appareils qui ont été ajoutés depuis le dernier instantané
-- Les appareils dont les valeurs des propriétés et des paramètres ont changé depuis le dernier instantané
-
-> [!NOTE]
-> Les appareils qui ont été supprimés depuis le dernier instantané ne sont pas exportés. Il n’existe pour l’instant aucun indicateur dans les instantanés pour les appareils qui ont été supprimés.
+- Nouveaux appareils ajoutés depuis le dernier instantané.
+- Appareils pour lesquels des valeurs de propriétés et de paramètres ont changé depuis le dernier instantané.
 
 > [!NOTE]
-> Le modèle d’appareil auquel chaque appareil appartient est représenté par un ID de modèle d’appareil. Pour obtenir le nom du modèle d’appareil, vous devez également exporter des instantanés des modèles d’appareil.
+> Les appareils supprimés depuis le dernier instantané ne sont pas exportés. À l’heure actuelle, les instantanés n’ont pas d’indicateurs pour les appareils supprimés.
+>
+> Le modèle d’appareil auquel chaque appareil appartient est représenté par un ID de modèle d’appareil. Pour obtenir le nom du modèle d’appareil, exportez les instantanés des modèles d’appareil.
 
 Chaque enregistrement du fichier AVRO décodé se présente comme ceci :
 
@@ -105,19 +104,19 @@ Chaque enregistrement du fichier AVRO décodé se présente comme ceci :
 
 ### <a name="device-templates"></a>Modèles d’appareil
 
-Quand vous activez l’exportation de données continue pour la première fois, un instantané unique contenant tous les modèles d’appareil est exporté. notamment : 
-- ID des modèles d’appareil
-- Types de données et valeurs minimales/maximales des mesures
-- Types de données et valeurs par défaut des propriétés
-- Types de données et valeurs par défaut des paramètres
+Quand l’exportation de données continue est activée pour la première fois, un instantané unique avec tous les modèles d’appareil est exporté. L’instantané inclut les éléments suivants : 
+- ID des modèles d’appareil.
+- Types de données et valeurs minimales/maximales des mesures.
+- Types de données et valeurs par défaut des propriétés.
+- Types de données et valeurs par défaut des paramètres.
 
-Environ une fois par minute, un nouvel instantané est écrit, qui contient :
+Un nouvel instantané est écrit chaque minute. L’instantané inclut les éléments suivants :
 
-- Les nouveaux modèles d’appareil qui ont été ajoutés depuis le dernier instantané
-- Les modèles d’appareil pour lesquels les définitions des mesures, des propriétés et des paramètres ont changé depuis le dernier instantané
+- Nouveaux modèles d’appareil ajoutés depuis le dernier instantané.
+- Modèles d’appareil pour lesquels les définitions de mesures, propriétés et paramètres ont changé depuis le dernier instantané.
 
 > [!NOTE]
-> Les modèles d’appareil qui ont été supprimés depuis le dernier instantané ne sont pas exportés. Il n’existe pour l’instant aucun indicateur dans les instantanés pour les modèles d’appareil qui ont été supprimés.
+> Les modèles d’appareil supprimés depuis le dernier instantané ne sont pas exportés. À l’heure actuelle, les captures instantanées n’ont pas d’indicateurs pour les modèles d’appareil supprimés.
 
 Chaque enregistrement du fichier AVRO décodé se présente comme ceci :
 
@@ -195,39 +194,46 @@ Chaque enregistrement du fichier AVRO décodé se présente comme ceci :
 }
 ```
 
-## <a name="how-to-set-up-data-export"></a>Comment configurer l’exportation de données
+## <a name="set-up-continuous-data-export"></a>Configurer l’exportation de données en continu
 
-1. Si vous n’en avez pas encore un, créez un compte Stockage Azure **dans l’abonnement Azure où se trouve votre application**. [Cliquez ici](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) pour accéder au portail Azure de façon à créer un compte Stockage Azure.
-
-    - Choisissez le type de compte *Usage général* ou *Stockage Blob*
+1. Si vous n’avez pas de compte de stockage Azure, [créez un compte de stockage](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) dans le portail Azure. Créez le compte de stockage **dans l’abonnement Azure où se trouve votre application IoT Central**.
+    - Choisissez le type de compte **Usage général** ou **Stockage Blob**.
     - Sélectionnez l’abonnement où se trouve votre application IoT Central. Si vous ne voyez pas l’abonnement, il peut être nécessaire de vous connecter à un autre compte Azure ou de demander l’accès à l’abonnement.
-    - Vous pouvez choisir un groupe de ressources existant ou en créer un. Découvrez [comment créer un compte de stockage](https://aka.ms/blobdocscreatestorageaccount)
+    - Sélectionnez un groupe de ressources existant ou créez-en un. Découvrez [comment créer un compte de stockage](https://aka.ms/blobdocscreatestorageaccount).
 
-2. Créez un conteneur dans votre compte de stockage pour y exporter vos données IoT Central. Accédez à votre Compte de stockage -> Parcourir les objets blob, puis créez un conteneur. ![Créer une image de conteneur](media/howto-export-data/createcontainer.png)
+2. Créez un conteneur dans votre compte de stockage pour exporter vos données IoT Central. Accédez à votre compte de stockage. Sous **Service blob**, sélectionnez **Parcourir les objets blob**. Sélectionnez **Conteneur** pour créer un conteneur.
+
+   ![Créez un conteneur.](media/howto-export-data/createcontainer.png)
 
 3. Connectez-vous à votre application IoT Central avec le même compte Azure.
-1. Accédez à Administration -> Exportation de données continue.
-![Exportation de données continue d’IoT Central](media/howto-export-data/continuousdataexport.PNG)
-1. Utilisez les listes déroulantes, choisissez votre compte de stockage et votre conteneur. Utilisez ensuite les bascules pour activer ou désactiver les différents types de données à exporter.
-1. Enfin, activez l’exportation de données continue avec la bascule, puis cliquez sur « Enregistrer ».
-1. Patientez quelques minutes, au terme desquelles vous voyez normalement apparaître vos données dans votre compte de stockage. Vous pouvez accéder à votre compte de stockage, sélectionner Parcourir les objets blob et sélectionner votre conteneur : vous voyez alors trois dossiers. Les chemins par défaut pour les fichiers AVRO contenant les différents types de données sont :
-- Messages : **{conteneur}/measurements/{nom_hub}/{AAAA}/{MM}/{
-- j}/{hh}/{mm}/00.avro**Appareils : **{conteneur}/devices/{nom_hub}/{AAAA}/{MM}/{
-- j}/{hh}/{mm}/00.avro**Modèles d’appareil : **{conteneur}/deviceTemplates/{nom_hub}/{AAAA}/{MM}/{
 
-## <a name="how-to-read-exported-avro-files"></a>j}/{hh}/{mm}/00.avro**Comment lire les fichiers AVRO exportés
+4. Sous **Administration**, sélectionnez **Exportation de données**.
 
-AVRO étant un format binaire, les fichiers ne peuvent pas être lus dans leur état brut. Ils peuvent être décodés au format JSON. Les exemples suivants montrent comment analyser les fichiers AVRO des mesures, des appareils et des modèles d’appareil en utilisant les exemples ci-dessus.
+   ![Configurer l’exportation de données continue](media/howto-export-data/continuousdataexport.PNG)
 
-## <a name="python"></a>Python
+5. Dans la zone de liste déroulante **Compte de stockage**, sélectionnez votre compte de stockage. Dans la zone de liste déroulante **Conteneur**, sélectionnez votre conteneur. Sous **Données à exporter**, spécifiez chaque type de données à exporter en définissant le type avec la valeur **Activé**.
 
-### <a name="install-pandas-and-the-pandaavro-package"></a>Installez Pandas et le package PandaAvro :
+6. Pour activer l’exportation des données continue, définissez **Exportation de données** avec la valeur **Activé**. Sélectionnez **Enregistrer**.
+
+7. Après quelques minutes, vos données apparaissent dans votre compte de stockage. Accédez à votre compte de stockage. Sélectionnez **Parcourir les objets blob** > votre conteneur. Trois dossiers apparaissent pour les données d’exportation. Les chemins par défaut pour les fichiers AVRO avec les données d’exportation sont les suivants :
+    - Messages : {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - Appareils : {container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - Modèles d’appareil : {container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+
+## <a name="read-exported-avro-files"></a>Lire les fichiers AVRO exportés
+
+AVRO étant un format binaire, les fichiers ne peuvent pas être lus dans leur état brut. Les fichiers peuvent être décodés au format JSON. Les exemples suivants montrent comment analyser les fichiers AVRO des mesures, appareils et modèles d’appareil. Les exemples correspondent aux exemples décrits dans la section précédente.
+
+### <a name="read-avro-files-by-using-python"></a>Lire des fichiers AVRO à l’aide de Python
+
+#### <a name="install-pandas-and-the-pandavro-package"></a>Installer pandas et le package pandavro
 
 ```python
 pip install pandas
 pip install pandavro
 ```
-### <a name="parse-measurements-avro-file"></a>Analyser le fichier AVRO des mesures
+
+#### <a name="parse-a-measurements-avro-file"></a>Analyser un fichier AVRO de mesures
 
 ```python
 import json
@@ -235,28 +241,29 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the avro file into a pandas DataFrame where each record is
-    # a single row
+    # Pandavro loads the AVRO file into a pandas DataFrame
+    # where each record is a single row.
     measurements = pdx.from_avro(filePath)
 
-    # In this example, we create a new DataFrame and load a series for each
-    # column we map into a column in our new DataFrame.
+    # This example creates a new DataFrame and loads a series
+    # for each column that's mapped into a column in our new DataFrame.
     transformed = pd.DataFrame()
 
-    # The SystemProperties column contains a dictionary with the device id
-    # located under the "connectionDeviceId" key.
+    # The SystemProperties column contains a dictionary
+    # with the device ID located under the connectionDeviceId key.
     transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
 
-    # The Body column is a series of utf-8 bytes that is stringified and parsed
-    # as json. In this example, we pull the "humidity" property off of each one
-    # to get the humidity field.
+    # The Body column is a series of UTF-8 bytes that is stringified
+    # and parsed as JSON. This example pulls the humidity property
+    # from each column to get the humidity field.
     transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
 
-    # Finally, we print the new DataFrame with our device ids and humidities
+    # Finally, print the new DataFrame with our device IDs and humidities.
     print(transformed)
 
 ```
-### <a name="parse-devices-avro-file"></a>Analyser le fichier AVRO des appareils
+
+#### <a name="parse-a-devices-avro-file"></a>Analyser un fichier AVRO d’appareils
 
 ```python
 import json
@@ -264,33 +271,33 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the avro file into a pandas DataFrame where each record is
-    # a single row
+    # Pandavro loads the AVRO file into a pandas DataFrame
+    # where each record is a single row.
     devices = pdx.from_avro(filePath)
 
-    # In this example, we create a new DataFrame and load a series for each
-    # column we map into a column in our new DataFrame.
+    # This example creates a new DataFrame and loads a series
+    # for each column that's mapped into a column in our new DataFrame.
     transformed = pd.DataFrame()
 
-    # The device id is available directly in the "id" column
+    # The device ID is available in the id column.
     transformed["device_id"] = devices["id"]
 
-    # The template id and version are present in a dictionary under the
-    # deviceTemplate column
+    # The template ID and version are present in a dictionary under
+    # the deviceTemplate column.
     transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
     transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
 
-    # The fanSpeed setting value is located in a nested dictionary under the
-    # settings column
+    # The fanSpeed setting value is located in a nested dictionary
+    # under the settings column.
     transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
 
-    # Finally, we print the new DataFrame with our device and template
-    # information, along with the value of the fan speed
+    # Finally, print the new DataFrame with our device and template
+    # information, along with the value of the fan speed.
     print(transformed)
 
 ```
 
-### <a name="parse-device-templates-avro-file"></a>Analyser le fichier AVRO des modèles d’appareil
+#### <a name="parse-a-device-templates-avro-file"></a>Analyser un fichier AVRO de modèles d’appareil
 
 ```python
 import json
@@ -298,37 +305,36 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the avro file into a pandas DataFrame where each record is
-    # a single row
+    # Pandavro loads the AVRO file into a pandas DataFrame
+    # where each record is a single row.
     templates = pdx.from_avro(filePath)
 
-    # In this example, we create a new DataFrame and load a series for each
-    # column we map into a column in our new DataFrame.
+    # This example creates a new DataFrame and loads a series
+    # for each column that's mapped into a column in our new DataFrame.
     transformed = pd.DataFrame()
 
-    # The template and version are available directly in the "id" and "version"
-    # columns, respectively
+    # The template and version are available in the id and version columns.
     transformed["template_id"] = templates["id"]
     transformed["template_version"] = templates["version"]
 
-    # The fanSpeed setting value is located in a nested dictionary under the
-    # settings column
+    # The fanSpeed setting value is located in a nested dictionary
+    # under the settings column.
     transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
 
-    # Finally, we print the new DataFrame with our device and template
-    # information, along with the value of the fan speed
+    # Finally, print the new DataFrame with our device and template
+    # information, along with the value of the fan speed.
     print(transformed)
 ```
 
-## <a name="c"></a>C#
+### <a name="read-avro-files-by-using-c"></a>Lire des fichiers AVRO à l’aide de C#
 
-### <a name="install-microsofthadoopavro"></a>Installer Microsoft.Hadoop.Avro
+#### <a name="install-the-microsofthadoopavro-package"></a>Installer le package Microsoft.Hadoop.Avro
 
 ```csharp
 Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
 ```
 
-### <a name="parse-measurements-avro-file"></a>Analyser le fichier AVRO des mesures
+#### <a name="parse-a-measurements-avro-file"></a>Analyser un fichier AVRO de mesures
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -341,11 +347,11 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contain multiple blocks
-            // Loop through each block within the container
+            // For one AVRO container, where a container can contain multiple blocks,
+            // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through Avro record inside the block and extract the fields
+                // Loop through the AVRO records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     var systemProperties = record.GetField<IDictionary<string, object>>("SystemProperties");
@@ -368,7 +374,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-### <a name="parse-devices-avro-file"></a>Analyser le fichier AVRO des appareils
+#### <a name="parse-a-devices-avro-file"></a>Analyser un fichier AVRO d’appareils
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -380,27 +386,26 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contains multiple blocks
-            // Loop through each block within the container
+            // For one AVRO container, where a container can contain multiple blocks,
+            // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through Avro record inside the block and extract the
-                // fields from it
+                // Loop through the AVRO records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     // Get the field value directly. You can also yield return
-                    // record and make the function IEnumerable<AvroRecord>
+                    // records and make the function IEnumerable<AvroRecord>.
                     var deviceId = record.GetField<string>("id");
 
                     // The device template information is stored in a sub-record
-                    // under the "deviceTemplate" field.
+                    // under the deviceTemplate field.
                     var deviceTemplateRecord = record.GetField<AvroRecord>("deviceTemplate");
                     var templateId = deviceTemplateRecord.GetField<string>("id");
                     var templateVersion = deviceTemplateRecord.GetField<string>("version");
 
-                    // The settings and properties are nested two levels deep,
-                    // with the first level indicating settings or properties
-                    // and the second indicating the kind of setting/property
+                    // The settings and properties are nested two levels deep.
+                    // The first level indicates settings or properties.
+                    // The second level indicates the type of setting or property.
                     var settingsRecord = record.GetField<AvroRecord>("settings");
                     var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
@@ -419,7 +424,8 @@ public static async Task Run(string filePath)
 }
 
 ```
-### <a name="parse-device-templates-avro-file"></a>Analyser le fichier AVRO des modèles d’appareil
+
+#### <a name="parse-a-device-templates-avro-file"></a>Analyser un fichier AVRO de modèles d’appareil
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -431,22 +437,21 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contains multiple blocks
-            // Loop through each block within the container
+            // For one AVRO container, where a container can contain multiple blocks,
+            // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through Avro record inside the block and extract the
-                // fields from it
+                // Loop through the AVRO records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     // Get the field value directly. You can also yield return
-                    // record and make the function IEnumerable<AvroRecord>
+                    // records and make the function IEnumerable<AvroRecord>.
                     var id = record.GetField<string>("id");
                     var version = record.GetField<string>("version");
 
-                    // The settings and properties are nested two levels deep,
-                    // with the first level indicating settings or properties
-                    // and the second indicating the kind of setting/property
+                    // The settings and properties are nested two levels deep.
+                    // The first level indicates settings or properties.
+                    // The second level indicates the type of setting or property.
                     var settingsRecord = record.GetField<AvroRecord>("settings");
                     var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
@@ -464,33 +469,33 @@ public static async Task Run(string filePath)
 }
 ```
 
-## <a name="javascript"></a>JavaScript
+### <a name="read-avro-files-by-using-javascript"></a>Lire des fichiers AVRO à l’aide de Javascript
 
-### <a name="install-avsc"></a>Installer avsc
+#### <a name="install-the-avsc-package"></a>Installer le package avsc
 
 ```javascript
 npm install avsc
 ```
 
-### <a name="parse-measurements-avro-file"></a>Analyser le fichier AVRO des mesures
+#### <a name="parse-a-measurements-avro-file"></a>Analyser un fichier AVRO de mesures
 
 ```javascript
 const avro = require('avsc');
 
-// Read the avro file and parse the device id and humidity from each record
+// Read the AVRO file. Parse the device ID and humidity from each record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device id from the system properties
+        // Fetch the device ID from the system properties.
         const deviceId = record.SystemProperties.connectionDeviceId;
 
-        // Convert the Body from a Buffer to a string and parse it
+        // Convert the body from a buffer to a string and parse it.
         const body = JSON.parse(record.Body.toString());
 
-        // Get the humidty property off of the body
+        // Get the humidty property from the body.
         const humidity = body.humidity;
 
-        // Log the device id and humidity we found
+        // Log the retrieved device ID and humidity.
         console.log(`Device ID: ${deviceId}`);
         console.log(`Humidity: ${humidity}`);
     }
@@ -498,8 +503,8 @@ async function parse(filePath) {
 
 function load(filePath) {
     return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream. We
-        // collect them up into an array and return them when we get to the end.
+        // The file decoder emits each record as a data event on a stream.
+        // Collect the records into an array and return them at the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -509,35 +514,35 @@ function load(filePath) {
 }
 ```
 
-### <a name="parse-devices-avro-file"></a>Analyser le fichier AVRO des appareils
+#### <a name="parse-a-devices-avro-file"></a>Analyser un fichier AVRO d’appareils
 
 ```javascript
 const avro = require('avsc');
 
-// Read the avro file and parse the device and template identification info as
-// well as the fanSpeed setting for each device record.
+// Read the AVRO file. Parse the device and template identification
+// information and the fanSpeed setting for each device record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device id from the id property
+        // Fetch the device ID from the id property.
         const deviceId = record.id;
 
-        // Fetch the tempalte id and version from the deviceTemplate property
+        // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
         const deviceTemplateVersion = record.deviceTemplate.version;
 
-        // Get the fanSpeed off the nested device settings property
+        // Get the fanSpeed from the nested device settings property.
         const fanSpeed = record.settings.device.fanSpeed;
 
-        // Log the device id and humidity we found
+        // Log the retrieved device ID and humidity.
         console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 
 function load(filePath) {
     return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream. We
-        // collect them up into an array and return them when we get to the end.
+        // The file decoder emits each record as a data event on a stream.
+        // Collect the records into an array and return them at the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -547,32 +552,32 @@ function load(filePath) {
 }
 ```
 
-### <a name="parse-device-templates-avro-file"></a>Analyser le fichier AVRO des modèles d’appareil
+#### <a name="parse-a-device-templates-avro-file"></a>Analyser un fichier AVRO de modèles d’appareil
 
 ```javascript
 const avro = require('avsc');
 
-// Read the avro file and parse the device and template identification info as
-// well as the fanSpeed setting for each device record.
+// Read the AVRO file. Parse the device and template identification
+// information and the fanSpeed setting for each device record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the template id and version from the id and verison properties
+        // Fetch the template ID and version from the id and verison properties.
         const templateId = record.id;
         const templateVersion = record.version;
 
-        // Get the fanSpeed off the nested device settings property
+        // Get the fanSpeed from the nested device settings property.
         const fanSpeed = record.settings.device.fanSpeed;
 
-        // Log the device id and humidity we found
+        // Log the retrieved device id and humidity.
         console.log(`Template ID: ${templateId}, Template Version: ${templateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 
 function load(filePath) {
     return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream. We
-        // collect them up into an array and return them when we get to the end.
+        // The file decoder emits each record as a data event on a stream.
+        // Collect the records into an array and return them at the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -584,4 +589,7 @@ function load(filePath) {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [gérer vos appareils](howto-manage-devices.md) dans l’explorateur d’appareils. 
+Maintenant que vous savez comment exporter vos données, passez à l’étape suivante :
+
+> [!div class="nextstepaction"]
+> [Guide pratique pour visualiser vos données dans Power BI](howto-connect-powerbi.md)

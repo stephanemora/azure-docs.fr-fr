@@ -1,23 +1,20 @@
 ---
-title: Utilisation des workflows Hadoop Oozie dans Azure HDInsight basé sur Linux | Microsoft Docs
+title: Utiliser des workflows Hadoop Oozie dans Azure HDInsight basé sur Linux
 description: Utilisation de Hadoop Oozie dans HDInsight basé sur Linux. Découvrez comment définir un workflow Oozie et envoyer un travail Oozie.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: a8a1b45d28b8d762a659ccdcc6986dcacb3a9d3e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019270"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599171"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilisation d’Oozie avec Hadoop pour définir et exécuter un workflow Azure HDInsight basé sur Linux
 
@@ -41,7 +38,7 @@ Vous pouvez également utiliser Oozie pour planifier des travaux propres à un s
 * **Un cluster HDInsight**: consultez la page [Prise en main de HDInsight sur Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Exemple de flux de travail
 

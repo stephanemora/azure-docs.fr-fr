@@ -1,24 +1,20 @@
 ---
-title: Interroger Azure Log Analytics pour surveiller les clusters Azure HDInsight | Microsoft Docs
+title: Interroger Azure Log Analytics pour surveiller les clusters Azure HDInsight
 description: Découvrez comment exécuter des requêtes sur Azure Log Analytics pour surveiller les travaux en cours d’exécution dans un cluster HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 61467d702f3123085fd7e067a8d56c30331c5bc6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 06/15/2018
+ms.author: jasonh
+ms.openlocfilehash: 2d2de3c2e2b291ec1f5ad170350f19e9e0582eaa
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401095"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39609310"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Interroger Azure Log Analytics pour surveiller les clusters HDInsight
 
@@ -30,27 +26,17 @@ Découvrez certains scénarios d’utilisation de base d’Azure Log Analytics p
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-* Vous devez avoir configuré un cluster HDInsight pour utiliser Azure Log Analytics. Pour obtenir des instructions, consultez [Utiliser Azure Log Analytics avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
-
-* Vous devez avoir ajouté à cet espace de travail [Log Analytics](../operations-management-suite/operations-management-suite-overview.md) les solutions de gestion de cluster spécifiques à HDInsight, comme décrit dans [Ajouter des solutions de gestion de clusters HDInsight à Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* Vous devez avoir configuré un cluster HDInsight pour utiliser Azure Log Analytics et ajouté les solutions de gestion Log Analytics propres au cluster HDInsight à l’espace de travail. Pour obtenir des instructions, consultez [Utiliser Azure Log Analytics avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Analyser les métriques du cluster HDInsight
 
 Découvrez comment rechercher des métriques spécifiques pour votre cluster HDInsight.
 
-1. Ouvrez un cluster HDInsight que vous avez associé à Azure Log Analytics dans le portail Azure.
-2. Cliquez sur **Surveillance**, puis cliquez sur **Ouvrir le tableau de bord OMS**.
+1. Ouvrez l’espace de travail OMS qui est associé à votre cluster HDInsight à partir du portail Azure.
+2. Sélectionnez la vignette **Recherche dans les journaux**.
+3. Saisissez la requête suivante dans la zone de recherche afin de rechercher toutes les mesures disponibles dans tous les clusters HDInsight configurés pour utiliser Azure Log Analytics, puis sélectionnez **EXÉCUTER**.
 
-    ![Ouvrir le tableau de bord OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Ouvrir le tableau de bord OMS")
-
-2. Cliquez sur **Recherche dans les journaux** dans le menu de gauche.
-
-    ![Ouvrir Recherche dans les journaux](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Ouvrir Recherche dans les journaux")
-
-3. Saisissez la requête suivante dans la zone de recherche afin de rechercher toutes les mesures pour toutes les mesures disponibles dans tous les clusters HDInsight configurés pour utiliser Azure Log Analytics, puis appuyez sur **ENTRÉE**.
-
-        `search *` 
+        search *
 
     ![Rechercher toutes les mesures](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Rechercher toutes les mesures")
 
@@ -58,12 +44,10 @@ Découvrez comment rechercher des métriques spécifiques pour votre cluster HDI
 
     ![Rechercher toutes les sorties de mesures](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Rechercher toutes les sorties de mesures")
 
-5. Dans le volet gauche, sous **Type**, sélectionnez une mesure que vous souhaitez approfondir, puis cliquez sur **Appliquer**. La capture d’écran qui suit présente le type `metrics_resourcemanager_queue_root_default_CL` sélectionné. 
+5. Dans le volet de gauche, sous **Type**, sélectionnez une mesure à approfondir, puis cliquez sur **Appliquer**. La capture d’écran qui suit présente le type `metrics_resourcemanager_queue_root_default_CL` sélectionné.
 
     > [!NOTE]
     > Vous devrez peut-être cliquer sur le bouton **[+]Plus** pour trouver la mesure que vous recherchez. En outre, comme le bouton **Appliquer** figure au bas de la liste, vous devez faire défiler la page vers le bas pour l’afficher.
-    > 
-    >    
 
     Notez que la requête dans la zone de texte apparaît dans la zone en surbrillance dans la capture d’écran suivante :
 
@@ -81,16 +65,9 @@ Découvrez comment rechercher des métriques spécifiques pour votre cluster HDI
 
 Découvrez comment rechercher des messages d’erreur pendant une fenêtre de temps spécifique. Ces étapes ne sont qu’un exemple d’une méthode permettant d’afficher le message d’erreur qui vous intéresse. Vous pouvez utiliser n’importe quelle propriété disponible pour rechercher les erreurs que vous voulez trouver.
 
-1. Ouvrez un cluster HDInsight que vous avez associé à Azure Log Analytics dans le portail Azure.
-2. Cliquez sur **Surveillance**, puis cliquez sur **Ouvrir le tableau de bord OMS**.
-
-    ![Ouvrir le tableau de bord OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Ouvrir le tableau de bord OMS")
-
-2. Dans l’écran d’accueil du portail OMS, cliquez sur **Recherche dans les journaux**.
-
-    ![Ouvrir Recherche dans les journaux](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Ouvrir Recherche dans les journaux")
-
-3. Saisissez la requête suivante afin de rechercher tous les messages d’erreur dans tous les clusters HDInsight configurés pour utiliser Azure Log Analytics, puis appuyez sur **ENTRÉE**. 
+1. Ouvrez l’espace de travail OMS qui est associé à votre cluster HDInsight à partir du portail Azure.
+2. Sélectionnez la vignette **Recherche dans les journaux**.
+3. Saisissez la requête suivante afin de rechercher tous les messages d’erreur dans tous les clusters HDInsight configurés pour utiliser Azure Log Analytics, puis sélectionnez **EXÉCUTER**. 
 
          search "Error"
 
@@ -98,8 +75,8 @@ Découvrez comment rechercher des messages d’erreur pendant une fenêtre de te
 
     ![Rechercher tous les résultats d’erreur](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Rechercher tous les résultats d’erreur")
 
-5. Dans le volet gauche, sous la catégorie **Type**, sélectionnez un type d’erreur que vous souhaitez approfondir, puis cliquez sur **Appliquer**.  Notez que les résultats sont affinés pour n’afficher que l’erreur du type que vous avez sélectionné.
-7. Vous pouvez approfondir cette liste d’erreurs spécifiques en utilisant les options disponibles dans le volet gauche. Par exemple, 
+4. Dans le volet de gauche, sous la catégorie **Type**, sélectionnez un type d’erreur à approfondir, puis cliquez sur **Appliquer**.  Notez que les résultats sont affinés pour n’afficher que l’erreur du type que vous avez sélectionné.
+5. Vous pouvez approfondir cette liste d’erreurs spécifiques en utilisant les options disponibles dans le volet gauche. Par exemple : 
 
     - Pour afficher les messages d’erreur d’un nœud de travail spécifique :
 
@@ -109,46 +86,40 @@ Découvrez comment rechercher des messages d’erreur pendant une fenêtre de te
 
         ![Rechercher un résultat d’erreur spécifique](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Rechercher un résultat d’erreur spécifique")
 
-9. Pour afficher l’erreur spécifique. Vous pouvez cliquer sur **[+]afficher plus** pour examiner le message d’erreur.
+6. Pour afficher l’erreur spécifique. Vous pouvez cliquer sur **[+]Afficher plus** pour examiner le message d’erreur.
 
     ![Rechercher un résultat d’erreur spécifique](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Rechercher un résultat d’erreur spécifique")
 
 ## <a name="create-alerts-for-tracking-events"></a>Créer des alertes pour des événements de suivi
 
-La première étape pour créer une alerte consiste à définir une requête qui déclenche l’alerte. Par souci de simplicité, nous utiliserons la requête suivante, qui fournit la liste des applications ayant échoué en cours d’exécution sur les clusters HDInsight.
+La première étape pour créer une alerte consiste à définir une requête qui déclenche l’alerte. Vous pouvez utiliser la requête de votre choix pour créer une alerte.
 
-    metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
+1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
+2. Sélectionnez la vignette **Recherche dans les journaux**.
+3. Exécutez la requête suivante là où vous souhaitez créer une alerte, puis sélectionnez **EXÉCUTER**.
 
-Vous pouvez utiliser la requête de votre choix pour créer une alerte.
+        metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
 
-1. Ouvrez un cluster HDInsight que vous avez associé à Azure Log Analytics dans le portail Azure.
-2. Cliquez sur **Surveillance**, puis cliquez sur **Ouvrir le tableau de bord OMS**.
+    La requête fournit la liste des applications en échec exécutées sur des clusters HDInsight.
 
-    ![Ouvrir le tableau de bord OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Ouvrir le tableau de bord OMS")
-
-2. Dans l’écran d’accueil du portail OMS, cliquez sur **Recherche dans les journaux**.
-
-    ![Ouvrir Recherche dans les journaux](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Ouvrir Recherche dans les journaux")
-
-3. Exécutez la requête suivante là où vous souhaitez créer une alerte, puis appuyez sur **ENTRÉE**.
-
-        metrics_resourcemanager_queue_root-default-CL | where AppsFailed_d > 0
-
-4. Cliquez sur **Alerte** en haut de la page.
+4. Sélectionnez **Nouvelle règle d'alerte** en haut de la page.
 
     ![Saisir une requête pour créer une alerte](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Saisir une requête pour créer une alerte")
 
-4. Dans la fenêtre **Ajouter une règle d’alerte**, entrez la requête puis d’autres détails pour créer une alerte, puis cliquez sur **Enregistrer**.
+5. Dans la fenêtre **Créer une règle**, saisissez la requête et d’autres détails pour créer une alerte, puis sélectionnez **Créer une règle d'alerte**.
 
     ![Saisir une requête pour créer une alerte](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Saisir une requête pour créer une alerte")
 
-    La capture d’écran montre la configuration pour l’envoi d’une notification par courrier électronique lorsque la requête d’alerte renvoie un résultat.
+Pour modifier ou supprimer une alerte existante :
 
-5. Vous pouvez également modifier ou supprimer une alerte existante. Pour cela, dans n’importe quelle page du portail OMS, cliquez sur l’icône **Paramètres**.
+1. Ouvrez l’espace de travail Log Analytics à partir du portail Azure.
+2. Dans le menu de gauche, sélectionnez **Alerte**.
+3. Sélectionnez l’alerte à modifier ou à supprimer.
+4. Vous disposez des options suivantes : **Enregistrer**, **Ignorer**, **Désactiver** et **Supprimer**.
 
-    ![Saisir une requête pour créer une alerte](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png "Saisir une requête pour créer une alerte")
+    ![Modification et suppression d’une alerte HDInsight Log Analytics OMS](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-6. À la page **Paramètres**, cliquez sur **Alertes** pour afficher les alertes que vous avez créées. Vous pouvez également activer ou désactiver une alerte, la modifier ou la supprimer. Pour plus d’informations, voir [Utilisation des règles d’alerte dans Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
+Pour plus d’informations, voir [Utilisation des règles d’alerte dans Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
 
 ## <a name="see-also"></a>Voir aussi
 

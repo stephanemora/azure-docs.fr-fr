@@ -1,32 +1,27 @@
 ---
-title: Installer et utiliser Giraph sur HDInsight (Hadoop) - Azure | Documents Microsoft
+title: Installer et utiliser Giraph sur HDInsight (Hadoop) - Azure
 description: Découvrez comment installer Giraph sur des clusters HDInsight basés sur Linux à l’aide des actions de script. Les actions de script vous permettent de personnaliser le cluster pendant la création, en modifiant la configuration du cluster ou en installant des services et des utilitaires.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 03e72c29bedf6a3125a5ae0272e93cdf58632bc6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: a96bd4e55a82e4896da7ed38d29fa7c04f08696b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177031"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600725"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installation de Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
 
 Découvrez comment installer Apache Giraph sur un cluster HDInsight. La fonctionnalité d’action de script de HDInsight vous permet de personnaliser votre cluster en exécutant un script bash. Les scripts peuvent être utilisés pour personnaliser des clusters pendant et après la création du cluster.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>Présentation de Giraph
 
@@ -41,7 +36,7 @@ Découvrez comment installer Apache Giraph sur un cluster HDInsight. La fonction
 > [!WARNING]
 > Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aide à identifier et à résoudre les problèmes liés à ces composants.
 >
-> Les composants personnalisés, tels que Giraph, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Support Microsoft peut vous aider à résoudre le problème. Si ce n’est pas le cas, vous devez consulter les communautés open source. Elles regorgent de connaissances approfondies sur cette technologie. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org). Par exemple: [Hadoop](http://hadoop.apache.org/).
+> Les composants personnalisés, tels que Giraph, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Support Microsoft peut vous aider à résoudre le problème. Si ce n’est pas le cas, vous devez consulter les communautés open source. Elles regorgent de connaissances approfondies sur cette technologie. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple [Hadoop](http://hadoop.apache.org/).
 
 
 ## <a name="what-the-script-does"></a>Ce que fait le script
@@ -62,7 +57,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 
 > [!NOTE]
 > Les actions de script peuvent être appliquées selon les méthodes suivantes :
-> * Azure PowerShell
+> * Azure PowerShell
 > * L’interface Azure CLI
 > * Le kit de développement logiciel (SDK) HDInsight .NET
 > * Modèles Microsoft Azure Resource Manager
@@ -93,13 +88,13 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 
 Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l’exemple SimpleShortestPathsComputation inclus avec Giraph. Cet exemple utilise l’implémentation [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) de base qui permet de trouver le chemin le plus court entre des objets dans un graphique.
 
-1. Connectez-vous au cluster HDInsight à l’aide de SSH :
+1. Connectez-vous au cluster HDInsight à l’aide de SSH :
 
     ```bash
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilisez la commande suivante pour créer un fichier nommé **tiny_graph.txt** :
 

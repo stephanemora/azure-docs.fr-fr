@@ -1,26 +1,20 @@
 ---
-title: Mettre en miroir les rubriques Apache Kafka - Azure HDInsight | Documents Microsoft
+title: Mettre en miroir les rubriques Apache Kafka - Azure HDInsight
 description: Découvrez comment utiliser la fonctionnalité de mise en miroir d’Apache Kafka afin de conserver un réplica Kafka sur un cluster HDInsight par la mise en miroir de rubriques sur un cluster secondaire.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 015d276e-f678-4f2b-9572-75553c56625b
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 9fbf4364e22c0b25d224ee0961f7e7ee13ddcef8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f18e4a7fcc601b7bab677f912bf53eb3ca165b1b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778867"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617205"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker permet de répliquer des rubriques Apache Kafka avec Kafka sur HDInsight
 
@@ -110,7 +104,7 @@ Même si vous pouvez créer un réseau virtuel Azure et des clusters Kafka manue
 
     Remplacez **sshuser** par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez **BASENAME** par le nom de base que vous avez utilisé lors de la création du cluster.
 
-    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilisez les commandes suivantes pour rechercher les hôtes Zookeeper pour le cluster source :
 
@@ -159,7 +153,7 @@ Même si vous pouvez créer un réseau virtuel Azure et des clusters Kafka manue
 
     Remplacez **sshuser** par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez **BASENAME** par le nom de base que vous avez utilisé lors de la création du cluster.
 
-    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Un fichier `consumer.properties` est utilisé pour configurer la communication avec le cluster **source**. Pour créer le fichier, utilisez la commande suivante :
 
@@ -293,7 +287,7 @@ Même si vous pouvez créer un réseau virtuel Azure et des clusters Kafka manue
 
     La liste des rubriques inclut désormais `testtopic`, qui est créé lorsque MirrorMaster reflète la rubrique du cluster source vers la destination. Les messages récupérés de la rubrique sont les mêmes que ceux entrés dans le cluster source.
 
-## <a name="delete-the-cluster"></a>Suppression du cluster
+## <a name="delete-the-cluster"></a>Supprimer le cluster
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

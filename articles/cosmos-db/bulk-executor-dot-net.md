@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 804906e1c1b361b9274dbc8fa3ab1cb204e27dfc
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 842ec8f641fca80e469864dd4d81e14c863fd464
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857274"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600055"
 ---
-# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilisation de la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
+# <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
 Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque de l’exécuteur en bloc .NET d’Azure Cosmos DB pour importer et mettre à jour des documents vers un conteneur Azure Cosmos DB. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Ce tutoriel fait appel à un exemple d’application .NET qui importe en bloc des documents générés de manière aléatoire dans un conteneur Azure Cosmos DB. Après l’importation, il illustre comment mettre à jour en bloc les données importées en spécifiant des correctifs comme opérations à effectuer sur des champs de documents spécifiques.
 

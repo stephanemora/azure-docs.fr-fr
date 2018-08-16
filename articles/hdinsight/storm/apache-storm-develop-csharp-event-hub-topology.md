@@ -1,25 +1,20 @@
 ---
-title: Traitement des événements de concentrateurs d’événements avec Storm - Azure HDInsight | Microsoft Docs
+title: Traitement des événements d’Event Hubs avec Storm - Azure HDInsight
 description: Découvrez comment traiter les données de concentrateurs d’événements Azure avec une topologie Storm C# créée dans Visual Studio à l’aide des outils HDInsight pour Visual Studio.
 services: hdinsight,notification hubs
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 475a63937ed09b4ce875465c0eb3488ce92c38be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 24bcc33570a5e62769223c5827556bab1967ae5a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419538"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620380"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Traitement des événements Azure Event Hubs avec Storm sur HDInsight (C#)
 
@@ -44,7 +39,7 @@ Le package NuGet Microsoft.SCP.Net.SDK que vous utilisez pour votre projet doit 
 > [!IMPORTANT]
 > L’exemple inclus dans ce document attend un cluster HDInsight 3.5 ou 3.6.
 >
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Les topologies C# doivent également cibler la version 4.5 de .NET.
 
@@ -112,7 +107,6 @@ topologyBuilder.SetJavaBolt(
 Vous pouvez télécharger une version complète du projet créé dans ce didacticiel à partir de [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Toutefois, vous devrez tout de même fournir des paramètres de configuration en suivant les étapes de ce didacticiel.
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 * Un cluster [Apache Storm sur HDInsight version 3.5 ou 3.6](apache-storm-tutorial-get-started-linux.md).
 

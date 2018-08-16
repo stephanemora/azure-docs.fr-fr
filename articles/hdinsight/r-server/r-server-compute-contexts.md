@@ -1,24 +1,20 @@
 ---
-title: Options de contexte de calcul pour ML Services sur HDInsight - Azure | Microsoft Docs
+title: Options de contexte de calcul pour ML Services sur HDInsight - Azure
 description: Découvrez les différentes options de contexte de calcul auxquelles les utilisateurs ont accès avec ML Services sur HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0deb0b1c-4094-459b-94fc-ec9b774c1f8a
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 57480cef48182a56b315d7d6932883c485f5a7c8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 98c92638d66e3ac1b4b537c0f1f8b70000aa85e9
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050106"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617562"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Options de contexte de calcul pour ML Services sur HDInsight
 
@@ -29,7 +25,7 @@ Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services sur HDInsight
 [ML Services sur Azure HDInsight](r-server-overview.md) propose les dernières fonctionnalités analytiques R. Il peut utiliser les données stockées dans un conteneur HDFS de votre compte de stockage [Blob Azure](../../storage/common/storage-introduction.md "stockage Blob Azure"), un magasin Data Lake ou le système de fichiers Linux local. Sachant que ML Services repose sur la version open source de R, les applications R que vous créez peuvent appliquer n’importe quels packages R open source qui se dénombrent à plus de 8 000. Elles peuvent aussi utiliser les routines de [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), package analytique Big Data de Microsoft fourni avec ML Services.  
 
-## <a name="compute-contexts-for-an-edge-node"></a>Contextes de calcul pour un nœud de périphérie
+## <a name="compute-contexts-for-an-edge-node"></a>Contextes de calcul pour un nœud de périmètre
 En général, un script R qui s’exécute dans un cluster ML Services sur le nœud de périphérie s’exécute au sein de l’interpréteur R de ce nœud. L’exception concerne ces étapes qui appellent une fonction RevoScaleR. Les appels RevoScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont est défini le contexte de calcul RevoScaleR.  Lorsque le script R est exécuté à partir d’un nœud périphérique, les valeurs possibles du contexte de calcul sont les suivantes :
 
 - local séquentiel (*local*)

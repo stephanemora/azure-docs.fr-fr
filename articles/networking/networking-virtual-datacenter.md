@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc3f334771c11d6917e15628557adfb59051f0f6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445379"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621019"
 ---
 # <a name="azure-virtual-datacenter-a-network-perspective"></a>Centre de données virtuel Azure : une perspective réseau
 **Microsoft Azure** : accélérez votre migration, faites des économies et intégrez des applications et des données locales
@@ -262,7 +262,7 @@ Dans un vDC, il est primordial d’assurer le suivi des journaux de groupe de s�
 
 Tous les journaux peuvent être stockés dans des comptes de stockage Azure à des fins d’audit, d’analyse statique ou de sauvegarde. Lorsque les journaux sont stockés dans un compte de stockage Azure, les clients peuvent utiliser différents types d’infrastructures pour récupérer, préparer, analyser et visualiser ces données afin de signaler l’état et l’intégrité des ressources cloud.
 
-Les grandes entreprises doivent avoir préalablement acquis une infrastructure standard pour la surveillance des systèmes locaux, et peuvent étendre cette infrastructure afin d’y intégrer les journaux générés par les déploiements cloud. Dans le cas des organisations qui souhaitent conserver l’ensemble de la journalisation dans le cloud, la solution [Log Analytics][Log Analytics] constitue un excellent choix. La solution Log Analytics étant implémentée sous la forme d’un service informatique, elle peut être opérationnelle rapidement, avec un investissement minimal en services d’infrastructure. Log Analytics peut également s’intégrer aux composants System Center, tels que System Center Operations Manager, afin d’étendre au cloud vos investissements de gestion existants.
+Les grandes entreprises doivent avoir préalablement acquis une infrastructure standard pour la surveillance des systèmes locaux, et peuvent étendre cette infrastructure afin d’y intégrer les journaux générés par les déploiements cloud. Dans le cas des organisations qui souhaitent conserver l’ensemble de la journalisation dans le cloud, la solution [Log Analytics][../log-analytics/log-analytics-overview .md] constitue un excellent choix. La solution Log Analytics étant implémentée sous la forme d’un service informatique, elle peut être opérationnelle rapidement, avec un investissement minimal en services d’infrastructure. Log Analytics peut également s’intégrer aux composants System Center, tels que System Center Operations Manager, afin d’étendre au cloud vos investissements de gestion existants.
 
 Log Analytics est un service dans Azure conçu pour faciliter la collecte, la mise en corrélation, la recherche et l’exploitation des données de journalisation et de performances générées par les systèmes d’exploitation, les applications et les composants cloud d’infrastructure. Ce composant vous offre des informations opérationnelles en temps réel à l’aide d’une fonction de recherche intégrée et de tableaux de bord personnalisés, qui vous permettent d’analyser tous les enregistrements de l’ensemble de vos charges de travail dans un vDC.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: a91543dcea1fb9fb6a33b5a7bc3892a2bac7b241
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215778"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622896"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Affiner un groupe à l’aide du mappage de dépendances de groupe
 
@@ -56,7 +56,7 @@ Pour installer l’agent sur une machine Linux :
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[En savoir plus](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sur les systèmes d’exploitation pris en charge par l’agent de dépendances. 
+Apprenez-en davantage sur la prise en charge de l’agent de dépendances pour les systèmes d’exploitation [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) et [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems).
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Affiner le groupe en fonction de la visualisation de dépendance
 Une fois que vous avez installé les agents sur toutes les machines du groupe, vous pouvez visualiser les dépendances du groupe et l’affiner en suivant les étapes ci-dessous.

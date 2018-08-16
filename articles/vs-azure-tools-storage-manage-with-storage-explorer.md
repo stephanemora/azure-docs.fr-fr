@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b41b1fcb437dac381a17bef4f1e5a7cebe213b98
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 329653e7494d2f993acb462d7d989db07a18f790
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435913"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600861"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -118,14 +118,14 @@ De plus, vous pouvez utiliser des comptes de stockage Azure à l’échelle inte
 
 ## <a name="work-with-local-development-storage"></a>Utilisation du stockage de développement local
 
-Avec l’Explorateur Stockage, vous pouvez travailler sur le stockage local à l’aide d’émulateur. Cette approche vous permet de simuler l’utilisation du Stockage Azure sans nécessairement disposer d’un compte de stockage déployé sur Azure.
+Avec l’Explorateur Stockage, vous pouvez travailler sur le stockage local à l’aide d’un émulateur. Cette approche vous permet de simuler l’utilisation du Stockage Azure sans nécessairement disposer d’un compte de stockage déployé sur Azure.
 
 À compter de la version 1.1.0, l’émulateur de stockage local est pris en charge sur toutes les plateformes. L’Explorateur Stockage peut se connecter à n’importe quel service émulé écoutant ses points de terminaison de stockage local par défaut.
 
 > [!NOTE]
 > La prise en charge des fonctionnalités et des services de stockage peut varier sensiblement d’un émulateur à l’autre. Vérifiez que votre émulateur prend en charge les services et fonctionnalités que vous envisagez d’utiliser.
 
-1. Configurez l’émulateur de votre choix pour qu’il écoute sur les points de terminaison par défaut.
+1. Configurez les services de l’émulateur de votre choix pour écouter un port inutilisé.
 
    Service émulé | Point de terminaison par défaut
    -----------------|-------------------------
@@ -134,16 +134,19 @@ Avec l’Explorateur Stockage, vous pouvez travailler sur le stockage local à l
    Tables           | `http://127.0.0.1:10002`
 
 2. Démarrez l’émulateur.
+   > [!IMPORTANT]
+   > L’Explorateur Stockage ne démarre pas automatiquement votre émulateur. Vous devez le démarrer vous-même.
 
-3. Dans le volet gauche de l’Explorateur Stockage, développez le nœud **(Local et attaché)** > **Comptes de stockage** > **(Développement)**.
+3. Dans l’Explorateur Stockage, cliquez sur le bouton **Ajouter un compte**. Sélectionnez **Attacher à un émulateur local**, puis cliquez sur **Suivant**.
+
+4. Entrez les numéros de port des services que vous avez configurés précédemment (laissez le champ vide si vous n’envisagez pas d’utiliser ce service). Cliquez sur **Suivant**, puis sur **Connecter** pour créer la connexion.
+
+5. Développez les nœuds **Local et attaché** > **Comptes de stockage**, puis développez les nœuds de service sous le nœud correspondant à votre connexion d’émulateur.
 
    Vous pouvez utiliser ce nœud pour créer et utiliser des tables, des files d’attente et des objets BLOB locaux. Pour apprendre à utiliser chaque type de compte de stockage, consultez les guides suivants :
 
    * [Gérer les ressources de Stockage Blob Azure](vs-azure-tools-storage-explorer-blobs.md)
    * [Gérer les ressources de Stockage Fichier Azure](vs-azure-tools-storage-explorer-files.md)
-
-> [!NOTE]
-> L’Explorateur Stockage prend uniquement en charge la connexion à des émulateurs locaux au moyen des points de terminaison par défaut. Au démarrage de l’émulateur, vérifiez que seuls les points de terminaison par défaut sont configurés.
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Attacher ou détacher un compte de stockage externe
 

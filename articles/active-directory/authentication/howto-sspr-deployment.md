@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158860"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622318"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
@@ -75,12 +75,13 @@ Vous devez envisager de [remplir au préalable quelques données d’authentific
 
 ## <a name="disable-self-service-password-reset"></a>Désactiver la réinitialisation du mot de passe libre-service
 
-Si votre organisation décide de désactiver la réinitialisation du mot de passe libre-service, c’est un processus simple. Ouvrez votre locataire Azure AD et accédez à **Réinitialisation de mot de passe** > **Propriétés**, puis sélectionnez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**. Les utilisateurs conserveront toujours le leur
+Si votre organisation décide de désactiver la réinitialisation du mot de passe libre-service, c’est un processus simple. Ouvrez votre locataire Azure AD et accédez à **Réinitialisation de mot de passe** > **Propriétés**, puis sélectionnez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**. Les utilisateurs conserveront leurs méthodes d’authentification inscrites pour un usage ultérieur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
 * [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
+* [Activer l’inscription convergée pour l’authentification multifacteur Azure et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
 * [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
 * [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
 * [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)

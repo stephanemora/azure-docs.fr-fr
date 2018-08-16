@@ -1,25 +1,20 @@
 ---
-title: Utiliser Hadoop Pig avec PowerShell dans HDInsight - Azure | Documents Microsoft
+title: Utiliser Hadoop Pig avec PowerShell dans HDInsight - Azure
 description: Découvrez comment soumettre des tâches Pig vers un cluster Hadoop sur HDInsight à l’aide d’Azure Powershell.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a3e62647ec41cfdfc7f0f7bb55474215ab435ee8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d8a729177328b2f6f4e7e75f133b91ddb4db5a61
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939438"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597590"
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Utilisation d’Azure PowerShell pour exécuter des tâches Pig avec HDInsight
 
@@ -35,7 +30,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell pour soumett
 * **Un cluster Azure HDInsight**
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
 

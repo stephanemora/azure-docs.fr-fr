@@ -1,24 +1,20 @@
 ---
-title: Utiliser Apache Phoenix et SQLLine avec HBase dans Azure HDInsight | Microsoft Docs
+title: Utiliser Apache Phoenix et SQLLine avec HBase dans Azure HDInsight
 description: Découvrez comment utiliser Apache Phoenix dans HDInsight. Découvrez également comment installer et configurer SQLLine sur votre ordinateur pour vous connecter à un cluster HBase dans HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: cda0f33b-a2e8-494c-972f-ae0bb482b818
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.author: jgao
-ms.openlocfilehash: 64700567b8acf816f42e6bf8cdc5386b6c65fe3f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 349f1680cf754a44e2e4217ebde9d0d60479ebcf
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31516625"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597461"
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Utilisation d’Apache Phoenix avec les clusters HBase basés sur Linux dans HDinsight
 Découvrez comment utiliser [Apache Phoenix](http://phoenix.apache.org/) dans Azure HDInsight et comment utiliser SQLLine. Pour plus d'informations sur Phoenix, consultez [Phoenix en 15 minutes ou moins](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Pour en savoir plus sur la grammaire Phoenix, consultez [Grammaire Phoenix](http://phoenix.apache.org/language/index.html).
@@ -32,7 +28,6 @@ Découvrez comment utiliser [Apache Phoenix](http://phoenix.apache.org/) dans Az
 [SQLLine](http://sqlline.sourceforge.net/) est un utilitaire de ligne de commande pour exécuter SQL.
 
 ### <a name="prerequisites"></a>Prérequis
-
 Avant de pouvoir utiliser SQLLine, vous devez disposer des éléments suivants :
 
 * **Un cluster HBase dans HDInsight**. Pour en créer un, consultez [Prise en main d’un exemple Apache HBase dans HDInsight](./apache-hbase-tutorial-get-started-linux.md).

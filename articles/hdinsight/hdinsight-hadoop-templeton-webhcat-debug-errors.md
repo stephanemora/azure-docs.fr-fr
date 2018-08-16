@@ -1,25 +1,20 @@
 ---
-title: Comprendre et résoudre des erreurs WebHCat sur HDInsight - Azure | Documents Microsoft
+title: Présentation et résolution des erreurs WebHCat sur HDInsight - Azure
 description: Découvrez quelles sont les erreurs courantes renvoyées par WebHCat sur HDInsight et comment les résoudre.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 7349d60177982ced68b0ebb83f7e85f19e43ec15
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 9cd3ed48e7c07378a972014c468735e4034b827f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100194"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600395"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Compréhension et résolution des erreurs reçues à partir de WebHCat sur HDInsight
 
@@ -39,7 +34,7 @@ Découvrez les erreurs reçues lors de l’utilisation de WebHCat avec HDInsight
 * Pour les clusters **Linux** : utilisez Ambari (API REST ou web) pour modifier la valeur. Pour en savoir plus, consultez la rubrique [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="default-configuration"></a>Configuration par défaut
 

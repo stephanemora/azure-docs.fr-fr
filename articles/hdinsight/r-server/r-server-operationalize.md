@@ -1,29 +1,26 @@
 ---
-title: Rendre opérationnel ML Services sur HDInsight - Azure | Microsoft Docs
+title: Rendre opérationnel ML Services sur HDInsight - Azure
 description: Découvrez comment rendre opérationnel ML Services dans Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aef34fea2252cdc875fa1ea1c73a8df14fdf1b9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046137"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622301"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendre opérationnel un cluster ML Services sur Azure HDInsight
 
 Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votre modélisation de données, vous pouvez rendre opérationnel le modèle pour élaborer des prédictions. Cet article explique comment accomplir cette tâche.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Un cluster ML Services sur HDInsight** : pour connaître la marche à suivre, consultez [Bien commencer avec ML Services sur HDInsight](r-server-get-started.md).
 
@@ -40,7 +37,7 @@ Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votr
 
     Pour savoir comment utiliser SSH avec Azure HDInsight, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Basculez du répertoire vers la version appropriée et exécutez la commande sudo sur la DLL dotnet : 
+1. Basculez du répertoire vers la version appropriée et exécutez la commande sudo sur la DLL dotnet : 
 
     - Pour Microsoft ML Server 9.1 :
 
@@ -52,21 +49,21 @@ Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votr
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Les options disponibles s’affichent. Choisissez la première option, comme illustré dans la capture d’écran suivante, pour **configurer ML Server pour l’opérationnalisation**.
+1. Les options disponibles s’affichent. Choisissez la première option, comme illustré dans la capture d’écran suivante, pour **configurer ML Server pour l’opérationnalisation**.
 
     ![opérationnalisation complète](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. Vous devez maintenant choisir la configuration souhaitée pour rendre opérationnel ML Server. Sélectionnez la première option en entrant **A**.
+1. Vous devez maintenant choisir la configuration souhaitée pour rendre opérationnel ML Server. Sélectionnez la première option en entrant **A**.
 
     ![opérationnalisation complète](./media/r-server-operationalize/admin-util-one-box-2.png)
 
-5. Quand vous y êtes invité, saisissez et saisissez à nouveau le mot de passe d’un utilisateur administrateur local.
+1. Quand vous y êtes invité, saisissez et saisissez à nouveau le mot de passe d’un utilisateur administrateur local.
 
-6. Vous devriez voir des sorties suggérant que l’opération a réussi. Vous êtes également invité à sélectionner une autre option dans le menu. Entrez E pour revenir au menu principal.
+1. Vous devriez voir des sorties suggérant que l’opération a réussi. Vous êtes également invité à sélectionner une autre option dans le menu. Entrez E pour revenir au menu principal.
 
     ![opérationnalisation complète](./media/r-server-operationalize/admin-util-one-box-3.png)
 
-7. Vous pouvez éventuellement effectuer des vérifications de diagnostic en exécutant un test de diagnostic, comme suit :
+1. Vous pouvez éventuellement effectuer des vérifications de diagnostic en exécutant un test de diagnostic, comme suit :
 
     a. Dans le menu principal, sélectionnez **6** pour exécuter les tests de diagnostic.
 
@@ -124,7 +121,7 @@ Si votre cluster n’est pas configuré sur un réseau virtuel ou si vous rencon
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Une fois votre session SSH active, le trafic à partir du port 12800 de votre machine est transféré vers le port du nœud de périmètre 12800, via une session SSH. Vérifiez que vous utilisez `127.0.0.1:12800` dans votre méthode `remoteLogin()`. Cela vous permet de vous connecter à l’opérationnalisation du nœud de périphérie via le réacheminement de port.
+Une fois votre session SSH active, le trafic à partir du port 12800 de votre machine locale est transféré vers le port du nœud de périmètre 12800, via une session SSH. Vérifiez que vous utilisez `127.0.0.1:12800` dans votre méthode `remoteLogin()`. Cela vous permet de vous connecter à l’opérationnalisation du nœud de périphérie via un réacheminement de port.
 
 
     library(mrsdeploy)
@@ -148,9 +145,9 @@ Pour désactiver les nœuds Worker, procédez comme suit :
 
 1. Connectez-vous à la console Ambari du cluster et cliquez sur l’onglet **Hôtes**.
 
-2. Sélectionnez les nœuds Worker (à désactiver).
+1. Sélectionnez les nœuds Worker (à désactiver).
 
-3. Cliquez sur **Actions** > **Hôtes sélectionnés** > **Hôtes** > **Activer le mode de maintenance**. Par exemple, dans l’image suivante, nous avons sélectionné wn3 et wn4 pour la désactivation.  
+1. Cliquez sur **Actions** > **Hôtes sélectionnés** > **Hôtes** > **Activer le mode de maintenance**. Par exemple, dans l’image suivante, nous avons sélectionné wn3 et wn4 pour la désactivation.  
 
    ![Désactiver les nœuds Worker](./media/r-server-operationalize/get-started-operationalization.png)  
 
@@ -166,15 +163,15 @@ Pour désactiver les nœuds Worker, procédez comme suit :
 
 1. Utilisez SSH dans chaque nœud Worker désactivé.
 
-2. Exécutez l’utilitaire d’administration en utilisant la DLL adaptée au cluster ML Services dont vous disposez. Pour ML Server 9.1, exécutez la commande suivante :
+1. Exécutez l’utilitaire d’administration en utilisant la DLL adaptée au cluster ML Services dont vous disposez. Pour ML Server 9.1, exécutez la commande suivante :
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Entrez **1** pour sélectionner l’option **Configurer ML Server pour l’opérationnalisation**.
+1. Entrez **1** pour sélectionner l’option **Configurer ML Server pour l’opérationnalisation**.
 
-4. Entrez **C** pour sélectionner l’option `C. Compute node`. Cette opération permet de configurer un nœud de calcul sur le nœud Worker.
+1. Entrez **C** pour sélectionner l’option `C. Compute node`. Cette opération permet de configurer un nœud de calcul sur le nœud Worker.
 
-5. Quittez l’utilitaire d’administration.
+1. Quittez l’utilitaire d’administration.
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Étape 3 : Ajouter des détails sur les nœuds de calcul sur le nœud web
 
@@ -182,9 +179,9 @@ Une fois que tous les nœuds Worker désactivés sont configurés pour exécuter
 
 1. Utilisez SSH au sein du nœud de périmètre.
 
-2. Exécutez `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
+1. Exécutez `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 
-3. Recherchez la section « Uris » et ajoutez l’adresse IP du nœud Worker ainsi que les détails du port.
+1. Recherchez la section « Uris » et ajoutez l’adresse IP du nœud Worker ainsi que les détails du port.
 
        "Uris": {
          "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
