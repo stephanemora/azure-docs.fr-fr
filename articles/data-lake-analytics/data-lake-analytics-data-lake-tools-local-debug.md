@@ -14,46 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.author: yanacai
-ms.openlocfilehash: 181512c12c1e72e6aa8205aabd5ea22816d4c5df
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 55c53afad6925d7390f34b1938e14d84a59b3216
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890709"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626826"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Déboguer localement du code Azure Data Lake Analytics
 
-Comme dans le service Azure Data Lake, Azure Data Lake Tools pour Visual Studio peut être utilisé afin d’exécuter et de déboguer du code Azure Data Lake Analytics sur votre station de travail.
+Vous pouvez utiliser Azure Data Lake Tools pour Visual Studio pour exécuter et de déboguer du code Azure Data Lake Analytics sur votre station de travail, tout comme dans le service Azure Data Lake Analytics.
 
-Découvrez [comment exécuter un script U-SQL sur votre ordinateur local](data-lake-analytics-data-lake-tools-local-run.md).
+Découvrez comment [exécuter un script U-SQL sur votre ordinateur local](data-lake-analytics-data-lake-tools-local-run.md).
 
 ## <a name="debug-scripts-and-c-assemblies-locally"></a>Déboguer localement des scripts et des assemblys C#
 
-Vous pouvez déboguer des assemblys C# sans les envoyer ni les inscrire auprès du service Azure Data Lake Analytics. Vous pouvez définir des points d'arrêt à la fois dans les fichier code-behind et dans un projet C# référencé.
+Vous pouvez déboguer des assemblys C# sans les envoyer ou les inscrire sur le service Azure Data Lake Analytics. Vous pouvez définir des points d’arrêt à la fois dans les fichier code-behind et dans un projet C# référencé.
 
-### <a name="to-debug-local-code-in-code-behind-file"></a>Pour déboguer le code local dans le fichier code-behind
+### <a name="debug-local-code-in-a-code-behind-file"></a>Déboguer le code local dans le fichier code-behind
 
-1. Définissez des points d'arrêt dans le fichier code-behind.
-2. Appuyez sur F5 pour déboguer le script localement.
+1. Définissez des points d’arrêt dans le fichier code-behind.
+2. Appuyez sur **F5** pour déboguer le script localement.
 
 > [!NOTE]
-   > La procédure suivante fonctionne uniquement dans Visual Studio 2015. Dans les versions Visual Studio plus anciennes, vous devrez peut-être ajouter manuellement les fichiers pdb.  
+   > La procédure suivante fonctionne uniquement dans Visual Studio 2015. Dans les versions plus anciennes de Visual Studio, vous deviez ajouter les fichiers **PDB** manuellement.  
    >
    >
 
-### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Pour déboguer le code local dans un projet C# référencé
+### <a name="debug-local-code-in-a-referenced-c-project"></a>Déboguer le code local dans un projet C# référencé
 
-1. Créez un projet d'assembly C# et générez-le pour obtenir la dll de sortie.
-2. Inscrivez la dll à l'aide d'une instruction SQL-U :
+1. Créez un projet d’assembly C#, puis générez-le pour obtenir le fichier **DLL** de sortie.
+2. Inscrivez le fichier **DLL** à l’aide d’une instruction U-SQL :
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
         
 3. Définissez des points d'arrêt dans le code C#.
-4. Appuyez sur F5 pour déboguer le script en faisant référence à la DLL C# localement.
+4. Sélectionnez **F5** pour déboguer le script en faisant référence au fichier **DLL** C# localement.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour consulter une requête plus complexe, voir [Analyse de journaux des sites web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Pour un exemple de requête plus complexe, voir [Analyse de journaux de sites web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Pour afficher les détails d’un travail, voir [Utilisation de l’Explorateur de travaux et de la Vue des travaux pour les travaux Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
 - Pour utiliser la vue d’exécution du vertex, voir [Utilisation de la vue d’exécution du vertex dans Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

@@ -1,6 +1,6 @@
 ---
-title: Règles d’appartenance de groupe dynamique basées sur les attributs dans Azure Active Directory | Microsoft Docs
-description: Procédure de création de règles avancées pour une adhésion de groupe dynamique incluant des paramètres et des opérateurs de règle d’expression pris en charge.
+title: Documentation de référence sur les règles automatiques d’appartenance de groupe dynamique dans Azure Active Directory | Microsoft Docs
+description: Comment créer des règles d’appartenance pour remplir automatiquement des groupes, et documentation de référence sur les règles.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,167 +10,63 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 08/01/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 9c0bb676cc59820d3ae83612893c8920d5d0aebe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248887"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424369"
 ---
-# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Créer des groupes dynamiques avec une appartenance basée sur des attributs dans Azure Active Directory
+# <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
-Dans Azure Active Directory (Azure AD), vous pouvez créer des règles complexes basées sur des attributs pour activer des appartenances dynamiques pour des groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils. Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365.
+Dans Azure Active Directory (Azure AD), vous pouvez créer des règles complexes basées sur des attributs pour activer des appartenances dynamiques pour des groupes. L’appartenance de groupe dynamique réduit la charge administrative d’ajout et de suppression d’utilisateurs. Cet article détaille les propriétés et la syntaxe à utiliser pour créer des règles d’appartenance dynamique pour des utilisateurs ou des appareils. Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365.
 
 Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système évalue toutes les règles de groupe dynamique d’un annuaire pour voir si la modification déclenche des ajouts ou suppressions de groupe. Si un utilisateur ou un appareil respecte une règle d’un groupe, il est ajouté en tant que membre de ce groupe. S’il ne respecte plus la règle, il est supprimé.
+
+* Vous pouvez créer un groupe dynamique pour les appareils ou utilisateurs, mais vous ne pouvez pas créer une règle qui contient à la fois des utilisateurs et des appareils.
+* Vous ne pouvez pas créer un groupe d’appareils basé sur des attributs des propriétaires d’appareils. Des règles d’appartenance d’appareil ne peuvent référencer que des attributs d’appareils.
 
 > [!NOTE]
 > Cette fonctionnalité nécessite une licence Azure AD Premium P1 pour chaque utilisateur unique membre d’un ou de plusieurs groupes dynamiques. Vous n’avez pas à attribuer des licences aux utilisateurs pour qu’ils soient membres de groupes dynamiques, mais vous devez posséder le nombre minimum de licences dans le locataire pour couvrir tous les utilisateurs de ce type. Par exemple, si vous avez un total de 1 000 utilisateurs uniques dans tous les groupes dynamiques de votre locataire, vous devez disposer d’au moins 1 000 licences pour Azure AD Premium P1 pour répondre aux exigences de licence.
 >
-> Vous pouvez créer un groupe dynamique pour les appareils ou utilisateurs, mais vous ne pouvez pas créer une règle qui contient à la fois des utilisateurs et des appareils.
-> 
-> Il est actuellement impossible de créer un groupe d’appareil basé sur les attributs de l’utilisateur propriétaire. Les règles d’appartenance d’un appareil ne peuvent définir que des attributs immédiats d’objets d’appareil dans le répertoire.
 
-## <a name="to-create-an-advanced-rule"></a>Pour créer une règle avancée
+## <a name="constructing-the-body-of-a-membership-rule"></a>Construction du corps d’une règle d’appartenance
 
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général ou en tant qu’administrateur de compte d’utilisateur.
-2. Sélectionnez **Utilisateurs et groupes**.
-3. Sélectionnez **Tous les groupes**, puis **Nouveau groupe**.
+Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateurs ou d’appareils est une expression binaire qui génère un résultat vrai ou faux. Les trois parties d’une règle simple sont les suivantes :
 
-   ![Ajouter un nouveau groupe](./media/groups-dynamic-membership/new-group-creation.png)
+* Propriété
+* Operateur
+* Valeur
 
-4. Dans le panneau **Groupe** , saisissez un nom et une description pour le nouveau groupe. Sélectionnez un **Type d’appartenance** entre **Utilisateur dynamique** et **Appareil dynamique**, selon que vous souhaitiez créer une règle pour des utilisateurs ou des périphériques, puis sélectionnez **Ajouter une requête dynamique**. Vous pouvez utiliser le générateur de règle pour créer une règle simple, ou écrire une règle avancée vous-même. Cet article contient plus d’informations sur les attributs d’utilisateur et d’appareil disponibles, ainsi que des exemples de règles avancées.
+L’ordre des parties au sein d’une expression est importants pour éviter les erreurs de syntaxe.
 
-   ![Ajouter une règle d’appartenance dynamique](./media/groups-dynamic-membership/add-dynamic-group-rule.png)
+### <a name="rules-with-a-single-expression"></a>Règles avec une expression unique
 
-5. Après avoir créé la règle, sélectionnez **Ajouter une requête** dans le bas du panneau.
-6. Sélectionnez **Créer** on the **Groupe** panneau pour créer le groupe.
+Une expression unique est la forme la plus simple d’une règle d’appartenance, qui ne comprend que les trois parties précitées. Une règle avec une expression unique ressemble à ceci : `Property Operator Value`, où la syntaxe de la propriété est le nom de object.property.
 
-> [!TIP]
-> La création du groupe échoue si la règle que vous avez entrée est incorrecte ou non valide. Une notification s’affiche alors dans le coin supérieur droit du portail. Elle contient une explication de la raison pour laquelle la règle n’a pas pu être traitée. Lisez-la avec attention pour comprendre comment vous devez ajuster la règle pour la rendre valide.
-
-## <a name="status-of-the-dynamic-rule"></a>État de la règle dynamique
-
-Vous pouvez voir l’état du traitement de l’appartenance et la date de la dernière mise à jour dans la page Vue d’ensemble de votre groupe dynamique.
-  
-  ![affichage de l’état du groupe dynamique](./media/groups-dynamic-membership/group-status.png)
-
-
-Les messages d’état suivants peuvent être affichés pour l’état **Traitement de l’appartenance** :
-
-* **Évaluation** : le changement de groupe a été reçu, et les mises à jour sont en cours d’évaluation.
-* **Traitement** : les mises à jour sont en cours de traitement.
-* **Mise à jour terminée** : le traitement est terminé, et toutes les mises à jour applicables ont été effectuées.
-* **Erreur de traitement** : une erreur s’est produite lors de l’évaluation de la règle d’appartenance et le traitement n’a pas pu être effectué.
-* **Mise à jour suspendue** : les mises à jour de la règle d’appartenance dynamique ont été suspendues par l’administrateur. Le paramètre MembershipRuleProcessingState est défini sur « Suspendu ».
-
-Les messages d’état suivants peuvent être affichés pour l’état **Dernière mise à jour de l’appartenance** :
-
-* &lt;**Date et heure**&gt; : date et heure de la dernière mise à jour de l’appartenance.
-* **En cours** : les mises à jour sont en cours d’exécution.
-* **Inconnue** : impossible de récupérer l’heure de la dernière mise à jour. Cela tient peut-être au groupe qui vient d’être créé.
-
-Si une erreur se produit lors du traitement de la règle d’appartenance pour un groupe spécifique, une alerte s’affiche en haut de la page **Vue d’ensemble** du groupe. Si aucune mise à jour d’appartenance dynamique en attente ne peut être traitée pour tous les groupes au sein du locataire pendant plus de 24 heures, une alerte s’affiche en haut de **Tous les groupes**.
-
-![message d’erreur de traitement](./media/groups-dynamic-membership/processing-error.png)
-
-## <a name="constructing-the-body-of-an-advanced-rule"></a>Construction du corps d’une règle avancée
-
-La règle avancée que vous pouvez créer pour l’appartenance dynamique à des groupes est essentiellement une expression binaire qui se compose de trois parties et qui génère un résultat true ou false. Les trois parties sont les suivantes :
-
-* Paramètre de gauche (leftParameter)
-* Opérateur binaire (binaryOperator)
-* Constante de droite (rightConstant)
-
-Une règle avancée complète ressemble à ceci : (leftParameter binaryOperator "RightConstant"). Les parenthèses ouvrantes et fermantes sont facultatives pour l’ensemble de l’expression binaire, les guillemets doubles le sont aussi, mais il est nécessaire de les utiliser pour la constante de droite lorsqu’il s’agit d’une chaîne et la syntaxe pour le paramètre de gauche est la propriété de l’utilisateur. Une règle avancée peut se composer de plusieurs expressions binaires séparées par les opérateurs logiques -and, -or et -not.
-
-Voici des exemples de règles avancées correctement construites :
-```
-(user.department -eq "Sales") -or (user.department -eq "Marketing")
-(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
-```
-Pour obtenir la liste complète des paramètres et des opérateurs de règle d’expression pris en charge, consultez les sections ci-dessous. Pour les attributs utilisés pour les règles d’appareil, consultez la page [Utilisation d’attributs pour créer des règles pour les objets d’appareil](#using-attributes-to-create-rules-for-device-objects).
-
-La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 048 caractères.
-
-> [!NOTE]
-> Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de la valeur Null, en utilisant *null* en tant que constante. Par exemple : user.department -eq *null*.
-> Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : `"\`Sales".
-
-## <a name="supported-expression-rule-operators"></a>Opérateurs de règle d’expression pris en charge
-
-Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
-
-| Operator | Syntaxe |
-| --- | --- |
-| Non égal à |-ne |
-| Égal à |-eq |
-| Ne commence pas par |-notStartsWith |
-| Commence par |-startsWith |
-| Ne contient pas |-notContains |
-| Contains |-contains |
-| Ne correspond pas |-notMatch |
-| Correspond |-match |
-| Dans | -in |
-| Pas dans | -notIn |
-
-## <a name="operator-precedence"></a>Précédence des opérateurs
-
-Tous les opérateurs sont répertoriés ci-dessous par priorité, de la plus faible à la plus élevée. Les opérateurs sur la même ligne ont la même priorité :
-
-````
--any -all
--or
--and
--not
--eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-````
-
-Tous les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union. Des parenthèses ne sont nécessaires que lorsque la priorité ne répond pas à vos besoins.
-Par exemple : 
+Voici un exemple de règle d’appartenance correctement construite avec une expression unique :
 
 ```
-   user.department –eq "Marketing" –and user.country –eq "US"
+user.department -eq "Sales"
 ```
 
-équivaut à :
-
-```
-   (user.department –eq "Marketing") –and (user.country –eq "US")
-```
-
-## <a name="using-the--in-and--notin-operators"></a>Utilisation des opérateurs -in et -notIn
-
-Si vous souhaitez comparer la valeur d’un attribut utilisateur par rapport à un nombre de valeurs différentes, vous pouvez utiliser les opérateurs -in ou -notin. Voici un exemple d’utilisation d’un opérateur -in :
-```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
-```
-Notez l’utilisation de « [ » et «] » au début et à la fin de la liste de valeurs. Cette condition évalue sur True la valeur de user.department égale à l’une des valeurs dans la liste.
-
-
-## <a name="query-error-remediation"></a>Correction d’erreur de requête
-
-Le tableau suivant répertorie les erreurs courantes et les méthodes pour les corriger
-
-| Erreur d’analyse de requête | Utilisation incorrecte | Utilisation corrigée |
-| --- | --- | --- |
-| Erreur : attribut non pris en charge. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Assurez-vous que l’attribut se trouve dans la [liste des propriétés prises en charge](#supported-properties). |
-| Erreur : l’opérateur n’est pas pris en charge sur l’attribut. |(user.accountEnabled -contains true) |(user.accountEnabled - eq true)<br/><br/>L’opérateur utilisé n’est pas pris en charge pour le type de propriété (dans cet exemple,-contains ne peut pas être utilisé avec le type booléen). Utilisez les opérateurs corrects pour le type de propriété. |
-| Erreur : erreur de compilation de la requête. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Opérateur manquant. Utilisez -and ou -or pour associer les prédicats<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Erreur dans l’expression régulière utilisée avec -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternativement : (user.userPrincipalName -match "\@domain.ext$")|
+Les parenthèses sont facultatives pour une expression unique. La longueur totale du corps de votre règle d’appartenance ne peut pas dépasser 2048 caractères.
 
 ## <a name="supported-properties"></a>Propriétés prises en charge
 
-Voici toutes les propriétés d’utilisateur que vous pouvez utiliser dans vos règles avancées :
+Il existe trois types de propriétés utilisables pour construire une règle d’appartenance.
+
+* Booléen
+* Chaîne
+* Collection de chaînes
+
+Les propriétés utilisateur que vous pouvez utiliser pour créer une expression unique sont les suivantes.
 
 ### <a name="properties-of-type-boolean"></a>Propriétés de type booléen
-
-Opérateurs autorisés
-
-* -eq
-* -ne
 
 | properties | Valeurs autorisées | Usage |
 | --- | --- | --- |
@@ -178,19 +74,6 @@ Opérateurs autorisés
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propriétés de type chaîne
-
-Opérateurs autorisés
-
-* -eq
-* -ne
-* -notStartsWith
-* -startsWith
-* -contains
-* -notContains
-* -match
-* -notMatch
-* -in
-* -notIn
 
 | properties | Valeurs autorisées | Usage |
 | --- | --- | --- |
@@ -223,42 +106,143 @@ Opérateurs autorisés
 
 ### <a name="properties-of-type-string-collection"></a>Propriétés de type collection de chaînes
 
-Opérateurs autorisés
-
-* -contains
-* -notContains
-
 | properties | Valeurs autorisées | Usage |
 | --- | --- | --- |
 | otherMails |Toute valeur de chaîne. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+Concernant les propriétés utilisées pour les règles d’appareils, voir [Règles pour les appareils](#rules-for-devices).
+
+## <a name="supported-operators"></a>Opérateurs pris en charge
+
+Le tableau suivant répertorie tous les opérateurs pris en charge et leur syntaxe pour une expression unique. Les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union (-).
+
+| Operator | Syntaxe |
+| --- | --- |
+| Non égal à |-ne |
+| Égal à |-eq |
+| Ne commence pas par |-notStartsWith |
+| Commence par |-startsWith |
+| Ne contient pas |-notContains |
+| Contains |-contains |
+| Ne correspond pas |-notMatch |
+| Correspond |-match |
+| Dans | -in |
+| Pas dans | -notIn |
+
+### <a name="using-the--in-and--notin-operators"></a>Utilisation des opérateurs -in et -notIn
+
+Si vous souhaitez comparer la valeur d’un attribut utilisateur par rapport à un nombre de valeurs différentes, vous pouvez utiliser les opérateurs -in ou -notin. Insérez les symboles de crochet « [ » et «] » au début et à la fin de la liste de valeurs.
+
+ Dans l’exemple suivant, l’expression est vraie si la valeur de user.department est égale à l’une des valeurs dans la liste :
+
+```
+   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+```
+
+## <a name="supported-values"></a>Valeurs prises en charge
+
+Les valeurs utilisées dans une expression peuvent être de plusieurs types, à savoir :
+
+* Chaînes
+* Booléen : « True », « False »
+* Nombres
+* Tableaux : tableau de nombres, tableau de chaînes
+
+Lorsque vous spécifiez une valeur dans une expression, il est important d’utiliser la syntaxe correcte pour éviter les erreurs. Voici quelques conseils de syntaxe :
+
+* Les guillemets doubles sont facultatifs, sauf si la valeur est une chaîne.
+* Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse.
+* Quand une valeur de chaîne contient des guillemets doubles, les deux guillemets doivent être échappés à l’aide du caractère \`. Par exemple, user.department -eq \`"Sales\`" est la syntaxe appropriée quand « Sales » est la valeur.
+* Vous pouvez également effectuer des vérifications de valeur Null, en utilisant null en tant que valeur. Par exemple, `user.department -eq null`.
+
+### <a name="use-of-null-values"></a>Utiliser des valeurs Null
+
+Pour spécifier une valeur null dans une règle, vous pouvez utiliser la valeur *null*. 
+
+* Utilisez -eq ou -ne lors de la comparaison de la valeur *null* dans une expression.
+* N’insérez des guillemets autour du mot *null* que si vous voulez qu’il soit interprété comme une valeur de chaîne littérale.
+* L’opérateur -not ne peut pas être utilisé comme un opérateur de comparaison pour la valeur null. Si vous l’utilisez, vous obtenez une erreur, que vous utilisiez une valeur null ou $null.
+
+La manière correcte de référencer la valeur null est la suivante :
+
+```
+   user.mail –ne null
+```
+
+## <a name="rules-with-multiple-expressions"></a>Règles comportant plusieurs expressions
+
+Une règle d’appartenance de groupe peut se composer de plusieurs expressions uniques reliées par les opérateurs logiques -and, -or et -not. Des opérateurs logiques peuvent également être utilisés en combinaison. 
+
+Voici des exemples de règles d’appartenance correctement construites avec plusieurs expressions :
+
+```
+(user.department -eq "Sales") -or (user.department -eq "Marketing")
+(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+```
+
+### <a name="operator-precedence"></a>Précédence des opérateurs
+
+Tous les opérateurs sont répertoriés ci-dessous par ordre de priorité, du plus élevé au plus bas. Les opérateurs figurant sur une même ligne ont une priorité identique :
+
+```
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+-not
+-and
+-or
+-any -all
+```
+
+Voici un exemple de priorité d’opérateur où deux expressions sont évaluées pour l’utilisateur :
+
+```
+   user.department –eq "Marketing" –and user.country –eq "US"
+```
+
+Des parenthèses ne sont nécessaires que lorsque la priorité ne répond pas à vos besoins. Par exemple, si vous souhaitez que department soit évalué en premier, ce qui suit montre comment utiliser des parenthèses pour déterminer l’ordre :
+
+```
+   user.country –eq "US" –and (user.department –eq "Marketing" –or user.department –eq "Sales")
+```
+
+## <a name="rules-with-complex-expressions"></a>Règles avec des expressions complexes
+
+Une règle d’appartenance peut être constituée d’expressions complexes où les propriétés, les opérateurs et les valeurs prennent des formes plus complexes. Des expressions sont considérées comme complexes quand l’une des conditions suivantes est vraie :
+
+* La propriété consiste en une collection de valeurs, plus précisément, des propriétés à valeurs multiples
+* Les expressions utilisent les opérateurs -any et -all
+* La valeur de l’expression peut être elle-même une ou plusieurs expressions
+
 ## <a name="multi-value-properties"></a>Propriétés à valeurs multiples
 
-Opérateurs autorisés
+Les propriétés à valeurs multiples sont des collections d’objets du même type. Vous pouvez vous en servir pour créer des règles d’appartenance utilisant les opérateurs -any et -all.
+
+| properties | Valeurs | Usage |
+| --- | --- | --- |
+| assignedPlans | Chaque objet de la collection affiche les propriétés de chaînes suivantes : capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -et assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
+
+### <a name="using-the--any-and--all-operators"></a>Utilisation des opérateurs -any et -all
+
+Vous pouvez utiliser les opérateurs -any et -all pour appliquer respectivement une condition à un ou tous les objets de la collection.
 
 * -any (respectée lorsqu’au moins un élément de la collection correspond à la condition)
 * -all (respectée lorsque tous les éléments de la collection correspondent à la condition)
 
-| properties | Valeurs | Usage |
-| --- | --- | --- |
-| assignedPlans |Chaque objet de la collection affiche les propriétés de chaînes suivantes : capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -et assignedPlan.capabilityStatus -eq "Enabled") |
-| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
+#### <a name="example-1"></a>Exemple 1
 
-Les propriétés à valeurs multiples sont des collections d’objets du même type. Vous pouvez utiliser les opérateurs -any et -all pour appliquer respectivement une condition à un ou tous les objets de la collection. Par exemple : 
-
-assignedPlans est une propriété à valeurs multiples qui répertorie tous les plans de service assignés à l’utilisateur. L’expression ci-dessous sélectionne les utilisateurs dont le plan de service Exchange Online (Plan 2) est également dans l’état activé :
+assignedPlans est une propriété à valeurs multiples qui répertorie tous les plans de service assignés à l’utilisateur. L’expression ci-dessous sélectionne les utilisateurs qui ont le plan de service (en tant que valeur GUID) Exchange Online (Plan 2), également en état Activé :
 
 ```
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(L’identificateur GUID détermine le plan de service Exchange Online (Plan 2).)
+Vous pouvez utiliser une règle telle que celle-ci afin de regrouper tous les utilisateurs pour lesquels une fonctionnalité Office 365 (ou un autre service en ligne Microsoft) est activée. Vous pourriez ensuite l’appliquer au groupe avec un ensemble de stratégies.
 
-> [!NOTE]
-> Ceci est utile si vous souhaitez identifier tous les utilisateurs pour lesquels une fonctionnalité Office 365 (ou tout autre service en ligne Microsoft) a été activée, pour cibler un ensemble de stratégies défini, par exemple.
+#### <a name="example-2"></a>Exemple 2
 
 L’expression suivante sélectionne tous les utilisateurs qui disposent d’un plan de service associé au service Intune (identifié par le nom de service « SCO ») :
+
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
@@ -273,55 +257,75 @@ Voici un exemple d’utilisation du trait de soulignement (\_) dans une règle p
 (user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
-## <a name="use-of-null-values"></a>Utiliser des valeurs Null
+## <a name="other-properties-and-common-rules"></a>Autres propriétés et les règles communes
 
-Pour spécifier une valeur null dans une règle, vous pouvez utiliser la valeur *null*. Veillez à ne pas insérer de guillemets autour du mot *null*. Autrement, il sera interprété comme une valeur de chaîne littérale. L’opérateur -not ne peut pas être utilisé comme un opérateur de comparaison pour la valeur null. Si vous l’utilisez, vous obtenez une erreur, que vous utilisiez une valeur null ou $null. Utilisez plutôt un opérateur -eq ou -ne. La manière correcte de référencer la valeur null est la suivante :
+### <a name="create-a-direct-reports-rule"></a>Créer une règle « Collaborateurs directs »
+
+Vous pouvez créer un groupe contenant tous les collaborateurs directs d’un responsable. À l’avenir, lorsque les collaborateurs directs du responsable changeront, l’appartenance du groupe sera ajustée automatiquement.
+
+La règle de collaborateurs directs est construite à l’aide de la syntaxe suivante :
+
 ```
-   user.mail –ne $null
+Direct Reports for "{objectID_of_manager}"
 ```
 
-## <a name="extension-attributes-and-custom-attributes"></a>Attributs d’extension et attributs personnalisés
-Les attributs d’extension et les attributs personnalisés sont pris en charge dans les règles d’appartenance dynamique.
+Voici un exemple de règle valide où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID d’objet du responsable :
 
-Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15.
-Voici en exemple de règle utilisant un attribut d’extension :
+```
+Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+
+Les conseils suivants peuvent vous aider à utiliser la règle correctement.
+
+* **Manager ID** est l’ID d’objet du responsable. Il figure dans le **Profil** du responsable.
+* Pour que la règle fonctionne, assurez-vous que la propriété **Manager** est correctement définie pour les utilisateurs dans votre client. Vous pouvez vérifier la valeur actuelle dans le **Profil** de l’utilisateur.
+* Cette règle prend en charge uniquement les collaborateurs directs du responsable. En d’autres termes, vous ne peut pas créer de groupe avec les collaborateurs directs du responsable *et* leurs collaborateurs.
+* Cette règle ne peut pas être combinée avec d’autres règles d’appartenance.
+
+### <a name="create-an-all-users-rule"></a>Créer une règle « Tous les utilisateurs »
+
+Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
+
+La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique en utilisant l’opérateur -ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
+
+```
+user.objectid -ne null
+```
+
+### <a name="create-an-all-devices-rule"></a>Créer une règle « Tous les appareils »
+
+Vous pouvez créer un groupe contenant tous les appareils d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’appareils dans le client, l’appartenance du groupe est ajustée automatiquement.
+
+La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique en utilisant l’opérateur -ne et la valeur null :
+
+```
+device.objectid -ne null
+```
+
+### <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
+
+Les attributs d’extension et les propriétés d’extension personnalisée sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Les attributs personnalisés sont synchronisés à partir de Windows Server AD local ou d’une application SaaS connectée et le format de « user.extension[GUID]\__[Attribut] », lorsque [GUID] est l’identificateur unique dans Azure AD pour l’application qui a créé l’attribut dans AAD, et [Attribut] est le nom de l’attribut tel qu’il a été créé. Voici un exemple de règle utilisant un attribut personnalisé :
+Les propriétés d’extension personnalisée sont synchronisées à partir de l’Active Directory Windows Server AD ou à partir d’une application SaaS connectée, et leur format est `user.extension_[GUID]__[Attribute]`, où :
+
+* [GUID] est l’identificateur unique dans Azure AD pour l’application qui a créé la propriété dans Azure AD
+* [Attribute] est le nom attribué à la propriété lors de sa création
+
+Voici un exemple de règle utilisant une propriété d’extension personnalisée :
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
+user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-Vous pouvez accéder au nom de l’attribut personnalisé dans le répertoire en lançant une requête sur un attribut d’utilisateur, à l’aide de l’explorateur graphique, et en recherchant le nom d’attribut.
+Vous pouvez accéder au nom de la propriété personnalisée dans le répertoire en lançant une requête sur une propriété d’utilisateur à l’aide d’Afficheur Graph, et en recherchant le nom de propriété.
 
-## <a name="direct-reports-rule"></a>Règle de « collaborateurs directs »
-Vous pouvez créer un groupe contenant tous les collaborateurs directs d’un responsable. À l’avenir, lorsque les collaborateurs directs d’un responsable changeront, l’appartenance du groupe sera ajustée automatiquement.
+## <a name="rules-for-devices"></a>Règles pour les appareils
 
-> [!NOTE]
-> 1. Pour que la règle fonctionne, assurez-vous que la propriété **ID Responsable** est correctement définie sur les utilisateurs de votre client. Vous pouvez vérifier la valeur actuelle d’un utilisateur sur son **onglet Profil**.
-> 2. Cette règle prend uniquement en charge les collaborateurs **directs**. Il est actuellement impossible de créer un groupe pour une hiérarchie imbriquée, par exemple un groupe qui inclut des collaborateurs directs et leurs rapports.
-> 3. Cette règle ne peut pas être combinée avec d’autres règles avancées.
-
-**Pour configurer le groupe**
-
-1. Suivez les étapes 1 à 5 de la section [Pour créer la règle avancée](#to-create-the-advanced-rule), puis sélectionnez le **type d’appartenance** de l’**utilisateur dynamique**.
-2. Dans le panneau **Règles d’appartenance dynamique** , saisissez la règle avec la syntaxe suivante :
-
-    *Collaborateurs directs pour {ID objet_du_responsable}*
-
-    Exemple de règle valide :
-```
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
-```
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
-3. Une fois la règle enregistrée, tous les utilisateurs avec la valeur ID Responsable spécifiée seront ajoutés au groupe.
-
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>Utilisation d’attributs pour créer des règles pour les objets d’appareil
-Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Les attributs d’appareil suivants peuvent être utilisés.
+Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Vous ne pouvez pas avoir à la fois des utilisateurs et des appareils en tant que membres du groupe. Les attributs d’appareil suivants peuvent être utilisés.
 
  Attribut d’appareil  | Valeurs | Exemples
  ----- | ----- | ----------------
@@ -341,100 +345,8 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
  deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Un ID d’objet Azure AD valide. |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
-
-
-## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Changement de l’appartenance dynamique en appartenance statique et vice versa
-Il est possible de modifier la façon dont l’appartenance est gérée dans un groupe. Cela est utile lorsque vous souhaitez conserver le même nom et le même ID de groupe dans le système, afin que toutes les références au groupe existantes soient toujours valides ; la création d’un groupe nécessiterait la mise à jour de ces références.
-
-Nous avons mis à jour le centre d’administration d’Azure AD pour y ajouter la prise en charge de cette fonctionnalité. Maintenant, les clients peuvent convertir l’appartenance de groupes existants de dynamique à affectée et vice versa via le Centre d’administration Azure Active Directory ou des applets de commande PowerShell comme indiqué ci-dessous.
-
-> [!WARNING]
-> Lorsque vous changez un groupe statique existant en groupe dynamique, tous les membres existants sont supprimés du groupe, puis la règle d’appartenance est exécutée pour ajouter de nouveaux membres. Si le groupe est utilisé pour contrôler l’accès aux applications ou aux ressources, les membres d’origine peuvent perdre leur accès tant que la règle d’appartenance n’a pas été totalement exécutée.
->
-> Nous vous recommandons de tester la nouvelle règle d’appartenance au préalable pour vous assurer que la nouvelle appartenance du groupe est conforme à votre attente.
-
-### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>Utilisation du centre d’administration Azure AD pour modifier la gestion des appartenances d’un groupe 
-
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général ou en tant qu’administrateur de compte d’utilisateur dans votre locataire.
-2. Sélectionnez **Groupes**.
-3. Depuis la liste **Tous les groupes**, ouvrez le groupe que vous souhaitez modifier.
-4. Sélectionner **Propriétés**.
-5. Sur la page **Propriétés** du groupe, sélectionnez un **Type d’appartenance** entre Utilisateur affecté (statique) ou dynamique et Appareil dynamique, selon le type d’appartenance souhaité. Pour une appartenance dynamique, vous pouvez utiliser le générateur de règle pour sélectionner les options d’une règle simple, ou écrire une règle avancée vous-même. 
-
-Les étapes suivantes sont un exemple de modification de l’appartenance d’un groupe de statique à dynamique pour un groupe d’utilisateurs. 
-
-1. Sur la page **Propriétés** du groupe sélectionné, sélectionnez **Utilisateur dynamique** comme **type d’appartenance**. Cliquez ensuite sur Oui dans la boîte de dialogue expliquant les modifications apportées à l’appartenance au groupe pour continuer. 
-  
-   ![sélectionner utilisateur dynamique comme type d’appartenance](./media/groups-dynamic-membership/select-group-to-convert.png)
-  
-2. Sélectionnez **Ajouter une requête dynamique**, puis ajoutez la règle.
-  
-   ![entrer la règle](./media/groups-dynamic-membership/enter-rule.png)
-  
-3. Après avoir créé la règle, sélectionnez **Ajouter une requête** en bas de la page.
-4. Sélectionnez **Enregistrer** sur la page **Propriétés** du groupe pour enregistrer vos modifications. Le **type d’appartenance** du groupe est immédiatement mis à jour dans la liste de groupes.
-
-> [!TIP]
-> La conversion d’un groupe peut échouer si la règle avancée que vous avez entrée est incorrecte. Une notification s’affiche alors dans le coin supérieur droit du portail. Elle contient une explication de la raison pour laquelle la règle ne peut pas être acceptée par le système. Lisez-la avec attention pour comprendre comment vous pouvez ajuster la règle pour la rendre valide.
-
-### <a name="using-powershell-to-change-membership-management-on-a-group"></a>Utilisation de PowerShell pour modifier la gestion des appartenances d’un groupe
-
-> [!NOTE]
-> Pour modifier les propriétés de groupe dynamique, vous devez utiliser les applets de commande de la **préversion** d'[Azure AD PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Vous pouvez exécuter la version préliminaire à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
-
-Voici un exemple de fonctions qui permettent de changer la gestion des appartenances d’un groupe existant. Dans cet exemple, une attention particulière est nécessaire pour manipuler correctement la propriété GroupTypes et conserver toutes les valeurs qui ne sont pas liées à l’appartenance dynamique.
-
-```
-#The moniker for dynamic groups as used in the GroupTypes property of a group object
-$dynamicGroupTypeString = "DynamicMembership"
-
-function ConvertDynamicGroupToStatic
-{
-    Param([string]$groupId)
-
-    #existing group types
-    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
-
-    if($groupTypes -eq $null -or !$groupTypes.Contains($dynamicGroupTypeString))
-    {
-        throw "This group is already a static group. Aborting conversion.";
-    }
-
-
-    #remove the type for dynamic groups, but keep the other type values
-    $groupTypes.Remove($dynamicGroupTypeString)
-
-    #modify the group properties to make it a static group: i) change GroupTypes to remove the dynamic type, ii) pause execution of the current rule
-    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "Paused"
-}
-
-function ConvertStaticGroupToDynamic
-{
-    Param([string]$groupId, [string]$dynamicMembershipRule)
-
-    #existing group types
-    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
-
-    if($groupTypes -ne $null -and $groupTypes.Contains($dynamicGroupTypeString))
-    {
-        throw "This group is already a dynamic group. Aborting conversion.";
-    }
-    #add the dynamic group type to existing types
-    $groupTypes.Add($dynamicGroupTypeString)
-
-    #modify the group properties to make it a static group: i) change GroupTypes to add the dynamic type, ii) start execution of the rule, iii) set the rule
-    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "On" -MembershipRule $dynamicMembershipRule
-}
-```
-Pour rendre un groupe statique :
-```
-ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
-```
-Pour rendre un groupe dynamique :
-```
-ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
-```
 ## <a name="next-steps"></a>Étapes suivantes
+
 Ces articles fournissent des informations supplémentaires sur les groupes dans Azure Active Directory.
 
 * [Consulter les groupes existants](../fundamentals/active-directory-groups-view-azure-portal.md)

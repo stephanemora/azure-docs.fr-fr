@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9e4d65875085ec293813e2683acde095ae112b75
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309151"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503704"
 ---
-# <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
-Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
+# <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
+Cet article décrit comment personnaliser les différents paramètres de structure pour votre cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour des clusters autonomes, vous personnalisez les paramètres en mettant à jour le fichier ClusterConfig.json et en effectuant une mise à niveau de configuration sur votre cluster. 
 
 > [!NOTE]
 > Tous les paramètres ne sont pas disponibles dans le portail. Si un paramètre répertorié ci-dessous n’est pas disponible via le portail, personnalisez-le à l’aide d’un modèle Azure Resource Manager.
@@ -35,14 +35,14 @@ Ce document vous explique comment personnaliser les différents paramètres et l
 - **Non autorisé** – Ces paramètres ne peuvent pas être modifiés. La modification de ces paramètres implique de détruire le cluster pour en créer un nouveau. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager
-Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQuotaInMB* à la section *Diagnostics*.
+Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQuotaInMB* à la *Diagnostics* section à l’aide d’Azure Resource Explorer.
 
 1. Accédez à https://resources.azure.com
 2. Accédez à votre abonnement en développant **subscriptions** -> **\<Votre abonnement >** -> **resourceGroups** -> **\<Votre groupe de ressources >** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Nom de votre cluster >**
 3. Dans l’angle supérieur droit, sélectionnez **Lecture/écriture**.
 4. Sélectionnez **Modifier**, mettez à jour l’élément JSON `fabricSettings` et ajoutez un nouvel élément :
 
-```
+```json
       {
         "name": "Diagnostics",
         "parameters": [
@@ -53,6 +53,36 @@ Les étapes ci-dessous montrent comment ajouter un nouveau paramètre *MaxDiskQu
         ]
       }
 ```
+
+Vous pouvez également personnaliser des paramètres de cluster de l’une des manières suivantes avec Azure Resource Manager :
+
+- Utiliser le [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) pour exporter et mettre à jour le modèle Resource Manager.
+- Utiliser [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) pour exporter et mettre à jour le modèle Resource Manager.
+- Utiliser le [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) pour exporter et mettre à jour le modèle Resource Manager.
+- Utiliser les commandes PowerShell d’Azure Resource Manager [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) et [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) pour modifier le paramètre directement.
+- Utiliser les commandes de [paramétrage de cluster az sf](https://docs.microsoft.com/cli/azure/sf/cluster/setting) d’Azure CLI pour modifier le paramètre directement.
+
+## <a name="customize-cluster-settings-for-standalone-clusters"></a>Personnaliser les paramètres de cluster pour des clusters autonomes
+Les clusters autonomes sont configurés via le fichier ClusterConfig.json. Pour en savoir plus voir [Paramètres de configuration pour un cluster Windows autonome](./service-fabric-cluster-manifest.md).
+
+Vous pouvez ajouter, mettre à jour ou supprimer des paramètres dans la section `fabricSettings` sous la section [Cluster properties](./service-fabric-cluster-manifest.md#cluster-properties) (Propriétés du cluster) du fichier ClusterConfig.json. 
+
+Par exemple, le JSON suivant ajoute un nouveau paramètre *MaxDiskQuotaInMB* à la section *Diagnostics* sous `fabricSettings` :
+
+```json
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
+
+Après avoir modifié les paramètres dans votre fichier ClusterConfig.json, suivez les instructions fournies dans [Mettre à niveau la configuration du cluster](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) pour appliquer les paramètres à votre cluster. 
+
 
 Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés par section.
 
