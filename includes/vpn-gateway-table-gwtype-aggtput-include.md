@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/02/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fad9b990b6ff1021efdaf8aadeb1e19d8a55871d
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4cbbb64489acf23c1248e35269e1441dd2a6878e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39138091"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513869"
 ---
 |**Référence (SKU)**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br>Connexions** | **Agrégat<br>Référence de débit** |
 |---       | ---                             | ---                    | ---                         |
@@ -24,7 +24,7 @@ ms.locfileid: "39138091"
 
 * (*) Utilisez le [WAN virtuel](../articles/virtual-wan/virtual-wan-about.md) si vous avez besoin de plus de 30 tunnels VPN S2S.
 
-* (**) Contactez le support technique si des connexions supplémentaires sont nécessaires
+* (**) Contactez le support technique si des connexions supplémentaires sont nécessaires. Cela s’applique uniquement au protocole IKEv2, et le nombre de connexions pour le protocole SSTP ne peut pas être augmenté.
 
 * La référence de débit agrégée est basée sur les mesures de plusieurs tunnels agrégés via une passerelle unique. Le débit n’est pas garanti en raison de conditions de trafic Internet et des comportements de votre application.
 

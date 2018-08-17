@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/20/2018
+ms.date: 08/03/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9ba9bc993832350f6b6ce1c642e2dc852731b6f0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 60f1b133bdd6acdb25717c2b98f81b57b751d505
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029983"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39720719"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -37,31 +37,37 @@ ms.locfileid: "39029983"
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau – Azure Resource Manager
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
+> [!NOTE]
+> Récemment, nous avons augmenté toutes les limites par défaut à leur niveau maximal. Si aucune colonne **Limite maximale** n'est présente, la ressource spécifiée ne possède pas de limites ajustables. Si ces limites ont été augmentées par le support dans le passé et si vous ne voyez pas les limites mises à jour ci-dessous, vous pouvez [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/resource-manager-quota-errors.md).
+
+| Ressource | Limite par défaut | 
+| --- | --- |
+| Réseaux virtuels |1 000 |
+| Nombre de sous-réseaux par réseau virtuel |3000 |
+| Homologations VNet par réseau virtuel |100 |
+| Serveurs DNS par réseau virtuel |25 |
+| Adresses IP privées par réseau virtuel |65536 |
+| Adresses IP privées par interface réseau |256 |
+| Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |
+| Interfaces réseau (NIC) |24 000 |
+| Groupes de sécurité réseau (NSG) |5 000 |
+| Règles de groupe de sécurité réseau par groupe de sécurité réseau |1 000 |
+| Adresses IP et plages spécifiées pour la source et la destination dans un groupe de sécurité |4000 |
+| Groupes de sécurité d’application |3000 |
+| Groupes de sécurité d’application par configuration IP, par carte réseau |20 |
+| Configurations IP par groupe de sécurité d’application |4000 |
+| Groupes de sécurité d’application qui peuvent être spécifiés dans toutes les règles de sécurité d’un groupe de sécurité réseau |100 |
+| Tables d'itinéraires définis par l'utilisateur |200 |
+| Itinéraires définis par l'utilisateur par table d'itinéraire |400 |
+| Certificats racines point à site pour chaque passerelle VPN |20 |
+
+#### <a name="publicip-address"></a>Limites de l’adresse IP publique
+
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
-| Réseaux virtuels |50 |1 000 |
-| Nombre de sous-réseaux par réseau virtuel |1 000 |10000 |
-| Homologations VNet par réseau virtuel |50** |100 |
-| Serveurs DNS par réseau virtuel |9 |25 |
-| Adresses IP privées par réseau virtuel |16 384** |16 384 |
-| Adresses IP privées par interface réseau |256 |256 |
-| Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500K |500K |
-| Interfaces réseau (NIC) |24 000** |24 000 |
-| Groupes de sécurité réseau (NSG) |100 |5 000 |
-| Règles de groupe de sécurité réseau par groupe de sécurité réseau |1 000** |1 000 |
-| Adresses IP et plages spécifiées pour la source et la destination dans un groupe de sécurité |2000 |4000 |
-| Groupes de sécurité d’application |500 |3000 |
-| Groupes de sécurité d’application par configuration IP, par carte réseau |10 |20 |
-| Configurations IP par groupe de sécurité d’application |1 000 |4000 |
-| Groupes de sécurité d’application qui peuvent être spécifiés dans toutes les règles de sécurité d’un groupe de sécurité réseau |50 |100 |
-| Tables d'itinéraires définis par l'utilisateur |100 |200 |
-| Itinéraires définis par l'utilisateur par table d'itinéraire |400** |400 |
-| Adresses IP publiques (dynamiques) |(De base) 60 |contacter le support |
-| Adresses IP publiques (statiques) |(Basic) 20 |contacter le support |
-| Adresses IP publiques (statiques) |(Standard) 20 |contacter le support |
-| Certificats racines point à site pour chaque passerelle VPN |20 |20 |
-
-**Ces limites par défaut mises à jour s’appliquent aux abonnements dont ces limites n’ont pas été précédemment augmentées par le biais du support. Si ces limites ont été augmentées par le support dans le passé et si vous souhaitez les mettre à jour avec de nouvelles valeurs par défaut, veuillez [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+| Adresses IP publiques (dynamiques) |(De base) 200 |contacter le support |
+| Adresses IP publiques (statiques) |(De base) 200 |contacter le support |
+| Adresses IP publiques (statiques) |(Standard) 200 |contacter le support |
 
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md)

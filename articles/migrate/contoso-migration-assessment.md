@@ -124,7 +124,7 @@ Contoso et les autres utilisateurs doivent respecter les conditions préalables 
 - Les autorisations nécessaires pour installer des agents Azure Migrate sur chaque machine virtuelle.
 - Les machines virtuelles doivent avoir une connectivité Internet directe.  
         - Vous pouvez limiter l’accès Internet aux [URL requises](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        Si vos machines virtuelles ne sont pas connectées à Internet, la [Passerelle OMS](../log-analytics/log-analytics-oms-gateway.md) Azure Log Analytics doit être installée sur celles-ci et le trafic de l’agent y transiter.
+        - Si vos machines virtuelles ne sont pas connectées à Internet, la [Passerelle OMS](../log-analytics/log-analytics-oms-gateway.md) Azure Log Analytics doit être installée sur celles-ci et le trafic de l’agent y transiter.
 - Le nom de domaine complet de la machine virtuelle qui exécute l’instance SQL Server, pour l’évaluation de la base de données.
 - Le Pare-feu Windows exécuté sur la machine virtuelle SQL Server doit autoriser les connexions externes via le port TCP 1433 (par défaut). Cette installation permet à l’Assistant Migration de données de se connecter.
 

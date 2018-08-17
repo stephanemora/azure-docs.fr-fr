@@ -1,0 +1,71 @@
+items:
+- name: Documentation relative à l’accès conditionnel
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: Qu’est-ce que l’accès conditionnel ?
+    href: overview.md
+- name: Démarrages rapides
+  items:
+  - name: Exiger l’authentification multifacteur pour les applications spécifiques
+    href: app-based-mfa.md
+  - name: Exiger l’acceptation des conditions d’utilisation
+    href: require-tou.md
+  - name: Bloquer l’accès lorsqu’un risque de session est détecté
+    href: app-sign-in-risk.md
+- name: Didacticiels
+  items:
+  - name: Migrer des stratégies MFA classiques
+    href: policy-migration-mfa.md
+- name: Concepts
+  items:
+  - name: Protection de la ligne de base
+    href: baseline-protection.md
+  - name: Conditions
+    href: conditions.md
+  - name: Conditions d’emplacement
+    href: location-condition.md
+  - name: Commandes
+    href: controls.md
+  - name: Outil de simulation
+    href: what-if-tool.md
+  expanded: false
+- name: Procédures
+  items:
+  - name: Meilleures pratiques
+    href: best-practices.md
+  - name: Exiger une authentification multifacteur pour les tentatives d’accès à partir de réseaux non approuvés
+    href: untrusted-networks.md
+  - name: Exiger des appareils gérés
+    href: require-managed-devices.md
+  - name: Exiger des applications client approuvées
+    href: app-based-conditional-access.md
+  - name: Contrôle l’accès à Exchange Online et SharePoint Online
+    href: conditional-access-for-exo-and-spo.md
+  - name: Migrer les stratégies classiques
+    href: policy-migration.md
+  expanded: true
+- name: Informations de référence
+  items:
+  - name: Référence technique
+    href: technical-reference.md
+- name: Ressources
+  items:
+  - name: Forum de commentaires Azure
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Mises à jour de service
+    href: ../fundamentals/whats-new.md
+  - name: Dépassement de capacité de la pile
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: vidéos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: 04d8d41dcd87af15d0d3b7e2eb919e71e22b1bf8
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40177326"

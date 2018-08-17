@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 19be449528481b4e35cad4418f82f2250917966b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0a5d0f87b31652b1e1ab32c6b1594021937751b6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32787414"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "40047006"
 ---
 ## <a name="prepare-for-akv-integration"></a>Préparation pour AKV Integration
 Il existe plusieurs conditions préalables pour utiliser Azure Key Vault Integration pour configurer votre machine virtuelle SQL Server : 
@@ -49,7 +49,7 @@ Inscrivez ensuite une application auprès d'ADD. Vous obtiendrez un compte Princ
 
 * L’ID d’application et le secret serviront également à créer des identifiants dans SQL Server.
 
-* Vous devez autoriser ce nouvel ID client pour disposer des autorisations d’accès suivantes : **chiffrer**, **déchiffrer**, **wrapKey**, **unwrapKey**, **signer**, et **vérifier**. Cette opération s’effectue avec l’applet de commande [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) . Pour plus d’informations, consultez [Autorisation de l’application pour l’utilisation de la clé ou du secret](../articles/key-vault/key-vault-get-started.md#authorize).
+* Vous devez autoriser ce nouvel ID client à disposer des autorisations d’accès suivantes : **get**, **wrapKey**, **unwrapKey**. Cette opération s’effectue avec l’applet de commande [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) . Pour plus d’informations, consultez [Autorisation de l’application pour l’utilisation de la clé ou du secret](../articles/key-vault/key-vault-get-started.md#authorize).
 
 ### <a id="createkeyvault"></a> Créer un coffre de clés
 Pour utiliser Azure Key Vault pour stocker les clés que vous utiliserez pour le chiffrement dans votre machine virtuelle, vous devez accéder à un coffre de clés. Si vous n’avez pas déjà configuré votre coffre de clés, créez-en un en suivant les étapes décrites dans la rubrique [Prise en main d’Azure Key Vault](../articles/key-vault/key-vault-get-started.md). Avant d'effectuer ces étapes, vous devez collecter certaines informations au cours de la configuration. Elles seront nécessaires ultérieurement lorsque vous activerez Azure Key Vault Integration sur votre machine virtuelle SQL.

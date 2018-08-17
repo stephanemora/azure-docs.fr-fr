@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37907041"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40026210"
 ---
 Les tailles de machine virtuelle à usage général assurent un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Cet article donne des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage pour chacune des tailles de ce regroupement. 
 
@@ -21,7 +21,7 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 
 - La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeurs Intel Xeon® E5-2673 v3 de 2,4 GHz (Haswell) ou E5-2673 v4 de 2,3 GHz (Broadwell). Intégrant la technologie Intel Turbo Boost 2.0, il peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
-- La série Dv3 dispose des mêmes processeurs que ceux de la série Dv2, mais dans une configuration hyperthread, ce qui lui permet d’offrir ce qui se fait de mieux pour les charges de travail à usage général et d’aligner le Dv3 sur les machines virtuelles à usage général que l’on retrouve dans la plupart des autres clouds.  La mémoire a été étendue (d’environ 3,5 Gio/vCPU à 4 Gio/vCPU) et les limites de disque et de réseau ont été ajustées au niveau du cœur pour s’aligner sur la transition vers l’hyperthreading.  Le Dv3 n’offre plus les tailles de machines virtuelles à haute mémoire des familles D/Dv2, qui ont été déplacées vers la nouvelle famille Ev3.
+- La série Dv3 est dotée du processeur Intel Xeon® E5-2673 v3 (Haswell) cadencé à 2,4 Ghz ou du dernier processeur Intel XEON® E5-2673 v4 (Broadwell) cadencé à 2,3 GHz dans une configuration multithread, fournissant ainsi une meilleure proposition de valeur pour la plupart des charges de travail à usage général.  La mémoire a été étendue (d’environ 3,5 Gio/vCPU à 4 Gio/vCPU) et les limites de disque et de réseau ont été ajustées au niveau du cœur pour s’aligner sur la transition vers l’hyperthreading.  Le Dv3 n’offre plus les tailles de machines virtuelles à haute mémoire des familles D/Dv2, qui ont été déplacées vers la nouvelle famille Ev3.
 
 
 ## <a name="b-series"></a>Série B
