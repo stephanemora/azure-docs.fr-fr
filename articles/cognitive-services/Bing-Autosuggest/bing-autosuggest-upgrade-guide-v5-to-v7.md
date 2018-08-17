@@ -25,7 +25,7 @@ Ce guide de mise à niveau identifie les changements apportés entre la version 
 
 ### <a name="endpoints"></a>Points de terminaison
 
-- Le numéro de version du point de terminaison a changé entre la version 5 et la version 7. Par exemple, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/Suggestions.
+- Le numéro de version du point de terminaison a changé entre la version 5 et la version 7. Par exemple, https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/Suggestions.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objets de réponse d’erreur et codes d’erreur
 

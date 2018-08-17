@@ -29,7 +29,7 @@ Cette fonctionnalité vous donne un contrôle précis, [par stratégie](active-d
 Pour les stratégies intégrées, vous pouvez utiliser cette fonctionnalité dans votre annuaire Azure AD B2C de la façon suivante :
 
 1. Suivez ces étapes pour [accéder au menu des fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le Portail Azure.
-2. Cliquez sur **Stratégies d’inscription ou de connexion**. *Remarque : vous pouvez utiliser cette fonctionnalité sur tous types de stratégies, pas seulement les **Stratégies d’inscription ou de connexion***.
+2. Cliquez sur **Stratégies d’inscription ou de connexion**. *Remarque : vous pouvez utiliser cette fonctionnalité sur tous types de stratégies, pas seulement les **Stratégies d’inscription ou de connexion*\*\*.
 3. Ouvrez une stratégie en cliquant dessus. Par exemple, cliquez sur **B2C_1_SiUpIn**.
 4. Cliquez sur **Modifier** en haut du menu.
 5. Cliquez sur **Configuration du jeton, de la session et de l’authentification unique**.

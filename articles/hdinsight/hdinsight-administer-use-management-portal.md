@@ -273,7 +273,7 @@ La console de la requête HDInsight inclut les fonctionnalités suivantes :
 
     ![historique de travail de portail HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Cliquez sur **Nom de la requête** pour afficher les détails, notamment les propriétés du travail, la **requête du travail** et le **résultat du travail. Vous pouvez également télécharger la requête et la sortie sur votre station de travail.
+    Cliquez sur **Nom de la requête** pour afficher les détails, notamment les propriétés du travail, la **requête du travail** et le \*\*résultat du travail. Vous pouvez également télécharger la requête et la sortie sur votre station de travail.
 * **Explorateur de fichiers**: accédez au compte de stockage par défaut et aux comptes de stockage liés.
 
     ![parcourir l’explorateur de fichier de portail HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)

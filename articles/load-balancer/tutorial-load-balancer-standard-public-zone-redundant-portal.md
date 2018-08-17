@@ -137,7 +137,7 @@ Dans différentes zones (zone 1, zone 2 et zone 3) de la région, créez des mac
   
  ![Création d'une machine virtuelle](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
-7. Créez une deuxième machine virtuelle nommée *VM2* dans Zone 2 et une troisième machine virtuelle dans Zone 3, avec *myVnet* en tant que réseau virtuel, *myBackendSubnet* en tant que sous-réseau, *myNetworkSecurityGroup* en tant que groupe de sécurité réseau à l’aide des étapes 1 à 16.
+7. Créez une deuxième machine virtuelle nommée *VM2* dans Zone 2 et une troisième machine virtuelle dans Zone 3, avec *myVnet* en tant que réseau virtuel, *myBackendSubnet* en tant que sous-réseau, \**myNetworkSecurityGroup* en tant que groupe de sécurité réseau à l’aide des étapes 1 à 16.
 
 ### <a name="install-iis-on-vms"></a>Installer IIS sur des machines virtuelles
 

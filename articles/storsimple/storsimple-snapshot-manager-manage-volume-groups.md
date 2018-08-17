@@ -107,7 +107,7 @@ Exécutez la procédure suivante pour modifier un groupe de volumes.
 #### <a name="to-edit-a-volume-group"></a>Pour modifier un groupe de volumes
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
 2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur un nom de groupe de volumes, puis cliquez sur **Modifier**.
-3. La boîte de dialogue **Créer un groupe de volumes** apparaît. Vous pouvez modifier les entrées **Nom**, **Applications** et **Volumes**.
+3. La boîte de dialogue Créer un groupe de volumes apparaît. Vous pouvez modifier les entrées **Nom**, **Applications** et **Volumes**.
 4. Cliquez sur **OK** pour enregistrer vos modifications.
 
 ## <a name="delete-a-volume-group"></a>Supprimer un groupe de volumes
