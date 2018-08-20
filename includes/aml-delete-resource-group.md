@@ -8,24 +8,28 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 02/28/2018
-ms.openlocfilehash: c47c0a90535a4749ae3fd467b86102aa668285b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 07/27/2018
+ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574970"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513897"
 ---
-Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées par ce démarrage rapide en procédant de la façon suivante de façon à ne pas exposer de coûts :
+>[!IMPORTANT]
+>Les ressources que vous avez créées peuvent être utilisées comme conditions préalables pour d’autres didacticiels de Azure Machine Learning et des articles de procédure. 
 
->[!NOTE]
->Ces ressources sont utiles si vous suivez les autres didacticiels sur les services Azure Machine Learning maintenant.
+
+Si vous ne prévoyez pas d’utiliser ce que vous avez créé ici, supprimez les ressources que vous venez de créer avec ce démarrage rapide afin d’éviter des frais.
 
 1. Dans le portail Azure, sélectionnez **Groupes de ressources** tout à gauche.  
  
    ![Supprimer dans le portail Azure](./media/aml-delete-resource-group/delete-resources.png)
 
-2. Dans la liste des groupes de ressources, sélectionnez le groupe de ressources que vous avez créé, puis cliquez sur **Supprimer un groupe de ressources**.
+1. À partir de la liste, sélectionnez le groupe de ressources créé.
 
-3. Tapez le nom du groupe de ressources à supprimer, puis cliquez sur **Supprimer**.
+1. Sélectionnez **Supprimer le groupe de ressources**.
 
+1. Saisissez le nom du groupe de ressources, puis sélectionnez **Supprimer**.
+
+   Si vous obtenez l’erreur « Impossible de supprimer la ressource avant la suppression des ressources imbriquées », vous devez d’abord supprimer toutes les ressources imbriquées. [Consultez cette section de dépannage](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account) pour plus d’informations. 

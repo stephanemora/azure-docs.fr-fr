@@ -1,0 +1,167 @@
+items:
+- name: Documentation Gestion des utilisateurs
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: Gestion des identités Azure
+    href: ../fundamentals/identity-fundamentals.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+- name: Démarrages rapides
+  items:
+  - name: Ajouter des utilisateurs dans Azure AD
+    href: ../fundamentals/add-users-azure-active-directory.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Attribuer des licences à des utilisateurs
+    href: ../fundamentals/license-users-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Définir l’expiration de groupes
+    href: groups-quickstart-expiration.md
+  - name: Définir la stratégie de noms de groupes
+    href: groups-quickstart-naming-policy.md
+- name: Didacticiels
+  items:
+  - name: Créer un groupe rempli de manière dynamique
+    href: groups-dynamic-tutorial.md
+- name: Concepts
+  items:
+  - name: Déléguer les rôles d’administrateur Azure AD
+    href: roles-concept-delegation.md
+  - name: Notions de base sur les licences basées sur des groupes
+    href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Comparer les autorisations d’utilisateur par défaut
+    href: ../fundamentals/users-default-permissions.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Rôles d’administrateur Azure AD et Azure
+    href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Restrictions et limites du service
+    href: directory-service-limits-restrictions.md
+  expanded: true
+- name: Procédures
+  items:
+  - name: Gestion des utilisateurs
+    items:
+    - name: Ajouter de nouveaux utilisateurs dans Azure AD
+      href: ../fundamentals/add-users-azure-active-directory.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Gérer les profils utilisateur
+      href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Partager des comptes
+      href: ../active-directory-sharing-accounts.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Affecter des utilisateurs aux rôles d’administrateur
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Restaurer un utilisateur supprimé.
+      href: ../fundamentals/active-directory-users-restore.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Ajouter des utilisateurs B2B
+      href: ../b2b/what-is-b2b.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Attribuer un rôle à un utilisateur B2B
+      href: ../b2b/add-guest-to-role.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Groupes dynamiques et B2B
+      href: ../b2b/use-dynamic-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Gérer votre répertoire
+    items:
+    - name: Administration de votre répertoire
+      href: ../fundamentals/active-directory-administer.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Supprimer un répertoire
+      href: directory-delete-howto.md
+    - name: Plusieurs répertoires
+      href: licensing-directory-independence.md
+    - name: Inscription libre-service
+      href: directory-self-service-signup.md
+    - name: Reprendre un répertoire
+      href: domains-admin-takeover.md
+    - name: Azure AD Connect
+      href: ../connect/active-directory-aadconnect.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Configurer la marque de la société
+      href: ../fundamentals/customize-branding.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Gérer les groupes
+    items:
+    - name: Gérer l’accès à l’aide des groupes
+      href: ../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Gérer les groupes dans le Portail Azure
+      href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Gérer les groupes PowerShell pour Graph (v2)
+      href: groups-settings-v2-cmdlets.md
+    - name: Gérer les groupes PowerShell MSOnline
+      href: groups-settings-cmdlets.md
+    - name: Gérer les membres du groupe
+      href: ../fundamentals/active-directory-groups-members-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Gérer les propriétaires de groupe
+      href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Gestion les groupes dans des groupes
+      href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Ajouter l’accès de groupe aux applications SaaS
+      href: groups-saasapps.md
+    - name: Restauration de groupes supprimés
+      href: ../fundamentals/active-directory-groups-restore-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Gérer les paramètres de groupe
+      href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Groupes dynamiques
+      items:
+      - name: Créer un groupe dynamique
+        href: groups-create-rule.md
+      - name: Syntaxe et propriétés des règles
+        href: groups-dynamic-membership.md
+      - name: Modifier le type d’appartenance au groupe
+        href: groups-change-type.md
+      - name: Résolution des problèmes
+        href: groups-troubleshooting.md
+    - name: Configurer des groupes créés par un utilisateur
+      href: groups-self-service-management.md
+  - name: Attribuer des licences
+    items:
+    - name: Attribuer des licences à des utilisateurs
+      href: ../fundamentals/license-users-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Attribuer des licences à un groupe
+      href: licensing-groups-assign.md
+    - name: Résolution des problèmes de licence du groupe
+      href: licensing-groups-resolve-problems.md
+    - name: Modifier les utilisateurs de la licence de groupe
+      href: licensing-groups-migrate-users.md
+    - name: Modifier les licences pour un utilisateur
+      href: licensing-groups-change-licenses.md
+    - name: Autres cas de figure
+      href: licensing-group-advanced.md
+    - name: Licence de groupe avec PowerShell
+      href: licensing-ps-examples.md
+    - name: Référence sur le produit et le plan de service
+      href: licensing-service-plan-reference.md
+  - name: Rôles d’administrateur Azure AD
+    items:
+    - name: Référence sur les rôles et autorisations
+      href: directory-assign-admin-roles.md
+    - name: Afficher les membres de rôle
+      href: directory-manage-roles-portal.md
+    - name: Affecter un rôle à un utilisateur
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Sécurité du rôle administrateur
+      items:
+      - name: Planification de la sécurité du rôle
+        href: directory-admin-roles-secure.md
+      - name: Créer des comptes d’urgence
+        href: directory-emergency-access.md
+    - name: Unités administratives
+      href: directory-administrative-units.md
+    - name: Configurer les durées de vie des jetons
+      href: ../active-directory-configurable-token-lifetimes.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Intégrer des services avec Azure AD
+    items:
+    - name: Intégrer LinkedIn avec Azure AD
+      href: linkedin-integration.md
+  - name: Résolution des problèmes
+    items:
+    - name: Bénéficier du support pour Azure AD
+      href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Résoudre les problèmes de groupes
+      href: groups-troubleshooting.md
+    - name: Résoudre les problèmes de licence de groupe
+      href: licensing-groups-resolve-problems.md
+  expanded: true
+- name: Informations de référence
+  items:
+  - name: API Graph
+    href: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview
+  - name: CLI Azure AD
+    href: https://docs.microsoft.com/cli/azure/ad
+  - name: Azure AD PowerShell pour Graph
+    href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+ms.openlocfilehash: bb524817600d2ab8c41ab5153c0b7865472e9134
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "40209066"

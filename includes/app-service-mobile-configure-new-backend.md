@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 05/25/2018
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d3bfb7bc8a5432392dba3b0c5019902b3e59773
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664002"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513871"
 ---
 1. Cliquez sur le bouton **App Services**, sélectionnez les back end Mobile Apps, choisissez **Démarrage rapide** et sélectionnez votre plateforme client (iOS, Android, Xamarin, Cordova).
 
     ![Portail Azure avec Démarrage rapide Mobile Apps en surbrillance][quickstart]
 
-2. Si une connexion à une base de données n’est pas configurée, créez-en une en procédant comme suit :
+1. Si une connexion à une base de données n’est pas configurée, créez-en une en procédant comme suit :
 
     ![Portail Azure avec connexion de Mobile Apps à la base de données][connect]
 
-    a. Créez une base de données SQL Database et un serveur.
+    a. Créez une base de données SQL Database et un serveur. Vous devrez peut-être laisser le champ du nom de la chaîne de connexion sur la valeur par défaut MS_TableConnectionString afin de terminer l’étape 3 ci-dessous.
 
     ![Portail Azure avec Mobile Apps créant une base de données et un serveur][server]
 
@@ -35,9 +35,9 @@ ms.locfileid: "34664002"
 
     ![Notification du portail Azure, « Vous avez déjà créé une connexion de données »][already-connection]
 
-3. Sous **2. Créer une API de table**, sélectionnez Node.js pour **Langage du serveur principal**.
+1. Sous **2. Créer une API de table**, sélectionnez Node.js pour **Langage du serveur principal**.
 
-4. Acceptez l’accusé de réception, puis sélectionnez **Créer une table TodoItem**.
+1. Acceptez l’accusé de réception, puis sélectionnez **Créer une table TodoItem**.
     Cette action crée une table d’éléments de tâche dans votre base de données.
 
     >[!IMPORTANT]

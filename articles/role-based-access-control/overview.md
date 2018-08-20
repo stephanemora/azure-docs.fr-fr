@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344747"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714449"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?
 
@@ -79,16 +79,15 @@ Azure propose des opérations de données (actuellement en version préliminaire
 
 *Étendue* constitue la limite à laquelle l’accès s’applique. Lorsque vous attribuez un rôle, vous pouvez restreindre les actions autorisées en définissant une étendue. Cette possibilité s’avère utile si vous voulez par exemple attribuer le rôle de [contributeur de site web](built-in-roles.md#website-contributor) à quelqu’un, mais seulement pour un groupe de ressources.
 
-Dans Azure, vous pouvez spécifier une étendue à plusieurs niveaux : abonnement, groupe de ressources ou ressource. Les étendues sont structurées dans une relation parent-enfant dans laquelle chaque enfant n’aura qu’un seul parent.
+Dans Azure, vous pouvez spécifier une étendue à plusieurs niveaux : [groupe d'administration](../azure-resource-manager/management-groups-overview.md), abonnement, groupe de ressources ou ressource. Les étendues sont structurées dans une relation parent-enfant.
 
 ![Étendue pour une attribution de rôle](./media/overview/rbac-scope.png)
 
-L’accès que vous attribuez dans une étendue parente est hérité dans les étendues enfants. Par exemple :
+Lorsque vous accordez l’accès à une étendue parente, ces autorisations sont héritées par les étendues enfant. Par exemple : 
 
+- Si vous affectez le rôle de [propriétaire](built-in-roles.md#owner) à un utilisateur dans l’étendue de groupe d’administration, cet utilisateur peut gérer tous les éléments de tous les abonnements dans le groupe d’administration.
 - Si vous affectez le rôle de [lecteur](built-in-roles.md#reader) à un groupe au niveau de l’étendue de l’abonnement, les membres de ce groupe peuvent afficher chaque groupe de ressources et la ressource dans l’abonnement.
 - Si vous affectez le rôle de [contributeur](built-in-roles.md#contributor) à une application au niveau du groupe de ressources, il peut gérer tous les types de ressources dans ce groupe de ressources, mais aucun groupe de ressources dans l’abonnement.
-
-Azure comprend également une étendue au-dessus des abonnements appelée [groupes de gestion](../azure-resource-manager/management-groups-overview.md), disponible en version préliminaire. Les groupes de gestion sont un moyen de gérer plusieurs abonnements. Lorsque vous spécifiez l’étendue de la fonctionnalité RBAC, vous pouvez spécifier un groupe de gestion ou un abonnement, un groupe de ressources ou une hiérarchie des ressources.
 
 ### <a name="role-assignment"></a>Attribution de rôle
 

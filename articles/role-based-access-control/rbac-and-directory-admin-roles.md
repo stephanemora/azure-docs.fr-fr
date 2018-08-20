@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/02/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 68127a38e28524b5f093cf0aafb0d0b7bb9ae1b6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445447"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714092"
 ---
 # <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Rôles d’administrateur d’abonnements classique, rôles RBAC Azure et rôles d’administrateur Azure AD
 
@@ -40,12 +40,12 @@ Le diagramme suivant est une vue d’ensemble des relations entre les rôles d�
 
 ## <a name="classic-subscription-administrator-roles"></a>Rôles d’administrateur d’abonnements classique
 
-Dans Azure, les trois rôles d’administrateur d’abonnements classique sont Administrateur de comptes, Administrateur de services et Coadministrateur. Les administrateurs d’abonnements classiques ont un accès total à l’abonnement Azure. Ils peuvent gérer les ressources en utilisant le portail Azure, les API Azure Resource Manager et les API du modèle de déploiement classique. Le compte qui est utilisé pour l’inscription à Azure est automatiquement défini en tant qu’administrateur de comptes et administrateur de services. Par la suite, des coadministrateurs peuvent être ajoutés. Les administrateurs de services et les coadministrateurs ont un accès équivalent aux utilisateurs qui ont reçu le rôle Propriétaire (rôle RBAC Azure) sur l’étendue de l’abonnement. Le tableau suivant décrit les différences entre ces trois rôles d’administrateurs d’abonnements classiques.
+Dans Azure, les trois rôles d’administrateur d’abonnements classique sont Administrateur de comptes, Administrateur de services et Coadministrateur. Les administrateurs d’abonnements classiques ont un accès total à l’abonnement Azure. Ils peuvent gérer les ressources en utilisant le portail Azure, les API Azure Resource Manager et les API du modèle de déploiement classique. Le compte qui est utilisé pour l’inscription à Azure est automatiquement défini en tant qu’administrateur de compte et administrateur de services fédérés. Par la suite, des coadministrateurs peuvent être ajoutés. Les administrateurs de services et les coadministrateurs ont un accès équivalent aux utilisateurs qui ont reçu le rôle Propriétaire (rôle RBAC Azure) sur l’étendue de l’abonnement. Le tableau suivant décrit les différences entre ces trois rôles d’administrateurs d’abonnements classiques.
 
-| Administrateur d’abonnements classique | Limite | Autorisations | Notes |
+| Administrateur d’abonnements classiques | Limite | Autorisations | Notes |
 | --- | --- | --- | --- |
 | Administrateur de comptes | 1 par compte Azure | <ul><li>Accès au [Centre des comptes Azure](https://account.azure.com/Subscriptions)</li><li>Gestion de tous les abonnements d’un compte</li><li>Création de nouveaux abonnements</li><li>Annulation d’abonnements</li><li>Changement du mode de facturation d’un abonnement</li><li>Changement d’administrateur de services</li></ul> | Le concept est qu’il est propriétaire de la facturation de l’abonnement.|
-| Administrateur de services | 1 par abonnement Azure | <ul><li>Gestion des services dans le [portail Azure](https://portal.azure.com)</li><li>Attribution d’utilisateurs au rôle Coadministrateur</li></ul> | Par défaut, pour un nouvel abonnement, l’administrateur de comptes est également l’administrateur de services.<br>L’administrateur de services dispose de l’accès équivalent à un utilisateur qui se voit attribuer le rôle Propriétaire sur l’étendue de l’abonnement. |
+| Administrateur de services | 1 par abonnement Azure | <ul><li>Gestion des services dans le [portail Azure](https://portal.azure.com)</li><li>Attribution d’utilisateurs au rôle Coadministrateur</li></ul> | Par défaut, pour un nouvel abonnement, l’administrateur de compte est également l’administrateur de services fédérés.<br>L’administrateur de services dispose de l’accès équivalent à un utilisateur qui se voit attribuer le rôle Propriétaire sur l’étendue de l’abonnement. |
 | Coadministrateur | 200 par abonnement | <ul><li>Mêmes privilèges d’accès que l’administrateur de services, à ceci près qu’il ne peut pas changer l’association des abonnements aux annuaires Azure</li><li>Attribution des utilisateurs au rôle Coadministrateur, mais ne peut pas changer d’administrateur de services</li></ul> | Le coadministrateur dispose de l’accès équivalent à un utilisateur qui se voit attribuer le rôle Propriétaire sur l’étendue de l’abonnement. |
 
 Dans le portail Azure, vous pouvez voir qui est affecté administrateur de comptes et administrateur de services en affichant les propriétés de votre abonnement.
@@ -58,12 +58,12 @@ Pour plus d’informations sur l’ajout ou le changement d’administrateurs d�
 
 Un compte Azure représente une relation de facturation. Un compte Azure est une identité d’utilisateur, un ou plusieurs abonnements Azure et un ensemble de ressources Azure associé. La personne qui crée le compte est l’administrateur de comptes de tous les abonnements créés dans ce compte. Cette personne est également l’administrateur de services par défaut de l’abonnement.
 
-Les abonnements Azure vous permettent d’organiser l’accès aux ressources Azure. Ils vous permettent aussi de définir comment reporter, facturer et payer les ressources utilisées. Comme chaque abonnement peut avoir une configuration de facturation et de paiement différente, vous pouvez avoir différents abonnements et différents plans par bureau, service, projet, etc. Chaque service appartient à un abonnement, et l’ID d’abonnement peut être nécessaire pour les opérations de programmation.
+Les abonnements Azure vous permettent d’organiser l’accès aux ressources Azure. Ils vous permettent également de contrôler le signalement, la facturation et le paiement des ressources utilisées. Comme chaque abonnement peut avoir une configuration de facturation et de paiement différente, vous pouvez avoir différents abonnements et différents plans par bureau, service, projet, etc. Chaque service appartient à un abonnement, et l’ID d’abonnement peut être nécessaire pour les opérations de programmation.
 
 Les comptes et les abonnements sont gérés dans le [Centre des comptes Azure](https://account.azure.com/Subscriptions).
 ## <a name="azure-rbac-roles"></a>Rôles RBAC Azure
 
-Le contrôle RBAC Azure est un système d’autorisations basé sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) qui offre une gestion précise des accès aux ressources Azure, comme les ressources de calcul et de stockage. Le contrôle RBAC Azure compte plus de 60 rôles intégrés. Il existe quatre rôles RBAC fondamentaux. Les trois premiers s’appliquent à tous les types de ressources :
+Le contrôle RBAC Azure est un système d’autorisations basé sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) qui offre une gestion précise des accès aux ressources Azure, comme les ressources de calcul et de stockage. Le contrôle RBAC Azure compte plus de 70 rôles intégrés. Il existe quatre rôles RBAC fondamentaux. Les trois premiers s’appliquent à tous les types de ressources :
 
 | Rôle RBAC Azure | Autorisations | Notes |
 | --- | --- | --- |
@@ -92,7 +92,7 @@ Les rôles d’administrateur Azure AD sont utilisés pour gérer les ressources
 | --- | --- | --- |
 | [Administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>Gestion de l’accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi que les services qui sont fédérés à Azure Active Directory</li><li>Attribution des rôles d’administrateur à d’autres personnes</li><li>Réinitialisation des mots de passe des utilisateurs et de tous les autres administrateurs</li></ul> | La personne qui s’inscrit au locataire Azure Active Directory devient administrateur général. |
 | [Administrateur d’utilisateurs](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>Création et gestion de tous les aspects liés aux utilisateurs et aux groupes</li><li>Gestion des tickets de support</li><li>Suivi de l’intégrité des services</li><li>Changement des mots de passe des utilisateurs, des administrateurs du support technique et autres administrateurs d’utilisateurs</li></ul> |  |
-| [Administrateur de facturation](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Achats</li><li>Gestion des abonnements</li><li>Gestion des tickets de support</li><li>Suivi de l’intégrité des services</li></ul> |  |
+| [Administrateur de facturation](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Achats</li><li>Gérer les abonnements</li><li>Gestion des tickets de support</li><li>Suivi de l’intégrité des services</li></ul> |  |
 
 Pour obtenir une liste de tous les rôles d’administrateur Azure AD, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
