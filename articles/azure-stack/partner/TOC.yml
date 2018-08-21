@@ -1,0 +1,76 @@
+items:
+- name: Documentation sur les partenaires Azure Stack
+  href: index.yml
+- name: Vue d’ensemble
+  href: index.yml
+  items:
+  - name: Validation en tant que service pour Azure Stack
+    href: azure-stack-vaas-overview.md
+  - name: Notes de publication
+    href: azure-stack-vaas-release-notes.md
+    items:
+    - name: Mise à jour du 02-04-2018
+      href: azure-stack-partner-update-1803.md
+    - name: Mise à jour du 30-01-2018
+      href: azure-stack-partner-update-1802.md
+  - name: Problèmes connus
+    href: azure-stack-vaas-known-issues.md
+  expanded: true
+- name: Démarrage rapide
+  items:
+  - name: Planifier votre première passe de test
+    href: azure-stack-vaas-schedule-your-first-test.md
+- name: Didacticiel
+  items:
+  - name: Configurer votre compte avec Azure Stack Validation
+    href: azure-stack-vaas-set-up-account.md
+  - name: Automatiser la validation Azure Stack avec PowerShell
+    href: azure-stack-vaas-automate-with-powershell.md
+  - name: Valider une nouvelle solution Azure Stack
+    href: azure-stack-vaas-validate-solution-new.md
+  - name: Valider les packages OEM
+    href: azure-stack-vaas-validate-oem-package.md
+  - name: Valider les mises à jour logicielles issues de Microsoft
+    href: azure-stack-vaas-validate-microsoft-updates.md
+  - name: Tester les machines virtuelles
+    href: azure-stack-vaas-test-vm.md
+- name: Concepts
+  items:
+  - name: Analyser un test
+    href: azure-stack-vaas-monitor-test.md
+  - name: Fichier de configuration de validation
+    href: azure-stack-vaas-parameters.md
+  - name: Paramètres de la passe de test
+    href: azure-stack-vaas-parameters-test.md
+  - name: Résoudre les problèmes de validation en tant que service
+    href: azure-stack-vaas-troubleshoot.md
+- name: Informations de référence
+  items:
+  - name: (Élément en provenance de JH)
+- name: Rubriques connexes
+  items:
+  - name: Documentation Azure Stack
+    href: /azure/azure-stack
+  - name: Azure Active Directory
+    href: /azure/active-directory/
+    maintainContext: true
+- name: Ressources
+  items:
+  - name: Feuille de route Azure Stack
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Forum MSDN Azure Stack
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureStack
+  - name: Commentaires sur la documentation Azure Stack
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Informations sur la tarification
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
+  - name: Dépassement de capacité de la pile
+    href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Formation et certification
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
+ms.openlocfilehash: 15f87b24299726c2390c736a9801306e9dcf945b
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40234383"
